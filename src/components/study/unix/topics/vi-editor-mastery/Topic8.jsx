@@ -146,7 +146,7 @@ const Topic8 = () => {
                 <td className="px-4 py-2 font-mono">V</td>
                 <td className="px-4 py-2">Line‑wise</td>
                 <td className="px-4 py-2">Whole lines</td>
-                <td className="px-4 py-2">{`d, y, c, &gt;, <, = (indent)`}</td>
+                <td className="px-4 py-2">{`d, y, c, >, <, = (indent)`}</td>
               </tr>
               <tr className="border-b border-gray-200 dark:border-gray-700">
                 <td className="px-4 py-2 font-mono">Ctrl+v</td>

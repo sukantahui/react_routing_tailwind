@@ -318,7 +318,7 @@ export default function PracticeEngineMath({
             setElapsedSeconds((prev) => prev + 1);
             if (timerMode === "countdown") {
                 setRemainingSeconds((prev) => {
-                    if (prev &le; 1) {
+                    if (prev <= 1) {
                         clearInterval(timerRef.current);
                         timerRef.current = null;
                         // Time up → lock the test
@@ -348,7 +348,7 @@ export default function PracticeEngineMath({
                 );
             } else if (e.key === "ArrowLeft") {
                 setActiveQuestionIndex((prev) =>
-                    prev &gt; 0 ? prev - 1 : prev
+                    prev > 0 ? prev - 1 : prev
                 );
             }
         };
@@ -460,7 +460,7 @@ export default function PracticeEngineMath({
 
     // Suggested next difficulty
     let suggestedNext = "Beginner";
-    if (accuracyPercent &ge; 80 && difficulty !== "advanced") {
+    if (accuracyPercent >= 80 && difficulty !== "advanced") {
         suggestedNext = "Advanced";
     } else if (accuracyPercent >= 50) {
         suggestedNext = "Moderate";
@@ -637,7 +637,7 @@ export default function PracticeEngineMath({
                                             ? "bg-sky-600 text-white border-sky-400"
                                             : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
                                             }`}
-                                    &gt;
+                                    >
                                         {m}
                                     </button>
                                 ))}
@@ -677,7 +677,7 @@ export default function PracticeEngineMath({
                                     ? "bg-violet-600 text-white border-violet-400"
                                     : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
                                     }`}
-                            &gt;
+                            >
                                 All Topics
                             </button>
 
@@ -689,7 +689,7 @@ export default function PracticeEngineMath({
                                         ? "bg-violet-600 text-white border-violet-400"
                                         : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
                                         }`}
-                                &gt;
+                                >
                                     {t.replace(/_/g, " ")}
                                 </button>
                             ))}
@@ -721,7 +721,7 @@ export default function PracticeEngineMath({
                                                 ? "bg-sky-600 text-white border-sky-400"
                                                 : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
                                                 }`}
-                                        &gt;
+                                        >
                                             {d.label}
                                         </button>
                                     );
@@ -759,7 +759,7 @@ export default function PracticeEngineMath({
                                                 ? "bg-emerald-600 text-white border-emerald-400"
                                                 : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
                                                 }`}
-                                        &gt;
+                                        >
                                             {n === "All" ? "All" : n}
                                         </button>
                                     );
@@ -809,11 +809,11 @@ export default function PracticeEngineMath({
                             Restart Test
                         </button>
 
-                        {!reviewMode && wrongQuestions.length &gt; 0 && (
+                        {!reviewMode && wrongQuestions.length > 0 && (
                             <button
                                 onClick={() => setReviewMode(true)}
                                 className="px-3 py-1 bg-amber-500 text-white rounded-lg text-xs"
-                            &gt;
+                            >
                                 Review Incorrect Only
                             </button>
                         )}
@@ -822,7 +822,7 @@ export default function PracticeEngineMath({
                             <button
                                 onClick={() => setReviewMode(false)}
                                 className="px-3 py-1 bg-slate-700 text-white rounded-lg text-xs"
-                            &gt;
+                            >
                                 Exit Review Mode
                             </button>
                         )}
@@ -835,7 +835,7 @@ export default function PracticeEngineMath({
                                 ? "bg-emerald-950/50 border-emerald-500/40"
                                 : "bg-slate-900/60 border-slate-700"
                                 } space-y-2`}
-                        &gt;
+                        >
                             {showStudentName && (
                                 <input
                                     type="text"
@@ -845,7 +845,7 @@ export default function PracticeEngineMath({
                                         setStudentName(e.target.value)
                                     }
                                     className="px-3 py-1.5 w-full bg-slate-800 border border-slate-600 text-slate-100 rounded-lg text-sm"
-                                /&gt;
+                                />
                             )}
 
                             <button
@@ -954,7 +954,7 @@ export default function PracticeEngineMath({
                                     ? "ring-1 ring-sky-500/70 scale-[1.01]"
                                     : "scale-[1.0]"
                                     }`}
-                            &gt;
+                            >
                                 <div className="flex items-start justify-between gap-3">
                                     <div className="space-y-1">
                                         <div className="flex items-center gap-2">
@@ -1013,7 +1013,7 @@ export default function PracticeEngineMath({
                                                         }
                                                     }}
                                                     className="px-2 py-0.5 rounded-full bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700"
-                                                &gt;
+                                                >
                                                     Copy
                                                 </button>
                                                 <button
@@ -1022,7 +1022,7 @@ export default function PracticeEngineMath({
                                                         setExpandedCodeQuestionId(q.id)
                                                     }
                                                     className="px-2 py-0.5 rounded-full bg-sky-700 hover:bg-sky-600 text-white border border-sky-500"
-                                                &gt;
+                                                >
                                                     Expand
                                                 </button>
                                             </div>
@@ -1067,7 +1067,7 @@ export default function PracticeEngineMath({
                                                         handleSelect(q.id, optIndex, index)
                                                     }
                                                     className="h-4 w-4 mt-0.5 accent-sky-500"
-                                                /&gt;
+                                                />
                                                 <span className="leading-snug">
                                                     <MathRenderer text={opt} />
                                                 </span>
@@ -1083,7 +1083,7 @@ export default function PracticeEngineMath({
                                             onClick={() => handleSubmit(q, index)}
                                             disabled={responses[q.id] == null}
                                             className="px-4 py-2 bg-sky-600 hover:bg-sky-500 disabled:bg-slate-700 disabled:text-slate-400 text-white rounded-full text-sm"
-                                        &gt;
+                                        >
                                             Submit Answer
                                         </button>
                                         {/* <p className="text-[11px] text-slate-500">
@@ -1321,7 +1321,7 @@ export default function PracticeEngineMath({
                                         setActiveQuestionIndex(index);
                                         scrollToQuestion(index);
                                     }}
-                                &gt;
+                                >
                                     {index + 1}
                                 </button>
                             );
@@ -1365,7 +1365,7 @@ export default function PracticeEngineMath({
                                 type="button"
                                 onClick={() => setExpandedCodeQuestionId(null)}
                                 className="px-2 py-1 text-[11px] rounded-full bg-slate-800 border border-slate-600 text-slate-200 hover:bg-slate-700"
-                            &gt;
+                            >
                                 Close
                             </button>
                         </div>

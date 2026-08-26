@@ -182,7 +182,7 @@ buffer[0] = 'h';   // OK`}
       <div className="animate-fade-up" style={{ animationDelay: "450ms" }}>
         <Teacher note={
           "In our Barrackpore CNAT class, I stress: 'String literals are constants, period.' If you want to change a string, you must have your own storage. The array form <code>char s[] = \"...\"</code> gives you that storage. Using <code>const char *</code> for pointers to literals is a good habit that will save you from debugging crashes. Always remember: the difference between a pointer to a literal and an array is not just syntax – it's a fundamental memory safety issue."
-        } /&gt;
+        } />
       </div>
 
       <style>{`

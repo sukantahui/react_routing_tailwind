@@ -52,10 +52,10 @@ const Topic9 = () => {
 const shardId = hash(tenantId) % SHARD_COUNT;
 const targetDb = connectionPools[shardId];
 await targetDb.query("INSERT INTO orders VALUES (...)");
-// &rarr; Zero proxy latency! Direct socket connection!
+// -> Zero proxy latency! Direct socket connection!
 
 // 🛡️ 2. MIDDLEWARE-LEVEL SHARDING (Apache ShardingSphere / Vitess):
-// App connects to standard MySQL port (3307) -&gt; Proxy parses SQL & routes:
+// App connects to standard MySQL port (3307) -> Proxy parses SQL & routes:
 // Client -> [ShardingSphere Proxy] -> Dispatches to Shard 0 / Shard 1 -> Merges`,
       explanation:
         "Application-level sharding offers zero-latency direct socket connections but requires custom routing logic in code. Middleware sharding intercepts standard SQL transparently, handling distributed routing and result merges automatically.",
@@ -206,7 +206,7 @@ SELECT SUM(amount) FROM orders WHERE order_status = 'COMPLETED';
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                &gt;
+                >
                   {model.modelName}
                 </button>
               );

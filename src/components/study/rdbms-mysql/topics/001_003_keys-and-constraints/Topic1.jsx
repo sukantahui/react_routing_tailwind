@@ -315,7 +315,7 @@ const Topic1 = () => {
                         ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                         : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  &gt;
+                  >
                     Single-Column PK
                   </button>
                   <button
@@ -326,7 +326,7 @@ const Topic1 = () => {
                         ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                         : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  &gt;
+                  >
                     Composite PK
                   </button>
                 </div>
@@ -341,7 +341,7 @@ const Topic1 = () => {
                     value={selectedStudent}
                     onChange={(e) => setSelectedStudent(Number(e.target.value))}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  &gt;
+                  >
                     {studentsList.map((s) => (
                       <option key={s.id} value={s.id}>
                         {s.name} ({s.id})
@@ -358,7 +358,7 @@ const Topic1 = () => {
                     value={selectedCourse}
                     onChange={(e) => setSelectedCourse(Number(e.target.value))}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  &gt;
+                  >
                     {coursesList.map((c) => (
                       <option key={c.id} value={c.id}>
                         {c.name} ({c.id})

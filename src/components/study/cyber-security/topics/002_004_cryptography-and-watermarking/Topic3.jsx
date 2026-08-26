@@ -191,7 +191,7 @@ const Topic3 = () => {
                 value={nodeCount}
                 onChange={(e) => setNodeCount(Number(e.target.value))}
                 className="w-full accent-indigo-500 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             {/* Comparison Cards */}
@@ -202,7 +202,7 @@ const Topic3 = () => {
                 <div className="text-xl sm:text-2xl font-extrabold text-white font-mono">{scalingMetrics.symmetric}</div>
                 <div className="text-[11px] text-gray-400 font-mono">Formula: [ N * (N - 1) ] / 2</div>
                 <div className="text-[10px] text-rose-300 font-semibold pt-1">
-                  {nodeCount &gt; 200 ? "⚠️ Administratively Unmanageable Key Explosion!" : "Manageable for small local setups"}
+                  {nodeCount > 200 ? "⚠️ Administratively Unmanageable Key Explosion!" : "Manageable for small local setups"}
                 </div>
               </div>
 
@@ -254,7 +254,7 @@ const Topic3 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-base sm:text-lg">{fam.icon}</div>
                   <div className="font-bold text-sm text-gray-200 mt-1">{fam.name}</div>
                   <div className="text-[10px] text-gray-400 mt-0.5">{fam.category}</div>
@@ -454,7 +454,7 @@ const Topic3 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

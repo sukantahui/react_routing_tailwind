@@ -86,7 +86,7 @@ const Topic7 = () => {
     let verdictColor = "";
 
     if (targetOrganizationType === "high_value_gov") {
-      c2Response = "CNAME: c2-us-east.trafficmanager.net &rarr; A: 13.59.xxx.xxx (Second-Stage Payload Ready)";
+      c2Response = "CNAME: c2-us-east.trafficmanager.net -> A: 13.59.xxx.xxx (Second-Stage Payload Ready)";
       actionVerdict = "SECOND-STAGE TEARDROP ACTIVATED: High-value target recognized (US Cabinet Agency). SVR sent memory loader for Cobalt Strike!";
       verdictColor = "text-rose-400 font-bold";
     } else {
@@ -288,7 +288,7 @@ const Topic7 = () => {
                   ? "bg-rose-950/60 border-rose-600 text-rose-200 ring-2 ring-rose-500"
                   : "bg-slate-950 border-slate-800 text-gray-400 hover:bg-slate-800"
               )}
-            &gt;
+            >
               <div className="font-bold text-rose-400 text-sm">1. Persistent Build Server (SolarWinds 2020)</div>
               <p className="text-[11px] text-gray-400 mt-1">
                 Persistent VM build server. SUNSPOT malware monitors `msbuild.exe` and swaps `InventoryManager.cs` dynamically before signing!
@@ -303,7 +303,7 @@ const Topic7 = () => {
                   ? "bg-emerald-950/60 border-emerald-600 text-emerald-200 ring-2 ring-emerald-500"
                   : "bg-slate-950 border-slate-800 text-gray-400 hover:bg-slate-800"
               )}
-            &gt;
+            >
               <div className="font-bold text-emerald-400 text-sm">2. SLSA Level 3 Hermetic Ephemeral Runner</div>
               <p className="text-[11px] text-gray-400 mt-1">
                 Air-gapped single-use container spawned on-demand. Generates cryptographic in-toto build provenance tied to Git commit hash.
@@ -318,7 +318,7 @@ const Topic7 = () => {
                   ? "bg-blue-950/60 border-blue-600 text-blue-200 ring-2 ring-blue-500"
                   : "bg-slate-950 border-slate-800 text-gray-400 hover:bg-slate-800"
               )}
-            &gt;
+            >
               <div className="font-bold text-blue-400 text-sm">3. Reproducible Dual-Cluster Verification</div>
               <p className="text-[11px] text-gray-400 mt-1">
                 Two separate isolated build clusters compile source independently. Release aborted if hashes differ by even 1 bit!
@@ -406,7 +406,7 @@ const Topic7 = () => {
                   value={targetOrganizationType}
                   onChange={(e) => setTargetOrganizationType(e.target.value)}
                   className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500"
-                &gt;
+                >
                   <option value="high_value_gov">1. High-Value Intelligence Target (US Treasury / Homeland Security)</option>
                   <option value="standard_commercial">2. Standard Commercial Enterprise (Filtered / Ignored by SVR)</option>
                 </select>
@@ -419,7 +419,7 @@ const Topic7 = () => {
                   value={simulatedVictimGuid}
                   onChange={(e) => setSimulatedVictimGuid(e.target.value)}
                   className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs font-mono text-amber-300 focus:outline-none focus:border-blue-500"
-                /&gt;
+                />
               </div>
 
               <button
@@ -490,7 +490,7 @@ const Topic7 = () => {
                   value={adfsSigningKeyProtection}
                   onChange={(e) => setAdfsSigningKeyProtection(e.target.value)}
                   className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-purple-500"
-                &gt;
+                >
                   <option value="unprotected_windows_store">1. Standard Windows Certificate Store (SolarWinds 2020 Vulnerability)</option>
                   <option value="tier0_hsm_isolated">2. FIPS 140-2 Level 3 Hardware Security Module (HSM Tier 0)</option>
                 </select>
@@ -507,7 +507,7 @@ const Topic7 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     conditionalAccessActive ? "bg-emerald-600 text-white" : "bg-rose-900 text-rose-200"
                   )}
-                &gt;
+                >
                   {conditionalAccessActive ? "ENFORCED (TPM Check)" : "DISABLED (Token Only)"}
                 </button>
               </div>
@@ -594,7 +594,7 @@ const Topic7 = () => {
                     ? "bg-blue-500/20 text-blue-300 border border-blue-500/50"
                     : "text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 1. Regional MSP Vulnerability Findings
               </button>
               <button
@@ -605,7 +605,7 @@ const Topic7 = () => {
                     ? "bg-blue-500/20 text-blue-300 border border-blue-500/50"
                     : "text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 2. Deployed SLSA Provenance & HSM Signing
               </button>
             </div>

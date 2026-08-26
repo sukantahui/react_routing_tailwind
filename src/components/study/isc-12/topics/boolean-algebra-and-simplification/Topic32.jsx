@@ -474,7 +474,7 @@ const Topic32 = () => {
               }}
               placeholder="Search by function name or cardinal notation..."
               className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500"
-            /&gt;
+            />
           </div>
           
           <div className="flex justify-between items-center mb-3">
@@ -498,7 +498,7 @@ const Topic32 = () => {
                     ? "bg-purple-500 text-white"
                     : "bg-gray-100 dark:bg-gray-700 hover:bg-gray-200"
                 )}
-              &gt;
+              >
                 {ex.id}. {ex.name}
               </button>
             ))}
@@ -551,7 +551,7 @@ const Topic32 = () => {
               <button
                 onClick={() => setShowTruthTable(!showTruthTable)}
                 className="w-full py-2 bg-gray-200 dark:bg-gray-700 rounded-lg font-medium hover:bg-gray-300 transition"
-              &gt;
+              >
                 {showTruthTable ? "Hide" : "Show"} Truth Table
               </button>
               
@@ -561,7 +561,7 @@ const Topic32 = () => {
               <button
                 onClick={() => setShowSteps(!showSteps)}
                 className="w-full py-2 bg-purple-100 dark:bg-purple-900/40 text-purple-700 rounded-lg font-medium hover:bg-purple-200 transition"
-              &gt;
+              >
                 {showSteps ? "Hide" : "Show"} Derivation Steps
               </button>
               

@@ -35,7 +35,7 @@ CREATE TABLE standard_hash_events (
 ) PARTITION BY HASH (user_id) PARTITIONS 4;
 
 -- ⚡ 2. LINEAR HASH (Powers-of-Two Bitwise Algorithm):
--- Partition ID calculated via bitwise AND with smallest power of two (P &ge; N).
+-- Partition ID calculated via bitwise AND with smallest power of two (P >= N).
 -- Fast resizing! Adding a partition only splits rows from 1 affected partition (1/N)!
 CREATE TABLE linear_hash_events (
   event_id BIGINT NOT NULL AUTO_INCREMENT,
@@ -56,7 +56,7 @@ CREATE TABLE linear_hash_events (
       badge: "Scaling Overhead",
       badgeColor: "cyan",
       sqlSnippet: `-- 💥 STANDARD HASH RESIZING (Extremely Heavy on 50M Rows):
--- Changing partition count from 4 to 5 alters MOD(user_id, 4) &rarr; MOD(user_id, 5).
+-- Changing partition count from 4 to 5 alters MOD(user_id, 4) -> MOD(user_id, 5).
 -- ~100% of rows across all 4 files are read, deleted, and rewritten!
 -- Table locks and I/O churn take 45+ minutes!
 
@@ -210,7 +210,7 @@ ALTER TABLE linear_hash_events COALESCE PARTITION 4;
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                &gt;
+                >
                   {algo.algoName}
                 </button>
               );

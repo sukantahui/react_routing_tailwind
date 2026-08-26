@@ -166,7 +166,7 @@ const Topic2 = () => {
                             <li><strong>Forgetting optimization flag:</strong> Without a swap flag, bubble sort always runs O(n²) even on sorted data.</li>
                             <li><strong>Selection sort swapping with itself:</strong> When the minimum index equals the current index, swapping is unnecessary but harmless.</li>
                             <li><strong>Assuming stability matters:</strong> If stability is required, bubble sort is preferable; selection sort is generally unstable.</li>
-                            <li><strong>Using sorting for large datasets:</strong> O(n²) algorithms are impractical for n {`&gt;`} 10,000. Use Arrays.sort() (TimSort/Dual-Pivot QuickSort) for production.</li>
+                            <li><strong>Using sorting for large datasets:</strong> O(n²) algorithms are impractical for n {`>`} 10,000. Use Arrays.sort() (TimSort/Dual-Pivot QuickSort) for production.</li>
                         </ul>
                     </div>
 
@@ -204,7 +204,7 @@ const Topic2 = () => {
                                     <button 
                                         onClick={() => toggleAnswer(idx)}
                                         className="text-sm text-blue-600 dark:text-blue-400 hover:underline mt-1 transition"
-                                    &gt;
+                                    >
                                         {revealedAnswers[idx] ? "Hide Answer" : "Show Answer"}
                                     </button>
                                     {revealedAnswers[idx] && (

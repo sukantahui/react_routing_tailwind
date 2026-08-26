@@ -344,7 +344,7 @@ const Topic6 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              &gt;
+              >
                 {p.title}
               </button>
             ))}
@@ -420,7 +420,7 @@ const Topic6 = () => {
                 value={selectedSimProto}
                 onChange={(e) => setSelectedSimProto(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              &gt;
+              >
                 <option value="wireguard">1. WireGuard (In-Kernel Noise Protocol @ UDP 51820)</option>
                 <option value="openvpn_tcp">2. OpenVPN over TCP Port 443 (Firewall Bypass)</option>
                 <option value="openvpn_udp">3. OpenVPN over UDP Port 1194 (Standard TLS)</option>
@@ -439,7 +439,7 @@ const Topic6 = () => {
                       ? "bg-emerald-950/80 text-emerald-300 border-emerald-800 shadow-md shadow-emerald-500/10"
                       : "bg-slate-950 text-gray-400 border-slate-800"
                   )}
-                &gt;
+                >
                   ✔ Valid Employee Device
                 </button>
                 <button
@@ -450,7 +450,7 @@ const Topic6 = () => {
                       ? "bg-rose-950/80 text-rose-300 border-rose-800 shadow-md shadow-rose-500/10"
                       : "bg-slate-950 text-gray-400 border-slate-800"
                   )}
-                &gt;
+                >
                   🚨 Nmap Port-Scan Probe
                 </button>
               </div>
@@ -550,7 +550,7 @@ const Topic6 = () => {
                 value={activeUsersCount}
                 onChange={(e) => setActiveUsersCount(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -566,7 +566,7 @@ const Topic6 = () => {
                 value={bandwidthPerUserMbps}
                 onChange={(e) => setBandwidthPerUserMbps(Number(e.target.value))}
                 className="w-full accent-purple-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -582,7 +582,7 @@ const Topic6 = () => {
                     ? "bg-sky-950/80 text-sky-300 border-sky-800 shadow-md shadow-sky-500/10"
                     : "bg-amber-950/80 text-amber-300 border-amber-800 shadow-md shadow-amber-500/10"
                 )}
-              &gt;
+              >
                 {deployedStackType === "wireguard" ? "✔ WireGuard Kernel (High Speed)" : "⚠️ OpenVPN Userspace (Higher CPU)"}
               </button>
             </div>
@@ -638,7 +638,7 @@ const Topic6 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 {d.title}
               </button>
             ))}

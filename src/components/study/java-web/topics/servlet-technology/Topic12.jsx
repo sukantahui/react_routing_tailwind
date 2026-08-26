@@ -52,7 +52,7 @@ const Topic12 = () => {
         <section
           ref={(el) => (sectionRefs.current[0] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800 transition-all duration-300 hover:shadow-lg hover:shadow-rose-500/10"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-rose-400 flex items-center gap-2">
             <span>🔒</span> Security in Servlets
           </h2>
@@ -75,7 +75,7 @@ const Topic12 = () => {
         <section
           ref={(el) => (sectionRefs.current[1] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-rose-400">🛡️ Security Flow with Filter and @ServletSecurity</h2>
           <div className="mt-6 flex justify-center">
             <svg viewBox="0 0 750 200" className="w-full max-w-4xl h-auto">
@@ -119,7 +119,7 @@ const Topic12 = () => {
         <section
           ref={(el) => (sectionRefs.current[2] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-rose-400">🔑 Authentication Filter – Programmatic Security</h2>
           <p className="mt-3 text-gray-300">
             A filter intercepts every request, checks if the user is logged in (e.g., by looking for a session attribute), and redirects to a login page if not.
@@ -138,7 +138,7 @@ const Topic12 = () => {
         <section
           ref={(el) => (sectionRefs.current[3] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-rose-400">🏷️ @ServletSecurity – Declarative Role‑Based Access</h2>
           <p className="mt-3 text-gray-300">
             Introduced in Servlet 3.0, <code>@ServletSecurity</code> lets you define access constraints directly on the servlet class. It uses two inner annotations:
@@ -202,7 +202,7 @@ const Topic12 = () => {
         <section
           ref={(el) => (sectionRefs.current[4] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-rose-400">⚠️ Common Pitfalls</h2>
           <ul className="list-disc list-inside space-y-2 text-gray-300 mt-3">
             <li><strong>Not declaring security roles in web.xml:</strong> <code>@ServletSecurity</code> will not work (or will be ignored).</li>
@@ -218,7 +218,7 @@ const Topic12 = () => {
         <section
           ref={(el) => (sectionRefs.current[5] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-rose-400">✅ Best Practices</h2>
           <ul className="list-decimal list-inside space-y-2 text-gray-300">
             <li><strong>Use HTTPS for all authenticated traffic</strong> – prevent session hijacking.</li>
@@ -234,7 +234,7 @@ const Topic12 = () => {
         <section
           ref={(el) => (sectionRefs.current[6] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-rose-400">📋 Mini Checklist</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
             {[
@@ -260,7 +260,7 @@ const Topic12 = () => {
         <section
           ref={(el) => (sectionRefs.current[7] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-rose-500/30"
-        &gt;
+        >
           <h2 className="text-xl font-semibold text-rose-400">🧠 Hints – Think Like a Pro</h2>
           <ul className="space-y-2 text-gray-300 italic">
             <li>🔍 <strong>Observe carefully:</strong> Check the HTTP response when you access a protected resource without logging in – 302 redirect to login page.</li>

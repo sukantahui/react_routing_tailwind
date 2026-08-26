@@ -370,7 +370,7 @@ export default function Topic11() {
                       ? "bg-indigo-950/80 border-indigo-500 text-white shadow-lg shadow-indigo-950/50"
                       : "bg-gray-900/60 border-gray-700/80 text-gray-400 hover:text-gray-200 hover:bg-gray-900"
                   }`}
-                &gt;
+                >
                   <div className="text-xs font-bold truncate">{sub.title}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{sub.lead}</div>
                 </button>
@@ -410,7 +410,7 @@ export default function Topic11() {
                           ? "bg-emerald-950/60 border-emerald-500 text-emerald-200 font-semibold"
                           : "bg-gray-900 border-gray-800 text-gray-400 hover:text-gray-200 hover:bg-gray-800"
                       }`}
-                    &gt;
+                    >
                       {test.name}
                     </button>
                   );
@@ -509,7 +509,7 @@ export default function Topic11() {
                       ? "bg-purple-950/80 border-purple-500 text-white shadow-lg shadow-purple-950/50"
                       : "bg-gray-900/60 border-gray-700/80 text-gray-400 hover:text-gray-200 hover:bg-gray-900"
                   }`}
-                &gt;
+                >
                   <div className="text-xs font-bold truncate">{c.title}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{c.lead}</div>
                 </button>
@@ -547,7 +547,7 @@ export default function Topic11() {
                       ? "bg-purple-900/80 border-purple-400 text-purple-100"
                       : "bg-gray-900 border-gray-800 text-gray-400 hover:text-gray-200 hover:bg-gray-800"
                   }`}
-                &gt;
+                >
                   {st.label}
                 </button>
               ))}
@@ -601,7 +601,7 @@ export default function Topic11() {
                         <button
                           onClick={() => setCapaActionTaken(true)}
                           className="mt-2 px-3 py-1.5 bg-emerald-700 hover:bg-emerald-600 text-white rounded font-semibold text-[11px] transition-all"
-                        &gt;
+                        >
                           Implement CAPA Remediation
                         </button>
                       ) : (

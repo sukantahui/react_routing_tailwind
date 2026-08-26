@@ -379,22 +379,7 @@ target_turtle.onclick(handle_target_hit)`}
           </div>
         </div>
 
-        {/* =========================================================================
-            HINTS & EXPERT MINDSET
-        ========================================================================= */}
-        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.7s]">
-          <div className="bg-cyan-900/20 rounded-2xl p-5 border border-cyan-500/30 space-y-2">
-            <h3 className="text-lg font-semibold text-cyan-300">💡 Hints to Explore</h3>
-            <p className="text-xs text-slate-300">
-              👉 <strong>Think about:</strong> How strategy games like Age of Empires and Starcraft use point-and-click selection boxes to command armies!
-            </p>
-            <p className="text-xs text-slate-300">
-              👉 <strong>Observe:</strong> How clicking moving targets in our simulator awards 100 points and relocates the target instantly!
-            </p>
-            <p className="text-xs text-slate-300">
-              👉 <strong>Try changing:</strong> Add a countdown timer where players have 30 seconds to click as many moving targets as possible!
-            </p>
-          </div>
+        {/* ==================================================================          </div>
 
           <div className="bg-indigo-900/20 rounded-2xl p-5 border border-indigo-500/30 space-y-2">
             <h3 className="text-lg font-semibold text-indigo-300">🚀 Expert Mindset</h3>

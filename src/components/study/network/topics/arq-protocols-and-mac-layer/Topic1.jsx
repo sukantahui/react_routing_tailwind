@@ -180,7 +180,7 @@ const GoBackNARQ = () => {
             <h3 className="text-xl font-bold">🧠 Best Practices & Checklist</h3>
             <ul className="list-disc ml-6 space-y-1">
               <li>✓ Maintain base and nextSeqNum; window = nextSeqNum - base.</li>
-              <li>✓ On ACK with seq = y, advance base to y (if y {`&gt;`} base).</li>
+              <li>✓ On ACK with seq = y, advance base to y (if y {`>`} base).</li>
               <li>✓ Discard any ACK outside current window.</li>
               <li>✓ Use a separate timeout per frame only if needed – simpler: single timer for base frame.</li>
               <li>✓ Simulate with small N (e.g., 4) before deploying.</li>

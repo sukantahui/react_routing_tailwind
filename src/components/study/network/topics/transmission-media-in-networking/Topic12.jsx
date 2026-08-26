@@ -247,10 +247,10 @@ const Topic12 = () => {
             <div className="bg-white dark:bg-gray-800 p-2 rounded">
               <span className="font-bold">Possible causes:</span>
               <ul className="list-disc pl-5 mt-1">
-                <li><strong>High latency</strong> ({`&gt;`}200ms) → delayed responses</li>
-                <li><strong>Jitter</strong> ({`&gt;`}50ms) → choppy audio</li>
-                <li><strong>Packet loss</strong> ({`&gt;`}2%) → frozen video</li>
-                <li><strong>Low throughput</strong> ({`&gt;`}1 Mbps) → pixelation</li>
+                <li><strong>High latency</strong> ({`>`}200ms) → delayed responses</li>
+                <li><strong>Jitter</strong> ({`>`}50ms) → choppy audio</li>
+                <li><strong>Packet loss</strong> ({`>`}2%) → frozen video</li>
+                <li><strong>Low throughput</strong> ({`>`}1 Mbps) → pixelation</li>
               </ul>
             </div>
             <div className="bg-white dark:bg-gray-800 p-2 rounded">

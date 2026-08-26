@@ -394,7 +394,7 @@ const Topic6 = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-500">•</span>
-                  <span><strong>Prime check:</strong> Using floating-point sqrt – can have precision issues; use <code>i*i <= n</code>.</span>
+                  <span><strong>Prime check:</strong> Using floating-point sqrt – can have precision issues; use <code>i*i &lt;= n</code>.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-500">•</span>
@@ -418,7 +418,7 @@ const Topic6 = () => {
               <ul className="space-y-4 text-gray-700 dark:text-gray-300">
                 <li className="flex items-start gap-2">
                   <span className="text-green-600">•</span>
-                  <span><strong>Prime check:</strong> Use <code>i*i <= n</code> to avoid sqrt.</span>
+                  <span><strong>Prime check:</strong> Use <code>i*i &lt;= n</code> to avoid sqrt.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-600">•</span>

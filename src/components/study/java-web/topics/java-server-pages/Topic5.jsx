@@ -236,7 +236,7 @@ const Topic5 = () => {
           <ul className="text-sm list-disc list-inside space-y-1">
             <li><strong>Arithmetic:</strong> +, -, *, / (div), % (mod)</li>
             <li><strong>Logical:</strong> &amp;&amp; (and), || (or), ! (not)</li>
-            <li><strong>Relational:</strong> == (eq), != (ne), &lt; (lt), &gt; (gt), <= (le), >= (ge)</li>
+            <li><strong>Relational:</strong> == (eq), != (ne), &lt; (lt), &gt; (gt), &lt;= (le), &gt;= (ge)</li>
             <li><strong>Empty:</strong> <code>empty variable</code> – true if null or empty (collection, string, array)</li>
             <li><strong>Conditional (ternary):</strong> <code>{"\${condition ? value1 : value2}"}</code></li>
           </ul>

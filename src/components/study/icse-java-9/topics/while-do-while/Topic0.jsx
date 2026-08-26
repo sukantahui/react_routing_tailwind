@@ -73,8 +73,8 @@ export default class Topic0 extends Component {
           <div className="mermaid">
 {`
 flowchart TD
-  A["Start"] - &rarr; B["Check Condition"]
-  B --&gt;|True| C["Execute Statements"]
+  A["Start"] --> B["Check Condition"]
+  B -->|True| C["Execute Statements"]
   C --> D["Update Variable"]
   D --> B
   B -->|False| E["Exit Loop"]
@@ -113,7 +113,7 @@ while(i <= 5){
 while(n > 0){
   sum += n % 10;
   n = n / 10;
-}`} /&gt;
+}`} />
         </div>
 
         <div className={`${card} mb-10 ${reveal} animation-delay-[720ms]`}>
@@ -124,7 +124,7 @@ while(n > 0){
 while(n > 0){
   rev = rev * 10 + (n % 10);
   n = n / 10;
-}`} /&gt;
+}`} />
         </div>
 
         {/* ===== HINT ===== */}

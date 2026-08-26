@@ -208,7 +208,7 @@ export default class Topic9 extends Component {
             <button 
               onClick={() => this.toggleSection('theory')}
               className="w-full text-left mb-4"
-            &gt;
+            >
               <h2 className={clsx(
                 'text-2xl font-bold flex items-center gap-3 transition-all duration-300 hover:gap-4',
                 expandedSections.theory 
@@ -305,7 +305,7 @@ export default class Topic9 extends Component {
             <button 
               onClick={() => this.toggleSection('examples')}
               className="w-full text-left mb-4"
-            &gt;
+            >
               <h2 className={clsx(
                 'text-2xl font-bold flex items-center gap-3 transition-all duration-300 hover:gap-4',
                 expandedSections.examples 
@@ -499,7 +499,7 @@ export default class Topic9 extends Component {
             <button 
               onClick={() => this.toggleSection('commonMistakes')}
               className="w-full text-left mb-4"
-            &gt;
+            >
               <h2 className={clsx(
                 'text-2xl font-bold flex items-center gap-3 transition-all duration-300 hover:gap-4',
                 expandedSections.commonMistakes 
@@ -624,7 +624,7 @@ export default class Topic9 extends Component {
             <button 
               onClick={() => this.toggleSection('bestPractices')}
               className="w-full text-left mb-4"
-            &gt;
+            >
               <h2 className={clsx(
                 'text-2xl font-bold flex items-center gap-3 transition-all duration-300 hover:gap-4',
                 expandedSections.bestPractices 

@@ -70,7 +70,7 @@ export default function Topic6() {
     <div className="dark bg-gray-900 text-gray-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto space-y-10">
         {/* Header */}
-        <header ref={(el) => (sectionsRef.current[0] = el)} className="reveal-section"&gt;
+        <header ref={(el) => (sectionsRef.current[0] = el)} className="reveal-section">
           <h1 className="text-4xl font-bold bg-gradient-to-r from-teal-400 to-green-500 bg-clip-text text-transparent">
             HLOOKUP for Horizontal Data
           </h1>
@@ -80,7 +80,7 @@ export default function Topic6() {
         </header>
 
         {/* Function Prototype */}
-        <section ref={(el) => (sectionsRef.current[1] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-teal-500/50 transition-all"&gt;
+        <section ref={(el) => (sectionsRef.current[1] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-teal-500/50 transition-all">
           <h2 className="text-2xl font-semibold flex items-center gap-2">
             <span className="text-teal-400">📐</span> Function Prototype
           </h2>
@@ -98,7 +98,7 @@ export default function Topic6() {
         </section>
 
         {/* Detailed Explanation */}
-        <section ref={(el) => (sectionsRef.current[2] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
+        <section ref={(el) => (sectionsRef.current[2] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
           <h2 className="text-2xl font-semibold">🧠 How HLOOKUP Works</h2>
           <div className="mt-4 space-y-4 text-gray-200 leading-relaxed">
             <p>
@@ -117,7 +117,7 @@ export default function Topic6() {
         </section>
 
         {/* Real‑world Example */}
-        <section ref={(el) => (sectionsRef.current[3] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
+        <section ref={(el) => (sectionsRef.current[3] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
           <h2 className="text-2xl font-semibold">📊 Real‑World Use Case</h2>
           <div className="mt-4">
             <p className="text-gray-200">
@@ -144,7 +144,7 @@ export default function Topic6() {
         </section>
 
         {/* VLOOKUP vs HLOOKUP Comparison (SVG/Diagram) */}
-        <section ref={(el) => (sectionsRef.current[4] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
+        <section ref={(el) => (sectionsRef.current[4] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
           <h3 className="text-xl font-semibold text-center mb-4">🔄 VLOOKUP vs HLOOKUP – Visual Comparison</h3>
           <div className="flex justify-center">
             <svg width="550" height="200" viewBox="0 0 550 200" xmlns="http://www.w3.org/2000/svg" className="max-w-full h-auto">
@@ -178,7 +178,7 @@ export default function Topic6() {
         </section>
 
         {/* Interactive Excel Demo */}
-        <section ref={(el) => (sectionsRef.current[5] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
+        <section ref={(el) => (sectionsRef.current[5] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
           <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
             <h2 className="text-2xl font-semibold">📁 Interactive Example: HLOOKUP Practice</h2>
             {sampleDataUrl && (
@@ -198,7 +198,7 @@ export default function Topic6() {
               rowsPerPage={20}
               showSheetSelector={true}
               onError={() => setExcelError(true)}
-            /&gt;
+            />
           ) : (
             <>
               <div className="bg-yellow-950/40 border border-yellow-700 rounded-lg p-3 mb-3 text-sm">

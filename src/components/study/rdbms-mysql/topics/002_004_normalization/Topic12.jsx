@@ -257,7 +257,7 @@ const Topic12 = () => {
                       ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                       : "bg-slate-900 text-slate-400 border-slate-800"
                   )}
-                &gt;
+                >
                   2 Courses
                 </button>
                 <button
@@ -268,7 +268,7 @@ const Topic12 = () => {
                       ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                       : "bg-slate-900 text-slate-400 border-slate-800"
                   )}
-                &gt;
+                >
                   3 Courses (+ DevOps)
                 </button>
               </div>
@@ -283,7 +283,7 @@ const Topic12 = () => {
                       ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                       : "bg-slate-900 text-slate-400 border-slate-800"
                   )}
-                &gt;
+                >
                   2 Hobbies
                 </button>
                 <button
@@ -294,7 +294,7 @@ const Topic12 = () => {
                       ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                       : "bg-slate-900 text-slate-400 border-slate-800"
                   )}
-                &gt;
+                >
                   3 Hobbies (+ Cricket)
                 </button>
               </div>

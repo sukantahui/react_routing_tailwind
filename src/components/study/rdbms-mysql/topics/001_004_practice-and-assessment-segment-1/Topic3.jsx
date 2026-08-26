@@ -64,7 +64,7 @@ COMMIT; -- All 4 table records committed atomically! ✅`,
       badgeColor: "cyan",
       sqlScript: `-- 🔍 CHALLENGE 2: MULTI-PREDICATE READ QUERY CHALLENGES:
 
--- Query A: Find all 'Delivered' or 'Shipped' orders in 'Barrackpore' or 'Kolkata' &ge; ₹10,000:
+-- Query A: Find all 'Delivered' or 'Shipped' orders in 'Barrackpore' or 'Kolkata' >= ₹10,000:
 SELECT 
     o.order_id,
     c.full_name AS customer_name,
@@ -304,7 +304,7 @@ SELECT * FROM order_items WHERE order_id = 1;
                 <text x="355" y="98" fill="#bae6fd" fontSize="10">🔑 order_id (PK)</text>
                 <text x="355" y="118" fill="#38bdf8" fontSize="10">🔗 customer_id (FK)</text>
                 <text x="355" y="138" fill="#e2e8f0" fontSize="10">order_date, order_status</text>
-                <text x="355" y="158" fill="#94a3b8" fontSize="10">order_total_inr (CHECK >= 0)</text>
+                <text x="355" y="158" fill="#94a3b8" fontSize="10">order_total_inr (CHECK &gt;= 0)</text>
 
                 {/* Box 3: Order Items */}
                 <rect x="670" y="40" width="250" height="140" rx="8" fill="#0f172a" stroke="#f43f5e" strokeWidth="1.5" />
@@ -358,7 +358,7 @@ SELECT * FROM order_items WHERE order_id = 1;
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                &gt;
+                >
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",

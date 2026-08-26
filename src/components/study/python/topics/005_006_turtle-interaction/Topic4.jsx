@@ -394,22 +394,7 @@ const Topic4 = () => {
           </div>
         </div>
 
-        {/* =========================================================================
-            HINTS & EXPERT MINDSET
-        ========================================================================= */}
-        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.7s]">
-          <div className="bg-cyan-900/20 rounded-2xl p-5 border border-cyan-500/30 space-y-2">
-            <h3 className="text-lg font-semibold text-cyan-300">💡 Hints to Explore</h3>
-            <p className="text-xs text-slate-300">
-              👉 <strong>Think about:</strong> How modern digital drawing tools like Figma, Procreate, and Photoshop track continuous mouse/stylus drag coordinates to render smooth Bezier strokes!
-            </p>
-            <p className="text-xs text-slate-300">
-              👉 <strong>Observe:</strong> How drawing on our canvas creates smooth colored paths instantly while adjusting the slider updates the level telemetry!
-            </p>
-            <p className="text-xs text-slate-300">
-              👉 <strong>Try changing:</strong> Add an eraser toggle that switches the pen color to the background dark slate color!
-            </p>
-          </div>
+        {/* ==================================================================          </div>
 
           <div className="bg-indigo-900/20 rounded-2xl p-5 border border-indigo-500/30 space-y-2">
             <h3 className="text-lg font-semibold text-indigo-300">🚀 Expert Mindset</h3>

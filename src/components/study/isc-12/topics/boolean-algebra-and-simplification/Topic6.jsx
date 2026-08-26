@@ -137,7 +137,7 @@ const Topic6 = () => {
                           ? "bg-green-500 hover:bg-green-600 text-white shadow-lg" 
                           : "bg-red-500 hover:bg-red-600 text-white shadow-lg"
                       )}
-                    &gt;
+                    >
                       {idempotentVar}
                     </button>
                   </div>
@@ -244,7 +244,7 @@ const Topic6 = () => {
                           ? "bg-green-500 hover:bg-green-600 text-white shadow-lg" 
                           : "bg-red-500 hover:bg-red-600 text-white shadow-lg"
                       )}
-                    &gt;
+                    >
                       {idempotentVar}
                     </button>
                   </div>

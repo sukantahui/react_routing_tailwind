@@ -368,7 +368,7 @@ const Topic15 = () => {
                                 <h3 className="font-semibold text-green-700 dark:text-green-300 mb-2">✅ CORRECT: Function Reference</h3>
                                 <div className="font-mono text-sm bg-gray-900 text-green-300 p-3 rounded">
                                     {`// This passes a function reference\n`}
-                                    {`<button onClick={() => handleClick(id)}&gt;\n`}
+                                    {`<button onClick={() => handleClick(id)}>\n`}
                                     {`  Click me\n`}
                                     {`</button>\n\n`}
                                     {`// Result: handleClick runs only on click`}
@@ -417,7 +417,7 @@ const Topic15 = () => {
                                     onClick={() => handleClickWithInlineArrow('Swadeep', 'Barrackpore')}
                                     className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg
                            transition-all duration-300 hover:scale-[1.02]"
-                                &gt;
+                                >
                                     Select Swadeep
                                 </button>
 
@@ -425,13 +425,13 @@ const Topic15 = () => {
                                     onClick={() => handleClickWithInlineArrow('Tuhina', 'Shyamnagar')}
                                     className="w-full bg-purple-500 hover:bg-purple-600 text-white py-2 rounded-lg
                            transition-all duration-300 hover:scale-[1.02]"
-                                &gt;
+                                >
                                     Select Tuhina
                                 </button>
                             </div>
 
                             <div className="mt-4 font-mono text-xs bg-gray-900 text-green-300 p-2 rounded">
-                                {`<button onClick={() =>\n  handleClick(studentId)\n}&gt;`}
+                                {`<button onClick={() =>\n  handleClick(studentId)\n}>`}
                             </div>
 
                             <div className="mt-2 text-xs text-gray-500">
@@ -586,7 +586,7 @@ const Topic15 = () => {
                                                         ? "bg-yellow-500 text-white"
                                                         : "bg-yellow-100 hover:bg-yellow-200 text-yellow-800 dark:bg-yellow-900/30 dark:hover:bg-yellow-900/50 dark:text-yellow-300"
                                                 )}
-                                            &gt;
+                                            >
                                                 Pending
                                             </button>
 
@@ -598,7 +598,7 @@ const Topic15 = () => {
                                                         ? "bg-blue-500 text-white"
                                                         : "bg-blue-100 hover:bg-blue-200 text-blue-800 dark:bg-blue-900/30 dark:hover:bg-blue-900/50 dark:text-blue-300"
                                                 )}
-                                            &gt;
+                                            >
                                                 In Progress
                                             </button>
 
@@ -610,7 +610,7 @@ const Topic15 = () => {
                                                         ? "bg-green-500 text-white"
                                                         : "bg-green-100 hover:bg-green-200 text-green-800 dark:bg-green-900/30 dark:hover:bg-green-900/50 dark:text-green-300"
                                                 )}
-                                            &gt;
+                                            >
                                                 Completed
                                             </button>
                                         </div>
@@ -646,7 +646,7 @@ const Topic15 = () => {
                                         {`  'Update Status'\n`}
                                         {`);\n\n`}
                                         {`// In JSX\n`}
-                                        {`<button onClick={() => handleAction(id, 'completed')}&gt;\n`}
+                                        {`<button onClick={() => handleAction(id, 'completed')}>\n`}
                                         {`  Mark Complete\n`}
                                         {`</button>`}
                                     </div>
@@ -664,7 +664,7 @@ const Topic15 = () => {
                                     <div className="text-sm text-gray-400 mb-2">Multiple Arguments Pattern</div>
                                     <div className="font-mono text-xs text-green-300">
                                         {`// Passing multiple arguments\n`}
-                                        {`<button onClick={() => handleAction(id, status, user)}&gt;\n`}
+                                        {`<button onClick={() => handleAction(id, status, user)}>\n`}
                                         {`  Do Action\n`}
                                         {`</button>\n\n`}
                                         {`// Handler receives all arguments\n`}
@@ -706,7 +706,7 @@ const Topic15 = () => {
                                             onChange={(e) => updateCalculatorValue('value1', e.target.value)}
                                             className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg
                                bg-white dark:bg-gray-800 text-gray-800 dark:text-white"
-                                        /&gt;
+                                        />
                                     </div>
 
                                     <div>
@@ -717,7 +717,7 @@ const Topic15 = () => {
                                             onChange={(e) => updateCalculatorValue('value2', e.target.value)}
                                             className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg
                                bg-white dark:bg-gray-800 text-gray-800 dark:text-white"
-                                        /&gt;
+                                        />
                                     </div>
 
                                     <div className="grid grid-cols-4 gap-2">
@@ -725,28 +725,28 @@ const Topic15 = () => {
                                             onClick={() => handleCalculatorOperation('+')}
                                             className="p-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg
                                transition-all duration-300 hover:scale-[1.02]"
-                                        &gt;
+                                        >
                                             +
                                         </button>
                                         <button
                                             onClick={() => handleCalculatorOperation('-')}
                                             className="p-3 bg-green-500 hover:bg-green-600 text-white rounded-lg
                                transition-all duration-300 hover:scale-[1.02]"
-                                        &gt;
+                                        >
                                             -
                                         </button>
                                         <button
                                             onClick={() => handleCalculatorOperation('*')}
                                             className="p-3 bg-purple-500 hover:bg-purple-600 text-white rounded-lg
                                transition-all duration-300 hover:scale-[1.02]"
-                                        &gt;
+                                        >
                                             ×
                                         </button>
                                         <button
                                             onClick={() => handleCalculatorOperation('/')}
                                             className="p-3 bg-red-500 hover:bg-red-600 text-white rounded-lg
                                transition-all duration-300 hover:scale-[1.02]"
-                                        &gt;
+                                        >
                                             ÷
                                         </button>
                                     </div>
@@ -806,8 +806,8 @@ const Topic15 = () => {
                                         {`  setCalculator(prev => ({ ...prev, operation, result }));\n`}
                                         {`};\n\n`}
                                         {`// In JSX - pass operation as argument\n`}
-                                        {`<button onClick={() => handleOperation('+')}&gt;+</button>\n`}
-                                        {`<button onClick={() => handleOperation('-')}&gt;-</button>`}
+                                        {`<button onClick={() => handleOperation('+')}>+</button>\n`}
+                                        {`<button onClick={() => handleOperation('-')}>-</button>`}
                                     </div>
                                 </div>
                             </div>
@@ -856,7 +856,7 @@ const Topic15 = () => {
                                                             ? "bg-green-500 border-green-500"
                                                             : "border-gray-300 dark:border-gray-600 hover:border-green-500"
                                                     )}
-                                                &gt;
+                                                >
                                                     {todo.completed && "✓"}
                                                 </button>
                                                 <div>
@@ -892,14 +892,14 @@ const Topic15 = () => {
                                                     onClick={() => handleTodoAction(todo.id, 'priority-up')}
                                                     className="p-2 text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-lg transition-colors"
                                                     title="Increase priority"
-                                                &gt;
+                                                >
                                                     ⬆
                                                 </button>
                                                 <button
                                                     onClick={() => handleTodoAction(todo.id, 'delete')}
                                                     className="p-2 text-red-600 hover:bg-red-100 dark:hover:bg-red-900/30 rounded-lg transition-colors"
                                                     title="Delete todo"
-                                                &gt;
+                                                >
                                                     🗑
                                                 </button>
                                             </div>
@@ -910,7 +910,7 @@ const Topic15 = () => {
                                                 onClick={() => handleTodoAction(todo.id, 'toggle')}
                                                 className="flex-1 py-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 
                                  rounded text-sm transition-colors"
-                                            &gt;
+                                            >
                                                 {todo.completed ? "Mark Incomplete" : "Mark Complete"}
                                             </button>
                                         </div>
@@ -946,10 +946,10 @@ const Topic15 = () => {
                                         {`  }\n`}
                                         {`};\n\n`}
                                         {`// In JSX - pass todo ID and action type\n`}
-                                        {`<button onClick={() => handleTodoAction(id, 'toggle')}&gt;\n`}
+                                        {`<button onClick={() => handleTodoAction(id, 'toggle')}>\n`}
                                         {`  Toggle Complete\n`}
                                         {`</button>\n`}
-                                        {`<button onClick={() => handleTodoAction(id, 'delete')}&gt;\n`}
+                                        {`<button onClick={() => handleTodoAction(id, 'delete')}>\n`}
                                         {`  Delete\n`}
                                         {`</button>`}
                                     </div>
@@ -973,8 +973,8 @@ const Topic15 = () => {
                                         {`const handleDelete = (id) => { /* ... */ };\n`}
                                         {`const handlePriorityUp = (id) => { /* ... */ };\n\n`}
                                         {`// In JSX\n`}
-                                        {`<button onClick={() => handleToggle(id)}&gt;Toggle</button>\n`}
-                                        {`<button onClick={() => handleDelete(id)}&gt;Delete</button>`}
+                                        {`<button onClick={() => handleToggle(id)}>Toggle</button>\n`}
+                                        {`<button onClick={() => handleDelete(id)}>Delete</button>`}
                                     </div>
                                     <p className="text-xs text-gray-500 mt-2">
                                         Trade-off: More handler functions but each is simpler
@@ -1022,7 +1022,7 @@ const Topic15 = () => {
                                             <div className="flex items-center space-x-2">
                                                 <button
                                                     onClick={() => handleCartUpdate(item.id, 'decrement')}
-                                                    disabled={item.quantity &le; 1}
+                                                    disabled={item.quantity <= 1}
                                                     className={clsx(
                                                         "w-8 h-8 rounded-full flex items-center justify-center",
                                                         item.quantity <= 1
@@ -1040,7 +1040,7 @@ const Topic15 = () => {
                                                     className="w-8 h-8 rounded-full bg-green-100 hover:bg-green-200 text-green-600 
                                    dark:bg-green-900/30 dark:hover:bg-green-900/50 dark:text-green-300
                                    flex items-center justify-center"
-                                                &gt;
+                                                >
                                                     +
                                                 </button>
 
@@ -1052,7 +1052,7 @@ const Topic15 = () => {
                                             <button
                                                 onClick={() => handleCartUpdate(item.id, 'remove')}
                                                 className="p-2 text-red-600 hover:bg-red-100 dark:hover:bg-red-900/30 rounded-lg transition-colors"
-                                            &gt;
+                                            >
                                                 Remove
                                             </button>
                                         </div>
@@ -1116,10 +1116,10 @@ const Topic15 = () => {
                                         {`  }\n`}
                                         {`};\n\n`}
                                         {`// Usage in JSX\n`}
-                                        {`<button onClick={() => handleCartUpdate(item.id, 'increment')}&gt;\n`}
+                                        {`<button onClick={() => handleCartUpdate(item.id, 'increment')}>\n`}
                                         {`  +\n`}
                                         {`</button>\n`}
-                                        {`<button onClick={() => handleCartUpdate(item.id, 'decrement')}&gt;\n`}
+                                        {`<button onClick={() => handleCartUpdate(item.id, 'decrement')}>\n`}
                                         {`  -\n`}
                                         {`</button>`}
                                     </div>
@@ -1147,7 +1147,7 @@ const Topic15 = () => {
                                         {`  ));\n`}
                                         {`};\n\n`}
                                         {`// Usage\n`}
-                                        {`<button onClick={() => handleQuantityChange(id, quantity + 1)}&gt;\n`}
+                                        {`<button onClick={() => handleQuantityChange(id, quantity + 1)}>\n`}
                                         {`  Increase\n`}
                                         {`</button>`}
                                     </div>
@@ -1191,7 +1191,7 @@ const Topic15 = () => {
                                     {`  };\n`}
                                     {`  \n`}
                                     {`  return (\n`}
-                                    {`    <form onSubmit={(e) => handleSubmit(e, { source: 'web', timestamp: Date.now() })}&gt;\n`}
+                                    {`    <form onSubmit={(e) => handleSubmit(e, { source: 'web', timestamp: Date.now() })}>\n`}
                                     {`      {/* form fields */}\n`}
                                     {`      <button type="submit">Submit</button>\n`}
                                     {`    </form>\n`}
@@ -1230,7 +1230,7 @@ const Topic15 = () => {
                                     {`<a \n`}
                                     {`  href="#" \n`}
                                     {`  onClick={(e) => handleClickWithData(e, { id: 1, action: 'delete' })}\n`}
-                                    {`&gt;\n`}
+                                    {`>\n`}
                                     {`  Delete Item\n`}
                                     {`</a>`}
                                 </div>
@@ -1240,7 +1240,7 @@ const Topic15 = () => {
                                 <button
                                     onClick={(e) => handleCustomEvent(e, { action: 'test', value: 123 })}
                                     className="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg transition-colors"
-                                &gt;
+                                >
                                     Test Event + Data
                                 </button>
 
@@ -1251,7 +1251,7 @@ const Topic15 = () => {
                                         page: 'arguments_demo'
                                     })}
                                     className="px-4 py-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition-colors"
-                                &gt;
+                                >
                                     Analytics Event
                                 </button>
                             </div>

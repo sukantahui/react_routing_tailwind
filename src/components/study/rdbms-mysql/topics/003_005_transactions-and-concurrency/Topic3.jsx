@@ -24,12 +24,12 @@ const Topic3 = () => {
       title: "1. 300x Speedup: 1,000 Bulk Inserts (Autocommit ON vs Single Transaction)",
       badge: "Performance Benchmark",
       badgeColor: "emerald",
-      sqlQuery: `-- ❌ SLOW: 1,000 Inserts with autocommit = 1 (1,000 Disk fsyncs &rarr; 12.50s):
+      sqlQuery: `-- ❌ SLOW: 1,000 Inserts with autocommit = 1 (1,000 Disk fsyncs -> 12.50s):
 -- INSERT INTO student_attendance VALUES (101, 'PRESENT'); -- fsync 1
 -- INSERT INTO student_attendance VALUES (102, 'PRESENT'); -- fsync 2
 -- ... (1,000 physical disk writes!)
 
--- ✅ FAST: 1,000 Inserts in Single Transaction (1 Disk fsync -&gt; 0.04s):
+-- ✅ FAST: 1,000 Inserts in Single Transaction (1 Disk fsync -> 0.04s):
 START TRANSACTION;
 INSERT INTO student_attendance VALUES (101, 'PRESENT');
 INSERT INTO student_attendance VALUES (102, 'PRESENT');
@@ -350,7 +350,7 @@ DELIMITER ;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(

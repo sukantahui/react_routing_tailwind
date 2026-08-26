@@ -139,7 +139,7 @@ export default class IconResources extends Component {
               text-sm text-slate-200 placeholder-slate-500
               focus:outline-none focus:border-sky-500
             "
-            /&gt;
+            />
           </div>
 
           {/* ================= LIST ================= */}

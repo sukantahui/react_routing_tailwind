@@ -97,7 +97,7 @@ const BubbleSortVisualSVG = () => {
         <button 
           onClick={() => setStep((step + 1) % 5)}
           className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all duration-300"
-        &gt;
+        >
           {step < 4 ? "Next Pass (Step " + (step + 2) + "/5)" : "Reset Animation"}
         </button>
       </div>
@@ -217,7 +217,7 @@ const Topic10 = () => {
                   ? "bg-blue-50 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 border-b-2 border-blue-600"
                   : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
               )}
-            &gt;
+            >
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
             </button>
           ))}
@@ -581,7 +581,7 @@ const qaData = [
   },
   {
     question: "Is bubble sort stable?",
-    answer: "Yes! Equal elements maintain their relative order because swaps only occur when left &gt; right."
+    answer: "Yes! Equal elements maintain their relative order because swaps only occur when left > right."
   },
   {
     question: "What's the space complexity of bubble sort?",

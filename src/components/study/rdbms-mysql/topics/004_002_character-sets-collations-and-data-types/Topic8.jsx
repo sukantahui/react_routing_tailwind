@@ -9,11 +9,11 @@ import questions from "./topic8_files/topic8_questions";
 import noteText from "./topic8_files/topic8_note.txt?raw";
 
 /**
- * Topic8 – JSON Path Operators: -> (Extract) and &rarr; &gt; (Extract & Unquote)
+ * Topic8 – JSON Path Operators: -> (Extract) and ->> (Extract & Unquote)
  * Module: 004_002_character-sets-collations-and-data-types
  *
  * @component
- * @returns {JSX.Element} Interactive JSON path operators workbench: exploring $ path navigation, distinguishing -> (JSON_EXTRACT) and &rarr;&rarr; (JSON_UNQUOTE), debugging the quoted string WHERE clause trap, and executing array slices and recursive descent in MySQL.
+ * @returns {JSX.Element} Interactive JSON path operators workbench: exploring $ path navigation, distinguishing -> (JSON_EXTRACT) and ->> (JSON_UNQUOTE), debugging the quoted string WHERE clause trap, and executing array slices and recursive descent in MySQL.
  */
 const Topic8 = () => {
   // Interactive Path State
@@ -271,7 +271,7 @@ FROM candidate_profiles;`,
                   </marker>
                 </defs>
 
-                {/* Left Box: &rarr; Operator */}
+                {/* Left Box: -> Operator */}
                 <rect x="20" y="40" width="440" height="280" rx="8" fill="#0f172a" stroke="#f43f5e" strokeWidth="1.5" />
                 <text x="240" y="70" fill="#fb7185" fontSize="13" fontWeight="bold" textAnchor="middle">
                   1. THE -&gt; OPERATOR (JSON_EXTRACT)
@@ -291,7 +291,7 @@ FROM candidate_profiles;`,
                 <text x="50" y="250" fill="#f87171" fontSize="9">WHERE profile-&gt;'$.city' = 'Barrackpore' &rarr; FALSE! ❌</text>
                 <text x="50" y="265" fill="#94a3b8" fontSize="8">"\"Barrackpore\"" != 'Barrackpore'</text>
 
-                {/* Right Box: &rarr; &gt; Operator */}
+                {/* Right Box: ->> Operator */}
                 <rect x="490" y="40" width="440" height="280" rx="8" fill="#0f172a" stroke="#10b981" strokeWidth="1.5" />
                 <text x="710" y="70" fill="#34d399" fontSize="13" fontWeight="bold" textAnchor="middle">
                   2. THE -&gt;&gt; OPERATOR (EXTRACT &amp; UNQUOTE)
@@ -341,7 +341,7 @@ FROM candidate_profiles;`,
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                &gt;
+                >
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",
@@ -534,7 +534,7 @@ FROM candidate_profiles;`,
                 <span>✓</span> Best Practice 2: Wrap in CAST() for Math
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                When performing numeric calculations on extracted JSON numbers, wrap in <code>{"CAST(col &rarr; &gt;'$.amount' AS DECIMAL(10,2))"}</code> for exact math.
+                When performing numeric calculations on extracted JSON numbers, wrap in <code>{"CAST(col->>'$.amount' AS DECIMAL(10,2))"}</code> for exact math.
               </p>
               <div className="text-xs text-slate-400">
                 Ensures exact decimal arithmetic on JSON numbers.
@@ -590,7 +590,7 @@ FROM candidate_profiles;`,
                 </div>
                 <div className="p-3 bg-slate-950 rounded-lg border border-slate-800">
                   <span className="text-emerald-400 font-bold block mb-1">“Think about Null Safety...”</span>
-                  If a path like <code>{"profile &rarr; &gt;'$.hobbies'"}</code> does not exist on a row, MySQL does not crash or throw an error—it returns SQL `NULL`, making <code>{"WHERE col &rarr; &gt;'$.k' IS NOT NULL"}</code> very clean!
+                  If a path like <code>{"profile->>'$.hobbies'"}</code> does not exist on a row, MySQL does not crash or throw an error—it returns SQL `NULL`, making <code>{"WHERE col->>'$.k' IS NOT NULL"}</code> very clean!
                 </div>
               </div>
             </div>
@@ -609,7 +609,7 @@ FROM candidate_profiles;`,
           </div>
 
           <FAQTemplate
-            title="JSON Path Operators (-> and &rarr; &gt;) FAQs"
+            title="JSON Path Operators (-> and ->>) FAQs"
             questions={questions}
           />
         </section>
@@ -627,7 +627,7 @@ FROM candidate_profiles;`,
 
           <PlainTextPrint
             content={noteText}
-            title="JSON Path Operators: -> (Extract) and &rarr; &gt; (Extract & Unquote)"
+            title="JSON Path Operators: -> (Extract) and ->> (Extract & Unquote)"
             stampEnabled={true}
             showDownload={true}
             downloadButtonText="Download Topic Note (.txt)"
@@ -635,7 +635,7 @@ FROM candidate_profiles;`,
           />
 
           <Teacher
-            note="Querying JSON in MySQL is fast and expressive once you master JSON path syntax ($). The number one bug developers run into when querying JSON is using -> instead of &rarr; &gt; in WHERE clauses—because -> retains the surrounding double quotes ('&quot;Barrackpore&quot;'), comparing it to 'Barrackpore' fails silently and returns 0 rows! Remember the golden rule: use -> when you want raw JSON, but always use &rarr;&rarr; when you are filtering in WHERE, sorting in ORDER BY, or joining tables!"
+            note="Querying JSON in MySQL is fast and expressive once you master JSON path syntax ($). The number one bug developers run into when querying JSON is using -> instead of ->> in WHERE clauses—because -> retains the surrounding double quotes ('&quot;Barrackpore&quot;'), comparing it to 'Barrackpore' fails silently and returns 0 rows! Remember the golden rule: use -> when you want raw JSON, but always use ->> when you are filtering in WHERE, sorting in ORDER BY, or joining tables!"
           />
         </section>
       </main>

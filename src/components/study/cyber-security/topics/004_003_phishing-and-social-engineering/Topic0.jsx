@@ -155,11 +155,11 @@ const Topic0 = () => {
     const numerator = fatigueFactor * urgencyIntensity;
     const exponent = -numerator / technicalFriction;
     const humanErrorProb = (1 - Math.exp(exponent)) * 100;
-    const actualCompromiseProb = technicalFriction &ge; 500
+    const actualCompromiseProb = technicalFriction >= 500
       ? (humanErrorProb * 0.005).toFixed(2) // FIDO2 Passkeys block 99.5% of credential submissions
       : technicalFriction >= 50
       ? (humanErrorProb * 0.25).toFixed(2)  // MFA Push blocks 75% of basic phishing
-      : humanErrorProb.toFixed(2);           // No friction &rarr; 100% compromise on click
+      : humanErrorProb.toFixed(2);           // No friction -> 100% compromise on click
 
     return {
       humanErrorProb: humanErrorProb.toFixed(2),
@@ -222,7 +222,7 @@ def calculate_human_risk_score(employee_data):
 
     print(f"Employee: {employee_data['name']}")
     print(f"[+] Human Risk Score (HRS): {hrs:.1f}/100")
-    print(f"[+] Risk Classification   : {'HIGH' if hrs > 65 else 'MODERATE' if hrs &gt; 35 else 'LOW'}")
+    print(f"[+] Risk Classification   : {'HIGH' if hrs > 65 else 'MODERATE' if hrs > 35 else 'LOW'}")
 
 calculate_human_risk_score({
     "name": "Mamata (Kolkata FinTech Lead)",
@@ -590,7 +590,7 @@ level: high`,
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   BIAS
                 </span>
@@ -687,7 +687,7 @@ level: high`,
                   value={fatigueFactor}
                   onChange={(e) => setFatigueFactor(parseFloat(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1">
@@ -703,7 +703,7 @@ level: high`,
                   value={urgencyIntensity}
                   onChange={(e) => setUrgencyIntensity(parseFloat(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1 pt-1">
@@ -717,7 +717,7 @@ level: high`,
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     None (1x)
                   </button>
                   <button
@@ -728,7 +728,7 @@ level: high`,
                         ? "bg-amber-950 border-amber-500 text-amber-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     MFA Push (50x)
                   </button>
                   <button
@@ -739,7 +739,7 @@ level: high`,
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     FIDO2 Passkey (500x)
                   </button>
                 </div>
@@ -798,7 +798,7 @@ level: high`,
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 {item.name}
               </button>
             ))}
@@ -847,7 +847,7 @@ level: high`,
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

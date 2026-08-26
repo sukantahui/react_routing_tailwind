@@ -58,7 +58,7 @@ class Topic2 extends React.Component {
     const interval = setInterval(() => {
       step++;
       this.setState({ calculationStep: step });
-      if (step &ge; steps) {
+      if (step >= steps) {
         clearInterval(interval);
       }
     }, 300);
@@ -212,7 +212,7 @@ class Topic2 extends React.Component {
                       {/* Binary Visualization */}
                       <g>
                         {/* Read - 4 */}
-                        <g className={calculationStep >= 1 ? "pulse-bit" : ""}&gt;
+                        <g className={calculationStep >= 1 ? "pulse-bit" : ""}>
                           <rect x="50" y="50" width="200" height="100" rx="10" 
                                 fill={isDarkMode ? "#1D4ED8" : "#3B82F6"} 
                                 fillOpacity="0.3" 
@@ -224,7 +224,7 @@ class Topic2 extends React.Component {
                         </g>
                         
                         {/* Write - 2 */}
-                        <g className={calculationStep >= 2 ? "pulse-bit" : ""}&gt;
+                        <g className={calculationStep >= 2 ? "pulse-bit" : ""}>
                           <rect x="300" y="50" width="200" height="100" rx="10" 
                                 fill={isDarkMode ? "#059669" : "#10B981"} 
                                 fillOpacity="0.3" 
@@ -236,7 +236,7 @@ class Topic2 extends React.Component {
                         </g>
                         
                         {/* Execute - 1 */}
-                        <g className={calculationStep >= 3 ? "pulse-bit" : ""}&gt;
+                        <g className={calculationStep >= 3 ? "pulse-bit" : ""}>
                           <rect x="550" y="50" width="200" height="100" rx="10" 
                                 fill={isDarkMode ? "#7C3AED" : "#8B5CF6"} 
                                 fillOpacity="0.3" 
@@ -353,7 +353,7 @@ class Topic2 extends React.Component {
                             ? "bg-gray-800 hover:bg-gray-700"
                             : "bg-gray-200 hover:bg-gray-300"
                       )}
-                    &gt;
+                    >
                       <div className="font-mono text-lg font-bold">{perm}</div>
                       <div className="text-xs mt-1">Click to calculate</div>
                     </button>
@@ -366,7 +366,7 @@ class Topic2 extends React.Component {
                     "p-6 rounded-xl mb-6 transition-all duration-500",
                     isDarkMode ? "bg-gray-800/50" : "bg-gray-100",
                     calculationStep >= 1 ? "opacity-100" : "opacity-0"
-                  )}&gt;
+                  )}>
                     <h3 className="text-xl font-bold mb-6 text-center">
                       Calculation: <span className="font-mono text-yellow-400">{selectedPermission}</span>
                     </h3>
@@ -377,7 +377,7 @@ class Topic2 extends React.Component {
                         "p-4 rounded-lg transition-all duration-300",
                         isDarkMode ? "bg-gray-700/30" : "bg-white",
                         calculationStep >= 2 ? "highlight-step" : ""
-                      )}&gt;
+                      )}>
                         <h4 className="font-semibold mb-3 text-blue-400">Symbolic Representation</h4>
                         <div className="text-center text-2xl font-mono tracking-wider">
                           {calculation.symbolic}
@@ -392,7 +392,7 @@ class Topic2 extends React.Component {
                         "p-4 rounded-lg",
                         isDarkMode ? "bg-gray-700/30" : "bg-white",
                         calculationStep >= 3 ? "highlight-step" : ""
-                      )}&gt;
+                      )}>
                         <h4 className="font-semibold mb-4 text-green-400">Step-by-Step Calculation</h4>
                         
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -462,7 +462,7 @@ class Topic2 extends React.Component {
                           "mt-6 p-4 rounded-lg text-center transition-all duration-500",
                           isDarkMode ? "bg-yellow-900/20" : "bg-yellow-50",
                           calculationStep >= 4 ? "animate-[countUp_0.5s_ease-out]" : "opacity-0"
-                        )}&gt;
+                        )}>
                           <div className="text-xl font-bold">
                             <span className="text-blue-400">{calculation.owner.value}</span>
                             <span className="text-green-400">{calculation.group.value}</span>
@@ -481,7 +481,7 @@ class Topic2 extends React.Component {
                         "p-4 rounded-lg transition-all duration-500",
                         isDarkMode ? "bg-gray-700/30" : "bg-white",
                         calculationStep >= 5 ? "animate-[fadeInUp_0.5s_ease-out]" : "opacity-0"
-                      )}&gt;
+                      )}>
                         <h4 className="font-semibold mb-3 text-purple-400">Real-World Application</h4>
                         <div className="space-y-3">
                           <div className="flex items-start">
@@ -598,7 +598,7 @@ class Topic2 extends React.Component {
                           isDarkMode ? "border-gray-800" : "border-gray-200"
                         )}
                         onClick={() => this.handlePermissionSelect(row.octal)}
-                      &gt;
+                      >
                         <td className="py-3 px-4">
                           <button className={clsx(
                             "font-mono font-bold px-3 py-1 rounded transition-all duration-200 hover:scale-105",

@@ -63,7 +63,7 @@ function MCQItem({ question, index }) {
                     !isSelected && !showAnswer && "border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-600",
                     !isSelected && showAnswer && "border-gray-200 dark:border-gray-700 opacity-60"
                   )}
-                &gt;
+                >
                   <span className="font-medium">{String.fromCharCode(65 + optIdx)}. </span>
                   {opt}
                   {isCorrect && showAnswer && (
@@ -79,7 +79,7 @@ function MCQItem({ question, index }) {
           <button
             onClick={() => setShowAnswer(!showAnswer)}
             className="mt-3 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors duration-200"
-          &gt;
+          >
             {showAnswer ? "Hide Answer" : "Show Answer"}
           </button>
           {showAnswer && (
@@ -111,7 +111,7 @@ function ShortAnswerItem({ question, index }) {
           <button
             onClick={() => setShowAnswer(!showAnswer)}
             className="mt-3 text-sm font-medium text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 transition-colors duration-200"
-          &gt;
+          >
             {showAnswer ? "Hide Answer" : "Show Answer"}
           </button>
           {showAnswer && (
@@ -148,7 +148,7 @@ function LongAnswerItem({ question, index }) {
           <button
             onClick={() => setShowAnswer(!showAnswer)}
             className="mt-3 text-sm font-medium text-amber-600 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300 transition-colors duration-200"
-          &gt;
+          >
             {showAnswer ? "Hide Solution" : "Show Solution"}
           </button>
           {showAnswer && (
@@ -226,7 +226,7 @@ export default function Topic44() {
                     ? "bg-indigo-600 text-white dark:bg-indigo-500"
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              &gt;
+              >
                 MCQs ({mcqQuestions.length})
               </button>
               <button
@@ -237,7 +237,7 @@ export default function Topic44() {
                     ? "bg-purple-600 text-white dark:bg-purple-500"
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              &gt;
+              >
                 Short Answer ({shortQuestions.length})
               </button>
               <button
@@ -248,7 +248,7 @@ export default function Topic44() {
                     ? "bg-amber-600 text-white dark:bg-amber-500"
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              &gt;
+              >
                 Long Answer ({longQuestions.length})
               </button>
             </div>
@@ -294,7 +294,7 @@ export default function Topic44() {
               level: 'intermediate',
               codeExample: q.codeExample || ''
             }))}
-          /&gt;
+          />
         </div>
 
         {/* FOOTER */}

@@ -35,7 +35,7 @@ SHOW GLOBAL STATUS LIKE 'Innodb_adaptive_hash_%';
 -- 3. Check Log Buffer Size:
 SHOW VARIABLES LIKE 'innodb_log_buffer_size'; -- Default: 16MB or 64MB
 
--- 4. Calculate Buffer Pool Hit Ratio (Target: &gt; 99.0%):
+-- 4. Calculate Buffer Pool Hit Ratio (Target: > 99.0%):
 -- Hit Ratio = 100 * (1 - (Innodb_buffer_pool_reads / Innodb_buffer_pool_read_requests))`,
       componentsTable: [
         { component: "Buffer Pool (16KB Pages)", duty: "Caches table data and index pages using Midpoint LRU list", metric: "50-75% Server RAM" },
@@ -89,7 +89,7 @@ SHOW ENGINE INNODB STATUS\\G
 --   Last checkpoint at           34567880000
 --
 -- Checkpoint Age = Log Sequence Number - Last Checkpoint at
--- If Checkpoint Age approaches Redo Log Capacity &rarr; Aggressive Flushing triggers!`,
+-- If Checkpoint Age approaches Redo Log Capacity -> Aggressive Flushing triggers!`,
       componentsTable: [
         { component: "Log Sequence Number (LSN)", duty: "Monotonically increasing 64-bit byte counter tracking all changes", metric: "Global LSN Clock" },
         { component: "Page Cleaner Threads", duty: "Asynchronously flushes dirty pages from Buffer Pool to tablespaces", metric: "innodb_page_cleaners" },
@@ -324,7 +324,7 @@ SHOW ENGINE INNODB STATUS\\G
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                &gt;
+                >
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",

@@ -276,7 +276,7 @@ app.get('/api/research/grants', async (req, res) => {
       if (isPayloadMalicious) {
         vulnAstStatus = "AST MUTATED: Injected Boolean OR Clause (Tautology Created)";
         vulnOutcome = "VULNERABILITY EXPLOITED: Authentication Bypassed! Logged in as Merchant Admin!";
-        vulnResponseData = 'HTTP 200 OK &rarr; { "success": true, "token": "JWT_UNAUTHORIZED_ADMIN_SESSION", "account": "Mamata_FinTech_Primary" }';
+        vulnResponseData = 'HTTP 200 OK -> { "success": true, "token": "JWT_UNAUTHORIZED_ADMIN_SESSION", "account": "Mamata_FinTech_Primary" }';
       } else {
         vulnAstStatus = "Standard AST";
         vulnOutcome = "Normal Evaluation (No Exploit Triggered)";
@@ -846,7 +846,7 @@ describe('DevSecOps SQL Injection Regression Suite', () => {
                     ? "bg-emerald-950/80 border-emerald-500 shadow-lg shadow-emerald-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-emerald-950 text-emerald-300 border-emerald-800 self-start">
                   FIXED
                 </span>
@@ -935,7 +935,7 @@ describe('DevSecOps SQL Injection Regression Suite', () => {
                     ? "bg-emerald-950/80 border-emerald-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 <span className="text-[10px] font-bold text-emerald-400 block">{sc.endpoint.split(" ")[0]}</span>
                 <span className="font-bold text-white block line-clamp-1">{sc.name}</span>
               </button>
@@ -959,11 +959,11 @@ describe('DevSecOps SQL Injection Regression Suite', () => {
                 value={customExploitPayload}
                 onChange={(e) => setCustomExploitPayload(e.target.value)}
                 className="flex-1 p-2.5 bg-gray-950 rounded border border-gray-800 text-cyan-300 font-mono text-xs focus:border-cyan-500 outline-none"
-              /&gt;
+              />
               <button
                 onClick={() => setCustomExploitPayload(currentScenario.defaultPayload)}
                 className="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-xs font-bold text-gray-200 rounded transition-all"
-              &gt;
+              >
                 Reset Default Exploit
               </button>
             </div>
@@ -1067,7 +1067,7 @@ describe('DevSecOps SQL Injection Regression Suite', () => {
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 {item.name}
               </button>
             ))}
@@ -1116,7 +1116,7 @@ describe('DevSecOps SQL Injection Regression Suite', () => {
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

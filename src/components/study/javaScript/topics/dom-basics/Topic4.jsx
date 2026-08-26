@@ -35,7 +35,7 @@ export default class Topic4 extends Component {
         <CodeBlock
           language="html"
           code={`<a id="profile" href="https://www.codernaccotax.co.in">Visit Site</a>`}
-        /&gt;
+        />
 
         {/* JS */}
         <CodeBlock
@@ -94,7 +94,7 @@ link.setAttribute("title", "Coder & AccoTax Official");`}
         <CodeBlock
           language="html"
           code={`<p id="stdName" class="label">Mounita</p>`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"
@@ -130,7 +130,7 @@ std.classList.toggle("dark-theme");`}
         <CodeBlock
           language="html"
           code={`<div id="student" data-name="Ritaja" data-score="92"></div>`}
-        /&gt;
+        />
 
         {/* JS */}
         <CodeBlock
@@ -161,7 +161,7 @@ s.dataset.score = 95;`}
   <li class="std" data-id="101" data-course="JavaScript">Kaustav</li>
   <li class="std" data-id="102" data-course="JavaScript">Pranjali</li>
 </ul>`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"
@@ -171,7 +171,7 @@ all.forEach(st => {
   console.log(st.dataset.id);       // student roll
   console.log(st.dataset.course);   // subject
 });`}
-        /&gt;
+        />
 
 
         {/* ===========================

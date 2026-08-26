@@ -124,7 +124,7 @@ const Topic1 = () => {
 
     function consume(packet):
         refill()       # add tokens based on time elapsed
-        if tokens &ge; 1:
+        if tokens >= 1:
             tokens -= 1
             forward(packet)
             return true

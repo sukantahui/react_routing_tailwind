@@ -54,7 +54,7 @@ const Topic2 = () => {
         <section
           ref={(el) => (sectionRefs.current[0] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/10"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-amber-400 flex items-center gap-2">
             <span>📄</span> What is web.xml?
           </h2>
@@ -75,7 +75,7 @@ const Topic2 = () => {
         <section
           ref={(el) => (sectionRefs.current[1] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800 transition-all duration-300"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-amber-400">✨ How web.xml guides the container</h2>
           <div className="mt-6 flex justify-center">
             <svg viewBox="0 0 700 180" className="w-full max-w-3xl h-auto">
@@ -131,7 +131,7 @@ const Topic2 = () => {
         <section
           ref={(el) => (sectionRefs.current[2] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-amber-400">🧱 Core elements of web.xml</h2>
           <div className="grid md:grid-cols-2 gap-6 mt-6">
             <div className="bg-gray-800/40 p-4 rounded-xl hover:scale-[1.02] transition-all duration-300">
@@ -165,7 +165,7 @@ const Topic2 = () => {
         <section
           ref={(el) => (sectionRefs.current[3] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-amber-400">📌 Basic web.xml</h2>
           <p className="mt-2 text-gray-300">A minimal <code>web.xml</code> that defines and maps a single servlet.</p>
           <div className="mt-4">
@@ -181,7 +181,7 @@ const Topic2 = () => {
         <section
           ref={(el) => (sectionRefs.current[4] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-amber-400">🔗 Servlet Mapping – URL to Java Class</h2>
           <p className="mt-2 text-gray-300">
             Without mapping, a servlet is unreachable. <code>&lt;servlet-mapping&gt;</code> tells the container exactly which URL triggers which servlet.
@@ -204,7 +204,7 @@ const Topic2 = () => {
         <section
           ref={(el) => (sectionRefs.current[5] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-amber-400">🌐 Context Parameters – Shared Configuration</h2>
           <p className="mt-2 text-gray-300">
             <code>&lt;context-param&gt;</code> stores values like database URLs, API keys, or school names (e.g., "Shyamnagar Public School"). Any servlet or JSP can read them via <code>getServletContext().getInitParameter()</code>.
@@ -225,7 +225,7 @@ const Topic2 = () => {
         <section
           ref={(el) => (sectionRefs.current[6] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-amber-400">⚠️ Custom Error Pages</h2>
           <p className="mt-2 text-gray-300">
             Professional apps never show raw stack traces. Define friendly error pages for HTTP codes (404, 500) or Java exceptions.
@@ -243,7 +243,7 @@ const Topic2 = () => {
         <section
           ref={(el) => (sectionRefs.current[7] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-amber-400">🔒 Security Constraints</h2>
           <p className="mt-2 text-gray-300">
             Protect admin areas with roles and HTTP methods. Note: modern servlet 3.0+ also supports annotations, but <code>web.xml</code> remains powerful for externalised security.
@@ -261,7 +261,7 @@ const Topic2 = () => {
         <section
           ref={(el) => (sectionRefs.current[8] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-amber-400">⚠️ Common Pitfalls (Beginners)</h2>
           <ul className="list-disc list-inside space-y-2 text-gray-300 mt-3">
             <li><strong>Wrong location:</strong> <code>web.xml</code> must be directly inside <code>WEB-INF/</code>, not in subfolders.</li>
@@ -277,7 +277,7 @@ const Topic2 = () => {
         <section
           ref={(el) => (sectionRefs.current[9] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-amber-400">✅ Best Practices (Industry)</h2>
           <ul className="list-decimal list-inside space-y-2 text-gray-300 mt-3">
             <li><strong>Use version-appropriate schema:</strong> For Servlet 4.0 use <code>web-app_4_0.xsd</code>.</li>
@@ -293,7 +293,7 @@ const Topic2 = () => {
         <section
           ref={(el) => (sectionRefs.current[10] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-amber-400">📋 Mini Checklist</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
             {[
@@ -318,7 +318,7 @@ const Topic2 = () => {
         <section
           ref={(el) => (sectionRefs.current[11] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-amber-500/30"
-        &gt;
+        >
           <h2 className="text-xl font-semibold text-amber-400">🧠 Hints – Think Like a Pro</h2>
           <ul className="space-y-2 text-gray-300 italic">
             <li>🔍 <strong>Observe carefully:</strong> What happens if you map two servlets to the same URL pattern? Try it yourself.</li>

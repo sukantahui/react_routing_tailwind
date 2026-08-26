@@ -41,7 +41,7 @@ export default function Topic35() {
         <header
           ref={(el) => (sectionsRef.current[0] = el)}
           className="reveal-section transition-all duration-700 ease-out"
-        &gt;
+        >
           <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent">
             Combining Statistical Functions with IF Logic
           </h1>
@@ -54,7 +54,7 @@ export default function Topic35() {
         <section
           ref={(el) => (sectionsRef.current[1] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-cyan-500/50 transition-all duration-300"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold flex items-center gap-2">
             <span className="text-cyan-400">🧠</span> Why Combine IF?
           </h2>
@@ -75,7 +75,7 @@ export default function Topic35() {
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold">🔧 Three Common Patterns</h2>
           <div className="mt-4 space-y-6 text-gray-200">
             <div>
@@ -100,7 +100,7 @@ export default function Topic35() {
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold">📊 Real-World Use Case</h2>
           <div className="mt-4">
             <p className="text-gray-200">
@@ -128,7 +128,7 @@ export default function Topic35() {
         <section
           ref={(el) => (sectionsRef.current[4] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        &gt;
+        >
           <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
             <h2 className="text-2xl font-semibold">📁 Interactive Example</h2>
             {sampleDataUrl && (
@@ -178,7 +178,7 @@ export default function Topic35() {
         <section className="reveal-section bg-yellow-900/20 border-l-8 border-yellow-500 rounded-r-2xl p-5">
           <h3 className="text-xl font-semibold text-yellow-300">💭 Think about...</h3>
           <p className="mt-2 text-gray-200">
-            “If you want to sum only the values greater than the average, you could write =SUMIF(range, "&gt"&AVERAGE(range)). That works without array formulas. But if you want to sum only values greater than the average AND also greater than 100, you cannot use SUMIFS with two conditions on the same column? Actually you can: =SUMIFS(range, range, "{`&gt;`}"&AVERAGE(range), range, "{`>`}100"). <br />
+            “If you want to sum only the values greater than the average, you could write =SUMIF(range, "&gt"&AVERAGE(range)). That works without array formulas. But if you want to sum only values greater than the average AND also greater than 100, you cannot use SUMIFS with two conditions on the same column? Actually you can: =SUMIFS(range, range, "{`>`}"&AVERAGE(range), range, "{`>`}100"). <br />
             Observe carefully: The newer IFS functions (SUMIFS, AVERAGEIFS, COUNTIFS) often eliminate the need for array formulas. Reserve IF+array for non‑standard criteria (e.g., even/odd positions, pattern matching).”
           </p>
         </section>
@@ -211,7 +211,7 @@ export default function Topic35() {
         <FAQTemplate title="Combining IF with Statistical Functions – Frequently Asked Questions" questions={questions} />
 
         {/* Teacher's Note */}
-        <Teacher note={"Start with a simple array formula: =AVERAGE(IF(marks > MEDIAN(marks), marks)). Show that pressing Enter gives a #VALUE! error; you need Ctrl+Shift+Enter (or inline in 365). Then show the same using AVERAGEIF with dynamic criteria: =AVERAGEIF(marks, "&gt;"&MEDIAN(marks)). Compare the two methods. Use the Excel sheet 'combine_if_data' with scores and sales, ask students to compute the average of values above the median, the sum of values above the mean, and the count of values above the 90th percentile. Emphasise helper columns for debugging."} />
+        <Teacher note={"Start with a simple array formula: =AVERAGE(IF(marks > MEDIAN(marks), marks)). Show that pressing Enter gives a #VALUE! error; you need Ctrl+Shift+Enter (or inline in 365). Then show the same using AVERAGEIF with dynamic criteria: =AVERAGEIF(marks, ">"&MEDIAN(marks)). Compare the two methods. Use the Excel sheet 'combine_if_data' with scores and sales, ask students to compute the average of values above the median, the sum of values above the mean, and the count of values above the 90th percentile. Emphasise helper columns for debugging."} />
       </div>
 
       <style>{`

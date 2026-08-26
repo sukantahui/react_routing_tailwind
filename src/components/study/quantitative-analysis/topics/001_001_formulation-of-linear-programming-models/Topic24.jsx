@@ -594,7 +594,7 @@ const Topic24 = () => {
             <strong>💡 Key Observation:</strong> Labor and Material are{" "}
             <strong>binding</strong> (fully used), while Machine has{" "}
             <strong>slack</strong> (8 hours unused). The minimum requirements
-            are satisfied but <strong>not binding</strong> (32 {`&gt;`} 20, 26 {`>`} 15).
+            are satisfied but <strong>not binding</strong> (32 {`>`} 20, 26 {`>`} 15).
           </p>
         </div>
       </section>
@@ -613,7 +613,7 @@ const Topic24 = () => {
             <ul className="list-disc pl-5 mt-2 text-sm text-gray-700 dark:text-gray-300 space-y-1">
               <li><strong>Required:</strong> ≥ 20 units</li>
               <li><strong>Optimal:</strong> 32 units</li>
-              <li><strong>Status:</strong> Satisfied (32 {`&gt;`} 20)</li>
+              <li><strong>Status:</strong> Satisfied (32 {`>`} 20)</li>
               <li><strong>Binding?</strong> No (excess: 12 units)</li>
             </ul>
           </div>
@@ -622,7 +622,7 @@ const Topic24 = () => {
             <ul className="list-disc pl-5 mt-2 text-sm text-gray-700 dark:text-gray-300 space-y-1">
               <li><strong>Required:</strong> ≥ 15 units</li>
               <li><strong>Optimal:</strong> 26 units</li>
-              <li><strong>Status:</strong> Satisfied (26 {`&gt;`} 15)</li>
+              <li><strong>Status:</strong> Satisfied (26 {`>`} 15)</li>
               <li><strong>Binding?</strong> No (excess: 11 units)</li>
             </ul>
           </div>

@@ -80,7 +80,7 @@ const Topic4 = () => {
       resilientDefense: "Hardware and kernel cryptographic verification routines operating in under 5 microseconds.",
       codeSnippet: `// Verification Logic:
 let isn = ack_pkt.tcp.ack_seq - 1;
-let t = (isn &gt;> 27) & 0x1F;
+let t = (isn >> 27) & 0x1F;
 let mss_idx = (isn >> 24) & 0x07;
 if (compute_hmac24(4_tuple, t, key) === (isn & 0x00FFFFFF) && is_valid(t)) {
     allocate_socket(mss_table[mss_idx]); // AUTHENTICATED!
@@ -176,7 +176,7 @@ sysctl -w net.ipv4.tcp_timestamps=1
   // Studio 2: Live RFC 4987 SYN Cookie ISN Cryptographic Calculations
   const synCookieCalc = useMemo(() => {
     // Generate a pseudo-HMAC 24-bit hash from parameters:
-    const combinedString = `${clientIpInput}:${clientPortInput} &rarr; ${serverPortInput}:${timeEpoch}:${secretKey}`;
+    const combinedString = `${clientIpInput}:${clientPortInput}->${serverPortInput}:${timeEpoch}:${secretKey}`;
     let hashVal = 0;
     for (let i = 0; i < combinedString.length; i++) {
       hashVal = (hashVal * 31 + combinedString.charCodeAt(i)) & 0xFFFFFF; // 24-bit mask
@@ -185,7 +185,7 @@ sysctl -w net.ipv4.tcp_timestamps=1
     const tBits = (timeEpoch & 0x1F) << 27;
     const mBits = (mssIndex & 0x07) << 24;
     const hBits = hashVal & 0x00FFFFFF;
-    const fullIsn = (tBits | mBits | hBits) >&gt;> 0; // Unsigned 32-bit integer
+    const fullIsn = (tBits | mBits | hBits) >>> 0; // Unsigned 32-bit integer
 
     const isnHex = "0x" + fullIsn.toString(16).toUpperCase().padStart(8, "0");
     const ackExpectedHex = "0x" + ((fullIsn + 1) >>> 0).toString(16).toUpperCase().padStart(8, "0");
@@ -228,8 +228,8 @@ __u32 cookie_v4_init_sequence(const struct sk_buff *skb, __u16 *mssp) {
     *mssp = msstab[mssind];
 
     // Compute ISN: 5-bit timestamp | 3-bit MSS index | 24-bit HMAC hash
-    return secure_tcp_syn_cookie(iph->saddr, iph &rarr; daddr,
-                                th-&gt;source, th->dest,
+    return secure_tcp_syn_cookie(iph->saddr, iph->daddr,
+                                th->source, th->dest,
                                 tcp_cookie_time(), mssind);
 }
 
@@ -239,8 +239,8 @@ struct sock *cookie_v4_check(struct sock *sk, struct sk_buff *skb) {
     __u32 cookie = ntohl(th->ack_seq) - 1;
     int mssind;
 
-    // Verify cryptographic HMAC and timestamp window (|t - t_now| &le; 1)
-    mssind = check_tcp_syn_cookie(cookie, ip_hdr(skb)->saddr, ip_hdr(skb) &rarr; daddr,
+    // Verify cryptographic HMAC and timestamp window (|t - t_now| <= 1)
+    mssind = check_tcp_syn_cookie(cookie, ip_hdr(skb)->saddr, ip_hdr(skb)->daddr,
                                 th->source, th->dest);
     if (mssind < 0) return NULL; // Forged or expired cookie ➔ REJECT!
 
@@ -276,7 +276,7 @@ class SynCookieEngine:
         # 3. 24-bit HMAC-SHA1 Hash
         data = f"{src_ip}:{src_port}->{dst_ip}:{dst_port}:{t}".encode()
         h = hmac.new(self.secret_key, data, hashlib.sha1).digest()
-        hash24 = struct.unpack("&gt;I", b"\\x00" + h[:3])[0] & 0x00FFFFFF
+        hash24 = struct.unpack(">I", b"\\x00" + h[:3])[0] & 0x00FFFFFF
         
         # 4. Synthesize 32-bit ISN
         isn = (t << 27) | (mss_idx << 24) | hash24
@@ -285,12 +285,12 @@ class SynCookieEngine:
 
     def verify_cookie(self, src_ip, src_port, dst_ip, dst_port, ack_seq):
         isn = (ack_seq - 1) & 0xFFFFFFFF
-        t = (isn >&gt; 27) & 0x1F
+        t = (isn >> 27) & 0x1F
         mss_idx = (isn >> 24) & 0x07
         received_hash = isn & 0x00FFFFFF
         
         # Verify hash
-        data = f"{src_ip}:{src_port} &rarr; {dst_ip}:{dst_port}:{t}".encode()
+        data = f"{src_ip}:{src_port}->{dst_ip}:{dst_port}:{t}".encode()
         expected_h = hmac.new(self.secret_key, data, hashlib.sha1).digest()
         expected_hash = struct.unpack(">I", b"\\x00" + expected_h[:3])[0] & 0x00FFFFFF
         
@@ -672,7 +672,7 @@ net.ipv4.tcp_synack_retries = 2
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   MECHANISM
                 </span>
@@ -763,7 +763,7 @@ net.ipv4.tcp_synack_retries = 2
                   value={clientIpInput}
                   onChange={(e) => setClientIpInput(e.target.value)}
                   className="w-full p-2 bg-gray-950 border border-gray-800 rounded font-mono text-cyan-300 text-xs"
-                /&gt;
+                />
               </div>
 
               <div className="grid grid-cols-2 gap-2">
@@ -774,7 +774,7 @@ net.ipv4.tcp_synack_retries = 2
                     value={clientPortInput}
                     onChange={(e) => setClientPortInput(parseInt(e.target.value) || 0)}
                     className="w-full p-2 bg-gray-950 border border-gray-800 rounded font-mono text-cyan-300 text-xs"
-                  /&gt;
+                  />
                 </div>
                 <div className="space-y-1">
                   <span className="text-gray-400 block">Server Port:</span>
@@ -783,7 +783,7 @@ net.ipv4.tcp_synack_retries = 2
                     value={serverPortInput}
                     onChange={(e) => setServerPortInput(parseInt(e.target.value) || 0)}
                     className="w-full p-2 bg-gray-950 border border-gray-800 rounded font-mono text-cyan-300 text-xs"
-                  /&gt;
+                  />
                 </div>
               </div>
 
@@ -793,7 +793,7 @@ net.ipv4.tcp_synack_retries = 2
                   value={mssIndex}
                   onChange={(e) => setMssIndex(parseInt(e.target.value))}
                   className="w-full p-2 bg-gray-950 border border-gray-800 rounded font-mono text-emerald-300 text-xs"
-                &gt;
+                >
                   {mssTable.map((val, idx) => (
                     <option key={idx} value={idx}>
                       Index {idx} ➔ {val} Bytes {idx === 6 ? "(Standard MTU 1500)" : idx === 7 ? "(Jumbo Frame 9000)" : ""}
@@ -815,7 +815,7 @@ net.ipv4.tcp_synack_retries = 2
                   value={timeEpoch}
                   onChange={(e) => setTimeEpoch(parseInt(e.target.value))}
                   className="w-full accent-amber-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1">
@@ -825,7 +825,7 @@ net.ipv4.tcp_synack_retries = 2
                   value={secretKey}
                   onChange={(e) => setSecretKey(e.target.value)}
                   className="w-full p-2 bg-gray-950 border border-gray-800 rounded font-mono text-purple-300 text-xs"
-                /&gt;
+                />
               </div>
             </div>
 
@@ -908,7 +908,7 @@ net.ipv4.tcp_synack_retries = 2
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 {item.name}
               </button>
             ))}
@@ -957,7 +957,7 @@ net.ipv4.tcp_synack_retries = 2
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

@@ -244,7 +244,7 @@ export default function Topic2() {
                     ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 Logging Handler Pipeline
               </button>
               <button
@@ -255,7 +255,7 @@ export default function Topic2() {
                     ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 Domain Exception Hierarchy
               </button>
               <button
@@ -266,7 +266,7 @@ export default function Topic2() {
                     ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 CLI Subcommand Tree
               </button>
             </div>
@@ -478,7 +478,7 @@ export default function Topic2() {
                             : "bg-teal-950/60 border-teal-500 shadow-md shadow-teal-950/50"
                           : "bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700"
                       )}
-                    &gt;
+                    >
                       <div className="text-xs font-bold text-slate-200">{cmd.label}</div>
                       <div className="text-[10px] text-cyan-400 font-mono">{cmd.desc}</div>
                     </button>
@@ -502,7 +502,7 @@ export default function Topic2() {
                           ? "bg-purple-950/60 border-purple-500 text-purple-300 shadow-md"
                           : "bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700"
                       )}
-                    &gt;
+                    >
                       {lvl}
                     </button>
                   ))}

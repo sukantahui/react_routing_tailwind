@@ -165,7 +165,7 @@ export default class Topic11 extends Component {
                     : 'border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700/50 hover:bg-gray-100 dark:hover:bg-gray-700'
                 }`}
                 onClick={() => this.handleSearchMethodChange('locate')}
-              &gt;
+              >
                 <div className="flex items-center mb-4">
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center mr-4 ${
                     searchMethod === 'locate' ? 'bg-blue-100 dark:bg-blue-900/30' : 'bg-gray-100 dark:bg-gray-700'
@@ -212,7 +212,7 @@ export default class Topic11 extends Component {
                     : 'border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700/50 hover:bg-gray-100 dark:hover:bg-gray-700'
                 }`}
                 onClick={() => this.handleSearchMethodChange('find')}
-              &gt;
+              >
                 <div className="flex items-center mb-4">
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center mr-4 ${
                     searchMethod === 'find' ? 'bg-green-100 dark:bg-green-900/30' : 'bg-gray-100 dark:bg-gray-700'
@@ -456,7 +456,7 @@ export default class Topic11 extends Component {
                               ? 'bg-blue-600 text-white'
                               : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
                           }`}
-                        &gt;
+                        >
                           locate
                         </button>
                         <button
@@ -466,7 +466,7 @@ export default class Topic11 extends Component {
                               ? 'bg-green-600 text-white'
                               : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
                           }`}
-                        &gt;
+                        >
                           find
                         </button>
                       </div>
@@ -501,7 +501,7 @@ export default class Topic11 extends Component {
                             value={fileTypeFilter}
                             onChange={(e) => this.handleFilterChange('fileTypeFilter', e.target.value)}
                             className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500"
-                          &gt;
+                          >
                             <option value="all">All files</option>
                             <option value="file">Regular files only</option>
                             <option value="directory">Directories only</option>
@@ -515,7 +515,7 @@ export default class Topic11 extends Component {
                             value={fileSizeFilter}
                             onChange={(e) => this.handleFilterChange('fileSizeFilter', e.target.value)}
                             className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500"
-                          &gt;
+                          >
                             <option value="any">Any size</option>
                             <option value="small">Small (&lt; 1MB)</option>
                             <option value="medium">Medium (1MB - 100MB)</option>
@@ -529,7 +529,7 @@ export default class Topic11 extends Component {
                             value={dateFilter}
                             onChange={(e) => this.handleFilterChange('dateFilter', e.target.value)}
                             className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500"
-                          &gt;
+                          >
                             <option value="any">Any time</option>
                             <option value="today">Today</option>
                             <option value="week">This week</option>
@@ -567,7 +567,7 @@ export default class Topic11 extends Component {
                         {searchMethod === 'locate' ? 'Querying locate database...' : 'Searching directory tree...'}
                       </div>
                     </div>
-                  ) : searchResults.length &gt; 0 ? (
+                  ) : searchResults.length > 0 ? (
                     <div className="space-y-3">
                       {searchResults.map((result, index) => (
                         <div 
@@ -619,7 +619,7 @@ export default class Topic11 extends Component {
                     </div>
                   )}
                   
-                  {searchResults.length &gt; 0 && (
+                  {searchResults.length > 0 && (
                     <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                       <div className="text-sm text-blue-800 dark:text-blue-200">
                         <strong>Tip:</strong> {searchMethod === 'locate' 
@@ -1255,7 +1255,7 @@ export default class Topic11 extends Component {
                       ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
                       : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                   }`}
-                &gt;
+                >
                   <span className="mr-2">{tab.icon}</span>
                   {tab.label}
                 </button>

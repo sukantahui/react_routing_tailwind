@@ -81,7 +81,7 @@ const PerfectInductionProof = () => {
     }
     
     setFilteredExamples(filtered);
-    if (selectedExample &ge; filtered.length) {
+    if (selectedExample >= filtered.length) {
       setSelectedExample(0);
     }
   }, [searchTerm, examples, selectedExample, selectedCategory, selectedDifficulty]);
@@ -158,7 +158,7 @@ const PerfectInductionProof = () => {
           ? "border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 shadow-md"
           : "border-gray-200 dark:border-gray-700 hover:border-indigo-300 hover:shadow-md bg-white dark:bg-gray-800"
       )}
-    &gt;
+    >
       <div className="flex justify-between items-start mb-2">
         <div className="flex-1">
           <div className="flex items-center gap-2 flex-wrap mb-2">
@@ -263,7 +263,7 @@ const PerfectInductionProof = () => {
                 }}
                 placeholder="Search by title, expression, or description..."
                 className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
-              /&gt;
+              />
             </div>
             
             <div>
@@ -274,7 +274,7 @@ const PerfectInductionProof = () => {
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
                 className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
-              &gt;
+              >
                 {categories.map(cat => (
                   <option key={cat} value={cat}>
                     {cat === 'all' ? 'All Categories' : cat}
@@ -291,7 +291,7 @@ const PerfectInductionProof = () => {
                 value={selectedDifficulty}
                 onChange={(e) => setSelectedDifficulty(e.target.value)}
                 className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
-              &gt;
+              >
                 {difficulties.map(diff => (
                   <option key={diff} value={diff}>
                     {diff === 'all' ? 'All Levels' : diff}
@@ -313,7 +313,7 @@ const PerfectInductionProof = () => {
                   "px-3 py-1 rounded-lg transition",
                   viewMode === 'grid' ? "bg-indigo-500 text-white" : "bg-gray-200 dark:bg-gray-700"
                 )}
-              &gt;
+              >
                 📱 Grid
               </button>
               <button
@@ -322,7 +322,7 @@ const PerfectInductionProof = () => {
                   "px-3 py-1 rounded-lg transition",
                   viewMode === 'list' ? "bg-indigo-500 text-white" : "bg-gray-200 dark:bg-gray-700"
                 )}
-              &gt;
+              >
                 📋 List
               </button>
             </div>
@@ -430,7 +430,7 @@ const PerfectInductionProof = () => {
                   <button
                     onClick={() => setShowTruthTable(!showTruthTable)}
                     className="w-full py-2 bg-gray-200 dark:bg-gray-700 rounded-lg font-medium hover:bg-gray-300 transition"
-                  &gt;
+                  >
                     {showTruthTable ? "Hide" : "Show"} Truth Table Verification
                   </button>
                   
@@ -442,7 +442,7 @@ const PerfectInductionProof = () => {
               <button
                 onClick={() => setShowSteps(!showSteps)}
                 className="w-full py-2 bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 rounded-lg font-medium hover:bg-indigo-200 transition"
-              &gt;
+              >
                 {showSteps ? "Hide" : "Show"} Step-by-Step Proof
               </button>
               

@@ -66,7 +66,7 @@ function infixToPrefixWithTrace(infix) {
       stack.push(ch);
       action = `Push '('`;
     } else if (ch === ')') {
-      while (stack.length &gt; 0 && stack[stack.length - 1] !== '(') {
+      while (stack.length > 0 && stack[stack.length - 1] !== '(') {
         const popped = stack.pop();
         output += popped;
         action += `Pop '${popped}' to output; `;
@@ -205,7 +205,7 @@ export default function Topic18() {
   };
 
   const goToStep = (index) => {
-    if (index &ge; 0 && index < traces.length) {
+    if (index >= 0 && index < traces.length) {
       setCurrentStep(index);
     }
   };
@@ -315,7 +315,7 @@ export default function Topic18() {
                   key={expr}
                   onClick={() => setInfix(expr)}
                   className="px-3 py-1 text-xs bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-full hover:border-indigo-500 dark:hover:border-indigo-400 transition-colors duration-200"
-                &gt;
+                >
                   {expr}
                 </button>
               ))}
@@ -335,7 +335,7 @@ export default function Topic18() {
             )}
 
             {/* Visual Stack & Navigation */}
-            {traces.length &gt; 0 && (
+            {traces.length > 0 && (
               <div className="mt-6">
                 <div className="flex items-center gap-4 flex-wrap">
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Step:</span>
@@ -343,7 +343,7 @@ export default function Topic18() {
                     onClick={() => goToStep(currentStep - 1)}
                     disabled={currentStep === 0}
                     className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-                  &gt;
+                  >
                     ◀
                   </button>
                   <span className="text-sm font-mono">
@@ -353,7 +353,7 @@ export default function Topic18() {
                     onClick={() => goToStep(currentStep + 1)}
                     disabled={currentStep === traces.length - 1}
                     className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-                  &gt;
+                  >
                     ▶
                   </button>
                   <input
@@ -363,7 +363,7 @@ export default function Topic18() {
                     value={currentStep}
                     onChange={(e) => goToStep(parseInt(e.target.value))}
                     className="w-48 accent-indigo-600 dark:accent-indigo-400"
-                  /&gt;
+                  />
                 </div>
 
                 <VisualStack traces={traces} currentStep={currentStep} />
@@ -381,7 +381,7 @@ export default function Topic18() {
         </section>
 
         {/* DETAILED TRACE TABLE */}
-        {traces.length &gt; 0 && (
+        {traces.length > 0 && (
           <section className="animate-fadeUp delay-300">
             <div className="rounded-2xl bg-gray-50 dark:bg-gray-900/60 p-6 sm:p-8 border border-gray-200 dark:border-gray-800">
               <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 flex items-center gap-2">

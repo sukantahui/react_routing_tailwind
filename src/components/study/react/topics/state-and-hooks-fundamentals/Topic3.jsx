@@ -307,7 +307,7 @@ const Topic3 = () => {
                   ? "bg-gray-700 hover:bg-gray-600 text-gray-200 shadow-lg hover:shadow-xl" 
                   : "bg-gray-200 hover:bg-gray-300 text-gray-800 shadow-md hover:shadow-lg"
               )}
-            &gt;
+            >
               {isDarkMode ? '🌙 Dark' : '☀️ Light'}
             </button>
           </div>
@@ -408,7 +408,7 @@ const Topic3 = () => {
                   ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                   : "bg-gray-200 hover:bg-gray-300 text-gray-700"
             )}
-          &gt;
+          >
             📚 Core Concepts
           </button>
           <button
@@ -424,7 +424,7 @@ const Topic3 = () => {
                   ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                   : "bg-gray-200 hover:bg-gray-300 text-gray-700"
             )}
-          &gt;
+          >
             ⚖️ Detailed Comparison
           </button>
           <button
@@ -440,7 +440,7 @@ const Topic3 = () => {
                   ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                   : "bg-gray-200 hover:bg-gray-300 text-gray-700"
             )}
-          &gt;
+          >
             🎮 Interactive Demos
           </button>
         </div>
@@ -804,7 +804,7 @@ const Topic3 = () => {
                       ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                       : "bg-gray-200 hover:bg-gray-300 text-gray-700"
                 )}
-              &gt;
+              >
                 🔍 Differences
               </button>
               <button
@@ -820,7 +820,7 @@ const Topic3 = () => {
                       ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                       : "bg-gray-200 hover:bg-gray-300 text-gray-700"
                 )}
-              &gt;
+              >
                 🛠️ Hooks Deep Dive
               </button>
             </div>
@@ -933,7 +933,7 @@ const Topic3 = () => {
                             : "border-gray-300 bg-white hover:bg-gray-100"
                       )}
                       style={{ animationDelay: `${index * 100}ms` }}
-                    &gt;
+                    >
                       <div className="flex items-start gap-3">
                         <div className={clsx(
                           "text-2xl p-2 rounded-lg",
@@ -1100,7 +1100,7 @@ const Topic3 = () => {
                       <button
                         onClick={() => setCount(0)}
                         className="flex-1 py-2 bg-gray-600 hover:bg-gray-700 rounded-lg transition-colors"
-                      &gt;
+                      >
                         Reset
                       </button>
                       <button
@@ -1190,7 +1190,7 @@ const Topic3 = () => {
                           : "bg-white border-gray-300 text-gray-900"
                       )}
                       onKeyPress={(e) => e.key === 'Enter' && addTodo()}
-                    /&gt;
+                    />
                     <button
                       onClick={addTodo}
                       className="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg transition-colors"
@@ -1220,7 +1220,7 @@ const Topic3 = () => {
                                 ? "bg-green-500 border-green-500" 
                                 : "border-gray-400"
                             )}
-                          &gt;
+                          >
                             {todo.completed && '✓'}
                           </button>
                           <span className={clsx(
@@ -1232,7 +1232,7 @@ const Topic3 = () => {
                         <button
                           onClick={() => dispatch({ type: 'DELETE_TODO', payload: todo.id })}
                           className="text-red-400 hover:text-red-300"
-                        &gt;
+                        >
                           Delete
                         </button>
                       </div>
@@ -1312,7 +1312,7 @@ const Topic3 = () => {
                               ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                               : "bg-gray-200 hover:bg-gray-300 text-gray-700"
                         )}
-                      &gt;
+                      >
                         {location}
                       </button>
                     ))}

@@ -138,7 +138,7 @@ export default function Topic16() {
             stack.pop()  // discard '('
         else: // token is operator
             while stack not empty and stack.top() != '(' and
-                  precedence(stack.top()) &gt; precedence(token):
+                  precedence(stack.top()) > precedence(token):
                 output.append(stack.pop())
             stack.push(token)
 

@@ -320,7 +320,7 @@ const Topic5 = () => {
                   value={targetTable}
                   onChange={(e) => setTargetTable(e.target.value)}
                   className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs font-mono text-white focus:border-teal-500 focus:outline-none"
-                /&gt;
+                />
               </div>
 
               <div>
@@ -338,7 +338,7 @@ const Topic5 = () => {
                           ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                           : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                       )}
-                    &gt;
+                    >
                       {op}
                     </button>
                   ))}
@@ -354,7 +354,7 @@ const Topic5 = () => {
                   value={colName}
                   onChange={(e) => setColName(e.target.value)}
                   className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs font-mono text-white focus:border-teal-500 focus:outline-none"
-                /&gt;
+                />
               </div>
 
               {(alterOp === "change" || alterOp === "rename") && (
@@ -367,7 +367,7 @@ const Topic5 = () => {
                     value={newColName}
                     onChange={(e) => setNewColName(e.target.value)}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs font-mono text-white focus:border-teal-500 focus:outline-none"
-                  /&gt;
+                  />
                 </div>
               )}
 
@@ -383,14 +383,14 @@ const Topic5 = () => {
                       onChange={(e) => setColType(e.target.value)}
                       placeholder="CHAR(10)"
                       className="rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs font-mono text-white focus:border-teal-500 focus:outline-none"
-                    /&gt;
+                    />
                     <input
                       type="text"
                       value={colConstraint}
                       onChange={(e) => setColConstraint(e.target.value)}
                       placeholder="NOT NULL"
                       className="rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs font-mono text-white focus:border-teal-500 focus:outline-none"
-                    /&gt;
+                    />
                   </div>
                 </div>
               )}

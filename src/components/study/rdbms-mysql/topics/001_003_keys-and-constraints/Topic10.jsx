@@ -315,7 +315,7 @@ const Topic10 = () => {
                           ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                           : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                       )}
-                    &gt;
+                    >
                       <div className="font-bold">{c.name}</div>
                       <div className="text-[10px] text-slate-500">Index #{c.index}</div>
                     </button>
@@ -346,7 +346,7 @@ const Topic10 = () => {
                             ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                             : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                         )}
-                      &gt;
+                      >
                         <div className="font-bold flex items-center justify-between">
                           <span>{s.name}</span>
                           <span>{isChecked ? "☑" : "☐"}</span>
@@ -366,7 +366,7 @@ const Topic10 = () => {
                     checked={testInvalidMode}
                     onChange={(e) => setTestInvalidMode(e.target.checked)}
                     className="rounded border-slate-800 bg-slate-900 text-rose-500 focus:ring-0"
-                  /&gt;
+                  />
                   <span>Test with invalid city <code>'Bangalore'</code> (Triggers Error 1265)</span>
                 </label>
               </div>

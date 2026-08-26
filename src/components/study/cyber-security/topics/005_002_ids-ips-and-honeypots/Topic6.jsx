@@ -366,7 +366,7 @@ const Topic6 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              &gt;
+              >
                 {q.title}
               </button>
             ))}
@@ -433,7 +433,7 @@ const Topic6 = () => {
                 value={selectedIncidentScenario}
                 onChange={(e) => setSelectedIncidentScenario(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              &gt;
+              >
                 {Object.values(testScenarios).map((s) => (
                   <option key={s.id} value={s.id}>
                     {s.label}
@@ -448,7 +448,7 @@ const Topic6 = () => {
                 value={ruleTuningState}
                 onChange={(e) => setRuleTuningState(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              &gt;
+              >
                 <option value="naive_greedy_regex">1. Untuned Rule Base (Loose Regex content:"select")</option>
                 <option value="tuned_sql_token">2. Tuned SQL Grammar Token (Exact Syntax Match)</option>
                 <option value="scanner_whitelisted">3. Tuned + Scanner Suppressed (Production Standard)</option>
@@ -547,7 +547,7 @@ const Topic6 = () => {
                 value={totalDailyPacketsMillions}
                 onChange={(e) => setTotalDailyPacketsMillions(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -563,7 +563,7 @@ const Topic6 = () => {
                 value={attackPrevalencePercent}
                 onChange={(e) => setAttackPrevalencePercent(Number(e.target.value))}
                 className="w-full accent-purple-400 cursor-pointer"
-              /&gt;
+              />
               <span className="text-[10px] text-gray-500 block">Real Attacks: ~{calculatedBayesianMetrics.actualAttacks.toLocaleString()}</span>
             </div>
 
@@ -580,7 +580,7 @@ const Topic6 = () => {
                 value={sensorFalsePositiveRate}
                 onChange={(e) => setSensorFalsePositiveRate(Number(e.target.value))}
                 className="w-full accent-rose-400 cursor-pointer"
-              /&gt;
+              />
             </div>
           </div>
 
@@ -636,7 +636,7 @@ const Topic6 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 {d.title}
               </button>
             ))}

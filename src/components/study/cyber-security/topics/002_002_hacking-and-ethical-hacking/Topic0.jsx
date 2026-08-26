@@ -77,7 +77,7 @@ app.get('/api/invoice/:invoiceId', async (req, res) => {
   const invoice = await Invoice.findById(req.params.invoiceId);
   return res.json(invoice);
 });`,
-      exploitInput: `GET /api/invoice/100452  - &rarr; Change parameter to:  GET /api/invoice/100453`,
+      exploitInput: `GET /api/invoice/100452  -->  Change parameter to:  GET /api/invoice/100453`,
       payloadEffect:
         "Allows unauthorized users to download proprietary invoices, tax records, and personal customer data belonging to any other user across the platform.",
       remediationCode: `// Secure Object Ownership Verification:
@@ -128,7 +128,7 @@ if (finalTotal === 0 && subtotal > 0) enforceMinimumSpend(cartItems);`
 
     const impactSubscore = 7.52 * iss;
     let score = 0;
-    if (impactSubscore &le; 0) {
+    if (impactSubscore <= 0) {
       score = 0;
     } else {
       score = Math.min(10.0, exploitability + impactSubscore);
@@ -140,7 +140,7 @@ if (finalTotal === 0 && subtotal > 0) enforceMinimumSpend(cartItems);`
     if (finalScore >= 9.0) {
       severity = "CRITICAL";
       severityColor = "text-rose-400";
-    } else if (finalScore &ge; 7.0) {
+    } else if (finalScore >= 7.0) {
       severity = "HIGH";
       severityColor = "text-amber-400";
     } else if (finalScore >= 4.0) {
@@ -311,7 +311,7 @@ if (finalTotal === 0 && subtotal > 0) enforceMinimumSpend(cartItems);`
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-300 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="font-bold truncate">{v.title.split(" (")[0]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{v.category}</div>
                   <div className={clsx("mt-1.5 text-[10px] px-1.5 py-0.5 rounded border inline-block", v.badgeClass)}>
@@ -405,7 +405,7 @@ if (finalTotal === 0 && subtotal > 0) enforceMinimumSpend(cartItems);`
                   value={attackVector}
                   onChange={(e) => setAttackVector(e.target.value)}
                   className="w-full bg-gray-900 border border-gray-700 rounded-lg p-2 text-gray-200 text-xs focus:outline-none focus:border-indigo-500"
-                &gt;
+                >
                   <option value="network">Network (Remote Internet - AV:N)</option>
                   <option value="adjacent">Adjacent (Local Subnet / Wi-Fi - AV:A)</option>
                   <option value="local">Local (Local User Account - AV:L)</option>
@@ -420,7 +420,7 @@ if (finalTotal === 0 && subtotal > 0) enforceMinimumSpend(cartItems);`
                   value={attackComplexity}
                   onChange={(e) => setAttackComplexity(e.target.value)}
                   className="w-full bg-gray-900 border border-gray-700 rounded-lg p-2 text-gray-200 text-xs focus:outline-none focus:border-indigo-500"
-                &gt;
+                >
                   <option value="low">Low (Repeatable with minimal skill - AC:L)</option>
                   <option value="high">High (Requires race conditions / bypassing ASLR - AC:H)</option>
                 </select>
@@ -433,7 +433,7 @@ if (finalTotal === 0 && subtotal > 0) enforceMinimumSpend(cartItems);`
                   value={privilegesRequired}
                   onChange={(e) => setPrivilegesRequired(e.target.value)}
                   className="w-full bg-gray-900 border border-gray-700 rounded-lg p-2 text-gray-200 text-xs focus:outline-none focus:border-indigo-500"
-                &gt;
+                >
                   <option value="none">None (Unauthenticated - PR:N)</option>
                   <option value="low">Low (Standard User - PR:L)</option>
                   <option value="high">High (Administrator / Root - PR:H)</option>
@@ -447,7 +447,7 @@ if (finalTotal === 0 && subtotal > 0) enforceMinimumSpend(cartItems);`
                   value={impactLevel}
                   onChange={(e) => setImpactLevel(e.target.value)}
                   className="w-full bg-gray-900 border border-gray-700 rounded-lg p-2 text-gray-200 text-xs focus:outline-none focus:border-indigo-500"
-                &gt;
+                >
                   <option value="high">High (Complete Takeover / Major Data Leak)</option>
                   <option value="low">Low (Minor Non-Sensitive Info Disclosure)</option>
                   <option value="none">None (Zero Measurable Impact)</option>
@@ -468,7 +468,7 @@ if (finalTotal === 0 && subtotal > 0) enforceMinimumSpend(cartItems);`
                   value={assetValueLakhsINR}
                   onChange={(e) => setAssetValueLakhsINR(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
-                /&gt;
+                />
               </div>
             </div>
 
@@ -675,7 +675,7 @@ if (finalTotal === 0 && subtotal > 0) enforceMinimumSpend(cartItems);`
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

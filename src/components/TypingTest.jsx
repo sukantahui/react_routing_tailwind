@@ -32,7 +32,7 @@ export default class TypingTest extends Component {
 
     // Determine accounting year
     let startYear;
-    if (month &ge; 4) {
+    if (month >= 4) {
       // From April to December → accounting year starts this year
       startYear = year;
     } else {
@@ -107,7 +107,7 @@ export default class TypingTest extends Component {
   // ⭐ GRADE SYSTEM HELPERS
   // ================================================
   calculateGrade = (wpm, accuracy) => {
-    if (wpm &ge; 45 && accuracy >= 95) return "A+";
+    if (wpm >= 45 && accuracy >= 95) return "A+";
     if (wpm >= 35 && accuracy >= 90) return "A";
     if (wpm >= 25 && accuracy >= 85) return "B";
     if (wpm >= 15 && accuracy >= 80) return "C";
@@ -155,7 +155,7 @@ export default class TypingTest extends Component {
   };
 
   calculateStars = (wpm, accuracy) => {
-    if (wpm &ge; 50 && accuracy >= 97) return 5;
+    if (wpm >= 50 && accuracy >= 97) return 5;
     if (wpm >= 40 && accuracy >= 90) return 4;
     if (wpm >= 30 && accuracy >= 85) return 3;
     if (wpm >= 15 && accuracy >= 75) return 2;
@@ -174,7 +174,7 @@ export default class TypingTest extends Component {
   startTimer = () => {
     this.timer = setInterval(() => {
       this.setState((prev) => {
-        if (prev.timeLeft &le; 1) {
+        if (prev.timeLeft <= 1) {
           clearInterval(this.timer);
 
           return {
@@ -269,7 +269,7 @@ export default class TypingTest extends Component {
       elapsedSeconds > 0 ? Math.round((correctWords / elapsedSeconds) * 60) : 0;
 
     const accuracy =
-      inputWords.length &gt; 0
+      inputWords.length > 0
         ? Math.round((correctWords / inputWords.length) * 100)
         : 0;
 
@@ -427,7 +427,7 @@ export default class TypingTest extends Component {
                   className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white outline-none focus:ring-2 focus:ring-blue-500"
                   required
                   autoFocus
-                /&gt;
+                />
 
                 <div className="flex justify-center mt-6">
                   <button
@@ -612,14 +612,14 @@ export default class TypingTest extends Component {
                   <button
                     onClick={() => window.print()}
                     className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-md text-base"
-                  &gt;
+                  >
                     Print / Download
                   </button>
 
                   <button
                     onClick={() => this.setState({ showCertificate: false })}
                     className="px-6 py-2 bg-gray-700 hover:bg-gray-800 text-white rounded-xl shadow-md text-base"
-                  &gt;
+                  >
                     Close
                   </button>
                 </div>

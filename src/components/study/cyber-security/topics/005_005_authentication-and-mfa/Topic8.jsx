@@ -191,7 +191,7 @@ const Topic8 = () => {
                     ? "bg-indigo-600 text-white shadow-lg shadow-indigo-950"
                     : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                 )}
-              &gt;
+              >
                 1. Registration Phase
               </button>
               <button
@@ -202,7 +202,7 @@ const Topic8 = () => {
                     ? "bg-emerald-600 text-white shadow-lg shadow-emerald-950"
                     : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                 )}
-              &gt;
+              >
                 2. Authentication Phase
               </button>
             </div>
@@ -234,7 +234,7 @@ const Topic8 = () => {
                       checked={hasTouchedKey}
                       onChange={(e) => setHasTouchedKey(e.target.checked)}
                       className="accent-emerald-500 w-4 h-4"
-                    /&gt;
+                    />
                   </label>
                   <label className="flex items-center justify-between p-2 bg-slate-900 rounded-lg border border-slate-800 cursor-pointer">
                     <span>Hardware FIDO PIN (UV)</span>
@@ -243,7 +243,7 @@ const Topic8 = () => {
                       checked={hasEnteredPin}
                       onChange={(e) => setHasEnteredPin(e.target.checked)}
                       className="accent-emerald-500 w-4 h-4"
-                    /&gt;
+                    />
                   </label>
                 </div>
               )}
@@ -310,7 +310,7 @@ const Topic8 = () => {
                     ? "bg-emerald-600 text-white shadow-lg shadow-emerald-950"
                     : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                 )}
-              &gt;
+              >
                 1. Legitimate Bank Portal
               </button>
               <button
@@ -321,7 +321,7 @@ const Topic8 = () => {
                     ? "bg-rose-600 text-white shadow-lg shadow-rose-950"
                     : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                 )}
-              &gt;
+              >
                 2. Evilginx Phishing Proxy ⚠️
               </button>
             </div>
@@ -376,7 +376,7 @@ const Topic8 = () => {
                       ? "bg-emerald-600 text-white shadow-lg shadow-emerald-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                &gt;
+                >
                   {key === "barrackpore_yubikey" ? "Barrackpore YubiKey" : key === "kolkata_fintech_pci" ? "Kolkata FinTech WebAuthn" : "Ichapur FIPS Keys"}
                 </button>
               ))}

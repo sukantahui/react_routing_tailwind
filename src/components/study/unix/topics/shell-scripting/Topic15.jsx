@@ -164,18 +164,18 @@ const Topic15 = () => {
                                                     ? "bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg scale-105"
                                                     : "bg-gray-100 dark:bg-gray-700"
                                             )}
-                                        &gt;
+                                        >
                                             <div className="flex items-center">
                                                 <div className={clsx(
                                                     "w-8 h-8 rounded-full flex items-center justify-center mr-3",
                                                     executionStep > index 
                                                         ? "bg-white/30" 
                                                         : "bg-gray-200 dark:bg-gray-600"
-                                                )}&gt;
+                                                )}>
                                                     <span className={clsx(
                                                         "font-bold",
                                                         executionStep > index ? "text-white" : "text-gray-600 dark:text-gray-400"
-                                                    )}&gt;
+                                                    )}>
                                                         {step.step}
                                                     </span>
                                                 </div>
@@ -211,7 +211,7 @@ const Topic15 = () => {
                                 <div className="mb-4">
                                     <div className="text-sm text-gray-500 dark:text-gray-400 mb-1">Current Step:</div>
                                     <div className="font-mono text-lg font-bold text-blue-600 dark:text-blue-400">
-                                        {executionStep &gt; 0 ? executionSteps[executionStep - 1]?.description : "Ready to start"}
+                                        {executionStep > 0 ? executionSteps[executionStep - 1]?.description : "Ready to start"}
                                     </div>
                                 </div>
                                 
@@ -222,15 +222,15 @@ const Topic15 = () => {
                                     </pre>
                                 </div>
                                 
-                                {executionStep &gt; 0 && (
+                                {executionStep > 0 && (
                                     <div className="mt-4 p-4 bg-white/50 dark:bg-gray-700/50 rounded-lg">
                                         <div className="text-sm text-gray-500 dark:text-gray-400 mb-1">What's Happening:</div>
                                         <ul className="text-gray-700 dark:text-gray-300 space-y-1">
-                                            {executionStep &ge; 1 && <li>✓ Function is defined in memory</li>}
-                                            {executionStep &ge; 2 && <li>✓ Function is invoked (called)</li>}
-                                            {executionStep &ge; 3 && <li>✓ Arguments are passed to function parameters</li>}
-                                            {executionStep &ge; 4 && <li>✓ Return value is captured</li>}
-                                            {executionStep &ge; 5 && <li>✓ Exit status is checked</li>}
+                                            {executionStep >= 1 && <li>✓ Function is defined in memory</li>}
+                                            {executionStep >= 2 && <li>✓ Function is invoked (called)</li>}
+                                            {executionStep >= 3 && <li>✓ Arguments are passed to function parameters</li>}
+                                            {executionStep >= 4 && <li>✓ Return value is captured</li>}
+                                            {executionStep >= 5 && <li>✓ Exit status is checked</li>}
                                         </ul>
                                     </div>
                                 )}
@@ -263,7 +263,7 @@ const Topic15 = () => {
                                     animationDelay: `${index * 100}ms`,
                                     animation: 'motion-safe:animate-[fadeInUp_0.6s_ease-out]'
                                 }}
-                            &gt;
+                            >
                                 <div className="font-semibold mb-1">{type.name}</div>
                                 <div className="text-sm mb-2">{type.description}</div>
                                 <code className="text-xs opacity-80 bg-black/10 dark:bg-white/10 px-2 py-1 rounded block truncate">

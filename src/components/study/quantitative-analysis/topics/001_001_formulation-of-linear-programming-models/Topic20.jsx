@@ -795,7 +795,7 @@ const Topic20 = () => {
           note={
             "This example shows a beautiful case of perfect resource balance—all three constraints are binding! I tell my students: 'This is the agricultural equivalent of a perfectly balanced budget.' The minimum requirement for Crop A is not binding (40 > 10), which means the farmer naturally wants to plant more Crop A than the contract requires. Why? Because Crop A is more labor-efficient, and the farmer has ample labor. The key insight here is resource efficiency: Crop A gives ₹22,500 per labor-day vs Crop B's ₹13,750. So even though Crop B has higher profit per hectare, Crop A is better for labor utilization. The optimal 40/40 mix balances labor, fertilizer, and land perfectly. Mamata from Barrackpore once used this approach to help her uncle optimize his farm, increasing profit by 15%. Remember: when all resources are binding, the solution is perfectly efficient—there's no wasted capacity in any resource."
           }
-        /&gt;
+        />
       </div>
     </div>
   );

@@ -119,7 +119,7 @@ const Topic16 = () => {
                   <pre className="bg-gray-950 p-4 rounded-lg overflow-x-auto text-sm">
 {`<button onClick={() => 
   handleClick(item.id)}
-&gt;
+>
   Select Item
 </button>`}
                   </pre>
@@ -178,7 +178,7 @@ const Topic16 = () => {
                       )}
                       style={{ animationDelay: `${index * 100}ms` }}
                       onClick={() => handleStudentClick(student.name)}
-                    &gt;
+                    >
                       <div className="flex justify-between items-center">
                         <div>
                           <h4 className="font-bold text-lg group-hover:text-cyan-300 transition-colors">
@@ -190,13 +190,13 @@ const Topic16 = () => {
                           <button
                             onClick={(e) => handleGradeUpdate(e, student.id, 'A+')}
                             className="px-3 py-1 bg-green-900/30 text-green-400 rounded-lg hover:bg-green-800/50 transition-colors text-sm border border-green-800/50"
-                          &gt;
+                          >
                             A+
                           </button>
                           <button
                             onClick={(e) => handleSendMessage(student)}
                             className="px-3 py-1 bg-blue-900/30 text-blue-400 rounded-lg hover:bg-blue-800/50 transition-colors text-sm border border-blue-800/50"
-                          &gt;
+                          >
                             Message
                           </button>
                         </div>
@@ -227,7 +227,7 @@ const Topic16 = () => {
                                 ? "bg-green-900/50 text-green-300 border-green-700" 
                                 : "bg-gray-800 text-gray-400 hover:bg-green-900/30 hover:text-green-300 border-gray-700"
                             )}
-                          &gt;
+                          >
                             Present
                           </button>
                           <button
@@ -238,7 +238,7 @@ const Topic16 = () => {
                                 ? "bg-red-900/50 text-red-300 border-red-700" 
                                 : "bg-gray-800 text-gray-400 hover:bg-red-900/30 hover:text-red-300 border-gray-700"
                             )}
-                          &gt;
+                          >
                             Absent
                           </button>
                         </div>
@@ -283,7 +283,7 @@ const Topic16 = () => {
                         ? "bg-yellow-900/50 text-yellow-300 border border-yellow-700"
                         : "bg-gray-900 text-gray-400 hover:bg-gray-800 border border-gray-700"
                     )}
-                  &gt;
+                  >
                     {type.charAt(0).toUpperCase() + type.slice(1)}
                   </button>
                 ))}
@@ -291,7 +291,7 @@ const Topic16 = () => {
             </div>
 
             <div className="bg-gray-900/60 rounded-xl p-4 max-h-80 overflow-y-auto">
-              {filteredMessages.length &gt; 0 ? (
+              {filteredMessages.length > 0 ? (
                 <div className="space-y-3">
                   {filteredMessages.map((msg) => (
                     <div 
@@ -363,7 +363,7 @@ const Topic16 = () => {
 {`// Parent component
 <StudentCard 
   onClick={() => selectStudent(id)}
-/&gt;
+/>
 
 // Handler receives just the ID
 const selectStudent = (studentId) => {
@@ -378,7 +378,7 @@ const selectStudent = (studentId) => {
 {`// Need both event and custom data
 <button onClick={(e) => 
   handleClick(e, userData)}
-&gt;
+>
   Submit
 </button>
 
@@ -478,7 +478,7 @@ const handleClick = (event, data) => {
                     </div>
                     <pre className="bg-gray-950 p-3 rounded-lg text-sm overflow-x-auto">
 {`// ❌ WRONG - No way to access event
-<button onClick={() => handleClick(data)}&gt;
+<button onClick={() => handleClick(data)}>
   Click me
 </button>
 
@@ -505,12 +505,12 @@ const handleClick = (event) => {
                     </div>
                     <pre className="bg-gray-950 p-3 rounded-lg text-sm overflow-x-auto">
 {`// ✅ CORRECT - Creates function on click
-<button onClick={() => handleClick(userId)}&gt;
+<button onClick={() => handleClick(userId)}>
   Click me
 </button>
 
 // Or pass event if needed
-<button onClick={(e) => handleClick(e, userId)}&gt;
+<button onClick={(e) => handleClick(e, userId)}>
   Click me
 </button>`}
                     </pre>

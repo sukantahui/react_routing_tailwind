@@ -53,7 +53,7 @@ EnrichedScoring AS (
 -- Final Presentation: Filter Honors tier:
 SELECT * 
 FROM EnrichedScoring 
-WHERE variance_from_dept &gt; 0
+WHERE variance_from_dept > 0
 ORDER BY variance_from_dept DESC;`,
       resultRows: [
         { id: "STU-103", name: "Abhronila Saha", stage: "Stage 3 Enriched", metric1: "Score: 96.20%", metric2: "IT Avg: 89.30%", result: "+6.90% Above Dept", status: "Dept Honors" },
@@ -163,7 +163,7 @@ SELECT
     'Top Tier Champion' AS student_tier
 FROM ScoredRFM rfm
 JOIN students s ON rfm.student_id = s.student_id
-WHERE rfm.r_score &ge; 3 AND rfm.m_score >= 3;`,
+WHERE rfm.r_score >= 3 AND rfm.m_score >= 3;`,
       resultRows: [
         { id: "STU-101", name: "Mamata Hui", stage: "RFM Scored", metric1: "R: 4, F: 4, M: 4", metric2: "Segment: 444", result: "Top Champion", status: "VIP Student" },
         { id: "STU-103", name: "Abhronila Saha", stage: "RFM Scored", metric1: "R: 4, F: 3, M: 4", metric2: "Segment: 434", result: "High Value", status: "VIP Student" },
@@ -420,7 +420,7 @@ WHERE rfm.r_score &ge; 3 AND rfm.m_score >= 3;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(

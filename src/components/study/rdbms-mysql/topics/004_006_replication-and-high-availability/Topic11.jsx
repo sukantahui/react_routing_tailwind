@@ -26,8 +26,8 @@ const Topic11 = () => {
       badge: "Consensus Quorum",
       badgeColor: "emerald",
       sqlSnippet: `-- 🧮 QUORUM & FAULT TOLERANCE FORMULA: N = 2F + 1
--- 3 Nodes &rarr; Tolerate F = 1 Failure (Majority Quorum = 2)
--- 5 Nodes -&gt; Tolerate F = 2 Failures (Majority Quorum = 3)
+-- 3 Nodes -> Tolerate F = 1 Failure (Majority Quorum = 2)
+-- 5 Nodes -> Tolerate F = 2 Failures (Majority Quorum = 3)
 -- 7 Nodes -> Tolerate F = 3 Failures (Majority Quorum = 4)
 
 -- ⚙️ PORT 33061 (Paxos Group Communication System / GCS):
@@ -208,7 +208,7 @@ FROM performance_schema.replication_group_member_stats;`,
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                &gt;
+                >
                   {phase.phaseNumber}
                 </button>
               );

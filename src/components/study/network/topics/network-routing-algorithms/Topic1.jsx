@@ -130,7 +130,7 @@ export default function Topic1() {
                 <line x1="588" y1="120" x2="692" y2="200" stroke="#9ca3af" strokeWidth="3" marker-end="url(#arrowhead)" />
                 <text x="630" y="150" fill="currentColor" fontSize="16">2</text>
 
-                {/* <!-- Animated packet exploring nodes (simple moving dot along the final shortest path A->B &rarr; C? Actually shortest from A to E: A-&gt;B->D->E cost 4+3+2=9? Let's compute: A->B(4), B->D(3), D->E(2) total 9; or A->C(2)+C->D(5)+D->E(2)=9 same; we'll show A->B->D->E) --> */}
+                {/* <!-- Animated packet exploring nodes (simple moving dot along the final shortest path A->B->C? Actually shortest from A to E: A->B->D->E cost 4+3+2=9? Let's compute: A->B(4), B->D(3), D->E(2) total 9; or A->C(2)+C->D(5)+D->E(2)=9 same; we'll show A->B->D->E) --> */}
                 <path id="shortestPath" d="M108,200 L232,120 L532,120 L692,200" fill="none" stroke="none" />
                 <circle r="6" fill="#ff0080" stroke="white" strokeWidth="1.5">
                   <animateMotion dur="6s" repeatCount="indefinite" rotate="auto">

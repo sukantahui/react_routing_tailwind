@@ -444,7 +444,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                   ? "bg-slate-800 border-slate-600 text-white shadow-sm"
                   : "bg-slate-900/80 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
               }`}
-            &gt;
+            >
               <Award size={14} className="text-sky-400" />
               Course Outcomes (CO1–CO4)
               <ChevronDown size={13} className={`transition-transform ${activeTabModal === "outcomes" ? "rotate-180" : ""}`} />
@@ -457,7 +457,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                   ? "bg-slate-800 border-slate-600 text-white shadow-sm"
                   : "bg-slate-900/80 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
               }`}
-            &gt;
+            >
               <BookOpen size={14} className="text-indigo-400" />
               Textbooks & References
               <ChevronDown size={13} className={`transition-transform ${activeTabModal === "books" ? "rotate-180" : ""}`} />
@@ -470,7 +470,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                   ? "bg-slate-800 border-slate-600 text-white shadow-sm"
                   : "bg-slate-900/80 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
               }`}
-            &gt;
+            >
               <FileText size={14} className="text-emerald-400" />
               Prerequisites & Assessment
               <ChevronDown size={13} className={`transition-transform ${activeTabModal === "prereq" ? "rotate-180" : ""}`} />
@@ -492,7 +492,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                   <button
                     onClick={() => setActiveTabModal(null)}
                     className="absolute top-4 right-4 p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition"
-                  &gt;
+                  >
                     <X size={16} />
                   </button>
 
@@ -695,7 +695,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                 </div>
               )}
 
-              {stats.completedCount &gt; 0 && (
+              {stats.completedCount > 0 && (
                 <button
                   onClick={handleResetProgress}
                   className="text-[11px] text-slate-500 hover:text-slate-400 flex items-center justify-center gap-1 hover:underline transition self-center"
@@ -725,12 +725,12 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className="w-full pl-9 pr-9 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 placeholder:text-slate-500 text-xs sm:text-sm focus:outline-none focus:border-slate-600 transition"
-              /&gt;
+              />
               {search && (
                 <button
                   onClick={() => setSearch("")}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 transition"
-                &gt;
+                >
                   <X size={14} />
                 </button>
               )}
@@ -751,7 +751,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                       ? "bg-slate-800 text-slate-200 shadow-sm"
                       : "text-slate-500 hover:text-slate-300"
                   }`}
-                &gt;
+                >
                   <LayoutGrid size={14} />
                   <span className="hidden md:inline">Grid</span>
                 </button>
@@ -764,7 +764,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                       ? "bg-slate-800 text-slate-200 shadow-sm"
                       : "text-slate-500 hover:text-slate-300"
                   }`}
-                &gt;
+                >
                   <ListOrdered size={14} />
                   <span className="hidden md:inline">Timeline</span>
                 </button>
@@ -786,7 +786,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                   ? "bg-slate-200 text-slate-950 font-semibold"
                   : "bg-slate-900 border border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
               }`}
-            &gt;
+            >
               All Segments ({stats.total})
             </button>
 
@@ -804,7 +804,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                       ? "bg-slate-800 border border-slate-600 text-slate-100 font-semibold"
                       : "bg-slate-900 border border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   }`}
-                &gt;
+                >
                   <span className={`inline-block w-1.5 h-1.5 rounded-full ${theme.dot}`} />
                   <span>{seg.title.split("–")[0].trim()} ({count})</span>
                 </button>
@@ -827,7 +827,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                       ? "bg-slate-800 text-slate-200 font-medium"
                       : "text-slate-500 hover:text-slate-300"
                   }`}
-                &gt;
+                >
                   {lvl === "all" ? "All Levels" : lvl}
                 </button>
               ))}
@@ -842,7 +842,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                     ? "bg-slate-800 text-slate-200 font-medium"
                     : "text-slate-500 hover:text-slate-300"
                 }`}
-              &gt;
+              >
                 All Status
               </button>
 
@@ -853,7 +853,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                     ? "bg-slate-800 text-slate-200 font-medium"
                     : "text-slate-500 hover:text-slate-300"
                 }`}
-              &gt;
+              >
                 <Circle size={9} className="text-slate-400" />
                 Unfinished ({stats.remainingCount})
               </button>
@@ -865,7 +865,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                     ? "bg-slate-800 text-slate-200 font-medium"
                     : "text-slate-500 hover:text-slate-300"
                 }`}
-              &gt;
+              >
                 <CheckCircle2 size={10} className="text-emerald-400" />
                 Completed ({stats.completedCount})
               </button>
@@ -877,7 +877,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                     ? "bg-slate-800 text-slate-200 font-medium"
                     : "text-slate-500 hover:text-slate-300"
                 }`}
-              &gt;
+              >
                 <Bookmark size={10} className="text-amber-400" />
                 Bookmarked ({stats.bookmarkedCount})
               </button>
@@ -893,7 +893,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                   setSearch("");
                 }}
                 className="px-2 py-0.5 rounded-md text-[11px] text-slate-400 hover:text-slate-200 hover:bg-slate-800 border border-slate-800 transition flex items-center gap-1"
-              &gt;
+              >
                 <RotateCcw size={10} /> Reset Filters
               </button>
             )}
@@ -932,7 +932,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
         {/* ========================================================== */}
         {/* Segmented Curriculum Modules View */}
         {/* ========================================================== */}
-        {filteredSegments.length &gt; 0 ? (
+        {filteredSegments.length > 0 ? (
           <div className="space-y-10">
             {filteredSegments.map((segment) => {
               const theme = segment.theme;
@@ -1072,7 +1072,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                 setStatusFilter("all");
               }}
               className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-xs transition border border-slate-700"
-            &gt;
+            >
               Clear All Filters
             </button>
           </div>
@@ -1095,7 +1095,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                     e.target.src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80";
                   }}
                   className="w-full h-full rounded-xl object-cover"
-                /&gt;
+                />
               </div>
             </div>
 
@@ -1329,7 +1329,7 @@ function ModuleCard({
         )}
 
         {/* Topics Accordion Preview */}
-        {topicsCount &gt; 0 && (
+        {topicsCount > 0 && (
           <div className="mt-2.5">
             <div className="flex flex-wrap gap-1">
               {(isExpanded ? module.topics : module.topics.slice(0, 3)).map((topic, i) => (
@@ -1342,7 +1342,7 @@ function ModuleCard({
               ))}
             </div>
 
-            {topicsCount &gt; 3 && (
+            {topicsCount > 3 && (
               <button
                 onClick={onToggleExpand}
                 className="mt-1 inline-flex items-center gap-1 text-[10px] text-slate-400 hover:text-slate-200 font-medium transition"
@@ -1380,7 +1380,7 @@ function ModuleCard({
             </span>
           </div>
 
-          {topicsCount &gt; 0 && (
+          {topicsCount > 0 && (
             <span className="text-slate-500 text-[10px]">
               {topicsCount} {topicsCount === 1 ? "topic" : "topics"}
             </span>

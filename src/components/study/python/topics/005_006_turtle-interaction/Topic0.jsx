@@ -385,22 +385,7 @@ screen.mainloop()`}
           </div>
         </div>
 
-        {/* =========================================================================
-            HINTS & EXPERT MINDSET
-        ========================================================================= */}
-        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.7s]">
-          <div className="bg-cyan-900/20 rounded-2xl p-5 border border-cyan-500/30 space-y-2">
-            <h3 className="text-lg font-semibold text-cyan-300">💡 Hints to Explore</h3>
-            <p className="text-xs text-slate-300">
-              👉 <strong>Think about:</strong> How modern web frameworks (React `onClick`, Node.js EventEmitter) use the exact same first-class callback function pattern!
-            </p>
-            <p className="text-xs text-slate-300">
-              👉 <strong>Observe:</strong> How clicking the canvas creates colorful stamps instantly without blocking other background animations!
-            </p>
-            <p className="text-xs text-slate-300">
-              👉 <strong>Try changing:</strong> Bind keypresses `'r'`, `'g'`, `'b'` to instantly change the active paintbrush color!
-            </p>
-          </div>
+        {/* ==================================================================          </div>
 
           <div className="bg-indigo-900/20 rounded-2xl p-5 border border-indigo-500/30 space-y-2">
             <h3 className="text-lg font-semibold text-indigo-300">🚀 Expert Mindset</h3>

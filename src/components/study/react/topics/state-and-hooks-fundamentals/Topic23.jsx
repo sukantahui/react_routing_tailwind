@@ -320,7 +320,7 @@ return (
                       <span className="text-gray-400">Notifications:</span>
                       <span className="text-yellow-400 font-bold">{user.notifications}</span>
                     </div>
-                    {user.notifications &gt; 0 && (
+                    {user.notifications > 0 && (
                       <button
                         onClick={clearNotifications}
                         className="w-full py-1 bg-yellow-900/30 text-yellow-300 rounded hover:bg-yellow-800/50 text-sm"
@@ -398,7 +398,7 @@ return (
                     </div>
                   )}
                   
-                  {user.notifications &gt; 0 && (
+                  {user.notifications > 0 && (
                     <div className="p-2 bg-yellow-900/20 rounded border border-yellow-800/30">
                       <p className="text-yellow-400">
                         🔔 You have {user.notifications} unread notification{user.notifications !== 1 ? 's' : ''}
@@ -429,7 +429,7 @@ return (
                     </div>
                   )}
                   
-                  {user.isLoggedIn && user.subscription === 'pro' && user.notifications &gt; 0 && (
+                  {user.isLoggedIn && user.subscription === 'pro' && user.notifications > 0 && (
                     <div className="p-3 bg-purple-900/20 rounded-lg border border-purple-800/30">
                       <h5 className="font-bold text-purple-300 mb-1">Pro Notifications</h5>
                       <p className="text-sm text-gray-400">Special alerts for pro members</p>
@@ -509,7 +509,7 @@ return (
 )}
 
 // Combined states
-{!loading && !error && data.length &gt; 0 && (
+{!loading && !error && data.length > 0 && (
   <ul>
     {data.map(item => <li key={item.id}>{item.name}</li>)}
   </ul>
@@ -1122,7 +1122,7 @@ const canAccessFeature = (feature) => {
                               )
                             : "border-gray-700 hover:border-gray-600"
                         )}
-                      &gt;
+                      >
                         <div className="text-2xl mb-1">{config.icon}</div>
                         <p className="text-sm">{config.label}</p>
                       </button>
@@ -1249,7 +1249,7 @@ const ConditionalRender = ({ condition, children }) => {
                   ? "bg-blue-900/30 border-blue-500 text-blue-300"
                   : "bg-gray-800/50 border-gray-700 text-gray-300 hover:border-gray-600"
               )}
-            &gt;
+            >
               {showCode ? 'Hide Code' : 'Show Code'}
             </button>
             
@@ -1332,7 +1332,7 @@ const ConditionalRender = ({ condition, children }) => {
                           ? "bg-blue-900/30 border-blue-500 text-blue-300"
                           : "bg-gray-800/30 border-gray-700 text-gray-300 hover:border-gray-600"
                       )}
-                    &gt;
+                    >
                       {role}
                     </button>
                   ))}
@@ -1358,7 +1358,7 @@ const ConditionalRender = ({ condition, children }) => {
                               )
                             : "bg-gray-800/30 border-gray-700 text-gray-300 hover:border-gray-600"
                         )}
-                      &gt;
+                      >
                         <span className="text-lg">{example.icon}</span>
                         <span>{example.label}</span>
                       </button>
@@ -1375,7 +1375,7 @@ const ConditionalRender = ({ condition, children }) => {
                     <span className={clsx(
                       "font-bold",
                       user.notifications > 0 ? "text-yellow-400" : "text-gray-400"
-                    )}&gt;
+                    )}>
                       {user.notifications}
                     </span>
                   </div>

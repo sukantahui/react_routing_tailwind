@@ -284,7 +284,7 @@ const Topic11 = () => {
                 checked={isHstsPreloaded}
                 onChange={(e) => setIsHstsPreloaded(e.target.checked)}
                 className="rounded bg-slate-900 border-slate-700 text-cyan-500 focus:ring-0"
-              /&gt;
+              />
               <span className="text-slate-300 font-semibold">Enable Domain in HSTS Preload List</span>
             </label>
           </div>
@@ -367,7 +367,7 @@ const Topic11 = () => {
                       ? "bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                &gt;
+                >
                   <span className="font-bold">{item.name.split(" (")[0]}</span>
                   <span className={clsx("text-[10px] px-2 py-0.5 rounded w-fit border", item.badgeColor)}>
                     {item.cve}
@@ -435,7 +435,7 @@ const Topic11 = () => {
                   checked={includeSubdomains}
                   onChange={(e) => setIncludeSubdomains(e.target.checked)}
                   className="rounded bg-slate-950 border-slate-700 text-cyan-500 focus:ring-0"
-                /&gt;
+                />
                 <span className="text-slate-300">HSTS includeSubDomains</span>
               </label>
 
@@ -445,7 +445,7 @@ const Topic11 = () => {
                   checked={enablePreload}
                   onChange={(e) => setEnablePreload(e.target.checked)}
                   className="rounded bg-slate-950 border-slate-700 text-cyan-500 focus:ring-0"
-                /&gt;
+                />
                 <span className="text-slate-300">HSTS preload directive</span>
               </label>
 
@@ -455,7 +455,7 @@ const Topic11 = () => {
                   checked={enableCsp}
                   onChange={(e) => setEnableCsp(e.target.checked)}
                   className="rounded bg-slate-950 border-slate-700 text-cyan-500 focus:ring-0"
-                /&gt;
+                />
                 <span className="text-slate-300">Content-Security-Policy (CSP)</span>
               </label>
 
@@ -465,7 +465,7 @@ const Topic11 = () => {
                   checked={enableNosniff}
                   onChange={(e) => setEnableNosniff(e.target.checked)}
                   className="rounded bg-slate-950 border-slate-700 text-cyan-500 focus:ring-0"
-                /&gt;
+                />
                 <span className="text-slate-300">X-Content-Type-Options: nosniff</span>
               </label>
 
@@ -475,7 +475,7 @@ const Topic11 = () => {
                   checked={enableCaaRecord}
                   onChange={(e) => setEnableCaaRecord(e.target.checked)}
                   className="rounded bg-slate-950 border-slate-700 text-cyan-500 focus:ring-0"
-                /&gt;
+                />
                 <span className="text-slate-300">Generate DNS CAA Record (Restrict CA Issuance)</span>
               </label>
             </div>
@@ -545,7 +545,7 @@ ${enableCaaRecord ? `# DNS Zone CAA Record (barrackpore.gov.in):
                       ? "bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                &gt;
+                >
                   <span className="font-bold">{drill.title}</span>
                   <span className="text-[10px] text-cyan-400">{drill.engineers}</span>
                 </button>

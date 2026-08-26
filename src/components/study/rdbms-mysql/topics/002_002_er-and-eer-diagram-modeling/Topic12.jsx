@@ -345,7 +345,7 @@ const Topic12 = () => {
                     value={selectedStudentId}
                     onChange={(e) => setSelectedStudentId(Number(e.target.value))}
                     className="w-full rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  &gt;
+                  >
                     {students.map((s) => (
                       <option key={s.id} value={s.id}>
                         {s.name.split(" ")[0]} (#{s.id})
@@ -359,7 +359,7 @@ const Topic12 = () => {
                     value={selectedCourseId}
                     onChange={(e) => setSelectedCourseId(Number(e.target.value))}
                     className="w-full rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  &gt;
+                  >
                     {courses.map((c) => (
                       <option key={c.id} value={c.id}>
                         {c.title.split(" ")[0]} (#{c.id})
@@ -373,7 +373,7 @@ const Topic12 = () => {
                     value={selectedFacultyId}
                     onChange={(e) => setSelectedFacultyId(Number(e.target.value))}
                     className="w-full rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  &gt;
+                  >
                     {faculty.map((f) => (
                       <option key={f.id} value={f.id}>
                         {f.name.split(" ")[1]} (#{f.id})
@@ -412,7 +412,7 @@ const Topic12 = () => {
                         key={`${en.studentId}-${en.courseId}`}
                         onClick={() => handleDeleteEnrollment(en.studentId, en.courseId)}
                         className="py-1 px-2.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/40 text-xs font-bold hover:bg-rose-500/30 transition-all"
-                      &gt;
+                      >
                         Drop [{st?.name.split(" ")[0]} ── {co?.title.split(" ")[0]}]
                       </button>
                     );

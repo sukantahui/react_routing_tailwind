@@ -231,7 +231,7 @@ export default function Topic1() {
               <li><strong>Calculate required window size:</strong> WindowSize ≈ Bandwidth × RTT / FrameSize. Use this to avoid under‑ or over‑buffering.</li>
               <li><strong>Use cumulative ACKs:</strong> Reduces ACK traffic and simplifies timer management.</li>
               <li><strong>Implement selective repeat instead of Go‑Back‑N</strong> when link errors are frequent; Go‑Back‑N wastes bandwidth on retransmitting good frames.</li>
-              <li><strong>Set timeout {`&gt;`} RTT + processing delay</strong> to avoid spurious retransmissions.</li>
+              <li><strong>Set timeout {`>`} RTT + processing delay</strong> to avoid spurious retransmissions.</li>
             </ul>
           </div>
         </section>

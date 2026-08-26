@@ -105,7 +105,7 @@ if (age >= 18) {
 } else {
     printf("Underage");
 }`}
-      /&gt;
+      />
 
       <EditableCCodeBlock
         title="Example 2: Login Validation"
@@ -127,14 +127,14 @@ if (usernameOK) {
         initialCode={`int balance = 2500;
 
 if (balance > 0) {
-    if (balance &ge; 3000)
+    if (balance >= 3000)
         printf("Premium account");
     else
         printf("Standard account");
 } else {
     printf("Inactive account");
 }`}
-      /&gt;
+      />
 
       <EditableCCodeBlock
         title="Example 4: Scholarship Eligibility"
@@ -149,7 +149,7 @@ if (marks >= 80) {
 } else {
     printf("Marks not sufficient");
 }`}
-      /&gt;
+      />
 
       {/* ================= NOTES ================= */}
       <div className="space-y-2">

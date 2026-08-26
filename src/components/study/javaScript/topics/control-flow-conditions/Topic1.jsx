@@ -25,7 +25,7 @@ export default function Topic1() {
           initialCode={`let score = 85;
 
 if (score >= 60) {
-  if (score &ge; 80) {
+  if (score >= 80) {
     console.log("Excellent");
   } else {
     console.log("Good");
@@ -33,7 +33,7 @@ if (score >= 60) {
 } else {
   console.log("Fail");
 }`}
-        /&gt;
+        />
 
         <p className="text-slate-300 leading-relaxed text-sm md:text-base">
           In the example above, the second decision (<code>score &gt= 80</code>) happens only if

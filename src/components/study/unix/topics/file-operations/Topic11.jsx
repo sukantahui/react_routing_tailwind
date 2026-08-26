@@ -294,7 +294,7 @@ export default class Topic11 extends React.Component {
                                 <div className="p-5 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-gray-800 dark:to-gray-900 rounded-xl">
                                     <h4 className="font-bold text-gray-800 dark:text-gray-200 mb-3">Using awk for Complex Counting</h4>
                                     <div className="bg-gray-900 text-gray-100 p-4 rounded-lg font-mono text-sm mb-3">
-                                        <code>{'ls -l | awk \'NR&gt;1 && !/^d/ {count++} END {print count}\''}</code>
+                                        <code>{'ls -l | awk \'NR>1 && !/^d/ {count++} END {print count}\''}</code>
                                         <span className="text-green-400">35</span>
                                     </div>
                                     <p className="text-gray-700 dark:text-gray-300 text-sm">
@@ -540,7 +540,7 @@ export default class Topic11 extends React.Component {
                                 </p>
                                 <pre className="bg-gray-900 text-gray-100 dark:bg-gray-900 dark:text-gray-300 p-4 rounded-lg font-mono text-sm overflow-x-auto">
                                     <code>{`# Daily count tracker
-                                    date &gt;> ~/file_counts.log
+                                    date >> ~/file_counts.log
                                     find /data -type f -print0 | tr -cd '\\0' | wc -c >> ~/file_counts.log`}
                                     </code>
                                 </pre>

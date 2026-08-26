@@ -33,7 +33,7 @@ int main() {
 
     return 0;
 }`}
-        /&gt;
+        />
 
         <h3 className="text-lg text-slate-200 font-semibold">
           Basic Data Types in C

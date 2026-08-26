@@ -53,7 +53,7 @@ const Topic5 = () => {
         <section
           ref={(el) => (sectionRefs.current[0] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-purple-400 flex items-center gap-2">
             <span>🔄</span> What is a Filter?
           </h2>
@@ -74,7 +74,7 @@ const Topic5 = () => {
         <section
           ref={(el) => (sectionRefs.current[1] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-purple-400">⛓️ Filter Chain Processing</h2>
           <div className="mt-6 flex justify-center">
             <svg viewBox="0 0 800 160" className="w-full max-w-4xl h-auto">
@@ -136,7 +136,7 @@ const Topic5 = () => {
         <section
           ref={(el) => (sectionRefs.current[2] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-purple-400">⚙️ Filter API & Lifecycle</h2>
           <p className="mt-3 text-gray-300">
             A filter must implement the <code>javax.servlet.Filter</code> interface with three methods:
@@ -159,7 +159,7 @@ const Topic5 = () => {
         <section
           ref={(el) => (sectionRefs.current[3] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-purple-400">📌 Configuring Filters</h2>
           <div className="space-y-4">
             <div>
@@ -196,7 +196,7 @@ const Topic5 = () => {
         <section
           ref={(el) => (sectionRefs.current[4] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-purple-400">🔐 Real-world Filter Examples</h2>
           <div className="space-y-6 mt-4">
             <div>
@@ -237,7 +237,7 @@ const Topic5 = () => {
         <section
           ref={(el) => (sectionRefs.current[5] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-purple-400">⚠️ Common Pitfalls (Beginners)</h2>
           <ul className="list-disc list-inside space-y-2 text-gray-300 mt-3">
             <li><strong>Forgetting <code>chain.doFilter()</code>:</strong> Without calling it, the request won't proceed – stuck filter.</li>
@@ -253,7 +253,7 @@ const Topic5 = () => {
         <section
           ref={(el) => (sectionRefs.current[6] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-purple-400">✅ Best Practices (Industry)</h2>
           <ul className="list-decimal list-inside space-y-2 text-gray-300 mt-3">
             <li><strong>Keep filters lightweight and fast</strong> – cache initialised data, avoid I/O per request.</li>
@@ -270,7 +270,7 @@ const Topic5 = () => {
         <section
           ref={(el) => (sectionRefs.current[7] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-purple-400">📋 Mini Checklist</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
             {[
@@ -296,7 +296,7 @@ const Topic5 = () => {
         <section
           ref={(el) => (sectionRefs.current[8] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-purple-500/30"
-        &gt;
+        >
           <h2 className="text-xl font-semibold text-purple-400">🧠 Hints – Think Like a Pro</h2>
           <ul className="space-y-2 text-gray-300 italic">
             <li>🔍 <strong>Observe carefully:</strong> Add a logging filter to your app – see console output for every request. Notice the order if you add two filters.</li>

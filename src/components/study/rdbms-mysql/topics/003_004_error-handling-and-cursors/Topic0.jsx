@@ -34,7 +34,7 @@ CREATE PROCEDURE sp_register_student_safe(
     OUT p_status_code VARCHAR(20)
 )
 BEGIN
-    -- 1. Declaration Order: Variables &rarr; Handlers
+    -- 1. Declaration Order: Variables -> Handlers
     DECLARE v_error_occurred BOOLEAN DEFAULT FALSE;
     
     -- 2. Declare EXIT Handler for any SQLEXCEPTION:
@@ -418,7 +418,7 @@ DELIMITER ;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(
@@ -667,7 +667,7 @@ END;`}
           />
 
           <Teacher
-            note="Exception handling is what separates brittle toy scripts from enterprise-grade database applications. Never let a stored procedure execute multi-statement DML without an explicit EXIT HANDLER FOR SQLEXCEPTION to perform a ROLLBACK on error. Follow the strict declaration order (Variables -> Conditions &rarr; Cursors -&gt; Handlers) and inspect the Diagnostics Area to log meaningful telemetry!"
+            note="Exception handling is what separates brittle toy scripts from enterprise-grade database applications. Never let a stored procedure execute multi-statement DML without an explicit EXIT HANDLER FOR SQLEXCEPTION to perform a ROLLBACK on error. Follow the strict declaration order (Variables -> Conditions -> Cursors -> Handlers) and inspect the Diagnostics Area to log meaningful telemetry!"
           />
         </section>
       </main>

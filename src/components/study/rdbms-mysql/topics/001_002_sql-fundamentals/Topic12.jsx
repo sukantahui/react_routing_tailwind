@@ -67,7 +67,7 @@ const Topic12 = () => {
 
   // Evaluate Range
   const isMatch = (fee) => {
-    const inRange = fee &ge; minBound && fee &le; maxBound;
+    const inRange = fee >= minBound && fee <= maxBound;
     return isNegated ? !inRange : inRange;
   };
 
@@ -158,7 +158,7 @@ const Topic12 = () => {
 
           <div className="mt-6 space-y-4 text-slate-300 text-sm md:text-base">
             <p>
-              In MySQL, <code>val BETWEEN min AND max</code> is syntactic sugar for <code>val >= min AND val <= max</code>.
+              In MySQL, <code>val BETWEEN min AND max</code> is syntactic sugar for <code>val &gt;= min AND val &lt;= max</code>.
               Both boundary values are strictly included.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
@@ -225,7 +225,7 @@ const Topic12 = () => {
                 </text>
                 <line x1="15" y1="34" x2="325" y2="34" stroke="#334155" />
                 <text x="20" y="54" fill="#cbd5e1" font-family="monospace" fontSize="10">
-                  WHERE date >= '2026-08-01' AND date &lt; '2026-09-01'
+                  WHERE date &gt;= '2026-08-01' AND date &lt; '2026-09-01'
                 </text>
                 <text x="20" y="74" fill="#10b981" fontSize="10">
                   • Cleanly includes all 24 hours of August 31st (up to 23:59:59)
@@ -277,7 +277,7 @@ const Topic12 = () => {
                   value={minBound}
                   onChange={(e) => setMinBound(Number(e.target.value))}
                   className="w-full accent-teal-500 cursor-pointer"
-                /&gt;
+                />
               </div>
 
               <div>
@@ -297,7 +297,7 @@ const Topic12 = () => {
                   value={maxBound}
                   onChange={(e) => setMaxBound(Number(e.target.value))}
                   className="w-full accent-cyan-500 cursor-pointer"
-                /&gt;
+                />
               </div>
 
               <div className="pt-2">
@@ -307,7 +307,7 @@ const Topic12 = () => {
                     checked={isNegated}
                     onChange={(e) => setIsNegated(e.target.checked)}
                     className="rounded border-rose-600 bg-slate-800 text-rose-500"
-                  /&gt;
+                  />
                   <span><strong>Use NOT BETWEEN:</strong> Select outlier records outside [₹{minBound.toLocaleString("en-IN")}, ₹{maxBound.toLocaleString("en-IN")}]</span>
                 </label>
               </div>
@@ -429,7 +429,7 @@ ORDER BY admission_fee ASC;`}
     total_amount AS "Order Total (₹)",
     order_date
 FROM customer_orders
-WHERE order_date &ge; '2026-07-01 00:00:00'
+WHERE order_date >= '2026-07-01 00:00:00'
   AND order_date < '2026-10-01 00:00:00';`}
               </pre>
             </div>
@@ -486,7 +486,7 @@ WHERE order_date &ge; '2026-07-01 00:00:00'
                 <div>
                   <strong className="text-white">1. Use Open Intervals for Timestamps:</strong>
                   <p className="text-slate-400 mt-0.5">
-                    Write <code>>= '2026-08-01' AND &lt; '2026-09-01'</code> for clean calendar month boundaries.
+                    Write <code>&gt;= '2026-08-01' AND &lt; '2026-09-01'</code> for clean calendar month boundaries.
                   </p>
                 </div>
                 <div>

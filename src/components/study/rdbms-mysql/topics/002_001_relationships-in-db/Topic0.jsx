@@ -263,7 +263,7 @@ const Topic0 = () => {
                           ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                           : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                       )}
-                    &gt;
+                    >
                       {card}
                     </button>
                   ))}
@@ -290,7 +290,7 @@ const Topic0 = () => {
                             ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                             : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                         )}
-                      &gt;
+                      >
                         <div className="font-bold">{mod.label}</div>
                         <div className="text-[10px] text-slate-500">{mod.desc}</div>
                       </button>

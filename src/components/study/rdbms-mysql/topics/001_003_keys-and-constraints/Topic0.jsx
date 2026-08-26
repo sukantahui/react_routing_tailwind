@@ -65,7 +65,7 @@ const Topic0 = () => {
     scenarioSQL = `INSERT INTO students (student_id, roll_no, first_name, admission_fee, city)\nVALUES (101, 'REG-2026-001', 'Mamata', 15000.00, 'Barrackpore');`;
     outcomeStatus = "success";
     outcomeTitle = "Query OK, 1 row affected (0.01 sec)";
-    outcomeMsg = "All integrity constraints satisfied. Entity ID is unique, fee meets CHECK rule ( &ge; ₹10,000), and city is in ENUM domain.";
+    outcomeMsg = "All integrity constraints satisfied. Entity ID is unique, fee meets CHECK rule (>= ₹10,000), and city is in ENUM domain.";
     integrityTier = "✓ All Pillars Passed";
   } else if (testScenario === "duplicate_pk") {
     scenarioSQL = `INSERT INTO students (student_id, roll_no, first_name, admission_fee, city)\nVALUES (101, 'REG-2026-002', 'Abhronila', 18500.00, 'Barrackpore');`;
@@ -190,7 +190,7 @@ const Topic0 = () => {
                 Enforces valid data types, mandatory values, acceptable ranges, and format boundaries.
               </p>
               <pre className="rounded bg-slate-900 p-2 font-mono text-[11px] text-cyan-300 border border-slate-800">
-                CONSTRAINT chk_fee CHECK (admission_fee >= 10000.00)
+                CONSTRAINT chk_fee CHECK (admission_fee &gt;= 10000.00)
               </pre>
             </div>
 
@@ -291,7 +291,7 @@ const Topic0 = () => {
                         ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                         : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  &gt;
+                  >
                     <strong>✓ Valid Insert:</strong> All integrity constraints satisfied
                   </button>
 
@@ -303,7 +303,7 @@ const Topic0 = () => {
                         ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                         : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  &gt;
+                  >
                     <strong>❌ Duplicate Primary Key:</strong> Violates Entity Integrity (Error 1062)
                   </button>
 
@@ -315,7 +315,7 @@ const Topic0 = () => {
                         ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                         : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  &gt;
+                  >
                     <strong>❌ Fee Below ₹10,000:</strong> Violates CHECK Domain Integrity (Error 3819)
                   </button>
 
@@ -327,7 +327,7 @@ const Topic0 = () => {
                         ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/50"
                         : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  &gt;
+                  >
                     <strong>❌ Non-Existent Parent ID:</strong> Violates Referential Integrity (Error 1452)
                   </button>
                 </div>
@@ -414,7 +414,7 @@ const Topic0 = () => {
     -- Entity & Domain Constraints
     CONSTRAINT pk_students PRIMARY KEY (student_id),
     CONSTRAINT uq_student_roll UNIQUE (roll_no),
-    CONSTRAINT chk_min_fee CHECK (admission_fee &ge; 10000.00)
+    CONSTRAINT chk_min_fee CHECK (admission_fee >= 10000.00)
 ) ENGINE=InnoDB;`}
               </pre>
             </div>

@@ -72,7 +72,7 @@ export default class Topic22 extends Component {
             <button
               onClick={()=>this.copyCode(code)}
               className="absolute top-2 right-2 text-xs px-2 py-1 bg-slate-700 text-white rounded opacity-0 group-hover:opacity-100"
-            &gt;
+            >
               <ClipboardCopy size={12}/> {this.state.copied?"Copied":"Copy"}
             </button>
             <pre className="bg-slate-800 text-slate-200 p-4 rounded-lg text-sm">

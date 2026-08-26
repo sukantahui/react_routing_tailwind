@@ -318,7 +318,7 @@ class Topic8 extends React.Component {
                               ? "bg-gray-800 hover:bg-gray-700"
                               : "bg-gray-200 hover:bg-gray-300"
                         )}
-                      &gt;
+                      >
                         <div className="flex items-center mb-2">
                           <div className="text-2xl font-bold mr-2">{perm.symbol}</div>
                           <div>
@@ -718,7 +718,7 @@ class Topic8 extends React.Component {
                               ? "bg-gray-800 hover:bg-gray-700"
                               : "bg-gray-200 hover:bg-gray-300"
                         )}
-                      &gt;
+                      >
                         <div className="font-mono text-sm mb-2">{file.name}</div>
                         <div className="text-xs opacity-80">
                           {file.permissions} • {file.owner}

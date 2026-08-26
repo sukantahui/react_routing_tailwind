@@ -110,7 +110,7 @@ export default class Topic2 extends Component {
 if(marks >= 75){
   System.out.println("Distinction");
 }
-else if(marks &ge; 60){
+else if(marks >= 60){
   System.out.println("First Class");
 }
 else if(marks >= 40){
@@ -129,7 +129,7 @@ else{
 if(temp > 40){
   System.out.println("Heat Alert");
 }
-else if(temp &gt; 30){
+else if(temp > 30){
   System.out.println("Warm Day");
 }
 else if(temp > 20){
@@ -148,7 +148,7 @@ else{
 if(attendance >= 90){
   System.out.println("Excellent");
 }
-else if(attendance &ge; 75){
+else if(attendance >= 75){
   System.out.println("Good");
 }
 else if(attendance >= 60){

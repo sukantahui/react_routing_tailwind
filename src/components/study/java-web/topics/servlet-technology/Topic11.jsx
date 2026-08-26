@@ -52,7 +52,7 @@ const Topic11 = () => {
         <section
           ref={(el) => (sectionRefs.current[0] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/10"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-orange-400 flex items-center gap-2">
             <span>🚨</span> Why Handle Errors?
           </h2>
@@ -76,7 +76,7 @@ const Topic11 = () => {
         <section
           ref={(el) => (sectionRefs.current[1] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-orange-400">🔄 Error Handling Flow</h2>
           <div className="mt-6 flex justify-center">
             <svg viewBox="0 0 700 180" className="w-full max-w-3xl h-auto">
@@ -120,7 +120,7 @@ const Topic11 = () => {
         <section
           ref={(el) => (sectionRefs.current[2] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-orange-400">📄 Defining Error Pages in web.xml</h2>
           <p className="mt-3 text-gray-300">
             Use <code>&lt;error-page&gt;</code> elements to map HTTP error codes or Java exception types to custom resources (HTML, JSP, servlet).
@@ -139,7 +139,7 @@ const Topic11 = () => {
         <section
           ref={(el) => (sectionRefs.current[3] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-orange-400">⚙️ Programmatic Error Handling</h2>
           <p className="mt-3 text-gray-300">
             Inside a servlet, you can catch exceptions and manually forward to an error page or set a status code with <code>sendError()</code>.
@@ -201,7 +201,7 @@ const Topic11 = () => {
         <section
           ref={(el) => (sectionRefs.current[4] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-orange-400">⚠️ Common Pitfalls (Beginners)</h2>
           <ul className="list-disc list-inside space-y-2 text-gray-300 mt-3">
             <li><strong>Error page location not reachable:</strong> If the error page JSP itself throws an exception, the container may show its own error page.</li>
@@ -216,7 +216,7 @@ const Topic11 = () => {
         <section
           ref={(el) => (sectionRefs.current[5] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-orange-400">✅ Best Practices (Industry)</h2>
           <ul className="list-decimal list-inside space-y-2 text-gray-300 mt-3">
             <li><strong>Define error pages for 400, 404, 500, and a generic fallback</strong> – cover most common errors.</li>
@@ -233,7 +233,7 @@ const Topic11 = () => {
         <section
           ref={(el) => (sectionRefs.current[6] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-orange-400">📋 Mini Checklist</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
             {[
@@ -259,7 +259,7 @@ const Topic11 = () => {
         <section
           ref={(el) => (sectionRefs.current[7] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-orange-500/30"
-        &gt;
+        >
           <h2 className="text-xl font-semibold text-orange-400">🧠 Hints – Think Like a Pro</h2>
           <ul className="space-y-2 text-gray-300 italic">
             <li>🔍 <strong>Observe carefully:</strong> In browser dev tools, see the HTTP status code when you trigger a 404 vs a 500 error page.</li>

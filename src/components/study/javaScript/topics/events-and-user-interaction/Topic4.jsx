@@ -30,7 +30,7 @@ export default class Topic4 extends Component {
   <input type="text" id="nameInput" placeholder="Enter name" />
   <button type="submit">Submit</button>
 </form>`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"
@@ -64,7 +64,7 @@ export default class Topic4 extends Component {
   <input type="email" id="email" placeholder="Enter email" />
   <button>Submit</button>
 </form>`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"
@@ -105,7 +105,7 @@ export default class Topic4 extends Component {
   <input type="number" id="marks" placeholder="Enter marks (0–100)" />
   <button>Check</button>
 </form>`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"
@@ -120,7 +120,7 @@ export default class Topic4 extends Component {
 
   alert("Marks Entered: " + m);
 });`}
-        /&gt;
+        />
 
         {/* -------------------------
             4. Full Admission Form Example (Coder & AccoTax)
@@ -142,7 +142,7 @@ export default class Topic4 extends Component {
   <input type="text" id="course" placeholder="Preferred Course" />
   <button>Submit</button>
 </form>`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"
@@ -165,7 +165,7 @@ export default class Topic4 extends Component {
 
   alert("Admission Form Submitted Successfully! Welcome " + name);
 });`}
-        /&gt;
+        />
 
         {/* -------------------------
             Summary

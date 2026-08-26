@@ -328,7 +328,7 @@ const Topic4 = () => {
                     value={studentId}
                     onChange={(e) => setStudentId(Number(e.target.value))}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-2.5 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  &gt;
+                  >
                     {studentsList.map((s) => (
                       <option key={s.id} value={s.id}>
                         #{s.id} ({s.name})
@@ -345,7 +345,7 @@ const Topic4 = () => {
                     value={courseId}
                     onChange={(e) => setCourseId(Number(e.target.value))}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-2.5 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  &gt;
+                  >
                     {coursesList.map((c) => (
                       <option key={c.id} value={c.id}>
                         #{c.id} ({c.title})
@@ -362,7 +362,7 @@ const Topic4 = () => {
                     value={grade}
                     onChange={(e) => setGrade(e.target.value)}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-2.5 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  &gt;
+                  >
                     {["A+", "A", "B+", "B", "Audit"].map((g) => (
                       <option key={g} value={g}>
                         {g}
@@ -401,7 +401,7 @@ const Topic4 = () => {
                         ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                         : "bg-slate-900 text-slate-400 border-slate-800"
                     )}
-                  &gt;
+                  >
                     WHERE student_id = {studentId}
                   </button>
                   <button
@@ -412,7 +412,7 @@ const Topic4 = () => {
                         ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                         : "bg-slate-900 text-slate-400 border-slate-800"
                     )}
-                  &gt;
+                  >
                     WHERE course_id = {courseId}
                   </button>
                 </div>
@@ -424,7 +424,7 @@ const Topic4 = () => {
                       checked={hasReverseIndex}
                       onChange={(e) => setHasReverseIndex(e.target.checked)}
                       className="rounded border-slate-800 bg-slate-900 text-teal-500 focus:ring-0"
-                    /&gt;
+                    />
                     <span>Include Secondary Reverse Index</span>
                   </label>
                   <button

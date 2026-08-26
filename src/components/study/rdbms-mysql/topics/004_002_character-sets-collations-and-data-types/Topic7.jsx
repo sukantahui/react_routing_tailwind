@@ -87,8 +87,8 @@ INSERT INTO student_portfolios (student_name, portfolio) VALUES
 -- Querying a nested JSON key:
 SELECT 
     student_name,
-    portfolio &rarr; &gt;'$.city' AS student_city,
-    portfolio &rarr;&rarr; '$.skills[0]' AS primary_skill
+    portfolio->>'$.city' AS student_city,
+    portfolio->>'$.skills[0]' AS primary_skill
 FROM student_portfolios
 WHERE portfolio->>'$.city' = 'Barrackpore';
 
@@ -339,7 +339,7 @@ WHERE student_name = 'Mamata Banerjee';
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                &gt;
+                >
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",
@@ -508,7 +508,7 @@ WHERE student_name = 'Mamata Banerjee';
                 <span>⚠️</span> Pitfall 2: Querying Unindexed JSON Keys in WHERE
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                Writing <code>{"WHERE portfolio &rarr; &gt;'$.city' = 'Kolkata'"}</code> without an index forces a full table scan across millions of JSON documents!
+                Writing <code>{"WHERE portfolio->>'$.city' = 'Kolkata'"}</code> without an index forces a full table scan across millions of JSON documents!
               </p>
               <div className="text-xs font-mono text-emerald-400 p-2 bg-slate-950 rounded border border-slate-800">
                 Rule: Index extracted keys using Generated Columns or Multi-Valued Indexes.

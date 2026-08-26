@@ -99,7 +99,7 @@ WHERE balance_fee BETWEEN 5000 AND 25000;
         }
       ],
       explanation:
-        "`type = range` occurs with operators like `BETWEEN`, `<`, `>`, ` &ge; `, `IN (...)`, and `LIKE 'prefix%'`. MySQL navigates the B+Tree to the start of the range and then streams records along the ordered, doubly-linked leaf page sequence."
+        "`type = range` occurs with operators like `BETWEEN`, `<`, `>`, `>=`, `IN (...)`, and `LIKE 'prefix%'`. MySQL navigates the B+Tree to the start of the range and then streams records along the ordered, doubly-linked leaf page sequence."
     },
     full_index_scan: {
       title: "3. Full Index Scan (`type = index`): Sequential Traversal of Compact Index Leaves",
@@ -732,7 +732,7 @@ WHERE address LIKE '%Ichapur%';
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                &gt;
+                >
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",
@@ -905,7 +905,7 @@ WHERE address LIKE '%Ichapur%';
 {`-- Add Unique Constraint to enable const lookup:
 ALTER TABLE student_applications ADD UNIQUE INDEX uq_reg_code (reg_code);
 
--- Result: EXPLAIN type transforms from ALL (65 ms) &rarr; const (0.04 ms)! ⚡`}
+-- Result: EXPLAIN type transforms from ALL (65 ms) -> const (0.04 ms)! ⚡`}
                 </pre>
               </div>
             </div>

@@ -149,7 +149,7 @@ const Topic13 = () => {
                                     animationDelay: `${index * 100}ms`,
                                     animation: 'motion-safe:animate-[fadeInUp_0.6s_ease-out]'
                                 }}
-                            &gt;
+                            >
                                 <div className="mb-3">
                                     {loop.icon}
                                 </div>
@@ -265,7 +265,7 @@ const Topic13 = () => {
                                 {`until [ condition ]; do\n    # Commands\n    echo "Waiting..."\ndone`}
                             </code>
                             <code className="text-sm text-gray-700 dark:text-gray-300 block bg-gray-50 dark:bg-gray-800 p-3 rounded">
-                                {`until ping -c1 host &gt; /dev/null; do\n    sleep 5\ndone`}
+                                {`until ping -c1 host > /dev/null; do\n    sleep 5\ndone`}
                             </code>
                         </div>
                     </div>

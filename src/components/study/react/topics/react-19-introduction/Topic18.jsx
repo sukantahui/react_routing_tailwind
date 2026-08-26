@@ -41,7 +41,7 @@ const Topic18 = () => {
             <button
               onClick={() => setCompositionLevel(Math.max(1, compositionLevel - 1))}
               className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-white rounded"
-            &gt;
+            >
               -
             </button>
             <span className="px-4 py-1 bg-purple-600 text-white rounded">
@@ -50,7 +50,7 @@ const Topic18 = () => {
             <button
               onClick={() => setCompositionLevel(Math.min(6, compositionLevel + 1))}
               className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-white rounded"
-            &gt;
+            >
               +
             </button>
           </div>
@@ -230,7 +230,7 @@ ${'</'.repeat(visibleComponents.length)}`}
                         ? 'bg-purple-600 text-white'
                         : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600'
                     )}
-                  &gt;
+                  >
                     {tab === 'simple' ? 'Simple Nesting' : 
                      tab === 'children' ? 'Children Prop' : 
                      'Slot Pattern'}
@@ -433,7 +433,7 @@ function Dashboard() {
       sidebar={<DashboardSidebar />}
       content={<DashboardContent />}
       footer={<DashboardFooter />}
-    /&gt;
+    />
   );
 }`}
                       </pre>
@@ -502,7 +502,7 @@ function Dashboard() {
                   <button
                     onClick={() => setShowLiveComposition(!showLiveComposition)}
                     className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-bold rounded-lg transition-all duration-300"
-                  &gt;
+                  >
                     {showLiveComposition ? 'Hide Live Example' : 'Show Live Example'}
                   </button>
                 </div>
@@ -598,7 +598,7 @@ function ServiceRequestPage() {
         </Card>
       }
       footer={<MunicipalityFooter />}
-    /&gt;
+    />
   );
 }
 
@@ -912,7 +912,7 @@ function ServiceRequestPage() {
                   <button
                     onClick={() => alert('Start by sketching the component tree. Create PageLayout first, then ProductCard, then smaller components like ProductImage, ProductTitle, etc.')}
                     className="w-full px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:-translate-y-1"
-                  &gt;
+                  >
                     Click for Starter Approach
                   </button>
                 </div>

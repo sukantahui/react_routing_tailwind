@@ -26,8 +26,8 @@ const Topic14 = () => {
       badge: "2-Tier Hierarchy (Center + Stream)",
       badgeColor: "emerald",
       sqlQuery: `SELECT 
-    IF(GROUPING(centre_city) = 1, '&gt;> ALL CAMPUSES (GRAND TOTAL) <<', centre_city) AS campus_location,
-    IF(GROUPING(course_stream) = 1, '>&gt; ALL STREAMS (CAMPUS TOTAL) <<', course_stream) AS stream_name,
+    IF(GROUPING(centre_city) = 1, '>> ALL CAMPUSES (GRAND TOTAL) <<', centre_city) AS campus_location,
+    IF(GROUPING(course_stream) = 1, '>> ALL STREAMS (CAMPUS TOTAL) <<', course_stream) AS stream_name,
     GROUPING(centre_city) AS grp_city,
     GROUPING(course_stream) AS grp_stream,
     COUNT(*) AS total_students,
@@ -39,11 +39,11 @@ GROUP BY centre_city, course_stream WITH ROLLUP;`,
       resultRows: [
         { dim1: "Barrackpore Campus", dim2: "React Fullstack", gCity: 0, gStream: 0, metric1: "34 Students", metric2: "₹8,50,000", metric3: "88.4%", rowType: "leaf", color: "cyan" },
         { dim1: "Barrackpore Campus", dim2: "Python Data Science", gCity: 0, gStream: 0, metric1: "28 Students", metric2: "₹7,00,000", metric3: "84.2%", rowType: "leaf", color: "cyan" },
-        { dim1: "Barrackpore Campus", dim2: ">&gt; ALL STREAMS (CAMPUS TOTAL) <<", gCity: 0, gStream: 1, metric1: "62 Students", metric2: "₹15,50,000", metric3: "86.5%", rowType: "subtotal", color: "indigo" },
+        { dim1: "Barrackpore Campus", dim2: ">> ALL STREAMS (CAMPUS TOTAL) <<", gCity: 0, gStream: 1, metric1: "62 Students", metric2: "₹15,50,000", metric3: "86.5%", rowType: "subtotal", color: "indigo" },
         { dim1: "Kolkata Central", dim2: "Java Enterprise", gCity: 0, gStream: 0, metric1: "42 Students", metric2: "₹10,50,000", metric3: "82.6%", rowType: "leaf", color: "cyan" },
         { dim1: "Kolkata Central", dim2: "React Fullstack", gCity: 0, gStream: 0, metric1: "30 Students", metric2: "₹7,50,000", metric3: "86.1%", rowType: "leaf", color: "cyan" },
-        { dim1: "Kolkata Central", dim2: ">&gt; ALL STREAMS (CAMPUS TOTAL) <<", gCity: 0, gStream: 1, metric1: "72 Students", metric2: "₹18,00,000", metric3: "84.1%", rowType: "subtotal", color: "indigo" },
-        { dim1: ">&gt; ALL CAMPUSES (GRAND TOTAL) <<", dim2: ">&gt; ALL STREAMS (CAMPUS TOTAL) <<", gCity: 1, gStream: 1, metric1: "134 Students", metric2: "₹33,50,000", metric3: "85.2%", rowType: "grandtotal", color: "emerald" },
+        { dim1: "Kolkata Central", dim2: ">> ALL STREAMS (CAMPUS TOTAL) <<", gCity: 0, gStream: 1, metric1: "72 Students", metric2: "₹18,00,000", metric3: "84.1%", rowType: "subtotal", color: "indigo" },
+        { dim1: ">> ALL CAMPUSES (GRAND TOTAL) <<", dim2: ">> ALL STREAMS (CAMPUS TOTAL) <<", gCity: 1, gStream: 1, metric1: "134 Students", metric2: "₹33,50,000", metric3: "85.2%", rowType: "grandtotal", color: "emerald" },
       ],
       explanation:
         "MySQL calculates fine-grained stream metrics, emits an intermediate subtotal for each center location, and generates a single grand total at the bottom in one relational pass.",
@@ -53,8 +53,8 @@ GROUP BY centre_city, course_stream WITH ROLLUP;`,
       badge: "Date Hierarchy (Year + Quarter)",
       badgeColor: "cyan",
       sqlQuery: `SELECT 
-    IF(GROUPING(fiscal_year) = 1, '>&gt; LIFETIME GRAND TOTAL <<', fiscal_year) AS year_label,
-    IF(GROUPING(fiscal_quarter) = 1, '>&gt; ANNUAL TOTAL <<', CONCAT('Q', fiscal_quarter)) AS quarter_label,
+    IF(GROUPING(fiscal_year) = 1, '>> LIFETIME GRAND TOTAL <<', fiscal_year) AS year_label,
+    IF(GROUPING(fiscal_quarter) = 1, '>> ANNUAL TOTAL <<', CONCAT('Q', fiscal_quarter)) AS quarter_label,
     GROUPING(fiscal_year) AS grp_year,
     GROUPING(fiscal_quarter) AS grp_quarter,
     COUNT(order_id) AS total_orders,
@@ -64,11 +64,11 @@ GROUP BY fiscal_year, fiscal_quarter WITH ROLLUP;`,
       resultRows: [
         { dim1: "2025", dim2: "Q3", gCity: 0, gStream: 0, metric1: "450 Orders", metric2: "₹45,00,000", metric3: "100%", rowType: "leaf", color: "cyan" },
         { dim1: "2025", dim2: "Q4", gCity: 0, gStream: 0, metric1: "520 Orders", metric2: "₹58,00,000", metric3: "100%", rowType: "leaf", color: "cyan" },
-        { dim1: "2025", dim2: ">&gt; ANNUAL TOTAL <<", gCity: 0, gStream: 1, metric1: "970 Orders", metric2: "₹1,03,00,000", metric3: "100%", rowType: "subtotal", color: "indigo" },
+        { dim1: "2025", dim2: ">> ANNUAL TOTAL <<", gCity: 0, gStream: 1, metric1: "970 Orders", metric2: "₹1,03,00,000", metric3: "100%", rowType: "subtotal", color: "indigo" },
         { dim1: "2026", dim2: "Q1", gCity: 0, gStream: 0, metric1: "580 Orders", metric2: "₹64,00,000", metric3: "100%", rowType: "leaf", color: "cyan" },
         { dim1: "2026", dim2: "Q2", gCity: 0, gStream: 0, metric1: "630 Orders", metric2: "₹72,50,000", metric3: "100%", rowType: "leaf", color: "cyan" },
-        { dim1: "2026", dim2: ">&gt; ANNUAL TOTAL <<", gCity: 0, gStream: 1, metric1: "1210 Orders", metric2: "₹1,36,50,000", metric3: "100%", rowType: "subtotal", color: "indigo" },
-        { dim1: ">&gt; LIFETIME GRAND TOTAL <<", dim2: ">&gt; ANNUAL TOTAL <<", gCity: 1, gStream: 1, metric1: "2180 Orders", metric2: "₹2,39,50,000", metric3: "100%", rowType: "grandtotal", color: "emerald" },
+        { dim1: "2026", dim2: ">> ANNUAL TOTAL <<", gCity: 0, gStream: 1, metric1: "1210 Orders", metric2: "₹1,36,50,000", metric3: "100%", rowType: "subtotal", color: "indigo" },
+        { dim1: ">> LIFETIME GRAND TOTAL <<", dim2: ">> ANNUAL TOTAL <<", gCity: 1, gStream: 1, metric1: "2180 Orders", metric2: "₹2,39,50,000", metric3: "100%", rowType: "grandtotal", color: "emerald" },
       ],
       explanation:
         "ROLLUP hierarchically produces quarterly breakdown rows, annual subtotal sums, and a multi-year global turnover total.",
@@ -78,9 +78,9 @@ GROUP BY fiscal_year, fiscal_quarter WITH ROLLUP;`,
       badge: "Data NULL vs ROLLUP NULL",
       badgeColor: "violet",
       sqlQuery: `SELECT 
-    IF(GROUPING(department_name) = 1, '>&gt; COMPANY TOTAL <<', 
+    IF(GROUPING(department_name) = 1, '>> COMPANY TOTAL <<', 
        COALESCE(department_name, '[Unassigned Dept]')) AS dept,
-    IF(GROUPING(job_role) = 1, '>&gt; DEPT TOTAL <<', 
+    IF(GROUPING(job_role) = 1, '>> DEPT TOTAL <<', 
        COALESCE(job_role, '[Unassigned Role]')) AS role,
     GROUPING(department_name) AS is_rollup_dept,
     GROUPING(job_role) AS is_rollup_role,
@@ -91,8 +91,8 @@ GROUP BY department_name, job_role WITH ROLLUP;`,
       resultRows: [
         { dim1: "Engineering", dim2: "Lead Architect", gCity: 0, gStream: 0, metric1: "4 Staff", metric2: "₹6,00,000", metric3: "Standard", rowType: "leaf", color: "cyan" },
         { dim1: "Engineering", dim2: "[Unassigned Role] (Natural NULL)", gCity: 0, gStream: 0, metric1: "2 Staff", metric2: "₹1,80,000", metric3: "Natural NULL", rowType: "leaf", color: "amber" },
-        { dim1: "Engineering", dim2: ">&gt; DEPT TOTAL <<", gCity: 0, gStream: 1, metric1: "6 Staff", metric2: "₹7,80,000", metric3: "Subtotal", rowType: "subtotal", color: "indigo" },
-        { dim1: ">&gt; COMPANY TOTAL <<", dim2: ">&gt; DEPT TOTAL <<", gCity: 1, gStream: 1, metric1: "6 Staff", metric2: "₹7,80,000", metric3: "Grand Total", rowType: "grandtotal", color: "emerald" },
+        { dim1: "Engineering", dim2: ">> DEPT TOTAL <<", gCity: 0, gStream: 1, metric1: "6 Staff", metric2: "₹7,80,000", metric3: "Subtotal", rowType: "subtotal", color: "indigo" },
+        { dim1: ">> COMPANY TOTAL <<", dim2: ">> DEPT TOTAL <<", gCity: 1, gStream: 1, metric1: "6 Staff", metric2: "₹7,80,000", metric3: "Grand Total", rowType: "grandtotal", color: "emerald" },
       ],
       explanation:
         "GROUPING() returns 0 for a naturally missing job_role in the source data, but returns 1 for a ROLLUP-created summary row. This completely prevents mislabeling!",
@@ -283,7 +283,7 @@ GROUP BY department_name, job_role WITH ROLLUP;`,
                     <text x="615" y="152" fill="#c7d2fe" fontSize="10" textAnchor="middle">GROUPING: (City=0, Stream=1) | 72 Students | ₹18,00,000</text>
                   </g>
 
-                  {/* Connecting Lines Grand Total &rarr; Subtotals */}
+                  {/* Connecting Lines Grand Total -> Subtotals */}
                   <path d="M 370 75 L 235 115" stroke="#34d399" strokeWidth="1.5" strokeDasharray="3 2" />
                   <path d="M 480 75 L 615 115" stroke="#34d399" strokeWidth="1.5" strokeDasharray="3 2" />
 
@@ -308,7 +308,7 @@ GROUP BY department_name, job_role WITH ROLLUP;`,
                     <text x="730" y="247" fill="#94a3b8" fontSize="9" textAnchor="middle">30 Students | ₹7.5L</text>
                   </g>
 
-                  {/* Connecting Lines Subtotals &rarr; Leaves */}
+                  {/* Connecting Lines Subtotals -> Leaves */}
                   <path d="M 170 165 L 120 210" stroke="#818cf8" strokeWidth="1.5" />
                   <path d="M 300 165 L 320 210" stroke="#818cf8" strokeWidth="1.5" />
                   <path d="M 550 165 L 530 210" stroke="#818cf8" strokeWidth="1.5" />
@@ -349,7 +349,7 @@ GROUP BY department_name, job_role WITH ROLLUP;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(
@@ -387,7 +387,7 @@ GROUP BY department_name, job_role WITH ROLLUP;`,
                       ? "bg-cyan-950 text-cyan-300 border-cyan-700/50"
                       : "bg-slate-800 text-slate-400 border-slate-700"
                   )}
-                &gt;
+                >
                   {showGroupingFlags ? "✓ Hide GROUPING() Bits" : "Show GROUPING() Bits"}
                 </button>
               </div>
@@ -516,8 +516,8 @@ GROUP BY department_name, job_role WITH ROLLUP;`,
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 text-xs font-mono text-emerald-300 border border-slate-800 overflow-x-auto">
 {`SELECT 
-    IF(GROUPING(centre_city) = 1, '&gt;> GRAND INSTITUTIONAL TOTAL <<', centre_city) AS campus,
-    IF(GROUPING(course_stream) = 1, '>&gt; ALL STREAM SUB-TOTAL <<', course_stream) AS stream,
+    IF(GROUPING(centre_city) = 1, '>> GRAND INSTITUTIONAL TOTAL <<', centre_city) AS campus,
+    IF(GROUPING(course_stream) = 1, '>> ALL STREAM SUB-TOTAL <<', course_stream) AS stream,
     COUNT(*) AS total_students_enrolled,
     SUM(fee_amount_inr) AS collected_tuition_inr,
     ROUND(AVG(marks_pct), 2) AS institutional_mean_marks
@@ -584,8 +584,8 @@ GROUP BY department, category WITH ROLLUP;`}
     GROUP BY centre_city, course_stream WITH ROLLUP
 )
 SELECT 
-    IF(grp_city = 1, '&gt;> GRAND TOTAL <<', centre_city) AS campus,
-    IF(grp_stream = 1, '>&gt; SUB-TOTAL <<', course_stream) AS stream,
+    IF(grp_city = 1, '>> GRAND TOTAL <<', centre_city) AS campus,
+    IF(grp_stream = 1, '>> SUB-TOTAL <<', course_stream) AS stream,
     student_count,
     total_revenue_inr
 FROM RollupSummary

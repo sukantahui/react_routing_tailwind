@@ -53,7 +53,7 @@ const Topic26 = () => {
                     ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 border border-indigo-400"
                     : "bg-slate-800/80 text-slate-300 hover:bg-slate-700/80 border border-slate-700/60"
                 )}
-              &gt;
+              >
                 {tab.label}
               </button>
             ))}
@@ -128,7 +128,7 @@ const Topic26 = () => {
             value={parameterScale}
             onChange={(e) => setParameterScale(Number(e.target.value))}
             className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-          /&gt;
+          />
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
             <div className="bg-slate-900 p-4 rounded-lg border border-slate-800 space-y-1">

@@ -345,14 +345,14 @@ const Topic13 = () => {
                       onChange={(e) => setFirstName(e.target.value)}
                       className="rounded bg-slate-900 border border-slate-800 px-2.5 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
                       placeholder="First Name"
-                    /&gt;
+                    />
                     <input
                       type="text"
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
                       className="rounded bg-slate-900 border border-slate-800 px-2.5 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
                       placeholder="Last Name"
-                    /&gt;
+                    />
                   </div>
                 </div>
 
@@ -366,21 +366,21 @@ const Topic13 = () => {
                       onChange={(e) => setStreet(e.target.value)}
                       className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-cyan-500 focus:outline-none"
                       placeholder="Street"
-                    /&gt;
+                    />
                     <input
                       type="text"
                       value={locality}
                       onChange={(e) => setLocality(e.target.value)}
                       className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-cyan-500 focus:outline-none"
                       placeholder="Locality"
-                    /&gt;
+                    />
                     <input
                       type="text"
                       value={pincode}
                       onChange={(e) => setPincode(e.target.value)}
                       className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-cyan-500 focus:outline-none"
                       placeholder="Pincode"
-                    /&gt;
+                    />
                   </div>
                 </div>
 
@@ -393,7 +393,7 @@ const Topic13 = () => {
                       value={dob}
                       onChange={(e) => setDob(e.target.value)}
                       className="w-full rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-emerald-500 focus:outline-none"
-                    /&gt;
+                    />
                   </div>
                   <div>
                     <label className="text-[10px] text-slate-500 uppercase font-bold">Tuition Fee (₹)</label>
@@ -402,7 +402,7 @@ const Topic13 = () => {
                       value={fee}
                       onChange={(e) => setFee(e.target.value)}
                       className="w-full rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-emerald-500 focus:outline-none"
-                    /&gt;
+                    />
                   </div>
                 </div>
 

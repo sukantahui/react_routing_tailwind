@@ -116,7 +116,7 @@ const Topic10 = () => {
       timestamp: "2026-08-23 02:14:11.892 UTC",
       source: "Windows Event ID 4688",
       type: "Execution",
-      description: "tomcat.exe spawned cmd.exe &rarr; /c whoami (uid=1001 tomcat)",
+      description: "tomcat.exe spawned cmd.exe -> /c whoami (uid=1001 tomcat)",
       macb: "....",
       isSuspicious: true
     },
@@ -144,7 +144,7 @@ const Topic10 = () => {
       timestamp: "2026-08-23 02:26:44.900 UTC",
       source: "DNS Resolver Telemetry",
       type: "C2 Beacon",
-      description: "Query: 04a29fb4890c12.appsync-api.eu-west-1.avsvmcloud.com -&gt; CNAME returned",
+      description: "Query: 04a29fb4890c12.appsync-api.eu-west-1.avsvmcloud.com -> CNAME returned",
       macb: "....",
       isSuspicious: true
     },
@@ -345,7 +345,7 @@ const Topic10 = () => {
                     ? "bg-purple-950/70 border-purple-500 text-white ring-2 ring-purple-500 shadow-lg"
                     : "bg-slate-950 border-slate-800 text-gray-400 hover:bg-slate-800"
                 )}
-              &gt;
+              >
                 {phase.title}
               </button>
             ))}
@@ -434,7 +434,7 @@ const Topic10 = () => {
                 "px-3 py-1.5 rounded font-bold transition-all text-xs",
                 showTimestompAnomaly ? "bg-amber-600 text-white" : "bg-slate-800 text-gray-300"
               )}
-            &gt;
+            >
               {showTimestompAnomaly ? "🕵️ Timestomp Anomaly Filter ACTIVE" : "Show All Events"}
             </button>
           </div>
@@ -514,7 +514,7 @@ const Topic10 = () => {
                       ? "bg-purple-950/70 border-purple-500 text-purple-200 ring-2 ring-purple-500"
                       : "bg-slate-900 border-slate-800 text-gray-400"
                   )}
-                &gt;
+                >
                   <span>1. Equifax 2017 Apache Struts RCE Breach</span>
                   <span>🔍</span>
                 </button>
@@ -527,7 +527,7 @@ const Topic10 = () => {
                       ? "bg-purple-950/70 border-purple-500 text-purple-200 ring-2 ring-purple-500"
                       : "bg-slate-900 border-slate-800 text-gray-400"
                   )}
-                &gt;
+                >
                   <span>2. Colonial Pipeline 2021 Ransomware Crisis</span>
                   <span>🔍</span>
                 </button>
@@ -621,7 +621,7 @@ const Topic10 = () => {
                     ? "bg-purple-500/20 text-purple-300 border border-purple-500/50"
                     : "text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 1. Live CSIRT War Game Execution
               </button>
               <button
@@ -632,7 +632,7 @@ const Topic10 = () => {
                     ? "bg-purple-500/20 text-purple-300 border border-purple-500/50"
                     : "text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 2. CERT-In 6-Hour Statutory Compliance
               </button>
             </div>

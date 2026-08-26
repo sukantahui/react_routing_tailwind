@@ -111,7 +111,7 @@ const Topic5 = () => {
                     className={`px-2.5 py-1 rounded text-xs font-bold transition cursor-pointer capitalize ${
                       gradientType === p ? "bg-fuchsia-500 text-slate-950 font-bold" : "text-slate-400 hover:text-white"
                     }`}
-                  &gt;
+                  >
                     {p}
                   </button>
                 ))}
@@ -127,7 +127,7 @@ const Topic5 = () => {
                   value={saturation}
                   onChange={(e) => setSaturation(Number(e.target.value))}
                   className="w-16 accent-fuchsia-400 cursor-pointer"
-                /&gt;
+                />
                 <span className="font-mono text-xs text-fuchsia-300 w-6">{(saturation * 100).toFixed(0)}%</span>
               </div>
             </div>

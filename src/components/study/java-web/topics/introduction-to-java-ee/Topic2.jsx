@@ -97,7 +97,7 @@ export default function Topic2() {
                                 height="220"
                                 viewBox="0 0 650 220"
                                 className="max-w-full"
-                                aria-label="Flow diagram: Client -> Servlet &rarr; JDBC -&gt; Database -> JSP -> Client"
+                                aria-label="Flow diagram: Client -> Servlet -> JDBC -> Database -> JSP -> Client"
                             >
                                 <rect width="650" height="220" fill="transparent" />
 

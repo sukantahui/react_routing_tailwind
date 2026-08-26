@@ -133,7 +133,7 @@ const Topic20 = () => {
                     type="range" min="0.3" max="1" step="0.01" value={signalStrength}
                     onChange={(e) => setSignalStrength(parseFloat(e.target.value))}
                     className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
-                  /&gt;
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-1">Noise Level: {(noiseLevel * 100).toFixed(0)}%</label>
@@ -141,12 +141,12 @@ const Topic20 = () => {
                     type="range" min="0" max="1" step="0.01" value={noiseLevel}
                     onChange={(e) => setNoiseLevel(parseFloat(e.target.value))}
                     className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
-                  /&gt;
+                  />
                 </div>
                 <div className="p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
                   <p><strong>SNR:</strong> {(signalStrength / (noiseLevel + 0.01)).toFixed(1)} dB</p>
                   <p><strong>Simulated BER:</strong> {ber.toExponential(2)}</p>
-                  <p><strong>Reliability:</strong> <span className={reliabilityPercent > 99 ? "text-green-600" : reliabilityPercent &gt; 90 ? "text-yellow-600" : "text-red-600"}>{reliabilityPercent.toFixed(4)}%</span></p>
+                  <p><strong>Reliability:</strong> <span className={reliabilityPercent > 99 ? "text-green-600" : reliabilityPercent > 90 ? "text-yellow-600" : "text-red-600"}>{reliabilityPercent.toFixed(4)}%</span></p>
                 </div>
               </div>
               <div className="bg-gray-100 dark:bg-gray-900 rounded-lg p-4 flex items-center justify-center">
@@ -363,7 +363,7 @@ const QAItem = ({ question, answer, index }) => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full text-left p-4 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex justify-between items-center"
-      &gt;
+      >
         <span className="font-medium text-gray-800 dark:text-gray-200">
           {index+1}. {question}
         </span>

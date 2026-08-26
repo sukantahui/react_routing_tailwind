@@ -169,8 +169,8 @@ const Topic12 = () => {
               <div className="bg-gray-100 dark:bg-gray-700/50 p-4 rounded-xl">
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-3 text-center">🎮 Interactive Demo: (A·B)' = A' + B'</h3>
                 <div className="flex justify-center items-center gap-3 mb-4 flex-wrap">
-                  <button onClick={() => setDemorganA(demorganA === 0 ? 1 : 0)} className={clsx("w-14 h-14 rounded-lg font-mono text-xl font-bold", demorganA === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}&gt;{demorganA}</button>
-                  <button onClick={() => setDemorganB(demorganB === 0 ? 1 : 0)} className={clsx("w-14 h-14 rounded-lg font-mono text-xl font-bold", demorganB === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}&gt;{demorganB}</button>
+                  <button onClick={() => setDemorganA(demorganA === 0 ? 1 : 0)} className={clsx("w-14 h-14 rounded-lg font-mono text-xl font-bold", demorganA === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}>{demorganA}</button>
+                  <button onClick={() => setDemorganB(demorganB === 0 ? 1 : 0)} className={clsx("w-14 h-14 rounded-lg font-mono text-xl font-bold", demorganB === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}>{demorganB}</button>
                 </div>
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div>
@@ -605,7 +605,7 @@ const Topic12 = () => {
             </div>
             <div className="pb-4">
               <p className="font-semibold">Q20: Why is De Morgan's important for programming?</p>
-              <p className="text-gray-700 dark:text-gray-300 mt-1">A: It helps simplify complex conditional statements. For example, {`if (!(x &gt; 0 && y > 0)) is equivalent to if (x &le; 0 || y <= 0)`}.</p>
+              <p className="text-gray-700 dark:text-gray-300 mt-1">A: It helps simplify complex conditional statements. For example, {`if (!(x > 0 && y > 0)) is equivalent to if (x <= 0 || y <= 0)`}.</p>
             </div>
           </div>
         </div>

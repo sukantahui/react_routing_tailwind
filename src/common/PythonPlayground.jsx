@@ -36,7 +36,7 @@ marks = 78
 
 if marks >= 90:
     print("Grade: A+")
-elif marks &ge; 75:
+elif marks >= 75:
     print("Grade: A")
 else:
     print("Keep improving!")
@@ -47,7 +47,7 @@ for i in range(1, 6):
 
 print("\\nWhile loop example:")
 count = 3
-while count &gt; 0:
+while count > 0:
     print("Countdown:", count)
     count -= 1
 
@@ -144,7 +144,7 @@ print(df.describe())`,
                 ? "border-sky-500 bg-sky-500/10"
                 : "border-slate-700 bg-slate-900/40 hover:bg-slate-800/60"
             }`}
-          &gt;
+          >
             <div className="flex items-center justify-between">
               <span
                 className={`font-semibold ${

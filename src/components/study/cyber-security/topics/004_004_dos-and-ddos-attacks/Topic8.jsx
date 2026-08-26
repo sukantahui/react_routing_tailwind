@@ -41,7 +41,7 @@ const Topic8 = () => {
         "Flooding substation boundary routers with 10 Gbps traffic delays IEC 61850 GOOSE trip signals beyond the 4-millisecond safety limit; protection relays fail to clear short circuits, melting ₹10 Crore transformers.",
       vulnerabilityImpact:
         "Triggers regional cascading blackouts across North 24 Parganas, cutting electricity to hospitals, water treatment plants, and railway signaling.",
-      telemetryIndicator: "Surge in jitter and round-trip latency (&gt; 500ms) on IEC 60870-5-104 telemetry streams accompanied by router buffer queue drops",
+      telemetryIndicator: "Surge in jitter and round-trip latency (> 500ms) on IEC 60870-5-104 telemetry streams accompanied by router buffer queue drops",
       resilientDefense: "Deploying Out-of-Band (OOB) OPGW Dark Fiber lines along transmission towers and configuring Cisco QoS DSCP Expedited Forwarding (`EF`).",
       codeSnippet: `// SCADA Telemetry Timing Constraints:
 // IEC 61850 GOOSE Trip Signal SLA: < 4.0ms (Mandatory to isolate short circuit)
@@ -664,7 +664,7 @@ resource "cloudflare_record" "api_cloudflare" {
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   CNII SECTOR
                 </span>
@@ -764,7 +764,7 @@ resource "cloudflare_record" "api_cloudflare" {
                   value={attackRps}
                   onChange={(e) => setAttackRps(parseInt(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1">
@@ -780,7 +780,7 @@ resource "cloudflare_record" "api_cloudflare" {
                   value={attackDurationHours}
                   onChange={(e) => setAttackDurationHours(parseInt(e.target.value))}
                   className="w-full accent-amber-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1">
@@ -794,7 +794,7 @@ resource "cloudflare_record" "api_cloudflare" {
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     Uncapped (Max 500)
                   </button>
                   <button
@@ -805,7 +805,7 @@ resource "cloudflare_record" "api_cloudflare" {
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     Capped (Max 20)
                   </button>
                 </div>
@@ -827,7 +827,7 @@ resource "cloudflare_record" "api_cloudflare" {
                     value={telecomFailureRate}
                     onChange={(e) => setTelecomFailureRate(parseInt(e.target.value))}
                     className="w-full accent-cyan-500 bg-gray-800"
-                  /&gt;
+                  />
                 </div>
 
                 <div className="space-y-1">
@@ -843,7 +843,7 @@ resource "cloudflare_record" "api_cloudflare" {
                     value={powerGridFailureRate}
                     onChange={(e) => setPowerGridFailureRate(parseInt(e.target.value))}
                     className="w-full accent-amber-500 bg-gray-800"
-                  /&gt;
+                  />
                 </div>
 
                 <div className="space-y-1">
@@ -859,7 +859,7 @@ resource "cloudflare_record" "api_cloudflare" {
                     value={bankingFailureRate}
                     onChange={(e) => setBankingFailureRate(parseInt(e.target.value))}
                     className="w-full accent-purple-500 bg-gray-800"
-                  /&gt;
+                  />
                 </div>
               </div>
 
@@ -873,7 +873,7 @@ resource "cloudflare_record" "api_cloudflare" {
                       ? "bg-emerald-950 border-emerald-500 text-emerald-300 shadow-md shadow-emerald-950/50"
                       : "bg-gray-950 border-gray-800 text-gray-400"
                   )}
-                &gt;
+                >
                   {oobIsolationActive ? "✔ OOB DARK FIBER ACTIVE (0% Failure)" : "❌ NO OOB ISOLATION (Full Risk)"}
                 </button>
               </div>
@@ -931,7 +931,7 @@ resource "cloudflare_record" "api_cloudflare" {
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 {item.name}
               </button>
             ))}
@@ -980,7 +980,7 @@ resource "cloudflare_record" "api_cloudflare" {
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

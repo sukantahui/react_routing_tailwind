@@ -51,7 +51,7 @@ const Topic6 = () => {
             <button
               onClick={() => setShowExpanded(!showExpanded)}
               className="mt-4 text-sm text-purple-600 dark:text-purple-400 hover:underline"
-            &gt;
+            >
               {showExpanded ? "Hide" : "Show"} IPv6 address compression examples
             </button>
             {showExpanded && (

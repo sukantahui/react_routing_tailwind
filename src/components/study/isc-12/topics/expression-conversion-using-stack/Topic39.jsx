@@ -154,7 +154,7 @@ function EvaluationTool() {
               checked={notation === 'postfix'}
               onChange={() => setNotation('postfix')}
               className="accent-indigo-600"
-            /&gt;
+            />
             Postfix
           </label>
           <label className="flex items-center gap-2 text-sm">
@@ -164,7 +164,7 @@ function EvaluationTool() {
               checked={notation === 'prefix'}
               onChange={() => setNotation('prefix')}
               className="accent-indigo-600"
-            /&gt;
+            />
             Prefix
           </label>
         </div>
@@ -180,7 +180,7 @@ function EvaluationTool() {
             onChange={(e) => setExpression(e.target.value)}
             placeholder={notation === 'postfix' ? 'e.g. A B +' : 'e.g. + A B'}
             className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-transparent"
-          /&gt;
+          />
         </div>
 
         {/* Variable values */}
@@ -194,7 +194,7 @@ function EvaluationTool() {
             onChange={(e) => setVarValues(e.target.value)}
             placeholder="A=5, B=3"
             className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-transparent"
-          /&gt;
+          />
         </div>
 
         {/* Example buttons */}
@@ -205,7 +205,7 @@ function EvaluationTool() {
               key={idx}
               onClick={() => setExpression(expr)}
               className="px-3 py-1 text-xs bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-full hover:border-indigo-500 dark:hover:border-indigo-400 transition-colors"
-            &gt;
+            >
               {expr}
             </button>
           ))}
@@ -217,7 +217,7 @@ function EvaluationTool() {
               key={idx}
               onClick={() => setVarValues(vars)}
               className="px-3 py-1 text-xs bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-full hover:border-indigo-500 dark:hover:border-indigo-400 transition-colors"
-            &gt;
+            >
               {vars}
             </button>
           ))}

@@ -345,7 +345,7 @@ const Topic1 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              &gt;
+              >
                 {d.title}
               </button>
             ))}
@@ -412,7 +412,7 @@ const Topic1 = () => {
                 value={selectedThreatPayload}
                 onChange={(e) => setSelectedThreatPayload(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              &gt;
+              >
                 {Object.values(threatPayloads).map((t) => (
                   <option key={t.id} value={t.id}>
                     {t.label}
@@ -427,7 +427,7 @@ const Topic1 = () => {
                 value={activeOperationalMode}
                 onChange={(e) => setActiveOperationalMode(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              &gt;
+              >
                 <option value="inline_ips">Active In-Line IPS (Enforce Drops)</option>
                 <option value="passive_ids">Passive Out-of-Band IDS (Alert Only)</option>
                 <option value="ips_learning">IPS Learning Mode (Log Simulated Drops)</option>
@@ -444,7 +444,7 @@ const Topic1 = () => {
                     ? "bg-amber-950/80 text-amber-300 border-amber-800"
                     : "bg-slate-950 text-gray-300 border-slate-800"
                 )}
-              &gt;
+              >
                 {hardwareBypassEngaged ? "⚠️ Hardware Bypass Engaged (Fail-Open)" : "✔ Inspection Active (Relays Open)"}
               </button>
             </div>
@@ -544,7 +544,7 @@ const Topic1 = () => {
                 value={trafficThroughputGbps}
                 onChange={(e) => setTrafficThroughputGbps(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -560,7 +560,7 @@ const Topic1 = () => {
                 value={inspectionDepthBytes}
                 onChange={(e) => setInspectionDepthBytes(Number(e.target.value))}
                 className="w-full accent-purple-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -576,7 +576,7 @@ const Topic1 = () => {
                 value={falsePositiveRatePercent}
                 onChange={(e) => setFalsePositiveRatePercent(Number(e.target.value))}
                 className="w-full accent-rose-400 cursor-pointer"
-              /&gt;
+              />
             </div>
           </div>
 
@@ -630,7 +630,7 @@ const Topic1 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 {d.title}
               </button>
             ))}

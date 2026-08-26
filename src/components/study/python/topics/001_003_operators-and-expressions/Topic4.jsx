@@ -71,7 +71,7 @@ export default function Topic4() {
       rule: "Repeats a string n times",
       syntax: "string * count",
       example: "'-' * 20 → '--------------------'",
-      tip: "Count must be an integer. Multiplying by &le; 0 yields empty string ''."
+      tip: "Count must be an integer. Multiplying by <= 0 yields empty string ''."
     },
     {
       symbol: "f'{}'",
@@ -185,7 +185,7 @@ export default function Topic4() {
               value={searchFilter}
               onChange={(e) => setSearchFilter(e.target.value)}
               className="px-3.5 py-2 text-xs rounded-xl bg-slate-800 border border-slate-700 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-sky-500 transition w-full sm:w-56"
-            /&gt;
+            />
           </div>
         </div>
 
@@ -205,7 +205,7 @@ export default function Topic4() {
                   ? "bg-sky-500 text-white shadow-lg shadow-sky-500/25"
                   : "bg-slate-800 text-slate-400 hover:bg-slate-700 border border-slate-700/60"
               )}
-            &gt;
+            >
               <Filter size={12} />
               {tab.label}
             </button>
@@ -343,7 +343,7 @@ count = 0
 total_score = 450
 
 # Because count > 0 is False, Python NEVER evaluates the division (total_score / count)!
-if count &gt; 0 and (total_score / count) > 50:
+if count > 0 and (total_score / count) > 50:
     print("Average exceeds threshold")
 else:
     print("Zero items detected: Division safely bypassed by short-circuit AND!")
@@ -407,10 +407,10 @@ for item in falsy_items:
 
 # Truthy return values of 'and' & 'or'
 print("\\nOperand return behavior:")
-print("10 and 20         :", 10 and 20)          # 20 (both truthy &rarr; returns last)
+print("10 and 20         :", 10 and 20)          # 20 (both truthy -> returns last)
 print("0 and 'Python'    :", 0 and "Python")     # 0  (first falsy)
 print("'' or 'Default'   :", "" or "Default")    # 'Default' (first truthy)`}
-        /&gt;
+        />
       </section>
 
       {/* =========================================================================
@@ -447,7 +447,7 @@ print("'' or 'Default'   :", "" or "Default")    # 'Default' (first truthy)`}
             </p>
             <div className="p-2 bg-slate-950 rounded font-mono text-xs text-emerald-300">
               {`f"Total: ₹{price * qty}"`}<br />
-              {`f"{'Eligible' if age &ge; 18 else 'No'}"`}
+              {`f"{'Eligible' if age>=18 else 'No'}"`}
             </div>
           </div>
 
@@ -544,7 +544,7 @@ price_per_ticket = 25.0
 is_student = True
 
 base_fare = ticket_count * price_per_ticket
-discount = base_fare * 0.20 if (is_student or ticket_count &ge; 10) else 0.0
+discount = base_fare * 0.20 if (is_student or ticket_count >= 10) else 0.0
 final_fare = base_fare - discount
 
 # Formatted Invoice Output using f-strings
@@ -557,7 +557,7 @@ print(f"Subtotal    : ₹{base_fare:,.2f}")
 print(f"Discount    : -₹{discount:,.2f}")
 print(f"Total Paid  : ₹{final_fare:,.2f}")
 print("=" * 45)`}
-            /&gt;
+            />
           </div>
 
         </div>

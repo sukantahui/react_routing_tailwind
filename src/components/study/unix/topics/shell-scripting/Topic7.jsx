@@ -129,7 +129,7 @@ export default function Topic7() {
                   ? "bg-white dark:bg-gray-700 shadow-md text-blue-600 dark:text-blue-400"
                   : "hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-400"
               )}
-            &gt;
+            >
               {tab.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}
             </button>
           ))}
@@ -854,13 +854,13 @@ export default function Topic7() {
               <button
                 onClick={() => setActiveSection("overview")}
                 className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
-              &gt;
+              >
                 Review Concepts
               </button>
               <button
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 className="px-6 py-3 bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-300"
-              &gt;
+              >
                 Back to Top ↑
               </button>
             </div>

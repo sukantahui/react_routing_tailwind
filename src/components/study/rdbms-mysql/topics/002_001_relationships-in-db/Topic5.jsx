@@ -325,7 +325,7 @@ const Topic5 = () => {
                         ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                         : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  &gt;
+                  >
                     ✓ LEFT JOIN (Includes CEO)
                   </button>
                   <button
@@ -336,7 +336,7 @@ const Topic5 = () => {
                         ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                         : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  &gt;
+                  >
                     ❌ INNER JOIN (CEO Vanishes!)
                   </button>
                 </div>
@@ -354,14 +354,14 @@ const Topic5 = () => {
                     onChange={(e) => setNewMemberName(e.target.value)}
                     className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
                     placeholder="Employee Name"
-                  /&gt;
+                  />
                   <input
                     type="text"
                     value={newMemberTitle}
                     onChange={(e) => setNewMemberTitle(e.target.value)}
                     className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
                     placeholder="Job Title"
-                  /&gt;
+                  />
                 </div>
                 <div>
                   <label className="text-[10px] uppercase font-bold text-slate-500 block mb-1">
@@ -371,7 +371,7 @@ const Topic5 = () => {
                     value={selectedManagerId}
                     onChange={(e) => setSelectedManagerId(e.target.value)}
                     className="w-full rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  &gt;
+                  >
                     {employees.map((e) => (
                       <option key={e.id} value={e.id}>
                         #{e.id} - {e.name} ({e.title})
@@ -457,7 +457,7 @@ const Topic5 = () => {
                               <button
                                 onClick={() => handleDeleteEmployee(e.id)}
                                 className="text-[10px] text-rose-400 hover:text-rose-300 underline font-sans"
-                              &gt;
+                              >
                                 Delete
                               </button>
                             </td>
@@ -538,7 +538,7 @@ const Topic5 = () => {
     UNION ALL
 
     -- Recursive Step: Subcategories
-    SELECT c.category_id, c.category_name, c.parent_category_id, CONCAT(ct.breadcrumb_path, ' &gt; ', c.category_name)
+    SELECT c.category_id, c.category_name, c.parent_category_id, CONCAT(ct.breadcrumb_path, ' > ', c.category_name)
     FROM categories c
     INNER JOIN CategoryTree ct ON c.parent_category_id = ct.category_id
 )

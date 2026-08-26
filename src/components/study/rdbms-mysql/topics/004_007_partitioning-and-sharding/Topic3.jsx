@@ -59,7 +59,7 @@ CREATE TABLE modern_sales (
       badgeColor: "cyan",
       sqlSnippet: `-- 🧮 HOW BOUNDARY VALUES WORK:
 -- PARTITION p2024 VALUES LESS THAN (2025)
--- &rarr; Stores values where order_year < 2025 (e.g. 2024, 2023, 2022).
+-- -> Stores values where order_year < 2025 (e.g. 2024, 2023, 2022).
 -- -> Row with order_year = 2025 routes to p2025!
 
 -- 📦 NULL HANDLING IN RANGE PARTITIONING:
@@ -103,8 +103,8 @@ ALTER TABLE modern_sales REORGANIZE PARTITION p_future INTO (
       badgeColor: "rose",
       sqlSnippet: `-- 📊 PRODUCTION SIZING GUIDELINES:
 -- Volume: < 10M rows/year   -> Yearly Partitioning (p2024, p2025)
--- Volume: 10M-100M rows/yr &rarr; Monthly Partitioning (p2025_01, p2025_02)
--- Volume: &gt; 1M rows/day     -> Daily Partitioning (p20250825, p20250826)
+-- Volume: 10M-100M rows/yr -> Monthly Partitioning (p2025_01, p2025_02)
+-- Volume: > 1M rows/day     -> Daily Partitioning (p20250825, p20250826)
 
 -- 🎯 Target: Size each partition between 2GB and 10GB for optimal RAM caching!`,
       explanation:
@@ -212,7 +212,7 @@ ALTER TABLE modern_sales REORGANIZE PARTITION p_future INTO (
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                &gt;
+                >
                   {config.configName}
                 </button>
               );

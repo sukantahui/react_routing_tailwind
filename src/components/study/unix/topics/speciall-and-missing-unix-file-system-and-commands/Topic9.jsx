@@ -48,7 +48,7 @@ const interactiveQuestions = [
   { q: "What does `tee -i` do?", a: "Ignores interrupt signals (useful when you want tee to finish writing even if pipe is broken)." },
   { q: "How do you suppress the stdout (terminal) output but still write to a file using `tee`?", a: "`command | tee file.txt > /dev/null` (stdout goes to file via tee, then redirected to null)." },
   { q: "What is a common use case for `tee` in system administration?", a: "Logging output of a long-running script while still seeing it in real time, or splitting a stream to multiple processing pipelines." },
-  { q: "How does `tee` differ from simply using `&gt;` redirection?", a: "`>` only writes to a file; `tee` writes to both file and stdout." },
+  { q: "How does `tee` differ from simply using `>` redirection?", a: "`>` only writes to a file; `tee` writes to both file and stdout." },
   { q: "Can `tee` be used with sudo to write to a protected file?", a: "Yes: `echo 'config' | sudo tee /etc/config_file` (instead of `sudo echo > file` which fails)." },
   { q: "Why does `sudo echo 'text' > /root/file` fail? How does `tee` solve it?", a: "Redirection is applied by the shell before sudo, so shell needs write permission. `sudo tee` runs tee as root, which can write." },
   { q: "What does `tee --version` show?", a: "The version of tee (part of GNU coreutils or similar)." },
@@ -58,7 +58,7 @@ const interactiveQuestions = [
   { q: "What is the purpose of `tee` in build systems (e.g., make)?", a: "Capture build logs while still showing progress on terminal: `make 2>&1 | tee build.log`." },
   { q: "How does `tee -a` differ from `tee` without `-a`?", a: "`-a` appends to the file(s) instead of overwriting." },
   { q: "What happens if you specify multiple files to `tee` and one of them is not writable?", a: "The writable files still receive data; tee returns a non-zero exit code but continues." },
-  { q: "How can you use `tee` to simultaneously write to a file and to a network socket? (Advanced)", a: "Use process substitution: `command | tee &gt;(nc host port) > file.txt`" },
+  { q: "How can you use `tee` to simultaneously write to a file and to a network socket? (Advanced)", a: "Use process substitution: `command | tee >(nc host port) > file.txt`" },
   { q: "Is `tee` available on all Unix-like systems?", a: "Yes, tee is POSIX and available on Linux, macOS, BSD, Solaris, etc." }
 ];
 
@@ -85,7 +85,7 @@ function InteractiveQuestionsBlock() {
                 <button
                   onClick={() => toggle(idx)}
                   className="rounded-full bg-indigo-100 px-4 py-1 text-sm font-medium text-indigo-700 transition-all hover:bg-indigo-200 dark:bg-indigo-900/60 dark:text-indigo-200"
-                &gt;
+                >
                   {revealed[idx] ? "Hide" : "Show answer"}
                 </button>
               </div>
@@ -217,7 +217,7 @@ echo "new line" | tee -a log.txt
 ps aux | tee process_list.txt process_list_backup.txt
 
 # Capture stderr as well (merge stderr into stdout)
-build_script 2&gt;&1 | tee build.log
+build_script 2>&1 | tee build.log
 
 # Suppress terminal output but still write to file
 command | tee file.txt > /dev/null

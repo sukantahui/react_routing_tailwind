@@ -89,7 +89,7 @@ function InteractiveQuestions() {
                 <button
                   onClick={() => toggleAnswer(idx)}
                   className="rounded-full bg-indigo-100 px-4 py-1 text-sm font-medium text-indigo-700 transition-all hover:bg-indigo-200 dark:bg-indigo-900/60 dark:text-indigo-200 dark:hover:bg-indigo-800"
-                &gt;
+                >
                   {revealed[idx] ? "Hide Answer" : "Show Answer"}
                 </button>
               </div>

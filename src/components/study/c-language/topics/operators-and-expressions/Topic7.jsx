@@ -63,7 +63,7 @@ int main() {
     return 0;
 }
 `}
-        /&gt;
+        />
 
         <p className="text-slate-300 text-sm leading-relaxed">
           Each variable uses a different format specifier to print the correct value.
@@ -93,7 +93,7 @@ int main() {
     return 0;
 }
 `}
-        /&gt;
+        />
 
         {/* Teacher's Tips */}
         <h3 className="text-xl font-semibold text-purple-300 mt-8">

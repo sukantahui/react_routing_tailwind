@@ -71,7 +71,7 @@ const Topic1 = () => {
   // Compute filtered tuples
   const filteredStudents = studentData.filter((s) => {
     const cityMatch = cityFilter === "All" || s.city === cityFilter;
-    const feeMatch = s.fee &ge; minFee;
+    const feeMatch = s.fee >= minFee;
     const statusMatch = statusFilter === "All" || s.status === statusFilter;
     return cityMatch && feeMatch && statusMatch;
   });
@@ -266,7 +266,7 @@ const Topic1 = () => {
                       value={cityFilter}
                       onChange={(e) => setCityFilter(e.target.value)}
                       className="w-full rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
-                    &gt;
+                    >
                       <option value="All">All Cities</option>
                       <option value="Barrackpore">Barrackpore</option>
                       <option value="Kolkata">Kolkata</option>
@@ -280,7 +280,7 @@ const Topic1 = () => {
                       value={minFee}
                       onChange={(e) => setMinFee(Number(e.target.value))}
                       className="w-full rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-cyan-500 focus:outline-none"
-                    &gt;
+                    >
                       <option value={0}>₹0+ (All)</option>
                       <option value={3500}>≥ ₹3,500</option>
                       <option value={4500}>≥ ₹4,500</option>
@@ -294,7 +294,7 @@ const Topic1 = () => {
                       value={statusFilter}
                       onChange={(e) => setStatusFilter(e.target.value)}
                       className="w-full rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-emerald-500 focus:outline-none"
-                    &gt;
+                    >
                       <option value="All">All Statuses</option>
                       <option value="Active">Active</option>
                       <option value="Completed">Completed</option>
@@ -342,7 +342,7 @@ const Topic1 = () => {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-800/60 bg-slate-900/50 font-mono">
-                      {filteredStudents.length &gt; 0 ? (
+                      {filteredStudents.length > 0 ? (
                         filteredStudents.map((s) => (
                           <tr key={s.id}>
                             <td className="p-1.5 text-cyan-300 font-bold">#{s.id}</td>
@@ -400,7 +400,7 @@ const Topic1 = () => {
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT * FROM students
-WHERE city = 'Barrackpore' AND admission_fee &ge; 5000;`}
+WHERE city = 'Barrackpore' AND admission_fee >= 5000;`}
               </pre>
             </div>
 

@@ -15,7 +15,7 @@ const FindLargestVisualSVG = () => {
   
   const stages = [
     { label: "Step 1: Initialize max = arr[0] = 45", array: [45, 67, 23, 89, 12, 78, 34], currentMax: 45, currentIndex: 0, comparing: -1 },
-    { label: "Step 2: Compare 67 with max (45) → 67 &gt; 45, update max = 67", array: [45, 67, 23, 89, 12, 78, 34], currentMax: 67, currentIndex: 1, comparing: 1 },
+    { label: "Step 2: Compare 67 with max (45) → 67 > 45, update max = 67", array: [45, 67, 23, 89, 12, 78, 34], currentMax: 67, currentIndex: 1, comparing: 1 },
     { label: "Step 3: Compare 23 with max (67) → 23 < 67, no change", array: [45, 67, 23, 89, 12, 78, 34], currentMax: 67, currentIndex: 2, comparing: 2 },
     { label: "Step 4: Compare 89 with max (67) → 89 > 67, update max = 89", array: [45, 67, 23, 89, 12, 78, 34], currentMax: 89, currentIndex: 3, comparing: 3 },
     { label: "Step 5: Compare 12 with max (89) → 12 < 89, no change", array: [45, 67, 23, 89, 12, 78, 34], currentMax: 89, currentIndex: 4, comparing: 4 },
@@ -121,7 +121,7 @@ const FindLargestVisualSVG = () => {
         <button 
           onClick={() => setStep((step + 1) % 8)}
           className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-all duration-300"
-        &gt;
+        >
           {step < 7 ? "Next Step (Step " + (step + 2) + "/8)" : "Reset Animation"}
         </button>
       </div>
@@ -222,7 +222,7 @@ const Topic14 = () => {
                   ? "bg-orange-50 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 border-b-2 border-orange-600"
                   : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
               )}
-            &gt;
+            >
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
             </button>
           ))}
@@ -487,8 +487,8 @@ const Topic14 = () => {
                   <div className="flex items-start gap-3 p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
                     <span className="text-red-600 text-xl">❌</span>
                     <div>
-                      <p className="font-semibold">Using >= instead of &gt;</p>
-                      <p className="text-sm">For duplicate max values, last occurrence becomes max with >=</p>
+                      <p className="font-semibold">Using &gt;= instead of &gt;</p>
+                      <p className="text-sm">For duplicate max values, last occurrence becomes max with &gt;=</p>
                     </div>
                   </div>
                 </div>

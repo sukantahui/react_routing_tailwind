@@ -257,7 +257,7 @@ const Topic7 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="font-bold text-gray-200 truncate">{sys.name.split(". ")[1]}</div>
                   <div className="text-[10px] text-indigo-400 font-mono mt-0.5 truncate">{sys.tier.split(":")[0]}</div>
                 </button>
@@ -299,7 +299,7 @@ const Topic7 = () => {
               <div className="bg-gray-900 p-4 rounded-xl border border-emerald-900/40 space-y-1">
                 <span className="text-emerald-400 font-bold uppercase tracking-wider block font-sans">Max Tolerable Downtime (MTD):</span>
                 <p className="text-emerald-300 text-sm font-bold">{activeBiaSystem.mtd}</p>
-                <span className="text-[10px] text-gray-400 font-sans block">MTD >= RTO ({activeBiaSystem.rto.split(" ")[0]}) + WRT ({activeBiaSystem.wrt.split(" ")[0]})</span>
+                <span className="text-[10px] text-gray-400 font-sans block">MTD &gt;= RTO ({activeBiaSystem.rto.split(" ")[0]}) + WRT ({activeBiaSystem.wrt.split(" ")[0]})</span>
               </div>
             </div>
 
@@ -336,7 +336,7 @@ const Topic7 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="font-bold text-gray-200 truncate">{strat.title.split(" / ")[0]}</div>
                   <div className="text-[10px] text-indigo-400 font-mono mt-0.5 truncate">{strat.rtoMetric}</div>
                 </button>
@@ -456,7 +456,7 @@ const Topic7 = () => {
                   {/* Maximum Tolerable Downtime (MTD) Bracket */}
                   <line x1="210" y1="80" x2="460" y2="80" stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="3 3" />
                   <text x="335" y="70" fill="#fbbf24" font-family="monospace" fontWeight="bold" textAnchor="middle" fontSize="8.5">
-                    MAXIMUM TOLERABLE DOWNTIME (MTD >= RTO + WRT)
+                    MAXIMUM TOLERABLE DOWNTIME (MTD &gt;= RTO + WRT)
                   </text>
 
                   {/* Bottom Text */}
@@ -553,7 +553,7 @@ const Topic7 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>
@@ -728,7 +728,7 @@ const Topic7 = () => {
               <div className="p-3 bg-gray-900 rounded-xl border border-amber-300 block">
                 <strong className="text-amber-300 block">Observe carefully...</strong>
                 <p className="text-gray-400">
-                  The strict statutory compliance mandates: The Reserve Bank of India (RBI) mandates RTO <= 4 hours, RPO near zero, and semi-annual unannounced live DR switchovers for payment systems. Under Section 8(5) of the Indian DPDP Act 2023, failing to maintain technical availability safeguards that leads to permanent data loss triggers up to ₹250 Crore fines.
+                  The strict statutory compliance mandates: The Reserve Bank of India (RBI) mandates RTO &lt;= 4 hours, RPO near zero, and semi-annual unannounced live DR switchovers for payment systems. Under Section 8(5) of the Indian DPDP Act 2023, failing to maintain technical availability safeguards that leads to permanent data loss triggers up to ₹250 Crore fines.
                 </p>
               </div>
               <div className="p-3 bg-gray-900 rounded-xl border border-purple-300 block">
@@ -756,7 +756,7 @@ const Topic7 = () => {
               </div>
               <div className="flex items-center gap-2 p-2.5 bg-gray-900 rounded-lg border border-gray-800">
                 <span className="text-emerald-400">✔</span>
-                <span>Continuity Equation: MTD >= RTO + WRT (Work Recovery Time).</span>
+                <span>Continuity Equation: MTD &gt;= RTO + WRT (Work Recovery Time).</span>
               </div>
               <div className="flex items-center gap-2 p-2.5 bg-gray-900 rounded-lg border border-gray-800">
                 <span className="text-emerald-400">✔</span>
@@ -768,7 +768,7 @@ const Topic7 = () => {
               </div>
               <div className="flex items-center gap-2 p-2.5 bg-gray-900 rounded-lg border border-gray-800">
                 <span className="text-emerald-400">✔</span>
-                <span>RBI mandates RTO <= 4h, RPO ~ 0, and semi-annual unannounced live DR drills.</span>
+                <span>RBI mandates RTO &lt;= 4h, RPO ~ 0, and semi-annual unannounced live DR drills.</span>
               </div>
             </div>
           </div>
@@ -799,7 +799,7 @@ const Topic7 = () => {
         <section className="pt-4">
           <Teacher
             note="Teacher's Note: Business Continuity Planning (BCP) and Disaster Recovery (DR) represent the ultimate acid test of your Information Security Management System. Remember that a plan that has never been tested in production is not a plan—it is merely a wish. Master the critical continuity equation (MTD >= RTO + WRT), deploy Hot and Warm architectures with quorum consensus to eliminate split-brain corruption, and leverage immutable cloud vaults under ISO 27001 Controls A.5.30 and A.8.14 to guarantee complete enterprise survival and statutory compliance under RBI directions and the Indian DPDP Act 2023!"
-          /&gt;
+          />
         </section>
 
       </div>

@@ -109,7 +109,7 @@ const Topic1 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[0]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🎯</span>
                         Why Plot Constraints?
@@ -145,7 +145,7 @@ const Topic1 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[1]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📏</span>
                         Methods to Plot a Straight Line
@@ -203,7 +203,7 @@ const Topic1 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[2]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">✏️</span>
                         Practice: Plot These Constraints
@@ -224,7 +224,7 @@ const Topic1 = () => {
                                             ? "bg-emerald-600 dark:bg-emerald-500 text-white border-emerald-600 dark:border-emerald-500 shadow-md"
                                             : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600 hover:border-emerald-400 dark:hover:border-emerald-500 hover:shadow-sm"
                                     )}
-                                &gt;
+                                >
                                     {con.label}
                                 </button>
                             ))}
@@ -258,7 +258,7 @@ const Topic1 = () => {
                                     <g key={`t1-tick-${v}`}>
                                         <line x1={v} y1="195" x2={v} y2="205" stroke="#1e293b" strokeWidth="1" className="dark:stroke-slate-300" />
                                         <line x1="195" y1={v} x2="205" y2={v} stroke="#1e293b" strokeWidth="1" className="dark:stroke-slate-300" />
-                                        {v &ge; 40 && v &le; 360 && (
+                                        {v >= 40 && v <= 360 && (
                                             <>
                                                 <text x={v - 4} y="218" fontSize="10" fill="#94a3b8" className="dark:fill-slate-500">{v === 200 ? 0 : (v - 200) / 40}</text>
                                                 <text x="178" y={v + 4} fontSize="10" fill="#94a3b8" className="dark:fill-slate-500">{v === 200 ? 0 : (200 - v) / 40}</text>
@@ -280,7 +280,7 @@ const Topic1 = () => {
                                     if (xIntVal !== null && yIntVal !== null) {
                                         // Both intercepts exist
                                         const px1 = 200 + xIntVal * 40;
-                                        const py1 = 200 - 0 * 40; // y=0 &rarr; at 200
+                                        const py1 = 200 - 0 * 40; // y=0 -> at 200
                                         const px2 = 200 + 0 * 40;
                                         const py2 = 200 - yIntVal * 40;
                                         // But we need to extend to edges
@@ -294,9 +294,9 @@ const Topic1 = () => {
                                         const topX = xAtY(4.5);
                                         // Choose points that are on the grid
                                         let points = [];
-                                        if (leftY &ge; -4.5 && leftY &le; 4.5) points.push([20, 200 - leftY * 40]);
+                                        if (leftY >= -4.5 && leftY <= 4.5) points.push([20, 200 - leftY * 40]);
                                         if (rightY >= -4.5 && rightY <= 4.5) points.push([380, 200 - rightY * 40]);
-                                        if (bottomX >= -4.5 && bottomX &le; 4.5) points.push([200 + bottomX * 40, 380]);
+                                        if (bottomX >= -4.5 && bottomX <= 4.5) points.push([200 + bottomX * 40, 380]);
                                         if (topX >= -4.5 && topX <= 4.5) points.push([200 + topX * 40, 20]);
 
                                         if (points.length >= 2) {
@@ -329,7 +329,7 @@ const Topic1 = () => {
                                         x1 = 20; y1 = yPos; x2 = 380; y2 = yPos;
                                     }
 
-                                    // Determine if solid or dashed ( &le; or >= &rarr; solid, < or > &rarr; dashed)
+                                    // Determine if solid or dashed (<= or >= -> solid, < or > -> dashed)
                                     const isSolid = sign.includes("=");
                                     const strokeDasharray = isSolid ? "none" : "8,4";
                                     const color = "#0ea5e9"; // sky-500
@@ -341,10 +341,10 @@ const Topic1 = () => {
                                                 strokeDasharray={strokeDasharray}
                                             />
                                             {/* Labels for intercepts if they exist */}
-                                            {xIntVal !== null && xIntVal &ge; -4.5 && xIntVal &le; 4.5 && (
+                                            {xIntVal !== null && xIntVal >= -4.5 && xIntVal <= 4.5 && (
                                                 <circle cx={200 + xIntVal * 40} cy={200} r="5" fill="#f59e0b" />
                                             )}
-                                            {yIntVal !== null && yIntVal &ge; -4.5 && yIntVal &le; 4.5 && (
+                                            {yIntVal !== null && yIntVal >= -4.5 && yIntVal <= 4.5 && (
                                                 <circle cx={200} cy={200 - yIntVal * 40} r="5" fill="#f59e0b" />
                                             )}
                                             {/* Label the equation */}
@@ -376,7 +376,7 @@ const Topic1 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[3]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">⚠️</span>
                         Special Cases in Plotting
@@ -424,7 +424,7 @@ const Topic1 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[4]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🌍</span>
                         Real-World Examples
@@ -481,7 +481,7 @@ const Topic1 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[5]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🎯</span>
                         Tips, Mistakes & Best Practices
@@ -532,7 +532,7 @@ const Topic1 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[6]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📋</span>
                         Mini Checklist

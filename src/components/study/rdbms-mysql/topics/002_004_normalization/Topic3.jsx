@@ -279,7 +279,7 @@ const Topic3 = () => {
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 1. Trivial: {`{id, name} → id`}
               </button>
 
@@ -291,7 +291,7 @@ const Topic3 = () => {
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 2. Non-Trivial: id → name, city
               </button>
 
@@ -303,7 +303,7 @@ const Topic3 = () => {
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 3. Semi-Trivial: {`{sid,cid} → {name,cid}`}
               </button>
 
@@ -315,7 +315,7 @@ const Topic3 = () => {
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 4. Non-Trivial: cid → title, fee
               </button>
             </div>
@@ -422,7 +422,7 @@ const Topic3 = () => {
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`-- Non-trivial FD to verify for BCNF:
--- student_id &rarr; { student_name, email, city }
+-- student_id -> { student_name, email, city }
 -- Check: Is student_id a super key?
 -- YES (It is the PRIMARY KEY). Table is in BCNF!`}
               </pre>
@@ -440,8 +440,8 @@ const Topic3 = () => {
                 Simplifying semi-trivial composite dependencies into clean canonical form:
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
-{`-- Original Semi-Trivial: { student_id, course_id } &rarr; { grade, course_id }
--- Step 1 (Decomposition): { student_id, course_id } -&gt; grade  AND  { student_id, course_id } -> course_id
+{`-- Original Semi-Trivial: { student_id, course_id } -> { grade, course_id }
+-- Step 1 (Decomposition): { student_id, course_id } -> grade  AND  { student_id, course_id } -> course_id
 -- Step 2 (Drop Trivial): Discard { student_id, course_id } -> course_id
 -- Clean Canonical FD: (student_id, course_id) -> grade`}
               </pre>
@@ -582,10 +582,10 @@ const Topic3 = () => {
               "In my classroom at Coder & AccoTax in Barrackpore, I tell students: " +
               "'{student_id, name} -> student_id' is trivial because if you already have a student's ID in your hand, " +
               "asking what their ID is gives you zero new information. " +
-              "That is why normal form definitions like BCNF explicitly state: 'For every NON-TRIVIAL functional dependency X &rarr; Y, X must be a super key.' " +
+              "That is why normal form definitions like BCNF explicitly state: 'For every NON-TRIVIAL functional dependency X -> Y, X must be a super key.' " +
               "Always strip away the trivial mathematical noise so you can focus entirely on the genuine business rules that govern your database!"
             }
-          /&gt;
+          />
         </section>
 
         {/* ─── Footer ───────────────────────────────────────────── */}

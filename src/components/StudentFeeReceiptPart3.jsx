@@ -633,9 +633,9 @@ const StudentFeeReceiptPart3 = () => {
       const crores = Math.floor(remaining / 10000000);
       result += convertBelowHundred(crores) + ' Crore';
       remaining %= 10000000;
-      if (remaining &gt; 0) result += ' ';
+      if (remaining > 0) result += ' ';
     }
-    if (remaining &ge; 100000) {
+    if (remaining >= 100000) {
       const lakhs = Math.floor(remaining / 100000);
       result += convertBelowHundred(lakhs) + ' Lakh';
       remaining %= 100000;
@@ -878,7 +878,7 @@ const StudentFeeReceiptPart3 = () => {
         alert('Please fill in period details and monthly fee amount for monthly fee type');
         return;
       }
-      if (!formData.feesPaid || parseFloat(formData.feesPaid) &le; 0) {
+      if (!formData.feesPaid || parseFloat(formData.feesPaid) <= 0) {
         alert('Please calculate total fees by selecting period and monthly amount');
         return;
       }
@@ -1520,7 +1520,7 @@ const StudentFeeReceiptPart3 = () => {
           <button
             onClick={() => setDarkMode(!darkMode)}
             className="flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 shadow-md hover:shadow-lg transition border border-gray-200 dark:border-gray-600 text-sm"
-          &gt;
+          >
             {darkMode ? (
               <>
                 <span>☀️</span> Light Mode
@@ -1535,7 +1535,7 @@ const StudentFeeReceiptPart3 = () => {
             <button
               onClick={() => setShowDevTools(!showDevTools)}
               className="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-800 dark:bg-gray-600 text-white shadow-md hover:shadow-lg transition text-sm"
-            &gt;
+            >
               <span>🛠️</span> {showDevTools ? 'Hide Dev Tools' : 'Show Dev Tools'}
             </button>
           )}
@@ -1562,7 +1562,7 @@ const StudentFeeReceiptPart3 = () => {
                     type="button"
                     onClick={() => setShowNewStudentForm(!showNewStudentForm)}
                     className="text-xs text-blue-600 dark:text-blue-400 hover:text-blue-700 font-semibold"
-                  &gt;
+                  >
                     {showNewStudentForm ? '− Cancel' : '+ Add New Student'}
                   </button>
                 </div>
@@ -1666,7 +1666,7 @@ const StudentFeeReceiptPart3 = () => {
                           setCreateStudentError(null);
                         }}
                         className="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-400 transition text-sm"
-                      &gt;
+                      >
                         Cancel
                       </button>
                     </div>
@@ -1718,7 +1718,7 @@ const StudentFeeReceiptPart3 = () => {
                     type="button"
                     onClick={() => setShowNewCourseForm(!showNewCourseForm)}
                     className="text-xs text-blue-600 dark:text-blue-400 hover:text-blue-700 font-semibold"
-                  &gt;
+                  >
                     {showNewCourseForm ? '− Cancel' : '+ Add New Course'}
                   </button>
                 </div>
@@ -1800,7 +1800,7 @@ const StudentFeeReceiptPart3 = () => {
                           setCreateCourseError(null);
                         }}
                         className="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-400 transition text-sm"
-                      &gt;
+                      >
                         Cancel
                       </button>
                     </div>
@@ -1820,7 +1820,7 @@ const StudentFeeReceiptPart3 = () => {
                       ? 'bg-blue-600 text-white'
                       : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-500'
                       }`}
-                  &gt;
+                  >
                     One-time / Fixed Fee
                   </button>
                   <button
@@ -1830,7 +1830,7 @@ const StudentFeeReceiptPart3 = () => {
                       ? 'bg-blue-600 text-white'
                       : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-500'
                       }`}
-                  &gt;
+                  >
                     Monthly Fee
                   </button>
                 </div>
@@ -2012,7 +2012,7 @@ const StudentFeeReceiptPart3 = () => {
                       onError={(e) => {
                         e.target.style.display = 'none';
                       }}
-                    /&gt;
+                    />
                   </div>
 
                   {/* PAID Stamp Image */}
@@ -2034,7 +2034,7 @@ const StudentFeeReceiptPart3 = () => {
                           onError={(e) => {
                             e.target.style.display = 'none';
                           }}
-                        /&gt;
+                        />
                         <h3 className="text-lg font-bold text-blue-700">Coder & AccoTax</h3>
                       </div>
                       <p className="text-[9px] text-gray-500 mt-1">Fee Payment Receipt</p>
@@ -2147,7 +2147,7 @@ const StudentFeeReceiptPart3 = () => {
             <button
               onClick={() => setShowDevTools(false)}
               className="text-gray-400 hover:text-white transition"
-            &gt;
+            >
               ✕
             </button>
           </div>

@@ -303,7 +303,7 @@ function InfixToPostfixTracer() {
   };
 
   const goPrev = () => {
-    if (currentStep &gt; 0) setCurrentStep(currentStep - 1);
+    if (currentStep > 0) setCurrentStep(currentStep - 1);
   };
 
   // keyboard support
@@ -334,7 +334,7 @@ function InfixToPostfixTracer() {
               onChange={(e) => setExpr(e.target.value)}
               placeholder="e.g., A*B/D-C+E"
               className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-transparent transition"
-            /&gt;
+            />
           </div>
 
           <div className="flex gap-2">
@@ -359,7 +359,7 @@ function InfixToPostfixTracer() {
           </div>
         )}
 
-        {isTraced && steps.length &gt; 0 && (
+        {isTraced && steps.length > 0 && (
           <>
             {/* navigation */}
             <div className="flex items-center justify-between gap-4 pt-2">
@@ -441,7 +441,7 @@ function InfixToPostfixTracer() {
                             className="text-indigo-500 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 transition"
                             aria-label="Show detailed explanation"
                             title="Click for detailed explanation"
-                          &gt;
+                          >
                             ℹ️
                           </button>
                         </td>
@@ -457,7 +457,7 @@ function InfixToPostfixTracer() {
               <p className="text-sm text-gray-600 dark:text-gray-400">
                 Final postfix:{" "}
                 <strong className="text-indigo-600 dark:text-indigo-400">
-                  {steps.length &gt; 0 ? steps[steps.length - 1].output : ""}
+                  {steps.length > 0 ? steps[steps.length - 1].output : ""}
                 </strong>
               </p>
               <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
@@ -472,11 +472,11 @@ function InfixToPostfixTracer() {
           <div
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
             onClick={() => setPopupStepIndex(null)}
-          &gt;
+          >
             <div
               className="bg-white dark:bg-gray-800 rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-gray-200 dark:border-gray-700"
               onClick={(e) => e.stopPropagation()}
-            &gt;
+            >
               <div className="flex items-start justify-between">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                   Step {steps[popupStepIndex].step} – {steps[popupStepIndex].token}
@@ -485,7 +485,7 @@ function InfixToPostfixTracer() {
                   onClick={() => setPopupStepIndex(null)}
                   className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition"
                   aria-label="Close popup"
-                &gt;
+                >
                   ✕
                 </button>
               </div>

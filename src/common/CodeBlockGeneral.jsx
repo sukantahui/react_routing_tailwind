@@ -49,7 +49,7 @@ export default function CodeBlockGeneral({
             dangerouslySetInnerHTML={{
               __html: lines.join("<br/>"),
             }}
-          /&gt;
+          />
         </pre>
       </div>
     </div>

@@ -281,8 +281,8 @@ exports.searchProducts = async (req, res) => {
             SELECT id, product_name, price, category 
             FROM products 
             WHERE category = $1 
-              AND price &ge; $2 
-              AND price &le; $3
+              AND price >= $2 
+              AND price <= $3
             ORDER BY price ASC
         \`;
 
@@ -664,7 +664,7 @@ FLUSH PRIVILEGES;`,
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   TECHNIQUE
                 </span>
@@ -756,7 +756,7 @@ FLUSH PRIVILEGES;`,
                           ? "bg-rose-950 border-rose-500 text-rose-300"
                           : "bg-gray-950 border-gray-800 text-gray-400"
                       )}
-                    &gt;
+                    >
                       {db}
                     </button>
                   ))}
@@ -774,7 +774,7 @@ FLUSH PRIVILEGES;`,
                         ? "bg-purple-950 border-purple-500 text-purple-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     UNION-Based SQLi
                   </button>
                   <button
@@ -785,7 +785,7 @@ FLUSH PRIVILEGES;`,
                         ? "bg-amber-950 border-amber-500 text-amber-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     Error-Based SQLi
                   </button>
                 </div>
@@ -805,7 +805,7 @@ FLUSH PRIVILEGES;`,
                     value={injectedColumnCount}
                     onChange={(e) => setInjectedColumnCount(parseInt(e.target.value))}
                     className="w-full accent-cyan-500 bg-gray-800"
-                  /&gt;
+                  />
                   <span className="text-[10px] text-gray-400 block">Original Query has 3 Columns (Match to Succeed!)</span>
                 </div>
               ) : (
@@ -819,7 +819,7 @@ FLUSH PRIVILEGES;`,
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300 shadow-md shadow-emerald-950/50"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     {errorMaskingActive ? "✔ PRODUCTION ERROR MASKING ACTIVE" : "VERBOSE ERROR STACK TRACES ON"}
                   </button>
                 </div>
@@ -842,7 +842,7 @@ FLUSH PRIVILEGES;`,
                           ? "bg-cyan-950 border-cyan-500 text-cyan-300"
                           : "bg-gray-950 border-gray-800 text-gray-400"
                       )}
-                    &gt;
+                    >
                       {t.label}
                     </button>
                   ))}
@@ -941,7 +941,7 @@ FLUSH PRIVILEGES;`,
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 {item.name}
               </button>
             ))}
@@ -990,7 +990,7 @@ FLUSH PRIVILEGES;`,
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

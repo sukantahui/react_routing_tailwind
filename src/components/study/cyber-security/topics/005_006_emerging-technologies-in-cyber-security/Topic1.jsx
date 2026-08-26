@@ -29,7 +29,7 @@ const Topic1 = () => {
 
     const z = (wEntropy * sectionEntropy) + (wApis * suspiciousApis) + (wSig * (hasValidSignature ? 1.0 : 0.0)) + bias;
     const probability = (1.0 / (1.0 + Math.exp(-z))) * 100.0;
-    const isMalware = probability &ge; 50.0;
+    const isMalware = probability >= 50.0;
 
     let verdict = "";
     let badgeColor = "";
@@ -185,7 +185,7 @@ const Topic1 = () => {
               <div className="space-y-1.5">
                 <div className="flex justify-between text-slate-300 font-semibold">
                   <span>Section Shannon Entropy ($H$):</span>
-                  <span className="font-mono text-cyan-400">{sectionEntropy.toFixed(2)} / 8.0 ({sectionEntropy &gt; 7.2 ? "Packed/Encrypted 🚨" : "Plaintext Code ✔"})</span>
+                  <span className="font-mono text-cyan-400">{sectionEntropy.toFixed(2)} / 8.0 ({sectionEntropy > 7.2 ? "Packed/Encrypted 🚨" : "Plaintext Code ✔"})</span>
                 </div>
                 <input
                   type="range"
@@ -195,7 +195,7 @@ const Topic1 = () => {
                   value={sectionEntropy}
                   onChange={(e) => setSectionEntropy(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1.5">
@@ -211,7 +211,7 @@ const Topic1 = () => {
                   value={suspiciousApis}
                   onChange={(e) => setSuspiciousApis(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-rose-500"
-                /&gt;
+                />
               </div>
 
               <label className="flex items-center justify-between p-3 bg-slate-900 rounded-lg border border-slate-800 cursor-pointer pt-2">
@@ -224,7 +224,7 @@ const Topic1 = () => {
                   checked={hasValidSignature}
                   onChange={(e) => setHasValidSignature(e.target.checked)}
                   className="accent-emerald-500 w-4 h-4"
-                /&gt;
+                />
               </label>
             </div>
 
@@ -285,7 +285,7 @@ const Topic1 = () => {
                   value={packetRate}
                   onChange={(e) => setPacketRate(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-                /&gt;
+                />
                 <div className="flex justify-between text-[10px] text-slate-500">
                   <span>50 (Low)</span>
                   <span>120 (Baseline Mean)</span>
@@ -339,7 +339,7 @@ const Topic1 = () => {
                       ? "bg-cyan-600 text-white shadow-lg shadow-cyan-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                &gt;
+                >
                   {key === "barrackpore_xgboost" ? "Barrackpore XGBoost" : key === "kolkata_fintech_autoencoder" ? "Kolkata Autoencoder" : "Ichapur Anti-Evasion"}
                 </button>
               ))}

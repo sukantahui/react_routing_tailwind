@@ -83,7 +83,7 @@ const Topic3 = () => {
   };
 
   const handleRemoveColumn = (indexToRemove) => {
-    if (columns.length &le; 1) return;
+    if (columns.length <= 1) return;
     setColumns(columns.filter((_, i) => i !== indexToRemove));
   };
 
@@ -295,7 +295,7 @@ const Topic3 = () => {
                 onChange={(e) => setTableName(e.target.value)}
                 placeholder="e.g. students, products, enrollments"
                 className="w-full max-w-xs rounded-lg bg-slate-950 border border-slate-800 px-3 py-1.5 text-xs font-mono text-white focus:border-teal-500 focus:outline-none"
-              /&gt;
+              />
             </div>
 
             {/* Current Columns List */}
@@ -326,7 +326,7 @@ const Topic3 = () => {
                           <button
                             onClick={() => handleRemoveColumn(i)}
                             className="text-rose-400 hover:text-rose-300 font-sans text-xs underline"
-                          &gt;
+                          >
                             Remove
                           </button>
                         )}
@@ -350,14 +350,14 @@ const Topic3 = () => {
                     onChange={(e) => setNewColName(e.target.value)}
                     placeholder="Column name (e.g. phone_no)"
                     className="w-full rounded-lg bg-slate-900 border border-slate-800 px-3 py-2 text-xs font-mono text-white focus:border-teal-500 focus:outline-none"
-                  /&gt;
+                  />
                 </div>
                 <div>
                   <select
                     value={newColType}
                     onChange={(e) => setNewColType(e.target.value)}
                     className="w-full rounded-lg bg-slate-900 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  &gt;
+                  >
                     <option value="VARCHAR(50)">VARCHAR(50)</option>
                     <option value="VARCHAR(100)">VARCHAR(100)</option>
                     <option value="CHAR(10)">CHAR(10)</option>
@@ -376,7 +376,7 @@ const Topic3 = () => {
                       checked={newColNotNull}
                       onChange={(e) => setNewColNotNull(e.target.checked)}
                       className="rounded border-slate-700 bg-slate-800 text-teal-500"
-                    /&gt;
+                    />
                     NOT NULL
                   </label>
                 </div>

@@ -243,13 +243,13 @@ export default class Topic16 extends React.Component {
                   <button 
                     onClick={() => this.handleSchemeChange('mbr')}
                     className={`px-4 py-2 rounded-lg transition-all duration-300 ${partitionScheme === 'mbr' ? 'bg-blue-500 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'}`}
-                  &gt;
+                  >
                     MBR (Legacy)
                   </button>
                   <button 
                     onClick={() => this.handleSchemeChange('gpt')}
                     className={`px-4 py-2 rounded-lg transition-all duration-300 ${partitionScheme === 'gpt' ? 'bg-blue-500 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'}`}
-                  &gt;
+                  >
                     GPT (Modern)
                   </button>
                 </div>
@@ -283,25 +283,25 @@ export default class Topic16 extends React.Component {
                         <g>
                           <path d="M200,125 L200,45 A80,80 0 0,1 280,125 Z" fill="#3B82F6" opacity="0.8" 
                             className="hover:opacity-100 cursor-pointer transition-opacity duration-300"
-                            onClick={() => this.handlePartitionSelect(diskUsage.partitions[0])}&gt;
+                            onClick={() => this.handlePartitionSelect(diskUsage.partitions[0])}>
                             <title>Primary Partition 1 - System</title>
                             <animate attributeName="fill" values="#3B82F6;#60A5FA;#3B82F6" dur="3s" repeatCount="indefinite" />
                           </path>
                           <path d="M200,125 L280,125 A80,80 0 0,1 200,205 Z" fill="#10B981" opacity="0.8"
                             className="hover:opacity-100 cursor-pointer transition-opacity duration-300"
-                            onClick={() => this.handlePartitionSelect(diskUsage.partitions[1])}&gt;
+                            onClick={() => this.handlePartitionSelect(diskUsage.partitions[1])}>
                             <title>Primary Partition 2 - Home</title>
                             <animate attributeName="fill" values="#10B981;#34D399;#10B981" dur="3s" repeatCount="indefinite" begin="0.5s" />
                           </path>
                           <path d="M200,125 L200,205 A80,80 0 0,1 120,125 Z" fill="#8B5CF6" opacity="0.8"
                             className="hover:opacity-100 cursor-pointer transition-opacity duration-300"
-                            onClick={() => this.handlePartitionSelect(diskUsage.partitions[2])}&gt;
+                            onClick={() => this.handlePartitionSelect(diskUsage.partitions[2])}>
                             <title>Primary Partition 3 - Swap</title>
                             <animate attributeName="fill" values="#8B5CF6;#A78BFA;#8B5CF6" dur="3s" repeatCount="indefinite" begin="1s" />
                           </path>
                           <path d="M200,125 L120,125 A80,80 0 0,1 200,45 Z" fill="#F59E0B" opacity="0.8"
                             className="hover:opacity-100 cursor-pointer transition-opacity duration-300"
-                            onClick={() => this.handlePartitionSelect(diskUsage.partitions[3])}&gt;
+                            onClick={() => this.handlePartitionSelect(diskUsage.partitions[3])}>
                             <title>Primary Partition 4 - Data</title>
                             <animate attributeName="fill" values="#F59E0B;#FBBF24;#F59E0B" dur="3s" repeatCount="indefinite" begin="1.5s" />
                           </path>
@@ -481,7 +481,7 @@ export default class Topic16 extends React.Component {
                     ${hoveredCard === 'primary' ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20' : 'border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700'}`}
                   onMouseEnter={() => this.handleCardHover('primary')}
                   onMouseLeave={this.handleCardLeave}
-                &gt;
+                >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
                       <span className="text-blue-600 dark:text-blue-300 font-bold">P</span>
@@ -530,7 +530,7 @@ export default class Topic16 extends React.Component {
                     ${hoveredCard === 'extended' ? 'border-green-500 bg-green-50 dark:bg-green-900/20' : 'border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700'}`}
                   onMouseEnter={() => this.handleCardHover('extended')}
                   onMouseLeave={this.handleCardLeave}
-                &gt;
+                >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center">
                       <span className="text-green-600 dark:text-green-300 font-bold">E</span>
@@ -579,7 +579,7 @@ export default class Topic16 extends React.Component {
                     ${hoveredCard === 'logical' ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/20' : 'border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700'}`}
                   onMouseEnter={() => this.handleCardHover('logical')}
                   onMouseLeave={this.handleCardLeave}
-                &gt;
+                >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
                       <span className="text-purple-600 dark:text-purple-300 font-bold">L</span>

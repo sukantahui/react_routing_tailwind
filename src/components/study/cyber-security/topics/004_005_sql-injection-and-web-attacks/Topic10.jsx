@@ -172,7 +172,7 @@ const cleanHtml = DOMPurify.sanitize(userContent, { ALLOWED_TAGS: ['b', 'i', 'p'
         }
       } else if (targetSchemaType === "payment_amount") {
         const num = parseFloat(stage1Canonical);
-        if (isNaN(num) || num &le; 0 || num > 500000 || !/^[0-9]+(\.[0-9]{1,2})?$/.test(stage1Canonical)) {
+        if (isNaN(num) || num <= 0 || num > 500000 || !/^[0-9]+(\.[0-9]{1,2})?$/.test(stage1Canonical)) {
           stage2Validation = { passed: false, error: "Validation Failed: Input is not a positive numerical amount between ₹1.00 and ₹5,00,000.00!" };
           finalHttpStatus = 400;
         }
@@ -700,7 +700,7 @@ module.exports = SecureFileUploadValidator;`,
                     ? "bg-emerald-950/80 border-emerald-500 shadow-lg shadow-emerald-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-emerald-950 text-emerald-300 border-emerald-800 self-start">
                   DEFENSE
                 </span>
@@ -786,7 +786,7 @@ module.exports = SecureFileUploadValidator;`,
                   value={rawInputString}
                   onChange={(e) => setRawInputString(e.target.value)}
                   className="w-full p-2 bg-gray-950 rounded border border-gray-800 text-cyan-300 font-mono text-xs focus:border-cyan-500 outline-none"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1 pt-1 border-t border-gray-800">
@@ -807,7 +807,7 @@ module.exports = SecureFileUploadValidator;`,
                           ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                           : "bg-gray-950 border-gray-800 text-gray-400"
                       )}
-                    &gt;
+                    >
                       {sch.label}
                     </button>
                   ))}
@@ -832,7 +832,7 @@ module.exports = SecureFileUploadValidator;`,
                           ? "bg-purple-950 border-purple-500 text-purple-300"
                           : "bg-gray-950 border-gray-800 text-gray-400"
                       )}
-                    &gt;
+                    >
                       {dst.label}
                     </button>
                   ))}
@@ -951,7 +951,7 @@ module.exports = SecureFileUploadValidator;`,
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 {item.name}
               </button>
             ))}
@@ -1000,7 +1000,7 @@ module.exports = SecureFileUploadValidator;`,
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

@@ -23,7 +23,7 @@ const Topic3 = () => {
       h1 = Math.imul(h1 ^ ch, 2654435761);
       h2 = Math.imul(h2 ^ ch, 1597334677);
     }
-    h1 = Math.imul(h1 ^ (h1 >&gt;> 16), 2246822507);
+    h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507);
     h1 ^= Math.imul(h2 ^ (h2 >>> 13), 3266489909);
     h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507);
     h2 ^= Math.imul(h1 ^ (h1 >>> 13), 3266489909);
@@ -40,7 +40,7 @@ const Topic3 = () => {
   const subVal = integrityLevels[subjectLevel];
   const objVal = integrityLevels[objectLevel];
 
-  // Biba Rules: Read Allowed if Sub &le; Obj ("No Read Down"), Write Allowed if Sub >= Obj ("No Write Up")
+  // Biba Rules: Read Allowed if Sub <= Obj ("No Read Down"), Write Allowed if Sub >= Obj ("No Write Up")
   let bibaAllowed = false;
   let bibaReason = "";
 
@@ -231,7 +231,7 @@ const Topic3 = () => {
                     ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/30"
                     : "bg-slate-950 text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 1. SHA-256 &amp; Avalanche Effect
               </button>
               <button
@@ -242,7 +242,7 @@ const Topic3 = () => {
                     ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/30"
                     : "bg-slate-950 text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 2. HMAC Authentication
               </button>
               <button
@@ -253,7 +253,7 @@ const Topic3 = () => {
                     ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/30"
                     : "bg-slate-950 text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 3. Biba Integrity Policy Model
               </button>
               <button
@@ -264,7 +264,7 @@ const Topic3 = () => {
                     ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/30"
                     : "bg-slate-950 text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 4. Merkle Tree Root Simulator
               </button>
             </div>
@@ -281,7 +281,7 @@ const Topic3 = () => {
                     value={inputText}
                     onChange={(e) => setInputText(e.target.value)}
                     className="p-3 bg-slate-950 border border-slate-800 rounded-lg text-xs font-mono text-emerald-300 focus:outline-none focus:border-emerald-500"
-                  /&gt;
+                  />
                 </div>
 
                 <div className="p-4 bg-slate-950 rounded-lg border border-slate-800 flex flex-col space-y-3">
@@ -313,7 +313,7 @@ const Topic3 = () => {
                       value={inputText}
                       onChange={(e) => setInputText(e.target.value)}
                       className="p-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs font-mono text-slate-200"
-                    /&gt;
+                    />
                   </div>
                   <div className="flex flex-col space-y-1">
                     <label className="text-xs font-bold text-slate-400 uppercase">Shared Secret Key (K):</label>
@@ -322,7 +322,7 @@ const Topic3 = () => {
                       value={hmacSecretKey}
                       onChange={(e) => setHmacSecretKey(e.target.value)}
                       className="p-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs font-mono text-amber-300"
-                    /&gt;
+                    />
                   </div>
                 </div>
 
@@ -349,7 +349,7 @@ const Topic3 = () => {
                       value={subjectLevel}
                       onChange={(e) => setSubjectLevel(e.target.value)}
                       className="p-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs text-slate-200"
-                    &gt;
+                    >
                       {Object.keys(integrityLevels).map((lvl) => (
                         <option key={lvl} value={lvl}>{lvl}</option>
                       ))}
@@ -362,7 +362,7 @@ const Topic3 = () => {
                       value={bibaAction}
                       onChange={(e) => setBibaAction(e.target.value)}
                       className="p-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs text-slate-200"
-                    &gt;
+                    >
                       <option value="read">READ Object</option>
                       <option value="write">WRITE / Modify Object</option>
                     </select>
@@ -374,7 +374,7 @@ const Topic3 = () => {
                       value={objectLevel}
                       onChange={(e) => setObjectLevel(e.target.value)}
                       className="p-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs text-slate-200"
-                    &gt;
+                    >
                       {Object.keys(integrityLevels).map((lvl) => (
                         <option key={lvl} value={lvl}>{lvl}</option>
                       ))}
@@ -410,25 +410,25 @@ const Topic3 = () => {
                     value={tx1}
                     onChange={(e) => setTx1(e.target.value)}
                     className="p-2 bg-slate-950 border border-slate-800 rounded text-xs font-mono text-slate-200"
-                  /&gt;
+                  />
                   <input
                     type="text"
                     value={tx2}
                     onChange={(e) => setTx2(e.target.value)}
                     className="p-2 bg-slate-950 border border-slate-800 rounded text-xs font-mono text-slate-200"
-                  /&gt;
+                  />
                   <input
                     type="text"
                     value={tx3}
                     onChange={(e) => setTx3(e.target.value)}
                     className="p-2 bg-slate-950 border border-slate-800 rounded text-xs font-mono text-slate-200"
-                  /&gt;
+                  />
                   <input
                     type="text"
                     value={tx4}
                     onChange={(e) => setTx4(e.target.value)}
                     className="p-2 bg-slate-950 border border-slate-800 rounded text-xs font-mono text-slate-200"
-                  /&gt;
+                  />
                 </div>
 
                 <div className="p-4 bg-slate-950 rounded-lg border border-slate-800 flex flex-col space-y-2">

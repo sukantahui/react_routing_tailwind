@@ -138,7 +138,7 @@ const state = {
   userName: "Student",
   notifications: 3,
 };`}
-          /&gt;
+          />
         </section>
 
         {/* ============================================================
@@ -243,7 +243,7 @@ render(root);`}
             language="javascript"
             initialCode={`function NotificationBadge(count) {
   const color = count > 0 ? "#22c55e" : "#6b7280";
-  const label = count &gt; 0 ? count + " new" : "No new notifications";
+  const label = count > 0 ? count + " new" : "No new notifications";
 
   return \`
     <span
@@ -269,7 +269,7 @@ function view(state) {
     </div>
   \`;
 }`}
-          /&gt;
+          />
 
           <p className="text-slate-400 text-sm">
             You are now basically building a **mini JSX-like system**, but using template strings.
@@ -321,7 +321,7 @@ function view(state) {
     </div>
   \`;
 }`}
-          /&gt;
+          />
         </section>
 
         {/* ============================================================

@@ -101,7 +101,7 @@ GROUP BY student_name;
 -- (⚠️ String candidate MUST be valid JSON, meaning double-quoted: '"React"')
 SELECT student_name, profile
 FROM candidate_profiles
-WHERE JSON_CONTAINS(profile &rarr; '$.skills', '"React"');
+WHERE JSON_CONTAINS(profile->'$.skills', '"React"');
 
 -- 2. JSON_CONTAINS_PATH: Verify required keys exist before processing:
 SELECT student_name
@@ -113,7 +113,7 @@ SELECT JSON_SEARCH(profile, 'one', 'Barrackpore') AS city_path
 FROM candidate_profiles;
 -- Returns: "$.city" or "$.address.city"`,
       metricsTable: [
-        { searchFunc: "JSON_CONTAINS()", target: "Array / Document", syntax: "JSON_CONTAINS(col-&gt;'$.arr', '\"val\"')", role: "Array membership test (Returns 1/0)" },
+        { searchFunc: "JSON_CONTAINS()", target: "Array / Document", syntax: "JSON_CONTAINS(col->'$.arr', '\"val\"')", role: "Array membership test (Returns 1/0)" },
         { searchFunc: "JSON_CONTAINS_PATH()", target: "Path Keys", syntax: "JSON_CONTAINS_PATH(doc, 'all', '$.k')", role: "Verifies path existence in schema" },
         { searchFunc: "JSON_SEARCH()", target: "Text Content", syntax: "JSON_SEARCH(doc, 'one', 'target')", role: "Returns exact path to matching string" },
         { searchFunc: "JSON_KEYS()", target: "Object Keys", syntax: "JSON_KEYS(doc)", role: "Returns list of top-level keys" }
@@ -368,7 +368,7 @@ SELECT JSON_MERGE_PRESERVE(
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                &gt;
+                >
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",

@@ -30,7 +30,7 @@ const Topic0 = () => {
 -- Hop 3: SELECT current_discount FROM scholarship_rules WHERE id = 101;
 -- Hop 4: UPDATE student_ledger SET balance = balance - 15000 WHERE id = 101;
 -- Hop 5: INSERT INTO payment_receipts (student_id, amount, gst) VALUES (101, 15000, 2700);
--- (5 more queries for invoice numbering, audit logs, SMS dispatch...) &rarr; 280 ms total!
+-- (5 more queries for invoice numbering, audit logs, SMS dispatch...) -> 280 ms total!
 
 -- ✅ Modern Server-Side Stored Procedure (1 Single Network Call):
 CALL sp_process_student_fee_payment(
@@ -363,7 +363,7 @@ TO 'receptionist_user'@'%';
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(

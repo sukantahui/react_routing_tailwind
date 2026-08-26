@@ -40,7 +40,7 @@ const Topic65 = () => {
           interpretation: 'This point is infeasible! Let me recalculate...'
         }
       ],
-      correctInterpretation: 'At (3, 6):\nLabor: 2(3) + 3(6) = 24, Slack = 0 → Fully utilized\nMachine: 4(3) + 2(6) = 24 &gt; 20 → Infeasible point!',
+      correctInterpretation: 'At (3, 6):\nLabor: 2(3) + 3(6) = 24, Slack = 0 → Fully utilized\nMachine: 4(3) + 2(6) = 24 > 20 → Infeasible point!',
       visualization: 'The optimal point must satisfy all constraints. Let\'s find the correct optimal point.'
     },
     {
@@ -188,7 +188,7 @@ const Topic65 = () => {
 
     // Filter valid resources (those with non-negative slack/surplus)
     const validResources = example.resources.filter(r => 
-      r.slack !== undefined && r.slack &ge; 0
+      r.slack !== undefined && r.slack >= 0
     );
 
     // Find max slack for scaling
@@ -282,7 +282,7 @@ const Topic65 = () => {
                       </text>
                       
                       {/* Slack indicator */}
-                      {resource.slack !== undefined && resource.slack &gt; 0 && (
+                      {resource.slack !== undefined && resource.slack > 0 && (
                         <g>
                           {/* Arrow indicating slack */}
                           <line 
@@ -349,7 +349,7 @@ const Topic65 = () => {
                   const px = 50 + (optX * 40);
                   const py = 400 - (optY * 37);
                   
-                  if (px &ge; 50 && px &le; 450 && py >= 30 && py <= 400) {
+                  if (px >= 50 && px <= 450 && py >= 30 && py <= 400) {
                     return (
                       <g>
                         <circle cx={px} cy={py} r="10" fill="#FF4757" stroke="white" strokeWidth="3">
@@ -517,7 +517,7 @@ const Topic65 = () => {
                   ? "bg-blue-500 text-white shadow-lg shadow-blue-200 dark:shadow-blue-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            &gt;
+            >
               {tab.label}
             </button>
           ))}
@@ -683,7 +683,7 @@ const Topic65 = () => {
                         ? "bg-blue-500 text-white shadow-lg shadow-blue-200 dark:shadow-blue-900/30"
                         : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
                     )}
-                  &gt;
+                  >
                     Example {index + 1}
                   </button>
                 ))}
@@ -700,7 +700,7 @@ const Topic65 = () => {
                       key={`example-preview-${index}`}
                       onClick={() => setSelectedExample(index)}
                       className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.02]"
-                    &gt;
+                    >
                       <h5 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">
                         Example {index + 1}
                       </h5>

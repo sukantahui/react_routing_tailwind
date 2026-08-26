@@ -367,7 +367,7 @@ const Topic0 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              &gt;
+              >
                 {p.title}
               </button>
             ))}
@@ -441,7 +441,7 @@ const Topic0 = () => {
                 value={selectedPayloadType}
                 onChange={(e) => setSelectedPayloadType(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              &gt;
+              >
                 {Object.values(privatePayloads).map((p) => (
                   <option key={p.id} value={p.id}>
                     {p.label}
@@ -456,7 +456,7 @@ const Topic0 = () => {
                 value={selectedCipherSuite}
                 onChange={(e) => setSelectedCipherSuite(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              &gt;
+              >
                 <option value="aes_256_gcm">AES-256-GCM + SHA-384 (IPsec ESP)</option>
                 <option value="chacha20_poly1305">ChaCha20-Poly1305 (WireGuard)</option>
               </select>
@@ -472,7 +472,7 @@ const Topic0 = () => {
                     ? "bg-rose-950/80 text-rose-300 border-rose-800"
                     : "bg-emerald-950/80 text-emerald-300 border-emerald-800"
                 )}
-              &gt;
+              >
                 {simulateMitmTamper ? "🚨 MitM Injected (Tampered)" : "✔ Clean In-Transit Packet"}
               </button>
             </div>
@@ -579,7 +579,7 @@ const Topic0 = () => {
                 value={remoteWorkersCount}
                 onChange={(e) => setRemoteWorkersCount(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -595,7 +595,7 @@ const Topic0 = () => {
                 value={userTrafficMbps}
                 onChange={(e) => setUserTrafficMbps(Number(e.target.value))}
                 className="w-full accent-purple-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -611,7 +611,7 @@ const Topic0 = () => {
                 value={vpnHeaderOverheadBytes}
                 onChange={(e) => setVpnHeaderOverheadBytes(Number(e.target.value))}
                 className="w-full accent-emerald-400 cursor-pointer"
-              /&gt;
+              />
               <span className="text-[10px] text-gray-500 block">IPsec ESP / WireGuard / TLS</span>
             </div>
           </div>
@@ -666,7 +666,7 @@ const Topic0 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 {d.title}
               </button>
             ))}

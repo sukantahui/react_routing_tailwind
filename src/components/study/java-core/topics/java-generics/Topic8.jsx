@@ -310,7 +310,7 @@ public class Main {
 }`;
 
   const multipleBoundsExample = `// Multiple Bounds with Interfaces
-public class ComparableContainer<T extends Number & Comparable<T>&gt; {
+public class ComparableContainer<T extends Number & Comparable<T>> {
     private T value1;
     private T value2;
     
@@ -321,7 +321,7 @@ public class ComparableContainer<T extends Number & Comparable<T>&gt; {
     
     // Can use both Number and Comparable methods
     public T getMax() {
-        return value1.compareTo(value2) &ge; 0 ? value1 : value2;
+        return value1.compareTo(value2) >= 0 ? value1 : value2;
     }
     
     public double getSum() {
@@ -424,7 +424,7 @@ public class StatisticsCalculator {
     }
     
     // Method with multiple bounds
-    public static <T extends Comparable<T> & Number&gt; T findMax(T[] array) {
+    public static <T extends Comparable<T> & Number> T findMax(T[] array) {
         if (array == null || array.length == 0) return null;
         
         T max = array[0];
@@ -458,12 +458,12 @@ public class StatisticsCalculator {
   const commonMistakesCode = `// ❌ COMMON MISTAKES - Bounded Type Parameters
 
 // Mistake 1: Wrong bound syntax
-public class WrongSyntax1<T implements Comparable<T>&gt; {  // ❌ WRONG
+public class WrongSyntax1<T implements Comparable<T>> {  // ❌ WRONG
     // Should use 'extends' for interfaces too
 }
 
 // ✅ CORRECT
-public class CorrectSyntax1<T extends Comparable<T>&gt; {  // ✅ CORRECT
+public class CorrectSyntax1<T extends Comparable<T>> {  // ✅ CORRECT
     // This is the right way
 }
 
@@ -490,7 +490,7 @@ public class Mistake3 {
 }
 
 // Mistake 4: Overly restrictive bounds
-public class Library<T extends Book & Printable & Comparable<T> & Cloneable&gt; {
+public class Library<T extends Book & Printable & Comparable<T> & Cloneable> {
     // ❌ Too many bounds - makes class hard to use
     // Very few types will satisfy all these constraints
 }
@@ -551,7 +551,7 @@ public class Library<T extends Book & Printable> {
 
       <div className="container mx-auto px-4 py-10 max-w-6xl">
         {/* HEADER */}
-        <header className="mb-12" ref={(el) => setRef("header", el)}&gt;
+        <header className="mb-12" ref={(el) => setRef("header", el)}>
           <div className="flex items-center gap-4 mb-6">
             <div className={`w-14 h-14 bg-gradient-to-br from-green-500 to-blue-600 rounded-xl flex items-center justify-center ${!isReducedMotion ? 'animate-fade-in-up' : ''}`} style={{ animationDelay: '0.1s' }}>
               <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -591,7 +591,7 @@ public class Library<T extends Book & Printable> {
             (isVisible.intro || isReducedMotion) && "animate-fade-in-up"
           )}
           style={{ animationDelay: "0.2s" }}
-        &gt;
+        >
           <h2 className="text-2xl font-bold text-green-600 dark:text-green-400 mb-4 flex items-center gap-3">
             <div className="w-10 h-10 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center">
               <svg className="w-5 h-5 text-green-600 dark:text-green-300" fill="currentColor" viewBox="0 0 20 20">
@@ -657,7 +657,7 @@ public class Library<T extends Book & Printable> {
         <section 
           ref={(el) => setRef("bounds", el)}
           className="mb-12"
-        &gt;
+        >
           <h2 className="text-2xl font-bold text-green-600 dark:text-green-400 mb-6 flex items-center gap-3">
             <div className="w-10 h-10 bg-gradient-to-br from-green-100 to-blue-100 dark:from-green-900 dark:to-blue-900 rounded-lg flex items-center justify-center">
               <svg className="w-5 h-5 text-green-600 dark:text-green-300" fill="currentColor" viewBox="0 0 20 20">
@@ -680,7 +680,7 @@ public class Library<T extends Book & Printable> {
                       ? "bg-gradient-to-r from-green-600 to-blue-600 text-white shadow-lg"
                       : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
                   )}
-                &gt;
+                >
                   {type === "upper" && "Upper Bounds (T extends Class)"}
                   {type === "multiple" && "Multiple Bounds"}
                   {type === "interface" && "Interface Bounds"}
@@ -941,7 +941,7 @@ public class Library<T extends Book & Printable> {
             (isVisible.examples || isReducedMotion) && "animate-fade-in-up"
           )}
           style={{ animationDelay: "0.4s" }}
-        &gt;
+        >
           <div>
             <h2 className="text-2xl font-bold text-green-600 dark:text-green-400 mb-6">Practical Code Examples</h2>
             
@@ -1017,7 +1017,7 @@ public class Library<T extends Book & Printable> {
             (isVisible.mistakes || isReducedMotion) && "animate-fade-in-up"
           )}
           style={{ animationDelay: "0.5s" }}
-        &gt;
+        >
           <h2 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-6 flex items-center gap-3">
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
@@ -1109,7 +1109,7 @@ public class Library<T extends Book & Printable> {
             (isVisible.practices || isReducedMotion) && "animate-fade-in-up"
           )}
           style={{ animationDelay: "0.6s" }}
-        &gt;
+        >
           <h2 className="text-2xl font-bold text-green-600 dark:text-green-400 mb-6">Best Practices & Professional Tips</h2>
           
           <div className="grid md:grid-cols-2 gap-8">
@@ -1245,7 +1245,7 @@ public class Library<T extends Book & Printable> {
             (isVisible.hint || isReducedMotion) && "animate-fade-in-up"
           )}
           style={{ animationDelay: "0.7s" }}
-        &gt;
+        >
           <h2 className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-6">💭 Critical Thinking Zone</h2>
           
           <div className="space-y-6">
@@ -1292,7 +1292,7 @@ public class Library<T extends Book & Printable> {
             (isVisible.checklist || isReducedMotion) && "animate-fade-in-up"
           )}
           style={{ animationDelay: "0.8s" }}
-        &gt;
+        >
           <h2 className="text-2xl font-bold text-green-600 dark:text-green-400 mb-6">📋 Quick Reference Checklist</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -1333,7 +1333,7 @@ public class Library<T extends Book & Printable> {
             (isVisible.teacher || isReducedMotion) && "animate-fade-in-up hover-lift"
           )}
           style={{ animationDelay: "0.9s" }}
-        &gt;
+        >
           <div className="flex flex-col md:flex-row gap-8">
             <div className="flex-shrink-0">
               <div className="w-24 h-24 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg">

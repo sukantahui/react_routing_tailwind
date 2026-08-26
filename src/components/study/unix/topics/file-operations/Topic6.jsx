@@ -69,7 +69,7 @@ export default class Topic6 extends React.Component {
                                             ? 'ring-2 ring-offset-2 ring-blue-500 transform scale-105'
                                             : 'hover:shadow-md'
                                             } bg-gradient-to-br ${item.color} text-white`}
-                                    &gt;
+                                    >
                                         <div className="font-bold text-xl mb-1">{item.tool}</div>
                                         <div className="text-sm opacity-90">{item.desc}</div>
                                     </button>
@@ -120,9 +120,9 @@ export default class Topic6 extends React.Component {
                                             <code>{'# View with line numbers'}</code><br />
                                             <code>{'cat -n server.log'}</code><br /><br />
                                             <code>{'# Concatenate multiple files'}</code><br />
-                                            <code>{'cat file1.txt file2.txt &gt; combined.txt'}</code><br /><br />
+                                            <code>{'cat file1.txt file2.txt > combined.txt'}</code><br /><br />
                                             <code>{'# Create quick file'}</code><br />
-                                            <code>{'cat &gt; newfile.txt << EOF'}</code><br />
+                                            <code>{'cat > newfile.txt << EOF'}</code><br />
                                             <code>{'Line 1'}</code><br />
                                             <code>{'Line 2'}</code><br />
                                             <code>{'EOF'}</code>
@@ -569,7 +569,7 @@ export default class Topic6 extends React.Component {
                                         <span className="flex-shrink-0 w-6 h-6 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center mt-1">
                                             <span className="text-indigo-600 dark:text-indigo-300 font-bold">2</span>
                                         </span>
-                                        <span className="text-gray-700 dark:text-gray-300">For reading: <code>less</code> (always, for files {'&gt;'} 100 lines)</span>
+                                        <span className="text-gray-700 dark:text-gray-300">For reading: <code>less</code> (always, for files {'>'} 100 lines)</span>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <span className="flex-shrink-0 w-6 h-6 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center mt-1">
@@ -648,10 +648,10 @@ export default class Topic6 extends React.Component {
                                         Create a test file and try these commands:
                                     </p>
                                     <div className="bg-gray-900 text-gray-100 dark:bg-gray-900 dark:text-gray-300 p-4 rounded-lg font-mono text-sm">
-                                        <code>{'seq 1 1000 &gt; test.txt'}</code><br />
-                                        <code>{'time cat test.txt &gt; /dev/null'}</code><br />
+                                        <code>{'seq 1 1000 > test.txt'}</code><br />
+                                        <code>{'time cat test.txt > /dev/null'}</code><br />
                                         <code>{'time less test.txt < /dev/null'}</code><br />
-                                        <code>{'time head -10 test.txt &gt; /dev/null'}</code>
+                                        <code>{'time head -10 test.txt > /dev/null'}</code>
                                     </div>
                                     <p className="text-gray-600 dark:text-gray-400 text-sm mt-3">
                                         Which is fastest? Which uses most memory? Why does this matter for 

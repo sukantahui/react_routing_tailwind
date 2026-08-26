@@ -288,7 +288,7 @@ const Topic9 = () => {
                           : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
                       )}
                       style={{ animationDelay: `${0.5 + index * 0.1}s` }}
-                    &gt;
+                    >
                       {label}
                     </button>
                   ))}

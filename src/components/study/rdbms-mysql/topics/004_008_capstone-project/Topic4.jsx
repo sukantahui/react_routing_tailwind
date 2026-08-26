@@ -31,7 +31,7 @@ CREATE TABLE customers (
   full_name VARCHAR(100) NOT NULL,
   email VARCHAR(150) NOT NULL UNIQUE,
   phone VARCHAR(20) NOT NULL,
-  credit_limit DECIMAL(12,2) NOT NULL DEFAULT 50000.00 CHECK (credit_limit >= 0),
+  credit_limit DECIMAL(12,2) NOT NULL DEFAULT 50000.00 CHECK (credit_limit &gt;= 0),
   is_active BOOLEAN NOT NULL DEFAULT TRUE,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -179,7 +179,7 @@ CREATE TABLE order_items (
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                &gt;
+                >
                   {concept.conceptName}
                 </button>
               );
@@ -278,7 +278,7 @@ CREATE TABLE order_items (
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Debangshu implemented a named constraint CONSTRAINT chk_min_bal CHECK (current_balance &ge; minimum_balance) on savings accounts in Barrackpore. When concurrent ATM withdrawal requests occurred, the database kernel blocked overdrafts before funds were dispensed.
+                Debangshu implemented a named constraint CONSTRAINT chk_min_bal CHECK (current_balance >= minimum_balance) on savings accounts in Barrackpore. When concurrent ATM withdrawal requests occurred, the database kernel blocked overdrafts before funds were dispensed.
               </p>
             </div>
           </div>

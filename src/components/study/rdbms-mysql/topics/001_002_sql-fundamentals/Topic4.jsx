@@ -93,7 +93,7 @@ const Topic4 = () => {
   \`stock_quantity\` smallint unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (\`medicine_id\`),
   KEY \`idx_med_name\` (\`medicine_name\`),
-  CONSTRAINT \`chk_stock_positive\` CHECK ((\`stock_quantity\` &ge; 0))
+  CONSTRAINT \`chk_stock_positive\` CHECK ((\`stock_quantity\` >= 0))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Ichapur Pharmacy Inventory'`,
     },
   };
@@ -327,7 +327,7 @@ const Topic4 = () => {
                           ? "bg-teal-500/20 text-teal-300 border border-teal-500/50"
                           : "bg-slate-950 text-slate-400 border border-slate-800 hover:text-white"
                       )}
-                    &gt;
+                    >
                       {tbl}
                     </button>
                   ))}
@@ -343,7 +343,7 @@ const Topic4 = () => {
                       ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/50"
                       : "bg-slate-950 text-slate-400 border border-slate-800 hover:text-white"
                   )}
-                &gt;
+                >
                   DESCRIBE View
                 </button>
                 <button
@@ -354,7 +354,7 @@ const Topic4 = () => {
                       ? "bg-indigo-500/20 text-indigo-300 border border-indigo-500/50"
                       : "bg-slate-950 text-slate-400 border border-slate-800 hover:text-white"
                   )}
-                &gt;
+                >
                   SHOW CREATE TABLE View
                 </button>
               </div>

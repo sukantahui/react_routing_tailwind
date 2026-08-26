@@ -81,7 +81,7 @@ runSteps();`}
           language="javascript"
           code={`function fetchReportOnce() {
   return new Promise((resolve, reject) => {
-    const ok = Math.random() &gt; 0.6;
+    const ok = Math.random() > 0.6;
     setTimeout(() => {
       if (ok) resolve("Report data for Swadeep");
       else reject("Temporary server error");
@@ -90,7 +90,7 @@ runSteps();`}
 }
 
 async function fetchWithRetry(retries = 3) {
-  for (let attempt = 1; attempt &le; retries; attempt++) {
+  for (let attempt = 1; attempt <= retries; attempt++) {
     try {
       console.log("Attempt", attempt);
       const data = await fetchReportOnce();

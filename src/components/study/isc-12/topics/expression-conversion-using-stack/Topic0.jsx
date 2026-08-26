@@ -136,8 +136,8 @@ export default function Topic0() {
               </p>
               <p>
                 Even decisions rely on expressions:{" "}
-                <code className="bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded">if (age >= 18)</code> – the
-                condition <code>age >= 18</code> is a boolean expression.
+                <code className="bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded">if (age &gt;= 18)</code> – the
+                condition <code>age &gt;= 18</code> is a boolean expression.
               </p>
               <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-xl p-4 border border-indigo-200 dark:border-indigo-800">
                 <p className="text-sm">

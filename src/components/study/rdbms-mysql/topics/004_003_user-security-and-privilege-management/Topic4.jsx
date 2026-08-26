@@ -223,7 +223,7 @@ ALTER USER 'treasury_admin'@'%'
                       ? "bg-cyan-500/10 border-cyan-500 text-cyan-400 shadow-lg shadow-cyan-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                &gt;
+                >
                   {phase.phaseNumber}
                 </button>
               );

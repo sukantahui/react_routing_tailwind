@@ -77,9 +77,9 @@ const Topic0 = () => {
             className={clsx(
               'transform transition-all duration-700 ease-out',
               'motion-safe:translate-y-0 motion-safe:opacity-100',
-              activeSection &ge; 0 ? 'motion-safe:translate-y-0 motion-safe:opacity-100' : 'motion-safe:translate-y-8 motion-safe:opacity-0'
+              activeSection >= 0 ? 'motion-safe:translate-y-0 motion-safe:opacity-100' : 'motion-safe:translate-y-8 motion-safe:opacity-0'
             )}
-          &gt;
+          >
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 md:p-8 border border-gray-200 dark:border-gray-700">
               <h2 className="text-2xl font-bold mb-4 text-blue-600 dark:text-blue-400">What are Primal and Dual Problems?</h2>
               
@@ -130,9 +130,9 @@ const Topic0 = () => {
             className={clsx(
               'transform transition-all duration-700 ease-out delay-100',
               'motion-safe:translate-y-0 motion-safe:opacity-100',
-              activeSection &ge; 1 ? 'motion-safe:translate-y-0 motion-safe:opacity-100' : 'motion-safe:translate-y-8 motion-safe:opacity-0'
+              activeSection >= 1 ? 'motion-safe:translate-y-0 motion-safe:opacity-100' : 'motion-safe:translate-y-8 motion-safe:opacity-0'
             )}
-          &gt;
+          >
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 md:p-8 border border-gray-200 dark:border-gray-700">
               <h2 className="text-2xl font-bold mb-4 text-blue-600 dark:text-blue-400">Understanding the Core Concept</h2>
               
@@ -189,9 +189,9 @@ const Topic0 = () => {
             className={clsx(
               'transform transition-all duration-700 ease-out delay-200',
               'motion-safe:translate-y-0 motion-safe:opacity-100',
-              activeSection &ge; 2 ? 'motion-safe:translate-y-0 motion-safe:opacity-100' : 'motion-safe:translate-y-8 motion-safe:opacity-0'
+              activeSection >= 2 ? 'motion-safe:translate-y-0 motion-safe:opacity-100' : 'motion-safe:translate-y-8 motion-safe:opacity-0'
             )}
-          &gt;
+          >
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 md:p-8 border border-gray-200 dark:border-gray-700">
               <h2 className="text-2xl font-bold mb-4 text-blue-600 dark:text-blue-400">Real-World Examples</h2>
               
@@ -262,9 +262,9 @@ const Topic0 = () => {
             className={clsx(
               'transform transition-all duration-700 ease-out delay-300',
               'motion-safe:translate-y-0 motion-safe:opacity-100',
-              activeSection &ge; 3 ? 'motion-safe:translate-y-0 motion-safe:opacity-100' : 'motion-safe:translate-y-8 motion-safe:opacity-0'
+              activeSection >= 3 ? 'motion-safe:translate-y-0 motion-safe:opacity-100' : 'motion-safe:translate-y-8 motion-safe:opacity-0'
             )}
-          &gt;
+          >
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 md:p-8 border border-gray-200 dark:border-gray-700">
               <h2 className="text-2xl font-bold mb-4 text-blue-600 dark:text-blue-400">Visual Understanding</h2>
               
@@ -341,9 +341,9 @@ const Topic0 = () => {
             className={clsx(
               'transform transition-all duration-700 ease-out delay-400',
               'motion-safe:translate-y-0 motion-safe:opacity-100',
-              activeSection &ge; 4 ? 'motion-safe:translate-y-0 motion-safe:opacity-100' : 'motion-safe:translate-y-8 motion-safe:opacity-0'
+              activeSection >= 4 ? 'motion-safe:translate-y-0 motion-safe:opacity-100' : 'motion-safe:translate-y-8 motion-safe:opacity-0'
             )}
-          &gt;
+          >
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 md:p-8 border border-gray-200 dark:border-gray-700">
               <h2 className="text-2xl font-bold mb-4 text-blue-600 dark:text-blue-400">Tips & Tricks</h2>
               
@@ -392,9 +392,9 @@ const Topic0 = () => {
             className={clsx(
               'transform transition-all duration-700 ease-out delay-500',
               'motion-safe:translate-y-0 motion-safe:opacity-100',
-              activeSection &ge; 5 ? 'motion-safe:translate-y-0 motion-safe:opacity-100' : 'motion-safe:translate-y-8 motion-safe:opacity-0'
+              activeSection >= 5 ? 'motion-safe:translate-y-0 motion-safe:opacity-100' : 'motion-safe:translate-y-8 motion-safe:opacity-0'
             )}
-          &gt;
+          >
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 md:p-8 border border-gray-200 dark:border-gray-700">
               <h2 className="text-2xl font-bold mb-4 text-red-600 dark:text-red-400">Common Mistakes</h2>
               
@@ -455,9 +455,9 @@ const Topic0 = () => {
             className={clsx(
               'transform transition-all duration-700 ease-out delay-600',
               'motion-safe:translate-y-0 motion-safe:opacity-100',
-              activeSection &ge; 6 ? 'motion-safe:translate-y-0 motion-safe:opacity-100' : 'motion-safe:translate-y-8 motion-safe:opacity-0'
+              activeSection >= 6 ? 'motion-safe:translate-y-0 motion-safe:opacity-100' : 'motion-safe:translate-y-8 motion-safe:opacity-0'
             )}
-          &gt;
+          >
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 md:p-8 border border-gray-200 dark:border-gray-700">
               <h2 className="text-2xl font-bold mb-4 text-blue-600 dark:text-blue-400">Best Practices</h2>
               
@@ -518,9 +518,9 @@ const Topic0 = () => {
             className={clsx(
               'transform transition-all duration-700 ease-out delay-700',
               'motion-safe:translate-y-0 motion-safe:opacity-100',
-              activeSection &ge; 7 ? 'motion-safe:translate-y-0 motion-safe:opacity-100' : 'motion-safe:translate-y-8 motion-safe:opacity-0'
+              activeSection >= 7 ? 'motion-safe:translate-y-0 motion-safe:opacity-100' : 'motion-safe:translate-y-8 motion-safe:opacity-0'
             )}
-          &gt;
+          >
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 md:p-8 border border-gray-200 dark:border-gray-700">
               <h2 className="text-2xl font-bold mb-4 text-blue-600 dark:text-blue-400">Mini Checklist</h2>
               

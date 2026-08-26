@@ -242,7 +242,7 @@ export default function CssModuleView() {
                   text-slate-200 placeholder-slate-500
                   focus:outline-none focus:ring-2 focus:ring-sky-500
                 "
-                            /&gt;
+                            />
                         </div>
 
                         {/* TOPIC LIST */}
@@ -272,7 +272,7 @@ export default function CssModuleView() {
                                                 type="button"
                                                 onClick={() => toggleTopicComplete(idx)}
                                                 className="shrink-0"
-                                            &gt;
+                                            >
                                                 {isDone ? (
                                                     <CheckCircle2 size={20} className="text-emerald-400" />
                                                 ) : (
@@ -285,7 +285,7 @@ export default function CssModuleView() {
                                                 to={`/${roadmapData.folder}/topic/${mod.slug}/${idx}`}
                                                 onClick={() => handleTopicClick(idx)}
                                                 className="flex-1 flex justify-between"
-                                            &gt;
+                                            >
                                                 <span>
                                                     <span className="text-sky-400 mr-1">{idx + 1}.</span>
                                                     {topic}

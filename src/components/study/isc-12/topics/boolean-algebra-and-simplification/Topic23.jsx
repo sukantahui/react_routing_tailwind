@@ -255,32 +255,32 @@ const Topic23 = () => {
                 clearMap();
               }}
               className={clsx("px-4 py-2 rounded-lg font-medium transition-all", numVariables === 2 ? "bg-cyan-500 text-white" : "bg-gray-200 dark:bg-gray-700")}
-            &gt;2 Variables</button>
+            >2 Variables</button>
             <button
               onClick={() => {
                 setNumVariables(3);
                 clearMap();
               }}
               className={clsx("px-4 py-2 rounded-lg font-medium transition-all", numVariables === 3 ? "bg-cyan-500 text-white" : "bg-gray-200 dark:bg-gray-700")}
-            &gt;3 Variables</button>
+            >3 Variables</button>
             <button
               onClick={() => {
                 setNumVariables(4);
                 clearMap();
               }}
               className={clsx("px-4 py-2 rounded-lg font-medium transition-all", numVariables === 4 ? "bg-cyan-500 text-white" : "bg-gray-200 dark:bg-gray-700")}
-            &gt;4 Variables</button>
+            >4 Variables</button>
           </div>
           
           {/* Example Buttons */}
           <div className="flex flex-wrap gap-2 mb-6">
-            <button onClick={() => setExample('majority')} className="px-3 py-1 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg transition-all text-sm"&gt;Majority (3-var)</button>
-            <button onClick={() => setExample('parity')} className="px-3 py-1 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg transition-all text-sm"&gt;Odd Parity (3-var)</button>
-            <button onClick={() => setExample('adjacent')} className="px-3 py-1 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg transition-all text-sm"&gt;Adjacent Pair</button>
+            <button onClick={() => setExample('majority')} className="px-3 py-1 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg transition-all text-sm">Majority (3-var)</button>
+            <button onClick={() => setExample('parity')} className="px-3 py-1 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg transition-all text-sm">Odd Parity (3-var)</button>
+            <button onClick={() => setExample('adjacent')} className="px-3 py-1 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg transition-all text-sm">Adjacent Pair</button>
             {numVariables === 4 && (
               <>
-                <button onClick={() => setExample('corner')} className="px-3 py-1 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg transition-all text-sm"&gt;Corner Group</button>
-                <button onClick={() => setExample('quad')} className="px-3 py-1 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg transition-all text-sm"&gt;2x2 Quad</button>
+                <button onClick={() => setExample('corner')} className="px-3 py-1 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg transition-all text-sm">Corner Group</button>
+                <button onClick={() => setExample('quad')} className="px-3 py-1 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg transition-all text-sm">2x2 Quad</button>
               </>
             )}
             <button onClick={clearMap} className="px-3 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-lg transition-all text-sm">Clear</button>
@@ -311,7 +311,7 @@ const Topic23 = () => {
                           "w-16 h-16 border-2 border-gray-300 dark:border-gray-600 rounded-lg m-0.5 font-mono text-lg font-bold transition-all duration-300 hover:scale-105 hover:shadow-lg",
                           getCellStyle(cell)
                         )}
-                      &gt;
+                      >
                         {cell?.value || 0}
                       </button>
                     );
@@ -330,7 +330,7 @@ const Topic23 = () => {
           <button
             onClick={() => setShowSolution(!showSolution)}
             className="mt-4 w-full py-2 bg-cyan-100 dark:bg-cyan-900/40 text-cyan-700 dark:text-cyan-300 rounded-lg font-medium transition-all duration-300 hover:bg-cyan-200 dark:hover:bg-cyan-900/60"
-          &gt;
+          >
             {showSolution ? "Hide" : "Show"} Step-by-Step Grouping
           </button>
           

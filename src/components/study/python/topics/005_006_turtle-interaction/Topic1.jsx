@@ -404,22 +404,7 @@ screen.onclick(lambda x, y: screen.listen())`}
           </div>
         </div>
 
-        {/* =========================================================================
-            HINTS & EXPERT MINDSET
-        ========================================================================= */}
-        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.7s]">
-          <div className="bg-cyan-900/20 rounded-2xl p-5 border border-cyan-500/30 space-y-2">
-            <h3 className="text-lg font-semibold text-cyan-300">💡 Hints to Explore</h3>
-            <p className="text-xs text-slate-300">
-              👉 <strong>Think about:</strong> How video games like Minecraft and Unreal Engine capture mouse and keyboard focus exclusively when clicking into the game viewport!
-            </p>
-            <p className="text-xs text-slate-300">
-              👉 <strong>Observe:</strong> How clicking the canvas in our simulator immediately restores the cyan focus ring and resumes steering!
-            </p>
-            <p className="text-xs text-slate-300">
-              👉 <strong>Try changing:</strong> Display an on-screen warning banner whenever focus is lost to guide players to click back in!
-            </p>
-          </div>
+        {/* ==================================================================          </div>
 
           <div className="bg-indigo-900/20 rounded-2xl p-5 border border-indigo-500/30 space-y-2">
             <h3 className="text-lg font-semibold text-indigo-300">🚀 Expert Mindset</h3>

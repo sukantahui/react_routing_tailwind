@@ -221,7 +221,7 @@ export default class Topic16 extends Component {
             <button 
               onClick={() => this.toggleSection('overview')}
               className="w-full text-left mb-4"
-            &gt;
+            >
               <h2 className={clsx(
                 'text-2xl font-bold flex items-center gap-3 transition-all duration-300 hover:gap-4',
                 expandedSections.overview 
@@ -324,7 +324,7 @@ export default class Topic16 extends Component {
                       ? (isDarkMode ? 'bg-blue-600 text-white' : 'bg-blue-500 text-white')
                       : (isDarkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-200 hover:bg-gray-300')
                   )}
-                &gt;
+                >
                   WSL 1
                 </button>
                 <button
@@ -335,7 +335,7 @@ export default class Topic16 extends Component {
                       ? (isDarkMode ? 'bg-green-600 text-white' : 'bg-green-500 text-white')
                       : (isDarkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-200 hover:bg-gray-300')
                   )}
-                &gt;
+                >
                   WSL 2
                 </button>
               </div>
@@ -459,7 +459,7 @@ export default class Topic16 extends Component {
             <button 
               onClick={() => this.toggleSection('installation')}
               className="w-full text-left mb-4"
-            &gt;
+            >
               <h2 className={clsx(
                 'text-2xl font-bold flex items-center gap-3 transition-all duration-300 hover:gap-4',
                 expandedSections.installation 
@@ -571,7 +571,7 @@ export default class Topic16 extends Component {
             <button 
               onClick={() => this.toggleSection('benefits')}
               className="w-full text-left mb-4"
-            &gt;
+            >
               <h2 className={clsx(
                 'text-2xl font-bold flex items-center gap-3 transition-all duration-300 hover:gap-4',
                 expandedSections.benefits 
@@ -685,7 +685,7 @@ export default class Topic16 extends Component {
             <button 
               onClick={() => this.toggleSection('useCases')}
               className="w-full text-left mb-4"
-            &gt;
+            >
               <h2 className={clsx(
                 'text-2xl font-bold flex items-center gap-3 transition-all duration-300 hover:gap-4',
                 expandedSections.useCases 
@@ -798,7 +798,7 @@ export default class Topic16 extends Component {
             <button 
               onClick={() => this.toggleSection('limitations')}
               className="w-full text-left mb-4"
-            &gt;
+            >
               <h2 className={clsx(
                 'text-2xl font-bold flex items-center gap-3 transition-all duration-300 hover:gap-4',
                 expandedSections.limitations 
@@ -914,7 +914,7 @@ export default class Topic16 extends Component {
             <button 
               onClick={() => this.toggleSection('bestPractices')}
               className="w-full text-left mb-4"
-            &gt;
+            >
               <h2 className={clsx(
                 'text-2xl font-bold flex items-center gap-3 transition-all duration-300 hover:gap-4',
                 expandedSections.bestPractices 

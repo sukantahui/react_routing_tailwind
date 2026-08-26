@@ -112,7 +112,7 @@ const Topic6 = () => {
                 value={fileSize}
                 onChange={(e) => setFileSize(e.target.value)}
                 className="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 font-mono"
-              /&gt;
+              />
             </div>
             <div>
               <label className="block text-sm font-medium mb-2">Compression level (1-9):</label>
@@ -123,17 +123,17 @@ const Topic6 = () => {
                 value={compressionLevel}
                 onChange={(e) => setCompressionLevel(parseInt(e.target.value))}
                 className="w-full"
-              /&gt;
+              />
               <div className="text-center text-sm">{compressionLevel} (1=fast, 9=best)</div>
             </div>
           </div>
           <div className="flex gap-4 mb-4">
             <label className="flex items-center gap-2">
-              <input type="checkbox" checked={keepOriginal} onChange={() => setKeepOriginal(!keepOriginal)} /&gt;
+              <input type="checkbox" checked={keepOriginal} onChange={() => setKeepOriginal(!keepOriginal)} />
               <span>Keep original file (-k)</span>
             </label>
             <label className="flex items-center gap-2">
-              <input type="checkbox" checked={verbose} onChange={() => setVerbose(!verbose)} /&gt;
+              <input type="checkbox" checked={verbose} onChange={() => setVerbose(!verbose)} />
               <span>Verbose output (-v)</span>
             </label>
           </div>
@@ -143,7 +143,7 @@ const Topic6 = () => {
               <span>gzip {keepOriginal ? '-k ' : ''}{verbose ? '-v ' : ''}-{compressionLevel} data.bin</span>
             </div>
             <pre className={clsx('transition-opacity duration-300', isAnimating ? 'opacity-70' : 'opacity-100')}>
-              {verbose ? `data.bin:      ${parseInt(fileSize).toLocaleString()} bytes &rarr; ${compressedSize} bytes, ${Math.round((1 - parseInt(compressedSize.replace(/,/g,''))/parseInt(fileSize))*100)}% reduction\n` : ''}
+              {verbose ? `data.bin:      ${parseInt(fileSize).toLocaleString()} bytes -> ${compressedSize} bytes, ${Math.round((1 - parseInt(compressedSize.replace(/,/g,''))/parseInt(fileSize))*100)}% reduction\n` : ''}
               {keepOriginal ? 'Original file kept: data.bin\n' : 'Original file removed: data.bin → data.bin.gz'}
               {'Compressed file: data.bin.gz'}
             </pre>
@@ -270,7 +270,7 @@ const Topic6 = () => {
           <ul className="list-disc pl-5 space-y-2">
             <li><strong>Losing original files:</strong> By default, `gzip` removes the original. Use `-k` or redirect output.</li>
             <li><strong>Compressing already compressed files:</strong> `gzip` on a `.jpg` or `.mp4` yields little to no gain.</li>
-            <li><strong>Not using `-c` when scripting:</strong> Without `-c`, you lose the original. Use `gzip -c file {`&gt;`} file.gz`.</li>
+            <li><strong>Not using `-c` when scripting:</strong> Without `-c`, you lose the original. Use `gzip -c file {`>`} file.gz`.</li>
             <li><strong>Forgetting that `gzip` only works on single files:</strong> Directories require `tar` first.</li>
             <li><strong>Assuming `.gz` is always smaller:</strong> Very small files or already compressed data may increase in size due to overhead.</li>
           </ul>

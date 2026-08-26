@@ -182,7 +182,7 @@ const QRCodeGenerator = () => {
             onChange={(e) => setTitle(e.target.value)}
             placeholder="e.g., My QR Code"
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-          /&gt;
+          />
         </div>
 
         {/* Link input */}
@@ -197,7 +197,7 @@ const QRCodeGenerator = () => {
             onChange={(e) => setLink(e.target.value)}
             placeholder="https://example.com"
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-          /&gt;
+          />
           {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
         </div>
 

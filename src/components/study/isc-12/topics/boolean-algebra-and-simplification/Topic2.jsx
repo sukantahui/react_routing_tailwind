@@ -108,7 +108,7 @@ const Topic2 = () => {
                         ? "bg-green-500 hover:bg-green-600 text-white shadow-lg" 
                         : "bg-red-500 hover:bg-red-600 text-white shadow-lg"
                     )}
-                  &gt;
+                  >
                     {andInputA}
                   </button>
                   <div className="flex items-center text-2xl font-bold text-gray-500">AND</div>
@@ -120,7 +120,7 @@ const Topic2 = () => {
                         ? "bg-green-500 hover:bg-green-600 text-white shadow-lg" 
                         : "bg-red-500 hover:bg-red-600 text-white shadow-lg"
                     )}
-                  &gt;
+                  >
                     {andInputB}
                   </button>
                 </div>
@@ -201,7 +201,7 @@ const Topic2 = () => {
                         ? "bg-green-500 hover:bg-green-600 text-white shadow-lg" 
                         : "bg-red-500 hover:bg-red-600 text-white shadow-lg"
                     )}
-                  &gt;
+                  >
                     {orInputA}
                   </button>
                   <div className="flex items-center text-2xl font-bold text-gray-500">OR</div>
@@ -213,7 +213,7 @@ const Topic2 = () => {
                         ? "bg-green-500 hover:bg-green-600 text-white shadow-lg" 
                         : "bg-red-500 hover:bg-red-600 text-white shadow-lg"
                     )}
-                  &gt;
+                  >
                     {orInputB}
                   </button>
                 </div>
@@ -292,7 +292,7 @@ const Topic2 = () => {
                         ? "bg-green-500 hover:bg-green-600 text-white shadow-lg" 
                         : "bg-red-500 hover:bg-red-600 text-white shadow-lg"
                     )}
-                  &gt;
+                  >
                     {notInput}
                   </button>
                   <div className="text-2xl font-bold text-gray-500">→ NOT →</div>
@@ -411,7 +411,7 @@ const Topic2 = () => {
             <li>Recognize and draw the standard logic gate symbols.</li>
             <li>Translate English statements into Boolean expressions using AND, OR, NOT.</li>
             <li>Explain the difference between AND and OR using real-world analogies.</li>
-            <li>Understand the operator precedence: NOT {`&gt;`} AND {`>`} OR.</li>
+            <li>Understand the operator precedence: NOT {`>`} AND {`>`} OR.</li>
           </ul>
         </div>
 

@@ -79,7 +79,7 @@ const Topic7 = () => {
       symbols: [
         { name: "Mandatory One", symbol: "Double Bar (||)", color: "text-teal-400 border-teal-500/40 bg-teal-500/10" },
         { name: "Optional One", symbol: "Circle + Bar (o|)", color: "text-cyan-400 border-cyan-500/40 bg-cyan-500/10" },
-        { name: "Mandatory Many", symbol: "Bar + Crow (&gt;|)", color: "text-emerald-400 border-emerald-500/40 bg-emerald-500/10" },
+        { name: "Mandatory Many", symbol: "Bar + Crow (>|)", color: "text-emerald-400 border-emerald-500/40 bg-emerald-500/10" },
         { name: "Optional Many", symbol: "Circle + Crow (>o)", color: "text-indigo-400 border-indigo-500/40 bg-indigo-500/10" },
         { name: "Identifying Rel", symbol: "Solid Line (───)", color: "text-amber-400 border-amber-500/40 bg-amber-500/10" },
         { name: "Non-Identifying", symbol: "Dashed Line (- - -)", color: "text-slate-400 border-slate-700 bg-slate-800/40" },
@@ -132,7 +132,7 @@ const Topic7 = () => {
       cons: "Requires translating OO concepts (methods, interfaces) into relational concepts (foreign keys, check constraints).",
       symbols: [
         { name: "Class Box", symbol: "3 Compartments", color: "text-indigo-400 border-indigo-500/40 bg-indigo-500/10" },
-        { name: "Primary Key", symbol: "<<PK>&gt; or {id}", color: "text-teal-400 border-teal-500/40 bg-teal-500/10" },
+        { name: "Primary Key", symbol: "<<PK>> or {id}", color: "text-teal-400 border-teal-500/40 bg-teal-500/10" },
         { name: "Multiplicities", symbol: "0..1, 1..1, 0..*, 1..*", color: "text-cyan-400 border-cyan-500/40 bg-cyan-500/10" },
         { name: "Weak Entity", symbol: "Composition (Solid ◆)", color: "text-rose-400 border-rose-500/40 bg-rose-500/10" },
         { name: "Association Class", symbol: "Junction Table Attached", color: "text-amber-400 border-amber-500/40 bg-amber-500/10" },
@@ -367,7 +367,7 @@ const Topic7 = () => {
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 1. Peter Chen Notation (1976)
               </button>
               <button
@@ -378,7 +378,7 @@ const Topic7 = () => {
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 2. Crow's Foot (MySQL Workbench)
               </button>
               <button
@@ -389,7 +389,7 @@ const Topic7 = () => {
                     ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 3. UML Class Diagram
               </button>
             </div>

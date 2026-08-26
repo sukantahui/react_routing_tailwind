@@ -66,7 +66,7 @@ BEGIN
     END;
 
     -- Business Validation Check:
-    IF p_amount &le; 0 THEN
+    IF p_amount <= 0 THEN
         SET p_response_code = 400;
         SET p_response_message = 'Validation Error: Transfer amount must be positive!';
     ELSE
@@ -460,7 +460,7 @@ DELIMITER ;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(

@@ -66,7 +66,7 @@ const Topic0 = () => {
     let badgeColor = "";
     let desc = "";
 
-    if (score &ge; 80) {
+    if (score >= 80) {
       tier = "NEXT-GEN QUANTUM & AI RESILIENT ✔";
       badgeColor = "bg-emerald-950 text-emerald-300 border-emerald-700";
       desc = "Perimeter is hardened against autonomous machine-speed AI swarms and harvest-now-decrypt-later (HNDL) quantum threats.";
@@ -190,7 +190,7 @@ const Topic0 = () => {
                       ? "bg-purple-600 text-white shadow-lg shadow-purple-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                &gt;
+                >
                   {eraKey} Era
                 </button>
               ))}
@@ -260,7 +260,7 @@ const Topic0 = () => {
                   checked={hasZeroTrust}
                   onChange={(e) => setHasZeroTrust(e.target.checked)}
                   className="accent-purple-500 w-4 h-4"
-                /&gt;
+                />
               </label>
 
               <label className="flex items-center justify-between p-2.5 bg-slate-900 rounded-lg border border-slate-800 cursor-pointer">
@@ -273,7 +273,7 @@ const Topic0 = () => {
                   checked={hasAiSoar}
                   onChange={(e) => setHasAiSoar(e.target.checked)}
                   className="accent-purple-500 w-4 h-4"
-                /&gt;
+                />
               </label>
 
               <label className="flex items-center justify-between p-2.5 bg-slate-900 rounded-lg border border-slate-800 cursor-pointer">
@@ -286,7 +286,7 @@ const Topic0 = () => {
                   checked={hasFido2}
                   onChange={(e) => setHasFido2(e.target.checked)}
                   className="accent-purple-500 w-4 h-4"
-                /&gt;
+                />
               </label>
 
               <label className="flex items-center justify-between p-2.5 bg-slate-900 rounded-lg border border-slate-800 cursor-pointer">
@@ -299,7 +299,7 @@ const Topic0 = () => {
                   checked={hasPqc}
                   onChange={(e) => setHasPqc(e.target.checked)}
                   className="accent-purple-500 w-4 h-4"
-                /&gt;
+                />
               </label>
             </div>
 
@@ -345,7 +345,7 @@ const Topic0 = () => {
                       ? "bg-purple-600 text-white shadow-lg shadow-purple-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                &gt;
+                >
                   {key === "barrackpore_ot_zerotrust" ? "Barrackpore OT Zero Trust" : key === "kolkata_fintech_soar" ? "Kolkata SOAR Transition" : "Ichapur Data Diodes"}
                 </button>
               ))}

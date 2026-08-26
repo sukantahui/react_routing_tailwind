@@ -32,7 +32,7 @@ const Topic12 = () => {
 
   const sectionRefs = useRef([]);
 
-  // Compute Excitation Values for Transition (presentQ &rarr; nextQ)
+  // Compute Excitation Values for Transition (presentQ -> nextQ)
   const getExcitationValues = (qNow, qNext) => {
     let sr = { s: "0", r: "X", desc: "No change (Hold 0,0) or Reset (0,1)" };
     let jk = { j: "0", k: "X", desc: "No change (Hold 0,0) or Reset (0,1)" };
@@ -288,7 +288,7 @@ const Topic12 = () => {
                     ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 1. 4-in-1 Master Excitation Matrix
               </button>
               <button
@@ -299,7 +299,7 @@ const Topic12 = () => {
                     ? "bg-cyan-900/80 border border-cyan-500 text-cyan-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 2. SR &rarr; JK Conversion Schematic
               </button>
               <button
@@ -310,7 +310,7 @@ const Topic12 = () => {
                     ? "bg-emerald-900/80 border border-emerald-500 text-emerald-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 3. JK &rarr; D &amp; D &rarr; T Schematics
               </button>
               <button
@@ -321,7 +321,7 @@ const Topic12 = () => {
                     ? "bg-amber-900/80 border border-amber-500 text-amber-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 4. K-Map Grouping &amp; Don't Cares
               </button>
             </div>
@@ -671,7 +671,7 @@ const Topic12 = () => {
                       "px-4 py-2 rounded-xl text-xs font-mono font-bold border transition",
                       presentQ === 1 ? "bg-teal-900/80 border-teal-400 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
                     )}
-                  &gt;
+                  >
                     Present Q(t): {presentQ}
                   </button>
 
@@ -683,7 +683,7 @@ const Topic12 = () => {
                       "px-4 py-2 rounded-xl text-xs font-mono font-bold border transition",
                       nextQ === 1 ? "bg-cyan-900/80 border-cyan-400 text-cyan-200" : "bg-slate-950 border-slate-800 text-slate-400"
                     )}
-                  &gt;
+                  >
                     Desired Next Q(t+1): {nextQ}
                   </button>
                 </div>
@@ -755,7 +755,7 @@ const Topic12 = () => {
                           : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                       )}
                       dangerouslySetInnerHTML={{ __html: item.label }}
-                    /&gt;
+                    />
                   ))}
                 </div>
               </div>

@@ -41,7 +41,7 @@ const Topic11 = () => {
       };
     }
 
-    // 3. High-Value Tier Checks (&gt; ₹5,00,000)
+    // 3. High-Value Tier Checks (> ₹5,00,000)
     if (transferAmount > 500000) {
       if (!hasFido2Mfa) {
         return {
@@ -206,7 +206,7 @@ const Topic11 = () => {
                         ? "bg-indigo-600 text-white"
                         : "bg-slate-900 text-slate-400 border border-slate-800"
                     )}
-                  &gt;
+                  >
                     Finance Officer (Max ₹5,00,000)
                   </button>
                   <button
@@ -217,7 +217,7 @@ const Topic11 = () => {
                         ? "bg-indigo-600 text-white"
                         : "bg-slate-900 text-slate-400 border border-slate-800"
                     )}
-                  &gt;
+                  >
                     Treasury Director (Unlimited)
                   </button>
                 </div>
@@ -236,13 +236,13 @@ const Topic11 = () => {
                   value={transferAmount}
                   onChange={(e) => setTransferAmount(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1.5">
                 <div className="flex justify-between text-slate-300 font-semibold">
                   <span>Environment Time (IST):</span>
-                  <span className="font-mono text-cyan-400">{accessHour}:00 IST ({accessHour &ge; 8 && accessHour &le; 20 ? "Working Hours ✔" : "Off-Hours ❌"})</span>
+                  <span className="font-mono text-cyan-400">{accessHour}:00 IST ({accessHour >= 8 && accessHour <= 20 ? "Working Hours ✔" : "Off-Hours ❌"})</span>
                 </div>
                 <input
                   type="range"
@@ -252,7 +252,7 @@ const Topic11 = () => {
                   value={accessHour}
                   onChange={(e) => setAccessHour(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-                /&gt;
+                />
               </div>
 
               <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800">
@@ -264,7 +264,7 @@ const Topic11 = () => {
                       ? "bg-indigo-950 text-indigo-300 border-indigo-700"
                       : "bg-slate-900 text-slate-400 border-slate-800"
                   )}
-                &gt;
+                >
                   Office Intranet (10.14.20.105)
                 </button>
                 <button
@@ -275,7 +275,7 @@ const Topic11 = () => {
                       ? "bg-rose-950 text-rose-300 border-rose-700"
                       : "bg-slate-900 text-slate-400 border-slate-800"
                   )}
-                &gt;
+                >
                   External Public IP (203.115.42.88)
                 </button>
               </div>
@@ -333,7 +333,7 @@ const Topic11 = () => {
                   checked={isDualApproved}
                   onChange={(e) => setIsDualApproved(e.target.checked)}
                   className="accent-indigo-500 w-4 h-4"
-                /&gt;
+                />
               </label>
 
               <div className="space-y-1.5">
@@ -347,7 +347,7 @@ const Topic11 = () => {
                         ? "bg-indigo-600 text-white"
                         : "bg-slate-900 text-slate-400 border border-slate-800"
                     )}
-                  &gt;
+                  >
                     30 Minutes (Standard Patch)
                   </button>
                   <button
@@ -358,7 +358,7 @@ const Topic11 = () => {
                         ? "bg-indigo-600 text-white"
                         : "bg-slate-900 text-slate-400 border border-slate-800"
                     )}
-                  &gt;
+                  >
                     60 Minutes (Emergency DB Re-index)
                   </button>
                 </div>
@@ -406,7 +406,7 @@ const Topic11 = () => {
                       ? "bg-indigo-600 text-white shadow-lg shadow-indigo-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                &gt;
+                >
                   {key === "barrackpore_iam_overhaul" ? "Barrackpore IAM" : key === "kolkata_fintech_pam" ? "Kolkata PAM ZSP" : "Ichapur PAW Deployment"}
                 </button>
               ))}

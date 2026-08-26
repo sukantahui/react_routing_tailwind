@@ -190,7 +190,7 @@ const Topic5 = () => {
                     ? "bg-amber-600 text-white shadow-md shadow-amber-600/30"
                     : "bg-slate-950 text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 1. "Nines" SLA Calculator
               </button>
               <button
@@ -201,7 +201,7 @@ const Topic5 = () => {
                     ? "bg-amber-600 text-white shadow-md shadow-amber-600/30"
                     : "bg-slate-950 text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 2. Cluster Failover Simulator
               </button>
               <button
@@ -212,7 +212,7 @@ const Topic5 = () => {
                     ? "bg-amber-600 text-white shadow-md shadow-amber-600/30"
                     : "bg-slate-950 text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 3. RTO &amp; RPO Recovery Planner
               </button>
               <button
@@ -223,7 +223,7 @@ const Topic5 = () => {
                     ? "bg-amber-600 text-white shadow-md shadow-amber-600/30"
                     : "bg-slate-950 text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 4. Load Balancer &amp; Circuit Breaker
               </button>
             </div>
@@ -246,7 +246,7 @@ const Topic5 = () => {
                             ? "bg-amber-600 border-amber-400 text-white shadow-lg shadow-amber-600/30"
                             : "bg-slate-950 border-slate-800 text-slate-300 hover:border-slate-600"
                         )}
-                      &gt;
+                      >
                         <span className="text-sm">{nineKey}%</span>
                         <span className="text-[10px] text-slate-400 font-normal">{ninesData[nineKey].label.split(" ")[0]}</span>
                       </button>
@@ -286,7 +286,7 @@ const Topic5 = () => {
                       "px-3 py-1.5 rounded-lg text-xs font-bold transition-all",
                       clusterMode === "active-active" ? "bg-emerald-600 text-white" : "bg-slate-950 text-slate-400"
                     )}
-                  &gt;
+                  >
                     Active-Active (Simultaneous Load)
                   </button>
                   <button
@@ -295,7 +295,7 @@ const Topic5 = () => {
                       "px-3 py-1.5 rounded-lg text-xs font-bold transition-all",
                       clusterMode === "active-passive" ? "bg-emerald-600 text-white" : "bg-slate-950 text-slate-400"
                     )}
-                  &gt;
+                  >
                     Active-Passive (Hot Standby)
                   </button>
                 </div>
@@ -328,7 +328,7 @@ const Topic5 = () => {
                     <button
                       onClick={() => setNodeAAlive(!nodeAAlive)}
                       className="mt-2 px-3 py-1 bg-slate-900 hover:bg-slate-800 border border-slate-700 rounded text-xs text-slate-200"
-                    &gt;
+                    >
                       {nodeAAlive ? "💥 Kill Node A" : "🔄 Revive Node A"}
                     </button>
                   </div>
@@ -360,7 +360,7 @@ const Topic5 = () => {
                     <button
                       onClick={() => setNodeBAlive(!nodeBAlive)}
                       className="mt-2 px-3 py-1 bg-slate-900 hover:bg-slate-800 border border-slate-700 rounded text-xs text-slate-200"
-                    &gt;
+                    >
                       {nodeBAlive ? "💥 Kill Node B" : "🔄 Revive Node B"}
                     </button>
                   </div>
@@ -395,7 +395,7 @@ const Topic5 = () => {
                       value={targetRTO}
                       onChange={(e) => setTargetRTO(Number(e.target.value))}
                       className="w-full accent-amber-500"
-                    /&gt;
+                    />
                     <span className="text-[11px] text-slate-400">
                       {targetRTO === 0 ? "Instantaneous (< 10 sec)" : `Max allowed outage duration: ${targetRTO} hour(s)`}
                     </span>
@@ -413,7 +413,7 @@ const Topic5 = () => {
                       value={targetRPO}
                       onChange={(e) => setTargetRPO(Number(e.target.value))}
                       className="w-full accent-amber-500"
-                    /&gt;
+                    />
                     <span className="text-[11px] text-slate-400">
                       {targetRPO === 0 ? "Zero Data Loss (Synchronous DB Mirroring)" : `Max allowed data loss: ${targetRPO} minute(s)`}
                     </span>
@@ -425,7 +425,7 @@ const Topic5 = () => {
                   <p className="text-sm font-semibold text-white">
                     {targetRTO === 0 && targetRPO === 0
                       ? "Multi-Region Active-Active Synchronous Mirrored Cluster"
-                      : targetRTO &le; 2 && targetRPO <= 15
+                      : targetRTO <= 2 && targetRPO <= 15
                       ? "Hot Standby Multi-AZ Automated Failover Grid"
                       : targetRTO <= 8
                       ? "Warm Standby with Hourly Transaction Log Shipping"
@@ -434,7 +434,7 @@ const Topic5 = () => {
                   <p className="text-xs text-slate-400">
                     Estimated Implementation Budget in West Bengal:{" "}
                     <span className="text-emerald-400 font-bold">
-                      {targetRTO === 0 && targetRPO === 0 ? "₹18,00,000" : targetRTO &le; 2 ? "₹9,50,000" : "₹4,20,000"}
+                      {targetRTO === 0 && targetRPO === 0 ? "₹18,00,000" : targetRTO <= 2 ? "₹9,50,000" : "₹4,20,000"}
                     </span>
                   </p>
                 </div>
@@ -451,7 +451,7 @@ const Topic5 = () => {
                       "px-3 py-1.5 rounded-lg text-xs font-bold transition-all",
                       circuitOpen ? "bg-rose-600 text-white" : "bg-emerald-600 text-white"
                     )}
-                  &gt;
+                  >
                     {circuitOpen ? "⚡ Circuit Breaker: OPEN (Tripped)" : "🛡️ Circuit Breaker: CLOSED (Healthy)"}
                   </button>
                   <span className="text-xs text-slate-400">
@@ -472,7 +472,7 @@ const Topic5 = () => {
                           "px-3 py-1.5 rounded text-xs font-bold capitalize transition-all",
                           lbAlgorithm === alg ? "bg-amber-600 text-white" : "bg-slate-950 text-slate-400"
                         )}
-                      &gt;
+                      >
                         {alg.replace("-", " ")}
                       </button>
                     ))}

@@ -42,7 +42,7 @@ export default function Topic0() {
         <header
           ref={(el) => (sectionsRef.current[0] = el)}
           className="reveal-section transition-all duration-700 ease-out"
-        &gt;
+        >
           <h1 className="text-4xl font-bold bg-gradient-to-r from-emerald-400 to-teal-500 bg-clip-text text-transparent">
             Revision: SUM Function
           </h1>
@@ -55,7 +55,7 @@ export default function Topic0() {
         <section
           ref={(el) => (sectionsRef.current[1] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-emerald-500/50 transition-all duration-300"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold flex items-center gap-2">
             <span className="text-emerald-400">📐</span> Function Prototype
           </h2>
@@ -73,7 +73,7 @@ export default function Topic0() {
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold">🧠 How SUM Works</h2>
           <div className="mt-4 space-y-4 text-gray-200 leading-relaxed">
             <p>
@@ -92,7 +92,7 @@ export default function Topic0() {
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold">📊 Real-World Use Case</h2>
           <div className="mt-4">
             <p className="text-gray-200">
@@ -122,7 +122,7 @@ export default function Topic0() {
         <section
           ref={(el) => (sectionsRef.current[4] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        &gt;
+        >
           <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
             <h2 className="text-2xl font-semibold">📁 Interactive Example</h2>
             {sampleDataUrl && (
@@ -164,7 +164,7 @@ export default function Topic0() {
         <section
           ref={(el) => (sectionsRef.current[5] = el)}
           className="reveal-section bg-red-900/20 border border-red-800 rounded-2xl p-5 hover:border-red-500 transition-all"
-        &gt;
+        >
           <h3 className="text-xl font-semibold text-red-300">⚠️ Common Pitfalls</h3>
           <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
             <li>Using SUM on cells containing text or errors → text ignored, errors propagate (#VALUE!)</li>
@@ -178,7 +178,7 @@ export default function Topic0() {
         <section
           ref={(el) => (sectionsRef.current[6] = el)}
           className="reveal-section bg-green-900/20 border border-green-800 rounded-2xl p-5 hover:border-green-500 transition-all"
-        &gt;
+        >
           <h3 className="text-xl font-semibold text-green-300">✅ Best Practices</h3>
           <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
             <li>Use named ranges for readability: =SUM(Expenses) instead of =SUM(B2:B100).</li>
@@ -192,7 +192,7 @@ export default function Topic0() {
         <section
           ref={(el) => (sectionsRef.current[7] = el)}
           className="reveal-section bg-yellow-900/20 border-l-8 border-yellow-500 rounded-r-2xl p-5"
-        &gt;
+        >
           <h3 className="text-xl font-semibold text-yellow-300">💭 Think about...</h3>
           <p className="mt-2 text-gray-200">
             “If Swadeep wants to sum marks of only the top 3 subjects from a list of 10, can SUM alone do it? <br />
@@ -205,7 +205,7 @@ export default function Topic0() {
         <section
           ref={(el) => (sectionsRef.current[8] = el)}
           className="reveal-section bg-blue-900/20 border border-blue-800 rounded-2xl p-5"
-        &gt;
+        >
           <h3 className="text-xl font-semibold text-blue-300">💡 Professional Tips & Tricks</h3>
           <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
             <li>Shortcut: <kbd className="bg-gray-800 px-1 rounded">Alt</kbd> + <kbd className="bg-gray-800 px-1 rounded">=</kbd> instantly inserts SUM.</li>

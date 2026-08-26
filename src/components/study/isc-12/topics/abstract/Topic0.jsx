@@ -100,7 +100,7 @@ const Topic0 = () => {
                 <text x="100" y="175" textAnchor="middle" fill="#94a3b8" fontSize="9">(Hidden details)</text>
               </g>
 
-              {/* Arrow 1 &rarr; 2 */}
+              {/* Arrow 1 -> 2 */}
               <g>
                 <line x1="240" y1="130" x2="290" y2="130" stroke="#f59e0b" strokeWidth="3" markerEnd="url(#arrowhead)" />
                 <text x="265" y="115" textAnchor="middle" fill="#f59e0b" fontSize="11">Abstract</text>
@@ -118,7 +118,7 @@ const Topic0 = () => {
                 <text x="90" y="165" textAnchor="middle" fill="#cbd5e1" fontSize="12">accelerate()</text>
               </g>
 
-              {/* Arrow 2 &rarr; 3 */}
+              {/* Arrow 2 -> 3 */}
               <g>
                 <line x1="500" y1="130" x2="550" y2="130" stroke="#10b981" strokeWidth="3" markerEnd="url(#arrowhead)" />
                 <text x="525" y="115" textAnchor="middle" fill="#10b981" fontSize="11">Use</text>

@@ -139,7 +139,7 @@ ${qrLink}
             {loading && <p className="mt-4 text-gray-600">Loading...</p>}
             {error && <p className="mt-4 text-red-500">Error: {error}</p>}
 
-            {filteredGuests.length &gt; 0 && (
+            {filteredGuests.length > 0 && (
                 <div className="mt-6 overflow-x-auto">
                     <table className="min-w-full bg-white border border-gray-300 rounded-md shadow-md text-left">
                         <thead className="bg-gray-200 text-black">
@@ -167,7 +167,7 @@ ${qrLink}
                                         <button
                                             className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-8 py-2 rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300"
                                             onClick={() => sendWhatsApp(guest)}
-                                        &gt;
+                                        >
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 className="h-6 w-6"
@@ -186,7 +186,7 @@ ${qrLink}
                 </div>
             )}
 
-            {!loading && !error && guests.length &gt; 0 && filteredGuests.length === 0 && (
+            {!loading && !error && guests.length > 0 && filteredGuests.length === 0 && (
                 <p className="mt-4 text-gray-600">No guests found.</p>
             )}
         </div>

@@ -94,7 +94,7 @@ SELECT
     CONCAT(s.first_name, ' ', s.last_name) AS student_name,
     s.exam_score_pct
 FROM students s
-WHERE s.exam_score_pct &gt; (
+WHERE s.exam_score_pct > (
     SELECT AVG(exam_score_pct) 
     FROM students
 )
@@ -392,7 +392,7 @@ FROM (
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(

@@ -118,7 +118,7 @@ const Topic5 = () => {
                       ? "bg-teal-500 text-slate-950 shadow-lg shadow-teal-500/25"
                       : "bg-gray-800 text-slate-400 hover:bg-gray-700 border border-slate-700"
                   }`}
-                &gt;
+                >
                   {tier.label.split(" / ")[0]}
                 </button>
               ))}

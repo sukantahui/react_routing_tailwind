@@ -28,7 +28,7 @@ const Topic1 = () => {
       sqlSnippet: `-- 📦 1. LOGICAL HOT BACKUP (mysqldump / MySQL Shell Dump):
 -- Generates human-readable SQL DDL + INSERT statements:
 mysqldump --single-transaction --quick --routines --triggers --events \\
-  -u root -p kolkata_retail &gt; /backups/retail_logical.sql
+  -u root -p kolkata_retail > /backups/retail_logical.sql
 
 -- 📦 2. PHYSICAL HOT BACKUP (Percona XtraBackup):
 -- Directly copies raw binary .ibd files & streams redo logs:
@@ -55,7 +55,7 @@ xtrabackup --backup --target-dir=/backups/base_physical/ \\
 
 -- 🔥 3. HOT BACKUP (Online Non-Blocking - 24/7 Production):
 -- InnoDB MVCC Consistent Snapshot: Zero write locking!
-mysqldump --single-transaction kolkata_retail &gt; hot_backup.sql`,
+mysqldump --single-transaction kolkata_retail > hot_backup.sql`,
       explanation:
         "Cold backups require full application downtime. Warm backups block all data mutations with table locks. Hot backups use InnoDB MVCC snapshots (--single-transaction) or continuous redo log streaming to take 100% consistent backups while concurrent writes continue without interruption.",
       keyTakeaways: [
@@ -218,7 +218,7 @@ xtrabackup --prepare --target-dir=/backups/base --incremental-dir=/backups/inc1`
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                &gt;
+                >
                   {phase.phaseNumber}
                 </button>
               );

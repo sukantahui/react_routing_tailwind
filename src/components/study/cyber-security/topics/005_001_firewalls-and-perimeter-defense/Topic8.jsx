@@ -300,7 +300,7 @@ const Topic8 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              &gt;
+              >
                 {c.title}
               </button>
             ))}
@@ -369,7 +369,7 @@ const Topic8 = () => {
                 value={selectedDmzScenario}
                 onChange={(e) => setSelectedDmzScenario(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              &gt;
+              >
                 {Object.values(dmzScenarios).map((s) => (
                   <option key={s.id} value={s.id}>
                     {s.label}
@@ -388,7 +388,7 @@ const Topic8 = () => {
                     ? "bg-emerald-950/80 text-emerald-300 border-emerald-800"
                     : "bg-rose-950/80 text-rose-300 border-rose-800"
                 )}
-              &gt;
+              >
                 {pvlanIsolationActive ? "✔ PVLAN Isolated Ports Active" : "❌ Flat DMZ Subnet (No PVLAN)"}
               </button>
             </div>
@@ -403,7 +403,7 @@ const Topic8 = () => {
                     ? "bg-indigo-950/80 text-indigo-300 border-indigo-800"
                     : "bg-amber-950/80 text-amber-300 border-amber-800"
                 )}
-              &gt;
+              >
                 {dbPinholeMtlsActive ? "✔ Strict mTLS Pinhole Active" : "⚠️ Insecure Pinhole (Cleartext)"}
               </button>
             </div>
@@ -491,7 +491,7 @@ const Topic8 = () => {
                 value={dmzServerCount}
                 onChange={(e) => setDmzServerCount(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -507,7 +507,7 @@ const Topic8 = () => {
                 value={pamUserSeats}
                 onChange={(e) => setPamUserSeats(Number(e.target.value))}
                 className="w-full accent-purple-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -523,7 +523,7 @@ const Topic8 = () => {
                     ? "bg-emerald-950 text-emerald-300 border-emerald-800"
                     : "bg-slate-950 text-gray-400 border-slate-800"
                 )}
-              &gt;
+              >
                 {redundantDmzSwitches ? "✔ Dual Redundant Switches Active" : "Single Switch (No Redundancy)"}
               </button>
             </div>
@@ -579,7 +579,7 @@ const Topic8 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 {d.title}
               </button>
             ))}

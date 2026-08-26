@@ -113,7 +113,7 @@ const Topic2 = () => {
                   value={outerSpokes}
                   onChange={(e) => setOuterSpokes(Number(e.target.value))}
                   className="w-20 accent-emerald-400 cursor-pointer"
-                /&gt;
+                />
                 <span className="font-mono text-xs text-emerald-300 w-5">{outerSpokes}</span>
               </div>
 
@@ -126,7 +126,7 @@ const Topic2 = () => {
                     className={`w-6 h-6 rounded text-xs font-bold transition cursor-pointer ${
                       innerSides === s ? "bg-emerald-500 text-slate-950 font-bold" : "text-slate-400 hover:text-white"
                     }`}
-                  &gt;
+                  >
                     {s}
                   </button>
                 ))}
@@ -141,7 +141,7 @@ const Topic2 = () => {
                     className={`w-6 h-6 rounded text-xs font-bold transition cursor-pointer ${
                       gridDim === g ? "bg-cyan-500 text-slate-950 font-bold" : "text-slate-400 hover:text-white"
                     }`}
-                  &gt;
+                  >
                     {g}x{g}
                   </button>
                 ))}

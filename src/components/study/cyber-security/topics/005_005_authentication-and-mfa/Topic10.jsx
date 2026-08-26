@@ -188,7 +188,7 @@ const Topic10 = () => {
                       ? "bg-amber-600 text-white shadow-lg shadow-amber-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                &gt;
+                >
                   Step {stepNum}
                 </button>
               ))}
@@ -225,8 +225,8 @@ const Topic10 = () => {
                 <text x="110" y="62" fill="#94a3b8" fontSize="8" textAnchor="middle">Holds secret code_verifier</text>
 
                 {/* Arrow 1 */}
-                <path d="M 195 50 L 295 50" stroke={pkceStep >= 2 ? "#f59e0b" : "#475569"} strokeWidth="2" /&gt;
-                <polygon points="295,47 305,50 295,53" fill={pkceStep >= 2 ? "#f59e0b" : "#475569"} /&gt;
+                <path d="M 195 50 L 295 50" stroke={pkceStep >= 2 ? "#f59e0b" : "#475569"} strokeWidth="2" />
+                <polygon points="295,47 305,50 295,53" fill={pkceStep >= 2 ? "#f59e0b" : "#475569"} />
 
                 {/* Node 2: Identity Provider (IdP) */}
                 <rect x="310" y="20" width="170" height="60" rx="8" fill="#064e3b" stroke="#10b981" strokeWidth="1.5" />
@@ -234,8 +234,8 @@ const Topic10 = () => {
                 <text x="395" y="62" fill="#94a3b8" fontSize="8" textAnchor="middle">Stores code_challenge</text>
 
                 {/* Arrow 2 */}
-                <path d="M 485 50 L 585 50" stroke={pkceStep >= 4 ? "#10b981" : "#475569"} strokeWidth="2" /&gt;
-                <polygon points="585,47 595,50 585,53" fill={pkceStep >= 4 ? "#10b981" : "#475569"} /&gt;
+                <path d="M 485 50 L 585 50" stroke={pkceStep >= 4 ? "#10b981" : "#475569"} strokeWidth="2" />
+                <polygon points="585,47 595,50 585,53" fill={pkceStep >= 4 ? "#10b981" : "#475569"} />
 
                 {/* Node 3: Resource API */}
                 <rect x="600" y="20" width="80" height="60" rx="8" fill="#450a0a" stroke="#dc2626" strokeWidth="1.5" />
@@ -280,7 +280,7 @@ const Topic10 = () => {
                   checked={isTampered}
                   onChange={(e) => setIsTampered(e.target.checked)}
                   className="accent-rose-500 w-4 h-4"
-                /&gt;
+                />
               </label>
 
               <div className="p-3 bg-slate-900 rounded-lg border border-slate-800 space-y-2">
@@ -294,7 +294,7 @@ const Topic10 = () => {
                         ? "bg-emerald-600 text-white"
                         : "bg-slate-800 text-slate-400 hover:text-white"
                     )}
-                  &gt;
+                  >
                     RS256 (RSA Signature ✔)
                   </button>
                   <button
@@ -305,7 +305,7 @@ const Topic10 = () => {
                         ? "bg-rose-600 text-white"
                         : "bg-slate-800 text-slate-400 hover:text-white"
                     )}
-                  &gt;
+                  >
                     alg: none (Exploit Attack 🚨)
                   </button>
                 </div>
@@ -360,7 +360,7 @@ const Topic10 = () => {
                       ? "bg-amber-600 text-white shadow-lg shadow-amber-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                &gt;
+                >
                   {key === "barrackpore_saml_xsw" ? "Barrackpore SAML XSW" : key === "kolkata_fintech_pkce" ? "Kolkata OAuth PKCE" : "Ichapur CAEP Revocation"}
                 </button>
               ))}

@@ -225,7 +225,7 @@ vmstat -w 2`}
               {`# Find if system is CPU or I/O bound
 vmstat 2 10
 # Then if us+sy near 100% and wa low → CPU bound
-# If wa high and b &gt; 0 → I/O bound
+# If wa high and b > 0 → I/O bound
 
 # Watch swap activity only
 vmstat 1 | awk '{print $3, $4}'  # si, so columns

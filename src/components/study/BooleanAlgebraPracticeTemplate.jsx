@@ -442,7 +442,7 @@ export default function BooleanAlgebraPracticeTemplate({ data }) {
                 setSearchId(""); // reset search when section changes
               }}
               className="bg-zinc-900 border border-zinc-700 p-2 rounded-md"
-            &gt;
+            >
               {uniqueSections.map((sec, i) => (
                 <option key={i} value={sec}>
                   {sec === "all" ? "All Sections" : sec}
@@ -462,7 +462,7 @@ export default function BooleanAlgebraPracticeTemplate({ data }) {
                 setSearchId("");
               }}
               className="bg-zinc-900 border border-zinc-700 p-2 rounded-md"
-            &gt;
+            >
               <option value="all">All</option>
               {[5, 10, 15, 20, 30, 40].map((n) => (
                 <option key={n} value={n}>
@@ -482,7 +482,7 @@ export default function BooleanAlgebraPracticeTemplate({ data }) {
               placeholder="e.g., 34"
               className="bg-zinc-900 border border-zinc-700 p-2 rounded-md w-24 text-center"
               disabled={!started}
-            /&gt;
+            />
             <button
               onClick={clearSearch}
               disabled={!started || !searchId}
@@ -502,7 +502,7 @@ export default function BooleanAlgebraPracticeTemplate({ data }) {
                 setStarted(true);
               }}
               className="px-6 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded-lg shadow"
-            &gt;
+            >
               Start Practice
             </button>
             <button
@@ -552,7 +552,7 @@ export default function BooleanAlgebraPracticeTemplate({ data }) {
                 <button
                   onClick={() => toggle(q.id)}
                   className="mt-2 p-2 rounded-full border border-sky-500/40 bg-slate-900 hover:bg-sky-700/40 transition"
-                &gt;
+                >
                   {showAns.includes(q.id) ? (
                     <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-5 0-9.27-3.11-11-7.5a11.05 11.05 0 014.95-5.9M15 12a3 3 0 11-6 0 3 3 0 016 0zm6.12 5.88L3 3" />
@@ -575,9 +575,9 @@ export default function BooleanAlgebraPracticeTemplate({ data }) {
                             dc={q.dc || []}
                             groups={q.steps?.map(step => ({ cells: step.cells || [] })) || []}
                             variables={q.variables || 4}
-                          /&gt;
+                          />
                         </div>
-                        {q.steps && q.steps.length &gt; 0 && (
+                        {q.steps && q.steps.length > 0 && (
                           <div>
                             <p className="text-emerald-300 text-sm font-semibold mb-2">📝 Step-by-step grouping:</p>
                             <div className="space-y-3">

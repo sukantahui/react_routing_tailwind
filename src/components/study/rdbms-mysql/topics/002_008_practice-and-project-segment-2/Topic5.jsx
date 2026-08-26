@@ -33,7 +33,7 @@ WHERE YEAR(created_at) = 2026;
 -- ✅ FAST REFACTORED QUERY (SARGable: Direct B-Tree Range Seek):
 SELECT student_id, student_name, created_at 
 FROM students 
-WHERE created_at &ge; '2026-01-01 00:00:00' 
+WHERE created_at >= '2026-01-01 00:00:00' 
   AND created_at < '2027-01-01 00:00:00';
 -- EXPLAIN: type = range, key = idx_created_at, rows = 1,240, latency = 2.1 ms!`,
       resultRows: [
@@ -269,7 +269,7 @@ CREATE INDEX idx_branch_score_covering ON enrollments (branch_id, student_id, ex
                   {/* SARGable Box */}
                   <g>
                     <rect x="440" y="25" width="390" height="130" rx="8" fill="#064e3b" stroke="#10b981" strokeWidth="2" />
-                    <text x="635" y="50" fill="#34d399" fontSize="11" fontWeight="bold" textAnchor="middle">✅ SARGable: WHERE created_at >= '2026-01-01'</text>
+                    <text x="635" y="50" fill="#34d399" fontSize="11" fontWeight="bold" textAnchor="middle">✅ SARGable: WHERE created_at &gt;= '2026-01-01'</text>
                     <rect x="460" y="65" width="350" height="35" rx="4" fill="#022c22" />
                     <text x="635" y="87" fill="#a7f3d0" fontSize="9 font-mono" textAnchor="middle">Seeks B-Tree Root → Leaf Range in 3 Hops!</text>
                     <text x="635" y="130" fill="#34d399" fontSize="9 font-bold" textAnchor="middle">Range Index Seek: 4 Disk Pages Read (2.1ms)</text>
@@ -349,7 +349,7 @@ CREATE INDEX idx_branch_score_covering ON enrollments (branch_id, student_id, ex
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(

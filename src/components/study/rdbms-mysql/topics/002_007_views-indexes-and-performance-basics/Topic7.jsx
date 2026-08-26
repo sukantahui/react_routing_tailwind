@@ -37,7 +37,7 @@ WHERE student_aadhaar = '8901-2345-6789';
 -- EXPLAIN Execution Plan:
 -- Type: const / ref
 -- Key: idx_student_aadhaar (B-Tree)
--- Pages Read from Disk: 3 Pages (Root &rarr; Branch -&gt; Leaf)
+-- Pages Read from Disk: 3 Pages (Root -> Branch -> Leaf)
 -- Rows Examined: 1 row
 -- Execution Latency: 0.6 milliseconds!`,
       resultRows: [
@@ -364,7 +364,7 @@ WHERE phone_number = '98300-12345';
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(

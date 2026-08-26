@@ -26,7 +26,7 @@ const Topic4 = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setSecondsRemaining((prev) => {
-        if (prev &le; 1) {
+        if (prev <= 1) {
           // Generate new simulated code
           const newCode = Math.floor(100000 + Math.random() * 900000).toString();
           const newCounter = activeCounter + 1;
@@ -83,7 +83,7 @@ const Topic4 = () => {
     if (diff === 0) {
       status = "SYNCHRONIZED (Counters Match)";
       color = "bg-emerald-950 text-emerald-300 border-emerald-700";
-    } else if (diff &gt; 0 && diff &le; lookAheadWindow) {
+    } else if (diff > 0 && diff <= lookAheadWindow) {
       status = "DESYNCHRONIZED (Recoverable via Look-Ahead: +" + diff + " steps)";
       color = "bg-amber-950 text-amber-300 border-amber-700";
     } else if (diff > lookAheadWindow) {
@@ -102,7 +102,7 @@ const Topic4 = () => {
   };
 
   const simulateSuccessfulLogin = () => {
-    if (clientHotpCounter &ge; serverHotpCounter && clientHotpCounter - serverHotpCounter <= lookAheadWindow) {
+    if (clientHotpCounter >= serverHotpCounter && clientHotpCounter - serverHotpCounter <= lookAheadWindow) {
       setServerHotpCounter(clientHotpCounter);
     }
   };
@@ -296,7 +296,7 @@ const Topic4 = () => {
                 <div className="flex justify-between text-xs font-bold text-slate-300">
                   <span>Client Mobile Phone Clock Drift:</span>
                   <span className="font-mono text-cyan-400">
-                    {clockDriftSeconds &gt; 0 ? `+${clockDriftSeconds}s (Fast)` : clockDriftSeconds < 0 ? `${clockDriftSeconds}s (Slow)` : "0s (Perfect UTC Sync)"}
+                    {clockDriftSeconds > 0 ? `+${clockDriftSeconds}s (Fast)` : clockDriftSeconds < 0 ? `${clockDriftSeconds}s (Slow)` : "0s (Perfect UTC Sync)"}
                   </span>
                 </div>
                 <input
@@ -307,7 +307,7 @@ const Topic4 = () => {
                   value={clockDriftSeconds}
                   onChange={(e) => setClockDriftSeconds(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-                /&gt;
+                />
                 <div className="flex justify-between text-[10px] text-slate-500">
                   <span>-60s (Slow)</span>
                   <span>-30s (Step -1)</span>
@@ -429,7 +429,7 @@ const Topic4 = () => {
                       ? "bg-cyan-600 text-white shadow-lg shadow-cyan-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                &gt;
+                >
                   {key === "barrackpore_ntp" ? "Barrackpore NTP Drift" : key === "kolkata_fintech_replay" ? "Kolkata FinTech Replay" : "Ichapur Hardware Tokens"}
                 </button>
               ))}

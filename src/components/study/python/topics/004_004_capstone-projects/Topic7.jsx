@@ -235,7 +235,7 @@ export default function Topic7() {
                     ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 Google X-Y-Z Formula
               </button>
               <button
@@ -246,7 +246,7 @@ export default function Topic7() {
                     ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 GitHub Portfolio Top 3
               </button>
               <button
@@ -257,7 +257,7 @@ export default function Topic7() {
                     ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 STAR Storytelling Cycle
               </button>
             </div>
@@ -430,7 +430,7 @@ export default function Topic7() {
                       ? "bg-rose-950/60 border-rose-500 shadow-md shadow-rose-950/50"
                       : "bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700"
                   )}
-                &gt;
+                >
                   <div className="text-xs font-bold text-slate-200">❌ Amateur / Junior Draft</div>
                   <div className="text-[10px] text-rose-400 font-mono mt-0.5">Vague, unquantified, passive wording</div>
                 </button>
@@ -443,7 +443,7 @@ export default function Topic7() {
                       ? "bg-teal-950/60 border-teal-500 shadow-md shadow-teal-950/50"
                       : "bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700"
                   )}
-                &gt;
+                >
                   <div className="text-xs font-bold text-slate-200">✅ Senior Google X-Y-Z Bullet</div>
                   <div className="text-[10px] text-teal-400 font-mono mt-0.5">Quantified metrics, action verbs, testing rigor</div>
                 </button>

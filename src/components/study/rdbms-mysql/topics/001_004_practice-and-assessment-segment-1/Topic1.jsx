@@ -43,7 +43,7 @@ CREATE TABLE courses (
     department_id INT NOT NULL,
     course_name VARCHAR(100) NOT NULL,
     duration_years INT CHECK (duration_years BETWEEN 1 AND 5),
-    total_tuition_fee_inr DECIMAL(10,2) CHECK (total_tuition_fee_inr &gt; 0),
+    total_tuition_fee_inr DECIMAL(10,2) CHECK (total_tuition_fee_inr > 0),
     CONSTRAINT fk_course_dept 
         FOREIGN KEY (department_id) REFERENCES departments(department_id)
         ON DELETE RESTRICT ON UPDATE CASCADE
@@ -67,7 +67,7 @@ CREATE TABLE admissions (
     student_id INT NOT NULL UNIQUE,
     course_id INT NOT NULL,
     admission_date DATE DEFAULT (CURDATE()),
-    initial_deposit_inr DECIMAL(10,2) CHECK (initial_deposit_inr &ge; 5000),
+    initial_deposit_inr DECIMAL(10,2) CHECK (initial_deposit_inr >= 5000),
     admission_status ENUM('Provisional', 'Confirmed', 'Cancelled') DEFAULT 'Provisional',
     CONSTRAINT fk_admission_student 
         FOREIGN KEY (student_id) REFERENCES students(student_id)
@@ -78,7 +78,7 @@ CREATE TABLE admissions (
 ) ENGINE=InnoDB;`,
       tableSummary: [
         { table: "departments", purpose: "Parent table for academic departments & campuses", key: "PK: department_id" },
-        { table: "courses", purpose: "Degree programs with fee & duration validation", key: "FK &rarr; departments" },
+        { table: "courses", purpose: "Degree programs with fee & duration validation", key: "FK -> departments" },
         { table: "students", purpose: "Candidate personal profiles with unique contacts", key: "PK: student_id" },
         { table: "admissions", purpose: "Enrollment ledgers with deposit checks (>= ₹5,000)", key: "FK -> students, courses" }
       ],
@@ -295,7 +295,7 @@ GROUP BY d.department_id, d.dept_name, d.campus_city;`,
               <span className="text-xs font-mono text-rose-400 font-bold uppercase">Table 4</span>
               <h3 className="font-bold text-white">admissions</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Enrollment ledger with 1:1 student linkage and minimum deposit check (`>= ₹5,000`).
+                Enrollment ledger with 1:1 student linkage and minimum deposit check (`&gt;= ₹5,000`).
               </p>
             </div>
           </div>
@@ -401,7 +401,7 @@ GROUP BY d.department_id, d.dept_name, d.campus_city;`,
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                &gt;
+                >
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",
@@ -690,7 +690,7 @@ GROUP BY d.department_id, d.dept_name, d.campus_city;`,
 
           <Teacher
             note="Building your first real multi-table schema is a milestone for every database developer. In this lab, you saw how foreign keys link academic departments to courses and students to admissions. But more importantly, you saw how defensive constraints (like `CHECK (initial_deposit_inr >= 5000)` and `UNIQUE (email)`) protect your application from bad data. Always write your DDL in dependency order, name your constraints explicitly, and test intentional error conditions in your MySQL terminal to verify your database's defenses!"
-          /&gt;
+          />
         </section>
       </main>
     </div>

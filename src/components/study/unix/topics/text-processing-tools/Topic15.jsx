@@ -245,7 +245,7 @@ const Topic15 = () => {
                                 
                                 {/* Legend */}
                                 <text x="375" y="50" textAnchor="middle" fill="#fbbf24" fontSize="16" fontWeight="bold">
-                                    {`Data Flow: cat file.txt | grep pattern | sed 's/old/new/' | awk '{print $1}' &gt; output.txt`}
+                                    {`Data Flow: cat file.txt | grep pattern | sed 's/old/new/' | awk '{print $1}' > output.txt`}
                                 </text>
                             </svg>
                         </div>

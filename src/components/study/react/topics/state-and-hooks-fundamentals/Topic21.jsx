@@ -304,7 +304,7 @@ const Topic21 = () => {
                       ? `bg-${demo.color}-900/50 text-${demo.color}-300 border border-${demo.color}-700`
                       : "bg-gray-900 text-gray-400 hover:bg-gray-800 border border-gray-700"
                   )}
-                &gt;
+                >
                   <span>{demo.icon}</span>
                   <span>{demo.label}</span>
                 </button>
@@ -318,7 +318,7 @@ const Topic21 = () => {
                     ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700"
                     : "bg-gray-900 text-gray-400 hover:bg-gray-800 border border-gray-700"
                 )}
-              &gt;
+              >
                 <span>{showCode ? '👁️' : '👨‍💻'}</span>
                 <span>{showCode ? 'Hide Code' : 'Show Code'}</span>
               </button>
@@ -364,7 +364,7 @@ const Topic21 = () => {
                                     checked={value}
                                     onChange={() => handleCheckboxChange('notifications', key)}
                                     className="sr-only peer"
-                                  /&gt;
+                                  />
                                   <div className={clsx(
                                     "w-5 h-5 rounded border-2 transition-all duration-200 flex items-center justify-center",
                                     value
@@ -402,7 +402,7 @@ const Topic21 = () => {
                                 checked={formData.termsAccepted}
                                 onChange={() => handleCheckboxChange('single', 'termsAccepted')}
                                 className="w-4 h-4 text-green-500 bg-gray-800 border-gray-700 rounded focus:ring-green-500 focus:ring-2"
-                              /&gt;
+                              />
                               <div>
                                 <span className="text-gray-300">I accept the terms and conditions</span>
                                 <p className="text-sm text-gray-500">Required for registration</p>
@@ -415,7 +415,7 @@ const Topic21 = () => {
                                 checked={formData.newsletter}
                                 onChange={() => handleCheckboxChange('single', 'newsletter')}
                                 className="w-4 h-4 text-green-500 bg-gray-800 border-gray-700 rounded focus:ring-green-500 focus:ring-2"
-                              /&gt;
+                              />
                               <div>
                                 <span className="text-gray-300">Subscribe to monthly newsletter</span>
                                 <p className="text-sm text-gray-500">Get coding tips and updates</p>
@@ -435,7 +435,7 @@ const Topic21 = () => {
                                   checked={formData.interests.includes(interest)}
                                   onChange={() => handleCheckboxChange('interests', interest)}
                                   className="w-4 h-4 text-green-500 bg-gray-800 border-gray-700 rounded focus:ring-green-500 focus:ring-2"
-                                /&gt;
+                                />
                                 <span className="text-gray-300 text-sm group-hover:text-green-300 transition-colors">
                                   {interest}
                                 </span>
@@ -444,7 +444,7 @@ const Topic21 = () => {
                           </div>
                           <div className="mt-3 p-2 bg-green-900/20 rounded border border-green-800/30">
                             <p className="text-sm text-gray-300">
-                              Selected: {formData.interests.length &gt; 0 ? formData.interests.join(', ') : 'None'}
+                              Selected: {formData.interests.length > 0 ? formData.interests.join(', ') : 'None'}
                             </p>
                           </div>
                         </div>
@@ -483,7 +483,7 @@ const Topic21 = () => {
                                   checked={formData.experienceLevel === option.value}
                                   onChange={() => handleRadioChange('experienceLevel', option.value)}
                                   className="sr-only peer"
-                                /&gt;
+                                />
                                 <div className={clsx(
                                   "p-3 rounded-lg border-2 transition-all duration-200 text-center",
                                   formData.experienceLevel === option.value
@@ -518,7 +518,7 @@ const Topic21 = () => {
                                     checked={formData.preferredTime === option.value}
                                     onChange={() => handleRadioChange('preferredTime', option.value)}
                                     className="sr-only peer"
-                                  /&gt;
+                                  />
                                   <div className={clsx(
                                     "w-5 h-5 rounded-full border-2 transition-all duration-200 flex items-center justify-center",
                                     formData.preferredTime === option.value
@@ -576,7 +576,7 @@ const Topic21 = () => {
                                   checked={formData.subscriptionPlan === option.value}
                                   onChange={() => handleRadioChange('subscriptionPlan', option.value)}
                                   className="sr-only peer"
-                                /&gt;
+                                />
                                 <div className={clsx(
                                   "p-4 rounded-xl border-2 transition-all duration-200 h-full",
                                   formData.subscriptionPlan === option.value
@@ -635,7 +635,7 @@ const Topic21 = () => {
                             value={formData.course}
                             onChange={(e) => handleSelectChange('course', e.target.value)}
                             className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all appearance-none"
-                          &gt;
+                          >
                             <option value="">Choose a course...</option>
                             {courses.map(course => (
                               <option key={course.id} value={course.id}>
@@ -670,7 +670,7 @@ const Topic21 = () => {
                             value={formData.city}
                             onChange={(e) => handleSelectChange('city', e.target.value)}
                             className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all"
-                          &gt;
+                          >
                             {cities.map(city => (
                               <option key={city} value={city}>{city}</option>
                             ))}
@@ -687,7 +687,7 @@ const Topic21 = () => {
                             value={formData.mentor}
                             onChange={(e) => handleSelectChange('mentor', e.target.value)}
                             className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all"
-                          &gt;
+                          >
                             <option value="">Select a mentor...</option>
                             {mentors.map(mentor => (
                               <option key={mentor.id} value={mentor.id}>
@@ -784,7 +784,7 @@ const Topic21 = () => {
                               value={formData.course}
                               onChange={(e) => handleSelectChange('course', e.target.value)}
                               className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/50 transition-all"
-                            &gt;
+                            >
                               <option value="">Select a course...</option>
                               {courses.map(course => (
                                 <option key={course.id} value={course.id}>{course.name}</option>
@@ -805,7 +805,7 @@ const Topic21 = () => {
                                     checked={formData.experienceLevel === level}
                                     onChange={() => handleRadioChange('experienceLevel', level)}
                                     className="w-4 h-4 text-yellow-500 bg-gray-800 border-gray-700 focus:ring-yellow-500 focus:ring-2"
-                                  /&gt;
+                                  />
                                   <span className="text-gray-300 capitalize">{level}</span>
                                 </label>
                               ))}
@@ -823,7 +823,7 @@ const Topic21 = () => {
                                     checked={value}
                                     onChange={() => handleCheckboxChange('notifications', key)}
                                     className="w-4 h-4 text-yellow-500 bg-gray-800 border-gray-700 rounded focus:ring-yellow-500 focus:ring-2"
-                                  /&gt;
+                                  />
                                   <span className="text-gray-300 capitalize">{key.replace(/([A-Z])/g, ' $1')}</span>
                                 </label>
                               ))}
@@ -838,7 +838,7 @@ const Topic21 = () => {
                                 checked={formData.termsAccepted}
                                 onChange={() => handleCheckboxChange('single', 'termsAccepted')}
                                 className="w-4 h-4 text-yellow-500 bg-gray-800 border-gray-700 rounded focus:ring-yellow-500 focus:ring-2 mt-1"
-                              /&gt;
+                              />
                               <div>
                                 <span className="text-gray-300">I agree to the terms and conditions</span>
                                 <p className="text-sm text-gray-500 mt-1">
@@ -1016,7 +1016,7 @@ const [accepted, setAccepted] = useState(false);
         type="checkbox"
         checked={value}
         onChange={() => handleNotificationChange(key)}
-      /&gt;
+      />
       {key}
     </label>
   ))}
@@ -1026,7 +1026,7 @@ const [accepted, setAccepted] = useState(false);
       type="checkbox"
       checked={accepted}
       onChange={() => setAccepted(!accepted)}
-    /&gt;
+    />
     Accept Terms
   </label>
 </div>`}
@@ -1111,7 +1111,7 @@ const courses = [
   </select>
   
   <label>Select City:</label>
-  <select value={city} onChange={(e) => setCity(e.target.value)}&gt;
+  <select value={city} onChange={(e) => setCity(e.target.value)}>
     <option value="Barrackpore">Barrackpore</option>
     <option value="Shyamnagar">Shyamnagar</option>
   </select>
@@ -1211,7 +1211,7 @@ const courses = [
                   <h3 className="text-xl font-bold text-gray-300 mb-4">Recent Submissions</h3>
                   
                   <div className="space-y-3 max-h-60 overflow-y-auto">
-                    {submissions.length &gt; 0 ? (
+                    {submissions.length > 0 ? (
                       submissions.map((submission) => (
                         <div 
                           key={submission.id}

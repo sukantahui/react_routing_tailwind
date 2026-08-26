@@ -209,7 +209,7 @@ const Certificate = () => {
                   e.target.style.display = 'none';
                   e.target.parentElement.querySelector('.iso-fallback').style.display = 'block';
                 }}
-              /&gt;
+              />
               <span className="iso-fallback hidden text-xs font-bold bg-white/20 backdrop-blur-sm text-white px-2 py-1 rounded border border-white/30 ml-1">
                 ISO 9001
               </span>
@@ -292,7 +292,7 @@ const Certificate = () => {
           </div>
 
           {/* ========== Course Curriculum ========== */}
-          {course.courseDetails && course.courseDetails.length &gt; 0 && (
+          {course.courseDetails && course.courseDetails.length > 0 && (
             <div className="mb-8">
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-lg font-serif font-semibold text-gray-800 flex items-center gap-2">
@@ -303,13 +303,13 @@ const Certificate = () => {
                   <button
                     onClick={() => toggleAllTopics(true)}
                     className="text-xs text-amber-600 hover:text-amber-800 underline"
-                  &gt;
+                  >
                     Expand all
                   </button>
                   <button
                     onClick={() => toggleAllTopics(false)}
                     className="text-xs text-amber-600 hover:text-amber-800 underline"
-                  &gt;
+                  >
                     Collapse all
                   </button>
                 </div>
@@ -347,7 +347,7 @@ const Certificate = () => {
                               <button
                                 onClick={() => toggleTopic(topic.id)}
                                 className="text-amber-600 hover:text-amber-800 flex-shrink-0 mt-0.5 print:hidden"
-                              &gt;
+                              >
                                 {isExpanded ? (
                                   <ChevronDownIcon className="h-4 w-4" />
                                 ) : (
@@ -427,7 +427,7 @@ const Certificate = () => {
           {/* ========== Performance Summary (Multiple Results) ========== */}
           <div className="mb-8">
             <h3 className="text-lg font-serif font-semibold text-gray-800 mb-3 text-center">Performance Summary</h3>
-            {results && results.length &gt; 0 ? (
+            {results && results.length > 0 ? (
               <div className="overflow-x-auto rounded-lg border border-gray-200">
                 <table className="min-w-full divide-y divide-gray-200 text-sm">
                   <thead className="bg-amber-50/80">
@@ -532,16 +532,16 @@ const Certificate = () => {
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
           onClick={() => setIsPhotoModalOpen(false)}
-        &gt;
+        >
           <div
             className="relative max-w-3xl w-full"
             onClick={(e) => e.stopPropagation()}
-          &gt;
+          >
             <button
               onClick={() => setIsPhotoModalOpen(false)}
               className="absolute -top-12 right-0 text-white hover:text-amber-300 transition-colors"
               aria-label="Close modal"
-            &gt;
+            >
               <XMarkIcon className="h-8 w-8" />
             </button>
             <img

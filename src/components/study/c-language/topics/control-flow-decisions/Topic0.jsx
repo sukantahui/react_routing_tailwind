@@ -45,7 +45,7 @@ export default function Topic0() {
 
 if (age >= 18)
     printf("Eligible");`}
-                /&gt;
+                />
 
                 <EditableCCodeBlock
                     title="Example 2: Grading"
@@ -53,11 +53,11 @@ if (age >= 18)
 
 if (marks >= 90)
     printf("A");
-else if (marks &ge; 60)
+else if (marks >= 60)
     printf("B");
 else
     printf("C");`}
-                /&gt;
+                />
 
                 <EditableCCodeBlock
                     title="Example 3: Number Check"
@@ -67,7 +67,7 @@ if (n > 0)
     printf("Positive");
 else
     printf("Negative or Zero");`}
-                /&gt;
+                />
 
                 <p className="text-slate-500 text-xs">
                     📝 <strong>Note:</strong> Every <code>if</code> condition must evaluate to
@@ -127,7 +127,7 @@ else
     if (hasLicense)
         printf("Drive");
 }`}
-                /&gt;
+                />
 
                 <EditableCCodeBlock
                     title="Example 2: Login Validation"
@@ -140,10 +140,10 @@ else
                 <EditableCCodeBlock
                     title="Example 3: Account Type"
                     initialCode={`if (balance > 0) {
-    if (balance &ge; 3000)
+    if (balance >= 3000)
         printf("Premium");
 }`}
-                /&gt;
+                />
 
                 <p className="text-slate-500 text-xs">
                     📝 <strong>Note:</strong> Excessive nesting reduces readability.

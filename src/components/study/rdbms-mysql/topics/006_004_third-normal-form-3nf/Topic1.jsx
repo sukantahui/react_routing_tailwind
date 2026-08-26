@@ -7,7 +7,7 @@ import questions from "./topic1_files/topic1_questions";
 import noteText from "./topic1_files/topic1_note.txt?raw";
 
 /**
- * Topic1 – Understanding Transitive Functional Dependencies (X -> Y and Y &rarr; Z where X is Superkey)
+ * Topic1 – Understanding Transitive Functional Dependencies (X -> Y and Y -> Z where X is Superkey)
  * Module: 006_004_third-normal-form-3nf
  *
  * @component
@@ -71,7 +71,7 @@ const Topic1 = () => {
             <span>Relational Normalization Masterclass · Topic 1</span>
           </div>
           <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Understanding Transitive Functional Dependencies (X &rarr; Y and Y -&gt; Z where X is Superkey)
+            Understanding Transitive Functional Dependencies (X {"->"} Y and Y {"->"} Z where X is Superkey)
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Explore Third Normal Form (3NF), the gold standard for OLTP transactional database design. Master transitive dependency detection, the prime-attribute condition, 3NF synthesis (Bernstein's algorithm), and edge cases.
@@ -136,7 +136,7 @@ const Topic1 = () => {
                   "px-4 py-3.5 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap border-b-2 flex items-center gap-2",
                   selectedTab === "tab1" ? "border-rose-400 text-rose-300 bg-slate-900" : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 <span>🚫</span>
                 <span>TRANSITIVE DEPENDENCY</span>
               </button>
@@ -147,7 +147,7 @@ const Topic1 = () => {
                   "px-4 py-3.5 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap border-b-2 flex items-center gap-2",
                   selectedTab === "tab2" ? "border-amber-400 text-amber-300 bg-slate-900" : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 <span>⚠️</span>
                 <span>CODD'S 3NF CRITERIA</span>
               </button>
@@ -158,7 +158,7 @@ const Topic1 = () => {
                   "px-4 py-3.5 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap border-b-2 flex items-center gap-2",
                   selectedTab === "tab3" ? "border-teal-400 text-teal-300 bg-slate-900" : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 <span>🔍</span>
                 <span>BERNSTEIN'S SYNTHESIS</span>
               </button>
@@ -169,7 +169,7 @@ const Topic1 = () => {
                   "px-4 py-3.5 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap border-b-2 flex items-center gap-2",
                   selectedTab === "tab4" ? "border-emerald-400 text-emerald-300 bg-slate-900" : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 <span>✅</span>
                 <span>3NF NORMALIZED</span>
               </button>
@@ -193,7 +193,7 @@ const Topic1 = () => {
                 <button
                   onClick={() => handleCopy(selectedTab === "tab4" ? conf.sql4 : conf.sql1)}
                   className="px-3 py-1.5 text-xs rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition"
-                &gt;
+                >
                   {copiedCode ? "✓ SQL Copied" : "📋 Copy SQL Code"}
                 </button>
               </div>
@@ -339,12 +339,12 @@ const Topic1 = () => {
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <PlainTextPrint
             content={noteText}
-            title="Understanding Transitive Functional Dependencies (X -> Y and Y &rarr; Z where X is Superkey)"
+            title="Understanding Transitive Functional Dependencies (X -> Y and Y -> Z where X is Superkey)"
             stampEnabled={true}
             showDownload={true}
             downloadButtonText="Download Plain Text Note"
             downloadFileName="topic1_note.txt"
-          /&gt;
+          />
         </section>
 
         {/* ─── Teacher's Master Note ─────────────────────────── */}
@@ -361,20 +361,20 @@ const Topic1 = () => {
         {/* ─── FAQ & Practice Questions ───────────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <FAQTemplate
-            title="Understanding Transitive Functional Dependencies (X -> Y and Y &rarr; Z where X is Superkey) – Practice Questions"
+            title="Understanding Transitive Functional Dependencies (X -> Y and Y -> Z where X is Superkey) – Practice Questions"
             questions={questions}
             subtitle="Test your comprehension with 30 deep-dive questions"
             showPrint
             showExpandAll
             showSearch
             showProgress
-          /&gt;
+          />
         </section>
 
         {/* ─── Footer ─────────────────────────────────────────── */}
         <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
           <span>
-            Topic 1 · Understanding Transitive Functional Dependencies (X &rarr; Y and Y -&gt; Z where X is Superkey) · RDBMS MySQL Masterclass · Coder & AccoTax Barrackpore
+            Topic 1 · Understanding Transitive Functional Dependencies (X {"->"} Y and Y {"->"} Z where X is Superkey) · RDBMS MySQL Masterclass · Coder &amp; AccoTax Barrackpore
           </span>
         </footer>
       </div>

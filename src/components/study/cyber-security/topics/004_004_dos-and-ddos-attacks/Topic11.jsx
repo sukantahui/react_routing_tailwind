@@ -68,7 +68,7 @@ const Topic11 = () => {
       peakVolume: "2.3 Tbps (Record for 2020)",
       attackVector:
         "Threat actors abused Connectionless LDAP (CLDAP) on UDP port 389 (70x multiplier) targeting an AWS customer; absorbed entirely by AWS Shield's automated global Anycast edge without customer downtime.",
-      architecturalLesson: "Massive global Anycast scrubbing capacity (&gt; 100 Tbps) absorbs multi-terabit floods seamlessly.",
+      architecturalLesson: "Massive global Anycast scrubbing capacity (> 100 Tbps) absorbs multi-terabit floods seamlessly.",
       mitigationTime: "0 Seconds (Always-On Anycast Scrubbing)",
       codeSnippet: `// AWS Shield 2020 Record Defense:
 // Attack Vector : CLDAP UDP Port 389 Reflection (70x Multiplier)
@@ -172,7 +172,7 @@ const Topic11 = () => {
     const rtiNum = parseFloat(rti);
 
     // 2. Enterprise Availability Resilience:
-    // If RTI &le; 1.0 ➔ 100.0% Resilience; If RTI > 1.0 ➔ Resilience drops
+    // If RTI <= 1.0 ➔ 100.0% Resilience; If RTI > 1.0 ➔ Resilience drops
     let resiliencePct = 100.0;
     if (rtiNum > 1.0) {
       resiliencePct = Math.max(0, 100.0 - (rtiNum - 1.0) * 50.0);
@@ -633,7 +633,7 @@ http {
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   {item.year.split(" ")[0]}
                 </span>
@@ -732,7 +732,7 @@ http {
                   value={incidentPeakVolume}
                   onChange={(e) => setIncidentPeakVolume(parseInt(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1">
@@ -748,7 +748,7 @@ http {
                   value={elapsedMitigationMinutes}
                   onChange={(e) => setElapsedMitigationMinutes(parseInt(e.target.value))}
                   className="w-full accent-amber-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1">
@@ -764,7 +764,7 @@ http {
                   value={targetSlaMinutes}
                   onChange={(e) => setTargetSlaMinutes(parseInt(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1 pt-1 border-t border-gray-800">
@@ -777,7 +777,7 @@ http {
                       ? "bg-emerald-950 border-emerald-500 text-emerald-300 shadow-md shadow-emerald-950/50"
                       : "bg-gray-950 border-gray-800 text-gray-400"
                   )}
-                &gt;
+                >
                   {automatedDiversionEnabled ? "✔ AUTOMATED SHIFT (< 5 Mins)" : "MANUAL RESPONSE DELAY"}
                 </button>
               </div>
@@ -835,7 +835,7 @@ http {
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 {item.name}
               </button>
             ))}
@@ -884,7 +884,7 @@ http {
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

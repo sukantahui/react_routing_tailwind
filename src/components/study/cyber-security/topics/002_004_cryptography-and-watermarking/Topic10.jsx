@@ -33,7 +33,7 @@ const Topic10 = () => {
       name: "2. Steganography (Concealed Existence)",
       tagline: "Conceals a secret payload inside an innocent cover media; communication existence is hidden.",
       outputAppearance: "Innocent-looking JPEG photo of Kolkata Victoria Memorial (Zero visual difference)",
-      attackerPerspective: "Adversary must detect if hidden data exists; goal is Steganalysis (P[Stego] &gt; 0.5).",
+      attackerPerspective: "Adversary must detect if hidden data exists; goal is Steganalysis (P[Stego] > 0.5).",
       carrierRelationship: "Completely UNRELATED: Cover image is disposable wrapping for secret payload.",
       robustness: "Low: Vulnerable to lossy JPEG compression, image filtering, and active DLP sanitization.",
       badgeClass: "bg-emerald-950 text-emerald-300 border-emerald-800"
@@ -235,7 +235,7 @@ const Topic10 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="font-bold text-sm text-gray-200">{pr.name.split(" (")[0]}</div>
                   <div className="text-[10px] text-gray-400 mt-1">{pr.name.split(" (")[1].replace(")", "")}</div>
                 </button>
@@ -308,7 +308,7 @@ const Topic10 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="font-bold text-gray-200 truncate">{cd.name.split(". ")[1]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{cd.name.split(". ")[0]}</div>
                 </button>
@@ -479,7 +479,7 @@ const Topic10 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

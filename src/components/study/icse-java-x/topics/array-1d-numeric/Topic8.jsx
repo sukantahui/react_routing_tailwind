@@ -144,7 +144,7 @@ const Topic8 = () => {
                   ? "bg-indigo-50 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-600"
                   : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
               )}
-            &gt;
+            >
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
             </button>
           ))}
@@ -352,7 +352,7 @@ const Topic8 = () => {
                     <span className="text-red-600 dark:text-red-400 text-xl">❌</span>
                     <div>
                       <p className="font-semibold text-gray-800 dark:text-gray-200">Off-by-one errors</p>
-                      <p className="text-sm text-gray-600 dark:text-gray-300">Loop condition <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">i <= arr.length</code> causes ArrayIndexOutOfBoundsException</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">Loop condition <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">i &lt;= arr.length</code> causes ArrayIndexOutOfBoundsException</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
@@ -390,7 +390,7 @@ const Topic8 = () => {
                 <ul className="space-y-2 text-gray-700 dark:text-gray-300">
                   <li>🤔 What happens if array has duplicate elements? Which index is returned?</li>
                   <li>🤔 How would you modify the code to find LAST occurrence of target?</li>
-                  <li>🤔 Can linear search work faster if array is sorted? (Hint: early termination when element {`&gt;`} target)</li>
+                  <li>🤔 Can linear search work faster if array is sorted? (Hint: early termination when element {`>`} target)</li>
                   <li>🤔 Why do we return -1 instead of 0 or null?</li>
                 </ul>
               </div>

@@ -94,7 +94,7 @@ for(; n > 0; n = n / 10)
     count++;
 }
 System.out.println(count);`}
-        /&gt;
+        />
 
         {/* ================= PROGRAM 3 ================= */}
         <JavaCodeBlock
@@ -107,7 +107,7 @@ for(; n > 0; n = n / 10)
     rev = rev * 10 + (n % 10);
 }
 System.out.println(rev);`}
-        /&gt;
+        />
 
         {/* ================= EXPLANATION ================= */}
         <div className="text-slate-300 text-sm space-y-2">

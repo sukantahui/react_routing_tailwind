@@ -54,7 +54,7 @@ const Topic7 = () => {
         <section
           ref={(el) => (sectionRefs.current[0] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-cyan-400 flex items-center gap-2">
             <span>🏷️</span> What are Servlet Annotations?
           </h2>
@@ -75,7 +75,7 @@ const Topic7 = () => {
         <section
           ref={(el) => (sectionRefs.current[1] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-cyan-400">🔍 Annotation vs XML Configuration</h2>
           <div className="mt-6 flex flex-wrap justify-center gap-8">
             <svg viewBox="0 0 300 180" className="w-72 h-auto">
@@ -103,7 +103,7 @@ const Topic7 = () => {
         <section
           ref={(el) => (sectionRefs.current[2] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-cyan-400">🌐 @WebServlet</h2>
           <p className="mt-3 text-gray-300">
             Marks a class as a servlet and provides URL mapping(s) and initialisation parameters. Attributes include:
@@ -136,7 +136,7 @@ const Topic7 = () => {
         <section
           ref={(el) => (sectionRefs.current[3] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-cyan-400">🚦 @WebFilter</h2>
           <p className="mt-3 text-gray-300">
             Declares a filter. Attributes mirror those of <code>@WebServlet</code> but with filter‑specific ones:
@@ -162,7 +162,7 @@ const Topic7 = () => {
         <section
           ref={(el) => (sectionRefs.current[4] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-cyan-400">👂 @WebListener</h2>
           <p className="mt-3 text-gray-300">
             Annotates a class that implements one or more listener interfaces (<code>ServletContextListener</code>, <code>HttpSessionListener</code>, <code>ServletRequestListener</code>, etc.). The container automatically registers it without any XML entry.
@@ -218,7 +218,7 @@ const Topic7 = () => {
         <section
           ref={(el) => (sectionRefs.current[5] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-cyan-400">⚠️ Common Pitfalls (Beginners)</h2>
           <ul className="list-disc list-inside space-y-2 text-gray-300 mt-3">
             <li><strong>Wrong annotation retention:</strong> Servlet annotations are runtime‑visible – but mixing with older Java versions? Works only on Servlet 3.0+ containers.</li>
@@ -234,7 +234,7 @@ const Topic7 = () => {
         <section
           ref={(el) => (sectionRefs.current[6] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-cyan-400">✅ Best Practices (Industry)</h2>
           <ul className="list-decimal list-inside space-y-2 text-gray-300 mt-3">
             <li><strong>Prefer annotations for new development</strong> – faster, less XML boilerplate.</li>
@@ -251,7 +251,7 @@ const Topic7 = () => {
         <section
           ref={(el) => (sectionRefs.current[7] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-cyan-400">📋 Mini Checklist</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
             {[
@@ -260,7 +260,7 @@ const Topic7 = () => {
               "✅ Add @WebListener to listener class",
               "✅ Use @WebInitParam for init parameters",
               "✅ Set loadOnStartup when needed",
-              "✅ Ensure container version is &ge; 3.0",
+              "✅ Ensure container version is >= 3.0",
               "✅ Decide between annotation and web.xml per component",
               "✅ Test URL mappings after deployment",
               "✅ Use asyncSupported only if implementing async",
@@ -277,7 +277,7 @@ const Topic7 = () => {
         <section
           ref={(el) => (sectionRefs.current[8] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-cyan-500/30"
-        &gt;
+        >
           <h2 className="text-xl font-semibold text-cyan-400">🧠 Hints – Think Like a Pro</h2>
           <ul className="space-y-2 text-gray-300 italic">
             <li>🔍 <strong>Observe carefully:</strong> Deploy the same servlet with and without <code>web.xml</code> – watch the startup logs to see registration messages.</li>

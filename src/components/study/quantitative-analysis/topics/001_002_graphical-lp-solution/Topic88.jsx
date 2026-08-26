@@ -113,7 +113,7 @@ const Topic88 = () => {
           'Z(350,50) = 42 + 4 + 2 = 48'
         ],
         optimal: '(350, 50, 50) with Z = ₹48,000',
-        interpretation: 'Invest ₹350,000 in Stocks, ₹50,000 in Bonds, and ₹50,000 in Cash. Maximum return = ₹48,000. Risk = 0.6(350) + 0.3(50) = 210 + 15 = 225 &gt; 200. Recalculate!'
+        interpretation: 'Invest ₹350,000 in Stocks, ₹50,000 in Bonds, and ₹50,000 in Cash. Maximum return = ₹48,000. Risk = 0.6(350) + 0.3(50) = 210 + 15 = 225 > 200. Recalculate!'
       }
     },
     {
@@ -253,7 +253,7 @@ const Topic88 = () => {
                   ? "bg-red-600 text-white shadow-lg shadow-red-200 dark:shadow-red-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            &gt;
+            >
               {tab.label}
             </button>
           ))}
@@ -276,7 +276,7 @@ const Topic88 = () => {
                       "bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.02]",
                       selectedProblem === problem.id - 1 ? "border-2 border-red-500" : ""
                     )}
-                  &gt;
+                  >
                     <div className="flex justify-between items-start mb-2">
                       <h4 className="font-semibold text-gray-800 dark:text-gray-200 text-sm">
                         {problem.title}
@@ -302,7 +302,7 @@ const Topic88 = () => {
               </div>
 
               {/* Selected Problem Detail */}
-              {examProblems.length &gt; 0 && (
+              {examProblems.length > 0 && (
                 <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transition-all duration-300 hover:shadow-xl">
                   <div className="flex justify-between items-start mb-4">
                     <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200">
@@ -330,13 +330,13 @@ const Topic88 = () => {
                       <button
                         onClick={() => setShowSolution(!showSolution)}
                         className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all duration-300"
-                      &gt;
+                      >
                         {showSolution ? 'Hide Solution' : 'Show Solution'}
                       </button>
                       <button
                         onClick={() => setShowMarkingScheme(!showMarkingScheme)}
                         className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all duration-300"
-                      &gt;
+                      >
                         {showMarkingScheme ? 'Hide Marking Scheme' : 'Show Marking Scheme'}
                       </button>
                     </div>
@@ -456,7 +456,7 @@ const Topic88 = () => {
                         setShowMarkingScheme(true);
                       }}
                       className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
-                    &gt;
+                    >
                       <h4 className="font-semibold text-gray-800 dark:text-gray-200">
                         {problem.title}
                       </h4>

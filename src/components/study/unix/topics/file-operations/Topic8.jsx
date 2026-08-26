@@ -124,7 +124,7 @@ export default class Topic8 extends React.Component {
         // Convert wildcard pattern to regex
         let regexPattern = pattern
             .replace(/\./g, '\\.') // Escape dots
-            .replace(/\*/g, '.*')  // * &rarr; any characters
+            .replace(/\*/g, '.*')  // * -> any characters
             .replace(/\?/g, '.')   // ? -> single character
             .replace(/\[([^\]]+)\]/g, (match, chars) => {
                 // Character classes
@@ -463,7 +463,7 @@ export default class Topic8 extends React.Component {
                                                     )
                                                 )}
                                                 style={{ animationDelay: `${index * 100 + 200}ms` }}
-                                            &gt;
+                                            >
                                                 <code className="text-sm md:text-base font-bold mb-1">{example.pattern}</code>
                                                 <div className="text-xs text-center">{example.name}</div>
                                             </button>
@@ -483,7 +483,7 @@ export default class Topic8 extends React.Component {
                                         "p-3 rounded-lg h-48 overflow-y-auto",
                                         isDarkMode ? "dark:bg-gray-900" : "bg-gray-100"
                                     )}>
-                                        {exampleMatches.length &gt; 0 ? (
+                                        {exampleMatches.length > 0 ? (
                                             <div className="space-y-1.5">
                                                 {exampleMatches.map((file, index) => (
                                                     <div 
@@ -599,7 +599,7 @@ export default class Topic8 extends React.Component {
                                     <div>
                                         <h3 className="font-semibold mb-2">Test Results</h3>
                                         
-                                        {userResults.length &gt; 0 ? (
+                                        {userResults.length > 0 ? (
                                             <div className="space-y-3">
                                                 {userResults.map((result, index) => (
                                                     <div 

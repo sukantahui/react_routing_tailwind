@@ -333,7 +333,7 @@ const Topic3 = () => {
                 <button
                   onClick={() => toggleAnswer(idx)}
                   className="w-full text-left px-6 py-4 bg-gray-50 dark:bg-gray-900/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 flex justify-between items-center"
-                &gt;
+                >
                   <span className="font-semibold text-gray-900 dark:text-white">{idx + 1}. {faq.question}</span>
                   <span className="text-indigo-500 dark:text-indigo-400 text-xl">
                     {visibleAnswers[idx] ? '▲' : '▼'}
@@ -377,7 +377,7 @@ const Topic3 = () => {
                 <button
                   onClick={() => toggleAnswer(idx + 5)}
                   className="w-full text-left px-6 py-4 bg-gray-50 dark:bg-gray-900/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 flex justify-between items-center"
-                &gt;
+                >
                   <span className="font-semibold text-gray-900 dark:text-white">{idx + 6}. {faq.question}</span>
                   <span className="text-indigo-500 dark:text-indigo-400 text-xl">
                     {visibleAnswers[idx + 5] ? '▲' : '▼'}

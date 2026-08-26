@@ -196,7 +196,7 @@ const Topic32 = () => {
               step: 5,
               title: "Check the Direction",
               desc: "Test with a simple example to verify.",
-              example: "If cost is 9,000, it should be allowed (9,000 ≤ 10,000). If cost is 11,000, it should not be allowed (11,000 &gt; 10,000).",
+              example: "If cost is 9,000, it should be allowed (9,000 ≤ 10,000). If cost is 11,000, it should not be allowed (11,000 > 10,000).",
             },
           ].map((item, index) => (
             <div

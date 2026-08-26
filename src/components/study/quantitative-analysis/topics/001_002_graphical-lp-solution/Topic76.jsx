@@ -160,7 +160,7 @@ const Topic76 = () => {
           interpretation: 'This would exceed capacity! Let me recalculate...'
         }
       ],
-      summary: 'At (6,5): Senior consultants: 5(6)+3(5)=45 (fully utilized). Junior consultants: 3(6)+5(5)=43 &gt; 40 (infeasible!). The actual optimal is different.'
+      summary: 'At (6,5): Senior consultants: 5(6)+3(5)=45 (fully utilized). Junior consultants: 3(6)+5(5)=43 > 40 (infeasible!). The actual optimal is different.'
     }
   ];
 
@@ -376,7 +376,7 @@ const Topic76 = () => {
                 {resource && (
                   <g>
                     {/* Slack visualization */}
-                    {resource.slack &gt; 0 && (
+                    {resource.slack > 0 && (
                       <g>
                         <text x="250" y="280" textAnchor="middle" fontSize="11" fill="#4ECDC4" className="dark:fill-green-400">
                           Slack: {resource.slack} units
@@ -509,7 +509,7 @@ const Topic76 = () => {
                   ? "bg-emerald-500 text-white shadow-lg shadow-emerald-200 dark:shadow-emerald-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            &gt;
+            >
               {tab.label}
             </button>
           ))}
@@ -527,7 +527,7 @@ const Topic76 = () => {
                   ? "bg-emerald-500 text-white shadow-lg shadow-emerald-200 dark:shadow-emerald-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
               )}
-            &gt;
+            >
               {resource.name}
             </button>
           ))}
@@ -691,7 +691,7 @@ const Topic76 = () => {
                         ? "bg-emerald-500 text-white shadow-lg shadow-emerald-200 dark:shadow-emerald-900/30"
                         : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
                     )}
-                  &gt;
+                  >
                     Example {index + 1}
                   </button>
                 ))}
@@ -711,7 +711,7 @@ const Topic76 = () => {
                       key={`example-summary-${index}`}
                       onClick={() => setSelectedExample(index)}
                       className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.02]"
-                    &gt;
+                    >
                       <h5 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">
                         {example.title}
                       </h5>

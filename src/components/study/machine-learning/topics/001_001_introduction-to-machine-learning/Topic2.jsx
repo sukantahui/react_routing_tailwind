@@ -40,7 +40,7 @@ const Topic2 = () => {
     let mlCorrect = 0;
 
     const evaluated = sensorData.map((pt) => {
-      // Linear rule: x + y &ge; 0.0 (fails on concentric circle data)
+      // Linear rule: x + y >= 0.0 (fails on concentric circle data)
       const linearPred = (pt.x + pt.y >= 0.0) ? 1 : 0;
       if (linearPred === pt.trueLabel) linearCorrect++;
 
@@ -116,7 +116,7 @@ const Topic2 = () => {
                     ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 border border-indigo-400"
                     : "bg-slate-800/80 text-slate-300 hover:bg-slate-700/80 border border-slate-700/60"
                 )}
-              &gt;
+              >
                 {tab.label}
               </button>
             ))}
@@ -251,7 +251,7 @@ const Topic2 = () => {
             value={gammaRadius}
             onChange={(e) => setGammaRadius(Number(e.target.value))}
             className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-          /&gt;
+          />
         </div>
 
         {/* 2D Scatter Space Visualizer */}
@@ -295,7 +295,7 @@ const Topic2 = () => {
                     key={idx}
                     onClick={() => setSelectedSensorIndex(idx)}
                     className="cursor-pointer transition-transform hover:scale-125"
-                  &gt;
+                  >
                     {pt.trueLabel === 0 ? (
                       <circle
                         cx={cx}

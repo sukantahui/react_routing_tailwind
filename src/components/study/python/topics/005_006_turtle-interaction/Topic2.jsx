@@ -413,22 +413,7 @@ if keys["Right"]: ship_x += speed`}
           </div>
         </div>
 
-        {/* =========================================================================
-            HINTS & EXPERT MINDSET
-        ========================================================================= */}
-        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.7s]">
-          <div className="bg-cyan-900/20 rounded-2xl p-5 border border-cyan-500/30 space-y-2">
-            <h3 className="text-lg font-semibold text-cyan-300">💡 Hints to Explore</h3>
-            <p className="text-xs text-slate-300">
-              👉 <strong>Think about:</strong> How commercial games like Fortnite, Valorant, and Rocket League poll continuous key states for simultaneous movement, jumping, and shooting!
-            </p>
-            <p className="text-xs text-slate-300">
-              👉 <strong>Observe:</strong> How clicking multiple direction keys simultaneously in our simulator produces smooth diagonal vectors without stutter!
-            </p>
-            <p className="text-xs text-slate-300">
-              👉 <strong>Try changing:</strong> Add rotational steering where Left/Right rotates the ship heading, and Up applies forward engine thrust!
-            </p>
-          </div>
+        {/* ==================================================================          </div>
 
           <div className="bg-indigo-900/20 rounded-2xl p-5 border border-indigo-500/30 space-y-2">
             <h3 className="text-lg font-semibold text-indigo-300">🚀 Expert Mindset</h3>

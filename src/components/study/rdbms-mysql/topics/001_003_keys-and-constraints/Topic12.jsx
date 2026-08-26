@@ -27,7 +27,7 @@ const Topic12 = () => {
   );
 
   const [studentRows, setStudentRows] = useState([
-    { id: 101, name: "Mamata Hui", fee: 15000, status: "Compliant ( &ge; ₹10k)" },
+    { id: 101, name: "Mamata Hui", fee: 15000, status: "Compliant (>= ₹10k)" },
     { id: 102, name: "Abhronila Das", fee: 18500, status: "Compliant (>= ₹10k)" },
     { id: 103, name: "Susmita Ghosh", fee: 5000, status: "VIOLATING (< ₹10k) ⚠️" },
   ]);
@@ -80,7 +80,7 @@ const Topic12 = () => {
 
   const handleRepairDirtyData = () => {
     setStudentRows([
-      { id: 101, name: "Mamata Hui", fee: 15000, status: "Compliant ( &ge; ₹10k)" },
+      { id: 101, name: "Mamata Hui", fee: 15000, status: "Compliant (>= ₹10k)" },
       { id: 102, name: "Abhronila Das", fee: 18500, status: "Compliant (>= ₹10k)" },
       { id: 103, name: "Susmita Ghosh", fee: 10000, status: "Compliant (Backfilled to ₹10k) ✓" },
     ]);
@@ -92,7 +92,7 @@ const Topic12 = () => {
 
   const handleReset = () => {
     setStudentRows([
-      { id: 101, name: "Mamata Hui", fee: 15000, status: "Compliant ( &ge; ₹10k)" },
+      { id: 101, name: "Mamata Hui", fee: 15000, status: "Compliant (>= ₹10k)" },
       { id: 102, name: "Abhronila Das", fee: 18500, status: "Compliant (>= ₹10k)" },
       { id: 103, name: "Susmita Ghosh", fee: 5000, status: "VIOLATING (< ₹10k) ⚠️" },
     ]);

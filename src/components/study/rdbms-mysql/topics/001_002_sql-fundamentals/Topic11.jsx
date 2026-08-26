@@ -70,7 +70,7 @@ const Topic11 = () => {
   // Compute live logic
   const isMatch = (row) => {
     const condCity = row.city === cityFilter;
-    const condFee = row.fee &ge; feeThreshold;
+    const condFee = row.fee >= feeThreshold;
     const condActive = requireActive ? row.active : true;
 
     if (operatorChoice === "AND") {
@@ -202,7 +202,7 @@ const Topic11 = () => {
                 Returns TRUE only if <strong>BOTH</strong> conditions are satisfied. Narrows result sets.
               </p>
               <pre className="rounded bg-slate-900 p-2 font-mono text-[11px] text-teal-300 border border-slate-800">
-                WHERE city = 'Barrackpore' AND fee >= 15000;
+                WHERE city = 'Barrackpore' AND fee &gt;= 15000;
               </pre>
             </div>
 
@@ -315,7 +315,7 @@ const Topic11 = () => {
                           ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                           : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                       )}
-                    &gt;
+                    >
                       {op}
                     </button>
                   ))}
@@ -330,7 +330,7 @@ const Topic11 = () => {
                       checked={useParentheses}
                       onChange={(e) => setUseParentheses(e.target.checked)}
                       className="rounded border-amber-600 bg-slate-800 text-amber-500"
-                    /&gt;
+                    />
                     <span><strong>Group OR in Parentheses:</strong> <code>(city OR fee) AND active</code></span>
                   </label>
                 </div>
@@ -345,7 +345,7 @@ const Topic11 = () => {
                     value={cityFilter}
                     onChange={(e) => setCityFilter(e.target.value)}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  &gt;
+                  >
                     <option value="Barrackpore">Barrackpore</option>
                     <option value="Kolkata">Kolkata</option>
                     <option value="Jadavpur">Jadavpur</option>
@@ -355,13 +355,13 @@ const Topic11 = () => {
 
                 <div>
                   <label className="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-1">
-                    Fee >= Threshold:
+                    Fee &gt;= Threshold:
                   </label>
                   <select
                     value={feeThreshold}
                     onChange={(e) => setFeeThreshold(Number(e.target.value))}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  &gt;
+                  >
                     <option value={12000}>₹12,000</option>
                     <option value={15000}>₹15,000</option>
                     <option value={18000}>₹18,000</option>
@@ -377,7 +377,7 @@ const Topic11 = () => {
                     checked={requireActive}
                     onChange={(e) => setRequireActive(e.target.checked)}
                     className="rounded border-slate-700 bg-slate-800 text-teal-500"
-                  /&gt;
+                  />
                   <span>Enforce <code>AND is_active = 1</code> (Enrolled Students Only)</span>
                 </label>
               </div>
@@ -483,7 +483,7 @@ const Topic11 = () => {
 FROM students
 WHERE (city = 'Barrackpore' OR city = 'Ichapur')
   AND is_active = 1
-  AND admission_fee &le; 15000.00;`}
+  AND admission_fee <= 15000.00;`}
               </pre>
             </div>
 
@@ -506,7 +506,7 @@ WHERE (city = 'Barrackpore' OR city = 'Ichapur')
     order_status
 FROM customer_orders
 WHERE (order_status = 'pending' OR order_status = 'processing')
-  AND total_amount &ge; 50000.00
+  AND total_amount >= 50000.00
   AND NOT (payment_method = 'COD');`}
               </pre>
             </div>

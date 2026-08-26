@@ -189,7 +189,7 @@ const AddCourse = () => {
                   onChange={(e) =>
                     handleTopicChange(index, "topicTitle", e.target.value)
                   }
-                /&gt;
+                />
 
                 <Input
                   label="Topic Description"
@@ -197,7 +197,7 @@ const AddCourse = () => {
                   onChange={(e) =>
                     handleTopicChange(index, "topicDescription", e.target.value)
                   }
-                /&gt;
+                />
 
                 <div className="grid grid-cols-3 gap-3">
 
@@ -208,7 +208,7 @@ const AddCourse = () => {
                     onChange={(e) =>
                       handleTopicChange(index, "theoryDuration", e.target.value)
                     }
-                  /&gt;
+                  />
 
                   <Input
                     label="Practical"
@@ -217,7 +217,7 @@ const AddCourse = () => {
                     onChange={(e) =>
                       handleTopicChange(index, "practicalDuration", e.target.value)
                     }
-                  /&gt;
+                  />
 
                   <Input
                     label="Sequence"
@@ -226,15 +226,15 @@ const AddCourse = () => {
                     onChange={(e) =>
                       handleTopicChange(index, "sequence", e.target.value)
                     }
-                  /&gt;
+                  />
                 </div>
 
-                {formData.topics.length &gt; 1 && (
+                {formData.topics.length > 1 && (
                   <button
                     type="button"
                     onClick={() => removeTopic(index)}
                     className="flex items-center gap-1 text-red-400 mt-2"
-                  &gt;
+                  >
                     <Trash2 size={16} /> Remove
                   </button>
                 )}
@@ -260,7 +260,7 @@ const AddCourse = () => {
               <div
                 onClick={() => toggleCourse(course.id)}
                 className="p-3 flex justify-between items-center cursor-pointer hover:bg-gray-700"
-              &gt;
+              >
                 <div>
                   <div className="font-semibold">{course.courseName}</div>
                   <div className="text-xs text-gray-400">{course.courseCode}</div>
@@ -314,7 +314,7 @@ const AddCourse = () => {
               <button
                 onClick={() => setShowDevTools(!showDevTools)}
                 className="bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded-lg text-sm"
-              &gt;
+              >
                 {showDevTools ? "Hide" : "Show"}
               </button>
             </div>

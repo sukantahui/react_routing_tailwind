@@ -226,7 +226,7 @@ const Topic5 = () => {
                       ? "bg-amber-600 text-white shadow-lg shadow-amber-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                &gt;
+                >
                   Step {stepNum}
                 </button>
               ))}
@@ -263,7 +263,7 @@ const Topic5 = () => {
                 </g>
 
                 {/* Arrow 1 */}
-                <path d="M 180 70 L 270 70" stroke={ss7Step >= 2 ? "#f59e0b" : "#475569"} strokeWidth="2" strokeDasharray={ss7Step === 1 ? "4 4" : "none"} /&gt;
+                <path d="M 180 70 L 270 70" stroke={ss7Step >= 2 ? "#f59e0b" : "#475569"} strokeWidth="2" strokeDasharray={ss7Step === 1 ? "4 4" : "none"} />
 
                 {/* Node 2: Telecom Core HLR */}
                 <g transform="translate(280, 25)">
@@ -274,7 +274,7 @@ const Topic5 = () => {
                 </g>
 
                 {/* Arrow 2 */}
-                <path d="M 420 70 L 510 70" stroke={ss7Step >= 4 ? "#10b981" : "#475569"} strokeWidth="2" strokeDasharray={ss7Step === 3 ? "4 4" : "none"} /&gt;
+                <path d="M 420 70 L 510 70" stroke={ss7Step >= 4 ? "#10b981" : "#475569"} strokeWidth="2" strokeDasharray={ss7Step === 3 ? "4 4" : "none"} />
 
                 {/* Node 3: Bank SMS Gateway */}
                 <g transform="translate(520, 25)">
@@ -321,7 +321,7 @@ const Topic5 = () => {
                   value={simAgeHours}
                   onChange={(e) => setSimAgeHours(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
-                /&gt;
+                />
                 <div className="flex justify-between text-[10px] text-slate-500">
                   <span>0.5h (Immediate Swap)</span>
                   <span>24h</span>
@@ -343,7 +343,7 @@ const Topic5 = () => {
                   value={txAmount}
                   onChange={(e) => setTxAmount(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
-                /&gt;
+                />
               </div>
             </div>
 
@@ -431,7 +431,7 @@ const Topic5 = () => {
                       ? "bg-amber-600 text-white shadow-lg shadow-amber-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                &gt;
+                >
                   {key === "barrackpore_sim_swap" ? "Barrackpore SIM Swap" : key === "kolkata_fintech_ss7" ? "Kolkata SS7 Attack" : "Ichapur SMS Deprecation"}
                 </button>
               ))}

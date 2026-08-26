@@ -34,7 +34,7 @@ SELECT
   status,
   DATE_FORMAT(order_date, '%Y-%m-%d %H:%i:%s')
 FROM kolkata_retail.orders
-WHERE order_date &ge; '2026-01-01'
+WHERE order_date >= '2026-01-01'
 INTO OUTFILE '/var/lib/mysql-files/q1_orders.csv'
 FIELDS TERMINATED BY ',' 
 OPTIONALLY ENCLOSED BY '"' 
@@ -109,7 +109,7 @@ GRANT FILE ON *.* TO 'reporting_svc'@'localhost';`,
       sqlSnippet: `-- 💻 1. CLIENT-SIDE EXPORT WITHOUT SERVER HOST ACCESS:
 mysql -h db.kolkata.internal -u user -p -B \\
   -e "SELECT * FROM kolkata_retail.orders;" | \\
-  tr '\\t' ',' &gt; /local_client/orders.csv
+  tr '\\t' ',' > /local_client/orders.csv
 
 -- 📦 2. STRUCTURE + DATA DUMP VIA mysqldump --tab:
 -- Generates .sql (schema DDL) + .txt (raw data via INTO OUTFILE) per table:
@@ -220,7 +220,7 @@ mysqldump -u root -p --tab=/var/lib/mysql-files/ \\
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                &gt;
+                >
                   {phase.phaseNumber}
                 </button>
               );

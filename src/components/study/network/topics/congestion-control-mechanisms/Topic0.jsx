@@ -110,7 +110,7 @@ const Topic0 = () => {
             <h2 className="text-2xl font-semibold mb-2">🧩 Prototype / Signature (pseudocode)</h2>
             <pre className="bg-gray-950 p-4 rounded-lg text-sm text-cyan-300 overflow-x-auto">
 {`function leakyBucket(packet, bucket_capacity, leak_rate):
-    if bucket.current_size + packet.size &le; bucket_capacity:
+    if bucket.current_size + packet.size <= bucket_capacity:
         bucket.current_size += packet.size
         enqueue(packet)
         return ACCEPTED
@@ -133,7 +133,7 @@ while true:
               <li>Use <strong>two leaky buckets</strong> in series for hierarchical shaping (e.g., per‑user + per‑application).</li>
               <li>Choose leak rate <code className="bg-gray-900 px-1 rounded">≈ 80%</code> of link capacity to absorb micro‑bursts.</li>
               <li>In JavaScript (Node.js) implement with <code>setInterval</code> and a queue – works for lightweight rate limiting.</li>
-              <li>Always monitor <strong>drop rate</strong> – if {`&gt;`}5% increase bucket capacity or leak rate.</li>
+              <li>Always monitor <strong>drop rate</strong> – if {`>`}5% increase bucket capacity or leak rate.</li>
             </ul>
           </section>
 

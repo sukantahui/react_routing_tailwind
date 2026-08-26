@@ -248,7 +248,7 @@ export default function Topic2() {
                     ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 setup() Window Geometry
               </button>
               <button
@@ -259,7 +259,7 @@ export default function Topic2() {
                     ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 bgcolor() &amp; Colormode(255)
               </button>
               <button
@@ -270,7 +270,7 @@ export default function Topic2() {
                     ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 setup() vs screensize()
               </button>
             </div>
@@ -430,7 +430,7 @@ export default function Topic2() {
                         ? "bg-teal-950/80 border-teal-500 shadow-md shadow-teal-950/50"
                         : "bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-white"
                     )}
-                  &gt;
+                  >
                     <div className="text-xs font-bold text-slate-200">{th.name}</div>
                     <div className="text-[10px] text-teal-400 font-mono mt-0.5">{th.bgHex}</div>
                   </button>
@@ -454,7 +454,7 @@ export default function Topic2() {
                         ? "bg-cyan-950/80 border-cyan-500 text-cyan-200 shadow-md shadow-cyan-950/50"
                         : "bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-white"
                     )}
-                  &gt;
+                  >
                     {wp.label}
                   </button>
                 ))}

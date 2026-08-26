@@ -32,7 +32,7 @@ WITH TopScorers AS (
         s.dept_id,
         s.exam_score_pct
     FROM students s
-    WHERE s.exam_score_pct &ge; 90.00
+    WHERE s.exam_score_pct >= 90.00
 )
 -- Step 2: Main Query formats and projects from the named CTE:
 SELECT 
@@ -76,7 +76,7 @@ SELECT
 FROM students s
 JOIN departments d ON s.dept_id = d.dept_id
 JOIN DeptPerformance dp ON s.dept_id = dp.dept_id
-WHERE s.exam_score_pct &gt; dp.dept_avg_score
+WHERE s.exam_score_pct > dp.dept_avg_score
 ORDER BY variance_from_avg DESC;`,
       resultRows: [
         { id: "STU-103", name: "Abhronila Saha", dept: "Information Tech", score: "96.20%", pipelineRole: "DeptPerformance CTE", reuseCount: "1 Reference", status: "+6.90% Above Dept" },
@@ -310,7 +310,7 @@ ORDER BY dept_name;`,
                     <rect x="30" y="30" width="240" height="100" rx="8" fill="#1e1b4b" stroke="#818cf8" strokeWidth="1.5" />
                     <text x="150" y="55" fill="#c7d2fe" fontSize="10" fontWeight="bold" textAnchor="middle">1. WITH TopScorers AS (...)</text>
                     <rect x="45" y="70" width="210" height="40" rx="4" fill="#0f172a" />
-                    <text x="150" y="88" fill="#38bdf8" fontSize="8 font-mono" textAnchor="middle">Filter score >= 90.00%</text>
+                    <text x="150" y="88" fill="#38bdf8" fontSize="8 font-mono" textAnchor="middle">Filter score &gt;= 90.00%</text>
                     <text x="150" y="102" fill="#94a3b8" fontSize="7 font-mono" textAnchor="middle">Extract &amp; Clean Data</text>
                   </g>
 
@@ -402,7 +402,7 @@ ORDER BY dept_name;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(

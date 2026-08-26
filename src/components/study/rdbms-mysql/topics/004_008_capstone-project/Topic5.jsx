@@ -30,7 +30,7 @@ CREATE PROCEDURE seed_customers(IN num_rows INT)
 BEGIN
   DECLARE i INT DEFAULT 1;
   START TRANSACTION;
-  WHILE i <= num_rows DO
+  WHILE i &lt;= num_rows DO
     INSERT INTO customers (full_name, email, phone, credit_limit)
     VALUES (
       CONCAT('Customer_', i),
@@ -68,7 +68,7 @@ SELECT
   FLOOR(RAND() * 4) + 1,
   ROUND(RAND() * 2000 + 100, 2);`,
       explanation: "Seed generators must sample valid foreign key ranges to prevent foreign key constraint violation errors during population.",
-      keyTakeaways: ["Generate parents before children in strict top-down dependency order.","Ensure status dates adhere to real-world timelines (e.g. delivery_date >= order_date).","Distribute orders realistically across temporal date ranges (last 24 months)."]
+      keyTakeaways: ["Generate parents before children in strict top-down dependency order.","Ensure status dates adhere to real-world timelines (e.g. delivery_date &gt;= order_date).","Distribute orders realistically across temporal date ranges (last 24 months)."]
     },
     concept3: {
       conceptName: "3. Bulk LOAD DATA",
@@ -185,7 +185,7 @@ IGNORE 1 ROWS
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                &gt;
+                >
                   {concept.conceptName}
                 </button>
               );

@@ -51,7 +51,7 @@ const FAQTemplate = ({ title, questions }) => {
             <button
               onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
               className="w-full text-left px-6 py-4 font-medium text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors flex justify-between items-center"
-            &gt;
+            >
               <span>{faq.question}</span>
               <svg className={clsx("w-5 h-5 transition-transform duration-300", openIndex === idx && "rotate-180")} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -158,7 +158,7 @@ grep -B 2 -A 3 "exception" trace.log
     { question: "How to search across line boundaries?", shortAnswer: "Standard grep works line-by-line; use -z to treat input as NUL-separated.", explanation: "-z treats the input as a set of lines terminated by zero byte, allowing matches that span newlines.", hint: "Combine with tr or find -print0.", level: "expert", codeExample: "grep -z 'start.*end' multiline.txt" },
     { question: "What is the performance impact of using -E vs basic regex?", shortAnswer: "Negligible for most cases; -E more expressive.", explanation: "Modern grep optimizes both, but basic regex is slightly faster for trivial patterns.", hint: "Prioritize clarity.", level: "expert", codeExample: "time grep -E 'pattern' largefile" },
     { question: "How to match control characters like carriage return?", shortAnswer: "Use $'\\r' or od -c to inspect.", explanation: "Carriage return can be matched with $'\\r', or use printf.", hint: "Use cat -A to see hidden characters.", level: "expert", codeExample: "grep -U $'\\r' windows.txt" },
-    { question: "What does -P flag enable?", shortAnswer: "Perl-compatible regular expressions (PCRE).", explanation: "Provides advanced features like lookahead, lookbehind, and more.", hint: "Not available on all systems, check man grep.", level: "expert", codeExample: "grep -P '(? &le; foo)bar' file" },
+    { question: "What does -P flag enable?", shortAnswer: "Perl-compatible regular expressions (PCRE).", explanation: "Provides advanced features like lookahead, lookbehind, and more.", hint: "Not available on all systems, check man grep.", level: "expert", codeExample: "grep -P '(?<=foo)bar' file" },
     { question: "How to make grep print only filenames with no matches?", shortAnswer: "Combine -L (--files-without-match).", explanation: "Inverse of -l.", hint: "L for 'files without'.", level: "advanced", codeExample: "grep -L 'success' *.log" },
     { question: "How to include line number and filename in grep output for search in many files?", shortAnswer: "Default behavior: grep -Hn pattern files, -H forces filename.", explanation: "Use -H (--with-filename) and -n (line numbers) together.", hint: "Useful for IDE integration.", level: "intermediate", codeExample: "grep -Hn 'FIXME' *.java" },
     { question: "What is the difference between -s and -q?", shortAnswer: "-s suppresses error messages, -q suppresses all output.", explanation: "-s (--no-messages) hides 'file not found' errors; -q completely silences stdout.", hint: "Combine -s with -q for totally silent checks.", level: "advanced", codeExample: "grep -sq 'pattern' * && echo found" },

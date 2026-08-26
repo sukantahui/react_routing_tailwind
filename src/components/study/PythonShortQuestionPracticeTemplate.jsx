@@ -248,7 +248,7 @@ export default function PythonShortQuestionPracticeTemplate({ data }) {
                                 setStarted(false);
                             }}
                             className="bg-zinc-900 border border-zinc-700 p-2 rounded-md"
-                        &gt;
+                        >
                             <option value="all">All</option>
                             {uniqueTopics.map((t, i) => (
                                 <option key={i} value={t}>{t}</option>
@@ -266,7 +266,7 @@ export default function PythonShortQuestionPracticeTemplate({ data }) {
                                 setStarted(false);
                             }}
                             className="bg-zinc-900 border border-zinc-700 p-2 rounded-md"
-                        &gt;
+                        >
                             <option value="all">All</option>
                             {[5, 10, 20, 30, 40, 50].map((n) => (
                                 <option key={n} value={n}>{n}</option>
@@ -283,7 +283,7 @@ export default function PythonShortQuestionPracticeTemplate({ data }) {
                                 setStarted(true);
                             }}
                             className="px-6 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded-lg shadow"
-                        &gt;
+                        >
                             Start Practice
                         </button>
                         <button
@@ -318,7 +318,7 @@ export default function PythonShortQuestionPracticeTemplate({ data }) {
                             <button
                                 onClick={() => toggle(q.id)}
                                 className="mt-2 p-2 rounded-full border border-sky-500/40 bg-slate-900 hover:bg-sky-700/40 transition"
-                            &gt;
+                            >
                                 {showAns.includes(q.id) ? (
                                     <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-5 0-9.27-3.11-11-7.5a11.05 11.05 0 014.95-5.9M15 12a3 3 0 11-6 0 3 3 0 016 0zm6.12 5.88L3 3" />

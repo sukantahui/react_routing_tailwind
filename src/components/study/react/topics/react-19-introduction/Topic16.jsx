@@ -228,7 +228,7 @@ const Topic16 = () => {
                           : 'bg-blue-600 text-white'
                         : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600'
                     )}
-                  &gt;
+                  >
                     {tab} Examples
                   </button>
                 ))}
@@ -418,7 +418,7 @@ const Topic16 = () => {
                       ? 'bg-purple-600 text-white transform scale-105'
                       : 'bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700'
                   )}
-                &gt;
+                >
                   <div className="font-bold mb-1">{projectStructures[key].name}</div>
                   <div className="text-xs opacity-80">Click to explore</div>
                 </button>
@@ -891,7 +891,7 @@ export { default as Card } from './Card';`}
                   <button
                     onClick={() => alert('Great! Start by renaming comp1.jsx to UserRegistrationForm.jsx. Place it in src/features/auth/components/')}
                     className="w-full px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:-translate-y-1"
-                  &gt;
+                  >
                     Click for Starter Solution
                   </button>
                 </div>

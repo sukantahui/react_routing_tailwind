@@ -144,7 +144,7 @@ int main() {
 int multiply(int a, int b) { // definition
     return a * b;
 }`}
-          /&gt;
+          />
         </section>
 
         {/* ================= COMMON ERRORS ================= */}

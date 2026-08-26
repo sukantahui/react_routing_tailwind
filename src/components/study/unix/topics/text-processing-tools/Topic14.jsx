@@ -754,7 +754,7 @@ Jane Smith,"456 Oak Ave, Springfield",30`}
                                 {[
                                     "Set FS to correct delimiter (comma, tab, pipe, etc.)",
                                     "Configure OFS for output formatting",
-                                    "Handle header row if present (NR &gt; 1)",
+                                    "Handle header row if present (NR > 1)",
                                     "Validate field count consistency (check NF)",
                                     "Initialize variables in BEGIN block",
                                     "Test with small sample first"

@@ -333,14 +333,14 @@ const Topic8 = () => {
                     onChange={(e) => setFullName(e.target.value)}
                     className="rounded bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
                     placeholder="Full Name"
-                  /&gt;
+                  />
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="rounded bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
                     placeholder="Email"
-                  /&gt;
+                  />
                 </div>
 
                 <div className="flex gap-2">
@@ -352,7 +352,7 @@ const Topic8 = () => {
                         ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                         : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  &gt;
+                  >
                     Specialization: Student
                   </button>
                   <button
@@ -363,7 +363,7 @@ const Topic8 = () => {
                         ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                         : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  &gt;
+                  >
                     Specialization: Instructor
                   </button>
                 </div>
@@ -376,7 +376,7 @@ const Topic8 = () => {
                       value={tuitionFee}
                       onChange={(e) => setTuitionFee(e.target.value)}
                       className="w-full rounded bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-cyan-500 focus:outline-none"
-                    /&gt;
+                    />
                   </div>
                 ) : (
                   <div className="grid grid-cols-2 gap-2">
@@ -386,14 +386,14 @@ const Topic8 = () => {
                       onChange={(e) => setDesignation(e.target.value)}
                       className="rounded bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-emerald-500 focus:outline-none"
                       placeholder="Designation"
-                    /&gt;
+                    />
                     <input
                       type="number"
                       value={salary}
                       onChange={(e) => setSalary(e.target.value)}
                       className="rounded bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-emerald-500 focus:outline-none"
                       placeholder="Salary"
-                    /&gt;
+                    />
                   </div>
                 )}
 
@@ -416,7 +416,7 @@ const Topic8 = () => {
                       key={p.id}
                       onClick={() => handleDeletePerson(p.id)}
                       className="py-1 px-2.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/40 text-xs font-bold hover:bg-rose-500/30 transition-all"
-                    &gt;
+                    >
                       Drop #{p.id} ({p.name.split(" ")[0]})
                     </button>
                   ))}

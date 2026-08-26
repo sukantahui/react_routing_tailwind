@@ -280,7 +280,7 @@ const Topic8 = () => {
                       checked={selectedCols.name}
                       onChange={() => handleToggleCol("name")}
                       className="rounded border-slate-700 bg-slate-800 text-teal-500"
-                    /&gt;
+                    />
                     <span><strong>Full Name:</strong> <code>CONCAT(first_name, ' ', last_name) AS full_name</code></span>
                   </label>
 
@@ -290,7 +290,7 @@ const Topic8 = () => {
                       checked={selectedCols.city}
                       onChange={() => handleToggleCol("city")}
                       className="rounded border-slate-700 bg-slate-800 text-teal-500"
-                    /&gt;
+                    />
                     <span><strong>City:</strong> <code>city AS student_city</code></span>
                   </label>
 
@@ -300,7 +300,7 @@ const Topic8 = () => {
                       checked={selectedCols.fee}
                       onChange={() => handleToggleCol("fee")}
                       className="rounded border-slate-700 bg-slate-800 text-teal-500"
-                    /&gt;
+                    />
                     <span><strong>Tuition Fee:</strong> <code>admission_fee AS `Tuition (₹)`</code></span>
                   </label>
 
@@ -310,7 +310,7 @@ const Topic8 = () => {
                       checked={selectedCols.gst}
                       onChange={() => handleToggleCol("gst")}
                       className="rounded border-slate-700 bg-slate-800 text-teal-500"
-                    /&gt;
+                    />
                     <span><strong>Calculated GST (18%):</strong> <code>ROUND(admission_fee * 0.18, 2) AS `GST (18%)`</code></span>
                   </label>
                 </div>
@@ -323,7 +323,7 @@ const Topic8 = () => {
                     checked={includeDistinct}
                     onChange={(e) => setIncludeDistinct(e.target.checked)}
                     className="rounded border-amber-600 bg-slate-800 text-amber-500"
-                  /&gt;
+                  />
                   <span><strong>Apply DISTINCT Modifier:</strong> Filter out duplicate output tuples</span>
                 </label>
               </div>

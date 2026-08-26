@@ -58,7 +58,7 @@ const Topic27 = () => {
                   ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/20 dark:shadow-indigo-500/20"
                   : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
               )}
-            &gt;
+            >
               {tab === "overview" && "📖 Overview"}
               {tab === "code" && "☕ Code Examples"}
               {tab === "faq" && "❓ FAQ"}
@@ -122,7 +122,7 @@ const Topic27 = () => {
                     },
                     {
                       step: "Step 4: Repeat",
-                      desc: "Update low or high and repeat until found or low &gt; high (not found).",
+                      desc: "Update low or high and repeat until found or low > high (not found).",
                       icon: "🔄",
                     },
                   ].map((item, i) => (
@@ -317,7 +317,7 @@ const Topic27 = () => {
                     on unsorted data.
                   </li>
                   <li>
-                    <strong>Off-by-one errors:</strong> Using low &lt; high vs low <= high, or updating mid incorrectly.
+                    <strong>Off-by-one errors:</strong> Using low &lt; high vs low &lt;= high, or updating mid incorrectly.
                     This is a classic source of bugs.
                   </li>
                   <li>

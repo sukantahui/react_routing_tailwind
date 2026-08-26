@@ -355,7 +355,7 @@ class Topic4 extends React.Component {
                                                     ? "bg-gray-800 hover:bg-gray-700"
                                                     : "bg-gray-200 hover:bg-gray-300"
                                         )}
-                                    &gt;
+                                    >
                                         {tab === 'concept' && 'Concept'}
                                         {tab === 'dangers' && 'Real Dangers'}
                                         {tab === 'safety' && 'Safety Measures'}
@@ -521,7 +521,7 @@ class Topic4 extends React.Component {
                                                     "w-full p-4 rounded-lg transition-all duration-300 hover:scale-[1.02]",
                                                     isDarkMode ? "bg-red-900/20 hover:bg-red-900/30 border border-red-700/30" : "bg-red-50 hover:bg-red-100 border border-red-200"
                                                 )}
-                                            &gt;
+                                            >
                                                 <div className="flex items-center justify-center">
                                                     <div className="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center mr-3">
                                                         <span className="text-white">!</span>
@@ -635,7 +635,7 @@ class Topic4 extends React.Component {
                                                     "w-full p-4 rounded-lg transition-all duration-300 hover:scale-[1.02]",
                                                     isDarkMode ? "bg-blue-900/20 hover:bg-blue-900/30 border border-blue-700/30" : "bg-blue-50 hover:bg-blue-100 border border-blue-200"
                                                 )}
-                                            &gt;
+                                            >
                                                 <div className="flex items-center justify-center">
                                                     <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center mr-3">
                                                         <span className="text-white">i</span>
@@ -783,7 +783,7 @@ class Topic4 extends React.Component {
                                                     item.depth > 0 ? `ml-${item.depth * 4}` : ''
                                                 )}
                                                 style={{ animationDelay: `${index * 0.1}s` }}
-                                            &gt;
+                                            >
                                                 <div className="w-24">
                                                     <span className={clsx(
                                                         "px-2 py-1 rounded text-xs",
@@ -817,7 +817,7 @@ class Topic4 extends React.Component {
                                             "p-3 rounded-lg transition-all duration-300 hover:scale-105",
                                             isDarkMode ? "bg-yellow-900/20 hover:bg-yellow-900/30" : "bg-yellow-50 hover:bg-yellow-100"
                                         )}
-                                    &gt;
+                                    >
                                         <div className="font-bold text-yellow-400">⚠️ What's wrong here?</div>
                                         <div className="text-xs opacity-80">Click to analyze risks</div>
                                     </button>
@@ -840,7 +840,7 @@ class Topic4 extends React.Component {
                                             "p-3 rounded-lg transition-all duration-300 hover:scale-105",
                                             isDarkMode ? "bg-green-900/20 hover:bg-green-900/30" : "bg-green-50 hover:bg-green-100"
                                         )}
-                                    &gt;
+                                    >
                                         <div className="font-bold text-green-400">✅ Safe Alternative</div>
                                         <div className="text-xs opacity-80">Better approach</div>
                                     </button>

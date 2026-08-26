@@ -334,7 +334,7 @@ const Topic1 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="font-mono font-bold text-indigo-400">{ctrl.number}</div>
                   <div className="font-bold text-gray-200 truncate mt-0.5">{ctrl.name}</div>
                 </button>
@@ -413,7 +413,7 @@ const Topic1 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="font-bold text-gray-200 truncate">{cls.clauseNum}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{cls.title.split(" ")[0]}</div>
                 </button>
@@ -619,7 +619,7 @@ const Topic1 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

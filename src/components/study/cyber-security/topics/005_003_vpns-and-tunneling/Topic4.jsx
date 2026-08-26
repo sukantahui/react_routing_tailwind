@@ -363,7 +363,7 @@ const Topic4 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              &gt;
+              >
                 {t.title}
               </button>
             ))}
@@ -437,7 +437,7 @@ const Topic4 = () => {
                 value={selectedTunnelProto}
                 onChange={(e) => setSelectedTunnelProto(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              &gt;
+              >
                 {Object.values(protocolOverheads).map((p) => (
                   <option key={p.id} value={p.id}>
                     {p.name} ({p.overheadBytes}B Overhead)
@@ -459,7 +459,7 @@ const Topic4 = () => {
                 value={passengerPacketBytes}
                 onChange={(e) => setPassengerPacketBytes(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="space-y-1">
@@ -472,7 +472,7 @@ const Topic4 = () => {
                     ? "bg-emerald-950/80 text-emerald-300 border-emerald-800 shadow-md shadow-emerald-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800"
                 )}
-              &gt;
+              >
                 {enableMssClamping ? `✔ MSS Clamped @ ${protocolOverheads[selectedTunnelProto].recommendedMss}B` : "❌ Unclamped (Raw 1500B Packets)"}
               </button>
             </div>
@@ -573,7 +573,7 @@ const Topic4 = () => {
                 value={carrierLinkSpeedMbps}
                 onChange={(e) => setCarrierLinkSpeedMbps(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -589,7 +589,7 @@ const Topic4 = () => {
                 value={averagePacketSizeParam}
                 onChange={(e) => setAveragePacketSizeParam(Number(e.target.value))}
                 className="w-full accent-purple-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -605,7 +605,7 @@ const Topic4 = () => {
                 value={remoteBranchCountParam}
                 onChange={(e) => setRemoteBranchCountParam(Number(e.target.value))}
                 className="w-full accent-emerald-400 cursor-pointer"
-              /&gt;
+              />
             </div>
           </div>
 
@@ -659,7 +659,7 @@ const Topic4 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 {d.title}
               </button>
             ))}

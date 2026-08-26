@@ -100,7 +100,7 @@ const Topic25 = () => {
                                 )}
                                 style={{ animationDelay: `${idx * 100}ms` }}
                                 onClick={() => stat.metric && handleQualityImprovement(stat.metric)}
-                            &gt;
+                            >
                                 <div className="text-3xl font-bold mb-2 dark:text-white">{stat.value}</div>
                                 <div className={clsx("text-sm font-medium", stat.text)}>{stat.label}</div>
                             </div>
@@ -335,7 +335,7 @@ const Topic25 = () => {
                                                 : "bg-gray-50 dark:bg-gray-900/50 hover:bg-gray-100 dark:hover:bg-gray-700/50 hover:scale-[1.01]"
                                         )}
                                         style={{ animationDelay: `${idx * 100}ms` }}
-                                    &gt;
+                                    >
                                         <div className="flex items-center">
                                             <div className={clsx(
                                                 "w-8 h-8 rounded-full flex items-center justify-center mr-3",
@@ -473,7 +473,7 @@ Average Marks: 78.5
 
 ISSUES FOUND:
 - 15 records with future DOB
-- 8 records with marks &gt; 100
+- 8 records with marks > 100
 - 22 records missing grades
 - 13 inconsistent school names`}</pre>
                             </div>
@@ -506,7 +506,7 @@ ISSUES FOUND:
                             </div>
                             <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Test Incrementally</h3>
                             <p className="text-sm text-gray-600 dark:text-gray-400">
-                                Apply transformations on sample data first. Use: <code>{`head -100 data.csv &gt; sample.csv`}</code>
+                                Apply transformations on sample data first. Use: <code>{`head -100 data.csv > sample.csv`}</code>
                             </p>
                         </div>
                         
@@ -518,7 +518,7 @@ ISSUES FOUND:
                             </div>
                             <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Log Everything</h3>
                             <p className="text-sm text-gray-600 dark:text-gray-400">
-                                Keep transformation logs: <code>{`script.sh 2&gt;&1 | tee transformation.log`}</code>
+                                Keep transformation logs: <code>{`script.sh 2>&1 | tee transformation.log`}</code>
                             </p>
                         </div>
                     </div>

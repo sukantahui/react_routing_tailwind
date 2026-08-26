@@ -27,7 +27,7 @@ const Topic1 = () => {
       badgeColor: "emerald",
       sqlSnippet: `-- 📜 1. SOURCE BINARY LOG WRITING:
 -- Transactions are committed locally in InnoDB and written to the Binary Log:
--- binlog.000001 &rarr; binlog.000002
+-- binlog.000001 -> binlog.000002
 
 -- 🚀 2. DEDICATED BINLOG DUMP THREAD (SPAWNED PER CONNECTED REPLICA):
 SHOW PROCESSLIST;
@@ -204,7 +204,7 @@ SHOW REPLICA STATUS\\G
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                &gt;
+                >
                   {comp.componentName}
                 </button>
               );

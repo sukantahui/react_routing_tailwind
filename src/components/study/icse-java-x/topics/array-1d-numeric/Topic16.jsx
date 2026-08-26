@@ -16,7 +16,7 @@ const SecondLargestVisualSVG = () => {
   const stages = [
     { label: "Initialize: first = -∞, second = -∞", first: null, second: null, currentIdx: -1, array: [45, 67, 23, 89, 12, 78, 34] },
     { label: "i=0: arr[0]=45 → first=45, second=-∞", first: 45, second: null, currentIdx: 0, array: [45, 67, 23, 89, 12, 78, 34] },
-    { label: "i=1: arr[1]=67 &gt; first(45) → second=45, first=67", first: 67, second: 45, currentIdx: 1, array: [45, 67, 23, 89, 12, 78, 34] },
+    { label: "i=1: arr[1]=67 > first(45) → second=45, first=67", first: 67, second: 45, currentIdx: 1, array: [45, 67, 23, 89, 12, 78, 34] },
     { label: "i=2: arr[2]=23 → between first(67) and second(45)? No", first: 67, second: 45, currentIdx: 2, array: [45, 67, 23, 89, 12, 78, 34] },
     { label: "i=3: arr[3]=89 > first(67) → second=67, first=89", first: 89, second: 67, currentIdx: 3, array: [45, 67, 23, 89, 12, 78, 34] },
     { label: "i=4: arr[4]=12 → between first(89) and second(67)? No", first: 89, second: 67, currentIdx: 4, array: [45, 67, 23, 89, 12, 78, 34] },
@@ -104,7 +104,7 @@ const SecondLargestVisualSVG = () => {
         <button 
           onClick={() => setStep((step + 1) % 9)}
           className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-all duration-300"
-        &gt;
+        >
           {step < 8 ? "Next Step (Step " + (step + 2) + "/9)" : "Reset Animation"}
         </button>
       </div>
@@ -177,7 +177,7 @@ const Topic16 = () => {
                   ? "bg-orange-50 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 border-b-2 border-orange-600"
                   : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
               )}
-            &gt;
+            >
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
             </button>
           ))}
@@ -352,7 +352,7 @@ const Topic16 = () => {
                     <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                       {[
                         { step: 1, i: 0, val: 45, compare: "-", first: 45, second: "MIN", action: "Initialize" },
-                        { step: 2, i: 1, val: 67, compare: "67 &gt; 45", first: 67, second: 45, action: "Update first→second" },
+                        { step: 2, i: 1, val: 67, compare: "67 > 45", first: 67, second: 45, action: "Update first→second" },
                         { step: 3, i: 2, val: 23, compare: "23 between?", first: 67, second: 45, action: "No change" },
                         { step: 4, i: 3, val: 89, compare: "89 > 67", first: 89, second: 67, action: "Update first→second" },
                         { step: 5, i: 4, val: 12, compare: "12 between?", first: 89, second: 67, action: "No change" },

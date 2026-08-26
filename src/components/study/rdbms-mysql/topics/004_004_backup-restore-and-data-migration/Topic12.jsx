@@ -106,7 +106,7 @@ RESET REPLICA ALL;
 SET GLOBAL read_only = OFF;
 
 -- 3. Repoint Route53 DNS / ProxySQL:
--- CNAME 'db.kolkata-retail.internal' &rarr; staging-primary.internal!
+-- CNAME 'db.kolkata-retail.internal' -> staging-primary.internal!
 
 -- RESULT: Total Outage = 26 Mins (RTO), Data Loss = 0 Seconds (RPO)! ⚡`,
       explanation:
@@ -214,7 +214,7 @@ SET GLOBAL read_only = OFF;
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                &gt;
+                >
                   {phase.phaseNumber}
                 </button>
               );
@@ -402,7 +402,7 @@ SET GLOBAL read_only = OFF;
 
           <Teacher
             note="Disaster recovery is the ultimate test of a database professional's skill. When an accidental DROP DATABASE occurs, stay calm and follow the 6-step runbook: immediately rotate binary logs with flush-binary-logs to freeze the incident log, restore your base backup onto an isolated staging server, locate the pre-DROP byte offset (# at <pos>), replay the continuous binary log chain with --disable-log-bin, verify row counts, and execute DNS cutover to achieve 100% data recovery with zero lost transactions!"
-          /&gt;
+          />
         </section>
 
         {/* ─── SECTION 6: FAQ Accordion ───────────────────────────────── */}

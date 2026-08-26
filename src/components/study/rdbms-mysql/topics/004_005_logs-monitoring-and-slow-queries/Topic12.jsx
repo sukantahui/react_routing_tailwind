@@ -107,7 +107,7 @@ pmm-admin add mysql --username=pmm_user --password=PmmPass#2026 \\
 
 # 1. Replication Lag Alert (> 30s):
 alert: MySQLReplicationLagHigh
-expr: mysql_slave_status_seconds_behind_master &gt; 30
+expr: mysql_slave_status_seconds_behind_master > 30
 for: 1m
 labels:
   severity: critical
@@ -223,7 +223,7 @@ labels:
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                &gt;
+                >
                   {tool.toolName}
                 </button>
               );

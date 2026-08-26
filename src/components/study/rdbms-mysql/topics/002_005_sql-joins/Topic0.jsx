@@ -263,7 +263,7 @@ const Topic0 = () => {
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 Step 1: Raw Tables (3 × 2)
               </button>
 
@@ -275,7 +275,7 @@ const Topic0 = () => {
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 Step 2: Cartesian (6 Rows)
               </button>
 
@@ -287,7 +287,7 @@ const Topic0 = () => {
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 Step 3: ON Filtered (3 Rows)
               </button>
             </div>

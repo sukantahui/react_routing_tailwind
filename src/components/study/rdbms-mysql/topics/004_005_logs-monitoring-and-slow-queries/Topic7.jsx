@@ -59,7 +59,7 @@ LIMIT 5;
 -- 2. Queries performing full table scans:
 SELECT query, exec_count, total_latency, rows_examined_avg, rows_sent_avg 
 FROM sys.statements_with_full_table_scans 
-WHERE rows_examined_avg &gt; 1000 
+WHERE rows_examined_avg > 1000 
 ORDER BY total_latency DESC LIMIT 5;`,
       explanation:
         "sys.statement_analysis and sys.statements_with_full_table_scans instantly pinpoint which SQL templates cause the highest cumulative latency and scan millions of rows without index lookups.",
@@ -218,7 +218,7 @@ SELECT sys.format_bytes(10737418240);   -- Returns: '10.00 GiB'`,
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                &gt;
+                >
                   {phase.phaseNumber}
                 </button>
               );

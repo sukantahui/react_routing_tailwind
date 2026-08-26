@@ -268,7 +268,7 @@ const Topic26 = () => {
               <pre className="rounded bg-gray-800 p-2 text-sm">
                 <span className="text-purple-400">int</span> fib(<span className="text-emerald-300">int n</span>) {"{"}
                 <br />
-                &nbsp;&nbsp;<span className="text-purple-400">if</span> (n <= 1) <span className="text-purple-400">return</span> n;
+                &nbsp;&nbsp;<span className="text-purple-400">if</span> (n &lt;= 1) <span className="text-purple-400">return</span> n;
                 <br />
                 &nbsp;&nbsp;<span className="text-purple-400">return</span> fib(n-1) + fib(n-2);
                 <br />

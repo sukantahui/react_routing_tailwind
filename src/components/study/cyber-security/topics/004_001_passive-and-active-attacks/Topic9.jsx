@@ -155,7 +155,7 @@ switch(config-vlan)# private-vlan isolated`
     const normalTotalLoss = (fiberLengthKm * fiberLossDbPerKm + connectorLossDb).toFixed(2);
     const tapLossDb = isTapAttached ? 0.18 : 0.0;
     const totalMeasuredLoss = (parseFloat(normalTotalLoss) + tapLossDb).toFixed(2);
-    const isAlarmTriggered = isTapAttached && tapLossDb &ge; 0.05;
+    const isAlarmTriggered = isTapAttached && tapLossDb >= 0.05;
 
     return {
       normalTotalLoss,
@@ -221,7 +221,7 @@ DNSOverTLS=yes
 DNSSEC=yes
 
 # Verify Encrypted Client Hello (ECH) in browser:
-# In Chrome: chrome://flags/#encrypted-client-hello &rarr; ENABLED
+# In Chrome: chrome://flags/#encrypted-client-hello -> ENABLED
 # In Firefox: network.dns.echconfig.enabled -> TRUE`,
       explanation: "Enforces DNS-over-TLS with DNSSEC validation and activates Encrypted Client Hello (ECH) to close the Server Name Indication (SNI) metadata leak."
     }
@@ -508,7 +508,7 @@ DNSSEC=yes
                     ? "bg-cyan-950/80 border-cyan-500 shadow-lg shadow-cyan-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-cyan-950 text-cyan-300 border-cyan-800 self-start">
                   DEFENSE
                 </span>
@@ -603,7 +603,7 @@ DNSSEC=yes
                   value={fiberLengthKm}
                   onChange={(e) => setFiberLengthKm(parseInt(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="pt-2">
@@ -615,7 +615,7 @@ DNSSEC=yes
                       ? "bg-rose-950 border-rose-500 text-rose-300"
                       : "bg-gray-900 border-gray-800 text-gray-300"
                   )}
-                &gt;
+                >
                   {isTapAttached ? "⚡ MACROBEND TAP ATTACHED (-0.18 dB)" : "✔ FIBER CLEAN (Zero Physical Tap)"}
                 </button>
               </div>
@@ -681,7 +681,7 @@ DNSSEC=yes
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 {item.name}
               </button>
             ))}
@@ -730,7 +730,7 @@ DNSSEC=yes
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

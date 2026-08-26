@@ -64,7 +64,7 @@ export default class Topic3 extends Component {
                                         fill={this.state.activeLayer === l.no ? "#38bdf8" : "#1e293b"}
                                         className="cursor-pointer"
                                         onClick={() => this.setState({ activeLayer: l.no })}
-                                    /&gt;
+                                    />
                                     <text
                                         x="130"
                                         y={52 + i * 65}

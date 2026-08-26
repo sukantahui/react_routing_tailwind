@@ -210,7 +210,7 @@ const Topic41 = () => {
                 style={{
                   animationDelay: `${index * 0.1}s`
                 }}
-              &gt;
+              >
                 <div className="flex flex-col items-center text-center space-y-3">
                   <div className={clsx(
                     "p-3 rounded-lg",
@@ -357,13 +357,13 @@ const Topic41 = () => {
                             "focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
                           )}
                           placeholder="Enter username (min 3 chars)"
-                        /&gt;
+                        />
                         {formData.username.length > 0 && (
                           <div className="mt-2 flex items-center gap-2">
                             <div className={clsx(
                               "w-3 h-3 rounded-full transition-all duration-300",
                               formData.username.length >= 3 ? "bg-green-500" : "bg-red-500"
-                            )} /&gt;
+                            )} />
                             <span className="text-sm">
                               {formData.username.length}/3 characters
                             </span>
@@ -389,7 +389,7 @@ const Topic41 = () => {
                             "focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
                           )}
                           placeholder="student@example.com"
-                        /&gt;
+                        />
                         {formData.email.length > 0 && (
                           <div className="mt-2 flex items-center gap-2">
                             <div className={clsx(
@@ -625,7 +625,7 @@ const Topic41 = () => {
                                     ? "bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-300"
                                     : "bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400"
                                 )}>
-                                  {windowSize.width &ge; 640 && windowSize.width < 768 ? "Active" : "Inactive"}
+                                  {windowSize.width >= 640 && windowSize.width < 768 ? "Active" : "Inactive"}
                                 </span>
                               </div>
                               <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">640px ≤ Width &lt; 768px</p>
@@ -636,7 +636,7 @@ const Topic41 = () => {
                               windowSize.width >= 768
                                 ? "bg-purple-50 dark:bg-purple-900/20 border-purple-200 dark:border-purple-800"
                                 : "bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700"
-                            )}&gt;
+                            )}>
                               <div className="flex items-center justify-between">
                                 <span className="font-medium">Desktop</span>
                                 <span className={clsx(
@@ -644,8 +644,8 @@ const Topic41 = () => {
                                   windowSize.width >= 768
                                     ? "bg-purple-100 dark:bg-purple-800 text-purple-800 dark:text-purple-300"
                                     : "bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400"
-                                )}&gt;
-                                  {windowSize.width &ge; 768 ? "Active" : "Inactive"}
+                                )}>
+                                  {windowSize.width >= 768 ? "Active" : "Inactive"}
                                 </span>
                               </div>
                               <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">Width ≥ 768px</p>

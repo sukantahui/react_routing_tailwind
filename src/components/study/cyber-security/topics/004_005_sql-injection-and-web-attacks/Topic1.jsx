@@ -641,7 +641,7 @@ public class SecureLdapAuthenticator {
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   VECTOR
                 </span>
@@ -737,7 +737,7 @@ public class SecureLdapAuthenticator {
                           ? "bg-rose-950 border-rose-500 text-rose-300"
                           : "bg-gray-950 border-gray-800 text-gray-400"
                       )}
-                    &gt;
+                    >
                       {s.label}
                     </button>
                   ))}
@@ -762,7 +762,7 @@ public class SecureLdapAuthenticator {
                           ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                           : "bg-gray-950 border-gray-800 text-gray-400"
                       )}
-                    &gt;
+                    >
                       {san.label}
                     </button>
                   ))}
@@ -787,7 +787,7 @@ public class SecureLdapAuthenticator {
                           ? "bg-cyan-950 border-cyan-500 text-cyan-300"
                           : "bg-gray-950 border-gray-800 text-gray-400"
                       )}
-                    &gt;
+                    >
                       {sk.label}
                     </button>
                   ))}
@@ -847,7 +847,7 @@ public class SecureLdapAuthenticator {
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 {item.name}
               </button>
             ))}
@@ -896,7 +896,7 @@ public class SecureLdapAuthenticator {
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

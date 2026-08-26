@@ -68,7 +68,7 @@ const Topic0 = () => {
             <span>Computer Architecture Masterclass · Module 003 · Topic 0</span>
           </div>
           <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Limits of In-Order Pipelining: The IPC <= 1 Barrier and Superscalar Execution
+            Limits of In-Order Pipelining: The IPC &lt;= 1 Barrier and Superscalar Execution
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Master modern superscalar out-of-order CPU design, Tomasulo's algorithm, register renaming, and Reorder Buffer in-order commit.
@@ -101,7 +101,7 @@ const Topic0 = () => {
             </div>
             <div>
               <h2 className="text-xl md:text-2xl font-bold text-white">
-                Teacher's Concept Breakdown: Limits of In-Order Pipelining: The IPC <= 1 Barrier and Superscalar Execution
+                Teacher's Concept Breakdown: Limits of In-Order Pipelining: The IPC &lt;= 1 Barrier and Superscalar Execution
               </h2>
               <p className="text-xs text-slate-400">
                 Understanding computer architecture fundamentals and silicon-level mechanics from first principles
@@ -116,7 +116,7 @@ const Topic0 = () => {
                   <span>💡</span> Hardware Implementation Reality
                 </span>
                 <p className="text-sm text-slate-200 leading-relaxed font-medium">
-                  In modern digital computer architectures, <strong className="text-teal-300">Limits of In-Order Pipelining: The IPC <= 1 Barrier and Superscalar Execution</strong> coordinates data flow and signal synchronization across silicon buses and registers with deterministic propagation delays.
+                  In modern digital computer architectures, <strong className="text-teal-300">Limits of In-Order Pipelining: The IPC &lt;= 1 Barrier and Superscalar Execution</strong> coordinates data flow and signal synchronization across silicon buses and registers with deterministic propagation delays.
                 </p>
                 <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
                   Zero Glitch Architecture · Deterministic State Transitions
@@ -170,7 +170,7 @@ const Topic0 = () => {
                     ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 1. 5-Stage RISC Datapath & Forwarding
               </button>
               <button
@@ -181,7 +181,7 @@ const Topic0 = () => {
                     ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 2. Hazard Stall & Interlock Unit
               </button>
               <button
@@ -192,7 +192,7 @@ const Topic0 = () => {
                     ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 3. Multi-Cycle Pipeline Execution Grid
               </button>
             </div>
@@ -292,7 +292,7 @@ const Topic0 = () => {
         {/* ─── 4. Live Interactive Simulator Workbench ─────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-emerald-400">⚡</span> Live Interactive Architecture Simulator: Limits of In-Order Pipelining: The IPC <= 1 Barrier and Superscalar Execution
+            <span className="text-emerald-400">⚡</span> Live Interactive Architecture Simulator: Limits of In-Order Pipelining: The IPC &lt;= 1 Barrier and Superscalar Execution
           </h2>
           <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
             
@@ -311,7 +311,7 @@ const Topic0 = () => {
                         ? "bg-teal-900/80 border-teal-500 text-teal-200 shadow-lg shadow-teal-950/50"
                         : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                     )}
-                  &gt;
+                  >
                     Phase {step}
                   </button>
                 ))}
@@ -424,7 +424,7 @@ const Topic0 = () => {
         {/* ─── 7. FAQ & Practice Questions ────────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <FAQTemplate
-            title="Limits of In-Order Pipelining: The IPC <= 1 Barrier and Superscalar Execution FAQs"
+            title="Limits of In-Order Pipelining: The IPC &lt;= 1 Barrier and Superscalar Execution FAQs"
             questions={questions}
             subtitle="Test your comprehension with 30 deep-dive questions"
             showPrint
@@ -438,7 +438,7 @@ const Topic0 = () => {
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <PlainTextPrint
             content={noteText}
-            title="Limits of In-Order Pipelining: The IPC <= 1 Barrier and Superscalar Execution"
+            title="Limits of In-Order Pipelining: The IPC &lt;= 1 Barrier and Superscalar Execution"
             stampEnabled={true}
             showDownload={true}
             downloadButtonText="Download Note"
@@ -459,7 +459,7 @@ const Topic0 = () => {
         {/* ─── 10. Footer ─────────────────────────────────────── */}
         <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
           <span>
-            Topic 0 · Limits of In-Order Pipelining: The IPC <= 1 Barrier and Superscalar Execution · Computer Architecture Masterclass · Coder &amp; AccoTax Barrackpore
+            Topic 0 · Limits of In-Order Pipelining: The IPC &lt;= 1 Barrier and Superscalar Execution · Computer Architecture Masterclass · Coder &amp; AccoTax Barrackpore
           </span>
         </footer>
       </div>

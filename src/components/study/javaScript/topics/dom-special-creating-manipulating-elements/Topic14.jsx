@@ -166,7 +166,7 @@ if (box.classList.contains("visible")) {
                             initialCode={`menuBtn.addEventListener("click", () => {
   menu.classList.toggle("open");
 });`}
-                        /&gt;
+                        />
 
                         <p className="text-xs text-slate-400">
                             ✔ Used in accordions, dropdowns, sidebar menus, mobile navigation
@@ -326,7 +326,7 @@ const height = box.offsetHeight;  // READ
 requestAnimationFrame(() => {     // batch WRITE safely
   box.style.height = height + "px";
 });`}
-                    /&gt;
+                    />
                 </section>
 
                 {/* ============================================================
@@ -386,7 +386,7 @@ container.appendChild(frag); // one paint`}
     console.log("Delete clicked");
   }
 });`}
-                    /&gt;
+                    />
 
                     <p className="text-xs text-slate-400">
                         ✔ Used in React (event delegation root)
@@ -559,7 +559,7 @@ run.onclick = () => {
   if (entries[0].isIntersecting) console.log("Visible!");
 });
 obs.observe(document.getElementById("box"));`}
-                    /&gt;
+                    />
 
                     {/* ResizeObserver */}
                     <EditableCodeBlock
@@ -567,7 +567,7 @@ obs.observe(document.getElementById("box"));`}
                         initialCode={`new ResizeObserver(entries => {
   console.log("Size changed:", entries[0].contentRect);
 }).observe(panel);`}
-                    /&gt;
+                    />
 
                     {/* MutationObserver */}
                     <EditableCodeBlock
@@ -575,7 +575,7 @@ obs.observe(document.getElementById("box"));`}
                         initialCode={`new MutationObserver(mutations => {
   console.log("DOM mutated", mutations);
 }).observe(app, { childList: true, subtree: true });`}
-                    /&gt;
+                    />
                 </section>
 
                 {/* ============================================================
@@ -629,7 +629,7 @@ incBtn.onclick = () => {
   count++;
   render();
 };`}
-                    /&gt;,
+                    />,
                 </section>
 
                 {/* ============================================================
@@ -653,7 +653,7 @@ incBtn.onclick = () => {
 <script>
   document.querySelector(".buy-btn").onclick = showModal;
 </script>`}
-                    /&gt;
+                    />
                 </section>
 
                 {/* ============================================================

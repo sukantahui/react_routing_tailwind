@@ -326,7 +326,7 @@ const Topic2 = () => {
                           ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                           : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                       )}
-                    &gt;
+                    >
                       {btn.label}
                     </button>
                   ))}

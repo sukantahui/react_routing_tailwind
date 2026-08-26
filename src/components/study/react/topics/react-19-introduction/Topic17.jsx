@@ -216,7 +216,7 @@ import { Profile, Settings } from './UserComponents';`
                                                     : 'bg-red-600 text-white'
                                                 : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600'
                                         )}
-                                    &gt;
+                                    >
                                         {tab === 'benefits' ? '✅ Benefits' : '❌ Problems'}
                                     </button>
                                 ))}
@@ -340,7 +340,7 @@ import { Profile, Settings } from './UserComponents';`
                                     <button
                                         onClick={() => setShowComparison(!showComparison)}
                                         className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold rounded-lg transition-all duration-300"
-                                    &gt;
+                                    >
                                         {showComparison ? 'Hide Comparison' : 'Show Comparison'}
                                     </button>
                                 </div>
@@ -411,7 +411,7 @@ import {
                                                 : 'bg-red-600 text-white transform scale-105'
                                             : 'bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700'
                                     )}
-                                &gt;
+                                >
                                     <div className="font-bold text-lg">{componentExamples[type].title}</div>
                                 </button>
                             ))}
@@ -920,7 +920,7 @@ import {
                                     <button
                                         onClick={() => alert('Start by creating TextInput.jsx with just the TextInput component. Move it from FormComponents.jsx, then update imports.')}
                                         className="w-full px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:-translate-y-1"
-                                    &gt;
+                                    >
                                         Click for Starter Solution
                                     </button>
                                 </div>

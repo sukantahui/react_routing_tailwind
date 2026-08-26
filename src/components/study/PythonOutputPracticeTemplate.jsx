@@ -78,7 +78,7 @@ export default function PythonOutputPracticeTemplate({ data }) {
                             value={level}
                             onChange={e => { setLevel(e.target.value); setStarted(false); }}
                             className="bg-zinc-900 border border-zinc-700 p-2 rounded-md"
-                        &gt;
+                        >
                             <option value="all">All</option>
                             <option value="Beginner">Beginner</option>
                             <option value="Moderate">Moderate</option>
@@ -97,7 +97,7 @@ export default function PythonOutputPracticeTemplate({ data }) {
                                 setStarted(false);
                             }}
                             className="bg-zinc-900 border border-zinc-700 p-2 rounded-md"
-                        &gt;
+                        >
                             <option value="all">All</option>
                             <option value="5">5</option>
                             <option value="10">10</option>
@@ -122,7 +122,7 @@ export default function PythonOutputPracticeTemplate({ data }) {
                             setStarted(true);
                         }}
                         className="px-6 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded-lg shadow"
-                    &gt;
+                    >
                         Start Practice
                     </button>
 
@@ -150,7 +150,7 @@ export default function PythonOutputPracticeTemplate({ data }) {
                             className="mt-3 p-2 rounded-full border border-sky-500/40 
              bg-slate-900 hover:bg-sky-700/40 transition"
                             title={showAns.includes(q.id) ? "Hide Answer" : "Show Answer"}
-                        &gt;
+                        >
                             {showAns.includes(q.id) ? (
                                 /* Eye Off */
                                 <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">

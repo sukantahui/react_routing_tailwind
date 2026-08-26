@@ -29,7 +29,7 @@ const Topic7 = () => {
   // Studio 1 - Qualitative Calculations
   const qualRiskScore = qualLikelihood * qualImpact; // 1 to 25
   const qualSeverity = useMemo(() => {
-    if (qualRiskScore &ge; 20) return { label: "CRITICAL RISK", badgeClass: "bg-rose-950 text-rose-300 border-rose-800", action: "Immediate CISO Escalation (< 24h)" };
+    if (qualRiskScore >= 20) return { label: "CRITICAL RISK", badgeClass: "bg-rose-950 text-rose-300 border-rose-800", action: "Immediate CISO Escalation (< 24h)" };
     if (qualRiskScore >= 10) return { label: "HIGH RISK", badgeClass: "bg-amber-950 text-amber-300 border-amber-800", action: "Priority Patch SLA (< 14 Days)" };
     if (qualRiskScore >= 5) return { label: "MEDIUM RISK", badgeClass: "bg-indigo-950 text-indigo-300 border-indigo-800", action: "Standard Patch SLA (< 30 Days)" };
     return { label: "LOW RISK", badgeClass: "bg-emerald-950 text-emerald-300 border-emerald-800", action: "Routine Monitoring (< 90 Days)" };
@@ -42,7 +42,7 @@ const Topic7 = () => {
     const aleAfterLakhs = aleBeforeLakhs * 0.15; // 85% risk mitigation by control
     const annualSavingsLakhs = aleBeforeLakhs - aleAfterLakhs;
     const netBenefitLakhs = annualSavingsLakhs - quantControlCostLakhs;
-    const rosiPercent = quantControlCostLakhs &gt; 0 ? ((netBenefitLakhs / quantControlCostLakhs) * 100).toFixed(1) : "0.0";
+    const rosiPercent = quantControlCostLakhs > 0 ? ((netBenefitLakhs / quantControlCostLakhs) * 100).toFixed(1) : "0.0";
 
     return {
       sle: sleLakhs.toFixed(2),
@@ -217,7 +217,7 @@ const Topic7 = () => {
                     ? "bg-indigo-600 text-white shadow-lg"
                     : "text-gray-400 hover:text-white"
                 )}
-              &gt;
+              >
                 Mode A: Qualitative 5x5 Heatmap
               </button>
               <button
@@ -228,7 +228,7 @@ const Topic7 = () => {
                     ? "bg-indigo-600 text-white shadow-lg"
                     : "text-gray-400 hover:text-white"
                 )}
-              &gt;
+              >
                 Mode B: Quantitative FAIR Financial
               </button>
             </div>
@@ -274,7 +274,7 @@ const Topic7 = () => {
                         const isSelected = qualLikelihood === lik && qualImpact === imp;
 
                         let cellColor = "bg-emerald-950/60 border-emerald-800 text-emerald-300";
-                        if (cellScore &ge; 20) cellColor = "bg-rose-950/80 border-rose-700 text-rose-200";
+                        if (cellScore >= 20) cellColor = "bg-rose-950/80 border-rose-700 text-rose-200";
                         else if (cellScore >= 10) cellColor = "bg-amber-950/80 border-amber-700 text-amber-200";
                         else if (cellScore >= 5) cellColor = "bg-indigo-950/80 border-indigo-700 text-indigo-200";
 
@@ -290,7 +290,7 @@ const Topic7 = () => {
                               cellColor,
                               isSelected ? "ring-2 ring-white scale-105 shadow-lg shadow-indigo-950/80 font-extrabold" : "hover:opacity-80"
                             )}
-                          &gt;
+                          >
                             {cellScore}
                           </button>
                         );
@@ -345,7 +345,7 @@ const Topic7 = () => {
                       value={quantAssetValueLakhs}
                       onChange={(e) => setQuantAssetValueLakhs(parseInt(e.target.value))}
                       className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-                    /&gt;
+                    />
                   </div>
 
                   {/* Exposure Factor Slider */}
@@ -362,7 +362,7 @@ const Topic7 = () => {
                       value={quantExposureFactorPercent}
                       onChange={(e) => setQuantExposureFactorPercent(parseInt(e.target.value))}
                       className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
-                    /&gt;
+                    />
                   </div>
 
                   {/* Annual Rate of Occurrence Slider */}
@@ -379,7 +379,7 @@ const Topic7 = () => {
                       value={quantAro}
                       onChange={(e) => setQuantAro(parseFloat(e.target.value))}
                       className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-rose-500"
-                    /&gt;
+                    />
                   </div>
 
                   {/* Control Cost Slider */}
@@ -395,7 +395,7 @@ const Topic7 = () => {
                       value={quantControlCostLakhs}
                       onChange={(e) => setQuantControlCostLakhs(parseInt(e.target.value))}
                       className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
-                    /&gt;
+                    />
                   </div>
                 </div>
 
@@ -419,7 +419,7 @@ const Topic7 = () => {
 
                   <div className="pt-2 border-t border-gray-800 space-y-1">
                     <span className="text-gray-400 block text-[10px]">Return on Security Investment (ROSI):</span>
-                    <span className={clsx("text-xl font-extrabold block", parseFloat(quantResults.rosi) > 0 ? "text-emerald-400" : "text-rose-400")}&gt;
+                    <span className={clsx("text-xl font-extrabold block", parseFloat(quantResults.rosi) > 0 ? "text-emerald-400" : "text-rose-400")}>
                       {quantResults.rosi}% ROSI
                     </span>
                     <span className="text-[10px] text-gray-500 font-sans block">Net Annual Savings: ₹{quantResults.netBenefit} Lakhs</span>
@@ -455,7 +455,7 @@ const Topic7 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="font-bold text-gray-200 truncate">{dim.title.split(". ")[1]?.split(" & ")[0]}</div>
                   <div className="text-[10px] text-indigo-400 font-mono mt-0.5 truncate">{dim.title.split(". ")[0]}</div>
                 </button>
@@ -626,7 +626,7 @@ const Topic7 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

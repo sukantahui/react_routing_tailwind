@@ -153,7 +153,7 @@ export default class Topic18 extends React.Component {
                   ${hoveredCard === 1 ? 'ring-2 ring-blue-400 dark:ring-blue-500' : ''}`}
                 onMouseEnter={() => this.handleCardHover(1)}
                 onMouseLeave={this.handleCardLeave}
-              &gt;
+              >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-10 h-10 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center flex-shrink-0">
                     <span className="font-bold text-red-600 dark:text-red-300">1</span>
@@ -178,7 +178,7 @@ export default class Topic18 extends React.Component {
                   ${hoveredCard === 2 ? 'ring-2 ring-blue-400 dark:ring-blue-500' : ''}`}
                 onMouseEnter={() => this.handleCardHover(2)}
                 onMouseLeave={this.handleCardLeave}
-              &gt;
+              >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-10 h-10 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center flex-shrink-0">
                     <span className="font-bold text-red-600 dark:text-red-300">2</span>
@@ -203,7 +203,7 @@ export default class Topic18 extends React.Component {
                   ${hoveredCard === 3 ? 'ring-2 ring-blue-400 dark:ring-blue-500' : ''}`}
                 onMouseEnter={() => this.handleCardHover(3)}
                 onMouseLeave={this.handleCardLeave}
-              &gt;
+              >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-10 h-10 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-flex-shrink-0">
                     <span className="font-bold text-red-600 dark:text-red-300">3</span>
@@ -228,7 +228,7 @@ export default class Topic18 extends React.Component {
                   ${hoveredCard === 4 ? 'ring-2 ring-blue-400 dark:ring-blue-500' : ''}`}
                 onMouseEnter={() => this.handleCardHover(4)}
                 onMouseLeave={this.handleCardLeave}
-              &gt;
+              >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-10 h-10 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center flex-shrink-0">
                     <span className="font-bold text-red-600 dark:text-red-300">4</span>
@@ -254,7 +254,7 @@ export default class Topic18 extends React.Component {
                   ${hoveredCard === 5 ? 'ring-2 ring-blue-400 dark:ring-blue-500' : ''}`}
                 onMouseEnter={() => this.handleCardHover(5)}
                 onMouseLeave={this.handleCardLeave}
-              &gt;
+              >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-10 h-10 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center flex-shrink-0">
                     <span className="font-bold text-red-600 dark:text-red-300">5</span>
@@ -279,7 +279,7 @@ export default class Topic18 extends React.Component {
                   ${hoveredCard === 6 ? 'ring-2 ring-blue-400 dark:ring-blue-500' : ''}`}
                 onMouseEnter={() => this.handleCardHover(6)}
                 onMouseLeave={this.handleCardLeave}
-              &gt;
+              >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-10 h-10 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center flex-shrink-0">
                     <span className="font-bold text-red-600 dark:text-red-300">6</span>

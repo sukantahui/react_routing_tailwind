@@ -357,7 +357,7 @@ export default function Topic12() {
             stack.pop()  // remove '('
         else: // token is operator
             while stack not empty and stack.top() != '(' and 
-                  (precedence(stack.top()) &gt; precedence(token) or
+                  (precedence(stack.top()) > precedence(token) or
                    (precedence(stack.top()) == precedence(token) and token is left-associative)):
                 output.append(stack.pop())
             stack.push(token)

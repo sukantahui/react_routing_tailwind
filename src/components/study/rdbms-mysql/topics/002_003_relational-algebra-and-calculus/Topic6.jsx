@@ -312,7 +312,7 @@ const Topic6 = () => {
                         ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                         : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  &gt;
+                  >
                     Faculty ({datasets.faculty.rows.length} rows)
                   </button>
                   <button
@@ -323,7 +323,7 @@ const Topic6 = () => {
                         ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                         : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  &gt;
+                  >
                     Shirt Sizes ({datasets.shirts.rows.length} rows)
                   </button>
                 </div>
@@ -340,7 +340,7 @@ const Topic6 = () => {
                         ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                         : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  &gt;
+                  >
                     Exam Slots ({datasets.slots.rows.length} rows)
                   </button>
                   <button
@@ -351,7 +351,7 @@ const Topic6 = () => {
                         ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                         : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  &gt;
+                  >
                     Colors ({datasets.colors.rows.length} rows)
                   </button>
                 </div>

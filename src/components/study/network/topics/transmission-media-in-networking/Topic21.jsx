@@ -148,7 +148,7 @@ const Topic21 = () => {
                       ? "bg-orange-600 text-white shadow-md" 
                       : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                   )}
-                &gt;
+                >
                   {complexityData[key].name}
                 </button>
               ))}
@@ -160,7 +160,7 @@ const Topic21 = () => {
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <p><strong>Installation Difficulty:</strong> 
-                    <span className={clsx("ml-2 font-bold", current.installDifficulty > 7 ? "text-red-600" : current.installDifficulty &gt; 4 ? "text-orange-600" : "text-green-600")}>
+                    <span className={clsx("ml-2 font-bold", current.installDifficulty > 7 ? "text-red-600" : current.installDifficulty > 4 ? "text-orange-600" : "text-green-600")}>
                       {current.installDifficulty}/10
                     </span>
                   </p>
@@ -169,7 +169,7 @@ const Topic21 = () => {
                   </div>
                   <p><strong>Typical Install Time:</strong> {current.installTime}</p>
                   <p><strong>Maintenance Difficulty:</strong> 
-                    <span className={clsx("ml-2 font-bold", current.maintenanceDifficulty > 7 ? "text-red-600" : current.maintenanceDifficulty &gt; 4 ? "text-orange-600" : "text-green-600")}>
+                    <span className={clsx("ml-2 font-bold", current.maintenanceDifficulty > 7 ? "text-red-600" : current.maintenanceDifficulty > 4 ? "text-orange-600" : "text-green-600")}>
                       {current.maintenanceDifficulty}/10
                     </span>
                   </p>
@@ -220,7 +220,7 @@ const Topic21 = () => {
                       <td className="px-4 py-2">
                         <span className={clsx("px-2 py-1 rounded text-xs font-medium", 
                           media.installDifficulty > 7 ? "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300" :
-                          media.installDifficulty &gt; 4 ? "bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300" :
+                          media.installDifficulty > 4 ? "bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300" :
                           "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300")}>
                           {media.installDifficulty}/10
                         </span>
@@ -420,7 +420,7 @@ const QAItem = ({ question, answer, index }) => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full text-left p-4 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex justify-between items-center"
-      &gt;
+      >
         <span className="font-medium text-gray-800 dark:text-gray-200">
           {index+1}. {question}
         </span>

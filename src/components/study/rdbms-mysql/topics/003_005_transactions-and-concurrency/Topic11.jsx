@@ -103,7 +103,7 @@ COMMIT;`,
 -- Highest existing student ID in table is 30:
 START TRANSACTION;
 
--- Query targeting all students with ID &gt; 25:
+-- Query targeting all students with ID > 25:
 SELECT * FROM student_records WHERE student_id > 25 FOR UPDATE;
 
 -- 🔒 InnoDB Locking:
@@ -350,7 +350,7 @@ COMMIT;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(

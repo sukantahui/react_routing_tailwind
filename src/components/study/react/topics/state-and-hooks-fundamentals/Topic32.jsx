@@ -541,7 +541,7 @@ const Topic32 = () => {
                         mode.border,
                         selectedMode === mode.id ? "bg-white dark:bg-gray-800" : mode.color
                       )}
-                    &gt;
+                    >
                       <div className="font-semibold text-gray-900 dark:text-white">{mode.name}</div>
                       <div className="text-xs text-gray-600 dark:text-gray-400 mt-1 truncate">
                         {mode.description}

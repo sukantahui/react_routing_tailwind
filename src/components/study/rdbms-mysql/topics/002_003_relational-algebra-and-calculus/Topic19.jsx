@@ -26,7 +26,7 @@ const Topic19 = () => {
     ex1_gst: {
       title: "Exercise 1: High-Value Student Roster with GST Calculation",
       category: "Extended Relational Algebra (π_F)",
-      problem: "Find the full name, admission fee, and calculated total fee with 18% GST for all students from Barrackpore who paid &gt; ₹4000.",
+      problem: "Find the full name, admission fee, and calculated total fee with 18% GST for all students from Barrackpore who paid > ₹4000.",
       raSolution: "π_{full_name, admission_fee, admission_fee × 1.18 → fee_with_gst}(σ_{city='Barrackpore' ∧ admission_fee > 4000}(Students))",
       sqlSolution: `SELECT full_name, admission_fee, ROUND(admission_fee * 1.18, 2) AS fee_with_gst
 FROM students
@@ -86,7 +86,7 @@ HAVING COUNT(DISTINCT e.course_id) = (SELECT COUNT(*) FROM core_courses);`,
     ex4_grouping: {
       title: "Exercise 4: City-Wise Revenue Breakdown with HAVING Threshold",
       category: "Grouping Operator (𝒢) & Aggregates",
-      problem: "Compute total student count, revenue, and average fee for cities with at least 2 students and average fee &ge; ₹4500.",
+      problem: "Compute total student count, revenue, and average fee for cities with at least 2 students and average fee >= ₹4500.",
       raSolution: "σ_{cnt ≥ 2 ∧ avg ≥ 4500}({}_{city} 𝒢_{COUNT(*) → cnt, SUM(fee) → total, AVG(fee) → avg}(Students))",
       sqlSolution: `SELECT city, COUNT(*) AS student_count, SUM(admission_fee) AS total_revenue, ROUND(AVG(admission_fee), 2) AS avg_fee
 FROM students
@@ -348,7 +348,7 @@ FROM students s RIGHT JOIN enrollments e ON s.student_id = e.student_id RIGHT JO
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 1. GST Calc (π_F)
               </button>
 
@@ -360,7 +360,7 @@ FROM students s RIGHT JOIN enrollments e ON s.student_id = e.student_id RIGHT JO
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 2. Antijoin (▷)
               </button>
 
@@ -372,7 +372,7 @@ FROM students s RIGHT JOIN enrollments e ON s.student_id = e.student_id RIGHT JO
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 3. Division (÷)
               </button>
 
@@ -384,7 +384,7 @@ FROM students s RIGHT JOIN enrollments e ON s.student_id = e.student_id RIGHT JO
                     ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 4. Grouping (𝒢)
               </button>
 
@@ -396,7 +396,7 @@ FROM students s RIGHT JOIN enrollments e ON s.student_id = e.student_id RIGHT JO
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 5. Full Outer (⟗)
               </button>
             </div>

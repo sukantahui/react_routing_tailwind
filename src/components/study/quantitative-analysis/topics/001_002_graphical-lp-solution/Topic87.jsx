@@ -65,7 +65,7 @@ const Topic87 = () => {
                 'Determine shadow price of risk'
             ],
             hint: 'Use ₹000 for variables. Risk constraint: 0.5x + 0.3y ≤ 70. Budget constraint: x + y ≤ 200. Don\'t forget minimum investment constraints.',
-            answer: 'Optimal: x = 100, y = 100, Return = ₹16,000. Risk = 0.5(100)+0.3(100)=80 &gt; 70. Let me recalculate...'
+            answer: 'Optimal: x = 100, y = 100, Return = ₹16,000. Risk = 0.5(100)+0.3(100)=80 > 70. Let me recalculate...'
         },
         {
             id: 4,
@@ -221,7 +221,7 @@ const Topic87 = () => {
                                     ? "bg-teal-600 text-white shadow-lg shadow-teal-200 dark:shadow-teal-900/30"
                                     : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
                             )}
-                        &gt;
+                        >
                             {tab.label}
                         </button>
                     ))}
@@ -243,7 +243,7 @@ const Topic87 = () => {
                                             "bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.02]",
                                             selectedProblem === problem.id - 1 ? "border-2 border-teal-500" : ""
                                         )}
-                                    &gt;
+                                    >
                                         <div className="flex justify-between items-start mb-2">
                                             <h4 className="font-semibold text-gray-800 dark:text-gray-200 text-sm">
                                                 {problem.title}
@@ -271,7 +271,7 @@ const Topic87 = () => {
                             </div>
 
                             {/* Selected Problem Detail */}
-                            {unsolvedProblems.length &gt; 0 && (
+                            {unsolvedProblems.length > 0 && (
                                 <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transition-all duration-300 hover:shadow-xl">
                                     <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4">
                                         {unsolvedProblems[selectedProblem]?.title}
@@ -298,13 +298,13 @@ const Topic87 = () => {
                                             <button
                                                 onClick={() => setShowHint(!showHint)}
                                                 className="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-all duration-300"
-                                            &gt;
+                                            >
                                                 {showHint ? 'Hide Hint' : 'Show Hint'}
                                             </button>
                                             <button
                                                 onClick={() => setActiveTab('answers')}
                                                 className="px-4 py-2 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition-all duration-300"
-                                            &gt;
+                                            >
                                                 Check Answer Key
                                             </button>
                                         </div>
@@ -343,7 +343,7 @@ const Topic87 = () => {
                                                 setShowHint(true);
                                             }}
                                             className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
-                                        &gt;
+                                        >
                                             <h4 className="font-semibold text-gray-800 dark:text-gray-200">
                                                 {problem.title}
                                             </h4>

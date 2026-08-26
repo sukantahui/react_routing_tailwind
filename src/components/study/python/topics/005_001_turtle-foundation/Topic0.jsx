@@ -266,7 +266,7 @@ export default function Topic0() {
                     ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 Body-Syntonic Geometry
               </button>
               <button
@@ -277,7 +277,7 @@ export default function Topic0() {
                     ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 Canvas vs Screen Coordinate Plane
               </button>
               <button
@@ -288,7 +288,7 @@ export default function Topic0() {
                     ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 1967 to Modern Python Evolution
               </button>
             </div>
@@ -444,21 +444,21 @@ export default function Topic0() {
               <button
                 onClick={() => handleForward(50)}
                 className="p-2.5 bg-teal-950/60 border border-teal-600 rounded-xl text-xs font-bold text-teal-300 hover:bg-teal-900/80 transition-all text-center"
-              &gt;
+              >
                 Forward 50 px
               </button>
 
               <button
                 onClick={() => handleTurnLeft(90)}
                 className="p-2.5 bg-cyan-950/60 border border-cyan-600 rounded-xl text-xs font-bold text-cyan-300 hover:bg-cyan-900/80 transition-all text-center"
-              &gt;
+              >
                 Left 90° ↺
               </button>
 
               <button
                 onClick={() => handleTurnRight(90)}
                 className="p-2.5 bg-purple-950/60 border border-purple-600 rounded-xl text-xs font-bold text-purple-300 hover:bg-purple-900/80 transition-all text-center"
-              &gt;
+              >
                 Right 90° ↻
               </button>
 

@@ -93,7 +93,7 @@ const Topic35 = () => {
             { a: 1, b: 0, c: 0 },  // x = 0
         ];
         if (b !== 0 && a !== 0) {
-            for (let x = -0.5; x &le; range; x += 0.1) {
+            for (let x = -0.5; x <= range; x += 0.1) {
                 const y = (c - a * x) / b;
                 if (y >= -0.5 && y <= range) {
                     points.push(toPixel(x, y));
@@ -101,7 +101,7 @@ const Topic35 = () => {
             }
         } else if (a !== 0 && b === 0) {
             const xVal = c / a;
-            if (xVal >= -0.5 && xVal &le; range) {
+            if (xVal >= -0.5 && xVal <= range) {
                 const px = 200 + xVal * 40;
                 points.push({ px, py: 20 });
                 points.push({ px, py: 380 });
@@ -131,7 +131,7 @@ const Topic35 = () => {
                     pts.push({ px: 200, py: 380 });
                     pts.push({ px: 380, py: 380 });
                     const yRight = yAtX(range);
-                    if (yRight &ge; -0.5 && yRight &le; range) {
+                    if (yRight >= -0.5 && yRight <= range) {
                         pts.push({ px: 380, py: 200 - yRight * 40 });
                     }
                     const yLeft = yAtX(-0.5);
@@ -142,7 +142,7 @@ const Topic35 = () => {
                     pts.push({ px: 200, py: 20 });
                     pts.push({ px: 380, py: 20 });
                     const yRight = yAtX(range);
-                    if (yRight >= -0.5 && yRight &le; range) {
+                    if (yRight >= -0.5 && yRight <= range) {
                         pts.push({ px: 380, py: 200 - yRight * 40 });
                     }
                     const yLeft = yAtX(-0.5);
@@ -155,7 +155,7 @@ const Topic35 = () => {
                     pts.push({ px: 200, py: 20 });
                     pts.push({ px: 380, py: 20 });
                     const yRight = yAtX(range);
-                    if (yRight &ge; -0.5 && yRight &le; range) {
+                    if (yRight >= -0.5 && yRight <= range) {
                         pts.push({ px: 380, py: 200 - yRight * 40 });
                     }
                     const yLeft = yAtX(-0.5);
@@ -166,7 +166,7 @@ const Topic35 = () => {
                     pts.push({ px: 200, py: 380 });
                     pts.push({ px: 380, py: 380 });
                     const yRight = yAtX(range);
-                    if (yRight >= -0.5 && yRight &le; range) {
+                    if (yRight >= -0.5 && yRight <= range) {
                         pts.push({ px: 380, py: 200 - yRight * 40 });
                     }
                     const yLeft = yAtX(-0.5);
@@ -192,7 +192,7 @@ const Topic35 = () => {
         } else if (b !== 0 && a === 0) {
             const yVal = c / b;
             const py = 200 - yVal * 40;
-            if (sign === "≥" || sign === "&gt;") {
+            if (sign === "≥" || sign === ">") {
                 pts.push({ px: 200, py: 20 });
                 pts.push({ px: 380, py: 20 });
                 pts.push({ px: 380, py: py });
@@ -204,7 +204,7 @@ const Topic35 = () => {
                 pts.push({ px: 200, py: 380 });
             }
         }
-        return pts.filter(p => p.px &ge; 200 && p.px &le; 380 && p.py >= 20 && p.py <= 380);
+        return pts.filter(p => p.px >= 200 && p.px <= 380 && p.py >= 20 && p.py <= 380);
     };
 
     // Get feasible region shading
@@ -219,7 +219,7 @@ const Topic35 = () => {
         const points = [];
         const range = 45;
         const target = Z / 5000;
-        for (let x = -0.5; x &le; range; x += 0.1) {
+        for (let x = -0.5; x <= range; x += 0.1) {
             const y = target - 2 * x;
             if (y >= -0.5 && y <= range) {
                 points.push(toPixel(x, y));
@@ -314,7 +314,7 @@ const Topic35 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[0]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📋</span>
                         Problem Statement
@@ -356,7 +356,7 @@ const Topic35 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[1]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">✏️</span>
                         Step 1: Formulate the LP Problem
@@ -405,7 +405,7 @@ const Topic35 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[2]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📊</span>
                         Step 2: Graphical Solution
@@ -426,7 +426,7 @@ const Topic35 = () => {
                                         ? "bg-blue-600 text-white border-blue-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600"
                                 )}
-                            &gt;
+                            >
                                 {showAllLines ? "Hide All" : "Show All Lines"}
                             </button>
                             <button
@@ -437,7 +437,7 @@ const Topic35 = () => {
                                         ? "bg-amber-600 text-white border-amber-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600"
                                 )}
-                            &gt;
+                            >
                                 {showCornerPoints ? "Hide Corners" : "Show Corners"}
                             </button>
                             <button
@@ -448,7 +448,7 @@ const Topic35 = () => {
                                         ? "bg-purple-600 text-white border-purple-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600"
                                 )}
-                            &gt;
+                            >
                                 {showSteps ? "Hide Steps" : "Show Steps"}
                             </button>
                         </div>
@@ -465,7 +465,7 @@ const Topic35 = () => {
                                     value={objectiveValue}
                                     onChange={(e) => setObjectiveValue(parseFloat(e.target.value))}
                                     className="flex-1 accent-sky-500"
-                                /&gt;
+                                />
                                 <span className="text-sm font-mono font-bold text-sky-700 dark:text-sky-300 min-w-[60px]">
                                     {objectiveValue.toLocaleString()}
                                 </span>
@@ -500,7 +500,7 @@ const Topic35 = () => {
                                                     fill={con.color}
                                                     fillOpacity="0.1"
                                                     stroke="none"
-                                                /&gt;
+                                                />
                                             );
                                         }
                                         return null;
@@ -516,7 +516,7 @@ const Topic35 = () => {
                                                     fill="#38bdf8"
                                                     fillOpacity="0.15"
                                                     stroke="none"
-                                                /&gt;
+                                                />
                                             );
                                         }
                                         return null;
@@ -535,7 +535,7 @@ const Topic35 = () => {
                                                     strokeWidth={isOptimal ? 3 : 1.5}
                                                     strokeDasharray={isOptimal ? "none" : "6,4"}
                                                     opacity={isOptimal ? 1 : 0.4}
-                                                /&gt;
+                                                />
                                             );
                                         }
                                         return null;
@@ -549,7 +549,7 @@ const Topic35 = () => {
                                             stroke="#0ea5e9"
                                             strokeWidth="3"
                                             strokeDasharray="8,4"
-                                        /&gt;
+                                        />
                                     )}
 
                                     {/* Current line label */}
@@ -580,12 +580,12 @@ const Topic35 = () => {
                                     {/* Tick marks - scaled for clarity */}
                                     {[90, 130, 170, 210, 250, 290, 330, 370, 410, 450].map((v) => {
                                         const val = Math.round((v - 50) / 40);
-                                        if (val &ge; 0 && val &le; 10) {
+                                        if (val >= 0 && val <= 10) {
                                             return (
                                                 <g key={`t35-tick-${v}`}>
                                                     <line x1={v} y1="443" x2={v} y2="457" stroke="#1e293b" strokeWidth="1.5" className="dark:stroke-slate-300" />
                                                     <line x1="43" y1={v} x2="57" y2={v} stroke="#1e293b" strokeWidth="1.5" className="dark:stroke-slate-300" />
-                                                    {val &gt; 0 && (
+                                                    {val > 0 && (
                                                         <>
                                                             <text x={v - 6} y="475" fontSize="12" fill="#475569" className="dark:fill-slate-500">{val}</text>
                                                             <text x="25" y={v + 5} fontSize="12" fill="#475569" className="dark:fill-slate-500">{val}</text>
@@ -611,7 +611,7 @@ const Topic35 = () => {
                                                     strokeWidth="3"
                                                     strokeDasharray={solid ? "none" : "8,6"}
                                                     opacity="0.9"
-                                                /&gt;
+                                                />
                                             );
                                         }
                                         return null;
@@ -741,7 +741,7 @@ const Topic35 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[3]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">💡</span>
                         Interpretation of the Solution
@@ -784,7 +784,7 @@ const Topic35 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[4]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🎯</span>
                         Tips, Mistakes & Best Practices
@@ -838,7 +838,7 @@ const Topic35 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[5]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📋</span>
                         Mini Checklist

@@ -36,7 +36,7 @@ const Topic9 = () => {
         "Encoding stolen database records into base64 subdomain strings (`QWFkaGFhci45ODQy...exfil.evil.in`), transmitting data past corporate egress firewalls that allow unrestricted outbound UDP 53.",
       vulnerabilityImpact:
         "Silent exfiltration of millions of citizen records without establishing direct TCP/HTTP connections to external IP addresses.",
-      telemetryIndicator: "Surge in high-entropy (&gt;4.5 Shannon) DNS lookup queries with anomalous label lengths (>40 characters)",
+      telemetryIndicator: "Surge in high-entropy (>4.5 Shannon) DNS lookup queries with anomalous label lengths (>40 characters)",
       resilientDefense: "DNS query entropy analysis and blocking unauthorized external recursive DNS forwarders.",
       codeSnippet: `// DNS Tunneling Data Exfiltration Syntax:
 // Original String : "Aadhaar:984210492810" ➔ Base64: "QWFkaGFhcjo5ODQyMTA0OTI4MTA="
@@ -58,7 +58,7 @@ const Topic9 = () => {
       codeSnippet: `// LSB Steganography Pixel Encoding:
 // Original Red Byte : 11010110 (214)
 // Secret Bit to Hide: 1
-// Modified Red Byte : 11010111 (215) &rarr; Visual difference: 0.39% (Completely Imperceptible!)`
+// Modified Red Byte : 11010111 (215) -> Visual difference: 0.39% (Completely Imperceptible!)`
     },
     volume_shadow_deletion_sabotage: {
       key: "volume_shadow_deletion_sabotage",
@@ -171,7 +171,7 @@ Get-LocalGroupMember -Group "Administrators" | Where-Object {
     const numerator = dataVolumeScore * privilegeScore;
     const exponent = -numerator / pawControlsStrength;
     const rawBreachProb = (1 - Math.exp(exponent)) * 100;
-    const actualBreachProb = pawControlsStrength &ge; 500
+    const actualBreachProb = pawControlsStrength >= 500
       ? (rawBreachProb * 0.015).toFixed(2) // PAW + DAM + Immutable WORM blocks 98.5% of exfiltration
       : pawControlsStrength >= 50
       ? (rawBreachProb * 0.35).toFixed(2)  // Basic Firewall blocks 65% of exfiltration
@@ -217,7 +217,7 @@ def inspect_dns_query(domain_query):
     print(f"  [+] Subdomain Length : {len(subdomain)}")
     print(f"  [+] Shannon Entropy  : {entropy:.2f} bits/symbol")
     
-    if entropy > 4.2 and len(subdomain) &gt; 30:
+    if entropy > 4.2 and len(subdomain) > 30:
         print("  [!] ALERT: High-Entropy DNS Tunneling Exfiltration Detected!")
         print("  [-] Action: Dropping DNS Packet & Flagging Source Host for Isolation!")
         return True
@@ -619,7 +619,7 @@ bool detect_lsb_steganography(const std::vector<uint8_t>& pixel_bytes) {
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   EXPLOIT
                 </span>
@@ -716,7 +716,7 @@ bool detect_lsb_steganography(const std::vector<uint8_t>& pixel_bytes) {
                   value={dataVolumeScore}
                   onChange={(e) => setDataVolumeScore(parseFloat(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1">
@@ -732,7 +732,7 @@ bool detect_lsb_steganography(const std::vector<uint8_t>& pixel_bytes) {
                   value={privilegeScore}
                   onChange={(e) => setPrivilegeScore(parseFloat(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1 pt-1">
@@ -746,7 +746,7 @@ bool detect_lsb_steganography(const std::vector<uint8_t>& pixel_bytes) {
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     None (1x)
                   </button>
                   <button
@@ -757,7 +757,7 @@ bool detect_lsb_steganography(const std::vector<uint8_t>& pixel_bytes) {
                         ? "bg-amber-950 border-amber-500 text-amber-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     Firewall (50x)
                   </button>
                   <button
@@ -768,7 +768,7 @@ bool detect_lsb_steganography(const std::vector<uint8_t>& pixel_bytes) {
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     PAW+WORM (500x)
                   </button>
                 </div>
@@ -827,7 +827,7 @@ bool detect_lsb_steganography(const std::vector<uint8_t>& pixel_bytes) {
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 {item.name}
               </button>
             ))}
@@ -876,7 +876,7 @@ bool detect_lsb_steganography(const std::vector<uint8_t>& pixel_bytes) {
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>
@@ -1117,7 +1117,7 @@ bool detect_lsb_steganography(const std::vector<uint8_t>& pixel_bytes) {
         <section className="pt-4">
           <Teacher
             note="Teacher's Note: Privilege abuse and sabotage represent the most devastating insider threat actions because perpetrators possess legitimate administrative credentials! Master the covert exfiltration channels: understand how DNS Tunneling encodes base64 database chunks into lookup subdomains over UDP port 53 (detected via Shannon entropy analysis $H(X) > 4.5$), how LSB Image Steganography hides confidential records inside image pixel bytes (detected via Chi-Square statistical steganalysis), and how attackers Living off the Land (LotL) weaponize native binaries like certutil, bitsadmin, and tar to evade antivirus tools. Understand infrastructure sabotage mechanics: Volume Shadow Copy deletion via `vssadmin delete shadows /all /quiet`, partition table wiping via `dd`, and stealth backdoor account injections. To build an impenetrable defense: deploy Privileged Access Workstations (PAW) with zero internet egress for all administrative duties, enforce Database Activity Monitoring (DAM) terminating queries returning &gt; 50 rows, configure immutable WORM storage with AWS S3 Object Lock Compliance Mode to prevent root deletion, and record 100% of admin sessions with Privileged Session Recording (PSR). Remember that Section 70 of the Indian IT Act treats attacks on Protected Critical Systems with up to 10 years imprisonment!"
-          /&gt;
+          />
         </section>
 
       </div>

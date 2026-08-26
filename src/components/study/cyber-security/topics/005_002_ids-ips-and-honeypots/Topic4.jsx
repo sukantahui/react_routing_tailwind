@@ -37,7 +37,7 @@ const Topic4 = () => {
       algorithms: "Random Forest, XGBoost, Support Vector Machines (SVM), MLP",
       badgeColor: "bg-sky-950 text-sky-300 border-sky-800",
       trainingData: "Pre-labeled datasets (CIC-IDS2017, NSL-KDD) with tagged 'DDoS', 'PortScan', 'BruteForce'.",
-      strengths: "Extremely high precision (&gt; 99.5%) and near-zero false alarms on known exploit families.",
+      strengths: "Extremely high precision (> 99.5%) and near-zero false alarms on known exploit families.",
       limitations: "Completely blind to novel zero-day attacks whose feature distributions deviate from training labels."
     },
     unsupervised_autoencoder: {
@@ -287,7 +287,7 @@ const Topic4 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              &gt;
+              >
                 {p.title}
               </button>
             ))}
@@ -354,7 +354,7 @@ const Topic4 = () => {
                 value={selectedFlowScenario}
                 onChange={(e) => setSelectedFlowScenario(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              &gt;
+              >
                 {Object.values(flowScenarios).map((s) => (
                   <option key={s.id} value={s.id}>
                     {s.label}
@@ -373,7 +373,7 @@ const Topic4 = () => {
                 value={autoencoderThreshold}
                 onChange={(e) => setAutoencoderThreshold(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              /&gt;
+              />
               <span className="text-[10px] text-gray-400 font-mono">Current Threshold θ = {autoencoderThreshold}</span>
             </div>
 
@@ -387,7 +387,7 @@ const Topic4 = () => {
                     ? "bg-emerald-950/80 text-emerald-300 border-emerald-800"
                     : "bg-slate-950 text-gray-400 border-slate-800"
                 )}
-              &gt;
+              >
                 {isolationForestActive ? "✔ Isolation Forest Active" : "❌ Tree Ensemble Disabled"}
               </button>
             </div>
@@ -410,10 +410,10 @@ const Topic4 = () => {
                 currentScenario.reconstructionMse > autoencoderThreshold
                   ? "bg-rose-950 text-rose-300 border-rose-700"
                   : "bg-emerald-950 text-emerald-300 border-emerald-700"
-              )}&gt;
+              )}>
                 {currentScenario.reconstructionMse > autoencoderThreshold
                   ? `🚨 ANOMALY ALERT (MSE: ${currentScenario.reconstructionMse} > θ)`
-                  : `✔ NORMAL FLOW (MSE: ${currentScenario.reconstructionMse} &le; θ)`}
+                  : `✔ NORMAL FLOW (MSE: ${currentScenario.reconstructionMse} <= θ)`}
               </span>
             </div>
 
@@ -480,7 +480,7 @@ const Topic4 = () => {
                 value={flowsPerSecondThousands}
                 onChange={(e) => setFlowsPerSecondThousands(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -496,7 +496,7 @@ const Topic4 = () => {
                 value={featureVectorDimensions}
                 onChange={(e) => setFeatureVectorDimensions(Number(e.target.value))}
                 className="w-full accent-purple-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -512,7 +512,7 @@ const Topic4 = () => {
                 value={modelRetrainingFrequencyDays}
                 onChange={(e) => setModelRetrainingFrequencyDays(Number(e.target.value))}
                 className="w-full accent-emerald-400 cursor-pointer"
-              /&gt;
+              />
             </div>
           </div>
 
@@ -566,7 +566,7 @@ const Topic4 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 {d.title}
               </button>
             ))}

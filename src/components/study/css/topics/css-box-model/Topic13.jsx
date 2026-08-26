@@ -78,7 +78,7 @@ body { font-size:1rem; }
             <button
               onClick={()=>this.copy(code)}
               className="absolute top-2 right-2 text-xs px-2 py-1 bg-slate-700 text-white rounded opacity-0 group-hover:opacity-100 transition"
-            &gt;
+            >
               {this.state.copied?"Copied!":"Copy"}
             </button>
             <pre className="bg-slate-800 text-slate-200 p-4 rounded-lg text-sm overflow-x-auto">

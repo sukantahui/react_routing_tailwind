@@ -273,7 +273,7 @@ export default function Topic1() {
                         ? "text-emerald-600 dark:text-emerald-400"
                         : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
                     )}
-                  &gt;
+                  >
                     {tab === "interactive" && "Interactive Examples"}
                     {tab === "nonInteractive" && "Non-Interactive Examples"}
                     {tab === "detection" && "How to Detect"}

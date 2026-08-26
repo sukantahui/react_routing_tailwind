@@ -112,7 +112,7 @@ const SelectionSortVisualSVG = () => {
         <button 
           onClick={() => setStep((step + 1) % 6)}
           className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-all duration-300"
-        &gt;
+        >
           {step < 5 ? "Next Pass (Step " + (step + 2) + "/6)" : "Reset Animation"}
         </button>
       </div>
@@ -240,7 +240,7 @@ const Topic12 = () => {
                   ? "bg-purple-50 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 border-b-2 border-purple-600"
                   : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
               )}
-            &gt;
+            >
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
             </button>
           ))}

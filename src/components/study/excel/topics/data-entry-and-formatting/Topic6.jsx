@@ -28,7 +28,7 @@ export default function Topic6() {
         </p>
       </section>
 
-      {/* EXAMPLE: HIGHLIGHT &gt; 50 */}
+      {/* EXAMPLE: HIGHLIGHT > 50 */}
       <section className="space-y-4">
         <h2 className="text-lg font-semibold text-amber-300">
           Example – Highlight Marks Above 50

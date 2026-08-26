@@ -198,7 +198,7 @@ export default function Topic1() {
               value={searchFilter}
               onChange={(e) => setSearchFilter(e.target.value)}
               className="px-3.5 py-2 text-xs rounded-xl bg-slate-800 border border-slate-700 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-sky-500 transition w-full sm:w-56"
-            /&gt;
+            />
           </div>
         </div>
 
@@ -219,7 +219,7 @@ export default function Topic1() {
                   ? "bg-sky-500 text-white shadow-lg shadow-sky-500/25"
                   : "bg-slate-800 text-slate-400 hover:bg-slate-700 border border-slate-700/60"
               )}
-            &gt;
+            >
               <Filter size={12} />
               {tab.label}
             </button>
@@ -419,7 +419,7 @@ q = a // b
 r = a % b
 print(f"a = {a}, b = {b} -> quotient = {q}, remainder = {r}")
 print("Verification (q*b + r) :", q * b + r)    # -17`}
-        /&gt;
+        />
       </section>
 
       {/* =========================================================================

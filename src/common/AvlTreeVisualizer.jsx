@@ -297,7 +297,7 @@ const TreeSVG = ({ root, searchTerm, onDelete, insertedNode, pendingDelete }) =>
               fill="#EF4444"
               className="cursor-pointer hover:fill-red-600 transition-colors"
               onClick={() => onDelete(node.value)}
-            /&gt;
+            />
             <text
               x={pos.x + NODE_RADIUS - 8}
               y={pos.y - NODE_RADIUS + 8}
@@ -307,7 +307,7 @@ const TreeSVG = ({ root, searchTerm, onDelete, insertedNode, pendingDelete }) =>
               fontSize="12"
               className="cursor-pointer"
               onClick={() => onDelete(node.value)}
-            &gt;
+            >
               ×
             </text>
           </>
@@ -495,7 +495,7 @@ const AvlTreeVisualizer = () => {
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Value to insert"
               className="px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-sky-500 w-32 sm:w-40"
-            /&gt;
+            />
             <button
               onClick={handleInsert}
               className="px-4 py-2 bg-gradient-to-r from-sky-600 to-blue-600 text-white rounded-lg hover:opacity-90 transition shadow-lg"
@@ -511,7 +511,7 @@ const AvlTreeVisualizer = () => {
               onChange={(e) => setDeleteValue(e.target.value)}
               placeholder="Delete value"
               className="px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-red-500 w-32 sm:w-40"
-            /&gt;
+            />
             <button
               onClick={handleDeleteByValue}
               className="px-4 py-2 bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-lg hover:opacity-90 transition shadow-lg"
@@ -527,7 +527,7 @@ const AvlTreeVisualizer = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search (highlight)"
               className="px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 w-32 sm:w-40"
-            /&gt;
+            />
           </div>
         </div>
 

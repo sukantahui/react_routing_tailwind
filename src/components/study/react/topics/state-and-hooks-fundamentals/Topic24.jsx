@@ -35,7 +35,7 @@ const ProductItem = ({ product }) => {
       {/* Multiple conditions */}
       {product.name === "React Course" && 
        product.inStock && 
-       product.price &gt; 1000 && (
+       product.price > 1000 && (
         <span className="discount">🔥 20% Discount!</span>
       )}
       
@@ -46,7 +46,7 @@ const ProductItem = ({ product }) => {
       {user.isAdmin && 
        product.needsRestock && 
        !product.onOrder && (
-        <button onClick={() => reorderProduct(product.id)}&gt;
+        <button onClick={() => reorderProduct(product.id)}>
           Reorder Now
         </button>
       )}
@@ -196,7 +196,7 @@ const ProductItem = ({ product }) => {
                     : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-700"
                 )}
                 style={{ animationDelay: `${index * 0.1}s` }}
-              &gt;
+              >
                 <div className="flex items-center gap-2 md:gap-3">
                   <span className="text-lg">{section.icon}</span>
                   <span className="font-medium whitespace-nowrap">{section.title}</span>
@@ -412,7 +412,7 @@ const ProductItem = ({ product }) => {
                           <button
                             onClick={() => setShowWelcome(!showWelcome)}
                             className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-400 rounded-lg text-sm hover:bg-blue-200 dark:hover:bg-blue-800"
-                          &gt;
+                          >
                             Toggle
                           </button>
                         </div>
@@ -453,7 +453,7 @@ const ProductItem = ({ product }) => {
                           <button
                             onClick={() => setShowErrorMessage(!showErrorMessage)}
                             className="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-400 rounded-lg text-sm hover:bg-red-200 dark:hover:bg-red-800"
-                          &gt;
+                          >
                             Toggle Error
                           </button>
                         </div>
@@ -495,7 +495,7 @@ const ProductItem = ({ product }) => {
                           <button
                             onClick={() => setShowLoadingIndicator(!showLoadingIndicator)}
                             className="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-400 rounded-lg text-sm hover:bg-yellow-200 dark:hover:bg-yellow-800"
-                          &gt;
+                          >
                             Toggle Loading
                           </button>
                         </div>
@@ -661,7 +661,7 @@ renderUserProfile(userData) // Might error if userData is undefined`}
                                 resetDemo();
                               }}
                               className="mt-4 px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-400 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800"
-                            &gt;
+                            >
                               Reset Products
                             </button>
                           </div>
@@ -696,14 +696,14 @@ renderUserProfile(userData) // Might error if userData is undefined`}
                                   <button
                                     onClick={() => toggleProductStock(product.id)}
                                     className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded text-sm hover:bg-gray-300 dark:hover:bg-gray-600"
-                                  &gt;
+                                  >
                                     Toggle Stock
                                   </button>
                                   
                                   <button
                                     onClick={() => removeProduct(product.id)}
                                     className="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded text-sm hover:bg-red-200 dark:hover:bg-red-800"
-                                  &gt;
+                                  >
                                     Remove
                                   </button>
                                 </div>
@@ -723,21 +723,21 @@ renderUserProfile(userData) // Might error if userData is undefined`}
                                 onChange={(e) => setNewProductName(e.target.value)}
                                 placeholder="Product name"
                                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800"
-                              /&gt;
+                              />
                               <input
                                 type="number"
                                 value={newProductPrice}
                                 onChange={(e) => setNewProductPrice(e.target.value)}
                                 placeholder="Price"
                                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800"
-                              /&gt;
+                              />
                               <div className="flex items-center gap-2">
                                 <input
                                   type="checkbox"
                                   checked={newProductStock}
                                   onChange={(e) => setNewProductStock(e.target.checked)}
                                   id="stock"
-                                /&gt;
+                                />
                                 <label htmlFor="stock" className="text-sm text-gray-600 dark:text-gray-400">
                                   In Stock
                                 </label>
@@ -804,7 +804,7 @@ renderUserProfile(userData) // Might error if userData is undefined`}
                           </div>
                           
                           {/* Premium Badge */}
-                          {userData.points &gt; 80 && (
+                          {userData.points > 80 && (
                             <div className="flex items-center gap-2 p-3 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg mb-4">
                               <span className="text-xl">⭐</span>
                               <span className="font-medium">Premium Student</span>
@@ -860,7 +860,7 @@ renderUserProfile(userData) // Might error if userData is undefined`}
                             <button
                               onClick={() => setShowUserProfile(!showUserProfile)}
                               className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded text-sm hover:bg-gray-300 dark:hover:bg-gray-600"
-                            &gt;
+                            >
                               {showUserProfile ? "Hide" : "Show"}
                             </button>
                           </div>
@@ -870,7 +870,7 @@ renderUserProfile(userData) // Might error if userData is undefined`}
                             <button
                               onClick={() => setShowDebugInfo(!showDebugInfo)}
                               className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-300 rounded text-sm hover:bg-purple-200 dark:hover:bg-purple-800"
-                            &gt;
+                            >
                               {showDebugInfo ? "On" : "Off"}
                             </button>
                           </div>
@@ -913,7 +913,7 @@ ${showUserProfile} && ${userData.isLoggedIn} && <ProfileCard />
                         )}
                         
                         {/* High Points Message */}
-                        {userData.points &gt; 70 && userData.role === "student" && (
+                        {userData.points > 70 && userData.role === "student" && (
                           <div className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
                             <p className="text-green-700 dark:text-green-400">
                               🎉 Excellent work! You're in the top 10% of students.
@@ -979,7 +979,7 @@ const UserProfile = ({ user }) => {
           <p>{user.email}</p>
           
           {/* Premium badge for high scores */}
-          {user.points &gt; 80 && (
+          {user.points > 80 && (
             <div className="premium-badge">⭐ Premium User</div>
           )}
           
@@ -994,7 +994,7 @@ const UserProfile = ({ user }) => {
           
           {/* Warning messages */}
           {user.lastLogin && 
-           daysSince(user.lastLogin) &gt; 30 && (
+           daysSince(user.lastLogin) > 30 && (
             <div className="warning">
               ⚠️ You haven't logged in for a while
             </div>
@@ -1075,7 +1075,7 @@ return (
 // Convert to boolean explicitly
 return (
   <div>
-    {items.length &gt; 0 && <ItemList items={items} />}
+    {items.length > 0 && <ItemList items={items} />}
   </div>
 );
 

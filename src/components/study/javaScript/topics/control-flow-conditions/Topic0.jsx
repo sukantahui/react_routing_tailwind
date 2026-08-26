@@ -30,7 +30,7 @@ if (age >= 18) {
 } else {
   console.log("You are a minor");
 }`}
-        /&gt;
+        />
 
         <div className="space-y-3 text-slate-300 text-sm md:text-base leading-relaxed">
           <p>How this works:</p>
@@ -67,7 +67,7 @@ if (age >= 18) {
 
 if (score >= 90) {
   console.log("Grade: A");
-} else if (score &ge; 75) {
+} else if (score >= 75) {
   console.log("Grade: B");
 } else if (score >= 60) {
   console.log("Grade: C");
@@ -144,7 +144,7 @@ let message = age >= 18
   : "Minor";
 
 console.log(message);`}
-        /&gt;
+        />
 
         <p className="text-slate-300 text-sm md:text-base leading-relaxed">
           Use this only when the logic is short and readable.

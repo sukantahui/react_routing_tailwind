@@ -67,8 +67,8 @@ def test_mamata_top_merit_waiver():
 # FAILED: NameError: name 'calculate_waiver' is not defined`
     : activeTddStep === "GREEN"
     ? `# 🟢 STEP 2: Write the MINIMUM code to turn the test green!
-def calculate_waiver(score: float, base_fee: float) &rarr; float:
-    if score &ge; 90.0:
+def calculate_waiver(score: float, base_fee: float) -> float:
+    if score >= 90.0:
         return base_fee * 0.80  # Minimum direct code
     return base_fee
 
@@ -76,7 +76,7 @@ def test_mamata_top_merit_waiver():
     assert calculate_waiver(95.0, 20000.0) == 16000.0
 
 # CLI Execution:
-# &gt; pytest test_waiver.py
+# > pytest test_waiver.py
 # 1 passed in 0.01s (GREEN!)`
     : `# 🔵 STEP 3: REFACTOR cleanly with guard clauses, constants & type hints!
 from typing import Final
@@ -86,7 +86,7 @@ TOP_MERIT_DISCOUNT_PCT: Final[float] = 0.20
 
 def calculate_waiver(score: float, base_fee: float) -> float:
     """Calculates final net tuition after applying institutional merit rules."""
-    if base_fee &le; 0:
+    if base_fee <= 0:
         raise ValueError("Base tuition fee must be positive.")
     if not (0.0 <= score <= 100.0):
         raise ValueError(f"Score {score} outside valid bracket [0, 100].")
@@ -287,7 +287,7 @@ def test_mamata_top_merit_waiver():
                     ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 Red-Green-Refactor Loop
               </button>
               <button
@@ -298,7 +298,7 @@ def test_mamata_top_merit_waiver():
                     ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 Baby Steps Progression
               </button>
               <button
@@ -309,7 +309,7 @@ def test_mamata_top_merit_waiver():
                     ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 Defect Cost Curve
               </button>
             </div>
@@ -493,7 +493,7 @@ def test_mamata_top_merit_waiver():
                           : "bg-cyan-950/60 border-cyan-500 shadow-md shadow-cyan-950/50"
                         : "bg-slate-900/60 border-slate-800 hover:border-slate-700 text-slate-400"
                     )}
-                  &gt;
+                  >
                     <div className="text-xs sm:text-sm font-bold text-slate-200">{item.label}</div>
                     <div className="text-[11px] text-teal-400 font-mono mt-0.5">{item.tag}</div>
                   </button>

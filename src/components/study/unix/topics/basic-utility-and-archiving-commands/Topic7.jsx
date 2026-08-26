@@ -109,19 +109,19 @@ const Topic7 = () => {
               value={compressedSize}
               onChange={(e) => setCompressedSize(e.target.value)}
               className="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 font-mono"
-            /&gt;
+            />
           </div>
           <div className="flex flex-wrap gap-4 mb-4">
             <label className="flex items-center gap-2">
-              <input type="checkbox" checked={keepCompressed} onChange={() => setKeepCompressed(!keepCompressed)} /&gt;
+              <input type="checkbox" checked={keepCompressed} onChange={() => setKeepCompressed(!keepCompressed)} />
               <span>Keep compressed file (-k)</span>
             </label>
             <label className="flex items-center gap-2">
-              <input type="checkbox" checked={verbose} onChange={() => setVerbose(!verbose)} /&gt;
+              <input type="checkbox" checked={verbose} onChange={() => setVerbose(!verbose)} />
               <span>Verbose output (-v)</span>
             </label>
             <label className="flex items-center gap-2">
-              <input type="checkbox" checked={testMode} onChange={() => setTestMode(!testMode)} /&gt;
+              <input type="checkbox" checked={testMode} onChange={() => setTestMode(!testMode)} />
               <span>Test mode (-t, no output)</span>
             </label>
           </div>
@@ -136,7 +136,7 @@ const Topic7 = () => {
               </pre>
             ) : (
               <pre className={clsx('transition-opacity duration-300', isAnimating ? 'opacity-70' : 'opacity-100')}>
-                {verbose ? `archive.gz:     ${parseInt(compressedSize).toLocaleString()} bytes &rarr; ${decompressedSize} bytes, ${Math.round((parseInt(decompressedSize.replace(/,/g,''))/parseInt(compressedSize))*100)}% expansion\n` : ''}
+                {verbose ? `archive.gz:     ${parseInt(compressedSize).toLocaleString()} bytes -> ${decompressedSize} bytes, ${Math.round((parseInt(decompressedSize.replace(/,/g,''))/parseInt(compressedSize))*100)}% expansion\n` : ''}
                 {keepCompressed ? 'Compressed file kept: archive.gz\n' : 'Compressed file removed: archive.gz → archive'}
                 {'Decompressed file: archive'}
               </pre>
@@ -194,7 +194,7 @@ const Topic7 = () => {
               <ul className="list-disc pl-5 space-y-2">
                 <li><strong>Keep compressed file after decompression:</strong> `gunzip -k file.gz` (GNU).</li>
                 <li><strong>Test before decompressing:</strong> `gunzip -t file.gz` ensures the archive isn't corrupt.</li>
-                <li><strong>Decompress to stdout:</strong> `gunzip -c file.gz {`&gt;`} output` preserves original archive.</li>
+                <li><strong>Decompress to stdout:</strong> `gunzip -c file.gz {`>`} output` preserves original archive.</li>
                 <li><strong>Decompress multiple files:</strong> `gunzip *.gz` decompresses all at once.</li>
                 <li><strong>Force overwrite:</strong> `gunzip -f file.gz` if output file already exists.</li>
               </ul>

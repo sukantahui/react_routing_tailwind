@@ -293,7 +293,7 @@ const Topic7 = () => {
 
         {/* Teacher's Note */}
         <div className="mt-12">
-          <Teacher note="🧬 Inheritance mapping confuses students because databases don't inherit. I use an analogy: SINGLE_TABLE is like a spreadsheet with many empty cells; JOINED is like a relational database with foreign keys; TABLE_PER_CLASS is like separate Excel files for each subtype. Always demonstrate the SQL generated for each strategy – that clarifies the trade-offs. For <strong>Ichapur School</strong> payment system, I'd start with SINGLE_TABLE until nullable columns become a problem." /&gt;
+          <Teacher note="🧬 Inheritance mapping confuses students because databases don't inherit. I use an analogy: SINGLE_TABLE is like a spreadsheet with many empty cells; JOINED is like a relational database with foreign keys; TABLE_PER_CLASS is like separate Excel files for each subtype. Always demonstrate the SQL generated for each strategy – that clarifies the trade-offs. For <strong>Ichapur School</strong> payment system, I'd start with SINGLE_TABLE until nullable columns become a problem." />
         </div>
       </div>
     </div>

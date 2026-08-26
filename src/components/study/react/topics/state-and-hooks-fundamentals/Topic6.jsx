@@ -21,13 +21,13 @@ const CounterExample = () => {
         <button
           onClick={() => setCount(count - 1)}
           className="py-3 bg-red-600 hover:bg-red-500 rounded-lg transition-colors"
-        &gt;
+        >
           Decrement
         </button>
         <button
           onClick={() => setCount(count + 1)}
           className="py-3 bg-green-600 hover:bg-green-500 rounded-lg transition-colors"
-        &gt;
+        >
           Increment
         </button>
       </div>
@@ -36,13 +36,13 @@ const CounterExample = () => {
         <button
           onClick={() => setCount(0)}
           className="flex-1 py-2 bg-gray-600 hover:bg-gray-500 rounded-lg"
-        &gt;
+        >
           Reset to 0
         </button>
         <button
           onClick={() => setCount(100)}
           className="flex-1 py-2 bg-yellow-600 hover:bg-yellow-500 rounded-lg"
-        &gt;
+        >
           Set to 100
         </button>
       </div>
@@ -74,7 +74,7 @@ const ToggleExample = () => {
               isOn ? "bg-green-500" : "bg-gray-600"
             )}
             onClick={() => setIsOn(!isOn)}
-          &gt;
+          >
             <div 
               className={clsx(
                 "absolute top-1 w-6 h-6 rounded-full bg-white transition-all duration-300",
@@ -89,13 +89,13 @@ const ToggleExample = () => {
         <button
           onClick={() => setIsOn(true)}
           className="w-full py-2 bg-green-600 hover:bg-green-500 rounded-lg"
-        &gt;
+        >
           Turn ON
         </button>
         <button
           onClick={() => setIsOn(false)}
           className="w-full py-2 bg-red-600 hover:bg-red-500 rounded-lg"
-        &gt;
+        >
           Turn OFF
         </button>
         <button
@@ -148,7 +148,7 @@ const UserProfileExample = () => {
                 value={user.name}
                 onChange={(e) => updateField('name', e.target.value)}
                 className="px-3 py-1 rounded bg-gray-800 border border-gray-700"
-              /&gt;
+              />
             ) : (
               <div className="font-bold text-lg">{user.name}</div>
             )}
@@ -161,7 +161,7 @@ const UserProfileExample = () => {
                 ? "bg-green-900/50 text-green-300" 
                 : "bg-red-900/50 text-red-300"
             )}
-          &gt;
+          >
             {user.isStudent ? 'Student' : 'Not Student'}
           </button>
         </div>
@@ -175,7 +175,7 @@ const UserProfileExample = () => {
                 value={user.age}
                 onChange={(e) => updateField('age', parseInt(e.target.value) || 0)}
                 className="w-full px-3 py-1 rounded bg-gray-800 border border-gray-700"
-              /&gt;
+              />
             ) : (
               <div className="font-bold text-lg">{user.age}</div>
             )}
@@ -188,7 +188,7 @@ const UserProfileExample = () => {
                 value={user.location}
                 onChange={(e) => updateField('location', e.target.value)}
                 className="w-full px-3 py-1 rounded bg-gray-800 border border-gray-700"
-              &gt;
+              >
                 <option value="Barrackpore">Barrackpore</option>
                 <option value="Shyamnagar">Shyamnagar</option>
                 <option value="Ichapur">Ichapur</option>
@@ -205,7 +205,7 @@ const UserProfileExample = () => {
         <button
           onClick={() => setEditing(!editing)}
           className="flex-1 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg"
-        &gt;
+        >
           {editing ? 'Save' : 'Edit'}
         </button>
         <button
@@ -216,7 +216,7 @@ const UserProfileExample = () => {
             isStudent: true
           })}
           className="flex-1 py-2 bg-gray-600 hover:bg-gray-500 rounded-lg"
-        &gt;
+        >
           Reset
         </button>
       </div>
@@ -303,7 +303,7 @@ const TodoListExample = () => {
                     ? "bg-green-500 border-green-500" 
                     : "border-gray-400"
                 )}
-              &gt;
+              >
                 {completed[index] && '✓'}
               </button>
               <span className={completed[index] ? 'line-through opacity-60' : ''}>
@@ -313,7 +313,7 @@ const TodoListExample = () => {
             <button
               onClick={() => removeTodo(index)}
               className="text-red-400 hover:text-red-300"
-            &gt;
+            >
               ×
             </button>
           </div>
@@ -392,7 +392,7 @@ const UseStateAnatomy = () => {
               selectedPart === 'stateVar' ? "text-green-400 font-bold" : "text-green-300"
             )}
             onClick={() => setSelectedPart('stateVar')}
-          &gt;
+          >
             state
           </span>
           <span className="text-cyan-300">, </span>
@@ -402,7 +402,7 @@ const UseStateAnatomy = () => {
               selectedPart === 'setter' ? "text-purple-400 font-bold" : "text-purple-300"
             )}
             onClick={() => setSelectedPart('setter')}
-          &gt;
+          >
             setState
           </span>
           <span className="text-cyan-300">] = </span>
@@ -414,7 +414,7 @@ const UseStateAnatomy = () => {
               selectedPart === 'initial' ? "text-orange-400 font-bold" : "text-orange-300"
             )}
             onClick={() => setSelectedPart('initial')}
-          &gt;
+          >
             initialValue
           </span>
           <span className="text-cyan-300">)</span>
@@ -424,7 +424,7 @@ const UseStateAnatomy = () => {
               selectedPart === 'declaration' ? "text-blue-400 font-bold" : "text-blue-300"
             )}
             onClick={() => setSelectedPart('declaration')}
-          &gt;
+          >
             // Declaration
           </span>
         </div>
@@ -458,7 +458,7 @@ const UseStateAnatomy = () => {
                 ? `bg-${part.color}-600/30 border-2 border-${part.color}-500/50`
                 : "bg-gray-800/30"
             )}
-          &gt;
+          >
             <div className={clsx(
               "font-bold mb-1",
               `text-${part.color}-400`
@@ -535,7 +535,7 @@ const CommonMistakes = () => {
                 ? `bg-${mistake.color}-600 text-white` 
                 : `bg-gray-700 hover:bg-gray-600`
             )}
-          &gt;
+          >
             {mistake.title}
           </button>
         ))}
@@ -721,7 +721,7 @@ const Topic6 = () => {
                   ? "bg-gray-700 hover:bg-gray-600 text-gray-200 shadow-lg hover:shadow-xl" 
                   : "bg-gray-200 hover:bg-gray-300 text-gray-800 shadow-md hover:shadow-lg"
               )}
-            &gt;
+            >
               {isDarkMode ? '🌙 Dark' : '☀️ Light'}
             </button>
           </div>
@@ -824,7 +824,7 @@ const Topic6 = () => {
                   ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                   : "bg-gray-200 hover:bg-gray-300 text-gray-700"
             )}
-          &gt;
+          >
             🏗️ Basics & Syntax
           </button>
           <button
@@ -840,7 +840,7 @@ const Topic6 = () => {
                   ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                   : "bg-gray-200 hover:bg-gray-300 text-gray-700"
             )}
-          &gt;
+          >
             🎮 Interactive Demos
           </button>
           <button
@@ -856,7 +856,7 @@ const Topic6 = () => {
                   ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                   : "bg-gray-200 hover:bg-gray-300 text-gray-700"
             )}
-          &gt;
+          >
             💡 Patterns & Tips
           </button>
         </div>
@@ -932,7 +932,7 @@ const Topic6 = () => {
                           : "border border-gray-700 bg-gray-800/30"
                       )}
                       style={{ animationDelay: `${index * 100}ms` }}
-                    &gt;
+                    >
                       <div className="flex items-center gap-3 mb-3">
                         <div className="text-2xl">{dataType.icon}</div>
                         <div className={clsx(
@@ -952,7 +952,7 @@ const Topic6 = () => {
                 <div className={clsx(
                   "p-6 rounded-lg",
                   `bg-${dataTypes.find(d => d.type === selectedDataType)?.color}-900/10`
-                )}&gt;
+                )}>
                   <div className="flex items-center gap-4 mb-4">
                     <div className="text-3xl">
                       {dataTypes.find(d => d.type === selectedDataType)?.icon}
@@ -981,7 +981,7 @@ const Topic6 = () => {
                       )}>
                         <code className={clsx(
                           `text-${dataTypes.find(d => d.type === selectedDataType)?.color}-300`
-                        )}&gt;
+                        )}>
                           {dataTypes.find(d => d.type === selectedDataType)?.example}
                         </code>
                       </div>
@@ -1073,7 +1073,7 @@ const Topic6 = () => {
                       "p-4 rounded-lg font-mono mb-4",
                       "bg-gray-800/50"
                     )}>
-                      <code className="text-green-400">const [state, setState] = useState(() => expensiveInitialization())</code>
+                      <code className="text-green-400">const [state, setState] = useState(() =&gt; expensiveInitialization())</code>
                     </div>
                     <div className="text-sm opacity-70">
                       ✅ Function runs only on initial render
@@ -1165,7 +1165,7 @@ const Topic6 = () => {
                       value={text}
                       onChange={(e) => setText(e.target.value)}
                       className="w-full px-3 py-1 rounded bg-gray-800 border border-gray-700 text-sm"
-                    /&gt;
+                    />
                   </div>
                   
                   <div className="text-center p-4 rounded-lg bg-gray-800/30">
@@ -1176,7 +1176,7 @@ const Topic6 = () => {
                     <button
                       onClick={() => setIsActive(!isActive)}
                       className="w-full py-1 bg-purple-600 hover:bg-purple-500 rounded text-sm"
-                    &gt;
+                    >
                       Toggle
                     </button>
                   </div>
@@ -1298,8 +1298,8 @@ const Topic6 = () => {
                         <span className="text-green-400">✅</span>
                         <div>
                           <div className="font-mono text-sm text-green-300">
-                            setCount(prev => prev + 1)<br/>
-                            setCount(prev => prev + 1) // Works correctly
+                            setCount(prev =&gt; prev + 1)<br/>
+                            setCount(prev =&gt; prev + 1) // Works correctly
                           </div>
                         </div>
                       </div>
@@ -1325,7 +1325,7 @@ const Topic6 = () => {
                         <span className="text-green-400">✅</span>
                         <div>
                           <div className="font-mono text-sm text-green-300">
-                            const [data, setData] = useState(() => expensiveCalculation())
+                            const [data, setData] = useState(() =&gt; expensiveCalculation())
                           </div>
                           <div className="text-xs opacity-70">Runs only once</div>
                         </div>
@@ -1370,7 +1370,7 @@ const Topic6 = () => {
                               ? "bg-green-600 hover:bg-green-500" 
                               : "bg-red-600 hover:bg-red-500"
                           )}
-                        &gt;
+                        >
                           {isActive ? 'Open' : 'Closed'}
                         </button>
                       </div>
@@ -1390,8 +1390,8 @@ const Topic6 = () => {
                           &nbsp;&nbsp;email: '',<br/>
                           &nbsp;&nbsp;message: ''<br/>
                           {"}"})<br/><br/>
-                          const handleChange = (e) => {"{"}<br/>
-                          &nbsp;&nbsp;setForm(prev => ({"{"}<br/>
+                          const handleChange = (e) =&gt; {"{"}<br/>
+                          &nbsp;&nbsp;setForm(prev =&gt; ({"{"}<br/>
                           &nbsp;&nbsp;&nbsp;&nbsp;...prev,<br/>
                           &nbsp;&nbsp;&nbsp;&nbsp;[e.target.name]: e.target.value<br/>
                           &nbsp;&nbsp;{"}"}))<br/>
@@ -1431,11 +1431,11 @@ const Topic6 = () => {
                           const [data, setData] = useState(null)<br/>
                           const [loading, setLoading] = useState(true)<br/>
                           const [error, setError] = useState(null)<br/><br/>
-                          useEffect(() => {"{"}<br/>
+                          useEffect(() =&gt; {"{"}<br/>
                           &nbsp;&nbsp;fetchData()<br/>
-                          &nbsp;&nbsp;&nbsp;&nbsp;.then(data => setData(data))<br/>
-                          &nbsp;&nbsp;&nbsp;&nbsp;.catch(err => setError(err))<br/>
-                          &nbsp;&nbsp;&nbsp;&nbsp;.finally(() => setLoading(false))<br/>
+                          &nbsp;&nbsp;&nbsp;&nbsp;.then(data =&gt; setData(data))<br/>
+                          &nbsp;&nbsp;&nbsp;&nbsp;.catch(err =&gt; setError(err))<br/>
+                          &nbsp;&nbsp;&nbsp;&nbsp;.finally(() =&gt; setLoading(false))<br/>
                           {"}"}, [])
                         </div>
                       </div>
@@ -1673,7 +1673,7 @@ const Topic6 = () => {
                       "text-sm transition-colors duration-500",
                       isDarkMode ? "text-gray-300" : "text-gray-600"
                     )}>
-                      Use (prev) => newValue pattern for reliable updates.
+                      Use (prev) =&gt; newValue pattern for reliable updates.
                     </p>
                   </div>
                 </div>

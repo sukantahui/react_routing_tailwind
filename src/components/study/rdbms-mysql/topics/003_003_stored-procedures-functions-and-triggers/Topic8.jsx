@@ -87,7 +87,7 @@ BEGIN
     DECLARE v_discount DECIMAL(10,2) DEFAULT 0.00;
     DECLARE v_gst DECIMAL(10,2);
     
-    -- Apply merit discount if score &ge; 90%:
+    -- Apply merit discount if score >= 90%:
     IF p_score_pct >= 90.00 THEN
         SET v_discount = p_base_fee * 0.20; -- 20% Scholarship
     END IF;
@@ -364,14 +364,14 @@ DELIMITER ;
                     <text x="180" y="92" fill="#c7d2fe" fontSize="8 font-mono" textAnchor="middle">or Multi-Table DML?</text>
                   </g>
 
-                  {/* Yes &rarr; Procedure */}
+                  {/* Yes -> Procedure */}
                   <g>
                     <rect x="360" y="30" width="200" height="45" rx="6" fill="#064e3b" stroke="#10b981" strokeWidth="1.5" />
                     <text x="460" y="52" fill="#34d399" fontSize="9 font-bold" textAnchor="middle">YES → USE PROCEDURE ✅</text>
                     <text x="460" y="65" fill="#a7f3d0" fontSize="7 font-mono" textAnchor="middle">CALL sp_name(IN, OUT)</text>
                   </g>
 
-                  {/* No &rarr; Function */}
+                  {/* No -> Function */}
                   <g>
                     <rect x="360" y="95" width="200" height="45" rx="6" fill="#1e1b4b" stroke="#818cf8" strokeWidth="1.5" />
                     <text x="460" y="117" fill="#c7d2fe" fontSize="9 font-bold" textAnchor="middle">NO → USE FUNCTION ✅</text>
@@ -424,7 +424,7 @@ DELIMITER ;
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(

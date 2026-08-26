@@ -361,7 +361,7 @@ LIMIT 1 FOR UPDATE SKIP LOCKED;
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(
@@ -478,7 +478,7 @@ LIMIT 1 FOR UPDATE SKIP LOCKED;
 {`-- Production Pessimistic Balance Debit Procedure:
 START TRANSACTION;
 SELECT balance INTO v_bal FROM student_wallets WHERE student_id = p_id FOR UPDATE;
-IF v_bal &ge; p_amount THEN
+IF v_bal >= p_amount THEN
     UPDATE student_wallets SET balance = balance - p_amount WHERE student_id = p_id;
     INSERT INTO wallet_transactions (student_id, amount) VALUES (p_id, p_amount);
     COMMIT;

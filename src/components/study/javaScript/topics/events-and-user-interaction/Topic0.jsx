@@ -28,7 +28,7 @@ export default class Topic0 extends Component {
         <CodeBlock
           language="html"
           code={`<button id="btn">Click Me</button>`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"
@@ -36,7 +36,7 @@ export default class Topic0 extends Component {
 btn.addEventListener("click", () => {
   console.log("Button clicked!");
 });`}
-        /&gt;
+        />
 
         <p className="text-slate-400 text-sm">
           In class, students like Ritaja and Kaustav practice this when learning basic DOM events.
@@ -53,7 +53,7 @@ btn.addEventListener("click", () => {
         <CodeBlock
           language="html"
           code={`<input type="text" id="nameInput" placeholder="Type your name" />`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"
@@ -62,7 +62,7 @@ btn.addEventListener("click", () => {
 nameInput.addEventListener("input", () => {
   console.log(nameInput.value);
 });`}
-        /&gt;
+        />
 
         <p className="text-slate-400 text-sm">
           Ideal when students like Susmita or Pranjali type their names and see the result instantly.
@@ -83,7 +83,7 @@ nameInput.addEventListener("input", () => {
   <option>Python</option>
   <option>GST</option>
 </select>`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"
@@ -92,7 +92,7 @@ nameInput.addEventListener("input", () => {
 course.addEventListener("change", () => {
   console.log("Selected:", course.value);
 });`}
-        /&gt;
+        />
 
         <p className="text-slate-400 text-sm">
           Used at admission desk when students choose their course.
@@ -112,7 +112,7 @@ course.addEventListener("change", () => {
   <input type="text" placeholder="Student Name" />
   <button type="submit">Submit</button>
 </form>`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"
@@ -122,7 +122,7 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();  // stop page reload
   console.log("Form submitted!");
 });`}
-        /&gt;
+        />
 
         <p className="text-slate-400 text-sm">
           Teachers like Sukanta Hui demonstrate this while showing validation.
@@ -139,7 +139,7 @@ form.addEventListener("submit", (e) => {
         <CodeBlock
           language="html"
           code={`<input type="text" id="textBox" placeholder="Press any key" />`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"
@@ -169,7 +169,7 @@ box.addEventListener("keyup", (e) => {
         <CodeBlock
           language="html"
           code={`<div id="box" style="width:120px;height:120px;background:#334155"></div>`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"

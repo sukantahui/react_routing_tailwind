@@ -189,7 +189,7 @@ const Topic2 = () => {
                       ? `bg-${imp.color}-600 text-white` 
                       : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                   )}
-                &gt;
+                >
                   {imp.label}
                 </button>
               ))}
@@ -209,7 +209,7 @@ const Topic2 = () => {
                     value={distance}
                     onChange={(e) => setDistance(parseInt(e.target.value))}
                     className="w-full h-2 bg-gray-200 dark:bg-gray-600 rounded-lg appearance-none cursor-pointer"
-                  /&gt;
+                  />
                   <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
                     Signal strength at {distance}m: {(getAttenuationEffect() * 100).toFixed(0)}%
                   </p>
@@ -231,7 +231,7 @@ const Topic2 = () => {
                             ? "bg-red-600 text-white"
                             : "bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300"
                         )}
-                      &gt;
+                      >
                         {level === 0 ? "None" : level === 1 ? "Moderate" : "High"}
                       </button>
                     ))}

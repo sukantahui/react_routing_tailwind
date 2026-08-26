@@ -71,7 +71,7 @@ authors = [
     { name = "Sukanta Hui", email = "contact@codernaccotax.co.in" }
 ]
 dependencies = [
-    "pydantic &ge; 2.6.0",
+    "pydantic>=2.6.0",
     "rich>=13.7.0"
 ]
 
@@ -278,7 +278,7 @@ addopts = "-v --cov=src --cov-report=term-missing"`;
                     ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 src/ Layout Blueprint
               </button>
               <button
@@ -289,7 +289,7 @@ addopts = "-v --cov=src --cov-report=term-missing"`;
                     ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 Layered Dependency Tiers
               </button>
               <button
@@ -300,7 +300,7 @@ addopts = "-v --cov=src --cov-report=term-missing"`;
                     ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 12-Factor Config Flow
               </button>
             </div>
@@ -495,7 +495,7 @@ addopts = "-v --cov=src --cov-report=term-missing"`;
                         ? "bg-teal-950/60 border-teal-500 shadow-md shadow-teal-950/50"
                         : "bg-slate-900/60 border-slate-800 hover:border-slate-700 text-slate-400"
                     )}
-                  &gt;
+                  >
                     <div className="text-base mb-1">{item.icon} <strong className="text-slate-200 text-xs sm:text-sm">{item.label}</strong></div>
                     <div className="text-[11px] text-teal-400 font-mono">{item.tag}</div>
                   </button>
@@ -519,7 +519,7 @@ addopts = "-v --cov=src --cov-report=term-missing"`;
                         ? "bg-cyan-950/80 border-cyan-500 text-cyan-300 shadow-sm"
                         : "bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700"
                     )}
-                  &gt;
+                  >
                     build-backend = "{backend}"
                   </button>
                 ))}

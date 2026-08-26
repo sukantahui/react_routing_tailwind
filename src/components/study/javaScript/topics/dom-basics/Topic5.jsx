@@ -34,7 +34,7 @@ export default class Topic5 extends Component {
   <button id="inc">Increase</button>
   <button id="dec">Decrease</button>
 </div>`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"
@@ -74,7 +74,7 @@ dec.addEventListener("click", () => {
           language="html"
           code={`<input type="password" id="pass" placeholder="Enter password" />
 <button id="toggle">Show</button>`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"
@@ -90,7 +90,7 @@ toggle.addEventListener("click", () => {
     toggle.innerText = "Show";
   }
 });`}
-        /&gt;
+        />
 
         <p className="text-slate-400 text-sm">
           In class, teacher Sukanta Hui demonstrates how websites like banking portals use this simple logic.
@@ -122,7 +122,7 @@ toggle.addEventListener("click", () => {
     Classes are taken by Sukanta Hui and Tanusree Hui.
   </p>
 </div>`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"

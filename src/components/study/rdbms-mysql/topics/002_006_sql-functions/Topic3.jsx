@@ -295,7 +295,7 @@ FROM students;`,
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 1. ROUND vs TRUNCATE
               </button>
 
@@ -307,7 +307,7 @@ FROM students;`,
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 2. CEIL Pagination
               </button>
 
@@ -319,7 +319,7 @@ FROM students;`,
                     ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 3. ABS Variance (₹)
               </button>
 
@@ -331,7 +331,7 @@ FROM students;`,
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 4. MOD Partitioning
               </button>
             </div>

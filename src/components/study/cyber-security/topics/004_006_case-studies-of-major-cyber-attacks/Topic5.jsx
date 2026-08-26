@@ -261,7 +261,7 @@ const Topic5 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     killSwitchRegistered ? "bg-emerald-600 text-white" : "bg-rose-900 text-rose-200"
                   )}
-                &gt;
+                >
                   {killSwitchRegistered ? "REGISTERED (Sinkholed)" : "UNREGISTERED (Attacks)"}
                 </button>
               </div>
@@ -278,7 +278,7 @@ const Topic5 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     ms17010Patched ? "bg-blue-600 text-white" : "bg-slate-700 text-gray-400"
                   )}
-                &gt;
+                >
                   {ms17010Patched ? "PATCHED" : "UNPATCHED (Vulnerable)"}
                 </button>
               </div>
@@ -295,7 +295,7 @@ const Topic5 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     !smb1ProtocolActive ? "bg-emerald-600 text-white" : "bg-rose-900 text-rose-200"
                   )}
-                &gt;
+                >
                   {!smb1ProtocolActive ? "UNINSTALLED / DISABLED" : "ENABLED (1980s Legacy)"}
                 </button>
               </div>
@@ -314,7 +314,7 @@ const Topic5 = () => {
                   value={totalSubnetEndpoints}
                   onChange={(e) => setTotalSubnetEndpoints(parseInt(e.target.value))}
                   className="w-full accent-amber-500 cursor-pointer"
-                /&gt;
+                />
               </div>
             </div>
 
@@ -383,7 +383,7 @@ const Topic5 = () => {
                   ? "bg-amber-600/20 border-amber-500 text-amber-200 ring-2 ring-amber-500 shadow-md"
                   : "bg-slate-950 border-slate-800 text-gray-400 hover:bg-slate-800"
               )}
-            &gt;
+            >
               <div className="font-bold text-amber-400 text-sm">WannaCry (May 2017)</div>
               <p className="text-[11px] text-gray-400 mt-1">
                 Lazarus Group • Real Crypto-Ransomware • Kill-Switch Enabled • NHS UK Crisis
@@ -398,7 +398,7 @@ const Topic5 = () => {
                   ? "bg-rose-600/20 border-rose-500 text-rose-200 ring-2 ring-rose-500 shadow-md"
                   : "bg-slate-950 border-slate-800 text-gray-400 hover:bg-slate-800"
               )}
-            &gt;
+            >
               <div className="font-bold text-rose-400 text-sm">NotPetya (June 2017)</div>
               <p className="text-[11px] text-gray-400 mt-1">
                 Sandworm GRU • Destructive Wiper • M.E.Doc Supply Chain • Maersk & Merck Fallout
@@ -490,7 +490,7 @@ const Topic5 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     perimeterPort445Blocked ? "bg-emerald-600 text-white" : "bg-rose-900 text-rose-200"
                   )}
-                &gt;
+                >
                   {perimeterPort445Blocked ? "BLOCKED (+35 pts)" : "OPEN (Exposed)"}
                 </button>
               </div>
@@ -506,7 +506,7 @@ const Topic5 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     eastWestMicrosegmentation ? "bg-emerald-600 text-white" : "bg-rose-900 text-rose-200"
                   )}
-                &gt;
+                >
                   {eastWestMicrosegmentation ? "ENFORCED (+35 pts)" : "FLAT VLAN"}
                 </button>
               </div>
@@ -522,7 +522,7 @@ const Topic5 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     immutableWormBackups ? "bg-emerald-600 text-white" : "bg-rose-900 text-rose-200"
                   )}
-                &gt;
+                >
                   {immutableWormBackups ? "WORM LOCKED (+30 pts)" : "STANDARD NAS"}
                 </button>
               </div>
@@ -546,7 +546,7 @@ const Topic5 = () => {
                     <p className="text-gray-300 text-[11px] leading-relaxed font-sans">
                       {hardeningScore === 100
                         ? "PERFECT: Multi-tier anti-worm posture active. Inbound Port 445 scans are dropped at the edge, host firewalls prevent Patient Zero from infecting neighboring workstations, and immutable WORM backups guarantee bare-metal recovery."
-                        : hardeningScore &ge; 65
+                        : hardeningScore >= 65
                         ? "MODERATE: Perimeter is secure, but a single infected laptop on internal Wi-Fi can spread laterally across internal subnets."
                         : "CRITICAL: Flat unsegmented network vulnerable to catastrophic domain-wide infection in minutes (identical to Maersk/NHS 2017 posture)."}
                     </p>
@@ -615,7 +615,7 @@ const Topic5 = () => {
                     ? "bg-amber-500/20 text-amber-300 border border-amber-500/50"
                     : "text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 1. Hospital Vulnerability Findings (Barrackpore & Kolkata)
               </button>
               <button
@@ -626,7 +626,7 @@ const Topic5 = () => {
                     ? "bg-amber-500/20 text-amber-300 border border-amber-500/50"
                     : "text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 2. Deployed Defense & Immutable WORM Backups
               </button>
             </div>

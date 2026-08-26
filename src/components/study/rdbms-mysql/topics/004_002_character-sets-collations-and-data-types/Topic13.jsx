@@ -43,8 +43,8 @@ CREATE TABLE enterprise_product_catalog (
     attributes JSON NOT NULL,
     
     -- 0-Byte VIRTUAL Generated Columns for Instant B+ Tree Indexing:
-    brand VARCHAR(50) GENERATED ALWAYS AS (attributes &rarr; &gt;'$.brand') VIRTUAL NOT NULL,
-    rating DECIMAL(3, 2) GENERATED ALWAYS AS (CAST(attributes &rarr;&rarr; '$.rating' AS DECIMAL(3,2))) VIRTUAL,
+    brand VARCHAR(50) GENERATED ALWAYS AS (attributes->>'$.brand') VIRTUAL NOT NULL,
+    rating DECIMAL(3, 2) GENERATED ALWAYS AS (CAST(attributes->>'$.rating' AS DECIMAL(3,2))) VIRTUAL,
     
     -- Warehouse GPS Coordinate (WGS 84 Ellipsoid):
     warehouse_location POINT NOT NULL SRID 4326,
@@ -117,7 +117,7 @@ INSERT INTO enterprise_product_catalog
       badgeColor: "amber",
       sqlSnippet: `-- ⚡ MULTI-FACETED QUERY EXECUTING ACROSS ALL 3 PARADIGMS:
 -- User Request: Find products under ₹2,00,000 with 'gaming' tag,
--- brand = 'Lenovo', rated &ge; 4.5, located within 25 km of Barrackpore!
+-- brand = 'Lenovo', rated >= 4.5, located within 25 km of Barrackpore!
 
 SET @barrackpore_gps = ST_GeomFromText('POINT(88.3533 22.7634)', 4326);
 
@@ -130,10 +130,10 @@ SELECT
     rating,
     ROUND(ST_Distance(warehouse_location, @barrackpore_gps) / 1000, 2) AS distance_km
 FROM enterprise_product_catalog
-WHERE base_price_inr &le; 200000.00                              -- Relational Filter
+WHERE base_price_inr <= 200000.00                              -- Relational Filter
   AND brand = 'Lenovo'                                         -- Virtual Column Index Seek
   AND rating >= 4.50                                           -- Virtual Rating Index Seek
-  AND 'gaming' MEMBER OF (attributes &rarr; '$.tags')                -- Multi-Valued Array Seek ⚡
+  AND 'gaming' MEMBER OF (attributes->'$.tags')                -- Multi-Valued Array Seek ⚡
   AND ST_Distance(warehouse_location, @barrackpore_gps) <= 25000 -- Spatial Radius Filter 📍
 ORDER BY rating DESC, base_price_inr ASC;
 
@@ -165,7 +165,7 @@ UPDATE enterprise_product_catalog
 SET attributes = JSON_SET(
     attributes,
     '$.last_purchased_at', UTC_TIMESTAMP(),
-    '$.tags', JSON_ARRAY_APPEND(attributes &rarr; '$.tags', '$', 'trending-deal')
+    '$.tags', JSON_ARRAY_APPEND(attributes->'$.tags', '$', 'trending-deal')
 )
 WHERE sku = 'LAP-LEGION-PRO';
 
@@ -375,7 +375,7 @@ COMMIT;
 
                 <rect x="665" y="240" width="250" height="75" rx="4" fill="#1e293b" stroke="#be123c" />
                 <text x="675" y="260" fill="#fca5a5" fontSize="10" fontWeight="bold">MULTI-PARADIGM QUERY:</text>
-                <text x="675" y="278" fill="#34d399" fontSize="9" fontWeight="bold">WHERE price <= 200000</text>
+                <text x="675" y="278" fill="#34d399" fontSize="9" fontWeight="bold">WHERE price &lt;= 200000</text>
                 <text x="675" y="293" fill="#bae6fd" fontSize="8">&amp; 'gaming' MEMBER OF tags &amp; 25km</text>
               </svg>
             </div>
@@ -408,7 +408,7 @@ COMMIT;
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                &gt;
+                >
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",
@@ -542,7 +542,7 @@ COMMIT;
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                In Kolkata, a hyper-local same-day delivery engine required filtering products by in-stock quantity (<code>{"stock_quantity &gt; 0"}</code>), category tags (`'express-delivery'`), and warehouse location within 10 km of the customer's live GPS coordinates. The hybrid schema executed the multi-paradigm query across relational, multi-valued, and spatial R-Tree indexes simultaneously in 2.4 milliseconds.
+                In Kolkata, a hyper-local same-day delivery engine required filtering products by in-stock quantity (<code>{"stock_quantity > 0"}</code>), category tags (`'express-delivery'`), and warehouse location within 10 km of the customer's live GPS coordinates. The hybrid schema executed the multi-paradigm query across relational, multi-valued, and spatial R-Tree indexes simultaneously in 2.4 milliseconds.
               </p>
             </div>
           </div>
@@ -580,7 +580,7 @@ COMMIT;
                 Querying `MEMBER OF()` or `JSON_CONTAINS()` without creating a Multi-Valued Index forces full table scans across millions of JSON documents.
               </p>
               <div className="text-xs font-mono text-emerald-400 p-2 bg-slate-950 rounded border border-slate-800">
-                Rule: Always add <code>{"CAST(doc &rarr; '$.arr' AS ... ARRAY)"}</code> index on hot tag arrays.
+                Rule: Always add <code>{"CAST(doc->'$.arr' AS ... ARRAY)"}</code> index on hot tag arrays.
               </div>
             </div>
 

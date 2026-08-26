@@ -37,7 +37,7 @@ int main() {
     printf("Hello, C!\\n");
     return 0;
 }`}
-        /&gt;
+        />
 
         {/* Breakdown */}
         <h3 className="text-lg text-slate-200 font-semibold">Program Breakdown</h3>

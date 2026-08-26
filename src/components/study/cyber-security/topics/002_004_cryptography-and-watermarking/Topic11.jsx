@@ -82,7 +82,7 @@ const Topic11 = () => {
       key: "zero_knowledge",
       name: "Zero-Knowledge Succinct Proofs (zk-SNARKs & zk-STARKs)",
       mathProblem: "Elliptic curve pairings and polynomial commitment schemes (KZG / FRI) proving knowledge without data disclosure.",
-      realWorldUse: "Privacy-preserving digital identity (e.g. proving 'Age &ge; 18' without revealing Aadhaar birthdate) and blockchain rollups.",
+      realWorldUse: "Privacy-preserving digital identity (e.g. proving 'Age >= 18' without revealing Aadhaar birthdate) and blockchain rollups.",
       performance: "Succinct proof size (<500 bytes); sub-millisecond verification time on resource-constrained mobile devices.",
       roadmap: "Integrated into next-generation Web3 identity protocols and national digital governance frameworks.",
       badgeClass: "bg-emerald-950 text-emerald-300 border-emerald-800"
@@ -220,7 +220,7 @@ const Topic11 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="font-bold text-gray-200 truncate">{sec.name.split(". ")[1]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{sec.name.split(". ")[0]}</div>
                 </button>
@@ -292,7 +292,7 @@ const Topic11 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="font-bold text-sm text-gray-200">{tech.name.split(" (")[0]}</div>
                   <div className="text-[10px] text-gray-400 mt-1">{tech.name.includes("(") ? tech.name.split("(")[1].replace(")", "") : "Technology"}</div>
                 </button>
@@ -489,7 +489,7 @@ const Topic11 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

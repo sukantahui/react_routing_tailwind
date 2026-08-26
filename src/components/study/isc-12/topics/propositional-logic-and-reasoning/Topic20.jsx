@@ -15,7 +15,7 @@ const Topic20 = () => {
 
   // Complex condition demo
   const canAccessAdminPanel = isLoggedIn && (isAdmin || hasPermission);
-  const canDrive = age &ge; 18 && hasLicense;
+  const canDrive = age >= 18 && hasLicense;
   const canVote = age >= 18;
 
   // Truth table for common logical conditions in programming
@@ -163,9 +163,9 @@ if (!isWeekend || !isHoliday) { ... }`,
             <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
               <h3 className="font-bold mb-2">🔐 Admin Panel Access</h3>
               <div className="space-y-2">
-                <label className="flex items-center gap-2"><input type="checkbox" checked={isLoggedIn} onChange={() => setIsLoggedIn(!isLoggedIn)} /&gt; Logged In</label>
-                <label className="flex items-center gap-2"><input type="checkbox" checked={isAdmin} onChange={() => setIsAdmin(!isAdmin)} /&gt; Is Admin</label>
-                <label className="flex items-center gap-2"><input type="checkbox" checked={hasPermission} onChange={() => setHasPermission(!hasPermission)} /&gt; Has Permission</label>
+                <label className="flex items-center gap-2"><input type="checkbox" checked={isLoggedIn} onChange={() => setIsLoggedIn(!isLoggedIn)} /> Logged In</label>
+                <label className="flex items-center gap-2"><input type="checkbox" checked={isAdmin} onChange={() => setIsAdmin(!isAdmin)} /> Is Admin</label>
+                <label className="flex items-center gap-2"><input type="checkbox" checked={hasPermission} onChange={() => setHasPermission(!hasPermission)} /> Has Permission</label>
               </div>
               <div className="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded">
                 <code className="text-sm">if (isLoggedIn && (isAdmin || hasPermission))</code>
@@ -177,13 +177,13 @@ if (!isWeekend || !isHoliday) { ... }`,
             <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
               <h3 className="font-bold mb-2">🚗 Driving Eligibility</h3>
               <div className="space-y-2">
-                <label className="flex items-center gap-2">Age: <input type="number" min="0" max="120" value={age} onChange={(e) => setAge(parseInt(e.target.value) || 0)} className="w-16 px-1 border rounded dark:bg-gray-700" /&gt;</label>
-                <label className="flex items-center gap-2"><input type="checkbox" checked={hasLicense} onChange={() => setHasLicense(!hasLicense)} /&gt; Has License</label>
+                <label className="flex items-center gap-2">Age: <input type="number" min="0" max="120" value={age} onChange={(e) => setAge(parseInt(e.target.value) || 0)} className="w-16 px-1 border rounded dark:bg-gray-700" /></label>
+                <label className="flex items-center gap-2"><input type="checkbox" checked={hasLicense} onChange={() => setHasLicense(!hasLicense)} /> Has License</label>
               </div>
               <div className="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded">
-                <code className="text-sm">if (age {`&gt;`}= 18 && hasLicense)</code>
+                <code className="text-sm">if (age {`>`}= 18 && hasLicense)</code>
                 <p className="mt-1 font-bold">Result: {canDrive ? <span className="text-green-600">✅ Can Drive</span> : <span className="text-red-600">❌ Cannot Drive</span>}</p>
-                <code className="text-sm mt-2 block">if (age {`&gt;`}= 18) // voting condition</code>
+                <code className="text-sm mt-2 block">if (age {`>`}= 18) // voting condition</code>
                 <p className="font-bold">Voting Eligible: {canVote ? <span className="text-green-600">✅ Yes</span> : <span className="text-red-600">❌ No</span>}</p>
               </div>
             </div>

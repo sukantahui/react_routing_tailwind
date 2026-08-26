@@ -16,7 +16,7 @@ export default function ReactCodeBlock({
         <button
           onClick={() => setShowPreview(!showPreview)}
           className="px-2 py-1 rounded bg-slate-700 hover:bg-slate-600"
-        &gt;
+        >
           {showPreview ? "Hide Preview" : "Show Preview"}
         </button>
       </div>

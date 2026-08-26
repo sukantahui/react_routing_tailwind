@@ -32,8 +32,8 @@ SELECT
     ROUND(@@innodb_buffer_pool_size / 1024 / 1024 / 1024, 2) AS size_gb;
 
 -- 2. DEDICATED DATABASE SERVER SIZING GUIDELINE:
--- Server RAM = 64 GB &rarr; Set innodb_buffer_pool_size = 48 GB (75%)
--- Server RAM = 128 GB -&gt; Set innodb_buffer_pool_size = 96 GB (75%)
+-- Server RAM = 64 GB -> Set innodb_buffer_pool_size = 48 GB (75%)
+-- Server RAM = 128 GB -> Set innodb_buffer_pool_size = 96 GB (75%)
 -- Server RAM = 256 GB -> Set innodb_buffer_pool_size = 192 GB (75%)
 
 -- 3. SHARED APPLICATION SERVER (MySQL + Node.js / Redis):
@@ -347,7 +347,7 @@ WHERE reads.variable_name = 'Innodb_buffer_pool_reads';
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                &gt;
+                >
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",

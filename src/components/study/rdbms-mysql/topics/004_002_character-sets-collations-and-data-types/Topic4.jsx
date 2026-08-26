@@ -33,7 +33,7 @@ const Topic4 = () => {
 
 -- 2. VARCHAR(10) utf8mb4 storing 'Kolkata':
 --    - Stores 7 characters ('Kolkata' = 7 bytes).
---    - Adds 2-byte length prefix (since 10 * 4 = 40 max bytes &le; 255 -&gt; 1-byte prefix!).
+--    - Adds 2-byte length prefix (since 10 * 4 = 40 max bytes <= 255 -> 1-byte prefix!).
 --    - Total on-disk = 1 byte prefix + 7 bytes = 8 Bytes!
 --    - Trailing spaces are preserved!
 
@@ -354,7 +354,7 @@ CREATE TABLE blog_posts (
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                &gt;
+                >
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",

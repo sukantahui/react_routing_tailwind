@@ -316,7 +316,7 @@ const Topic3 = () => {
                         ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                         : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  &gt;
+                  >
                     1 (Checks Enabled)
                   </button>
                   <button
@@ -327,7 +327,7 @@ const Topic3 = () => {
                         ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                         : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  &gt;
+                  >
                     0 (Checks Disabled)
                   </button>
                 </div>
@@ -342,7 +342,7 @@ const Topic3 = () => {
                     value={testStudentId}
                     onChange={(e) => setTestStudentId(Number(e.target.value))}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  &gt;
+                  >
                     <option value={101}>101 (Mamata - Valid)</option>
                     <option value={102}>102 (Abhronila - Valid)</option>
                     <option value={999}>999 (Non-Existent!)</option>
@@ -359,7 +359,7 @@ const Topic3 = () => {
                     value={paymentAmount}
                     onChange={(e) => setPaymentAmount(Number(e.target.value))}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  /&gt;
+                  />
                 </div>
               </div>
 

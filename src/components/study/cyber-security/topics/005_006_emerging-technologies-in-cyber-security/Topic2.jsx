@@ -24,7 +24,7 @@ const Topic2 = () => {
     let risk = 10;
     if (isImpossibleTravel) risk += 45;
     if (loginHour < 6 || loginHour > 22) risk += 20;
-    if (dataVolumeMb &gt; 500) risk += 25;
+    if (dataVolumeMb > 500) risk += 25;
 
     risk = Math.min(risk, 100);
 
@@ -32,7 +32,7 @@ const Topic2 = () => {
     let badgeColor = "";
     let action = "";
 
-    if (risk &ge; 75) {
+    if (risk >= 75) {
       verdict = "CRITICAL ANOMALY / ACCOUNT COMPROMISE 🚨";
       badgeColor = "bg-rose-950 text-rose-300 border-rose-700";
       action = "Instant SOAR trigger: Active OAuth tokens revoked, host quarantined, and forensic memory dump dispatched.";
@@ -200,7 +200,7 @@ const Topic2 = () => {
               <div className="space-y-1.5">
                 <div className="flex justify-between text-slate-300 font-semibold">
                   <span>Access Time:</span>
-                  <span className="font-mono text-cyan-400">{loginHour}:00 IST ({loginHour &ge; 6 && loginHour &le; 22 ? "Normal Working Hours ✔" : "Off-Hours Anomaly 🚨"})</span>
+                  <span className="font-mono text-cyan-400">{loginHour}:00 IST ({loginHour >= 6 && loginHour <= 22 ? "Normal Working Hours ✔" : "Off-Hours Anomaly 🚨"})</span>
                 </div>
                 <input
                   type="range"
@@ -210,13 +210,13 @@ const Topic2 = () => {
                   value={loginHour}
                   onChange={(e) => setLoginHour(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1.5">
                 <div className="flex justify-between text-slate-300 font-semibold">
                   <span>Data Transfer Volume:</span>
-                  <span className="font-mono text-amber-400 font-bold">{dataVolumeMb} MB ({dataVolumeMb &gt; 500 ? "Bulk Exfil Indicator 🚨" : "Normal Volume ✔"})</span>
+                  <span className="font-mono text-amber-400 font-bold">{dataVolumeMb} MB ({dataVolumeMb > 500 ? "Bulk Exfil Indicator 🚨" : "Normal Volume ✔"})</span>
                 </div>
                 <input
                   type="range"
@@ -226,7 +226,7 @@ const Topic2 = () => {
                   value={dataVolumeMb}
                   onChange={(e) => setDataVolumeMb(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
-                /&gt;
+                />
               </div>
 
               <label className="flex items-center justify-between p-3 bg-slate-900 rounded-lg border border-slate-800 cursor-pointer pt-2">
@@ -239,7 +239,7 @@ const Topic2 = () => {
                   checked={isImpossibleTravel}
                   onChange={(e) => setIsImpossibleTravel(e.target.checked)}
                   className="accent-rose-500 w-4 h-4"
-                /&gt;
+                />
               </label>
             </div>
 
@@ -247,7 +247,7 @@ const Topic2 = () => {
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
                   <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Composite UEBA Risk Score</span>
-                  <span className={clsx("font-mono text-2xl font-black", uebaAssessment.risk >= 75 ? "text-rose-400" : uebaAssessment.risk &ge; 40 ? "text-amber-400" : "text-emerald-400")}&gt;
+                  <span className={clsx("font-mono text-2xl font-black", uebaAssessment.risk >= 75 ? "text-rose-400" : uebaAssessment.risk >= 40 ? "text-amber-400" : "text-emerald-400")}>
                     {uebaAssessment.risk} / 100
                   </span>
                 </div>
@@ -300,7 +300,7 @@ const Topic2 = () => {
                   value={cvssScore}
                   onChange={(e) => setCvssScore(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1.5">
@@ -316,7 +316,7 @@ const Topic2 = () => {
                   value={darkWebMentions}
                   onChange={(e) => setDarkWebMentions(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-rose-500"
-                /&gt;
+                />
               </div>
 
               <label className="flex items-center justify-between p-3 bg-slate-900 rounded-lg border border-slate-800 cursor-pointer pt-2">
@@ -329,7 +329,7 @@ const Topic2 = () => {
                   checked={hasPublicPoc}
                   onChange={(e) => setHasPublicPoc(e.target.checked)}
                   className="accent-rose-500 w-4 h-4"
-                /&gt;
+                />
               </label>
             </div>
 
@@ -337,12 +337,12 @@ const Topic2 = () => {
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
                   <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">EPSS Exploit Probability (30-Day)</span>
-                  <span className={clsx("font-mono text-2xl font-black", parseFloat(epssCalculation.epssProb) >= 60 ? "text-rose-400" : "text-emerald-400")}&gt;
+                  <span className={clsx("font-mono text-2xl font-black", parseFloat(epssCalculation.epssProb) >= 60 ? "text-rose-400" : "text-emerald-400")}>
                     {epssCalculation.epssProb}%
                   </span>
                 </div>
                 <p className="text-xs md:text-sm text-slate-200 leading-relaxed bg-slate-900 p-4 rounded-lg border border-slate-800">
-                  {parseFloat(epssCalculation.epssProb) &ge; 60
+                  {parseFloat(epssCalculation.epssProb) >= 60
                     ? "CRITICAL URGENCY: Active exploit scripts circulating with high dark web demand. Automated botnet scanning in progress."
                     : "THEORETICAL EXPOSURE: High theoretical CVSS score, but zero active in-the-wild exploitation. Can be scheduled for standard monthly maintenance."}
                 </p>
@@ -371,7 +371,7 @@ const Topic2 = () => {
             <button
               onClick={() => setPlaybookTriggered(true)}
               className="px-4 py-1.5 bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold rounded-lg shadow-lg shadow-rose-950 transition-all duration-200"
-            &gt;
+            >
               Trigger Emergency SOAR Playbook ⚡
             </button>
           </div>
@@ -438,7 +438,7 @@ const Topic2 = () => {
                       ? "bg-amber-600 text-white shadow-lg shadow-amber-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                &gt;
+                >
                   {key === "barrackpore_soar" ? "Barrackpore SOAR" : key === "kolkata_fintech_epss" ? "Kolkata EPSS Patching" : "Ichapur UEBA Defense"}
                 </button>
               ))}

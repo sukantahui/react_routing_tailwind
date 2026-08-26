@@ -149,7 +149,7 @@ const Topic7 = () => {
       id: "saltlake_clearinghouse",
       title: "Salt Lake Sector V Interbank Clearinghouse Dual-DMZ",
       location: "Sector V, Salt Lake City, Kolkata, West Bengal",
-      topology: "3-Tier Multi-Tier Dual DMZ (Web DMZ &rarr; App DMZ -> Core Vault)",
+      topology: "3-Tier Multi-Tier Dual DMZ (Web DMZ -> App DMZ -> Core Vault)",
       threatScenario: "Sophisticated API exploit targeting transaction submission endpoints across 50,000 requests/second.",
       solution: "Mamata and Mahima deployed a Dual-DMZ architecture: Web presentation tier connects only to Application middleware in DMZ 2 via gRPC mTLS; zero direct database reachability exists from the web tier.",
       outcome: "Maintained 99.999% uptime for core UPI transactions with complete database isolation."
@@ -336,7 +336,7 @@ const Topic7 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              &gt;
+              >
                 {a.title}
               </button>
             ))}
@@ -405,7 +405,7 @@ const Topic7 = () => {
                 value={selectedAttackScenario}
                 onChange={(e) => setSelectedAttackScenario(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              &gt;
+              >
                 {Object.values(attackScenarios).map((s) => (
                   <option key={s.id} value={s.id}>
                     {s.label}
@@ -424,7 +424,7 @@ const Topic7 = () => {
                     ? "bg-purple-950/80 text-purple-300 border-purple-800"
                     : "bg-amber-950/80 text-amber-300 border-amber-800"
                 )}
-              &gt;
+              >
                 {vendorDiversityEnabled ? "✔ Heterogeneous Firewalls (Palo Alto + Fortinet)" : "⚠️ Homogeneous (Single Vendor Both Tiers)"}
               </button>
             </div>
@@ -521,7 +521,7 @@ const Topic7 = () => {
                 value={annualBudgetLakhs}
                 onChange={(e) => setAnnualBudgetLakhs(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -533,7 +533,7 @@ const Topic7 = () => {
                 value={datacenterTier}
                 onChange={(e) => setDatacenterTier(e.target.value)}
                 className="w-full bg-slate-900 border border-slate-700 rounded p-1.5 text-xs text-gray-200 focus:outline-none"
-              &gt;
+              >
                 <option value="tier2">Tier 2 Datacenter (99.741% Uptime)</option>
                 <option value="tier3">Tier 3 Datacenter (99.982% Uptime)</option>
                 <option value="tier4">Tier 4 Datacenter (99.995% Uptime)</option>
@@ -553,7 +553,7 @@ const Topic7 = () => {
                 value={enterpriseRevenueCrores}
                 onChange={(e) => setEnterpriseRevenueCrores(Number(e.target.value))}
                 className="w-full accent-emerald-400 cursor-pointer"
-              /&gt;
+              />
             </div>
           </div>
 
@@ -607,7 +607,7 @@ const Topic7 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 {d.title}
               </button>
             ))}

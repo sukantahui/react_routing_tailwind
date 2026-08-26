@@ -161,7 +161,7 @@ class Topic5 extends React.Component {
                   <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-lg mb-4">
                     <h3 className="font-semibold text-gray-700 dark:text-gray-300 mb-2">The Silent Overwrite Problem:</h3>
                     <pre className="mt-2 p-3 bg-gray-800 text-green-300 rounded-lg overflow-x-auto">
-                      <code>{'$ echo "new content" &gt; existing_file.txt'}</code>
+                      <code>{'$ echo "new content" > existing_file.txt'}</code>
                     </pre>
                     <p className="text-gray-600 dark:text-gray-400 mt-2 text-sm">
                       No warning, no confirmation. The original content of <code>existing_file.txt</code> is gone forever.
@@ -232,8 +232,8 @@ class Topic5 extends React.Component {
                     <ul className="list-disc pl-5 text-gray-600 dark:text-gray-400 space-y-2">
                       <li><code>cp source destination</code> - If destination exists</li>
                       <li><code>mv source destination</code> - If destination exists</li>
-                      <li><code>echo "text" {`&gt;`} file</code> - Redirect overwrites</li>
-                      <li><code>cat file1 {`&gt;`} file2</code> - Output redirection</li>
+                      <li><code>echo "text" {`>`} file</code> - Redirect overwrites</li>
+                      <li><code>cat file1 {`>`} file2</code> - Output redirection</li>
                       <li><code>dd if=source of=dest</code> - Block copying</li>
                     </ul>
                   </div>
@@ -395,7 +395,7 @@ class Topic5 extends React.Component {
                       <code>{'$ cp -v source.txt destination.txt'}</code>
                     </pre>
                     <pre className="mt-2 p-3 bg-gray-800 text-cyan-300 rounded-lg overflow-x-auto">
-                      <code>{'\'source.txt\' &rarr; \'destination.txt\''}</code>
+                      <code>{'\'source.txt\' -> \'destination.txt\''}</code>
                     </pre>
                     <p className="text-gray-600 dark:text-gray-400 mt-2 text-sm">
                       The command shows exactly what it did, creating an audit trail of operations.
@@ -420,19 +420,19 @@ class Topic5 extends React.Component {
                     </text>
                     
                     <text x="40" y="60" fill="#22d3ee" fontFamily="monospace" fontSize="10">
-                      {'project/main.py &rarr; backup/main.py'}
+                      {'project/main.py -> backup/main.py'}
                     </text>
                     
                     <text x="40" y="75" fill="#22d3ee" fontFamily="monospace" fontSize="10">
-                      {'project/config.json &rarr; backup/config.json'}
+                      {'project/config.json -> backup/config.json'}
                     </text>
                     
                     <text x="40" y="90" fill="#22d3ee" fontFamily="monospace" fontSize="10">
-                      {'project/data/ &rarr; backup/data/'}
+                      {'project/data/ -> backup/data/'}
                     </text>
                     
                     <text x="40" y="105" fill="#22d3ee" fontFamily="monospace" fontSize="10">
-                      {'project/data/file1.txt &rarr; backup/data/file1.txt'}
+                      {'project/data/file1.txt -> backup/data/file1.txt'}
                     </text>
                     
                     {/* Verbose Visualization */}
@@ -789,16 +789,16 @@ alias backup='cp -n'`}</code>
                       <div>
                         <h4 className="font-semibold text-gray-700 dark:text-gray-300 mb-1">Shell Option: noclobber</h4>
                         <p className="text-gray-600 dark:text-gray-400">
-                          Set the noclobber shell option to prevent accidental overwrites with <code>{`&gt;`}</code>:
+                          Set the noclobber shell option to prevent accidental overwrites with <code>{`>`}</code>:
                         </p>
                         <pre className="mt-2 p-3 bg-gray-800 text-green-300 rounded-lg overflow-x-auto">
-                          <code>{'set -o noclobber    # Prevent &gt; overwrites'}</code>
+                          <code>{'set -o noclobber    # Prevent > overwrites'}</code>
                         </pre>
                         <pre className="mt-2 p-3 bg-gray-800 text-green-300 rounded-lg overflow-x-auto">
-                          <code>{'set +o noclobber    # Allow &gt; overwrites (default)'}</code>
+                          <code>{'set +o noclobber    # Allow > overwrites (default)'}</code>
                         </pre>
                         <p className="text-gray-600 dark:text-gray-400 mt-2 text-sm">
-                          With noclobber set, use <code>{`&gt;`}|</code> to force overwrite when needed.
+                          With noclobber set, use <code>{`>`}|</code> to force overwrite when needed.
                         </p>
                       </div>
                     </div>
@@ -861,10 +861,10 @@ alias backup='cp -n'`}</code>
                       Output Redirection Overwrites
                     </h4>
                     <p className="text-gray-600 dark:text-gray-400">
-                      <code>echo "data" {`&gt;`} file.txt</code> always overwrites. Beginners often use this for appending but forget the second <code>{`&gt;`}</code>.
+                      <code>echo "data" {`>`} file.txt</code> always overwrites. Beginners often use this for appending but forget the second <code>{`>`}</code>.
                     </p>
                     <div className="mt-2 text-sm text-gray-500 dark:text-gray-500">
-                      <strong>Solution:</strong> Use <code>set -o noclobber</code> or remember: <code>{`&gt;`}</code> overwrites, <code>{`&gt;>`}</code> appends.
+                      <strong>Solution:</strong> Use <code>set -o noclobber</code> or remember: <code>{`>`}</code> overwrites, <code>{`>>`}</code> appends.
                     </div>
                   </div>
                 </div>
@@ -910,10 +910,10 @@ alias backup='cp -n'`}</code>
                       </div>
                       <div>
                         <p className="text-gray-700 dark:text-gray-300 italic mb-2">
-                          {'"Set the noclobber option: set -o noclobber. Now try: echo \"test\" &gt; existing.txt. What happens?"'}
+                          {'"Set the noclobber option: set -o noclobber. Now try: echo \"test\" > existing.txt. What happens?"'}
                         </p>
                         <div className="text-sm text-gray500 dark:text-gray-500 mt-2">
-                          <strong>Hint:</strong> Create existing.txt first. Notice the error. Then try: <code>echo "test" {`&gt;`}| existing.txt</code>
+                          <strong>Hint:</strong> Create existing.txt first. Notice the error. Then try: <code>echo "test" {`>`}| existing.txt</code>
                         </div>
                       </div>
                     </div>
@@ -977,7 +977,7 @@ alias backup='cp -n'`}</code>
                     <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-4">
                       <span className="text-blue-600 font-bold">6</span>
                     </div>
-                    <span><code>set -o noclobber</code> protects <code>{`&gt;`}</code></span>
+                    <span><code>set -o noclobber</code> protects <code>{`>`}</code></span>
                   </div>
                   <div className="flex items-center p-3 bg-white/10 rounded-lg hover:bg-white/20 transition-colors">
                     <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-4">

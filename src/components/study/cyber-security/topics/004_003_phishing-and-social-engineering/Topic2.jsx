@@ -609,7 +609,7 @@ Write-Host "[+] DMARC & External Banner Policies ENFORCED!" -ForegroundColor Gre
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   LAYER
                 </span>
@@ -706,7 +706,7 @@ Write-Host "[+] DMARC & External Banner Policies ENFORCED!" -ForegroundColor Gre
                   value={phishVolume}
                   onChange={(e) => setPhishVolume(parseInt(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1">
@@ -722,7 +722,7 @@ Write-Host "[+] DMARC & External Banner Policies ENFORCED!" -ForegroundColor Gre
                   value={gatewayEfficiency}
                   onChange={(e) => setGatewayEfficiency(parseFloat(e.target.value))}
                   className="w-full accent-emerald-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1">
@@ -738,7 +738,7 @@ Write-Host "[+] DMARC & External Banner Policies ENFORCED!" -ForegroundColor Gre
                   value={humanClickRate}
                   onChange={(e) => setHumanClickRate(parseFloat(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="pt-2 border-t border-gray-800">
@@ -750,7 +750,7 @@ Write-Host "[+] DMARC & External Banner Policies ENFORCED!" -ForegroundColor Gre
                       ? "bg-emerald-950 border-emerald-500 text-emerald-300 shadow-md shadow-emerald-950/50"
                       : "bg-gray-950 border-gray-800 text-gray-400 hover:border-gray-700"
                   )}
-                &gt;
+                >
                   <span>FIDO2 WebAuthn Passkeys:</span>
                   <span className={clsx("px-2 py-0.5 rounded text-[10px]", passkeysActive ? "bg-emerald-900 text-white" : "bg-gray-800 text-gray-400")}>
                     {passkeysActive ? "ENFORCED (0% Submissions)" : "DISABLED (45% Submissions)"}
@@ -817,7 +817,7 @@ Write-Host "[+] DMARC & External Banner Policies ENFORCED!" -ForegroundColor Gre
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 {item.name}
               </button>
             ))}
@@ -866,7 +866,7 @@ Write-Host "[+] DMARC & External Banner Policies ENFORCED!" -ForegroundColor Gre
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

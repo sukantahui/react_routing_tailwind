@@ -71,7 +71,7 @@ export default function Topic10() {
     <div className="dark bg-gray-900 text-gray-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto space-y-10">
         {/* Header */}
-        <header ref={(el) => (sectionsRef.current[0] = el)} className="reveal-section"&gt;
+        <header ref={(el) => (sectionsRef.current[0] = el)} className="reveal-section">
           <h1 className="text-4xl font-bold bg-gradient-to-r from-emerald-400 to-teal-500 bg-clip-text text-transparent">
             Advantages of INDEX-MATCH over VLOOKUP
           </h1>
@@ -81,13 +81,13 @@ export default function Topic10() {
         </header>
 
         {/* Introduction */}
-        <section ref={(el) => (sectionsRef.current[1] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
+        <section ref={(el) => (sectionsRef.current[1] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
           <h2 className="text-2xl font-semibold">🏆 Why INDEX-MATCH is the Industry Standard</h2>
           <p className="mt-2 text-gray-200">While VLOOKUP is easier to learn, INDEX-MATCH is more powerful and resilient. Professional Excel developers almost always prefer INDEX-MATCH for these 5 key advantages:</p>
         </section>
 
         {/* Advantage 1: Left Lookup */}
-        <section ref={(el) => (sectionsRef.current[2] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-emerald-500/50 transition-all"&gt;
+        <section ref={(el) => (sectionsRef.current[2] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-emerald-500/50 transition-all">
           <h3 className="text-xl font-semibold text-emerald-300">1️⃣ Lookup to the Left</h3>
           <p className="mt-2 text-gray-200">VLOOKUP can only return values from columns to the <strong>right</strong> of the lookup column. INDEX-MATCH has no such restriction.</p>
           <div className="mt-3 bg-gray-900 p-3 rounded">
@@ -97,7 +97,7 @@ export default function Topic10() {
         </section>
 
         {/* Advantage 2: No Column Index */}
-        <section ref={(el) => (sectionsRef.current[3] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-emerald-500/50 transition-all"&gt;
+        <section ref={(el) => (sectionsRef.current[3] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-emerald-500/50 transition-all">
           <h3 className="text-xl font-semibold text-emerald-300">2️⃣ No Hard‑Coded Column Index</h3>
           <p className="mt-2 text-gray-200">VLOOKUP requires a column number (e.g., 4). Inserting or deleting columns breaks it. INDEX-MATCH uses a direct column reference – it always finds the right column.</p>
           <div className="mt-3 bg-gray-900 p-3 rounded">
@@ -107,7 +107,7 @@ export default function Topic10() {
         </section>
 
         {/* Advantage 3: Faster on Large Data */}
-        <section ref={(el) => (sectionsRef.current[4] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-emerald-500/50 transition-all"&gt;
+        <section ref={(el) => (sectionsRef.current[4] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-emerald-500/50 transition-all">
           <h3 className="text-xl font-semibold text-emerald-300">3️⃣ Better Performance on Large Datasets</h3>
           <p className="mt-2 text-gray-200">VLOOKUP with exact match scans the entire first column. INDEX-MATCH can be optimised by limiting lookup and return ranges to specific columns, often resulting in 10–20% speed improvement.</p>
           <div className="mt-3 bg-gray-900 p-3 rounded">
@@ -117,7 +117,7 @@ export default function Topic10() {
         </section>
 
         {/* Advantage 4: Two-Way Lookups */}
-        <section ref={(el) => (sectionsRef.current[5] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-emerald-500/50 transition-all"&gt;
+        <section ref={(el) => (sectionsRef.current[5] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-emerald-500/50 transition-all">
           <h3 className="text-xl font-semibold text-emerald-300">4️⃣ Native Two‑Way Lookups (Matrix)</h3>
           <p className="mt-2 text-gray-200">VLOOKUP cannot easily find a value in a matrix where both row and column are dynamic. INDEX-MATCH handles this naturally with two MATCH functions.</p>
           <div className="mt-3 bg-gray-900 p-3 rounded">
@@ -127,7 +127,7 @@ export default function Topic10() {
         </section>
 
         {/* Advantage 5: Column Insertion/Deletion Safe */}
-        <section ref={(el) => (sectionsRef.current[6] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-emerald-500/50 transition-all"&gt;
+        <section ref={(el) => (sectionsRef.current[6] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-emerald-500/50 transition-all">
           <h3 className="text-xl font-semibold text-emerald-300">5️⃣ Survives Structural Changes</h3>
           <p className="mt-2 text-gray-200">If you add or delete columns, VLOOKUP's column index becomes wrong, causing #REF! or wrong data. INDEX-MATCH references columns by header or absolute reference – it adapts.</p>
           <div className="mt-3 bg-gray-900 p-3 rounded">
@@ -137,7 +137,7 @@ export default function Topic10() {
         </section>
 
         {/* Interactive Excel Demo */}
-        <section ref={(el) => (sectionsRef.current[7] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
+        <section ref={(el) => (sectionsRef.current[7] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
           <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
             <h2 className="text-2xl font-semibold">📁 Interactive: Compare VLOOKUP vs INDEX-MATCH</h2>
             {sampleDataUrl && (
@@ -157,7 +157,7 @@ export default function Topic10() {
               rowsPerPage={20}
               showSheetSelector={true}
               onError={() => setExcelError(true)}
-            /&gt;
+            />
           ) : (
             <>
               <div className="bg-yellow-950/40 border border-yellow-700 rounded-lg p-3 mb-3 text-sm">

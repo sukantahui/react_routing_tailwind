@@ -232,7 +232,7 @@ awk '{print NF, NR, $0}' file     # Built-in variables`}
 {
     # Process each record
     total += $3;       # Sum column 3
-    if ($2 &gt; 50)       # Conditional logic
+    if ($2 > 50)       # Conditional logic
         print $1, $2;  # Print specific fields
 }
 
@@ -430,7 +430,7 @@ Roshni Verma,95,96,98,Computer`}
 {
     total = $2 + $3 + $4
     avg = total / 3
-    grade = (avg &ge; 90) ? "A" : (avg >= 80) ? "B" : (avg >= 70) ? "C" : "D"
+    grade = (avg >= 90) ? "A" : (avg >= 80) ? "B" : (avg >= 70) ? "C" : "D"
     printf "%-20s %-8d %-8.2f %-8s\\n", $1, total, avg, grade
     sum += total
 }
@@ -490,7 +490,7 @@ Average Total Marks: 255.40`}
     percentage = ($3/$4) * 100
     
     # Categorize students
-    if (percentage &ge; 75) {
+    if (percentage >= 75) {
         category = "Good"
         good_count++
     } else if (percentage >= 50) {
@@ -518,7 +518,7 @@ END {
     print "Poor (" poor_count " students): " poor_count/NR*100 "%"
     print ""
     print "Students Needing Attention:"
-    for (i=1; i &le; NR; i++) {
+    for (i=1; i<=NR; i++) {
         if (categories[i] == "Poor") {
             printf "%-20s (Center: %s): %.1f%%\\n", 
                    students[i], center[i], percentages[i]

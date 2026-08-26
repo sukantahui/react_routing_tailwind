@@ -67,7 +67,7 @@ const Topic1 = () => {
 
     const z = (w1 * cibilNorm) + (w2 * incomeNorm) + (w3 * dtiNorm) + bias;
     const prob = 1.0 / (1.0 + Math.exp(-Math.max(Math.min(z, 20.0), -20.0)));
-    const isApproved = prob &ge; 0.50;
+    const isApproved = prob >= 0.50;
 
     return {
       approved: isApproved,
@@ -125,7 +125,7 @@ const Topic1 = () => {
                     ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 border border-indigo-400"
                     : "bg-slate-800/80 text-slate-300 hover:bg-slate-700/80 border border-slate-700/60"
                 )}
-              &gt;
+              >
                 {tab.label}
               </button>
             ))}
@@ -296,7 +296,7 @@ const Topic1 = () => {
                     ? "bg-indigo-950 border-indigo-500 text-white shadow-lg shadow-indigo-500/20"
                     : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 <div className="font-bold truncate">{applicants[key].name}</div>
                 <div className="text-[10px] text-slate-500 truncate">CIBIL: {applicants[key].cibil} | ₹{applicants[key].income}L</div>
               </button>
@@ -321,7 +321,7 @@ const Topic1 = () => {
                 setSelectedApplicant("");
               }}
               className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
-            /&gt;
+            />
             <div className="text-[10px] text-slate-500">Traditional Threshold: Min 700</div>
           </div>
 
@@ -341,7 +341,7 @@ const Topic1 = () => {
                 setSelectedApplicant("");
               }}
               className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
-            /&gt;
+            />
             <div className="text-[10px] text-slate-500">Traditional Threshold: Min ₹5.0 Lakhs</div>
           </div>
 
@@ -360,7 +360,7 @@ const Topic1 = () => {
                 setSelectedApplicant("");
               }}
               className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-500"
-            /&gt;
+            />
             <div className="text-[10px] text-slate-500">Traditional Threshold: Max 40%</div>
           </div>
         </div>

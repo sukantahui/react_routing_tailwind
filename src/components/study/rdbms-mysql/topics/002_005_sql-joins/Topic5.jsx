@@ -317,7 +317,7 @@ WHERE e.staff_id IS NULL;`,
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 1. Employee-Manager
               </button>
 
@@ -329,7 +329,7 @@ WHERE e.staff_id IS NULL;`,
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 2. Two-Tier Chain
               </button>
 
@@ -341,7 +341,7 @@ WHERE e.staff_id IS NULL;`,
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 3. Peer Pairing
               </button>
 
@@ -353,7 +353,7 @@ WHERE e.staff_id IS NULL;`,
                     ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 4. Leaf Employees
               </button>
             </div>
@@ -483,7 +483,7 @@ SELECT
     sub.category_name AS current_category,
     CASE 
         WHEN parent.category_name IS NOT NULL 
-        THEN CONCAT(parent.category_name, ' &gt; ', sub.category_name)
+        THEN CONCAT(parent.category_name, ' > ', sub.category_name)
         ELSE sub.category_name 
     END AS breadcrumb_path
 FROM product_categories sub

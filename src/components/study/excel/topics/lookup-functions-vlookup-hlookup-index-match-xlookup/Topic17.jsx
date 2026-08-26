@@ -58,7 +58,7 @@ export default function Topic17() {
     <div className="dark bg-gray-900 text-gray-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto space-y-10">
         {/* Header */}
-        <header ref={(el) => (sectionsRef.current[0] = el)} className="reveal-section"&gt;
+        <header ref={(el) => (sectionsRef.current[0] = el)} className="reveal-section">
           <h1 className="text-4xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
             Data Validation with Lookup Tables
           </h1>
@@ -68,7 +68,7 @@ export default function Topic17() {
         </header>
 
         {/* What is Data Validation? */}
-        <section ref={(el) => (sectionsRef.current[1] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
+        <section ref={(el) => (sectionsRef.current[1] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
           <h2 className="text-2xl font-semibold">📋 What is Data Validation?</h2>
           <p className="mt-2 text-gray-200">Data Validation restricts what users can enter into a cell. The most common type is a <strong>dropdown list</strong> – a list of allowed values. When combined with lookup functions, it creates an interactive report where selecting an item automatically displays related data.</p>
           <div className="mt-3 bg-gray-900 p-3 rounded">
@@ -78,7 +78,7 @@ export default function Topic17() {
         </section>
 
         {/* Simple Dropdown + VLOOKUP */}
-        <section ref={(el) => (sectionsRef.current[2] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-amber-500/50 transition-all"&gt;
+        <section ref={(el) => (sectionsRef.current[2] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-amber-500/50 transition-all">
           <h2 className="text-2xl font-semibold">🔽 Method 1: Dropdown + VLOOKUP</h2>
           <p className="mt-2 text-gray-200">Create a dropdown of product IDs, then use VLOOKUP to display the product's price, name, or other details.</p>
           <div className="mt-3 bg-gray-900 p-3 rounded">
@@ -92,7 +92,7 @@ export default function Topic17() {
         </section>
 
         {/* Dependent Dropdowns (Two Levels) */}
-        <section ref={(el) => (sectionsRef.current[3] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
+        <section ref={(el) => (sectionsRef.current[3] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
           <h2 className="text-2xl font-semibold">🔗 Dependent Dropdowns (Two Levels)</h2>
           <p className="mt-2 text-gray-200">The second dropdown's options depend on what was selected in the first dropdown. For example: select a Region, then select a City only from that region.</p>
           <div className="mt-3 bg-gray-900 p-3 rounded">
@@ -117,7 +117,7 @@ export default function Topic17() {
         </section>
 
         {/* Real‑world Use Cases */}
-        <section ref={(el) => (sectionsRef.current[4] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
+        <section ref={(el) => (sectionsRef.current[4] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
           <h2 className="text-2xl font-semibold">🏢 Real‑World Use Cases</h2>
           <div className="mt-4 space-y-3">
             <div className="bg-gray-900 p-2 rounded">
@@ -136,7 +136,7 @@ export default function Topic17() {
         </section>
 
         {/* Interactive Excel Demo */}
-        <section ref={(el) => (sectionsRef.current[5] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
+        <section ref={(el) => (sectionsRef.current[5] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
           <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
             <h2 className="text-2xl font-semibold">📁 Interactive: Build Your Own Dashboard</h2>
             {sampleDataUrl && (
@@ -156,7 +156,7 @@ export default function Topic17() {
               rowsPerPage={20}
               showSheetSelector={true}
               onError={() => setExcelError(true)}
-            /&gt;
+            />
           ) : (
             <>
               <div className="bg-yellow-950/40 border border-yellow-700 rounded-lg p-3 mb-3 text-sm">

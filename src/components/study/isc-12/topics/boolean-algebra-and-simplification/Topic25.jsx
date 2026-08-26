@@ -163,7 +163,7 @@ const Topic25 = () => {
     const newValues = {};
     for (let i = 0; i < totalRows; i++) newValues[i] = 0;
     rows.forEach(row => {
-      if (row &ge; 0 && row < totalRows) newValues[row] = 1;
+      if (row >= 0 && row < totalRows) newValues[row] = 1;
     });
     setTruthValues(newValues);
   };
@@ -243,33 +243,33 @@ const Topic25 = () => {
                 clearTruthTable();
               }}
               className={clsx("px-4 py-2 rounded-lg font-medium transition-all", numVariables === 2 ? "bg-orange-500 text-white" : "bg-gray-200 dark:bg-gray-700")}
-            &gt;2 Variables</button>
+            >2 Variables</button>
             <button
               onClick={() => {
                 setNumVariables(3);
                 clearTruthTable();
               }}
               className={clsx("px-4 py-2 rounded-lg font-medium transition-all", numVariables === 3 ? "bg-orange-500 text-white" : "bg-gray-200 dark:bg-gray-700")}
-            &gt;3 Variables</button>
+            >3 Variables</button>
             <button
               onClick={() => {
                 setNumVariables(4);
                 clearTruthTable();
               }}
               className={clsx("px-4 py-2 rounded-lg font-medium transition-all", numVariables === 4 ? "bg-orange-500 text-white" : "bg-gray-200 dark:bg-gray-700")}
-            &gt;4 Variables</button>
+            >4 Variables</button>
           </div>
           
           {/* Example Buttons */}
           <div className="flex flex-wrap gap-2 mb-6">
-            <button onClick={() => setExample('majority')} className="px-3 py-1 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-all text-sm"&gt;Majority (3-var)</button>
-            <button onClick={() => setExample('odd')} className="px-3 py-1 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-all text-sm"&gt;Odd Parity</button>
-            <button onClick={() => setExample('and')} className="px-3 py-1 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-all text-sm"&gt;3-AND</button>
-            <button onClick={() => setExample('or')} className="px-3 py-1 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-all text-sm"&gt;3-OR</button>
+            <button onClick={() => setExample('majority')} className="px-3 py-1 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-all text-sm">Majority (3-var)</button>
+            <button onClick={() => setExample('odd')} className="px-3 py-1 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-all text-sm">Odd Parity</button>
+            <button onClick={() => setExample('and')} className="px-3 py-1 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-all text-sm">3-AND</button>
+            <button onClick={() => setExample('or')} className="px-3 py-1 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-all text-sm">3-OR</button>
             {numVariables === 2 && (
               <>
-                <button onClick={() => setExample('xor')} className="px-3 py-1 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-all text-sm"&gt;XOR</button>
-                <button onClick={() => setExample('nand')} className="px-3 py-1 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-all text-sm"&gt;NAND</button>
+                <button onClick={() => setExample('xor')} className="px-3 py-1 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-all text-sm">XOR</button>
+                <button onClick={() => setExample('nand')} className="px-3 py-1 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-all text-sm">NAND</button>
               </>
             )}
             <button onClick={clearTruthTable} className="px-3 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-lg transition-all text-sm">Clear</button>
@@ -303,7 +303,7 @@ const Topic25 = () => {
                             ? "bg-green-500 hover:bg-green-600 text-white shadow-md" 
                             : "bg-red-500 hover:bg-red-600 text-white shadow-md"
                         )}
-                      &gt;
+                      >
                         {truthValues[row]}
                       </button>
                     </td>
@@ -324,19 +324,19 @@ const Topic25 = () => {
             <button
               onClick={() => setShowMethod('sop')}
               className={clsx("flex-1 py-2 rounded-lg font-medium transition-all", showMethod === 'sop' ? "bg-green-500 text-white" : "bg-gray-200 dark:bg-gray-700")}
-            &gt;
+            >
               SOP (Sum of Products)
             </button>
             <button
               onClick={() => setShowMethod('pos')}
               className={clsx("flex-1 py-2 rounded-lg font-medium transition-all", showMethod === 'pos' ? "bg-purple-500 text-white" : "bg-gray-200 dark:bg-gray-700")}
-            &gt;
+            >
               POS (Product of Sums)
             </button>
             <button
               onClick={() => setShowMethod('simplified')}
               className={clsx("flex-1 py-2 rounded-lg font-medium transition-all", showMethod === 'simplified' ? "bg-orange-500 text-white" : "bg-gray-200 dark:bg-gray-700")}
-            &gt;
+            >
               Simplified
             </button>
           </div>
@@ -373,7 +373,7 @@ const Topic25 = () => {
           <button
             onClick={() => setShowSteps(!showSteps)}
             className="mt-4 w-full py-2 bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300 rounded-lg font-medium transition-all duration-300 hover:bg-orange-200 dark:hover:bg-orange-900/60"
-          &gt;
+          >
             {showSteps ? "Hide" : "Show"} Derivation Steps
           </button>
           
@@ -420,7 +420,7 @@ const Topic25 = () => {
               onChange={(e) => setCustomRows(e.target.value)}
               placeholder={`Enter minterms (0-${totalRows - 1}) e.g., 1,3,5,7`}
               className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500"
-            /&gt;
+            />
             <button
               onClick={parseCustomTruthTable}
               className="px-6 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-all duration-300 hover:scale-105"

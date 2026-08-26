@@ -138,7 +138,7 @@ const Topic4 = () => {
                           ? "bg-green-500 hover:bg-green-600 text-white shadow-lg" 
                           : "bg-red-500 hover:bg-red-600 text-white shadow-lg"
                       )}
-                    &gt;
+                    >
                       {andIdentityVar}
                     </button>
                   </div>
@@ -240,7 +240,7 @@ const Topic4 = () => {
                           ? "bg-green-500 hover:bg-green-600 text-white shadow-lg" 
                           : "bg-red-500 hover:bg-red-600 text-white shadow-lg"
                       )}
-                    &gt;
+                    >
                       {orIdentityVar}
                     </button>
                   </div>

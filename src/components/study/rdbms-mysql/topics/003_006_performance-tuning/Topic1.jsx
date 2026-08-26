@@ -95,8 +95,8 @@ JOIN exam_scores e ON s.student_id = e.student_id
 WHERE s.city = 'Barrackpore';
 
 -- 📋 Indented Iterator Output:
--- &rarr; Nested loop inner join  (cost=18.40 rows=24)
---     -&gt; Nested loop inner join  (cost=10.00 rows=12)
+-- -> Nested loop inner join  (cost=18.40 rows=24)
+--     -> Nested loop inner join  (cost=10.00 rows=12)
 --         -> Index lookup on s using idx_city (city='Barrackpore')  (cost=1.20 rows=12)
 --         -> Single-row index lookup on d using PRIMARY (department_id=s.department_id)  (cost=0.73 rows=1)
 --     -> Index lookup on e using idx_student_id (student_id=s.student_id)  (cost=0.70 rows=2)`,
@@ -367,7 +367,7 @@ SHOW WARNINGS;
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(
@@ -487,7 +487,7 @@ SHOW WARNINGS;
 SET @plan_json = (EXPLAIN FORMAT=JSON SELECT ...);
 -- Parse query_cost using MySQL 8.0 JSON Functions:
 SELECT JSON_EXTRACT(@plan_json, '$.query_block.cost_info.query_cost') INTO @total_cost;
--- If @total_cost &gt; 100.0 &rarr; Fail Pipeline!`}
+-- If @total_cost > 100.0 -> Fail Pipeline!`}
               </pre>
             </div>
           </div>

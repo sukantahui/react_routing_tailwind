@@ -270,7 +270,7 @@ int main() {
     printf("%d", result);
     return 0;
 }`}
-                    /&gt;
+                    />
                 </section>
 
                 <section className="mt-6 space-y-3 text-sm md:text-base">
