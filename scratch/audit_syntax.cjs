@@ -28,6 +28,7 @@ function scan(dir) {
   }
 }
 
-console.log("Starting full syntax audit of src/ ...");
-scan('e:/React Project/react_routing_tailwind/src');
+const targetDir = process.argv[2] ? path.resolve(process.argv[2]) : path.resolve(__dirname, '../src/components/study/java-core/topics');
+console.log(`Starting full syntax audit of ${targetDir} ...`);
+scan(targetDir);
 console.log(`\nAudit Complete! Total Syntax Errors: ${errorCount}`);

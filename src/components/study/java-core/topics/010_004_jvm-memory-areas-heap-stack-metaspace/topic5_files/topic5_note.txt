@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_004: JVM Memory Model: Heap, Stack, Metaspace & Runtime Areas
+Topic 5: Native Method Stack
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS THE NATIVE METHOD STACK:
+   - Dedicated thread-private memory stack supporting execution of native methods
+     (methods declared with the 'native' keyword and implemented in C/C++).
+
+2. ERROR CONDITIONS:
+   - 'StackOverflowError' : If native method recursion exceeds native stack bounds.
+   - 'OutOfMemoryError'   : If native memory cannot be allocated for new native threads.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

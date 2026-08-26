@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_001: Lambda Expressions & Lexical Scoping
+Topic 5: @FunctionalInterface Annotation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. @FUNCTIONALINTERFACE ANNOTATION:
+   - Optional, but strongly recommended (Best Practice).
+   - Instructs compiler to verify exactly ONE abstract method.
+   - Throws compile error if 0 or 2+ abstract methods are added.
+   - Documents design intent clearly for other developers and Javadoc.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

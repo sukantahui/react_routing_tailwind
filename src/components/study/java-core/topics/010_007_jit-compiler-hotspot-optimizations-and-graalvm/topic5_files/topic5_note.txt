@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_007: JIT Compiler, HotSpot Optimizations & GraalVM
+Topic 5: Method Inlining
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS METHOD INLINING:
+   - The compiler replaces a method invocation call site with the actual body of the target method.
+   - Eliminates method call overhead: stack frame creation, argument passing, return jumps.
+
+2. INLINING HEURISTICS & THRESHOLDS:
+   - Trivial / Small Methods: Bytecode size &le; 35 bytes ('-XX:MaxInlineSize=35') are inlined aggressively.
+   - Hot Methods: Bytecode size &le; 325 bytes ('-XX:FreqInlineSize=325') are inlined if called frequently.
+   - Monomorphic / Bimorphic call sites are devirtualized and speculatively inlined!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

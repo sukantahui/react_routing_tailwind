@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_002: Built-in Functional Interfaces
+Topic 11: UnaryOperator & BinaryOperator
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SPECIALIZED OPERATORS:
+   - 'UnaryOperator<T>': Extends 'Function<T, T>' (Same input & output type).
+     * Used in 'List.replaceAll(UnaryOperator)'.
+   - 'BinaryOperator<T>': Extends 'BiFunction<T, T, T>' (2 identical inputs -> same output).
+     * Used in 'Stream.reduce(BinaryOperator)'.
+     * Static helpers: 'BinaryOperator.minBy()', 'BinaryOperator.maxBy()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

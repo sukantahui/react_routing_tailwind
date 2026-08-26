@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_008: The Optional Class & Null-Safe Functional Programming
+Topic 2: Creating Optional Instances
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE THREE STATIC FACTORY METHODS:
+   1. 'Optional.empty()'
+      - Returns an immutable singleton empty Optional instance.
+   2. 'Optional.of(T value)'
+      - Wraps a non-null value.
+      - Throws 'NullPointerException' immediately if 'value == null' (Fail-fast behavior).
+   3. 'Optional.ofNullable(T value)'
+      - Safe for potentially null values.
+      - Returns 'Optional.of(value)' if value is non-null.
+      - Returns 'Optional.empty()' if value is null.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

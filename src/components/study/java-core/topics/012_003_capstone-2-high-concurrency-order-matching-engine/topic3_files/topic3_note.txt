@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_003: High-Concurrency Order Matching Engine
+Topic 3: Ultra-Low Latency & Zero-GC Patterns
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LOW LATENCY TECHNIQUES:
+   - Object Pooling & Ring Buffers (LMAX Disruptor pattern).
+   - Primitive prices (fixed-point micro-integers instead of 'BigDecimal' objects).
+   - Avoiding autoboxing and wrapper types on the hot execution path.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

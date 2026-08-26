@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_009: Modern Java Features
+Topic 2: Anatomy of a Record
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RECORD COMPILATION RULES:
+   - Implicit Superclass: 'java.lang.Record' (Inherits basic record contracts).
+   - Implicit Modifier: 'final' (Records cannot be extended/subclassed).
+   - Component Fields: Generated as 'private final' matching header parameters.
+   - Accessors: Public getter-less methods ('x()', 'y()').
+
+2. REFLECTION ENHANCEMENTS:
+   - 'Class.isRecord()': Returns true if class is a record.
+   - 'Class.getRecordComponents()': Returns array of 'RecordComponent' metadata.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

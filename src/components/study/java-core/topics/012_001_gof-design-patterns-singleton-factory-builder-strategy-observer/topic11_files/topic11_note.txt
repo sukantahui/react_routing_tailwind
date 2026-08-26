@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_001: GoF Design Patterns
+Topic 11: Facade Pattern
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INTENT:
+   - Provide a unified interface to a set of interfaces in a subsystem.
+   - Defines a higher-level interface that makes the subsystem easier to use.
+
+2. ADAPTER VS FACADE:
+   - Adapter : Converts one incompatible interface to match another expected interface.
+   - Facade  : Simplifies a large collection of multiple subsystem interfaces into a single entry point.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

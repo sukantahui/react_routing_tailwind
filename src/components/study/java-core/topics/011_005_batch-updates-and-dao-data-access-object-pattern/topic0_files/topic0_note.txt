@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_005: Batch Updates & DAO Pattern
+Topic 0: Network Round-Trip Problem
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE LATENCY OVERHEAD:
+   - Every individual 'executeUpdate()' requires:
+     * Serialization of SQL packet
+     * Network socket transit
+     * Database parse and execute
+     * Disk write and return packet
+   - In a loop of N iterations, latency multiplies N times!
+
+2. THE SOLUTION:
+   - Group statements in client buffer using JDBC Batching!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

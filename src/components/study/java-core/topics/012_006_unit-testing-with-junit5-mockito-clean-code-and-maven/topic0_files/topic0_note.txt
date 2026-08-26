@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_006: JUnit 5, Mockito, Clean Code & Maven
+Topic 0: Why Unit Testing Matters
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE VALUE OF UNIT TESTING:
+   - Regression Prevention: Catch bugs within seconds during development.
+   - Refactoring Confidence: Modify internal algorithms knowing tests verify correctness.
+   - Design Feedback: Code that is difficult to test indicates bad architectural design.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

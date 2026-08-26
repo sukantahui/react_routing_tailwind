@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_008: The Optional Class & Null-Safe Functional Programming
+Topic 3: Extracting Values Safely (.get() Anti-Pattern)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 'OPTIONAL.GET()' TRAP:
+   - 'optional.get()' throws 'NoSuchElementException: No value present' if empty.
+   - Blindly calling '.get()' is just as hazardous as dereferencing a raw null pointer.
+
+2. THE 4 MODERN SAFE EXTRACTION METHODS:
+   1. 'orElse(T other)': Fallback to eager constant.
+   2. 'orElseGet(Supplier<? extends T> supplier)': Fallback to lazy computation.
+   3. 'orElseThrow()': Throws NoSuchElementException with explicit intent (Java 10+).
+   4. 'orElseThrow(Supplier<? extends X> exceptionSupplier)': Throws domain exception.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

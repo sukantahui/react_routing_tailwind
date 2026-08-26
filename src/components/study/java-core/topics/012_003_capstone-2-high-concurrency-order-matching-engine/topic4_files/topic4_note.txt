@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_003: High-Concurrency Order Matching Engine
+Topic 4: Parallel Ingestion with Virtual Threads
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. VIRTUAL THREADS IN ORDER GATEWAYS:
+   - 'Executors.newVirtualThreadPerTaskExecutor()' provides one thread per inbound connection.
+   - Millions of virtual threads mount onto a handful of carrier OS threads.
+   - Non-blocking I/O suspends the continuation without blocking operating system threads.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

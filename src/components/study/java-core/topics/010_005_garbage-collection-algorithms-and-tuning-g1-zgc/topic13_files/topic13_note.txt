@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_005: Garbage Collection Algorithms, Collectors & GC Tuning
+Topic 13: Essential JVM Tuning Flags
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CORE PRODUCTION FLAG MATRIX:
+   - '-Xms == -Xmx'                     : Prevents dynamic heap resizing overhead.
+   - '-XX:+AlwaysPreTouch'              : Allocates all physical OS RAM at JVM boot, avoiding page-fault latency spikes during production requests.
+   - '-XX:+HeapDumpOnOutOfMemoryError'  : Saves heap dump on OOM for root cause diagnosis.
+   - '-XX:+ExitOnOutOfMemoryError'      : Crashes immediately on OOM so container orchestrators (Kubernetes) can restart the pod cleanly.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

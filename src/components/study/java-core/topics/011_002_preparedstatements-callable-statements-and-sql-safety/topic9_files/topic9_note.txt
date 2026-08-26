@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_002: PreparedStatements, CallableStatements & SQL Safety
+Topic 9: CallableStatement Interface
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS CALLABLESTATEMENT:
+   - Interface extending 'java.sql.PreparedStatement'.
+   - Used to execute SQL Stored Procedures and Functions.
+
+2. JDBC ESCAPE SYNTAX:
+   - Standard: '{call procedure_name(?, ?)}'
+   - Function: '{? = call function_name(?)}' (First '?' is the return value).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

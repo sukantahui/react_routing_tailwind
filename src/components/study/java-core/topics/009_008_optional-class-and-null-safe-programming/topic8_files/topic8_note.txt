@@ -1,0 +1,25 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_008: The Optional Class & Null-Safe Functional Programming
+Topic 8: Performance Benchmark (orElse vs orElseGet)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CRITICAL COMPARISON SUMMARY:
+   -----------------------------------------------------------------------------
+   METHOD            EVALUATION TYPE    WHEN IS ARGUMENT EVALUATED?
+   -----------------------------------------------------------------------------
+   orElse(val)       Eager              ALWAYS (at method invocation time)
+   orElseGet(lambda) Lazy               ONLY IF Optional is EMPTY
+   -----------------------------------------------------------------------------
+
+2. RULE OF THUMB:
+   - Use 'orElse(val)' ONLY for pre-existing constants or cheap literals.
+   - Use 'orElseGet(() -> compute())' whenever the fallback involves:
+     * Calling another method.
+     * Creating new objects on heap ('new Student()').
+     * Accessing databases, files, or network services.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

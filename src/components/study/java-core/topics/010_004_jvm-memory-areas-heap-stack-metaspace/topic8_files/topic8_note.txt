@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_004: JVM Memory Model: Heap, Stack, Metaspace & Runtime Areas
+Topic 8: JVM Heap Architecture (Generational Model)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE WEAK GENERATIONAL HYPOTHESIS:
+   - Empirical observation in software engineering:
+     * Over 90-95% of all object instances become garbage very quickly (short lifespans).
+     * Objects that survive multiple GC cycles tend to live for a very long time (caches, singletons).
+
+2. HEAP GENERATION ADVANTAGE:
+   - Segregating young from old objects allows Minor GC to scan only the small Young Generation,
+     reclaiming huge amounts of memory in a few milliseconds without scanning the massive Old Gen!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

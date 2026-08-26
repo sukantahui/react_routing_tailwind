@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_009: Modern Java Features
+Topic 11: Exhaustiveness Checking with Sealed Types
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. HOW EXHAUSTIVENESS WORKS:
+   - When switching on an enum or a 'sealed' type, the compiler knows the full closed
+     set of permitted subclasses.
+   - If the 'switch' expression covers every permitted subclass, NO 'default' branch is required.
+
+2. ARCHITECTURAL SAFETY:
+   - If a new permitted subclass is added in the future, the compiler generates errors
+     at all switch sites across the codebase that fail to cover the new type.
+   - Eliminates silent runtime bugs caused by forgotten switch branches.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

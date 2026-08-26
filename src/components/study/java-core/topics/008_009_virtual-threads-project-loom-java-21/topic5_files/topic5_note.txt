@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_009: Virtual Threads (Java 21+)
+Topic 5: Carrier Threads & Mounting
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CARRIER THREADS:
+   - Underlying OS platform worker threads in 'ForkJoinPool'.
+   - Number of carrier threads &approx; CPU core count (e.g. 8 to 16).
+   - Mounting: Attaches virtual thread to carrier to run CPU code.
+   - Unmounting: Detaches virtual thread on blocking I/O, saving its stack to heap.
+   - Frees carrier thread to serve other virtual threads instantly.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

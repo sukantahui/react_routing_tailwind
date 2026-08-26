@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_003: ResultSet, Scrollable, Updatable & Metadata
+Topic 4: ResultSet Types & Concurrency
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TYPE CONSTANTS:
+   - 'TYPE_FORWARD_ONLY'        (int 1003)
+   - 'TYPE_SCROLL_INSENSITIVE'  (int 1004)
+   - 'TYPE_SCROLL_SENSITIVE'    (int 1005)
+
+2. CONCURRENCY CONSTANTS:
+   - 'CONCUR_READ_ONLY'         (int 1007)
+   - 'CONCUR_UPDATABLE'         (int 1008)
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

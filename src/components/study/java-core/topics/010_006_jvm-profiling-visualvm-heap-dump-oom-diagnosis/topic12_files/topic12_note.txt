@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_006: JVM Profiling, Heap Dumps & Memory Leak Diagnosis
+Topic 12: Visual Profiling (VisualVM & JConsole)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS VISUALVM:
+   - Visual all-in-one profiling tool for Java applications.
+   - Included historically with JDK (now standalone at 'visualvm.github.io').
+   - Integrates JConsole MBeans, JFR snapshots, and HPROF heap dump viewing.
+
+2. SAMPLING VS PROFILING:
+   - Sampling (Recommended for Prod/Staging) : Periodically polls thread stacks (low overhead ~2-5%).
+   - Instrumentation Profiling (Dev only)    : Modifies bytecode to measure exact execution times (high overhead).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

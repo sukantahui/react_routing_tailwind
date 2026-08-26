@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_007: JIT Compiler, HotSpot Optimizations & GraalVM
+Topic 13: The native-image Build Pipeline
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS STATIC POINTS-TO ANALYSIS:
+   - An iterative reachability analysis algorithm that determines all methods and classes
+     that can possibly be invoked at runtime.
+   - Unreachable code is completely purged from the final executable.
+
+2. BUILD-TIME HEAP SNAPSHOTTING:
+   - Classes configured for build-time initialization execute their static blocks during the build.
+   - The resulting initialized objects are snapshotted directly into the binary's initial heap image!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_001: GoF Design Patterns
+Topic 0: What are Design Patterns
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT DESIGN PATTERNS ARE:
+   - Established architectural solutions to recurring software engineering problems.
+   - They provide a shared technical vocabulary among senior engineers.
+
+2. WHAT THEY ARE NOT:
+   - They are NOT concrete code libraries or frameworks.
+   - They should not be forced into simple code (avoid Premature Patternization!).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

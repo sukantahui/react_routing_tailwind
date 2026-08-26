@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_008: Explicit Locks & Synchronizers
+Topic 5: ReadWriteLock in Caches
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. READWRITELOCK CACHE ARCHITECTURE:
+   - Wraps standard 'HashMap' with 'ReadWriteLock'.
+   - 'get()' acquires 'readLock()'.
+   - 'put()' acquires 'writeLock()'.
+   - Best for: Read-heavy shared caches (>90% reads).
+   - High multi-core speedup over synchronized HashMap.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

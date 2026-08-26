@@ -1,0 +1,25 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_002: Java Annotations & Custom Processors
+Topic 2: Meta-Annotations Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT ARE META-ANNOTATIONS:
+   - Built-in annotations in 'java.lang.annotation' used specifically to decorate
+     and configure custom annotation declarations.
+
+2. THE 5 CORE META-ANNOTATIONS:
+   -----------------------------------------------------------------------------
+   META-ANNOTATION   PURPOSE
+   -----------------------------------------------------------------------------
+   @Retention        Controls how long the annotation is retained (SOURCE, CLASS, RUNTIME).
+   @Target           Restricts what language elements the annotation can be applied to.
+   @Documented       Ensures the annotation appears in generated Javadoc HTML.
+   @Inherited        Enables automatic inheritance by subclasses of annotated classes.
+   @Repeatable       Permits declaring the same annotation multiple times on an element.
+   -----------------------------------------------------------------------------
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

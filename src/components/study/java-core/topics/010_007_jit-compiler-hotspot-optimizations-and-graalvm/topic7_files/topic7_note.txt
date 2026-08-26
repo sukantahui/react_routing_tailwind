@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_007: JIT Compiler, HotSpot Optimizations & GraalVM
+Topic 7: Scalar Replacement
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS SCALAR REPLACEMENT:
+   - An optimization where an Aggregate Object is decomposed into its individual primitive fields (scalars).
+   - The scalars are stored directly in CPU Registers or on the Thread Stack Frame instead of on the Heap.
+
+2. PREREQUISITES:
+   - The object must be proven 'NoEscape' via Escape Analysis.
+   - Enabled by default: '-XX:+EliminateAllocations'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_003: Method & Constructor References
+Topic 1: Double Colon (::) Operator
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DOUBLE COLON (::) SYNTAX:
+   - Format: 'TargetRef::MethodName'.
+   - NEVER add parentheses '()' after the method name!
+   - Arguments are routed implicitly by the compiler.
+   - Use 'Target::new' for constructor references.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

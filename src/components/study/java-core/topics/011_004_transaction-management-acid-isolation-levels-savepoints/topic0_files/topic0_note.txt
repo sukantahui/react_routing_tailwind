@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_004: Transaction Management, ACID, Isolation Levels & Savepoints
+Topic 0: What is a Transaction
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS A TRANSACTION:
+   - A sequence of one or more database operations treated as an indivisible atomic unit.
+   - Boundaries: Begins when auto-commit is disabled; ends with 'commit()' or 'rollback()'.
+
+2. KEY OUTCOMES:
+   - COMMIT   : Permanently persists all state changes to disk.
+   - ROLLBACK : Discards all changes, reverting data back to pre-transaction state.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

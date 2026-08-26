@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_003: Method & Constructor References
+Topic 6: Constructor References
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CONSTRUCTOR REFERENCES:
+   - Syntax: 'ClassName::new'.
+   - Automatically selects constructor matching SAM parameters:
+     * 0 args -> 'Supplier<T>' calls no-arg constructor.
+     * 1 arg  -> 'Function<T, R>' calls 1-arg constructor.
+     * 2 args -> 'BiFunction<T, U, R>' calls 2-arg constructor.
+   - Used for factories: 'ArrayList::new', 'HashSet::new'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

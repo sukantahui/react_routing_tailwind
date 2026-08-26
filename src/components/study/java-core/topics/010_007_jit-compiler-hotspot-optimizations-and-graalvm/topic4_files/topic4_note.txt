@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_007: JIT Compiler, HotSpot Optimizations & GraalVM
+Topic 4: Tiered Level 4 (C2 & Graal JIT)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS LEVEL 4 COMPILATION:
+   - The highest optimization tier in the HotSpot Virtual Machine.
+   - Takes time to compile (heavier CPU during compilation), but produces the fastest machine code.
+
+2. C2 OPTIMIZATION ARSENAL:
+   - Deep aggressive method inlining across call graphs.
+   - Escape Analysis and Scalar Replacement.
+   - Loop unrolling and auto-vectorization (SIMD).
+   - Global Value Numbering (GVN) and common subexpression elimination.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

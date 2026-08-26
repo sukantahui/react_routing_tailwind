@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_007: JIT Compiler, HotSpot Optimizations & GraalVM
+Topic 2: Tiered Level 0 (Interpreter)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT HAPPENS AT LEVEL 0:
+   - Bytecode execution with zero JIT compilation overhead.
+   - Collects initial invocation counters to identify 'hot' candidate methods.
+
+2. ON-STACK REPLACEMENT (OSR):
+   - If a method contains a long-running loop that runs millions of iterations before the method returns,
+     the Backedge Counter triggers OSR (compiles and swaps native code onto the active stack mid-loop!).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

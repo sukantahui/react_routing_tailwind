@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_008: Explicit Locks & Synchronizers
+Topic 8: CyclicBarrier Rendezvous
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CYCLICBARRIER:
+   - Synchronizes N parallel threads at a common rendezvous point.
+   - Every thread calls 'barrier.await()'.
+   - When the last thread arrives, optional 'barrierAction' runs.
+   - REUSABLE: Automatically resets for subsequent computation rounds.
+   - Ideal for multi-step parallel algorithms (e.g. scientific simulations).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

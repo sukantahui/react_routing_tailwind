@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_001: GoF Design Patterns
+Topic 4: Factory Method Pattern
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INTENT:
+   - Define an interface for creating an object, but let subclasses decide which class to instantiate.
+   - Lets a class defer instantiation to subclasses.
+
+2. REAL-WORLD EXAMPLES IN JDK:
+   - 'Calendar.getInstance()'
+   - 'ResourceBundle.getBundle()'
+   - 'Charset.forName()'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

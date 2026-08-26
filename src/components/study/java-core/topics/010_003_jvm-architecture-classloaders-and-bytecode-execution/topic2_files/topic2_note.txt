@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_003: JVM Architecture, ClassLoaders & Bytecode Execution
+Topic 2: Phase 1 (Class Loading)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE LOADING PHASE RESPONSIBILITIES:
+   - Locates and ingests the binary representation of a class (e.g. from local filesystem,
+     JAR archive, HTTP URL, or dynamic generator).
+   - Validates the 4-byte header: '0xCAFEBABE' (Java Class File Magic Number).
+   - Constructs the runtime metadata structures in Metaspace (Klass metadata).
+   - Creates the corresponding 'java.lang.Class' instance.
+
+2. METASPACE MEMORY (Java 8+):
+   - Replaced PermGen in Java 8.
+   - Allocated in native process memory (off-heap), growing dynamically based on available OS RAM.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

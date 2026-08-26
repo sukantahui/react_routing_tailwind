@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_003: High-Concurrency Order Matching Engine
+Topic 2: The Matching Algorithm
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MATCHING MECHANICS:
+   - Taker Order : The incoming aggressor order.
+   - Maker Order : The passive resting order already in the book.
+   - Trade Price : Executed at the Maker (resting) order's price!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

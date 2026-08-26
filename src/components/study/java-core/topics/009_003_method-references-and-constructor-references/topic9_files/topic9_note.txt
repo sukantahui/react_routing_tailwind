@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_003: Method & Constructor References
+Topic 9: Refactoring Lambdas to Method References
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. REFACTORING PATTERNS:
+   - 'x -> Objects.nonNull(x)'     &rarr; 'Objects::nonNull'
+   - 's -> s.getName()'            &rarr; 'Student::getName'
+   - 's -> s.toUpperCase()'        &rarr; 'String::toUpperCase'
+   - 'x -> System.out.println(x)'  &rarr; 'System.out::println'
+   - '() -> new ArrayList<>()'     &rarr; 'ArrayList::new'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

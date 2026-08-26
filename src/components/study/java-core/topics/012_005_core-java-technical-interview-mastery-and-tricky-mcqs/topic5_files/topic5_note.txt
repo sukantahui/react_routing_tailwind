@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_005: Interview Mastery & Tricky MCQs
+Topic 5: Tricky Riddle 6 - try-catch-finally Return Overrides
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FINALLY EXECUTION GUARANTEES:
+   - 'finally' block executes regardless of normal completion or exception throwing.
+   - If 'finally' contains a 'return', it overwrites previous 'return' statements.
+   - If an exception was thrown in 'try', a 'finally' return discards the exception!
+   - Anti-Pattern: Never place 'return' or 'throw' inside a finally block.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

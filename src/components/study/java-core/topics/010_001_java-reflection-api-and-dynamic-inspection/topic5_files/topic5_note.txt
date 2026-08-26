@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_001: Java Reflection API & Dynamic Member Inspection
+Topic 5: Inspecting & Invoking Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD DISCOVERY:
+   - 'clazz.getMethods()': Returns all public methods (including those inherited from superclasses).
+   - 'clazz.getDeclaredMethods()': Returns all methods declared directly in this class
+     (private, protected, default, public), excluding inherited methods.
+
+2. METHOD INVOCATION SYNTAX:
+   - 'public Object invoke(Object obj, Object... args)'
+   - Instance Method: First argument is the target object instance ('method.invoke(instance, arg1, arg2)').
+   - Static Method: First argument is ignored and can be passed as 'null' ('method.invoke(null, arg1)').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_003: JVM Architecture, ClassLoaders & Bytecode Execution
+Topic 1: The 3 ClassLoader Phases
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 3 LIFECYCLE PHASES OF CLASS LOADING:
+   1. LOADING:
+      - Reads binary data of the class from file / network / jar.
+      - Creates a 'java.lang.Class' instance in Metaspace.
+   2. LINKING:
+      - Verification : Checks binary format integrity, stack maps, and security.
+      - Preparation  : Allocates memory for static fields and initializes to default values (0, null).
+      - Resolution   : Replaces symbolic constant pool references with direct memory pointers.
+   3. INITIALIZATION:
+      - Executes static variable assignments and Static Initializer Blocks (SIBs) in order.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

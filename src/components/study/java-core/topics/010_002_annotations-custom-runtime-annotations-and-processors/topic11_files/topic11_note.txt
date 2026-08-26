@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_002: Java Annotations & Custom Processors
+Topic 11: Processing Runtime Annotations
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. REFLECTION METHODS FOR ANNOTATIONS ('AnnotatedElement' interface):
+   - 'boolean isAnnotationPresent(Class<? extends Annotation> annotationClass)'
+   - '<T extends Annotation> T getAnnotation(Class<T> annotationClass)'
+   - 'Annotation[] getAnnotations()': All annotations (including inherited).
+   - 'Annotation[] getDeclaredAnnotations()': Directly declared annotations.
+
+2. RUNTIME PIPELINE PATTERN:
+   - Iterate over class / method / field descriptors.
+   - Test for presence of target annotation.
+   - Extract attribute values.
+   - Execute framework behavior (security check, dependency injection, validation).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

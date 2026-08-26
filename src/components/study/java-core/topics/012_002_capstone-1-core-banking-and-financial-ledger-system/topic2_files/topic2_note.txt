@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_002: Core Banking Capstone
+Topic 2: Database Schema Design
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SCHEMA HIGHLIGHTS:
+   - 'DECIMAL(15, 2)' for precise monetary columns.
+   - 'CHECK (balance >= 0.00)' database constraint prevents accidental overdrafts.
+   - B-Tree indexes on 'account_number' and 'transaction_id' for fast statement lookups.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

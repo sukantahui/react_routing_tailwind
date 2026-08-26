@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_006: JUnit 5, Mockito, Clean Code & Maven
+Topic 11: Maven pom.xml Anatomy
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. POM.XML STRUCTURE:
+   - '<groupId>', '<artifactId>', '<version>' (GAV).
+   - '<dependencies>' with '<scope>test</scope>'.
+   - '<build><plugins>' (maven-compiler-plugin, maven-surefire-plugin).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

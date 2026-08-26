@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_003: High-Concurrency Order Matching Engine
+Topic 8: Throughput Benchmarking Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LATENCY METRICS:
+   - Mean Latency : Average time per match.
+   - P99 Latency  : 99% of orders execute faster than this cutoff.
+   - JIT Warmup   : Running warm-up iterations to ensure C2 JIT compiler compiles hot bytecode.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

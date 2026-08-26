@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_004: Transaction Management, ACID, Isolation Levels & Savepoints
+Topic 21: Configuring Isolation Levels
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. API METHODS:
+   - 'conn.getTransactionIsolation()' : Returns current integer level.
+   - 'conn.setTransactionIsolation(int level)' : Sets new level.
+   - 'meta.supportsTransactionIsolationLevel(int level)' : Checks database engine compatibility.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

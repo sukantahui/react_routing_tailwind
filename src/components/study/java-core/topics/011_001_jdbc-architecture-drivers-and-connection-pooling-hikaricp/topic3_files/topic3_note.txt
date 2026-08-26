@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_001: JDBC Architecture, Drivers & Connection Pooling (HikariCP)
+Topic 3: Connecting via DriverManager
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DRIVER REGISTRATION:
+   - Modern JDBC (Java 6+) uses 'java.util.ServiceLoader' to discover driver classes automatically.
+   - Calling 'Class.forName()' is obsolete and no longer necessary.
+
+2. 'DriverManager.getConnection()' SIGNATURES:
+   - 'getConnection(String url)'
+   - 'getConnection(String url, String user, String password)'
+   - 'getConnection(String url, Properties info)'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

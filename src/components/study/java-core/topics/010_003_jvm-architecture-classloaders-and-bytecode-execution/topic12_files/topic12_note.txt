@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_003: JVM Architecture, ClassLoaders & Bytecode Execution
+Topic 12: The Parent-Delegation Model
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE PARENT-DELEGATION ALGORITHM ('loadClass()' implementation):
+   1. Check if class is already loaded in cache via 'findLoadedClass(name)'.
+   2. If not loaded, delegate to parent classloader: 'parent.loadClass(name)'.
+   3. If parent is null, delegate to Bootstrap ClassLoader.
+   4. If parent fails ('ClassNotFoundException'), invoke own 'findClass(name)'.
+
+2. WHY IT MATTERS:
+   - Guarantees class uniqueness. Two classes are only considered identical by the JVM
+     if both their fully-qualified names AND their defining ClassLoaders match!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

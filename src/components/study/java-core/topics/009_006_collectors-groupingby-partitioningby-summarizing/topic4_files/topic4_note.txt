@@ -1,0 +1,25 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_006: The Collectors Class & Downstream Reducers
+Topic 4: Summarization Collectors
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SUMMARIZATION COLLECTORS SUITE:
+   - Counting: 'Collectors.counting()' -> Collector<T, ?, Long>.
+   - Summing:
+     * 'Collectors.summingInt(ToIntFunction)'
+     * 'Collectors.summingLong(ToLongFunction)'
+     * 'Collectors.summingDouble(ToDoubleFunction)'
+   - Averaging:
+     * 'Collectors.averagingInt(ToIntFunction)'
+     * 'Collectors.averagingLong(ToLongFunction)'
+     * 'Collectors.averagingDouble(ToDoubleFunction)'
+   - Complete Statistics:
+     * 'Collectors.summarizingInt(ToIntFunction)' -> IntSummaryStatistics
+     * 'Collectors.summarizingLong(ToLongFunction)' -> LongSummaryStatistics
+     * 'Collectors.summarizingDouble(ToDoubleFunction)' -> DoubleSummaryStatistics
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

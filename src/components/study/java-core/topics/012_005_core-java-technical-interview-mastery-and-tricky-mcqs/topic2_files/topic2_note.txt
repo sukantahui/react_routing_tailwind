@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_005: Interview Mastery & Tricky MCQs
+Topic 2: Tricky Riddle 3 - Static Hiding vs Overriding
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STATIC METHOD & FIELD HIDING:
+   - Static members belong to the Class, not instances.
+   - Bound at compile time using reference type ('Parent ref = new Child()').
+   - Instance methods are dynamically dispatched at runtime via vtable.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

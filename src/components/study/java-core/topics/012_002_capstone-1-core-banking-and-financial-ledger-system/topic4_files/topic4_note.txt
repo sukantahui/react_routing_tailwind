@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_002: Core Banking Capstone
+Topic 4: Atomic Double-Entry Transfers
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DEADLOCK PREVENTION IN TRANSFERS:
+   - Always lock accounts in consistent alphabetical/numerical order
+     regardless of who is sending and who is receiving!
+
+2. TRANSACTION GUARANTEE:
+   - 'conn.setAutoCommit(false)' -> Debit -> Credit -> Write Audit -> 'conn.commit()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_005: Garbage Collection Algorithms, Collectors & GC Tuning
+Topic 14: Heap Sizing Flags
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 3 CORE HEAP SIZING FLAGS:
+   - '-Xms<size>' : Initial heap size at JVM startup.
+   - '-Xmx<size>' : Maximum allowable heap size.
+   - '-Xmn<size>' : Sets the size of the Young Generation directly (Eden + Survivors).
+
+2. CONTAINER SIZING RULE OF THUMB:
+   - In Docker/Kubernetes, set Max Heap to 70-80% of the container memory limit.
+   - Example for 4GB Pod Limit: '-XX:MaxRAMPercentage=75.0' or '-Xmx3g'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

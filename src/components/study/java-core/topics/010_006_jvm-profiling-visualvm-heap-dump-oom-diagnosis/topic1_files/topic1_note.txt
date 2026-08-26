@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_006: JVM Profiling, Heap Dumps & Memory Leak Diagnosis
+Topic 1: Common Causes of Memory Leaks
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TAXONOMY OF JAVA LEAKS:
+   - Heap Leaks       : Managed Java objects held by unintended GC Root chains.
+   - Native/Off-Heap  : 'ByteBuffer.allocateDirect()', JNI malloc allocations, unclosed file descriptors.
+   - Metaspace Leaks  : ClassLoader leakage from hot code reloading and dynamic proxy generation.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

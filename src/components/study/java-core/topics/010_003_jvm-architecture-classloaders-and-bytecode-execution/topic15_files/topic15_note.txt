@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_003: JVM Architecture, ClassLoaders & Bytecode Execution
+Topic 15: Custom ClassLoader Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BEST PRACTICE FOR CUSTOM CLASSLOADERS:
+   - Override 'findClass(String name)' rather than 'loadClass(String name)'.
+   - This preserves the Parent-Delegation model automatically (handled by 'super.loadClass()').
+
+2. THE 'defineClass()' METHOD:
+   - 'protected final Class<?> defineClass(String name, byte[] b, int off, int len)'
+   - Converts an array of bytes into an instance of 'java.lang.Class' in Metaspace.
+
+3. USE CASES:
+   - Encrypted / Obfuscated Bytecode loaders.
+   - Network / Cloud / Remote ClassLoaders.
+   - Dynamic plugin reloaders (OSGi, Tomcat webapp classloaders).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

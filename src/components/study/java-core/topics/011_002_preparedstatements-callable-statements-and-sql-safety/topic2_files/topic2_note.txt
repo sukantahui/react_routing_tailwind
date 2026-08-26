@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_002: PreparedStatements, CallableStatements & SQL Safety
+Topic 2: The PreparedStatement Interface
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS PREPAREDSTATEMENT:
+   - Interface extending 'java.sql.Statement'.
+   - Represents a pre-compiled SQL statement executed multiple times with different parameter values.
+
+2. PARAMETER INDEXING RULE:
+   - Parameter placeholders ('?') use **1-BASED INDEXING** (the first '?' is index 1, second is index 2).
+   - Passing index 0 throws 'SQLException: Parameter index out of range'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

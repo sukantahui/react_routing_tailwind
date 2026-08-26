@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_008: The Optional Class & Null-Safe Functional Programming
+Topic 10: ifPresent & ifPresentOrElse (Java 9+)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. IFPRESENT(CONSUMER):
+   - Signature: 'public void ifPresent(Consumer<? super T> action)'.
+   - If a value is present, performs the given action with the value.
+   - Otherwise, does nothing.
+
+2. IFPRESENTORELSE(CONSUMER, RUNNABLE) [JAVA 9+]:
+   - Signature: 'public void ifPresentOrElse(Consumer<? super T> action, Runnable emptyAction)'.
+   - If a value is present, invokes 'action.accept(value)'.
+   - If absent, invokes 'emptyAction.run()'.
+   - Provides a clean functional replacement for traditional 'if (opt.isPresent()) ... else ...'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

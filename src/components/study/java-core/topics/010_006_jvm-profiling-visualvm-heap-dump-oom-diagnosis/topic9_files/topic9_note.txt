@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_006: JVM Profiling, Heap Dumps & Memory Leak Diagnosis
+Topic 9: The jps Utility
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS JPS:
+   - Java Process Status tool.
+   - Lists instrumented HotSpot JVM processes running under the current user account on the target machine.
+
+2. ESSENTIAL FLAGS:
+   - '-l' : Prints full package name of the main class or JAR file path.
+   - '-v' : Prints JVM options/arguments ('-Xms', '-Xmx', '-XX' options).
+   - '-m' : Prints application arguments passed to 'main()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

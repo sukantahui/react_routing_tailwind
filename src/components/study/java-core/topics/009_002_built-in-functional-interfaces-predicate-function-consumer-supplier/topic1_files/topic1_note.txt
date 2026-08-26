@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_002: Built-in Functional Interfaces
+Topic 1: The Big 4 Core Interfaces
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE BIG 4 INTERFACES:
+   - 'Predicate<T>': 'boolean test(T)' (Filter/Check).
+   - 'Function<T, R>': 'R apply(T)' (Map/Transform).
+   - 'Consumer<T>': 'void accept(T)' (Print/Process).
+   - 'Supplier<T>': 'T get()' (Generate/Supply).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

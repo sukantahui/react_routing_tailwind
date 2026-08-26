@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_003: JVM Architecture, ClassLoaders & Bytecode Execution
+Topic 6: Linking Step 3 (Resolution)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS RESOLUTION:
+   - The process of replacing symbolic references in the Runtime Constant Pool
+     with direct pointers to memory structures (classes, interfaces, fields, methods).
+
+2. TIMING OF RESOLUTION:
+   - Eager Resolution : Performed immediately when the class is linked.
+   - Lazy Resolution  : Deferred until the instruction referencing the symbol is first executed (default in most HotSpot implementations).
+
+3. COMMON RESOLUTION ERRORS:
+   - 'NoSuchMethodError', 'NoSuchFieldError', 'NoClassDefFoundError', 'IllegalAccessError'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

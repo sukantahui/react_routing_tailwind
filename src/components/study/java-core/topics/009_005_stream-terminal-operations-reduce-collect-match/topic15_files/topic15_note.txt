@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_005: Stream Terminal Operations, Reductions & Short-Circuiting
+Topic 15: Primitive Stream Reductions Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. NUMERIC PRIMITIVE TERMINAL REDUCTIONS:
+   - 'sum()': Returns primitive int, long, or double sum (Identity is 0).
+   - 'average()': Returns 'OptionalDouble' (handles 0 elements safely).
+   - 'min()': Returns 'OptionalInt', 'OptionalLong', or 'OptionalDouble'.
+   - 'max()': Returns 'OptionalInt', 'OptionalLong', or 'OptionalDouble'.
+
+2. SUMMARYSTATISTICS CLASSES:
+   - 'IntSummaryStatistics', 'LongSummaryStatistics', 'DoubleSummaryStatistics'.
+   - Captures count, min, max, sum, and average in a single sequential or parallel pass.
+   - Extremely memory-efficient and fast for business dashboards.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

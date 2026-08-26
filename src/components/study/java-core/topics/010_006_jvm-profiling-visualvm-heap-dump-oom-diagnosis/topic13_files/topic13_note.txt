@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_006: JVM Profiling, Heap Dumps & Memory Leak Diagnosis
+Topic 13: Heap Dump on OutOfMemoryError
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS AN HPROF HEAP DUMP:
+   - A binary snapshot format storing all objects, classes, and references in the JVM heap.
+   - Standard format supported by Eclipse MAT, VisualVM, YourKit, and JProfiler.
+
+2. PRODUCTION BEST PRACTICE:
+   - Always mount a persistent disk volume to '/var/log/dumps/' in Docker/Kubernetes
+     so the '.hprof' file survives container pod recreation!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_009: Virtual Threads (Java 21+)
+Topic 9: Thread.startVirtualThread()
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THREAD.STARTVIRTUALTHREAD(RUNNABLE):
+   - One-line quick launcher for virtual threads.
+   - Starts immediately; anonymous by default.
+   - Replaces legacy 'new Thread(r).start()'.
+   - Returns a 'Thread' handle you can 'join()' on.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

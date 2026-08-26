@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_001: Lambda Expressions & Lexical Scoping
+Topic 4: Functional Interface SAM Contract
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FUNCTIONAL INTERFACE (SAM):
+   - Exactly ONE abstract method (SAM: Single Abstract Method).
+   - Can have unlimited 'default' methods.
+   - Can have unlimited 'static' methods.
+   - Public 'java.lang.Object' methods (equals, hashCode) do not count as SAM.
+   - Acts as the target type for all lambda expressions.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

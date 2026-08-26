@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_007: ExecutorService, Thread Pools & CompletableFuture
+Topic 16: allOf & anyOf Coordination
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ALLOF vs ANYOF:
+   - 'CompletableFuture.allOf(f1, f2, f3)':
+     * Scatter-Gather pattern.
+     * Completes when ALL futures finish.
+     * Returns 'CompletableFuture<Void>'.
+   - 'CompletableFuture.anyOf(f1, f2, f3)':
+     * First-responder / Fastest service pattern.
+     * Completes when the FIRST future finishes.
+     * Returns 'CompletableFuture<Object>'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

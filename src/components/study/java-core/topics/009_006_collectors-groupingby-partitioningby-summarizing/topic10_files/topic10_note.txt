@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_006: The Collectors Class & Downstream Reducers
+Topic 10: groupingBy with mapping()
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COLLECTORS.MAPPING() METHOD CONTRACT:
+   - Signature: '<T, U, A, R> Collector<T, ?, R> mapping(Function<? super T, ? extends U> mapper, Collector<? super U, A, R> downstream)'.
+   - Adapts a Collector accepting elements of type U to one accepting elements of type T
+     by applying a mapping function before accumulation.
+
+2. VALUE PROPOSITION:
+   - Avoids creating intermediate DTOs or collections before grouping.
+   - Extracts only the needed fields into the final grouped value collection.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

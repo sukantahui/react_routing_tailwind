@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_005: Garbage Collection Algorithms, Collectors & GC Tuning
+Topic 0: Principle of Garbage Collection
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS GARBAGE COLLECTION:
+   - Automated dynamic memory management built into the Java Virtual Machine.
+   - Eliminates manual pointer management ('malloc', 'free', 'delete' from C/C++).
+   - Eliminates common memory bugs: dangling pointers, double-free, and most memory leaks.
+
+2. WHEN AN OBJECT BECOMES ELIGIBLE FOR GC:
+   - When it cannot be reached by any chain of live references starting from a GC Root.
+   - Explicitly nullifying references ('obj = null') or exiting a variable's scope makes objects unreachable.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

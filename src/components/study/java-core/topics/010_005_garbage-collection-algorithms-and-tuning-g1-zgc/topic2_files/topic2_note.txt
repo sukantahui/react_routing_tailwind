@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_005: Garbage Collection Algorithms, Collectors & GC Tuning
+Topic 2: What Constitutes a GC Root
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 4 PRIMARY CATEGORIES OF GC ROOTS:
+   1. Active Thread Stack Frames : Local variables, parameters, and references on operand stacks of all running threads.
+   2. Static Class Variables     : References held by static fields in loaded classes in Metaspace/Heap.
+   3. JNI Native References      : Global / local C/C++ pointers created via Java Native Interface (JNI).
+   4. Synchronization Monitors   : Objects currently locked by 'synchronized(obj)' blocks or used for thread signaling.
+
+2. REACHABILITY CONTRACT:
+   - If an object is directly or indirectly referenced by ANY of the above roots, it is ALIVE.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

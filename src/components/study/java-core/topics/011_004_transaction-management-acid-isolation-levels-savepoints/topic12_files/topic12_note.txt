@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_004: Transaction Management, ACID, Isolation Levels & Savepoints
+Topic 12: Concurrency Phenomena Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ANSI SQL ISOLATION MATRIX:
+   - READ UNCOMMITTED : Suffers Dirty Read, Non-Repeatable Read, Phantom Read.
+   - READ COMMITTED   : Prevents Dirty Read; suffers Non-Repeatable Read, Phantom Read.
+   - REPEATABLE READ  : Prevents Dirty Read, Non-Repeatable Read; may suffer Phantom Read.
+   - SERIALIZABLE     : Prevents ALL three anomalies (100% strict isolation).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

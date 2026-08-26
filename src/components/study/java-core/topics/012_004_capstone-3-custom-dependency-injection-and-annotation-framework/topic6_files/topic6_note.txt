@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_004: Custom DI Framework
+Topic 6: Declarative Transactions with Proxies
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JDK DYNAMIC PROXY FOR AOP:
+   - 'Proxy.newProxyInstance(loader, interfaces, invocationHandler)'.
+   - Intercepts method invocation before and after execution.
+   - Automatically injects transaction boundaries ('begin', 'commit', 'rollback').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

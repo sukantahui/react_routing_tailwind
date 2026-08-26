@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_002: Java Annotations & Custom Processors
+Topic 1: Standard Built-in Annotations
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CORE BUILT-IN ANNOTATIONS IN 'java.lang':
+   - '@Override'
+     * Informs compiler that method must override superclass or interface method.
+     * Prevents subtle typo bugs (e.g. 'hashcode()' vs 'hashCode()').
+   - '@Deprecated(since="17", forRemoval=true)'
+     * Signals element is outdated. 'forRemoval=true' indicates imminent deletion.
+   - '@SuppressWarnings({"unchecked", "deprecation", "rawtypes"})'
+     * Instructs compiler to ignore specific named warnings.
+   - '@FunctionalInterface'
+     * Validates interface has exactly ONE abstract method.
+   - '@SafeVarargs'
+     * Suppresses heap pollution warnings on generic varargs methods/constructors.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

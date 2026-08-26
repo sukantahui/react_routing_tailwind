@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_001: JDBC Architecture, Drivers & Connection Pooling (HikariCP)
+Topic 11: Safe Connection Borrowing Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE GOLDEN JDBC TRY-WITH-RESOURCES PATTERN:
+   'try (Connection conn = dataSource.getConnection();
+         PreparedStatement ps = conn.prepareStatement(sql);
+         ResultSet rs = ps.executeQuery()) {
+        while (rs.next()) { ... }
+    }'
+
+2. GUARANTEES:
+   - Closes ResultSet first, PreparedStatement second, and returns Connection to pool third.
+   - Guarantees 100% execution even if SQLExceptions or RuntimeExceptions are thrown.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

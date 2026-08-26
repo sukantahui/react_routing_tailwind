@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_003: Method & Constructor References
+Topic 2: The 4 Kinds of Method References
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 4 KINDS OF METHOD REFERENCES:
+   - 1. Static: 'ClassName::staticMethod' ('Math::max').
+   - 2. Bound Instance: 'objRef::instanceMethod' ('System.out::println').
+   - 3. Unbound Instance: 'ClassName::instanceMethod' ('String::length').
+   - 4. Constructor: 'ClassName::new' ('ArrayList::new').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_004: JVM Memory Model: Heap, Stack, Metaspace & Runtime Areas
+Topic 7: Metaspace Memory Management
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METASPACE ALLOCATION ARCHITECTURE:
+   - Chunk-based allocation: Allocates memory in chunks (Small, Medium, Specialized chunks)
+     per ClassLoader to reduce fragmentation.
+   - High Watermark: When Metaspace usage hits '-XX:MetaspaceSize', a Full GC is triggered
+     to collect dead classloaders. If little memory is reclaimed, the watermark is raised.
+
+2. CONTAINER BEST PRACTICE (Docker / K8s):
+   - Set '-XX:MaxMetaspaceSize=256m' or '512m' to prevent container cgroup OOM kills.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

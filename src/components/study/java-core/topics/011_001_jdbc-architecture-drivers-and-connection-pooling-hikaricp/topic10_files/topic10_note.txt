@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_001: JDBC Architecture, Drivers & Connection Pooling (HikariCP)
+Topic 10: Configuring HikariCP
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PRODUCTION CONFIGURATION PROPERTIES:
+   - 'maximumPoolSize'    : Cap on total connections (Default: 10).
+   - 'minimumIdle'        : Minimum idle connections (Hikari recommends omitting or matching maxPoolSize).
+   - 'connectionTimeout'  : Milliseconds to wait before throwing SQLException on pool exhaustion (Default: 30000ms).
+   - 'maxLifetime'        : Max connection age before being retired and refreshed (Default: 1800000ms / 30m).
+
+2. COMMON PITFALL:
+   - Setting 'maxLifetime' LONGER than the database server's TCP connection timeout (e.g. MySQL 'wait_timeout')
+     causes dead connection errors! Always set 'maxLifetime' 2-3 minutes SHORTER than DB server timeout!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

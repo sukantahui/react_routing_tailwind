@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_006: JVM Profiling, Heap Dumps & Memory Leak Diagnosis
+Topic 14: Eclipse MAT Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS ECLIPSE MAT:
+   - Industry-standard open-source memory analyzer for Java heap dumps.
+   - Capable of analyzing massive production heap dumps (multi-gigabyte to terabyte).
+
+2. KEY WORKFLOW:
+   - Step 1: Open '.hprof' file in MAT.
+   - Step 2: Review automated 'Leak Suspects' pie chart report.
+   - Step 3: Drill down into 'Dominator Tree' or 'Histogram'.
+   - Step 4: Inspect 'Path to GC Roots' to locate the offending reference.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

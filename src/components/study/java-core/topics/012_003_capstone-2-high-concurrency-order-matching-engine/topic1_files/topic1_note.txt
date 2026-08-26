@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_003: High-Concurrency Order Matching Engine
+Topic 1: Order Book Data Structures
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ORDER BOOK DESIGN:
+   - 'NavigableMap<BigDecimal, ArrayDeque<Order>>' provides:
+     * O(log N) price level insertion.
+     * O(1) top-of-book lookup ('firstKey()').
+     * O(1) FIFO order matching within a price level ('ArrayDeque.pollFirst()').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

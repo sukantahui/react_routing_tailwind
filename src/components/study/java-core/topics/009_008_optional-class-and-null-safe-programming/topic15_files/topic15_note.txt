@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_008: The Optional Class & Null-Safe Functional Programming
+Topic 15: Brian Goetz's Optional Rules
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 5 CORE RULES FOR CLEAN OPTIONAL USE:
+   1. Never assign 'null' to an Optional reference ('Optional<T> opt = null' is an anti-pattern).
+   2. Never use 'optional.get()' when safe alternatives ('orElse', 'orElseGet', 'orElseThrow') exist.
+   3. Prefer 'orElseGet(Supplier)' over 'orElse(value)' for anything requiring allocation.
+   4. Avoid using Optional as field types (not Serializable, adds 16-byte object wrapper overhead).
+   5. Avoid using Optional as method parameters (forces callers to wrap arguments in 'Optional.of()').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

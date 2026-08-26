@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_002: Java Annotations & Custom Processors
+Topic 6: @Inherited Meta-Annotation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT @INHERITED DOES:
+   - Indicates that an annotation type is automatically inherited from superclass to subclass.
+   - When querying a subclass via 'isAnnotationPresent()' or 'getAnnotation()', the JVM walks
+     up the superclass hierarchy to find inherited annotations.
+
+2. CRITICAL LIMITATIONS:
+   - Only applies to CLASS inheritance ('extends').
+   - Does NOT apply to interfaces (classes implementing annotated interfaces do NOT inherit).
+   - Does NOT apply to methods or fields (overriding methods do not inherit method annotations).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

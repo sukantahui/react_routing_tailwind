@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_001: Java Reflection API & Dynamic Member Inspection
+Topic 1: How Frameworks Use Reflection
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FRAMEWORK ARCHITECTURE POWERED BY REFLECTION:
+   - Spring Framework:
+     * Scans for '@Component', '@Service', '@Repository'.
+     * Instantiates beans via 'constructor.newInstance()'.
+     * Injects dependencies into fields annotated with '@Autowired'.
+   - Hibernate / JPA:
+     * Scans for '@Entity', '@Table', '@Column'.
+     * Maps database table rows into private entity fields via 'field.set()'.
+   - Jackson / Gson:
+     * Scans getters/fields to serialize objects to JSON strings and deserialize back.
+   - JUnit 5:
+     * Discovers and invokes all methods annotated with '@Test'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

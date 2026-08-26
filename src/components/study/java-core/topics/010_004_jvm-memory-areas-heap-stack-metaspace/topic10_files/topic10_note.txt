@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_004: JVM Memory Model: Heap, Stack, Metaspace & Runtime Areas
+Topic 10: Old Gen & Tenuring Thresholds
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS THE OLD (TENURED) GENERATION:
+   - Holds long-lived objects that have survived multiple Minor GC cycles (singletons, long-lived caches, active sessions).
+   - Cleaned during Major GC or Full GC (which takes significantly longer than Minor GC).
+
+2. KEY PROMOTION FLAGS:
+   - '-XX:MaxTenuringThreshold=<age>' : Maximum age before promotion (default 15, max 15 because object header age is 4 bits).
+   - '-XX:PretenureSizeThreshold=<bytes>' : Allocates huge arrays/objects directly into Old Gen to avoid churning Eden.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

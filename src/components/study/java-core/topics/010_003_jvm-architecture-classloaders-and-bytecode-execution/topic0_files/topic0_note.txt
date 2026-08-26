@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_003: JVM Architecture, ClassLoaders & Bytecode Execution
+Topic 0: Architectural Overview of the JVM
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 4 PILLARS OF JVM ARCHITECTURE:
+   1. ClassLoader Subsystem: Responsible for dynamic class loading, bytecode verification, and linking.
+   2. Runtime Data Areas: Memory allocated to JVM execution (Heap, Stack, Metaspace, PC Register, Native Stack).
+   3. Execution Engine: Translates bytecode into machine code via Interpreter + JIT Compiler (HotSpot Tiered Compilation), managed by Garbage Collection.
+   4. Native Interface (JNI): Executes native C/C++ libraries when bytecode requests system-level operations.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

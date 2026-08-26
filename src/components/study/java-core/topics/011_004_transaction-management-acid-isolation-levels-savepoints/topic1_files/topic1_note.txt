@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_004: Transaction Management, ACID, Isolation Levels & Savepoints
+Topic 1: ACID Properties Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ACID BREAKDOWN:
+   - A (Atomicity)   : No partial transactions.
+   - C (Consistency) : Data transitions from one valid state to another valid state.
+   - I (Isolation)   : Transactions do not leak intermediate dirty state to others.
+   - D (Durability)  : Once committed, data is written to non-volatile storage.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

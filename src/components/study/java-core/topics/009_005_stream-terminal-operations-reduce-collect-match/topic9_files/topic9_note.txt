@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_005: Stream Terminal Operations, Reductions & Short-Circuiting
+Topic 9: allMatch(Predicate)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD CONTRACT:
+   - Signature: 'boolean allMatch(Predicate<? super T> predicate)'.
+   - Returns 'true' if ALL elements match the given predicate.
+   - Terminal & Short-Circuiting operation.
+
+2. SHORT-CIRCUIT MECHANICS:
+   - Short-circuits and returns 'false' immediately when the FIRST non-matching element is found.
+   - If all elements match, inspects all elements before returning 'true'.
+
+3. VACUOUS TRUTH RULE:
+   - If the stream is EMPTY, 'allMatch()' returns 'true' unconditionally.
+   - Formal logic explanation: There exists no counter-example in the set that violates the condition.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_007: JIT Compiler, HotSpot Optimizations & GraalVM
+Topic 0: Interpreter vs JIT Compiler
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE JVM HYBRID EXECUTION ENGINE:
+   - Interpreter : Translates bytecode instructions line-by-line into machine code on-the-fly.
+   - JIT Compiler: Compiles frequently executed ('hot') bytecode directly into native machine code
+     and stores it in the CodeCache in memory.
+
+2. WHY NOT AOT ONLY:
+   - Dynamic JIT has access to RUNTIME PROFILING DATA (real types, actual branch probabilities,
+     hardware CPU instruction sets) allowing profile-guided optimizations impossible in static AOT compilers!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

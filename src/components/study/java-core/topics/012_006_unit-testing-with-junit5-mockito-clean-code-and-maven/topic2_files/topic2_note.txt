@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_006: JUnit 5, Mockito, Clean Code & Maven
+Topic 2: Core JUnit 5 Annotations
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JUNIT 5 LIFECYCLE:
+   - '@BeforeAll'  : Runs once before all tests (static).
+   - '@BeforeEach' : Runs before every test method.
+   - '@Test'       : Marks a method as a test.
+   - '@AfterEach'  : Runs after every test method.
+   - '@AfterAll'   : Runs once after all tests complete (static).
+   - '@DisplayName': Custom human-friendly test title.
+   - '@Disabled'   : Skips test execution.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

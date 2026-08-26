@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_005: Stream Terminal Operations, Reductions & Short-Circuiting
+Topic 13: count(), min() and max()
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COUNT():
+   - Signature: 'long count()'.
+   - Returns the count of elements in this stream.
+   - Terminal reduction operation.
+
+2. MIN(COMPARATOR) & MAX(COMPARATOR):
+   - 'Optional<T> min(Comparator<? super T> comparator)'
+   - 'Optional<T> max(Comparator<? super T> comparator)'
+   - Special cases of reduction using 'BinaryOperator.minBy(comp)' and 'BinaryOperator.maxBy(comp)'.
+   - Returns 'Optional.empty()' on empty streams.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

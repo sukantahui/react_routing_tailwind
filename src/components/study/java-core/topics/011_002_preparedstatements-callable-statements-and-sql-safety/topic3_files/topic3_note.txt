@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_002: PreparedStatements, CallableStatements & SQL Safety
+Topic 3: How PreparedStatement Works
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE SERVER-SIDE PREPARED STATEMENT PROTOCOL:
+   - Supported natively in MySQL, PostgreSQL, Oracle, and MS SQL Server.
+   - Command 'COM_STMT_PREPARE' prepares the statement on the server.
+   - Command 'COM_STMT_EXECUTE' executes the prepared statement with new parameter values.
+
+2. REUSABILITY:
+   - In a loop inserting 10,000 rows, the SQL syntax is parsed and compiled ONCE instead of 10,000 times!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

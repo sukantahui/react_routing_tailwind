@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_009: Virtual Threads (Java 21+)
+Topic 10: newVirtualThreadPerTaskExecutor
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. NEWVIRTUALTHREADPERTASKEXECUTOR():
+   - Spawns a new Virtual Thread for EVERY task.
+   - Implements 'AutoCloseable': use with 'try-with-resources'.
+   - Exiting 'try' block automatically waits for all tasks to complete!
+   - The default executor used in modern Spring Boot 3.2+ and Quarkus.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

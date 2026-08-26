@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_001: Java Reflection API & Dynamic Member Inspection
+Topic 0: What is Java Reflection
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DEFINITION OF REFLECTION:
+   - The ability of a running program to examine and inspect its own internal metadata
+     (classes, interfaces, constructors, methods, fields, annotations) and instantiate
+     objects or invoke methods dynamically at runtime.
+   - Core packages: 'java.lang.Class', 'java.lang.reflect.*'.
+
+2. METAPROGRAMMING USE CASES:
+   - Frameworks (Spring DI, Hibernate ORM, Jackson JSON).
+   - Dynamic Proxies and Aspect-Oriented Programming (AOP).
+   - Test runners (JUnit discovering '@Test' methods).
+   - Plugin architectures.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

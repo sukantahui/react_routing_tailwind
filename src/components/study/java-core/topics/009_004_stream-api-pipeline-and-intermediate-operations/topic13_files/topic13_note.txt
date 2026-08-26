@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_004: Stream API Pipeline & Intermediate Operations
+Topic 13: map(Function)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MAP METHOD CONTRACT:
+   - Signature: '<R> Stream<R> map(Function<? super T, ? extends R> mapper)'.
+   - Transforms each element of type T into an element of type R.
+   - Intermediate & Stateless operation.
+   - Preserves stream size: Input Stream of size N &rarr; Output Stream of size N.
+
+2. PRIMITIVE SPECIALIZATIONS OF MAP:
+   - 'mapToInt(ToIntFunction)' -> IntStream (unboxed primitive int).
+   - 'mapToLong(ToLongFunction)' -> LongStream.
+   - 'mapToDouble(ToDoubleFunction)' -> DoubleStream.
+   - Use primitive specializations when transforming objects into numbers to avoid boxing!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

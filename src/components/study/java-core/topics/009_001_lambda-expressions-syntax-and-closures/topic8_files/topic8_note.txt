@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_001: Lambda Expressions & Lexical Scoping
+Topic 8: Variable Capture & Closures
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. EFFECTIVELY FINAL RULE:
+   - Capturing: Lambda copies local variables into its closure.
+   - Captured local variables MUST be 'final' or 'Effectively Final'.
+   - 'Effectively Final' = Assigned once, never modified.
+   - Instance and static fields CAN be read and mutated (they live on heap).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

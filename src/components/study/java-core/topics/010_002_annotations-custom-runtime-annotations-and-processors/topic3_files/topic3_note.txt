@@ -1,0 +1,24 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_002: Java Annotations & Custom Processors
+Topic 3: @Retention Policies Deep Dive
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 3 RETENTION POLICIES ('java.lang.annotation.RetentionPolicy'):
+   -----------------------------------------------------------------------------
+   POLICY             STORED IN .CLASS?   LOADED BY JVM?   VISIBLE VIA REFLECTION?
+   -----------------------------------------------------------------------------
+   SOURCE             NO (Erased by javac) NO              NO
+   CLASS (Default)    YES                 NO (Dropped by VM) NO
+   RUNTIME            YES                 YES              YES
+   -----------------------------------------------------------------------------
+
+2. DEFAULT POLICY:
+   - If '@Retention' is not specified on a custom annotation, it defaults to 'RetentionPolicy.CLASS'.
+   - Common Pitfall: Forgetting '@Retention(RetentionPolicy.RUNTIME)' causes 'clazz.getAnnotation()'
+     to return 'null' at runtime!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

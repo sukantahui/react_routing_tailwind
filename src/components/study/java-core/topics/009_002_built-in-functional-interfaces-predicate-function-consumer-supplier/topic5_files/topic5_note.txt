@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_002: Built-in Functional Interfaces
+Topic 5: Supplier<T> Deep Dive
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SUPPLIER<T>:
+   - SAM: 'T get()'.
+   - Input: None (), Output: T.
+   - Purpose: Factory generation, lazy evaluation, default fallbacks.
+   - Powers: 'Optional.orElseGet()', 'Stream.generate()', 'CompletableFuture.supplyAsync()'.
+   - Eager vs Lazy: Code inside Supplier runs ONLY when 'get()' is called.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

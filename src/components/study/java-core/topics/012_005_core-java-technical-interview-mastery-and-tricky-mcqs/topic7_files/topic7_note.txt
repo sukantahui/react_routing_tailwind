@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_005: Interview Mastery & Tricky MCQs
+Topic 7: Senior Java Architectural Q&A
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SENIOR ARCHITECT CORE TOPICS:
+   - JVM Memory (Eden, Survivor, Tenured, Metaspace).
+   - ZGC / Shenandoah sub-millisecond concurrent collectors.
+   - JMM Happens-Before relationships and memory fences.
+   - Project Loom Virtual Threads & Structured Concurrency.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_005: Stream Terminal Operations, Reductions & Short-Circuiting
+Topic 10: noneMatch(Predicate)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD CONTRACT:
+   - Signature: 'boolean noneMatch(Predicate<? super T> predicate)'.
+   - Returns 'true' if NO elements match the given predicate.
+   - Terminal & Short-Circuiting operation.
+
+2. SHORT-CIRCUIT MECHANICS:
+   - Short-circuits and returns 'false' immediately upon encountering the first matching element.
+   - If no elements match, returns 'true'.
+
+3. BEHAVIOR ON EMPTY STREAMS:
+   - Returns 'true' (vacuously true, since 0 matching elements exist).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

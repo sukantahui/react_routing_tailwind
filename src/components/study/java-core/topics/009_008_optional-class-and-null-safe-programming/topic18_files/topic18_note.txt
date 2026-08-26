@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_008: The Optional Class & Null-Safe Functional Programming
+Topic 18: Null-Safe Functional Architecture Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ENTERPRISE NULL-SAFE PIPELINE PATTERN:
+   - Deep navigation across nullable object graphs:
+     'findEntity(id)'
+     '.map(Entity::getComponent)'
+     '.map(Component::getSubComponent)'
+     '.filter(SubComponent::isValid)'
+     '.map(SubComponent::toDto)'
+     '.orElse(DEFAULT_DTO);'
+
+2. ZERO NPE GUARANTEE:
+   - If any step in the navigation chain produces 'null' or is 'empty', the pipeline
+     gracefully resolves to the fallback without throwing NullPointerException.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

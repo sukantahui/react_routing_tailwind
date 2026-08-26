@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_007: JIT Compiler, HotSpot Optimizations & GraalVM
+Topic 6: Escape Analysis (JEP 106)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS ESCAPE ANALYSIS:
+   - A static global analysis technique by which the C2/Graal compiler analyzes the scope
+     of a new object's reference throughout the execution graph.
+
+2. THE 3 CLASSIFICATIONS:
+   - 'NoEscape'     : Object cannot be observed outside the allocating method.
+   - 'ArgEscape'    : Object is passed to other methods, but does not escape the current thread.
+   - 'GlobalEscape' : Object is accessible by other threads or stored in heap/static fields.
+
+3. OPTIMIZATIONS ENABLED BY 'NoEscape':
+   - 1. Scalar Replacement (Stack/Register allocation).
+   - 2. Lock Elision (removes synchronized monitors).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

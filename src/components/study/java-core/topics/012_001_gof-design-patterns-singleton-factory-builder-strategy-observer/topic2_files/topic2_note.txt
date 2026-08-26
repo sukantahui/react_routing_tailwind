@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_001: GoF Design Patterns
+Topic 2: Creational Patterns Deep Dive
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHY CREATIONAL PATTERNS:
+   - Decouples client code from concrete constructors.
+   - Facilitates dependency injection, testability, and polymorphism.
+
+2. TOP 5 PATTERNS:
+   - Singleton, Factory Method, Abstract Factory, Builder, Prototype.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_001: JDBC Architecture, Drivers & Connection Pooling (HikariCP)
+Topic 6: The Connection Bottleneck
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHY CREATING NEW CONNECTIONS PER REQUEST IS FATAL:
+   - High Latency : 50ms - 200ms per connection creation (versus &lt;1ms for cached pool connections).
+   - High DB CPU  : Cryptographic TLS handshakes and process fork overhead exhaust database CPU.
+   - Resource Cap : Database server 'max_connections' limit (e.g. 151 in MySQL) is quickly breached.
+
+2. SOLUTION:
+   - Connection Pooling (pre-establishing a fixed pool of persistent warm connections).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

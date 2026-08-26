@@ -1,0 +1,26 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_005: Stream Terminal Operations, Reductions & Short-Circuiting
+Topic 4: 2-Argument reduce(identity, accumulator)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD SIGNATURE:
+   - 'T reduce(T identity, BinaryOperator<T> accumulator)'
+
+2. THE IDENTITY VALUE CONTRACT:
+   - Must be the identity value for the accumulator:
+     * 'accumulator.apply(identity, x)' MUST EQUAL 'x' for all x.
+     * Addition: Identity is 0 (0 + x == x).
+     * Multiplication: Identity is 1 (1 * x == x).
+     * String concatenation: Identity is "" ("" + x == x).
+     * Min comparison: Identity is Double.POSITIVE_INFINITY.
+     * Max comparison: Identity is Double.NEGATIVE_INFINITY.
+
+3. BENEFITS OVER 1-ARG REDUCE:
+   - Returns type T directly (no Optional unwrapping required).
+   - Returns 'identity' immediately when operating on an empty stream.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

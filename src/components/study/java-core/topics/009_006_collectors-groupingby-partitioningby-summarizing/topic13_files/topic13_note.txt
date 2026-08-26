@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_006: The Collectors Class & Downstream Reducers
+Topic 13: Collectors.partitioningBy()
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS PARTITIONING:
+   - A special case of 'groupingBy' where the classifier is a 'Predicate<T>'.
+   - The resulting Map is ALWAYS typed as 'Map<Boolean, D>'.
+   - Both 'true' and 'false' keys are ALWAYS guaranteed to be present in the resulting Map,
+     even if one of the partitions has 0 elements.
+
+2. OVERLOADS:
+   - 'partitioningBy(Predicate<? super T> predicate)' -> Map<Boolean, List<T>>
+   - 'partitioningBy(Predicate<? super T> predicate, Collector downstream)' -> Map<Boolean, D>
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

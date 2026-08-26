@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_003: ResultSet, Scrollable, Updatable & Metadata
+Topic 12: DatabaseMetaData Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS DATABASEMETADATA:
+   - Comprehensive interface obtained via 'conn.getMetaData()'.
+   - Encapsulates database server capabilities, SQL grammar limits, and catalog/schema objects.
+
+2. CORE INTROSPECTION METHODS:
+   - 'getTables(catalog, schema, tablePattern, types)'
+   - 'getColumns(catalog, schema, tablePattern, colPattern)'
+   - 'getPrimaryKeys(catalog, schema, table)'
+   - 'getImportedKeys(catalog, schema, table)' (Foreign keys)
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

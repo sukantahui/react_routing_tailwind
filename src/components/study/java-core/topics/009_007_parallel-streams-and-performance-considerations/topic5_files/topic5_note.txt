@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_007: Parallel Streams & Performance Considerations
+Topic 5: The NQ Performance Model
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE NQ RULE (By Brian Goetz, Java Language Architect):
+   - 'N' = Total number of data elements in the stream.
+   - 'Q' = Approximate number of CPU instructions required to process each element.
+   - Total Computation Work = 'N * Q'.
+
+2. HEURISTIC THRESHOLD:
+   - When 'N * Q > 10,000', parallel speedup generally outweighs ForkJoinPool splitting
+     and merging overhead.
+   - When 'N * Q < 10,000', sequential execution is almost always faster.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

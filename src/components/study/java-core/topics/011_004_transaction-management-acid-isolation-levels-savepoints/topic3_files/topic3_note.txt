@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_004: Transaction Management, ACID, Isolation Levels & Savepoints
+Topic 3: Consistency: Preserving Invariants
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS CONSISTENCY:
+   - Ensures that only valid data following all rules and constraints is written to the database.
+   - If an operation would leave the database in an illegal state, the entire transaction is rejected.
+
+2. SHARED RESPONSIBILITY:
+   - Database enforces structural constraints (PK, FK, Unique, Check).
+   - Java application enforces complex business invariants.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

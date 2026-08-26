@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_002: PreparedStatements, CallableStatements & SQL Safety
+Topic 4: Setting Parameters Safely
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TYPE-SAFE BINDING METHODS:
+   - 'setInt(int idx, int x)'
+   - 'setLong(int idx, long x)'
+   - 'setString(int idx, String x)'
+   - 'setDouble(int idx, double x)'
+   - 'setDate(int idx, java.sql.Date d)'
+   - 'setTimestamp(int idx, java.sql.Timestamp ts)'
+   - 'setNull(int idx, int sqlType)'
+
+2. SQL NULL HANDLING:
+   - Always use 'setNull(index, Types.<SQL_TYPE>)' to avoid dialect-specific type coercion bugs!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

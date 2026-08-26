@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_003: JVM Architecture, ClassLoaders & Bytecode Execution
+Topic 3: Phase 2 (Linking Overview)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LINKING SUB-PHASES DECONSTRUCTED:
+   1. Verification:
+      - Ensures binary class format is structurally valid.
+      - Enforces type safety, access restrictions, and operand stack depth bounds.
+   2. Preparation:
+      - Allocates static memory in Metaspace/Heap.
+      - Sets default values: 'int' &rarr; 0, 'boolean' &rarr; false, 'Object' &rarr; null.
+   3. Resolution:
+      - Dynamically resolves symbolic references in the Constant Pool to direct memory pointers.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_005: Interview Mastery & Tricky MCQs
+Topic 9: Live Coding Strategy Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INTERVIEW SUCCESS CHECKLIST:
+   - Never jump straight to coding without discussing approach first.
+   - Always communicate your thoughts out loud.
+   - Actively test edge cases: null, empty collection, negative numbers, integer overflow.
+   - State Time Complexity: O(N) / O(N log N) / O(1).
+   - State Space Complexity: Auxiliary heap allocations.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

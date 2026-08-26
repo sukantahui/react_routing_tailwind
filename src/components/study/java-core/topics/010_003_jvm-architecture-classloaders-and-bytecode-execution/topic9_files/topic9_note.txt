@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_003: JVM Architecture, ClassLoaders & Bytecode Execution
+Topic 9: The Bootstrap ClassLoader
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CHARACTERISTICS OF THE BOOTSTRAP CLASSLOADER:
+   - Implemented in native C/C++ (part of the HotSpot JVM kernel).
+   - Has no parent classloader (it is the root of the hierarchy).
+   - Responsible for loading fundamental JVM types ('java.lang.*', 'java.util.*', 'java.io.*').
+
+2. RUNTIME STORAGE (Java 8 vs 9+):
+   - Java 8 : Loaded from '$JAVA_HOME/jre/lib/rt.jar'.
+   - Java 9+: Loaded from modular runtime image file '$JAVA_HOME/lib/modules' (jimage).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

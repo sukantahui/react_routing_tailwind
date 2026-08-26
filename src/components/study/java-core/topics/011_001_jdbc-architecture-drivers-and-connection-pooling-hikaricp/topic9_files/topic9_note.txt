@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_001: JDBC Architecture, Drivers & Connection Pooling (HikariCP)
+Topic 9: HikariCP Connection Pool
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS HIKARICP:
+   - High-performance, zero-overhead JDBC connection pool created by Brett Wooldridge.
+   - The default connection pool in Spring Boot 2.x and 3.x.
+
+2. WHY IT DOMINATES BENCHMARKS:
+   - 'ConcurrentBag' data structure avoids lock contention across CPU cores.
+   - 'FastList' speeds up Statement tracking by 2x.
+   - Eliminates reflection overhead via direct Javassist bytecode synthesis.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

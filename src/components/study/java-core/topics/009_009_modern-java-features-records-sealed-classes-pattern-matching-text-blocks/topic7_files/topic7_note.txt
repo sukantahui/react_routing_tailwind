@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_009: Modern Java Features
+Topic 7: Sealed Hierarchy Modifiers
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 3 SUBCLASS MODIFIER OPTIONS:
+   - A permitted subclass of a sealed class MUST declare one of the following:
+     1. 'final'      : Cannot be extended any further.
+     2. 'sealed'     : Must define its own 'permits' clause.
+     3. 'non-sealed' : Re-opens the hierarchy for open extension by any class.
+
+2. COMPILATION ENFORCEMENT:
+   - Omitting all 3 modifiers on a permitted subclass causes a compile-time error.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

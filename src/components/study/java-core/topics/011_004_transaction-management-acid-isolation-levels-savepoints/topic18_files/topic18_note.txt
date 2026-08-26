@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_004: Transaction Management, ACID, Isolation Levels & Savepoints
+Topic 18: TRANSACTION_READ_COMMITTED
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CORE GUARANTEE:
+   - A query only reads data that was committed before the query began.
+   - Prevents Dirty Reads completely.
+
+2. STATEMENT SNAPSHOT VS TRANSACTION SNAPSHOT:
+   - In READ COMMITTED, each SELECT statement within the transaction takes a fresh snapshot of data!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

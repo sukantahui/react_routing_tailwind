@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_007: Parallel Streams & Performance Considerations
+Topic 4: Configuring Pool Parallelism
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JVM SYSTEM PROPERTY CONFIGURATION:
+   - Command-line flag: '-Djava.util.concurrent.ForkJoinPool.common.parallelism=8'.
+   - Changes the parallelism level across all components sharing the common pool.
+   - Must be configured at JVM startup.
+
+2. RUNNING IN A CUSTOM FORKJOINPOOL:
+   - Pattern:
+     'ForkJoinPool customPool = new ForkJoinPool(4);'
+     'customPool.submit(() -> list.parallelStream().forEach(...)).get();'
+   - Isolates CPU-heavy or sensitive batch pipelines from starving global application threads.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

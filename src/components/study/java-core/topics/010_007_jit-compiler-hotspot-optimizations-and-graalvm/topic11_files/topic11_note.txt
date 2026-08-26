@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_007: JIT Compiler, HotSpot Optimizations & GraalVM
+Topic 11: JIT Diagnostics Flags
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LOG FLAGS CHEATSHEET:
+   - '-XX:+PrintCompilation'               : Real-time notification of method compilation and tier.
+   - '-XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining' : Explains why methods were or were not inlined.
+
+2. PRINTCOMPILATION ATTRIBUTE FLAGS:
+   - '%' : On-Stack Replacement (OSR) compilation.
+   - 's' : Synchronized method.
+   - '!' : Method has exception handlers.
+   - 'b' : Blocking compilation.
+   - 'make_not_entrant' : Method de-optimized and marked stale.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

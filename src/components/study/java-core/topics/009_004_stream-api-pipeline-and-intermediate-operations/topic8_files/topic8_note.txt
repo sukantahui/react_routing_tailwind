@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_004: Stream API Pipeline & Intermediate Operations
+Topic 8: Primitive Streams (IntStream, LongStream, DoubleStream)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SPECIALIZED PRIMITIVE STREAMS:
+   - 'IntStream', 'LongStream', 'DoubleStream'.
+   - Avoids heap overhead of 'Stream<Integer>', 'Stream<Long>', 'Stream<Double>'.
+
+2. KEY PRIMITIVE STREAM METHODS:
+   - Range Creation: 'IntStream.range(1, 10)' (exclusive), 'IntStream.rangeClosed(1, 10)' (inclusive).
+   - Numeric Reductions: '.sum()', '.average()', '.min()', '.max()', '.summaryStatistics()'.
+   - Conversions:
+     * Object -> Primitive: 'stream.mapToInt(...)', 'stream.mapToLong(...)', 'stream.mapToDouble(...)'.
+     * Primitive -> Object: 'intStream.boxed()' (Stream<Integer>) or 'intStream.mapToObj(...)'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

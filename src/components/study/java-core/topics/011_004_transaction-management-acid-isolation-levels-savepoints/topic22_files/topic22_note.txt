@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_004: Transaction Management, ACID, Isolation Levels & Savepoints
+Topic 22: Inter-Bank Transfer Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PESSIMISTIC LOCKING WITH 'FOR UPDATE':
+   - 'SELECT ... FOR UPDATE' locks the matching rows, preventing race conditions (e.g. double spending)
+     where two concurrent transfers attempt to spend the same balance simultaneously.
+
+2. AUDIT TRAIL IMMUTABILITY:
+   - Audit logging inside the same transaction ensures that the audit record exists if and only if
+     the financial transfer itself successfully committed!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

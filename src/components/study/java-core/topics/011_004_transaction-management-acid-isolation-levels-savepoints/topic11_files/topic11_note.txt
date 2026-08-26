@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_004: Transaction Management, ACID, Isolation Levels & Savepoints
+Topic 11: Savepoints for Partial Rollbacks
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS A SAVEPOINT:
+   - A bookmark/checkpoint within an active transaction.
+   - Allows rolling back a portion of the transaction without aborting the entire unit of work.
+
+2. LIFECYCLE:
+   - 'conn.setSavepoint()' / 'conn.setSavepoint(String name)'
+   - 'conn.rollback(Savepoint sp)'
+   - 'conn.releaseSavepoint(Savepoint sp)'
+   - All savepoints are automatically released when the transaction commits or completely rolls back.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

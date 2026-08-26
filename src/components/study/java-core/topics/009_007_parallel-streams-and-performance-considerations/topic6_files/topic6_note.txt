@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_007: Parallel Streams & Performance Considerations
+Topic 6: When Parallel Streams Excel
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE THREE PILLARS OF PARALLEL STREAM EXCELLENCE:
+   A. SOURCE SPLITABILITY:
+      - Best: 'ArrayList', 'int[]', 'IntStream.rangeClosed()', 'HashSet'.
+      - Spliterators can partition these in O(1) time with zero memory copy.
+
+   B. HIGH COMPUTATIONAL DENSITY (High Q):
+      - Math, cryptography, image processing, complex filtering, regex parsing.
+
+   C. PURE FUNCTIONAL STATE (Zero Contention):
+      - No 'synchronized' blocks, no Atomic variables, no shared mutable collections.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

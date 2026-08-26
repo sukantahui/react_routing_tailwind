@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_008: The Optional Class & Null-Safe Functional Programming
+Topic 4: orElse(fallbackValue)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD CONTRACT:
+   - Signature: 'public T orElse(T other)'.
+   - If a value is present, returns the value.
+   - Otherwise, returns 'other'.
+
+2. WHEN TO USE ORELSE:
+   - When the fallback is a constant literal (e.g. '"UNKNOWN"', '0', 'false').
+   - When the fallback is a pre-existing static object ('Collections.emptyList()').
+
+3. CAVEAT (EAGER EVALUATION):
+   - The argument inside 'orElse(expression)' is ALWAYS evaluated upfront, even if the
+     Optional is NOT empty!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

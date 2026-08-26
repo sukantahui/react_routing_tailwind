@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_004: JVM Memory Model: Heap, Stack, Metaspace & Runtime Areas
+Topic 16: Analyzing Memory Errors Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JVM MEMORY ERROR TRIAGE GUIDE:
+   1. 'java.lang.OutOfMemoryError: Java heap space'
+      - Objects cannot be allocated on Heap despite Full GC.
+      - Diagnostic Tool: Capture dump with '-XX:+HeapDumpOnOutOfMemoryError'.
+   2. 'java.lang.OutOfMemoryError: Metaspace'
+      - Native metadata limit reached due to classloader leakage.
+      - Diagnostic Tool: 'jcmd <pid> GC.class_stats' / VisualVM.
+   3. 'java.lang.StackOverflowError'
+      - Thread stack frame capacity exceeded by recursive calls.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

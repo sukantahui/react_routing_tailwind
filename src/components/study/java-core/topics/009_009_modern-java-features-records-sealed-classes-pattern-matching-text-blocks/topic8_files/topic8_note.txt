@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_009: Modern Java Features
+Topic 8: Sealed Rules & Same-File Inference
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PERMITS OMISSION RULE:
+   - If all permitted subclasses or implementing records are declared in the SAME compilation
+     unit (same .java file), the 'permits' clause can be omitted.
+   - The compiler automatically discovers and populates the permitted list.
+
+2. RECORDS AS SEALED IMPLEMENTATIONS:
+   - Java Records are implicitly 'final'.
+   - Therefore, a record implementing a sealed interface fulfills the modifier requirement
+     without needing to declare 'final'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

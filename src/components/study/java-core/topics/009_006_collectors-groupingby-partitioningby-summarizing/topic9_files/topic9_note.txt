@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_006: The Collectors Class & Downstream Reducers
+Topic 9: groupingBy with counting()
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FREQUENCY PATTERN:
+   - 'Collectors.groupingBy(classifier, Collectors.counting())'
+   - Produces 'Map<K, Long>' representing counts of elements in each classification group.
+
+2. EQUIVALENT SQL:
+   - 'SELECT courseTitle, COUNT(*) FROM enrollments GROUP BY courseTitle;'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

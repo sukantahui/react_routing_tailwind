@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_001: Lambda Expressions & Lexical Scoping
+Topic 7: Lexical Scoping & 'this'
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LEXICAL SCOPING IN LAMBDAS:
+   - Lambdas do NOT create their own 'this' scope.
+   - 'this' inside a lambda = 'this' of the enclosing outer class.
+   - 'super' inside a lambda = 'super' of the enclosing outer class.
+   - Variable names cannot shadow outer variables (e.g. 'int x' cannot be re-declared in lambda parameter).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

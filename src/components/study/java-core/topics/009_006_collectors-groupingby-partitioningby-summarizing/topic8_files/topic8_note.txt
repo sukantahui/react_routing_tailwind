@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_006: The Collectors Class & Downstream Reducers
+Topic 8: Downstream Collectors Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS A DOWNSTREAM COLLECTOR:
+   - When elements are classified into buckets by 'groupingBy()', the downstream collector
+     is responsible for processing and accumulating the elements in each individual bucket.
+   - Default downstream: 'Collectors.toList()'.
+
+2. POPULAR DOWNSTREAM COLLECTORS:
+   - 'counting()': Counts items in each group -> 'Map<K, Long>'.
+   - 'mapping(fn, downstream)': Maps element fields before collecting -> 'Map<K, List<R>>'.
+   - 'summingInt() / averagingDouble()': Calculates metrics per group -> 'Map<K, Double>'.
+   - 'maxBy(comp) / minBy(comp)': Finds extremes per group -> 'Map<K, Optional<T>>'.
+   - 'filtering(pred, downstream)' [Java 9]: Filters within groups.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

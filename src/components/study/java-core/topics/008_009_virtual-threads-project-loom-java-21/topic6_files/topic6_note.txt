@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_009: Virtual Threads (Java 21+)
+Topic 6: Automatic Unmounting on I/O
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. AUTOMATIC UNMOUNTING ON I/O:
+   - JDK rewritten to integrate with OS epoll/kqueue/IOCP.
+   - Calling 'socket.read()' or 'Thread.sleep()' triggers 'Continuation.yield()'.
+   - Virtual Thread unmounts & carrier thread is instantly freed.
+   - When I/O data arrives, Virtual Thread re-mounts on any available carrier.
+   - Zero OS thread blocking!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

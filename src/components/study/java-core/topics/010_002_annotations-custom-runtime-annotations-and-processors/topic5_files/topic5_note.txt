@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_002: Java Annotations & Custom Processors
+Topic 5: @Documented Meta-Annotation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT @DOCUMENTED DOES:
+   - Instructs the 'javadoc' tool that elements annotated with this custom annotation
+     should display the annotation above their signatures in generated HTML documentation.
+
+2. DEFAULT BEHAVIOR:
+   - Without '@Documented', custom annotations are completely invisible in Javadoc HTML,
+     even if they have 'RetentionPolicy.RUNTIME'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_005: Batch Updates & DAO Pattern
+Topic 11: Unit Testing DAOs Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHY IN-MEMORY TESTING (H2 / SQLite):
+   - Zero installation or server setup required.
+   - Extremely fast execution (runs completely in RAM).
+   - Ephemeral: Each test run starts with a clean slate without residual test pollution.
+
+2. MODERN ALTERNATIVE (Testcontainers):
+   - For 100% database engine compatibility, modern teams use Testcontainers with real Docker containers.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

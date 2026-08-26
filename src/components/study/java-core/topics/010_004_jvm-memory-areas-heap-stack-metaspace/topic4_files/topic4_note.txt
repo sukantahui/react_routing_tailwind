@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_004: JVM Memory Model: Heap, Stack, Metaspace & Runtime Areas
+Topic 4: Program Counter (PC) Register
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT THE PC REGISTER DOES:
+   - Stores the memory address / bytecode offset of the JVM instruction currently being executed
+     by the thread.
+   - Essential for context switching and CPU scheduling across multi-core architectures.
+
+2. KEY RULES:
+   - One PC Register per Thread (Thread-Private).
+   - Java Method: Contains address of current bytecode opcode.
+   - Native Method: Contains 'Undefined'.
+   - NEVER throws 'OutOfMemoryError'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

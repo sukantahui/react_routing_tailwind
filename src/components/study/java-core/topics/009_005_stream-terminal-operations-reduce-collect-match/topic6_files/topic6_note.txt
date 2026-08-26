@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_005: Stream Terminal Operations, Reductions & Short-Circuiting
+Topic 6: Custom Aggregations via reduce()
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COMMON AGGREGATION PATTERNS VIA REDUCE:
+   - Sum: '.reduce(0, Integer::sum)' or '.reduce(0.0, Double::sum)'
+   - Min: '.reduce(BinaryOperator.minBy(Comparator))'
+   - Max: '.reduce(BinaryOperator.maxBy(Comparator))'
+   - Product: '.reduce(1, (a, b) -> a * b)'
+   - String Concatenation: '.reduce("", (a, b) -> a + b)'
+
+2. WHEN TO PREFER SPECIALIZED APIS OVER REDUCE:
+   - Numeric Sum/Average: Prefer 'IntStream.sum()' / 'average()' (faster, unboxed).
+   - Collection building: Prefer 'collect(Collectors.toList())' (mutative collection is O(1) vs reduce copying).
+   - String Joining: Prefer 'collect(Collectors.joining(", "))' (uses StringBuilder internally).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

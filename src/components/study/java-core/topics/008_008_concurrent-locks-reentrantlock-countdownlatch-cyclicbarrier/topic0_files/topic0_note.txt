@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_008: Explicit Locks & Synchronizers
+Topic 0: Limitations of synchronized
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LIMITATIONS OF SYNCHRONIZED:
+   - 1. No Timeout: Blocks forever.
+   - 2. Uninterruptible: Ignores 'Thread.interrupt()' during monitor acquisition.
+   - 3. No Polling: Cannot test availability without blocking.
+   - 4. Single Wait-Set: Causes signal thrashing between producers/consumers.
+   - Replaced by: 'java.util.concurrent.locks.ReentrantLock' and 'Condition'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

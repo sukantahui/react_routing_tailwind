@@ -1,0 +1,24 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_001: Java Reflection API & Dynamic Member Inspection
+Topic 2: Obtaining java.lang.Class Instances
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 3 WAYS TO OBTAIN A CLASS OBJECT:
+   1. Class Literal: 'ClassName.class'
+      - Compile-time safe, zero runtime overhead, throws no exceptions.
+   2. Instance Method: 'object.getClass()'
+      - Inherited from 'java.lang.Object'. Returns the runtime concrete type of polymorphic objects.
+   3. Dynamic Lookup: 'Class.forName("com.pkg.ClassName")'
+      - Loads class dynamically by string name.
+      - Throws 'ClassNotFoundException' if class is missing.
+      - Essential for JDBC driver loading and plugin systems.
+
+2. CLASS SINGLETON GUARANTEE:
+   - For any loaded class in a ClassLoader, exactly ONE 'java.lang.Class' instance exists in Metaspace.
+   - 'c1 == c2' evaluates to true.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

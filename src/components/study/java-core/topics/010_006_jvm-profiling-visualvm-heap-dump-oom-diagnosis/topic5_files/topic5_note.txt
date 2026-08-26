@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_006: JVM Profiling, Heap Dumps & Memory Leak Diagnosis
+Topic 5: Non-Static Inner Class Leaks
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 'this$0' COMPILER SYNTHESIS:
+   - When compiling a non-static inner class (or anonymous inner class), 'javac' synthesizes
+     a hidden final field named 'this$0' pointing to the enclosing outer instance.
+   - If the inner instance is retained (e.g. stored in a thread or listener), the entire outer
+     instance (and its full memory payload) cannot be garbage collected!
+
+2. REMEDY:
+   - Always declare nested classes with the 'static' keyword ('static class SafeTask').
+   - Use lambdas or static methods that do not capture outer instance state.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

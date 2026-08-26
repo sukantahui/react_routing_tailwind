@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_003: JVM Architecture, ClassLoaders & Bytecode Execution
+Topic 8: Built-in ClassLoader Hierarchy
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 3 BUILT-IN CLASSLOADERS:
+   -----------------------------------------------------------------------------
+   LOADER                    RESPONSIBILITY                   PARENT
+   -----------------------------------------------------------------------------
+   Bootstrap ClassLoader     Core JDK ('java.base', Object, String) None (Native root)
+   Platform ClassLoader      Platform modules (SQL, XML, Logging)   Bootstrap
+   App/System ClassLoader    User classpath / application JARs     Platform
+   -----------------------------------------------------------------------------
+
+2. WHY 'getClassLoader()' RETURNS NULL:
+   - In Java, the Bootstrap ClassLoader is implemented in native C/C++ inside the JVM.
+   - It is not represented as a Java object, so 'String.class.getClassLoader()' returns 'null'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_003: JVM Architecture, ClassLoaders & Bytecode Execution
+Topic 5: Linking Step 2 (Preparation)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT OCCURS IN PREPARATION:
+   - JVM allocates memory in Metaspace/Heap for static variables (class variables).
+   - Sets each variable to the default initial value of its datatype (0, false, null).
+   - No user code or expressions are executed yet.
+
+2. SPECIAL CASE - 'ConstantValue' ATTRIBUTE:
+   - If a field is 'static final' with a compile-time constant expression, the compiler
+     attaches a 'ConstantValue' attribute.
+   - The JVM assigns the real value during Preparation rather than waiting for Initialization!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_001: GoF Design Patterns
+Topic 12: Proxy Pattern
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INTENT:
+   - Provide a surrogate or placeholder for another object to control access to it.
+
+2. COMMON PROXY TYPES:
+   - Virtual Proxy   : Lazy initialization of expensive resources.
+   - Protection Proxy: Role-based authorization & permission validation.
+   - Remote Proxy    : RMI / gRPC network stub representation.
+   - Dynamic Proxy   : Spring AOP transactions ('@Transactional') and caching.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

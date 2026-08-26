@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_003: JVM Architecture, ClassLoaders & Bytecode Execution
+Topic 7: Phase 3 (Class Initialization)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS <clinit>():
+   - The Class Initializer method synthesized by 'javac'.
+   - Combines all static variable initializers and 'static { ... }' blocks in the order
+     they appear textually in the source code.
+
+2. THREAD SAFETY GUARANTEE:
+   - The JVM uses an internal class initialization lock to ensure that '<clinit>()' is executed
+     by exactly one thread while other concurrent threads block and wait.
+   - This provides the foundation for the thread-safe Bill Pugh Singleton Design Pattern!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

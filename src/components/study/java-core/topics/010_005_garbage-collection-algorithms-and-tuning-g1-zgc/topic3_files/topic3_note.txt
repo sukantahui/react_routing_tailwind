@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_005: Garbage Collection Algorithms, Collectors & GC Tuning
+Topic 3: Weak Generational Hypothesis
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CORE TENETS OF THE HYPOTHESIS:
+   1. The vast majority of allocated objects die very shortly after allocation (high infant mortality).
+   2. Objects that survive initial collections tend to live for a long time.
+   3. References from Old Generation objects to Young Generation objects are rare.
+
+2. WHY IT REVOLUTIONIZED GC DESIGN:
+   - In a Copying Collector (Eden &rarr; Survivor), the cost of GC is proportional ONLY to the number
+     of LIVE objects, not the size of memory or number of dead objects!
+   - Since 98% of objects are dead, Minor GC completes almost instantaneously!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

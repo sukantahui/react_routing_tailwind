@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_006: JVM Profiling, Heap Dumps & Memory Leak Diagnosis
+Topic 6: ThreadLocal Leaks in Thread Pools
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHY THREADLOCAL LEAKS IN APPLICATION SERVERS:
+   - Worker threads in a thread pool (Tomcat, Netty, ExecutorService) live for the entire life of the JVM.
+   - Each Thread instance holds a 'ThreadLocalMap'.
+   - If a request sets a 'ThreadLocal' and finishes without calling 'remove()', the object remains
+     referenced by the thread's 'ThreadLocalMap' indefinitely!
+
+2. MANDATORY PATTERN:
+   - Always wrap in 'try ... finally':
+     'try { tl.set(val); ... } finally { tl.remove(); }'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

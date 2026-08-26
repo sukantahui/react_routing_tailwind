@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_002: PreparedStatements, CallableStatements & SQL Safety
+Topic 8: Retrieving Auto-Generated Keys
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. AUTO-GENERATED KEY CONTRACT:
+   - Pass 'Statement.RETURN_GENERATED_KEYS' to 'conn.prepareStatement()'.
+   - Call 'pstmt.getGeneratedKeys()' immediately after 'pstmt.executeUpdate()'.
+
+2. KEY RETRIEVAL FORMAT:
+   - 'getGeneratedKeys()' returns a standard 'ResultSet'.
+   - The generated key is at column index 1 ('rs.getLong(1)').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

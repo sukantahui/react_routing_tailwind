@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_001: GoF Design Patterns
+Topic 8: Structural Patterns Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT ARE STRUCTURAL PATTERNS:
+   - Patterns concerned with how classes and objects are composed to form larger structures.
+
+2. CORE PRINCIPLE:
+   - 'Favor composition over inheritance'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

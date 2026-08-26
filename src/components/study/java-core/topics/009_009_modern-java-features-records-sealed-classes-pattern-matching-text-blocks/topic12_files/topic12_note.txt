@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_009: Modern Java Features
+Topic 12: Record Patterns (JEP 440)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT ARE RECORD PATTERNS (Java 21 Standard - JEP 440):
+   - Allows deconstructing record instances into their individual constituent components
+     directly inside 'instanceof' and 'switch' expressions.
+   - Syntax:
+     'if (obj instanceof Point(int x, int y)) { /* use x and y directly */ }'
+
+2. NESTED RECORD PATTERNS:
+   - Records containing other records can be destructured recursively in a single pattern:
+     'if (obj instanceof Order(Customer(String name, Address(String city)), double total))'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

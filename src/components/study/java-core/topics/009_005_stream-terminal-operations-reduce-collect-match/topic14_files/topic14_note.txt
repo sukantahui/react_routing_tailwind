@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_005: Stream Terminal Operations, Reductions & Short-Circuiting
+Topic 14: toArray() and Array Constructor References
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TOARRAY OVERLOADS:
+   1. 'Object[] toArray()'
+      - Returns an array containing the elements of this stream as 'Object[]'.
+   2. '<A> A[] toArray(IntFunction<A[]> generator)'
+      - Returns an array containing the elements of this stream, using the provided
+        generator function to allocate the returned array.
+      - Standard idiom: 'stream.toArray(TypeName[]::new)'.
+
+2. PRIMITIVE STREAMS:
+   - 'IntStream.toArray()' -> returns primitive 'int[]'.
+   - 'LongStream.toArray()' -> returns primitive 'long[]'.
+   - 'DoubleStream.toArray()' -> returns primitive 'double[]'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

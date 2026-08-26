@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_004: Transaction Management, ACID, Isolation Levels & Savepoints
+Topic 7: Disabling Auto-Commit
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT 'setAutoCommit(false)' DOES:
+   - Sends 'START TRANSACTION' or 'BEGIN' (or changes session variable) on the database engine.
+   - Puts the connection in explicit manual transaction mode.
+
+2. PERFORMANCE BENEFIT:
+   - Grouping 1,000 INSERT statements under one 'setAutoCommit(false)' reduces disk fsync operations
+     from 1,000 times to ONCE at commit time, resulting in a 50x speedup!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

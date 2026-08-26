@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_006: JUnit 5, Mockito, Clean Code & Maven
+Topic 4: Parameterized Tests
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DATA SOURCE ANNOTATIONS:
+   - '@ValueSource(ints = {...}, strings = {...})' : Simple primitive/String array.
+   - '@CsvSource({"1, 2, 3", "10, 20, 30"})'  : Comma-separated values mapped to params.
+   - '@MethodSource("provideData")'             : Stream/Collection provider method.
+   - '@EnumSource(ChronoUnit.class)'             : Runs test for all enum constants.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

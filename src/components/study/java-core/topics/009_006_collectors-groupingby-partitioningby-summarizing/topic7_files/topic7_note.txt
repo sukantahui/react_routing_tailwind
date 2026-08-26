@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_006: The Collectors Class & Downstream Reducers
+Topic 7: Multi-Level Nested groupingBy()
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. NESTED GROUPING MECHANICS:
+   - The 2-argument 'Collectors.groupingBy(classifier, downstreamCollector)' accepts ANY Collector as its downstream argument.
+   - By passing another 'groupingBy()' as the downstream collector, a multi-tier nested Map structure is formed:
+     * 'Map<K1, Map<K2, List<T>>>' (2-Level).
+     * 'Map<K1, Map<K2, Map<K3, List<T>>>>' (3-Level).
+
+2. PATTERN FORMULA:
+   - 'collect(groupingBy(Entity::getPrimary, groupingBy(Entity::getSecondary)))'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_005: Garbage Collection Algorithms, Collectors & GC Tuning
+Topic 12: Shenandoah GC (-XX:+UseShenandoahGC)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS SHENANDOAH GC:
+   - An ultra-low latency concurrent garbage collector developed by Red Hat (JEP 189).
+   - Performs concurrent marking, concurrent evacuation, and concurrent update references.
+
+2. HOW IT REDUCES PAUSES:
+   - Traditional G1 GC evacuates regions during Stop-The-World pauses.
+   - Shenandoah evacuates regions CONCURRENTLY with running Java threads using Load-Reference Barriers.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

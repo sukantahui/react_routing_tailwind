@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_004: Custom DI Framework
+Topic 4: Circular Dependency Detection
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CYCLE DETECTION ALGORITHM:
+   - Maintain 'Set<Class<?>> currentlyInCreation'.
+   - Before instantiating bean, call 'add(clazz)'. If returns false -> circular cycle!
+   - In finally block, call 'remove(clazz)' once bean is fully initialized.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

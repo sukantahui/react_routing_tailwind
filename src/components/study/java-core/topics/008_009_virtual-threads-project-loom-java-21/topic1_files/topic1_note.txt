@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_009: Virtual Threads (Java 21+)
+Topic 1: Thread-per-Request Bottleneck
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THREAD-PER-REQUEST BOTTLENECK:
+   - Tomcat allocates ~200 OS worker threads.
+   - Each thread blocks while waiting for DB / HTTP I/O (sleeping).
+   - All 200 threads exhausted &rarr; Server rejects incoming requests (503).
+   - Server crashes despite having 95% CPU capacity unused!
+   - Solved by Virtual Threads which unmount during I/O blocking.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

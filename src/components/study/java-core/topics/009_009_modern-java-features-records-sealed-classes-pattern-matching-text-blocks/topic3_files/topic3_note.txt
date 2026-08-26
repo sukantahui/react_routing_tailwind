@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_009: Modern Java Features
+Topic 3: Compiler Generated Artifacts
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT JAVAC SYNTHESIZES AUTOMATICALLY:
+   1. Canonical Constructor: 'public RecordName(T1 c1, T2 c2...)' matching component types.
+   2. Component Accessors: 'public T1 c1()', 'public T2 c2()'.
+   3. 'equals(Object o)': True if and only if all corresponding components are equal.
+   4. 'hashCode()': Combines hash codes of all components consistently with equals.
+   5. 'toString()': Returns formatted string: 'RecordName[c1=v1, c2=v2]'.
+
+2. VALUE OBJECT INTEGRITY:
+   - Two record instances with identical component values are structurally interchangeable.
+   - Solves bugs with custom equals/hashCode omissions in traditional DTO classes.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

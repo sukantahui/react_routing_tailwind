@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_007: JIT Compiler, HotSpot Optimizations & GraalVM
+Topic 12: AOT & GraalVM Native Image
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS GRAALVM NATIVE IMAGE:
+   - Technology that compiles Java bytecode ahead-of-time (AOT) into a standalone native executable.
+   - Embeds SubstrateVM: a stripped-down runtime providing memory management, thread scheduling,
+     and garbage collection inside the compiled binary.
+
+2. WHY REVOLUTIONARY FOR CLOUD:
+   - Instant startup eliminates cold starts in serverless functions (AWS Lambda).
+   - Low RAM usage allows 10x higher container density on Kubernetes worker nodes.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

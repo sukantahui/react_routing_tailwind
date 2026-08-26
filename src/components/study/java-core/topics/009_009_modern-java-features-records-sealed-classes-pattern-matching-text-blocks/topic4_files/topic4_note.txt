@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_009: Modern Java Features
+Topic 4: Customizing Records (Compact Constructors)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COMPACT CONSTRUCTOR SYNTAX:
+   - Eliminates the boilerplate parameter list:
+     'public RecordName { /* validation and normalization */ }'
+   - Field assignment ('this.field = field') is performed automatically by the compiler
+     at the end of the constructor.
+
+2. WHAT CAN BE ADDED TO RECORDS:
+   - Custom instance methods (e.g. 'isDistinction()').
+   - Static fields and static helper methods.
+   - Secondary overloaded constructors (must delegate to canonical constructor via 'this(...)').
+   - Implementing interfaces.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

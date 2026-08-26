@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_002: Built-in Functional Interfaces
+Topic 10: Two-Argument (Bi) Variants
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TWO-ARGUMENT (BI) VARIANTS:
+   - 'BiPredicate<T, U>': 'boolean test(T, U)' (2 inputs -> boolean).
+   - 'BiFunction<T, U, R>': 'R apply(T, U)' (2 inputs -> R output).
+   - 'BiConsumer<T, U>': 'void accept(T, U)' (2 inputs -> void).
+   - Why NO BiSupplier? Supplier takes 0 arguments by definition!
+   - Key usage: 'Map.forEach(BiConsumer)' and 'Map.compute(BiFunction)'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

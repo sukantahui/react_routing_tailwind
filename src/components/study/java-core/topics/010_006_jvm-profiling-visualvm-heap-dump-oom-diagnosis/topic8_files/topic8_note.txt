@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_006: JVM Profiling, Heap Dumps & Memory Leak Diagnosis
+Topic 8: JVM CLI Diagnostics Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE JDK CLI TOOLKIT:
+   - Built into standard JDK '$JAVA_HOME/bin'.
+   - Communicates with running JVM instances via local OS domain sockets / Attach API.
+
+2. MODERN RECOMMENDATION:
+   - 'jcmd' is the official modern replacement consolidating 'jstack', 'jinfo', and 'jmap'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

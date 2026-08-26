@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_006: JVM Profiling, Heap Dumps & Memory Leak Diagnosis
+Topic 0: Why Memory Leaks Occur in Java
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DEFINITION OF A JAVA MEMORY LEAK:
+   - Also known as 'Unintentional Object Retention' or 'LPS' (Lapsed Pointer Syndrome).
+   - An object that is no longer required for application execution remains reachable
+     from an active GC Root (e.g. static collection, thread local, listener).
+
+2. SYMPTOMS IN PRODUCTION:
+   - Application responsiveness gradually degrades over hours/days.
+   - GC pause times increase and occur more frequently.
+   - Ultimately results in 'java.lang.OutOfMemoryError: Java heap space'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

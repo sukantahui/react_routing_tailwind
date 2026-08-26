@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_005: Stream Terminal Operations, Reductions & Short-Circuiting
+Topic 0: What is a Terminal Operation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TERMINAL OPERATION CORE DEFINITION:
+   - A terminal operation is the final method invoked on a Stream pipeline.
+   - It triggers element traversal, executes all intermediate operations (filter, map, etc.),
+     and produces either a non-stream result (e.g. List, long, boolean, Optional) or a side-effect (void).
+   - Once executed, the stream is considered CONSUMED and CLOSED.
+
+2. CATEGORIES OF TERMINAL OPERATIONS:
+   - Iteration / Side-effects: 'forEach()', 'forEachOrdered()'.
+   - Reductions & Aggregations: 'reduce()', 'collect()', 'count()', 'min()', 'max()', 'sum()', 'average()'.
+   - Search & Match: 'anyMatch()', 'allMatch()', 'noneMatch()', 'findFirst()', 'findAny()'.
+   - Array Conversion: 'toArray()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

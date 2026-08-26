@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_001: GoF Design Patterns
+Topic 18: Template Method Pattern
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INTENT:
+   - Define the skeleton of an algorithm in an operation, deferring some steps to subclasses.
+   - Lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.
+
+2. THE HOLLYWOOD PRINCIPLE:
+   - "Don't call us, we'll call you."
+   - High-level superclass calls low-level subclass hooks, inverting control.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

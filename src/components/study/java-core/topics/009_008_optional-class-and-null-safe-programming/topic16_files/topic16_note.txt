@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_008: The Optional Class & Null-Safe Functional Programming
+Topic 16: Optional as a Method Return Type
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. API CONTRACT CLARITY:
+   - Returning 'Optional<T>' makes absence explicit in the method signature.
+   - Eliminates need for '@Nullable' annotations or ambiguous Javadoc comments.
+   - Prevents callers from writing careless code that crashes on missing records.
+
+2. WHEN NOT TO RETURN OPTIONAL:
+   - If a method returns a Collection or Array, NEVER return 'Optional<List<T>>'!
+     * Return an empty collection ('Collections.emptyList()' or 'List.of()') instead.
+     * Empty collections already represent absence cleanly without extra wrapper objects.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

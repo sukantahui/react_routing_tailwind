@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_007: ExecutorService, Thread Pools & CompletableFuture
+Topic 17: Async Exception Resilience Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 008_007 GRAND SUMMARY:
+   - 'new Thread()' anti-pattern: Stack memory allocation, 0 reuse, OOM crashes.
+   - Executor Framework: Decouples Task (Runnable/Callable) from Execution (Pool).
+   - Executors traps: Unbounded queues & thread explosions (OOM).
+   - Custom ThreadPoolExecutor: 7 parameters + CallerRunsPolicy backpressure.
+   - Graceful 2-Phase Shutdown: shutdown() &rarr; await() &rarr; shutdownNow().
+   - Future<T>: Bounded 'get(timeout)' to enforce SLAs.
+   - CompletableFuture: Non-blocking reactive async pipelines.
+   - Operators: supplyAsync, runAsync, thenApply, thenAccept, thenRun.
+   - Composition: thenCompose (flatMap) & thenCombine (parallel zip).
+   - Multi-Future: allOf() (Scatter-Gather) & anyOf() (Fastest responder).
+   - Resilience: exceptionally() fallbacks & handle() bi-directional recovery.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

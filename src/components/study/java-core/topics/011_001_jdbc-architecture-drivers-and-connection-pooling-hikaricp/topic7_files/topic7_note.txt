@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_001: JDBC Architecture, Drivers & Connection Pooling (HikariCP)
+Topic 7: Connection Pooling Introduction
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CORE MECHANISM:
+   - Maintains a queue of open, authenticated physical database connections.
+   - Wraps physical connections in Dynamic Proxies ('ProxyConnection').
+
+2. THE PROXY 'close()' INTERCEPTION:
+   - When user code calls 'connection.close()', the proxy does NOT close the underlying TCP socket.
+   - Instead, it resets session state (auto-commit, rollback uncommitted work) and returns the physical
+     connection back to the pool queue for reuse!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

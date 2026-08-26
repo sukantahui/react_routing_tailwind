@@ -1,0 +1,26 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_004: Stream API Pipeline & Intermediate Operations
+Topic 1: Streams vs Collections
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ARCHITECTURAL COMPARISON MATRIX:
+   -----------------------------------------------------------------------------
+   FEATURE              COLLECTION                       STREAM
+   -----------------------------------------------------------------------------
+   Primary Role         Data storage in memory          Data computation & processing
+   Evaluation           Eager (computed on addition)    Lazy (computed on terminal call)
+   Iteration            External (for, Iterator)        Internal (forEach, map, filter)
+   Reusability          Reusable infinite times         Single-use only (closed upon termination)
+   Mutation             Mutates internal structure      Non-mutating (pure functional)
+   Memory Footprint     Proportional to element count   Near-zero (pulls on demand)
+   -----------------------------------------------------------------------------
+
+2. CRITICAL PITFALL:
+   - Re-using a consumed Stream throws 'java.lang.IllegalStateException: stream has already been operated upon or closed'.
+   - Solution: Obtain a fresh stream via 'collection.stream()' for each pipeline.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

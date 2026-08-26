@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_004: Stream API Pipeline & Intermediate Operations
+Topic 6: Streams from Values (Stream.of & Stream.ofNullable)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STREAM.OF(T... VALUES):
+   - Creates a sequential stream containing specified arguments.
+   - Signature: 'public static <T> Stream<T> of(T... values)'.
+   - Passing null as a single element: 'Stream.of(null)' creates a stream of size 1 containing null.
+
+2. STREAM.OFNULLABLE(T T) [JAVA 9]:
+   - Creates a stream with 1 element if 't != null', or an empty stream if 't == null'.
+   - Eliminates imperative null checking and ternary operators:
+     * Before Java 9: 'val != null ? Stream.of(val) : Stream.empty()'
+     * Modern Java: 'Stream.ofNullable(val)'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

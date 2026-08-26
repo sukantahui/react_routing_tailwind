@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_005: Batch Updates & DAO Pattern
+Topic 5: Handling BatchUpdateException
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS BATCHUPDATEEXCEPTION:
+   - Subclass of 'SQLException' thrown when an error occurs during batch execution.
+
+2. 'getUpdateCounts()' CODES:
+   - int value &gt;= 0 : Row update count for successful statement.
+   - 'Statement.SUCCESS_NO_INFO' (-2) : Success without row count.
+   - 'Statement.EXECUTE_FAILED' (-3) : Specific statement failed.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

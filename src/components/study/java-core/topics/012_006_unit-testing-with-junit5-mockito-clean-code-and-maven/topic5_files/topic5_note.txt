@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_006: JUnit 5, Mockito, Clean Code & Maven
+Topic 5: Mocking Dependencies with Mockito
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CORE PURPOSE OF MOCKS:
+   - Isolate System Under Test (SUT).
+   - Eliminate external dependencies (DBs, Cloud APIs, Mail Servers).
+   - Fast, repeatable, and deterministic testing.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

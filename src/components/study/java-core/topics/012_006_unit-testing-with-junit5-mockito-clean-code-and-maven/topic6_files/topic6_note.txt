@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_006: JUnit 5, Mockito, Clean Code & Maven
+Topic 6: Test Doubles Taxonomy
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TEST DOUBLES CLASSIFICATION (Meszaros):
+   - Dummy : Placeholder parameter.
+   - Fake  : Working in-memory lightweight shortcut.
+   - Stub  : Canned pre-programmed responses.
+   - Spy   : Real object wrapper recording method calls.
+   - Mock  : Behavioral verification of expected interactions.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

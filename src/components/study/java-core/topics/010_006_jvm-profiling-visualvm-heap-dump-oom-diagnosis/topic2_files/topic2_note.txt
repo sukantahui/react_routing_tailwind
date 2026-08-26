@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_006: JVM Profiling, Heap Dumps & Memory Leak Diagnosis
+Topic 2: Static Collection Leaks
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHY STATIC COLLECTIONS LEAK:
+   - Static fields are rooted in the loaded Class object in Metaspace (permanent GC Root).
+   - Any object placed into a static Collection will NEVER be collected until explicitly removed.
+
+2. PRODUCTION REMEDIES:
+   - Bounded Collections with LRU eviction ('LinkedHashMap.removeEldestEntry()').
+   - 'WeakHashMap' for metadata caching (entries are collected when keys lose strong references).
+   - Production caching libraries: Caffeine Cache, Guava Cache, Ehcache with TTL/TTI expiration.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

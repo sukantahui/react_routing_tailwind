@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_009: Virtual Threads (Java 21+)
+Topic 0: Platform Thread Limitations
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PLATFORM (OS) THREAD BOTTLENECKS:
+   - 1:1 mapping to OS kernel threads.
+   - ~1 MB native stack memory per thread.
+   - High OS kernel context-switch cost (~2000 cycles).
+   - Hard limit: ~5,000–10,000 threads per JVM before OOM crash.
+   - Solution: Java 21 Virtual Threads (Project Loom)!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

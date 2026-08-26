@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_003: JVM Architecture, ClassLoaders & Bytecode Execution
+Topic 11: The Application ClassLoader
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT THE APPLICATION CLASSLOADER DOES:
+   - Also known as the 'System ClassLoader'.
+   - Loads classes from the application classpath ('-classpath', '-cp', or 'CLASSPATH' env variable).
+   - Responsible for loading all user-written application code and third-party libraries (Maven/Gradle JARs).
+
+2. RETRIEVAL METHOD:
+   - 'ClassLoader.getSystemClassLoader()'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

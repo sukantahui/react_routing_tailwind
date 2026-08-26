@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_003: Method & Constructor References
+Topic 5: Unbound Instance References
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. UNBOUND INSTANCE REFERENCES:
+   - Syntax: 'ClassName::instanceMethodName'.
+   - Equivalence: '(obj, args) -> obj.instanceMethodName(args)'.
+   - First parameter of SAM becomes the target receiver object.
+   - Examples: 'String::toLowerCase', 'String::length', 'Employee::getSalary'.
+   - Most commonly used method reference type in 'Stream.map()'!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

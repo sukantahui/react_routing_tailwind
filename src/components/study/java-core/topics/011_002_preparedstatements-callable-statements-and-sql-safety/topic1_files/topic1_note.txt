@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_002: PreparedStatements, CallableStatements & SQL Safety
+Topic 1: Anatomy of SQL Injection
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS SQL INJECTION (SQLi):
+   - Occurs when untrusted user input is directly concatenated into a dynamic SQL string.
+   - The SQL parser on the database engine cannot distinguish between the developer's SQL commands
+     and the user's data payload, treating user data as executable SQL commands!
+
+2. COMMON ATTACK VECTORS:
+   - Authentication Bypass : '' OR '1'='1'
+   - Data Exfiltration     : '' UNION SELECT credit_card_num FROM orders --'
+   - Database Destruction  : '; DROP TABLE students; --'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

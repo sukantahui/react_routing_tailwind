@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_002: Core Banking Capstone
+Topic 1: Domain Entity Modeling
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DOMAIN MODELING RULES:
+   - Monetary values : 'BigDecimal' (scaled to 2 or 4 decimals).
+   - Identifiers     : 'UUID' or structured alphanumeric strings ('SB-BKP-101').
+   - Timestamps      : 'Instant' (UTC ISO-8601).
+   - Ledger Entries  : Pure immutable Java Records.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

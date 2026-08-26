@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_003: JVM Architecture, ClassLoaders & Bytecode Execution
+Topic 4: Linking Step 1 (Verification)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT VERIFICATION GUARANTEES:
+   - Variable values are never accessed without prior initialization.
+   - Method calls adhere to access control modifiers (public/private/protected).
+   - Parameters match expected method argument types.
+   - Operand stack depth never overflows or underflows during execution.
+   - Bytecode instructions have valid opcode branch targets.
+
+2. VERIFICATION ERROR:
+   - 'java.lang.VerifyError' (subclass of 'LinkageError').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

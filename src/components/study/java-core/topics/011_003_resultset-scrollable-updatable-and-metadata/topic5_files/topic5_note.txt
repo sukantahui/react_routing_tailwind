@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_003: ResultSet, Scrollable, Updatable & Metadata
+Topic 5: TYPE_FORWARD_ONLY Processing
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CHARACTERISTICS:
+   - Cursor moves exclusively forward with 'rs.next()'.
+   - 'rs.previous()', 'rs.first()', 'rs.last()', and 'rs.absolute()' are unsupported.
+
+2. STREAMING MYSQL / POSTGRESQL TRICK:
+   - In MySQL, set 'statement.setFetchSize(Integer.MIN_VALUE)' to enable true streaming mode without client buffering!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

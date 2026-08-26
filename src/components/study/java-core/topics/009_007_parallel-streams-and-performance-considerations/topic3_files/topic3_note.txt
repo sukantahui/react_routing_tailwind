@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_007: Parallel Streams & Performance Considerations
+Topic 3: The Work-Stealing Algorithm
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WORK-STEALING DEQUE ARCHITECTURE:
+   - Each worker thread owns a double-ended queue (Deque).
+   - Head access (Owner): Pushes new subtasks and pops tasks in LIFO order (Last-In, First-Out).
+     LIFO maximizes CPU cache warmth on recent subproblems.
+   - Tail access (Thief): Idle worker threads steal from the TAIL in FIFO order (First-In, First-Out).
+     FIFO steals the largest available chunks of work.
+
+2. CONTENTION REDUCTION:
+   - Because the owner works at the Head and thieves steal from the Tail, lock synchronization
+     and thread contention are minimized.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

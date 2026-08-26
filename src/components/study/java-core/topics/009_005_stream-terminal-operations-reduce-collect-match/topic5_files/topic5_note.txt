@@ -1,0 +1,24 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_005: Stream Terminal Operations, Reductions & Short-Circuiting
+Topic 5: 3-Argument reduce(identity, accumulator, combiner)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD SIGNATURE:
+   - '<U> U reduce(U identity, BiFunction<U, ? super T, U> accumulator, BinaryOperator<U> combiner)'
+
+2. THE 3 ARGUMENTS EXPLAINED:
+   1. Identity U: The initial value of type U.
+   2. Accumulator (BiFunction<U, T, U>): Incorporates a stream element T into an existing
+      accumulator state U.
+   3. Combiner (BinaryOperator<U>): Merges two partial results U1 and U2 calculated by
+      separate worker threads in a parallel stream.
+
+3. SEQUENTIAL VS PARALLEL EXECUTION:
+   - In a sequential stream: The Combiner is NEVER called (since one thread does everything).
+   - In a parallel stream: The Combiner is ESSENTIAL to merge thread branch results in ForkJoinPool.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

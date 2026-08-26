@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_005: Garbage Collection Algorithms, Collectors & GC Tuning
+Topic 15: Metaspace Sizing Flags
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METASPACESIZE VS MAXMETASPACESIZE:
+   -----------------------------------------------------------------------------
+   FLAG                   PURPOSE                               RECOMMENDED PROD VALUE
+   -----------------------------------------------------------------------------
+   -XX:MetaspaceSize      Initial GC High-Watermark Trigger     128m - 256m
+   -XX:MaxMetaspaceSize   Hard Upper Limit on Native Memory     256m - 512m
+   -----------------------------------------------------------------------------
+
+2. WHY STARTUP TUNING IS VITAL:
+   - Spring Boot loads 8,000+ classes during bootstrap, easily exceeding the default 21MB watermark
+     and causing multiple unnecessary Stop-The-World Full GCs before accepting the first HTTP request!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

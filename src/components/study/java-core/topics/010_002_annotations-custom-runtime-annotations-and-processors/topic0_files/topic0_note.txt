@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_002: Java Annotations & Custom Processors
+Topic 0: What are Java Annotations
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT ARE ANNOTATIONS (Java 5+):
+   - A form of syntactic metadata that can be added to Java source code.
+   - Target elements: packages, types (classes/interfaces/enums/records), constructors,
+     methods, fields, parameters, and local variables.
+   - Prefix: '@' symbol (e.g. '@Override', '@Entity', '@Test').
+
+2. THREE MAIN PURPOSES OF ANNOTATIONS:
+   1. Information for the Compiler: Detecting errors or suppressing warnings ('@Override', '@SuppressWarnings').
+   2. Compile-Time / Build-Time Processing: Code generation ('@Getter', '@Builder' via Lombok/APT).
+   3. Runtime Processing: Framework dependency injection and transaction boundaries (Spring '@Transactional').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

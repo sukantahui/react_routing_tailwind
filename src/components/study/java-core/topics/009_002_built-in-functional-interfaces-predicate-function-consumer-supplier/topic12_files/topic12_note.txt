@@ -1,0 +1,25 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_002: Built-in Functional Interfaces
+Topic 12: Primitive Specializations Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 009_002 GRAND SUMMARY:
+   - 43 Built-In Interfaces: Standardized taxonomy in 'java.util.function'.
+   - The Big 4:
+     1. Predicate<T>: 'T -> boolean' (Filtering).
+     2. Function<T, R>: 'T -> R' (Mapping).
+     3. Consumer<T>: 'T -> void' (Side-effects).
+     4. Supplier<T>: '() -> T' (Lazy factory).
+   - Chaining Methods:
+     * Predicate: and(), or(), negate(), Predicate.isEqual().
+     * Function: andThen() (Forward), compose() (Reverse), Function.identity().
+     * Consumer: andThen().
+   - Bi-Variants: BiPredicate<T, U>, BiFunction<T, U, R>, BiConsumer<T, U>.
+   - Operators: UnaryOperator<T> (Function<T,T>), BinaryOperator<T> (BiFunction<T,T,T>).
+   - Primitive Specializations: IntPredicate, DoubleFunction, ToIntFunction, IntUnaryOperator (Zero boxing!).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

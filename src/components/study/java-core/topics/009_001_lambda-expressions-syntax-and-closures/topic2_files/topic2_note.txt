@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_001: Lambda Expressions & Lexical Scoping
+Topic 2: Lambda Syntax Variations
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LAMBDA SYNTAX RULES:
+   - Type inference: '(a, b) -> a + b' (Types omitted).
+   - Single parameter: 'x -> x * x' (Parentheses omitted).
+   - Zero parameters: '() -> "Hello"' (Empty parentheses mandatory).
+   - Single expression: Omit curly braces AND 'return' keyword together.
+   - Multi-statement: Curly braces and explicit 'return;' are mandatory.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

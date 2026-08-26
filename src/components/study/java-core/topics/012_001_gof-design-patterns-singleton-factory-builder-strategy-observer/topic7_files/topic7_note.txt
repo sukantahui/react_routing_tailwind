@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_001: GoF Design Patterns
+Topic 7: Prototype Pattern
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INTENT:
+   - Specify the kinds of objects to create using a prototypical instance, and create new objects
+     by copying this prototype.
+
+2. CLONING APPROACHES IN JAVA:
+   - Copy Constructors (Recommended by Joshua Bloch).
+   - Factory copy methods ('copy()' / 'clone()').
+   - 'java.lang.Cloneable' (Flawed; bypasses constructors).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_005: Stream Terminal Operations, Reductions & Short-Circuiting
+Topic 8: anyMatch(Predicate)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD CONTRACT:
+   - Signature: 'boolean anyMatch(Predicate<? super T> predicate)'.
+   - Returns 'true' if AT LEAST ONE element matches the given predicate.
+   - Terminal & Short-Circuiting operation.
+   - If stream is empty, returns 'false' immediately without evaluating predicate.
+
+2. SHORT-CIRCUIT BEHAVIOR:
+   - Halts processing as soon as predicate evaluates to 'true' for any single element.
+   - If no element matches, traverses the entire stream before returning 'false'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

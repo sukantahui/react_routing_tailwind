@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_004: JVM Memory Model: Heap, Stack, Metaspace & Runtime Areas
+Topic 9: Young Gen (Eden & Survivors)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. YOUNG GENERATION STRUCTURE:
+   - Eden Space       : Primary allocation area.
+   - Survivor 0 (S0)  : 'FromSpace'
+   - Survivor 1 (S1)  : 'ToSpace'
+   - Default Ratio    : '-XX:SurvivorRatio=8' (Eden is 8x the size of S0/S1).
+
+2. COPYING GC ALGORITHM:
+   - At any given time, one Survivor space is completely empty ('ToSpace').
+   - Live objects from Eden and 'FromSpace' are copied contiguously into 'ToSpace'.
+   - Eliminates memory fragmentation without expensive compaction!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

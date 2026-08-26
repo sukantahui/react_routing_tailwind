@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_004: Custom DI Framework
+Topic 0: IoC & DI Mechanics
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. HOLLYWOOD PRINCIPLE:
+   - "Don't call us, we'll call you."
+   - Application code no longer calls 'new MyService()'; the IoC container creates,
+     configures, wires, and manages the entire bean lifecycle.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

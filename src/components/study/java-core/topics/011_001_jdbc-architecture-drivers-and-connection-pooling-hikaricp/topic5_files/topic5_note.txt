@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_001: JDBC Architecture, Drivers & Connection Pooling (HikariCP)
+Topic 5: The java.sql.Connection Interface
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS CONNECTION:
+   - Extends 'java.lang.AutoCloseable' and 'java.sql.Wrapper'.
+   - Encapsulates stateful database session context (current user, transaction state, temporary tables).
+
+2. AUTO-COMMIT DEFAULT:
+   - Default is 'autoCommit = true' (every single SQL statement commits immediately).
+   - In enterprise apps, disable auto-commit to execute multi-step atomic transactions!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

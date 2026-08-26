@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_004: Transaction Management, ACID, Isolation Levels & Savepoints
+Topic 15: Phantom Read Anomaly
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS A PHANTOM READ:
+   - Occurs when Transaction A executes a range query (e.g. 'WHERE age > 18'), and Transaction B
+     inserts or deletes rows matching that predicate and commits.
+   - When Transaction A re-executes the range query, new 'phantom' rows appear or vanish.
+
+2. PREVENTION:
+   - ANSI SQL specifies 'TRANSACTION_SERIALIZABLE' to prevent Phantom Reads.
+   - (Note: MySQL InnoDB also prevents phantom reads in REPEATABLE READ using Next-Key Gap Locks).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

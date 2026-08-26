@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_005: Garbage Collection Algorithms, Collectors & GC Tuning
+Topic 10: G1 Garbage Collector (Java 9+ Default)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS G1 GC (Garbage-First):
+   - Default collector starting with Java 9 LTS through modern Java 21+.
+   - Designed for multi-gigabyte heaps (4GB to 64GB+).
+   - Divides heap into ~2,048 equal regions.
+
+2. KEY ADVANTAGES:
+   - Predictable pause times: G1 adjusts Young Gen size dynamically to meet '-XX:MaxGCPauseMillis'.
+   - Eliminates Full GCs through incremental concurrent mixed collections.
+   - Handles Humongous Objects (objects &gt; 50% region size) in dedicated H-regions.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

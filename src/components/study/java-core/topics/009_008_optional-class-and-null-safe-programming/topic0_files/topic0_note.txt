@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_008: The Optional Class & Null-Safe Functional Programming
+Topic 0: The Billion Dollar Mistake (Null Reference Perils)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE NULL REFERENCE PROBLEM:
+   - Invented in 1965 by Sir Tony Hoare (ALGOL W) to represent absence of reference.
+   - Problems with 'null' in Java:
+     1. Unchecked runtime 'NullPointerException' (NPE).
+     2. Pollutes domain logic with nested defensive 'if (x != null)' statements.
+     3. Type system does not declare whether a method can return null.
+
+2. THE FUNCTIONAL SOLUTION:
+   - Monadic wrapper 'java.util.Optional<T>' (inspired by Haskell's Maybe and Scala's Option).
+   - Encapsulates value presence or absence cleanly in the type system.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

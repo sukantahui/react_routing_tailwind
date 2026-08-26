@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_001: Lambda Expressions & Lexical Scoping
+Topic 1: Lambda Expression Anatomy
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LAMBDA ANATOMY:
+   - Syntax: '(parameters) -> { body }'
+   - 1. Parameter List: Arguments received by the SAM interface method.
+   - 2. Arrow Token ('->'): Connects parameters to the implementation.
+   - 3. Body: Single expression or block of statements.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

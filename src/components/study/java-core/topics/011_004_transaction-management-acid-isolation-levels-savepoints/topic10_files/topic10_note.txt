@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_004: Transaction Management, ACID, Isolation Levels & Savepoints
+Topic 10: Resetting Auto-Commit Hygiene
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE GOLDEN HYGIENE RULE:
+   - Always restore the connection's original auto-commit status in a 'finally' block.
+
+2. CONNECTION POOL CONTAMINATION:
+   - Never allow uncommitted transactions or altered session parameters to leak across pooled connections!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

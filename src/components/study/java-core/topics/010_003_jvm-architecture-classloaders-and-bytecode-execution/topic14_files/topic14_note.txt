@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_003: JVM Architecture, ClassLoaders & Bytecode Execution
+Topic 14: Thread Context ClassLoaders (TCCL)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS TCCL (Thread Context ClassLoader):
+   - A ClassLoader assigned to a specific Thread via 'thread.setContextClassLoader()'.
+   - Retrieved via 'Thread.currentThread().getContextClassLoader()'.
+
+2. WHY TCCL WAS INVENTED (The SPI Problem):
+   - Standard delegation only allows child loaders to see classes loaded by parents.
+   - When core JDK interfaces (loaded by Bootstrap) need to instantiate vendor implementations
+     (loaded by AppClassLoader, like JDBC drivers or XML parsers), standard delegation fails.
+   - TCCL breaks the hierarchy legitimately, allowing parent code to access child loaders.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_009: Modern Java Features
+Topic 6: Sealed Classes & Interfaces (JEP 409)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT ARE SEALED CLASSES:
+   - Introduced in Java 17 (JEP 409).
+   - Allows a class or interface to declare which other classes or interfaces may extend
+     or implement it.
+   - Syntax:
+     'public sealed class Shape permits Circle, Rectangle, Triangle {}'
+
+2. CORE MOTIVATION:
+   - Bridges the gap between fully open inheritance ('public') and closed ('final').
+   - Models closed algebraic data types (ADTs) in object-oriented Java.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

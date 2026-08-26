@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_003: ResultSet, Scrollable, Updatable & Metadata
+Topic 6: TYPE_SCROLL_INSENSITIVE Navigation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT 'INSENSITIVE' MEANS:
+   - The result set is insensitive to changes made to the database while it is open.
+   - It sees a static snapshot of data as it existed when the query was executed.
+
+2. ABSOLUTE VS RELATIVE:
+   - 'rs.absolute(10)'  : Moves cursor to row 10 from the beginning.
+   - 'rs.absolute(-1)'  : Moves cursor to the last row (-2 is second from last!).
+   - 'rs.relative(3)'   : Moves cursor 3 rows forward from current position.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

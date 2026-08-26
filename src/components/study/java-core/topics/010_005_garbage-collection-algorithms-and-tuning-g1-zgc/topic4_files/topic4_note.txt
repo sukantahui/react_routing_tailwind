@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_005: Garbage Collection Algorithms, Collectors & GC Tuning
+Topic 4: Card Tables & Remembered Sets (RSet)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS A CARD TABLE:
+   - A byte array where each byte corresponds to a 512-byte region of the Old Generation heap.
+   - Initialized to 0 (Clean).
+
+2. WRITE BARRIER MECHANISM:
+   - Whenever an application thread mutates a reference ('oldObj.field = youngObj'), the JIT
+     compiler automatically executes a microscopic write barrier:
+     'CARD_TABLE[address >> 9] = 0;' (Marks the card dirty).
+
+3. MINOR GC SPEEDUP:
+   - Minor GC scans only the dirty cards in the Card Table to discover cross-generational roots,
+     avoiding a massive full Old Gen heap scan!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

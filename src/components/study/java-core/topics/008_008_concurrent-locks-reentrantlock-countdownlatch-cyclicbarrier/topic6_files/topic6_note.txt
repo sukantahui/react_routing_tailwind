@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_008: Explicit Locks & Synchronizers
+Topic 6: StampedLock & Optimistic Reading
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STAMPEDLOCK (JAVA 8+):
+   - 3 Modes: WriteLock, Pessimistic ReadLock, Optimistic Read.
+   - 'tryOptimisticRead()': Zero locking, returns a long stamp token.
+   - 'validate(stamp)': Checks if a write occurred during the read.
+   - Eliminates writer starvation (readers do not block writers).
+   - NOT REENTRANT (Calling lock() twice from same thread will self-deadlock!).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_001: GoF Design Patterns
+Topic 13: Behavioral Patterns Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT ARE BEHAVIORAL PATTERNS:
+   - Patterns that identify common communication patterns between objects and realize them.
+
+2. MODERN JAVA EVOLUTION:
+   - Many behavioral patterns (Strategy, Command, Observer) have been vastly simplified
+     using Java 8 Lambdas, Functional Interfaces, and CompletableFutures!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

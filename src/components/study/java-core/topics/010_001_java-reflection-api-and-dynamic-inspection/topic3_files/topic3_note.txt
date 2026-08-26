@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_001: Java Reflection API & Dynamic Member Inspection
+Topic 3: Inspecting Class Metadata
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METADATA INSPECTION METHODS:
+   - 'getSuperclass()': Returns Class representing the superclass (returns null for Object & interfaces).
+   - 'getInterfaces()': Returns 'Class<?>[]' of directly implemented interfaces.
+   - 'getModifiers()': Returns an integer bitmask of modifiers.
+   - 'isInterface()', 'isArray()', 'isPrimitive()', 'isEnum()', 'isRecord()', 'isAnnotation()'.
+
+2. MODIFIER UTILITY CLASS ('java.lang.reflect.Modifier'):
+   - Helper methods: 'Modifier.isPublic(mod)', 'Modifier.isStatic(mod)', 'Modifier.isFinal(mod)'.
+   - 'Modifier.toString(mod)': Formats bitmask into a clean modifier string.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

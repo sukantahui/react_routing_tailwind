@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_005: Garbage Collection Algorithms, Collectors & GC Tuning
+Topic 8: Serial GC (-XX:+UseSerialGC)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS SERIAL GC:
+   - Enabled via '-XX:+UseSerialGC'.
+   - Performs all garbage collection work in a single thread.
+   - Full STW pauses for both Young and Old generation collections.
+
+2. ADVANTAGES:
+   - Lowest memory footprint and CPU overhead of any Java collector.
+   - Zero multi-threaded synchronization or inter-thread communication penalty.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

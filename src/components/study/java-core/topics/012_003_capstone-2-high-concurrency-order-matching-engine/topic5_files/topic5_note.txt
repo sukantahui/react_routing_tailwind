@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_003: High-Concurrency Order Matching Engine
+Topic 5: Atomic State Updates with SkipList
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CONCURRENTSKIPLISTMAP:
+   - Lock-free, sorted, thread-safe map using probabilistic Skip Lists.
+   - Ideal for concurrent price level lookups and modifications.
+
+2. ATOMIC SEQUENCE ALLOCATION:
+   - 'AtomicLong.getAndIncrement()' guarantees unique monotonic trade IDs across threads.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

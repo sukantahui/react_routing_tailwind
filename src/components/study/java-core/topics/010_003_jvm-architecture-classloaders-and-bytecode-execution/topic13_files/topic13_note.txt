@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_003: JVM Architecture, ClassLoaders & Bytecode Execution
+Topic 13: Security Benefits of Delegation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DEFENSE AGAINST MALICIOUS BYTECODE:
+   - Parent delegation ensures trusted core libraries (java.base) are always loaded
+     by the trusted Bootstrap ClassLoader before any untrusted classpath JARs are examined.
+
+2. 'PROHIBITED PACKAGE' ENFORCEMENT:
+   - Inside 'ClassLoader.defineClass()', the JVM checks if the class name starts with 'java.'.
+   - If a custom classloader attempts to define a class in the 'java.*' package, the JVM
+     immediately throws 'java.lang.SecurityException: Prohibited package name: java.lang'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

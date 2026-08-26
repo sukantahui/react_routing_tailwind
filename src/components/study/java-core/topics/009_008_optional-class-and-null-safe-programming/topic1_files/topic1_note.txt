@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_008: The Optional Class & Null-Safe Functional Programming
+Topic 1: Philosophy of java.util.Optional<T>
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS OPTIONAL<T>:
+   - A final, value-based container object which may or may not contain a non-null value.
+   - If a value is present, 'isPresent()' returns true.
+   - If no value is present, the object is considered 'empty' and 'isEmpty()' returns true.
+
+2. CORE INTENT:
+   - Designed primarily to provide a type-level solution for representing 'no result'
+     from library methods where returning null was traditionally error-prone.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

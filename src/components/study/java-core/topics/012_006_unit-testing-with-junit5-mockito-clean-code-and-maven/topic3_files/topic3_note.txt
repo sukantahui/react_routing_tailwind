@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_006: JUnit 5, Mockito, Clean Code & Maven
+Topic 3: JUnit 5 Assertions
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CORE JUNIT 5 ASSERTIONS:
+   - 'assertEquals(expected, actual)'
+   - 'assertThrows(ExpectedException.class, Executable)'
+   - 'assertTimeout(Duration, Executable)'
+   - 'assertAll(heading, Executable...)' : Runs all assertions and reports all failures together.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

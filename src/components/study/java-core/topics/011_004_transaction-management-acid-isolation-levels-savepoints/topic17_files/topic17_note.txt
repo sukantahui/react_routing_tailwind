@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_004: Transaction Management, ACID, Isolation Levels & Savepoints
+Topic 17: TRANSACTION_READ_UNCOMMITTED
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CHARACTERISTICS:
+   - Lowest level of isolation.
+   - Transactions can see uncommitted data changes made by other concurrent transactions.
+   - Zero shared lock contention.
+
+2. VULNERABILITIES:
+   - Suffers Dirty Reads, Non-Repeatable Reads, and Phantom Reads.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

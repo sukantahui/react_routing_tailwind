@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_001: Java Reflection API & Dynamic Member Inspection
+Topic 8: Dynamic Proxies & InvocationHandler
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS A DYNAMIC PROXY:
+   - A class created at runtime that implements one or more specified interfaces.
+   - Every method call on the proxy instance is routed to a single method:
+     'InvocationHandler.invoke(Object proxy, Method method, Object[] args)'.
+
+2. KEY METHOD:
+   - 'Proxy.newProxyInstance(ClassLoader loader, Class<?>[] interfaces, InvocationHandler h)'
+
+3. ENTERPRISE USE CASES:
+   - Aspect-Oriented Programming (Spring AOP, '@Transactional', logging, security).
+   - RPC / REST Client generators (Feign, Retrofit, RMI).
+   - Mocking frameworks (Mockito creating dynamic test mocks).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_005: Batch Updates & DAO Pattern
+Topic 9: Concrete DAO Implementation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BEST PRACTICES IN CONCRETE DAOS:
+   - Accept 'javax.sql.DataSource' via constructor injection.
+   - Use try-with-resources on 'conn', 'pstmt', and 'rs'.
+   - Wrap checked 'SQLException' into unchecked domain 'DataAccessException' / 'RuntimeException'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

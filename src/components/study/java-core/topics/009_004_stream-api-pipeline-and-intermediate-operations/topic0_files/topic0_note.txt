@@ -1,0 +1,27 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_004: Stream API Pipeline & Intermediate Operations
+Topic 0: What is the Stream API (Declarative Data Processing)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS THE STREAM API (Java 8+):
+   - A sequence of elements supporting sequential and parallel aggregate operations.
+   - Operates on a declarative model: developer specifies WHAT to achieve rather than
+     HOW to mechanically index and loop through data.
+
+2. IMPERATIVE VS DECLARATIVE:
+   - Imperative: Uses for/while loops, temporary mutable collections, manual counters.
+     Hard to read, error-prone, tightly coupled with sequential execution.
+   - Declarative (Streams): Method chaining of functional transformations (filter, map, reduce).
+     Clean, expressive, decoupled from underlying data iteration.
+
+3. KEY STREAM CHARACTERISTICS:
+   - Not a data structure (does not store elements).
+   - Functional in nature (does not modify the underlying source).
+   - Lazily evaluated (computations deferred until terminal operation).
+   - Consumable only once (cannot reuse a closed stream).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================
