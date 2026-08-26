@@ -1,0 +1,31 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_007: Methods, Parameters, Return Types & Recursion
+TOPIC 3: Formal Parameters vs. Actual Arguments
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Formal Parameters (Parameters):
+  * Variable declarations inside the method header: (String name, double fee, int months).
+  * Act as local variable slots within the newly pushed stack frame.
+  * Define the input contract required by the method signature.
+
+- Actual Arguments (Arguments):
+  * The evaluated values, literals, variables, or expressions passed at the call site:
+    computeTotalFee("Swadeep", 4000.0, 6, true);
+  * Evaluated strictly LEFT-TO-RIGHT before the method stack frame is entered.
+
+- The 3 Invariants for Argument Matching:
+  1. Count Match  : Number of arguments must match number of parameters.
+  2. Type Match   : Argument type must be assignable (supports widening: int -> double).
+  3. Order Match  : Argument types must strictly follow positional sequence.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Java strictly uses POSITIONAL arguments (no named arguments like Python).
+[✓] Java does not have default parameter values (use method overloading instead).
+[✓] Automatic widening primitive conversion works for arguments (int -> double).
+[✓] Excessive parameters (> 3) should be bundled into Records or Parameter Objects.
+================================================================================

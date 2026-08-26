@@ -1,0 +1,31 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_007: Methods, Parameters, Return Types & Recursion
+TOPIC 14: Visualizing Recursive Execution Trees & Stack Unwinding
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Recursive Execution Trees:
+  * Tree graph where each node is a method call and branches are child calls.
+  * Linear Recursion : 1 call per frame (e.g. Factorial -> Single straight chain).
+  * Tree Recursion   : 2+ calls per frame (e.g. Fibonacci -> Binary branching tree).
+
+- JVM Traversal Order:
+  * Depth-First Search (DFS) order: Dives completely down the LEFT subtree first.
+  * Parent frames remain suspended on the Call Stack while waiting for children.
+  * Unwinding: Base cases return values that bubble up and pop stack frames.
+
+- Time & Space Complexity:
+  * Naive Fibonacci Time Complexity  : O(2^N) Exponential (due to redundant sub-problems).
+  * Naive Fibonacci Space Complexity : O(N) Linear Stack Space (proportional to tree height).
+  * Optimization via Memoization     : Prunes tree to O(N) linear time!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Indented logging ("  ".repeat(depth)) visualizes call/return flow during debugging.
+[✓] Leaf nodes represent Base Cases; Internal nodes represent Recursive Steps.
+[✓] The Call Stack holds active frames along the current DFS exploration path.
+[✓] Dynamic Programming collapses exponential recursive trees into linear operations.
+================================================================================

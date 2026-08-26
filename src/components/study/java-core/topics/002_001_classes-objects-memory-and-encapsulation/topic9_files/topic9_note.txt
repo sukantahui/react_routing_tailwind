@@ -1,0 +1,55 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_001: Classes, Objects, Memory Allocation & Encapsulation
+Topic 9: Anonymous Objects: Creation and Valid Use Cases
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ANONYMOUS OBJECTS DEFINED:
+   - An object instantiated via `new` without assigning its reference
+     address to a named variable on the Stack frame.
+   - Syntax:
+       new ClassName(arguments).methodName();
+       or
+       methodCall(new ClassName(arguments));
+
+2. LIFECYCLE & MEMORY DYNAMICS:
+   -----------------------------------------------------------------------------
+   Step 1: JVM allocates memory in Eden Generation (Heap).
+   Step 2: Constructor initializes fields and returns Heap pointer.
+   Step 3: Target method runs using that pointer as `this`.
+   Step 4: Semicolon ends the statement.
+   Step 5: Reference is discarded (0 active GC Roots) -> Immediately GC eligible!
+   -----------------------------------------------------------------------------
+
+3. THE 4 VALID PRODUCTION USE CASES:
+   a) Fire-and-Forget Single-Use Invocation:
+      `new NotificationDispatcher("Barrackpore").sendSmsAlert("Swadeep", "Exam at 10 AM");`
+   b) Transient Method Parameter:
+      `ledger.processPayment(new PaymentGatewayReceipt("TXN-1", "Tuhina", 8500.0));`
+   c) Factory Return Expression:
+      `return new StudentRecord(id, name);`
+   d) Single-Use Calculation / Converter:
+      `double tax = new TaxCalculator().compute(amount);`
+
+4. CRITICAL ANTI-PATTERN: STATE LOSS ACROSS MULTIPLE CALLS:
+   - WRONG:
+       `new ScoreCard().add(50);`
+       `new ScoreCard().print();` // PRINTS 0! (2 distinct objects on Heap!)
+   - CORRECT:
+       `ScoreCard card = new ScoreCard();`
+       `card.add(50);`
+       `card.print();` // PRINTS 50!
+
+5. RESOURCE LEAK WARNING:
+   - NEVER use anonymous objects for `Closeable` resources (e.g. `FileInputStream`).
+   - Because no reference is held, you cannot call `.close()`, leaking OS handles!
+   - Always use named variables inside `try-with-resources`.
+
+6. SUKANTA HUI'S GOLDEN RULE:
+   - "Transient couriers (actions, one-way messages, arguments) can be anonymous;
+      Domain citizens (entities, stateful records, bank accounts) MUST have names."
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

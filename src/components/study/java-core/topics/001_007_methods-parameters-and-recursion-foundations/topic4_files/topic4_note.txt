@@ -1,0 +1,30 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_007: Methods, Parameters, Return Types & Recursion
+TOPIC 4: Return Statements & Guard Clauses
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- The 'return' Statement (JLS §14.17):
+  * Terminates method execution immediately and pops its stack frame.
+  * Value-returning methods : return expression; (must match return type).
+  * Void methods            : return; (optional; used for early guard exits).
+
+- Guard Clauses (Bouncer Pattern):
+  * Validate boundary conditions, negative values, and null pointers UPFRONT.
+  * Eliminates deeply nested if-else structures ("Arrow Anti-Pattern").
+  * Keeps the primary "happy path" logic un-nested at the root indentation level.
+
+- Definite Return Rule & Unreachable Code:
+  * Non-void methods must guarantee a return statement along ALL execution paths.
+  * Code placed directly after an unconditional return causes an Unreachable Code error.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] In void methods, 'return;' exits cleanly without returning any value.
+[✓] Return empty collections/arrays (List.of(), new int[0]) instead of 'null'.
+[✓] Avoid 'return' inside 'finally' blocks (it overrides try/catch returns and swallows errors).
+[✓] Use guard clauses to fail fast and maintain clean, linear control flow.
+================================================================================

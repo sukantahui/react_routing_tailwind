@@ -32,12 +32,20 @@ export const studentService = {
   },
   createBasic: async (data) => {
     try {
-      const response = await api.post("/students/basic",data);
+      const response = await api.post("/students/basic", data);
       return response.data;
     } catch (error) {
       console.error("Error saving student:", error);
       throw error;
     }
-
+  },
+  createWithAdmission: async (data) => {
+    try {
+      const response = await api.post("/admissions/admissionWithStudent", data);
+      return response.data;
+    } catch (error) {
+      console.error("Error saving student with admission:", error);
+      throw error;
+    }
   }
-};
+};

@@ -1,0 +1,48 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_002: Constructors, Constructor Chaining & Object Lifecycle
+Topic 1: Rules of Writing Constructors: Name Matches Class, No Return Type
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 5 GOLDEN RULES OF CONSTRUCTOR DECLARATION:
+   -----------------------------------------------------------------------------
+   RULE 1: EXACT NAME MATCH
+           - Must match the class name with exact case sensitivity.
+           - Class `CourseRegistration` -> `public CourseRegistration(...)`.
+
+   RULE 2: NO RETURN TYPE (NOT EVEN 'void')
+           - Has NO return type.
+           - Adding `void` turns it into a NORMAL METHOD, never executed by `new`!
+
+   RULE 3: PERMITTED ACCESS MODIFIERS
+           - `public`, `protected`, package-private (default), or `private`.
+
+   RULE 4: PROHIBITED MODIFIERS (Causes Compile Error)
+           - CANNOT be `static`, `final`, `abstract`, `synchronized`, or `native`.
+
+   RULE 5: INVOCATION MECHANISM
+           - Cannot be invoked on existing objects like methods (`obj.Constructor()`).
+           - Invoked ONLY via `new`, `this(...)`, or `super(...)`.
+   -----------------------------------------------------------------------------
+
+2. THE 'void' CONSTRUCTOR TRAP:
+   - `public void Student() { ... }` is a METHOD, NOT a constructor!
+   - When calling `new Student()`, the compiler default constructor executes,
+     leaving all your initialization fields as `null` and `0`!
+
+3. CONSTRUCTOR INHERITANCE:
+   - Constructors are NOT members and are NEVER inherited by subclasses.
+   - Child constructors MUST invoke parent constructors via `super(...)`.
+
+4. BYTECODE INSTRUCTION:
+   - The JVM compiles constructors into special `<init>` methods invoked via
+     the `invokespecial` opcode (early static binding).
+
+5. SUKANTA HUI'S GOLDEN MOTTO:
+   - "A constructor is not a method; it has no return type, bears the proud
+      name of its class, and exists solely to forge a valid living object in memory."
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

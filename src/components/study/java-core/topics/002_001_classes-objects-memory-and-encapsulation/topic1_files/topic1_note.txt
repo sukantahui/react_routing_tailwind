@@ -1,0 +1,31 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 002_001: Classes, Objects, Memory Allocation & Encapsulation
+TOPIC 1: Real-World Domain Modeling: Mapping Entities to State & Behavior
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. REAL-WORLD DOMAIN MODELING CONCEPTS
+--------------------------------------------------------------------------------
+- Real-World Entity -> Software Class Blueprint:
+  * STATE (Attributes / Fields)   : What the entity holds (e.g. roll, name, gpa, balance).
+  * BEHAVIOR (Operations / Methods): What the entity does / computes (e.g. enroll(), withdraw()).
+
+- Rich Domain Model vs Anemic Model:
+  * Rich Domain Model (Best Practice): Class contains both data and validating business methods.
+  * Anemic Model (Anti-pattern)      : Class has only dumb getters/setters with zero business logic.
+
+- Modeling Relationships:
+  * IS-A  : Inheritance / Specialization (GraduateStudent IS-A Student).
+  * HAS-A : Composition / Aggregation (Course HAS-A List<Student>).
+
+- Defensive State Protection:
+  * Return unmodifiable defensive copies (List.copyOf) to prevent external tampering.
+  * Enforce domain bounds (e.g. GPA 0.0..10.0, Attendance 0..100) inside mutators.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] State = private instance fields; Behavior = public methods.
+[✓] Command-Query Separation: Query computes; Command mutates.
+[✓] In Topic 2, we master Class Definition: Syntax, Anatomy & Naming Conventions!
+================================================================================

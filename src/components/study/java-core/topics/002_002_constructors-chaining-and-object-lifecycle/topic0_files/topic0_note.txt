@@ -1,0 +1,44 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_002: Constructors, Constructor Chaining & Object Lifecycle
+Topic 0: What is a Constructor and Why Object Initialization is Mandatory
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS A CONSTRUCTOR?
+   - A specialized member block sharing the EXACT name of the class with
+     NO return type (not even `void`).
+   - Automatically executed by the JVM during `new` operator evaluation to
+     initialize newly allocated Heap memory.
+
+2. WHY OBJECT INITIALIZATION IS MANDATORY:
+   -----------------------------------------------------------------------------
+   - Memory Safety  : Uninitialized reference fields default to `null`, causing
+                      catastrophic `NullPointerException`s during method execution.
+   - Invariant Birth: Establishes business rules (e.g. `balance >= 0`, `id > 0`)
+                      at the exact moment of birth before callers can touch the object.
+   - Resource Setup : Prepares database handles, locks, timestamps, and collections.
+   -----------------------------------------------------------------------------
+
+3. THE 3-STAGE OBJECT GENESIS PIPELINE:
+   Step 1: Memory Allocation (`new` opcode allocates raw bytes in Eden Space).
+   Step 2: Zero-Initialization (fields set to 0, 0.0, false, null).
+   Step 3: Constructor Execution (`invokespecial <init>` binds fields on `this`).
+   Step 4: Stack Reference Assignment (64-bit Heap address returned to caller).
+
+4. CRITICAL RULES OF CONSTRUCTORS:
+   a) Name must match the class name with exact case sensitivity.
+   b) No return type (adding `void` turns it into a standard method!).
+   c) Cannot be `static`, `final`, `abstract`, or `synchronized`.
+   d) Can have access modifiers: `public`, `protected`, package-private, or `private`.
+   e) If no constructor is written, the compiler generates a default no-arg constructor.
+      If ANY constructor is written, compiler default is suppressed!
+
+5. SUKANTA HUI'S LAW OF OBJECT GENESIS:
+   - "An object must never be born in sin. A constructor is the sacred temple
+      where an entity receives its identity, validates its domain truth,
+      and establishes its lifelong invariants."
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,33 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_007: Methods, Parameters, Return Types & Recursion
+TOPIC 2: Method Naming Conventions (Verb-Noun camelCase)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- The lowerCamelCase Verb-Noun Standard:
+  * Method names MUST start with a lowercase active verb followed by CamelCase nouns.
+  * Examples: calculateGrossFee(), processAdmission(), printStudentInvoice().
+
+- Taxonomy of Method Prefixes:
+  1. Action Verbs       : calculateTotal(), computeGst(), registerStudent().
+  2. Boolean Predicates : isEligible(), hasCompletedBatch(), canEnroll(), shouldApply().
+  3. Getters & Setters  : getFeeBalance(), setCampusName() (JavaBeans standard).
+  4. Conversions        : toFormattedCurrency(), toArray(), asList().
+  5. Factory Methods    : of(), valueOf(), from(), copyOf().
+  6. Validations        : validateAge(), checkBalance(), ensureCapacity().
+
+- Anti-Patterns to Avoid:
+  * UpperCamelCase (CalculateFee) -> Looks like a Constructor / Class name!
+  * snake_case (calculate_fee)    -> Belongs to Python/C, not Java!
+  * Generic Names (doStuff, data) -> Obscures business intent.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Keep method names intention-revealing (2 to 4 words).
+[✓] Never use Hungarian notation type prefixes (e.g. strGetName is an anti-pattern).
+[✓] Avoid double negatives in boolean methods (use isValid, not isNotInvalid).
+[✓] Self-documenting names eliminate the need for redundant code comments.
+================================================================================

@@ -1,0 +1,35 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_007: Methods, Parameters, Return Types & Recursion
+TOPIC 1: Anatomy of a Method Declaration
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Full Method Declaration Syntax (JLS §8.4):
+  [Access Modifiers] [Non-Access Modifiers] [Return Type] [Method Name]([Formal Parameters]) [Throws Clause] {
+      // Method Body
+      return result;
+  }
+
+- The 6 Fundamental Components:
+  1. Access Modifiers    : public, protected, package-private (default), private.
+  2. Non-Access Modifiers: static, final, synchronized, abstract, native.
+  3. Return Type         : Primitive (int, double), Reference (String, Object), or void.
+  4. Method Name         : Legal Java identifier (camelCase verb-noun).
+  5. Parameter List      : (Type1 param1, Type2 param2, ...).
+  6. Throws Clause       : throws Exception1, Exception2 (documented exception contract).
+  7. Method Body         : { ... } containing executable logic.
+
+- CRITICAL: Method Signature vs Declaration:
+  * Method Signature = [Method Name] + [Parameter Types List].
+  * Return type, access modifiers, and throws clauses are NOT part of the signature!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] In non-void methods, all execution paths must terminate with a 'return' statement.
+[✓] 'void' methods return no value, but can use 'return;' for early guard exits.
+[✓] Parameter names inside the parameter list must be unique.
+[✓] Primitives cannot return 'null' (causes compile error or NullPointerException).
+================================================================================

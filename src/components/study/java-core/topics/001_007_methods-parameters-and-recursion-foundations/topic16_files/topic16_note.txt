@@ -1,0 +1,37 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_007: Methods, Parameters, Return Types & Recursion
+TOPIC 16: Classic Recursive Algorithms Master Suite
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. THE 5 CANONICAL RECURSIVE ALGORITHMS
+--------------------------------------------------------------------------------
+1. Factorial (n!) :
+   - Formula: n! = n * (n - 1)! | Base Case: 0! = 1, 1! = 1
+   - Complexity: O(N) Linear Time | O(N) Stack Space
+
+2. Fibonacci (fib(n)) :
+   - Formula: fib(n) = fib(n - 1) + fib(n - 2) | Base Cases: fib(0)=0, fib(1)=1
+   - Complexity: Naive O(2^N) -> Memoized O(N) Linear Time
+
+3. Sum of Digits :
+   - Formula: sum(n) = (n % 10) + sum(n / 10) | Base Case: n == 0 -> 0
+   - Complexity: O(log10 N) Logarithmic Time
+
+4. Fast Exponentiation (Binary Power) :
+   - Formula: x^n = (x^(n/2))^2 (even) or x * (x^(n/2))^2 (odd)
+   - Complexity: O(log2 N) Logarithmic Time (Divide & Conquer)
+
+5. Tower of Hanoi :
+   - 3 Pegs: Source (A), Helper (B), Destination (C)
+   - Minimum Moves: M(N) = 2^N - 1 moves
+   - Complexity: O(2^N) Exponential Time | O(N) Stack Space
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] In Fast Power, handle negative exponents cleanly using reciprocal (1.0 / x^(-n)).
+[✓] In Sum of Digits, sanitize inputs defensively using Math.abs(n).
+[✓] Memoization eliminates redundant sub-problem calculations in tree recursion.
+[✓] 64 disks in Tower of Hanoi requires ~1.84 x 10^19 moves (> 584 billion years!).
+================================================================================

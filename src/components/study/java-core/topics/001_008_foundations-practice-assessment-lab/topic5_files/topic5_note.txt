@@ -1,0 +1,31 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_008: Segment 1 Foundations Practice, Mini-Projects & Assessment
+TOPIC 5: Array Element Frequency Counter & Direct Address Tables
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE FREQUENCY COUNTING APPROACHES
+--------------------------------------------------------------------------------
+- Direct Address Frequency Array (Bounded Positive Range [0..K]):
+  * Initialize int[] freq = new int[maxVal + 1].
+  * Iterate array and increment directly: freq[num]++.
+  * Optimal for small ranges (K <= 10^6): O(N) Time, O(K) Space (L1 CPU cache fit!).
+
+- LinkedHashMap / HashMap (Sparse, Negative, or Unbounded Range):
+  * Map<Integer, Integer> map = new LinkedHashMap<>();
+  * Canonical Java Idiom: map.put(val, map.getOrDefault(val, 0) + 1);
+  * Handles negative numbers and sparse keys safely: O(N) Time, O(U) Space.
+
+- In-Place Modulo N Technique (Range [1..N] in-place in O(1) Auxiliary Space):
+  * Step 1: nums[i] = nums[i] - 1 (maps to 0..N-1).
+  * Step 2: nums[nums[i] % n] += n (encodes count in quotient, value in remainder).
+  * Step 3: Freq of (i + 1) = nums[i] / n.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Direct address arrays avoid object boxing and hash calculation overhead.
+[✓] Character frequency array: int[26] mapped via 'c - 'a''.
+[✓] Guard direct address arrays against negative values (val >= 0 && val <= maxVal).
+[✓] In Topic 6, we implement Base Conversions: Decimal to Binary/Hex without built-ins!
+================================================================================

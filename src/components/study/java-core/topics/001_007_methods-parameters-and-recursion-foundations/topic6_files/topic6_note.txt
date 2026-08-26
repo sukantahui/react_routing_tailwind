@@ -1,0 +1,31 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_007: Methods, Parameters, Return Types & Recursion
+TOPIC 6: Parameter Reassignment vs. Object State Mutation
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Parameter Reassignment (Stack Update):
+  * Writing 'account = new StudentAccount(...)' or 'arr = new double[5]'
+  * Overwrites ONLY the temporary stack frame variable slot.
+  * Has ZERO effect on the caller's reference variable or the original Heap object.
+
+- Object Internal State Mutation (Heap Dereference):
+  * Writing 'account.deductScholarship(...)' or 'arr[0] = 99'
+  * Dereferences the pointer and modifies fields in the shared Heap instance.
+  * Affects all variables referencing that same Heap instance!
+
+- Defensive Coding Principles:
+  * Use 'final' parameters (final StudentAccount s) to prevent pointer reassignment bugs.
+  * Note: 'final' protects the reference pointer, NOT the object's internal fields!
+  * To create true immutability, design classes with private final fields (or Records).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Primitive parameters are completely isolated on the Stack.
+[✓] Object fields are shared on the Heap and can be mutated via setters.
+[✓] Immutable types (String, Integer) cannot be mutated in-place.
+[✓] Avoid unexpected side-effects in methods (adhere to Command-Query Separation).
+================================================================================

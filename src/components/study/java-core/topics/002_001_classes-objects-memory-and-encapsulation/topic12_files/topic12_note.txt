@@ -1,0 +1,43 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_001: Classes, Objects, Memory Allocation & Encapsulation
+Topic 12: Access Modifiers Overview: private, default, protected, public
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 4-TIER ACCESS MATRIX:
+   -----------------------------------------------------------------------------
+   MODIFIER          SAME CLASS | SAME PACKAGE | SUBCLASS (DIFF PKG) | WORLD
+   -----------------------------------------------------------------------------
+   private              YES            NO                 NO            NO
+   default (none)       YES           YES                 NO            NO
+   protected            YES           YES                YES            NO
+   public               YES           YES                YES           YES
+   -----------------------------------------------------------------------------
+
+2. SCOPE DEFINITIONS:
+   - `private`          : Only visible inside the declaring class.
+   - `default` (Package): Visible to all classes in the same package directory.
+   - `protected`        : Package-private + Subclasses anywhere via inheritance.
+   - `public`           : Globally visible from any class (subject to JPMS).
+
+3. TOP-LEVEL VS MEMBER ACCESS RULES:
+   - Top-Level Classes  : Can ONLY be `public` or `package-private` (no modifier).
+   - Member Members     : Can have any of the 4 modifiers.
+   - Local Variables    : CANNOT have access modifiers (block-scoped only).
+   - Interface Members  : Fields are `public static final`; methods `public abstract`.
+
+4. METHOD OVERRIDING ACCESS RULE:
+   - An overriding method CANNOT reduce visibility (can stay same or widen).
+   - Example: A `protected` parent method can be overridden as `protected` or `public`,
+     but NEVER as `default` or `private`.
+
+5. SUKANTA HUI'S CONCENTRIC RINGS ANALOGY:
+   - Ring 1 (Private)  : Your Inner Sanctum (Private fields & algorithms).
+   - Ring 2 (Default)  : Your Local Village (Package collaborator classes).
+   - Ring 3 (Protected): Your Extended Family (Subclass inheritance hooks).
+   - Ring 4 (Public)   : The Global Highway (Official public API contracts).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,46 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_001: Classes, Objects, Memory Allocation & Encapsulation
+Topic 15: Read-Only and Write-Only Classes Using Selective Getter/Setter Exposure
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SELECTIVE EXPOSURE PATTERNS:
+   -----------------------------------------------------------------------------
+   PATTERN               EXPOSURE               PRIMARY USE CASE
+   -----------------------------------------------------------------------------
+   Read-Only Class       GETTERS ONLY           Report cards, audit snapshots,
+                         (No setters)           financial transaction receipts.
+
+   Write-Only Class      SETTERS ONLY           Password ingestion, secret sinks,
+                         (No getters)           encrypted logging pipelines.
+
+   Hybrid Class          MIXED PER FIELD        Enterprise domain entities
+                         (Get/Set/None)         (e.g., Student/Employee profiles).
+   -----------------------------------------------------------------------------
+
+2. READ-ONLY VS TRULY IMMUTABLE:
+   - Read-Only Interface: Omits public setters, but state might mutate internally.
+   - Truly Immutable    : `final` class, all `final` fields, no setters, and
+                          defensive copying on all constructors and getters.
+
+3. WRITE-ONLY SECURITY REQUIREMENTS:
+   - Never store raw plaintext secrets in write-only fields.
+   - Digest/Hash immediately upon ingestion (e.g. SHA-256 / bcrypt).
+   - Provide verification methods (`verifyMatch(candidate)`) that return booleans
+     without exposing the underlying hash.
+
+4. FIELD-LEVEL ACCESS POLICY IN HYBRID CLASSES:
+   - Read-Only Fields   : `studentId`, `registrationDate` (Getters only).
+   - Read-Write Fields  : `emailAddress`, `residentialAddress` (Getters + Setters).
+   - Write-Only Fields  : `paymentPin`, `rawPassword` (Setters only).
+   - Internal-Only      : `auditCounter`, `securityLockFlag` (No getters or setters).
+
+5. SUKANTA HUI'S THREE-WAY MODEL:
+   - "Museum Showcase (Read-Only) : Look and inspect freely, but cannot touch.
+      Ballot Box      (Write-Only): Drop your vote in; no one can pull it back out.
+      Bank Window     (Hybrid)    : Dedicated channels for deposits, statements, and PINs."
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

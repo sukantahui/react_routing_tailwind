@@ -14,13 +14,31 @@ export const admissionService = {
   
   create: async (data) => {
     try {
-      const response = await api.post("/admissions",data);
+      const response = await api.post("/admissions", data);
       return response.data;
     } catch (error) {
-      console.error("Error saving student:", error);
+      console.error("Error saving admission:", error);
       throw error;
     }
+  },
 
+  createAdmissionWithStudent: async (data) => {
+    try {
+      const response = await api.post("/admissions/admissionWithStudent", data);
+      return response.data;
+    } catch (error) {
+      console.error("Error saving admission with student:", error);
+      throw error;
+    }
+  },
+
+  createWithStudent: async (data) => {
+    try {
+      const response = await api.post("/admissions/admissionWithStudent", data);
+      return response.data;
+    } catch (error) {
+      console.error("Error saving admission with student:", error);
+      throw error;
+    }
   }
-  
-};
+};

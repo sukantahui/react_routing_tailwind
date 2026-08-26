@@ -1,0 +1,30 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_007: Methods, Parameters, Return Types & Recursion
+TOPIC 5: Pass-by-Value in Java (Primitives vs. Object References)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- THE CARDINAL RULE (JLS §4.3, §8.4.1):
+  * JAVA IS ALWAYS 100% STRICTLY PASS-BY-VALUE FOR EVERYTHING.
+  * There is NO Pass-by-Reference in Java.
+
+- 1. Passing Primitive Types (int, double, boolean):
+  * The raw binary bits are COPIED into the formal parameter's stack slot.
+  * Modifying the parameter has ZERO effect on the caller's variable.
+
+- 2. Passing Object References (StudentRecord, String, Arrays):
+  * The memory address pointer (bits) is COPIED by value into the parameter's stack slot.
+  * Both caller and parameter point to the SAME object instance on the Heap.
+  * Mutating fields (s.setFeeBalance(...)) alters the shared Heap object!
+  * Reassigning pointer (s = new StudentRecord(...)) alters ONLY the local stack slot!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] You cannot swap two primitive variables using a swap(int a, int b) method.
+[✓] You cannot swap two object references using a swap(Student a, Student b) method.
+[✓] Immutable objects (String, Integer) behave like primitives (cannot be mutated).
+[✓] 'final' reference parameters prevent pointer reassignment, NOT object mutation.
+================================================================================

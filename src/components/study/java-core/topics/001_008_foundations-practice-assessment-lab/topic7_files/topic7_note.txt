@@ -1,0 +1,30 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_008: Segment 1 Foundations Practice, Mini-Projects & Assessment
+TOPIC 7: Implementing Recursive Binary Search
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE BINARY SEARCH ALGORITHM
+--------------------------------------------------------------------------------
+- Prerequisite: Array MUST be sorted in ascending order.
+- Time Complexity: O(log N) | Space: O(log N) Stack Frames (Recursive) or O(1) (Iterative).
+
+- Key Invariants:
+  1. Base Case (Not Found) : if (low > high) return -1;
+  2. Safe Midpoint Calc    : mid = low + (high - low) / 2; (Prevents 32-bit overflow!).
+  3. Found Target          : if (arr[mid] == target) return mid;
+  4. Search Left Half      : if (arr[mid] > target) -> recurse with high = mid - 1;
+  5. Search Right Half     : if (arr[mid] < target) -> recurse with low = mid + 1;
+
+- Duplicated Arrays (First Occurrence):
+  * When arr[mid] == target, check 'if (mid == 0 || arr[mid - 1] != target)' -> return mid;
+    otherwise continue searching left half!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Master Theorem: T(N) = T(N/2) + O(1) -> O(log N).
+[✓] Avoid '(low + high) / 2' which overflows when sum exceeds 2,147,483,647.
+[✓] Arrays.binarySearch() returns '-(insertion_point + 1)' when target is not found.
+[✓] In Topic 8, we master Armstrong Numbers in a Given Range!
+================================================================================

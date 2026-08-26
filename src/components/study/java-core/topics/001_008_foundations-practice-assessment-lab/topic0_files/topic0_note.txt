@@ -1,0 +1,24 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_008: Segment 1 Foundations Practice, Mini-Projects & Assessment
+TOPIC 0: Review of Segment 1 Core Concepts
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. SEGMENT 1 FOUNDATIONS SUMMARY
+--------------------------------------------------------------------------------
+- Module 001_001 : JVM Architecture, Bytecode, ClassLoaders, JIT Compiler & Memory (Stack vs Heap).
+- Module 001_002 : Syntax, Primitive Types (8 types), Literals, Variables & Constants.
+- Module 001_003 : Operators, Expressions, Precedence & Explicit/Implicit Type Casting.
+- Module 001_004 : Decision Making (if-else-if ladders) & Modern Java 14+ Switch Expressions.
+- Module 001_005 : Loops (for, while, do-while, enhanced for-each) & Jump Statements (break/continue).
+- Module 001_006 : 1D & 2D Arrays, Ragged Matrices, In-Memory Algorithms & Iteration.
+- Module 001_007 : Modular Methods, Pass-by-Value, Overloading, Varargs & Call Stack Recursion.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Java is strictly Pass-by-Value for primitives and object reference addresses.
+[✓] Stack memory is LIFO, thread-private, and freed instantly in O(1) time without GC.
+[✓] Modern switch expressions yield values directly with zero fall-through risk.
+[✓] In Topic 1, we tackle our first Algorithmic Lab problem: Sieve of Eratosthenes!
+================================================================================

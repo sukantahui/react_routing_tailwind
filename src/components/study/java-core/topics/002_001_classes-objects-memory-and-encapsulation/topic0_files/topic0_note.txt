@@ -1,0 +1,32 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 002_001: Classes, Objects, Memory Allocation & Encapsulation
+TOPIC 0: Introduction to Object-Oriented Programming (OOP) vs Procedural Programming
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. PROCEDURAL VS OBJECT-ORIENTED PARADIGM
+--------------------------------------------------------------------------------
+- Procedural Paradigm (C / Pascal style):
+  * Code is organized into step-by-step procedures/functions.
+  * Data (global variables/arrays) is DECOUPLED from functions.
+  * Major Flaw: State is globally exposed and prone to corruption (no data hiding!).
+
+- Object-Oriented Paradigm (Java OOP):
+  * Code is organized around OBJECTS that bundle State (fields) and Behavior (methods).
+  * Encapsulation: Fields are private; access is strictly controlled via public methods.
+  * Invariant Protection: Business rules (e.g. balance >= 0) are validated inside methods.
+
+- The 4 Pillars of OOP:
+  1. Encapsulation : Bundling data & methods; Data Hiding (private fields).
+  2. Inheritance   : Code reuse and hierarchical specialization (extends).
+  3. Polymorphism   : Dynamic method dispatch and flexible interfaces.
+  4. Abstraction   : Hiding internal complexity via abstract classes & interfaces.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Welcome to Segment 2: Object-Oriented Programming Deep Dive!
+[✓] Stack holds reference variables (memory addresses); Heap holds actual Object instances.
+[✓] Private fields + validating methods protect domain invariants.
+[✓] In Topic 1, we master Real-World Modeling: Mapping Entities to State & Behavior!
+================================================================================

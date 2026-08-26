@@ -1,0 +1,56 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_001: Classes, Objects, Memory Allocation & Encapsulation
+Topic 6: Null Reference and the Anatomy of NullPointerException (NPE)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS 'null' IN JAVA?
+   - A literal representing a reference variable that points to NO object in Heap.
+   - Internally represented as 0x00000000.
+   - Can be assigned or cast to any reference type (Classes, Interfaces, Arrays).
+   - Cannot be assigned to primitive types (int, double, boolean, etc.).
+
+2. THE 8 CLASSIC NPE TRIGGERS:
+   -----------------------------------------------------------------------------
+   TRIGGER 1: Calling instance methods on null reference (`nullRef.method()`).
+   TRIGGER 2: Accessing or modifying fields of null reference (`nullRef.field`).
+   TRIGGER 3: Reading length of null array (`nullArray.length`).
+   TRIGGER 4: Indexing into a null array (`nullArray[0]`).
+   TRIGGER 5: Auto-unboxing null wrapper (`int x = (Integer) null;` -> `.intValue()`).
+   TRIGGER 6: Iterating null collection in for-each (`for(var x : nullList)`).
+   TRIGGER 7: Synchronizing on null monitor (`synchronized(nullLock)`).
+   TRIGGER 8: Throwing null exception (`throw null;`).
+   -----------------------------------------------------------------------------
+
+3. JAVA 14+ HELPFUL NPES (JEP 358):
+   - HotSpot analyzes bytecode at runtime to provide root-cause diagnostics.
+   - Example:
+       "Cannot invoke 'Address.getCity()' because the return value of
+        'StudentRecord.getPostalAddressDirect()' is null"
+
+4. MODERN DEFENSIVE NULL-HANDLING TECHNIQUES:
+   a) Objects.requireNonNull(param, "Custom error message")
+      - Fail-fast parameter validation in constructors and public APIs.
+
+   b) Yoda Conditions for Safe Equality
+      - `"Barrackpore".equals(nullableBranch)` instead of `nullableBranch.equals(...)`.
+
+   c) java.util.Optional<T> for Return Types
+      - Expresses possible absence in API return signatures.
+      - Use `.map()`, `.flatMap()`, `.orElse()`, `.orElseThrow()`.
+
+   d) Return Empty Collections Instead of Null
+      - Use `Collections.emptyList()`, `List.of()`, or `new int[0]`.
+
+   e) Null Object Pattern
+      - Use singleton sentinel objects with neutral / do-nothing behavior.
+
+5. WHAT DOES NOT THROW NPE:
+   - Calling static methods via null reference (`nullStudent.printAcademy()`).
+   - `null instanceof AnyType` (safely evaluates to `false`).
+   - `System.out.println(nullRef)` (safely prints `"null"`).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

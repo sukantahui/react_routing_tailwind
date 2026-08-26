@@ -1,0 +1,32 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_008: Segment 1 Foundations Practice, Mini-Projects & Assessment
+TOPIC 6: Base Conversions (Decimal to Binary & Hexadecimal from Scratch)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE BASE CONVERSION ALGORITHMS
+--------------------------------------------------------------------------------
+- Decimal to Base B (Successive Modulo Division):
+  * While (n > 0):
+    - remainder = n % B
+    - append(remainder) or HEX_DIGITS[remainder]
+    - n /= B
+  * Reverse the accumulated string.
+
+- Bitwise Binary & Hex Extraction:
+  * Binary : for bit 31 down to 0 -> (n >>> bit) & 1
+  * Hex    : while (num > 0) -> nibble = (int)(num % 16); num /= 16;
+  * Negative numbers : use (n & 0xFFFFFFFFL) to convert to unsigned 64-bit long.
+
+- Reverse Conversion (Horner's Method - Base B to Decimal):
+  * Formula: result = (result * base) + digitValue
+  * Evaluates polynomial in O(N) time with ZERO Math.pow() overhead!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Time Complexity: O(log_B N) steps.
+[✓] Use unsigned right shift '>>>' for negative numbers (never signed '>>').
+[✓] Hex digits: '0'-'9' (0-9) and 'A'-'F' (10-15).
+[✓] In Topic 7, we master Recursive Binary Search Implementation!
+================================================================================

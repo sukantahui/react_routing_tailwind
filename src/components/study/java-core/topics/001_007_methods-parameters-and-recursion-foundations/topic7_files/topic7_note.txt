@@ -1,0 +1,29 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_007: Methods, Parameters, Return Types & Recursion
+TOPIC 7: Method Overloading (Compile-Time Polymorphism)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- What is Method Overloading? (JLS §8.4.9):
+  * Same Method Name + Different Parameter Signatures in the same class hierarchy.
+  * Form of Compile-Time (Static) Polymorphism resolved at compilation time.
+
+- The 3 Ways Parameter Lists Can Differ:
+  1. Parameter Count : calculateFee(double), calculateFee(double, int), calculateFee(double, int, double).
+  2. Parameter Types : calculateFee(int units), calculateFee(String code).
+  3. Parameter Order : displayBadge(String name, int id), displayBadge(int id, String name).
+
+- Chained Delegation Pattern (DRY):
+  * Smaller overloads delegate to the master overload by supplying default parameters.
+  * Eliminates duplicate code and centralizes business logic.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Return type ALONE cannot overload a method (causes compile error).
+[✓] Parameter variable names do NOT distinguish overloads (only types matter).
+[✓] Overloaded methods can have different access modifiers and throws clauses.
+[✓] Constructive use: System.out.println() and Arrays.sort() rely heavily on overloading.
+================================================================================

@@ -258,7 +258,7 @@ export default function Topic14() {
         </h2>
         <div className="space-y-3 text-slate-300 text-sm md:text-base leading-relaxed">
           <p>
-            🤔 <em>&ldquo;Why can `break LABEL;` target an arbitrary `{ ... }` block, but `continue LABEL;` cannot?&rdquo;</em>
+            🤔 <em>&ldquo;Why can <code className="text-amber-300 font-mono">break LABEL;</code> target an arbitrary <code className="text-sky-300 font-mono">&#123; ... &#125;</code> block, but <code className="text-rose-300 font-mono">continue LABEL;</code> cannot?&rdquo;</em>
           </p>
           <p>
             👉 <strong>Hint:</strong> Loop Iteration vs Block Termination! A <code className="text-rose-400 font-mono">break</code> simply transfers control past the end of a block. But <code className="text-emerald-400 font-mono">continue</code> requires an iteration mechanism (re-evaluating a condition and executing an update step). Because arbitrary compound blocks do not loop, <code className="text-emerald-400 font-mono">continue</code> is semantically illegal on non-loop blocks!

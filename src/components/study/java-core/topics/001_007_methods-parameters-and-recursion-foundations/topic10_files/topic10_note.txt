@@ -1,0 +1,30 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_007: Methods, Parameters, Return Types & Recursion
+TOPIC 10: Variable Arguments (Varargs - Type... varName)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- What is Varargs? (JLS §8.4.1):
+  * Introduced in Java 5 to accept 0, 1, or N arguments without manual array creation.
+  * Syntax: Type... varName (e.g. double... fees).
+
+- The TWO Invariant Rules of Varargs:
+  1. Single Varargs Rule : A method declaration can have AT MOST ONE varargs parameter.
+  2. Last Parameter Rule : The varargs parameter MUST be the LAST parameter.
+
+- Under the Hood Mechanics:
+  * Compiler translates 'Type... varName' directly to an array 'Type[] varName'.
+  * Zero arguments passed   -> Creates an empty array 'new Type[0]' (never null).
+  * Explicit array passed   -> Passes existing array without extra allocation.
+  * Overload priority       -> Fixed-arity methods ALWAYS beat varargs methods!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] 'public static void main(String... args)' is completely valid.
+[✓] 'void m(double... a, int... b)' causes Compile Error (multiple varargs).
+[✓] 'void m(double... a, String b)' causes Compile Error (varargs not last).
+[✓] In loops, beware of heap allocation overhead; provide fixed overloads for common counts.
+================================================================================

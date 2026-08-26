@@ -1,0 +1,50 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_001: Classes, Objects, Memory Allocation & Encapsulation
+Topic 16: Real-World OOP Modeling: BankAccount, Employee, Product, Car Entities
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 3 PILLARS OF DOMAIN ENTITY MODELING:
+   -----------------------------------------------------------------------------
+   PILLAR 1: IMMUTABLE IDENTITY
+             - Unchangeable unique identifier (`accountNumber`, `VIN`, `SKU`, `empId`).
+             - Declared `final` and non-null (`Objects.requireNonNull`).
+
+   PILLAR 2: ENCAPSULATED PRIVATE STATE
+             - Private fields guarded by business invariants (`balance >= MIN_BALANCE`).
+             - Defensive copies for collections (`Collections.unmodifiableList`).
+
+   PILLAR 3: RICH DOMAIN BEHAVIORS ("TELL, DON'T ASK")
+             - Mutators enforce rules internally (`withdraw()`, `accelerate()`, `fulfill()`).
+             - Self-defending against illegal state transitions.
+   -----------------------------------------------------------------------------
+
+2. THE 4 CANONICAL DOMAIN ENTITIES:
+   a) BankAccount:
+      - Invariant: Balance cannot fall below `MIN_BALANCE` (₹1,000.00).
+      - Operation: Atomic `transferTo(target, amount)` with self-transfer guards.
+      - Audit    : Unmodifiable transaction log.
+
+   b) Employee:
+      - Invariant: Salary must meet statutory minimum wage (₹15,000.00).
+      - Derived  : HRA (40%), DA (20%), Gross, and CTC computed on the fly.
+      - Appraisal: `evaluatePerformance()` grants 15% raise for ratings >= 4.5.
+
+   c) Product:
+      - Invariant: Inventory stock quantity `stock >= 0`.
+      - Operation: `fulfillCustomerOrder(qty)` rejects shortages; `restockInventory(units)`.
+
+   d) AutomobileCar:
+      - FSM State: Ignition ON/OFF state machine.
+      - Dynamics : Speed clamped (0 - 220 km/h), fuel consumption on acceleration.
+      - Safety   : Blocks acceleration when engine is OFF; auto-stalls on 0 fuel.
+
+3. SUKANTA HUI'S LIVING AGENT PRINCIPLE:
+   - "Never design an entity as a passive corpse waiting for outside code to poke its fields.
+      Design it as a living, intelligent agent that knows its rules, protects its honour,
+      and defends its domain truth."
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

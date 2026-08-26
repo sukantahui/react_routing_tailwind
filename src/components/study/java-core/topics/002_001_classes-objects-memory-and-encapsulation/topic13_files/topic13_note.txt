@@ -1,0 +1,43 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_001: Classes, Objects, Memory Allocation & Encapsulation
+Topic 13: Getter and Setter Methods: Accessor and Mutator Conventions
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JAVABEAN SPECIFICATION NAMING CONVENTIONS:
+   -----------------------------------------------------------------------------
+   PROPERTY TYPE       FIELD NAME          GETTER SYNTAX          SETTER SYNTAX
+   -----------------------------------------------------------------------------
+   Standard Objects    studentName         getStudentName()       setStudentName(String s)
+   Numeric Primitives  courseFeeInr        getCourseFeeInr()      setCourseFeeInr(double d)
+   boolean (Primitive) activeScholarship   isActiveScholarship()  setActiveScholarship(boolean b)
+   Boolean (Wrapper)   remoteAccessGranted getRemoteAccessGranted() setRemoteAccessGranted(Boolean b)
+   Indexed Elements    skills              getSkill(int i)        setSkill(int i, String s)
+   -----------------------------------------------------------------------------
+
+2. WHY FRAMEWORKS RELY ON JAVABEANS:
+   - Spring Boot (Jackson JSON mapping, form binding).
+   - Hibernate / JPA (Entity column mapping via property access).
+   - Jakarta EE / JSP (EL expression `${student.studentName}`).
+   - Frameworks inspect method names via Java Reflection Introspection to pair
+     `get...` and `set...` with JSON keys and database columns.
+
+3. MODERN CONVENTIONS & VARIANTS:
+   - Fluent Setters: Return `this` (`return this;`) for method chaining.
+   - Java 16+ Records: Omit `get` prefix and use `student.name()` directly.
+   - Virtual Properties: Computed on the fly in a getter without dedicated field.
+
+4. DEFENSIVE BEST PRACTICES:
+   a) Validate all arguments inside setters (Throw `IllegalArgumentException` on error).
+   b) Return unmodifiable views or cloned copies for arrays and collections.
+   c) Never return `null` for collection getters (return `Collections.emptyList()`).
+   d) Avoid heavy I/O, database queries, or blocking operations inside getters.
+
+5. SUKANTA HUI'S GOLDEN RULE:
+   - "Every setter is a border security checkpoint; every getter is a protective
+      diplomatic courier. Guard your gates and respect JavaBean naming standards."
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -264,7 +264,7 @@ export default function Topic4() {
         </h2>
         <div className="space-y-3 text-slate-300 text-sm md:text-base leading-relaxed">
           <p>
-            🤔 <em>&ldquo;Why are trailing commas like `{10, 20, 30,}` permitted in Java array initializers?&rdquo;</em>
+            🤔 <em>&ldquo;Why are trailing commas like <code className="text-emerald-400 font-mono">&#123;10, 20, 30,&#125;</code> permitted in Java array initializers?&rdquo;</em>
           </p>
           <p>
             👉 <strong>Hint:</strong> Clean Git Diffs &amp; Code Generation! In multi-line array declarations, leaving a trailing comma allows adding a new element on the next line without modifying the preceding line, producing clean single-line Git diffs!

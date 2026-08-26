@@ -1,0 +1,44 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_001: Classes, Objects, Memory Allocation & Encapsulation
+Topic 14: Adding Business Validation Logic Inside Setters to Protect Object Integrity
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHY VALIDATE INSIDE SETTERS?
+   - Input comes from untrusted external sources (Forms, REST JSON, CSV files).
+   - An unvalidated setter is an open door to data corruption.
+   - Validating mutators guarantees that objects are ALWAYS in a valid state.
+
+2. THE 5-STAGE SETTER VALIDATION PIPELINE:
+   -----------------------------------------------------------------------------
+   STAGE 1: NULL & MANDATORY CHECK
+            `Objects.requireNonNull(input, "Field is mandatory");`
+   STAGE 2: SANITIZATION & NORMALIZATION
+            `String clean = input.trim().toLowerCase();`
+   STAGE 3: FORMAT & REGEX BOUNDS
+            `if (!PHONE_PATTERN.matcher(clean).matches()) throw ...;`
+   STAGE 4: RANGE & NUMERIC LIMITS
+            `if (score < 0.0 || score > 100.0) throw ...;`
+   STAGE 5: CROSS-FIELD & STATE TRANSITION GUARDS
+            `if (discount > 0 && this.score < 75.0) throw IllegalStateException;`
+   -----------------------------------------------------------------------------
+
+3. EXCEPTION THROWING CONVENTIONS:
+   - `IllegalArgumentException` : Invalid parameter value (negative price, bad email).
+   - `NullPointerException`     : Null passed for mandatory field.
+   - `IllegalStateException`    : Operation forbidden in object's CURRENT state.
+
+4. DEFENSIVE BEST PRACTICES:
+   a) Delegate constructor initialization to setters to reuse validation (DRY).
+   b) Use precompiled static regex `Pattern` objects (`private static final Pattern`).
+   c) Never fail silently (do not just `return;`—throw informative exceptions!).
+   d) Mark setters `final` if called inside constructors to prevent child overrides.
+
+5. SUKANTA HUI'S BORDER SECURITY LAW:
+   - "Inspect every passport, sanitize every crate, and reject illegal cargo at the gate.
+      Every setter is a border checkpoint defending your application's domain truth."
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================
