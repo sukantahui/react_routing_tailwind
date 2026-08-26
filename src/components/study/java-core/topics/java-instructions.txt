@@ -1,23 +1,10 @@
-Topic: 0, topic: "JSP Lifecycle", file: Topic0.jsx,
-Topic: 1, topic: "Scriptlet, Expression, Declaration", file: Topic1.jsx,
-Topic: 2, topic: "JSP Implicit Objects", file: Topic2.jsx,
-Topic: 3, topic: "JSP Directives", file: Topic3.jsx,
-Topic: 4, topic: "JavaBeans in JSP", file: Topic4.jsx,
-Topic: 5, topic: "Expression Language (EL)", file: Topic5.jsx,
-Topic: 6, topic: "JSTL Core Tags", file: Topic6.jsx,
-Topic: 7, topic: "Custom Tag Libraries", file: Topic7.jsx,
-Topic: 8, topic: "JSP Include Directive vs Include Action", file: Topic8.jsx,
-Topic: 9, topic: "JSP Error Page Handling", file: Topic9.jsx,
-Topic: 10, topic: "JSP Fragments and Tag Files", file: Topic10.jsx,
-Topic: 11, topic: "JSTL Formatting Tags (fmt) and Functions Tags (fn)", file: Topic11.jsx,
-Topic: 12, topic: "MVC with JSP and Servlets (Front Controller Pattern)", file: Topic12.jsx,
-Topic: 13, topic: "Using JavaBeans as Data Containers", file: Topic13.jsx,
-Topic: 14, topic: "JSP 2.0 Simple Tag Handlers", file: Topic14.jsx,
-Topic: 15, topic: "EL Advanced Features (Collections, Operators)", file: Topic15.jsx,
-Topic: 16, topic: "Introduction to AJAX Integration", file: Topic16.jsx,
-Topic: 17, topic: "Security Considerations (Avoiding Scriptlets)", file: Topic17.jsx,
 
-            
+use the *roadmap.json* file to get the topics, slug is the folder name will be created under topics folder, there will be no other folder inside topics folder other than the slug folders. 
+inside each slug folder create Topic[number].jsx file.
+
+inside each folder create topic[number]_files folder and inside that folder create following files:
+    -- topic[number]_note.txt
+    -- topic[number]_content.txt            
 
 I am using the latest Tailwind CSS with NO tailwind.config.js file.
 Do NOT require any Tailwind config, plugins, or external animation libraries.
@@ -227,10 +214,50 @@ use :
 />
 
 
+for PlainTextPrint i use the following:
+    import PlainTextPrint from "../../../../../common/PlainTextPrint";
+    import noteText from "./topic[topic_no]_files/topic[topic_no]_note.txt?raw";
+    after <FAQTemplate
+    place
+    <PlainTextPrint
+        content={noteText}
+        title="Introduction to Linear Programming"
+        stampEnabled={true}
+        showDownload={true}
+        downloadButtonText="Download Note"
+        downloadFileName="topic[topic_no+1]_note.txt"
+    />
+    I want to add another file here which be plain text file conatining the topic in printable style, so that students can print it as plain text, i will put the file in   './topic[topic_no]_files/topic[topic_no]_note'
+
+for FAQ i use the following:
+    import FAQTemplate from '../../../../../common/FAQTemplate';
+    import questions from './topic[topic_no]_files/topic[topic_no]_questions';
+    before <Teacher note
+    place
+    <FAQTemplate
+        title="[topic_name] FAQs"
+        questions={questions}
+      />
+    create a js file in following style
+    const questions = [
+        {
+            question: "What is inheritance in object-oriented programming?",
+            shortAnswer: "Inheritance allows a class to acquire properties and methods from another class.",
+            explanation: "Inheritance is a mechanism where a new class (child/subclass) inherits fields and methods from an existing class (parent/superclass). It represents an 'is-a' relationship and promotes code reusability.",
+            hint: "Think of a child inheriting traits from parents.",
+            level: "basic",
+            codeExample: "class Parent { } class Child extends Parent { }"
+        },  
+        .....
+    ]
+    export default questions;
+    create 30 questions moderate to expert show the file also
+    show all the files with folder separately  
 
 
 
-start from Topic0
+
+
 
 
 

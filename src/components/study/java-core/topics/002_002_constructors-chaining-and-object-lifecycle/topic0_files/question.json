@@ -1,0 +1,123 @@
+{
+  "paperId": "JAVA-FUNDAMENTALS-SET-04",
+  "title": "Java Programming - Classes, Constructors, Overloading & Objects - Short Questions",
+  "duration": "1 Hour",
+  "totalMarks": 40,
+  "prerequisites": "Basic understanding of Java syntax and OOP concepts",
+  "instructions": [
+    "All questions are compulsory",
+    "Answer in 2-3 lines",
+    "Write concise and accurate answers"
+  ],
+  "sections": [
+    {
+      "section": "A",
+      "type": "Theory (Short Answer)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 20,
+      "description": "Answer each question in 2-3 lines",
+      "questions": [
+        {
+          "q": "What is a class in Java? Why is it important?",
+          "marks": 2,
+          "answer": "A class is a blueprint that defines the structure (fields) and behavior (methods) of objects. It is important because it enables encapsulation, code reusability, and forms the basis of object-oriented programming in Java."
+        },
+        {
+          "q": "Define an object in Java. How is an object created?",
+          "marks": 2,
+          "answer": "An object is an instance of a class that holds actual data values. It is created using the 'new' keyword followed by a constructor call, e.g., ClassName obj = new ClassName(); which allocates memory and initializes the object."
+        },
+        {
+          "q": "What is the purpose of the 'new' keyword in Java?",
+          "marks": 2,
+          "answer": "The 'new' keyword allocates memory for a new object on the heap and returns a reference to it. It also invokes the constructor to initialize the object's state before the reference is returned."
+        },
+        {
+          "q": "What is a constructor in Java? What are its main characteristics?",
+          "marks": 2,
+          "answer": "A constructor is a special method used to initialize objects. Its characteristics: same name as the class, no return type (not even void), automatically called with 'new', and can be overloaded."
+        },
+        {
+          "q": "What is constructor overloading? Give a brief example.",
+          "marks": 2,
+          "answer": "Constructor overloading means having multiple constructors in the same class with different parameter lists. Example: Person() { } and Person(String name, int age) { }. This provides flexibility in object creation."
+        },
+        {
+          "q": "What is the difference between a default constructor and a parameterized constructor?",
+          "marks": 2,
+          "answer": "A default constructor has no parameters and is provided by Java if no constructor is defined; it initializes fields to default values. A parameterized constructor takes arguments to set custom initial values during object creation."
+        },
+        {
+          "q": "What is method overloading? How is it different from constructor overloading?",
+          "marks": 2,
+          "answer": "Method overloading is defining multiple methods with the same name but different parameters within a class. Constructor overloading is a specific case of overloading for constructors; the difference is that constructors have no return type and are invoked with 'new'."
+        },
+        {
+          "q": "Explain the use of the 'this' keyword in Java.",
+          "marks": 2,
+          "answer": "The 'this' keyword refers to the current object. It is used to: differentiate instance variables from parameters, call another constructor of the same class (this()), and pass the current object as an argument or return it."
+        },
+        {
+          "q": "Can we have a private constructor? What is its purpose?",
+          "marks": 2,
+          "answer": "Yes, a constructor can be private. Its purposes include implementing the Singleton pattern (restricting object creation to one instance), preventing instantiation of utility classes, and controlling creation via factory methods."
+        },
+        {
+          "q": "What is a copy constructor in Java?",
+          "marks": 2,
+          "answer": "A copy constructor is a constructor that takes an object of the same class as a parameter and copies its field values to the new object. It is used to create a duplicate object with the same state."
+        },
+        {
+          "q": "What is constructor chaining? How is it achieved using 'this()'?",
+          "marks": 2,
+          "answer": "Constructor chaining is calling one constructor from another within the same class using this(). It reduces code duplication. Example: this(parameters) must be the first statement in the constructor."
+        },
+        {
+          "q": "Can constructors be inherited? Explain briefly.",
+          "marks": 2,
+          "answer": "No, constructors are not inherited by subclasses. However, a subclass constructor can call a parent constructor using super() to initialize inherited fields."
+        },
+        {
+          "q": "What is the difference between a constructor and a method?",
+          "marks": 2,
+          "answer": "A constructor initializes objects and has no return type; it is called automatically with 'new'. A method defines behavior, has a return type (or void), and is called explicitly on an object after creation."
+        },
+        {
+          "q": "What is the role of the 'new' operator in memory allocation?",
+          "marks": 2,
+          "answer": "The 'new' operator allocates memory for an object on the heap, initializes default values for fields, and then calls the constructor to set initial state. It returns a reference to the allocated object."
+        },
+        {
+          "q": "What are instance variables and how are they different from local variables?",
+          "marks": 2,
+          "answer": "Instance variables are declared in a class outside methods and belong to each object; they have default values. Local variables are declared inside methods and have no default values; they exist only during method execution."
+        },
+        {
+          "q": "What is the default constructor provided by Java? When is it supplied?",
+          "marks": 2,
+          "answer": "The default constructor is a no-argument constructor automatically provided by Java if no constructor is explicitly defined. It initializes instance fields to their default values (0, null, false)."
+        },
+        {
+          "q": "Can we overload a constructor with different return types? Why?",
+          "marks": 2,
+          "answer": "No, constructors do not have return types, so they cannot be overloaded based on return type. Overloading is determined solely by the parameter list (number, type, and order)."
+        },
+        {
+          "q": "What is the purpose of method overloading in Java?",
+          "marks": 2,
+          "answer": "Method overloading improves readability and flexibility by allowing multiple methods with the same name but different parameters. It enables compile-time polymorphism and provides consistent naming for similar operations."
+        },
+        {
+          "q": "Explain the difference between 'this' and 'super' keywords.",
+          "marks": 2,
+          "answer": "'this' refers to the current object and is used to access instance members or call other constructors of the same class. 'super' refers to the immediate parent class and is used to access parent members or call parent constructors."
+        },
+        {
+          "q": "What happens if a class does not have any constructor? Can we still create objects?",
+          "marks": 2,
+          "answer": "Yes, if no constructor is defined, Java provides a default no-argument constructor. Thus, we can still create objects using new ClassName(). The fields are initialized to default values."
+        }
+      ]
+    }
+  ]
+}
