@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_004: Inter-Thread Communication & Producer-Consumer
+Topic 4: IllegalMonitorStateException
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ILLEGALMONITORSTATEEXCEPTION:
+   - RuntimeException thrown by JVM.
+   - Triggered when calling 'wait()/notify()' without monitor ownership.
+   - Hazard: Synchronizing on Lock A but calling wait on Lock B.
+   - Solution: 'synchronized(lock) { lock.wait(); }' (same object!).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

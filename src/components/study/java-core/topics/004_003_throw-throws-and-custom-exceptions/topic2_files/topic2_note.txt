@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_003: Throw, Throws & Custom Exceptions
+Topic 2: The 'throws' Keyword
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 'throws' CLAUSE:
+   - Placed in the method signature / header.
+   - Declares one or more comma-separated exception types.
+   - Warns callers that they must handle or propagate them.
+   - Only strictly required for Checked Exceptions.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

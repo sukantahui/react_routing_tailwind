@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_003: Wrapper Classes & Autoboxing
+Topic 3: Autoboxing Foundations
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. AUTOBOXING MECHANICS:
+   - Introduced in Java 5.
+   - Primitive &rarr; Wrapper object automatically.
+   - Bytecode translation: 'Integer.valueOf(primitive)'.
+   - Eliminates deprecated 'new Integer(n)' constructors.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

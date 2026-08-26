@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_006: Regular Expressions (Regex)
+Topic 3: Regex Flags (CASE_INSENSITIVE, DOTALL)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. REGEX FLAGS CHEATSHEET:
+   - 'Pattern.CASE_INSENSITIVE' ('(?i)') : Ignores uppercase/lowercase.
+   - 'Pattern.MULTILINE'        ('(?m)') : '^' and '$' match start/end of each line.
+   - 'Pattern.DOTALL'           ('(?s)') : Dot '.' matches newlines ('\n').
+   - Combining flags: 'FLAG1 | FLAG2' (Bitwise OR).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

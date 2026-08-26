@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_004: Modern Java NIO.2
+Topic 2: Path Interface Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PATH INTERFACE CONTRACT:
+   - 'Path': Immutable and thread-safe locator.
+   - Converting to legacy File: 'path.toFile()'.
+   - Converting from legacy File: 'file.toPath()'.
+   - Zero disk I/O on creation; purely represents a locator.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

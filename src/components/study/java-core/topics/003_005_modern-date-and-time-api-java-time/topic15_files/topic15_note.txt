@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_005: Modern Date & Time API (java.time)
+Topic 15: Legacy Date Interoperability
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INTEROPERABILITY BRIDGES:
+   - Old &rarr; New: 'date.toInstant()'.
+   - New &rarr; Old: 'Date.from(instant)'.
+   - 'Instant' is the universal bridge type.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

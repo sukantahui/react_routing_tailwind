@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_006: Regular Expressions (Regex)
+Topic 13: Enterprise Validation Recipes
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ENTERPRISE RECIPES:
+   - Email  : '^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$'
+   - Mobile : '^(\+91)?[6-9]\d{9}$'
+   - PAN    : '^[A-Z]{5}[0-9]{4}[A-Z]$'
+   - IPv4   : '^((25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(...)$'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

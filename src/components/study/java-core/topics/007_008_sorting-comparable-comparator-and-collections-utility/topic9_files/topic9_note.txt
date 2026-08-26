@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_008: Sorting, Comparable, Comparator & Collections
+Topic 9: Null-Safe Comparators
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. NULL-SAFE COMPARATORS:
+   - Standard sorting crashes on 'null' with NPE.
+   - 'Comparator.nullsFirst(c)': places all nulls at the beginning.
+   - 'Comparator.nullsLast(c)': places all nulls at the end.
+   - Essential for real-world enterprise databases with nullable columns.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_004: Math, Random & Arbitrary Precision
+Topic 1: Math Methods Catalog
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MATH METHODS CHEATSHEET:
+   - 'Math.abs(n)'   : Absolute value.
+   - 'Math.ceil(d)'  : Rounds up &rarr; double.
+   - 'Math.floor(d)' : Rounds down &rarr; double.
+   - 'Math.round(d)' : Nearest integer &rarr; long.
+   - 'Math.pow(a, b)': $a^b$ &rarr; double.
+   - 'Math.sqrt(d)'  : Square root &rarr; double.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

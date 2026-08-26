@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_005: Type Erasure & Generics Limitations
+Topic 9: Restriction 4 - No Parameterized instanceof
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RESTRICTION 4: NO PARAMETERIZED INSTANCEOF:
+   - 'instanceof List<String>' is ILLEGAL.
+   - Generic types are non-reifiable.
+   - JVM cannot inspect element types at runtime.
+   - Valid checks: 'instanceof List<?>' or 'instanceof List'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

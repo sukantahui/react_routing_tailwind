@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_005: Propagation, Chaining & Best Practices
+Topic 4: Exception Chaining
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. EXCEPTION CHAINING:
+   - High-level layers should not leak 'SQLException'.
+   - Wrap in domain exceptions: 'throw new DomainEx("msg", sqlEx);'.
+   - Preserves root cause via 'getCause()'.
+   - Renders 'Caused by: ...' in stack traces.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

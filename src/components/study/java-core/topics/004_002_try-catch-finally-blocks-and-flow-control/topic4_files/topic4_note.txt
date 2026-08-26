@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_002: Try, Catch, Finally & Flow Control
+Topic 4: Catch Block Ordering Rule
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ORDERING MANDATE:
+   - Child/Subclass MUST come BEFORE Parent/Superclass.
+   - Example: 'FileNotFoundException' &rarr; 'IOException' &rarr; 'Exception'.
+   - Inverting the order results in a compile-time "unreachable code" error.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

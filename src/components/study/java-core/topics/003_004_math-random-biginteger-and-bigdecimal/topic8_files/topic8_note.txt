@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_004: Math, Random & Arbitrary Precision
+Topic 8: BigDecimal Instantiation Pitfall
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INSTANTIATION RULES:
+   - FORBIDDEN : 'new BigDecimal(0.1)' &rarr; Imprecise double input.
+   - PREFERRED : 'new BigDecimal("0.1")' &rarr; Pristine string input.
+   - ACCEPTABLE: 'BigDecimal.valueOf(0.1)' &rarr; Uses Double.toString().
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_002: List Implementations & ArrayList Internals
+Topic 11: Legacy Vector & Stack
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LEGACY CLASSES:
+   - 'Vector': Java 1.0 synchronized array list (slow lock overhead).
+   - 'Stack': flawed inheritance extending Vector; exposes 'add(index)'.
+   - Modern replacement for Vector: 'ArrayList' or 'CopyOnWriteArrayList'.
+   - Modern replacement for Stack: 'ArrayDeque'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

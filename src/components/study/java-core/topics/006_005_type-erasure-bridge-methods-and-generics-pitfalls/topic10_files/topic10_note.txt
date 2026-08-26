@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_005: Type Erasure & Generics Limitations
+Topic 10: Restriction 5 - No Generic Arrays
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RESTRICTION 5: NO GENERIC ARRAYS:
+   - 'new List<String>[10]' is ILLEGAL.
+   - Array reification conflicts with generic erasure.
+   - Prevents fatal heap pollution bypassing ArrayStoreException.
+   - Solution: Use 'List<List<T>>' (Effective Java Item 28).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

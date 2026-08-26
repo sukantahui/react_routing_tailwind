@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_001: Thread Fundamentals, Lifecycle & Creation
+Topic 4: NEW and RUNNABLE States
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. NEW & RUNNABLE STATES:
+   - NEW: Thread instance created ('new Thread()'), OS thread not allocated yet.
+   - RUNNABLE: 'start()' invoked; allocated native OS thread.
+   - RUNNABLE encompasses both 'Ready' (in OS queue) and 'Running' (on CPU core).
+   - Calling 'start()' on a thread twice throws 'IllegalThreadStateException'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

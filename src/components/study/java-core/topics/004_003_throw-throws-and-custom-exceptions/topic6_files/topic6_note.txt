@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_003: Throw, Throws & Custom Exceptions
+Topic 6: Custom Unchecked Exceptions
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CUSTOM UNCHECKED SYNTAX:
+   - 'public class MyException extends RuntimeException'
+   - Pass message to 'super(message)'.
+   - No 'throws' declaration needed in method header.
+   - Clean, lightweight, preferred in modern frameworks.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_001: Thread Fundamentals, Lifecycle & Creation
+Topic 1: Process vs Thread
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PROCESS vs THREAD:
+   - Process: Heavyweight, isolated memory space, high creation/switch cost.
+   - Thread: Lightweight, shares heap memory within 1 process, fast switch.
+   - 1 Java Process (JVM) contains many concurrent Threads.
+   - Threads communicate directly via shared heap references.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

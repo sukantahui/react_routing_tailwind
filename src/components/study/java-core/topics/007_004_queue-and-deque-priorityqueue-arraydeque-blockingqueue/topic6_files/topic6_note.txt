@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_004: Queue, Deque & PriorityQueue
+Topic 6: Sift-Up & Sift-Down Operations
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. HEAP SIFTING OPERATIONS:
+   - 'peek()' &rarr; O(1) instant root lookup ('queue[0]').
+   - 'offer()' &rarr; O(log n) sift-up from tail.
+   - 'poll()' &rarr; O(log n) sift-down from root.
+   - 'remove(o)' &rarr; O(n) linear search + O(log n) sift.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

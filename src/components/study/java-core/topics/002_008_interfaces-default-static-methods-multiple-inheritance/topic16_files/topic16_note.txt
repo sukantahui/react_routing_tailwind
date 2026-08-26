@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_008: Interfaces, Default/Static Methods & Multiple Inheritance
+Topic 16: CloudStorageProvider Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 002_008 SUMMARY:
+   - Interfaces define 100% abstract behavioral contracts.
+   - Fields are implicitly 'public static final' constants.
+   - Methods are implicitly 'public abstract'.
+   - Java 8 added 'default' and 'static' methods; Java 9 added 'private' methods.
+   - Multi-interface inheritance supported via 'implements A, B, C'.
+   - Program to interfaces to achieve loose coupling and easy testing.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

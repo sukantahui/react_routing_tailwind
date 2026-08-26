@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_007: ExecutorService, Thread Pools & CompletableFuture
+Topic 5: CachedThreadPool & Thread Explosion
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. NEWCACHEDTHREADPOOL():
+   - 'corePoolSize = 0', 'maxPoolSize = Integer.MAX_VALUE' (uncapped!).
+   - 'workQueue': 'SynchronousQueue' (zero capacity handoff).
+   - Idle threads terminate after 60 seconds.
+   - Great for: Many short-lived, lightweight asynchronous tasks.
+   - Fatal hazard: Traffic spikes create thousands of threads &rarr; Native Stack OOM crash.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_002: StringBuilder, StringBuffer & String Formatting
+Topic 6: Fluent Method Chaining
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FLUENT CHAINING MECHANICS:
+   - 'return this;' in every modifying method.
+   - Eliminates repetitive variable references.
+   - Clean, fluent syntax for assembling queries, JSON, and complex reports.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_001: Exception Hierarchy
+Topic 3: java.lang.Exception
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RECOVERABLE CONDITIONS:
+   - 'java.lang.Exception' models recoverable failures.
+   - Catching allows graceful fallbacks (e.g. default configs, retries).
+   - Prevents sudden application process termination.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

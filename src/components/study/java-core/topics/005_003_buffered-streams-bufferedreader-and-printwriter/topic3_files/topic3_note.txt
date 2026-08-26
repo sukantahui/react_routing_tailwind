@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_003: Buffered Streams & PrintWriter
+Topic 3: BufferedReader readLine()
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BufferedReader.readLine() RULES:
+   - Canonical loop: 'while ((line = br.readLine()) != null)'.
+   - Returns String content without trailing '\n' or '\r'.
+   - Returns 'null' at EOF.
+   - 10x to 50x faster than Scanner for raw line extraction.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_002: Generic Methods, Constructors & Type Inference
+Topic 5: Generic Constructors
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. GENERIC CONSTRUCTORS:
+   - 'public <T> ClassName(T arg)'.
+   - '<T>' placed before constructor name.
+   - Can exist in non-generic classes.
+   - Flexible polymorphic constructor ingestion.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

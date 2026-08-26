@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_009: Collections Performance & Big-O Complexities
+Topic 0: JCF Taxonomy Synthesis
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 11 CORE COLLECTIONS:
+   - Lists: ArrayList (dynamic array), LinkedList (doubly linked).
+   - Queues: ArrayDeque (circular buffer), PriorityQueue (binary heap).
+   - Sets: HashSet (hash table), LinkedHashSet (linked hash), TreeSet (Red-Black tree).
+   - Maps: HashMap (hash table), LinkedHashMap (LRU/insertion), TreeMap (sorted tree).
+   - Concurrent: ConcurrentHashMap (CAS + bucket locks).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

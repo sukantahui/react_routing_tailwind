@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_005: Modern Date & Time API (java.time)
+Topic 14: DateTimeFormatter Mastery
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FORMATTER PATTERNS:
+   - 'dd/MM/yyyy'           : '26/08/2026'.
+   - 'dd-MMMM-yyyy'         : '26-August-2026'.
+   - 'hh:mm:ss a'           : '03:30:45 PM' (12-hour).
+   - 'HH:mm:ss'             : '15:30:45' (24-hour).
+   - 100% Immutable and Thread-Safe.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

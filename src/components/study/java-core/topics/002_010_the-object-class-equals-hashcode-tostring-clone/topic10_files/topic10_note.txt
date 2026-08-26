@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_010: The Object Class & Core Contracts
+Topic 10: Broken HashSet Deduplication Bug
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. HASHSET INVARIANT BREAKDOWN:
+   - Set contract: Must contain NO duplicate elements.
+   - Missing hashCode() allows duplicate equal objects into the Set.
+   - Fix: Always generate hashCode() from the exact same fields used in equals().
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

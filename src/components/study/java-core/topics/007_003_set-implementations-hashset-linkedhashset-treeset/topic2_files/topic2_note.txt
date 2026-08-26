@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_003: Set Implementations & TreeSet Internals
+Topic 2: The PRESENT Dummy Value
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE PRESENT CONSTANT:
+   - 'private static final Object PRESENT = new Object();'.
+   - Shared across all HashSet instances.
+   - Serves as dummy value in 'map.put(element, PRESENT)'.
+   - Zero memory overhead since only 1 instance exists.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

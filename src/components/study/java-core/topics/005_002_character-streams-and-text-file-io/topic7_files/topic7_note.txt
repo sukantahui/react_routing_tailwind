@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_002: Character Streams & Text File Processing
+Topic 7: Byte to Character Bridge Streams
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BRIDGE ARCHITECTURE:
+   - 'InputStreamReader' : InputStream (Bytes) &rarr; Reader (Chars).
+   - 'OutputStreamWriter': Writer (Chars) &rarr; OutputStream (Bytes).
+   - Always supply 'StandardCharsets.UTF_8' as the 2nd constructor parameter.
+   - Core mechanism used by 'new Scanner(System.in)' and 'new BufferedReader(new InputStreamReader(System.in))'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

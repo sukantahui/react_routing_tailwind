@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_011: SOLID Design Principles
+Topic 9: Dependency Inversion Principle (DIP)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DIP LAWS (Uncle Bob):
+   - High-level business policies must NOT depend on low-level I/O / DB classes.
+   - Both layers must depend on abstract interfaces.
+   - Enables swapping databases, network clients, and unit test mocks with 0 friction.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

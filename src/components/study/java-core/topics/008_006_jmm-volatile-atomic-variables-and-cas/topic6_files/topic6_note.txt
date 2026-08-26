@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_006: JMM, volatile, Atomics & CAS
+Topic 6: volatile Memory Visibility
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. VOLATILE MEMORY VISIBILITY:
+   - Writes flush immediately from Store Buffer to RAM.
+   - Reads bypass L1/L2 caches and load directly from RAM.
+   - Hardware: MESI protocol invalidates other cores' cache lines.
+   - Eliminates stale data reads across multi-core CPUs.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

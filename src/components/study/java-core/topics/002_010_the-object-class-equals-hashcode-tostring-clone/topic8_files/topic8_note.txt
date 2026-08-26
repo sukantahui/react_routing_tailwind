@@ -1,0 +1,14 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_010: The Object Class & Core Contracts
+Topic 8: Contract Rule 1 (Equal Objects Have Equal HashCodes)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RULE 1 INVARIANT:
+   - 'a.equals(b) == true' &rarr; 'a.hashCode() == b.hashCode()' MUST hold 100% of the time.
+   - Any class that breaks this rule will corrupt HashMaps and HashSets.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

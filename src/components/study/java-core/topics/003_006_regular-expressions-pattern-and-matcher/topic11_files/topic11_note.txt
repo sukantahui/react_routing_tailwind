@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_006: Regular Expressions (Regex)
+Topic 11: Matcher Methods Comprehensive
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MATCHER METHODS:
+   - 'matches()'     : Asserts entire string matches pattern.
+   - 'find()'        : Searches for next matching substring.
+   - 'reset()'       : Resets search cursor to beginning.
+   - 'replaceAll()'  : Replaces all matching substrings.
+   - 'replaceFirst()': Replaces only first match.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

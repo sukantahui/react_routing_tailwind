@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_001: Thread Fundamentals, Lifecycle & Creation
+Topic 12: Thread Naming & Identification
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THREAD IDENTIFICATION:
+   - 'Thread.currentThread()': returns reference to currently executing thread.
+   - 'getName()' / 'setName("Descriptive-Name")': assigns human-readable name.
+   - 'getId()' / 'threadId()': unique long integer identifier.
+   - Always name threads explicitly to aid production thread dump analysis!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_004: Try-with-Resources & AutoCloseable
+Topic 0: Flaws of Legacy finally
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LEGACY CLEANUP ANTI-PATTERNS:
+   - Nested try-catch blocks inside 'finally'.
+   - Null-checks required before closing.
+   - If first 'close()' fails, subsequent streams are never closed (leak).
+   - Clutters code and masks original business exceptions.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_011: SOLID Design Principles
+Topic 1: Single Responsibility Principle (SRP)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SRP RULE (Uncle Bob):
+   - 'A class should have only one reason to change.'
+   - Separate concerns: Domain Models, Repositories, Services, Controllers.
+   - Prevents bloated 'God Classes'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_008: Sorting, Comparable, Comparator & Collections
+Topic 5: Comparable vs Comparator Matrix
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COMPARABLE vs COMPARATOR:
+   - Comparable: 'java.lang', 'compareTo(o)', 1 natural sort, requires source edits.
+   - Comparator: 'java.util', 'compare(o1, o2)', multiple custom sorts, lambda-friendly.
+   - Rule of Thumb: Implement Comparable for default natural sort; use Comparator for ad-hoc sorts.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

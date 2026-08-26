@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_006: CSV, JSON, Properties & Config Files
+Topic 8: JSON Format Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JSON DATA MODEL (RFC 8259):
+   - Objects: '{ "key": value }'.
+   - Arrays: '[ item1, item2 ]'.
+   - Primitives: Strings (double-quoted), Numbers, Booleans, Null.
+   - Strictly requires double quotes for keys and string values.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

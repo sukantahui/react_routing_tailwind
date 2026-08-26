@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_008: Java Enums & Specialized Methods
+Topic 12: Enum Singleton Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 003_008 SUMMARY:
+   - Enums eliminate brittle int constants.
+   - Enums implicitly extend java.lang.Enum and are final.
+   - Safe to compare with '=='.
+   - Built-in methods: name(), ordinal(), values(), valueOf().
+   - Enums support fields, constructors, and constant-specific abstract methods.
+   - EnumSet (bit-vector) and EnumMap (array-indexed) offer maximum performance.
+   - Single-element Enum is the ultimate thread-safe, serialization-proof Singleton.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_006: JMM, volatile, Atomics & CAS
+Topic 2: Instruction Reordering
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INSTRUCTION REORDERING:
+   - Reordered by: javac compiler, JIT compiler (HotSpot C2), CPU hardware pipeline.
+   - 'as-if-serial' semantics: Single-threaded execution looks unaltered.
+   - Multithreaded hazard: Another thread sees 'ready=true' before data is written!
+   - Solution: Use 'volatile' (inserts hardware Memory Barriers preventing reordering).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_002: StringBuilder, StringBuffer & String Formatting
+Topic 9: Modern Java Text Blocks
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TEXT BLOCKS RULES (Java 15+):
+   - Opens with '"""' followed immediately by a newline.
+   - Closes with '"""'.
+   - Double quotes ('"') do NOT need backslash escapes inside Text Blocks.
+   - Automatically computes and removes incidental indentation.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

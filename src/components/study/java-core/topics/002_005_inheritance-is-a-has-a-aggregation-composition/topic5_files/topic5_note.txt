@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_005: Inheritance, IS-A vs HAS-A, Composition & Aggregation
+Topic 5: java.lang.Object as the Cosmic Root
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. java.lang.Object FUNDAMENTALS:
+   - Root of all classes in Java.
+   - Automatically extended if no 'extends' clause is present.
+   - Provides universal methods: toString(), equals(), hashCode(), getClass().
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

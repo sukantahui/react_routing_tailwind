@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_003: Thread Synchronization & Locks
+Topic 8: Object Lock vs Class Lock
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. OBJECT vs CLASS LOCK:
+   - Object-Level Lock: 'synchronized void foo()' locks 'this' instance.
+   - Class-Level Lock: 'static synchronized void bar()' locks 'ClassName.class'.
+   - Two distinct locks in memory!
+   - Thread A on 'this' and Thread B on 'Class.class' run SIMULTANEOUSLY.
+   - A static synchronized method NEVER blocks an instance synchronized method.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

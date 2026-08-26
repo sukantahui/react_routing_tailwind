@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_007: ExecutorService, Thread Pools & CompletableFuture
+Topic 6: SingleThreadExecutor
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. NEWSINGLETHREADEXECUTOR():
+   - Exactly 1 worker thread at all times.
+   - Strict FIFO execution order.
+   - Self-Healing: Spawns a replacement thread if worker crashes.
+   - Ideal for: Sequential audit logging, single-writer state machines.
+   - Caution: Uses unbounded queue; keep memory bounded in production.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

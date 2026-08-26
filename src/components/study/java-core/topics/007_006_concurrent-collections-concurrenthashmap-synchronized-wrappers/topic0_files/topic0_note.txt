@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_006: Concurrent Collections & ConcurrentHashMap
+Topic 0: Non-Thread-Safe Collections Hazards
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STANDARD COLLECTIONS HAZARDS:
+   - HashMap & ArrayList have zero internal synchronization.
+   - Race conditions cause lost updates and node pointer corruption.
+   - 'size++' is non-atomic (read-modify-write race).
+   - Iterators throw 'ConcurrentModificationException'.
+   - NEVER share plain HashMap/ArrayList across threads without synchronization.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

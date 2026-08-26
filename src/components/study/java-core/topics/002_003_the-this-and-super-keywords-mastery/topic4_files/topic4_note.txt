@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_003: The 'this' and 'super' Keywords Mastery
+Topic 4: Passing 'this' as an Argument in Method Calls
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PASSING 'this' IN METHODS:
+   - Syntax: 'service.process(this);'
+   - Used extensively in Event Listeners, Observer Pattern, and Callback systems.
+   - Passes the current Heap object reference to external utility/service methods.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

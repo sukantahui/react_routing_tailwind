@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_003: The 'this' and 'super' Keywords Mastery
+Topic 11: Using 'super()' to Invoke Parent Class Constructors
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. 'super()' CONSTRUCTOR RULES:
+   - Must be the FIRST statement in the child constructor body.
+   - Passes arguments up to the parent constructor ('super(name, city);').
+   - Parent constructor executes BEFORE child constructor body.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

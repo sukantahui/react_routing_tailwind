@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_005: Map Implementations & HashMap Internals
+Topic 15: Mutable Key Lost Problem
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LOST KEY HAZARD:
+   - Never use mutable objects as Map keys.
+   - Mutating key fields changes 'hashCode()'.
+   - 'get()' and 'containsKey()' look in the wrong bucket and return null/false.
+   - Trapped entry causes silent heap memory leak.
+   - Best practice: Use immutable objects (String, Integer, Records) as keys.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

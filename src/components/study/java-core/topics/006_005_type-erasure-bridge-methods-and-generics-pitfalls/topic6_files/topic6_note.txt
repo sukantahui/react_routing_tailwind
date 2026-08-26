@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_005: Type Erasure & Generics Limitations
+Topic 6: Restriction 1 - No Primitive Generics
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RESTRICTION 1: NO PRIMITIVE GENERICS:
+   - 'List<int>' is ILLEGAL.
+   - Primitives do not extend 'java.lang.Object'.
+   - Type erasure requires Object reference compatibility.
+   - Solution: Use wrapper classes ('Integer', 'Double', 'Boolean').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

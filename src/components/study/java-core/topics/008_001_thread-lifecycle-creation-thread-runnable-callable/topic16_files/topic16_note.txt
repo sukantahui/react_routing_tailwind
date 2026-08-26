@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_001: Thread Fundamentals, Lifecycle & Creation
+Topic 16: Multithreading Fundamentals Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 008_001 GRAND SUMMARY:
+   - Concurrency (interleaved single core) vs Parallelism (multi-core simultaneous).
+   - Process (isolated memory) vs Thread (shared Heap, private Stack & PC).
+   - 6 States: NEW, RUNNABLE, BLOCKED, WAITING, TIMED_WAITING, TERMINATED.
+   - 4 Creation ways: Thread subclass (avoid), Runnable class, Runnable lambda, Callable<V>.
+   - Mandatory: Call 'start()' to invoke native 'start0()'; never call 'run()' directly.
+   - Name threads descriptively to assist production 'jstack' analysis.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

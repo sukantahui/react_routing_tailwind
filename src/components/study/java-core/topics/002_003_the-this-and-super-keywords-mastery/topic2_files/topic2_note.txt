@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_003: The 'this' and 'super' Keywords Mastery
+Topic 2: Using 'this' to Invoke Current Class Instance Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD INVOCATION VIA 'this':
+   -----------------------------------------------------------------------------
+   - Calling 'this.methodName()' explicitly invokes an instance method on the
+     current Heap object.
+   - If 'this.' is omitted, the compiler automatically inserts it during bytecode
+     generation ('invokevirtual').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

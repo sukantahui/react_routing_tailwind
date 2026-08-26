@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_002: Generic Methods, Constructors & Type Inference
+Topic 9: Heap Pollution & @SafeVarargs Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 006_002 SUMMARY:
+   - Generic methods scoped at method level: '<T> returnType method(T param)'.
+   - '<T>' placed immediately before return type.
+   - Compiler type inference vs explicit type witness ('MyClass.<String>m()').
+   - Static methods CANNOT use class '<T>'; must declare independent '<E>'.
+   - Generic constructors allow independent constructor type arguments.
+   - Generic arrays require boxed wrapper types (Integer[], String[]).
+   - Varargs 'T...' creates underlying array 'T[]'.
+   - @SafeVarargs: must be static/final/private, read-only, no escaping.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

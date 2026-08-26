@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_003: Wrapper Classes & Autoboxing
+Topic 9: Autoboxing Performance in Loops
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PERFORMANCE RULES:
+   - Primitives: Fast, CPU register execution, zero GC impact.
+   - Wrappers in loops: Destructive memory churn (~10x slower).
+   - Prefer primitives for high-throughput arithmetic and math processing.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_004: Static Variables, Methods, Blocks & The Singleton Pattern
+Topic 15: Thread-Safety in Singleton: Double-Checked Locking (DCL)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DOUBLE-CHECKED LOCKING RULES:
+   - Use 'volatile' on the static instance variable.
+   - Check 1: 'if (instance == null)' outside synchronized block (high performance).
+   - Lock: 'synchronized (Singleton.class)'
+   - Check 2: 'if (instance == null)' inside synchronized block (thread safety).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

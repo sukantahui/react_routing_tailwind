@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_007: Iterators, Spliterators & Fail-Fast Mechanics
+Topic 7: Fail-Safe & Weakly Consistent Iterators
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FAIL-SAFE / WEAKLY CONSISTENT:
+   - Part of 'java.util.concurrent'.
+   - NEVER throw 'ConcurrentModificationException'.
+   - CopyOnWriteArrayList &rarr; immutable Snapshot view.
+   - ConcurrentHashMap &rarr; Weakly Consistent live view.
+   - Safe for high-concurrency multi-threaded streaming.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

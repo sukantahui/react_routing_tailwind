@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_005: Map Implementations & HashMap Internals
+Topic 9: Separate Chaining Collision Resolution
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SEPARATE CHAINING:
+   - Hash collision &rarr; multiple keys map to same bucket.
+   - Singly linked list linked by 'Node.next'.
+   - In Java 8+: Collisions appended at TAIL (Java 7 inserted at HEAD).
+   - In Java 8+: If list reaches 8 nodes, converts to Red-Black Tree.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

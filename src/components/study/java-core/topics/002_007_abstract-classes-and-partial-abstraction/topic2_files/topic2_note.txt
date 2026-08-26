@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_007: Abstract Classes & Partial Abstraction
+Topic 2: Why Abstract Classes Cannot Be Instantiated
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INSTANTIATION RULES:
+   - 'new AbstractClass()' &rarr; COMPILE ERROR ("cannot be instantiated").
+   - Can declare reference variables: 'AbstractClass ref;' (100% legal).
+   - Only concrete child subclasses that implement all abstract methods can be instantiated.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

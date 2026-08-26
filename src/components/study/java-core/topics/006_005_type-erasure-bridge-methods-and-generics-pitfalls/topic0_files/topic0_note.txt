@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_005: Type Erasure & Generics Limitations
+Topic 0: Type Erasure Mechanism
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TYPE ERASURE ESSENTIALS:
+   - Compile-time type verification &rarr; runtime type erasure.
+   - Preserves 100% backward compatibility with pre-Java 5 code.
+   - At runtime, 'List<String>' and 'List<Integer>' are both raw 'ArrayList'.
+   - JVM bytecode contains zero parameterized type variables.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

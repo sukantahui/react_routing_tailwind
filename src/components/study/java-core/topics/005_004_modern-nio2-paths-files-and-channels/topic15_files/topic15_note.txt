@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_004: Modern Java NIO.2
+Topic 15: WatchService Directory Monitoring
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WATCHSERVICE WORKFLOW:
+   - 'WatchService watcher = FileSystems.getDefault().newWatchService()'.
+   - 'path.register(watcher, ENTRY_CREATE, ENTRY_MODIFY, ENTRY_DELETE)'.
+   - 'WatchKey key = watcher.take()' (blocking) or 'watcher.poll(timeout)'.
+   - Iterate 'key.pollEvents()'.
+   - Mandatory: call 'key.reset()' to stay in ready state.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

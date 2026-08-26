@@ -1,0 +1,14 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_003: Throw, Throws & Custom Exceptions
+Topic 3: throw vs throws Comparison
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COMPARISON MATRIX:
+   - 'throw' : Action inside body &rarr; 'throw new MyException();' (singular object).
+   - 'throws': Declaration in header &rarr; 'void m() throws A, B' (class names).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_005: Thread Safety & Deadlocks
+Topic 11: Production Deadlock Diagnosis
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DEADLOCK DIAGNOSIS TOOLS:
+   - Modern CLI: 'jcmd <PID> Thread.print'.
+   - Classic CLI: 'jstack -l <PID>'.
+   - GUI: VisualVM, JConsole.
+   - Programmatic: 'ThreadMXBean.findDeadlockedThreads()'.
+   - HotSpot JVM prints 'Found one Java-level deadlock' with full cycle stack traces.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

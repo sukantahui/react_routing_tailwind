@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_008: Sorting, Comparable, Comparator & Collections
+Topic 13: Synchronized Wrappers
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SYNCHRONIZED WRAPPERS:
+   - 'Collections.synchronizedList(list)'.
+   - 'Collections.synchronizedSet(set)'.
+   - 'Collections.synchronizedMap(map)'.
+   - Coarse single-mutex locking for all methods.
+   - Iteration MUST be enclosed in 'synchronized(syncList)' block!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

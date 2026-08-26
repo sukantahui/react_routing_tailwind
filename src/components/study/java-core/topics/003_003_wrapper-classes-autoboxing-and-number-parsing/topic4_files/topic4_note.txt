@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_003: Wrapper Classes & Autoboxing
+Topic 4: Unboxing Foundations
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. UNBOXING MECHANICS:
+   - Wrapper Object &rarr; Primitive value.
+   - Bytecode translation: invokes '.intValue()', '.doubleValue()', etc.
+   - Enables direct arithmetic (+, -, *, /) on wrapper objects.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

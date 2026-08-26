@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_006: CSV, JSON, Properties & Config Files
+Topic 3: Properties Fallback Defaults
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FALLBACK DEFAULTS:
+   - 'props.getProperty("key", "defaultVal")': Returns default if key is absent.
+   - Prevents 'null' returns and NPEs.
+   - Hierarchical chaining: 'new Properties(defaultParentProps)'.
+   - Clean, resilient application startup architecture.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_004: Static Variables, Methods, Blocks & The Singleton Pattern
+Topic 10: Static Imports
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STATIC IMPORT SYNTAX:
+   - Single member: 'import static java.lang.Math.PI;'
+   - All static members: 'import static java.lang.Math.*;'
+   - Caution: Avoid polluting namespaces or obscuring where methods come from.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

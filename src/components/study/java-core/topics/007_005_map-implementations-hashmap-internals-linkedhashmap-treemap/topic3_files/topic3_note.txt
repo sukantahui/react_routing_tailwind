@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_005: Map Implementations & HashMap Internals
+Topic 3: HashMap Architecture Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. HASHMAP PILLARS:
+   - 'Node<K, V>[] table' bucket array.
+   - Hash function: '(h = key.hashCode()) ^ (h >>> 16)'.
+   - Index formula: '(n - 1) & hash'.
+   - Initial Capacity: 16 (power of 2).
+   - Load Factor: 0.75 (Threshold = 12).
+   - Treeify at 8 nodes (>= 64 capacity); Untreeify at 6 nodes.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_003: The 'this' and 'super' Keywords Mastery
+Topic 8: Introduction to the 'super' Keyword in Java Inheritance
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS 'super':
+   - A reference variable targeting the IMMEDIATE SUPERCLASS of the current object.
+   - Used to:
+     1. Access shadowed parent instance variables ('super.field').
+     2. Invoke overridden parent methods ('super.method()').
+     3. Invoke parent constructors ('super()').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

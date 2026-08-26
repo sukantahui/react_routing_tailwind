@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_007: Abstract Classes & Partial Abstraction
+Topic 16: DataExporter Abstraction Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 002_007 SUMMARY:
+   - Abstraction hides complexity and establishes blueprints.
+   - Abstract classes cannot use 'new'; must be extended.
+   - Abstract methods have no bodies; must be overridden.
+   - Partial abstraction combines shared concrete logic with abstract contracts.
+   - Cannot combine: 'abstract' with 'final', 'private', or 'static'.
+   - Template Method pattern locks algorithm workflow in base class.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_006: Regular Expressions (Regex)
+Topic 8: Boundary Matchers
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BOUNDARY ANCHORS:
+   - '^'  : Start of line/string.
+   - '$'  : End of line/string.
+   - '\b' : Word boundary (isolates whole words).
+   - '\B' : Non-word boundary.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

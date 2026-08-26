@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_001: String Immutability & String Constant Pool
+Topic 4: Why Strings Are Immutable
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 4 IMMUTABILITY PILLARS:
+   - SCP Sharing  : Shared references remain isolated and uncorrupted.
+   - Security     : Network/DB connection strings cannot be hijacked.
+   - Concurrency  : Thread-safe without 'synchronized' locks.
+   - Hash Caching : 'hash' integer cached on first calculation for fast HashMap lookups.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

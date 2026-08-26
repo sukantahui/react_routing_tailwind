@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_005: Map Implementations & HashMap Internals
+Topic 5: Capacity & Power of Two Mandate
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CAPACITY RULES:
+   - Default: 16 ('1 << 4').
+   - Max: 2^30 ('1 << 30').
+   - Any custom capacity is rounded up to next power of 2 via 'tableSizeFor()'.
+   - Mandatory for bitwise index formula: '(n - 1) & hash'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

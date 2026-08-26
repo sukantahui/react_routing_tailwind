@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_003: Wrapper Classes & Autoboxing
+Topic 0: Why Wrapper Classes Exist
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WRAPPER CLASS REASONS:
+   - Collections / Generics only store Objects ('List<Integer>').
+   - Support 'null' for optional database columns and forms.
+   - Supply static parsing utilities (parseInt, parseDouble).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

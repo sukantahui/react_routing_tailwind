@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_008: Java Enums & Specialized Methods
+Topic 9: Enum Finite State Machines
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FSM WITH ENUMS:
+   - States represented as enum constants.
+   - Transition rules encapsulated inside 'nextState()' method.
+   - Terminal states return 'this'.
+   - Eliminates invalid runtime state jumps.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

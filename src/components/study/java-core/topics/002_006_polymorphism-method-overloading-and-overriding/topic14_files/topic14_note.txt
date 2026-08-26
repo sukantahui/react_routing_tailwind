@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_006: Polymorphism, Overriding & Dynamic Method Dispatch
+Topic 14: Real-World Payment Gateway Polymorphism
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PAYMENT GATEWAY POLYMORPHISM:
+   - High-level Checkout service depends ONLY on 'PaymentGateway' interface.
+   - Low-level concrete gateways (UPI, Card, NetBanking) implement 'processPayment()'.
+   - True Open/Closed Principle compliance.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

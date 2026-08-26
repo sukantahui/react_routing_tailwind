@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_002: Constructors, Constructor Chaining & Object Lifecycle
+Topic 14: Constructor Access Modifiers: Scope Matrix
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. VISIBILITY SCOPE MATRIX:
+   -----------------------------------------------------------------------------
+   MODIFIER         SAME CLASS   SAME PACKAGE   SUBCLASS (DIFF PKG)   WORLD
+   -----------------------------------------------------------------------------
+   public           YES          YES            YES                   YES
+   protected        YES          YES            YES (via super())     NO
+   default (none)   YES          YES            NO                    NO
+   private          YES          NO             NO                    NO
+   -----------------------------------------------------------------------------
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

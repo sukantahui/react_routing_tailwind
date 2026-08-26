@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_008: Java Enums & Specialized Methods
+Topic 5: Enums in Modern Switch Expressions
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SWITCH EXPRESSION RULES:
+   - Modern arrow syntax: 'case ACTIVE -> "Active"'.
+   - Exhaustiveness: If all constants are covered, no 'default' is needed.
+   - Adding new constants triggers compile-time warnings for missing cases.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

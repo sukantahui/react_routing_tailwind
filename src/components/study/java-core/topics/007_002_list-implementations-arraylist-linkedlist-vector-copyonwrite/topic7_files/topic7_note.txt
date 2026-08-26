@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_002: List Implementations & ArrayList Internals
+Topic 7: LinkedList Dual Interface Contract
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DUAL INTERFACE IMPLEMENTATION:
+   - 'implements List<E>, Deque<E>, Cloneable, Serializable'.
+   - List API: 'get(i)', 'set(i, val)', 'indexOf()'.
+   - Deque API: 'addFirst()', 'addLast()', 'pollFirst()', 'pop()', 'push()'.
+   - O(1) head and tail operations.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_007: Iterators, Spliterators & Fail-Fast Mechanics
+Topic 10: Spliterator Characteristics & trySplit
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SPLITERATOR CHARACTERISTICS:
+   - 'trySplit()': splits source in half for parallel threads.
+   - 'ORDERED': elements have defined encounter order.
+   - 'SIZED': exact size known before traversal.
+   - 'DISTINCT': no duplicate element pairs.
+   - 'SORTED': elements follow natural or custom sort.
+   - 'CONCURRENT': safely mutated concurrently.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

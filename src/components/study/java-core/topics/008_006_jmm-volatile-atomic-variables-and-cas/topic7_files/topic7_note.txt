@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_006: JMM, volatile, Atomics & CAS
+Topic 7: volatile Memory Barriers
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. VOLATILE MEMORY BARRIERS:
+   - StoreStore: Flushes prior writes before volatile write.
+   - StoreLoad: Heaviest barrier; separates writes from subsequent reads.
+   - LoadLoad & LoadStore: Ensures volatile read happens before subsequent ops.
+   - Guarantees Safe Publication: Normal variables written before volatile are visible!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

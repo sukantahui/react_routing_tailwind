@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_002: Try, Catch, Finally & Flow Control
+Topic 7: The 'finally' Block
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 'finally' GUARANTEE:
+   - Always executes after 'try' or 'catch'.
+   - Dedicated exclusively to cleanup and resource closing.
+   - Executes even if an unhandled exception propagates.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

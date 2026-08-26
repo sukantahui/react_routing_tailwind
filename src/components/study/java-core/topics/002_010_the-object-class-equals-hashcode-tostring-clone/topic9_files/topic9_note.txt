@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_010: The Object Class & Core Contracts
+Topic 9: Hash Collisions (Rule 2)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. HASH COLLISION FACTS:
+   - 'a.hashCode() == b.hashCode()' does NOT mean 'a.equals(b)'.
+   - Pigeonhole Principle: 2^32 int hashCodes cannot uniquely map infinite objects.
+   - HashMap resolves collisions via LinkedList & Red-Black Trees (Java 8+).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

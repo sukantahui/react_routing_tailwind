@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_007: Nested & Inner Classes
+Topic 4: OuterClass.this Syntax
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SHADOWING DISAMBIGUATION:
+   - 'name'                 &rarr; Local variable / parameter.
+   - 'this.name'            &rarr; Inner class instance variable.
+   - 'OuterClass.this.name' &rarr; Enclosing Outer class instance variable.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

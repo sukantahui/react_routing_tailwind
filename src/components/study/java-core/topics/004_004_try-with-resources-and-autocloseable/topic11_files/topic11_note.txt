@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_004: Try-with-Resources & AutoCloseable
+Topic 11: Legacy vs ARM Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 004_004 SUMMARY:
+   - Try-with-resources eliminates legacy finally boilerplate.
+   - All managed resources must implement 'java.lang.AutoCloseable'.
+   - 'java.io.Closeable' is the I/O sub-interface with 'IOException'.
+   - Resources close in reverse order of declaration (LIFO).
+   - Multiple resources separated by semicolons ';'.
+   - Java 9 allows effectively final variables directly.
+   - Secondary close failures attached via 'addSuppressed()' and read via 'getSuppressed()'.
+   - Always prefer try-with-resources over try-finally.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

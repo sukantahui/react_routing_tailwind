@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_002: Thread Control & Daemon Threads
+Topic 4: Thread.yield() Scheduling
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THREAD.YIELD():
+   - Voluntary hint to OS scheduler to give up remaining CPU time-slice.
+   - Thread remains in 'RUNNABLE' state.
+   - Does NOT release locks.
+   - Non-deterministic and platform dependent.
+   - Rarely used in application logic (useful in busy-wait spinlocks).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

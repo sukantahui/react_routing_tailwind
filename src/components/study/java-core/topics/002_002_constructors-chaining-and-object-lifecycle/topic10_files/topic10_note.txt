@@ -1,0 +1,25 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_002: Constructors, Constructor Chaining & Object Lifecycle
+Topic 10: Instance Initialization Blocks (IIB): Syntax & Execution Order
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. IIB SYNTAX & EXECUTION:
+   -----------------------------------------------------------------------------
+   - Syntax: An unnamed block '{ ... }' in the class body.
+   - Executes ONCE per object creation immediately AFTER 'super()' returns
+     and BEFORE the constructor body runs!
+   - Multiple IIBs execute in top-to-bottom textual order.
+
+2. COMPILER INLINING:
+   - The compiler copies all IIBs directly into the start of every constructor
+     right after the 'super()' invocation.
+
+3. USE CASES:
+   - Universal initialization shared across all constructors.
+   - Anonymous inner classes (which cannot declare named constructors).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

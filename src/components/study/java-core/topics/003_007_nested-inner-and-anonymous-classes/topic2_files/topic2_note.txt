@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_007: Nested & Inner Classes
+Topic 2: Member Inner Class Foundations
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MEMBER INNER CLASS:
+   - Bound to an outer instance.
+   - Holds compiler-generated 'this$0' reference.
+   - Full access to all outer private fields and methods.
+   - Instantiation: 'outerInstance.new InnerClass()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_003: Thread Synchronization & Locks
+Topic 11: Synchronization Overhead Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 008_003 GRAND SUMMARY:
+   - Shared mutable state causes race conditions ('count++' is not atomic).
+   - Check-Then-Act hazard: multiple threads pass check before either acts.
+   - Critical Section: protected by Mutual Exclusion (Mutex).
+   - Intrinsic Lock: 8-byte Mark Word in Object Header ('monitorenter/exit').
+   - Synchronized Instance Method: locks 'this' instance.
+   - Synchronized Static Method: locks 'ClassName.class' in Metaspace.
+   - Synchronized Block: minimizes lock scope and allows custom lock targets.
+   - Lock Reentrancy: prevents self-deadlocks in inheritance.
+   - Best Practice: 'private final Object lock = new Object()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

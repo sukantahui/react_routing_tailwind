@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_003: The 'this' and 'super' Keywords Mastery
+Topic 13: Rules of super(): First Statement Mandate
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 'super()' FIRST STATEMENT RULE:
+   - 'super(...)' MUST be statement #1 in the child constructor.
+   - You cannot access child instance variables in super(...) arguments.
+   - Static methods and expressions CAN be passed into super(...).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

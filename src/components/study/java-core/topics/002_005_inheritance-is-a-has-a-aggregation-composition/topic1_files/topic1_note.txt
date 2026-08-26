@@ -1,0 +1,14 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_005: Inheritance, IS-A vs HAS-A, Composition & Aggregation
+Topic 1: Superclass and Subclass Relationship
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TAXONOMICAL TERMINOLOGY:
+   - Superclass / Base Class: General concept containing shared state and behaviors.
+   - Subclass / Derived Class: Specific specialization extending base capabilities.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

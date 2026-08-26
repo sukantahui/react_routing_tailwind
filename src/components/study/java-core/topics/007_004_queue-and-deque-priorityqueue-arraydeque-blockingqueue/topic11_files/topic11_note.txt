@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_004: Queue, Deque & PriorityQueue
+Topic 11: ArrayDeque Superiority Benchmark
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ARRAYDEQUE ADVANTAGES:
+   - Faster than Stack: No synchronization overhead.
+   - Faster than LinkedList: No heap Node allocations.
+   - Contiguous circular array enables CPU cache prefetching.
+   - Universal choice for all single-threaded Queue and Stack needs.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

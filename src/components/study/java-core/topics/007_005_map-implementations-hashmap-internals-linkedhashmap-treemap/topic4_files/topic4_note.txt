@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_005: Map Implementations & HashMap Internals
+Topic 4: HashMap Node Table Buckets
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. HASH TABLE BUCKETS:
+   - Backed by 'transient Node<K, V>[] table;'.
+   - Initialized lazily upon first 'put()' call.
+   - Node contains: 'hash', 'key', 'value', and 'next' pointer.
+   - Separate chaining collision: 'next' points to collided nodes.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

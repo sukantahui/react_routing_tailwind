@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_003: Set Implementations & TreeSet Internals
+Topic 9: TreeSet Red-Black Tree Internals
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TREESET INTERNALS:
+   - Backed by 'private transient NavigableMap<E, Object> m;' (TreeMap).
+   - Red-Black self-balancing Binary Search Tree.
+   - Guaranteed O(log n) performance for add, remove, contains.
+   - In-order tree traversal provides automatic sorted sequence.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

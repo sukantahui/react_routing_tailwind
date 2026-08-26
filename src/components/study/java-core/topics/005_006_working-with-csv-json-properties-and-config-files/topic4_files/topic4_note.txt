@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_006: CSV, JSON, Properties & Config Files
+Topic 4: Storing Properties to Disk
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PROPERTIES STORE PROTOCOL:
+   - 'props.store(new FileWriter(file, StandardCharsets.UTF_8), "Comments")'.
+   - Automatically writes '# Comments' header.
+   - Automatically writes '# Date timestamp' line.
+   - Saves all key-value entries with proper escaping.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

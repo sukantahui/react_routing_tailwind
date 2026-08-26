@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_007: Nested & Inner Classes
+Topic 11: Effectively Final Rule
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. EFFECTIVELY FINAL RULES:
+   - Initialized once and never reassigned.
+   - 'final' keyword is optional since Java 8.
+   - Inner classes capture a heap-allocated copy.
+   - Mutating the variable causes a compile-time error.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_007: File Handling & I/O Hands-On Capstone Lab
+Topic 5: Timed File I/O Challenge
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SEGMENT 5 GRAND CAPSTONE:
+   - Resilient batch processing with lazy stream pipelines.
+   - In-memory deduplication and transformation.
+   - Atomic staged publishing with StandardCopyOption.ATOMIC_MOVE.
+   - Complete mastery of Byte Streams, Character Streams, Buffered I/O,
+     Modern NIO.2, Object Serialization, and Configuration Files.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

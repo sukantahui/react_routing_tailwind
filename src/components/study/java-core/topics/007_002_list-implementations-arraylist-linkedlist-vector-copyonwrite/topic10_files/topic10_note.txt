@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_002: List Implementations & ArrayList Internals
+Topic 10: Why ArrayList Wins
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHY ARRAYLIST WINS:
+   - Zero per-element Node object allocations.
+   - Low GC pressure and memory footprint.
+   - CPU Cache Line spatial locality prefetching.
+   - For Queue/Deque workloads: Prefer 'ArrayDeque' over LinkedList.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_005: Modern Date & Time API (java.time)
+Topic 7: ZoneId vs ZoneOffset
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ZONE RULES:
+   - 'ZoneOffset': Fixed difference ('+05:30', '-05:00').
+   - 'ZoneId': Region identifier ('Asia/Kolkata', 'America/New_York').
+   - 'ZoneRules': Automatically shifts clocks by 1 hour during DST changes.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

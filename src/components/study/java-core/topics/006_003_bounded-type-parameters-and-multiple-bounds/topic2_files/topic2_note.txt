@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_003: Bounded Type Parameters & Multiple Bounds
+Topic 2: 'extends' Keyword in Generics
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. 'extends' FOR INTERFACES:
+   - In generics, 'extends' = 'is a subtype of'.
+   - Applies to classes AND interfaces.
+   - '<T extends List>' and '<T extends Runnable>' are correct.
+   - '<T implements Runnable>' is INVALID and will not compile.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

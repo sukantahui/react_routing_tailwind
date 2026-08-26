@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_004: Inter-Thread Communication & Producer-Consumer
+Topic 3: Mandatory Lock Prerequisite
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MANDATORY LOCK PREREQUISITE:
+   - 'wait()' and 'notify()' MUST be called inside 'synchronized(lockObject)'.
+   - The thread must OWN the monitor lock of that exact target object.
+   - Prevents the 'Lost Wakeup' race condition.
+   - Calling outside synchronized throws 'IllegalMonitorStateException'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

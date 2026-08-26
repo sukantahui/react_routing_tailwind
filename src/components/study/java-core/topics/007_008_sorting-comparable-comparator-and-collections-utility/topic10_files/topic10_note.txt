@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_008: Sorting, Comparable, Comparator & Collections
+Topic 10: Collections Utility Class Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COLLECTIONS UTILITY CLASS:
+   - 'java.util.Collections' (plural).
+   - Non-instantiable static utility class.
+   - Distinct from 'Collection' (interface).
+   - Contains algorithms, wrappers, and singleton factories.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

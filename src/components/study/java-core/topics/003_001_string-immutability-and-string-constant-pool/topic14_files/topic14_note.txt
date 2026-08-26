@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_001: String Immutability & String Constant Pool
+Topic 14: String Concatenation Pitfalls Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 003_001 SUMMARY:
+   - String is an immutable object wrapping a compact 'byte[]' (Java 9+).
+   - Literals are pooled in the String Constant Pool (SCP) in Heap memory.
+   - Immutability provides security, thread-safety, SCP sharing, and hash caching.
+   - Always compare with '.equals()', never with '=='.
+   - Use 'StandardCharsets.UTF_8' for byte conversions.
+   - Never use '+' in loops; use 'StringBuilder.append()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

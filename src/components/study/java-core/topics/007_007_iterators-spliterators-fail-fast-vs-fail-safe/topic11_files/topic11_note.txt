@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_007: Iterators, Spliterators & Fail-Fast Mechanics
+Topic 11: Streams & Spliterators Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 007_007 GRAND SUMMARY:
+   - Iterator pattern: Decouples traversal from internal collection structure.
+   - Safe removal: 'it.remove()' is the ONLY safe way; 'list.remove()' throws CME.
+   - modCount: Version counter tracking structural size changes.
+   - Fail-Fast: 'modCount != expectedModCount' in 1 CPU cycle (ArrayList, HashMap).
+   - Fail-Safe: CopyOnWriteArrayList (snapshot), ConcurrentHashMap (weakly consistent).
+   - ListIterator: Bidirectional (previous), index queries, and inline set/add mutations.
+   - Spliterator: Engine of parallel streams; recursive 'trySplit()' across ForkJoin cores.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

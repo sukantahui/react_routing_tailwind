@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_009: Packages, Access Modifiers & Module System
+Topic 10: Compiling & Running Packaged Code
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COMMAND LINE PACKAGING WORKFLOW:
+   - Compilation : 'javac -d bin src/com/company/App.java'
+   - Execution   : 'java -cp bin com.company.App'
+   - Always run using the Fully Qualified Class Name from the root classpath.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

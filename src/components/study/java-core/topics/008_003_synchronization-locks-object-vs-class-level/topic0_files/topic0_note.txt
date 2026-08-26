@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_003: Thread Synchronization & Locks
+Topic 0: Shared Mutable State & Race Conditions
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RACE CONDITIONS:
+   - Occur when 2+ threads access shared mutable state without synchronization.
+   - 'counter++' is NOT atomic (Read &rarr; Modify &rarr; Write).
+   - Lost Update Anomaly: Multiple increments overwrite each other.
+   - Solution: Synchronization (locks) or Atomic variables (AtomicInteger).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

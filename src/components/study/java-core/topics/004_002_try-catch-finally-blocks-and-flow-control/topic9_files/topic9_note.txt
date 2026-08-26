@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_002: Try, Catch, Finally & Flow Control
+Topic 9: finally on return Statements
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RETURN WITH FINALLY:
+   - Does finally execute on 'return'? YES!
+   - Sequence: Return value evaluated &rarr; finally executes &rarr; method returns.
+   - Guaranteed cleanup even with multiple early return paths.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

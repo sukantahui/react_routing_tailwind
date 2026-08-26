@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_005: Thread Safety & Deadlocks
+Topic 4: Mutual Exclusion Deep Dive
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COFFMAN 1: MUTUAL EXCLUSION:
+   - Resource held exclusively by 1 thread (non-shareable).
+   - Java 'synchronized' enforces 100% exclusive mutex.
+   - For write operations, mutual exclusion is essential.
+   - For read operations, 'ReadWriteLock' allows shared concurrent access.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

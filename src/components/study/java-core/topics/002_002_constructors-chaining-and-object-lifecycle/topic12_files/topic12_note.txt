@@ -1,0 +1,29 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_002: Constructors, Constructor Chaining & Object Lifecycle
+Topic 12: Static Initialization Blocks (SIB) vs Instance Initialization Blocks (IIB)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COMPARISON MATRIX:
+   -----------------------------------------------------------------------------
+   FEATURE             SIB (Static Block)              IIB (Instance Block)
+   -----------------------------------------------------------------------------
+   Syntax              static { ... }                  { ... }
+   Execution Trigger   Class loading (once per JVM)    Every 'new' instantiation
+   Context             Class / Metaspace               Heap instance ('this')
+   Access              Static members ONLY             Both Static & Instance
+   Parent-Child Order  Parent SIB -> Child SIB         Parent IIB -> Child IIB
+   -----------------------------------------------------------------------------
+
+2. COMPLETE ORDER OF EXECUTION:
+   1. Parent SIB
+   2. Child SIB
+   3. Parent IIB
+   4. Parent Constructor Body
+   5. Child IIB
+   6. Child Constructor Body
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_004: Modern Java NIO.2
+Topic 16: NIO.2 Master Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 005_004 SUMMARY:
+   - 'Path': Immutable filesystem locator interface (Path.of).
+   - 'Files': 50+ static utility methods (exists, size, createDirectories, copy, move, delete).
+   - Atomic options: StandardCopyOption.REPLACE_EXISTING and ATOMIC_MOVE.
+   - Convenience I/O: Files.readString, writeString, readAllLines, readAllBytes.
+   - Stream processing: Files.lines, list, walk, find (lazy evaluation).
+   - FileChannel & ByteBuffer: High-performance non-blocking I/O.
+   - MappedByteBuffer: Zero-copy virtual memory mapping.
+   - WatchService: Real-time native directory event monitoring.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

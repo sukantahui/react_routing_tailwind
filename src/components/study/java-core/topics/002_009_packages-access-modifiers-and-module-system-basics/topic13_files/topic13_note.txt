@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_009: Packages, Access Modifiers & Module System
+Topic 13: Java 9 Platform Module System (JPMS)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JPMS ARCHITECTURE:
+   - Module = Packages + Resources + module-info.java metadata.
+   - Root Module: 'java.base' (automatically required by all modules).
+   - Tooling: 'jlink' (create custom lightweight runtime images).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_011: SOLID Design Principles
+Topic 5: Liskov Substitution Principle (LSP)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LSP RULES (Barbara Liskov):
+   - 'If S is a subtype of T, then objects of type T may be replaced with objects of type S.'
+   - Subclasses must not strengthen preconditions.
+   - Subclasses must not weaken postconditions.
+   - Subclasses must not throw unexpected exceptions for base methods.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

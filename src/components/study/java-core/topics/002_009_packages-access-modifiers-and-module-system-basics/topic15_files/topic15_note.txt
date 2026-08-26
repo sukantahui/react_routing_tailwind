@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_009: Packages, Access Modifiers & Module System
+Topic 15: Strong Encapsulation Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 002_009 SUMMARY:
+   - Packages organize code and prevent namespace collisions.
+   - Reverse domain name (com.coderaccotax.app) ensures global uniqueness.
+   - 4 Access Modifiers: private, default, protected, public.
+   - Packaged CLI: 'javac -d bin' and 'java -cp bin com.pkg.Main'.
+   - JAR packaging bundles bytecode + MANIFEST.MF metadata.
+   - Java 9 JPMS enforces module boundaries: 'requires', 'exports', 'opens'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

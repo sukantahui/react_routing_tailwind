@@ -1,0 +1,14 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_007: Abstract Classes & Partial Abstraction
+Topic 9: Extending Abstract Classes
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SUBCLASS OBLIGATIONS:
+   - Must provide concrete bodies for ALL inherited abstract methods.
+   - Failure to implement even 1 method produces: 'Subclass is not abstract and does not override abstract method'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

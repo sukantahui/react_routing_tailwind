@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_008: Sorting, Comparable, Comparator & Collections
+Topic 3: Consistency: compareTo vs equals
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CONSISTENCY RULE:
+   - '(x.compareTo(y) == 0) == (x.equals(y))'.
+   - Inconsistent: 'BigDecimal("1.0")' vs 'BigDecimal("1.00")'.
+   - HashSet treats them as distinct (size 2).
+   - TreeSet treats them as duplicates (size 1).
+   - Always ensure compareTo reflects equals fields!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_011: SOLID Design Principles
+Topic 12: SOLID Architecture Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE SOLID MASTER MATRIX:
+   - S (Single Responsibility) : 1 reason to change.
+   - O (Open/Closed)          : Open for extension, closed for modification.
+   - L (Liskov Substitution)   : Subtypes must preserve parent contracts.
+   - I (Interface Segregation) : Fine-grained, role-specific interfaces.
+   - D (Dependency Inversion)  : Depend on abstractions via constructor DI.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

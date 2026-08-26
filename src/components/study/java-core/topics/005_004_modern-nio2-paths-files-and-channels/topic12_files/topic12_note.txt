@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_004: Modern Java NIO.2
+Topic 12: Lazy Stream File Processing
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STREAM FILE UTILITIES:
+   - 'Files.lines(path)': Lazy line streaming; ideal for gigabyte logs.
+   - 'Files.list(dir)': Streams 1st-level directory entries lazily.
+   - 'Files.walk(dir, maxDepth)': Recursive directory tree traversal.
+   - 'Files.find(dir, depth, matcher)': Combines walking with file attribute predicates.
+   - ALWAYS enclose returned streams in Try-with-Resources!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

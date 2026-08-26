@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_003: Buffered Streams & PrintWriter
+Topic 0: Why Buffering is Crucial
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BUFFERING ARCHITECTURE:
+   - Without buffer: 1 byte read = 1 OS Kernel Syscall.
+   - With buffer: 1 syscall fetches 8192 bytes into RAM array.
+   - Subsequent reads served at nanosecond RAM speeds.
+   - Crucial for disk files, network sockets, and database streams.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

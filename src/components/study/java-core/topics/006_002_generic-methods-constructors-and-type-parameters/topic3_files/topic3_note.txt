@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_002: Generic Methods, Constructors & Type Inference
+Topic 3: Type Witness vs Inference
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD INVOCATION STYLES:
+   - Inferred: 'coalesce(a, b)' (compiler deduces T automatically).
+   - Explicit Type Witness: 'MyClass.<String>coalesce(a, b)'.
+   - Used for common supertypes (e.g. <Number>) or empty collections.
+   - Syntactically placed before the method name.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

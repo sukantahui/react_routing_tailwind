@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_009: Packages, Access Modifiers & Module System
+Topic 8: Accessibility Matrix Table
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
++---------------------------------+---------+---------+-----------+--------+
+| Scope Scenario                  | private | default | protected | public |
++---------------------------------+---------+---------+-----------+--------+
+| Same Class                      |   YES   |   YES   |    YES    |  YES   |
+| Same Package Subclass           |   NO    |   YES   |    YES    |  YES   |
+| Same Package Non-Subclass       |   NO    |   YES   |    YES    |  YES   |
+| Different Package Subclass      |   NO    |   NO    |    YES    |  YES   |
+| Different Package Non-Subclass  |   NO    |   NO    |    NO     |  YES   |
++---------------------------------+---------+---------+-----------+--------+
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

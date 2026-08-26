@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_002: Constructors, Constructor Chaining & Object Lifecycle
+Topic 15: Prohibited Constructor Modifiers: static, final, synchronized, abstract
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 4 PROHIBITED MODIFIERS:
+   -----------------------------------------------------------------------------
+   MODIFIER         WHY FORBIDDEN BY JLS COMPILER SPECIFICATION
+   -----------------------------------------------------------------------------
+   static           Requires 'this' instance; static has no instance context.
+   final            Constructors cannot be inherited or overridden.
+   abstract         Constructors must have an executable body to initialize fields.
+   synchronized     Object is private to creating thread until publication.
+   -----------------------------------------------------------------------------
+
+2. PERMITTED MODIFIERS:
+   - Access modifiers ONLY: public, protected, default, private.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_006: Exception Handling Real-World Lab
+Topic 3: Resilient Automatic Retry Engine
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RESILIENT RETRY PATTERNS:
+   - Differentiate Transient (retryable) from Permanent (fast-fail) errors.
+   - Max attempts cap (e.g. 3 attempts).
+   - Exponential Backoff: double sleep interval between attempts (50ms, 100ms, 200ms).
+   - Escalate with cause if retries exhausted.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

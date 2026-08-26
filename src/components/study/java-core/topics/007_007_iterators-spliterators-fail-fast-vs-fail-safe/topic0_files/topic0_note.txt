@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_007: Iterators, Spliterators & Fail-Fast Mechanics
+Topic 0: Iterator Pattern Fundamentals
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ITERATOR PATTERN:
+   - GoF Behavioral Design Pattern.
+   - Decouples traversal from internal structure.
+   - Standard API: 'hasNext()', 'next()', 'remove()'.
+   - 'Iterable<T>' interface enables the for-each loop syntax.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

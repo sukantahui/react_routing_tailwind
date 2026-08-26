@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_002: Thread Control & Daemon Threads
+Topic 10: setDaemon() Rules
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SETDAEMON() RULES:
+   - Must be called while thread is in 'NEW' state (before 'start()').
+   - Calling after 'start()' &rarr; throws 'IllegalThreadStateException'.
+   - A thread created by a daemon thread automatically inherits daemon status.
+   - A thread created by a user thread defaults to user thread.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

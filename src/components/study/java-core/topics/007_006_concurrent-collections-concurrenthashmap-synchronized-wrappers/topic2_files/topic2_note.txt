@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_006: Concurrent Collections & ConcurrentHashMap
+Topic 2: Synchronized Wrapper Bottleneck
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LOCK CONTENTION BOTTLENECK:
+   - Coarse-grained global mutex locks the entire map.
+   - Multiple threads accessing different buckets block each other.
+   - Reads block reads; writes block writes.
+   - Multi-core scalability collapses under high concurrency.
+   - Obsolete in modern Java &rarr; use 'ConcurrentHashMap'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

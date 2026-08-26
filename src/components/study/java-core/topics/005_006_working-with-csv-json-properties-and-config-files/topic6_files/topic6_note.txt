@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_006: CSV, JSON, Properties & Config Files
+Topic 6: Manual CSV Parsing (RFC 4180)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RFC 4180 CSV RULES:
+   - Fields containing commas must be enclosed in double quotes '"..."'.
+   - Quotes inside quoted fields are escaped by doubling them '""'.
+   - Avoid naive 'line.split(",")' on complex data.
+   - Use character-by-character state parsing for robust token extraction.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_004: Static Variables, Methods, Blocks & The Singleton Pattern
+Topic 0: What Does 'static' Mean in Java
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STATIC VS INSTANCE PARADIGM:
+   - static: Belongs to the CLASS (stored in Metaspace/Class data area).
+   - non-static: Belongs to the INSTANCE (stored in Heap memory).
+   - Single shared copy across all objects.
+   - Accessed directly via ClassName.member.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

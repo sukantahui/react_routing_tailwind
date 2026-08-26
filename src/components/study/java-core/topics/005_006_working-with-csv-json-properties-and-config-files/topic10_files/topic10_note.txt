@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_006: CSV, JSON, Properties & Config Files
+Topic 10: Unified Config Loader Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 005_006 SUMMARY:
+   - 'Properties': Hashtable subclass for String key-values.
+   - Syntax: '=', ':', spaces for delimiters; '#' and '!' for comments.
+   - 'load(Reader)' with StandardCharsets.UTF_8 for international text.
+   - 'getProperty(key, defaultVal)' prevents nulls and NPEs.
+   - 'store(Writer, comments)' saves with header and timestamp.
+   - 'getResourceAsStream()' reads embedded configs from JAR classpath.
+   - RFC 4180 CSV parsing: handles quotes and commas.
+   - JSON format: Objects, Arrays, Strings, Numbers, Booleans, Null.
+   - Unified Config Manager: Type-safe getters with defaults and validation.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

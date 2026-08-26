@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_001: Thread Fundamentals, Lifecycle & Creation
+Topic 8: Implementing Runnable Interface
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CREATION METHOD 2 (Implementing Runnable):
+   - '@FunctionalInterface Runnable' defines 'void run()'.
+   - Instantiate task: 'Runnable task = new MyTask()'.
+   - Pass to thread: 'new Thread(task, "Name").start()'.
+   - Allows class inheritance ('extends BaseClass').
+   - Directly compatible with 'ExecutorService' thread pools.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

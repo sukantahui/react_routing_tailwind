@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_005: Inheritance, IS-A vs HAS-A, Composition & Aggregation
+Topic 2: The 'extends' Keyword Syntax & Rules
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. 'extends' SYNTAX RULES:
+   - 'public class Child extends Parent { ... }'
+   - Exactly ONE superclass allowed per class.
+   - Final classes CANNOT be extended.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

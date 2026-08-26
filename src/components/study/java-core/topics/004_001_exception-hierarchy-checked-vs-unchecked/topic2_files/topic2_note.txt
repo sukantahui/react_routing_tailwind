@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_001: Exception Hierarchy
+Topic 2: java.lang.Error
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ERROR CHARACTERISTICS:
+   - Subclass of 'Throwable'.
+   - Unchecked by compiler.
+   - Indicates serious JVM/hardware issues (RAM, stack).
+   - Examples: 'OutOfMemoryError', 'StackOverflowError', 'NoClassDefFoundError'.
+   - NEVER catch Error in production code.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

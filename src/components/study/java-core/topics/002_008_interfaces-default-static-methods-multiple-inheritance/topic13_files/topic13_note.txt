@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_008: Interfaces, Default/Static Methods & Multiple Inheritance
+Topic 13: Abstract Class vs Interface Comparison
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+FEATURE MATRIX:
++-------------------+----------------------------+-----------------------------+
+| Feature           | Abstract Class             | Interface                   |
++-------------------+----------------------------+-----------------------------+
+| Inheritance       | Single ('extends')         | Multiple ('implements')     |
+| Instance Fields   | Yes (private, protected)   | No (public static final)    |
+| Constructors      | Yes (invoked via super())  | No (Never instantiated)     |
+| Methods           | Abstract + Concrete        | Abstract, default, static   |
+| Speed             | Slightly faster vtable     | Interface table lookup      |
++-------------------+----------------------------+-----------------------------+
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

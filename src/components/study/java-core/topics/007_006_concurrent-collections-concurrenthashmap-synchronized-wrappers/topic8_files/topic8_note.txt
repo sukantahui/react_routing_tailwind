@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_006: Concurrent Collections & ConcurrentHashMap
+Topic 8: Null Prohibition in Concurrent Collections
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. NULL PROHIBITION:
+   - 'put(null, v)' &rarr; throws NullPointerException.
+   - 'put(k, null)' &rarr; throws NullPointerException.
+   - Eliminates 'get(k) == null' ambiguity in multithreading.
+   - Prevents race conditions between 'get()' and 'containsKey()'.
+   - Shared rule across all JSR-166 concurrent queues and maps.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

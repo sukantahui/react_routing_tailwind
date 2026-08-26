@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_002: Try, Catch, Finally & Flow Control
+Topic 0: The 'try' Block
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 'try' BLOCK:
+   - Encloses statements that may throw exceptions.
+   - Must be followed by at least one 'catch' block OR a 'finally' block.
+   - If an error occurs, execution immediately exits the try block.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

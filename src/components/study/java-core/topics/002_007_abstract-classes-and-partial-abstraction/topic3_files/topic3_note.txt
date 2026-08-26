@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_007: Abstract Classes & Partial Abstraction
+Topic 3: Abstract Method Signature Rules
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ABSTRACT METHOD SYNTAX:
+   - 'public abstract ReturnType methodName(paramList);'
+   - NO body '{ ... }' allowed.
+   - Semicolon ';' is mandatory.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

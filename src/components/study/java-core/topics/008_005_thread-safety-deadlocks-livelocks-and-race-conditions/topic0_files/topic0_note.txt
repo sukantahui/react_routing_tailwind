@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_005: Thread Safety & Deadlocks
+Topic 0: What Constitutes Thread Safety
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THREAD SAFETY DEFINITION:
+   - Behaves correctly under any thread interleaving.
+   - Caller needs NO extra synchronization.
+   - Preserves state invariants at all times.
+   - 3 Pathways:
+     1. Immutability (final fields, read-only).
+     2. Thread Confinement (ThreadLocal, stack variables).
+     3. Synchronized Mutation (Locks, AtomicInteger).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

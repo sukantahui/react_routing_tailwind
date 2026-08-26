@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_005: Type Erasure & Generics Limitations
+Topic 11: Restriction 6 - No Generic Exceptions
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RESTRICTION 6: NO GENERIC EXCEPTIONS:
+   - 'class MyEx<T> extends Exception' is ILLEGAL.
+   - Cannot catch parameterized exceptions: 'catch (MyEx<T> e)'.
+   - JVM exception table requires concrete runtime types.
+   - 'throws T' in generic method signatures is permitted.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

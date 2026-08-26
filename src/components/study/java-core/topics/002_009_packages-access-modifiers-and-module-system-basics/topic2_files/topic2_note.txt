@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_009: Packages, Access Modifiers & Module System
+Topic 2: Reverse Domain Name Conventions
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. REVERSE DOMAIN CONVENTION:
+   - 'com.organization.project.layer'
+   - Strictly all lowercase.
+   - Prevents clashes in Maven/Gradle distributed libraries.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

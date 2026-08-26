@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_005: Modern Date & Time API (java.time)
+Topic 16: Enterprise UTC Architecture Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 003_005 SUMMARY:
+   - Legacy Date/Calendar are mutable and broken; avoid them.
+   - java.time (JSR-310) is immutable, thread-safe, and ISO-8601 compliant.
+   - LocalDate (Date only), LocalTime (Time only), LocalDateTime (No zone).
+   - ZonedDateTime (Explicit ZoneId), Instant (UTC Epoch timeline).
+   - Period (Years/Months/Days) vs Duration (Hours/Mins/Secs/Nanos).
+   - ChronoUnit.DAYS.between() for total elapsed days.
+   - Always store UTC Instant in databases and format on the client UI.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

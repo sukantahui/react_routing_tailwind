@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_005: Inheritance, IS-A vs HAS-A, Composition & Aggregation
+Topic 0: What is Inheritance in Java
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CORE PILLARS OF INHERITANCE:
+   - Code Reusability: Write once in parent class, inherit across all children.
+   - Extensibility: Add new specialized features in child classes.
+   - Polymorphism Foundation: Enables runtime dynamic dispatch.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

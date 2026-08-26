@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_006: JMM, volatile, Atomics & CAS
+Topic 12: Core Atomic Types
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CORE ATOMIC TYPES:
+   - AtomicInteger / AtomicLong: 32-bit & 64-bit lock-free numeric counters.
+   - AtomicBoolean: Atomic flags and one-time triggers.
+   - AtomicReference<V>: Lock-free atomic reference swaps on custom domain objects.
+   - All backed by hardware CAS (Compare-And-Swap).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

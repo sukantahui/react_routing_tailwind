@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_007: ExecutorService, Thread Pools & CompletableFuture
+Topic 10: Managing Future<T> Handles
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FUTURE<V> INTERFACE:
+   - Asynchronous handle representing the pending result of a task.
+   - 'get()': Blocks indefinitely (throws ExecutionException if task failed).
+   - 'get(timeout, unit)': Enforces SLA timeout (throws TimeoutException).
+   - 'cancel(true)': Cancels task and sends thread interrupt.
+   - 'isDone()': Checks if finished, failed, or cancelled.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

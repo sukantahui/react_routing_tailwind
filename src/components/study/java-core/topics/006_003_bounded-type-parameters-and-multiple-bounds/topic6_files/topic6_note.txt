@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_003: Bounded Type Parameters & Multiple Bounds
+Topic 6: Recursive Type Bounds
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RECURSIVE TYPE BOUNDS:
+   - '<T extends Comparable<T>>'.
+   - Self-referential type constraint.
+   - Guarantees mutual comparability between instances of 'T'.
+   - Powers 'Collections.max()' and 'Collections.sort()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

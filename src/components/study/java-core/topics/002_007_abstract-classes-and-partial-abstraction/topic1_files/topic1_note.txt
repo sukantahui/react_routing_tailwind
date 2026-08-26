@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_007: Abstract Classes & Partial Abstraction
+Topic 1: Abstract Class Syntax & Definition
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ABSTRACT CLASS ANATOMY:
+   - Keyword: 'abstract class ClassName { ... }'
+   - Can hold: abstract methods, concrete methods, constructors, instance fields, static variables.
+   - Purpose: Define common baseline state and mandate subclass implementation.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_003: The 'this' and 'super' Keywords Mastery
+Topic 5: Passing 'this' as an Argument in Constructor Calls
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PASSING 'this' IN CONSTRUCTOR CALLS:
+   - Syntax: 'this.child = new ChildComponent(this);'
+   - Binds child component to parent instance for bi-directional navigation.
+   - CAUTION: Ensure fields are initialized before passing 'this' to avoid
+     exposing partially constructed state.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

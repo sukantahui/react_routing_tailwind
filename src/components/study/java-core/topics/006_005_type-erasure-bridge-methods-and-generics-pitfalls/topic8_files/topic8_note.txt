@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_005: Type Erasure & Generics Limitations
+Topic 8: Restriction 3 - No Static Type Fields
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RESTRICTION 3: NO STATIC FIELDS OF TYPE T:
+   - 'private static T field;' is ILLEGAL.
+   - Static fields are shared across all instances.
+   - Type arguments differ per instance.
+   - Prohibits memory and type conflicts in Metaspace.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

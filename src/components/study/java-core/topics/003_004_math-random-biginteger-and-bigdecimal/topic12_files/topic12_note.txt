@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_004: Math, Random & Arbitrary Precision
+Topic 12: BigInteger Foundations
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BIGINTEGER ESSENTIALS:
+   - Represents integers of arbitrary length.
+   - Constants: 'BigInteger.ZERO', 'ONE', 'TWO', 'TEN'.
+   - Immutable and thread-safe.
+   - Essential for RSA cryptography and prime factorization.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

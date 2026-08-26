@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_007: Nested & Inner Classes
+Topic 6: Static Nested Class Best Practices
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. REAL-WORLD USE CASES:
+   - The Builder Pattern ('new User.Builder().build()').
+   - Map.Entry key-value pair helper ('java.util.Map.Entry').
+   - LinkedList node container ('static class Node<E>').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_009: Collections Performance & Big-O Complexities
+Topic 6: JMH Microbenchmarking Principles
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JMH FUNDAMENTALS:
+   - Built by OpenJDK engineers for scientific Java benchmarking.
+   - Warmup iterations: allows JIT C1/C2 compiler stabilization.
+   - Blackhole: prevents JIT dead-code elimination optimizations.
+   - Modes: Throughput (ops/sec) vs AverageTime (time/op).
+   - Never benchmark Java code with simple System.currentTimeMillis() loops!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_008: Java Enums & Specialized Methods
+Topic 7: Enum Private Constructor Integrity
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CONSTRUCTOR INTEGRITY:
+   - Always implicitly private.
+   - 'public' or 'protected' causes a compiler error.
+   - Instantiation via 'new' is completely prohibited.
+   - Guarantees finite closed set of constants.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

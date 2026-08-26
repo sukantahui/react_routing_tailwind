@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_005: Type Erasure & Generics Limitations
+Topic 4: Javap Bytecode Disassembly
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JAVAP COMMAND TOOLS:
+   - 'javap -c -v MyClass.class'.
+   - Reveals erased field descriptors (Ljava/lang/Object;).
+   - Identifies 'checkcast' instructions.
+   - Shows 'ACC_BRIDGE' and 'ACC_SYNTHETIC' method flags.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

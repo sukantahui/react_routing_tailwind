@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_006: CSV, JSON, Properties & Config Files
+Topic 9: Manual JSON vs Jackson/Gson
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JSON PARSING OPTIONS:
+   - Core Java Manual: StringBuilder formatting (zero dependency).
+   - Jackson ('ObjectMapper'): Industry standard in Spring Boot.
+   - Google Gson: Lightweight library for Android and desktop apps.
+   - Escape double quotes with '\"' when formatting manually.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

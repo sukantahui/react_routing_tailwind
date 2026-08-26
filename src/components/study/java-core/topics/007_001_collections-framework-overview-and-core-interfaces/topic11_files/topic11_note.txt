@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_001: Collections Framework Overview
+Topic 11: List Creation Comparison
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CREATION MATRIX SUMMARY:
+   - 'Arrays.asList()': Fixed-size, permits set(), backed by array, allows null.
+   - 'Collections.unmodifiableList()': Read-only view, backing list mutations leak through.
+   - 'List.of()': Truly immutable, standalone, forbids nulls, no set().
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

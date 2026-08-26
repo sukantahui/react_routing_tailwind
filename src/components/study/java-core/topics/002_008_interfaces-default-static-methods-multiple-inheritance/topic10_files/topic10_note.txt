@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_008: Interfaces, Default/Static Methods & Multiple Inheritance
+Topic 10: Private Interface Methods (Java 9)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PRIVATE INTERFACE METHODS (JAVA 9):
+   - 'private void helper()': Shared logic for 'default' methods.
+   - 'private static void helper()': Shared logic for 'static' methods.
+   - Completely invisible to implementing classes and external callers.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

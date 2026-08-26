@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_006: Polymorphism, Overriding & Dynamic Method Dispatch
+Topic 6: Covariant Return Types
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COVARIANT RETURN TYPE RULES:
+   - Permitted for reference types (objects), NOT primitives.
+   - Child return type must be a valid subclass of parent return type.
+   - Eliminates cumbersome downcasting on factory method calls.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

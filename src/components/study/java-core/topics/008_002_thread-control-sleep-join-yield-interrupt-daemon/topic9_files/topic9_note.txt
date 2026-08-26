@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_002: Thread Control & Daemon Threads
+Topic 9: JVM Termination & Daemon Shutdown
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JVM TERMINATION RULE:
+   - JVM exits when active User thread count reaches ZERO.
+   - All Daemon threads are instantly killed mid-flight.
+   - 'finally' blocks in Daemon threads do NOT run during JVM exit.
+   - Never write database commits or file streams inside daemon threads.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

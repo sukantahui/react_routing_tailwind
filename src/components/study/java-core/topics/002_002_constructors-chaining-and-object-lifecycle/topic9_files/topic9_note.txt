@@ -1,0 +1,26 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_002: Constructors, Constructor Chaining & Object Lifecycle
+Topic 9: Copy Constructor: Concept & Manual Deep Object Cloning
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COPY CONSTRUCTOR DEFINITION:
+   -----------------------------------------------------------------------------
+   - A constructor accepting an instance of its own class to duplicate state:
+     'public Student(Student source) { ... }'
+
+2. SHALLOW VS DEEP COPYING:
+   - Shallow Copy: Copies reference pointers (nested objects are shared!).
+   - Deep Copy: Creates brand-new copies of all nested mutable objects
+     (CampusAddress, ArrayList, Date) ensuring complete memory isolation.
+
+3. WHY JAVA PREFERS COPY CONSTRUCTORS OVER Object.clone():
+   - Type-safe (no casting required).
+   - No CloneNotSupportedException.
+   - Assigns 'final' fields cleanly and safely.
+   - Full control over shallow vs deep duplication.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

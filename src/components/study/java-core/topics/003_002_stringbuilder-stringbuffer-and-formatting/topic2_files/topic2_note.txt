@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_002: StringBuilder, StringBuffer & String Formatting
+Topic 2: java.lang.StringBuffer
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STRINGBUFFER KEY FACTS:
+   - Introduced in Java 1.0 (Legacy).
+   - Thread-safe: Every public method is 'synchronized'.
+   - Slower due to monitor lock acquisition and release overhead.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

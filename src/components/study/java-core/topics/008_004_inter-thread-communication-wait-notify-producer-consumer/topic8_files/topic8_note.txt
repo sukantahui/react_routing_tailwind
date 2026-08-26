@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_004: Inter-Thread Communication & Producer-Consumer
+Topic 8: Spurious Wakeups
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SPURIOUS WAKEUPS:
+   - Thread wakes from 'wait()' without notify() or interrupt.
+   - Caused by low-level OS kernel signal handling (POSIX pthreads).
+   - Explicitly allowed by Java Language Specification.
+   - Defense: ALWAYS wrap 'wait()' in a 'while' loop.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

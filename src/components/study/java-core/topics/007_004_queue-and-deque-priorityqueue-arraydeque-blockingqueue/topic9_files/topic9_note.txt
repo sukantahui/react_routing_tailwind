@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_004: Queue, Deque & PriorityQueue
+Topic 9: Deque Method Matrix
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DEQUE 12-METHOD MATRIX:
+   - Head: addFirst/offerFirst, removeFirst/pollFirst, getFirst/peekFirst.
+   - Tail: addLast/offerLast, removeLast/pollLast, getLast/peekLast.
+   - Stack methods: 'push()' = addFirst, 'pop()' = removeFirst.
+   - Special-value methods return false/null on bounds violations.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

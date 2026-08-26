@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_004: Try-with-Resources & AutoCloseable
+Topic 7: Java 9 ARM Enhancement
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JAVA 9 ARM ENHANCEMENT:
+   - Pre-Java 9: 'try (Resource r = externalRes)' (Required declaration).
+   - Java 9+: 'try (externalRes)' (Direct reference allowed).
+   - Constraint: Variable must be final or effectively final.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

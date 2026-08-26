@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_006: JMM, volatile, Atomics & CAS
+Topic 9: Valid volatile Use Cases & DCL
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. VALID USE CASES FOR VOLATILE:
+   - 1. Simple Boolean Flags: 'volatile boolean shutdown = false'.
+   - 2. Double-Checked Locking (DCL): 'private static volatile Singleton instance'.
+   - Why DCL needs volatile: Prevents reordering of constructor execution and pointer assignment.
+   - Eliminates 'Partially Initialized Object' concurrency security vulnerabilities.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

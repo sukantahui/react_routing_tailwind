@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_001: Thread Fundamentals, Lifecycle & Creation
+Topic 9: Runnable Lambda Expressions
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CREATION METHOD 3 (Runnable Lambdas):
+   - '@FunctionalInterface Runnable' &rarr; '() -> { ... }'.
+   - 'new Thread(() -> doWork(), "ThreadName").start()'.
+   - Zero boilerplate code.
+   - Clean, readable, and perfectly suited for micro-tasks.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

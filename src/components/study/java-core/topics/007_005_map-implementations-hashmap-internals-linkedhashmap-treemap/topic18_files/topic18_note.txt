@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_005: Map Implementations & HashMap Internals
+Topic 18: TreeMap & NavigableMap Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 007_005 GRAND SUMMARY:
+   - Map: Key-Value association; unique keys.
+   - HashMap Internals: Node<K,V>[] table, 16 initial cap, 0.75 load factor.
+   - Bitwise Math: '(h ^ (h >>> 16))' spreading, '(n - 1) & hash' indexing.
+   - Treeification: >= 8 nodes (table >= 64) &rarr; TreeNode<K,V> (O(log n)).
+   - Untreeification: <= 6 nodes &rarr; converts back to Node<K,V> (hysteresis).
+   - Resizing: '(e.hash & oldCap) == 0' split (no re-hashing).
+   - Keys: Immutable (String, Integer); mutable keys cause Lost Key memory leaks.
+   - LinkedHashMap: accessOrder mode for LRU cache ('removeEldestEntry').
+   - TreeMap: Red-Black tree, O(log n), NavigableMap proximity queries, prohibits null keys.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

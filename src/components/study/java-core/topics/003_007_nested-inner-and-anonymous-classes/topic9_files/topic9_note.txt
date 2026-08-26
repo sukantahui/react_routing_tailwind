@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_007: Nested & Inner Classes
+Topic 9: Anonymous Subclassing Rules
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SUBCLASSING RULES:
+   - Exactly ONE superclass OR ONE interface (never both).
+   - No explicit constructor (can use instance initializer blocks).
+   - Can access protected/public fields of the extended abstract class.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

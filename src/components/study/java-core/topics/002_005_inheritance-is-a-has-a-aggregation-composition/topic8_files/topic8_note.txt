@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_005: Inheritance, IS-A vs HAS-A, Composition & Aggregation
+Topic 8: The 'final' Keyword in Inheritance
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. 'final' MODIFIER RULES:
+   - 'final class': Prevents subclassing entirely.
+   - 'final method': Permits inheritance, but strictly prohibits '@Override'.
+   - Used for security, immutability (String), and design locking.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

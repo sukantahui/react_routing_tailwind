@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_004: Static Variables, Methods, Blocks & The Singleton Pattern
+Topic 14: Lazy Initialization Singleton
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LAZY INITIALIZATION:
+   - Defers creation until 'getInstance()' is called.
+   - Saves memory if resource is never used.
+   - Thread-Safety Warning: Standard lazy check is NOT thread-safe!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_003: Thread Synchronization & Locks
+Topic 1: Bank Account Overdraw Race Condition
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CHECK-THEN-ACT HAZARD:
+   - Thread A checks condition (balance >= amount &rarr; true).
+   - Thread B checks condition before Thread A acts (balance >= amount &rarr; true).
+   - Both threads deduct amount &rarr; account overdrawn!
+   - Must make the Check AND Act steps indivisible (atomic) using 'synchronized'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

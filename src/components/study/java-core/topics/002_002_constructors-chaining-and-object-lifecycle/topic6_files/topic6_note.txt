@@ -1,0 +1,27 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_002: Constructors, Constructor Chaining & Object Lifecycle
+Topic 6: Constructor Overloading: Multiple Parameter Lists
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CONSTRUCTOR OVERLOADING RULES:
+   -----------------------------------------------------------------------------
+   - Multiple constructors in the same class with DIFFERENT parameter lists.
+   - Differentiated by: Number of parameters, Types of parameters, or Order of types.
+   - Parameter names and 'throws' clauses DO NOT differentiate overloads.
+   - Return types do not exist for constructors.
+
+2. COMPILER RESOLUTION PRIORITY:
+   1. Exact type match
+   2. Primitive type widening (int -> long -> double)
+   3. Autoboxing (int -> Integer)
+   4. Varargs (lowest priority)
+
+3. BEST PRACTICE:
+   - Use Constructor Chaining via 'this(...)' to funnel all overloaded
+     constructors into one master canonical constructor to avoid code duplication!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

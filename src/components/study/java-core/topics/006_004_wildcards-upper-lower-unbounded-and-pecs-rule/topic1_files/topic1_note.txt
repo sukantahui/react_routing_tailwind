@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_004: Wildcards & The PECS Principle
+Topic 1: The Wildcard Symbol (?)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WILDCARD ESSENTIALS:
+   - '?' = Unknown type.
+   - 'List<?>' is the parent supertype of all 'List<T>'.
+   - Safely read items as 'java.lang.Object'.
+   - Enables read-only polymorphic collection processing.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

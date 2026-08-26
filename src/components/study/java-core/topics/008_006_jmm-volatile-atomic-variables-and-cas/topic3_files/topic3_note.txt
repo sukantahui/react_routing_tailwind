@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_006: JMM, volatile, Atomics & CAS
+Topic 3: Java Memory Model (JMM)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JAVA MEMORY MODEL (JMM):
+   - Formal specification (JSR-133, Java 5+).
+   - Governs two critical dimensions:
+     1. Visibility: When writes become visible to other threads.
+     2. Ordering: When instruction execution order is preserved.
+   - Provides unified memory semantics across x86, ARM, and RISC-V.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

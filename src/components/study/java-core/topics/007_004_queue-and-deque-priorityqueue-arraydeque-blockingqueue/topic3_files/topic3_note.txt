@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_004: Queue, Deque & PriorityQueue
+Topic 3: Special-Value Queue Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SPECIAL-VALUE METHODS:
+   - 'offer(e)' &rarr; returns 'false' if bounded queue is full.
+   - 'poll()' &rarr; returns 'null' if queue is empty.
+   - 'peek()' &rarr; returns 'null' without removing head.
+   - Zero exception allocation overhead; high throughput standard.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

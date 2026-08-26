@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_006: Polymorphism, Overriding & Dynamic Method Dispatch
+Topic 8: What Cannot Be Overridden
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. NON-OVERRIDABLE MEMBERS:
+   - private: Not inherited or visible.
+   - static: Bound at compile-time to ClassName (Hides, not overrides).
+   - final: Compiler generates error if child attempts '@Override'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

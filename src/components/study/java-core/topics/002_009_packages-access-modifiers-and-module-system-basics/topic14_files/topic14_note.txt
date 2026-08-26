@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_009: Packages, Access Modifiers & Module System
+Topic 14: module-info.java Syntax & Directives
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE DIRECTIVES CHEATSHEET:
+   - 'requires M;'        &rarr; Module depends on M.
+   - 'requires transitive M;' &rarr; Anyone requiring this module also gets M.
+   - 'exports P;'         &rarr; Package P public types accessible to callers.
+   - 'exports P to M1, M2;' &rarr; Qualified export to specific modules only.
+   - 'opens P;'           &rarr; Opens package P for runtime reflection.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

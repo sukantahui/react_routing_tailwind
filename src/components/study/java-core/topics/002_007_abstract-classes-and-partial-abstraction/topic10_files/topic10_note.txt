@@ -1,0 +1,14 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_007: Abstract Classes & Partial Abstraction
+Topic 10: Partial Subclassing & Abstract Chains
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PARTIAL SUBCLASSING RULES:
+   - If child implements 1 out of 2 abstract methods, child MUST be marked 'abstract'.
+   - Downstream grandchild class must implement all remaining abstract methods to become concrete.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

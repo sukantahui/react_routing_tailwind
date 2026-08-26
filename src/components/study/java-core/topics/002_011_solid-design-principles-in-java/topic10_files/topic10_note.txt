@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_011: SOLID Design Principles
+Topic 10: Constructor Dependency Injection
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CONSTRUCTOR INJECTION BEST PRACTICES:
+   - Mark injected dependencies as 'private final'.
+   - Validate nullability in constructor ('Objects.requireNonNull').
+   - Pass Mock implementations in JUnit tests for sub-millisecond execution.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

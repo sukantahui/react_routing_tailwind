@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_009: Collections Performance & Big-O Complexities
+Topic 5: GC Pressure: Node Collections vs Arrays
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. GARBAGE COLLECTION PRESSURE:
+   - ArrayList: 1 backing array object (low GC pressure).
+   - LinkedList: 1 million elements = 1 million Node objects!
+   - High Eden space allocation storm &rarr; frequent Minor GCs.
+   - Long GC tracing and compaction pauses (Stop-The-World).
+   - Production Rule: Use array-backed structures (ArrayList, ArrayDeque).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

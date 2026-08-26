@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_006: Exception Handling Real-World Lab
+Topic 0: Segment 4 Grand Review
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SEGMENT 4 MASTERY MAP:
+   - Module 1: Throwable Hierarchy & Checked vs Unchecked.
+   - Module 2: Try, Catch, Finally & Flow Control.
+   - Module 3: Throw, Throws & Custom Domain Exceptions.
+   - Module 4: Try-with-Resources & AutoCloseable.
+   - Module 5: Propagation, Chaining & Best Practices.
+   - Module 6: Real-World Lab & Hands-On Engineering.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

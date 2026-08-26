@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_004: Math, Random & Arbitrary Precision
+Topic 3: Pseudo-Random Generation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RANDOM GENERATION FORMULAS:
+   - 'Math.random()' returns '[0.0, 1.0)'.
+   - Range [min, max]: '(int)(Math.random() * (max - min + 1)) + min'.
+   - 'Random.nextInt(bound)' returns '[0, bound - 1]'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_008: Sorting, Comparable, Comparator & Collections
+Topic 6: Java 8 Comparator Toolkit
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JAVA 8 COMPARATOR TOOLKIT:
+   - 'Comparator.comparing(extractor)': creates comparator from getter.
+   - 'thenComparing(secondary)': adds secondary tie-breaker sort.
+   - 'reversed()': inverts sort order.
+   - 'nullsFirst() / nullsLast()': null-safe handling.
+   - Primitive specializations: 'comparingInt()', 'comparingDouble()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

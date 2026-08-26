@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_007: Nested & Inner Classes
+Topic 8: Anonymous Inner Class Foundations
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ANONYMOUS INNER CLASS:
+   - No explicit class name.
+   - Declared and instantiated simultaneously in one expression.
+   - Implements an interface or extends a class on the fly.
+   - Compiled to synthetic 'Outer$1.class', 'Outer$2.class'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

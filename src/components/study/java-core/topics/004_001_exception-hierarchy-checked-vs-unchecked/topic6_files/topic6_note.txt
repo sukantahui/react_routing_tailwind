@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_001: Exception Hierarchy
+Topic 6: Unchecked Exceptions
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. UNCHECKED EXCEPTIONS:
+   - Subclasses of 'RuntimeException'.
+   - Compiler does NOT enforce 'catch or specify'.
+   - Examples: 'NullPointerException', 'ArithmeticException', 'ArrayIndexOutOfBoundsException'.
+   - Root Cause: Programmer logic errors (fix code with if checks).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_002: Try, Catch, Finally & Flow Control
+Topic 5: Java 7 Multi-Catch Syntax
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MULTI-CATCH RULES (Java 7+):
+   - Syntax: 'catch (IOException | SQLException ex)'
+   - Eliminates duplicate logging and recovery code.
+   - Piped exceptions MUST be disjoint (no inheritance relationship).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

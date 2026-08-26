@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_006: Regular Expressions (Regex)
+Topic 9: Capturing & Non-Capturing Groups
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. GROUPS SUMMARY:
+   - '()'     : Capturing group (1-indexed: group(1), group(2)).
+   - 'group(0)': Entire matched expression.
+   - '(?:)'   : Non-capturing group (groups logic with zero memory overhead).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

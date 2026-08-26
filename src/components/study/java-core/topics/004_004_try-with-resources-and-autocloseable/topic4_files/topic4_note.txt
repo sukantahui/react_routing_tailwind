@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_004: Try-with-Resources & AutoCloseable
+Topic 4: Closeable vs AutoCloseable
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CLOSEABLE DIFFERENCES:
+   - 'java.io.Closeable' extends 'java.lang.AutoCloseable'.
+   - Narrows exception from 'Exception' to 'IOException'.
+   - Dedicated specifically to I/O streams (FileInputStream, etc.).
+   - Both work seamlessly with Try-with-Resources.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

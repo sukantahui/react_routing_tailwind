@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_011: SOLID Design Principles
+Topic 6: Rectangle vs Square LSP Violation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE SQUARE-RECTANGLE LESSON:
+   - Behavior defines subtype validity, not real-world taxonomy.
+   - Mutable Square breaks Rectangle width/height independence invariants.
+   - Remedy: Use a common 'Shape' interface with 'int getArea()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

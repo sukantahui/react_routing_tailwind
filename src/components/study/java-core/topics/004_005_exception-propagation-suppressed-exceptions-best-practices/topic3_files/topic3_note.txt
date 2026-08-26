@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_005: Propagation, Chaining & Best Practices
+Topic 3: Deciphering Stack Traces
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STACK TRACE ANATOMY:
+   - Line 1: 'ExceptionType: Error Message'.
+   - 'at ClassName.methodName(FileName.java:LineNumber)'.
+   - Read from the top down to find your own code's line number.
+   - 'Caused by:' sections at the bottom indicate root causes.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

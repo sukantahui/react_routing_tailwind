@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_008: Sorting, Comparable, Comparator & Collections
+Topic 16: Java Sorting Algorithms Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 007_008 GRAND SUMMARY:
+   - Comparable: 'compareTo(o)' in 'java.lang' (natural sort).
+   - Comparator: 'compare(o1, o2)' in 'java.util' (strategy sort).
+   - compareTo contract: sign (<0, ==0, >0), consistent with equals.
+   - Java 8 Comparator: 'comparing()', 'thenComparing()', 'nullsLast()'.
+   - Collections utility: algorithms (sort, binarySearch, shuffle), statistical (min, max, frequency, disjoint).
+   - Wrappers: synchronized (mutex trap), unmodifiable (view trap).
+   - Singletons: 'emptyList()' (zero allocation), 'singletonList()'.
+   - Under the hood: Dual-Pivot Quicksort (primitives) & TimSort (stable objects).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_004: Wildcards & The PECS Principle
+Topic 0: Generics Invariance Limitation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. GENERICS INVARIANCE:
+   - 'List<String>' is NOT a subtype of 'List<Object>'.
+   - Prevents inserting wrong types into specialized collections.
+   - Eliminates runtime ClassCastException risks.
+   - Solution for polymorphism: Wildcards ('List<?>', 'List<? extends T>').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

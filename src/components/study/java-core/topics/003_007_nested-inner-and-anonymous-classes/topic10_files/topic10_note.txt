@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_007: Nested & Inner Classes
+Topic 10: Anonymous Callbacks & Listeners
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COMMON PATTERNS:
+   - 'new Thread(new Runnable() { public void run() {...} }).start()'
+   - 'Collections.sort(list, new Comparator<T>() {...})'
+   - GUI Event handling (ActionListeners, MouseListeners).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_006: Concurrent Collections & ConcurrentHashMap
+Topic 12: Concurrent Map Benchmark Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 007_006 GRAND SUMMARY:
+   - Standard collections (HashMap/ArrayList) are NOT thread-safe.
+   - Synchronized wrappers use coarse global locks that kill concurrency.
+   - Java 7 ConcurrentHashMap: Segment locking (16 ReentrantLocks).
+   - Java 8+ ConcurrentHashMap: CAS empty bucket insertion + synchronized bucket head.
+   - Lock-free 'get()' via volatile 'val' and 'next' pointers.
+   - Size counted via 'baseCount' + 'CounterCell[]' (LongAdder pattern).
+   - Prohibits null keys & values to eliminate concurrency race conditions.
+   - ConcurrentSkipListMap: Lock-free sorted map (Skip Lists).
+   - CopyOnWriteArraySet: Lock-free observer registry set.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

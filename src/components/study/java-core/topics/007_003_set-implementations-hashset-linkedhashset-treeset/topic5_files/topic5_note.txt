@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_003: Set Implementations & TreeSet Internals
+Topic 5: Mutability Hazard in HashSets
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MUTABILITY HAZARD:
+   - Never mutate fields used in 'hashCode()' or 'equals()'.
+   - Mutating hash causes 'contains()' to look in the wrong bucket.
+   - Object becomes trapped and unremovable (Memory Leak).
+   - Solution: Declare all hash fields as 'final' (Immutable).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

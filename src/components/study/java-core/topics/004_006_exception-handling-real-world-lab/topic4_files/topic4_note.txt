@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_006: Exception Handling Real-World Lab
+Topic 4: Batch Failures & Rollback
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BATCH ATOMICITY PATTERN:
+   - Track committed items in a provisional list.
+   - On error: catch exception, loop to compensate/revert committed items.
+   - Throw specialized 'BatchRollbackException' with root cause and audit details.
+   - Prevents partial phantom data corruption.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

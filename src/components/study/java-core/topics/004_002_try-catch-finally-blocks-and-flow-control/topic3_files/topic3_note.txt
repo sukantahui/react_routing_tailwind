@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_002: Try, Catch, Finally & Flow Control
+Topic 3: Multiple Catch Blocks
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MULTIPLE CATCH RULES:
+   - A single try block can have multiple catch blocks.
+   - Evaluated from top to bottom.
+   - Exactly one matching catch block executes.
+   - Allows independent recovery actions per failure type.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_003: Wrapper Classes & Autoboxing
+Topic 2: Wrapper Class Inheritance Hierarchy
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. HIERARCHY STRUCTURE:
+   - 'Object' &rarr; 'Number' (abstract) &rarr; Byte, Short, Integer, Long, Float, Double.
+   - 'Object' &rarr; Character.
+   - 'Object' &rarr; Boolean.
+   - 'Number' provides: 'intValue()', 'doubleValue()', 'longValue()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

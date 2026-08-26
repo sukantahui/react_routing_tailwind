@@ -1,0 +1,26 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_002: Constructors, Constructor Chaining & Object Lifecycle
+Topic 5: Parameterized Constructors: Passing Initial Values During Creation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS:
+   -----------------------------------------------------------------------------
+   - Parameterized constructors accept caller-supplied arguments to initialize
+     fields at object birth.
+   - Enforce domain validation (Objects.requireNonNull, range checks) inside
+     the constructor body before object publication.
+   - Support 'final' immutable fields without needing setters.
+
+2. SHADOWING & 'this' KEYWORD:
+   - When parameter names match field names, use 'this.field = param;'
+     to resolve field assignment on the newly allocated Heap instance.
+
+3. DEFENSIVE COPYING:
+   - For mutable reference parameters (Date, List, Array), clone them before
+     assigning to fields to prevent external state tampering.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

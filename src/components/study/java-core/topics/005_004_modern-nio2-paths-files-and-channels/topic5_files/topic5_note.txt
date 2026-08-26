@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_004: Modern Java NIO.2
+Topic 5: Files Utility Class Powerhouse
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FILES UTILITY CLASS:
+   - Contains 50+ static, atomic, thread-safe operations.
+   - Throws descriptive checked 'IOException' subclasses (NoSuchFileException).
+   - Handles metadata, file copying, atomic moves, one-liner reading, and streams.
+   - Central entry point for all modern Java I/O.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

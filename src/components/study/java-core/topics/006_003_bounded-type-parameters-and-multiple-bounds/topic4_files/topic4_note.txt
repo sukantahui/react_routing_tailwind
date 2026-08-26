@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_003: Bounded Type Parameters & Multiple Bounds
+Topic 4: Multiple Bounds Syntax
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MULTIPLE BOUNDS SYNTAX:
+   - '<T extends ClassA & InterfaceB & InterfaceC>'.
+   - Ampersand '&' connects bounds.
+   - Enforces simultaneous inheritance of class and interfaces.
+   - Allows invocation of methods from all listed bounds.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

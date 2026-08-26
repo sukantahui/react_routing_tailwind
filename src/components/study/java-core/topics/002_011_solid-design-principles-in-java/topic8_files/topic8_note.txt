@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_011: SOLID Design Principles
+Topic 8: Interface Decomposition Case Study
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DECOMPOSITION RECIPE:
+   - Identify distinct client roles and capabilities.
+   - Split large interfaces into single-behavior contracts.
+   - Compose interfaces with 'implements RoleA, RoleB' as required.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

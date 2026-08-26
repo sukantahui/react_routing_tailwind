@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_004: Modern Java NIO.2
+Topic 0: Limitations of Legacy java.io.File
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LEGACY FILE FLAWS:
+   - Silent failures: returns 'false' instead of throwing informative exceptions.
+   - 'listFiles()' causes OOM on directories with millions of files.
+   - Lacks atomic move and replace options.
+   - Cannot read POSIX permissions or handle symbolic links.
+   - Superseded by 'java.nio.file.Path' and 'java.nio.file.Files'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

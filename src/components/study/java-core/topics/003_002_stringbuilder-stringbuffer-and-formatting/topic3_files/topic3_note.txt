@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_002: StringBuilder, StringBuffer & String Formatting
+Topic 3: String vs StringBuilder vs StringBuffer
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
++-------------------+-------------------+-------------------+-------------------+
+| Feature           | String            | StringBuilder     | StringBuffer      |
++-------------------+-------------------+-------------------+-------------------+
+| Mutability        | Immutable         | Mutable           | Mutable           |
+| Thread Safety     | Yes (By nature)   | No                | Yes (Synchronized)|
+| Speed             | Slow in loops     | Fastest           | Moderate          |
+| Pool Storage      | Yes (SCP)         | No (Heap)         | No (Heap)         |
++-------------------+-------------------+-------------------+-------------------+
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

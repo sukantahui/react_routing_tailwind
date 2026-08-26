@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_002: Generic Methods, Constructors & Type Inference
+Topic 2: Type Parameter Placement
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SYMBOL RESOLUTION ORDER:
+   - Left-to-right compilation.
+   - '<T>' registers generic type variable.
+   - Allows return type to safely reference 'T'.
+   - Allows parameter list to safely reference 'T'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

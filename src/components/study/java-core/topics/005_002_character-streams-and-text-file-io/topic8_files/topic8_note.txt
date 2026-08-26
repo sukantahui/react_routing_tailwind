@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_002: Character Streams & Text File Processing
+Topic 8: StandardCharsets Best Practices
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. StandardCharsets ADVANTAGES:
+   - 'StandardCharsets.UTF_8' from 'java.nio.charset'.
+   - Avoids string typos like "UTF8" or "utf-8".
+   - No 'UnsupportedEncodingException' declared.
+   - Pre-allocated static Charset instance for maximum speed.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

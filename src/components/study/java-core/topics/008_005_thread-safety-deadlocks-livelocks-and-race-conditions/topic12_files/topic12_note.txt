@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_005: Thread Safety & Deadlocks
+Topic 12: Decoding Thread Dumps
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DECODING THREAD DUMPS:
+   - Search for 'BLOCKED (on object monitor)'.
+   - Cross-reference hex addresses:
+     * Thread 1: locked <0xA>, waiting to lock <0xB>.
+     * Thread 2: locked <0xB>, waiting to lock <0xA>.
+   - Check line numbers at top of stack trace.
+   - HotSpot JVM prints 'Found 1 deadlock' at the very bottom.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

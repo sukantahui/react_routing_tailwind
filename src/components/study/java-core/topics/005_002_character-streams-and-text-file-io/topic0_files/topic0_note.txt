@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_002: Character Streams & Text File Processing
+Topic 0: Why Character Streams Are Needed
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BYTE VS CHARACTER STREAMS:
+   - Byte Streams (8-bit): InputStream, OutputStream (Images, audio, PDFs, binary).
+   - Character Streams (16-bit): Reader, Writer (Text, JSON, CSV, logs).
+   - Character streams decode multi-byte UTF-8 sequences (Bengali, Hindi, Emojis) cleanly.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

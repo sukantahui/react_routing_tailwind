@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_003: Wrapper Classes & Autoboxing
+Topic 5: Compiler Bytecode Translation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BYTECODE TRANSLATION RULES:
+   - Boxing   : Translated to 'Integer.valueOf(primitive)'.
+   - Unboxing : Translated to 'wrapper.intValue()'.
+   - 'obj++'  : 'obj = Integer.valueOf(obj.intValue() + 1)'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

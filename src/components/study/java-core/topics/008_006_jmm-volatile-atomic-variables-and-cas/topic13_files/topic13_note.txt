@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_006: JMM, volatile, Atomics & CAS
+Topic 13: Atomic Methods Suite
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ATOMIC METHODS SUITE:
+   - 'getAndIncrement()' (i++) vs 'incrementAndGet()' (++i).
+   - 'addAndGet(delta)' / 'getAndAdd(delta)'.
+   - 'compareAndSet(expected, update)'.
+   - Java 8 Functional: 'updateAndGet(x -> x * 2)' & 'accumulateAndGet()'.
+   - Automatically executes internal CAS spin-retry loops without boilerplate.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

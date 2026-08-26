@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_007: Abstract Classes & Partial Abstraction
+Topic 13: Illegal Abstract Method Modifiers
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FORBIDDEN ABSTRACT METHOD COMBINATIONS:
+   - 'private abstract': Child cannot see private methods.
+   - 'static abstract': Static methods cannot be dynamically overridden.
+   - 'final abstract': Final forbids overriding.
+   - 'synchronized abstract' / 'native abstract': Forbidden modifiers on abstract declarations.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

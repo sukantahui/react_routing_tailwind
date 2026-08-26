@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_002: Thread Control & Daemon Threads
+Topic 6: The 3 Interrupt Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 3 INTERRUPT METHODS:
+   - 't.interrupt()': sets interrupt flag = true on target thread.
+   - 't.isInterrupted()': returns true/false without changing flag.
+   - 'Thread.interrupted()': static check for current thread + CLEARS flag to false!
+   - Calling 'Thread.interrupted()' twice in a row returns false second time.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

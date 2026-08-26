@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_007: Iterators, Spliterators & Fail-Fast Mechanics
+Topic 9: Spliterator Fundamentals
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SPLITERATOR FUNDAMENTALS:
+   - Portmanteau of 'Split' + 'Iterator'.
+   - Engine behind Java 8 Streams and Parallel Streams.
+   - Key methods: 'tryAdvance()', 'trySplit()', 'estimateSize()'.
+   - Enables lock-free recursive partitioning for multi-core CPUs.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

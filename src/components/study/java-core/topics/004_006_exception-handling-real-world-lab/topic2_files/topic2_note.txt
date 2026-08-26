@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_006: Exception Handling Real-World Lab
+Topic 2: Global Exception Interceptor
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. GLOBAL INTERCEPTOR BENEFITS:
+   - Centralizes error-to-JSON translation.
+   - Eliminates duplicate try-catch blocks across 50 controllers.
+   - Maps domain exceptions to HTTP status codes (404, 422, 500).
+   - Uniform logging and telemetry across the application.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

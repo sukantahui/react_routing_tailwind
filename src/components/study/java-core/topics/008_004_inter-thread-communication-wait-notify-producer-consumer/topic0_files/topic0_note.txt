@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_004: Inter-Thread Communication & Producer-Consumer
+Topic 0: Avoiding Busy Waiting
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BUSY WAITING vs SIGNALING:
+   - Busy Waiting: 'while (!flag) {}' spins at 100% CPU utilization.
+   - Causes CPU starvation, thermal throttling, and battery drain.
+   - Inter-Thread Communication: 'wait()' suspends thread with 0% CPU cost.
+   - 'notify()' wakes up waiting thread only when data is ready.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_007: ExecutorService, Thread Pools & CompletableFuture
+Topic 11: CompletableFuture Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COMPLETABLEFUTURE OVERVIEW:
+   - Implements 'Future<T>' + 'CompletionStage<T>' (Java 8+).
+   - 100% Non-Blocking: Zero thread waiting with reactive callbacks.
+   - Declarative async chaining: 'supplyAsync() &rarr; thenApply() &rarr; thenAccept()'.
+   - By default executes on 'ForkJoinPool.commonPool()'.
+   - Can accept custom 'ExecutorService' thread pools.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

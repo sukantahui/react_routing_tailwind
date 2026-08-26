@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_001: String Immutability & String Constant Pool
+Topic 8: Core String Inspection Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INSPECTION METHODS:
+   - 'length()'             : Total number of 16-bit char code units.
+   - 'isEmpty()'            : 'length() == 0'.
+   - 'isBlank()' (Java 11+) : True if empty or all whitespaces.
+   - 'charAt(idx)'          : Char at index (0-indexed).
+   - 'indexOf(sub)'         : First occurrence index (-1 if missing).
+   - 'contains(seq)'        : True if substring is present.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

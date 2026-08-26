@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_007: File Handling & I/O Hands-On Capstone Lab
+Topic 3: Flat-File Database Engine Project
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FLAT-FILE DB ARCHITECTURE:
+   - Fixed-width records (e.g. 64 bytes per row).
+   - In-memory index: 'Map<ID, ByteOffset>'.
+   - 'RandomAccessFile.seek(offset)' for instantaneous O(1) seeks.
+   - Padded byte buffers for uniform binary layout.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

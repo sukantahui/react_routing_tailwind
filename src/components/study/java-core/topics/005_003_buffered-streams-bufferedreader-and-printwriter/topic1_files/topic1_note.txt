@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_003: Buffered Streams & PrintWriter
+Topic 1: Buffering Mechanics & 8KB Defaults
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BUFFER INTERNALS:
+   - Default size: 8192 (8 KB).
+   - Internal state variables: 'pos' (cursor), 'count' (valid bytes cached).
+   - Matches standard OS 4KB/8KB filesystem block allocations.
+   - Custom tuning: 'new BufferedInputStream(in, 65536)' for 64KB high-speed processing.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

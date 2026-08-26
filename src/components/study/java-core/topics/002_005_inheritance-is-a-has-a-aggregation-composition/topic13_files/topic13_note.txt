@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_005: Inheritance, IS-A vs HAS-A, Composition & Aggregation
+Topic 13: Fragile Base Class Problem
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FRAGILE BASE CLASS VULNERABILITY:
+   - Subclasses are tightly coupled to superclass internal implementations.
+   - Changes in superclass logic cause silent runtime bugs in child classes.
+   - Solution: Use Composition with Forwarding (Decorator / Wrapper pattern).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

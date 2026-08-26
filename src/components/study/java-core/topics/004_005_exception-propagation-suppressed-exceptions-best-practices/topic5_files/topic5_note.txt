@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_005: Propagation, Chaining & Best Practices
+Topic 5: Preserving Root Causes
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CAUSE LINKING MECHANISMS:
+   - Modern: 'super(message, cause)' in constructor.
+   - Legacy: 'ex.initCause(rootCause)'.
+   - Calling initCause() twice throws 'IllegalStateException'.
+   - Always preserve root causes to avoid losing diagnostic context.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_001: Collections Framework Overview
+Topic 3: java.util.Collection Interface
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COLLECTION INTERFACE CONTRACT:
+   - Root of List, Set, and Queue hierarchies.
+   - Extends 'Iterable<E>'.
+   - Common API: size(), isEmpty(), contains(), add(), remove().
+   - Principle: Program to 'Collection<E>' for maximum polymorphism.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

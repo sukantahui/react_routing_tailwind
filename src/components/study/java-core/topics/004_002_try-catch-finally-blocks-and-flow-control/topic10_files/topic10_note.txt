@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_002: Try, Catch, Finally & Flow Control
+Topic 10: When finally Does NOT Execute
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FINALLY BYPASS SCENARIOS:
+   - 'System.exit(0)' / 'Runtime.halt()'.
+   - Fatal JVM native crash (JNI).
+   - OS SIGKILL / Hardware power cut.
+   - Infinite loop / deadlock in try block.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

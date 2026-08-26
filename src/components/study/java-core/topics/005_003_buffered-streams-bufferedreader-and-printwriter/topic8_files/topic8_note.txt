@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_003: Buffered Streams & PrintWriter
+Topic 8: java.util.Scanner Parsing
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SCANNER ADVANTAGES:
+   - Built-in type conversion: 'nextInt()', 'nextDouble()', 'nextBoolean()'.
+   - Automatic whitespace tokenization.
+   - Custom delimiters: 'scanner.useDelimiter(",")'.
+   - Slower than BufferedReader due to regex overhead, but convenient for primitives.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

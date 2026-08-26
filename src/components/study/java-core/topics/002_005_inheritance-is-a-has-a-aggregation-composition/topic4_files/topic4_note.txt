@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_005: Inheritance, IS-A vs HAS-A, Composition & Aggregation
+Topic 4: The Diamond Problem & Why Multiple Inheritance is Disallowed
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE DIAMOND PROBLEM:
+   - Two parent classes have methods with identical signatures.
+   - Multiple inheritance creates ambiguity over which method the child inherits.
+   - Java omits multiple class inheritance for simplicity and reliability.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

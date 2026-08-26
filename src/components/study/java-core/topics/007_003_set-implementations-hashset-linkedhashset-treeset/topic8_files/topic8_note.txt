@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_003: Set Implementations & TreeSet Internals
+Topic 8: SortedSet & NavigableSet Interfaces
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. NAVIGABLESET CONTRACT:
+   - Extends 'SortedSet'.
+   - 'lower(e)' / 'higher(e)': strictly less/greater.
+   - 'floor(e)' / 'ceiling(e)': less-or-equal / greater-or-equal.
+   - 'pollFirst()' / 'pollLast()': retrieve & remove extremes.
+   - 'descendingSet()': reverse view in O(1) time.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

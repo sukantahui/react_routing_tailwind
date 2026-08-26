@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_003: Wrapper Classes & Autoboxing
+Topic 11: Custom Radix Parsing
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RADIX PARSING RULES:
+   - 'Integer.parseInt(str, 2)'  &rarr; Binary.
+   - 'Integer.parseInt(str, 8)'  &rarr; Octal.
+   - 'Integer.parseInt(str, 16)' &rarr; Hexadecimal.
+   - 'Integer.parseInt(str, 36)' &rarr; Base-36 Alphanumeric.
+   - Min Radix = 2, Max Radix = 36.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

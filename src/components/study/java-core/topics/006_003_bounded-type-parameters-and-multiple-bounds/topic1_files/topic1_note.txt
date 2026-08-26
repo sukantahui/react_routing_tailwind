@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_003: Bounded Type Parameters & Multiple Bounds
+Topic 1: Upper Bounded Syntax
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. UPPER BOUND SYNTAX:
+   - '<T extends SuperType>' establishes upper limit.
+   - Accepts 'SuperType' and all descendant subclasses.
+   - Rejects unrelated classes at compile time.
+   - Enforces domain-specific polymorphism.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

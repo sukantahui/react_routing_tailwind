@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_002: Thread Control & Daemon Threads
+Topic 11: Daemon Use Cases Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 008_002 GRAND SUMMARY:
+   - 'Thread.sleep(millis)': Pauses thread (TIMED_WAITING); NEVER releases locks.
+   - 'InterruptedException': JVM clears flag; restore via 'currentThread().interrupt()'.
+   - 'thread.join()': Coordinates threads by waiting for target completion.
+   - 'thread.join(millis)': Bounded timeout to prevent infinite production hangs.
+   - 'Thread.yield()': Voluntary hint to OS scheduler (stays in RUNNABLE).
+   - Deprecated: 'stop()', 'suspend()', 'resume()' (use cooperative interrupt).
+   - Interrupt API: 'interrupt()', 'isInterrupted()', static 'interrupted()' (clears flag).
+   - User vs Daemon: JVM stays alive for User threads; kills Daemons on User exit.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_005: Type Erasure & Generics Limitations
+Topic 2: Automatic Bytecode Casting
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. AUTOMATIC CAST INSERTION:
+   - Developer writes: 'String s = list.get(0);'.
+   - Bytecode generated: 'checkcast java/lang/String'.
+   - Compiler guarantees cast validity before generation.
+   - Provides clean syntax with zero manual boilerplate.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

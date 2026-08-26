@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_004: Try-with-Resources & AutoCloseable
+Topic 1: Introduction to ARM
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ARM / TRY-WITH-RESOURCES:
+   - Syntax: 'try (Resource r = new Resource()) { ... }'
+   - Automatically calls 'r.close()' upon exit.
+   - Eliminates tedious manual finally blocks.
+   - Guaranteed closing even during exceptions.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_004: Wildcards & The PECS Principle
+Topic 7: Producer Extends Read-Only
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PRODUCER EXTENDS RULES:
+   - 'List<? extends T>' serves as a DATA PRODUCER.
+   - Elements are safely read as 'T'.
+   - 'add(element)' is completely blocked at compile time.
+   - Preserves collection integrity regardless of actual subtype.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

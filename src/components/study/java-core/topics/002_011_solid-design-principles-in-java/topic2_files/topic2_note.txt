@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_011: SOLID Design Principles
+Topic 2: Refactoring Monolithic Classes
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. REFACTORING WORKFLOW:
+   - Identify disparate responsibilities (Compute, Format, Persist).
+   - Extract into dedicated stateless service classes.
+   - Compose services together in an orchestration coordinator.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

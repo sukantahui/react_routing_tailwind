@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_004: Wildcards & The PECS Principle
+Topic 3: Unbounded Wildcard (List<?>)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. UNBOUNDED WILDCARD RULES:
+   - 'List<?>': universal read-only supertype.
+   - Elements can be read safely as 'Object'.
+   - CANNOT add any objects (compile error).
+   - 'list.add(null)' is the ONLY allowed insertion.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

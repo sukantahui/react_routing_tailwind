@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_007: Abstract Classes & Partial Abstraction
+Topic 8: Fields and Constants in Abstract Classes
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STATE IN ABSTRACT CLASSES:
+   - Can declare instance variables (private, protected, public, package-private).
+   - Can declare static variables and constants ('static final').
+   - Holds true instance state on the Heap for each subclass object.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

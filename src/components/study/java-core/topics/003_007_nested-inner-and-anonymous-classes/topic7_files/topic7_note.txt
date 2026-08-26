@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_007: Nested & Inner Classes
+Topic 7: Method-Local Inner Class
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD-LOCAL CLASS RULES:
+   - Declared inside a method body.
+   - Scope is restricted solely to that method.
+   - Cannot have access modifiers (public/private/protected).
+   - Can access 'effectively final' local variables.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

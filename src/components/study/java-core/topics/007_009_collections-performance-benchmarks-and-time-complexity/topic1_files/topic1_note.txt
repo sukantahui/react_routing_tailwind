@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_009: Collections Performance & Big-O Complexities
+Topic 1: Master Big-O Complexity Matrix
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MASTER BIG-O COMPLEXITY:
+   - Index Access: ArrayList O(1) vs LinkedList O(n).
+   - Head/Tail Insert: ArrayDeque O(1), LinkedList O(1), ArrayList Tail O(1) Amortized.
+   - Hash Lookup: HashSet/HashMap O(1) Average.
+   - Sorted Tree Lookup: TreeSet/TreeMap O(log n).
+   - Priority Dequeue: PriorityQueue O(log n).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

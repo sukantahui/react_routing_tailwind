@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_004: Queue, Deque & PriorityQueue
+Topic 13: BlockingQueue Concurrency Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 007_004 GRAND SUMMARY:
+   - Queue: FIFO task buffering (First-In, First-Out).
+   - 2 Method Families: Exceptions (add/remove) vs Special Values (offer/poll).
+   - PriorityQueue: Binary Min-Heap (Array math: parent=(i-1)/2, children=2i+1, 2i+2).
+   - Sifting: O(log n) sift-up (offer) and sift-down (poll); Max-Heap via reverseOrder().
+   - Deque: Double-Ended Queue (12-method matrix).
+   - ArrayDeque: Contiguous circular array buffer; beats Stack & LinkedList.
+   - BlockingQueue: 'put()' / 'take()' thread coordination for producer-consumer systems.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

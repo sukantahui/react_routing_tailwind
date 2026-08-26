@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_004: Modern Java NIO.2
+Topic 7: Files Lifecycle Operations
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LIFECYCLE OPERATIONS:
+   - 'Files.createDirectories(path)': Creates entire folder chain.
+   - 'Files.createFile(path)': Creates empty file (fails if exists).
+   - 'Files.copy(src, dst, StandardCopyOption.REPLACE_EXISTING)'.
+   - 'Files.move(src, dst, StandardCopyOption.ATOMIC_MOVE)'.
+   - 'Files.delete(path)' vs 'Files.deleteIfExists(path)'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

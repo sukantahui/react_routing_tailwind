@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_007: ExecutorService, Thread Pools & CompletableFuture
+Topic 4: FixedThreadPool & Unbounded Queue
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. NEWFIXEDTHREADPOOL(N):
+   - 'corePoolSize = n', 'maxPoolSize = n'.
+   - 'workQueue': Unbounded 'LinkedBlockingQueue' (Integer.MAX_VALUE).
+   - Rejection policy is NEVER triggered because queue never fills up!
+   - Risk: Sudden traffic spike queues millions of tasks &rarr; Heap OOM.
+   - Solution: Use 'ArrayBlockingQueue' with explicit bounded capacity.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

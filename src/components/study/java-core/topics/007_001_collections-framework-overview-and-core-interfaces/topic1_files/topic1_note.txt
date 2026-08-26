@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_001: Collections Framework Overview
+Topic 1: JCF Architecture
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JCF ARCHITECTURE:
+   - 3 Pillars: Interfaces, Implementations, Algorithms.
+   - Root: 'Iterable<T>' &rarr; 'Collection<E>' &rarr; List, Set, Queue.
+   - 'Map<K, V>' is in an independent hierarchy.
+   - All classes reside in 'java.util' (and 'java.util.concurrent').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

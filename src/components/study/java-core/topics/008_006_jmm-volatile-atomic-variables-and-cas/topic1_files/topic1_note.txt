@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_006: JMM, volatile, Atomics & CAS
+Topic 1: Memory Visibility Problem
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MEMORY VISIBILITY PROBLEM:
+   - Changes made by Thread A on Core 1 are buffered in Core 1's cache.
+   - Thread B on Core 2 reads stale value from Core 2's cache.
+   - JIT compiler optimizes 'while(flag)' into an infinite register loop.
+   - Fix: Declare flag as 'volatile' or guard with 'synchronized'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

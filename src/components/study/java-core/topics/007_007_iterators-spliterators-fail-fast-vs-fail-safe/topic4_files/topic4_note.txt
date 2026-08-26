@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_007: Iterators, Spliterators & Fail-Fast Mechanics
+Topic 4: The modCount Mechanism
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE MODCOUNT FIELD:
+   - 'protected transient int modCount = 0;'.
+   - Incremented on structural changes: 'add()', 'remove()', 'clear()'.
+   - NOT incremented on 'set(index, val)' or 'get(index)'.
+   - Serves as the version counter for Fail-Fast iterators.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

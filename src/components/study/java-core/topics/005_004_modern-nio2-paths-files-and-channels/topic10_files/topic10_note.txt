@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_004: Modern Java NIO.2
+Topic 10: Files.readAllLines()
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. readAllLines() USAGE:
+   - 'List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8)'.
+   - 'Files.write(path, List<String>, StandardCharsets.UTF_8)'.
+   - Eager memory loading; ideal for small configs and CSVs.
+   - For massive big data files, use lazy 'Files.lines(path)'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

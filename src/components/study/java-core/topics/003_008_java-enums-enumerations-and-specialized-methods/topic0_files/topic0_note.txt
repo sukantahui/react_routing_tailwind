@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_008: Java Enums & Specialized Methods
+Topic 0: Why Enums Are Needed
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INT ENUM ANTI-PATTERN FLAWS:
+   - Zero compile-time type safety.
+   - Allows invalid integers like 999999.
+   - Prints raw digits instead of descriptive names.
+
+2. MODERN ENUM ADVANTAGES:
+   - 100% Type-Safe.
+   - Dedicated namespace.
+   - Built-in toString(), equals(), hashCode().
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

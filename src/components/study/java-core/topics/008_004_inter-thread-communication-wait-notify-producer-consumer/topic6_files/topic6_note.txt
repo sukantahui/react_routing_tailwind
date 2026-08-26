@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_004: Inter-Thread Communication & Producer-Consumer
+Topic 6: How notify() Works
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. HOW NOTIFY() WORKS:
+   - Wakes up exactly ONE arbitrary thread from Wait Set.
+   - Non-deterministic: NO FIFO or priority order guaranteed.
+   - Moves thread from WAITING to BLOCKED (Entry Set).
+   - Risk: Other waiting threads remain trapped (Thread Starvation).
+   - Prefer 'notifyAll()' to eliminate missed signal hazards.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

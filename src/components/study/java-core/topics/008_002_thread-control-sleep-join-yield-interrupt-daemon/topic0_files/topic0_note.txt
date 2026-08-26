@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_002: Thread Control & Daemon Threads
+Topic 0: Thread.sleep() & Lock Rule
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THREAD.SLEEP(MILLIS):
+   - Static method pausing currently executing thread.
+   - Transitions thread to 'TIMED_WAITING' state.
+   - Throws checked 'InterruptedException'.
+   - NEVER releases locks (holds onto synchronized monitors!).
+   - In contrast: 'Object.wait()' releases monitor locks.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_004: Queue, Deque & PriorityQueue
+Topic 10: ArrayDeque Circular Buffer
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ARRAYDEQUE CIRCULAR BUFFER:
+   - Resizable circular array buffer ('elements[]').
+   - 'head' and 'tail' indices wrap around circularly.
+   - Bitwise wrap: '(head - 1) & (length - 1)'.
+   - O(1) head and tail operations with zero array copying/shifting.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

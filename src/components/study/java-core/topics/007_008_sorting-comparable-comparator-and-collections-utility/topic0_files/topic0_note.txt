@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_008: Sorting, Comparable, Comparator & Collections
+Topic 0: Sorting Paradigms in Java
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SORTING PARADIGMS:
+   - Natural Order: 'Comparable<T>' ('compareTo(o)').
+   - Custom Strategy: 'Comparator<T>' ('compare(o1, o2)').
+   - Collections.sort(list) &rarr; uses Comparable.
+   - list.sort(comparator) &rarr; uses custom strategy.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

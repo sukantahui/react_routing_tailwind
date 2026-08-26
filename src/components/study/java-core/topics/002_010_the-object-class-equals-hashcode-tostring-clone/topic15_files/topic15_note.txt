@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_010: The Object Class & Core Contracts
+Topic 15: Copy Constructors vs clone()
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COPY CONSTRUCTOR ADVANTAGES:
+   - 'public MyClass(MyClass original) { ... }'
+   - Works cleanly with 'final' instance variables.
+   - No exception handling or unchecked downcasts.
+   - Clean, explicit object creation.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

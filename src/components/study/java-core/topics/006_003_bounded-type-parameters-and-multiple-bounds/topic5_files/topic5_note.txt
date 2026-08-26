@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_003: Bounded Type Parameters & Multiple Bounds
+Topic 5: Multiple Bounds Ordering Rules
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MULTIPLE BOUND RULES:
+   - Class bound MUST come first.
+   - Maximum ONE class bound permitted (no multiple inheritance).
+   - Zero or more interface bounds can follow.
+   - '<T extends Interface & Class>' will NOT compile.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

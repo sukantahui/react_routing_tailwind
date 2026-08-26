@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_006: Polymorphism, Overriding & Dynamic Method Dispatch
+Topic 5: Access Modifier Overriding Rules
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. VISIBILITY RULES IN OVERRIDING:
+   - Parent 'public' &rarr; Child MUST be 'public'.
+   - Parent 'protected' &rarr; Child can be 'protected' or 'public'.
+   - Parent 'default' &rarr; Child can be 'default', 'protected', or 'public'.
+   - Stricter access in child causes: "attempting to assign weaker access privileges".
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

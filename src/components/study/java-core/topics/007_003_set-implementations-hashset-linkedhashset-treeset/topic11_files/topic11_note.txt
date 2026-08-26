@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_003: Set Implementations & TreeSet Internals
+Topic 11: TreeSet compareTo Uniqueness Trap
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TREESET UNIQUENESS RULE:
+   - Ignores 'equals()' and 'hashCode()'.
+   - Uniqueness determined SOLELY by: 'compareTo(other) == 0'.
+   - If compareTo is inconsistent with equals, silent data loss occurs.
+   - Golden Rule: Ensure '(x.compareTo(y) == 0) == (x.equals(y))'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

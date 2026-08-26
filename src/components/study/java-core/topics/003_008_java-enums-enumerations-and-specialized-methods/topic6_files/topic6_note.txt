@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_008: Java Enums & Specialized Methods
+Topic 6: Custom Enum Properties
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CUSTOM FIELDS & CONSTRUCTORS:
+   - Constants listed first with constructor arguments: 'OK(200, "Success");'.
+   - Fields should be 'private final' for immutability.
+   - Semicolon ';' is mandatory after the last constant if members follow.
+   - Constructor is implicitly private.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_001: String Immutability & String Constant Pool
+Topic 12: Primitive to String Conversion
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CONVERSION RANKING:
+   - 1st (Best)  : 'String.valueOf(val)' &rarr; Null safe, optimized.
+   - 2nd (Good)  : 'Integer.toString(n)' &rarr; Fast primitive parsing.
+   - 3rd (Avoid) : '"" + val' &rarr; Unnecessary StringBuilder allocation.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_004: Math, Random & Arbitrary Precision
+Topic 6: Financial Calculations & Double Disaster
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FINANCIAL COMPUTATION LAW:
+   - NEVER use 'float' or 'double' for money, salaries, invoices, or taxes.
+   - Cumulative roundoff error corrupts account balances.
+   - ALWAYS use 'java.math.BigDecimal' for exact arithmetic.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

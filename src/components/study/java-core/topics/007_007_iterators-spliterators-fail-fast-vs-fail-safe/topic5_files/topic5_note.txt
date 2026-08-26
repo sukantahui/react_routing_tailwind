@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_007: Iterators, Spliterators & Fail-Fast Mechanics
+Topic 5: expectedModCount Verification
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CHECKFORCOMODIFICATION:
+   - 'int expectedModCount = modCount;' at iterator creation.
+   - Every 'next()' calls 'checkForComodification()'.
+   - 'if (modCount != expectedModCount) throw new CME()'.
+   - 1 CPU clock cycle integer comparison.
+   - Ensures memory safety and prevents undefined cursor behavior.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_001: String Immutability & String Constant Pool
+Topic 1: Literal vs Constructor Allocation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MEMORY ALLOCATION RULES:
+   - 'String s = "hello";'          &rarr; 1 object in SCP (or 0 if already present).
+   - 'String s = new String("hello");' &rarr; 2 objects (1 in SCP + 1 in regular Heap).
+   - Avoid 'new String("literal")' in production code.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

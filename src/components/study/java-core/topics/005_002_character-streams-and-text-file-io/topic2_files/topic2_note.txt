@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_002: Character Streams & Text File Processing
+Topic 2: Core Methods of Reader
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CORE READER METHODS:
+   - 'int read()'                    : Reads 1 char (returns 0-65535 or -1 for EOF).
+   - 'int read(char[] cbuf)'         : Reads block into buffer array.
+   - 'boolean ready()'               : Returns true if read won't block.
+   - 'void close()'                  : Closes stream and frees OS descriptor.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,14 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_007: Abstract Classes & Partial Abstraction
+Topic 4: Rules of Abstract Method Enclosure
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ENCLOSURE RULE:
+   - Any class containing &ge;1 abstract method MUST be declared 'abstract'.
+   - Conversely: An abstract class can have 0 abstract methods (valid syntax).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

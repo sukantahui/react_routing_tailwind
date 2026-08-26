@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_004: Queue, Deque & PriorityQueue
+Topic 8: java.util.Deque Interface
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DEQUE CONTRACT:
+   - Double-Ended Queue (pronounced 'deck').
+   - Insert and extract at both head and tail.
+   - Replaces legacy 'Stack' class for LIFO operations.
+   - Dual-mode: acts as FIFO queue, LIFO stack, and deque buffer.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_002: StringBuilder, StringBuffer & String Formatting
+Topic 7: String Formatting Specifiers
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FORMAT SPECIFIERS:
+   - '%s' : String
+   - '%d' : Integer
+   - '%f' : Float / Double (e.g. '%.2f')
+   - '%b' : Boolean
+   - '%x' : Hexadecimal
+   - '%n' : Platform newline
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

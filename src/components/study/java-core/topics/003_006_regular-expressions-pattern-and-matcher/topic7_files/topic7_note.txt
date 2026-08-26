@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_006: Regular Expressions (Regex)
+Topic 7: Regex Quantifiers
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. QUANTIFIER MODES:
+   - Greedy     : '*', '+', '?', '{n,m}' &rarr; Matches maximum length.
+   - Reluctant  : '*?', '+?', '??' &rarr; Matches minimum length (lazy).
+   - Possessive : '*+', '++', '?+' &rarr; Never backtracks (fastest & ReDoS safe).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

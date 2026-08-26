@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_005: Inheritance, IS-A vs HAS-A, Composition & Aggregation
+Topic 12: Favor Composition Over Inheritance
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHY FAVOR COMPOSITION:
+   - Dynamic Runtime Polymorphism: Can swap internal strategies on the fly.
+   - Encapsulation Protection: Superclass changes do not break child code.
+   - Loose Coupling: Classes depend on interfaces, not rigid concrete hierarchies.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_003: The 'this' and 'super' Keywords Mastery
+Topic 3: Using 'this()' to Invoke Overloaded Constructors
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. 'this()' RULES:
+   -----------------------------------------------------------------------------
+   - Must be the FIRST statement in a constructor body.
+   - Delegates initialization to another constructor in the same class.
+   - Prevents code duplication by routing to a Master Constructor.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

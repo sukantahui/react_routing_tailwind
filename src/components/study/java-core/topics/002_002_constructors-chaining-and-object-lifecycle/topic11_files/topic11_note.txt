@@ -1,0 +1,24 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_002: Constructors, Constructor Chaining & Object Lifecycle
+Topic 11: Execution Sequence: IIB Execution Before Constructor Body
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COMPLETE INITIALIZATION LIFECYCLE ORDER:
+   -----------------------------------------------------------------------------
+   Step 1: Raw Heap Memory Allocation (all bytes zeroed/null)
+   Step 2: Subclass Constructor called (delegates via super())
+   Step 3: Parent Class IIBs and Field Initializers (in textual order)
+   Step 4: Parent Class Constructor Body executes
+   Step 5: Child Class IIBs and Field Initializers (in textual order)
+   Step 6: Child Class Constructor Body executes
+   Step 7: Reference address returned to caller
+
+2. GOLDEN RULE:
+   - Parent state is ALWAYS fully constructed before Child IIBs and Constructor
+     bodies begin execution!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

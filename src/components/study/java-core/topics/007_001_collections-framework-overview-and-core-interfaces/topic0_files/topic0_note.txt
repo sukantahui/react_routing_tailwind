@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_001: Collections Framework Overview
+Topic 0: Why Arrays are Insufficient
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ARRAYS VS COLLECTIONS:
+   - Arrays: Fixed size, manual arraycopy, lacks Set/Map semantics.
+   - Collections: Dynamic auto-growth, O(1) searches, rich APIs.
+   - Solves array covariance issues via generic type safety.
+   - Standard backbone of modern Java applications.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

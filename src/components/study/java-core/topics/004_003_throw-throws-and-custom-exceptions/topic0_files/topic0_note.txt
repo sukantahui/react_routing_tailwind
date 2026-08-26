@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_003: Throw, Throws & Custom Exceptions
+Topic 0: The 'throw' Keyword
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 'throw' STATEMENT:
+   - Keyword: 'throw' (singular verb).
+   - Followed by an instantiated object: 'throw new Exception("message");'
+   - Used inside method bodies to raise an error.
+   - Instantly interrupts normal control flow.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

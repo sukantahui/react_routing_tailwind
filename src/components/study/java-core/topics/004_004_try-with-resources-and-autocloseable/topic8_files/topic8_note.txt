@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_004: Try-with-Resources & AutoCloseable
+Topic 8: Suppressed Exceptions
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SUPPRESSED EXCEPTIONS:
+   - Primary Exception = Error from try block (preserved).
+   - Suppressed Exception = Error from close() method (attached).
+   - Access via 'ex.getSuppressed()'.
+   - Eliminates legacy exception masking.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

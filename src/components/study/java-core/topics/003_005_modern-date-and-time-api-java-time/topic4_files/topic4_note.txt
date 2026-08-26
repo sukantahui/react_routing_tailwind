@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_005: Modern Date & Time API (java.time)
+Topic 4: LocalTime Deep Dive
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LOCALTIME ESSENTIALS:
+   - Creation: 'LocalTime.now()', 'LocalTime.of(h, m, s, nanos)'.
+   - Parsing: 'LocalTime.parse("14:30:00")'.
+   - Precision: Nanoseconds (9 decimal places).
+   - Comparison: 'isBefore()', 'isAfter()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

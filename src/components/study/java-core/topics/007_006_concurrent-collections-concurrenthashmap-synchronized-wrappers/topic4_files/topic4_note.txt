@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_006: Concurrent Collections & ConcurrentHashMap
+Topic 4: Java 7 Segment Locking Architecture
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JAVA 7 SEGMENT LOCKING:
+   - 'Segment<K,V>[] segments' (Default 16).
+   - Each Segment extends 'ReentrantLock'.
+   - Allowed 16 concurrent write threads.
+   - High memory bloat (16 tables allocated).
+   - Replaced in Java 8 with fine-grained per-bucket CAS & synchronization.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_004: Inter-Thread Communication & Producer-Consumer
+Topic 5: How wait() Works
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. HOW WAIT() WORKS:
+   - Atomically releases the monitor lock.
+   - Enrolls thread in object's Wait Set (WAITING state).
+   - Consumes 0% CPU cycles.
+   - On 'notify()', moves to Entry Set (BLOCKED).
+   - MUST re-acquire monitor lock before exiting 'wait()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

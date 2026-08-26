@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_007: Nested & Inner Classes
+Topic 1: 4 Types of Nested Classes
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TAXONOMY MAP:
+   - 'Member Inner'  : Non-static class at member level.
+   - 'Static Nested' : Static class at member level.
+   - 'Method-Local'  : Class inside a method body.
+   - 'Anonymous'     : Unnamed class created inline.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

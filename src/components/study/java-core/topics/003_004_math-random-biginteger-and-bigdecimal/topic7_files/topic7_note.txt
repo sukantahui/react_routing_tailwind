@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_004: Math, Random & Arbitrary Precision
+Topic 7: BigDecimal Architecture
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BIGDECIMAL ANATOMY:
+   - Unscaled value: 'BigInteger'.
+   - Scale: 'int' (count of decimal digits).
+   - Immutable and thread-safe.
+   - Provides exact mathematical decimal representation.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

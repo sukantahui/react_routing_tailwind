@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_002: StringBuilder, StringBuffer & String Formatting
+Topic 11: Real-World Template Builder Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 003_002 SUMMARY:
+   - Mutable string builders eliminate heap garbage during string assembly.
+   - StringBuilder (Java 5) is unsynchronized and high-speed.
+   - StringBuffer (Java 1.0) is synchronized and thread-safe.
+   - Buffer default capacity = 16; growth formula = (old * 2) + 2.
+   - Text Blocks (Java 15+) use triple quotes '"""' for multi-line JSON, SQL, and HTML.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_002: Constructors, Constructor Chaining & Object Lifecycle
+Topic 13: Private Constructors: Restricting Instantiation & Singletons
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PRIVATE CONSTRUCTOR RULES:
+   -----------------------------------------------------------------------------
+   - Marking a constructor 'private' prevents any external class from calling 'new'.
+   - Prevents subclassing (child cannot invoke private 'super()').
+   - Halts default compiler constructor generation.
+
+2. CORE USE CASES:
+   - Utility Classes: java.lang.Math, Collections (pure static routines).
+   - Singleton Pattern: Bill Pugh Singleton (1 global shared instance).
+   - Factory Enforcement: Forcing creation through static factory methods.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

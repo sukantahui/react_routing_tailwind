@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_006: Polymorphism, Overriding & Dynamic Method Dispatch
+Topic 4: The @Override Annotation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. @Override ANNOTATION POWERS:
+   - Compile-Time Safety Guard: Compiler verifies matching parent method exists.
+   - Prevents Silent Bug: Without @Override, a typo creates an unused overload.
+   - Best Practice: Always annotate overridden methods with @Override.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_010: The Object Class & Core Contracts
+Topic 6: The hashCode() Method
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. hashCode() MECHANICS:
+   - Returns a 32-bit signed integer ('int').
+   - Used by HashMap / HashSet to place objects into array buckets: 'bucket = hash & (n - 1)'.
+   - Two equal objects MUST return identical hash codes.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

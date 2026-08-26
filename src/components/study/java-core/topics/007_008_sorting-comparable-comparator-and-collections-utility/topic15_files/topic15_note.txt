@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_008: Sorting, Comparable, Comparator & Collections
+Topic 15: Singleton & Empty Factories
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. EMPTY & SINGLETON COLLECTIONS:
+   - 'Collections.emptyList() / emptySet() / emptyMap()'.
+   - Returns shared static singleton instance (zero GC memory bloat).
+   - 'Collections.singletonList(e)': highly optimized 1-element list.
+   - Best practice: Always return empty collections instead of 'null'!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

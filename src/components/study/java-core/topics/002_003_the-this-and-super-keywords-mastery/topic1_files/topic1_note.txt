@@ -1,0 +1,25 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_003: The 'this' and 'super' Keywords Mastery
+Topic 1: Using 'this' to Resolve Variable Shadowing
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. VARIABLE SHADOWING DEFINITION:
+   -----------------------------------------------------------------------------
+   - Occurs when parameter names match instance variable names.
+   - Inside the method/constructor, unqualified variable names resolve to the
+     LOCAL parameter!
+
+2. THE 'this.' SOLUTION:
+   - 'this.fieldName' &rarr; Targets instance variable on Heap.
+   - 'fieldName' &rarr; Targets local parameter in stack frame.
+   - Syntax: 'this.fieldName = fieldName;'
+
+3. THE 'name = name' BUG:
+   - Writing 'name = name;' assigns parameter to parameter (no-op).
+   - Leaves Heap field uninitialized (null or 0)!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_001: String Immutability & String Constant Pool
+Topic 3: SCP Literal Reuse Optimization
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SCP REUSE MECHANISM:
+   - When a literal is encountered, JVM checks if it exists in SCP.
+   - If present &rarr; Returns existing pooled reference.
+   - If absent  &rarr; Creates new string in SCP and returns reference.
+   - Flyweight design pattern implemented at JVM bytecode level.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

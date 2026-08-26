@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_008: Java Enums & Specialized Methods
+Topic 11: EnumSet & EnumMap
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ENUMSET & ENUMMAP:
+   - 'EnumSet.of(...)', 'EnumSet.allOf(...)', 'EnumSet.range(...)'.
+   - EnumSet: Bit-vector representation (fastest possible Set).
+   - EnumMap: Array-indexed Map without hashing or hash collisions.
+   - Always prefer EnumSet/EnumMap whenever enum keys are used.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

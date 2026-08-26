@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_004: Static Variables, Methods, Blocks & The Singleton Pattern
+Topic 3: Accessing Static Variables
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ACCESS CONVENTIONS:
+   - Always access static members via: 'ClassName.variableName'
+   - Avoid 'objectRef.variableName' (misleading; implies instance state).
+   - Even if 'ref = null', 'ref.staticVar' works because javac binds it to ClassName.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

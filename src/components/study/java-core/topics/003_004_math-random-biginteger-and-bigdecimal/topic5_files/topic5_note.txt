@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_004: Math, Random & Arbitrary Precision
+Topic 5: IEEE 754 Floating-Point Dilemma
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. IEEE 754 ESSENTIALS:
+   - 0.1 and 0.2 are repeating fractions in base-2 binary.
+   - '0.1 + 0.2 == 0.3' evaluates to 'false'.
+   - Produces '0.30000000000000004'.
+   - Solution: Use 'BigDecimal' for exact decimal arithmetic!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

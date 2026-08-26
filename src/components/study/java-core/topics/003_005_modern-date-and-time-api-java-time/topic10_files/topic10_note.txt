@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_005: Modern Date & Time API (java.time)
+Topic 10: Immutable Date Arithmetic
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ARITHMETIC METHODS:
+   - 'plusDays(n)' / 'plusWeeks(n)' / 'plusMonths(n)' / 'plusYears(n)'.
+   - 'minusDays(n)' / 'minusMonths(n)' / 'minusYears(n)'.
+   - 'withDayOfMonth(n)' / 'withYear(n)' (Field replacement).
+   - All operations are 100% immutable.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

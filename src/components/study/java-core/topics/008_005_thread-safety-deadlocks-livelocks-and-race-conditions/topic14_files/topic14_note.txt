@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_005: Thread Safety & Deadlocks
+Topic 14: Starvation & Fair Locks Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 008_005 GRAND SUMMARY:
+   - Thread Safety: Behaves correctly without external synchronization (Goetz).
+   - Race Categories: Read-Modify-Write (lost updates) & Check-Then-Act (stale check).
+   - Deadlock: 2+ threads permanently blocked waiting on each other's locks.
+   - 4 Coffman Conditions: Mutex, Hold & Wait, No Preemption, Circular Wait.
+   - Prevention: Enforce Global Lock Ordering to break Circular Wait.
+   - Resilience: 'tryLock(timeout)' with voluntary release to break No Preemption.
+   - Dining Philosophers: Dijkstra's resource hierarchy breaks chopstick deadlock.
+   - Diagnosis: 'jcmd Thread.print', 'jstack -l', and 'ThreadMXBean'.
+   - Livelock: 100% CPU active retry loop; solved by randomized back-off jitter.
+   - Starvation: Solved by FIFO Fair Locks ('new ReentrantLock(true)').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

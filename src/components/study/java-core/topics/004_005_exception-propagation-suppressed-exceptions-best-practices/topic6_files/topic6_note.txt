@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_005: Propagation, Chaining & Best Practices
+Topic 6: Log and Throw Anti-Pattern
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE GOLDEN RULE OF LOGGING:
+   - Handle OR Throw &rarr; NEVER BOTH.
+   - Logging + Rethrowing creates N identical stack traces in logs.
+   - Let exceptions bubble to the top boundary (Controller) and log once.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

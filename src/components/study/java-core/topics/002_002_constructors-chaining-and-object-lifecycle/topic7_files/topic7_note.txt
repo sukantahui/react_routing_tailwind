@@ -1,0 +1,26 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_002: Constructors, Constructor Chaining & Object Lifecycle
+Topic 7: Constructor Chaining Within the Same Class Using 'this()'
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CONSTRUCTOR CHAINING RULES:
+   -----------------------------------------------------------------------------
+   - Use 'this(arg1, arg2, ...)' to call another constructor in the same class.
+   - MUST be the VERY FIRST statement in the constructor body.
+   - Cannot use both 'this()' and 'super()' in the same constructor.
+   - Cannot create circular/recursive calls ('recursive constructor invocation').
+
+2. THE MASTER CONSTRUCTOR PATTERN:
+   - Create 1 Master (Canonical) Constructor that accepts ALL parameters,
+     validates domain rules, and assigns all fields.
+   - Overloaded constructors supply default values and delegate to the Master!
+
+3. CLASSROOM ANALOGY (SUKANTA HUI - BARRACKPORE):
+   - Desk Relay: Clerk A (1-arg) passes to Clerk B (2-arg) who passes to
+     Master Officer (5-arg) to stamp the student registration once!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

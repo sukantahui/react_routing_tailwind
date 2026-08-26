@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_003: Set Implementations & TreeSet Internals
+Topic 10: TreeSet Ordering
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TREESET ORDERING RULES:
+   - Natural Ordering: Elements must implement 'Comparable<T>'.
+   - Custom Ordering: Pass 'Comparator<T>' into 'new TreeSet<>(comparator)'.
+   - Missing Comparable & Comparator &rarr; runtime 'ClassCastException'.
+   - Lambda Comparators: 'Comparator.comparingDouble(...).reversed()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

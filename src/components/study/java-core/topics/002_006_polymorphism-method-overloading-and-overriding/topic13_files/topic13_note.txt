@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_006: Polymorphism, Overriding & Dynamic Method Dispatch
+Topic 13: Modern Pattern Matching for instanceof (Java 16+)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PATTERN MATCHING SYNTAX:
+   - 'if (obj instanceof TargetType varName) { ... }'
+   - The variable 'varName' is scoped strictly to the true branch of the 'if'.
+   - Can combine with boolean guards: 'if (obj instanceof String s && s.length() > 5)'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_010: The Object Class & Core Contracts
+Topic 12: The clone() Method & Cloneable
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. 'clone()' RULES:
+   - Class MUST implement 'java.lang.Cloneable'.
+   - Widen visibility from 'protected' to 'public'.
+   - Use covariant return type ('public MyClass clone()').
+   - Handles 'CloneNotSupportedException'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

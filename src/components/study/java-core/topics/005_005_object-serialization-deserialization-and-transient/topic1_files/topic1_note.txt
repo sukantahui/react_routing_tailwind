@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_005: Object Serialization & The transient Keyword
+Topic 1: What is Deserialization
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DESERIALIZATION RECONSTRUCTION:
+   - 'ObjectInputStream.readObject()' rehydrates live object.
+   - Constructor of Serializable class is NEVER called.
+   - JVM directly populates fields from stream byte offsets.
+   - Restored instance is a new, independent heap clone (== returns false).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

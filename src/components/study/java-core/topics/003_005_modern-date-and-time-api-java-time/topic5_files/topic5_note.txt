@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_005: Modern Date & Time API (java.time)
+Topic 5: LocalDateTime Deep Dive
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LOCALDATETIME ESSENTIALS:
+   - Combines 'LocalDate' and 'LocalTime' without timezone.
+   - Creation: 'LocalDateTime.now()', 'LocalDateTime.of(...)'.
+   - Composition: 'date.atTime(time)'.
+   - Decomposition: 'dt.toLocalDate()', 'dt.toLocalTime()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

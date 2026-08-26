@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_006: Exception Handling Real-World Lab
+Topic 1: Unified API Error Response Model
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RFC 7807 ERROR MODEL FIELDS:
+   - 'timestamp'  : Instant.now() in UTC.
+   - 'status'     : HTTP status code (400, 404, 500).
+   - 'errorCode'  : Machine-parseable identifier ('PAY_4001').
+   - 'message'    : Descriptive string.
+   - 'path'       : Endpoint URI ('/api/v1/enroll').
+   - 'fieldErrors': Map of specific validation failures.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

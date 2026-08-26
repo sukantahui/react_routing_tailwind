@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_006: JMM, volatile, Atomics & CAS
+Topic 0: CPU Hardware Memory Hierarchy
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CPU HARDWARE MEMORY HIERARCHY:
+   - Registers: ~0.5 ns (Private to core).
+   - L1/L2 Caches: ~1-4 ns (Private to core).
+   - L3 Cache: ~15 ns (Shared).
+   - Main RAM: ~60-100 ns (200x slower than registers).
+   - Problem: Private L1/L2 caches hold stale copies of shared variables across cores.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_002: Thread Control & Daemon Threads
+Topic 3: Bounded join(millis) Timeouts
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BOUNDED JOIN TIMEOUTS:
+   - 't.join(millis)' puts calling thread in 'TIMED_WAITING'.
+   - Returns when target thread terminates OR timeout expires (whichever comes first).
+   - Check 't.isAlive()' after timeout to see if thread finished.
+   - Prevents cascading production deadlocks and infinite thread hangs.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

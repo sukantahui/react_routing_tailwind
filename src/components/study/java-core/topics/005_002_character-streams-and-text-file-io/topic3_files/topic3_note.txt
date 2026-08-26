@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_002: Character Streams & Text File Processing
+Topic 3: Core Methods of Writer
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CORE WRITER METHODS:
+   - 'write(int c)'                  : Writes 1 char.
+   - 'write(char[] cbuf, off, len)'  : Writes char array slice.
+   - 'write(String str)'             : Writes String directly.
+   - 'flush()'                       : Flushes internal memory buffers.
+   - 'close()'                       : Flushes buffers and closes stream.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

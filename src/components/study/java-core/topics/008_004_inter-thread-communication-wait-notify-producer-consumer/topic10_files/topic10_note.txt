@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_004: Inter-Thread Communication & Producer-Consumer
+Topic 10: Bounded Buffer Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 008_004 GRAND SUMMARY:
+   - Busy Waiting burns 100% CPU; wait/notify gives 0% idle CPU cost.
+   - 4 Methods on Object: wait(), wait(timeout), notify(), notifyAll().
+   - Declared on Object because locks belong to objects, not threads.
+   - Mandatory: Must hold monitor lock before calling wait/notify.
+   - IllegalMonitorStateException thrown if lock is not owned.
+   - wait(): releases lock, enters Wait Set, re-acquires lock upon wakeup.
+   - notify(): wakes 1 arbitrary waiter; notifyAll(): broadcasts to all.
+   - Spurious wakeups occur due to OS kernel signals.
+   - Golden Rule: ALWAYS call wait() inside a WHILE loop!
+   - Bounded Buffer: Producer waits when full; Consumer waits when empty.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

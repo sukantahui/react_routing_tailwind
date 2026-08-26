@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_004: Queue, Deque & PriorityQueue
+Topic 1: 2 Method Families of Queue
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. QUEUE METHOD FAMILIES:
+   - Insert  : 'add(e)' (Exception) vs 'offer(e)' (false).
+   - Remove  : 'remove()' (Exception) vs 'poll()' (null).
+   - Examine : 'element()' (Exception) vs 'peek()' (null).
+   - Best practice: Prefer 'offer()', 'poll()', and 'peek()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================
