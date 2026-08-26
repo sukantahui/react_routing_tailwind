@@ -1,379 +1,476 @@
-import React, { useState, useEffect, useRef } from "react";
-import clsx from "clsx";
-
-// ─── Common Framework Imports ──────────────────────────────────────────
+import React, { useState, useEffect } from "react";
 import Teacher from "../../../../../common/TeacherSukantaHui";
+import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import questions from "./topic3_files/topic3_questions";
+
+// Import Python Source Files
+import sleepVsOntimerCode from "./topic3_files/blocking_sleep_vs_ontimer.py?raw";
+import eventMultitaskerCode from "./topic3_files/event_driven_multitasker_ontimer.py?raw";
+import deltaTimeCode from "./topic3_files/delta_time_framerate_independent_physics.py?raw";
 import noteText from "./topic3_files/topic3_note.txt?raw";
 
-/**
- * Topic3 – Timing and loop delays using time.sleep() and ontimer()
- * Module: 005_005_turtle-animation (Module 5 – Animation & Motion Logic)
- * Track: Python from Basic to Pro
- *
- * @component
- * @returns {JSX.Element} Interactive tutorial component with concept simulator,
- *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
- */
+const keyframes = `
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulseTimer {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.04); opacity: 1; filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.6)); }
+}
+`;
+
 const Topic3 = () => {
-  const [activeTab, setActiveTab] = useState("concept");
-  const [filterThreshold, setFilterThreshold] = useState(70000);
-  const sectionRefs = useRef([]);
+  const [timingMode, setTimingMode] = useState("ontimer"); // "sleep" vs "ontimer"
+  const [playerX, setPlayerX] = useState(160);
+  const [obstacleX, setObstacleX] = useState(40);
+  const [timerCount, setTimerCount] = useState(0);
 
+  // Obstacle Animation (16ms loop)
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    sectionRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
+    const interval = setInterval(() => {
+      setObstacleX((prev) => (prev >= 280 ? 40 : prev + 3));
+    }, 16);
+    return () => clearInterval(interval);
   }, []);
 
-  const addRef = (el) => {
-    if (el && !sectionRefs.current.includes(el)) {
-      sectionRefs.current.push(el);
+  // 1-second clock counter
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimerCount((c) => c + 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleKeySteer = (dir) => {
+    if (timingMode === "sleep") {
+      // Simulate input lag / freezing in blocking sleep mode
+      return;
     }
+    setPlayerX((prev) => (dir === "left" ? Math.max(30, prev - 25) : Math.min(290, prev + 25)));
   };
 
-  const sampleEmployees = [
-    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
-    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
-    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
-    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  const prototypes = [
+    {
+      name: "screen.ontimer(callback, delay_ms)",
+      returnType: "Asynchronous Scheduling",
+      purpose: "Schedules a non-blocking function execution after delay_ms inside Tkinter's event loop.",
+      usage: "screen.ontimer(game_tick, 16)"
+    },
+    {
+      name: "time.sleep(seconds)",
+      returnType: "Synchronous Thread Block",
+      purpose: "Pauses the entire Python OS execution thread for a fixed duration (simple but blocks UI events).",
+      usage: "time.sleep(0.0166)"
+    },
+    {
+      name: "dt = now - last_time",
+      returnType: "Delta-Time Calculation",
+      purpose: "Measures exact elapsed frame duration for framerate-independent physics: `x += speed * dt`.",
+      usage: "x += speed_per_sec * dt"
+    },
+    {
+      name: "screen.mainloop()",
+      returnType: "Event Loop Dispatcher",
+      purpose: "Enters Tkinter's persistent event listener, firing scheduled timers and user inputs.",
+      usage: "screen.mainloop()"
+    }
   ];
 
-  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
-
   return (
-    <>
-      <style>{`
-        .reveal-section {
-          transform: translateY(0);
-          transition: transform 0.4s ease-out;
-        }
-        .reveal-section.is-visible {
-          transform: translateY(0);
-        }
-      `}</style>
+    <div className="dark bg-gray-900 text-gray-100 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+      <style>{keyframes}</style>
 
-      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
-        
-        {/* ─── 1. Header Section ──────────────────────────────── */}
-        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
-            <span>🐍</span>
-            <span>Python Masterclass · Module 005 · Topic 3</span>
+      <div className="max-w-6xl mx-auto space-y-12">
+        {/* =========================================================================
+            HERO SECTION
+        ========================================================================= */}
+        <div className="text-center space-y-4 animate-[fadeInUp_0.5s_ease-out]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold uppercase tracking-wider">
+            Module 005_005 · Animation & Motion Logic · Topic 3
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Timing and loop delays using time.sleep() and ontimer()
+
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400 bg-clip-text text-transparent">
+            Timing & Loop Delays: time.sleep() vs ontimer()
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Master smooth frame animation, physics simulations, boundary bouncing, and tracer controls.
+
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Master the transition from synchronous thread blocking to asynchronous event-driven game loops. Explore <span className="text-cyan-300 font-semibold">screen.ontimer() multitasking</span>, <span className="text-emerald-300 font-semibold">zero-input-lag keyboard controls</span>, and <span className="text-amber-300 font-semibold">Delta-Time (dt) physics</span>.
           </p>
 
-          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
-              ⚡ Pythonic Architecture
+          <div className="flex justify-center gap-4 flex-wrap pt-2">
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              ⚡ screen.ontimer() Event Architecture
             </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
-              🧮 Clean Code &amp; Idioms
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              🎮 Non-Blocking Keyboard Responsiveness
             </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
-              🔄 Robust Error Handling
-            </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
-              💾 Production Scalability
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              ⏱️ Framerate-Independent Delta-Time
             </span>
           </div>
-        </header>
+        </div>
 
-        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
-        <section
-          ref={addRef}
-          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
-        >
-          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
-              👨‍🏫
-            </div>
+        {/* =========================================================================
+            INTERACTIVE EVENT-LOOP TIMING SIMULATOR
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-slate-800 backdrop-blur-sm hover:shadow-2xl transition-all duration-300 space-y-6 animate-[fadeInUp_0.6s_ease-out_0.1s]">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-700/60 pb-4">
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-white">
-                Teacher's Concept Breakdown: Timing and loop delays using time.sleep() and ontimer()
-              </h2>
+              <h3 className="text-lg font-bold text-slate-100 flex items-center gap-2">
+                <span>⚡</span> Interactive Timing Paradigm Simulator
+              </h3>
               <p className="text-xs text-slate-400">
-                Understanding Python mechanics and design patterns from first principles
+                Switch between Synchronous `time.sleep()` (Thread Blocking) and Asynchronous `ontimer()` (Cooperative Multitasking).
+              </p>
+            </div>
+
+            {/* Timing Mode Toggles */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setTimingMode("sleep")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer ${
+                  timingMode === "sleep"
+                    ? "bg-rose-500 text-white font-bold shadow-md shadow-rose-500/25"
+                    : "bg-gray-800 text-slate-400 hover:bg-gray-700 border border-slate-700"
+                }`}
+              >
+                ⏸️ Synchronous time.sleep() (Blocks Input)
+              </button>
+
+              <button
+                onClick={() => setTimingMode("ontimer")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer ${
+                  timingMode === "ontimer"
+                    ? "bg-emerald-500 text-slate-950 font-bold shadow-md shadow-emerald-500/25"
+                    : "bg-gray-800 text-slate-400 hover:bg-gray-700 border border-slate-700"
+                }`}
+              >
+                🚀 Asynchronous ontimer() (Instant Input)
+              </button>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 items-center">
+            {/* View 1: Real-Time Interactive Canvas */}
+            <div className="flex flex-col items-center p-4 bg-slate-950 rounded-xl border border-slate-800">
+              <span className="text-xs font-mono text-cyan-400 mb-2">
+                Interactive Arcade Simulation ({timingMode.toUpperCase()})
+              </span>
+              <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-sm h-auto bg-slate-950 rounded-lg">
+                {/* HUD Banner */}
+                <rect x="10" y="10" width="300" height="24" rx="4" fill="#0f172a" stroke="#334155" strokeWidth="1" />
+                <text x="20" y="26" fill="#38bdf8" fontSize="9.5" fontWeight="bold" fontFamily="monospace">
+                  SURVIVED: {timerCount}s | MODE: {timingMode === "ontimer" ? "ASYNC ONTIMER" : "BLOCKED SLEEP"}
+                </text>
+
+                {/* Patrol Obstacle (Moving automatically) */}
+                <circle cx={obstacleX} cy="70" r="14" fill="#f43f5e" stroke="#ffffff" strokeWidth="1.5" />
+                <text x={obstacleX} y="74" fill="#ffffff" fontSize="8" textAnchor="middle" fontWeight="bold">ENEMY</text>
+
+                {/* Player Ship */}
+                <g transform={`translate(${playerX}, 130)`}>
+                  <polygon points="0,-18 -15,10 15,10" fill="#34d399" stroke="#ffffff" strokeWidth="1.5" />
+                  <circle cx="0" cy="-2" r="3" fill="#020617" />
+                </g>
+
+                {/* Status alert */}
+                {timingMode === "sleep" && (
+                  <text x="160" y="110" fill="#f43f5e" fontSize="10" textAnchor="middle" fontWeight="bold" fontFamily="monospace">
+                    ⚠️ THREAD BLOCKED - INPUT FROZEN!
+                  </text>
+                )}
+              </svg>
+
+              {/* Interactive Steering Buttons */}
+              <div className="flex items-center gap-3 mt-4">
+                <button
+                  onClick={() => handleKeySteer("left")}
+                  disabled={timingMode === "sleep"}
+                  className={`px-4 py-1.5 rounded-lg text-xs font-bold font-mono transition cursor-pointer ${
+                    timingMode === "sleep"
+                      ? "bg-gray-800 text-gray-600 cursor-not-allowed border border-gray-800"
+                      : "bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold shadow-md shadow-cyan-500/25"
+                  }`}
+                >
+                  ◀ Steer Left
+                </button>
+
+                <button
+                  onClick={() => handleKeySteer("right")}
+                  disabled={timingMode === "sleep"}
+                  className={`px-4 py-1.5 rounded-lg text-xs font-bold font-mono transition cursor-pointer ${
+                    timingMode === "sleep"
+                      ? "bg-gray-800 text-gray-600 cursor-not-allowed border border-gray-800"
+                      : "bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold shadow-md shadow-cyan-500/25"
+                  }`}
+                >
+                  Steer Right ▶
+                </button>
+              </div>
+            </div>
+
+            {/* View 2: Architecture Comparison & Metrics */}
+            <div className="space-y-4 bg-gray-900 p-5 rounded-xl border border-slate-800 text-xs">
+              <div className="text-sm font-bold text-cyan-400 flex justify-between items-center">
+                <span>Architecture Diagnostics</span>
+                <span className={`font-mono text-xs px-2 py-0.5 rounded ${
+                  timingMode === "ontimer"
+                    ? "bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-bold"
+                    : "bg-rose-500/10 border border-rose-500/30 text-rose-300"
+                }`}>
+                  {timingMode === "ontimer" ? "Event-Driven Asynchronous" : "Synchronous Thread Halt"}
+                </span>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 pt-1">
+                <div className="p-3 bg-slate-950 rounded-lg border border-slate-800">
+                  <div className="text-slate-400 text-[11px]">Keyboard Input Latency</div>
+                  <div className={`text-base font-mono font-bold ${
+                    timingMode === "ontimer" ? "text-emerald-400" : "text-rose-400"
+                  }`}>
+                    {timingMode === "ontimer" ? "0 ms (Instant)" : "1,000+ ms (Stalled)"}
+                  </div>
+                  <div className="text-[10px] text-slate-500">Event Queue Responsiveness</div>
+                </div>
+
+                <div className="p-3 bg-slate-950 rounded-lg border border-slate-800">
+                  <div className="text-slate-400 text-[11px]">Concurrent Timers</div>
+                  <div className="text-base font-mono font-bold text-sky-400">
+                    {timingMode === "ontimer" ? "Multi-Timer (60FPS + 1s HUD)" : "Single Thread Only"}
+                  </div>
+                  <div className="text-[10px] text-slate-500">Cooperative Task Slicing</div>
+                </div>
+              </div>
+
+              {/* Code Snippet Box */}
+              <div className="p-3 bg-slate-950 rounded-lg border border-slate-800 space-y-1">
+                <span className="text-[10px] text-slate-500 font-mono uppercase tracking-wider block">
+                  # {timingMode === "ontimer" ? "Non-Blocking Event-Driven Pattern" : "Blocking Linear Sleep Pattern"}
+                </span>
+                <pre className="font-mono text-emerald-300 text-xs overflow-x-auto">
+{timingMode === "ontimer"
+  ? `def game_tick():
+    update_physics()
+    screen.update()
+    screen.ontimer(game_tick, 16)  # 60 FPS non-blocking!`
+  : `while running:
+    update_physics()
+    screen.update()
+    time.sleep(0.0166)  # Blocks OS thread!`}
+                </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            PROTOTYPES SPECIFICATION TABLE
+        ========================================================================= */}
+        <div className="bg-gray-800/60 rounded-2xl p-6 border border-slate-800 animate-[fadeInUp_0.6s_ease-out_0.2s]">
+          <h2 className="text-xl font-bold text-cyan-400 mb-4 flex items-center gap-2">
+            <span>⚙️</span> Timing & Loop Scheduling APIs
+          </h2>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-gray-700 text-gray-400 text-xs uppercase tracking-wider">
+                  <th className="py-3 px-4">Method / Timing Pattern</th>
+                  <th className="py-3 px-4">Paradigm</th>
+                  <th className="py-3 px-4">Execution & Event Role</th>
+                  <th className="py-3 px-4">Standard Call</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-800 text-gray-200">
+                {prototypes.map((proto, index) => (
+                  <tr key={index} className="hover:bg-gray-800/40 transition">
+                    <td className="py-3.5 px-4 font-mono text-cyan-300 font-bold text-xs">{proto.name}</td>
+                    <td className="py-3.5 px-4 font-mono text-indigo-400 text-xs">{proto.returnType}</td>
+                    <td className="py-3.5 px-4 text-xs text-gray-300">{proto.purpose}</td>
+                    <td className="py-3.5 px-4 font-mono text-amber-300 text-xs">{proto.usage}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            PYTHON CODE IMPLEMENTATION SCRIPTS
+        ========================================================================= */}
+        <div className="space-y-6 animate-[fadeInUp_0.6s_ease-out_0.3s]">
+          <h2 className="text-2xl font-bold text-slate-100 flex items-center gap-2">
+            <span>💻</span> Professional Python Implementation Scripts
+          </h2>
+
+          <div className="space-y-6">
+            {/* File 1: blocking_sleep_vs_ontimer.py */}
+            <PythonFileLoader
+              fileModule={sleepVsOntimerCode}
+              title="blocking_sleep_vs_ontimer.py"
+              highlightLines={[25, 30, 48, 51, 54, 57]}
+            />
+
+            {/* File 2: event_driven_multitasker_ontimer.py */}
+            <PythonFileLoader
+              fileModule={eventMultitaskerCode}
+              title="event_driven_multitasker_ontimer.py"
+              highlightLines={[22, 23, 26, 27, 47, 59, 62, 63, 65]}
+            />
+
+            {/* File 3: delta_time_framerate_independent_physics.py */}
+            <PythonFileLoader
+              fileModule={deltaTimeCode}
+              title="delta_time_framerate_independent_physics.py"
+              highlightLines={[21, 26, 27, 33, 44]}
+            />
+          </div>
+        </div>
+
+        {/* =========================================================================
+            REAL-WORLD CLASSROOM SCENARIOS
+        ========================================================================= */}
+        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.4s]">
+          <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800 space-y-3">
+            <h3 className="font-bold text-cyan-400 text-lg flex items-center gap-2">
+              <span>🏎️</span> Barrackpore Racing Game: Lag Elimination
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Mamata created an arcade car racer in Barrackpore. When she added a 1-second countdown delay using <code className="text-rose-300 font-mono">time.sleep(1)</code>, player arrow key inputs were completely ignored. Teacher Sukanta Hui guided her to refactor to <code className="text-cyan-300 font-mono">screen.ontimer(game_tick, 16)</code> and <code className="text-emerald-300 font-mono">screen.ontimer(countdown_tick, 1000)</code>. Controls became instantaneous and lightning responsive!
+            </p>
+          </div>
+
+          <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800 space-y-3">
+            <h3 className="font-bold text-indigo-400 text-lg flex items-center gap-2">
+              <span>✈️</span> Kolkata Delta-Time Flight Physics
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Debangshu in Kolkata tested his flight simulator across a high-end 144Hz desktop and an older 30Hz laptop. Because he multiplied velocity by <code className="text-emerald-300 font-mono">dt = time.perf_counter() - last_time</code>, airplanes traveled across the screen in exactly 4.0 seconds on both computers without speed distortion!
+            </p>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            COMMON BEGINNER TRAPS & PITFALLS
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-slate-800 space-y-4 animate-[fadeInUp_0.6s_ease-out_0.5s]">
+          <h3 className="text-xl font-bold text-amber-400 flex items-center gap-2">
+            <span>⚠️</span> Top 4 Timing Traps to Avoid
+          </h3>
+
+          <div className="grid sm:grid-cols-2 gap-4 text-xs text-gray-300">
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">1. Calling ontimer with Seconds</strong>
+              <p className="text-slate-400">
+                Writing <code className="text-rose-300 font-mono">ontimer(tick, 0.016)</code> rounds down to 0 milliseconds, overloading the CPU. <code className="text-cyan-300 font-mono">ontimer()</code> expects integer milliseconds (e.g. <code className="text-emerald-300 font-mono">16</code>).
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">2. Invoking the Function in ontimer</strong>
+              <p className="text-slate-400">
+                Writing <code className="text-rose-300 font-mono">ontimer(tick(), 16)</code> with parentheses executes <code className="text-rose-300 font-mono">tick()</code> immediately once instead of passing the function reference. Pass <code className="text-cyan-300 font-mono">ontimer(tick, 16)</code>.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">3. Mixing while True and mainloop()</strong>
+              <p className="text-slate-400">
+                Putting a <code className="text-rose-300 font-mono">while True:</code> loop before <code className="text-amber-300 font-mono">screen.mainloop()</code> prevents <code className="text-amber-300 font-mono">mainloop()</code> from ever executing, breaking all event listeners.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">4. Unclamped Delta-Time Explosion</strong>
+              <p className="text-slate-400">
+                When dragging the window, <code className="text-rose-300 font-mono">dt</code> jumps to 2.0+ seconds, launching physics objects into outer space. Always clamp with <code className="text-cyan-300 font-mono">dt = min(dt, 0.05)</code>.
               </p>
             </div>
           </div>
+        </div>
 
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
-                  <span>💡</span> Architectural Insight
-                </span>
-                <p className="text-sm text-slate-200 leading-relaxed font-medium">
-                  In modern software engineering, <strong className="text-teal-300">Timing and loop delays using time.sleep() and ontimer()</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
-                </p>
-                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
-                  Readable Syntax · Deterministic Execution · Fast Prototyping
-                </div>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
-                </p>
+        {/* =========================================================================
+            STUDENT CHECKLIST
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-cyan-500/30 animate-[fadeInUp_0.6s_ease-out_0.6s]">
+          <h3 className="text-xl font-semibold text-cyan-400 mb-3">📝 Student Mastery Checklist</h3>
+          <div className="grid sm:grid-cols-2 gap-2.5 text-xs text-gray-200">
+            {[
+              "I understand why `screen.ontimer()` is non-blocking and preserves keyboard responsiveness",
+              "I know that `screen.ontimer()` accepts milliseconds (16 ms for ~60 FPS)",
+              "I pass function references (`ontimer(tick, 16)`) without executing parentheses `()`",
+              "I know how to run multiple concurrent timers (e.g. physics tick + countdown HUD)",
+              "I can calculate delta-time (`dt = now - last_time`) for framerate-independent physics",
+              "I always clamp maximum delta time (`min(dt, 0.05)`) to protect against physics explosions"
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-2 p-2 rounded-lg bg-gray-900/60 border border-slate-800">
+                <span className="text-cyan-400 font-bold shrink-0">✓</span>
+                <span>{item}</span>
               </div>
-              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
-                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
-              </div>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
-                  <span>🏫</span> Real-World Engineering Analogy
-                </span>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Imagine an automated logistics dispatch office in Barrackpore:
-                </p>
-                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
-                  <li>
-                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
-                  </li>
-                  <li>
-                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
-                  </li>
-                </ul>
-              </div>
-              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
-                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
-              </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
 
-        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Timing and loop delays using time.sleep() and ontimer()
-          </h2>
-          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
-            
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
-                <button
-                  onClick={() => setActiveTab("concept")}
-                  className={clsx(
-                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
-                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
-                  )}
-                >
-                  Structured View
-                </button>
-                <button
-                  onClick={() => setActiveTab("json")}
-                  className={clsx(
-                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
-                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
-                  )}
-                >
-                  Raw Dictionary JSON
-                </button>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                  Filter Minimum Salary (₹):
-                </label>
-                <select
-                  value={filterThreshold}
-                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
-                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
-                >
-                  <option value={60000}>₹60,000+ (All 4 Records)</option>
-                  <option value={75000}>₹75,000+ (3 Records)</option>
-                  <option value={85000}>₹85,000+ (2 Records)</option>
-                  <option value={90000}>₹90,000+ (Top Earner)</option>
-                </select>
-              </div>
-            </div>
-
-            {activeTab === "concept" ? (
-              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
-                <table className="w-full text-left text-xs font-mono">
-                  <thead>
-                    <tr className="border-b border-slate-800 text-slate-400">
-                      <th className="pb-2">ID</th>
-                      <th className="pb-2">Employee</th>
-                      <th className="pb-2">Location</th>
-                      <th className="pb-2">Salary</th>
-                      <th className="pb-2">Performance</th>
-                      <th className="pb-2">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
-                    {filteredList.map((emp) => (
-                      <tr key={emp.id} className="hover:bg-slate-900/40">
-                        <td className="py-2.5 text-slate-500">{emp.id}</td>
-                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
-                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
-                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
-                        <td className="py-2.5">
-                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
-                            ⭐ {emp.score}
-                          </span>
-                        </td>
-                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            ) : (
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
-                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
-                  {JSON.stringify(filteredList, null, 2)}
-                </pre>
-              </div>
-            )}
+        {/* =========================================================================
+            HINTS & EXPERT MINDSET
+        ========================================================================= */}
+        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.7s]">
+          <div className="bg-cyan-900/20 rounded-2xl p-5 border border-cyan-500/30 space-y-2">
+            <h3 className="text-lg font-semibold text-cyan-300">💡 Hints to Explore</h3>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Think about:</strong> How modern JavaScript engines (V8 in Chrome, Node.js) and React event loops use non-blocking asynchronous timers to keep web apps snappy!
+            </p>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Observe:</strong> How clicking the steering buttons responds instantly in `ontimer()` mode, while `time.sleep()` freezes input!
+            </p>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Try changing:</strong> Add smooth slow-motion bullet time by scaling <code className="text-amber-300 font-mono">dt *= 0.3</code> during evasive player dodges!
+            </p>
           </div>
-        </section>
 
-        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
-                    BARRACKPORE ENTERPRISE
-                  </span>
-                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
-                100% Automated Financial Auditing
-              </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
-                    JADAVPUR ROBOTICS
-                  </span>
-                  <span className="text-xs text-slate-400">Jadavpur University</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
-                Sub-Millisecond Telemetry Ingestion
-              </div>
-            </div>
+          <div className="bg-indigo-900/20 rounded-2xl p-5 border border-indigo-500/30 space-y-2">
+            <h3 className="text-lg font-semibold text-indigo-300">🚀 Expert Mindset</h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Transitioning from synchronous blocking code to asynchronous event-driven architecture is one of the biggest mental leaps in a software engineer's growth. Once you understand cooperative multitasking and delta-time pacing, you possess the core mental model used across web servers, mobile apps, and game engines worldwide.
+            </p>
           </div>
-        </section>
+        </div>
 
-        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
-              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
-                <span>⚠️</span> Common Beginner Pitfalls
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
-                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
-                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
-              </div>
-            </div>
+        {/* =========================================================================
+            FAQS TEMPLATE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_0.8s]">
+          <FAQTemplate title="Timing & Loop Delays FAQs" questions={questions} />
+        </div>
 
-            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
-              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
-                <span>✓</span> Production Best Practices
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
-                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
-                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <FAQTemplate
-            title="Timing and loop delays using time.sleep() and ontimer() FAQs"
-            questions={questions}
-            subtitle="Test your comprehension with 30 deep-dive questions"
-            showPrint
-            showExpandAll
-            showSearch
-            showProgress
-          />
-        </section>
-
-        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+        {/* =========================================================================
+            PLAIN TEXT PRINT & DOWNLOAD NOTE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_0.9s]">
           <PlainTextPrint
             content={noteText}
-            title="Timing and loop delays using time.sleep() and ontimer()"
+            title="Topic 3: Timing & Loop Delays Study Note"
             stampEnabled={true}
             showDownload={true}
-            downloadButtonText="Download Note"
+            downloadButtonText="Download Study Note"
             downloadFileName="topic3_note.txt"
           />
-        </section>
+        </div>
 
-        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+        {/* =========================================================================
+            TEACHER'S NOTE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_1s]">
           <Teacher
-            note={
-              "In software development, simplicity is the ultimate sophistication. " +
-              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
-            }
+            note="At Coder & AccoTax in Barrackpore and Kolkata, I often see students struggle when their games freeze because of time.sleep(). When we introduce ontimer(), it's like a lightbulb turns on! Learning to let the event loop drive the animation while processing user input in parallel is the true foundation of interactive software development."
           />
-        </section>
+        </div>
 
-        {/* ─── 9. Footer ──────────────────────────────────────── */}
-        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
-          <span>
-            Topic 3 · Timing and loop delays using time.sleep() and ontimer() · Python Masterclass · Coder &amp; AccoTax Barrackpore
-          </span>
-        </footer>
       </div>
-    </>
+    </div>
   );
 };
 
