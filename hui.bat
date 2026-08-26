@@ -11,5 +11,4 @@ start http://localhost:5173
 
 echo All development services initialized successfully.
 
-start "" "C:\Program Files\Firefox Developer Edition\firefox.exe"  -no-remote   -P "CNAT-Developer"   --devtools   -new-window ^
-  "https://titus.protondns.net:2083/cpsess6220590010/frontend/jupiter/terminal/index.html"
+start "" "C:\Program Files\Firefox Developer Edition\firefox.exe" -no-remote -P "CNAT-Developer" --devtools -new-window "https://titus.protondns.net:2083/cpsess6220590010/frontend/jupiter/terminal/index.html"
