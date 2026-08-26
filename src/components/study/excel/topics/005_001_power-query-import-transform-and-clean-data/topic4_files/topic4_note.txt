@@ -1,0 +1,32 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: CORE TRANSFORMATIONS & TYPE DISCIPLINE
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 005_001: Power Query – Import, Transform & Clean Data
+Topic 4: Core transformations: Promoting headers, changing data types, removing blanks, and replacing values
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. CORE TRANSFORMATION ENGINE:
+--------------------------------------------------------------------------------
+• Promote Headers: Table.PromoteHeaders(Source, [PromoteAllScalars=true])
+• Demote Headers: Table.DemoteHeaders(#"Prior")
+• Type Coercion: Table.TransformColumnTypes(Table, {{"Col", type}})
+• Locale-Aware Parsing: Table.TransformColumnTypes(Table, {{"Date", type date}}, "en-GB")
+• Replace Values: Table.ReplaceValue(Table, oldVal, newVal, Replacer.ReplaceValue, {"Col"})
+• Remove Blank Rows: Table.SelectRows with non-empty record checks.
+
+2. CRITICAL BEST PRACTICES:
+--------------------------------------------------------------------------------
+• Never rely on generic "type any"—always assign explicit types (Number, Date, Text).
+• Use "Using Locale..." when parsing international dates (UK vs US) and EU decimals.
+• Strip currency symbols (₹, $) and commas before coercing text to numeric values.
+• Use "Remove Other Columns" instead of "Remove Columns" to guarantee schema immunity.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Handle multi-level headers by Transpose &rarr; Merge &rarr; Transpose &rarr; Promote Headers.
+• Replace nulls with 0 or fallback strings before loading into DAX mathematical models.
+• Place column reordering as the very last step in your query pipeline.
+================================================================================

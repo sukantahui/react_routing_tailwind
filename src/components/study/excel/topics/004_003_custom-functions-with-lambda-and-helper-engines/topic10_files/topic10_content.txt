@@ -1,0 +1,33 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: SCAN ACCUMULATOR ENGINE
+================================================================================
+Module: 004_003_custom-functions-with-lambda-and-helper-engines
+Topic 10: Accumulator algorithms: Running balances and progressive totals with SCAN
+================================================================================
+
+1. MATHEMATICAL MODEL:
+- Input Array: [x1, x2, x3, ... xN]
+- Initial Value: s0
+- Recurrence:
+    s1 = LAMBDA(s0, x1)
+    s2 = LAMBDA(s1, x2)
+    ...
+    sN = LAMBDA(s_{N-1}, xN)
+- Output Array: [s1, s2, s3, ... sN]
+
+2. CORE FORMULA PATTERNS:
+- Bank Running Balance:
+  =SCAN(50000, D5:D10, LAMBDA(bal, txn, bal + txn))
+
+- High-Water Mark (Peak Value):
+  =SCAN(0, B2:B20, LAMBDA(maxSoFar, val, MAX(maxSoFar, val)))
+
+- Compounding Return Multiplier:
+  =SCAN(1, Returns, LAMBDA(acc, r, acc * (1 + r)))
+
+- Streak Counter:
+  =SCAN(0, Statuses, LAMBDA(s, val, IF(val="Present", s+1, 0)))
+
+- Complete Ledger with HSTACK:
+  =HSTACK(A5:D10, SCAN(50000, D5:D10, LAMBDA(b, t, b + t)))
+================================================================================

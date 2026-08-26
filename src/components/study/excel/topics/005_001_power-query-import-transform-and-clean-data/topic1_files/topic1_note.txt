@@ -1,0 +1,37 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: DATA CONNECTORS IN POWER QUERY
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 005_001: Power Query – Import, Transform & Clean Data
+Topic 1: Connecting to data sources: Excel workbooks, CSV/Text files, Folders, Web APIs, and SQL Databases
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. POWER QUERY CONNECTOR ECOSYSTEM:
+--------------------------------------------------------------------------------
+• From File:
+  - Excel.Workbook(File.Contents("path.xlsx"))
+  - Csv.Document(File.Contents("path.csv"))
+  - Folder.Files("C:\Monthly_Sales\") -> Recursive directory stacking!
+• From Database:
+  - Sql.Database("server", "db") -> Native Query Folding!
+  - Access.Database, PostgreSQL.Database, Oracle.Database
+• From Web & Cloud:
+  - Json.Document(Web.Contents("url")) -> REST APIs & Web Tables
+  - SharePoint.Tables -> Online M365 List sync
+• From Active Sheet:
+  - Excel.CurrentWorkbook(){[Name="tbl_Name"]}[Content]
+
+2. CRITICAL BEST PRACTICES:
+--------------------------------------------------------------------------------
+• Filter out temporary locked files: not Text.StartsWith([Name], "~$")
+• Parameterize file paths using Power Query parameters.
+• Configure Data Privacy Levels (Organizational / Private) to avoid firewall blocks.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Never hardcode personal paths like C:\Users\swadeep\...—use parameters!
+• Let the GUI generate SQL queries to preserve native Query Folding.
+• Group queries into logical folders: Staging, Dimensions, Facts, Parameters.
+================================================================================

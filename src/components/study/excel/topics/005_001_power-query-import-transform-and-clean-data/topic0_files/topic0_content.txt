@@ -1,0 +1,22 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: POWER QUERY & ETL ARCHITECTURE
+================================================================================
+Module: 005_001_power-query-import-transform-and-clean-data
+Topic 0: Introduction to Power Query and Modern Automated ETL Architecture
+================================================================================
+
+1. CORE CONCEPTS:
+- The ETL Pipeline: Extract &rarr; Transform &rarr; Load
+- The M Formula Language
+- The Applied Steps Execution Sequence
+- Close & Load Destinations (Table, Connection Only, Data Model)
+- Query Folding to Source SQL Databases
+- Refresh All Keyboard Shortcut: Ctrl + Alt + F5
+- Open Power Query Editor: Alt + F12
+
+2. APPLIED STEP SEQUENCE EXAMPLE:
+1. Source = Csv.Document(File.Contents("C:\Data\Monthly_Sales.csv"))
+2. Promoted Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true])
+3. Changed Type = Table.TransformColumnTypes(#"Promoted Headers", {{"Amount", type number}})
+4. Removed Blank Rows = Table.SelectRows(#"Changed Type", each [Amount] <> null)
+================================================================================

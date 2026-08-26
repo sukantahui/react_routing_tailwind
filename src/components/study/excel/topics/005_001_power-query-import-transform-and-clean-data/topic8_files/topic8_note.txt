@@ -1,0 +1,33 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: UNPIVOTING & RELATIONAL NORMALIZATION
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 005_001: Power Query – Import, Transform & Clean Data
+Topic 8: Unpivoting columns: Transforming crosstab reports into normalized tabular data
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. THE UNPIVOTING ENGINE:
+--------------------------------------------------------------------------------
+• Unpivot Other Columns: Table.UnpivotOtherColumns(Table, KeyCols, "Attribute", "Value")
+  - THE GOLDEN STANDARD: Dynamically includes new future month columns on refresh!
+• Unpivot Columns: Hardcodes selected columns (fails when new months arrive).
+• Unpivot Only Selected: Flattens selected subset.
+
+2. MULTI-LEVEL HEADER UNPIVOTING ALGORITHM (7 STEPS):
+--------------------------------------------------------------------------------
+1. Transpose Table
+2. Fill Down Category/Year Headers
+3. Merge Header Columns with delimiter (';')
+4. Transpose Back
+5. Promote Headers
+6. Unpivot Other Columns
+7. Split Attribute Column by delimiter
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Always drop summary "Total" columns before unpivoting (avoids doubling revenue!).
+• Unpivot FIRST, then clean the single resulting "Value" column (saves 12 steps).
+• Convert Month Attribute to true Dates for DAX time-intelligence compatibility!
+================================================================================

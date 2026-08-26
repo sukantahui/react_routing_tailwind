@@ -1,0 +1,31 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: ACCUMULATOR ALGORITHMS WITH SCAN
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_003: Custom Functions with LAMBDA & Helper Engines
+Topic 10: Accumulator algorithms: Running balances and progressive totals with SCAN
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. WHAT IS THE SCAN HELPER FUNCTION?
+--------------------------------------------------------------------------------
+Syntax: =SCAN([initial_value], array, lambda)
+
+Core Mechanics:
+• Slices an array element-by-element, maintaining a running accumulator state.
+• LAMBDA must declare strictly 2 parameters: LAMBDA(accumulator, value).
+• Returns an array with identical dimensions containing all progressive step states.
+
+2. WHY SCAN IS REVOLUTIONARY FOR SPREADSHEET PERFORMANCE
+--------------------------------------------------------------------------------
+• Replaces legacy dragged =SUM($D$5:D5) formulas.
+• Linear O(N) execution complexity vs. legacy Quadratic O(N^2) complexity.
+• In 100,000 rows: SCAN runs in ~15ms; legacy formulas take ~45 seconds!
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Always pass an explicit initial value (e.g. 0 or opening ledger balance).
+• Use IFERROR inside the LAMBDA to prevent downstream error cascading.
+• Combine with HSTACK to join the running balance directly to transaction ledgers!
+================================================================================

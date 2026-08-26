@@ -1,0 +1,40 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: M DATA TYPES & STRUCTURES SPECIFICATION
+================================================================================
+Module: 005_002_advanced-power-query-m-code-scripting-and-custom-functions
+Topic 1: Understanding M Data Types: Primitive types, Lists {...}, Records [...], and Tables #table(...)
+================================================================================
+
+1. M CODE FORMULA EXAMPLES:
+- In-line Mock Table Creation:
+  = #table(
+      type table [
+        Customer_ID = Int64.Type,
+        Customer_Name = text,
+        Branch_City = text,
+        Credit_Limit = number,
+        Is_Active = logical
+      ],
+      {
+        {101, "Swadeep Banerjee", "Barrackpore", 150000.00, true},
+        {102, "Tuhina Mukherjee", "Shyamnagar", 220000.00, true},
+        {103, "Abhronila Sengupta", "Ichapur", 95000.00, false}
+      }
+    )
+
+- List Operations:
+  let
+      Branches = {"Barrackpore", "Shyamnagar", "Ichapur", "Naihati"},
+      FirstBranch = Branches{0},
+      Combined = Branches & {"Kolkata HQ"},
+      Count = List.Count(Combined)
+  in
+      Count
+
+- Record Field Lookup and Fallback:
+  let
+      Config = [TaxRate = 0.18, Currency = "INR", Branch = "BKP"],
+      EffectiveRate = Record.FieldOrDefault(Config, "DiscountRate", 0.05)
+  in
+      EffectiveRate
+================================================================================

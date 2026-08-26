@@ -1,0 +1,31 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: COLUMN-BY-COLUMN MATRIX PROCESSING WITH BYCOL
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_003: Custom Functions with LAMBDA & Helper Engines
+Topic 8: Column-by-column matrix processing with BYCOL
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. WHAT IS THE BYCOL HELPER FUNCTION?
+--------------------------------------------------------------------------------
+Syntax: =BYCOL(array, lambda)
+
+Core Mechanics:
+• Slices a 2D matrix column-by-column, passing each complete column vector to LAMBDA.
+• LAMBDA must declare exactly 1 parameter representing the 1D vertical column.
+• Returns a (1 x N) horizontal row vector of column-level aggregated values.
+
+2. REAL-WORLD CORPORATE USE CASES
+--------------------------------------------------------------------------------
+• Monthly Column Averages: =BYCOL(Sales, LAMBDA(c, AVERAGE(c)))
+• Department Peak Revenue: =BYCOL(Matrix, LAMBDA(c, MAX(c)))
+• Automated Total Row with VSTACK: =VSTACK(Table, BYCOL(Table, LAMBDA(c, SUM(c))))
+• Column Compliance Testing: =BYCOL(Matrix, LAMBDA(c, AND(c > 0)))
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Remember the dimensional orientation: BYCOL returns a HORIZONTAL ROW vector.
+• Combine with VSTACK to attach dynamic summary rows to the bottom of tables!
+================================================================================

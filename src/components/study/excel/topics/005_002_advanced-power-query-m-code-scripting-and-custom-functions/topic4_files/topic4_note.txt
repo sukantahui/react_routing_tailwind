@@ -1,0 +1,34 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: PARAMETERIZING POWER QUERY PIPELINES
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 005_002: Advanced Power Query: M Code Scripting & Custom Functions
+Topic 4: Parameterizing Power Query: Creating dynamic file path and date range parameters
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. PARAMETER TYPES & SUGGESTED VALUES:
+--------------------------------------------------------------------------------
+• Suggested Values Modes:
+  1. Any Value: Free-form text, number, date, or boolean input.
+  2. List of Values: Static predefined list of allowed choices.
+  3. Query: Dynamically populated from a 1D List output of another M query.
+
+• Excel Worksheet Parameter Binding:
+  = Excel.CurrentWorkbook(){[Name="tbl_Params"]}[Content]{[ParamName="FolderPath"]}[ParamValue]
+
+2. BEST PRACTICES & PRODUCTION PATTERNS:
+--------------------------------------------------------------------------------
+• Prefix all parameter query objects with `p_` (e.g. `p_StartDate`, `p_FolderPath`, `p_ServerName`).
+• Store parameters in a dedicated query group folder named `00_Parameters`.
+• Ensure path parameters end with backslash before concatenating:
+  `if Text.EndsWith(p_Path, "\\") then p_Path else p_Path & "\\"`
+• Scalar parameters fold cleanly into SQL `WHERE` clauses (zero Query Folding breakage!).
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Never hardcode local drive paths (like `C:\Users\John\`) in production workbooks!
+• Use Excel parameter tables so non-technical managers can adjust filters from normal worksheet cells.
+• Combine parameters with Power BI template files (`.pbit`) for seamless team deployment.
+================================================================================

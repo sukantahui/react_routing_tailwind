@@ -1,0 +1,32 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: FUZZY MATCHING SPECIFICATION
+================================================================================
+Module: 005_001_power-query-import-transform-and-clean-data
+Topic 12: Fuzzy matching: Merging datasets with typos and approximate spellings
+================================================================================
+
+1. M CODE FORMULA EXAMPLES:
+- Fuzzy Merge with Custom Threshold and Options:
+  = Table.FuzzyNestedJoin(
+      Fact_Sales, {"Customer_Name_Raw"},
+      Dim_Customers, {"Customer_Name_Master"},
+      "Matched_Customer",
+      JoinKind.LeftOuter,
+      [
+        IgnoreCase = true,
+        IgnoreSpaces = true,
+        Threshold = 0.82,
+        NumberOfMatches = 1,
+        TransformationTable = tbl_Acronyms
+      ]
+    )
+
+- Transformation Table Schema:
+  From               | To
+  -------------------|-------------------
+  BKP                | Barrackpore
+  SHYAM              | Shyamnagar
+  ICH                | Ichapur
+  Pvt Ltd            | Private Limited
+  MSFT               | Microsoft
+================================================================================

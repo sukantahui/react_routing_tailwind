@@ -1,0 +1,33 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: DATA SANITIZATION & MASKING WITH REGEXREPLACE
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_004: Modern Text Intelligence & Regular Expressions
+Topic 5: Cleaning, masking, and reformatting text with REGEXREPLACE
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. WHAT IS THE REGEXREPLACE FUNCTION?
+--------------------------------------------------------------------------------
+Syntax: =REGEXREPLACE(text, pattern, replacement, [occurrence], [case_sensitivity])
+
+Core Mechanics:
+• Replaces occurrences of a regex pattern with replacement text or backreferences.
+• Backreferences ($1, $2, $3) insert text matched by capturing groups.
+• occurrence: 0 = All instances (default), 1..N = Specific instance only.
+
+2. ESSENTIAL CORPORATE TRANSFORMATION PATTERNS:
+--------------------------------------------------------------------------------
+• Masking Aadhaar: =REGEXREPLACE(A2, "^\d{4}-\d{4}-(\d{4})$", "XXXX-XXXX-$1")
+• Masking Credit Cards: =REGEXREPLACE(A2, "^\d{4}-\d{4}-\d{4}-(\d{4})$", "XXXX-XXXX-XXXX-$1")
+• Stripping HTML Tags: =REGEXREPLACE(A2, "<[^>]+>", "")
+• Reordering Dates (DD/MM/YYYY &rarr; YYYY-MM-DD): =REGEXREPLACE(A2, "^(\d{2})/(\d{2})/(\d{4})$", "$3-$2-$1")
+• Normalizing Excess Whitespace: =TRIM(REGEXREPLACE(A2, "\s+", " "))
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Never deploy nested SUBSTITUTE functions when 1 clean REGEXREPLACE can do the job!
+• Always mask sensitive personally identifiable information (PII) before sharing reports.
+• Leverage backreferences ($1, $2) to restructure dates, names, and phone numbers in 1 step!
+================================================================================

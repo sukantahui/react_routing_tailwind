@@ -1,0 +1,27 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: REDUCE FUNCTION FOLDING ENGINE
+================================================================================
+Module: 004_003_custom-functions-with-lambda-and-helper-engines
+Topic 11: Aggregation algorithms: Custom multi-step reductions with REDUCE
+================================================================================
+
+1. MATHEMATICAL FOLDING MODEL:
+- Input Array: [x1, x2, x3, ... xN]
+- Initial Seed: s0
+- Step-by-step Accumulation:
+    s1 = f(s0, x1)
+    s2 = f(s1, x2)
+    ...
+    sN = f(s_{N-1}, xN)
+- Final Return: sN (Scalar or Unified Composite Grid)
+
+2. CORE FORMULA PATTERNS:
+- Compounded Return:
+  =REDUCE(1, E5:E8, LAMBDA(acc, r, acc * (1 + r)))
+
+- Multi-Token Sanitization:
+  =REDUCE(A2, {"-", ".", "/", " "}, LAMBDA(t, c, SUBSTITUTE(t, c, "")))
+
+- Dynamic Multi-Sheet Stacking:
+  =DROP(REDUCE("", {"Barrackpore", "Shyamnagar"}, LAMBDA(acc, s, VSTACK(acc, INDIRECT(s & "!A2:D20")))), 1)
+================================================================================

@@ -1,0 +1,29 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: CUSTOMER MASTER VALIDATOR ARCHITECTURE
+================================================================================
+Module: 004_004_modern-text-intelligence-and-regular-expressions
+Topic 12: Real-world project: Building an automated enterprise customer master data validator and parser
+================================================================================
+
+1. FORMULA EXAMPLES:
+- Sanitized Name:
+  =PROPER(TRIM(REGEXREPLACE(REGEXREPLACE(B5, "<[^>]+>", ""), "\s+", " ")))
+
+- Sanitized Phone:
+  =RIGHT(REGEXREPLACE(E5, "\D", ""), 10)
+
+- PAN Validation:
+  =REGEXTEST(C5, "^[A-Z]{5}\d{4}[A-Z]$")
+
+- GSTIN Validation:
+  =REGEXTEST(D5, "^\d{2}[A-Z]{5}\d{4}[A-Z][1-9A-Z]Z[0-9A-Z]$")
+
+- Email Validation:
+  =REGEXTEST(E5, "^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,}$")
+
+- Overall Compliance Score:
+  =(--REGEXTEST(C5, "^[A-Z]{5}\d{4}[A-Z]$") + --REGEXTEST(D5, "^\d{2}[A-Z]{5}\d{4}[A-Z][1-9A-Z]Z[0-9A-Z]$") + --REGEXTEST(E5, "^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,}$")) / 3
+
+- Approved Master Filter:
+  =FILTER(A5:G20, REGEXTEST(C5:C20, "^[A-Z]{5}\d{4}[A-Z]$") * REGEXTEST(D5:D20, "^\d{2}[A-Z]{5}\d{4}[A-Z][1-9A-Z]Z[0-9A-Z]$") * REGEXTEST(E5:E20, "^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,}$"))
+================================================================================

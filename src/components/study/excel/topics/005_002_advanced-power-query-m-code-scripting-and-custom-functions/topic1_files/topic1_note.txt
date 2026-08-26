@@ -1,0 +1,43 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: POWER QUERY M DATA TYPES & CONTAINER STRUCTURES
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 005_002: Advanced Power Query: M Code Scripting & Custom Functions
+Topic 1: Understanding M Data Types: Primitive types, Lists {...}, Records [...], and Tables #table(...)
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. THE 3 PRIMARY STRUCTURED CONTAINER TYPES:
+--------------------------------------------------------------------------------
+• List {...}: 1D ordered sequence. Zero-indexed.
+  - Literal: `{1, 2, 3, "Barrackpore", null}`
+  - Range Generator: `{1..100}`, `{"a".."z"}`
+  - Accessor: `MyList{0}` (First item)
+  - Combination: `{1, 2} & {3, 4}` -> `{1, 2, 3, 4}`
+
+• Record [...]: Key-value associative tuple (represents a single row or configuration object).
+  - Literal: `[ID = 101, Name = "Swadeep", City = "BKP", Amount = 45000]`
+  - Accessor: `MyRecord[Name]` -> `"Swadeep"`
+  - Combination: `[A = 1] & [B = 2]` -> `[A = 1, B = 2]` (Right side overrides left on collision)
+
+• Table #table(...): 2D relational grid of rows and columns.
+  - Literal: `#table({"ID", "Amt"}, {{1, 500}, {2, 750}})`
+  - Typed Table: `#table(type table [ID = Int64.Type, Amt = number], {{1, 500}})`
+  - Column List Projection: `MyTable[Amt]` (Returns List)
+  - Row Record Projection: `MyTable{0}` (Returns Record)
+  - Cell Coordinate Lookup: `MyTable{0}[Amt]` (Returns Scalar 500)
+
+2. PRIMITIVE TYPES & OPERATORS:
+--------------------------------------------------------------------------------
+• Primitives: `number`, `text`, `logical`, `date`, `datetime`, `datetimezone`, `time`, `duration`, `binary`, `null`, `type`, `any`.
+• Constructors: `#date(2026, 8, 27)`, `#datetime(2026, 8, 27, 10, 30, 0)`, `#duration(2, 4, 30, 0)`.
+• Type Testing: `Value is number` (returns true/false).
+• Type Assertion: `x as text`.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Single bracket `Table[Col]` gives a List; Double bracket `Table[[Col]]` gives a 1-column Table!
+• Remember that arithmetic with `null` yields `null` (use `??` or `if null` to prevent downstream corruption).
+• Zero-based indexing means row 1 is always `{0}`.
+================================================================================

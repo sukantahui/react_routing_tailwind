@@ -1,0 +1,38 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: REGEX TOKENS & GRAMMAR
+================================================================================
+Module: 004_004_modern-text-intelligence-and-regular-expressions
+Topic 1: Regex pattern fundamentals
+================================================================================
+
+1. CHARACTER CLASSES:
+- [A-Z]       : Any uppercase letter
+- [a-z]       : Any lowercase letter
+- [0-9]       : Any digit 0-9
+- [A-Za-z0-9] : Any alphanumeric character
+- [^0-9]      : Any character except 0-9
+- [aeiou]     : Any English vowel
+
+2. SHORTHAND METACHARACTERS:
+- \d : Equivalent to [0-9]
+- \D : Equivalent to [^0-9]
+- \w : Equivalent to [a-zA-Z0-9_]
+- \W : Equivalent to [^a-zA-Z0-9_]
+- \s : Whitespace (space, tab, newline)
+- \S : Non-whitespace
+- .  : Any character except newline
+
+3. QUANTIFIERS:
+- +     : 1 or more (Greedy)
+- *     : 0 or more (Greedy)
+- ?     : 0 or 1 (Optional)
+- {n}   : Exactly n
+- {n,m} : Between n and m inclusive
+- {n,}  : At least n
+
+4. ANCHORS:
+- ^  : Start of string
+- $  : End of string
+- \b : Word boundary
+- \B : Non-word boundary
+================================================================================

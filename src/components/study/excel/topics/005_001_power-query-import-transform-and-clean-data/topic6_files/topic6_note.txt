@@ -1,0 +1,37 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: POWER QUERY TEXT TRANSFORMATIONS
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 005_001: Power Query – Import, Transform & Clean Data
+Topic 6: Text transformations: Splitting columns, trimming, uppercase/lowercase, extracting delimiters
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. CORE TEXT TRANSFORMATION SUITE:
+--------------------------------------------------------------------------------
+• Split by Delimiter: Table.SplitColumn with Splitter.SplitTextByDelimiter
+• Split into Rows: Table.ExpandListColumn (Normalizes lists to 1NF rows!)
+• Character Transition: Split non-digit to digit (INV1024 -> INV | 1024)
+• Delimiter Slicing:
+  - Text.BeforeDelimiter(text, "@")
+  - Text.AfterDelimiter(text, ".", {0, RelativePosition.FromEnd})
+  - Text.BetweenDelimiters(text, "(", ")")
+• Surgical Selection:
+  - Text.Select(text, {"0".."9"}) -> Extracts digits only!
+  - Text.Remove(text, {"-", "(", ")", " "}) -> Strips symbols!
+• Casing: Text.Upper, Text.Lower, Text.Proper
+• Hygiene: Text.Clean + Text.Trim
+
+2. CRITICAL BEST PRACTICES:
+--------------------------------------------------------------------------------
+• Remember: M is 0-INDEXED! Text.Middle(text, 0, 5) extracts starting at character 1.
+• Set QuoteStyle.Csv when splitting comma-separated text containing quoted values.
+• Use Text.PadStart(text, 6, "0") to format standardized employee and invoice IDs.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Always clean and trim before splitting delimiters.
+• Use "Split into Rows" when unnesting multi-item invoice line descriptions.
+• Reverse index ({0, RelativePosition.FromEnd}) for extracting file path extensions.
+================================================================================

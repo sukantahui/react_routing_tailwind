@@ -1,0 +1,30 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: FILTERING, SORTING & DEDUPLICATION AT SCALE
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 005_001: Power Query – Import, Transform & Clean Data
+Topic 5: Filtering rows, sorting columns, and removing duplicates at scale
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. CORE FILTERING & SORTING FUNCTIONS:
+--------------------------------------------------------------------------------
+• Filter Rows: Table.SelectRows(Table, each [Condition])
+• Sort Columns: Table.Sort(Table, {{"Col", Order.Ascending/Order.Descending}})
+• Deduplicate: Table.Distinct(Table, [CompositeKeyList])
+• Keep Duplicates: Home &rarr; Keep Rows &rarr; Keep Duplicates (Audit Triage)
+• Table Buffer: Table.Buffer(Table.Sort(...)) -> Guarantees latest record retention!
+
+2. PERFORMANCE BEST PRACTICES:
+--------------------------------------------------------------------------------
+• Place Filter Rows as early as possible to trigger SQL Query Folding (WHERE clause).
+• Use Composite Keys for transaction deduplication (Customer_ID + Invoice_No).
+• Use List.Contains({"A", "B", "C"}, [Col]) for multi-value set filtering.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Never deduplicate transaction fact tables on customer ID alone!
+• When retaining the latest record per customer: Sort Date Descending &rarr; Table.Buffer &rarr; Table.Distinct.
+• Use "Keep Duplicates" to catch double-billing fraud during financial audits.
+================================================================================

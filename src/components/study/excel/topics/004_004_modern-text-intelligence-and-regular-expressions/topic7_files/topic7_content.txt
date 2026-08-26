@@ -1,0 +1,26 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: TEXTBEFORE FUNCTION SPECIFICATION
+================================================================================
+Module: 004_004_modern-text-intelligence-and-regular-expressions
+Topic 7: Extracting prefixes and leading data with TEXTBEFORE
+================================================================================
+
+1. FORMULA EXAMPLES:
+- Username from Email:
+  =TEXTBEFORE(B5, "@")
+
+- Directory Folder Path (Before last backslash):
+  =TEXTBEFORE(B5, "\", -1)
+
+- URL Protocol:
+  =TEXTBEFORE(B5, "://")
+
+- First Name (with single-name match_end fallback):
+  =TEXTBEFORE(B5, " ", , , 1)
+
+- Text Before 2nd Comma:
+  =TEXTBEFORE(B5, ",", 2)
+
+- Multi-Delimiter Prefix:
+  =TEXTBEFORE(B5, {"-", "/", ":"})
+================================================================================

@@ -1,0 +1,32 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: RECURSIVE LAMBDAS IN EXCEL 365
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_003: Custom Functions with LAMBDA & Helper Engines
+Topic 12: Recursive LAMBDAs: Solving algorithmic loops (factorials, reversals, tree traversal)
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. WHAT IS A RECURSIVE LAMBDA?
+--------------------------------------------------------------------------------
+• A named LAMBDA registered in Name Manager that calls itself by name.
+• Proves that Microsoft Excel's formula engine is formally Turing Complete!
+• Enables solving tree traversals, hierarchies, factorials, and tokenizers.
+
+2. CRITICAL ANATOMY:
+• Mandatory Base Case: IF(n <= 1, 1, ...) &rarr; Prevents infinite loops.
+• Recursive Step: ... n * FX_FACT(n - 1) &rarr; Reduces the problem.
+• Excel 365 Stack Limit: 1,024 nested calls max. Exceeding triggers #NUM!.
+
+3. ENTERPRISE ARCHITECTURAL PATTERNS:
+• Hierarchy Rollup: Recursing from employee to manager up to the CEO.
+• Bill of Materials (BOM) Explosion: Unwinding sub-assemblies to raw parts.
+• Defensive Depth Limiting: Passing an optional [maxDepth] parameter.
+
+4. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Always code a defensive base condition (e.g. `<= 1` instead of `== 1`).
+• For non-linear tree data (hierarchies), use Recursive LAMBDAs.
+• For simple linear arrays, prefer REDUCE or SCAN (faster & zero stack limits).
+================================================================================

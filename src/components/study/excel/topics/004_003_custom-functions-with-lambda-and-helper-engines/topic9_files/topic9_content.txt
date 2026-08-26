@@ -1,0 +1,26 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: MAKEARRAY PROCEDURAL SYNTHESIS ENGINE
+================================================================================
+Module: 004_003_custom-functions-with-lambda-and-helper-engines
+Topic 9: Generating dynamic procedural grids with MAKEARRAY
+================================================================================
+
+1. FORMULA SIGNATURE:
+=MAKEARRAY(rows, cols, LAMBDA(r, c, calculation))
+
+2. KEY MATHEMATICAL PATTERNS:
+- Multiplication Matrix:
+  =MAKEARRAY(5, 5, LAMBDA(r, c, r * c))
+
+- Coordinate Grid:
+  =MAKEARRAY(5, 4, LAMBDA(r, c, "R" & r & "C" & c))
+
+- Checkerboard / Alternating Flags:
+  =MAKEARRAY(8, 8, LAMBDA(r, c, MOD(r + c, 2)))
+
+- Identity Matrix:
+  =MAKEARRAY(5, 5, LAMBDA(r, c, IF(r = c, 1, 0)))
+
+- Sensitivity Grid:
+  =MAKEARRAY(5, 4, LAMBDA(r, c, PMT(INDEX(E5:E8, r)/12, INDEX(F4:I4, c), -1000000)))
+================================================================================

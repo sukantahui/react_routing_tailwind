@@ -1,0 +1,26 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: CORE TRANSFORMATIONS SPECIFICATION
+================================================================================
+Module: 005_001_power-query-import-transform-and-clean-data
+Topic 4: Core transformations: Promoting headers, changing data types, removing blanks, and replacing values
+================================================================================
+
+1. M CODE REFERENCE:
+- Promote Headers:
+  = Table.PromoteHeaders(Source, [PromoteAllScalars=true])
+
+- Changed Type:
+  = Table.TransformColumnTypes(#"Promoted Headers", {{"Invoice_Date", type date}, {"Gross_Amount", type number}, {"Customer_Name", type text}})
+
+- Using Locale:
+  = Table.TransformColumnTypes(Source, {{"Date", type date}}, "en-GB")
+
+- Replace Values:
+  = Table.ReplaceValue(#"Changed Type", null, 0, Replacer.ReplaceValue, {"Gross_Amount"})
+
+- Replace Substring Text:
+  = Table.ReplaceValue(#"Prior", "₹ ", "", Replacer.ReplaceText, {"Gross_Amount_Raw"})
+
+- Remove Blank Rows:
+  = Table.SelectRows(Source, each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {"", null})))
+================================================================================

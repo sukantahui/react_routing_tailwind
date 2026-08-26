@@ -1,0 +1,29 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: APPENDING QUERIES (VERTICAL STACKING)
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 005_001: Power Query – Import, Transform & Clean Data
+Topic 10: Appending queries (Union / Stacking datasets vertically from monthly files)
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. THE APPENDING ENGINE:
+--------------------------------------------------------------------------------
+• Core Function: Table.Combine({Table1, Table2, Table3, ...})
+• Column Matching: BY EXACT COLUMN NAME & CASE-SENSITIVITY (Positional order is IGNORED!).
+• Append as New: Creates a separate consolidated query without mutating staging queries.
+• Staging Hygiene: Right-click staging queries &rarr; Uncheck "Enable Load" to save 50% RAM!
+
+2. COLUMN MISALIGNMENT & JAGGED SCHEMAS:
+--------------------------------------------------------------------------------
+• If Table 1 has "Cust_ID" and Table 2 has "CustomerID", TWO columns are created with nulls.
+• Fix: Harmonize column headers before appending:
+  Table.TransformColumnNames(tbl, Text.Trim)
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Always sanitize and match header casing across monthly files.
+• Disable "Enable Load" on intermediate monthly staging tables.
+• Perform single final type coercions on the master table rather than 12 staging files!
+================================================================================

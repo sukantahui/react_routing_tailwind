@@ -1,0 +1,24 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: NUMBER & DATE TRANSFORMATIONS
+================================================================================
+Module: 005_001_power-query-import-transform-and-clean-data
+Topic 7: Number and date transformations: Age calculation, start/end of month, rounding, and parity
+================================================================================
+
+1. M CODE FUNCTIONS:
+- Age Calculation:
+  = Table.AddColumn(Source, "Age", each Number.RoundDown(Duration.Days(DateTime.Date(DateTime.LocalNow()) - [Birth_Date]) / 365.25))
+
+- Period Boundaries:
+  = Table.AddColumn(Source, "Month_Start", each Date.StartOfMonth([Hire_Date]))
+  = Table.AddColumn(Source, "Month_End", each Date.EndOfMonth([Hire_Date]))
+
+- Rounding with AwayFromZero:
+  = Table.AddColumn(Source, "Rounded_Bonus", each Number.Round([Bonus_Raw], 0, RoundingMode.AwayFromZero))
+
+- Duration Elapsed Days:
+  = Table.AddColumn(Source, "Tenure_Days", each Duration.Days(DateTime.Date(DateTime.LocalNow()) - [Hire_Date]))
+
+- Fiscal Year (India April-March):
+  = Table.AddColumn(Source, "FY", each if Date.Month([Date]) >= 4 then "FY" & Text.End(Text.From(Date.Year([Date])+1), 2) else "FY" & Text.End(Text.From(Date.Year([Date])), 2))
+================================================================================

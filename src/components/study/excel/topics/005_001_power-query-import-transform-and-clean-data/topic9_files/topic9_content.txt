@@ -1,0 +1,27 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: PIVOT & AGGREGATIONS SPECIFICATION
+================================================================================
+Module: 005_001_power-query-import-transform-and-clean-data
+Topic 9: Pivoting columns and custom aggregations in Power Query
+================================================================================
+
+1. M CODE FORMULA EXAMPLES:
+- Pivot Column:
+  = Table.Pivot(Source, List.Distinct(Source[Metric_Name]), "Metric_Name", "Metric_Value", List.Sum)
+
+- Pivot with Don't Aggregate:
+  = Table.Pivot(Source, {"Phone", "Email", "City"}, "Attribute_Type", "Attribute_Value")
+
+- Multi-Aggregation Group By:
+  = Table.Group(Source, {"Branch_City", "Department"}, {
+      {"Total_Revenue", each List.Sum([Revenue]), type number},
+      {"Average_Margin", each List.Average([Margin]), type number},
+      {"Order_Count", each Table.RowCount(_), type number}
+    })
+
+- Group By "All Rows" with String Aggregation:
+  = Table.Group(Source, {"Department"}, {
+      {"Employee_List", each Text.Combine(_[Employee_Name], ", "), type text},
+      {"Total_Budget", each List.Sum([Salary]), type number}
+    })
+================================================================================

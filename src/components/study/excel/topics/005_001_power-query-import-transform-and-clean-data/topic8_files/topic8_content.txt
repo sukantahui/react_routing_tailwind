@@ -1,0 +1,23 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: UNPIVOTING SPECIFICATION
+================================================================================
+Module: 005_001_power-query-import-transform-and-clean-data
+Topic 8: Unpivoting columns: Transforming crosstab reports into normalized tabular data
+================================================================================
+
+1. M CODE FORMULA EXAMPLES:
+- Unpivot Other Columns:
+  = Table.UnpivotOtherColumns(Source, {"Product_Category", "Branch_City"}, "Month_Attribute", "Revenue_Value")
+
+- Clean and Type Cast Post-Unpivot:
+  = Table.TransformColumnTypes(#"Unpivoted", {{"Month_Attribute", type date}, {"Revenue_Value", type number}})
+
+- Multi-Level Header Pre-Processing:
+  1. Transposed = Table.Transpose(Source)
+  2. FilledDown = Table.FillDown(Transposed, {"Column1"})
+  3. Combined = Table.CombineColumns(FilledDown, {"Column1", "Column2"}, Combiner.CombineTextByDelimiter(";", QuoteStyle.None), "MergedHeader")
+  4. TransposedBack = Table.Transpose(Combined)
+  5. Promoted = Table.PromoteHeaders(TransposedBack)
+  6. Unpivoted = Table.UnpivotOtherColumns(Promoted, {"Account_ID"}, "Period_Metric", "Amount")
+  7. Split = Table.SplitColumn(Unpivoted, "Period_Metric", Splitter.SplitTextByDelimiter(";"), {"Period", "Metric"})
+================================================================================

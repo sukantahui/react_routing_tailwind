@@ -1,0 +1,30 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: INTRODUCTION TO POWER QUERY & MODERN ETL ARCHITECTURE
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 005_001: Power Query – Import, Transform & Clean Data
+Topic 0: Introduction to Power Query and Modern Automated ETL (Extract, Transform, Load) Architecture
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. WHAT IS POWER QUERY & THE ETL PARADIGM?
+--------------------------------------------------------------------------------
+• Extract: Connect directly to CSVs, Excel files, SQL databases, Folders, Web APIs.
+• Transform: Visual cleaning, type conversion, unpivoting, merging, and filtering.
+• Load: Output clean tables to Excel sheets, Connection Only, or Data Model (VertiPaq).
+
+2. KEY ARCHITECTURAL ADVANTAGES OVER LEGACY METHODS:
+--------------------------------------------------------------------------------
+• Non-Destructive: Raw source data is 100% immutable and read-only.
+• Repeatable Applied Steps: Every action is recorded into a chronological recipe.
+• Single-Click Refresh: Clicking "Refresh All" replays the entire pipeline in seconds.
+• Scale: Bypasses the 1-million row Excel grid barrier via the Power Pivot Data Model.
+• Zero VBA Macros: Declarative M engine runs natively on Windows, Mac, and Web.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Never copy-paste monthly data manually—use the "From Folder" connector instead.
+• Rename Applied Steps descriptively for internal audit compliance.
+• Use "Only Create Connection" for intermediate staging queries to save RAM.
+================================================================================

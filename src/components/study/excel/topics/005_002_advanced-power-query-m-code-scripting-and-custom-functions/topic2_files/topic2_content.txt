@@ -1,0 +1,29 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: M STANDARD LIBRARY SPECIFICATION
+================================================================================
+Module: 005_002_advanced-power-query-m-code-scripting-and-custom-functions
+Topic 2: Essential M standard library functions: Table.*, List.*, Record.*, and Text.*
+================================================================================
+
+1. M CODE FORMULA EXAMPLES:
+- Group By Aggregation with Preserved Nested Details:
+  = Table.Group(
+      Fact_Sales,
+      {"Branch_City"},
+      {
+        {"Total_Revenue", each List.Sum([Amount]), type number},
+        {"Average_Order", each List.Average([Amount]), type number},
+        {"Order_Count", each Table.RowCount(_), Int64.Type},
+        {"Detail_Rows", each _, type table}
+      }
+    )
+
+- Clean Messy Phone Numbers:
+  = Table.TransformColumns(Source, {{"Phone_Raw", each Text.Select(_, {"0".."9"}), type text}})
+
+- Defensive Record Access:
+  = Record.FieldOrDefault(SourceRecord, "FiscalDiscountRate", 0.05)
+
+- Generate Continuous 365-Day Date List:
+  = List.Dates(#date(2026, 1, 1), 365, #duration(1, 0, 0, 0))
+================================================================================

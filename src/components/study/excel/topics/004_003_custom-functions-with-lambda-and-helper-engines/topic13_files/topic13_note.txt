@@ -1,0 +1,28 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: CENTRALIZED CORPORATE LAMBDA FUNCTION LIBRARY
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_003: Custom Functions with LAMBDA & Helper Engines
+Topic 13: Building a centralized corporate LAMBDA function library (exporting/importing, naming conventions, organization)
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. WHAT IS A CORPORATE LAMBDA LIBRARY?
+--------------------------------------------------------------------------------
+• A standardized repository of audited, reusable custom functions.
+• Replaces thousands of fragile ad-hoc formulas across corporate workbooks.
+• Structured with domain prefixes: FX_FIN_, FX_TAX_, FX_HR_, FX_STR_.
+
+2. KEY ARCHITECTURAL PILLARS:
+• Advanced Formula Environment (AFE): Microsoft Garage tool for plain-text editing.
+• Git Version Control: Track changes to corporate function modules in text files.
+• IntelliSense Documentation: Embed parameter comments in Name Manager.
+• Pure Function Principle: Zero hard-coded cell references (operate only on inputs).
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Always register corporate functions with Workbook Scope (never Worksheet Scope).
+• Use semantic versioning (v1.0.0 &rarr; v1.1.0) and deprecate legacy signatures gracefully.
+• Distribute via Master Template workbooks (.xltx) or corporate Excel Add-ins (.xlam).
+================================================================================

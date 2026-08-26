@@ -1,0 +1,33 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: SUBSTRING EXTRACTION WITH REGEXEXTRACT
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_004: Modern Text Intelligence & Regular Expressions
+Topic 3: Extracting substrings matching regex patterns with REGEXEXTRACT (invoice numbers, dates, amounts)
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. WHAT IS THE REGEXEXTRACT FUNCTION?
+--------------------------------------------------------------------------------
+Syntax: =REGEXEXTRACT(text, pattern, [return_mode], [case_sensitivity])
+
+Return Modes:
+• 0: First matching substring (default)
+• 1: All matching occurrences (spilled horizontal array)
+• 2: Capturing groups (spilled array of groups)
+
+2. POWERFUL CORPORATE EXTRACTION PATTERNS:
+--------------------------------------------------------------------------------
+• Invoice Code: \bINV-\d{4,6}\b
+• Transaction Date: \b\d{2}[/-]\d{2}[/-]\d{4}\b
+• Currency Amount: (?<=INR\s)\d+(\.\d{2})?
+• Email Address: [\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,}
+• IP Address: \b(?:\d{1,3}\.){3}\d{1,3}\b
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Always wrap in IFNA(REGEXEXTRACT(...), "") to prevent ugly #N/A displays.
+• Use lookbehinds `(?<=prefix)` to extract values without the prefix keyword.
+• Wrap in NUMBERVALUE() when extracting currency strings for arithmetic.
+================================================================================

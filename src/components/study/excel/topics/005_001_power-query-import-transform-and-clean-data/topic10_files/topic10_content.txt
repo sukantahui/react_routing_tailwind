@@ -1,0 +1,20 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: APPENDING QUERIES SPECIFICATION
+================================================================================
+Module: 005_001_power-query-import-transform-and-clean-data
+Topic 10: Appending queries (Union / Stacking datasets vertically from monthly files)
+================================================================================
+
+1. M CODE FORMULA EXAMPLES:
+- Append 2 Tables:
+  = Table.Combine({#"stg_Jan_Sales", #"stg_Feb_Sales"})
+
+- Append 3 or More Tables:
+  = Table.Combine({#"stg_Jan_Sales", #"stg_Feb_Sales", #"stg_Mar_Sales", #"stg_Apr_Sales"})
+
+- Dynamic Append via Excel.CurrentWorkbook:
+  = Table.Combine(Table.SelectRows(Excel.CurrentWorkbook(), each Text.StartsWith([Name], "tbl_Sales_"))[Content])
+
+- Clean and Harmonize Pre-Append:
+  = Table.TransformColumnNames(Source, Text.Trim)
+================================================================================

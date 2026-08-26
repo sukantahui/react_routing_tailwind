@@ -1,0 +1,34 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: PREFIX EXTRACTION WITH TEXTBEFORE
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_004: Modern Text Intelligence & Regular Expressions
+Topic 7: Extracting prefixes and leading data with TEXTBEFORE (instance numbers, match modes)
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. WHAT IS THE TEXTBEFORE FUNCTION?
+--------------------------------------------------------------------------------
+Syntax: =TEXTBEFORE(text, delimiter, [instance_num], [match_mode], [match_end], [if_not_found])
+
+Core Capabilities:
+• Extracts leading text before a specified delimiter substring.
+• instance_num: 1, 2, ... for left-to-right; -1, -2, ... for right-to-left.
+• match_end = 1: Treats end of text as delimiter, returning full string if delimiter absent.
+• if_not_found: Built-in custom fallback string without needing IFNA.
+
+2. POWERFUL CORPORATE PREFIX PATTERNS:
+--------------------------------------------------------------------------------
+• Extract Username from Email: =TEXTBEFORE(A2, "@")
+• Extract Root Folder Path: =TEXTBEFORE(A2, "\", -1)
+• Extract URL Protocol: =TEXTBEFORE(A2, "://")
+• Extract First Name with Fallback: =TEXTBEFORE(A2, " ", , , 1)
+• Extract Multi-Delimiter Prefix: =TEXTBEFORE(A2, {"-", "/", ":"})
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Discard legacy LEFT(A1, FIND(delim, A1)-1) formulas completely.
+• Use instance_num = -1 to strip file names and extract directory paths!
+• Always set match_end = 1 when single-word entries might lack spaces.
+================================================================================

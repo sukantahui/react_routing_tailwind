@@ -1,0 +1,23 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: DATA SANITIZATION PIPELINES
+================================================================================
+Module: 004_004_modern-text-intelligence-and-regular-expressions
+Topic 10: Automated data sanitization: Stripping HTML tags, non-alphanumeric noise, and excess whitespace
+================================================================================
+
+1. PIPELINE PHASES:
+- Phase 1: Strip HTML Tags
+  =REGEXREPLACE(B5, "<[^>]+>", "")
+
+- Phase 2: Strip Illegal Symbols
+  =REGEXREPLACE(B5, "[^a-zA-Z0-9\s.,-]", "")
+
+- Phase 3: Collapse Spaces
+  =TRIM(REGEXREPLACE(B5, "\s+", " "))
+
+- Complete Integrated Cleanser:
+  =PROPER(TRIM(REGEXREPLACE(REGEXREPLACE(B5, "<[^>]+>", ""), "\s+", " ")))
+
+- Vectorized MAP Pipeline:
+  =MAP(B5:B20, LAMBDA(c, PROPER(TRIM(REGEXREPLACE(REGEXREPLACE(c, "<[^>]+>", ""), "\s+", " ")))))
+================================================================================

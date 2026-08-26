@@ -1,0 +1,36 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: AUTHORING CUSTOM M FUNCTIONS
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 005_002: Advanced Power Query: M Code Scripting & Custom Functions
+Topic 3: Writing custom M functions to automate repetitive transformations
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. CUSTOM M FUNCTION ANATOMY:
+--------------------------------------------------------------------------------
+• Lambda Syntax: `(param1 as type, optional param2 as nullable type) as returnType => Expression`
+• Multi-Step Function Body:
+    (rawInput as nullable text, optional fxRate as nullable number) as nullable number =>
+    let
+        cleanText = if rawInput = null then "" else Text.Trim(rawInput),
+        digits = Text.Select(cleanText, {"0".."9", "."}),
+        amount = if digits = "" then 0 else Number.FromText(digits),
+        rate = if fxRate = null or fxRate = 0 then 83.50 else fxRate,
+        result = amount / rate
+    in
+        result
+
+2. INVOCATION & METADATA DOCUMENTATION:
+--------------------------------------------------------------------------------
+• In-Table Invocation: `Table.AddColumn(Source, "USD", each fx_CleanAndConvert([RawText], 83.50), type number)`
+• Documented Type: `type function (...) as type meta [Documentation.Name = "...", Documentation.Description = "..."]`
+• Recursive Functions: Use `@fx_FunctionName` to call itself.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Always prefix custom functions with `fx_` (e.g. `fx_CleanCurrency`).
+• Guard every string parameter with `nullable text` and null coalescing `??`.
+• Never invoke external `Web.Contents` inside row-by-row functions without buffering.
+================================================================================

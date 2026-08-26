@@ -1,0 +1,28 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: POWER QUERY M FORMULA LANGUAGE SPECIFICATION
+================================================================================
+Module: 005_002_advanced-power-query-m-code-scripting-and-custom-functions
+Topic 0: Introduction to the Power Query M Formula Language: Syntax, Case sensitivity, and Let...In blocks
+================================================================================
+
+1. M CODE FORMULA EXAMPLES:
+- Standard Let...In Block:
+  let
+      Source = Csv.Document(File.Contents("E:\CorporateData\Sales_2026.csv"), [Delimiter=",", Columns=6, Encoding=65001]),
+      #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+      #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Txn_ID", type text}, {"Amount", type number}, {"Date", type date}}),
+      #"Filtered High Value" = Table.SelectRows(#"Changed Type", each [Amount] >= 25000),
+      #"Added GST" = Table.AddColumn(#"Filtered High Value", "GST_Amount", each [Amount] * 0.18, type number)
+  in
+      #"Added GST"
+
+- Single-Step Return Expression:
+  let
+      Source = {10, 20, 30, 40, 50},
+      Total = List.Sum(Source)
+  in
+      Total
+
+- Nested Let Expression in Custom Column:
+  Table.AddColumn(Source, "Net_Profit", each let rev = [Revenue], cost = [Cost], tax = [Tax] in rev - cost - tax)
+================================================================================

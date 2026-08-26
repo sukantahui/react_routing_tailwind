@@ -1,0 +1,39 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: EXCEL 365 REGEX ENGINE
+================================================================================
+Module: 004_004_modern-text-intelligence-and-regular-expressions
+Topic 0: Introduction to Excel's Native Regular Expression Functions (Excel 365)
+================================================================================
+
+1. FUNCTION SIGNATURES:
+- REGEXTEST(text, pattern, [case_sensitivity])
+  Returns: TRUE or FALSE
+
+- REGEXEXTRACT(text, pattern, [return_mode], [case_sensitivity])
+  return_mode: 0 = First match (default), 1 = All matches (array), 2 = Capturing groups
+
+- REGEXREPLACE(text, pattern, replacement, [occurrence], [case_sensitivity])
+  occurrence: 0 = All occurrences (default), 1..N = Specific instance
+
+2. CORE REGEX TOKEN CHEATSHEET:
+- \d : Any digit [0-9]
+- \w : Any word character [a-zA-Z0-9_]
+- \s : Any whitespace (space, tab)
+- ^  : Start of string anchor
+- $  : End of string anchor
+- +  : One or more times
+- *  : Zero or more times
+- ?  : Zero or one time (optional)
+- {n}: Exactly n times (e.g. \d{5})
+- () : Capturing group
+
+3. COMMON CORPORATE FORMULAS:
+- Validate Indian PAN:
+  =REGEXTEST(A2, "^[A-Z]{5}[0-9]{4}[A-Z]$")
+
+- Extract Email:
+  =REGEXEXTRACT(A2, "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}")
+
+- Mask Aadhaar / Card:
+  =REGEXREPLACE(A2, "\d{4}-\d{4}-\d{4}-(\d{4})", "XXXX-XXXX-XXXX-$1")
+================================================================================

@@ -592,7 +592,7 @@ export default function Topic0() {
             <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 border-l-4 border-l-teal-500">
               <h3 className="font-bold text-teal-300 text-sm">Think About Array Multiplication vs AND()</h3>
               <p className="text-slate-300 mt-1 leading-relaxed">
-                Why does <code className="text-sky-300 font-mono">=FILTER(A2:D20, AND(B2:B20="Sales", C2:C20>50000))</code> fail, while <code className="text-emerald-400 font-mono">=FILTER(A2:D20, (B2:B20="Sales") * (C2:C20>50000))</code> succeeds? Think about what <code className="text-slate-400 font-mono">AND()</code> does when given a list of TRUE/FALSE values versus vector multiplication.
+                Why does <code className="text-sky-300 font-mono">{'=FILTER(A2:D20, AND(B2:B20="Sales", C2:C20>50000))'}</code> fail, while <code className="text-emerald-400 font-mono">{'=FILTER(A2:D20, (B2:B20="Sales") * (C2:C20>50000))'}</code> succeeds? Think about what <code className="text-slate-400 font-mono">AND()</code> does when given a list of TRUE/FALSE values versus vector multiplication.
               </p>
             </div>
 

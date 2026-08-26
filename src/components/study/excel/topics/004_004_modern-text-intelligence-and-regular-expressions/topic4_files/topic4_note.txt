@@ -1,0 +1,31 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: GLOBAL EXTRACTIONS & CAPTURING GROUPS
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_004: Modern Text Intelligence & Regular Expressions
+Topic 4: Global vs first-match extractions and capturing groups in REGEXEXTRACT
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. RETURN MODES IN REGEXEXTRACT:
+--------------------------------------------------------------------------------
+Syntax: =REGEXEXTRACT(text, pattern, [return_mode], [case_sensitivity])
+
+• return_mode = 0: Returns only the FIRST matching substring (scalar).
+• return_mode = 1: Returns ALL matching occurrences across text (horizontal spilled array).
+• return_mode = 2: Returns CAPTURING GROUPS (...) as separate spilled columns.
+
+2. POWERFUL CAPTURING GROUP USE CASES:
+--------------------------------------------------------------------------------
+• Phone Parsing: ^\+(\d{1,3})-\((\d{3})\)-(\d{4}-\d{4})\s*Ext:\s*(\d+)$
+• Email Decomposition: ^([a-zA-Z0-9._%+-]+)@([a-zA-Z0-9.-]+)\.([a-zA-Z]{2,})$
+• ISO Date Parsing: ^(\d{4})-(\d{2})-(\d{2})$ &rarr; Year, Month, Day
+• Full Name Parsing: ^(\w+)\s+(.+)$ &rarr; First Name, Last Name
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Use return_mode = 2 to decompose complex strings into multiple database columns in 1 step!
+• Use non-capturing groups `(?:...)` when grouping is needed for quantifiers without extra columns.
+• Combine return_mode = 1 with TOCOL() and UNIQUE() for automated keyword aggregation!
+================================================================================

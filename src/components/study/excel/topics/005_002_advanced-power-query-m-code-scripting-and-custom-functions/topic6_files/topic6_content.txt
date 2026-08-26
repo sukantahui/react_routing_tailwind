@@ -1,0 +1,35 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: WEB API INGESTION SPECIFICATION
+================================================================================
+Module: 005_002_advanced-power-query-m-code-scripting-and-custom-functions
+Topic 6: Web scraping and REST API data ingestion with Power Query (Web.Contents and Json.Document)
+================================================================================
+
+1. M CODE FORMULA EXAMPLES:
+- Complete Live Exchange Rate REST API Pipeline:
+  let
+      BaseUrl = "https://api.exchangerate.host",
+      Response = Web.Contents(
+          BaseUrl,
+          [
+              RelativePath = "v1/latest",
+              Query = [
+                  base = "USD",
+                  symbols = "INR,EUR,GBP,JPY,AED"
+              ],
+              Headers = [
+                  #"Accept" = "application/json",
+                  #"User-Agent" = "PowerQuery-Enterprise-Pipeline/2.0"
+              ],
+              ManualStatusHandling = {400, 404, 500}
+          ]
+      ),
+      StatusCode = Value.Metadata(Response)[Response.Status],
+      JsonPayload = if StatusCode = 200 then Json.Document(Response) else error "API Error: " & Text.From(StatusCode),
+      RatesRecord = JsonPayload[rates],
+      RatesTable = Record.ToTable(RatesRecord),
+      RenamedCols = Table.RenameColumns(RatesTable, {{"Name", "Currency_Code"}, {"Value", "Exchange_Rate_USD"}}),
+      TypedTable = Table.TransformColumnTypes(RenamedCols, {{"Currency_Code", type text}, {"Exchange_Rate_USD", type number}})
+  in
+      TypedTable
+================================================================================

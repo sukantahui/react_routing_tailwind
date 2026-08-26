@@ -1,0 +1,43 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: THE POWER QUERY M STANDARD LIBRARY
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 005_002: Advanced Power Query: M Code Scripting & Custom Functions
+Topic 2: Essential M standard library functions: Table.*, List.*, Record.*, and Text.*
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. ESSENTIAL NAMESPACE SUMMARY:
+--------------------------------------------------------------------------------
+• Table.*:
+  - Table.SelectRows(T, condition): Filter rows based on boolean predicate.
+  - Table.AddColumn(T, name, generator, type): Append calculated column.
+  - Table.TransformColumns(T, {{col, transformer}}): In-place column modification.
+  - Table.Group(T, keys, aggregations): Group by aggregation engine.
+  - Table.Buffer(T): Cache table into RAM for 10x-50x speedup.
+
+• List.*:
+  - List.Transform(L, lambda): Map elements (like JavaScript map).
+  - List.Select(L, predicate): Filter elements (like JavaScript filter).
+  - List.Generate(init, cond, next, sel): Functional while loop for API pagination.
+  - List.Contains(L, val): Check membership.
+  - List.Dates(start, count, step): Date table calendar generator.
+
+• Record.*:
+  - Record.FieldOrDefault(R, field, default): Defensive safe field lookup.
+  - Record.Combine(list_of_records): Multi-record merge.
+  - Record.FieldNames(R): Extract keys as List.
+
+• Text.*:
+  - Text.Select(T, allowed_chars): Whitelist character extraction.
+  - Text.Remove(T, blacklist_chars): Blacklist character removal.
+  - Text.BetweenDelimiters(T, start, end): Substring boundary extractor.
+  - Text.PadStart(T, len, char): Fixed-width zero padding.
+
+2. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Always use `Text.Select(str, {"0".."9"})` to clean messy phone and PAN numbers.
+• Use `Record.FieldOrDefault` to prevent pipeline crashes when schemas change.
+• Chain standard library functions smoothly in the `let` block.
+================================================================================

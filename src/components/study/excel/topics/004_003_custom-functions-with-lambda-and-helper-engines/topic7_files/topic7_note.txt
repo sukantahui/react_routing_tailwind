@@ -1,0 +1,31 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: ROW-BY-ROW MATRIX PROCESSING WITH BYROW
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_003: Custom Functions with LAMBDA & Helper Engines
+Topic 7: Row-by-row matrix processing with BYROW (e.g., calculating weighted averages per row)
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. WHAT IS THE BYROW HELPER FUNCTION?
+--------------------------------------------------------------------------------
+Syntax: =BYROW(array, lambda)
+
+Core Mechanics:
+• Slices a 2D matrix row-by-row, passing each complete row vector into the LAMBDA.
+• LAMBDA must declare exactly 1 parameter representing the 1D row vector.
+• Returns an (M x 1) vertical column vector of row-level aggregated values.
+
+2. REAL-WORLD CORPORATE USE CASES
+--------------------------------------------------------------------------------
+• Weighted Student Scores: =BYROW(Scores, LAMBDA(r, SUMPRODUCT(r, {0.2, 0.3, 0.25, 0.25})))
+• Row Total / Average: =BYROW(Matrix, LAMBDA(r, AVERAGE(r)))
+• Row-Level Compliance: =BYROW(Matrix, LAMBDA(r, AND(r >= 50)))
+• Text Aggregation: =BYROW(AddressMatrix, LAMBDA(r, TEXTJOIN(", ", TRUE, r)))
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Each row calculation must return a single scalar value (nested arrays cause #CALC!).
+• Attach BYROW column results directly to your source table using HSTACK!
+================================================================================

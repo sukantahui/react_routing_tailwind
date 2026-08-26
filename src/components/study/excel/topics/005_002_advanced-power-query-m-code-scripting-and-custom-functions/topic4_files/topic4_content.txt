@@ -1,0 +1,27 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: PARAMETERS SPECIFICATION
+================================================================================
+Module: 005_002_advanced-power-query-m-code-scripting-and-custom-functions
+Topic 4: Parameterizing Power Query: Creating dynamic file path and date range parameters
+================================================================================
+
+1. M CODE FORMULA EXAMPLES:
+- Dynamic Path Concatenation with Safe Slashes:
+  let
+      SafeRoot = if Text.EndsWith(p_FolderPath, "\\") then p_FolderPath else p_FolderPath & "\\",
+      Source = Csv.Document(File.Contents(SafeRoot & "Sales_2026.csv"), [Delimiter=",", Columns=6])
+  in
+      Source
+
+- Dynamic Date Range Filtering:
+  = Table.SelectRows(#"Changed Type", each [Date] >= p_StartDate and [Date] <= p_EndDate)
+
+- Excel Cell Parameter Table Ingestion:
+  let
+      ParamSource = Excel.CurrentWorkbook(){[Name="tbl_Parameters"]}[Content],
+      ParamRecord = Record.FromList(ParamSource[Value], ParamSource[Parameter]),
+      FolderPath = ParamRecord[FolderPath],
+      MinAmount = Number.From(ParamRecord[MinAmount])
+  in
+      [Path = FolderPath, Cutoff = MinAmount]
+================================================================================

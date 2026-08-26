@@ -1,0 +1,29 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: TEXTSPLIT FUNCTION SPECIFICATION
+================================================================================
+Module: 004_004_modern-text-intelligence-and-regular-expressions
+Topic 6: Splitting complex strings by multiple delimiters with TEXTSPLIT
+================================================================================
+
+1. FORMULA EXAMPLES:
+- Multi-Delimiter Column Split:
+  =TEXTSPLIT(B5, {",", ";", "|"}, , TRUE)
+
+- 2D Key-Value Matrix:
+  =TEXTSPLIT(B5, "=", ";")
+
+- Vertical Row Split:
+  =TEXTSPLIT(B5, , ",")
+
+- Split on Newline:
+  =TEXTSPLIT(B5, , CHAR(10))
+
+- Extract Last Token:
+  =TAKE(TOCOL(TEXTSPLIT(B5, ",")), -1)
+
+- Dynamic Array Processing Pipeline:
+  =LET(
+    tokens, TOCOL(TEXTSPLIT(B5, {",", ";", "/"})),
+    SORT(UNIQUE(FILTER(tokens, tokens<>"")))
+  )
+================================================================================

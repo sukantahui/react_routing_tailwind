@@ -1,0 +1,25 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: BYROW MATRIX AGGREGATION
+================================================================================
+Module: 004_003_custom-functions-with-lambda-and-helper-engines
+Topic 7: Row-by-row matrix processing with BYROW (e.g., calculating weighted averages per row)
+================================================================================
+
+1. BYROW MATHEMATICAL MODEL:
+- Input: 2D Matrix (M rows x N cols)
+- Operation: Slices along Axis 0 &rarr; passes 1D vector (1 x N) to LAMBDA
+- Output: 1D Column Vector (M rows x 1 col)
+
+2. CORE FORMULA PATTERNS:
+- Row Average:
+  =BYROW(C5:F9, LAMBDA(r, AVERAGE(r)))
+
+- Row Weighted Average with SUMPRODUCT:
+  =BYROW(C5:F9, LAMBDA(r, SUMPRODUCT(r, {0.2, 0.3, 0.25, 0.25})))
+
+- Row Compliance Check:
+  =BYROW(C5:F9, LAMBDA(r, IF(AND(r>=40), "All Pass", "Fail Detected")))
+
+- Attaching to Table via HSTACK:
+  =HSTACK(C5:F9, BYROW(C5:F9, LAMBDA(r, SUM(r))))
+================================================================================

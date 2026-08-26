@@ -1,0 +1,33 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: DATA PROFILING & QUALITY HYGIENE
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 005_001: Power Query – Import, Transform & Clean Data
+Topic 3: Cleaning and profiling data: Column quality, Column distribution, and Column profile
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. THE 3 DATA PROFILING TOOLS (VIEW TAB):
+--------------------------------------------------------------------------------
+1. Column Quality: Valid (Green), Error (Red), Empty (Grey).
+2. Column Distribution: Distinct vs Unique counts and mini-histogram.
+3. Column Profile: Comprehensive statistics (Min, Max, Avg, Nulls, Value counts).
+
+2. PRIMARY KEY VERIFICATION FORMULA:
+--------------------------------------------------------------------------------
+• Primary Key is VALID if: Distinct Count == Unique Count == Total Rows (100% Unique).
+
+3. THE GOLDEN TEXT HYGIENE PIPELINE:
+--------------------------------------------------------------------------------
+• Step 1: Text.Clean (Strip non-printable control characters).
+• Step 2: Text.Trim (Strip leading and trailing whitespace).
+• Step 3: Text.Proper / Capitalize Each Word (Standardize casing).
+• Step 4: Coerce Data Type (Numeric / Date / Text).
+
+4. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Always switch status bar from "Top 1000 rows" to "Entire dataset" before final sign-off!
+• Use "Keep Errors" to isolate bad records into an audit remediation staging queue.
+• Verify dimension keys are 100% unique before performing relational merges!
+================================================================================

@@ -1,0 +1,28 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: RECURSIVE LAMBDA ENGINE
+================================================================================
+Module: 004_003_custom-functions-with-lambda-and-helper-engines
+Topic 12: Recursive LAMBDAs: Solving algorithmic loops
+================================================================================
+
+1. FORMULA ANATOMY:
+FX_NAME = LAMBDA(param1, [optional_depth],
+  IF(BaseCondition,
+     BaseReturnValue,
+     RecursiveExpressionUsing(FX_NAME(reduced_param))
+  )
+)
+
+2. CLASSICAL RECURSIVE PATTERNS:
+- Factorial:
+  FX_FACT = LAMBDA(n, IF(n<=1, 1, n * FX_FACT(n-1)))
+
+- String Reversal:
+  FX_REV = LAMBDA(s, IF(LEN(s)<=1, s, RIGHT(s,1) & FX_REV(LEFT(s, LEN(s)-1))))
+
+- GCD:
+  FX_GCD = LAMBDA(a, b, IF(b=0, a, FX_GCD(b, MOD(a, b))))
+
+- Hierarchy Rollup (Find CEO):
+  FX_FIND_CEO = LAMBDA(id, LET(mgr, XLOOKUP(id, Emp[ID], Emp[MgrID]), IF(OR(mgr="", mgr=id), id, FX_FIND_CEO(mgr))))
+================================================================================

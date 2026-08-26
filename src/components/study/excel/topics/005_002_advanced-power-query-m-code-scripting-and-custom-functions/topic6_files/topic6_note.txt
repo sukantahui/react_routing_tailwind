@@ -1,0 +1,40 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: WEB SCRAPING & REST API INGESTION IN M
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 005_002: Advanced Power Query: M Code Scripting & Custom Functions
+Topic 6: Web scraping and REST API data ingestion with Power Query (Web.Contents and Json.Document)
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. REST API ARCHITECTURE IN M:
+--------------------------------------------------------------------------------
+• Static Base URL with Dynamic RelativePath & Query:
+  = Web.Contents(
+      "https://api.exchangerate.host",
+      [
+        RelativePath = "v1/latest",
+        Query = [base = "USD", symbols = "INR,EUR,GBP"],
+        Headers = [#"Accept" = "application/json"],
+        ManualStatusHandling = {400, 404, 500}
+      ]
+    )
+
+• JSON Deserialization:
+  - Object `{...}` &rarr; M Record `[...]`
+  - Array `[...]` &rarr; M List `{...}`
+  - Parse: `Json.Document(BinaryResponse)`
+
+2. BEST PRACTICES & PRODUCTION PATTERNS:
+--------------------------------------------------------------------------------
+• Never concatenate query params into the main URL string (breaks Power BI Service refresh!).
+• Use `Binary.Buffer(Web.Contents(...))` to cache API payloads and avoid duplicate HTTP calls.
+• For JavaScript heavy SPAs, inspect DevTools Network tab to query the raw JSON API directly.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Always separate `RelativePath` and `Query` to satisfy Power BI Service credential validation!
+• Use `ManualStatusHandling` to catch 404s and 500s without crashing entire scheduled refreshes.
+• Relate dynamic FX API rate tables directly in Power Pivot for multi-currency automated models.
+================================================================================

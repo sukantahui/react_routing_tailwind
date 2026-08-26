@@ -1,0 +1,26 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: TEXTAFTER FUNCTION SPECIFICATION
+================================================================================
+Module: 004_004_modern-text-intelligence-and-regular-expressions
+Topic 8: Extracting suffixes and trailing data with TEXTAFTER
+================================================================================
+
+1. FORMULA EXAMPLES:
+- Extract Domain from Email:
+  =TEXTAFTER(B5, "@")
+
+- Extract File Extension (After last dot):
+  =TEXTAFTER(B5, ".", -1)
+
+- Extract File Name (After last backslash):
+  =TEXTAFTER(B5, "\", -1)
+
+- Extract Last Name (After last space):
+  =TEXTAFTER(B5, " ", -1)
+
+- Extract Text Inside Brackets:
+  =TEXTBEFORE(TEXTAFTER(B5, "["), "]")
+
+- Extract Text Inside Quotes:
+  =TEXTBEFORE(TEXTAFTER(B5, """"), """")
+================================================================================

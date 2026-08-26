@@ -1,0 +1,31 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: CUSTOM REDUCTIONS WITH REDUCE
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_003: Custom Functions with LAMBDA & Helper Engines
+Topic 11: Aggregation algorithms: Custom multi-step reductions with REDUCE
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. WHAT IS THE REDUCE HELPER FUNCTION?
+--------------------------------------------------------------------------------
+Syntax: =REDUCE([initial_value], array, lambda)
+
+Core Mechanics:
+• Folds an array element-by-element, maintaining an accumulator.
+• LAMBDA must declare strictly 2 parameters: LAMBDA(accumulator, value).
+• Returns only the single final collapsed result (scalar or consolidated table).
+
+2. POWERFUL ENTERPRISE USE CASES
+--------------------------------------------------------------------------------
+• Compounded Growth Multiplier: =REDUCE(1, Returns, LAMBDA(a, r, a * (1 + r)))
+• Chained Text Cleansing: =REDUCE(RawText, {"-", ".", "/"}, LAMBDA(t, c, SUBSTITUTE(t, c, "")))
+• Multi-Sheet Consolidation: =DROP(REDUCE("", Sheets, LAMBDA(a, s, VSTACK(a, INDIRECT(s)))), 1)
+• String Reversal / Parsing: =REDUCE("", Chars, LAMBDA(a, c, c & a))
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Contrast with SCAN: SCAN spills every intermediate step; REDUCE outputs only 1 final value!
+• Use REDUCE + VSTACK + DROP to consolidate dozens of branch sheets into 1 master table!
+================================================================================

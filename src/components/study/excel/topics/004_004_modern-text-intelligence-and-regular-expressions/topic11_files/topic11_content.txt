@@ -1,0 +1,24 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: LOG & INVOICE PARSING
+================================================================================
+Module: 004_004_modern-text-intelligence-and-regular-expressions
+Topic 11: Parsing semi-structured log files, invoice text blocks, and ERP export strings
+================================================================================
+
+1. FORMULA EXAMPLES:
+- Log Line Parser (Timestamp, Level, User, IP, Message):
+  =REGEXEXTRACT(B5, "^\[([^\]]+)\]\s+\[([^\]]+)\]\s+\[User:\s*([^\]]+)\]\s+\[IP:\s*([^\]]+)\]\s+(.+)$", 2)
+
+- Invoice Text Block Parser:
+  =TEXTSPLIT(B5, ": ", " | ")
+
+- Lookbehind Entity Isolators:
+  =REGEXEXTRACT(B5, "(?<=INV_NO=)[A-Z0-9-]+")
+  =NUMBERVALUE(REGEXEXTRACT(B5, "(?<=INR\s)[0-9,.]+"))
+
+- Multi-Line Block Parser:
+  =TEXTSPLIT(B5, CHAR(9), CHAR(10))
+
+- Vectorized Multi-Row Parser:
+  =DROP(REDUCE("", B5:B20, LAMBDA(acc, line, VSTACK(acc, REGEXEXTRACT(line, "^\[([^\]]+)\]\s+\[([^\]]+)\]\s+\[User:\s*([^\]]+)\]\s+(.+)$", 2)))), 1)
+================================================================================

@@ -1,0 +1,30 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: REGEX PATTERN FUNDAMENTALS
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_004: Modern Text Intelligence & Regular Expressions
+Topic 1: Regex pattern fundamentals: Metacharacters, Character classes, Quantifiers, and Anchors
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. THE FOUR PILLARS OF REGULAR EXPRESSIONS:
+--------------------------------------------------------------------------------
+1. Metacharacters: Special tokens like . (any char), \d (digit), \w (word), \s (space).
+2. Character Classes: [A-Z] (uppercase), [0-9] (digits), [^0-9] (negated/non-digits).
+3. Quantifiers: + (1+), * (0+), ? (0 or 1), {n} (exact n), {n,m} (range).
+4. Anchors: ^ (start of string), $ (end of string), \b (word boundary).
+
+2. COMMON BUSINESS PATTERNS IN INDIA:
+--------------------------------------------------------------------------------
+• PAN Card: ^[A-Z]{5}[0-9]{4}[A-Z]$
+• PIN Code: ^[1-9][0-9]{5}$
+• Mobile Number: ^[6-9][0-9]{9}$
+• Invoice ID: \bINV-\d{4,6}\b
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Avoid loose wildcard patterns like `.*` in validation—they cause greedy false matches!
+• Always use specific character sets (e.g. `[A-Z]` instead of `\w` when numbers are forbidden).
+• Bookend validation formulas with `^` and `$`!
+================================================================================

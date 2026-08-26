@@ -1,0 +1,31 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: PROCEDURAL GRID GENERATION WITH MAKEARRAY
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_003: Custom Functions with LAMBDA & Helper Engines
+Topic 9: Generating dynamic procedural grids with MAKEARRAY
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. WHAT IS THE MAKEARRAY HELPER FUNCTION?
+--------------------------------------------------------------------------------
+Syntax: =MAKEARRAY(rows, cols, lambda)
+
+Core Mechanics:
+• Generates an (M x N) procedural matrix from scratch in RAM.
+• LAMBDA must declare strictly 2 parameters: LAMBDA(r, c, calculation).
+• Indices r and c are 1-based: r &in; [1..rows], c &in; [1..cols].
+
+2. REAL-WORLD CORPORATE USE CASES
+--------------------------------------------------------------------------------
+• Multiplication Tables: =MAKEARRAY(10, 10, LAMBDA(r, c, r * c))
+• Sensitivity Analysis: =MAKEARRAY(10, 5, LAMBDA(r, c, PMT(INDEX(Rates,c)/12, r*12, -Loan)))
+• Identity Matrix: =MAKEARRAY(N, N, LAMBDA(r, c, IF(r=c, 1, 0)))
+• Procedural Calendar: =MAKEARRAY(5, 7, LAMBDA(r, c, LET(d, (r-1)*7+c, IF(d<=31, d, ""))))
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Rows and cols must be positive integers &ge; 1 (otherwise #CALC!).
+• Combine with LET for multi-stage coordinate math and formatting!
+================================================================================

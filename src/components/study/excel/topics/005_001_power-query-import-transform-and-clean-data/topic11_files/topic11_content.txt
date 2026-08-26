@@ -1,0 +1,23 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: MERGING QUERIES SPECIFICATION
+================================================================================
+Module: 005_001_power-query-import-transform-and-clean-data
+Topic 11: Merging queries (Joins: Left Outer, Right Outer, Full Outer, Inner, Left Anti, Right Anti)
+================================================================================
+
+1. M CODE FORMULA EXAMPLES:
+- Standard Left Outer Merge:
+  = Table.NestedJoin(Fact_Sales, {"Customer_ID"}, Dim_Customers, {"Customer_ID"}, "CustomerData", JoinKind.LeftOuter)
+
+- Expand Merged Columns:
+  = Table.ExpandTableColumn(#"Merged", "CustomerData", {"Customer_Name", "Branch_City", "Credit_Limit"}, {"Customer_Name", "Branch_City", "Credit_Limit"})
+
+- Left Anti Join (Exceptions / Orphan Finder):
+  = Table.NestedJoin(Fact_Sales, {"Customer_ID"}, Dim_Customers, {"Customer_ID"}, "Unregistered", JoinKind.LeftAnti)
+
+- Buffered Lookup Merge:
+  = Table.NestedJoin(Fact_Sales, {"Product_ID"}, Table.Buffer(Dim_Products), {"Product_ID"}, "ProdDetails", JoinKind.LeftOuter)
+
+- Aggregate Directly (No Row Explosion):
+  = Table.AggregateTableColumn(#"Merged", "OrderDetails", {{"Amount", List.Sum, "Total_Customer_Revenue"}})
+================================================================================

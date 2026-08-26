@@ -1,0 +1,24 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: CAPSTONE PROJECT SPECIFICATION
+================================================================================
+Module: 004_003_custom-functions-with-lambda-and-helper-engines
+Topic 14: Real-world project & Capstone assessment
+================================================================================
+
+1. CAPSTONE PROJECT DELIVERABLES:
+1. Financial Loan Schedule Engine: FX_FIN_LOAN_SCHEDULE(p, r, n)
+2. Multi-Branch Consolidation Engine: FX_TAX_MULTI_CONSOLIDATE(sheets)
+3. HR Appraisal & Incentive Engine: FX_HR_PAYROLL_INCENTIVE(days, score, sales)
+4. Recursive Organizational Rollup: FX_FIND_CEO(empID, [maxDepth])
+
+2. COMPLETE ARCHITECTURAL TAXONOMY:
+- Pure Functions
+- Memory Scoping via LET
+- Vector Processing via MAP
+- Matrix Aggregation via BYROW / BYCOL
+- Procedural Generation via MAKEARRAY
+- Progressive Accumulation via SCAN
+- Multi-Step Folding via REDUCE
+- Algorithmic Recursion via Self-Referential LAMBDA
+- Enterprise Library Governance via AFE & Git
+================================================================================

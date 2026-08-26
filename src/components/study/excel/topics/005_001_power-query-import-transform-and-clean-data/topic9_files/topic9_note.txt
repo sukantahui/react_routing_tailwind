@@ -1,0 +1,32 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: PIVOTING & CUSTOM AGGREGATIONS
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 005_001: Power Query – Import, Transform & Clean Data
+Topic 9: Pivoting columns and custom aggregations in Power Query
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. PIVOT COLUMN & GROUP BY ENGINE:
+--------------------------------------------------------------------------------
+• Pivot Column: Table.Pivot(Table, DistinctHeadersList, "Category", "Amount", List.Sum)
+• Pivot "Don't Aggregate": Converts EAV text attributes into entity columns (1-to-1 mapping).
+• Group By: Table.Group(Table, KeyCols, AggregationsList)
+  - Basic vs Advanced: Multi-key grouping and simultaneous multi-metric aggregates.
+• Group By "All Rows" (type table):
+  - Retains full sub-table inside cell for partitioned ranking, running totals, and Text.Combine!
+
+2. PARTITIONED RANKING PATTERN (SQL ROW_NUMBER() OVER):
+--------------------------------------------------------------------------------
+1. Group By GroupKey with Operation "All Rows"
+2. In nested sub-table: Sort descending by Metric
+3. Add Index Column to nested table (1, 2, 3...)
+4. Expand nested table -> Instant group-level ranking!
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Keep datasets tall for Power BI / Power Pivot data modeling; pivot only for final presentation tables.
+• Use "Don't Aggregate" for text attribute matrices; ensure strictly 1 value per entity!
+• Place Group By early to fold into server-side SQL GROUP BY clauses.
+================================================================================

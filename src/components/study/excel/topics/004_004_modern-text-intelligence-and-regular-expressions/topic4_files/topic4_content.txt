@@ -1,0 +1,22 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: CAPTURING GROUPS & GLOBAL REGEX
+================================================================================
+Module: 004_004_modern-text-intelligence-and-regular-expressions
+Topic 4: Global vs first-match extractions and capturing groups in REGEXEXTRACT
+================================================================================
+
+1. FORMULA EXAMPLES:
+- Global All Matches (Mode 1):
+  =REGEXEXTRACT("Invoice 101, Invoice 202, Invoice 303", "\d+", 1)
+  Spills: 101 | 202 | 303
+
+- Capturing Groups Decomposition (Mode 2):
+  =REGEXEXTRACT("+91-(033)-2592-1144 Ext: 204", "^\+(\d+)-\((\d+)\)-([\d-]+)\s*Ext:\s*(\d+)$", 2)
+  Spills: 91 | 033 | 2592-1144 | 204
+
+- Vertical Keyword Extraction:
+  =TOCOL(REGEXEXTRACT(A2, "\bINV-\d+\b", 1))
+
+- Specific Capturing Group:
+  =CHOOSECOLS(REGEXEXTRACT(A2, "^(\w+)\s+(\w+)$", 2), 2)
+================================================================================

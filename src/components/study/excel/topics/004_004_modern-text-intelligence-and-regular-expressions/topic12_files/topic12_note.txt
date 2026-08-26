@@ -1,0 +1,33 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: REAL-WORLD CUSTOMER MASTER VALIDATOR PROJECT
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_004: Modern Text Intelligence & Regular Expressions
+Topic 12: Real-world project: Building an automated enterprise customer master data validator and parser
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. ENTERPRISE CUSTOMER MASTER DATA PIPELINE:
+--------------------------------------------------------------------------------
+Stage 1: Raw Ingestion (Messy names, unformatted phones, mixed-case tax IDs).
+Stage 2: Sanitization (PROPER, TRIM, REGEXREPLACE HTML/Noise).
+Stage 3: Multi-Field Validation (Anchored REGEXTEST for PAN, GSTIN, Email, Phone, PIN).
+Stage 4: Compliance Scoring ((ValidPAN + ValidGST + ValidEmail + ValidPhone + ValidPIN)/5).
+Stage 5: Dynamic Exception Generation (TEXTJOIN failure remarks).
+Stage 6: RAM Segregation (FILTER into Approved Master View vs Audit Exceptions View).
+
+2. KEY PROJECT FORMULAS:
+--------------------------------------------------------------------------------
+• Customer Name Sanitizer: =PROPER(TRIM(REGEXREPLACE(REGEXREPLACE(A2, "<[^>]+>", ""), "\s+", " ")))
+• Phone Sanitizer: =RIGHT(REGEXREPLACE(Phone, "\D", ""), 10)
+• Compliance Score: =(REGEXTEST(PAN, "^[A-Z]{5}\d{4}[A-Z]$") + REGEXTEST(Email, "^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,}$")) / 2
+• Exception Flag: =TEXTJOIN("; ", TRUE, IF(NOT(REGEXTEST(PAN, "^[A-Z]{5}\d{4}[A-Z]$")), "PAN Invalid", ""), IF(NOT(REGEXTEST(Email, "^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,}$")), "Email Invalid", ""))
+• Approved Master View: =FILTER(DataTable, ValidPAN * ValidGST * ValidEmail)
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Build deterministic validation pipelines that execute upon every keystroke.
+• Never overwrite raw customer inputs—always maintain non-destructive ETL layers.
+• Deploy named LAMBDAs like FX_VALIDATE_CUSTOMER for company-wide governance standards!
+================================================================================

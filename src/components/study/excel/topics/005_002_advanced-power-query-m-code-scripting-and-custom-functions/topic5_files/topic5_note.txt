@@ -1,0 +1,34 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: DYNAMIC MULTI-FILE FOLDER CONSOLIDATION
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 005_002: Advanced Power Query: M Code Scripting & Custom Functions
+Topic 5: Ingesting data from entire folders: Dynamic multi-file consolidation with custom schema handling
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. FOLDER INGESTION ARCHITECTURE:
+--------------------------------------------------------------------------------
+• Core Function: `Folder.Files(p_FolderPath)` (Flat recursive scan).
+• Mandatory Early Filter Step:
+  `Table.SelectRows(Source, each [Extension] = ".csv" and not [Attributes][Hidden] and not Text.StartsWith([Name], "~$"))`
+• Binary Extraction:
+  - Excel: `Excel.Workbook([Content], true)`
+  - CSV: `Csv.Document([Content], [Delimiter=",", Encoding=65001])`
+  - JSON: `Json.Document([Content])`
+
+2. DYNAMIC SCHEMA UNION & LINEAGE:
+--------------------------------------------------------------------------------
+• Compute Dynamic Union Column Headers:
+  `AllCols = List.Distinct(List.Combine(List.Transform(TableWithData[Data], each Table.ColumnNames(_))))`
+• Defensive Column Selection:
+  `Table.SelectColumns(Table, ExpectedCols, MissingField.Ignore)`
+• Retain `[Name]` column to extract Branch, Year, or Month metadata dimensions.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Always filter out `~$` Excel temp lock files immediately after `Folder.Files`!
+• Filter early before expanding binary content to minimize disk I/O.
+• Use dynamic header lists rather than hardcoded column expansion to survive schema drift.
+================================================================================

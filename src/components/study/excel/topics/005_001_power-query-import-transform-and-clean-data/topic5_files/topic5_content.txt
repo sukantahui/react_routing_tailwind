@@ -1,0 +1,23 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: FILTERING & DEDUPLICATION SPECIFICATION
+================================================================================
+Module: 005_001_power-query-import-transform-and-clean-data
+Topic 5: Filtering rows, sorting columns, and removing duplicates at scale
+================================================================================
+
+1. M CODE FORMULA EXAMPLES:
+- Row Filter:
+  = Table.SelectRows(Source, each [Amount_INR] > 10000 and [Branch_City] <> "Naihati")
+
+- Dynamic Current Year Filter:
+  = Table.SelectRows(Source, each Date.IsInCurrentYear([Invoice_Date]))
+
+- Multi-Column Sort:
+  = Table.Sort(Source, {{"Invoice_Date", Order.Descending}, {"Amount_INR", Order.Descending}})
+
+- Composite Key Deduplication:
+  = Table.Distinct(Source, {"Customer_ID", "Invoice_No"})
+
+- Guaranteed Latest Record Deduplication:
+  = Table.Distinct(Table.Buffer(Table.Sort(Source, {{"Invoice_Date", Order.Descending}})), {"Customer_ID"})
+================================================================================

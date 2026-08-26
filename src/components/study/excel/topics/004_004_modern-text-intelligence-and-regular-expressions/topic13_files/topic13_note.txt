@@ -1,0 +1,29 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: CAPSTONE ASSESSMENT & MASTERY LAB
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_004: Modern Text Intelligence & Regular Expressions
+Topic 13: Assessment: Advanced Regex and String Intelligence Lab
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. THE 10 CAPSTONE ASSESSMENT LAB CHALLENGES:
+--------------------------------------------------------------------------------
+Challenge 1: Complex Tax ID & Email Dual-Filter (FILTER + REGEXTEST).
+Challenge 2: Multi-Delimited 2D Matrix Ledger Ingestion (TEXTSPLIT).
+Challenge 3: Negative Instance Slicing for File Path Resolution (TEXTBEFORE / TEXTAFTER).
+Challenge 4: 5-Token Server Security Log Decomposition (REGEXEXTRACT Mode 2).
+Challenge 5: Automated HTML Tag & Whitespace Cleansing Pipeline (REGEXREPLACE + TRIM).
+Challenge 6: Dynamic Credit Card Masking & Compliance Formatting ($1 Backreferences).
+Challenge 7: Deduplicated Master Invoice Registry Extraction (TOCOL + UNIQUE).
+Challenge 8: Lookbehind API Status & Token Isolator ((?<=...)).
+Challenge 9: Enterprise Customer Quality Scoring & Dynamic Flagging (TEXTJOIN).
+Challenge 10: Single-Formula In-Memory Board-Level Governance KPI Dashboard (LET).
+
+2. CLASSROOM RULES & FINAL GRADUATION ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Congratulations on completing Module 004_004!
+• You now possess elite, institutional-grade text engineering capabilities.
+• Deploy these in-memory regex pipelines across your corporate financial models with pride!
+================================================================================

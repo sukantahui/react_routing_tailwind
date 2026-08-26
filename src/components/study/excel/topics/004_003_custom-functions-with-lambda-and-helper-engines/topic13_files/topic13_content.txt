@@ -1,0 +1,19 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: CORPORATE FUNCTION LIBRARY
+================================================================================
+Module: 004_003_custom-functions-with-lambda-and-helper-engines
+Topic 13: Building a centralized corporate LAMBDA function library
+================================================================================
+
+1. STANDARDIZED DOMAIN PREFIXES:
+- FX_FIN_ : Financial Mathematics (Loan EMI, IRR, Bond Yield)
+- FX_TAX_ : Statutory Taxation (GST, TDS, Income Tax Slabs)
+- FX_HR_  : Human Resources (Bonus Tiers, Gratuity, Leave Encashment)
+- FX_STR_ : String Manipulation & Cleansing (Sanitizers, Tokenizers)
+- FX_ETL_ : Data Ingestion & Transformation (Multi-sheet consolidate, Deduplicate)
+
+2. CORE LIBRARY EXAMPLES:
+- FX_FIN_EMI = LAMBDA(p, r, n, p*(r/12)*(1+r/12)^n/((1+r/12)^n-1))
+- FX_TAX_GST = LAMBDA(amount, [rate], amount * IF(ISOMITTED(rate), 0.18, rate))
+- FX_HR_BONUS = LAMBDA(days, score, IF(AND(days>=25, score>=90), "Tier-1", "Standard"))
+================================================================================

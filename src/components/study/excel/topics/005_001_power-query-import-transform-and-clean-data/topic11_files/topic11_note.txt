@@ -1,0 +1,33 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: MERGING QUERIES (RELATIONAL JOINS)
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 005_001: Power Query – Import, Transform & Clean Data
+Topic 11: Merging queries (Joins: Left Outer, Right Outer, Full Outer, Inner, Left Anti, Right Anti)
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. THE 6 RELATIONAL JOIN KINDS:
+--------------------------------------------------------------------------------
+• JoinKind.LeftOuter: All from left, matching from right (VLOOKUP replacement).
+• JoinKind.RightOuter: All from right, matching from left.
+• JoinKind.FullOuter: Complete union of both datasets.
+• JoinKind.Inner: Strict intersection; only records present in both.
+• JoinKind.LeftAnti: Rows ONLY in left with NO match in right (Exception/Audit finder!).
+• JoinKind.RightAnti: Rows ONLY in right.
+
+2. CORE BEST PRACTICES & DANGERS:
+--------------------------------------------------------------------------------
+• 1-to-Many Row Explosion: Duplicate keys in lookup table duplicate fact rows!
+  Fix: Apply Table.Distinct on lookup table before merging.
+• Type Consistency: Keys must have identical data types (Text != Number, Date != DateTime).
+• Expand vs Aggregate: Use Table.AggregateTableColumn to roll up metrics (Sum, Count) without row multiplication.
+• Table.Buffer: Wrap lookup table in Table.Buffer for 10x-50x local speedup!
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Check the green match preview at the bottom of the Merge dialog before clicking OK!
+• Use Left Anti joins to surface unapproved vendors and missing customer registrations.
+• Harmonize case and trim spaces on key columns prior to joining.
+================================================================================

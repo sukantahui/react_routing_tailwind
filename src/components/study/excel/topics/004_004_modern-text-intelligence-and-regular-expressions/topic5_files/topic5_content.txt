@@ -1,0 +1,26 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: REGEXREPLACE FUNCTION SPECIFICATION
+================================================================================
+Module: 004_004_modern-text-intelligence-and-regular-expressions
+Topic 5: Cleaning, masking, and reformatting text with REGEXREPLACE
+================================================================================
+
+1. FORMULA EXAMPLES:
+- Aadhaar Masking:
+  =REGEXREPLACE(C5, "^\d{4}-\d{4}-(\d{4})$", "XXXX-XXXX-$1")
+
+- Credit Card Masking:
+  =REGEXREPLACE(C5, "^\d{4}-\d{4}-\d{4}-(\d{4})$", "XXXX-XXXX-XXXX-$1")
+
+- HTML Tag Stripping:
+  =REGEXREPLACE(D5, "<[^>]+>", "")
+
+- Phone Number Standardization:
+  =REGEXREPLACE(E5, "^(\d{3})(\d{3})(\d{4})$", "($1) $2-$3")
+
+- Date Format Transposition (DD/MM/YYYY &rarr; YYYY-MM-DD):
+  =REGEXREPLACE(F5, "^(\d{2})/(\d{2})/(\d{4})$", "$3-$2-$1")
+
+- Non-Alphanumeric Punctuation Removal:
+  =REGEXREPLACE(B5, "[^a-zA-Z0-9\s]", "")
+================================================================================

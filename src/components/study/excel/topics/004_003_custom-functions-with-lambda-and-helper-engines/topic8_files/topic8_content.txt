@@ -1,0 +1,25 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: BYCOL COLUMN AGGREGATION
+================================================================================
+Module: 004_003_custom-functions-with-lambda-and-helper-engines
+Topic 8: Column-by-column matrix processing with BYCOL
+================================================================================
+
+1. BYCOL MATHEMATICAL MODEL:
+- Input: 2D Matrix (M rows x N cols)
+- Operation: Slices along Axis 1 &rarr; passes 1D vertical vector (M x 1) to LAMBDA
+- Output: 1D Horizontal Row Vector (1 row x N cols)
+
+2. CORE ENTERPRISE PATTERNS:
+- Column Means:
+  =BYCOL(C5:F8, LAMBDA(col, AVERAGE(col)))
+
+- Column Maximums:
+  =BYCOL(C5:F8, LAMBDA(col, MAX(col)))
+
+- Attaching Total Row via VSTACK:
+  =VSTACK(C5:F8, BYCOL(C5:F8, LAMBDA(col, SUM(col))))
+
+- Complete Report with Headers, Grid, and Totals in 1 Formula:
+  =LET(d, C5:F8, VSTACK(d, BYCOL(d, LAMBDA(c, SUM(c)))))
+================================================================================

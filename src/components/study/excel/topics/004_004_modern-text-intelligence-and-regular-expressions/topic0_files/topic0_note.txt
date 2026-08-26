@@ -1,0 +1,29 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: MODERN TEXT INTELLIGENCE & REGEX IN EXCEL 365
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_004: Modern Text Intelligence & Regular Expressions
+Topic 0: Introduction to Excel's Native Regular Expression Functions (Excel 365)
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. WHAT ARE EXCEL'S NATIVE REGEX FUNCTIONS?
+--------------------------------------------------------------------------------
+Excel 365 introduced three revolutionary native functions:
+1. REGEXTEST(text, pattern, [case_sensitivity]) &rarr; Returns TRUE/FALSE
+2. REGEXEXTRACT(text, pattern, [return_mode], [case_sensitivity]) &rarr; Extracts matched tokens
+3. REGEXREPLACE(text, pattern, replacement, [occurrence], [case_sensitivity]) &rarr; Replaces pattern matches
+
+2. WHY REGEX REVOLUTIONIZES SPREADSHEET ETL
+--------------------------------------------------------------------------------
+• Replaces brittle nested MID / SEARCH / LEFT / RIGHT formulas.
+• Replaces slow legacy VBA RegExp COM objects with native C++ SIMD memory speed.
+• Direct integration with Conditional Formatting and Dynamic Array pipelines (FILTER, BYROW).
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Always anchor your patterns with ^ and $ for exact field validation.
+• Use case_sensitivity = 1 when validating emails or case-insensitive codes.
+• Wrap REGEXEXTRACT in IFNA to handle non-matches gracefully!
+================================================================================

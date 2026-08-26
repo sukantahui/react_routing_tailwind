@@ -1,0 +1,30 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: NUMBER & DATE TRANSFORMATIONS IN POWER QUERY
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 005_001: Power Query – Import, Transform & Clean Data
+Topic 7: Number and date transformations: Age calculation, start/end of month, rounding, and parity
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. DATE & TIME TRANSFORMATION SUITE:
+--------------------------------------------------------------------------------
+• Age: Number.RoundDown(Duration.Days(DateTime.Date(DateTime.LocalNow()) - [BirthDate]) / 365.25)
+• Period Boundaries: Date.StartOfMonth, Date.EndOfMonth, Date.StartOfYear, Date.EndOfYear
+• Names & Quarters: Date.MonthName, Date.QuarterOfYear, Date.DayOfWeekName
+• Relative Dates: Date.IsInCurrentYear, Date.IsInPreviousNDays([Date], 30)
+• Durations: [End] - [Start] -> Duration.Days, Duration.TotalHours
+
+2. NUMBER TRANSFORMATION SUITE:
+--------------------------------------------------------------------------------
+• Rounding: Number.Round (Banker's), Number.RoundUp (Ceiling), Number.RoundDown (Floor)
+• Standard Rounding: Number.Round([Val], 2, RoundingMode.AwayFromZero)
+• Parity & Math: Number.IsEven, Number.IsOdd, Number.Mod, Number.Abs, Number.Sign
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Be aware of Banker's Rounding: 2.5 rounds to 2 unless RoundingMode.AwayFromZero is set!
+• Build Fiscal Calendars (April-March) with M conditional date logic.
+• Strip time components with DateTime.Date when joining dates with dimension keys.
+================================================================================

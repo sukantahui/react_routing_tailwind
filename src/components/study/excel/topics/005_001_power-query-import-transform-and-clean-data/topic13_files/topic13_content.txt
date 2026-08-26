@@ -1,0 +1,20 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: LOADING OPTIONS SPECIFICATION
+================================================================================
+Module: 005_001_power-query-import-transform-and-clean-data
+Topic 13: Loading options: Close & Load to Table, Connection Only, adding directly to Data Model
+================================================================================
+
+1. LOADING DESTINATIONS SUMMARY:
+- Table:
+  Physical worksheet table. Limited to 1,048,576 rows. Best for small final reporting summaries.
+
+- Only Create Connection:
+  Zero worksheet cells populated. In-memory query definition. Best for staging queries (stg_Jan, stg_Feb).
+
+- Add this data to the Data Model:
+  Loads into Power Pivot (VertiPaq). Supports 100M+ rows. Unlocks DAX and star schemas.
+
+- PivotTable Report / PivotChart:
+  Direct visualization without creating flat worksheet tables.
+================================================================================

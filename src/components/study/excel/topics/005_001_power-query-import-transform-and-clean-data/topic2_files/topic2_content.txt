@@ -1,0 +1,19 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: EDITOR INTERFACE SPECIFICATION
+================================================================================
+Module: 005_001_power-query-import-transform-and-clean-data
+Topic 2: The Power Query Editor interface: Queries pane, Applied Steps, and Formula bar
+================================================================================
+
+1. UI NAVIGATION SHORTCUTS & PATHS:
+- Launch Editor: Alt + F12
+- Advanced Editor: Home &rarr; Advanced Editor
+- Rename Step: Select step + F2
+- Show Formula Bar: View &rarr; Check [X] Formula Bar
+- Query Dependencies: View &rarr; Query Dependencies
+
+2. M STEP ASSIGNMENT PATTERN:
+- #\"Step Name\" = Function(#\"Prior Step\", [Options])
+- Table.SelectColumns(#\"Changed Type\", {\"Date\", \"City\", \"Amount\"})
+- Table.SelectRows(#\"Removed Other Columns\", each [Amount] > 1000)
+================================================================================

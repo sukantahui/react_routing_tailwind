@@ -1,0 +1,31 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: COMBINING REGEX WITH DYNAMIC ARRAYS
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_004: Modern Text Intelligence & Regular Expressions
+Topic 9: Combining Regex functions with dynamic array functions (FILTER, BYROW, TOCOL)
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. VECTORIZED REGEX ARCHITECTURE:
+--------------------------------------------------------------------------------
+• FILTER + REGEXTEST: Instant extraction of compliant vs non-compliant rows.
+• BYROW + REGEXEXTRACT: Multi-group decomposition across entire tables.
+• TOCOL + REGEXEXTRACT (mode 1): Flattening global matches into 1D columns.
+• MAP + REGEXREPLACE: Mass data sanitization and masking across 2D grids.
+• REDUCE + REGEXREPLACE: Sequential multi-pattern cleansing pipelines.
+
+2. ESSENTIAL CORPORATE VECTORIZED PIPELINES:
+--------------------------------------------------------------------------------
+• Compliant Vendor Filter: =FILTER(A5:E20, REGEXTEST(C5:C20, "^[A-Z]{5}\d{4}[A-Z]$"))
+• Unique Invoice Inventory: =SORT(UNIQUE(TOCOL(REGEXEXTRACT(B5:B100, "INV-\d+", 1), 3)))
+• Column-Wide Name Splitting: =BYROW(A5:A20, LAMBDA(r, REGEXEXTRACT(r, "^(\w+)\s+(.+)$", 2)))
+• Total Compliant Count: =SUM(--REGEXTEST(C5:C100, "^[A-Z]{5}\d{4}[A-Z]$"))
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Never loop with VBA when dynamic array vectorization can process 50,000 rows in RAM!
+• Always use TOCOL(..., 3) to discard errors and blanks from global extractions.
+• Combine LET with REGEXTEST and PIVOTBY for automated executive compliance reporting!
+================================================================================

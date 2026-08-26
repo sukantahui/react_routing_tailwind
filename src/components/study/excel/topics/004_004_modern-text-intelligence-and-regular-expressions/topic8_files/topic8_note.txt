@@ -1,0 +1,33 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: SUFFIX & TRAILING DATA EXTRACTION WITH TEXTAFTER
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_004: Modern Text Intelligence & Regular Expressions
+Topic 8: Extracting suffixes and trailing data with TEXTAFTER
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. WHAT IS THE TEXTAFTER FUNCTION?
+--------------------------------------------------------------------------------
+Syntax: =TEXTAFTER(text, delimiter, [instance_num], [match_mode], [match_end], [if_not_found])
+
+Core Capabilities:
+• Extracts trailing text after a specified delimiter substring.
+• Negative instance_num = -1 searches from right to left (after LAST delimiter).
+• Combine with TEXTBEFORE to extract middle tokens: =TEXTBEFORE(TEXTAFTER(A2, "["), "]").
+
+2. ESSENTIAL CORPORATE TRAILING DATA PATTERNS:
+--------------------------------------------------------------------------------
+• Domain Name from Email: =TEXTAFTER(A2, "@")
+• File Extension: =TEXTAFTER(A2, ".", -1)
+• File Name from Full Path: =TEXTAFTER(A2, "\", -1)
+• Last Name from Full Name: =TEXTAFTER(A2, " ", -1)
+• Text Inside Brackets: =TEXTBEFORE(TEXTAFTER(A2, "["), "]")
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Never hardcode character lengths (e.g. 999) with MID and FIND!
+• Use instance_num = -1 to pull file extensions and trailing serial numbers.
+• Nest TEXTAFTER inside TEXTBEFORE for clean token extraction between brackets or quotes!
+================================================================================

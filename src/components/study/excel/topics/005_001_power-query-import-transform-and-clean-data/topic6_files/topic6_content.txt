@@ -1,0 +1,26 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: TEXT TRANSFORMATIONS SPECIFICATION
+================================================================================
+Module: 005_001_power-query-import-transform-and-clean-data
+Topic 6: Text transformations: Splitting columns, trimming, uppercase/lowercase, extracting delimiters
+================================================================================
+
+1. M CODE FUNCTIONS:
+- Split by Delimiter:
+  = Table.SplitColumn(Source, "Code", Splitter.SplitTextByDelimiter("-", QuoteStyle.Csv), {"Prefix", "ID"})
+
+- Clean and Trim:
+  = Table.TransformColumns(Source, {{"Customer", Text.Clean}, {"Customer", Text.Trim}, {"Customer", Text.Proper}})
+
+- Extract Delimiters:
+  = Table.AddColumn(Source, "User", each Text.BeforeDelimiter([Email], "@"))
+  = Table.AddColumn(Source, "Ext", each Text.AfterDelimiter([File_Path], ".", {0, RelativePosition.FromEnd}))
+  = Table.AddColumn(Source, "Bracket", each Text.BetweenDelimiters([Desc], "(", ")"))
+
+- Text.Select / Text.Remove:
+  = Table.AddColumn(Source, "DigitsOnly", each Text.Select([RawPhone], {"0".."9"}))
+  = Table.AddColumn(Source, "NoPunctuation", each Text.Remove([Remarks], {",", ".", ";", "!"}))
+
+- Merge Columns:
+  = Table.CombineColumns(Source, {"City", "State"}, Combiner.CombineTextByDelimiter(", ", QuoteStyle.None), "Full_Location")
+================================================================================

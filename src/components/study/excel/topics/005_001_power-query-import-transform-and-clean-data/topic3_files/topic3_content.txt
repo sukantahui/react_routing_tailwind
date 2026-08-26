@@ -1,0 +1,21 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: DATA PROFILING SPECIFICATION
+================================================================================
+Module: 005_001_power-query-import-transform-and-clean-data
+Topic 3: Cleaning and profiling data: Column quality, Column distribution, and Column profile
+================================================================================
+
+1. DATA PROFILING TOGGLES:
+- View &rarr; Check [X] Column quality
+- View &rarr; Check [X] Column distribution
+- View &rarr; Check [X] Column profile
+- View &rarr; Check [X] Monospaced font
+
+2. DATA HYGIENE M FUNCTIONS:
+- Clean: Table.TransformColumns(Source, {{"Customer", Text.Clean, type text}})
+- Trim: Table.TransformColumns(#"Cleaned", {{"Customer", Text.Trim, type text}})
+- Proper: Table.TransformColumns(#"Trimmed", {{"Customer", Text.Proper, type text}})
+- Fill Down: Table.FillDown(#"Proper", {"Category"})
+- Replace Errors: Table.ReplaceErrorValues(#"Prior", {{"Amount", 0}})
+- Keep Errors: Table.SelectRowsWithErrors(Source, {"Amount"})
+================================================================================

@@ -1,0 +1,28 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: FOLDER CONSOLIDATION SPECIFICATION
+================================================================================
+Module: 005_002_advanced-power-query-m-code-scripting-and-custom-functions
+Topic 5: Ingesting data from entire folders: Dynamic multi-file consolidation with custom schema handling
+================================================================================
+
+1. M CODE FORMULA EXAMPLES:
+- Complete Folder Ingestion with Dynamic Schema Alignment:
+  let
+      Source = Folder.Files(p_FolderPath),
+      FilteredFiles = Table.SelectRows(Source, each 
+          [Extension] = ".csv" and 
+          not [Attributes][Hidden] and 
+          not Text.StartsWith([Name], "~$")
+      ),
+      AddedBranchName = Table.AddColumn(FilteredFiles, "Branch", each 
+          Text.BetweenDelimiters([Name], "Sales_", ".csv"), type text
+      ),
+      AddedData = Table.AddColumn(AddedBranchName, "Data", each 
+          Table.PromoteHeaders(Csv.Document([Content]))
+      ),
+      AllColumnNames = List.Distinct(List.Combine(List.Transform(AddedData[Data], each Table.ColumnNames(_)))),
+      ExpandedData = Table.ExpandTableColumn(AddedData, "Data", AllColumnNames),
+      RemovedMetadata = Table.SelectColumns(ExpandedData, List.Combine({{"Branch"}, AllColumnNames}))
+  in
+      RemovedMetadata
+================================================================================

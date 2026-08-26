@@ -1,0 +1,44 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: CUSTOM M FUNCTIONS SPECIFICATION
+================================================================================
+Module: 005_002_advanced-power-query-m-code-scripting-and-custom-functions
+Topic 3: Writing custom M functions to automate repetitive transformations
+================================================================================
+
+1. M CODE FORMULA EXAMPLES:
+- Complete Documented Custom Currency Converter Function:
+  let
+      fx_Core = (rawString as nullable text, optional customRate as nullable number) as nullable number =>
+          let
+              txt = if rawString = null then "" else Text.Trim(rawString),
+              digits = Text.Select(txt, {"0".."9", "."}),
+              amt = if digits = "" then 0 else Number.FromText(digits),
+              isDebit = Text.Contains(Text.Upper(txt), "DR"),
+              signedAmt = if isDebit then -amt else amt,
+              rate = customRate ?? 83.50,
+              usd = Number.Round(signedAmt / rate, 2)
+          in
+              usd,
+
+      fx_Type = type function (
+          rawString as (type text meta [
+              Documentation.FieldCaption = "Raw Currency Text",
+              Documentation.FieldDescription = "Dirty text string containing INR/Rs symbol and Cr/Dr"
+          ]),
+          optional customRate as (type number meta [
+              Documentation.FieldCaption = "Custom FX Rate USD",
+              Documentation.FieldDescription = "Exchange rate (Default: 83.50)"
+          ])
+      ) as number meta [
+          Documentation.Name = "fx_CleanAndConvertUSD",
+          Documentation.Description = "Strips Indian Rupee symbols, handles Credit/Debit sign, and converts to USD at specified FX rate.",
+          Documentation.Examples = {
+              [Description = "Clean INR Credit", Code = "fx_CleanAndConvertUSD(\"₹ 45,250.00 Cr\", 83.50)", Result = "541.92"],
+              [Description = "Clean INR Debit", Code = "fx_CleanAndConvertUSD(\"₹ 5,000.00 Dr\", 83.50)", Result = "-59.88"]
+          }
+      ],
+
+      fx_Documented = Value.ReplaceType(fx_Core, fx_Type)
+  in
+      fx_Documented
+================================================================================

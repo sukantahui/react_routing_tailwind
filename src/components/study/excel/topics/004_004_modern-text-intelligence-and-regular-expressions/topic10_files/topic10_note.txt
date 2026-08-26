@@ -1,0 +1,34 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: AUTOMATED DATA SANITIZATION PIPELINES
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_004: Modern Text Intelligence & Regular Expressions
+Topic 10: Automated data sanitization: Stripping HTML tags, non-alphanumeric noise, and excess whitespace
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. THE 4-PHASE DATA SANITIZATION PROTOCOL:
+--------------------------------------------------------------------------------
+Phase 1: Strip HTML/XML Tags: <[^>]+> &rarr; ""
+Phase 2: Remove Non-Alphanumeric Noise: [^a-zA-Z0-9\s.,-] &rarr; ""
+Phase 3: Normalize Irregular Whitespace: \s+ &rarr; " " with TRIM()
+Phase 4: Case & Typography Normalization: PROPER() / UPPER()
+
+2. POWERFUL CORPORATE SANITIZATION FORMULAS:
+--------------------------------------------------------------------------------
+• Full HTML & Whitespace Cleanser:
+  =PROPER(TRIM(REGEXREPLACE(REGEXREPLACE(A2, "<[^>]+>", ""), "\s+", " ")))
+
+• Strip Control Characters:
+  =REGEXREPLACE(A2, "[\x00-\x1F]", "")
+
+• Vectorized Column Cleanser:
+  =MAP(A5:A500, LAMBDA(c, TRIM(REGEXREPLACE(REGEXREPLACE(c, "<[^>]+>", ""), "\s+", " "))))
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Build named LAMBDAs like FX_SANITIZE_TEXT to standardize corporate cleaning.
+• Always verify cleansed data with NOT(REGEXTEST(A2, "<[^>]+>")) tests.
+• Avoid slow external python scripts—execute high-speed ETL inside Excel 365 RAM!
+================================================================================

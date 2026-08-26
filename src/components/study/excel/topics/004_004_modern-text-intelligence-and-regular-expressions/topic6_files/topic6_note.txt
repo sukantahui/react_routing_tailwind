@@ -1,0 +1,33 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: MULTI-DELIMITER SPLITTING WITH TEXTSPLIT
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_004: Modern Text Intelligence & Regular Expressions
+Topic 6: Splitting complex strings by multiple delimiters with TEXTSPLIT
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. WHAT IS THE TEXTSPLIT FUNCTION?
+--------------------------------------------------------------------------------
+Syntax: =TEXTSPLIT(text, col_delimiter, [row_delimiter], [ignore_empty], [match_mode], [pad_with])
+
+Core Capabilities:
+• Splits text horizontally across columns OR vertically down rows.
+• Supports multiple delimiters via array constants: {",", ";", "|", "/"}.
+• Creates 2D matrices when both col_delimiter and row_delimiter are supplied.
+
+2. POWERFUL CORPORATE SPLITTING FORMULAS:
+--------------------------------------------------------------------------------
+• Multi-Delimiter Splitting: =TEXTSPLIT(A2, {",", ";", "|"}, , TRUE)
+• Key-Value 2D Table: =TEXTSPLIT(A2, "=", ";")
+• Vertical List Splitting: =TEXTSPLIT(A2, , ",")
+• Splitting by Line Break: =TEXTSPLIT(A2, , CHAR(10))
+• Extracting Nth Item: =INDEX(TEXTSPLIT(A2, ","), 3)
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Always set ignore_empty = TRUE when splitting text with irregular spacing.
+• Use row_delimiter = ";" and col_delimiter = "=" to turn key-value pairs into 2D tables!
+• Combine TEXTSPLIT with TOCOL, SORT, and UNIQUE to create instant deduplicated lists!
+================================================================================

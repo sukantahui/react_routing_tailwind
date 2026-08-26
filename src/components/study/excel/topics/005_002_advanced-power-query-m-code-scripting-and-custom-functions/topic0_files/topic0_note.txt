@@ -1,0 +1,37 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: THE POWER QUERY M FORMULA LANGUAGE SYNTAX & ARCHITECTURE
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 005_002: Advanced Power Query: M Code Scripting & Custom Functions
+Topic 0: Introduction to the Power Query M Formula Language: Syntax, Case sensitivity, and Let...In blocks
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. THE M PROGRAMMING MODEL:
+--------------------------------------------------------------------------------
+• Pure Functional & Declarative: Transformations produce new immutable structures.
+• Case Sensitivity: Everything is case-sensitive (`Table.SelectRows` != `table.selectrows`).
+• Let...In Structure:
+    let
+      Step_1 = SourceExpression,
+      Step_2 = TransformationFunction(Step_1),
+      Step_3 = FilterFunction(Step_2)
+    in
+      Step_3
+• Lazy Evaluation (Call-by-Need): Steps are evaluated only if needed by the final `in` return.
+
+2. STEP IDENTIFIERS & ACCESSORS:
+--------------------------------------------------------------------------------
+• Quoted Identifiers: `#"Step With Spaces"` used when names contain spaces or special chars.
+• Column Accessor (List): `Source[ColumnName]`
+• Row Accessor (Record): `Source{0}` (0-based indexing)
+• Cell Accessor (Scalar): `Source{0}[ColumnName]`
+• Syntactic Sugar `each`: `each [Amt] * 1.18` is equivalent to `(_) => _[Amt] * 1.18`.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Never fear the Advanced Editor—that is where real enterprise ETL power resides!
+• Always end lines in the `let` block with a comma, except the final step before `in`.
+• Keep step variable names descriptive and maintain clean chaining across transformation steps.
+================================================================================
