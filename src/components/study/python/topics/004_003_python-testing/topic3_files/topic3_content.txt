@@ -1,0 +1,25 @@
+TOPIC_ID: 004_003_003
+MODULE: 004_003_python-testing
+TITLE: Topic 3: Modern testing with PyTest: test discovery, assert statements, fixtures
+LEVEL: Pro
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to modern Python testing using `pytest`—the industry-standard testing framework. Deep dive into pytest's revolutionary architecture: zero-boilerplate standalone test functions (no mandatory `TestCase` subclassing), AST (Abstract Syntax Tree) assert introspection and rewriting providing key-by-key data structure diffs on standard `assert` statements, modular fixture dependency injection using `@pytest.fixture`, `yield` teardown mechanics, fixture scoping (`function`, `class`, `module`, `package`, `session`), `conftest.py` shared fixture discovery, and CLI execution flags (`-v`, `-k`, `-s`, `-x`, `--tb=short`). Complete real-world institutional case study validating multi-campus student admission, fee structures, and transcript records across Barrackpore, Kolkata, Ichapur, and Jadavpur.
+
+CORE CONCEPTS:
+1. PyTest Architecture & Philosophy: Pythonic, Clean, and Functional
+2. Zero-Boilerplate Test Discovery (`test_*.py`, `*_test.py`, `test_*` functions)
+3. AST Assert Rewriting: Rich Diffs with Standard Python `assert`
+4. `@pytest.fixture` Dependency Injection vs OOP `setUp`/`tearDown`
+5. Fixture Lifecycle: Setup Phase, `yield`, and Automatic Teardown
+6. Fixture Scopes: `function` (default), `class`, `module`, `session`
+7. Shared Fixtures & Configuration with `conftest.py`
+8. Fixture Composition & Chaining (Fixtures Requesting Other Fixtures)
+9. Powerful PyTest CLI Options (`-v`, `-k <expression>`, `-m <marker>`, `-x`, `--lf`)
+10. Institutional Multi-Campus PyTest Suite Case Study
+
+REAL-WORLD SCENARIOS:
+- Replacing hundreds of lines of legacy `unittest` class boilerplate with clean, expressive pytest functions
+- Building reusable database connection fixtures that initialize once per test session and roll back per test
+- Using `conftest.py` to distribute institutional mock rosters across Barrackpore, Kolkata, Ichapur, and Jadavpur test files

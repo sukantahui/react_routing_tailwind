@@ -1,0 +1,58 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_003: PYTHON TESTING
+               TOPIC 2: BUILT-IN UNITTEST FRAMEWORK: TESTCASE & LIFECYCLE
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. BASIC TESTCASE CLASS STRUCTURE
+--------------------------------------------------------------------------------
+  import unittest
+
+  class TestStudentModule(unittest.TestCase):
+
+      def test_admission_discount(self):
+          # Specialized TestCase assertions
+          self.assertEqual(calculate_fee(10000.0, 0.15), 8500.0)
+          self.assertTrue(is_eligible(95.0))
+          self.assertIn("PYTHON", ["PYTHON", "SQL", "WEB"])
+
+      def test_invalid_score_raises(self):
+          # Exception assertion context manager
+          with self.assertRaises(ValueError):
+              validate_score(-5.0)
+
+--------------------------------------------------------------------------------
+2. FIXTURE LIFECYCLE HOOKS
+--------------------------------------------------------------------------------
+  class TestDatabaseIntegration(unittest.TestCase):
+
+      @classmethod
+      def setUpClass(cls):
+          # Runs ONCE before all tests in this class (e.g. create DB connection)
+          cls.db = init_in_memory_db()
+
+      @classmethod
+      def tearDownClass(cls):
+          # Runs ONCE after all tests in this class (e.g. close DB connection)
+          cls.db.close()
+
+      def setUp(self):
+          # Runs BEFORE EACH test method (e.g. clear tables, setup fresh test data)
+          self.db.clear_tables()
+
+      def tearDown(self):
+          # Runs AFTER EACH test method (e.g. rollback transactions)
+          self.db.rollback()
+
+--------------------------------------------------------------------------------
+3. RUNNING FROM CLI
+--------------------------------------------------------------------------------
+  python -m unittest discover -s tests -p "test_*.py" -v
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 2: BUILT-IN UNITTEST FRAMEWORK
+================================================================================

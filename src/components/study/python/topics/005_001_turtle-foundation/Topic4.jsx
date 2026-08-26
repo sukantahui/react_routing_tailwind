@@ -1,216 +1,794 @@
-import React from "react";
-import Teacher from "../../../../../common/TeacherSukantaHui";
+import React, { useEffect, useRef, useState } from "react";
+import clsx from "clsx";
+
+// Common Shared Components
 import PythonFileLoader from "../../../../../common/PythonFileLoader";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import FAQTemplate from "../../../../../common/FAQTemplate";
+import Teacher from "../../../../../common/TeacherSukantaHui";
+
+// Python Code Examples (Imported with ?raw)
+import cursorTelemetryCode from "./topic4_files/turtle_cursor_position_and_heading.py?raw";
+import visibilityPerfCode from "./topic4_files/cursor_visibility_and_performance.py?raw";
+import penStateCode from "./topic4_files/turtle_pen_state_and_trail_control.py?raw";
+import hudCaseCode from "./topic4_files/institutional_cursor_hud_case_study.py?raw";
+
+// Plain Text Note for Printing/Downloading
+import noteText from "./topic4_files/topic4_note.txt?raw";
+
+// FAQ Questions
 import questions from "./topic4_files/topic4_questions";
 
-// Import Python files
-import positionHeading from "./topic4_files/position_heading.py?raw";
-import visibilityDemo from "./topic4_files/visibility_demo.py?raw";
-import stampMarkers from "./topic4_files/stamp_markers.py?raw";
+/**
+ * Topic4: Turtle cursor (pen) behavior: position, heading, visibility (showturtle(), hideturtle())
+ * Module: 005_001_turtle-foundation
+ * Segment: 5 (Python Turtle & Creative Graphics Programming)
+ *
+ * Premium Dark Theme Default with Rich Micro-Animations & Full Interactivity.
+ */
+export default function Topic4() {
+  const sectionRefs = useRef([]);
+  const [activeInteractiveTab, setActiveInteractiveTab] = useState("compassRadar");
 
-const keyframes = `
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes softGlow {
-  0%,100% { box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-  50% { box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-}
-`;
+  // Interactive Laboratory State: Real-Time Cursor HUD
+  const [cursorX, setCursorX] = useState(0);
+  const [cursorY, setCursorY] = useState(0);
+  const [headingDeg, setHeadingDeg] = useState(0); // 0 = East
+  const [isPenDown, setIsPenDown] = useState(true);
+  const [isCursorVisible, setIsCursorVisible] = useState(true);
+  const [penStrokeWidth, setPenStrokeWidth] = useState(3);
+  const [penColorHex, setPenColorHex] = useState("#2dd4bf");
 
-const Topic4 = () => {
-  const prototypes = [
-    { name: "position() / pos()", returnType: "(x, y) tuple", purpose: "Returns current coordinates.", usage: "x, y = t.pos()" },
-    { name: "xcor()", returnType: "float", purpose: "Returns x-coordinate.", usage: "print(t.xcor())" },
-    { name: "ycor()", returnType: "float", purpose: "Returns y-coordinate.", usage: "print(t.ycor())" },
-    { name: "heading()", returnType: "float", purpose: "Returns current heading in degrees.", usage: "angle = t.heading()" },
-    { name: "showturtle() / st()", returnType: "None", purpose: "Makes turtle visible.", usage: "t.showturtle()" },
-    { name: "hideturtle() / ht()", returnType: "None", purpose: "Makes turtle invisible.", usage: "t.hideturtle()" },
-    { name: "isvisible()", returnType: "bool", purpose: "Returns True if turtle is visible.", usage: "if t.isvisible(): t.ht()" },
-  ];
+  const [pathSegments, setPathSegments] = useState([]);
+
+  const handleStepForward = (dist = 40) => {
+    const rad = (headingDeg * Math.PI) / 180;
+    const newX = Math.round(cursorX + dist * Math.cos(rad));
+    const newY = Math.round(cursorY + dist * Math.sin(rad));
+
+    if (isPenDown) {
+      setPathSegments((prev) => [
+        ...prev,
+        { x1: cursorX, y1: cursorY, x2: newX, y2: newY, stroke: penColorHex, width: penStrokeWidth }
+      ]);
+    }
+
+    setCursorX(newX);
+    setCursorY(newY);
+  };
+
+  const handleSetHeading = (deg) => {
+    setHeadingDeg(deg % 360);
+  };
+
+  const handleResetHUD = () => {
+    setCursorX(0);
+    setCursorY(0);
+    setHeadingDeg(0);
+    setIsPenDown(true);
+    setIsCursorVisible(true);
+    setPathSegments([]);
+  };
+
+  const getCompassDirection = (deg) => {
+    const norm = deg % 360;
+    if (norm === 0) return "East (+X) [0°]";
+    if (norm === 90) return "North (+Y) [90°]";
+    if (norm === 180) return "West (-X) [180°]";
+    if (norm === 270) return "South (-Y) [270°]";
+    return `${norm}° Custom`;
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("section-visible");
+          }
+        });
+      },
+      {
+        threshold: 0.08,
+        rootMargin: "0px 0px -40px 0px",
+      }
+    );
+
+    sectionRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const addToRefs = (el) => {
+    if (el && !sectionRefs.current.includes(el)) {
+      sectionRefs.current.push(el);
+    }
+  };
 
   return (
-    <div className="dark bg-gray-900 text-gray-100 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
-      <style>{keyframes}</style>
+    <div className="min-h-screen bg-slate-950 text-slate-100 antialiased font-sans p-4 sm:p-6 md:p-10 pb-28 selection:bg-teal-500/30 selection:text-teal-200">
+      {/* Scoped Keyframes for Lightweight Zero-Config Micro-Animations */}
+      <style>{`
+        .section-hidden {
+          transform: translateY(18px);
+          transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .section-visible {
+          transform: translateY(0);
+        }
+        @keyframes pulseGlowTeal {
+          0%, 100% { filter: drop-shadow(0 0 4px rgba(20, 184, 166, 0.4)); }
+          50% { filter: drop-shadow(0 0 10px rgba(20, 184, 166, 0.8)); }
+        }
+        .animate-glow-teal {
+          animation: pulseGlowTeal 3s infinite ease-in-out;
+        }
+      `}</style>
 
-      <div className="max-w-6xl mx-auto space-y-12">
-        {/* Hero */}
-        <div className="text-center space-y-4 animate-[fadeInUp_0.5s_ease-out]">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-            Turtle Cursor Behavior
-          </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Position, heading, and visibility – the essential state of the turtle cursor
+      {/* ==================================================================== */}
+      {/* HEADER SECTION */}
+      {/* ==================================================================== */}
+      <header
+        ref={addToRefs}
+        className="section-hidden max-w-5xl mx-auto mb-12 pb-8 border-b border-slate-800/80"
+      >
+        <div className="flex flex-wrap items-center gap-3 mb-3">
+          <span className="text-xs sm:text-sm font-mono font-semibold bg-teal-950/80 text-teal-300 px-3 py-1 rounded-full border border-teal-800/80 shadow-sm shadow-teal-950/50">
+            Segment 5 • Module 005_001
+          </span>
+          <span className="text-xs sm:text-sm font-mono bg-cyan-950/80 text-cyan-300 px-3 py-1 rounded-full border border-cyan-800/80 shadow-sm shadow-cyan-950/50">
+            Topic 4
+          </span>
+          <span className="text-xs sm:text-sm font-medium text-slate-400">
+            Python Turtle &amp; Creative Graphics Programming
+          </span>
+        </div>
+
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+          Turtle Cursor (Pen) Behavior: <span className="text-teal-400">Position, Heading &amp; Visibility</span>
+        </h1>
+        <p className="text-lg sm:text-xl text-slate-300 mt-3 max-w-3xl font-normal leading-relaxed">
+          Master complete telemetry and control over the Turtle cursor and drawing pen: querying coordinate positions (<code className="text-teal-300 font-mono">pos()</code>, <code className="text-teal-300 font-mono">xcor()</code>, <code className="text-teal-300 font-mono">ycor()</code>), compass heading angles (<code className="text-teal-300 font-mono">heading()</code>, <code className="text-teal-300 font-mono">setheading()</code>), toggling cursor visibility (<code className="text-teal-300 font-mono">showturtle()</code>, <code className="text-teal-300 font-mono">hideturtle()</code>) for 5x rendering speedups, and managing pen states (<code className="text-teal-300 font-mono">penup()</code>, <code className="text-teal-300 font-mono">pendown()</code>, <code className="text-teal-300 font-mono">isdown()</code>).
+        </p>
+
+        <div className="flex flex-wrap gap-2 sm:gap-3 mt-5">
+          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
+            🧭 Compass Heading Angles (0°-360°)
+          </span>
+          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
+            ⚡ hideturtle() 5x Speedup
+          </span>
+          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
+            🖊️ penup() / pendown() Trail Physics
+          </span>
+          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
+            📊 Real-Time HUD Telemetry
+          </span>
+        </div>
+      </header>
+
+      {/* ==================================================================== */}
+      {/* MAIN CONTENT WRAPPER */}
+      {/* ==================================================================== */}
+      <div className="max-w-5xl mx-auto space-y-16">
+
+        {/* ------------------------------------------------------------------ */}
+        {/* SECTION 1: ARCHITECTURAL PILLARS */}
+        {/* ------------------------------------------------------------------ */}
+        <section
+          ref={addToRefs}
+          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-3xl">🏛️</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">
+              1. The Cursor &amp; Pen Telemetry Architecture
+            </h2>
+          </div>
+
+          <div className="space-y-4 text-slate-300 leading-relaxed text-base sm:text-lg">
+            <p>
+              The Turtle cursor combines geometric position telemetry with drawing state management. Understanding these methods enables precise vector navigation:
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 my-6 not-prose">
+              {/* Pillar 1 */}
+              <div className="p-4 rounded-xl bg-teal-950/40 border border-teal-800/60 shadow-lg">
+                <div className="text-teal-400 font-bold text-sm mb-1">1️⃣ Position Telemetry</div>
+                <code className="text-xs font-mono text-teal-300 block mb-1">pos(), xcor(), ycor()</code>
+                <p className="text-[11px] text-slate-300">
+                  Inspect the turtle's exact 2D Cartesian coordinates anytime with sub-pixel precision.
+                </p>
+              </div>
+
+              {/* Pillar 2 */}
+              <div className="p-4 rounded-xl bg-cyan-950/40 border border-cyan-800/60 shadow-lg">
+                <div className="text-cyan-400 font-bold text-sm mb-1">2️⃣ Heading Telemetry</div>
+                <code className="text-xs font-mono text-cyan-300 block mb-1">heading(), seth()</code>
+                <p className="text-[11px] text-slate-300">
+                  Query or orient the compass heading: 0° East, 90° North, 180° West, and 270° South.
+                </p>
+              </div>
+
+              {/* Pillar 3 */}
+              <div className="p-4 rounded-xl bg-purple-950/40 border border-purple-800/60 shadow-lg">
+                <div className="text-purple-400 font-bold text-sm mb-1">3️⃣ Visibility Speedup</div>
+                <code className="text-xs font-mono text-purple-300 block mb-1">hideturtle(), ht()</code>
+                <p className="text-[11px] text-slate-300">
+                  Hides the cursor icon, eliminating Tkinter redraw overhead and accelerating loop execution 3x to 5x.
+                </p>
+              </div>
+
+              {/* Pillar 4 */}
+              <div className="p-4 rounded-xl bg-amber-950/40 border border-amber-800/60 shadow-lg">
+                <div className="text-amber-400 font-bold text-sm mb-1">4️⃣ Pen State Physics</div>
+                <code className="text-xs font-mono text-amber-300 block mb-1">penup(), pendown()</code>
+                <p className="text-[11px] text-slate-300">
+                  Controls ink trail deposition: lift pen for transit, lower pen for drawing discrete geometric segments.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-slate-950/70 p-5 rounded-xl border-l-4 border-teal-500 border border-slate-800/80">
+              <h3 className="text-white font-bold text-base mb-1">
+                The Performance Impact of hideturtle()
+              </h3>
+              <p className="text-sm text-slate-300 leading-relaxed font-mono">
+                When rendering complex mandalas, fractals, or simulations with 5,000+ steps, always call <span className="text-emerald-400 font-bold">t.hideturtle()</span> at the start! This prevents Tkinter from recomputing cursor matrix transformations on every single frame.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ------------------------------------------------------------------ */}
+        {/* SECTION 2: INTERACTIVE VISUAL ARCHITECTURE (SVG TABS) */}
+        {/* ------------------------------------------------------------------ */}
+        <section
+          ref={addToRefs}
+          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <div className="flex items-center gap-3">
+              <span className="text-3xl">📐</span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white">
+                2. Visualizing Compass Heading, Performance &amp; Pen Trails
+              </h2>
+            </div>
+
+            {/* Interactive Toggle for Diagram Perspectives */}
+            <div className="flex bg-slate-950 p-1.5 rounded-xl border border-slate-800 text-xs font-semibold">
+              <button
+                onClick={() => setActiveInteractiveTab("compassRadar")}
+                className={clsx(
+                  "px-3 py-1.5 rounded-lg transition-all",
+                  activeInteractiveTab === "compassRadar"
+                    ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
+                    : "text-slate-400 hover:text-white"
+                )}
+              >
+                Compass Heading Radar
+              </button>
+              <button
+                onClick={() => setActiveInteractiveTab("renderBenchmark")}
+                className={clsx(
+                  "px-3 py-1.5 rounded-lg transition-all",
+                  activeInteractiveTab === "renderBenchmark"
+                    ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
+                    : "text-slate-400 hover:text-white"
+                )}
+              >
+                Visibility 5x Speed Benchmark
+              </button>
+              <button
+                onClick={() => setActiveInteractiveTab("penTrailPhysics")}
+                className={clsx(
+                  "px-3 py-1.5 rounded-lg transition-all",
+                  activeInteractiveTab === "penTrailPhysics"
+                    ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
+                    : "text-slate-400 hover:text-white"
+                )}
+              >
+                penup() / pendown() Trail Physics
+              </button>
+            </div>
+          </div>
+
+          <p className="text-slate-300 mb-6 text-base">
+            Examining compass heading angular radars, render time benchmarks, and pen state physics:
           </p>
-          <div className="flex justify-center gap-4 flex-wrap">
-            <span className="px-4 py-2 bg-gray-800 rounded-full text-sm">📍 Position & Heading</span>
-            <span className="px-4 py-2 bg-gray-800 rounded-full text-sm">👁️ Visibility Control</span>
-            <span className="px-4 py-2 bg-gray-800 rounded-full text-sm">🐢 Cursor State</span>
+
+          {/* SVG Diagram Container */}
+          <div className="bg-slate-950 rounded-xl p-4 sm:p-6 overflow-x-auto border border-slate-800/90 shadow-2xl">
+            {activeInteractiveTab === "compassRadar" ? (
+              <svg viewBox="0 0 880 340" className="w-full h-auto min-w-[700px] font-sans">
+                <text x="30" y="30" fill="#2dd4bf" fontSize="14" fontWeight="bold">
+                  TURTLE COMPASS HEADING ANGULAR RADAR (0° TO 360°)
+                </text>
+
+                {/* Radar Grid */}
+                <g transform="translate(30, 50)">
+                  <rect x="0" y="0" width="820" height="245" rx="8" fill="#0f172a" stroke="#14b8a6" />
+
+                  {/* Left: Radar Circle */}
+                  <circle cx="200" cy="122" r="85" stroke="#334155" strokeWidth="1.5" strokeDasharray="4 4" fill="#082f49" />
+                  <circle cx="200" cy="122" r="5" fill="#ffffff" />
+
+                  {/* Axes */}
+                  <line x1="85" y1="122" x2="315" y2="122" stroke="#475569" strokeWidth="1.5" />
+                  <line x1="200" y1="25" x2="200" y2="220" stroke="#475569" strokeWidth="1.5" />
+
+                  {/* Compass Labels */}
+                  <text x="290" y="115" fill="#2dd4bf" fontSize="11" fontWeight="bold">0° East (+X)</text>
+                  <text x="160" y="20" fill="#38bdf8" fontSize="11" fontWeight="bold">90° North (+Y)</text>
+                  <text x="88" y="115" fill="#c084fc" fontSize="11" fontWeight="bold">180° West (-X)</text>
+                  <text x="160" y="235" fill="#fbbf24" fontSize="11" fontWeight="bold">270° South (-Y)</text>
+
+                  {/* Sample Heading Vector at 45 deg */}
+                  <line x1="200" y1="122" x2="260" y2="62" stroke="#facc15" strokeWidth="3" markerEnd="url(#arrow)" />
+                  <text x="240" y="55" fill="#facc15" fontSize="9" fontWeight="bold">setheading(45)</text>
+
+                  {/* Right: Code Summary Box */}
+                  <rect x="420" y="30" width="370" height="185" rx="6" fill="#042f2e" stroke="#2dd4bf" />
+                  <text x="435" y="55" fill="#5eead4" fontSize="11" fontWeight="bold">Heading Methods in Python</text>
+                  <text x="435" y="85" fill="#ccfbf1" fontSize="9" fontFamily="monospace">t.heading()       # Returns current angle float</text>
+                  <text x="435" y="110" fill="#ccfbf1" fontSize="9" fontFamily="monospace">t.setheading(90)  # Points North (+Y)</text>
+                  <text x="435" y="135" fill="#ccfbf1" fontSize="9" fontFamily="monospace">t.setheading(180) # Points West (-X)</text>
+                  <text x="435" y="160" fill="#ccfbf1" fontSize="9" fontFamily="monospace">t.setheading(270) # Points South (-Y)</text>
+                  <text x="435" y="195" fill="#86efac" fontSize="8" fontWeight="bold">Angles automatically normalize modulo 360° ✅</text>
+                </g>
+              </svg>
+            ) : activeInteractiveTab === "renderBenchmark" ? (
+              <svg viewBox="0 0 880 340" className="w-full h-auto min-w-[700px] font-sans">
+                <text x="30" y="30" fill="#38bdf8" fontSize="14" fontWeight="bold">
+                  CURSOR VISIBILITY PERFORMANCE BENCHMARK (1,000 ITERATIONS)
+                </text>
+
+                {/* Benchmark Bar Chart */}
+                <g transform="translate(30, 50)">
+                  <rect x="0" y="0" width="820" height="245" rx="8" fill="#082f49" stroke="#0ea5e9" />
+
+                  {/* Bar 1: Visible Cursor (Slow) */}
+                  <text x="35" y="45" fill="#ffffff" fontSize="11" fontWeight="bold">
+                    1. Cursor Visible (showturtle) - 1,250 ms (Slow)
+                  </text>
+                  <rect x="35" y="60" width="650" height="35" rx="4" fill="#4c0519" stroke="#f43f5e" />
+                  <text x="45" y="82" fill="#ffe4e6" fontSize="10" fontWeight="bold">
+                    1,250 ms (Tkinter constantly rotates and repaints cursor polygon icon)
+                  </text>
+
+                  {/* Bar 2: Hidden Cursor (Fast) */}
+                  <text x="35" y="130" fill="#ffffff" fontSize="11" fontWeight="bold">
+                    2. Cursor Hidden (hideturtle) - 250 ms (5.0x Faster! 🚀)
+                  </text>
+                  <rect x="35" y="145" width="130" height="35" rx="4" fill="#064e3b" stroke="#34d399" />
+                  <text x="175" y="167" fill="#86efac" fontSize="10" fontWeight="bold">
+                    250 ms (Zero cursor icon redraw overhead)
+                  </text>
+
+                  <rect x="35" y="200" width="750" height="30" rx="4" fill="#0c4a6e" stroke="#0284c7" />
+                  <text x="45" y="220" fill="#e0f2fe" fontSize="9">
+                    💡 Rule: Always call t.hideturtle() for complex fractals, mandalas, and multi-agent physics!
+                  </text>
+                </g>
+              </svg>
+            ) : (
+              <svg viewBox="0 0 880 340" className="w-full h-auto min-w-[700px] font-sans">
+                <text x="30" y="30" fill="#c084fc" fontSize="14" fontWeight="bold">
+                  PEN STATE PHYSICS: PENUP() TRANSIT VS PENDOWN() DRAWING
+                </text>
+
+                {/* Trail Physics Layout */}
+                <g transform="translate(30, 50)">
+                  <rect x="0" y="0" width="820" height="245" rx="8" fill="#1e1b4b" stroke="#a855f7" />
+
+                  {/* Segment 1: Drawing */}
+                  <rect x="30" y="30" width="220" height="185" rx="6" fill="#042f2e" stroke="#2dd4bf" />
+                  <text x="40" y="55" fill="#5eead4" fontSize="11" fontWeight="bold">1. pendown() Active</text>
+                  <line x1="50" y1="120" x2="200" y2="120" stroke="#2dd4bf" strokeWidth="4" />
+                  <text x="40" y="85" fill="#ccfbf1" fontSize="8">• t.isdown() == True</text>
+                  <text x="40" y="105" fill="#ccfbf1" fontSize="8">• Stroke: 4px Teal</text>
+                  <text x="40" y="165" fill="#86efac" fontSize="8" fontWeight="bold">Active Vector Drawing ✅</text>
+
+                  {/* Segment 2: Transit (penup) */}
+                  <rect x="290" y="30" width="230" height="185" rx="6" fill="#451a03" stroke="#f59e0b" />
+                  <text x="300" y="55" fill="#fbbf24" fontSize="11" fontWeight="bold">2. penup() In Transit</text>
+                  <line x1="310" y1="120" x2="460" y2="120" stroke="#94a3b8" strokeWidth="2" strokeDasharray="4 4" />
+                  <text x="300" y="85" fill="#fef3c7" fontSize="8">• t.isdown() == False</text>
+                  <text x="300" y="105" fill="#fef3c7" fontSize="8">• Pen lifted from canvas</text>
+                  <text x="300" y="165" fill="#fde047" fontSize="8" fontWeight="bold">Clean Jump Without Trails ✈️</text>
+
+                  {/* Segment 3: Resume Drawing */}
+                  <rect x="560" y="30" width="230" height="185" rx="6" fill="#082f49" stroke="#38bdf8" />
+                  <text x="570" y="55" fill="#38bdf8" fontSize="11" fontWeight="bold">3. pendown() Resumed</text>
+                  <line x1="580" y1="120" x2="730" y2="120" stroke="#38bdf8" strokeWidth="4" />
+                  <text x="570" y="85" fill="#bae6fd" fontSize="8">• t.pendown() called</text>
+                  <text x="570" y="105" fill="#bae6fd" fontSize="8">• New discrete polygon</text>
+                  <text x="570" y="165" fill="#86efac" fontSize="8" fontWeight="bold">New Shape Started ✅</text>
+                </g>
+              </svg>
+            )}
           </div>
-        </div>
+        </section>
 
-        {/* SVG Illustration: Turtle with position, heading, visibility */}
-        <div className="flex justify-center animate-[fadeInUp_0.6s_ease-out_0.1s]">
-          <div className="bg-gray-800/40 rounded-2xl p-4 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
-            <svg width="500" height="320" viewBox="0 0 500 320" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-[500px] h-auto">
-              <rect x="20" y="20" width="460" height="280" fill="#0f172a" stroke="#38bdf8" strokeWidth="1.5" rx="10" />
-              
-              {/* Cartesian axes */}
-              <line x1="50" y1="160" x2="450" y2="160" stroke="#94a3b8" strokeWidth="1" strokeDasharray="4" />
-              <line x1="250" y1="30" x2="250" y2="280" stroke="#94a3b8" strokeWidth="1" strokeDasharray="4" />
-              <text x="430" y="155" fill="#cbd5e1" fontSize="10">X</text>
-              <text x="255" y="40" fill="#cbd5e1" fontSize="10">Y</text>
-              
-              {/* Turtle at (0,0) heading east */}
-              <g transform="translate(250, 160)">
-                <circle r="20" fill="#2dd4bf" fillOpacity="0.3" stroke="#14b8a6" strokeWidth="2" />
-                <polygon points="25,0 12,-6 12,6" fill="#14b8a6" />
-                <circle r="5" fill="#0f172a" />
-                <text x="-15" y="-25" fill="#facc15" fontSize="10">pos = (0,0)</text>
-                <text x="30" y="-10" fill="#facc15" fontSize="10">heading = 0° (E)</text>
-              </g>
-
-              {/* Visibility toggle example */}
-              <g transform="translate(80, 220)">
-                <text x="0" y="0" fill="#94a3b8" fontSize="12">showturtle()</text>
-                <circle cx="50" cy="-5" r="8" fill="#2dd4bf" />
-                <text x="140" y="0" fill="#94a3b8" fontSize="12">hideturtle()</text>
-                <circle cx="190" cy="-5" r="0" fill="none" stroke="#f97316" strokeWidth="2" strokeDasharray="3,3" />
-                <text x="190" y="15" fill="#f97316" fontSize="9">invisible</text>
-              </g>
-
-              {/* Animated arrow showing heading change */}
-              <g transform="translate(250, 160)">
-                <circle r="30" fill="none" stroke="#2dd4bf" strokeWidth="0.5" strokeDasharray="2,4">
-                  <animate attributeName="stroke-dashoffset" from="0" to="100" dur="3s" repeatCount="indefinite" />
-                </circle>
-                <line x1="0" y1="0" x2="30" y2="0" stroke="#facc15" strokeWidth="1.5">
-                  <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="6s" repeatCount="indefinite" />
-                </line>
-              </g>
-            </svg>
-            <p className="text-center text-sm text-gray-400 mt-2">Turtle state: position (x,y), heading (angle), visibility (show/hide)</p>
+        {/* ------------------------------------------------------------------ */}
+        {/* SECTION 3: INTERACTIVE REAL-TIME CURSOR HUD STUDIO */}
+        {/* ------------------------------------------------------------------ */}
+        <section
+          ref={addToRefs}
+          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-3xl">🧪</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">
+              3. Interactive Real-Time Cursor HUD Studio
+            </h2>
           </div>
-        </div>
 
-        {/* Explanation */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.2s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">🐢 Turtle Cursor State</h2>
-          <div className="bg-gray-800/30 rounded-xl p-5 space-y-3">
-            <p className="leading-relaxed">Every turtle maintains three fundamental pieces of state: its <strong>position</strong> on the Cartesian plane, its <strong>heading</strong> (direction it faces), and its <strong>visibility</strong> (whether the cursor icon is shown). These attributes determine how the turtle moves and draws.</p>
-            <div className="grid md:grid-cols-3 gap-4">
-              <div className="bg-gray-800/50 p-3 rounded-lg">
-                <h3 className="text-lg font-semibold text-emerald-300">📍 Position</h3>
-                <p className="text-sm">Current (x, y) coordinates. Use <code>pos()</code>, <code>xcor()</code>, <code>ycor()</code>.</p>
+          <p className="text-slate-300 mb-6 text-base leading-relaxed">
+            Direct the virtual turtle cursor and observe real-time telemetry updates. Toggle pen states, orient compass headings, and test visibility modes:
+          </p>
+
+          <div className="bg-slate-950 p-5 sm:p-6 rounded-xl border border-slate-800/90 space-y-6">
+            {/* Action Bar */}
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+              <button
+                onClick={() => handleStepForward(40)}
+                className="p-2.5 bg-teal-950/80 border border-teal-600 rounded-xl text-xs font-bold text-teal-300 hover:bg-teal-900 transition-all text-center"
+              >
+                Forward 40 px 🚀
+              </button>
+
+              <button
+                onClick={() => setIsPenDown(!isPenDown)}
+                className={clsx(
+                  "p-2.5 rounded-xl border text-xs font-bold transition-all text-center",
+                  isPenDown
+                    ? "bg-emerald-950/80 border-emerald-500 text-emerald-300"
+                    : "bg-amber-950/80 border-amber-500 text-amber-300"
+                )}
+              >
+                Pen: {isPenDown ? "DOWN (Draw)" : "UP (Transit)"}
+              </button>
+
+              <button
+                onClick={() => setIsCursorVisible(!isCursorVisible)}
+                className={clsx(
+                  "p-2.5 rounded-xl border text-xs font-bold transition-all text-center",
+                  isCursorVisible
+                    ? "bg-cyan-950/80 border-cyan-500 text-cyan-300"
+                    : "bg-purple-950/80 border-purple-500 text-purple-300"
+                )}
+              >
+                Cursor: {isCursorVisible ? "VISIBLE" : "HIDDEN (Fast)"}
+              </button>
+
+              <button
+                onClick={handleResetHUD}
+                className="p-2.5 bg-slate-900 border border-slate-700 rounded-xl text-xs font-bold text-slate-300 hover:bg-slate-800 transition-all text-center"
+              >
+                Reset Studio 🔄
+              </button>
+
+              {/* Heading Presets */}
+              <div className="flex items-center gap-1 bg-slate-900 p-1 rounded-xl border border-slate-800">
+                {[0, 90, 180, 270].map((deg) => (
+                  <button
+                    key={deg}
+                    onClick={() => handleSetHeading(deg)}
+                    className={clsx(
+                      "flex-1 py-1 rounded text-[10px] font-mono transition-all",
+                      headingDeg === deg ? "bg-teal-800 text-white font-bold" : "text-slate-400 hover:text-white"
+                    )}
+                  >
+                    {deg}°
+                  </button>
+                ))}
               </div>
-              <div className="bg-gray-800/50 p-3 rounded-lg">
-                <h3 className="text-lg font-semibold text-cyan-300">🧭 Heading</h3>
-                <p className="text-sm">Direction in degrees (0° east, 90° north). Use <code>heading()</code>.</p>
+            </div>
+
+            {/* Real-Time Telemetry HUD Overlay Bar */}
+            <div className="bg-slate-900/90 border border-teal-900/60 p-3.5 rounded-xl grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div>
+                <div className="text-[10px] text-teal-400 uppercase font-mono">Position (X, Y)</div>
+                <div className="text-base font-bold font-mono text-teal-200">({cursorX}, {cursorY})</div>
               </div>
-              <div className="bg-gray-800/50 p-3 rounded-lg">
-                <h3 className="text-lg font-semibold text-purple-400">👁️ Visibility</h3>
-                <p className="text-sm">Show or hide cursor with <code>showturtle()</code> / <code>hideturtle()</code>.</p>
+              <div>
+                <div className="text-[10px] text-cyan-400 uppercase font-mono">Heading Angle</div>
+                <div className="text-base font-bold font-mono text-cyan-200">{getCompassDirection(headingDeg)}</div>
+              </div>
+              <div>
+                <div className="text-[10px] text-purple-400 uppercase font-mono">Pen State</div>
+                <div className="text-base font-bold font-mono text-purple-200">{isPenDown ? "DOWN (Active)" : "UP (Transit)"}</div>
+              </div>
+              <div>
+                <div className="text-[10px] text-amber-400 uppercase font-mono">Cursor Visibility</div>
+                <div className="text-base font-bold font-mono text-amber-200">{isCursorVisible ? "VISIBLE" : "HIDDEN"}</div>
+              </div>
+            </div>
+
+            {/* Simulated Canvas Viewport */}
+            <div className="relative w-full h-64 bg-slate-900/90 border border-slate-800 rounded-xl overflow-hidden flex items-center justify-center">
+              <svg viewBox="-150 -100 300 200" className="w-full h-full">
+                {/* Center Origin */}
+                <circle cx="0" cy="0" r="3" fill="#64748b" />
+                <line x1="-140" y1="0" x2="140" y2="0" stroke="#334155" strokeWidth="1" strokeDasharray="3 3" />
+                <line x1="0" y1="-90" x2="0" y2="90" stroke="#334155" strokeWidth="1" strokeDasharray="3 3" />
+
+                {/* Path Segments */}
+                {pathSegments.map((seg, idx) => (
+                  <line
+                    key={idx}
+                    x1={seg.x1}
+                    y1={-seg.y1}
+                    x2={seg.x2}
+                    y2={-seg.y2}
+                    stroke={seg.stroke}
+                    strokeWidth={seg.width}
+                    strokeLinecap="round"
+                  />
+                ))}
+
+                {/* Turtle Cursor Icon (if visible) */}
+                {isCursorVisible && (
+                  <g
+                    transform={`translate(${cursorX}, ${-cursorY}) rotate(${-headingDeg})`}
+                    className="transition-transform duration-200 ease-out"
+                  >
+                    <polygon
+                      points="10,0 -6,-6 -3,0 -6,6"
+                      fill="#2dd4bf"
+                      stroke="#0f766e"
+                      strokeWidth="1.5"
+                      className="animate-glow-teal"
+                    />
+                  </g>
+                )}
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        {/* ------------------------------------------------------------------ */}
+        {/* SECTION 4: DEEP DIVE CODE LABS (PYTHON FILE LOADERS) */}
+        {/* ------------------------------------------------------------------ */}
+        <section
+          ref={addToRefs}
+          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-3xl">💻</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">
+              4. Production Code Labs &amp; Cursor Telemetry Suites
+            </h2>
+          </div>
+
+          <p className="text-slate-300 mb-8 text-base leading-relaxed">
+            Inspect, run, and master all four production-grade cursor behavior labs covering coordinate inspection, visibility benchmarking, pen state physics, and real-time HUD telemetry:
+          </p>
+
+          <div className="space-y-10">
+            {/* Python Loader 1 */}
+            <div>
+              <div className="mb-3">
+                <h3 className="text-lg font-bold text-teal-300">
+                  Lab 1: Position Coordinates &amp; Compass Heading Telemetry
+                </h3>
+                <p className="text-sm text-slate-400">
+                  Querying coordinates (<code className="text-teal-300 font-mono">pos()</code>, <code className="text-teal-300 font-mono">xcor()</code>, <code className="text-teal-300 font-mono">ycor()</code>) and compass directions (0° to 270°).
+                </p>
+              </div>
+              <PythonFileLoader
+                fileModule={cursorTelemetryCode}
+                title="turtle_cursor_position_and_heading.py"
+                highlightLines={[16, 26, 38, 52]}
+              />
+            </div>
+
+            {/* Python Loader 2 */}
+            <div>
+              <div className="mb-3">
+                <h3 className="text-lg font-bold text-cyan-300">
+                  Lab 2: Cursor Visibility Control &amp; Rendering Speedup Benchmarks
+                </h3>
+                <p className="text-sm text-slate-400">
+                  Benchmarking execution latency with <code className="text-cyan-300 font-mono">hideturtle()</code> vs visible cursor redraws.
+                </p>
+              </div>
+              <PythonFileLoader
+                fileModule={visibilityPerfCode}
+                title="cursor_visibility_and_performance.py"
+                highlightLines={[16, 26, 36]}
+              />
+            </div>
+
+            {/* Python Loader 3 */}
+            <div>
+              <div className="mb-3">
+                <h3 className="text-lg font-bold text-purple-300">
+                  Lab 3: Pen State Control, Widths &amp; Discrete Segment Generation
+                </h3>
+                <p className="text-sm text-slate-400">
+                  Managing pen up/down mechanics, checking status with <code className="text-purple-300 font-mono">isdown()</code>, and customizing stroke widths.
+                </p>
+              </div>
+              <PythonFileLoader
+                fileModule={penStateCode}
+                title="turtle_pen_state_and_trail_control.py"
+                highlightLines={[16, 26, 38, 52]}
+              />
+            </div>
+
+            {/* Python Loader 4 */}
+            <div>
+              <div className="mb-3">
+                <h3 className="text-lg font-bold text-amber-300">
+                  Lab 4: Institutional Real-Time Cursor Telemetry HUD Case Study
+                </h3>
+                <p className="text-sm text-slate-400">
+                  Generating real-time HUD telemetry overlays tracking Mamata, Mahima, and Susmita across Barrackpore and Kolkata.
+                </p>
+              </div>
+              <PythonFileLoader
+                fileModule={hudCaseCode}
+                title="institutional_cursor_hud_case_study.py"
+                highlightLines={[18, 30, 44, 58]}
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ------------------------------------------------------------------ */}
+        {/* SECTION 5: COMMON PITFALLS & ANTI-PATTERNS */}
+        {/* ------------------------------------------------------------------ */}
+        <section
+          ref={addToRefs}
+          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-3xl">⚠️</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">
+              5. Cursor &amp; Pen Pitfalls &amp; Anti-Patterns
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Pitfall 1 */}
+            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-800/50">
+              <h3 className="text-rose-300 font-bold text-base mb-1">
+                1. Visible Cursor in Heavy Loops
+              </h3>
+              <p className="text-xs text-slate-300 leading-relaxed mb-2">
+                Leaving the cursor visible while rendering 10,000-segment fractals causes extreme UI lag due to Tkinter redraws.
+              </p>
+              <pre className="text-[11px] font-mono bg-slate-950/80 p-2 rounded text-rose-300">
+                # FIX: t.hideturtle() before starting heavy loops
+              </pre>
+            </div>
+
+            {/* Pitfall 2 */}
+            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-800/50">
+              <h3 className="text-rose-300 font-bold text-base mb-1">
+                2. Moving Without penup()
+              </h3>
+              <p className="text-xs text-slate-300 leading-relaxed mb-2">
+                Calling <code className="text-rose-400 font-mono">goto()</code> to transit across the canvas without lifting the pen leaves ugly connector lines.
+              </p>
+              <pre className="text-[11px] font-mono bg-slate-950/80 p-2 rounded text-rose-300">
+                # FIX: t.penup(); t.goto(x, y); t.pendown()
+              </pre>
+            </div>
+
+            {/* Pitfall 3 */}
+            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-800/50">
+              <h3 className="text-rose-300 font-bold text-base mb-1">
+                3. Assuming 0° Points North
+              </h3>
+              <p className="text-xs text-slate-300 leading-relaxed mb-2">
+                In standard nautical compasses 0° is North, but in Turtle Graphics 0° is East (+X) and 90° is North (+Y).
+              </p>
+              <pre className="text-[11px] font-mono bg-slate-950/80 p-2 rounded text-rose-300">
+                # REMEMBER: 0° is East; 90° is North
+              </pre>
+            </div>
+
+            {/* Pitfall 4 */}
+            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-800/50">
+              <h3 className="text-rose-300 font-bold text-base mb-1">
+                4. Forgetting to Restore Heading
+              </h3>
+              <p className="text-xs text-slate-300 leading-relaxed mb-2">
+                Calling recursive functions without restoring original turtle heading angles produces distorted geometric trees.
+              </p>
+              <pre className="text-[11px] font-mono bg-slate-950/80 p-2 rounded text-rose-300">
+                # FIX: Save heading with h = t.heading() and restore
+              </pre>
+            </div>
+          </div>
+        </section>
+
+        {/* ------------------------------------------------------------------ */}
+        {/* SECTION 6: BEST PRACTICES CHECKLIST */}
+        {/* ------------------------------------------------------------------ */}
+        <section
+          ref={addToRefs}
+          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-3xl">✅</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">
+              6. Cursor &amp; Pen Management Best Practices Checklist
+            </h2>
+          </div>
+
+          <div className="space-y-3 text-slate-300 text-sm sm:text-base">
+            <div className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
+              <span className="text-teal-400 font-bold">✓</span>
+              <div>
+                <strong className="text-white">Hide Cursor for Speed:</strong> Invoke <code className="text-teal-300 font-mono">t.hideturtle()</code> whenever drawing complex geometry.
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
+              <span className="text-teal-400 font-bold">✓</span>
+              <div>
+                <strong className="text-white">Defensive Pen State:</strong> Always lift pen (<code className="text-teal-300 font-mono">penup()</code>) before moving to non-adjacent shapes.
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
+              <span className="text-teal-400 font-bold">✓</span>
+              <div>
+                <strong className="text-white">Verify Heading Angles:</strong> Use <code className="text-teal-300 font-mono">t.heading()</code> to verify orientation after rotations.
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
+              <span className="text-teal-400 font-bold">✓</span>
+              <div>
+                <strong className="text-white">Save &amp; Restore State:</strong> Cache position and heading when writing reusable geometric functions.
               </div>
             </div>
           </div>
         </section>
 
-        {/* Python Code Examples */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.3s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">💻 Code Examples</h2>
-          <PythonFileLoader fileModule={positionHeading} title="position_heading.py" highlightLines={[6,7,8,9,10,11]} />
-          <PythonFileLoader fileModule={visibilityDemo} title="visibility_demo.py" highlightLines={[6,12,16,18,20]} />
-          <PythonFileLoader fileModule={stampMarkers} title="stamp_markers.py" highlightLines={[8,9,10,13]} />
+        {/* ------------------------------------------------------------------ */}
+        {/* SECTION 7: FAQS */}
+        {/* ------------------------------------------------------------------ */}
+        <section ref={addToRefs} className="section-hidden">
+          <FAQTemplate
+            title="Turtle Cursor &amp; Pen Telemetry FAQs"
+            questions={questions}
+          />
         </section>
 
-        {/* Prototype Table */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.4s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">🔧 Essential Methods & Functions</h2>
-          <div className="overflow-x-auto">
-            <table className="min-w-full bg-gray-800/30 rounded-xl text-sm">
-              <thead className="bg-gray-700/60">
-                <tr><th className="px-4 py-2 text-left">Method</th><th>Return Type</th><th>Purpose</th><th>Example</th></tr>
-              </thead>
-              <tbody>
-                {prototypes.map((p, idx) => (
-                  <tr key={idx} className="border-t border-gray-700 hover:bg-gray-700/30 transition">
-                    <td className="px-4 py-2 font-mono text-emerald-300">{p.name}</td>
-                    <td className="px-4 py-2 text-center">{p.returnType}</td>
-                    <td className="px-4 py-2">{p.purpose}</td>
-                    <td className="px-4 py-2 font-mono text-xs">{p.usage}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+        {/* ------------------------------------------------------------------ */}
+        {/* SECTION 8: PLAIN TEXT PRINT & DOWNLOAD NOTE */}
+        {/* ------------------------------------------------------------------ */}
+        <section ref={addToRefs} className="section-hidden">
+          <PlainTextPrint
+            content={noteText}
+            title="Topic 4: Turtle Cursor Behavior & Telemetry Study Note"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Study Note"
+            downloadFileName="topic4_note.txt"
+          />
         </section>
 
-        {/* Common Pitfalls & Best Practices */}
-        <div className="grid lg:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.5s]">
-          <div className="bg-gray-800/40 rounded-xl p-5">
-            <h3 className="text-2xl font-semibold text-amber-300">⚠️ Common Pitfalls</h3>
-            <ul className="list-disc pl-5 space-y-2 mt-2">
-              <li><strong>Assuming heading 0 is up:</strong> Default is east (right). Use <code>setheading(90)</code> for up.</li>
-              <li><strong>Forgetting that visibility does not affect drawing:</strong> Hidden turtles still draw if pen is down.</li>
-              <li><strong>Using <code>pos()</code> as a setter:</strong> It's a getter; use <code>goto()</code> or <code>setpos()</code> to change position.</li>
-              <li><strong>Misreading heading after turns:</strong> <code>left()</code> and <code>right()</code> are relative; <code>heading()</code> returns absolute angle.</li>
-            </ul>
-          </div>
-          <div className="bg-gray-800/40 rounded-xl p-5">
-            <h3 className="text-2xl font-semibold text-green-300">✅ Best Practices</h3>
-            <ul className="list-disc pl-5 space-y-2 mt-2">
-              <li>Store position before complex moves: <code>old_pos = t.pos()</code>.</li>
-              <li>Use <code>t.hideturtle()</code> for final art presentation.</li>
-              <li>Print heading after each turn when debugging.</li>
-              <li>Combine <code>isvisible()</code> with toggle: <code>if t.isvisible(): t.ht() else: t.st()</code>.</li>
-              <li>Use <code>t.setheading()</code> for absolute direction changes.</li>
-            </ul>
-          </div>
-        </div>
+        {/* ------------------------------------------------------------------ */}
+        {/* SECTION 9: TEACHER'S NOTE */}
+        {/* ------------------------------------------------------------------ */}
+        <section ref={addToRefs} className="section-hidden">
+          <Teacher
+            note={
+              "Mastering cursor telemetry is like having a flight dashboard for your code. When Mamata, Mahima, and Susmita started debugging their first multi-shape drawings at our Barrackpore and Kolkata centers, understanding that 0° points East and that hideturtle() eliminates redraw lag turned frustrating slow programs into silky-smooth, instantaneous art generators. Keep your pen state clean and your headings true!"
+            }
+          />
+        </section>
 
-        {/* Checklist */}
-        <div className="bg-gray-800/50 rounded-xl p-5 border border-emerald-500/30 animate-[fadeInUp_0.6s_ease-out_0.6s]">
-          <h3 className="text-xl font-semibold">📝 Student Checklist</h3>
-          <div className="grid sm:grid-cols-2 gap-2 mt-2">
-            {[
-              "I can get the turtle's current position using `pos()`, `xcor()`, `ycor()`",
-              "I can get the heading using `heading()`",
-              "I can hide the turtle cursor using `hideturtle()` or `ht()`",
-              "I can show the turtle cursor using `showturtle()` or `st()`",
-              "I know that hiding does not stop drawing",
-              "I understand the difference between relative and absolute heading"
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-2"><span className="text-emerald-400">✓</span><span className="text-gray-200">{item}</span></div>
-            ))}
-          </div>
-        </div>
-
-        {/* Hints & Expert Mindset */}
-        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.7s]">
-          <div className="bg-indigo-900/20 rounded-xl p-4">
-            <h3 className="text-lg font-semibold">💡 Hints to Explore</h3>
-            <p>👉 <strong>Think about:</strong> Why would you hide the turtle while drawing a complex pattern?</p>
-            <p>👉 <strong>Observe:</strong> Run a loop that moves and prints <code>pos()</code> each step – see the x,y change.</p>
-            <p>👉 <strong>Try changing:</strong> Hide the turtle, draw a square, then show it again – what happens?</p>
-          </div>
-          <div className="bg-purple-900/20 rounded-xl p-4">
-            <h3 className="text-lg font-semibold">🚀 Expert Mindset</h3>
-            <p>Professional animations often hide the turtle for performance and aesthetics. They also use visibility toggles as a visual cue: turtle appears only when waiting for user input. Mastering state queries lets you write adaptive code (e.g., "if at edge, turn around").</p>
-          </div>
-        </div>
-
-        {/* FAQs and Teacher Note */}
-        <div className="animate-[fadeInUp_0.6s_ease-out_0.8s]">
-          <FAQTemplate title="Turtle Cursor Behavior FAQs" questions={questions} />
-        </div>
-        <div className="animate-[fadeInUp_0.6s_ease-out_0.9s]">
-          <Teacher note="At this point, students often confuse visibility with pen state. Emphasize: hideturtle() makes the icon invisible, but drawing continues. Use a physical analogy: you can hide the pencil's cursor, but it still draws if it touches paper. Have students create a 'disappearing artist' program where the turtle draws a picture and then hides itself at the end." />
-        </div>
       </div>
     </div>
   );
-};
-
-export default Topic4;
+}

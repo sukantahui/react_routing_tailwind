@@ -1,0 +1,24 @@
+TOPIC_ID: 004_004_000
+MODULE: 004_004_capstone-projects
+TITLE: Topic 0: End-to-End project architecture & clean directory layout
+LEVEL: Pro
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to architecting production-grade Python projects and establishing clean directory layouts. Deep dive into industry-standard packaging conventions: the `src/` layout vs flat layout, why the `src/` layout prevents accidental import pitfalls, structuring modular tiers (`models`, `services`, `repositories`, `controllers`, `utils`, `config`), managing public package APIs with `__init__.py` and `__all__`, configuring root manifest files (`pyproject.toml`, `.gitignore`, `README.md`, `LICENSE`), managing 12-factor application configuration via environment variables and dataclasses, and setting up clean entry points (`__main__.py` and CLI console scripts). Complete real-world institutional case study scaffolding the production-grade multi-campus student management system across Barrackpore, Kolkata, Ichapur, and Jadavpur.
+
+CORE CONCEPTS:
+1. Professional Python Project Architecture & Clean Code Structure
+2. The `src/` Layout vs Flat Layout: Eliminating Import Parity Pitfalls
+3. Tiered Layer Architecture: Models, Repositories, Services, and Interfaces
+4. Packaging Standards: Modern `pyproject.toml` (PEP 517 / 518 / 621) vs legacy `setup.py`
+5. Root Project Manifests: `.gitignore`, `README.md`, `LICENSE`, `Makefile`
+6. Clean Package Exports: Controlling Public APIs with `__all__` in `__init__.py`
+7. 12-Factor App Configuration: Decoupling Config from Code via `.env` and Dataclasses
+8. Package Execution: Executable Modules with `__main__.py` and CLI Entrypoints
+9. Production Scaffolding Case Study: Multi-Campus Institutional System
+
+REAL-WORLD SCENARIOS:
+- Setting up a brand-new enterprise Python microservice or CLI tool from scratch with industrial standards
+- Avoiding the classic "works in development because current working directory is in sys.path but fails on server" import bug
+- Organizing a clean multi-layer project separating database queries from business rules and REST/CLI endpoints

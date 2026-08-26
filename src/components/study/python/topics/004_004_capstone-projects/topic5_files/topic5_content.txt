@@ -1,0 +1,24 @@
+TOPIC_ID: 004_004_005
+MODULE: 004_004_capstone-projects
+TITLE: Topic 5: Top Python Technical Interview Questions & Coding Challenges
+LEVEL: Pro
+DIFFICULTY: Hard
+
+OVERVIEW:
+Comprehensive master guide to conquering senior and mid-level Python technical interviews, system internals, and live coding challenges. Deep dive into CPython runtime internals: memory management (reference counting, generational cyclic garbage collection, `sys.getrefcount()`, `gc` module), the Global Interpreter Lock (GIL) and its implications for CPU vs I/O concurrency, C3 Linearization Method Resolution Order (MRO), dunder data model mechanics (`__iter__`, `__next__`, `__getitem__`, `__enter__`, `__exit__`), mutable default arguments pitfall, copy mechanics (`copy` vs `deepcopy`), solving classic algorithmic interview challenges (LRU Cache in O(1), Two Sum HashMap, Sliding Window, Valid Parentheses, Topological Sort), and explaining Threading vs Multiprocessing vs Asyncio tradeoffs with quantitative benchmarks. Complete real-world institutional live interview assessment suite simulating student ledger optimization across Barrackpore, Kolkata, Ichapur, and Jadavpur.
+
+CORE CONCEPTS:
+1. CPython Memory Management: Reference Counting & Cyclic GC
+2. Global Interpreter Lock (GIL) Mechanics & Subinterpreters (PEP 684/703)
+3. C3 Linearization & Multiple Inheritance MRO Resolution
+4. Python Dunder Protocols & Data Model Mastery
+5. Common Python Gotchas (Mutable Defaults, Late Binding Closures, `is` vs `==`)
+6. High-Frequency Interview Coding Challenges (LRU Cache, Two-Sum, Sliding Window)
+7. Concurrency Tradeoffs: Threads vs Processes vs Asyncio Event Loop
+8. Time & Space Complexity (Big-O) Analysis for Python Built-in Data Structures
+9. Institutional Live Interview Technical Assessment Case Study
+
+REAL-WORLD SCENARIOS:
+- Explaining in an interview why multithreading in Python does not speed up CPU-bound tasks and how `multiprocessing.Pool` or `ProcessPoolExecutor` solves it
+- Designing an O(1) LRU Cache data structure using `collections.OrderedDict` or a Hash Table + Doubly Linked List under live whiteboard constraints
+- Debugging subtle memory leaks caused by circular references holding `__del__` finalizers

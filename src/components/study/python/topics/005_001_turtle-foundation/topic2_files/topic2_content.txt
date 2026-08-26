@@ -1,0 +1,24 @@
+TOPIC_ID: 005_001_002
+MODULE: 005_001_turtle-foundation
+TITLE: Topic 2: Screen configuration: setup(), title(), bgcolor(), screensize()
+LEVEL: Beginner
+DIFFICULTY: Easy
+
+OVERVIEW:
+Comprehensive master guide to customizing and configuring the Turtle graphics display window and virtual canvas. Deep dive into `screen.setup(width, height, startx, starty)` for explicit window sizing and screen positioning, `screen.title("Window Title")` for window branding and header annotations, `screen.bgcolor("color")` and `screen.colormode(255)` for RGB and Hex dark mode palette theming, understanding the critical difference between the physical window viewport and the internal virtual canvas configured via `screen.screensize(canvwidth, canvheight)`, managing Tkinter root canvas scrollbars, and building responsive visual layouts. Complete real-world institutional multi-screen configuration case study styling and branding presentation canvases for students Mamata, Mahima, and Susmita across Barrackpore and Kolkata.
+
+CORE CONCEPTS:
+1. The Screen Window Lifecycle & Configuration Architecture
+2. `screen.setup(width, height, startx, starty)`: Viewport Geometry & Pixel Positioning
+3. `screen.title()`: Branded OS Window Headers
+4. `screen.bgcolor()`: Theming with Named Colors, Hex Codes, and RGB Mode (`screen.colormode(255)`)
+5. `screen.screensize(canvwidth, canvheight)`: Virtual Canvas vs Physical Viewport Window
+6. Scrollable Canvas Buffers in Tkinter
+7. Window Resizing & Aspect Ratio Management
+8. Fullscreen Mode (`screen.setup(1.0, 1.0)`) and Fractions
+9. Institutional Multi-Campus Presentation Suite Case Study
+
+REAL-WORLD SCENARIOS:
+- Setting up a sleek, high-contrast dark theme canvas (`#090d16`) for professional generative art demonstrations
+- Creating scrollable high-resolution art canvases that exceed standard monitor resolutions
+- Automating window placement (`startx`, `starty`) for dual-monitor classroom demonstrations

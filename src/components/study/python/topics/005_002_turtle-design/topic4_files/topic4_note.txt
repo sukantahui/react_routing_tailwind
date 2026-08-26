@@ -1,0 +1,47 @@
+================================================================================
+  TOPIC 4: BACKGROUND CANVAS DESIGN AND WINDOW CUSTOMIZATION
+  MODULE: 005_002 - Turtle Design & Aesthetic Customization
+  COURSE: Python Creative Graphics & Foundations
+  TEACHER & MENTOR: Sukanta Hui
+================================================================================
+
+1. WHAT IS CANVAS WINDOW CUSTOMIZATION?
+--------------------------------------------------------------------------------
+The canvas window is the graphical viewport hosting all turtle drawing operations.
+Customizing the window provides proper framing, branding, and color harmony:
+
+1. `screen.setup(width, height, startx, starty)`:
+   - `width`, `height`: Viewport dimensions in integer pixels or float percentages.
+   - `startx`, `starty`: Optional pixel position on the physical desktop monitor.
+
+2. `screen.title("Title Text")`:
+   - Changes the OS title bar caption text.
+
+3. `screen.bgcolor(color)`:
+   - Sets the background color of the canvas using names, hex codes, or RGB tuples.
+
+4. `screen.screensize(canvwidth, canvheight, bg)`:
+   - Sets the internal scrollable canvas size (independent of the outer viewport).
+
+5. `screen.window_width()` and `screen.window_height()`:
+   - Return active viewport dimensions in pixels.
+
+2. VIEWPORT VS LOGICAL CANVAS WORLD
+--------------------------------------------------------------------------------
+- `screen.setup(800, 600)`: Defines how large the OS window appears on screen.
+  Coordinate space spans from X: [-400, +400] and Y: [-300, +300].
+- `screen.screensize(1600, 1200)`: Defines how large the scrollable drawing area
+  is inside that window.
+
+3. BEST PRACTICES FOR CANVAS STYLING
+--------------------------------------------------------------------------------
+- Always call `screen.setup()` and `screen.title()` as the first two statements
+  after `turtle.Screen()` creation.
+- Prefer modern dark theme backgrounds (e.g. `"#020617"`, `"#0f172a"`) to make
+  vibrant vector lines stand out with high visual contrast.
+- Calculate coordinate bounds dynamically using `screen.window_width() // 2`
+  for responsive margin positioning.
+
+================================================================================
+  END OF NOTE - Coder & AccoTax Classroom Reference Series
+================================================================================

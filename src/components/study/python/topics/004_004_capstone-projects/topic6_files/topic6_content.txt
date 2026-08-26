@@ -1,0 +1,24 @@
+TOPIC_ID: 004_004_006
+MODULE: 004_004_capstone-projects
+TITLE: Topic 6: System design basics for Python backends
+LEVEL: Pro
+DIFFICULTY: Hard
+
+OVERVIEW:
+Comprehensive master guide to system design fundamentals, distributed architecture patterns, and scalable Python backend infrastructure. Deep dive into horizontal scaling vs vertical scaling, load balancing algorithms (Round Robin, Least Connections, Consistent Hashing), stateless service architectures with externalized session state (Redis/Memcached), caching strategies (Cache-Aside, Write-Through, Write-Behind, TTL invalidation), defending against Cache Stampede (Thundering Herd) using mutex locking, rate limiting algorithms (Token Bucket, Leaky Bucket, Sliding Window Counter), database scaling patterns (Read Replicas, Connection Pooling, Sharding), asynchronous background message queues (Celery / RabbitMQ / Redis PubSub), and CAP theorem tradeoffs (Consistency, Availability, Partition Tolerance). Complete real-world institutional distributed backend case study orchestrating high-concurrency admission surges across Barrackpore, Kolkata, Ichapur, and Jadavpur.
+
+CORE CONCEPTS:
+1. Horizontal Scaling vs Vertical Scaling Tradeoffs
+2. Load Balancing Strategies (Round Robin, Weighted, Least Connections, Consistent Hashing)
+3. Stateless Application Servers & Externalized State (Redis)
+4. Caching Topologies (Cache-Aside, Write-Through, Write-Behind) & Invalidation
+5. Rate Limiting Algorithms (Token Bucket, Leaky Bucket, Sliding Window Log)
+6. Asynchronous Task Queues & Worker Architecture (Celery / Redis / RabbitMQ)
+7. Database Scalability: Connection Pools, Read Replicas & CQRS
+8. CAP Theorem & PACELC Distributed Tradeoffs
+9. Institutional Multi-Campus High-Concurrency Backend Case Study
+
+REAL-WORLD SCENARIOS:
+- Designing a Python backend capable of handling 50,000 concurrent student admission requests during peak result day without database lockups
+- Implementing an in-memory Token Bucket rate limiter that throttles brute-force API requests to 100 req/min per IP
+- Mitigating the Thundering Herd cache stampede when a high-traffic course listing cache key expires

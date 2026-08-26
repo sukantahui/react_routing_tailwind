@@ -1,0 +1,51 @@
+================================================================================
+  TOPIC 2: COLOR SYSTEMS (RGB 0-255 VS 0-1, HEX CODES, NAMED COLORS)
+  MODULE: 005_002 - Turtle Design & Aesthetic Customization
+  COURSE: Python Creative Graphics & Foundations
+  TEACHER & MENTOR: Sukanta Hui
+================================================================================
+
+1. THE 4 WAYS TO SPECIFY COLORS IN PYTHON TURTLE
+--------------------------------------------------------------------------------
+1. Standard Tkinter Color Names:
+   - Case-insensitive string names (e.g. "red", "navy", "dark orange", "gold").
+   - Simple and immediate for beginner sketches.
+
+2. Hexadecimal String Codes:
+   - 6-digit hex format: `"#RRGGBB"` (e.g. `"#38bdf8"`, `"#34d399"`).
+   - Ideal for matching web palettes, Tailwind CSS tokens, and branding.
+
+3. Normalized RGB Float Mode (0.0 to 1.0):
+   - Default Turtle mode (`screen.colormode(1.0)`).
+   - Triple tuple of floats: `(0.2, 0.6, 1.0)`.
+
+4. 8-Bit Integer RGB Mode (0 to 255):
+   - Requires setting `screen.colormode(255)`.
+   - Standard 24-bit color channel values: `(255, 128, 0)`.
+   - Required when integrating with external libraries or `colorsys` conversions.
+
+2. PENCOLOR VS FILLCOLOR VS COLOR()
+--------------------------------------------------------------------------------
+- `t.pencolor(c)`: Sets the stroke outline color and cursor outline.
+- `t.fillcolor(c)`: Sets the interior fill color and cursor body.
+- `t.color(c)`: Sets BOTH pencolor and fillcolor to the same color.
+- `t.color(pen_c, fill_c)`: Sets pencolor and fillcolor in one single call.
+
+3. DYNAMIC COLOR MODULATION WITH COLORSYS
+--------------------------------------------------------------------------------
+To generate smooth rainbow cycles:
+1. Set `screen.colormode(255)`
+2. Import Python's built-in `colorsys` module
+3. Calculate hue (0.0 to 1.0)
+4. Convert HSV to RGB: `r, g, b = [int(x*255) for x in colorsys.hsv_to_rgb(hue, 1.0, 1.0)]`
+5. Apply: `t.color((r, g, b))`
+
+4. CRITICAL PITFALL
+--------------------------------------------------------------------------------
+Passing integer RGB values like `(255, 0, 0)` without calling `screen.colormode(255)`
+raises `TurtleGraphicsError: bad color sequence: (255, 0, 0)`! Always set
+colormode(255) first.
+
+================================================================================
+  END OF NOTE - Coder & AccoTax Classroom Reference Series
+================================================================================

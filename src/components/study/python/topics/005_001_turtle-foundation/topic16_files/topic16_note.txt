@@ -1,0 +1,65 @@
+================================================================================
+  TOPIC 16: INTRODUCTION TO TURTLE.DONE() & PROGRAM LIFECYCLE COMPLETION
+  MODULE: 005_001 - Turtle Graphics Foundation
+  COURSE: Python Creative Graphics & Foundations
+  TEACHER & MENTOR: Sukanta Hui
+================================================================================
+
+1. WHAT IS TURTLE.DONE() AND WHY IS IT ESSENTIAL?
+--------------------------------------------------------------------------------
+In standard Python scripts, execution terminates once the last line of code is
+processed. When using Turtle graphics, the window is created using the underlying
+Tkinter GUI toolkit. If your script ends without starting the Tkinter event loop,
+the operating system immediately destroys the canvas window in a fraction of a
+second.
+
+`turtle.done()` (or `turtle.mainloop()`) tells Tkinter:
+"The drawing instructions are finished. Now keep the window open, listen for
+system events (mouse clicks, resizing, window closing), and do not terminate
+until the user closes the window."
+
+2. THE 4 STAGES OF THE TURTLE PROGRAM LIFECYCLE
+--------------------------------------------------------------------------------
+Stage 1: Initialization Phase
+  - Importing turtle module (`import turtle`)
+  - Initializing canvas dimensions and background (`screen = turtle.Screen()`)
+  - Setting coordinate modes and window title.
+
+Stage 2: Entity Instantiation Phase
+  - Creating turtle instances (`t = turtle.Turtle()`)
+  - Setting speed, pen width, pen color, and shape.
+
+Stage 3: Procedural Drawing Phase
+  - Executing linear commands (`forward`, `right`, `circle`)
+  - Iterating loops for geometric patterns and mandalas.
+  - Calling user-defined drawing functions.
+
+Stage 4: Completion & Event Loop Phase
+  - Hiding turtle cursor (`t.hideturtle()`)
+  - Handing control over to `turtle.done()` or `screen.exitonclick()`.
+
+3. KEY LIFECYCLE METHODS
+--------------------------------------------------------------------------------
+1. turtle.done() / turtle.mainloop()
+   - Starts the GUI main loop. Keeps the window alive indefinitely.
+   - Must be the LAST statement in your turtle script.
+
+2. screen.exitonclick()
+   - Convenient shortcut that automatically binds mouse click to window exit.
+   - Also starts the main event loop internally.
+
+3. turtle.bye()
+   - Programmatically destroys the canvas window and halts the event loop.
+
+4. COMMON BEGINNER MISTAKES
+--------------------------------------------------------------------------------
+- Forgetting `turtle.done()`: The window flashes and disappears instantly.
+- Calling `turtle.done()` inside a loop: Halts the loop after the first step.
+- Calling drawing commands after `turtle.done()`: Lines below `turtle.done()`
+  will not execute until the window is closed!
+- Catching `turtle.Terminator`: Always use try/except if users might close the
+  window while a long animation is still rendering.
+
+================================================================================
+  END OF NOTE - Coder & AccoTax Classroom Reference Series
+================================================================================

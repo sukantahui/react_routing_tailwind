@@ -1,0 +1,33 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+  PYTHON PROGRAMMING • SEGMENT 5: TURTLE & CREATIVE GRAPHICS • MODULE 005_001
+        TOPIC 5: MOVEMENT FUNDAMENTALS (FORWARD, BACKWARD & DISTANCE PRECISION)
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. LINEAR MOTION COMMANDS & ALIASES
+--------------------------------------------------------------------------------
+  1. Forward Motion:
+     - t.forward(distance) or t.fd(distance)
+     - Moves 'distance' pixels forward along current heading angle theta.
+     - New X = X + distance * cos(theta)
+     - New Y = Y + distance * sin(theta)
+
+  2. Backward Motion:
+     - t.backward(distance) or t.bk(distance) or t.back(distance)
+     - Moves 'distance' pixels backward without altering heading orientation.
+     - New X = X - distance * cos(theta)
+     - New Y = Y - distance * sin(theta)
+
+--------------------------------------------------------------------------------
+2. RELATIVE VS ABSOLUTE DISPLACEMENT
+--------------------------------------------------------------------------------
+  - Relative: t.forward(100) -> Depends on where the turtle is currently facing.
+  - Absolute: t.goto(100, 50) -> Moves directly to (100, 50) regardless of heading.
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 5: MOVEMENT FUNDAMENTALS
+================================================================================

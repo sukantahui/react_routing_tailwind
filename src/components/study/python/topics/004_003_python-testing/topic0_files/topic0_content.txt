@@ -1,0 +1,23 @@
+TOPIC_ID: 004_003_000
+MODULE: 004_003_python-testing
+TITLE: Topic 0: Why automated testing is mandatory for professional software
+LEVEL: Pro
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive introduction to automated software testing principles in enterprise Python applications. Explores the cost curve of software defects (finding bugs in development vs production), the failure of manual ad-hoc testing and print-debugging at scale, regression prevention, automated assertion contracts, CI/CD integration, and software quality metrics. Features real-world case studies validating institutional tuition fee calculations, grade promotions, and student scholarship quotas across Barrackpore, Kolkata, Ichapur, and Jadavpur campuses.
+
+CORE CONCEPTS:
+1. The Economics of Quality: Defect Cost Growth Curve (Dev vs Staging vs Production)
+2. The Fragility of Manual 'print()' Debugging & Ad-Hoc Verification
+3. Regression Prevention: Guaranteeing Existing Features Never Break on Refactoring
+4. Executable Documentation & Invariant Specifications
+5. Continuous Integration (CI/CD) Test Automation Pipelines
+6. Pre-condition & Post-condition Assertion Contracts
+7. Test Reliability: Determinism, Isolation, and Idempotence
+8. Institutional Case Study: Automated Admission & Scholarship Verification Suite
+
+REAL-WORLD SCENARIOS:
+- Protecting mission-critical financial and grade calculation engines against silent regressions
+- Automating quality gates in GitHub Actions CI pipelines before deploying backend microservices
+- Refactoring legacy codebases with complete safety and confidence

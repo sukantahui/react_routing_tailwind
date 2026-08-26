@@ -1,0 +1,54 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_004: CAPSTONE PROJECTS
+           TOPIC 5: TOP PYTHON TECHNICAL INTERVIEW QUESTIONS & CODING CHALLENGES
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. CPYTHON RUNTIME INTERNALS CHEATSHEET
+--------------------------------------------------------------------------------
+  1. Memory Management:
+     - Primary: Reference Counting (freed immediately when count reaches 0)
+     - Secondary: Generational Cyclic Garbage Collector (Gen 0, 1, 2 for circular refs)
+  
+  2. GIL (Global Interpreter Lock):
+     - A mutex that prevents multiple native threads from executing Python bytecodes simultaneously
+     - I/O-bound tasks: Use threading or asyncio (GIL released during OS I/O calls)
+     - CPU-bound tasks: Use multiprocessing (separate processes, separate GILs, separate memory)
+
+  3. MRO (Method Resolution Order):
+     - Uses C3 Linearization algorithm to determine method inheritance order
+     - Check order via: ClassName.__mro__ or ClassName.mro()
+
+--------------------------------------------------------------------------------
+2. CLASSIC CODING CHALLENGES
+--------------------------------------------------------------------------------
+  1. LRU Cache (Least Recently Used) in O(1):
+     from collections import OrderedDict
+     class LRUCache:
+         def __init__(self, capacity: int):
+             self.cap = capacity
+             self.cache = OrderedDict()
+         def get(self, key):
+             if key not in self.cache: return -1
+             self.cache.move_to_end(key)
+             return self.cache[key]
+         def put(self, key, val):
+             if key in self.cache: self.cache.move_to_end(key)
+             self.cache[key] = val
+             if len(self.cache) > self.cap: self.cache.popitem(last=False)
+
+--------------------------------------------------------------------------------
+3. HIGH-FREQUENCY INTERVIEW TRAPS
+--------------------------------------------------------------------------------
+  - Trap 1: def append_to(x, target=[]):  # Mutates across function calls!
+            # FIX: def append_to(x, target=None): if target is None: target = []
+  - Trap 2: late binding closures in loops (use lambda x=i: x * 2)
+  - Trap 3: 'is' (identity comparison) vs '==' (equality comparison)
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 5: TECHNICAL INTERVIEW MASTERY
+================================================================================

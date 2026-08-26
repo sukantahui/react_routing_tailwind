@@ -1,0 +1,25 @@
+TOPIC_ID: 004_003_007
+MODULE: 004_003_python-testing
+TITLE: Topic 7: Measuring Code Coverage with coverage.py / pytest-cov
+LEVEL: Pro
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to measuring, analyzing, and enforcing code coverage in Python using `coverage.py` and the `pytest-cov` plugin. Deep dive into coverage metrics: statement (line) coverage vs branch (decision condition) coverage, understanding why 100% statement coverage does NOT guarantee bug-free software, configuring `.coveragerc` and `pyproject.toml` `[tool.coverage]` tables, excluding untestable boilerplate with `# pragma: no cover`, generating terminal and interactive HTML coverage reports (`--cov-report=html`), setting quality gates with `--cov-fail-under=90` to automatically fail CI builds when coverage drops, and identifying untested edge case branches. Complete real-world institutional case study auditing student fee mutation, merit grant, and admission validation engines across Barrackpore, Kolkata, Ichapur, and Jadavpur.
+
+CORE CONCEPTS:
+1. Code Coverage Fundamentals: What is Code Coverage and Why It Matters
+2. Statement (Line) Coverage vs Branch (Decision Path) Coverage
+3. The False Sense of Security: Why 100% Line Coverage Can Hide Critical Bugs
+4. `pytest-cov` CLI Commands (`--cov`, `--cov-report=term-missing`, `--cov-report=html`)
+5. Reading Coverage Reports & Missing Line Line-Number Traces
+6. Quality Gates: Enforcing Minimum Thresholds with `--cov-fail-under=90`
+7. Coverage Configuration: `.coveragerc` and `pyproject.toml`
+8. Pragmas and Exclusions: `# pragma: no cover`, `if __name__ == '__main__':`
+9. Combining Coverage Reports across Parallel Test Runs (`coverage combine`)
+10. Case Study: Institutional Multi-Campus Code Coverage Audit
+
+REAL-WORLD SCENARIOS:
+- Setting up GitHub Actions CI/CD quality gates that automatically reject pull requests with coverage below 85%
+- Detecting untested `else:` branches, exception blocks, and boundary conditions in financial fee calculation engines
+- Generating interactive HTML reports with color-coded line-by-line visual auditing

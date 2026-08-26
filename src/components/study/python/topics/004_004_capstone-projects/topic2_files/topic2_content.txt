@@ -1,0 +1,24 @@
+TOPIC_ID: 004_004_002
+MODULE: 004_004_capstone-projects
+TITLE: Topic 2: Configuring logging, error handling, and modular CLI / GUI interfaces
+LEVEL: Pro
+DIFFICULTY: Medium-Hard
+
+OVERVIEW:
+Comprehensive master guide to configuring production-grade logging, structured error handling hierarchies, and modular Command-Line Interfaces (CLI) in Python. Deep dive into Python's built-in `logging` module: standard log levels (DEBUG, INFO, WARNING, ERROR, CRITICAL), configuring `RotatingFileHandler` and `TimedRotatingFileHandler` to prevent disk space exhaustion, structured formatters, domain-specific custom exception hierarchies with status codes and contextual error payloads, global exception boundary handlers, building modular sub-command CLI tools with `argparse` and ANSI/Rich terminal tables, validating inputs, and standardizing POSIX process exit codes (0 for success, non-zero for failures). Complete real-world institutional case study implementing the administrative CLI terminal hub for multi-campus operations across Barrackpore, Kolkata, Ichapur, and Jadavpur.
+
+CORE CONCEPTS:
+1. Production Logging vs Amateur `print()` Statements
+2. Logging Levels, Formatters & Handlers (`StreamHandler`, `RotatingFileHandler`)
+3. Domain Custom Exception Hierarchies with Error Codes
+4. Centralized Error Handling & Crash Recovery Boundaries
+5. Modular CLI Architecture with Sub-Commands (`argparse` / `click`)
+6. Input Sanitization, Prompting & POSIX Exit Codes
+7. Rich Terminal Output Formatting (Tables, Panels, Colors)
+8. Audit Trail Logging for Sensitive Financial/Admission Operations
+9. Complete Institutional Administrative CLI & Logging Engine Case Study
+
+REAL-WORLD SCENARIOS:
+- Replacing raw console prints with structured rotating log files that automatically rotate when reaching 5MB in production servers
+- Designing user-friendly CLI tools that parse complex flags, format tabular reports, and return clean error messages instead of raw Python tracebacks
+- Implementing secure audit logs that track who modified student records or fee payments with timestamps and transaction IDs

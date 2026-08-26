@@ -1,0 +1,41 @@
+================================================================================
+  TOPIC 6: COMBINING GEOMETRIC FILLS TO COMPOSE COMPLEX GRAPHICS
+  MODULE: 005_002 - Turtle Design & Aesthetic Customization
+  COURSE: Python Creative Graphics & Foundations
+  TEACHER & MENTOR: Sukanta Hui
+================================================================================
+
+1. WHAT IS COMPOSITE VECTOR GRAPHICS?
+--------------------------------------------------------------------------------
+In computer graphics, complex real-world scenes (landscapes, characters, flags,
+posters) are not drawn as a single monolithic path. Instead, they are composed
+by layering simple geometric primitives:
+- Rectangles & Polygons: Walls, hills, building bodies, banners.
+- Circles & Arcs: Moons, suns, wheels, character eyes, rounded corners.
+- Linear Spokes & Lines: Window panes, antennas, rays, spokes.
+
+2. THE PAINTER'S ALGORITHM (Z-INDEX LAYERING)
+--------------------------------------------------------------------------------
+Python Turtle operates on the Painter's Algorithm:
+Objects drawn earlier in the code appear in the BACKGROUND, while objects
+drawn later in the code appear on top in the FOREGROUND.
+
+Layering Protocol for Clean Artwork:
+1. Layer 1 (Backdrop): Sky, stars, canvas fill (`screen.bgcolor`).
+2. Layer 2 (Background): Distant mountains, horizon lines, clouds.
+3. Layer 3 (Midground): Foothills, roads, buildings, trees.
+4. Layer 4 (Foreground): Character avatars, door/window details, logos.
+5. Layer 5 (Overlay UI): Text labels, scores, title borders.
+
+3. REUSABLE MODULAR HELPER FUNCTIONS
+--------------------------------------------------------------------------------
+Always write parameterized helper functions:
+- `draw_rectangle(t, x, y, width, height, stroke, fill)`
+- `draw_polygon(t, vertices_list, stroke, fill)`
+- `draw_circle_centered(t, cx, cy, radius, stroke, fill)`
+
+This keeps code DRY (Don't Repeat Yourself), highly maintainable, and readable.
+
+================================================================================
+  END OF NOTE - Coder & AccoTax Classroom Reference Series
+================================================================================

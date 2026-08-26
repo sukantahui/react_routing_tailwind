@@ -1,0 +1,53 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_004: CAPSTONE PROJECTS
+           TOPIC 0: END-TO-END PROJECT ARCHITECTURE & CLEAN DIRECTORY LAYOUT
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE PROFESSIONAL SRC/ DIRECTORY LAYOUT
+--------------------------------------------------------------------------------
+  my_project/
+  ├── pyproject.toml              # Modern build & packaging manifest (PEP 621)
+  ├── README.md                   # Project overview & quickstart instructions
+  ├── LICENSE                     # MIT / Apache 2.0 open-source license
+  ├── .gitignore                  # Ignore .venv, __pycache__, .coverage, .env
+  ├── .env.example                # Sample environment variables template
+  ├── src/                        # SOURCE DIRECTORY (Prevents accidental imports!)
+  │   └── my_package/             # Core Python package namespace
+  │       ├── __init__.py         # Package version & public API exports (__all__)
+  │       ├── __main__.py         # Allows: python -m my_package
+  │       ├── config.py           # Dataclass environment configuration
+  │       ├── models/             # Domain entities (Data classes, Enums)
+  │       ├── repositories/       # Database queries & storage persistence
+  │       ├── services/           # Business logic & calculation rules
+  │       └── cli/                # CLI commands & user interfaces
+  └── tests/                      # AUTOMATED TEST SUITE
+      ├── conftest.py             # Shared pytest fixtures
+      ├── unit/                   # Fast isolated unit tests
+      └── integration/            # Multi-component & database tests
+
+--------------------------------------------------------------------------------
+2. MODERN PYPROJECT.TOML PACKAGING
+--------------------------------------------------------------------------------
+  [build-system]
+  requires = ["hatchling"]
+  build-backend = "hatchling.build"
+
+  [project]
+  name = "institutional-manager"
+  version = "1.0.0"
+  description = "Multi-campus student admission & ledger system"
+  readme = "README.md"
+  requires-python = ">=3.10"
+  dependencies = ["requests>=2.31.0"]
+
+  [project.scripts]
+  campus-cli = "my_package.cli.main:run_cli"
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 0: PROJECT ARCHITECTURE & LAYOUT
+================================================================================

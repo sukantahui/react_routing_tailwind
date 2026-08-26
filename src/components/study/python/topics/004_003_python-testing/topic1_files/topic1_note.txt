@@ -1,0 +1,42 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_003: PYTHON TESTING
+          TOPIC 1: TYPES OF TESTING: UNIT, INTEGRATION & FUNCTIONAL TESTING
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE TESTING PYRAMID
+--------------------------------------------------------------------------------
+  Level 1: UNIT TESTS (~70%)
+  - Tests isolated functions/classes in memory.
+  - Ultra-fast (<1ms per test). Pinpoints exact line of failure.
+
+  Level 2: INTEGRATION TESTS (~20%)
+  - Tests collaboration between multiple components (e.g. Service + Database).
+  - Validates SQL schemas, network serializers, and interface contracts.
+
+  Level 3: FUNCTIONAL / E2E TESTS (~10%)
+  - Tests complete black-box user workflows from entry point to exit.
+  - Slower, but guarantees the entire business system delivers value.
+
+--------------------------------------------------------------------------------
+2. EXAMPLE IN ACTION
+--------------------------------------------------------------------------------
+  # Unit Test (Isolated calculation)
+  assert calculate_tax(1000.0, 0.18) == 180.0
+
+  # Integration Test (Database + Service)
+  db.save_student(Student("STU1", "Mamata"))
+  assert db.find_student("STU1").name == "Mamata"
+
+  # Functional / E2E Test (Full User Journey)
+  response = client.post("/api/enroll", json={"name": "Mamata", "course": "Python"})
+  assert response.status_code == 201
+  assert response.json()["status"] == "SUCCESS"
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 1: TYPES OF TESTING
+================================================================================

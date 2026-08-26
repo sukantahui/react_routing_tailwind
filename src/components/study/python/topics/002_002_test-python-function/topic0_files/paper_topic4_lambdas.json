@@ -1,0 +1,72 @@
+{
+  "paperId": "PY-FUNC-TOPIC4-LAMBDAS",
+  "title": "Topic 4: Lambda Expressions & Higher-Order Functions Assessment",
+  "duration": "45 Mins",
+  "totalMarks": 25,
+  "prerequisites": "Anonymous lambda functions, map, filter, sorted key functions",
+  "instructions": [
+    "Answer all questions systematically",
+    "Show functional programming paradigms with Python code",
+    "Assume Python 3.10+"
+  ],
+  "sections": [
+    {
+      "section": "A",
+      "type": "Short Conceptual Questions",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "description": "Lambda syntax & restrictions (2 Marks each)",
+      "questions": [
+        {
+          "q": "What is an anonymous lambda function in Python?",
+          "marks": 2,
+          "answer": "A lambda function is an inline, anonymous function defined without a `def` statement using the `lambda` keyword: `lambda params: expression`."
+        },
+        {
+          "q": "What are the structural limitations of a Python lambda compared to a 'def' function?",
+          "marks": 2,
+          "answer": "Lambdas can only contain a **single expression** (not statements like `while`, `for`, `try/except`, or multi-line assignments), and implicitly return that expression's value."
+        },
+        {
+          "q": "What is a Higher-Order Function?",
+          "marks": 2,
+          "answer": "A higher-order function is a function that either takes another function as an argument (e.g. `map()`, `filter()`, `sorted()`) or returns a function as its result."
+        },
+        {
+          "q": "How does 'sorted()' use a lambda as its 'key' parameter?",
+          "marks": 2,
+          "answer": "The `key` function extracts a comparison criteria for each element before sorting.\n\n```python\nstudents = [('Mamata', 92), ('Debangshu', 85)]\nstudents.sort(key=lambda s: s[1], reverse=True)\n```"
+        },
+        {
+          "q": "Why does PEP 8 discourage assigning lambdas to variable names (e.g. 'f = lambda x: x*2')?",
+          "marks": 2,
+          "answer": "Because `def f(x): return x*2` is more readable, provides proper traceback function names (`__name__`), and supports docstrings."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Descriptive & Code Tracing",
+      "marksPerQuestion": 5,
+      "totalQuestions": 3,
+      "description": "Functional pipeline engineering (5 Marks each)",
+      "questions": [
+        {
+          "q": "Demonstrate data transformation using map(), filter(), and list comprehensions side-by-side on student score records.",
+          "marks": 5,
+          "answer": "```python\nmarks = [45, 78, 92, 38, 85, 60]\n\n# 1. Filter passing marks (>= 50)\npassed_filter = list(filter(lambda m: m >= 50, marks))\npassed_comp = [m for m in marks if m >= 50]\n\n# 2. Add 5 bonus marks with map()\nbonus_map = list(map(lambda m: min(m + 5, 100), passed_filter))\nbonus_comp = [min(m + 5, 100) for m in passed_comp]\n\nprint(\"Filtered Passed:\", passed_comp) # [78, 92, 85, 60]\nprint(\"With Bonus:    \", bonus_comp)  # [83, 97, 90, 65]\n```"
+        },
+        {
+          "q": "Write a multi-attribute sorting pipeline using lambdas to sort employee records first by department (ascending) then by salary (descending).",
+          "marks": 5,
+          "answer": "```python\nemployees = [\n    {\"name\": \"Mamata\", \"dept\": \"IT\", \"salary\": 85000},\n    {\"name\": \"Debangshu\", \"dept\": \"HR\", \"salary\": 65000},\n    {\"name\": \"Susmita\", \"dept\": \"IT\", \"salary\": 95000},\n    {\"name\": \"Abhronila\", \"dept\": \"HR\", \"salary\": 72000}\n]\n\n# Sort key tuple: (dept, -salary) for dual-criteria sorting\nemployees.sort(key=lambda e: (e[\"dept\"], -e[\"salary\"]))\n\nfor emp in employees:\n    print(f\"{emp['dept']:<4} | {emp['name']:<10} | ₹{emp['salary']:,}\")\n```"
+        },
+        {
+          "q": "Explain how functools.reduce() works with lambda expressions to compute cumulative aggregates.",
+          "marks": 5,
+          "answer": "```python\nfrom functools import reduce\n\nnumbers = [1, 2, 3, 4, 5]\n# Computes factorial: (((1*2)*3)*4)*5\nfactorial = reduce(lambda acc, x: acc * x, numbers, 1)\nprint(\"Factorial of 5:\", factorial) # 120\n\n# Finding maximum element with reduce\nmax_val = reduce(lambda a, b: a if a > b else b, [14, 88, 23, 95, 42])\nprint(\"Max Value:\", max_val) # 95\n```"
+        }
+      ]
+    }
+  ]
+}

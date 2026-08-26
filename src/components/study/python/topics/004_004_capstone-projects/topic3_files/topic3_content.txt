@@ -1,0 +1,24 @@
+TOPIC_ID: 004_004_003
+MODULE: 004_004_capstone-projects
+TITLE: Topic 3: Writing complete documentation (README.md, docstrings, typing hints)
+LEVEL: Pro
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to writing world-class documentation, static typing annotations, and self-documenting codebases in Python. Deep dive into PEP 257 docstring standards (Google vs NumPy vs Sphinx formats), executable doctests (`doctest.testmod()`), comprehensive PEP 484 / PEP 585 static typing annotations (`Generic`, `TypeVar`, `Protocol`, `Literal`, `TypedDict`, `Self`), configuring `mypy` strict mode, generating automated API documentation with Sphinx and MkDocs, and crafting standout open-source `README.md` files complete with Shields.io badges, architectural mermaid diagrams, installation quickstarts, and contribution guidelines. Complete real-world institutional case study documenting and strictly type-annotating the multi-campus management system across Barrackpore, Kolkata, Ichapur, and Jadavpur.
+
+CORE CONCEPTS:
+1. The 4 Quadrants of Documentation (Diátaxis Framework: Tutorials, How-To, Reference, Explanation)
+2. PEP 257 Docstring Conventions (Google Style vs NumPy Style)
+3. Executable Doctests: Interactive Documentation that Tests Itself
+4. PEP 484 / PEP 585 Modern Static Type Annotations
+5. Advanced Type Hinting: Generics, Protocols (Duck Typing), Type Guards & Overloads
+6. Enforcing Static Analysis with Mypy Strict Mode (`--strict`)
+7. Crafting Standout GitHub `README.md` Manifests & Badges
+8. Automated API Docs Generation (MkDocs / Sphinx)
+9. Institutional Multi-Campus Documentation & Type Audit Case Study
+
+REAL-WORLD SCENARIOS:
+- Converting an ambiguous untyped Python legacy codebase into a strictly typed, autocompleting, bug-resistant package
+- Embedding executable doctest examples in docstrings so documentation never goes out of sync with code behavior
+- Writing executive GitHub READMEs that immediately convince technical recruiters and open-source contributors of project quality

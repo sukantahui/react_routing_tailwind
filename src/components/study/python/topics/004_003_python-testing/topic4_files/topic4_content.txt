@@ -1,0 +1,25 @@
+TOPIC_ID: 004_003_004
+MODULE: 004_003_python-testing
+TITLE: Topic 4: Parametrized tests with @pytest.mark.parametrize
+LEVEL: Pro
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to data-driven test automation in PyTest using `@pytest.mark.parametrize`. Deep dive into eliminating repetitive test duplication: mapping input-output vectors into single test functions, multi-variable parameter tuples, Cartesian product combinatorial matrix generation via stacked decorators, readable test identification with custom `ids` functions, inline parameter-specific markers with `pytest.param(marks=...)`, and dynamic parametrization with `pytest_generate_tests`. Complete real-world institutional case study validating multi-campus student fee tiers, tax brackets, and scholarship formulas across Barrackpore, Kolkata, Ichapur, and Jadavpur.
+
+CORE CONCEPTS:
+1. Data-Driven Testing Philosophy: DRY (Don't Repeat Yourself) in Test Suites
+2. `@pytest.mark.parametrize`: Syntax, Parameter Names, and Tuple Lists
+3. Multi-Argument Vector Parametrization
+4. Cartesian Product Combinatorial Matrix Generation via Stacked Decorators
+5. Custom Test Case Naming with `ids=["case_1", "case_2"]` or Callables
+6. Individual Parameter Metadata & Expected Failures with `pytest.param()`
+7. Dynamic Parametrization with Hook `pytest_generate_tests`
+8. Combining `@pytest.mark.parametrize` with Fixtures (`indirect=True`)
+9. Diagnostic Reporting & Granular Test Failure Localization
+10. Case Study: Comprehensive Multi-Campus Fee & Scholarship Matrix
+
+REAL-WORLD SCENARIOS:
+- Testing complex tax calculations and currency conversions across dozens of edge cases
+- Testing grade curves and boundary thresholds (39.9, 40.0, 79.9, 80.0, 89.9, 90.0) in a single clean test
+- Running combinatorial matrices across multiple server configurations, databases, and OS environments

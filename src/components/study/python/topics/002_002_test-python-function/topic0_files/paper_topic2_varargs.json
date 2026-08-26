@@ -1,0 +1,72 @@
+{
+  "paperId": "PY-FUNC-TOPIC2-VARARGS",
+  "title": "Topic 2: Variable-Length Arguments (*args & **kwargs) Assessment",
+  "duration": "45 Mins",
+  "totalMarks": 25,
+  "prerequisites": "*args tuple packing, **kwargs dictionary packing, argument unpacking",
+  "instructions": [
+    "Answer all questions with code examples",
+    "Trace tuple and dictionary unpacking patterns",
+    "Assume Python 3.10+"
+  ],
+  "sections": [
+    {
+      "section": "A",
+      "type": "Short Conceptual Questions",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "description": "Varargs theory and syntax (2 Marks each)",
+      "questions": [
+        {
+          "q": "What data structure does *args collect extra arguments into?",
+          "marks": 2,
+          "answer": "`*args` packs any number of extra positional arguments into an immutable **tuple**.\n\n```python\ndef demo(*args):\n    print(type(args)) # <class 'tuple'>\n```"
+        },
+        {
+          "q": "What data structure does **kwargs collect extra arguments into?",
+          "marks": 2,
+          "answer": "`**kwargs` packs any number of extra keyword arguments into a mutable **dictionary**.\n\n```python\ndef demo(**kwargs):\n    print(type(kwargs)) # <class 'dict'>\n```"
+        },
+        {
+          "q": "What is the mandatory ordering of parameters when mixing standard, *args, and **kwargs?",
+          "marks": 2,
+          "answer": "Standard Positional -> `*args` (varargs) -> Keyword-Only Parameters -> `**kwargs` (keyword varargs).\n\n```python\ndef handler(req_id, *flags, timeout=30, **headers):\n    pass\n```"
+        },
+        {
+          "q": "What is argument unpacking using '*' and '**' at function call sites?",
+          "marks": 2,
+          "answer": "`*iterable` unpacks sequence elements as positional arguments; `**dict` unpacks key-value pairs as keyword arguments.\n\n```python\nnums = [10, 20, 30]\nprint(*nums) # Unpacks to print(10, 20, 30)\n```"
+        },
+        {
+          "q": "Can you use different names instead of *args and **kwargs?",
+          "marks": 2,
+          "answer": "Yes, `*` and `**` are the actual operators. While `*args` and `**kwargs` are universal PEP 8 conventions, `*values` and `**options` are syntactically valid."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Descriptive & Code Tracing",
+      "marksPerQuestion": 5,
+      "totalQuestions": 3,
+      "description": "Variadic function engineering (5 Marks each)",
+      "questions": [
+        {
+          "q": "Write a variadic mathematical aggregator function that accepts any count of numbers and optional operation keywords ('sum', 'mean', 'product').",
+          "marks": 5,
+          "answer": "```python\ndef aggregate_numbers(*numbers, op=\"sum\", round_digits=2):\n    if not numbers:\n        return 0.0\n    \n    if op == \"sum\":\n        res = sum(numbers)\n    elif op == \"mean\":\n        res = sum(numbers) / len(numbers)\n    elif op == \"product\":\n        res = 1\n        for n in numbers: res *= n\n    else:\n        raise ValueError(f\"Unsupported operation: {op}\")\n    \n    return round(res, round_digits)\n\nprint(aggregate_numbers(10, 20, 30, 40, op=\"mean\"))     # 25.0\nprint(aggregate_numbers(2, 3, 4, 5, op=\"product\"))       # 120\n```"
+        },
+        {
+          "q": "Explain how wrapper / decorator functions use *args and **kwargs for universal argument forwarding.",
+          "marks": 5,
+          "answer": "```python\ndef audit_logger(func):\n    def wrapper(*args, **kwargs):\n        print(f\"[AUDIT] Calling {func.__name__} with args={args}, kwargs={kwargs}\")\n        result = func(*args, **kwargs) # Perfect forwarding!\n        print(f\"[AUDIT] {func.__name__} returned {result}\")\n        return result\n    return wrapper\n\n@audit_logger\ndef generate_bill(customer, items_count, discount=0.0):\n    return f\"Bill for {customer}: {items_count} items with {discount*100}% off\"\n\ngenerate_bill(\"Susmita\", 5, discount=0.10)\n```"
+        },
+        {
+          "q": "Demonstrate dictionary merging and configuration overriding using **kwargs and unpacking.",
+          "marks": 5,
+          "answer": "```python\ndef create_database_client(host=\"localhost\", port=5432, **custom_options):\n    default_config = {\n        \"host\": host,\n        \"port\": port,\n        \"ssl\": True,\n        \"timeout\": 30\n    }\n    # Override defaults with caller's custom kwargs\n    final_config = {**default_config, **custom_options}\n    return final_config\n\nclient = create_database_client(host=\"db.jadavpur.edu\", timeout=60, pool_size=10)\nprint(client)\n# {'host': 'db.jadavpur.edu', 'port': 5432, 'ssl': True, 'timeout': 60, 'pool_size': 10}\n```"
+        }
+      ]
+    }
+  ]
+}

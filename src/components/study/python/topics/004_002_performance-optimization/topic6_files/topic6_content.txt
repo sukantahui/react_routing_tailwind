@@ -1,0 +1,27 @@
+TOPIC_ID: 004_002_006
+MODULE: 004_002_performance-optimization
+TITLE: Topic 6: collections module: deque, Counter, defaultdict, OrderedDict, namedtuple
+LEVEL: Pro
+DIFFICULTY: Hard
+
+OVERVIEW:
+Comprehensive master guide to Python's high-performance specialized container datatypes in the standard library `collections` module. Deep dive into the internal C data structures of `deque` (doubly-linked fixed-size chunked memory blocks providing O(1) appends and pops on both ends vs O(N) array shifts in standard lists), bounded ring buffers with `maxlen`, `Counter` frequency analysis and multiset arithmetic (`+`, `-`, `&`, `|`), heap-accelerated `most_common(k)` ranking, `defaultdict` C-level factory functions eliminating missing-key branching overhead, `OrderedDict` LRU cache mechanics with `move_to_end()` and `popitem()`, memory-efficient immutable C struct representations with `namedtuple`, and layered configuration resolution with `ChainMap`. Complete real-world institutional case study analyzing student application queues, multi-campus grade distributions, and hierarchical policy overrides across Barrackpore, Kolkata, Ichapur, and Jadavpur.
+
+CORE CONCEPTS:
+1. `deque` Internals: Block-Allocated Doubly-Linked Lists vs Contiguous Arrays
+2. $O(1)$ Left/Right Appends & Pops vs $O(N)$ List Shifts (`pop(0)` / `insert(0)`)
+3. Bounded Sliding-Window Ring Buffers with `deque(maxlen=K)`
+4. `Counter` Frequency Counting, Multiset Algebra & $O(N \log K)$ `most_common()`
+5. `defaultdict` C-Level Factory Functions & Multi-Level Nested Tree Grouping
+6. `OrderedDict` Doubly-Linked Hash Tables & LRU Cache Eviction Mechanics
+7. `namedtuple` Immutable C Pointer Structs & Memory Optimization
+8. `ChainMap` Zero-Copy Hierarchical Configuration & Scope Resolution
+9. Memory Footprint and Benchmark Comparisons Across Containers
+10. Case Study: Institutional Multi-Campus Real-Time Analytics Pipeline
+
+REAL-WORLD SCENARIOS:
+- Building high-throughput message ingestion queues and rolling window rate limiters with `deque`
+- Aggregating real-time student attendance, voter counts, or sensor data frequencies with `Counter`
+- Constructing in-memory JSON document grouping and inverted search indexes with `defaultdict`
+- Implementing fast in-memory LRU caches for backend API responses with `OrderedDict`
+- Managing layered application settings (CLI flags > Env vars > Campus defaults) with `ChainMap`

@@ -1,239 +1,744 @@
-import React from "react";
-import Teacher from "../../../../../common/TeacherSukantaHui";
+import React, { useEffect, useRef, useState } from "react";
+import clsx from "clsx";
+
+// Common Shared Components
 import PythonFileLoader from "../../../../../common/PythonFileLoader";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import FAQTemplate from "../../../../../common/FAQTemplate";
+import Teacher from "../../../../../common/TeacherSukantaHui";
+
+// Python Code Examples (Imported with ?raw)
+import quadrantGeoCode from "./topic1_files/cartesian_plane_and_quadrant_geometry.py?raw";
+import originMapCode from "./topic1_files/origin_and_coordinate_mapping.py?raw";
+import screenBoundsCode from "./topic1_files/screen_bounds_and_clipping.py?raw";
+import institutionalMapCode from "./topic1_files/institutional_quadrant_campus_map_case_study.py?raw";
+
+// Plain Text Note for Printing/Downloading
+import noteText from "./topic1_files/topic1_note.txt?raw";
+
+// FAQ Questions
 import questions from "./topic1_files/topic1_questions";
 
-// Import Python files from topic1_files
-import coordDemo from "./topic1_files/coord_demo.py?raw";
-import quadrantDraw from "./topic1_files/quadrant_draw.py?raw";
-import gotoDemo from "./topic1_files/goto_demo.py?raw";
+/**
+ * Topic1: Understanding the Turtle screen: canvas, coordinate system (Cartesian plane), origin (0,0), and quadrants
+ * Module: 005_001_turtle-foundation
+ * Segment: 5 (Python Turtle & Creative Graphics Programming)
+ *
+ * Premium Dark Theme Default with Rich Micro-Animations & Full Interactivity.
+ */
+export default function Topic1() {
+  const sectionRefs = useRef([]);
+  const [activeInteractiveTab, setActiveInteractiveTab] = useState("quadrantGrid");
 
-// Inline keyframes
-const keyframes = `
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes softGlow {
-  0%, 100% { box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-  50% { box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-}
-`;
+  // Interactive Laboratory State: Quadrant Explorer
+  const [selectedPoint, setSelectedPoint] = useState({
+    name: "Barrackpore (Mamata)",
+    x: 120,
+    y: 80,
+    quadrant: "Quadrant I (+X, +Y) [Top-Right]",
+    color: "#2dd4bf",
+  });
 
-const Topic1 = () => {
-  // Prototype table data
-  const prototypes = [
-    { name: "turtle.Screen()", returnType: "Screen object", purpose: "Creates and returns the drawing canvas.", usage: "screen = turtle.Screen()" },
-    { name: "setup(width, height)", returnType: "None", purpose: "Sets size and position of main window.", usage: "turtle.setup(800, 600)" },
-    { name: "screensize(canvwidth, canvheight)", returnType: "None", purpose: "Sets scrollable canvas area.", usage: "turtle.screensize(1000, 800)" },
-    { name: "setworldcoordinates(llx, lly, urx, ury)", returnType: "None", purpose: "User-defined coordinate system.", usage: "turtle.setworldcoordinates(-500, -500, 500, 500)" },
-    { name: "xcor()", returnType: "float", purpose: "Returns current x-coordinate.", usage: "print(t.xcor())" },
-    { name: "ycor()", returnType: "float", purpose: "Returns current y-coordinate.", usage: "print(t.ycor())" },
-    { name: "position() / pos()", returnType: "(x, y) tuple", purpose: "Returns current position vector.", usage: "x, y = t.pos()" },
-    { name: "goto(x, y)", returnType: "None", purpose: "Move turtle to absolute (x, y).", usage: "t.goto(100, -50)" }
+  const presetPoints = [
+    { name: "Barrackpore (Mamata)", x: 120, y: 80, quadrant: "Quadrant I (+X, +Y) [Top-Right]", color: "#2dd4bf" },
+    { name: "Ichapur (Abhronila)", x: -120, y: 80, quadrant: "Quadrant II (-X, +Y) [Top-Left]", color: "#38bdf8" },
+    { name: "Jadavpur (Susmita)", x: -120, y: -80, quadrant: "Quadrant III (-X, -Y) [Bottom-Left]", color: "#a855f7" },
+    { name: "Kolkata (Mahima)", x: 120, y: -80, quadrant: "Quadrant IV (+X, -Y) [Bottom-Right]", color: "#facc15" },
+    { name: "Central Origin", x: 0, y: 0, quadrant: "Origin Center (0, 0)", color: "#94a3b8" },
   ];
 
+  const euclideanDistance = Math.round(
+    Math.sqrt(selectedPoint.x * selectedPoint.x + selectedPoint.y * selectedPoint.y)
+  );
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("section-visible");
+          }
+        });
+      },
+      {
+        threshold: 0.08,
+        rootMargin: "0px 0px -40px 0px",
+      }
+    );
+
+    sectionRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const addToRefs = (el) => {
+    if (el && !sectionRefs.current.includes(el)) {
+      sectionRefs.current.push(el);
+    }
+  };
+
   return (
-    <div className="dark bg-gray-900 text-gray-100 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
-      <style>{keyframes}</style>
+    <div className="min-h-screen bg-slate-950 text-slate-100 antialiased font-sans p-4 sm:p-6 md:p-10 pb-28 selection:bg-teal-500/30 selection:text-teal-200">
+      {/* Scoped Keyframes for Lightweight Zero-Config Micro-Animations */}
+      <style>{`
+        .section-hidden {
+          transform: translateY(18px);
+          transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .section-visible {
+          transform: translateY(0);
+        }
+        @keyframes pulseGlowTeal {
+          0%, 100% { filter: drop-shadow(0 0 4px rgba(20, 184, 166, 0.4)); }
+          50% { filter: drop-shadow(0 0 10px rgba(20, 184, 166, 0.8)); }
+        }
+        .animate-glow-teal {
+          animation: pulseGlowTeal 3s infinite ease-in-out;
+        }
+      `}</style>
 
-      <div className="max-w-6xl mx-auto space-y-12">
-        {/* Hero */}
-        <div className="text-center space-y-4 animate-[fadeInUp_0.5s_ease-out]">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-            The Turtle Screen: Canvas & Coordinates
-          </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Cartesian plane, origin (0,0), quadrants – the foundation of all turtle drawings
+      {/* ==================================================================== */}
+      {/* HEADER SECTION */}
+      {/* ==================================================================== */}
+      <header
+        ref={addToRefs}
+        className="section-hidden max-w-5xl mx-auto mb-12 pb-8 border-b border-slate-800/80"
+      >
+        <div className="flex flex-wrap items-center gap-3 mb-3">
+          <span className="text-xs sm:text-sm font-mono font-semibold bg-teal-950/80 text-teal-300 px-3 py-1 rounded-full border border-teal-800/80 shadow-sm shadow-teal-950/50">
+            Segment 5 • Module 005_001
+          </span>
+          <span className="text-xs sm:text-sm font-mono bg-cyan-950/80 text-cyan-300 px-3 py-1 rounded-full border border-cyan-800/80 shadow-sm shadow-cyan-950/50">
+            Topic 1
+          </span>
+          <span className="text-xs sm:text-sm font-medium text-slate-400">
+            Python Turtle &amp; Creative Graphics Programming
+          </span>
+        </div>
+
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+          Understanding the Turtle Screen: <span className="text-teal-400">Canvas &amp; Quadrants</span>
+        </h1>
+        <p className="text-lg sm:text-xl text-slate-300 mt-3 max-w-3xl font-normal leading-relaxed">
+          Master the mathematical architecture of the 2D Cartesian coordinate plane in Python Turtle Graphics: center origin <code className="text-teal-300 font-mono">(0, 0)</code>, the four geometric quadrants (<span className="text-teal-300 font-mono">Q1 (+,+)</span>, <span className="text-cyan-300 font-mono">Q2 (-,+)</span>, <span className="text-purple-300 font-mono">Q3 (-,-)</span>, <span className="text-amber-300 font-mono">Q4 (+,-)</span>), position query methods (<code className="text-teal-300 font-mono">pos()</code>, <code className="text-teal-300 font-mono">xcor()</code>, <code className="text-teal-300 font-mono">ycor()</code>), Euclidean distance calculations (<code className="text-teal-300 font-mono">distance()</code>), and screen boundary clipping.
+        </p>
+
+        <div className="flex flex-wrap gap-2 sm:gap-3 mt-5">
+          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
+            📐 4 Cartesian Quadrants (Q1-Q4)
+          </span>
+          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
+            🎯 Center Origin (0, 0) Mechanics
+          </span>
+          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
+            📏 Euclidean Distance Formula
+          </span>
+          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
+            🖼️ Viewport Dimensions &amp; Clipping
+          </span>
+        </div>
+      </header>
+
+      {/* ==================================================================== */}
+      {/* MAIN CONTENT WRAPPER */}
+      {/* ==================================================================== */}
+      <div className="max-w-5xl mx-auto space-y-16">
+
+        {/* ------------------------------------------------------------------ */}
+        {/* SECTION 1: ARCHITECTURAL PILLARS */}
+        {/* ------------------------------------------------------------------ */}
+        <section
+          ref={addToRefs}
+          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-3xl">🏛️</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">
+              1. The 2D Cartesian Coordinate Architecture
+            </h2>
+          </div>
+
+          <div className="space-y-4 text-slate-300 leading-relaxed text-base sm:text-lg">
+            <p>
+              Unlike raster graphics engines where (0,0) is placed at the top-left with an inverted Y-axis, Python Turtle uses standard mathematical Euclidean geometry with the origin placed at the screen center:
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 my-6 not-prose">
+              {/* Pillar 1 */}
+              <div className="p-4 rounded-xl bg-teal-950/40 border border-teal-800/60 shadow-lg">
+                <div className="text-teal-400 font-bold text-sm mb-1">1️⃣ Quadrant I</div>
+                <code className="text-xs font-mono text-teal-300 block mb-1">(+X, +Y) [Top-Right]</code>
+                <p className="text-[11px] text-slate-300">
+                  North-East sector. Both X and Y coordinates are positive (e.g. Barrackpore at +120, +80).
+                </p>
+              </div>
+
+              {/* Pillar 2 */}
+              <div className="p-4 rounded-xl bg-cyan-950/40 border border-cyan-800/60 shadow-lg">
+                <div className="text-cyan-400 font-bold text-sm mb-1">2️⃣ Quadrant II</div>
+                <code className="text-xs font-mono text-cyan-300 block mb-1">(-X, +Y) [Top-Left]</code>
+                <p className="text-[11px] text-slate-300">
+                  North-West sector. Negative X and positive Y coordinates (e.g. Ichapur at -120, +80).
+                </p>
+              </div>
+
+              {/* Pillar 3 */}
+              <div className="p-4 rounded-xl bg-purple-950/40 border border-purple-800/60 shadow-lg">
+                <div className="text-purple-400 font-bold text-sm mb-1">3️⃣ Quadrant III</div>
+                <code className="text-xs font-mono text-purple-300 block mb-1">(-X, -Y) [Bottom-Left]</code>
+                <p className="text-[11px] text-slate-300">
+                  South-West sector. Both X and Y coordinates are negative (e.g. Jadavpur at -120, -80).
+                </p>
+              </div>
+
+              {/* Pillar 4 */}
+              <div className="p-4 rounded-xl bg-amber-950/40 border border-amber-800/60 shadow-lg">
+                <div className="text-amber-400 font-bold text-sm mb-1">4️⃣ Quadrant IV</div>
+                <code className="text-xs font-mono text-amber-300 block mb-1">(+X, -Y) [Bottom-Right]</code>
+                <p className="text-[11px] text-slate-300">
+                  South-East sector. Positive X and negative Y coordinates (e.g. Kolkata at +120, -80).
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-slate-950/70 p-5 rounded-xl border-l-4 border-teal-500 border border-slate-800/80">
+              <h3 className="text-white font-bold text-base mb-1">
+                Querying Coordinates &amp; Calculating Distances
+              </h3>
+              <p className="text-sm text-slate-300 leading-relaxed font-mono">
+                Inspect coordinates anytime via <code className="text-teal-300 font-mono">t.pos()</code>, <code className="text-teal-300 font-mono">t.xcor()</code>, and <code className="text-teal-300 font-mono">t.ycor()</code>. Calculate straight-line Euclidean displacement using <span className="text-emerald-400 font-bold">t.distance(target_x, target_y)</span>!
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ------------------------------------------------------------------ */}
+        {/* SECTION 2: INTERACTIVE VISUAL ARCHITECTURE (SVG TABS) */}
+        {/* ------------------------------------------------------------------ */}
+        <section
+          ref={addToRefs}
+          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <div className="flex items-center gap-3">
+              <span className="text-3xl">📐</span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white">
+                2. Visualizing Quadrants, Vectors &amp; Viewport Boundaries
+              </h2>
+            </div>
+
+            {/* Interactive Toggle for Diagram Perspectives */}
+            <div className="flex bg-slate-950 p-1.5 rounded-xl border border-slate-800 text-xs font-semibold">
+              <button
+                onClick={() => setActiveInteractiveTab("quadrantGrid")}
+                className={clsx(
+                  "px-3 py-1.5 rounded-lg transition-all",
+                  activeInteractiveTab === "quadrantGrid"
+                    ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
+                    : "text-slate-400 hover:text-white"
+                )}
+              >
+                4 Cartesian Quadrants
+              </button>
+              <button
+                onClick={() => setActiveInteractiveTab("distanceVectors")}
+                className={clsx(
+                  "px-3 py-1.5 rounded-lg transition-all",
+                  activeInteractiveTab === "distanceVectors"
+                    ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
+                    : "text-slate-400 hover:text-white"
+                )}
+              >
+                Distance &amp; Vector Trigonometry
+              </button>
+              <button
+                onClick={() => setActiveInteractiveTab("viewportBounds")}
+                className={clsx(
+                  "px-3 py-1.5 rounded-lg transition-all",
+                  activeInteractiveTab === "viewportBounds"
+                    ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
+                    : "text-slate-400 hover:text-white"
+                )}
+              >
+                Screen Bounds &amp; Clipping Limits
+              </button>
+            </div>
+          </div>
+
+          <p className="text-slate-300 mb-6 text-base">
+            Examining the full geometric layout of the Cartesian canvas:
           </p>
-          <div className="flex justify-center gap-4 flex-wrap">
-            <span className="px-4 py-2 bg-gray-800 rounded-full text-sm">📐 Cartesian Coordinates</span>
-            <span className="px-4 py-2 bg-gray-800 rounded-full text-sm">🎯 Origin (0,0)</span>
-            <span className="px-4 py-2 bg-gray-800 rounded-full text-sm">🖥️ Screen & Canvas</span>
-          </div>
-        </div>
 
-        {/* SVG: Cartesian plane with quadrants and origin */}
-        <div className="flex justify-center animate-[fadeInUp_0.6s_ease-out_0.1s]">
-          <div className="bg-gray-800/40 rounded-2xl p-4 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
-            <svg width="500" height="400" viewBox="-250 -200 500 400" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-[500px] h-auto">
-              {/* Background */}
-              <rect x="-250" y="-200" width="500" height="400" fill="#1e293b" stroke="#38bdf8" strokeWidth="1.5" rx="8" />
-              {/* Axes */}
-              <line x1="-220" y1="0" x2="220" y2="0" stroke="#94a3b8" strokeWidth="2" markerEnd="url(#arrow)" />
-              <line x1="0" y1="-170" x2="0" y2="170" stroke="#94a3b8" strokeWidth="2" markerEnd="url(#arrow)" />
-              <defs>
-                <marker id="arrow" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
-                  <polygon points="0 0, 8 4, 0 8" fill="#94a3b8" />
-                </marker>
-              </defs>
-              {/* Quadrant labels */}
-              <text x="100" y="-80" fill="#cbd5e1" fontSize="14" fontWeight="bold">Quadrant I (+, +)</text>
-              <text x="-180" y="-80" fill="#cbd5e1" fontSize="14">Quadrant II (-, +)</text>
-              <text x="-180" y="100" fill="#cbd5e1" fontSize="14">Quadrant III (-, -)</text>
-              <text x="100" y="100" fill="#cbd5e1" fontSize="14">Quadrant IV (+, -)</text>
-              {/* Origin */}
-              <circle cx="0" cy="0" r="5" fill="#f97316" />
-              <text x="8" y="-8" fill="#facc15" fontSize="12">Origin (0,0)</text>
-              {/* Sample points */}
-              <circle cx="120" cy="-90" r="3" fill="#2dd4bf" />
-              <text x="125" y="-95" fill="#2dd4bf" fontSize="10">(120, -90)</text>
-              <circle cx="-100" cy="80" r="3" fill="#2dd4bf" />
-              <text x="-95" y="75" fill="#2dd4bf" fontSize="10">(-100, 80)</text>
-              {/* Animated point */}
-              <circle cx="0" cy="0" r="5" fill="#f97316">
-                <animate attributeName="cx" values="0;80;0;-80;0" dur="6s" repeatCount="indefinite" />
-                <animate attributeName="cy" values="0;-60;0;60;0" dur="6s" repeatCount="indefinite" />
-              </circle>
-            </svg>
-            <p className="text-center text-sm text-gray-400 mt-2">Cartesian plane with four quadrants, axes, and origin (0,0)</p>
-          </div>
-        </div>
+          {/* SVG Diagram Container */}
+          <div className="bg-slate-950 rounded-xl p-4 sm:p-6 overflow-x-auto border border-slate-800/90 shadow-2xl">
+            {activeInteractiveTab === "quadrantGrid" ? (
+              <svg viewBox="0 0 880 340" className="w-full h-auto min-w-[700px] font-sans">
+                <text x="30" y="30" fill="#2dd4bf" fontSize="14" fontWeight="bold">
+                  THE 4 CARTESIAN QUADRANTS &amp; CAMPUS COORDINATE WAYPOINTS
+                </text>
 
-        {/* Explanation Section */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.2s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">📐 The Cartesian Coordinate System</h2>
-          <div className="bg-gray-800/30 rounded-xl p-5 space-y-3">
-            <p className="leading-relaxed">The turtle screen is a <strong>2D Cartesian plane</strong> where every point has an <strong>(x, y)</strong> coordinate. The center of the screen is the <strong>origin (0,0)</strong>. Positive x moves right, negative x left; positive y moves up, negative y down. This is the same coordinate system used in algebra, geometry, game development, and computer graphics.</p>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div>
-                <h3 className="text-xl font-semibold text-emerald-300">Key Properties</h3>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li><strong>Origin (0,0):</strong> Starting position of the turtle.</li>
-                  <li><strong>X-axis:</strong> Horizontal line (y=0).</li>
-                  <li><strong>Y-axis:</strong> Vertical line (x=0).</li>
-                  <li><strong>Quadrants:</strong> Four regions divided by axes.</li>
-                </ul>
+                {/* Canvas Box */}
+                <g transform="translate(30, 50)">
+                  <rect x="0" y="0" width="820" height="245" rx="8" fill="#0f172a" stroke="#14b8a6" />
+
+                  {/* Axes */}
+                  <line x1="410" y1="20" x2="410" y2="225" stroke="#334155" strokeWidth="2" />
+                  <line x1="20" y1="122" x2="800" y2="122" stroke="#334155" strokeWidth="2" />
+
+                  {/* Quadrant II (Top Left) */}
+                  <rect x="35" y="30" width="350" height="80" rx="4" fill="#082f49" stroke="#0284c7" />
+                  <text x="45" y="55" fill="#38bdf8" fontSize="11" fontWeight="bold">Quadrant II (-X, +Y) [Top-Left]</text>
+                  <text x="45" y="75" fill="#bae6fd" fontSize="9">📍 Ichapur Center: (-150, 100) • Abhronila</text>
+                  <circle cx="260" cy="70" r="5" fill="#38bdf8" />
+
+                  {/* Quadrant I (Top Right) */}
+                  <rect x="435" y="30" width="350" height="80" rx="4" fill="#042f2e" stroke="#0d9488" />
+                  <text x="445" y="55" fill="#2dd4bf" fontSize="11" fontWeight="bold">Quadrant I (+X, +Y) [Top-Right]</text>
+                  <text x="445" y="75" fill="#a7f3d0" fontSize="9">📍 Barrackpore Campus: (150, 100) • Mamata</text>
+                  <circle cx="560" cy="70" r="5" fill="#2dd4bf" />
+
+                  {/* Quadrant III (Bottom Left) */}
+                  <rect x="35" y="135" width="350" height="80" rx="4" fill="#3b0764" stroke="#a855f7" />
+                  <text x="45" y="160" fill="#c084fc" fontSize="11" fontWeight="bold">Quadrant III (-X, -Y) [Bottom-Left]</text>
+                  <text x="45" y="180" fill="#f3e8ff" fontSize="9">📍 Jadavpur Lab: (-150, -100) • Susmita</text>
+                  <circle cx="260" cy="175" r="5" fill="#c084fc" />
+
+                  {/* Quadrant IV (Bottom Right) */}
+                  <rect x="435" y="135" width="350" height="80" rx="4" fill="#451a03" stroke="#f59e0b" />
+                  <text x="445" y="160" fill="#fbbf24" fontSize="11" fontWeight="bold">Quadrant IV (+X, -Y) [Bottom-Right]</text>
+                  <text x="445" y="180" fill="#fef3c7" fontSize="9">📍 Kolkata Headquarters: (150, -100) • Mahima</text>
+                  <circle cx="560" cy="175" r="5" fill="#fbbf24" />
+
+                  {/* Origin */}
+                  <circle cx="410" cy="122" r="5" fill="#ffffff" stroke="#14b8a6" strokeWidth="2" />
+                  <text x="418" y="118" fill="#ffffff" fontSize="9" fontWeight="bold">Origin (0,0)</text>
+                </g>
+              </svg>
+            ) : activeInteractiveTab === "distanceVectors" ? (
+              <svg viewBox="0 0 880 340" className="w-full h-auto min-w-[700px] font-sans">
+                <text x="30" y="30" fill="#38bdf8" fontSize="14" fontWeight="bold">
+                  EUCLIDEAN DISTANCE &amp; VECTOR DISPLACEMENT FROM ORIGIN (0, 0)
+                </text>
+
+                {/* Vector Layout */}
+                <g transform="translate(30, 50)">
+                  <rect x="0" y="0" width="820" height="245" rx="8" fill="#082f49" stroke="#0ea5e9" />
+
+                  {/* Left: 3-4-5 Triangle */}
+                  <rect x="30" y="30" width="370" height="190" rx="6" fill="#0c4a6e" stroke="#38bdf8" />
+                  <text x="40" y="55" fill="#ffffff" fontSize="11" fontWeight="bold">Right Triangle Distance Theorem</text>
+                  
+                  {/* Origin to point */}
+                  <line x1="80" y1="180" x2="260" y2="180" stroke="#2dd4bf" strokeWidth="3" />
+                  <line x1="260" y1="180" x2="260" y2="80" stroke="#38bdf8" strokeWidth="3" />
+                  <line x1="80" y1="180" x2="260" y2="80" stroke="#facc15" strokeWidth="3" strokeDasharray="5 5" />
+
+                  <circle cx="80" cy="180" r="4" fill="#ffffff" />
+                  <text x="60" y="195" fill="#bae6fd" fontSize="8">(0,0)</text>
+
+                  <circle cx="260" cy="80" r="4" fill="#facc15" />
+                  <text x="270" y="80" fill="#facc15" fontSize="8" fontWeight="bold">(120, 160)</text>
+
+                  <text x="160" y="195" fill="#2dd4bf" fontSize="8">Δx = 120 px</text>
+                  <text x="268" y="135" fill="#38bdf8" fontSize="8">Δy = 160 px</text>
+                  <text x="140" y="125" fill="#facc15" fontSize="9" fontWeight="bold">Distance = 200 px (3-4-5)</text>
+
+                  {/* Right: Formulas */}
+                  <rect x="420" y="30" width="370" height="190" rx="6" fill="#042f2e" stroke="#2dd4bf" />
+                  <text x="430" y="55" fill="#5eead4" fontSize="11" fontWeight="bold">Python Turtle Distance API</text>
+                  <text x="430" y="85" fill="#ccfbf1" fontSize="9" fontFamily="monospace">t.distance(120, 160)  # Returns 200.0</text>
+                  <text x="430" y="115" fill="#ccfbf1" fontSize="8">Mathematical Formula:</text>
+                  <text x="430" y="135" fill="#a7f3d0" fontSize="9" fontFamily="monospace">distance = √((x₂ - x₁)² + (y₂ - y₁)²)</text>
+                  <text x="430" y="170" fill="#86efac" fontSize="8">• Computes straight-line displacement</text>
+                  <text x="430" y="190" fill="#86efac" fontSize="8">• Works with (x, y) coordinates or Turtle instances</text>
+                </g>
+              </svg>
+            ) : (
+              <svg viewBox="0 0 880 340" className="w-full h-auto min-w-[700px] font-sans">
+                <text x="30" y="30" fill="#c084fc" fontSize="14" fontWeight="bold">
+                  CANVAS BOUNDS (800x600) &amp; VIEWPORT CLIPPING BEHAVIOR
+                </text>
+
+                {/* Viewport Bounds Layout */}
+                <g transform="translate(30, 50)">
+                  <rect x="0" y="0" width="820" height="245" rx="8" fill="#1e1b4b" stroke="#a855f7" />
+
+                  {/* Inner Window */}
+                  <rect x="160" y="30" width="500" height="185" rx="6" fill="#0f172a" stroke="#38bdf8" strokeWidth="2" />
+
+                  {/* Top Edge */}
+                  <text x="370" y="25" fill="#38bdf8" fontSize="9" fontWeight="bold">Top Edge: Y = +300 (height / 2)</text>
+                  {/* Bottom Edge */}
+                  <text x="360" y="232" fill="#38bdf8" fontSize="9" fontWeight="bold">Bottom Edge: Y = -300 (-height / 2)</text>
+                  {/* Left Edge */}
+                  <text x="25" y="125" fill="#38bdf8" fontSize="9" fontWeight="bold">Left: X = -400</text>
+                  {/* Right Edge */}
+                  <text x="680" y="125" fill="#38bdf8" fontSize="9" fontWeight="bold">Right: X = +400</text>
+
+                  {/* In Bounds Point */}
+                  <circle cx="410" cy="122" r="4" fill="#2dd4bf" />
+                  <text x="418" y="120" fill="#5eead4" fontSize="8">Visible Center (0, 0) ✅</text>
+
+                  {/* Off-screen Path */}
+                  <line x1="550" y1="90" x2="720" y2="60" stroke="#f43f5e" strokeWidth="2" strokeDasharray="4 4" />
+                  <circle cx="720" cy="60" r="4" fill="#f43f5e" />
+                  <text x="730" y="65" fill="#fca5a5" fontSize="8" fontWeight="bold">Clipped (X: 520, Y: 180) ⚠️</text>
+                </g>
+              </svg>
+            )}
+          </div>
+        </section>
+
+        {/* ------------------------------------------------------------------ */}
+        {/* SECTION 3: INTERACTIVE QUADRANT EXPLORER */}
+        {/* ------------------------------------------------------------------ */}
+        <section
+          ref={addToRefs}
+          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-3xl">🧪</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">
+              3. Interactive Quadrant Coordinate Explorer
+            </h2>
+          </div>
+
+          <p className="text-slate-300 mb-6 text-base leading-relaxed">
+            Select student campus locations across Bengal to see coordinate sign classification, quadrant categorization, and real-time Euclidean distance from origin:
+          </p>
+
+          <div className="bg-slate-950 p-5 sm:p-6 rounded-xl border border-slate-800/90 space-y-6">
+            {/* Location Selector Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+              {presetPoints.map((pt, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setSelectedPoint(pt)}
+                  className={clsx(
+                    "p-2.5 rounded-xl border text-xs font-bold transition-all text-center",
+                    selectedPoint.name === pt.name
+                      ? "bg-teal-950/80 border-teal-500 text-teal-200 shadow-md shadow-teal-950/50"
+                      : "bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-white"
+                  )}
+                >
+                  {pt.name}
+                </button>
+              ))}
+            </div>
+
+            {/* Metrics Dashboard */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+              <div className="bg-slate-900/90 p-3 rounded-xl border border-teal-900/50 text-center">
+                <div className="text-[11px] text-teal-400 font-medium">Coordinates (X, Y)</div>
+                <div className="text-lg font-bold font-mono text-teal-300">
+                  ({selectedPoint.x}, {selectedPoint.y})
+                </div>
               </div>
+
+              <div className="bg-slate-900/90 p-3 rounded-xl border border-cyan-900/50 text-center">
+                <div className="text-[11px] text-cyan-400 font-medium">Cartesian Sector</div>
+                <div className="text-xs font-bold text-cyan-300 mt-1">{selectedPoint.quadrant}</div>
+              </div>
+
+              <div className="bg-slate-900/90 p-3 rounded-xl border border-purple-900/50 text-center">
+                <div className="text-[11px] text-purple-400 font-medium">Euclidean Distance to (0,0)</div>
+                <div className="text-lg font-bold font-mono text-purple-300">{euclideanDistance} px</div>
+              </div>
+            </div>
+
+            {/* Simulated 2D Coordinate Canvas */}
+            <div className="relative w-full h-64 bg-slate-900/90 border border-slate-800 rounded-xl overflow-hidden flex items-center justify-center">
+              <svg viewBox="-200 -120 400 240" className="w-full h-full">
+                {/* Axes */}
+                <line x1="-190" y1="0" x2="190" y2="0" stroke="#475569" strokeWidth="1.5" />
+                <line x1="0" y1="-110" x2="0" y2="110" stroke="#475569" strokeWidth="1.5" />
+
+                {/* Axis Labels */}
+                <text x="175" y="-6" fill="#94a3b8" fontSize="8">+X</text>
+                <text x="-190" y="-6" fill="#94a3b8" fontSize="8">-X</text>
+                <text x="6" y="-98" fill="#94a3b8" fontSize="8">+Y</text>
+                <text x="6" y="105" fill="#94a3b8" fontSize="8">-Y</text>
+
+                {/* Origin */}
+                <circle cx="0" cy="0" r="3" fill="#ffffff" />
+                <text x="5" y="12" fill="#64748b" fontSize="7">(0,0)</text>
+
+                {/* Vector Line from origin to selected point */}
+                <line
+                  x1="0"
+                  y1="0"
+                  x2={selectedPoint.x}
+                  y2={-selectedPoint.y} // SVG Y is inverted
+                  stroke={selectedPoint.color}
+                  strokeWidth="2.5"
+                  strokeDasharray="4 4"
+                />
+
+                {/* Active Waypoint Dot */}
+                <circle
+                  cx={selectedPoint.x}
+                  cy={-selectedPoint.y}
+                  r="6"
+                  fill={selectedPoint.color}
+                  className="animate-glow-teal"
+                />
+
+                {/* Label */}
+                <text
+                  x={selectedPoint.x + 8}
+                  y={-selectedPoint.y + 4}
+                  fill={selectedPoint.color}
+                  fontSize="8"
+                  fontWeight="bold"
+                >
+                  {selectedPoint.name} ({selectedPoint.x}, {selectedPoint.y})
+                </text>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        {/* ------------------------------------------------------------------ */}
+        {/* SECTION 4: DEEP DIVE CODE LABS (PYTHON FILE LOADERS) */}
+        {/* ------------------------------------------------------------------ */}
+        <section
+          ref={addToRefs}
+          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-3xl">💻</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">
+              4. Production Code Labs &amp; Quadrant Geometry Suites
+            </h2>
+          </div>
+
+          <p className="text-slate-300 mb-8 text-base leading-relaxed">
+            Inspect, run, and master all four production-grade coordinate geometry labs covering quadrant classification, position inspection, boundary audits, and multi-campus waypoint maps:
+          </p>
+
+          <div className="space-y-10">
+            {/* Python Loader 1 */}
+            <div>
+              <div className="mb-3">
+                <h3 className="text-lg font-bold text-teal-300">
+                  Lab 1: Cartesian Plane &amp; 4-Quadrant Geometric Classification
+                </h3>
+                <p className="text-sm text-slate-400">
+                  Detecting and classifying points across Quadrants I, II, III, IV, axes, and central origin.
+                </p>
+              </div>
+              <PythonFileLoader
+                fileModule={quadrantGeoCode}
+                title="cartesian_plane_and_quadrant_geometry.py"
+                highlightLines={[16, 26, 38, 52]}
+              />
+            </div>
+
+            {/* Python Loader 2 */}
+            <div>
+              <div className="mb-3">
+                <h3 className="text-lg font-bold text-cyan-300">
+                  Lab 2: Coordinate Mapping, Position Queries &amp; Euclidean Distance
+                </h3>
+                <p className="text-sm text-slate-400">
+                  Using <code className="text-cyan-300 font-mono">pos()</code>, <code className="text-cyan-300 font-mono">xcor()</code>, <code className="text-cyan-300 font-mono">ycor()</code>, and <code className="text-cyan-300 font-mono">distance()</code> with right-triangle verification.
+                </p>
+              </div>
+              <PythonFileLoader
+                fileModule={originMapCode}
+                title="origin_and_coordinate_mapping.py"
+                highlightLines={[16, 28, 42, 54]}
+              />
+            </div>
+
+            {/* Python Loader 3 */}
+            <div>
+              <div className="mb-3">
+                <h3 className="text-lg font-bold text-purple-300">
+                  Lab 3: Screen Dimensions, Viewport Limits &amp; Clipping Auditing
+                </h3>
+                <p className="text-sm text-slate-400">
+                  Calculating bounding limits (<code className="text-purple-300 font-mono">+/- width/2</code> and <code className="text-purple-300 font-mono">+/- height/2</code>) and auditing visible vs clipped coordinates.
+                </p>
+              </div>
+              <PythonFileLoader
+                fileModule={screenBoundsCode}
+                title="screen_bounds_and_clipping.py"
+                highlightLines={[16, 26, 36]}
+              />
+            </div>
+
+            {/* Python Loader 4 */}
+            <div>
+              <div className="mb-3">
+                <h3 className="text-lg font-bold text-amber-300">
+                  Lab 4: Institutional Student Campus Quadrant Registry Case Study
+                </h3>
+                <p className="text-sm text-slate-400">
+                  Multi-campus quadrant registry mapping Mamata, Abhronila, Susmita, and Mahima across Barrackpore, Ichapur, Jadavpur, and Kolkata.
+                </p>
+              </div>
+              <PythonFileLoader
+                fileModule={institutionalMapCode}
+                title="institutional_quadrant_campus_map_case_study.py"
+                highlightLines={[18, 32, 48, 62]}
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ------------------------------------------------------------------ */}
+        {/* SECTION 5: COMMON PITFALLS & ANTI-PATTERNS */}
+        {/* ------------------------------------------------------------------ */}
+        <section
+          ref={addToRefs}
+          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-3xl">⚠️</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">
+              5. Coordinate System Pitfalls &amp; Anti-Patterns
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Pitfall 1 */}
+            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-800/50">
+              <h3 className="text-rose-300 font-bold text-base mb-1">
+                1. Confusing Center (0, 0) with Top-Left
+              </h3>
+              <p className="text-xs text-slate-300 leading-relaxed mb-2">
+                Assuming (0, 0) is at the top-left corner (like Pygame or HTML Canvas) causes drawings to start at the center unintentionally.
+              </p>
+              <pre className="text-[11px] font-mono bg-slate-950/80 p-2 rounded text-rose-300">
+                # REMEMBER: Turtle (0, 0) is the center of the window!
+              </pre>
+            </div>
+
+            {/* Pitfall 2 */}
+            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-800/50">
+              <h3 className="text-rose-300 font-bold text-base mb-1">
+                2. Assuming Off-Screen Draws Crash
+              </h3>
+              <p className="text-xs text-slate-300 leading-relaxed mb-2">
+                Moving to (1000, 1000) does not raise an exception; it silently draws on the virtual canvas outside the visible viewport.
+              </p>
+              <pre className="text-[11px] font-mono bg-slate-950/80 p-2 rounded text-rose-300">
+                # FIX: Check abs(x) &lt;= width/2 and abs(y) &lt;= height/2
+              </pre>
+            </div>
+
+            {/* Pitfall 3 */}
+            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-800/50">
+              <h3 className="text-rose-300 font-bold text-base mb-1">
+                3. Neglecting Distance Formula
+              </h3>
+              <p className="text-xs text-slate-300 leading-relaxed mb-2">
+                Manually writing complex Pythagorean theorem code instead of leveraging the built-in <code className="text-teal-300 font-mono">t.distance(x, y)</code> method.
+              </p>
+              <pre className="text-[11px] font-mono bg-slate-950/80 p-2 rounded text-rose-300">
+                # BEST PRACTICE: dist = t.distance(x2, y2)
+              </pre>
+            </div>
+
+            {/* Pitfall 4 */}
+            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-800/50">
+              <h3 className="text-rose-300 font-bold text-base mb-1">
+                4. Sign Confusion in Quadrant III (-X, -Y)
+              </h3>
+              <p className="text-xs text-slate-300 leading-relaxed mb-2">
+                Forgetting that moving to the bottom-left requires both negative X and negative Y values.
+              </p>
+              <pre className="text-[11px] font-mono bg-slate-950/80 p-2 rounded text-rose-300">
+                # Q3: t.goto(-150, -100) # South-West
+              </pre>
+            </div>
+          </div>
+        </section>
+
+        {/* ------------------------------------------------------------------ */}
+        {/* SECTION 6: BEST PRACTICES CHECKLIST */}
+        {/* ------------------------------------------------------------------ */}
+        <section
+          ref={addToRefs}
+          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-3xl">✅</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">
+              6. Coordinate Navigation Best Practices Checklist
+            </h2>
+          </div>
+
+          <div className="space-y-3 text-slate-300 text-sm sm:text-base">
+            <div className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
+              <span className="text-teal-400 font-bold">✓</span>
               <div>
-                <h3 className="text-xl font-semibold text-cyan-300">Why It Matters</h3>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>Precise positioning with <code>goto(x, y)</code>.</li>
-                  <li>Symmetry, patterns, and geometric transformations.</li>
-                  <li>Real-world mapping, robotics, and game levels.</li>
-                </ul>
+                <strong className="text-white">Understand Centered Bounds:</strong> Screen width $W$ means X coordinates span $[-W/2, +W/2]$.
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
+              <span className="text-teal-400 font-bold">✓</span>
+              <div>
+                <strong className="text-white">Use Built-in Distance:</strong> Utilize <code className="text-teal-300 font-mono">t.distance(other)</code> for collision detection and navigation.
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
+              <span className="text-teal-400 font-bold">✓</span>
+              <div>
+                <strong className="text-white">Return Home with t.home():</strong> Move back to $(0,0)$ and reset heading to $0^\circ$ East in one call.
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
+              <span className="text-teal-400 font-bold">✓</span>
+              <div>
+                <strong className="text-white">Audit Viewport Boundaries:</strong> Prevent sprites from wandering off-canvas by checking screen dimension limits.
               </div>
             </div>
           </div>
         </section>
 
-        {/* Screen Configuration */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.3s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">🖥️ Screen & Canvas Setup</h2>
-          <div className="grid md:grid-cols-2 gap-5">
-            <div className="bg-gray-800/40 rounded-xl p-4 hover:shadow-lg transition">
-              <h3 className="text-lg font-medium">turtle.setup(width, height, startx, starty)</h3>
-              <p>Defines the main window size and position. Default width = 50% of screen. Example: <code className="bg-gray-700 px-1">turtle.setup(800, 600)</code></p>
-            </div>
-            <div className="bg-gray-800/40 rounded-xl p-4 hover:shadow-lg transition">
-              <h3 className="text-lg font-medium">turtle.screensize(canvwidth, canvheight)</h3>
-              <p>Sets the scrollable canvas area (larger than window). Example: <code className="bg-gray-700 px-1">turtle.screensize(2000, 2000)</code></p>
-            </div>
-            <div className="bg-gray-800/40 rounded-xl p-4 hover:shadow-lg transition">
-              <h3 className="text-lg font-medium">turtle.setworldcoordinates(llx, lly, urx, ury)</h3>
-              <p>Redefines coordinate system. Example: bottom-left (-500,-500), top-right (500,500).</p>
-            </div>
-            <div className="bg-gray-800/40 rounded-xl p-4 hover:shadow-lg transition">
-              <h3 className="text-lg font-medium">turtle.bgcolor(color)</h3>
-              <p>Sets background color of the canvas. Example: <code className="bg-gray-700 px-1">turtle.bgcolor("lightblue")</code></p>
-            </div>
-          </div>
+        {/* ------------------------------------------------------------------ */}
+        {/* SECTION 7: FAQS */}
+        {/* ------------------------------------------------------------------ */}
+        <section ref={addToRefs} className="section-hidden">
+          <FAQTemplate
+            title="Cartesian Canvas, Coordinates &amp; Quadrants FAQs"
+            questions={questions}
+          />
         </section>
 
-        {/* Python Code Examples */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.4s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">💻 Code Examples</h2>
-          <PythonFileLoader fileModule={coordDemo} title="coord_demo.py" highlightLines={[6,7,8,9]} />
-          <PythonFileLoader fileModule={quadrantDraw} title="quadrant_draw.py" highlightLines={[10,11,12,13,14,15]} />
-          <PythonFileLoader fileModule={gotoDemo} title="goto_demo.py" highlightLines={[8,9,10,11]} />
+        {/* ------------------------------------------------------------------ */}
+        {/* SECTION 8: PLAIN TEXT PRINT & DOWNLOAD NOTE */}
+        {/* ------------------------------------------------------------------ */}
+        <section ref={addToRefs} className="section-hidden">
+          <PlainTextPrint
+            content={noteText}
+            title="Topic 1: Understanding the Turtle Screen & Quadrants Study Note"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Study Note"
+            downloadFileName="topic1_note.txt"
+          />
         </section>
 
-        {/* Prototype Table */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.5s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">🔧 Essential Commands (Prototypes)</h2>
-          <div className="overflow-x-auto">
-            <table className="min-w-full bg-gray-800/30 rounded-xl text-sm">
-              <thead className="bg-gray-700/60">
-                <tr><th className="px-4 py-2 text-left">Function/Method</th><th>Return Type</th><th>Purpose</th><th>Example</th></tr>
-              </thead>
-              <tbody>
-                {prototypes.map((p, idx) => (
-                  <tr key={idx} className="border-t border-gray-700 hover:bg-gray-700/30 transition">
-                    <td className="px-4 py-2 font-mono text-emerald-300">{p.name}</td>
-                    <td className="px-4 py-2 text-center">{p.returnType}</td>
-                    <td className="px-4 py-2">{p.purpose}</td>
-                    <td className="px-4 py-2 font-mono text-xs">{p.usage}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+        {/* ------------------------------------------------------------------ */}
+        {/* SECTION 9: TEACHER'S NOTE */}
+        {/* ------------------------------------------------------------------ */}
+        <section ref={addToRefs} className="section-hidden">
+          <Teacher
+            note={
+              "Mastering the 4 quadrants is the secret key to all computer graphics, game physics, and robotic path planning. When Mamata, Abhronila, Susmita, and Mahima mapped our student centers across Barrackpore, Ichapur, Jadavpur, and Kolkata onto the four quadrants, the coordinate signs (+,+, -,+, -,-, +,-) became second nature. Keep these axes in mind as we begin drawing complex geometric polygons!"
+            }
+          />
         </section>
 
-        {/* Common Pitfalls & Best Practices */}
-        <div className="grid lg:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.6s]">
-          <div className="bg-gray-800/40 rounded-xl p-5">
-            <h3 className="text-2xl font-semibold text-amber-300">⚠️ Common Pitfalls</h3>
-            <ul className="list-disc pl-5 space-y-2 mt-2">
-              <li><strong>Mixing screen size and canvas size:</strong> Use <code>setup()</code> for window, <code>screensize()</code> for scrollable area.</li>
-              <li><strong>Assuming (0,0) is top-left:</strong> It’s center, like standard math coordinates.</li>
-              <li><strong>Negative coordinates confusion:</strong> Negative x goes left, negative y goes down.</li>
-              <li><strong>Forgetting to call <code>turtle.Screen()</code></strong> before using screen methods.</li>
-            </ul>
-          </div>
-          <div className="bg-gray-800/40 rounded-xl p-5">
-            <h3 className="text-2xl font-semibold text-green-300">✅ Best Practices</h3>
-            <ul className="list-disc pl-5 space-y-2 mt-2">
-              <li>Store the screen object: <code>screen = turtle.Screen()</code></li>
-              <li>Set coordinate system early (e.g., <code>setworldcoordinates</code>) for predictable ranges.</li>
-              <li>Use <code>turtle.mode("logo")</code> if you prefer 0° up.</li>
-              <li>Print <code>t.pos()</code> when debugging movement.</li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Checklist */}
-        <div className="bg-gray-800/50 rounded-xl p-5 border border-emerald-500/30 animate-[fadeInUp_0.6s_ease-out_0.7s]">
-          <h3 className="text-xl font-semibold">📝 Student Checklist</h3>
-          <div className="grid sm:grid-cols-2 gap-2 mt-2">
-            {[
-              "I can identify the four quadrants and their signs (+,+) etc.",
-              "I know the origin (0,0) is at the center of the screen",
-              "I can use `goto(x, y)` to move to any point",
-              "I understand the difference between `setup()` and `screensize()`",
-              "I can change the background color with `bgcolor()`",
-              "I can retrieve current coordinates with `xcor()`, `ycor()`"
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-2"><span className="text-emerald-400">✓</span><span className="text-gray-200">{item}</span></div>
-            ))}
-          </div>
-        </div>
-
-        {/* Hints & Expert Mindset */}
-        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.8s]">
-          <div className="bg-indigo-900/20 rounded-xl p-4">
-            <h3 className="text-lg font-semibold">💡 Hints to Explore</h3>
-            <p>👉 <strong>Think about:</strong> How would you draw a symmetric pattern across the y-axis?</p>
-            <p>👉 <strong>Observe:</strong> What happens when you pass negative values to `goto()`?</p>
-            <p>👉 <strong>Try changing:</strong> The background color and see how it affects contrast.</p>
-          </div>
-          <div className="bg-purple-900/20 rounded-xl p-4">
-            <h3 className="text-lg font-semibold">🚀 Expert Mindset</h3>
-            <p>In robotics and game dev, coordinates are absolute positions in the world. The turtle’s screen is a mini world. Thinking in (x, y) from the start will accelerate your problem-solving for any 2D space.</p>
-          </div>
-        </div>
-
-        {/* FAQs and Teacher Note */}
-        <div className="animate-[fadeInUp_0.6s_ease-out_0.9s]">
-          <FAQTemplate title="Turtle Screen & Coordinates FAQs" questions={questions} />
-        </div>
-        <div className="animate-[fadeInUp_0.6s_ease-out_1s]">
-          <Teacher note="Help students connect math class to coding. Draw physical axes on the floor or paper: let a student be the 'turtle' and walk to (3,2) etc. This kinesthetic activity builds strong intuition. Always start with small coordinates (e.g., ±200) so drawings fit on screen." />
-        </div>
       </div>
     </div>
   );
-};
-
-export default Topic1;
+}

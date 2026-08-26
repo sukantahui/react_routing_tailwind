@@ -1,0 +1,25 @@
+TOPIC_ID: 004_003_006
+MODULE: 004_003_python-testing
+TITLE: Topic 6: Mocking external dependencies with unittest.mock (patch, Mock, MagicMock)
+LEVEL: Pro
+DIFFICULTY: Hard
+
+OVERVIEW:
+Comprehensive master guide to isolating unit tests from external systems using Python's built-in `unittest.mock` library. Deep dive into test doubles: understanding the difference between `Mock` and `MagicMock` (dunder protocol support like `__iter__`, `__enter__`, `__len__`), controlling mock behavior with `return_value` and dynamic `side_effect` functions/iterables, mastering `unittest.mock.patch` as decorators and context managers, strictly adhering to the "where to patch" golden rule (patch where an object is imported/used, not where it is defined), mocking network requests (`requests.get`, `urllib`), simulating external payment gateways and transactional SMS services, asserting invocation contracts with `assert_called_once_with()`, `assert_any_call()`, and `call_count`, and preventing silent test rot with `spec=True` and `autospec=True`. Complete real-world institutional case study simulating banking APIs and automated SMS notification gateways across Barrackpore, Kolkata, Ichapur, and Jadavpur.
+
+CORE CONCEPTS:
+1. Test Doubles Taxonomy: Dummies, Stubs, Spies, and Mocks
+2. `Mock` vs `MagicMock`: Magic Dunder Protocol Support (`__len__`, `__getitem__`, `__enter__`)
+3. Return Values vs Dynamic `side_effect` (Simulating Exceptions and Dynamic Sequences)
+4. The Golden Rule of Patching: "Patch Where an Object is Used / Imported, Not Where Defined"
+5. `patch` as a Decorator vs `patch` as a Context Manager
+6. Invocation Verification: `assert_called_once()`, `assert_called_with()`, `call_args_list`
+7. Mocking Network Calls (HTTP APIs, Webhooks, and Microservices)
+8. Mocking File I/O with `mock_open`
+9. Safe Mocking with `spec=True` and `autospec=True` (Preventing Mock API Drift)
+10. Case Study: Multi-Campus SMS Dispatcher & Banking Gateway Mock Suite
+
+REAL-WORLD SCENARIOS:
+- Unit testing billing logic without hitting real third-party payment gateways (Stripe, Razorpay)
+- Testing automated SMS/Email dispatchers without sending real messages to student phones during CI runs
+- Simulating network timeouts, 500 server crashes, and database connection dropouts deterministically

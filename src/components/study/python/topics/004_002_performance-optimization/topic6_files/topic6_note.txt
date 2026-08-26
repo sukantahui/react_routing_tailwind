@@ -1,0 +1,71 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_002: PERFORMANCE OPTIMIZATION
+                    TOPIC 6: COLLECTIONS MODULE HIGH-SPEED CONTAINERS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. DEQUE (DOUBLE-ENDED QUEUE) & RING BUFFERS
+--------------------------------------------------------------------------------
+  from collections import deque
+
+  # High-speed O(1) Queue (FIFO)
+  queue = deque()
+  queue.append("Applicant_1")       # O(1) right push
+  first = queue.popleft()           # O(1) left pop (NEVER use list.pop(0) - O(N)!)
+
+  # Fixed-size Ring Buffer (Auto-evicts oldest when full)
+  recent_logs = deque(maxlen=5)
+  for i in range(10):
+      recent_logs.append(f"Event_{i}") # Keeps only last 5 items in memory
+
+--------------------------------------------------------------------------------
+2. COUNTER (FREQUENCY ANALYSIS & MULTISETS)
+--------------------------------------------------------------------------------
+  from collections import Counter
+
+  votes = ["Mamata", "Mahima", "Mamata", "Abhronila", "Susmita", "Mamata"]
+  tally = Counter(votes)
+  top_winner = tally.most_common(1) # [('Mamata', 3)] in O(N log K) heap time
+
+  # Multiset Arithmetic
+  batch1 = Counter(A=5, B=3)
+  batch2 = Counter(A=2, B=4)
+  total = batch1 + batch2           # Counter({'A': 7, 'B': 7})
+  intersection = batch1 & batch2    # Counter({'A': 2, 'B': 3})
+
+--------------------------------------------------------------------------------
+3. DEFAULTDICT & ORDEREDDICT LRU MECHANICS
+--------------------------------------------------------------------------------
+  from collections import defaultdict, OrderedDict
+
+  # Instant Grouping without if-key checks
+  campus_students = defaultdict(list)
+  campus_students["Barrackpore"].append("Mamata")
+
+  # LRU Cache Eviction
+  cache = OrderedDict()
+  cache["user_1"] = "Data_1"
+  cache.move_to_end("user_1")       # Marks as recently used
+  oldest = cache.popitem(last=False)# Evicts least recently used item (O(1))
+
+--------------------------------------------------------------------------------
+4. NAMEDTUPLE & CHAINMAP
+--------------------------------------------------------------------------------
+  from collections import namedtuple, ChainMap
+
+  # Low-memory immutable record without __dict__ overhead
+  Student = namedtuple("Student", ["id", "name", "campus", "score"])
+  s1 = Student("STU_101", "Mamata", "Barrackpore", 98.5)
+
+  # Layered hierarchical configuration resolution
+  env_config = {"timeout": 30}
+  campus_defaults = {"campus": "Barrackpore", "timeout": 60}
+  config = ChainMap(env_config, campus_defaults) # Reads 'timeout' as 30!
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 6: COLLECTIONS HIGH-SPEED CONTAINERS
+================================================================================

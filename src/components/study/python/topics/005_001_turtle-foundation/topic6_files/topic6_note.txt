@@ -1,0 +1,37 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+  PYTHON PROGRAMMING • SEGMENT 5: TURTLE & CREATIVE GRAPHICS • MODULE 005_001
+        TOPIC 6: ROTATION CONTROL (LEFT, RIGHT, SETHEADING, DEGREES VS ANGLES)
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. ROTATION COMMANDS & CONVENTIONS
+--------------------------------------------------------------------------------
+  1. Relative Rotations:
+     - t.left(angle) / t.lt(angle)   -> Rotates counter-clockwise by 'angle' degrees
+     - t.right(angle) / t.rt(angle) -> Rotates clockwise by 'angle' degrees
+
+  2. Absolute Orientation:
+     - t.setheading(angle) / t.seth(angle) -> Sets orientation directly (0° East, 90° North, 180° West, 270° South)
+
+  3. The Regular Polygon Exterior Angle Formula:
+     - turn_angle = 360° / N
+       • Equilateral Triangle (N=3): turn_angle = 360 / 3 = 120°
+       • Square (N=4):               turn_angle = 360 / 4 = 90°
+       • Pentagon (N=5):             turn_angle = 360 / 5 = 72°
+       • Hexagon (N=6):              turn_angle = 360 / 6 = 60°
+       • Octagon (N=8):              turn_angle = 360 / 8 = 45°
+       • Circle approximation (N=360): turn_angle = 360 / 360 = 1°
+
+--------------------------------------------------------------------------------
+2. ANGLE MODES
+--------------------------------------------------------------------------------
+  - screen.degrees() -> Default mode (full circle is 360.0 degrees)
+  - screen.radians() -> Changes mode so full circle is 2*pi (6.28318...) radians
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 6: ROTATION CONTROL
+================================================================================

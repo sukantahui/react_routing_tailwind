@@ -1,0 +1,43 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_004: CAPSTONE PROJECTS
+           TOPIC 6: SYSTEM DESIGN BASICS FOR PYTHON BACKENDS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. DISTRIBUTED ARCHITECTURE PATTERNS
+--------------------------------------------------------------------------------
+  1. Stateless Application Tier:
+     - No user session data stored in Python process memory
+     - Sessions externalized to Redis / Key-Value store
+     - Enables adding/removing server instances behind a Load Balancer seamlessly
+
+  2. Caching Strategies:
+     - Cache-Aside (Lazy Loading): App checks cache -> on miss, reads DB -> populates cache
+     - Write-Through: App writes to cache and DB simultaneously
+     - Write-Behind (Write-Back): App writes to cache -> background worker syncs to DB
+
+  3. Rate Limiting:
+     - Token Bucket: Refills tokens at constant rate; bursts allowed up to bucket capacity
+     - Sliding Window Counter: Smoothes out boundary traffic spikes
+
+--------------------------------------------------------------------------------
+2. DATABASE SCALING & ASYNC QUEUES
+--------------------------------------------------------------------------------
+  - Read Replicas: Master handles writes (INSERT/UPDATE), Replicas handle reads (SELECT)
+  - Connection Pooling: Pre-allocated persistent DB connections (SQLAlchemy / pgbouncer)
+  - Task Queues: Decouple slow operations (PDF generation, SMS alerts) with Celery + Redis
+
+--------------------------------------------------------------------------------
+3. THE CAP THEOREM
+--------------------------------------------------------------------------------
+  In a distributed network partition (P), you must choose between:
+  - Consistency (C): Every read receives the most recent write or an error
+  - Availability (A): Every non-failing node returns a response, but may be stale
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 6: SYSTEM DESIGN BASICS
+================================================================================

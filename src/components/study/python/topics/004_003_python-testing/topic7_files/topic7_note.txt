@@ -1,0 +1,42 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_003: PYTHON TESTING
+              TOPIC 7: MEASURING CODE COVERAGE WITH COVERAGE.PY & PYTEST-COV
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. STATEMENT VS BRANCH COVERAGE
+--------------------------------------------------------------------------------
+  # Statement (Line) Coverage: Measures % of lines executed during tests.
+  # Branch Coverage: Measures % of decision branches (True AND False) taken.
+
+  def compute_status(score):
+      if score >= 90:       # Branch 1: score >= 90 (True branch / False branch)
+          return "MERIT"
+      return "REGULAR"
+
+  # Testing ONLY score=95 gives 100% line coverage BUT misses the False branch!
+  # Branch coverage (pytest --cov-branch) catches this gap.
+
+--------------------------------------------------------------------------------
+2. PYTEST-COV POWER CLI COMMANDS
+--------------------------------------------------------------------------------
+  pytest --cov=src                              # Basic coverage summary
+  pytest --cov=src --cov-report=term-missing    # Shows exact unexecuted line numbers
+  pytest --cov=src --cov-report=html            # Generates interactive HTML report
+  pytest --cov=src --cov-fail-under=90          # Fails CI build if coverage < 90%
+  pytest --cov=src --cov-branch                 # Enables strict branch coverage
+
+--------------------------------------------------------------------------------
+3. EXCLUSION PRAGMAS IN CODE & CONFIG
+--------------------------------------------------------------------------------
+  def debug_dump(self): # pragma: no cover
+      # Ignored by coverage calculation
+      print("Debugging details...")
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 7: CODE COVERAGE WITH PYTEST-COV
+================================================================================

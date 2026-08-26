@@ -1,0 +1,40 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+  PYTHON PROGRAMMING • SEGMENT 5: TURTLE & CREATIVE GRAPHICS • MODULE 005_001
+      TOPIC 1: UNDERSTANDING THE TURTLE SCREEN (CANVAS, CARTESIAN PLANE & QUADRANTS)
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE 4 CARTESIAN QUADRANTS IN PYTHON TURTLE
+--------------------------------------------------------------------------------
+                          +Y (North / 90°)
+                                 |
+           Quadrant II           |           Quadrant I
+       (-X, +Y) [Top-Left]       |       (+X, +Y) [Top-Right]
+       e.g. Ichapur (-150, 100)  |       e.g. Barrackpore (150, 100)
+                                 |
+  -X (West / 180°) --------------+-------------- +X (East / 0°)
+                              (0, 0)
+                                 |
+           Quadrant III          |           Quadrant IV
+      (-X, -Y) [Bottom-Left]     |      (+X, -Y) [Bottom-Right]
+      e.g. Jadavpur (-150, -100) |      e.g. Kolkata (150, -100)
+                                 |
+                          -Y (South / 270°)
+
+--------------------------------------------------------------------------------
+2. ESSENTIAL POSITION & DISTANCE METHODS
+--------------------------------------------------------------------------------
+  t.pos()              -> Returns current (x, y) tuple (e.g. (150.0, 100.0))
+  t.xcor()             -> Returns current X coordinate as float
+  t.ycor()             -> Returns current Y coordinate as float
+  t.distance(x, y)     -> Returns Euclidean distance sqrt((x2-x1)^2 + (y2-y1)^2)
+  screen.window_width() -> Total pixel width of the window
+  screen.window_height()-> Total pixel height of the window
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 1: CANVAS COORDINATES & QUADRANTS
+================================================================================

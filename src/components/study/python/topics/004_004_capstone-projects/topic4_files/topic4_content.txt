@@ -1,0 +1,24 @@
+TOPIC_ID: 004_004_004
+MODULE: 004_004_capstone-projects
+TITLE: Topic 4: Publishing projects to GitHub with Git commits, issues, and releases
+LEVEL: Pro
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to professional open-source publishing, Git version control best practices, and GitHub CI/CD automation in Python. Deep dive into Conventional Commits (`feat:`, `fix:`, `docs:`, `refactor:`, `test:`), semantic versioning (SemVer: MAJOR.MINOR.PATCH), branch workflows (Trunk-Based vs Git Flow), configuring GitHub Actions CI pipelines with multi-platform matrix testing across Python 3.10/3.11/3.12 on Linux/Windows/macOS, enforcing branch protection rules, creating structured Issue and Pull Request templates (`.github/ISSUE_TEMPLATE/`), automated changelog generation, publishing signed GitHub Releases with wheel distribution assets, and managing open-source contributor licenses. Complete real-world institutional case study orchestrating the version 1.0.0 release of the multi-campus management system across Barrackpore, Kolkata, Ichapur, and Jadavpur.
+
+CORE CONCEPTS:
+1. Conventional Commits Specification & Atomic History Hygiene
+2. Semantic Versioning (SemVer: 1.0.0 ➔ 1.1.0 ➔ 2.0.0)
+3. Branching Strategies: Trunk-Based Development vs Git Flow
+4. GitHub Actions CI/CD: Automated Test, Lint & Coverage Matrix
+5. Repository Scaffolding: `.github/` Workflows, Issue & PR Templates
+6. Branch Protection Rules & Mandatory CI Quality Gates
+7. Automated Changelog Generation from Conventional Git History
+8. Packaging and Publishing Binary Wheel Distributions (`dist/*.whl`)
+9. Institutional Multi-Campus GitHub Release Orchestrator Case Study
+
+REAL-WORLD SCENARIOS:
+- Setting up a professional CI pipeline that runs pytest, ruff, mypy, and coverage on every pull request before allowing merges
+- Tagging and publishing production releases on GitHub with automatically generated changelogs and wheel assets
+- Establishing standardized issue templates so open-source contributors submit structured bug reports and feature proposals

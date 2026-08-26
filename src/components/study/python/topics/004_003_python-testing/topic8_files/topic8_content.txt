@@ -1,0 +1,24 @@
+TOPIC_ID: 004_003_008
+MODULE: 004_003_python-testing
+TITLE: Topic 8: Introduction to Test-Driven Development (TDD) workflow
+LEVEL: Pro
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to Test-Driven Development (TDD) in Python. Deep dive into the Red-Green-Refactor cycle: writing failing unit tests first (Red), writing the minimum viable code to make tests pass (Green), and refactoring design and performance with total safety (Refactor). Explore the Three Laws of TDD (Uncle Bob), baby-step incremental design, converting user stories into executable test specifications, building domain models driven by test contracts, preventing over-engineering, and maintaining high test velocity. Complete real-world institutional case study designing a multi-campus student admission, scholarship calculation, and academic transcript engine entirely through TDD across Barrackpore, Kolkata, Ichapur, and Jadavpur.
+
+CORE CONCEPTS:
+1. The TDD Philosophy: Writing Tests as Executable Specifications
+2. The Red-Green-Refactor Micro-Cycle
+3. The Three Laws of Test-Driven Development (Uncle Bob Martin)
+4. Baby Steps: Writing the Minimum Production Code to Pass
+5. Safe Refactoring Under the Protection of Green Test Suites
+6. TDD vs Test-Last (Post-Hoc Testing) Comparison
+7. Driving Domain Model Architecture from User Requirements
+8. Eliminating Speculative Code and Over-Engineering (YAGNI)
+9. Institutional Multi-Campus Admission Engine Case Study
+
+REAL-WORLD SCENARIOS:
+- Building complex tax calculation and currency conversion engines without regression risk
+- Implementing mission-critical student ledger balance mutations from user acceptance criteria
+- Refactoring legacy algorithms safely under a 100% coverage TDD harness

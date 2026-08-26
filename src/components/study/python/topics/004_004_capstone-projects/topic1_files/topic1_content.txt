@@ -1,0 +1,24 @@
+TOPIC_ID: 004_004_001
+MODULE: 004_004_capstone-projects
+TITLE: Topic 1: Integrating SQLite / JSON persistence, OOP models, and business logic
+LEVEL: Pro
+DIFFICULTY: Medium-Hard
+
+OVERVIEW:
+Comprehensive master guide to integrating data persistence with object-oriented domain models and business logic in Python. Deep dive into SQLite relational database persistence via `sqlite3`, enabling Foreign Keys with `PRAGMA foreign_keys = ON`, parameterized SQL queries (`?`) to prevent SQL Injection, context manager transaction rollbacks, schema indexing, JSON document serialization with custom `JSONEncoder`, atomic file writing via temporary files to eliminate power-loss file corruption, the Repository Pattern, and domain model mapping. Complete real-world institutional case study building an end-to-end multi-campus student admission and fee ledger persistence engine across Barrackpore, Kolkata, Ichapur, and Jadavpur.
+
+CORE CONCEPTS:
+1. Persistence Paradigms: Relational SQLite vs Document JSON Storage
+2. Modern Python SQLite: Connection Lifecycles & Context Managers
+3. Safe Parameterized Queries (`?`) & SQL Injection Prevention
+4. Relational Integrity: Foreign Keys, Unique Constraints & Table Indexes
+5. Atomic Transactions: `BEGIN`, `COMMIT`, and Automatic `ROLLBACK` on Exceptions
+6. JSON File Persistence & Custom Dataclass/DateTime Serialization
+7. Crash-Resilient Atomic File Swapping (`tempfile` + `os.replace`)
+8. The Repository Pattern: Decoupling SQL Queries from Business Services
+9. Institutional Multi-Campus Ledger Persistence Case Study
+
+REAL-WORLD SCENARIOS:
+- Building offline-first desktop tools and embedded IoT data loggers with reliable SQLite storage
+- Designing financial ledgers with ACID transaction guarantees where credit and debit mutations succeed together or roll back completely
+- Safely persisting configuration and user documents to JSON without partial-write file corruption during sudden application shutdowns

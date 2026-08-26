@@ -1,0 +1,41 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_004: CAPSTONE PROJECTS
+           TOPIC 1: INTEGRATING SQLITE / JSON PERSISTENCE & BUSINESS LOGIC
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. SQLITE INTEGRATION BEST PRACTICES
+--------------------------------------------------------------------------------
+  1. Always enable Foreign Keys:
+     conn.execute("PRAGMA foreign_keys = ON;")
+
+  2. Always use parameterized queries (?) to prevent SQL Injection:
+     cursor.execute("SELECT * FROM students WHERE campus = ?;", (campus_name,))
+
+  3. Use connection context managers for automated commit/rollback:
+     with conn:
+         conn.execute("UPDATE accounts SET balance = balance - ? WHERE id = ?", (amt, id1))
+         conn.execute("UPDATE accounts SET balance = balance + ? WHERE id = ?", (amt, id2))
+
+--------------------------------------------------------------------------------
+2. CRASH-PROOF ATOMIC JSON FILE WRITING
+--------------------------------------------------------------------------------
+  # Prevents 0-byte corrupted files if process crashes midway:
+  def atomic_save_json(filepath: Path, data: dict):
+      temp_file = filepath.with_suffix(".tmp")
+      with open(temp_file, "w", encoding="utf-8") as f:
+          json.dump(data, f, indent=2)
+      os.replace(temp_file, filepath)  # Atomic OS rename operation
+
+--------------------------------------------------------------------------------
+3. THE REPOSITORY PATTERN
+--------------------------------------------------------------------------------
+  Domain Model (Student) <-> StudentRepository (SQL/JSON) <-> AdmissionService
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 1: SQLITE / JSON PERSISTENCE
+================================================================================

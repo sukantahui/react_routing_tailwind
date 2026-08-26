@@ -1,0 +1,28 @@
+TOPIC_ID: 005_001_001
+MODULE: 005_001_turtle-foundation
+TITLE: Topic 1: Understanding the Turtle screen: canvas, coordinate system (Cartesian plane), origin (0,0), and quadrants
+LEVEL: Beginner
+DIFFICULTY: Easy
+
+OVERVIEW:
+Comprehensive master guide to the 2D Cartesian coordinate system in Python Turtle Graphics. Deep dive into the central origin (0, 0), the four Cartesian quadrants: Quadrant I (+X, +Y), Quadrant II (-X, +Y), Quadrant III (-X, -Y), and Quadrant IV (+X, -Y), querying position with `t.pos()`, `t.xcor()`, `t.ycor()`, calculating Euclidean distances with `t.distance(x, y)`, understanding screen boundaries with `screen.window_width()` and `screen.window_height()`, difference between mathematical Cartesian axes (Y pointing upwards) and computer bitmap display grids (Y inverted downwards), drawing axes programmatically, and coordinate boundary validation. Complete real-world institutional multi-campus quadrant mapping case study placing Barrackpore, Kolkata, Ichapur, and Jadavpur into geographic quadrants with student waypoints for Mamata, Mahima, Abhronila, and Susmita.
+
+CORE CONCEPTS:
+1. The 2D Cartesian Coordinate Plane in Turtle Graphics
+2. The Center Origin (0, 0) vs Screen Window Center
+3. The Four Quadrants:
+   - Quadrant I (Top-Right): (+X, +Y)
+   - Quadrant II (Top-Left): (-X, +Y)
+   - Quadrant III (Bottom-Left): (-X, -Y)
+   - Quadrant IV (Bottom-Right): (+X, -Y)
+4. Querying Coordinates: `t.pos()`, `t.xcor()`, `t.ycor()`
+5. Calculating Vector Distance: `t.distance(other_x, other_y)`
+6. Querying Canvas Dimensions: `screen.window_width()`, `screen.window_height()`
+7. Drawing Coordinate Axes & Grid Lines Programmatically
+8. Preventing Off-Canvas Clipping & Boundary Auditing
+9. Institutional Multi-Campus Quadrant Map Case Study
+
+REAL-WORLD SCENARIOS:
+- Mapping geographic coordinate systems (GPS latitude/longitude offsets) onto a 2D Turtle visual canvas
+- Programmatically drawing labeled mathematical X-Y axes with tick marks for geometry classroom demonstrations
+- Detecting when a game character or robotic turtle exceeds the visible canvas boundaries

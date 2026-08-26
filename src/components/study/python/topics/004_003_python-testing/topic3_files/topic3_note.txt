@@ -1,0 +1,56 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_003: PYTHON TESTING
+          TOPIC 3: MODERN TESTING WITH PYTEST: DISCOVERY, ASSERTIONS & FIXTURES
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. ZERO-BOILERPLATE STANDALONE TEST FUNCTIONS
+--------------------------------------------------------------------------------
+  # test_admission.py - No classes or self.assertEqual needed!
+  def test_admission_discount():
+      result = calculate_fee(10000.0, 0.15)
+      # Pytest uses AST rewriting to show rich diffs on standard assert!
+      assert result == 8500.0
+
+--------------------------------------------------------------------------------
+2. MODULAR FIXTURES & DEPENDENCY INJECTION
+--------------------------------------------------------------------------------
+  import pytest
+
+  @pytest.fixture(scope="module")
+  def database_conn():
+      # Setup phase
+      conn = init_in_memory_db()
+      yield conn # Hands over fixture to test
+      # Teardown phase (runs automatically after tests in module finish)
+      conn.close()
+
+  @pytest.fixture
+  def fresh_student(database_conn):
+      # Fixture requesting another fixture!
+      student = Student("STU_1", "Mamata", "Barrackpore", 10000.0)
+      database_conn.save(student)
+      return student
+
+  def test_student_payment(fresh_student):
+      # Dependency injection via function parameter name
+      assert fresh_student.name == "Mamata"
+      fresh_student.pay(3000.0)
+      assert fresh_student.balance == 7000.0
+
+--------------------------------------------------------------------------------
+3. PYTEST CLI POWER COMMANDS
+--------------------------------------------------------------------------------
+  pytest                      # Auto-discovers and runs all tests
+  pytest -v                   # Verbose output
+  pytest -k "scholarship"     # Runs only tests matching name substring
+  pytest -x                   # Stop immediately on first test failure
+  pytest --lf                 # Re-run only failed tests from last run
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 3: MODERN PYTEST DISCOVERY & FIXTURES
+================================================================================

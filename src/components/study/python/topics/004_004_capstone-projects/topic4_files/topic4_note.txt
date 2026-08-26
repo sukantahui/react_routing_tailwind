@@ -1,0 +1,53 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_004: CAPSTONE PROJECTS
+           TOPIC 4: PUBLISHING TO GITHUB (COMMITS, ISSUES, RELEASES & CI/CD)
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. CONVENTIONAL COMMITS SPECIFICATION
+--------------------------------------------------------------------------------
+  Format: <type>(<scope>): <short description>
+
+  Types:
+  - feat: A new feature (bumps MINOR version in SemVer)
+  - fix: A bug fix (bumps PATCH version in SemVer)
+  - docs: Documentation changes only
+  - refactor: Code change that neither fixes a bug nor adds a feature
+  - test: Adding or correcting tests
+  - chore: Build process, tooling, or dependency updates
+
+  Examples:
+  - feat(admission): add regional scholarship grant for Barrackpore campus
+  - fix(ledger): prevent overpayment balance corruption in atomic transactions
+  - docs(readme): add shields.io coverage badge and quickstart guide
+
+--------------------------------------------------------------------------------
+2. GITHUB ACTIONS CI WORKFLOW (.github/workflows/ci.yml)
+--------------------------------------------------------------------------------
+  name: CI Test & Quality Gates
+  on: [push, pull_request]
+
+  jobs:
+    test:
+      runs-on: ${{ matrix.os }}
+      strategy:
+        matrix:
+          os: [ubuntu-latest, windows-latest, macos-latest]
+          python-version: ["3.10", "3.11", "3.12"]
+      steps:
+        - uses: actions/checkout@v4
+        - uses: actions/setup-python@v5
+          with:
+            python-version: ${{ matrix.python-version }}
+        - run: pip install -e ".[dev]"
+        - run: ruff check .
+        - run: mypy src/
+        - run: pytest --cov=src --cov-fail-under=85
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 4: GITHUB RELEASES & CI/CD
+================================================================================

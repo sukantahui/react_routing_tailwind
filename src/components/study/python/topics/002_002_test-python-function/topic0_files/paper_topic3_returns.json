@@ -1,0 +1,72 @@
+{
+  "paperId": "PY-FUNC-TOPIC3-RETURNS",
+  "title": "Topic 3: Return Values, NoneType Handling & Tuple Unpacking Assessment",
+  "duration": "45 Mins",
+  "totalMarks": 25,
+  "prerequisites": "Return statement, None semantics, multiple return values, tuple unpacking",
+  "instructions": [
+    "Answer all questions systematically",
+    "Show tuple unpacking syntax and early return guard clauses",
+    "Assume Python 3.10+"
+  ],
+  "sections": [
+    {
+      "section": "A",
+      "type": "Short Conceptual Questions",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "description": "Return mechanics & semantics (2 Marks each)",
+      "questions": [
+        {
+          "q": "How does Python return multiple values from a single function?",
+          "marks": 2,
+          "answer": "When multiple comma-separated values are listed in a `return` statement (`return a, b`), Python automatically packs them into a single **tuple**."
+        },
+        {
+          "q": "What is tuple unpacking at the call site?",
+          "marks": 2,
+          "answer": "Assigning the returned tuple to multiple distinct variables in a single line:\n\n```python\nmin_val, max_val = find_extrema([10, 5, 20, 8])\n```"
+        },
+        {
+          "q": "What is the difference between 'return' and 'return None'?",
+          "marks": 2,
+          "answer": "They are functionally identical. Both immediately terminate function execution and return `None` to the caller."
+        },
+        {
+          "q": "What is an Early Return / Guard Clause pattern?",
+          "marks": 2,
+          "answer": "Returning immediately upon encountering invalid input or base conditions to avoid deeply nested `if/else` ladders.\n\n```python\ndef get_user(user_id):\n    if user_id <= 0: return None # Guard clause\n    # Main logic...\n```"
+        },
+        {
+          "q": "Why is 'if result is None:' preferred over 'if result == None:'?",
+          "marks": 2,
+          "answer": "`None` is a unique singleton in Python. The `is` operator tests object identity in memory directly, which is faster, safer, and recommended by PEP 8."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Descriptive & Code Tracing",
+      "marksPerQuestion": 5,
+      "totalQuestions": 3,
+      "description": "In-depth return value architecture (5 Marks each)",
+      "questions": [
+        {
+          "q": "Write a robust statistical summary function that returns minimum, maximum, mean, and median using tuple packing and unpacking.",
+          "marks": 5,
+          "answer": "```python\nimport statistics\n\ndef calculate_dataset_stats(data):\n    if not data:\n        return None, None, None, None\n    \n    min_val = min(data)\n    max_val = max(data)\n    mean_val = statistics.mean(data)\n    median_val = statistics.median(data)\n    \n    return min_val, max_val, mean_val, median_val\n\n# Unpacking results cleanly\nscores = [78, 85, 92, 64, 89, 95]\nlo, hi, avg, med = calculate_dataset_stats(scores)\nprint(f\"Low: {lo}, High: {hi}, Mean: {avg:.2f}, Median: {med}\")\n```"
+        },
+        {
+          "q": "Explain how returning dictionaries or dataclasses provides self-documenting APIs compared to large tuple returns.",
+          "marks": 5,
+          "answer": "Returning tuples with 5+ values leads to positional confusion. Returning a dictionary or dataclass provides named keys:\n\n```python\ndef get_student_report(name, marks):\n    return {\n        \"name\": name,\n        \"total\": sum(marks),\n        \"average\": sum(marks) / len(marks),\n        \"passed\": all(m >= 40 for m in marks)\n    }\n\nreport = get_student_report(\"Mamata\", [85, 90, 78])\nprint(f\"{report['name']} Average: {report['average']}\")\n```"
+        },
+        {
+          "q": "Trace and explain the execution flow of a function containing multiple conditional return paths.",
+          "marks": 5,
+          "answer": "```python\ndef classify_admission_tier(cgpa, entrance_rank):\n    if cgpa >= 9.0 and entrance_rank <= 100:\n        return \"Merit Scholar - Tier 1\"\n    if cgpa >= 8.0 or entrance_rank <= 500:\n        return \"Standard Admission - Tier 2\"\n    return \"Waitlist - Tier 3\"\n\nprint(classify_admission_tier(9.2, 50))   # Merit Scholar - Tier 1\nprint(classify_admission_tier(7.5, 200))  # Standard Admission - Tier 2\nprint(classify_admission_tier(6.5, 800))  # Waitlist - Tier 3\n```"
+        }
+      ]
+    }
+  ]
+}

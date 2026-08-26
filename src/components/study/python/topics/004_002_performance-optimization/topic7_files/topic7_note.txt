@@ -1,0 +1,61 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_002: PERFORMANCE OPTIMIZATION
+             TOPIC 7: BEST PRACTICES FOR HIGH-THROUGHPUT PYTHON APPLICATIONS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. CONCURRENCY: MULTIPROCESSING (CPU) VS THREADING / ASYNCIO (I/O)
+--------------------------------------------------------------------------------
+  # CPU-Bound: Bypass the GIL with ProcessPoolExecutor
+  from concurrent.futures import ProcessPoolExecutor
+
+  def compute_heavy_score(data):
+      # Heavy mathematical / cryptographic computation
+      return sum(x ** 2 for x in data)
+
+  with ProcessPoolExecutor() as executor:
+      results = list(executor.map(compute_heavy_score, data_chunks))
+
+  # I/O-Bound: Concurrency with ThreadPoolExecutor / asyncio
+  from concurrent.futures import ThreadPoolExecutor
+
+  def fetch_student_record(student_id):
+      # Network / DB I/O (Releases the GIL)
+      return db.query(student_id)
+
+  with ThreadPoolExecutor(max_workers=20) as executor:
+      students = list(executor.map(fetch_student_record, id_list))
+
+--------------------------------------------------------------------------------
+2. ZERO-COPY BUFFER SLICING WITH MEMORYVIEW
+--------------------------------------------------------------------------------
+  # BAD: Standard bytes slicing creates an expensive copied copy in RAM
+  header = raw_bytes[:1024]  # Copies 1024 bytes
+
+  # GOOD: memoryview creates a zero-copy pointer slice directly over buffer
+  mv = memoryview(raw_bytes)
+  header_view = mv[:1024]    # Zero RAM allocation! Instant O(1)
+
+--------------------------------------------------------------------------------
+3. CHUNKED BATCHING FOR HIGH-THROUGHPUT STREAMS
+--------------------------------------------------------------------------------
+  from itertools import islice
+
+  def chunked_stream(iterable, batch_size=1000):
+      it = iter(iterable)
+      while True:
+          batch = list(islice(it, batch_size))
+          if not batch:
+              break
+          yield batch
+
+  for batch in chunked_stream(million_record_stream, 5000):
+      process_bulk_insert(batch) # Constant bounded memory!
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 7: HIGH-THROUGHPUT ARCHITECTURES
+================================================================================

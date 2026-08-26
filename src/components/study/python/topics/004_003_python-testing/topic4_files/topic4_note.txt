@@ -1,0 +1,49 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_003: PYTHON TESTING
+              TOPIC 4: PARAMETRIZED TESTS WITH @PYTEST.MARK.PARAMETRIZE
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. BASIC MULTI-ARGUMENT PARAMETRIZATION
+--------------------------------------------------------------------------------
+  import pytest
+
+  @pytest.mark.parametrize("score, expected_grade", [
+      (95.0, "A+"),
+      (90.0, "A+"), # Boundary check
+      (80.0, "A"),
+      (60.0, "B"),
+      (40.0, "C"),
+      (35.0, "F"),
+  ])
+  def test_grade_boundaries(score, expected_grade):
+      # PyTest generates 6 individual independent test cases!
+      assert calculate_grade(score) == expected_grade
+
+--------------------------------------------------------------------------------
+2. CARTESIAN PRODUCT (STACKED DECORATORS)
+--------------------------------------------------------------------------------
+  @pytest.mark.parametrize("campus", ["Barrackpore", "Kolkata"])
+  @pytest.mark.parametrize("course", ["Python", "DataScience", "DevOps"])
+  def test_campus_course_matrix(campus, course):
+      # Generates 2 x 3 = 6 combinatorial test runs automatically!
+      assert verify_roster_availability(campus, course) is True
+
+--------------------------------------------------------------------------------
+3. CUSTOM IDS & INDIVIDUAL PARAMETER MARKERS
+--------------------------------------------------------------------------------
+  @pytest.mark.parametrize("input_val, expected", [
+      pytest.param(100, 90, id="regular_10pct_waiver"),
+      pytest.param(0, 0, id="zero_fee_edge_case"),
+      pytest.param(-50, None, marks=pytest.mark.xfail, id="known_negative_bug"),
+  ])
+  def test_waiver_rules(input_val, expected):
+      assert apply_waiver(input_val) == expected
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 4: PARAMETRIZED TESTS WITH PYTEST
+================================================================================

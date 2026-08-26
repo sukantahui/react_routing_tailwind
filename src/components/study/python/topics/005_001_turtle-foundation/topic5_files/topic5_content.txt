@@ -1,0 +1,24 @@
+TOPIC_ID: 005_001_005
+MODULE: 005_001_turtle-foundation
+TITLE: Topic 5: Movement fundamentals: forward(), backward(), distance control and precision
+LEVEL: Beginner
+DIFFICULTY: Easy
+
+OVERVIEW:
+Comprehensive master guide to linear motion, directional translation, distance precision, and path tracing in Python Turtle Graphics. Deep dive into `forward(distance)` (alias `fd()`), `backward(distance)` (aliases `bk()`, `back()`), floating-point sub-pixel distance control, comparing relative linear displacement (moving along the current heading vector) versus absolute Cartesian repositioning (`goto()`, `setx()`, `sety()`), calculating cumulative path trajectory distance (odometer metrics), and preventing floating-point drift during iterative steps. Complete real-world institutional autonomous linear rover simulation delivering materials between student dispatch stations for Mamata, Mahima, and Susmita across Barrackpore, Kolkata, and Ichapur.
+
+CORE CONCEPTS:
+1. Linear Translation Mechanics along the Heading Vector
+2. `forward(distance)` / `fd()` & `backward(distance)` / `bk()`
+3. Floating-Point Step Precision & Sub-Pixel Translation
+4. Relative Motion vs Absolute Coordinate Displacement
+5. Trajectory Math: $\Delta x = d \cdot \cos(\theta)$, $\Delta y = d \cdot \sin(\theta)$
+6. Cumulative Path Odometer Tracking
+7. Boundary Collisions & Reversing Direction (`backward`)
+8. Floating-Point Accumulation Drift & Precision Rounding
+9. Institutional Autonomous Campus Rover Case Study
+
+REAL-WORLD SCENARIOS:
+- Programming autonomous ground vehicle (AGV) linear motion along warehouse grid paths
+- Simulating robotic pen plotter step precision for micro-machining and vector illustration
+- Building a distance odometer tracking total travel length across complex multi-segment journeys

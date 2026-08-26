@@ -1,0 +1,50 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_004: CAPSTONE PROJECTS
+           TOPIC 2: CONFIGURING LOGGING, ERROR HANDLING & MODULAR CLI INTERFACES
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. ENTERPRISE LOGGING STANDARDS
+--------------------------------------------------------------------------------
+  1. Standard Log Levels:
+     - DEBUG (10): Detailed diagnostic information for developers
+     - INFO (20): Normal confirmation of application operations
+     - WARNING (30): Unexpected events that did not halt execution
+     - ERROR (40): Operation failed due to an error (e.g. payment failed)
+     - CRITICAL (50): Severe crash or outage requiring immediate alert
+
+  2. Rotating File Handlers:
+     from logging.handlers import RotatingFileHandler
+     handler = RotatingFileHandler("app.log", maxBytes=5_000_000, backupCount=5)
+
+--------------------------------------------------------------------------------
+2. CUSTOM EXCEPTION HIERARCHY
+--------------------------------------------------------------------------------
+  class InstitutionalError(Exception):
+      """Base exception for all domain errors."""
+      def __init__(self, message: str, code: str = "GENERIC_ERROR"):
+          super().__init__(message)
+          self.code = code
+
+  class StudentNotFoundError(InstitutionalError):
+      def __init__(self, sid: str):
+          super().__init__(f"Student '{sid}' not found.", code="STUDENT_NOT_FOUND")
+
+--------------------------------------------------------------------------------
+3. MODULAR CLI WITH SUBCOMMANDS (ARGPARSE)
+--------------------------------------------------------------------------------
+  parser = argparse.ArgumentParser(prog="campus-cli", description="Campus Manager")
+  subparsers = parser.add_subparsers(dest="command", required=True)
+  
+  # enroll sub-command
+  enroll_parser = subparsers.add_parser("enroll", help="Enroll a new student")
+  enroll_parser.add_argument("--name", required=True, help="Student Name")
+  enroll_parser.add_argument("--campus", default="Barrackpore", help="Campus")
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 2: LOGGING, ERROR HANDLING & CLI
+================================================================================

@@ -1,0 +1,47 @@
+================================================================================
+  TOPIC 1: LINE THICKNESS, PENSIZE, AND CAP STYLING
+  MODULE: 005_002 - Turtle Design & Aesthetic Customization
+  COURSE: Python Creative Graphics & Foundations
+  TEACHER & MENTOR: Sukanta Hui
+================================================================================
+
+1. WHAT IS STROKE WEIGHT AND PENSIZE?
+--------------------------------------------------------------------------------
+Line thickness (stroke weight) establishes visual hierarchy in computer
+graphics. In Turtle, `t.pensize(width)` (or `t.width(width)`) sets the line
+diameter in screen pixels.
+
+Visual Hierarchy Guidelines:
+- 1px - 2px: Subtle guidelines, background grids, and coordinate ticks.
+- 3px - 4px: Standard geometric wireframes and polygon outlines.
+- 6px - 8px: Emphasized focal shapes, borders, and character features.
+- 10px - 20px: Heavy structural frames, bold calligraphic strokes, and posters.
+
+2. PEN STATE DICTIONARY (t.pen())
+--------------------------------------------------------------------------------
+The `t.pen()` method manages all styling attributes in a single dictionary:
+- `shown`: (bool) whether the cursor is visible.
+- `pendown`: (bool) whether drawing is active.
+- `pencolor`: (str/tuple) stroke color.
+- `fillcolor`: (str/tuple) interior fill color.
+- `pensize`: (int) line stroke width.
+- `speed`: (int) movement animation speed.
+- `resizemode`: (str) auto/user/noresize.
+
+3. TURTLE CURSOR SCALING (t.shapesize())
+--------------------------------------------------------------------------------
+`t.shapesize(stretch_wid, stretch_len, outline)` (or `t.turtlesize()`):
+- `stretch_wid`: Vertical scale factor (relative to default 20px).
+- `stretch_len`: Horizontal scale factor (relative to default 20px).
+- `outline`: Border thickness of the cursor icon in pixels.
+
+4. BEST PRACTICES & CLASSROOM TIPS
+--------------------------------------------------------------------------------
+- Use modular helper functions that accept a `stroke_weight` parameter.
+- When creating calligraphic tapering, calculate width using trigonometric
+  curves (`math.sin`) for organic stroke modulation.
+- Remember: `shapesize()` modifies the cursor, while `pensize()` modifies the ink!
+
+================================================================================
+  END OF NOTE - Coder & AccoTax Classroom Reference Series
+================================================================================

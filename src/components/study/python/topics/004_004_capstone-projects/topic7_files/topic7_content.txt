@@ -1,0 +1,24 @@
+TOPIC_ID: 004_004_007
+MODULE: 004_004_capstone-projects
+TITLE: Topic 7: Resume and portfolio presentation strategies
+LEVEL: Pro
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to engineering resume optimization, GitHub portfolio curation, technical storytelling, and interview presentation strategies for Python engineers. Deep dive into Applicant Tracking System (ATS) parsing algorithms, formatting single-page software engineering resumes, formulating high-impact bullet points using the Google X-Y-Z formula ("Accomplished [X] as measured by [Y], by doing [Z]"), curating high-signal GitHub portfolio repositories with live demos, architectural diagrams, and test badges, mastering behavioral interview storytelling using the STAR framework (Situation, Task, Action, Result), navigating salary negotiations, and presenting capstone projects during technical executive reviews. Complete real-world institutional case study evaluating and scoring the engineering portfolios of Mamata, Mahima, and Susmita across Barrackpore, Kolkata, Ichapur, and Jadavpur.
+
+CORE CONCEPTS:
+1. ATS (Applicant Tracking System) Parsing Rules & Keyword Optimization
+2. The Google X-Y-Z Resume Bullet Formula & Quantifiable Impact Metrics
+3. GitHub Portfolio Strategy: Top 3 Pinned Repositories vs Noise
+4. Crafting Compelling Project Architecture Case Studies
+5. The STAR Framework for Behavioral & Technical Storytelling
+6. Live Technical Presentation & System Walkthrough Techniques
+7. Code Review Etiquette & Answering "Tell Me About a Difficult Bug"
+8. Salary Negotiation & Offer Evaluation Frameworks
+9. Institutional Career Portfolio Audit Engine Case Study
+
+REAL-WORLD SCENARIOS:
+- Rewriting generic resume bullet points ("Built a student app") into high-impact quantified achievements ("Architected a multi-campus admission engine with SQLite & Redis caching, slashing query latency by 85% for 5,000 students")
+- Setting up a pinned GitHub profile README that immediately demonstrates senior Python proficiency, test coverage, and documentation standards to hiring managers
+- Presenting a capstone project during a 45-minute technical hiring loop with clear architecture diagrams and design tradeoff justifications

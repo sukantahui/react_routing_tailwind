@@ -1,0 +1,48 @@
+================================================================================
+  TOPIC 3: FILL MECHANICS: BEGIN_FILL(), END_FILL(), AND FILLCOLOR()
+  MODULE: 005_002 - Turtle Design & Aesthetic Customization
+  COURSE: Python Creative Graphics & Foundations
+  TEACHER & MENTOR: Sukanta Hui
+================================================================================
+
+1. WHAT IS FILL MECHANICS IN TURTLE GRAPHICS?
+--------------------------------------------------------------------------------
+By default, drawing commands only produce hollow line strokes (wireframes).
+To create solid colored geometric figures, Turtle uses a 3-step fill protocol:
+
+1. `t.fillcolor(color)`:
+   - Sets the active interior color (using color names, hex, or RGB tuples).
+
+2. `t.begin_fill()`:
+   - Records the start of a closed polygon path.
+   - Turtle tracks all subsequent vertices.
+
+3. `t.end_fill()`:
+   - Automatically connects the current position back to the `begin_fill()` origin.
+   - Fills the enclosed internal area with the active `fillcolor`.
+
+2. THE CLOSURE RULE & UNCLOSED SHAPES
+--------------------------------------------------------------------------------
+If you call `end_fill()` on a non-closed path (such as a 3-sided open triangle),
+Turtle automatically draws an invisible straight line connecting the end point
+back to the start point and fills that triangular area.
+Best practice: Always explicitly close your geometric paths before calling `end_fill()`.
+
+3. FILLING SELF-INTERSECTING POLYGONS (WINDING RULE)
+--------------------------------------------------------------------------------
+When filling self-crossing stars (such as a 5-pointed star drawn with 144° turns),
+Tkinter applies the Even-Odd parity rule:
+- Outer star points are filled with color.
+- The central pentagon may be left hollow or filled depending on coordinate parity.
+
+4. COMMON PITFALLS
+--------------------------------------------------------------------------------
+- Forgetting `end_fill()`: The shape remains hollow and no color appears.
+- Calling `begin_fill()` multiple times without matching `end_fill()`: Causes
+  merged distorted fills across multiple disconnected shapes.
+- Changing `fillcolor()` AFTER `end_fill()`: Only shapes drawn afterwards will
+  use the new fill color.
+
+================================================================================
+  END OF NOTE - Coder & AccoTax Classroom Reference Series
+================================================================================

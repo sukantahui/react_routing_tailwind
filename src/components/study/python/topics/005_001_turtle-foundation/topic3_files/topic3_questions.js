@@ -1,243 +1,166 @@
+// src/components/study/python/topics/005_001_turtle-foundation/topic3_files/topic3_questions.js
+// Comprehensive Master Review Questions for Topic 3: Turtle object creation and lifecycle
+
 const questions = [
   {
-    question: "How do you create a new turtle object in Python?",
-    shortAnswer: "`t = turtle.Turtle()`",
-    explanation: "The `Turtle()` constructor creates a new turtle instance with default settings (position at origin, heading east, pen down, shape 'classic').",
-    hint: "You need to import turtle first.",
+    question: "Why is object-oriented instantiation ('t = turtle.Turtle()') superior to procedural global calls ('turtle.forward(100)')?",
+    shortAnswer: "Object-oriented instantiation allows creating multiple independent turtles with isolated states (positions, headings, colors, pen sizes, speeds) on the same screen, which is impossible with the procedural singleton.",
+    explanation: "Multi-instance object-oriented design vs procedural singleton limitations.",
+    hint: "Allows multiple independent turtles with separate states on one canvas.",
     level: "basic",
-    codeExample: "import turtle; t = turtle.Turtle()"
+    codeExample: "t1 = turtle.Turtle()\nt2 = turtle.Turtle() # Two independent drawing agents"
   },
   {
-    question: "What is the difference between `t2 = t` and `t2 = t.clone()`?",
-    shortAnswer: "`t2 = t` makes both variables refer to the same object; `clone()` creates an independent copy.",
-    explanation: "Changes to `t` will affect `t2` if they reference the same object. Cloning gives a separate turtle with the same state (position, heading, color).",
-    hint: "Try changing t's color after assignment and see if t2 changes.",
-    level: "moderate",
-    codeExample: "t2 = t.clone()  # independent copy"
-  },
-  {
-    question: "Can you have multiple turtles on the screen at the same time?",
-    shortAnswer: "Yes, create as many as you want using `Turtle()` multiple times.",
-    explanation: "Each turtle moves independently. They share the same screen.",
-    hint: "Create `t1 = turtle.Turtle()` and `t2 = turtle.Turtle()`.",
+    question: "What is the initial default state of a newly created 'turtle.Turtle()' instance?",
+    shortAnswer: "Position: (0, 0) center; Heading: 0.0 degrees (East); Shape: 'classic' arrow; Pen Color: 'black'; Pen State: down (drawing); Speed: 3 (normal); Cursor Visibility: visible.",
+    explanation: "Default properties of newly instantiated Turtle objects.",
+    hint: "Position (0,0), Heading 0 (East), Shape 'classic', Pen down, Color black.",
     level: "basic",
-    codeExample: "t1 = turtle.Turtle(); t2 = turtle.Turtle()"
+    codeExample: "t = turtle.Turtle()\nprint(t.pos(), t.heading(), t.isdown()) # (0.0, 0.0) 0.0 True"
   },
   {
-    question: "What function returns a list of all existing turtles?",
-    shortAnswer: "`turtle.turtles()`",
-    explanation: "Returns a list of all `Turtle` objects currently on the screen.",
-    hint: "Useful for debugging multiple turtles.",
-    level: "moderate",
-    codeExample: "print(turtle.turtles())"
-  },
-  {
-    question: "How can you check if a turtle is visible?",
-    shortAnswer: "Use `t.isvisible()` which returns a boolean.",
-    explanation: "Returns `True` if the turtle is shown, `False` if hidden via `hideturtle()`.",
-    hint: "Check before trying to show again.",
+    question: "What are the 6 built-in cursor shapes supported by 't.shape()'?",
+    shortAnswer: "1. 'arrow', 2. 'turtle', 3. 'circle', 4. 'square', 5. 'triangle', and 6. 'classic'.",
+    explanation: "Standard built-in cursor shapes in the turtle module.",
+    hint: "'arrow', 'turtle', 'circle', 'square', 'triangle', 'classic'.",
     level: "basic",
-    codeExample: "if not t.isvisible(): t.showturtle()"
+    codeExample: "t.shape('turtle') # Changes cursor to actual turtle graphic"
   },
   {
-    question: "What happens to a turtle when the program ends?",
-    shortAnswer: "The turtle object is destroyed and the window closes (unless `done()` or `exitonclick()` is used).",
-    explanation: "The Python interpreter cleans up objects when they go out of scope or program terminates.",
-    hint: "`turtle.done()` keeps the window open.",
+    question: "What does 't.clone()' do?",
+    shortAnswer: "'t.clone()' creates and returns an exact duplicate Turtle object with the identical position, heading, pen color, pen size, and drawing state as the original turtle at that moment.",
+    explanation: "Deep cloning of turtle state.",
+    hint: "Creates a clone with identical position, heading, color, and pen properties.",
+    level: "moderate",
+    codeExample: "t2 = t1.clone() # t2 inherits t1's current coordinates and state"
+  },
+  {
+    question: "How do you scale the visual size of the turtle cursor icon?",
+    shortAnswer: "Using 't.shapesize(stretch_wid, stretch_len, outline)' (or 't.turtlesize()') where numbers represent scaling multipliers (e.g. 'shapesize(2, 2)' doubles cursor size).",
+    explanation: "Scaling cursor dimensions on canvas.",
+    hint: "Use t.shapesize(stretch_wid, stretch_len).",
     level: "basic",
-    codeExample: ""
+    codeExample: "t.shapesize(2.5, 2.5) # 2.5x larger cursor"
   },
   {
-    question: "How do you explicitly delete a turtle object?",
-    shortAnswer: "Use `del t` after closing the screen, or let it go out of scope.",
-    explanation: "`del` reduces reference count; the object is garbage collected if no references remain.",
-    hint: "You usually don't need to manually delete turtles.",
-    level: "expert",
-    codeExample: "del t"
-  },
-  {
-    question: "What is the default shape of a newly created turtle?",
-    shortAnswer: "`'classic'` (an arrow-like triangle).",
-    explanation: "Other shapes: `'turtle'`, `'circle'`, `'square'`, `'triangle'`, `'arrow'`.",
-    hint: "Change with `t.shape('turtle')`.",
+    question: "How do you check whether a turtle's pen is currently drawing or lifted?",
+    shortAnswer: "Using 't.isdown()', which returns 'True' if the pen is down (drawing) and 'False' if lifted with 'penup()'.",
+    explanation: "Inspecting pen drawing status.",
+    hint: "Use t.isdown().",
     level: "basic",
-    codeExample: "t.shape('turtle')"
+    codeExample: "if t.isdown(): print('Drawing active')"
   },
   {
-    question: "Can two turtles have different pen colors?",
-    shortAnswer: "Yes, each turtle maintains its own color and pen state independently.",
-    explanation: "Set `t1.color('red')` and `t2.color('blue')` and each draws with its own color.",
-    hint: "Colors are object attributes.",
+    question: "How do you check whether the turtle cursor is currently visible or hidden?",
+    shortAnswer: "Using 't.isvisible()', which returns 'True' if the cursor is shown and 'False' if hidden with 'hideturtle()'.",
+    explanation: "Inspecting cursor visibility state.",
+    hint: "Use t.isvisible().",
     level: "basic",
-    codeExample: "t1.color('red'); t2.color('green')"
+    codeExample: "if not t.isvisible(): print('Cursor is hidden')"
   },
   {
-    question: "What is the purpose of `turtle.Screen()`?",
-    shortAnswer: "Creates or returns the singleton screen object that manages the window.",
-    explanation: "You can store it as a variable: `screen = turtle.Screen()` to call screen methods like `bgcolor()`.",
-    hint: "You don't have to store it, but it's good practice.",
+    question: "How can multiple turtles draw synchronized patterns in parallel?",
+    shortAnswer: "By storing turtle instances in a list and iterating through them inside a loop, advancing each turtle by one step or angle rotation per iteration.",
+    explanation: "Simulating multi-agent parallel drawing on a single thread.",
+    hint: "Store turtles in a list and iterate through them in a single drawing loop.",
     level: "moderate",
-    codeExample: "screen = turtle.Screen(); screen.title('My App')"
+    codeExample: "turtles = [t1, t2, t3]\nfor _ in range(36):\n    for t in turtles:\n        t.forward(10); t.left(10)"
   },
   {
-    question: "What is the difference between `t.reset()` and creating a new turtle?",
-    shortAnswer: "`reset()` clears drawings and resets state of existing turtle; new turtle is a separate object.",
-    explanation: "`reset()` does not delete the turtle; it clears its trails and moves it to home. New turtle adds another object.",
-    hint: "Reset reuses the same turtle.",
-    level: "moderate",
-    codeExample: "t.reset()  # clears and homes"
-  },
-  {
-    question: "How can you make a turtle disappear without deleting it?",
-    shortAnswer: "Use `t.hideturtle()`.",
-    explanation: "The turtle continues to move and draw (if pen down) but the cursor icon is invisible.",
-    hint: "Use `showturtle()` to bring it back.",
+    question: "What is the difference between 't.color(\"red\", \"yellow\")' with two arguments vs one argument?",
+    shortAnswer: "With two arguments, the first argument sets the pen line color ('pencolor') and the second sets the polygon interior fill color ('fillcolor').",
+    explanation: "Separate pencolor and fillcolor configuration.",
+    hint: "First arg = pencolor (outline); Second arg = fillcolor (interior).",
     level: "basic",
-    codeExample: "t.hideturtle()"
+    codeExample: "t.color('teal', 'yellow') # Teal outline, yellow fill"
   },
   {
-    question: "What happens if you create a turtle after closing the window?",
-    shortAnswer: "A new window will be created automatically (if possible).",
-    explanation: "Calling `Turtle()` when no screen exists creates a default screen.",
-    hint: "But it's better to create screen explicitly first.",
-    level: "expert",
-    codeExample: ""
+    question: "How do you register a custom polygon shape for turtle cursors using 'screen.register_shape()'?",
+    shortAnswer: "By defining a tuple of coordinate vertices and calling 'screen.register_shape(\"custom_name\", shape_coords)' or registering a GIF image with 'screen.register_shape(\"icon.gif\")'.",
+    explanation: "Custom shape registration in Python Turtle.",
+    hint: "Use screen.register_shape('name', vertex_tuple) or GIF file path.",
+    level: "pro",
+    codeExample: "screen.register_shape('star', ((0,10), (3,3), (10,3), (5,-2)))"
   },
   {
-    question: "Can a turtle be copied without using `clone()`?",
-    shortAnswer: "You can create a new turtle and manually set its position/heading/color to match.",
-    explanation: "`clone()` is the simplest method for an exact copy.",
-    hint: "Avoid manual copying unless you need partial state.",
+    question: "What happens when a Turtle object goes out of scope and is garbage collected in Python?",
+    shortAnswer: "The Python object is destroyed, but any visual lines and shapes already drawn by that turtle remain on the Tkinter canvas until cleared explicitly.",
+    explanation: "Canvas vector persistence vs Python object lifecycle.",
+    hint: "Drawn pixels remain on the canvas even after the Python object is deleted.",
     level: "moderate",
-    codeExample: "t2 = turtle.Turtle(); t2.setpos(t.pos()); t2.setheading(t.heading())"
+    codeExample: "del t1 # Python object deleted, canvas drawing remains intact"
   },
   {
-    question: "What does `turtle.turtles()` return if no turtles have been created?",
-    shortAnswer: "An empty list `[]`.",
-    explanation: "Even the 'default' turtle? In Python, if you never created a Turtle explicitly, there might be a hidden one? Actually no, you must create a turtle. The `turtles()` function returns only explicitly created turtles.",
-    hint: "Test it.",
-    level: "expert",
-    codeExample: "print(turtle.turtles())  # []"
-  },
-  {
-    question: "Why might you want to create multiple turtles?",
-    shortAnswer: "To draw multiple independent shapes, simulate race games, or create complex animations.",
-    explanation: "Examples: two turtles racing, one drawing background, another drawing foreground.",
-    hint: "Think of collaborative art.",
-    level: "moderate",
-    codeExample: ""
-  },
-  {
-    question: "How do you access the screen object after creating turtles?",
-    shortAnswer: "If you stored it, use that variable; otherwise `turtle.Screen()` returns the same screen.",
-    explanation: "`turtle.Screen()` is a singleton: always returns the same screen object.",
-    hint: "Always store it for clarity.",
+    question: "How do you get a list of all active Turtle objects registered on a Screen?",
+    shortAnswer: "Using 'screen.turtles()', which returns a list of all currently active Turtle instances associated with that screen.",
+    explanation: "Screen-level turtle registry inspection.",
+    hint: "Use screen.turtles().",
     level: "basic",
-    codeExample: "screen = turtle.Screen()"
+    codeExample: "all_turtles = screen.turtles()\nprint(f'{len(all_turtles)} active turtles')"
   },
   {
-    question: "What is the default speed of a new turtle?",
-    shortAnswer: "Speed 3 (normal).",
-    explanation: "Speeds range from 0 (fastest) to 10 (fast) and 1 (slowest). Speed 0 disables animation.",
-    hint: "Change with `t.speed(0)`.",
+    question: "How do you reset a specific turtle's state without affecting other turtles on the screen?",
+    shortAnswer: "By calling 't.reset()' on that specific instance; this erases only the lines drawn by that turtle and returns it to (0,0), leaving all other turtles and their drawings untouched.",
+    explanation: "Instance-level reset vs global screen clear.",
+    hint: "t.reset() only resets that specific turtle instance.",
+    level: "moderate",
+    codeExample: "t1.reset() # Only t1 is cleared and returned home"
+  },
+  {
+    question: "What is 't.stamp()' and how does it relate to turtle object lifecycle?",
+    shortAnswer: "'t.stamp()' leaves an indelible visual imprint of the turtle cursor's current shape and color at its current position on the canvas and returns a unique integer stamp ID.",
+    explanation: "Stamping cursor imprints on the canvas.",
+    hint: "Leaves an imprint of current turtle shape/color and returns a stamp ID.",
     level: "basic",
-    codeExample: "t.speed(6)"
+    codeExample: "stamp_id = t.stamp() # Imprints cursor"
   },
   {
-    question: "What method cleans up all turtles and closes the window?",
-    shortAnswer: "`turtle.bye()`",
-    explanation: "`bye()` closes the turtle graphics window and ends the session. Equivalent to calling `sys.exit()` in some contexts.",
-    hint: "Use with caution – it exits the program.",
+    question: "How do you erase a specific stamped cursor imprint created with 't.stamp()'?",
+    shortAnswer: "Using 't.clearstamp(stamp_id)' to erase a specific stamp, or 't.clearstamps(n)' to erase multiple stamps.",
+    explanation: "Managing and removing stamped shapes.",
+    hint: "Use t.clearstamp(stamp_id).",
     level: "moderate",
-    codeExample: "turtle.bye()"
+    codeExample: "t.clearstamp(stamp_id) # Removes specific stamped imprint"
   },
   {
-    question: "How can you change the default turtle shape for all future turtles?",
-    shortAnswer: "Set the default shape using `turtle.shape('turtle')` before creating new turtles? Actually, `turtle.shape()` affects the default shape for subsequently created turtles? No, it changes the shape of the default turtle. To set a default for all, you'd need to subclass Turtle or use a factory function.",
-    explanation: "Simplest: create a function that returns a configured turtle.",
-    hint: "`def make_turtle(): t = turtle.Turtle(); t.shape('turtle'); return t`",
-    level: "expert",
-    codeExample: "def make_turtle(): t = turtle.Turtle(); t.shape('turtle'); return t"
-  },
-  {
-    question: "What is the `turtle.Turtle` constructor's optional parameter?",
-    shortAnswer: "`shape` – e.g., `Turtle(shape='turtle')`.",
-    explanation: "You can pass a shape name directly to the constructor.",
-    hint: "Saves an extra line.",
-    level: "moderate",
-    codeExample: "t = turtle.Turtle(shape='turtle')"
-  },
-  {
-    question: "Can turtles have different pen sizes?",
-    shortAnswer: "Yes, using `t.pensize(size)` per turtle.",
-    explanation: "Each turtle maintains its own pensize.",
-    hint: "Thick lines for one, thin for another.",
+    question: "How do you set the drawing speed of a turtle, and what values are valid?",
+    shortAnswer: "Using 't.speed(val)' with integers 0 to 10 (or string keywords 'fastest': 0, 'fast': 10, 'normal': 6, 'slow': 3, 'slowest': 1).",
+    explanation: "Turtle animation speed configuration.",
+    hint: "0 (fastest/instant) to 10 (fast), with 1 being slowest.",
     level: "basic",
-    codeExample: "t1.pensize(5); t2.pensize(1)"
+    codeExample: "t.speed('fastest') # or t.speed(0)"
   },
   {
-    question: "What happens if you try to access a turtle's method after it's been deleted?",
-    shortAnswer: "A `NameError` if variable is gone, or `ReferenceError` if object is garbage collected.",
-    explanation: "Once deleted, the variable no longer refers to a valid turtle.",
-    hint: "Avoid deleting turtles while still using them.",
-    level: "expert",
-    codeExample: "del t; t.forward(10)  # NameError"
-  },
-  {
-    question: "How can you make two turtles draw at the same time?",
-    shortAnswer: "Interleave their commands or use `ontimer()` for pseudo-concurrency.",
-    explanation: "Turtle is single-threaded; you can alternate commands quickly to simulate simultaneous movement.",
-    hint: "Write a loop that moves each turtle a little bit.",
-    level: "moderate",
-    codeExample: "for _ in range(100): t1.forward(1); t2.backward(1)"
-  },
-  {
-    question: "What is the difference between `turtle.Turtle()` and `turtle.Pen()`?",
-    shortAnswer: "`Pen()` is an alias for `Turtle()`; they are identical.",
-    explanation: "Historical reason: some versions differentiate, but in standard turtle, `Pen` is the same as `Turtle`.",
-    hint: "Use `Turtle()` for clarity.",
-    level: "moderate",
-    codeExample: "p = turtle.Pen()  # same as Turtle()"
-  },
-  {
-    question: "What does the `turtle.numturtles()` function do?",
-    shortAnswer: "Returns the number of turtles currently on the screen.",
-    explanation: "It is an alias for `len(turtle.turtles())`.",
-    hint: "Useful for debugging.",
-    level: "moderate",
-    codeExample: "print(turtle.numturtles())"
-  },
-  {
-    question: "Can you change the shape of a turtle after creation?",
-    shortAnswer: "Yes, using `t.shape('new_shape')`.",
-    explanation: "Available shapes: 'arrow', 'circle', 'classic', 'square', 'triangle', 'turtle'.",
-    hint: "Some systems support custom shapes.",
+    question: "What is the return type of 't.pencolor()' and 't.fillcolor()' when called without arguments?",
+    shortAnswer: "They return the current pen color and fill color as strings (e.g. 'teal', '#090d16') or RGB tuples depending on the active colormode.",
+    explanation: "Color query return values.",
+    hint: "Returns current color name, hex code, or RGB tuple.",
     level: "basic",
-    codeExample: "t.shape('circle')"
+    codeExample: "current_color = t.pencolor() # '#2dd4bf'"
   },
   {
-    question: "How does the turtle object manage its internal state?",
-    shortAnswer: "Each turtle has attributes: position (x,y), heading, pen state (up/down), color, pensize, visibility, etc.",
-    explanation: "Methods modify these attributes. The state is independent for each turtle.",
-    hint: "Think of it as a little robot with its own memory.",
-    level: "moderate",
-    codeExample: ""
+    question: "Why should you hide the turtle cursor ('t.hideturtle()') when drawing complex mathematical curves?",
+    shortAnswer: "Hiding the cursor improves rendering performance significantly (Tkinter does not need to constantly rotate and redraw the cursor icon) and produces cleaner, professional final graphics.",
+    explanation: "Performance optimization and visual polish via cursor hiding.",
+    hint: "Speeds up rendering and eliminates cursor clutter on complex curves.",
+    level: "basic",
+    codeExample: "t.hideturtle() # Boosts speed and hides cursor"
   },
   {
-    question: "What is the `__init__` method of the Turtle class?",
-    shortAnswer: "The constructor that initializes a new turtle object with default values.",
-    explanation: "You don't call it directly; `Turtle()` invokes it.",
-    hint: "Part of object-oriented programming.",
-    level: "expert",
-    codeExample: ""
+    question: "Can multiple turtles inherit shared drawing behavior using Python class inheritance?",
+    shortAnswer: "Yes; you can create custom subclasses: 'class ParticleTurtle(turtle.Turtle): ...' and encapsulate custom physics, velocities, and specialized drawing methods directly into the object.",
+    explanation: "Object-oriented subclassing of turtle.Turtle.",
+    hint: "Yes, by subclassing turtle.Turtle to add custom physics and methods.",
+    level: "pro",
+    codeExample: "class StudentAgent(turtle.Turtle):\n    def draw_star(self): ... # Custom method"
   },
   {
-    question: "How would you create a turtle that starts at (100, 100) facing south?",
-    shortAnswer: "`t = turtle.Turtle(); t.penup(); t.goto(100,100); t.setheading(270); t.pendown()`",
-    explanation: "Use `setheading(270)` for south (or 270 degrees).",
-    hint: "Remember: penup to move without drawing.",
-    level: "moderate",
-    codeExample: "t = turtle.Turtle(); t.penup(); t.goto(100,100); t.setheading(270); t.pendown()"
+    question: "What is the ultimate golden rule of Turtle Object Creation?",
+    shortAnswer: "Always instantiate explicit OOP `turtle.Turtle()` instances (`t1`, `t2`), encapsulate unique state (colors, pens, shapes), leverage `t.clone()` for fractal branches, and use `screen.turtles()` to manage multi-agent graphics systems with modular elegance.",
+    explanation: "The complete standard for object-oriented Turtle graphics programming.",
+    hint: "Explicit OOP instances + encapsulated states + cloning + multi-agent coordination.",
+    level: "basic",
+    codeExample: "# Enterprise Multi-Agent Turtle Standard"
   }
 ];
 

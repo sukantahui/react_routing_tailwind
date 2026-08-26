@@ -1,0 +1,24 @@
+TOPIC_ID: 004_003_005
+MODULE: 004_003_python-testing
+TITLE: Topic 5: Testing exceptions with pytest.raises
+LEVEL: Pro
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to verifying exception contracts and error-handling behavior using `pytest.raises`. Deep dive into defensive software engineering: testing expected runtime exceptions (`ValueError`, `KeyError`, `TypeError`), regular expression message matching with `match=r"..."`, inspecting exception attributes and traceback metadata via `exc_info.value`, testing custom domain exception hierarchies (`AdmissionError`, `QuotaExceededError`, `PaymentFailedError`), combining `pytest.raises` with `@pytest.mark.parametrize` using `contextlib.nullcontext()`, and avoiding common silent exception testing anti-patterns. Complete real-world institutional case study validating multi-campus student admission constraints, age criteria, and quota exhaustion across Barrackpore, Kolkata, Ichapur, and Jadavpur.
+
+CORE CONCEPTS:
+1. Exception Contract Testing: Why Negative Testing is Vital for System Robustness
+2. `pytest.raises` Context Manager Syntax and Execution Flow
+3. Regex Pattern Matching on Error Messages with `match=r"..."`
+4. Inspecting Captured Exception Objects (`exc_info.value`, `exc_info.type`, `exc_info.typename`)
+5. Testing Custom Domain Exception Hierarchies with Structured Error Payloads
+6. Parametrizing Successes and Exceptions in a Single Test with `nullcontext()`
+7. Testing Expected Warnings with `pytest.warns()`
+8. Common Pitfalls: Broad Exception Trapping and Silent False Positives
+9. Production Case Study: Institutional Multi-Campus Admission Guard Suite
+
+REAL-WORLD SCENARIOS:
+- Validating API request payloads and asserting that malformed inputs raise structured 400 ValidationErrors
+- Ensuring payment gateways raise specific `PaymentDeclinedError` with accurate bank decline codes
+- Testing concurrency locks and race conditions that raise `ResourceBusyError`

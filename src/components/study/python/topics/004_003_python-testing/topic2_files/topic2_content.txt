@@ -1,0 +1,24 @@
+TOPIC_ID: 004_003_002
+MODULE: 004_003_python-testing
+TITLE: Topic 2: Built-in unittest framework: TestCase, assertions, setUp and tearDown
+LEVEL: Pro
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive guide to Python's built-in `unittest` framework (PyUnit). Deep dive into object-oriented test architecture: subclassing `unittest.TestCase`, mastering specialized assertion methods (`assertEqual`, `assertAlmostEqual`, `assertRaises`, `assertIn`, `assertCountEqual`), test isolation lifecycle with `setUp()` and `tearDown()` instance fixtures, class-level `setUpClass()` and `tearDownClass()` optimizations, granular iteration diagnostics with `subTest()`, conditional test skipping (`@unittest.skip`, `@unittest.skipIf`), and test suite runners. Complete real-world institutional case study validating multi-campus student records, fee balance mutations, and academic transcript verification across Barrackpore, Kolkata, Ichapur, and Jadavpur.
+
+CORE CONCEPTS:
+1. `unittest` Architecture: `TestCase`, `TestSuite`, `TestRunner`, and `TestResult`
+2. Specialized Assertion Catalog (`assertEqual`, `assertIs`, `assertIn`, `assertDictEqual`)
+3. Testing Floating-Point Precision with `assertAlmostEqual(places=2)`
+4. Exception Assertion Contexts with `with self.assertRaises(ValueError):`
+5. Test Fixture Lifecycle: `setUp()` / `tearDown()` vs `setUpClass()` / `tearDownClass()`
+6. Granular Loop Diagnostics with `with self.subTest(param=...):`
+7. Conditional Skipping and Expected Failures (`@unittest.skip`, `@unittest.expectedFailure`)
+8. CLI Test Discovery (`python -m unittest discover -s tests -p "test_*.py"`)
+9. Institutional Multi-Campus Student Ledger Test Suite Case Study
+
+REAL-WORLD SCENARIOS:
+- Writing zero-dependency test suites in restricted standard-library-only environments
+- Managing database and temporary file fixture lifecycles with `setUp` and `tearDown`
+- Validating floating-point financial tax calculations and student tuition balances

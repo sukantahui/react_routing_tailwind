@@ -1,0 +1,87 @@
+================================================================================
+  TOPIC 6: EVALUATING EXPRESSIONS (STEP-BY-STEP RULES & ORDER OF EVALUATION)
+  MODULE: 001_003 - Operators, Expressions & Basic Logic
+  COURSE: Python Foundations & Advanced Programming
+  TEACHER & MENTOR: Sukanta Hui
+================================================================================
+
+1. WHAT IS AN EXPRESSION IN PYTHON?
+--------------------------------------------------------------------------------
+An expression is any legal combination of literals, variables, functions, and
+operators that evaluates down to a single resulting value.
+
+Examples:
+- 5 + 3                  -> Evaluates to 8
+- 10 > 5 and 'a' in 'cat' -> Evaluates to True
+- f"Score: {90 + 5}"     -> Evaluates to "Score: 95"
+
+2. THE 4 PHASES OF PYTHON EXPRESSION EVALUATION
+--------------------------------------------------------------------------------
+When Python executes an expression, it follows a strict 4-phase sequence:
+
+Phase 1: Lexical Tokenization & Syntax Parsing
+  Python reads characters, identifies tokens (operators, identifiers, literals),
+  and checks grammar.
+
+Phase 2: Abstract Syntax Tree (AST) Construction
+  Python organizes sub-expressions into a hierarchical tree based on operator
+  precedence (binding power).
+
+Phase 3: Bottom-Up Tree Reduction
+  The interpreter evaluates child nodes first, simplifying leaf expressions
+  step-by-step upwards towards the root.
+
+Phase 4: Left-to-Right Operand Evaluation & Associativity Resolution
+  Tied operators are resolved according to their associativity (L->R or R->L).
+  Within any binary operation, Python strictly evaluates the left operand BEFORE
+  evaluating the right operand.
+
+3. MASTER ORDER OF EVALUATION RULES
+--------------------------------------------------------------------------------
+Rule 1: Parentheses () Always Have Supreme Authority
+  Expressions inside ( ) are completely evaluated before being combined with
+  outer operators.
+
+Rule 2: Operator Hierarchy (Precedence)
+  1. Parentheses, Indexing, Calls: (), [], {}, .
+  2. Exponentiation: ** (Right-to-Left!)
+  3. Unary Positive, Negative, Invert: +x, -x, ~x (Right-to-Left!)
+  4. Multiplicative Arithmetic: *, /, //, % (Left-to-Right)
+  5. Additive Arithmetic: +, - (Left-to-Right)
+  6. Bitwise Shifts: <<, >> (Left-to-Right)
+  7. Bitwise Logic: & (AND), ^ (XOR), | (OR)
+  8. Comparisons & Membership: <, <=, >, >=, ==, !=, is, in
+  9. Boolean NOT: not (Right-to-Left!)
+  10. Boolean AND: and (Left-to-Right with Short-Circuiting)
+  11. Boolean OR: or (Left-to-Right with Short-Circuiting)
+  12. Conditional Expression: x if C else y (Right-to-Left!)
+  13. Assignment & Augmented: =, +=, -=, *=, ... (Right-to-Left!)
+
+Rule 3: Associativity Rule
+  - Left-to-Right (L->R): 100 - 30 - 20 -> (100 - 30) - 20 = 50
+  - Right-to-Left (R->L): 2 ** 3 ** 2 -> 2 ** (3 ** 2) = 2 ** 9 = 512
+
+Rule 4: Chained Comparisons Rule
+  - a < b < c is translated as (a < b) and (b < c), with 'b' evaluated once.
+
+4. STEP-BY-STEP WORKED EXAMPLE
+--------------------------------------------------------------------------------
+Expression: 10 + 6 * 3 - 4 / 2 ** 2
+
+Step 1: Exponentiation (2 ** 2)           -> 4
+Step 2: Division (4 / 4)                  -> 1.0 (True float division)
+Step 3: Multiplication (6 * 3)            -> 18
+Step 4: Addition (10 + 18)                -> 28
+Step 5: Subtraction (28 - 1.0)            -> 27.0 (Final Result)
+
+5. COMMON PITFALLS & INTERVIEW TRAPS
+--------------------------------------------------------------------------------
+1. -3 ** 2 gives -9, not 9 (because ** has higher precedence than unary -).
+2. 0.1 + 0.2 == 0.3 evaluates to False due to IEEE 754 float precision.
+3. Chained assignment with mutable lists (a = b = []) shares memory references.
+4. 'or' short-circuits on first Truthy; 'and' short-circuits on first Falsy.
+5. In expressions like f(x) + g(y), f(x) is guaranteed to execute before g(y).
+
+================================================================================
+  END OF NOTE - Coder & AccoTax Classroom Reference Series
+================================================================================

@@ -1,0 +1,22 @@
+TOPIC_ID: 004_003_001
+MODULE: 004_003_python-testing
+TITLE: Topic 1: Types of testing: Unit testing, Integration testing, Functional testing
+LEVEL: Pro
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive guide to the testing hierarchy and test classification in Python systems. Deep dive into the Testing Pyramid: Unit Testing (verifying individual pure functions and isolated classes in milliseconds), Integration Testing (verifying communication boundaries between subsystems, database persistence, and external APIs), and Functional / End-to-End (E2E) Testing (verifying user workflows and complete business journeys). Features real-world case studies modeling student registration, invoice generation, and ledger audits across Barrackpore, Kolkata, Ichapur, and Jadavpur campuses.
+
+CORE CONCEPTS:
+1. The Testing Pyramid: Distribution Ratios (70% Unit, 20% Integration, 10% E2E)
+2. Unit Testing: Isolation, Test Doubles, Speed, and High Test Granularity
+3. Integration Testing: Validating Component Collaboration, Sockets, DBs, and File I/O
+4. Functional & E2E Testing: Black-Box User Journey Verification
+5. Trade-offs: Execution Speed, Maintenance Cost, and Defect Localization
+6. Component Boundaries & Contract Testing
+7. Multi-Tier Institutional Case Study: Automated Admission & Ledger Pipeline
+
+REAL-WORLD SCENARIOS:
+- Unit testing complex discount calculations and grade normalization algorithms
+- Integration testing database repositories and cache synchronization layers
+- End-to-end testing complete candidate admission workflows from HTTP request to PDF receipt

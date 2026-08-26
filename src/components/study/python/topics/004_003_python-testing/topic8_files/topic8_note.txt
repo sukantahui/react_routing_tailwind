@@ -1,0 +1,49 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_003: PYTHON TESTING
+            TOPIC 8: INTRODUCTION TO TEST-DRIVEN DEVELOPMENT (TDD) WORKFLOW
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE RED-GREEN-REFACTOR MICRO-CYCLE
+--------------------------------------------------------------------------------
+  1. 🔴 RED:
+     Write a small, focused test for a new requirement before writing code.
+     Run test -> Verify it FAILS for the expected reason (e.g. function missing).
+
+  2. 🟢 GREEN:
+     Write the MINIMUM amount of production code to make the test pass.
+     Run test -> Verify it PASSES.
+
+  3. 🔵 REFACTOR:
+     Clean up duplication, improve variable names, optimize algorithms.
+     Run test -> Verify suite REMAINS GREEN.
+
+--------------------------------------------------------------------------------
+2. THE THREE LAWS OF TDD (UNCLE BOB)
+--------------------------------------------------------------------------------
+  Law 1: You may not write production code until you have written a failing test.
+  Law 2: You may not write more of a unit test than is sufficient to fail.
+  Law 3: You may not write more production code than is sufficient to pass.
+
+--------------------------------------------------------------------------------
+3. TDD EXAMPLE: ADMISSION WAIVER CALCULATION
+--------------------------------------------------------------------------------
+  # Step 1: Write Test (RED)
+  def test_full_waiver_for_top_performer():
+      assert calculate_waiver(score=95.0, fee=10000.0) == 10000.0
+
+  # Step 2: Implement Minimum Code (GREEN)
+  def calculate_waiver(score: float, fee: float) -> float:
+      if score >= 90.0:
+          return fee
+      return 0.0
+
+  # Step 3: Refactor cleanly with constants and type hints (REFACTOR)
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 8: TEST-DRIVEN DEVELOPMENT (TDD)
+================================================================================

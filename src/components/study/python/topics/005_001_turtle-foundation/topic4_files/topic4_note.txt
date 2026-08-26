@@ -1,0 +1,37 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+  PYTHON PROGRAMMING • SEGMENT 5: TURTLE & CREATIVE GRAPHICS • MODULE 005_001
+        TOPIC 4: TURTLE CURSOR BEHAVIOR (POSITION, HEADING & VISIBILITY)
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. CURSOR TELEMETRY & VISIBILITY METHODS
+--------------------------------------------------------------------------------
+  1. Position Telemetry:
+     - t.pos()       -> Returns (x, y) coordinates as float tuple
+     - t.xcor()      -> Current X coordinate
+     - t.ycor()      -> Current Y coordinate
+
+  2. Heading Angle Telemetry:
+     - t.heading()   -> Returns current direction in degrees (0.0 to 359.9°)
+       • 0°   = East (Right)
+       • 90°  = North (Up)
+       • 180° = West (Left)
+       • 270° = South (Down)
+
+  3. Visibility & Performance:
+     - t.hideturtle() / t.ht() -> Hides cursor icon (Speeds up drawing 3x-5x)
+     - t.showturtle() / t.st() -> Makes cursor icon visible
+     - t.isvisible()           -> Returns True if cursor is visible
+
+  4. Pen Drawing State:
+     - t.penup() / t.up()     -> Lifts pen (movement without drawing)
+     - t.pendown() / t.down() -> Lowers pen (drawing active)
+     - t.isdown()             -> Returns True if pen is currently down
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 4: CURSOR BEHAVIOR
+================================================================================

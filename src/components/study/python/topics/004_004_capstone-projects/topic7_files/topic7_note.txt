@@ -1,0 +1,44 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_004: CAPSTONE PROJECTS
+           TOPIC 7: RESUME & PORTFOLIO PRESENTATION STRATEGIES
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE GOOGLE X-Y-Z RESUME FORMULA
+--------------------------------------------------------------------------------
+  Formula: "Accomplished [X], as measured by [Y], by doing [Z]"
+
+  Weak Bullet (Amateur):
+  - "Worked on student fee management system and wrote Python code."
+
+  Strong Bullet (Pro):
+  - "Architected a multi-campus Python student ledger engine, reducing fee reconciliation
+     time by 75% for 3,500 active records by integrating SQLite WAL persistence and Redis caching."
+
+--------------------------------------------------------------------------------
+2. GITHUB PORTFOLIO CURATION CHECKLIST
+--------------------------------------------------------------------------------
+  1. Pin 2-3 High-Impact Repositories (Quality over quantity).
+  2. Every pinned repository MUST have:
+     - Clear Shields.io badges (CI status, 85%+ coverage, Python version, license)
+     - 2-sentence value proposition
+     - Architectural mermaid / SVG system diagram
+     - Copy-paste quickstart installation commands
+     - 100% passing automated test suite (pytest)
+     - PEP 257 Google-style docstrings and PEP 484 static types
+
+--------------------------------------------------------------------------------
+3. THE STAR BEHAVIORAL INTERVIEW METHOD
+--------------------------------------------------------------------------------
+  - Situation: Context and problem background
+  - Task: Specific challenge and technical goal
+  - Action: Engineering steps, architecture decisions, and code implemented
+  - Result: Quantified impact, performance metrics, and lessons learned
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 7: RESUME & PORTFOLIO STRATEGIES
+================================================================================

@@ -1,0 +1,50 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+  PYTHON PROGRAMMING • SEGMENT 5: TURTLE & CREATIVE GRAPHICS • MODULE 005_001
+           TOPIC 0: INTRODUCTION TO TURTLE GRAPHICS (HISTORY & PEDAGOGY)
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. ORIGINS & EDUCATIONAL PURPOSE OF TURTLE GRAPHICS
+--------------------------------------------------------------------------------
+  1. Origin:
+     - Developed in 1967 as part of the Logo programming language by Wally Feurzeig,
+       Seymour Papert, and Cynthia Solomon at MIT.
+     - Originally a physical robotic "turtle" on wheels with a pen, rolling on paper.
+     - Introduced to the Python Standard Library as the 'turtle' module based on Tkinter.
+
+  2. Body Syntonic Learning:
+     - Seymour Papert's learning philosophy where students learn geometry and logic
+       by mentally placing themselves in the position of the turtle ("turn right 90 degrees",
+       "step forward 100 paces").
+
+--------------------------------------------------------------------------------
+2. BASIC FIRST PROGRAM STRUCTURE
+--------------------------------------------------------------------------------
+  import turtle
+
+  # 1. Setup Screen
+  screen = turtle.Screen()
+  screen.title("My First Turtle Canvas - Coder & Accotax")
+  screen.bgcolor("black")
+
+  # 2. Create Turtle
+  t = turtle.Turtle()
+  t.shape("turtle")
+  t.color("cyan")
+  t.speed(3)
+
+  # 3. Simple Movement
+  t.forward(100)  # Move 100 pixels forward
+  t.left(90)      # Turn 90 degrees counter-clockwise
+  t.forward(100)
+
+  # 4. Keep Window Open
+  turtle.done()  # Enters GUI event loop
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 0: TURTLE INTRODUCTION
+================================================================================

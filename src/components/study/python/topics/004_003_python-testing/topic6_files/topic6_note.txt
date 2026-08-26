@@ -1,0 +1,52 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_003: PYTHON TESTING
+                     TOPIC 6: MOCKING EXTERNAL DEPENDENCIES WITH MOCK
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. MOCK VS MAGICMOCK & RETURN_VALUE VS SIDE_EFFECT
+--------------------------------------------------------------------------------
+  from unittest.mock import Mock, MagicMock
+
+  # MagicMock implements Python magic dunder methods (__len__, __iter__, etc.)
+  mock_service = MagicMock()
+  mock_service.calculate_discount.return_value = 2500.0
+  mock_service.send_sms.side_effect = [True, ConnectionError("Network timeout")]
+
+  # Assertion verification
+  mock_service.calculate_discount(10000.0)
+  mock_service.calculate_discount.assert_called_once_with(10000.0)
+
+--------------------------------------------------------------------------------
+2. THE GOLDEN RULE OF PATCHING: WHERE TO PATCH
+--------------------------------------------------------------------------------
+  # GOLDEN RULE: Patch where an object is LOOKED UP / USED, NOT where defined!
+  # If 'billing.py' imports 'requests', patch 'billing.requests.post', NOT 'requests.post'!
+
+  from unittest.mock import patch
+
+  @patch("institutional_service.requests.post")
+  def test_payment_webhook(mock_post):
+      mock_post.return_value.status_code = 200
+      mock_post.return_value.json.return_value = {"status": "CAPTURED"}
+
+      result = process_payment("STU_1", 5000.0)
+      assert result == "CAPTURED"
+      mock_post.assert_called_once()
+
+--------------------------------------------------------------------------------
+3. PREVENTING MOCK DRIFT WITH AUTOSPEC
+--------------------------------------------------------------------------------
+  # autospec=True ensures the mock mirrors real function signatures strictly
+  @patch("institutional_service.send_sms", autospec=True)
+  def test_sms(mock_sms):
+      mock_sms("9830000000", "Welcome Mamata") # Valid
+      # mock_sms(invalid_arg=123) # FAILS immediately due to signature mismatch!
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 6: MOCKING EXTERNAL DEPENDENCIES
+================================================================================

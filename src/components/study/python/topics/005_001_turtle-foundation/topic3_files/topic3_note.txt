@@ -1,0 +1,38 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+  PYTHON PROGRAMMING • SEGMENT 5: TURTLE & CREATIVE GRAPHICS • MODULE 005_001
+              TOPIC 3: TURTLE OBJECT CREATION & LIFECYCLE MANAGEMENT
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. OOP TURTLE INSTANTIATION VS PROCEDURAL SINGLETON
+--------------------------------------------------------------------------------
+  Procedural Singleton (Amateur):
+    import turtle
+    turtle.forward(100) # Operates on hidden global anonymous singleton
+
+  Object-Oriented Architecture (Pro):
+    import turtle
+    t1 = turtle.Turtle() # Instance 1 (e.g. Mamata's Pen)
+    t2 = turtle.Turtle() # Instance 2 (e.g. Mahima's Pen)
+    
+    t1.color("cyan")
+    t2.color("magenta")
+    t1.forward(100)
+    t2.backward(100)
+
+--------------------------------------------------------------------------------
+2. TURTLE LIFECYCLE & STATE ATTRIBUTES
+--------------------------------------------------------------------------------
+  - t.shape("turtle")   -> Built-in shapes: "arrow", "turtle", "circle", "square", "triangle", "classic"
+  - t.shapesize(2, 2)   -> Multiplies turtle cursor width and length (stretch_wid, stretch_len)
+  - t.clone()           -> Creates an exact duplicate turtle with identical position, heading & pen
+  - t.hideturtle()      -> Makes cursor invisible for crisp vector art rendering
+  - t.showturtle()      -> Restores cursor visibility
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 3: TURTLE OBJECT LIFECYCLE
+================================================================================

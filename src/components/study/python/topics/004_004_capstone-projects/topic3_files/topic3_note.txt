@@ -1,0 +1,54 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_004: CAPSTONE PROJECTS
+           TOPIC 3: WRITING COMPLETE DOCUMENTATION (README, DOCSTRINGS, TYPES)
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. GOOGLE-STYLE DOCSTRING FORMAT
+--------------------------------------------------------------------------------
+  def calculate_waiver(base_fee: float, score: float) -> float:
+      """Calculates net tuition fee after applying institutional merit rules.
+
+      Args:
+          base_fee (float): The initial tuition charge in INR (must be > 0).
+          score (float): Academic admission merit percentile (0 to 100).
+
+      Returns:
+          float: Final discounted tuition amount.
+
+      Raises:
+          ValueError: If base_fee is non-positive or score is outside [0, 100].
+
+      Examples:
+          >>> calculate_waiver(20000.0, 95.0)
+          16000.0
+      """
+
+--------------------------------------------------------------------------------
+2. MODERN STATIC TYPE ANNOTATIONS (PEP 585 / 604)
+--------------------------------------------------------------------------------
+  from typing import Protocol, TypeVar, Literal
+
+  CampusName = Literal["Barrackpore", "Kolkata", "Ichapur", "Jadavpur"]
+
+  def get_campus_grant(campus: CampusName) -> float:
+      return 0.15 if campus == "Barrackpore" else 0.05
+
+--------------------------------------------------------------------------------
+3. ANATOMY OF A STANDOUT README.MD
+--------------------------------------------------------------------------------
+  1. Project Title + Badges (CI status, Coverage, License, Python version)
+  2. Short Value Proposition / 2-sentence Overview
+  3. Key Features & Architecture Diagram
+  4. Quickstart / Installation (pip install -e .)
+  5. Usage CLI & Python API Examples
+  6. Running Automated Tests (pytest --cov)
+  7. License & Author Attribution
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 3: DOCUMENTATION & TYPE HINTS
+================================================================================

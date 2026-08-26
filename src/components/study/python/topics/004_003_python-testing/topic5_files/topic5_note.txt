@@ -1,0 +1,43 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_003: PYTHON TESTING
+                     TOPIC 5: TESTING EXCEPTIONS WITH PYTEST.RAISES
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. BASIC PYTEST.RAISES CONTEXT MANAGER
+--------------------------------------------------------------------------------
+  import pytest
+
+  def test_negative_fee_raises_value_error():
+      # Passes only if ValueError is raised inside the block
+      with pytest.raises(ValueError):
+          calculate_fee(base_fee=-1000.0)
+
+--------------------------------------------------------------------------------
+2. ERROR MESSAGE REGEX MATCHING
+--------------------------------------------------------------------------------
+  def test_exact_error_message():
+      # Asserts exception type AND matches message against regular expression
+      with pytest.raises(ValueError, match=r"Fee must be positive.*"):
+          calculate_fee(base_fee=-500.0)
+
+--------------------------------------------------------------------------------
+3. INSPECTING EXCEPTION ATTRIBUTES
+--------------------------------------------------------------------------------
+  def test_custom_exception_payload():
+      with pytest.raises(QuotaExceededError) as exc_info:
+          enroll_student("Barrackpore", "Python_Batch_1")
+
+      # Inspect exception object attributes
+      err = exc_info.value
+      assert err.campus == "Barrackpore"
+      assert err.max_capacity == 40
+      assert "Batch is full" in str(err)
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 5: TESTING EXCEPTIONS WITH PYTEST
+================================================================================

@@ -1,0 +1,42 @@
+================================================================================
+  TOPIC 5: SPEED VS RENDERING PERFORMANCE: SPEED() SETTINGS
+  MODULE: 005_002 - Turtle Design & Aesthetic Customization
+  COURSE: Python Creative Graphics & Foundations
+  TEACHER & MENTOR: Sukanta Hui
+================================================================================
+
+1. THE TURTLE SPEED HIERARCHY
+--------------------------------------------------------------------------------
+Turtle animation speed is configured via `t.speed(s)`:
+
+  Value | String Alias | Description
+  ------|--------------|---------------------------------------------
+  1     | 'slowest'    | Ultra-slow pedagogical tracing (ideal for teaching)
+  3     | 'slow'       | Slow deliberate motion
+  6     | 'normal'     | Default standard drawing speed
+  10    | 'fast'       | Fast animation
+  0     | 'fastest'    | No animation delay (Fastest possible standard mode)
+
+2. CRITICAL QUIRK: WHY IS 0 FASTER THAN 10?
+--------------------------------------------------------------------------------
+Beginners often assume `speed(10)` is maximum speed because 10 is the largest integer.
+However, `speed(0)` is a special sentinel flag in Turtle that means:
+"Disable internal sleep timer delays completely" (0 milliseconds of delay).
+Therefore: `speed(1)` is slowest, `speed(10)` is very fast, and `speed(0)` is FASTEST.
+
+3. SPEED(0) VS SCREEN.TRACER(0)
+--------------------------------------------------------------------------------
+- `t.speed(0)`: Eliminates inter-step sleep delays, but Tkinter still redraws
+  the canvas on every single vector movement (visible fast drawing).
+- `screen.tracer(0)`: Disables screen canvas updates entirely. Movements happen
+  in memory in microseconds. You MUST call `screen.update()` to paint the
+  completed image onto the screen.
+
+When to use `tracer(0)`:
+- High-density fractals (Koch snowflakes, Sierpinski triangles with 1,000+ lines).
+- Complex mathematical mandalas and recursive branching trees.
+- Real-time interactive 60 FPS games.
+
+================================================================================
+  END OF NOTE - Coder & AccoTax Classroom Reference Series
+================================================================================

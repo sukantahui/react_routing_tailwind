@@ -1,0 +1,24 @@
+TOPIC_ID: 005_001_006
+MODULE: 005_001_turtle-foundation
+TITLE: Topic 6: Rotation control: left(), right(), setheading(), degrees vs angles
+LEVEL: Beginner
+DIFFICULTY: Easy
+
+OVERVIEW:
+Comprehensive master guide to rotational kinematics, angular orientation, polygon turning geometry, and degree modes in Python Turtle Graphics. Deep dive into relative rotational turning with `left(angle)` (alias `lt()`) and `right(angle)` (alias `rt()`), absolute directional heading with `setheading(angle)` (alias `seth()`), understanding the fundamental exterior angle theorem for regular $N$-sided polygons ($\text{turn\_angle} = 360^\circ / N$), switching between standard sexagesimal degrees and trigonometric radians via `screen.degrees()` and `screen.radians()`, modulo 360 angular normalization, and preventing rotational cumulative drift. Complete real-world institutional multi-angle campus compass navigation case study guiding students Mamata, Mahima, and Susmita along exact radial bearings across Barrackpore, Kolkata, and Ichapur.
+
+CORE CONCEPTS:
+1. Relative Rotations: `left(angle)` / `lt()` & `right(angle)` / `rt()`
+2. Absolute Orientation: `setheading(angle)` / `seth()`
+3. The Exterior Angle Theorem for Regular Polygons ($\theta = 360^\circ / N$)
+4. Degrees vs Radians Mode (`screen.degrees()` vs `screen.radians()`)
+5. Full Angle Normalization ($\theta \pmod{360^\circ}$)
+6. Interior vs Exterior Angles in Geometric Art
+7. Clockwise vs Counter-Clockwise Rotation Conventions
+8. Rotational Drift Mitigation in Iterative Spiral Loops
+9. Institutional Multi-Bearing Campus Compass Case Study
+
+REAL-WORLD SCENARIOS:
+- Calculating exact turning angles for drawing any regular polygon from equilateral triangles ($120^\circ$) to 360-gon circles ($1^\circ$)
+- Programming robotic turret / camera pan-tilt systems using absolute heading bearings
+- Generating complex multi-arm spiral mandalas with precise incremental angular offsets

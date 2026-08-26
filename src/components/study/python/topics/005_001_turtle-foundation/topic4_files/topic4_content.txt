@@ -1,0 +1,24 @@
+TOPIC_ID: 005_001_004
+MODULE: 005_001_turtle-foundation
+TITLE: Topic 4: Turtle cursor (pen) behavior: position, heading, visibility (showturtle(), hideturtle())
+LEVEL: Beginner
+DIFFICULTY: Easy
+
+OVERVIEW:
+Comprehensive master guide to controlling and inspecting the Turtle pen cursor's physical and visual behavior on the 2D canvas. Deep dive into querying Cartesian position (`t.pos()`, `t.xcor()`, `t.ycor()`), compass heading angles (`t.heading()`, 0° to 360°), cursor visibility toggling (`t.showturtle()` / `t.st()`, `t.hideturtle()` / `t.ht()`), inspecting visibility state (`t.isvisible()`), understanding the dramatic rendering performance gains of hiding the cursor during complex mathematical and recursive loops, managing pen drawing states (`t.penup()`, `t.pendown()`, `t.isdown()`), and customizing pen width and stroke colors. Complete real-world institutional cursor Heads-Up Display (HUD) case study tracking real-time pen telemetry for students Mamata, Mahima, and Susmita across Barrackpore, Kolkata, and Ichapur.
+
+CORE CONCEPTS:
+1. Turtle Cursor State Architecture (Position, Heading, Pen, Visibility)
+2. Querying Coordinates: `t.pos()`, `t.xcor()`, `t.ycor()`
+3. Querying Compass Heading: `t.heading()` (0° East, 90° North, 180° West, 270° South)
+4. Cursor Visibility Control: `t.showturtle()` and `t.hideturtle()` (Aliases: `st()`, `ht()`)
+5. Inspecting Visibility: `t.isvisible()`
+6. Performance Optimization: Eliminating Tkinter Cursor Redraw Latency in Loops
+7. Pen State Inspection: `t.isdown()`, `t.penup()`, `t.pendown()`
+8. Pen Stroke Sizing & Color Customization (`pensize()`, `pencolor()`)
+9. Institutional Real-Time Cursor HUD Case Study
+
+REAL-WORLD SCENARIOS:
+- Disabling cursor icon rendering to render 10,000-iteration fractal mandalas 5x faster
+- Building a real-time on-canvas coordinate and telemetry HUD displaying turtle position and heading
+- Safely navigating between discrete drawing regions without leaving unwanted connecting ink trails
