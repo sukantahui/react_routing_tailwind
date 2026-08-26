@@ -1,0 +1,46 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 14: Using Switch as a Value-Returning Expression
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. FORMAL DEFINITION UNDER JLS §15.28
+A `SwitchExpression` is a poly-expression that evaluates its selector expression and transfers control to a matching switch label to compute and yield a result value:
+  SwitchExpression:
+    switch ( Expression ) SwitchBlock
+
+Unlike a switch statement, a switch expression is part of an evaluation context (such as an assignment, invocation, or return statement) and must complete normally by yielding a value of the target type or complete abruptly by throwing an exception.
+
+2. COMPILE-TIME EXHAUSTIVENESS ANALYSIS
+The Java compiler performs strict exhaustiveness verification on all switch expressions:
+A. Enumeration Selectors:
+   If the selector is an `enum` type $E$, and every enum constant of $E$ is explicitly matched by a case label, the switch expression is exhaustive without requiring a `default` label.
+   If an enum constant is added in the future, re-compilation immediately flags an exhaustiveness error.
+
+B. Primitive & Reference Selectors (`int`, `String`, etc.):
+   Because the set of possible values is infinite or unbounded, an explicit `default` label is mandatory.
+
+3. POLY-EXPRESSION TYPE CONTEXT AND INFERENCE
+The type of a switch expression is determined by:
+1. The target type if the switch expression appears in an assignment context (`double d = switch (...) { ... };`).
+2. The Least Upper Bound (LUB) of the types of all yield/expression branches if type inference (`var`) is used.
+For example, if branches produce `Integer` and `Double`, the inferred type is `Number & Comparable<?>`.
+
+4. IMMUTABILITY AND CONSTRUCTOR PATTERNS
+Switch expressions enable single-step initialization of `final` fields inside constructors:
+  public final class CourseBilling {
+      private final double finalFee;
+      public CourseBilling(StudentCategory cat, double base) {
+          this.finalFee = base * (1.0 - switch (cat) {
+              case MERIT_SCHOLAR -> 0.50;
+              case BPL_EWS       -> 0.75;
+              default            -> 0.00;
+          });
+      }
+  }
+This guarantees thread-safe immutability without mutable builder state.
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu built a student scholarship rebate and honors badge engine in Indian Rupees (₹). By embedding switch expressions directly into final variable assignments, method return statements, and `printf` invocations, their system achieved 100% compile-time exhaustiveness verification with zero uninitialized state defects across Naihati and Shyamnagar.
+================================================================================

@@ -1,0 +1,45 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_002: Java Syntax, Variables, Literals & Primitive Data Types
+TOPIC 14: Defining Immutable Constants Using the 'final' Keyword
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Definition & Behavior:
+  * The 'final' modifier transforms a variable into a single-assignment constant.
+  * Reassigning a final variable causes a COMPILE-TIME ERROR.
+
+- Global Compile-Time Constants:
+  * Declared as: public static final <type> <NAME> = <value>;
+  * Naming Standard: UPPER_SNAKE_CASE (e.g. GST_RATE, MAX_CAPACITY).
+  * Inlined directly by javac compiler into client bytecode (constant folding).
+
+- Blank Final Variables:
+  * Local blank final   : Must be assigned exactly once before first read.
+  * Instance blank final: Must be initialized in EVERY constructor or instance block.
+  * Static blank final  : Must be initialized in a static { ... } block.
+
+- Critical Distinction: Reference vs Object Mutability:
+  * final int[] arr = {1, 2, 3};
+    arr[0] = 99;         // LEGAL! Array contents are mutable.
+    arr = new int[5];    // ILLEGAL! Cannot reassign final reference.
+  * 'final' locks the reference address, NOT the object's internal fields!
+
+- Other Usages of 'final':
+  * final method : Cannot be overridden by child subclasses.
+  * final class  : Cannot be extended (no subclasses permitted, e.g. String).
+  * final param  : Cannot be reassigned inside the method body.
+
+- Performance & JIT Optimization:
+  * Enables devirtualization (direct method dispatch instead of vtable lookup).
+  * Guarantees safe publication in multi-threaded memory models.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Name global constants in UPPER_SNAKE_CASE (e.g. STANDARD_GST_RATE).
+[✓] Remember that blank final instance fields must be assigned in constructors.
+[✓] Combine 'final' with unmodifiable collections (List.of) for true immutability.
+[✓] Use final parameters to prevent accidental variable reassignment bugs.
+================================================================================

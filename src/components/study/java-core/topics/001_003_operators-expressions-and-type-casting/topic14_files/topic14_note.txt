@@ -1,0 +1,37 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 14: Implicit Type Casting in Compound Assignments (e.g. byte b = 5; b += 2;)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- The Compilation Paradox Explained:
+  * Standard: byte b = 5; b = b + 2;   --> COMPILATION ERROR (int cannot assign to byte)
+  * Compound: byte b = 5; b += 2;      --> COMPILES CLEANLY!
+
+- Why It Compiles (JLS §15.26.2):
+  * The Java compiler automatically inserts a narrowing cast:
+    b += 2;  ==>  b = (byte)(b + 2);
+
+- The Silent Overflow Hazard:
+  * Because the narrowing cast is inserted automatically, overflow happens SILENTLY!
+  * byte b = 127; b += 1;     ==> b becomes -128 (Byte.MIN_VALUE!)
+  * short s = 32767; s += 1;  ==> s becomes -32768 (Short.MIN_VALUE!)
+  * byte b = 100; b += 300;   ==> b becomes -112 (High bits discarded!)
+
+- Silent Floating-Point Truncation:
+  * int x = 10; x += 4.9;     ==> x becomes 14 (0.9 silently dropped!)
+  * In accounting (₹), 'int += double' causes lost paise/cents without warning!
+
+- Character Advancement:
+  * char c = 'A'; c += 3;     ==> c becomes 'D' (Unicode code point 68)
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Be aware that compound assignments SILENTLY hide narrowing truncation.
+[✓] Avoid using 'int += double' in financial code; use BigDecimal or double.
+[✓] Use range validation before updating narrow types (byte, short).
+[✓] Prefer 'int' or 'long' for loop counters and accumulators.
+================================================================================

@@ -1,0 +1,41 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 9: Logical Operators: Logical AND (&&), Logical OR (||), Logical NOT (!)
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. BOOLEAN ALGEBRA IN JAVA
+Logical operators manipulate boolean values according to mathematical propositional calculus:
+1. `&&` (Conditional-AND / Logical Conjunction): Evaluates to `true` if and only if both left and right operands are `true`.
+2. `||` (Conditional-OR / Logical Disjunction): Evaluates to `true` if either the left or right operand (or both) is `true`.
+3. `!` (Logical Complement / Negation): Inverts truth state.
+
+2. OPERATOR PRECEDENCE HIERARCHY
+The logical operators occupy distinct precedence tiers in the Java grammar:
+- Level 13: `!` (Unary Logical Complement)
+- Level 4:  `&&` (Conditional-AND)
+- Level 3:  `||` (Conditional-OR)
+
+Because `&&` has higher precedence than `||`:
+  boolean res = a || b && c;
+is unconditionally parsed as:
+  boolean res = a || (b && c);
+
+3. DE MORGAN'S THEOREMS IN CODE REFACTORING
+De Morgan's Laws provide mathematical tools for simplifying and refactoring complex conditional logic:
+A. Negation of AND:
+   `!(A && B)` is logically identical to `(!A || !B)`.
+   Real-world example: "Not eligible for discount (must be student AND under 25)" is identical to "Not a student OR age >= 25".
+
+B. Negation of OR:
+   `!(A || B)` is logically identical to `(!A && !B)`.
+   Real-world example: "Neither Sunday nor Holiday" is identical to "Not Sunday AND not a holiday".
+
+4. TYPE-SAFETY AND JVM DESUGARING
+Unlike C/C++ (where integers `0` and non-zero act as truth values), Java enforces strict type safety. Operands of `&&` and `||` MUST evaluate to boolean expressions.
+At the bytecode level, `&&` and `||` map to conditional branch instructions (`ifeq`, `ifne`, `if_icmpne`), providing high-speed jump execution at the CPU hardware level.
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu created an enterprise student admission and scholarship decision matrix. By formulating composite logical conditions combining entrance test scores, academic qualifications, and early-bird fee structures in Indian Rupees (₹), their application automated student onboarding with 100% adherence to institutional policies.
+================================================================================

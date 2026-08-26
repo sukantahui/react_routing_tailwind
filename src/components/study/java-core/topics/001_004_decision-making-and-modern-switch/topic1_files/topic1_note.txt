@@ -1,0 +1,40 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 1: Simple 'if' Statement: Syntax, Boolean Conditions & Execution Flow
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Syntax (JLS §14.9.1):
+  if ( booleanExpression ) {
+      // Executed ONLY when booleanExpression evaluates to true
+  }
+
+- Strict Boolean Requirement:
+  * Condition MUST evaluate to boolean or Boolean wrapper (subject to unboxing).
+  * No C-style integer truthiness: if (1) is a COMPILATION ERROR!
+
+- The Dangerous Semicolon Trap:
+  * if (balance >= fee);  <-- Semicolon terminates if statement!
+    {
+        grantAdmission();  <-- ALWAYS EXECUTES UNCONDITIONALLY (BUG!)
+    }
+
+- Clean Idiomatic Boolean Checking:
+  * Smell : if (isStudent == true)
+  * Clean : if (isStudent)
+  * Clean : if (!isEnrolled)
+
+- Single Statement vs Block:
+  * Without braces '{}', only the ONE immediate statement belongs to the 'if'.
+  * Industry Standard: ALWAYS use curly braces '{}' for every if statement!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Never put a semicolon ';' right after the 'if (condition)' header.
+[✓] Always wrap statement bodies in curly braces '{}'.
+[✓] Use guard clauses (if (!valid) return;) at method entry.
+[✓] Avoid side effects (e.g. if (++count > 5)) in boolean conditions.
+================================================================================

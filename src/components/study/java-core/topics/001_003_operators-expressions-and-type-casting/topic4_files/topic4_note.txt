@@ -1,0 +1,44 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 4: String Concatenation Operator (+) & Operator Overloading Mechanics
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Built-In Overloading of '+':
+  * '+' is the ONLY overloaded operator in Java.
+  * If EITHER operand is a String -> String Concatenation.
+  * If BOTH operands are numeric -> Numeric Addition.
+
+- Left-to-Right Evaluation Traps:
+  +--------------------------------+--------------------+----------------------+
+  | Expression                     | Evaluated Result   | Explanation          |
+  +--------------------------------+--------------------+----------------------+
+  | 10 + 20 + " Barrackpore"       | "30 Barrackpore"   | (10+20) adds first   |
+  | "Barrackpore " + 10 + 20       | "Barrackpore 1020" | Converts 10 & 20     |
+  | "Barrackpore " + (10 + 20)     | "Barrackpore 30"   | Parentheses force add|
+  | 'A' + 'B'                      | 131                | Numeric ASCII sum!   |
+  | "" + 'A' + 'B'                 | "AB"               | String concatenation |
+  +--------------------------------+--------------------+----------------------+
+
+- Null Handling:
+  * String s = "Data: " + null; -> Evaluates safely to "Data: null".
+  * null.toString() throws NullPointerException!
+
+- Performance: Loops vs StringBuilder
+  * In large loops: DO NOT use str += item (O(N^2) memory bloat).
+  * Always use StringBuilder sb = new StringBuilder(); sb.append(item); (O(N)).
+
+- Java 9+ JEP 280:
+  * String concatenation is desugared to invokedynamic (StringConcatFactory)
+    for high-performance dynamic runtime optimization.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Use parentheses ("Total: " + (a + b)) when concatenating arithmetic sums.
+[✓] Remember 'A' + 'B' yields integer 131; use "" + 'A' + 'B' for text.
+[✓] Always use StringBuilder for string concatenation inside loops.
+[✓] Use String.join(", ", items) for clean comma-separated lists.
+================================================================================

@@ -1,0 +1,48 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 15: The 'yield' Keyword in Multi-Statement Switch Blocks
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. GRAMMAR AND FORMAL SEMANTICS UNDER JLS §14.21
+Section 14.21 of the Java Language Specification formalizes the `yield` statement:
+  YieldStatement:
+    yield Expression ;
+
+Semantics:
+1. The `yield` statement attempts to yield the value of its `Expression` to the innermost enclosing `SwitchExpression`.
+2. The `Expression` must be assignment-compatible with the target type of the switch expression.
+3. Execution of `yield` completes abruptly with a yield reason, transferring control directly to the completion of the switch expression with that value.
+4. A `yield` statement cannot transfer control out of a method, constructor, or lambda body.
+
+2. WHY 'YIELD' WAS INTRODUCED (DISAMBIGUATING BREAK)
+In Java 12 preview, `break Expression;` was used to return values from switch expressions. However, this introduced an insurmountable parsing ambiguity:
+  LOOP_LABEL:
+  for (...) {
+      int x = switch (val) {
+          case 1 -> {
+              break LOOP_LABEL; // Is this breaking the loop or yielding variable LOOP_LABEL?
+          }
+      };
+  }
+To eliminate grammar ambiguity and preserve backward compatibility, Java 13/14 introduced `yield` as a contextual keyword.
+
+3. DEFINITE ASSIGNMENT AND YIELD COMPLETION ANALYSIS
+When a multi-statement block body `{ ... }` is used in a switch expression:
+- The Java compiler performs Control Flow Analysis (JLS §16) to verify that every reachable control path either executes a `yield` statement or completes abruptly by throwing an exception.
+- If a conditional branch inside the block fails to yield (e.g. `if (c) yield 1;` without `else yield 2;`), the compiler rejects the class with a compile-time error.
+
+4. TELEMETRY, LOGGING, AND STEPWISE AUDITING
+The primary architectural utility of `yield` in production systems is enabling intermediate instrumentation:
+  case PAYMENT_ONLINE -> {
+      auditLogger.info("Initiating UPI handshake for student: " + id);
+      int netPayable = calculateGstAndPlatformFee(baseAmount);
+      metricRegistry.counter("payments.online").increment();
+      yield netPayable;
+  }
+This provides full observability while preserving functional expression assignment.
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu built an enterprise course tuition and progressive scholarship settlement engine in Indian Rupees (₹). By executing multi-step merit audits and GST taxation logging before yielding final payable amounts (`yield base - meritDiscount;`), their software combined high observability with 100% type-safe immutable assignments across Naihati and Shyamnagar.
+================================================================================

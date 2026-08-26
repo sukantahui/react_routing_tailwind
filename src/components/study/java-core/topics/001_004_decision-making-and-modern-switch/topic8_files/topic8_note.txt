@@ -1,0 +1,36 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 8: The 'default' Case and Placement Best Practices
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Role of 'default:':
+  * Executes when none of the explicit 'case' constant values match the selector.
+  * Only ONE 'default' label is permitted per switch block.
+
+- Placement Flexibility & The Top Placement Trap:
+  * Java allows 'default:' anywhere (top, middle, or bottom).
+  * CRITICAL TRAP: If 'default:' is at the top/middle and omits 'break;',
+    unmatched values will jump to default and FALL THROUGH into following cases!
+  * Example:
+    switch (x) {
+        default: print("D"); // Falls into case 1!
+        case 1: print("1"); break;
+    }
+
+- Best Practices:
+  1. ALWAYS place 'default:' at the very bottom of the switch block.
+  2. ALWAYS include a 'break;' (or 'return' / 'throw') inside 'default:'.
+  3. In domain-driven code, throw IllegalArgumentException in default to fail-fast.
+  4. Use 'default:' to satisfy compiler Definite Assignment for local variables.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Put default at the bottom of the switch statement.
+[✓] Include a defensive 'break;' at the end of the default block.
+[✓] Throw IllegalArgumentException if unrecognized input indicates a bug.
+[✓] Add comments if default intentionally performs no operation.
+================================================================================

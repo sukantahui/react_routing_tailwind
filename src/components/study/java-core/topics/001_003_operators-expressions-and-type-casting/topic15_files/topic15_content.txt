@@ -1,0 +1,40 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 15: Ternary / Conditional Operator (? :) Syntax & Nested Expressions
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. GRAMMATICAL SPECIFICATION OF THE CONDITIONAL OPERATOR
+Section 15.25 of the Java Language Specification (JLS) establishes the Conditional Operator (`? :`).
+It uses three operand expressions:
+  ConditionalExpression:
+    ConditionalOrExpression ? Expression : ConditionalExpression
+
+2. SHORT-CIRCUIT EVALUATION GUARANTEE
+The evaluation order of the ternary operator is strictly defined:
+1. The first expression (`condition`) is evaluated.
+2. If its value is `true`, the second expression (`exprIfTrue`) is evaluated and its result becomes the value of the conditional expression. The third expression is NOT evaluated.
+3. If its value is `false`, the third expression (`exprIfFalse`) is evaluated and its result becomes the value of the conditional expression. The second expression is NOT evaluated.
+
+This guarantees runtime safety against division-by-zero or null pointer exceptions:
+  int avg = (count != 0) ? (total / count) : 0;
+
+3. TYPE DETERMINATION & BINARY NUMERIC PROMOTION
+The static type of a conditional expression is determined at compile time according to rigorous JLS type unification rules:
+- Identical Types: If both branches have the same type `T`, the result type is `T`.
+- Numeric Promotion: If one operand is `int` and the other is `double`, the entire expression has type `double`.
+  Example: `Object o = true ? 10 : 20.5;` -> `o` contains a `Double` object with value `10.0`.
+- Constant Narrowing: If one operand is `byte`, `short`, or `char` and the other is an `int` constant representable in that type, the result has the narrower type.
+- Reference Types: The type is the Least Upper Bound (LUB) of the two object reference types.
+
+4. THE AUTOBOXING AND NULLPOINTEREXCEPTION TRAP
+When mixing primitive and wrapper types in branches:
+  Double d = null;
+  double val = flag ? 1.0 : d;
+If `flag` is `false`, Java unboxes `d` to primitive `double`, immediately throwing a `NullPointerException` at runtime.
+Design Rule: Keep branch types homogeneous to prevent accidental unboxing.
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu engineered an automated course fee discount calculator and student grade determination tree. By using multi-line formatted nested ternary expressions in Indian Rupees (₹), their application mapped entrance scores and academic merit to tiered scholarship concessions across Naihati and Shyamnagar with clean, concise, and crash-proof code.
+================================================================================

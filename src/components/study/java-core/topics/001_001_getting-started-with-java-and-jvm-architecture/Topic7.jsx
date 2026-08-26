@@ -251,7 +251,7 @@ export default function Topic7() {
         </h2>
         <div className="space-y-3 text-slate-300 text-sm md:text-base leading-relaxed">
           <p>
-            🤔 <em>“Why does `javac` erase generic types like `List<String>` into raw `List` during compilation, rather than creating specialized classes at runtime?”</em>
+            🤔 <em>&ldquo;Why does `javac` erase generic types like `List&lt;String&gt;` into raw `List` during compilation, rather than creating specialized classes at runtime?&rdquo;</em>
           </p>
           <p>
             👉 <strong>Hint:</strong> Think about 100% backward compatibility with legacy Java 1.4 bytecode compiled before Generics existed in 2004!

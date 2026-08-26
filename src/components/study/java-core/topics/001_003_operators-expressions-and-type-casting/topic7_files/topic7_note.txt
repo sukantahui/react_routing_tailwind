@@ -1,0 +1,41 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 7: Relational / Comparison Operators: ==, !=, >, <, >=, <=
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- The 6 Relational Operators:
+  +----------+--------------------------+--------------------------------------+
+  | Operator | Description              | Return Type                          |
+  +----------+--------------------------+--------------------------------------+
+  | ==       | Equal to                 | boolean (true / false)               |
+  | !=       | Not equal to             | boolean (true / false)               |
+  | >        | Greater than             | boolean (true / false)               |
+  | <        | Less than                | boolean (true / false)               |
+  | >=       | Greater than or equal to | boolean (true / false)               |
+  | <=       | Less than or equal to    | boolean (true / false)               |
+  +----------+--------------------------+--------------------------------------+
+
+- Floating-Point Comparison Nuances:
+  * (0.1 + 0.2) == 0.3 is FALSE due to IEEE 754 precision limits.
+  * Always use epsilon tolerance: Math.abs(a - b) < 1e-9.
+  * Double.NaN == Double.NaN is ALWAYS FALSE! Use Double.isNaN(val).
+
+- Type Rules:
+  * Binary Numeric Promotion: int 10 == double 10.0 evaluates to true.
+  * Characters compare by ASCII/Unicode codepoints ('A' < 'B' -> 65 < 66).
+  * Booleans can ONLY use == and != (true > false is a COMPILER ERROR!).
+
+- Precedence:
+  * Arithmetic (+, -, *, /) > Relational Ordering (<, >, <=, >=) > Equality (==, !=).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] All relational operators strictly return primitive boolean.
+[✓] Use epsilon tolerance for float/double equality checks.
+[✓] Use Double.isNaN() to test for Not-a-Number values.
+[✓] Write if (isEligible) instead of if (isEligible == true) to prevent bugs.
+================================================================================

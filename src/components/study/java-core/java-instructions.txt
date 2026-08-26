@@ -20,7 +20,6 @@ For each topic index `N` (0, 1, 2, ...):
    - `[DescriptiveName]Demo.java` (Runnable, clean, well-commented Java code)
    - `topic[N]_questions.js` (25 to 30 structured Q&A items)
    - `topic[N]_note.txt` (Concise printable note)
-   - `topic[N]_content.txt` (Deep detailed study text)
 
 Folder Example:
 topics/
@@ -30,14 +29,12 @@ topics/
     │   ├── HelloWorld.java
     │   ├── EnterpriseStackDemo.java
     │   ├── topic0_questions.js
-    │   ├── topic0_note.txt
-    │   └── topic0_content.txt
+    │   └── topic0_note.txt
     ├── Topic1.jsx
     └── topic1_files/
         ├── VersionEvolutionDemo.java
         ├── topic1_questions.js
-        ├── topic1_note.txt
-        └── topic1_content.txt
+        └── topic1_note.txt
 
 
 2. COMPONENT ARCHITECTURE & CODING STANDARDS
@@ -219,10 +216,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 ================================================================================
 ```
 
-C. Detailed Content File (`topic[N]_files/topic[N]_content.txt`):
-- Comprehensive text documentation of the topic for offline reference.
-
-D. Java Source File (`topic[N]_files/[Name]Demo.java`):
+C. Java Source File (`topic[N]_files/[Name]Demo.java`):
 - Valid, compilable Java source code with clean indentation and helpful comments.
 
 

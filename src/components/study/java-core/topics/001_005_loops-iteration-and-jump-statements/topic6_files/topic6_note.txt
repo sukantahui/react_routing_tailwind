@@ -1,0 +1,35 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_005: Loops, Iteration Statements & Jump Controls
+TOPIC 6: Loop Comparison & Selection Decision Matrix
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- The 4-Tier Loop Selection Decision Matrix:
+  1. 'for' Loop:
+     * When iteration count / index bounds are known in advance (1 to N, array.length).
+     * Scopes counter strictly inside header to prevent variable bleed.
+     * Minimum executions = 0 times.
+
+  2. 'while' Loop:
+     * When iteration is indefinite, condition-driven, or event-based (stream reading).
+     * Must not run if condition is initially false (pre-test gatekeeper).
+     * Minimum executions = 0 times.
+
+  3. 'do-while' Loop:
+     * When the body MUST execute at least once (CLI menus, password/PIN retries).
+     * Evaluates condition AFTER body execution (post-test).
+     * Minimum executions = 1 time (guaranteed).
+
+  4. Enhanced 'for-each' Loop:
+     * When reading all elements of an array or Iterable collection without needing index.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Never use 'do-while' for collections that might be empty (causes runtime exceptions!).
+[✓] Prefer 'for' over 'while' when using a counter to avoid copy-paste scope bugs.
+[✓] Use 'while' for digit extraction and Sentinel-controlled input reading.
+[✓] Remember: All 3 constructs are Turing-equivalent; pick for readability!
+================================================================================

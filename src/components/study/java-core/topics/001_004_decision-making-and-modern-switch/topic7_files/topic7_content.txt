@@ -1,0 +1,62 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 7: The 'break' Statement & Intentional vs Accidental Fall-Through
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. FORMAL EXECUTION SEMANTICS OF SWITCH BLOCKS (JLS §14.11)
+When a traditional switch statement executes:
+1. The selector expression is evaluated.
+2. Control transfers directly to the matching `case` label (or `default` if no match occurs).
+3. All subsequent statements are executed in sequential order until a completion reason is reached:
+   - A `break` statement with no label matching the switch block (JLS §14.15).
+   - A `return`, `throw`, or labeled `break`/`continue` statement.
+   - The closing curly brace `}` of the switch block.
+
+If none of these terminating statements are encountered, execution flows directly across case label boundaries—this is the language mechanism known as Fall-Through.
+
+2. ACCIDENTAL FALL-THROUGH AND STATIC ANALYSIS
+Accidental fall-through is one of the most prolific sources of software vulnerabilities.
+For instance:
+  case PERMISSION_READ:
+      grantReadAccess();
+  case PERMISSION_WRITE:
+      grantWriteAccess(); // BUG: Read-only users granted write access!
+Compilers support the `-Xlint:fallthrough` flag to detect fall-through into non-empty case blocks. The `@SuppressWarnings("fallthrough")` annotation should be applied when fall-through is intentional.
+
+3. INTENTIONAL FALL-THROUGH RECIPES
+A. Case Stacking (Or-matching):
+   Multiple labels preceding a single statement block:
+     case 1:
+     case 2:
+     case 3:
+         processFirstQuarter();
+         break;
+
+B. Cumulative Cascade (Tier inheritance):
+   Executing a sequence of actions where higher tiers inherit lower tier actions:
+     case TIER_VIP:
+         addVipBadge();
+     case TIER_MEMBER:
+         addDiscount();
+     case TIER_USER:
+         grantAccess();
+         break;
+
+4. LABELED BREAK FOR ENCLOSING LOOPS
+A standard `break;` statement terminates ONLY the innermost `switch` or loop.
+When a switch is embedded inside a `while` or `for` loop:
+  SEARCH_LOOP:
+  while (scanner.hasNext()) {
+      switch (command) {
+          case "QUIT":
+              break SEARCH_LOOP; // Exits the while loop directly!
+          case "CONTINUE":
+              break;             // Exits only the switch!
+      }
+  }
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu built a student membership privilege engine in Indian Rupees (₹). By applying intentional cascading fall-through, their system granted Level 3 Platinum students high-end cloud server access (₹10,000 value), falling through to 1-on-1 mentorship and standard laboratory workstation perks without duplicate code across institutions in Naihati and Shyamnagar.
+================================================================================

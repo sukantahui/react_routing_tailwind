@@ -1,0 +1,59 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_002: Java Syntax, Variables, Literals & Primitive Data Types
+TOPIC 9: Floating-Point Literals: float (F Suffix) vs double & IEEE 754 Precision
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Default Floating-Point Type:
+  * Any literal with a decimal point (e.g. 3.14, 0.05, -12.4) is a 'double' (64-bit).
+  * To assign to 'float' (32-bit), you MUST append 'f' or 'F' suffix:
+    float f = 3.14f;    // OK
+    float f2 = 3.14;    // COMPILATION ERROR! (Type mismatch: double cannot convert to float)
+
+- Float vs Double Comparison:
+  +------------------+-------------------+--------------------+
+  | Metric           | float (Single)    | double (Double)    |
+  +------------------+-------------------+--------------------+
+  | Size (Bits/Bytes)| 32 bits (4 bytes) | 64 bits (8 bytes)  |
+  | Standard         | IEEE 754 Single   | IEEE 754 Double    |
+  | Exponent Bits    | 8 bits            | 11 bits            |
+  | Mantissa Bits    | 23 bits           | 52 bits            |
+  | Precision        | ~6 to 7 digits    | ~15 to 17 digits   |
+  | Default Suffix   | 'f' or 'F'        | 'd' or 'D' or none |
+  +------------------+-------------------+--------------------+
+
+- IEEE 754 Special Values:
+  * 100.0 / 0.0  --> Double.POSITIVE_INFINITY
+  * -100.0 / 0.0 --> Double.NEGATIVE_INFINITY
+  * 0.0 / 0.0    --> Double.NaN (Not-a-Number)
+  * Math.sqrt(-9)--> Double.NaN
+  * IMPORTANT: (NaN == NaN) is ALWAYS FALSE. Use Double.isNaN(val) instead!
+
+- The Binary Representation Trap (0.1 + 0.2 != 0.3):
+  * Decimal base-10 fractions (like 1/10 = 0.1) cannot be represented cleanly
+    in binary base-2 powers (1/2, 1/4, 1/8, ...).
+  * 0.1 + 0.2 produces 0.30000000000000004 in IEEE 754 double arithmetic.
+  * GOLDEN RULE: For currency, financial ledgers, and billing in Indian Rupees (₹),
+    NEVER use float or double! Use java.math.BigDecimal with String constructor:
+    BigDecimal exact = new BigDecimal("12500.50");
+
+- Scientific Exponential Notation:
+  * double solarMass = 1.989e30;   // 1.989 * 10^30
+  * double electron = 1.6e-19;     // 1.6 * 10^-19
+
+- Float/Double to Integer Truncation:
+  * (int) 9.99  --> 9 (fractional portion truncated toward zero).
+  * Use Math.round(9.99) for rounding to nearest whole integer (returns 10L).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Always add 'f' or 'F' when assigning decimal literals to float variables.
+[✓] Remember that double is the default and preferred type for engineering/physics calculations.
+[✓] Never test floating-point equality with '==' in production; use epsilon threshold:
+    Math.abs(a - b) < 1e-9
+[✓] Check for NaN using Double.isNaN(x), never with 'x == Double.NaN'.
+[✓] Use BigDecimal for financial banking applications (e.g. Coder & AccoTax billing).
+================================================================================

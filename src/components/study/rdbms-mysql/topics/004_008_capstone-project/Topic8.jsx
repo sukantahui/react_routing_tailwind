@@ -304,7 +304,7 @@ SELECT * FROM transactions WHERE created_at &gt;= '2026-01-01';`,
                 Writing WHERE YEAR(order_date) = 2026 prevents MySQL from using indexes on order_date, forcing a full table scan.
               </p>
               <div className="text-xs font-mono text-emerald-400 p-2 bg-slate-950 rounded border border-slate-800">
-                Rule: Write sargable queries: WHERE order_date >= '2026-01-01' AND order_date &lt; '2027-01-01'.
+                Rule: Write sargable queries: WHERE order_date &gt;= '2026-01-01' AND order_date &lt; '2027-01-01'.
               </div>
             </div>
             <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800">

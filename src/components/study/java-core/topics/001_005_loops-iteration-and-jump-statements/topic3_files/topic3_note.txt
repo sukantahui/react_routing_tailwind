@@ -1,0 +1,35 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_005: Loops, Iteration Statements & Jump Controls
+TOPIC 3: Multiple Initializations and Updates in 'for' Loop Headers
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Comma-Separated Initializations (JLS §14.14.1):
+  * Must all share the SAME data type:
+    for (int left = 0, right = arr.length - 1; left < right; left++, right--) {
+        // Two-pointer swap
+    }
+
+- Comma-Separated Update Expressions:
+  * Evaluated strictly from LEFT to RIGHT at the end of each body iteration.
+  * In Java, the comma operator is restricted exclusively to 'for' loop headers!
+
+- The Condition Rule:
+  * Comma is NOT allowed in the condition clause!
+  * Must be a single boolean expression (e.g. left < right && isValid).
+
+- Key Algorithmic Patterns:
+  1. Two-Pointer Convergence : In-place array reversal, palindrome checking.
+  2. Length Caching           : for (int i = 0, len = str.length(); i < len; i++)
+  3. Multi-Channel Processing : Synchronizing morning & evening batch fee counters.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Ensure all header variables share the same type specifier.
+[✓] Combine multiple termination conditions using && or || (never commas).
+[✓] Use two-pointer loops for O(N/2) in-place operations with O(1) space.
+[✓] Cache collection lengths in the init clause to avoid repeated method calls.
+================================================================================

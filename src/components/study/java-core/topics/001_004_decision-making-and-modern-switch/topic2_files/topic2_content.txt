@@ -1,0 +1,61 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 2: 'if-else' Statement for Binary Decision Paths
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. GRAMMAR AND FORMAL SEMANTICS (JLS §14.9.2)
+Section 14.9.2 of the Java Language Specification (JLS) establishes the syntax for binary branching:
+  IfThenElseStatement:
+    if ( Expression ) StatementNoShortIf else Statement
+
+Semantics:
+1. The `Expression` is evaluated to a boolean value.
+2. If `true`, the first statement (`StatementNoShortIf`) is executed, and the `else` branch is bypassed.
+3. If `false`, the first statement is bypassed, and the second statement (`else Statement`) is executed.
+4. Mutual exclusivity is strictly guaranteed by the language runtime.
+
+2. DEFINITE ASSIGNMENT AND SCOPE (JLS §16)
+The Java compiler performs flow-sensitive Definite Assignment analysis.
+When a local variable is declared uninitialized:
+  int status;
+  if (isEligible) {
+      status = 1;
+  } else {
+      status = 0;
+  }
+Because every execution path through the `if-else` construct assigns a value to `status`, the variable is guaranteed to be initialized when control leaves the statement. If the `else` block were omitted, accessing `status` would trigger a compile-time error.
+
+3. BYTECODE ARCHITECTURE OF IF-ELSE
+Consider the following method:
+  public int test(boolean flag) {
+      if (flag) {
+          return 100;
+      } else {
+          return 200;
+      }
+  }
+Decompiled bytecode:
+  0: iload_1             // Load boolean flag
+  1: ifeq 6              // If flag is 0 (false), jump to instruction 6
+  4: bipush 100          // Push 100
+  5: ireturn             // Return 100
+  6: bipush 200          // Instruction 6: Push 200
+  7: ireturn             // Return 200
+
+When returning values or ending statements without return, the JVM uses a `goto` opcode at the end of the `then` block to jump past the `else` bytecode block.
+
+4. REFACTORING PATTERNS: IF-ELSE VS TERNARY EXPRESSIONS
+When an `if-else` statement is used solely to assign a variable:
+  // Imperative Statement:
+  String label;
+  if (score >= 40) label = "PASS"; else label = "FAIL";
+
+  // Functional Ternary Expression:
+  final String label = (score >= 40) ? "PASS" : "FAIL";
+The ternary expression is superior because it allows the variable to be declared `final`, guaranteeing immutability.
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu built an ATM cash dispensing and account auditing module in Indian Rupees (₹). By applying binary `if-else` branching, their system verified cash drawer availability against student withdrawal requests, dispensing currency notes upon approval or logging detailed shortage receipts upon denial across institutions in Naihati and Shyamnagar.
+================================================================================

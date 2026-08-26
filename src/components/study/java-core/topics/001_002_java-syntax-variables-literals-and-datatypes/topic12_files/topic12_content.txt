@@ -1,0 +1,59 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_002: Java Syntax, Variables, Literals & Primitive Data Types
+TOPIC 12: Escape Sequences in Java: \n, \t, \r, \b, \', \", \\
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. INTRODUCTION & LEXICAL ROLE
+In the Java programming language, certain characters cannot be typed literally into source code strings or character literals because:
+1. They act as syntactic delimiters (e.g. `"` ends a String, `'` ends a char).
+2. They are invisible control characters (e.g. Newline, Tab, Carriage Return, Backspace).
+3. The character itself is the escape prefix (`\`).
+
+To represent these characters safely, Java utilizes Escape Sequences—combinations of a backslash followed by a designated character (JLS §3.10.6).
+
+2. DETAILED BREAKDOWN OF THE 8 STANDARD ESCAPES
+A. `\n` (Line Feed / Newline - ASCII 10, 0x0A):
+   Moves the text cursor down to the next row. Default newline standard for Unix, Linux, and macOS.
+
+B. `\t` (Horizontal Tab - ASCII 9, 0x09):
+   Advances the cursor to the next tab stop (every 4 or 8 columns). Ideal for rendering formatted console data tables and financial invoices.
+
+C. `\r` (Carriage Return - ASCII 13, 0x0D):
+   Resets the cursor to column 0 on the active row without moving down. Enables in-place console animations, spinners, and live download progress bars.
+
+D. `\b` (Backspace - ASCII 8, 0x08):
+   Moves the active cursor one position to the left.
+
+E. `\"` (Double Quote - ASCII 34, 0x22):
+   Allows embedding literal quotation marks inside double-quoted string literals.
+
+F. `\'` (Single Quote - ASCII 39, 0x27):
+   Allows declaring a single-quote character literal (`'\''`).
+
+G. `\\` (Backslash - ASCII 92, 0x5C):
+   Represents a literal backslash. Crucial for Windows filesystem paths (`C:\\Windows\\System32`) and regular expressions (`\\d+`).
+
+H. `\f` (Form Feed - ASCII 12, 0x0C):
+   Historical printer page eject command; recognized as standard whitespace.
+
+3. CROSS-PLATFORM NEWLINE ARCHITECTURE
+Operating systems historical differences:
+- Windows: Uses CRLF (`\r\n` — 2 bytes)
+- Unix/Linux/macOS: Uses LF (`\n` — 1 byte)
+
+Best Practice:
+To avoid platform incompatibilities when writing cross-platform server logs or reports:
+1. Use `System.lineSeparator()` to dynamically obtain the native OS line ending.
+2. In `System.out.printf()` or `String.format()`, use the `%n` format specifier instead of hardcoded `\n`.
+
+4. JAVA 15+ MODERN TEXT BLOCKS & ESCAPES
+Java 15 introduced multiline Text Blocks (`"""..."""`):
+- HTML, JSON, and SQL queries no longer require `\"`, `\n`, or `\t`.
+- `\s` was added to explicitly preserve trailing whitespace.
+- `\<line-break>` was added to split long source lines without inserting an actual newline character into the resulting string.
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu created a console billing terminal for local businesses in Naihati and Ichapur. By combining `\t` for tabular currency alignment in Indian Rupees (₹) and `\r` for live transaction verification progress bars, their command-line software achieved commercial-grade polish and clarity.
+================================================================================

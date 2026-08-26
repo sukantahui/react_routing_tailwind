@@ -1,0 +1,44 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 3: Nested 'if-else' Statements & Resolving the Dangling Else Ambiguity
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- What is a Nested 'if-else'?
+  * An 'if' or 'if-else' statement located inside the body of another 'if' or 'else'.
+  * Enables multi-tier hierarchical decision trees.
+
+- The Dangling Else Ambiguity (JLS §14.5):
+  * In unbraced code:
+    if (a)
+        if (b)
+            statement1();
+    else
+        statement2();
+  * Java's Grammar Rule: An 'else' is ALWAYS paired with the nearest preceding
+    unclosed 'if' (in this case, 'if (b)').
+  * Misleading Indentation Hazard: The compiler ignores whitespace!
+    Visually indenting 'else' under 'if (a)' DOES NOT attach it to 'if (a)'.
+
+- The Universal Solution:
+  * ALWAYS use explicit curly braces '{}' around every statement block!
+    if (a) {
+        if (b) { statement1(); }
+    } else {
+        statement2(); // Unambiguously belongs to if (a)
+    }
+
+- Clean Refactoring Strategies:
+  1. Combine with logical AND (&&): if (a && b) { ... }
+  2. Guard Clauses (Early Returns): Flatten pyramids by inverting conditions.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Never write unbraced nested if statements.
+[✓] Keep nesting depth <= 2 levels.
+[✓] Flatten the "Pyramid of Doom" using early guard clause returns.
+[✓] Combine dependent boolean checks with '&&' where possible.
+================================================================================

@@ -1,0 +1,44 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 20: Narrowing / Explicit Casting (Larger Type to Smaller Type)
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. NARROWING CONVERSIONS SPECIFICATION (JLS §5.1.3)
+Section 5.1.3 of the Java Language Specification (JLS) establishes 22 specific narrowing primitive conversions:
+- `short` to `byte` or `char`
+- `char` to `byte` or `short`
+- `int` to `byte`, `short`, or `char`
+- `long` to `byte`, `short`, `char`, or `int`
+- `float` to `byte`, `short`, `char`, `int`, or `long`
+- `double` to `byte`, `short`, `char`, `int`, `long`, or `float`
+
+Because narrowing conversions may lose information about the overall magnitude of a numeric value, or may lose precision and range, they REQUIRE an explicit cast operator: `(targetType) expression`.
+
+2. BIT TRUNCATION AND MODULAR TWO'S COMPLEMENT ARITHMETIC
+When narrowing from a larger integral type to a smaller integral type (e.g. `int` to `byte`):
+1. The lower $N$ bits of the larger type are preserved, where $N$ is the bit width of the destination type.
+2. The upper $32 - N$ bits are discarded.
+3. The remaining $N$ bits are interpreted as a signed two's complement integer.
+For example:
+  int val = 130; // 0x00000082 -> Binary: ...0000 10000010
+  byte b = (byte) val; // Discards top 24 bits -> Leaves 10000010 = -126.
+
+3. FLOATING-POINT TO INTEGER CONVERSION MECHANICS
+Under JLS §5.1.3, converting floating-point values (`float` or `double`) to an integral type `T` follows a strict multi-step algorithm:
+1. Truncation towards zero: The fractional digits are stripped off using Round-toward-Zero (truncation).
+2. NaN handling: If the floating-point value is `NaN`, the result is `0`.
+3. Overflow clamping:
+   - If the value fits in the target integral range, the exact truncated integer is produced.
+   - If the value is too large positive (or `+Infinity`), the result is clamped to `T.MAX_VALUE`.
+   - If the value is too large negative (or `-Infinity`), the result is clamped to `T.MIN_VALUE`.
+
+4. JAVA 8+ DEFENSIVE NARROWING VIA MATH.TOINTEXACT
+To prevent silent data corruption in production software:
+  int safeVal = Math.toIntExact(longVal);
+If `longVal` exceeds `Integer.MAX_VALUE` or is below `Integer.MIN_VALUE`, `Math.toIntExact()` immediately throws an `ArithmeticException: integer overflow` rather than silently wrapping to invalid data.
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu audited banking voucher numbers and tuition fee disbursements in Indian Rupees (₹). By implementing pre-condition boundary checks and `Math.toIntExact()` guards before downcasting large integer transactions across Naihati and Shyamnagar, their payment engine eliminated silent wrap-around defects with 100% financial integrity.
+================================================================================

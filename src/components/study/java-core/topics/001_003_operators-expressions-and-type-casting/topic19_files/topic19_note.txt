@@ -1,0 +1,37 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 19: Widening / Implicit Casting (Smaller Type to Larger Type)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- The Widening Conversion Ladder (JLS §5.1.2):
+  byte -> short -> int -> long -> float -> double
+                   ^
+  char ------------+
+
+- Key Properties:
+  * Completely AUTOMATIC (No explicit cast syntax needed).
+  * Safe from magnitude overflow.
+  * NEVER throws a runtime exception in Java.
+
+- Critical Nuance: The Precision Loss Exception
+  * Widening integer types to float (23-bit mantissa) or large longs to double
+    (52-bit mantissa) may lose lower bits of precision!
+  * int 123456789 -> float -> 123456792.0 (Lower digits rounded off!)
+  * long 9007199254740993L -> double -> 9007199254740992.0
+
+- Incompatible Primitive Widening:
+  * byte/short CANNOT be widened to char (signed vs unsigned).
+  * char CANNOT be widened to short (overflow above 32767).
+  * Wrapper objects (e.g. Integer to Long) DO NOT widen automatically.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Widening requires no '(type)' cast syntax.
+[✓] Integer-to-integer widening is 100% exact.
+[✓] Be mindful of float mantissa precision limits when widening large ints (>1.67e7).
+[✓] Always add 'L' suffix to long literals: long val = 2147483648L.
+================================================================================

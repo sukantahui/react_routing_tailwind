@@ -341,7 +341,7 @@ WHERE k.VARIABLE_NAME = 'Handler_read_key';
                 A Buffer Pool Hit Ratio dropping below 95% indicates the server is constantly reading from physical disk storage, destroying transaction throughput.
               </p>
               <div className="text-xs font-mono text-emerald-400 p-2 bg-slate-950 rounded border border-slate-800">
-                Rule: Maintain Buffer Pool Hit Ratio >99.0% by sizing innodb_buffer_pool_size properly.
+                Rule: Maintain Buffer Pool Hit Ratio &gt; 99.0% by sizing innodb_buffer_pool_size properly.
               </div>
             </div>
 
@@ -353,13 +353,13 @@ WHERE k.VARIABLE_NAME = 'Handler_read_key';
                 A rising <code>Handler_read_rnd_next</code> rate indicates applications are frequently executing unindexed full table scans across millions of rows.
               </p>
               <div className="text-xs font-mono text-emerald-400 p-2 bg-slate-950 rounded border border-slate-800">
-                Rule: Maintain Handler_read_key >> Handler_read_rnd_next with composite indexes.
+                Rule: Maintain Handler_read_key &gt;&gt; Handler_read_rnd_next with composite indexes.
               </div>
             </div>
 
             <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800">
               <h3 className="text-base font-bold text-emerald-400 mb-3 flex items-center gap-2">
-                <span>✓</span> Best Practice 1: Alert on Threads_running > 2x CPU Cores
+                <span>✓</span> Best Practice 1: Alert on Threads_running &gt; 2x CPU Cores
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
                 Configure Prometheus and PMM alerts to trigger when <code>Threads_running</code> exceeds double the physical CPU core count for more than 30 seconds.

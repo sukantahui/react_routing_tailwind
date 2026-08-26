@@ -1,0 +1,41 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 6: Increment (++) and Decrement (--) Operators: Prefix vs Postfix Evaluation
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Prefix vs Postfix Rules:
+  +---------------+---------------+--------------------+-----------------------+
+  | Syntax        | Form          | Action on Memory   | Value to Expression   |
+  +---------------+---------------+--------------------+-----------------------+
+  | ++x           | Prefix Inc    | Increments FIRST   | Returns NEW value     |
+  | x++           | Postfix Inc   | Increments AFTER   | Returns OLD value     |
+  | --x           | Prefix Dec    | Decrements FIRST   | Returns NEW value     |
+  | x--           | Postfix Dec   | Decrements AFTER   | Returns OLD value     |
+  +---------------+---------------+--------------------+-----------------------+
+
+- The 'x = x++' Self-Assignment Trap:
+  * When x = 5:
+    1. x++ pushes old value 5 to operand stack.
+    2. iinc increments x in local variable memory to 6.
+    3. Assignment pops 5 from stack and writes 5 back into x!
+    * Result: x remains 5 (unchanged).
+
+- Built-in Narrowing Cast:
+  * byte b = 127; b++; // Evaluates to (byte)(b + 1) -> wraps to -128!
+  * char c = 'A'; c++; // Becomes 'B'
+
+- Concurrency Warning:
+  * x++ is NOT thread-safe (not atomic read-modify-write).
+  * Use java.util.concurrent.atomic.AtomicInteger in multithreaded systems.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Prefix (++x) modifies before yielding value; Postfix (x++) yields old value first.
+[✓] Remember that x = x++ leaves x completely unchanged.
+[✓] Never write convoluted expressions like x = ++x + x++ * --x in production.
+[✓] In standard for loops, i++ and ++i produce identical performance.
+================================================================================

@@ -1,0 +1,37 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 13: Multiple Case Labels Per Branch (case 1, 2, 3 ->)
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. GRAMMAR EXTENSION UNDER JLS §14.11.1
+Under Java SE 14 (JEP 361), the grammar for switch labels was extended to support comma-separated lists of constant expressions:
+  CaseLabel:
+    case CaseConstant { , CaseConstant }
+
+This syntactic expansion allows multiple discrete values to map atomically to a single evaluation target without requiring consecutive case label statements.
+
+2. BYTECODE TABLE MAPPING
+At the bytecode level, whether cases are written as vertically stacked colon labels or comma-separated arrow rules:
+- For `tableswitch`: Multiple index offsets in the table point to the identical branch instruction offset.
+- For `lookupswitch`: Multiple sorted key entries point to the identical branch target label.
+Execution efficiency is identical ($O(1)$ or $O(\log N)$), but code readability and maintainability are vastly superior in source code.
+
+3. DOMAIN MODELING PATTERNS: ENUMS, STRINGS, AND INTEGERS
+A. Enum Grouping:
+   Mapping domain subsets to category types (e.g. `case MON, TUE, WED, THU, FRI -> DayType.WEEKDAY;`).
+B. String Normalization:
+   Normalizing varied user input formats into clean domain values (e.g. `case "Y", "YES", "TRUE", "1" -> Boolean.TRUE;`).
+C. Calendar Interval Computation:
+   Aggregating months into calendar quarters and day counts.
+
+4. STATIC ANALYSIS AND CODE QUALITY METRICS
+Static analysis engines (e.g., Checkstyle, PMD, SonarQube) favor comma-separated case labeling over stacked case statements because:
+- It eliminates "empty statement" warnings.
+- It reduces the vertical lines of code (LoC) by up to 75% for large dispatch tables.
+- It clarifies branch mapping during pull request reviews.
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu refactored their academic scheduling and quarterly fee billing engines in Indian Rupees (₹). By grouping weekdays (`MONDAY` through `FRIDAY`), calendar months (`case 1, 3, 5, 7, 8, 10, 12 -> 31;`), and quarterly tuition slabs into clean multi-label arrow rules, their codebase condensed 120 lines of legacy switch boilerplate into 25 lines of elegant, maintainable code across institutes in Naihati and Shyamnagar.
+================================================================================

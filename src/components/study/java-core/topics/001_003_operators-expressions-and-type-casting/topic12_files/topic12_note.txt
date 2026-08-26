@@ -1,0 +1,43 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 12: Shift Operators: Left Shift (<<), Signed Right Shift (>>), Unsigned Right Shift (>>>)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- The 3 Shift Operators:
+  +----------+-----------------------+-----------------------------------------+
+  | Operator | Name                  | Primary Action                          |
+  +----------+-----------------------+-----------------------------------------+
+  | <<       | Left Shift            | a * 2^s (Fills vacated right bits with 0)|
+  | >>       | Signed Right Shift    | Sign Extension (Preserves sign bit)     |
+  | >>>      | Unsigned Right Shift  | Zero Extension (Always fills with 0s)   |
+  +----------+-----------------------+-----------------------------------------+
+
+- Critical Sign Extension Behavior:
+  * Positive: +40 >> 2  = +10 (Fills with 0s)
+  * Negative: -40 >> 2  = -10 (Fills with 1s to keep sign negative)
+  * Unsigned: -1 >>> 1  = 2147483647 (Integer.MAX_VALUE! Fills MSB with 0)
+
+- Shift Distance Masking Rule (JLS §15.19):
+  * For 32-bit int : distance is masked with 0x1F (distance % 32).
+    - 8 << 32 -> 8 << 0 = 8 (Unchanged!)
+    - 8 << 33 -> 8 << 1 = 16
+  * For 64-bit long: distance is masked with 0x3F (distance % 64).
+
+- ARGB Color Packing Recipe:
+  * Pack   : int argb = (a << 24) | (r << 16) | (g << 8) | b;
+  * Unpack : int r = (argb >> 16) & 0xFF;
+
+- Joshua Bloch Binary Search Overflow Fix:
+  * int mid = (low + high) >>> 1; // 100% immune to integer overflow!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Shift operators only apply to integral types (byte..long, char).
+[✓] Remember that '>>' keeps negative numbers negative; '>>>' converts to positive.
+[✓] Use (low + high) >>> 1 in binary search algorithms.
+[✓] Narrow types (byte, short) are promoted to int before shifting.
+================================================================================

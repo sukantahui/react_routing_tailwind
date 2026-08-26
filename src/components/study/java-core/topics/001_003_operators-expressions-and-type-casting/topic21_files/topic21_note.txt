@@ -1,0 +1,41 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 21: Detecting & Preventing Arithmetic Overflow and Underflow
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- The Silent Wrap-Around Hazard:
+  * Integer.MAX_VALUE + 1 ==> -2,147,483,648 (Integer.MIN_VALUE)
+  * Integer.MIN_VALUE - 1 ==> +2,147,483,647 (Integer.MAX_VALUE)
+  * In standard Java, primitive integer operations NEVER throw overflow exceptions!
+
+- The 4 Production Overflow Defense Patterns:
+  1. Java 8+ Math.*Exact() Methods:
+     * Math.addExact(a, b)       --> Throws ArithmeticException on overflow
+     * Math.multiplyExact(a, b)  --> Throws ArithmeticException
+     * Math.toIntExact(longVal)  --> Safe downcasting to int
+
+  2. Pre-Addition Upcasting to Long:
+     * long total = (long) a + b; // Upcast AT LEAST ONE operand to long first!
+
+  3. Arbitrary Precision Arithmetic:
+     * BigInteger : Unlimited integer magnitude in heap memory
+     * BigDecimal : Exact decimal monetary calculations in ₹ (no float rounding)
+
+  4. Bitwise Sign-Bit Overflow Heuristic:
+     * ((a ^ sum) & (b ^ sum)) < 0
+
+- Floating-Point Behavior:
+  * Float/Double Overflow  ==> Double.POSITIVE_INFINITY (Never wraps!)
+  * Float/Double Underflow ==> 0.0
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Use Math.addExact() and Math.multiplyExact() for overflow-sensitive code.
+[✓] Always upcast: (long)a + b (NOT long sum = a + b).
+[✓] Use BigDecimal for all monetary calculations in Indian Rupees (₹).
+[✓] Watch for loop counters: for (long i = 0; i <= Integer.MAX_VALUE; i++).
+================================================================================

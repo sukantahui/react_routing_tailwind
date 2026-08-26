@@ -1,0 +1,43 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 5: Unary Operators: Unary Plus (+), Unary Minus (-), Logical NOT (!), Bitwise NOT (~)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Unary Operators Summary:
+  +----------+--------------------+-----------------------+--------------------+
+  | Operator | Name               | Operand Type          | Action             |
+  +----------+--------------------+-----------------------+--------------------+
+  | +        | Unary Plus         | Numeric (byte..double)| Promotes to int    |
+  | -        | Unary Minus        | Numeric (byte..double)| Negates value (0-x)|
+  | !        | Logical NOT        | boolean only          | Inverts true/false |
+  | ~        | Bitwise NOT        | Integral (byte..long) | Inverts all bits   |
+  +----------+--------------------+-----------------------+--------------------+
+
+- The Bitwise NOT Inversion Formula:
+  * ~x = -(x + 1)
+  * Examples:
+    - ~0   = -1
+    - ~5   = -6
+    - ~-1  =  0
+    - ~-10 =  9
+
+- Unary Numeric Promotion (JLS §5.6.1):
+  * Applying '+', '-', or '~' to byte/short/char promotes the result to int.
+  * byte b = 10; byte c = (byte) -b; // Explicit cast required!
+
+- Associativity & Precedence:
+  * Unary operators associate RIGHT-TO-LEFT.
+  * Example: - - -10 -> -(-(-(10))) -> -10.
+  * Higher precedence than all binary arithmetic operators (*, /, +, -).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Remember ~x = -(x + 1) for bitwise NOT computations.
+[✓] Cast back to byte/short when applying unary negation to narrow types.
+[✓] Use flags = flags & ~MASK to clear specific bit flags cleanly.
+[✓] Unary operators associate Right-to-Left.
+================================================================================

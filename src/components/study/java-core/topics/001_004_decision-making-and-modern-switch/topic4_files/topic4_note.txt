@@ -1,0 +1,39 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 4: 'else-if' Ladder for Multi-Branch Evaluations
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Structure & Execution Flow:
+  if ( condition1 ) {
+      // Executes if condition1 is true
+  } else if ( condition2 ) {
+      // Executes if condition1 is false AND condition2 is true
+  } else if ( condition3 ) {
+      // Executes if condition1, 2 are false AND condition3 is true
+  } else {
+      // Default fallback (executed if ALL conditions are false)
+  }
+
+- Condition Ordering Rule:
+  * Conditions are evaluated SEQUENTIALLY from top to bottom.
+  * The FIRST condition that evaluates to 'true' executes; all others are skipped.
+  * CRITICAL: Always order from MOST SPECIFIC (highest threshold) to least specific!
+    - Correct: if (score >= 90) ... else if (score >= 80) ... else if (score >= 60)
+    - Wrong  : if (score >= 40) ... else if (score >= 90) [95 matches >= 40!]
+
+- Production Use Cases:
+  * Academic Letter Grade Slabs (A+, A, B, C, F)
+  * Income Tax Slabs (Indian New Tax Regime in ₹)
+  * Credit Score Risk Categorization
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Order range checks in descending order (highest value first).
+[✓] Always provide a trailing 'else' block for unhandled edge cases.
+[✓] Avoid huge ladders (>5 branches); consider switch or Map dispatch.
+[✓] Use curly braces '{}' for every branch in the ladder.
+================================================================================

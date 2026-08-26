@@ -1,0 +1,33 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_005: Loops, Iteration Statements & Jump Controls
+TOPIC 4: Entry-Controlled 'while' Loops
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- 'while' Loop Syntax (JLS §14.12):
+  while (BooleanCondition) {
+      // Loop Body Statements
+      // State Update Expression
+  }
+
+- Entry-Controlled Nature (Pre-test):
+  * The condition is evaluated BEFORE entering the body.
+  * If initial condition is FALSE -> Body executes ZERO (0) times.
+  * If condition is TRUE -> Body executes -> Condition re-evaluated.
+
+- Primary Use Cases:
+  1. Indefinite Iteration : Unknown iteration count (network polling, stream reading).
+  2. Digit Extraction     : while (n > 0) { int d = n % 10; n /= 10; }
+  3. Sentinel Input Loops : while ((val = read()) != -1) { ... }
+  4. State Monitoring     : while (balance >= hourlyRate) { balance -= hourlyRate; }
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Always ensure the loop body mutates the variable tested in the condition!
+[✓] Semicolon trap: while (cond); creates an immediate infinite loop!
+[✓] Java requires a boolean expression (while (1) is a compile error).
+[✓] Use while (true) with internal break for multi-exit conditions.
+================================================================================

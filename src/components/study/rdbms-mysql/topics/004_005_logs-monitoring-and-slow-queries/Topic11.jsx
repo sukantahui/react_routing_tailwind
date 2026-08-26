@@ -360,7 +360,7 @@ WHERE d.VARIABLE_NAME = 'Created_tmp_disk_tables';`,
 
             <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800">
               <h3 className="text-base font-bold text-rose-400 mb-3 flex items-center gap-2">
-                <span>⚠️</span> Pitfall 2: High Disk Spill Ratio (>15%)
+                <span>⚠️</span> Pitfall 2: High Disk Spill Ratio (&gt; 15%)
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
                 When <code>Created_tmp_disk_tables</code> exceeds 15% of total temporary tables, queries write intermediate results to disk, choking NVMe I/O.
@@ -372,7 +372,7 @@ WHERE d.VARIABLE_NAME = 'Created_tmp_disk_tables';`,
 
             <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800">
               <h3 className="text-base font-bold text-emerald-400 mb-3 flex items-center gap-2">
-                <span>✓</span> Best Practice 1: Maintain Hit Ratio >99.0%
+                <span>✓</span> Best Practice 1: Maintain Hit Ratio &gt; 99.0%
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
                 Ensure the InnoDB Buffer Pool Hit Ratio stays strictly above 99.0% on OLTP instances to guarantee sub-millisecond RAM query execution.
@@ -384,7 +384,7 @@ WHERE d.VARIABLE_NAME = 'Created_tmp_disk_tables';`,
 
             <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800">
               <h3 className="text-base font-bold text-emerald-400 mb-3 flex items-center gap-2">
-                <span>✓</span> Best Practice 2: Enforce Index Ratio >95%
+                <span>✓</span> Best Practice 2: Enforce Index Ratio &gt; 95%
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
                 Monitor <code>Handler_read_key / (Handler_read_key + Handler_read_rnd_next)</code> to verify that B-Tree indexes satisfy over 95% of row requests.

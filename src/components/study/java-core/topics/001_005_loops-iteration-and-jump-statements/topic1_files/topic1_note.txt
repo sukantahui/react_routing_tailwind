@@ -1,0 +1,34 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_005: Loops, Iteration Statements & Jump Controls
+TOPIC 1: Standard 'for' Loop Execution Lifecycle
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Standard 'for' Loop Syntax (JLS §14.14.1):
+  for (Initialization; BooleanCondition; UpdateExpression) {
+      // Loop Body Statements
+  }
+
+- Exact 5-Step Lifecycle Order:
+  Step 1: Initialization executes EXACTLY ONCE upon loop entry.
+  Step 2: Condition is evaluated (true -> Step 3 | false -> Terminate Loop).
+  Step 3: Loop Body executes payload statements.
+  Step 4: Update Expression executes (e.g. i++, i--, i += 5).
+  Step 5: Jump back to Step 2 (re-evaluate condition).
+
+- Common Variations:
+  * Ascending Counter   : for (int i = 1; i <= N; i++)
+  * Descending Countdown : for (int i = N; i >= 1; i--)
+  * Custom Steps         : for (int i = 0; i <= 100; i += 10)
+  * Infinite 'for' Loop  : for (;;) { ... }
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Remember: Update executes AFTER the body, never before!
+[✓] Semicolon trap: Do NOT put ';' after the header (for (...); is an empty loop!).
+[✓] Use integer counters instead of floats/doubles to avoid rounding bugs.
+[✓] Trace iteration state step-by-step using an Iteration Trace Table.
+================================================================================

@@ -1,0 +1,39 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 16: Guard Conditions & Pattern Matching in Switch (Java 17-21)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Pattern Matching for Switch (Java 21 JEP 441):
+  * Matches runtime types and extracts typed pattern variables without casting:
+    switch (obj) {
+        case Student s -> s.getMarks();
+        case CorporateGrant g -> g.getAmount();
+    }
+
+- Guard Conditions ('when' Clauses):
+  * Appends fine-grained boolean conditions to type patterns:
+    case Student s when s.getMarks() >= 90 -> "Honors Scholar";
+    case Student s when s.getMarks() >= 60 -> "Regular Scholar";
+    case Student s                         -> "Remedial Program";
+
+- Pattern Dominance Rule:
+  * A broad unguarded type pattern DOMINATES narrower guarded patterns.
+  * You MUST place specific/guarded cases BEFORE general/unguarded cases!
+  * Wrong  : case String s -> ... case String s when s.isEmpty() -> [ERROR!]
+  * Correct: case String s when s.isEmpty() -> ... case String s ->
+
+- Safe Null Handling (case null ->):
+  * In Java 21, write 'case null -> handleNull();' to safely handle nulls
+    without triggering NullPointerException!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Place specific guarded cases before general unguarded type patterns.
+[✓] Use 'case null ->' to catch null references safely.
+[✓] Eliminate unsafe explicit casts with type pattern variables.
+[✓] Use record patterns (case Student(name, marks) when marks >= 90 ->) in Java 21.
+================================================================================

@@ -1,0 +1,39 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 18: Automatic Type Promotion Rules in Expressions (byte/short/char -> int)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Unary Numeric Promotion (JLS §5.6.1):
+  * If operand is byte, short, or char -> Automatically promoted to 'int'.
+  * Applies to: +x, -x, ~x, array indices, shift distances.
+
+- Binary Numeric Promotion Hierarchy (JLS §5.6.2):
+  1. If any operand is 'double' -> Other promoted to 'double'
+  2. Else if any operand is 'float' -> Other promoted to 'float'
+  3. Else if any operand is 'long'   -> Other promoted to 'long'
+  4. OTHERWISE: BOTH operands are promoted to 'int'!
+
+- The 'byte + byte' Compilation Trap:
+  * byte b1 = 10, b2 = 20;
+  * byte b3 = b1 + b2;  ==> COMPILATION ERROR! (b1 + b2 evaluates to 'int')
+  * Fix: byte b3 = (byte)(b1 + b2);
+
+- Character Arithmetic Promotion:
+  * char c1 = 'A', c2 = 'B';
+  * int sum = c1 + c2;  ==> Evaluates to int 131 (65 + 66)
+
+- Float vs Long Hierarchy Rule:
+  * float (32-bit) beats long (64-bit) in promotion because float has a larger
+    dynamic numeric range (3.4 * 10^38 vs 9.22 * 10^18).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Remember that byte/short/char arithmetic ALWAYS yields at least 'int'.
+[✓] In mixed calculations, the widest type always determines the result type.
+[✓] Use 3.0 (double) when dividing sums to prevent integer division truncation.
+[✓] Avoid using narrow types (byte, short) for general arithmetic operations.
+================================================================================

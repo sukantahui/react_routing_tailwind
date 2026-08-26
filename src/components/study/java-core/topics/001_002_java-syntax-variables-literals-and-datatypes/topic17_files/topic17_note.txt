@@ -1,0 +1,53 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_002: Java Syntax, Variables, Literals & Primitive Data Types
+TOPIC 17: Resolving the Classic Scanner Newline Skip Bug (nextInt followed by nextLine)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. THE ROOT CAUSE OF THE BUG
+--------------------------------------------------------------------------------
+- What Happens in Memory:
+  * User inputs: "101" + [Enter key] -> Stream Buffer receives ['1', '0', '1', '\n']
+  * scanner.nextInt() executes:
+    - Consumes '101'
+    - Leaves '\n' UNCONSUMED at the head of the buffer.
+  * scanner.nextLine() executes immediately afterwards:
+    - Reads up to the next newline.
+    - Sees the leftover '\n' immediately!
+    - Returns an EMPTY STRING ("") without pausing for the user to type!
+    - The next prompt appears to be completely skipped.
+
+2. THE THREE INDUSTRY SOLUTIONS
+--------------------------------------------------------------------------------
+- Solution 1: Buffer Flushing with Dummy nextLine() (Most Common)
+  int roll = scanner.nextInt();
+  scanner.nextLine(); // BUFFER FLUSH: Consumes the leftover '\n'
+  String name = scanner.nextLine(); // Prompts cleanly!
+
+- Solution 2: Line-First Parsing (Bulletproof & Clean)
+  int roll = Integer.parseInt(scanner.nextLine().trim());
+  String name = scanner.nextLine();
+  double fee = Double.parseDouble(scanner.nextLine().trim());
+
+- Solution 3: Word-Based Token Reading with next()
+  int roll = scanner.nextInt();
+  String firstName = scanner.next(); // Skips leading '\n' automatically
+
+3. SUMMARY MATRIX
+--------------------------------------------------------------------------------
++--------------------+--------------------------------+------------------------+
+| Approach           | Code Sample                    | Status                 |
++--------------------+--------------------------------+------------------------+
+| Unflushed (BUG)    | nextInt(); nextLine();         | ✗ Skips text prompt    |
+| Flushed (FIX 1)    | nextInt(); sc.nextLine();      | ✓ Clean & Idiomatic    |
+| Line-First (FIX 2) | Integer.parseInt(nextLine());  | ✓ Immune to all bugs   |
++--------------------+--------------------------------+------------------------+
+
+4. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Remember: nextInt(), nextDouble(), nextBoolean() NEVER consume trailing '\n'.
+[✓] Insert scanner.nextLine() to flush the buffer before calling nextLine().
+[✓] Always .trim() when using Integer.parseInt(scanner.nextLine()).
+[✓] Apply this fix when reading multi-word addresses or student full names.
+================================================================================

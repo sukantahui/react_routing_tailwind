@@ -1,0 +1,51 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 6: Traditional 'switch-case' Statement & Valid Data Types
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. GRAMMAR AND SYNTACTIC SPECIFICATION (JLS §14.11)
+Section 14.11 of the Java Language Specification (JLS) establishes the syntax of the traditional `switch` statement:
+  SwitchStatement:
+    switch ( Expression ) SwitchBlock
+
+A. Valid Selector Types:
+   - `char`, `byte`, `short`, `int`
+   - `Character`, `Byte`, `Short`, `Integer`
+   - `String` (since Java SE 7)
+   - An enum type (since Java SE 5)
+
+B. Illegal Types:
+   - `long`, `float`, `double`, `boolean`, and arbitrary object references.
+
+2. CONSTANT EXPRESSION REQUIREMENT FOR CASE LABELS
+Under JLS §14.11.1, every `case` label must be a compile-time constant expression (JLS §15.28) of a type that is assignment-compatible with the switch expression.
+- `final int OPTION_A = 1;` is valid.
+- `int optionB = 2;` (non-final) is rejected at compile time with `constant expression required`.
+
+3. BYTECODE DECOMPILATION: TABLESWITCH VS LOOKUPSWITCH
+The Java compiler emits one of two bytecode instructions for integer switches:
+A. `tableswitch` (Dense integer ranges):
+   Constructs a direct jump table indexed by integer offsets.
+   Execution time: $O(1)$ constant time direct address jump.
+B. `lookupswitch` (Sparse integer ranges):
+   Constructs an array of sorted key-target pairs.
+   Execution time: $O(\log N)$ binary search lookup.
+
+4. SCOPE LEAKAGE AND ISOLATION IN TRADITIONAL SWITCH
+In Java, the entire block enclosed by `switch (...) { ... }` constitutes a single lexical block scope.
+Consequently:
+  switch (x) {
+      case 1:
+          int count = 10;
+          break;
+      case 2:
+          int count = 20; // COMPILATION ERROR: variable count is already defined!
+          break;
+  }
+To isolate variable scopes between individual cases, wrap the case statement body in explicit curly braces `{ ... }`.
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu engineered a multi-tier course and campus branch dispatcher in Indian Rupees (₹). By mapping course track numbers (Java Core ₹15,000 vs Spring Boot ₹22,000), transaction strings (`WITHDRAW`, `DEPOSIT`), and campus enums (`BARRACKPORE`, `SHYAMNAGAR`, `NAIHATI`, `ICHAPUR`), their software demonstrated $O(1)$ dispatch speed with zero scope leakage across institutions in West Bengal.
+================================================================================

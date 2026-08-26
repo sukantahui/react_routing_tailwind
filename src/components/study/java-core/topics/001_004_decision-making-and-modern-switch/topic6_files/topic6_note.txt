@@ -1,0 +1,41 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 6: Traditional 'switch-case' Statement & Valid Data Types
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Valid Switch Selector Data Types:
+  [✓] byte, short, int, char  (Primitive integral types)
+  [✓] Byte, Short, Character, Integer  (Wrapper classes via unboxing)
+  [✓] String  (Introduced in Java 7)
+  [✓] enum  (Introduced in Java 5)
+
+- ILLEGAL Selector Types in Java:
+  [X] long    (64-bit integer, not supported by 32-bit JVM tableswitch)
+  [X] float   (Floating-point rounding prevents exact match)
+  [X] double  (Floating-point rounding prevents exact match)
+  [X] boolean (Binary state; use if-else instead)
+
+- Case Label Rules:
+  1. Must be COMPILE-TIME CONSTANTS (literals or 'final' constant variables).
+  2. No duplicate case values allowed.
+  3. Must fit within the range of the selector type.
+  4. 'null' selector throws NullPointerException.
+
+- Enum Case Syntax:
+  * Must use UNQUALIFIED enum names: case BARRACKPORE: (NOT StudentBranch.BARRACKPORE:).
+
+- Variable Scope Rule:
+  * Variables declared in a case are visible across the ENTIRE switch body.
+  * Use inner braces '{ ... }' to isolate local variable scopes per case.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] End every non-fallthrough case with a 'break;' statement.
+[✓] Always provide a 'default:' branch for unhandled cases.
+[✓] Wrap case bodies in '{ }' if declaring local variables.
+[✓] Check selector expression for null before switching on Strings/Enums.
+================================================================================

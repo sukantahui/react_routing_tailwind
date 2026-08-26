@@ -1,0 +1,39 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_005: Loops, Iteration Statements & Jump Controls
+TOPIC 2: Variable Scope in 'for' Loop Headers
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Header Scope Isolation (JLS §6.3, §14.14.1):
+  * Variables declared in 'for' headers exist ONLY within the loop header & body:
+    for (int i = 0; i < 5; i++) {
+        // 'i' is alive here
+    }
+    // 'i' is DESTROYED here! Accessing 'i' causes a compile error.
+
+- Variable Reuse in Sibling Loops:
+  * Consecutive loops can safely redeclare the same variable name:
+    for (int seatNo = 1; seatNo <= 3; seatNo++) { ... }
+    for (int seatNo = 1; seatNo <= 3; seatNo++) { ... } // 100% Legal!
+
+- Local Variable Shadowing Restriction:
+  * Java FORBIDS shadowing an existing local variable in the same method:
+    int i = 10;
+    for (int i = 0; ...) // COMPILER ERROR: variable i is already defined!
+
+- Preserving State Across Loop Boundaries:
+  * To inspect the loop counter after the loop terminates:
+    int index;
+    for (index = 0; index < arr.length; index++) { if (found) break; }
+    // 'index' is accessible here!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Confine loop counters to the narrowest possible scope (Effective Java Item 57).
+[✓] Declare variables outside the loop ONLY if needed after loop termination.
+[✓] Sibling loops can reuse names (i, j, index) without namespace pollution.
+[✓] In JVM bytecode, non-overlapping sibling variables reuse the same stack slot.
+================================================================================

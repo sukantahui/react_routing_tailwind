@@ -1,0 +1,39 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 15: The 'yield' Keyword in Multi-Statement Switch Blocks
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- What is 'yield' (JLS §14.21, Java 14+ JEP 361):
+  * A contextual keyword used to produce a value from a multi-statement block
+    body inside a switch expression.
+  * Syntax:
+    final int fee = switch (tier) {
+        case PROFESSIONAL -> {
+            int base = 18000;
+            int discount = (score >= 80) ? 3000 : 0;
+            yield base - discount; // Yields value and exits switch!
+        }
+        default -> 10000;
+    };
+
+- Key Differences:
+  * yield  : Exits ONLY the switch expression and produces a value.
+  * return : Exits the ENTIRE enclosing method immediately.
+  * break  : Exits loops or statements without producing a value.
+
+- Contextual Keyword Nature:
+  * 'yield' is NOT a global reserved keyword. You can still use 'yield' as a
+    variable name outside switch blocks (e.g. Thread.yield()).
+  * Inside a switch block, it is treated as a keyword.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Use 'yield' whenever a switch branch requires multiple statements in '{ }'.
+[✓] Ensure every execution path through the block yields a value.
+[✓] Do not use 'yield' in single-line arrow expressions (case X -> Y;).
+[✓] Keep yield blocks concise (3-5 lines); extract larger logic to helper methods.
+================================================================================

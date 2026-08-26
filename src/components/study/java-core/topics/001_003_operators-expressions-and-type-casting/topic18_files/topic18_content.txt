@@ -1,0 +1,40 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 18: Automatic Type Promotion Rules in Expressions (byte/short/char -> int)
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. NUMERIC PROMOTION SPECIFICATIONS IN THE JLS
+Sections 5.6.1 and 5.6.2 of the Java Language Specification (JLS) formalize numeric type promotion across all expressions:
+A. Unary Numeric Promotion (§5.6.1):
+   When applied to a single operand of an arithmetic, bitwise inversion, or shift operator:
+   - If the operand is of compile-time type `byte`, `short`, or `char`, it is promoted to `int` by widening primitive conversion.
+   - Otherwise, the operand remains unchanged.
+
+B. Binary Numeric Promotion (§5.6.2):
+   When applied to a pair of operands in a binary arithmetic, relational, or bitwise expression:
+   1. If either operand is of type `double`, the other is converted to `double`.
+   2. Otherwise, if either operand is of type `float`, the other is converted to `float`.
+   3. Otherwise, if either operand is of type `long`, the other is converted to `long`.
+   4. Otherwise, both operands are converted to type `int`.
+
+2. HARDWARE AND JVM INSTRUCTION SET RATIONALE
+Why does Java promote `byte` and `short` to `int` rather than executing byte-level arithmetic directly?
+- CPU Architecture: Modern x86-64 and ARM processors are optimized for 32-bit and 64-bit register arithmetic.
+- Bytecode Economy: The JVM bytecode specification includes `iadd`, `isub`, `imul`, and `idiv` for 32-bit `int` arithmetic, but does not provide dedicated byte or short arithmetic opcodes (`badd`, `sadd`). All 8-bit and 16-bit values are loaded into 32-bit operand stack frames.
+
+3. THE SPECIAL POSITION OF FLOAT OVER LONG
+Even though `long` is 64 bits and `float` is 32 bits, Binary Numeric Promotion converts `long` to `float`:
+- `long` range: $\approx \pm 9.22 \times 10^{18}$ (integer precision).
+- `float` range: $\approx \pm 3.4 \times 10^{38}$ (floating-point continuum).
+Because `float` has a vastly larger dynamic scale, Java promotes `long` to `float` during mixed operations (e.g. `100L + 25.5f` yields `125.5f`).
+
+4. COMPILE-TIME CONSTANT EXPRESSION NARROWING
+There is one exception to variable promotion: compile-time constant expressions.
+- `char c = 'A' + 1;` compiles cleanly because `'A' + 1` is evaluated at compile-time as constant `66`, which fits in `char`.
+- `char c = 'A'; c = c + 1;` fails because `c` is a variable, forcing runtime promotion to `int`.
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu built an examination grading and tuition accounting engine. By understanding that exam scores stored as `byte` promote to `int` during summation, they formulated average score calculations with double precision (`(m1 + m2 + m3) / 3.0`) and integrated GST tuition billing in Indian Rupees (₹) with zero truncation defects across Naihati and Shyamnagar.
+================================================================================

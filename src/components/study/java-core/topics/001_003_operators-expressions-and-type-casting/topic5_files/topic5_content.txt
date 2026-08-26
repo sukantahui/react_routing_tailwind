@@ -1,0 +1,44 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 5: Unary Operators: Unary Plus (+), Unary Minus (-), Logical NOT (!), Bitwise NOT (~)
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. TAXONOMY OF UNARY OPERATORS
+Unary operators act upon a single operand to produce a new value. In Java, unary operators occupy one of the highest precedence tiers in the grammar and associate strictly Right-to-Left:
+1. `+` (Unary Plus): Indicates positive value and triggers Unary Numeric Promotion.
+2. `-` (Unary Minus): Negates the operand arithmetic value.
+3. `!` (Logical Complement / NOT): Inverts boolean truth values.
+4. `~` (Bitwise Inversion / NOT): Inverts all binary bits in integral types.
+
+2. THE BITWISE INVERSION THEOREM (~x = -(x + 1))
+Because Java implements signed two's complement integer arithmetic:
+  ~x = -x - 1 = -(x + 1)
+
+Mathematical proof:
+For any 32-bit integer `x`, the sum of `x` and its bitwise complement `~x` is a bit pattern of all ones (`0xFFFFFFFF`), which represents `-1` in two's complement.
+  x + (~x) = -1
+  ~x = -1 - x = -(x + 1)
+
+Thus:
+  ~0   = -(0 + 1)   = -1
+  ~1   = -(1 + 1)   = -2
+  ~-1  = -(-1 + 1)  =  0
+  ~-10 = -(-10 + 1) =  9
+
+3. UNARY NUMERIC PROMOTION (JLS §5.6.1)
+When `+`, `-`, or `~` is applied to an operand of type `byte`, `short`, or `char`, Java automatically widens the operand to 32-bit `int` prior to evaluation.
+Therefore:
+  byte b = 5;
+  // byte res = -b; // Compile error! -b evaluates to int.
+  byte res = (byte) -b; // Correct: explicit narrowing cast.
+
+4. BITMASK MANIPULATION PATTERNS
+The bitwise NOT operator `~` is extensively used in systems programming and flag management to clear specific bit flags:
+  int MASK_STUDENT_RESTRICTED = 0x04;
+  userPermissions = userPermissions & ~MASK_STUDENT_RESTRICTED;
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore center, Swadeep, Tuhina, Abhronila, and Debangshu created an account status auditor and permission bitmask filter. By using unary minus to represent negative student ledger balances as positive outstanding dues in Indian Rupees (₹) and logical NOT to control laboratory access gates, their application executed business rules with mathematical precision.
+================================================================================

@@ -1,0 +1,61 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 3: Nested 'if-else' Statements & Resolving the Dangling Else Ambiguity
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. FORMAL GRAMMAR AND THE DANGLING ELSE SPECIFICATION (JLS §14.5)
+The Dangling Else problem is a classic context-free grammar ambiguity in computer science. In an ambiguous grammar with production rules:
+  S -> if E then S
+  S -> if E then S else S
+The string `if E1 then if E2 then S1 else S2` has two distinct parse trees.
+To resolve this ambiguity unambiguously, the Java Language Specification (JLS §14.5) splits statements into two non-terminals:
+1. `Statement`: Can end with an unclosed `if` statement.
+2. `StatementNoShortIf`: A statement that cannot end with an unclosed `if` statement.
+
+Under this rule, an `else` keyword is syntactically attached to the innermost, nearest preceding `if` statement that is not yet matched with an `else`.
+
+2. THE DANGER OF MISLEADING INDENTATION
+Because Java compilers ignore all whitespace and indentation during tokenization, a human developer reading indented code:
+  if (isServerOnline)
+      if (isAuthenticated)
+          grantAccess();
+  else
+      showOfflineError(); // BUG: Attaches to isAuthenticated, NOT isServerOnline!
+The `else` branch will execute when the server IS online but the user is unauthenticated, producing a completely misleading offline error!
+
+3. DISAMBIGUATION VIA BLOCK STATEMENTS
+Under JLS §14.2, a block `{ ... }` acts as a compound statement that explicitly isolates inner statements:
+  if (isServerOnline) {
+      if (isAuthenticated) {
+          grantAccess();
+      }
+  } else {
+      showOfflineError(); // Guaranteed to belong to isServerOnline
+  }
+
+4. THE ARROW ANTI-PATTERN AND GUARD CLAUSE REFACTORING
+Deeply nested `if-else` hierarchies generate high Cyclomatic Complexity.
+Refactoring Recipe:
+Instead of:
+  public void process(Student s) {
+      if (s != null) {
+          if (s.isEnrolled()) {
+              if (s.hasPaid()) {
+                  issueCard(s);
+              }
+          }
+      }
+  }
+Refactor to Guard Clauses:
+  public void process(Student s) {
+      if (s == null) return;
+      if (!s.isEnrolled()) return;
+      if (!s.hasPaid()) return;
+      issueCard(s);
+  }
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu audited a multi-tier student scholarship matrix in Indian Rupees (₹). By applying clean curly braces and refactoring deep pyramids into flat guard clauses, their admissions module granted 100% accurate tuition waivers (Tier 1 Full Waiver vs Tier 2 Merit-Cum-Means Waiver) with zero dangling else defects across Naihati and Shyamnagar.
+================================================================================

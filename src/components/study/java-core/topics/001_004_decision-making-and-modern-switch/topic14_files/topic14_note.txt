@@ -1,0 +1,37 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 14: Using Switch as a Value-Returning Expression
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Switch as an Expression (JLS §15.28):
+  * Produces a value that can be assigned directly:
+    final double discount = switch (category) {
+        case MERIT_SCHOLAR       -> 0.50;
+        case BPL_EWS             -> 0.75;
+        case CORPORATE_SPONSORED -> 0.20;
+        case GENERAL             -> 0.00;
+    }; // Mandatory trailing semicolon on assignment!
+
+- Strict Exhaustiveness Rule:
+  * The compiler MUST verify that every possible selector value produces a result
+    or throws an exception.
+  * For enums: If all constants are handled, 'default' is NOT required.
+  * For int, String, char: 'default' is MANDATORY.
+
+- Placement Superpowers:
+  1. On right side of assignment: final int fee = switch (...) { ... };
+  2. Inside method arguments: System.out.printf("Badge: %s", switch (...) { ... });
+  3. In return statements: return switch (...) { ... };
+  4. In constructor final field initialization.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Assign switch expressions to 'final' variables to enforce immutability.
+[✓] Put a trailing semicolon ';' after switch expression assignments.
+[✓] Cover all enum constants to achieve compile-time exhaustiveness without default.
+[✓] Throw exceptions in default to safely reject unhandled inputs.
+================================================================================

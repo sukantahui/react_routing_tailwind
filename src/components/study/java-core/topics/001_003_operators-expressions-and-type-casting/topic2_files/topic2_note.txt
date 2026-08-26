@@ -1,0 +1,43 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 2: Integer Division Truncation vs Floating-Point Division
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Integer Division Truncation:
+  * When both operands of '/' are integers:
+    - 7 / 2 = 3 (The .5 is truncated towards zero!)
+    - -7 / 2 = -3 (Truncation towards zero)
+  * The Classic Trap:
+    - double avg = (m1 + m2 + m3) / 3; // BUG! Truncates BEFORE assigning to double!
+    - Fix: double avg = (m1 + m2 + m3) / 3.0; // Clean floating-point division!
+
+- Truncation vs Floor vs Ceil vs Round:
+  +---------------+------------+------------+----------------------------------+
+  | Operation     | x = 3.75   | x = -3.75  | Rounding Direction               |
+  +---------------+------------+------------+----------------------------------+
+  | Truncation /  | 3          | -3         | Towards Zero                     |
+  | Math.floor()  | 3.0        | -4.0       | Towards Negative Infinity        |
+  | Math.ceil()   | 4.0        | -3.0       | Towards Positive Infinity        |
+  | Math.round()  | 4          | -4         | Nearest long (Half-up)           |
+  | Math.floorDiv | 3          | -4         | Algebraic floor division         |
+  +---------------+------------+------------+----------------------------------+
+
+- Java 8+ Floor Division:
+  * Math.floorDiv(-7, 2)  --> -4 (Rounds down to -4, unlike -7 / 2 which gives -3)
+  * Math.floorMod(-7, 2)  --> +1 (Remainder sign matches divisor +2)
+
+- Cast Placement Rule:
+  * (double)(a / b) --> WRONG! Truncation already occurred inside parentheses.
+  * (double) a / b  --> CORRECT! Promotes division to floating-point.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Divide by floating-point literals (3.0, 2.0f) when computing averages.
+[✓] Use (double) a / b before division to preserve decimal precision.
+[✓] Use Math.floorDiv() for calendar, clock, and geographic grid calculations.
+[✓] Use BigDecimal for financial fee split calculations in Indian Rupees (₹).
+================================================================================

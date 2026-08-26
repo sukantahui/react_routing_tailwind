@@ -1,0 +1,41 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 12: Elimination of Fall-Through in Arrow Switch Expressions
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. FORMAL LANGUAGE SPECIFICATION (JLS §14.11.2)
+Section 14.11.2 of the Java Language Specification formalizes the execution semantics of switch rules (`SwitchLabeledRule`):
+- "A switch rule produces a result or terminates normally when its right-hand expression or block completes."
+- Crucially: "Execution of a switch rule does not fall through into any subsequent switch rule."
+
+This structural invariant is enforced directly by the Java compiler, which emits an unconditional `goto` pointing to the exit label of the switch immediately following the bytecode of each arrow target.
+
+2. ELIMINATION OF PRIVILEGE ESCALATION VULNERABILITIES
+In security-sensitive software, missing `break` statements in legacy switch constructs historically led to Common Weakness Enumeration (CWE-484: Omitted Break Statement in Switch):
+  switch (userRole) {
+      case ROLE_GUEST:
+          logGuest();
+      case ROLE_ADMIN:
+          grantRootShell(); // CRITICAL SECURITY BUG (CWE-484)!
+  }
+By enforcing strict rule boundaries in arrow switch:
+  case ROLE_GUEST -> logGuest();
+  case ROLE_ADMIN -> grantRootShell();
+it is mathematically and syntactically impossible for a `GUEST` to execute `ADMIN` instructions.
+
+3. COMMA-SEPARATED MULTI-LABEL GRAMMAR
+To replace legacy case stacking (which relied on fall-through):
+  SwitchLabel:
+    case CaseConstant { , CaseConstant } ->
+Multiple constants are listed as a comma-separated tuple in a single atomic rule. This decouples code reuse from sequential control-flow side effects.
+
+4. SCOPING PURITY AND CONTROL-FLOW GRAPHS
+Because arrow branches have non-overlapping lifetimes:
+- Static analysis tools construct clean, planar Control Flow Graphs (CFG) without complex backward or cross-branch edge dependencies.
+- JIT compilers can inline individual arrow methods and optimize branch paths without tracking fall-through side-effects.
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu audited security authorization gateways and financial fee tiers in Indian Rupees (₹). By comparing a simulated legacy fall-through vulnerability with modern arrow switch rules, their security model proved 100% immune to role privilege leaks, ensuring student, teacher, accountant, and administrator role separation across Naihati and Shyamnagar.
+================================================================================

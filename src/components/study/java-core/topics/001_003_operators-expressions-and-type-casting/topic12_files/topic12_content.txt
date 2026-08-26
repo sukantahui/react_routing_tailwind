@@ -1,0 +1,42 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 12: Shift Operators: Left Shift (<<), Signed Right Shift (>>), Unsigned Right Shift (>>>)
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. BINARY BIT SHIFT MECHANICS IN THE JVM
+Java provides three binary shift operators defined in Section 15.19 of the Java Language Specification (JLS):
+1. `<<` (Signed Left Shift): Shifts bits to the left, discarding bits that shift off the left end and filling vacated positions on the right with `0`. Equivalent to algebraic multiplication by $2^s$.
+2. `>>` (Signed Right Shift): Shifts bits to the right with Sign Extension. Vacated bits on the left are filled with copies of the most significant bit (MSB / sign bit).
+3. `>>>` (Unsigned Right Shift): Shifts bits to the right with Zero Extension. Vacated bits on the left are filled strictly with `0`, regardless of the operand's original sign.
+
+2. SHIFT DISTANCE MASKING SPECIFICATION (JLS §15.19)
+If the left-hand operand is of type `int`:
+- Only the lowest 5 bits of the right-hand operand are used as the shift distance (`shiftDistance & 0x1F`).
+- Therefore, the effective shift distance is always in the range `[0, 31]`.
+- Shifting by `32` evaluates as shifting by `0`; shifting by `33` evaluates as shifting by `1`.
+
+If the left-hand operand is of type `long`:
+- Only the lowest 6 bits of the right-hand operand are used (`shiftDistance & 0x3F`), constraining shift distances to `[0, 63]`.
+
+3. ARGB COLOR MANIPULATION & GRAPHICS PIPELINE
+In computer graphics, digital imaging, and UI frameworks, 32-bit colors are packed into a single integer using shift and bitwise operations:
+  int argb = (alpha << 24) | (red << 16) | (green << 8) | blue;
+
+To extract the color channels:
+  int alpha = (argb >>> 24) & 0xFF;
+  int red   = (argb >> 16)  & 0xFF;
+  int green = (argb >> 8)   & 0xFF;
+  int blue  =  argb         & 0xFF;
+
+4. THE JOSHUA BLOCH BINARY SEARCH MIDPOINT THEOREM
+In 2006, famous Java architect Joshua Bloch documented a famous 20-year-old bug in standard binary search implementations:
+  int mid = (low + high) / 2; // Overflows into negative numbers when low + high > 2,147,483,647!
+
+The correct, overflow-proof algorithm uses unsigned right shift:
+  int mid = (low + high) >>> 1; // Shifts the overflowed sign bit into the 31st bit, restoring the correct positive midpoint!
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu built a high-performance network packet encoder and student tuition receipt voucher compressor. By packing student roll numbers into the upper 16 bits and tuition fees in Indian Rupees (₹) into the lower 16 bits using shift operators (`(roll << 16) | (fee & 0xFFFF)`), their software halved network bandwidth consumption with zero data degradation.
+================================================================================

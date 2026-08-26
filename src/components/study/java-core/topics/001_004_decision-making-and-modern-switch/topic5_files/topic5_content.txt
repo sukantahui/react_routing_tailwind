@@ -1,0 +1,44 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 5: Combining Complex Boolean Conditions Using &&, ||, and !
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. GRAMMAR AND PRECEDENCE SPECIFICATION (JLS §15.22, §15.23, §15.24)
+In Java, boolean expressions are evaluated according to strict grammar precedence:
+1. Logical Complement Operator `!` (JLS §15.15.6): Unary prefix operator with precedence tier 13.
+2. Conditional-And Operator `&&` (JLS §15.23): Binary infix operator with precedence tier 4.
+3. Conditional-Or Operator `||` (JLS §15.24): Binary infix operator with precedence tier 3.
+
+Both `&&` and `||` are left-associative and guarantee short-circuit evaluation.
+
+2. FORMAL PROOF OF DE MORGAN'S LAWS IN JAVA REFACTORING
+De Morgan's laws state that any conjunction can be expressed as a disjunction of negations, and vice versa:
+A. First Law: `!(A && B) == !A || !B`
+   Truth Table:
+   A     B     A && B    !(A && B)    !A    !B    !A || !B
+   T     T       T           F         F     F        F
+   T     F       F           T         F     T        T
+   F     T       F           T         T     F        T
+   F     F       F           T         T     T        T
+
+B. Second Law: `!(A || B) == !A && !B`
+In enterprise refactoring, applying De Morgan's laws allows developers to invert complex `if-else` branching conditions into cleaner, flat guard clauses.
+
+3. SHORT-CIRCUIT DEFENSIVE PROGRAMMING PATTERNS
+The JVM guarantees that the right-hand operand of `&&` is evaluated ONLY if the left-hand operand evaluates to `true`.
+This enables the canonical defensive null-guard pattern:
+  if (student != null && student.isEnrolled() && student.getFee() > 0)
+Because evaluation halts on the first `false`, `student.isEnrolled()` is NEVER invoked if `student` is `null`, preventing a `NullPointerException` without nested `if` statements.
+
+4. COGNITIVE COMPLEXITY AND HELPER METHOD EXTRACTION
+Static analysis tools (such as SonarQube) calculate Cognitive Complexity by assessing the density of boolean operators in a single `if` header.
+A composite condition containing 4+ logical operators:
+  if ((age >= 18 || hasParentConsent) && (!hasCriminalRecord && creditScore >= 700))
+should be refactored into descriptive boolean query methods:
+  if (isAgePermitted(student) && isFinancialClear(student))
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu built a student education loan and scholarship sanction engine in Indian Rupees (₹). By combining composite criteria (academic merit &ge; 80% OR credit score &ge; 720, AND loan amount &le; ₹3,00,000 OR co-signer guarantee) with defensive short-circuit guards, their approval system processed loan applications with zero null pointer crashes across Naihati and Shyamnagar.
+================================================================================

@@ -1,0 +1,42 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 11: Bitwise Operators: Bitwise AND (&), Bitwise OR (|), Bitwise XOR (^), Bitwise Inversion (~)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- The 4 Fundamental Bitwise Operators:
+  +----------+-----------------------+-----------------------------------------+
+  | Operator | Name                  | Truth Condition                         |
+  +----------+-----------------------+-----------------------------------------+
+  | &        | Bitwise AND           | 1 only if BOTH bits are 1               |
+  | |        | Bitwise OR            | 1 if AT LEAST ONE bit is 1              |
+  | ^        | Bitwise XOR           | 1 only if bits are DIFFERENT (1^0, 0^1) |
+  | ~        | Bitwise NOT           | Inverts all bits: ~x = -(x + 1)         |
+  +----------+-----------------------+-----------------------------------------+
+
+- The 4 Essential Bitmask Recipes:
+  1. SET Flag    : flags = flags | MASK;      (or flags |= MASK;)
+  2. CHECK Flag  : boolean isSet = (flags & MASK) != 0;
+  3. TOGGLE Flag : flags = flags ^ MASK;      (or flags ^= MASK;)
+  4. CLEAR Flag  : flags = flags & ~MASK;     (or flags &= ~MASK;)
+
+- Algorithmic XOR Properties:
+  * x ^ x = 0
+  * x ^ 0 = x
+  * In-Place Swap: a ^= b; b ^= a; a ^= b;
+  * Single Non-Duplicate: XOR all elements together.
+
+- Precedence Trap:
+  * Relational (==, !=) > Bitwise (&, ^, |).
+  * Always use parentheses: if ((flags & MASK) != 0) // Mandatory!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Bitwise operators ONLY apply to integral types (byte..long, char).
+[✓] Always enclose bitmask checks in parentheses: ((flags & MASK) != 0).
+[✓] Use (n & 1) != 0 to check for odd numbers safely across negative numbers.
+[✓] Use (n > 0) && ((n & (n - 1)) == 0) to check for powers of two.
+================================================================================
