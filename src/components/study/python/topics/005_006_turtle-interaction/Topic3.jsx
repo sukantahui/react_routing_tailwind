@@ -1,379 +1,441 @@
-import React, { useState, useEffect, useRef } from "react";
-import clsx from "clsx";
-
-// ─── Common Framework Imports ──────────────────────────────────────────
+import React, { useState, useEffect } from "react";
 import Teacher from "../../../../../common/TeacherSukantaHui";
+import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import questions from "./topic3_files/topic3_questions";
+
+// Import Python Source Files
+import onclickCompareCode from "./topic3_files/screen_vs_turtle_onclick_mechanics.py?raw";
+import multiButtonCode from "./topic3_files/multi_button_mouse_dispatcher.py?raw";
+import targetGalleryCode from "./topic3_files/interactive_point_and_click_target.py?raw";
 import noteText from "./topic3_files/topic3_note.txt?raw";
 
-/**
- * Topic3 – Mouse click event handling: screen.onclick() and turtle.onclick()
- * Module: 005_006_turtle-interaction (Module 6 – Event Handling & User Interaction)
- * Track: Python from Basic to Pro
- *
- * @component
- * @returns {JSX.Element} Interactive tutorial component with concept simulator,
- *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
- */
+const keyframes = `
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes targetPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); filter: drop-shadow(0 0 10px rgba(244, 63, 94, 0.7)); }
+}
+`;
+
 const Topic3 = () => {
-  const [activeTab, setActiveTab] = useState("concept");
-  const [filterThreshold, setFilterThreshold] = useState(70000);
-  const sectionRefs = useRef([]);
+  const [score, setScore] = useState(0);
+  const [hits, setHits] = useState(0);
+  const [targets, setTargets] = useState([
+    { id: 1, x: 70, y: 70, color: "#f43f5e", r: 16 },
+    { id: 2, x: 160, y: 110, color: "#fbbf24", r: 16 },
+    { id: 3, x: 250, y: 60, color: "#34d399", r: 16 }
+  ]);
+  const [stamps, setStamps] = useState([]);
+  const [lastEvent, setLastEvent] = useState("Click targets or background");
 
+  // Move targets randomly on interval
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    sectionRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
+    const interval = setInterval(() => {
+      setTargets((prev) =>
+        prev.map((t) => ({
+          ...t,
+          x: Math.max(30, Math.min(290, t.x + (Math.random() - 0.5) * 30)),
+          y: Math.max(30, Math.min(140, t.y + (Math.random() - 0.5) * 30))
+        }))
+      );
+    }, 1500);
+    return () => clearInterval(interval);
   }, []);
 
-  const addRef = (el) => {
-    if (el && !sectionRefs.current.includes(el)) {
-      sectionRefs.current.push(el);
-    }
+  const handleTargetClick = (targetId, e) => {
+    e.stopPropagation(); // Stop propagation to canvas background!
+    setScore((s) => s + 100);
+    setHits((h) => h + 1);
+    setLastEvent(`🎯 TURTLE.ONCLICK: Hit Target #${targetId}! (+100 pts)`);
+
+    // Relocate target immediately
+    setTargets((prev) =>
+      prev.map((t) =>
+        t.id === targetId
+          ? { ...t, x: Math.random() * 240 + 40, y: Math.random() * 100 + 40 }
+          : t
+      )
+    );
   };
 
-  const sampleEmployees = [
-    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
-    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
-    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
-    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  const handleCanvasClick = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const cx = e.clientX - rect.left;
+    const cy = e.clientY - rect.top;
+
+    setStamps((prev) => [...prev.slice(-6), { x: cx, y: cy, color: "#38bdf8" }]);
+    setLastEvent(`✨ SCREEN.ONCLICK: Stamped Star at (${cx.toFixed(0)}, ${cy.toFixed(0)})`);
+  };
+
+  const prototypes = [
+    {
+      name: "screen.onclick(fun, btn=1)",
+      returnType: "Canvas Background Listener",
+      purpose: "Fires when user clicks anywhere on the canvas background, passing (x, y) coordinates.",
+      usage: "screen.onclick(on_canvas_click, btn=1)"
+    },
+    {
+      name: "turtle.onclick(fun, btn=1)",
+      returnType: "Sprite-Specific Listener",
+      purpose: "Fires ONLY when clicking that specific visible turtle's shape polygon (hit-box).",
+      usage: "target_turtle.onclick(on_hit)"
+    },
+    {
+      name: "Multi-Button Mouse Indices",
+      returnType: "Button Dispatching",
+      purpose: "btn=1 (Left Click), btn=2 (Middle Scroll Wheel Click), btn=3 (Right Click).",
+      usage: "screen.onclick(left_click, 1)\nscreen.onclick(right_click, 3)"
+    },
+    {
+      name: "e.stopPropagation()",
+      returnType: "Event Isolation",
+      purpose: "Prevents a sprite click from bubbling through to trigger background screen clicks.",
+      usage: "target_turtle.onclick(hit_handler)"
+    }
   ];
 
-  const filteredList = sampleEmployees.filter((e) => e.salary &ge; filterThreshold);
-
   return (
-    <>
-      <style>{`
-        .reveal-section {
-          transform: translateY(0);
-          transition: transform 0.4s ease-out;
-        }
-        .reveal-section.is-visible {
-          transform: translateY(0);
-        }
-      `}</style>
+    <div className="dark bg-gray-900 text-gray-100 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+      <style>{keyframes}</style>
 
-      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
-        
-        {/* ─── 1. Header Section ──────────────────────────────── */}
-        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
-            <span>🐍</span>
-            <span>Python Masterclass · Module 006 · Topic 3</span>
+      <div className="max-w-6xl mx-auto space-y-12">
+        {/* =========================================================================
+            HERO SECTION
+        ========================================================================= */}
+        <div className="text-center space-y-4 animate-[fadeInUp_0.5s_ease-out]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold uppercase tracking-wider">
+            Module 005_006 · Event Handling & Interaction · Topic 3
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Mouse click event handling: screen.onclick() and turtle.onclick()
+
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-rose-400 via-amber-300 to-emerald-400 bg-clip-text text-transparent">
+            Mouse Click Handling: screen.onclick() & turtle.onclick()
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Build real-time interactive graphical software with keyboard bindings, mouse clicks, and drag events.
+
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Build interactive point-and-click software. Master the critical difference between <span className="text-cyan-300 font-semibold">screen.onclick() (Global Canvas)</span> and <span className="text-rose-400 font-semibold">turtle.onclick() (Sprite Hit-Testing)</span>, multi-button bindings, and arcade shooting galleries.
           </p>
 
-          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
-              ⚡ Pythonic Architecture
+          <div className="flex justify-center gap-4 flex-wrap pt-2">
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              🎯 turtle.onclick() Sprite Hit-Testing
             </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
-              🧮 Clean Code &amp; Idioms
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              🖱️ Left / Middle / Right Click Dispatching
             </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
-              🔄 Robust Error Handling
-            </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
-              💾 Production Scalability
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              🎮 Point-and-Click Shooting Gallery
             </span>
           </div>
-        </header>
+        </div>
 
-        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
-        <section
-          ref={addRef}
-          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
-        >
-          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
-              👨‍🏫
-            </div>
+        {/* =========================================================================
+            INTERACTIVE SHOOTING GALLERY & CLICK LAB
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-slate-800 backdrop-blur-sm hover:shadow-2xl transition-all duration-300 space-y-6 animate-[fadeInUp_0.6s_ease-out_0.1s]">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-700/60 pb-4">
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-white">
-                Teacher's Concept Breakdown: Mouse click event handling: screen.onclick() and turtle.onclick()
-              </h2>
+              <h3 className="text-lg font-bold text-slate-100 flex items-center gap-2">
+                <span>🎯</span> Interactive Point-and-Click Shooting Gallery
+              </h3>
               <p className="text-xs text-slate-400">
-                Understanding Python mechanics and design patterns from first principles
+                Click moving targets directly to trigger <code className="text-rose-400 font-mono">turtle.onclick()</code>, or click the background canvas to trigger <code className="text-cyan-300 font-mono">screen.onclick()</code>.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <span className="px-3 py-1 bg-slate-950 border border-slate-800 rounded-lg text-xs font-mono text-cyan-300 font-bold">
+                SCORE: {score} pts
+              </span>
+              <span className="px-3 py-1 bg-slate-950 border border-slate-800 rounded-lg text-xs font-mono text-emerald-300 font-bold">
+                HITS: {hits}
+              </span>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 items-center">
+            {/* View 1: Real-Time Rendered Canvas SVG */}
+            <div className="flex flex-col items-center p-4 bg-slate-950 rounded-xl border border-slate-800">
+              <span className="text-xs font-mono text-cyan-400 mb-2">
+                Shooting Gallery Arena (Click Targets / Background)
+              </span>
+              <svg
+                viewBox="0 0 320 180"
+                xmlns="http://www.w3.org/2000/svg"
+                onClick={handleCanvasClick}
+                className="w-full max-w-sm h-auto bg-slate-950 rounded-lg cursor-crosshair border border-slate-800"
+              >
+                {/* Background Stamped Stars */}
+                {stamps.map((s, idx) => (
+                  <g key={idx} transform={`translate(${s.x}, ${s.y})`}>
+                    <polygon points="0,-8 2,-2 8,-2 3,2 5,8 0,4 -5,8 -3,2 -8,-2 -2,-2" fill={s.color} opacity="0.8" />
+                  </g>
+                ))}
+
+                {/* Moving Interactive Target Turtles */}
+                {targets.map((tgt) => (
+                  <g
+                    key={tgt.id}
+                    transform={`translate(${tgt.x}, ${tgt.y})`}
+                    onClick={(e) => handleTargetClick(tgt.id, e)}
+                    className="cursor-pointer transition-all duration-500 animate-[targetPulse_2s_infinite]"
+                  >
+                    {/* Outer Ring */}
+                    <circle cx="0" cy="0" r={tgt.r} fill={tgt.color} stroke="#ffffff" strokeWidth="2" />
+                    {/* Inner Bullseye */}
+                    <circle cx="0" cy="0" r={tgt.r * 0.5} fill="#ffffff" />
+                    <circle cx="0" cy="0" r={tgt.r * 0.25} fill={tgt.color} />
+                  </g>
+                ))}
+
+                {/* Instruction HUD */}
+                <text x="160" y="168" fill="#64748b" fontSize="8" textAnchor="middle" fontFamily="monospace">
+                  CLICK TARGET = turtle.onclick() | CLICK BG = screen.onclick()
+                </text>
+              </svg>
+            </div>
+
+            {/* View 2: Event Telemetry & Mechanics Breakdown */}
+            <div className="space-y-4 bg-gray-900 p-5 rounded-xl border border-slate-800 text-xs">
+              <div className="text-sm font-bold text-cyan-400 flex justify-between items-center">
+                <span>Mouse Event Dispatch Telemetry</span>
+                <span className="font-mono text-xs text-emerald-300">Hit-Testing ACTIVE</span>
+              </div>
+
+              {/* Status Box */}
+              <div className="p-3 bg-slate-950 rounded-lg border border-slate-800">
+                <div className="text-slate-400 text-[11px]">Last Mouse Dispatch Event</div>
+                <div className="text-xs font-mono font-bold mt-1 text-cyan-300">
+                  {lastEvent}
+                </div>
+              </div>
+
+              {/* Code Snippet Box */}
+              <div className="p-3 bg-slate-950 rounded-lg border border-slate-800 space-y-1">
+                <span className="text-[10px] text-slate-500 font-mono uppercase tracking-wider block">
+                  # Screen vs Turtle Click Architecture
+                </span>
+                <pre className="font-mono text-emerald-300 text-xs overflow-x-auto">
+{`# 1. Global Canvas Background Clicks
+screen.onclick(stamp_star, btn=1)
+
+# 2. Specific Interactive Sprite Clicks
+target_turtle.onclick(handle_target_hit)`}
+                </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            PROTOTYPES SPECIFICATION TABLE
+        ========================================================================= */}
+        <div className="bg-gray-800/60 rounded-2xl p-6 border border-slate-800 animate-[fadeInUp_0.6s_ease-out_0.2s]">
+          <h2 className="text-xl font-bold text-cyan-400 mb-4 flex items-center gap-2">
+            <span>⚙️</span> Mouse Click Event Core APIs
+          </h2>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-gray-700 text-gray-400 text-xs uppercase tracking-wider">
+                  <th className="py-3 px-4">Method Signature</th>
+                  <th className="py-3 px-4">Scope</th>
+                  <th className="py-3 px-4">Event Dispatch Role</th>
+                  <th className="py-3 px-4">Standard Syntax</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-800 text-gray-200">
+                {prototypes.map((proto, index) => (
+                  <tr key={index} className="hover:bg-gray-800/40 transition">
+                    <td className="py-3.5 px-4 font-mono text-cyan-300 font-bold text-xs">{proto.name}</td>
+                    <td className="py-3.5 px-4 font-mono text-indigo-400 text-xs">{proto.returnType}</td>
+                    <td className="py-3.5 px-4 text-xs text-gray-300">{proto.purpose}</td>
+                    <td className="py-3.5 px-4 font-mono text-amber-300 text-xs">{proto.usage}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            PYTHON CODE IMPLEMENTATION SCRIPTS
+        ========================================================================= */}
+        <div className="space-y-6 animate-[fadeInUp_0.6s_ease-out_0.3s]">
+          <h2 className="text-2xl font-bold text-slate-100 flex items-center gap-2">
+            <span>💻</span> Professional Python Implementation Scripts
+          </h2>
+
+          <div className="space-y-6">
+            {/* File 1: screen_vs_turtle_onclick_mechanics.py */}
+            <PythonFileLoader
+              fileModule={onclickCompareCode}
+              title="screen_vs_turtle_onclick_mechanics.py"
+              highlightLines={[25, 33, 40, 48, 49]}
+            />
+
+            {/* File 2: multi_button_mouse_dispatcher.py */}
+            <PythonFileLoader
+              fileModule={multiButtonCode}
+              title="multi_button_mouse_dispatcher.py"
+              highlightLines={[19, 24, 30, 36, 37, 38]}
+            />
+
+            {/* File 3: interactive_point_and_click_target.py */}
+            <PythonFileLoader
+              fileModule={targetGalleryCode}
+              title="interactive_point_and_click_target.py"
+              highlightLines={[28, 35, 36, 37, 43, 44]}
+            />
+          </div>
+        </div>
+
+        {/* =========================================================================
+            REAL-WORLD CLASSROOM SCENARIOS
+        ========================================================================= */}
+        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.4s]">
+          <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800 space-y-3">
+            <h3 className="font-bold text-rose-400 text-lg flex items-center gap-2">
+              <span>🎯</span> Barrackpore Duck Hunt: Hit-Testing
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Mahima developed a retro Duck Hunt shooting gallery in Barrackpore. When flying ducks crossed the screen, she bound <code className="text-rose-400 font-mono">duck_turtle.onclick()</code> to trigger quacking sound effects, award 200 points, and spawn falling feather animations upon direct hits!
+            </p>
+          </div>
+
+          <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800 space-y-3">
+            <h3 className="font-bold text-emerald-400 text-lg flex items-center gap-2">
+              <span>🎨</span> Kolkata Digital Paint Studio
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Susmita in Kolkata constructed a graphic design paint app. By mapping Left Click (<code className="text-cyan-300 font-mono">btn=1</code>) to brush strokes, Right Click (<code className="text-amber-300 font-mono">btn=3</code>) to color pickers, and Middle Click (<code className="text-rose-300 font-mono">btn=2</code>) to clear canvas, she built an intuitive multi-tool painting workstation!
+            </p>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            COMMON BEGINNER TRAPS & PITFALLS
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-slate-800 space-y-4 animate-[fadeInUp_0.6s_ease-out_0.5s]">
+          <h3 className="text-xl font-bold text-amber-400 flex items-center gap-2">
+            <span>⚠️</span> Top 4 Mouse Click Traps to Avoid
+          </h3>
+
+          <div className="grid sm:grid-cols-2 gap-4 text-xs text-gray-300">
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">1. Attempting to Click Hidden Turtles</strong>
+              <p className="text-slate-400">
+                Calling <code className="text-rose-300 font-mono">t.onclick()</code> on a hidden turtle (<code className="text-rose-300 font-mono">t.hideturtle()</code>) never triggers because Tkinter cannot hit-test invisible polygons.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">2. Defining 0-Argument Click Handlers</strong>
+              <p className="text-slate-400">
+                <code className="text-cyan-300 font-mono">onclick</code> automatically passes <code className="text-amber-300 font-mono">(x, y)</code>. Defining <code className="text-rose-300 font-mono">def click():</code> raises a <code className="text-rose-300 font-mono">TypeError: takes 0 positional arguments but 2 were given</code>.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">3. Small Clickable Hit-Boxes</strong>
+              <p className="text-slate-400">
+                Default 20px turtles are frustratingly tiny to click on high-DPI screens. Always scale interactive button shapes using <code className="text-cyan-300 font-mono">t.shapesize(2.5, 5)</code>.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">4. Confusing Mouse Button Indices</strong>
+              <p className="text-slate-400">
+                Setting <code className="text-rose-300 font-mono">btn=2</code> expecting right click fails because 2 is the middle scroll wheel. Right click is strictly <code className="text-cyan-300 font-mono">btn=3</code>.
               </p>
             </div>
           </div>
+        </div>
 
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
-                  <span>💡</span> Architectural Insight
-                </span>
-                <p className="text-sm text-slate-200 leading-relaxed font-medium">
-                  In modern software engineering, <strong className="text-teal-300">Mouse click event handling: screen.onclick() and turtle.onclick()</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
-                </p>
-                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
-                  Readable Syntax · Deterministic Execution · Fast Prototyping
-                </div>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
-                </p>
+        {/* =========================================================================
+            STUDENT CHECKLIST
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-cyan-500/30 animate-[fadeInUp_0.6s_ease-out_0.6s]">
+          <h3 className="text-xl font-semibold text-cyan-400 mb-3">📝 Student Mastery Checklist</h3>
+          <div className="grid sm:grid-cols-2 gap-2.5 text-xs text-gray-200">
+            {[
+              "I know the difference between `screen.onclick` (canvas) and `turtle.onclick` (sprite)",
+              "I understand that `onclick` callbacks automatically receive `(x, y)` coordinates",
+              "I know the mouse button indices: `btn=1` (Left), `btn=2` (Middle), `btn=3` (Right)",
+              "I ensure turtles are visible (`t.isvisible()`) before attaching `turtle.onclick()`",
+              "I scale button hit boxes using `t.shapesize()` for comfortable clicking",
+              "I can build point-and-click target shooting games and interactive digital paint tools"
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-2 p-2 rounded-lg bg-gray-900/60 border border-slate-800">
+                <span className="text-cyan-400 font-bold shrink-0">✓</span>
+                <span>{item}</span>
               </div>
-              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
-                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
-              </div>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
-                  <span>🏫</span> Real-World Engineering Analogy
-                </span>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Imagine an automated logistics dispatch office in Barrackpore:
-                </p>
-                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
-                  <li>
-                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
-                  </li>
-                  <li>
-                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
-                  </li>
-                </ul>
-              </div>
-              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
-                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
-              </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
 
-        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Mouse click event handling: screen.onclick() and turtle.onclick()
-          </h2>
-          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
-            
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
-                <button
-                  onClick={() => setActiveTab("concept")}
-                  className={clsx(
-                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
-                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
-                  )}
-                &gt;
-                  Structured View
-                </button>
-                <button
-                  onClick={() => setActiveTab("json")}
-                  className={clsx(
-                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
-                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
-                  )}
-                &gt;
-                  Raw Dictionary JSON
-                </button>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                  Filter Minimum Salary (₹):
-                </label>
-                <select
-                  value={filterThreshold}
-                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
-                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
-                &gt;
-                  <option value={60000}>₹60,000+ (All 4 Records)</option>
-                  <option value={75000}>₹75,000+ (3 Records)</option>
-                  <option value={85000}>₹85,000+ (2 Records)</option>
-                  <option value={90000}>₹90,000+ (Top Earner)</option>
-                </select>
-              </div>
-            </div>
-
-            {activeTab === "concept" ? (
-              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
-                <table className="w-full text-left text-xs font-mono">
-                  <thead>
-                    <tr className="border-b border-slate-800 text-slate-400">
-                      <th className="pb-2">ID</th>
-                      <th className="pb-2">Employee</th>
-                      <th className="pb-2">Location</th>
-                      <th className="pb-2">Salary</th>
-                      <th className="pb-2">Performance</th>
-                      <th className="pb-2">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
-                    {filteredList.map((emp) => (
-                      <tr key={emp.id} className="hover:bg-slate-900/40">
-                        <td className="py-2.5 text-slate-500">{emp.id}</td>
-                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
-                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
-                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
-                        <td className="py-2.5">
-                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
-                            ⭐ {emp.score}
-                          </span>
-                        </td>
-                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            ) : (
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
-                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
-                  {JSON.stringify(filteredList, null, 2)}
-                </pre>
-              </div>
-            )}
+        {/* =========================================================================
+            HINTS & EXPERT MINDSET
+        ========================================================================= */}
+        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.7s]">
+          <div className="bg-cyan-900/20 rounded-2xl p-5 border border-cyan-500/30 space-y-2">
+            <h3 className="text-lg font-semibold text-cyan-300">💡 Hints to Explore</h3>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Think about:</strong> How strategy games like Age of Empires and Starcraft use point-and-click selection boxes to command armies!
+            </p>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Observe:</strong> How clicking moving targets in our simulator awards 100 points and relocates the target instantly!
+            </p>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Try changing:</strong> Add a countdown timer where players have 30 seconds to click as many moving targets as possible!
+            </p>
           </div>
-        </section>
 
-        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
-                    BARRACKPORE ENTERPRISE
-                  </span>
-                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
-                100% Automated Financial Auditing
-              </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
-                    JADAVPUR ROBOTICS
-                  </span>
-                  <span className="text-xs text-slate-400">Jadavpur University</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
-                Sub-Millisecond Telemetry Ingestion
-              </div>
-            </div>
+          <div className="bg-indigo-900/20 rounded-2xl p-5 border border-indigo-500/30 space-y-2">
+            <h3 className="text-lg font-semibold text-indigo-300">🚀 Expert Mindset</h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Direct spatial interaction is at the core of human-computer interfaces. By mastering mouse click coordinate routing and sprite hit-testing, you gain the power to turn static visual elements into responsive buttons, tactile game characters, and interactive desktop applications.
+            </p>
           </div>
-        </section>
+        </div>
 
-        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
-              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
-                <span>⚠️</span> Common Beginner Pitfalls
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
-                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
-                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
-              </div>
-            </div>
+        {/* =========================================================================
+            FAQS TEMPLATE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_0.8s]">
+          <FAQTemplate title="Mouse Click Handling FAQs" questions={questions} />
+        </div>
 
-            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
-              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
-                <span>✓</span> Production Best Practices
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
-                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
-                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <FAQTemplate
-            title="Mouse click event handling: screen.onclick() and turtle.onclick() FAQs"
-            questions={questions}
-            subtitle="Test your comprehension with 30 deep-dive questions"
-            showPrint
-            showExpandAll
-            showSearch
-            showProgress
-          />
-        </section>
-
-        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+        {/* =========================================================================
+            PLAIN TEXT PRINT & DOWNLOAD NOTE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_0.9s]">
           <PlainTextPrint
             content={noteText}
-            title="Mouse click event handling: screen.onclick() and turtle.onclick()"
+            title="Topic 3: Mouse Click Handling Study Note"
             stampEnabled={true}
             showDownload={true}
-            downloadButtonText="Download Note"
+            downloadButtonText="Download Study Note"
             downloadFileName="topic3_note.txt"
           />
-        </section>
+        </div>
 
-        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+        {/* =========================================================================
+            TEACHER'S NOTE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_1s]">
           <Teacher
-            note={
-              "In software development, simplicity is the ultimate sophistication. " +
-              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
-            }
+            note="When we teach point-and-click mechanics at Coder & AccoTax in Barrackpore and Kolkata, students love building interactive target games and digital artboards. Always remember: screen.onclick is for the world; turtle.onclick is for the actors in that world. Combine both, and you have the complete toolkit for rich interactive software!"
           />
-        </section>
+        </div>
 
-        {/* ─── 9. Footer ──────────────────────────────────────── */}
-        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
-          <span>
-            Topic 3 · Mouse click event handling: screen.onclick() and turtle.onclick() · Python Masterclass · Coder &amp; AccoTax Barrackpore
-          </span>
-        </footer>
       </div>
-    </>
+    </div>
   );
 };
 

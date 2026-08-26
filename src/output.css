@@ -2869,6 +2869,9 @@
   .animate-\[flowRight_3s_linear_infinite\] {
     animation: flowRight 3s linear infinite;
   }
+  .animate-\[focusRing_3s_infinite\] {
+    animation: focusRing 3s infinite;
+  }
   .animate-\[glowSun_3s_infinite\] {
     animation: glowSun 3s infinite;
   }
@@ -2898,6 +2901,9 @@
   }
   .animate-\[pulseQueue_1s_ease-in-out_infinite\] {
     animation: pulseQueue 1s ease-in-out infinite;
+  }
+  .animate-\[pulseSignal_2s_infinite\] {
+    animation: pulseSignal 2s infinite;
   }
   .animate-\[pulse_1\.5s_ease-in-out_infinite\] {
     animation: pulse 1.5s ease-in-out infinite;
@@ -3045,6 +3051,9 @@
   }
   .animate-\[svgFlow_3s_ease-in-out_forwards\] {
     animation: svgFlow 3s ease-in-out forwards;
+  }
+  .animate-\[targetPulse_2s_infinite\] {
+    animation: targetPulse 2s infinite;
   }
   .animate-ping {
     animation: var(--animate-ping);
@@ -4180,6 +4189,12 @@
     border-color: color-mix(in srgb, oklch(71.5% 0.143 215.221) 50%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       border-color: color-mix(in oklab, var(--color-cyan-500) 50%, transparent);
+    }
+  }
+  .border-cyan-500\/80 {
+    border-color: color-mix(in srgb, oklch(71.5% 0.143 215.221) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-cyan-500) 80%, transparent);
     }
   }
   .border-cyan-600 {
@@ -20094,6 +20109,16 @@
       }
     }
   }
+  .hover\:bg-cyan-500\/40 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, oklch(71.5% 0.143 215.221) 40%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-cyan-500) 40%, transparent);
+        }
+      }
+    }
+  }
   .hover\:bg-cyan-600 {
     &:hover {
       @media (hover: hover) {
@@ -21140,6 +21165,16 @@
         background-color: color-mix(in srgb, oklch(64.5% 0.246 16.439) 30%, transparent);
         @supports (color: color-mix(in lab, red, red)) {
           background-color: color-mix(in oklab, var(--color-rose-500) 30%, transparent);
+        }
+      }
+    }
+  }
+  .hover\:bg-rose-500\/40 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, oklch(64.5% 0.246 16.439) 40%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-rose-500) 40%, transparent);
         }
       }
     }

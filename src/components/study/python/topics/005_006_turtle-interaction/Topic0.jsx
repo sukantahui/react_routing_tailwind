@@ -1,379 +1,447 @@
-import React, { useState, useEffect, useRef } from "react";
-import clsx from "clsx";
-
-// ─── Common Framework Imports ──────────────────────────────────────────
+import React, { useState } from "react";
 import Teacher from "../../../../../common/TeacherSukantaHui";
+import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import questions from "./topic0_files/topic0_questions";
+
+// Import Python Source Files
+import eventParadigmCode from "./topic0_files/event_driven_paradigm_intro.py?raw";
+import callbacksCode from "./topic0_files/callbacks_first_class_functions.py?raw";
+import trafficLightCode from "./topic0_files/interactive_traffic_light_controller.py?raw";
 import noteText from "./topic0_files/topic0_note.txt?raw";
 
-/**
- * Topic0 – Event-driven programming model concepts
- * Module: 005_006_turtle-interaction (Module 6 – Event Handling & User Interaction)
- * Track: Python from Basic to Pro
- *
- * @component
- * @returns {JSX.Element} Interactive tutorial component with concept simulator,
- *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
- */
+const keyframes = `
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulseSignal {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); filter: drop-shadow(0 0 12px currentColor); }
+}
+`;
+
 const Topic0 = () => {
-  const [activeTab, setActiveTab] = useState("concept");
-  const [filterThreshold, setFilterThreshold] = useState(70000);
-  const sectionRefs = useRef([]);
+  const [trafficState, setTrafficState] = useState("red"); // "red", "yellow", "green"
+  const [eventLogs, setEventLogs] = useState([
+    { id: 1, type: "INITIALIZE", msg: "screen.listen() engaged - Event queue active" }
+  ]);
+  const [stamps, setStamps] = useState([
+    { x: 120, y: 70, color: "#f43f5e", shape: "circle" },
+    { x: 220, y: 90, color: "#38bdf8", shape: "square" }
+  ]);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    sectionRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const addRef = (el) => {
-    if (el && !sectionRefs.current.includes(el)) {
-      sectionRefs.current.push(el);
-    }
+  const handleTrafficAdvance = () => {
+    const cycle = { red: "green", green: "yellow", yellow: "red" };
+    const nextState = cycle[trafficState];
+    setTrafficState(nextState);
+    setEventLogs((prev) => [
+      { id: Date.now(), type: "KEYPRESS ('space')", msg: `State Transition: ${trafficState.toUpperCase()} -> ${nextState.toUpperCase()}` },
+      ...prev.slice(0, 4)
+    ]);
   };
 
-  const sampleEmployees = [
-    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
-    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
-    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
-    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  const handleCanvasClick = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const clickY = e.clientY - rect.top;
+    const colors = ["#f43f5e", "#fbbf24", "#34d399", "#38bdf8", "#a855f7"];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+    setStamps((prev) => [...prev.slice(-6), { x: clickX, y: clickY, color: randomColor, shape: "circle" }]);
+    setEventLogs((prev) => [
+      { id: Date.now(), type: "ONCLICK", msg: `Dispatched on_click(${clickX.toFixed(0)}, ${clickY.toFixed(0)}) -> Stamp Created` },
+      ...prev.slice(0, 4)
+    ]);
+  };
+
+  const prototypes = [
+    {
+      name: "screen.onclick(fun)",
+      returnType: "Mouse Event Listener",
+      purpose: "Binds a 2-parameter callback `fun(x, y)` to canvas mouse clicks.",
+      usage: "screen.onclick(on_canvas_click)"
+    },
+    {
+      name: "screen.onkeypress(fun, key)",
+      returnType: "Keyboard Event Listener",
+      purpose: "Binds a parameterless callback `fun` to a specific keyboard key string.",
+      usage: "screen.onkeypress(advance_light, 'space')"
+    },
+    {
+      name: "screen.listen()",
+      returnType: "Focus Dispatcher",
+      purpose: "Gives window focus to Tkinter canvas so keyboard events are actively captured.",
+      usage: "screen.listen()"
+    },
+    {
+      name: "screen.mainloop()",
+      returnType: "Event Loop Dispatcher",
+      purpose: "Enters the persistent event listening loop, keeping the window alive and responsive.",
+      usage: "screen.mainloop()"
+    }
   ];
 
-  const filteredList = sampleEmployees.filter((e) => e.salary &ge; filterThreshold);
-
   return (
-    <>
-      <style>{`
-        .reveal-section {
-          transform: translateY(0);
-          transition: transform 0.4s ease-out;
-        }
-        .reveal-section.is-visible {
-          transform: translateY(0);
-        }
-      `}</style>
+    <div className="dark bg-gray-900 text-gray-100 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+      <style>{keyframes}</style>
 
-      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
-        
-        {/* ─── 1. Header Section ──────────────────────────────── */}
-        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
-            <span>🐍</span>
-            <span>Python Masterclass · Module 006 · Topic 0</span>
+      <div className="max-w-6xl mx-auto space-y-12">
+        {/* =========================================================================
+            HERO SECTION
+        ========================================================================= */}
+        <div className="text-center space-y-4 animate-[fadeInUp_0.5s_ease-out]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold uppercase tracking-wider">
+            Module 005_006 · Event Handling & Interaction · Topic 0
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Event-driven programming model concepts
+
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400 bg-clip-text text-transparent">
+            Event-Driven Programming Model Concepts
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Build real-time interactive graphical software with keyboard bindings, mouse clicks, and drag events.
+
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Transition from linear scripts to reactive software. Master the <span className="text-cyan-300 font-semibold">Event Queue</span>, <span className="text-emerald-300 font-semibold">First-Class Callback Functions</span>, <span className="text-amber-300 font-semibold">Inversion of Control (IoC)</span>, and <span className="text-purple-400 font-semibold">Asynchronous State Machines</span>.
           </p>
 
-          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
-              ⚡ Pythonic Architecture
+          <div className="flex justify-center gap-4 flex-wrap pt-2">
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              ⚡ Asynchronous Event Listeners
             </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
-              🧮 Clean Code &amp; Idioms
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              🎯 First-Class Callback References
             </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
-              🔄 Robust Error Handling
-            </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
-              💾 Production Scalability
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              🚦 Event-Driven State Machines
             </span>
           </div>
-        </header>
+        </div>
 
-        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
-        <section
-          ref={addRef}
-          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
-        >
-          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
-              👨‍🏫
-            </div>
+        {/* =========================================================================
+            INTERACTIVE EVENT DISPATCHER SIMULATOR
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-slate-800 backdrop-blur-sm hover:shadow-2xl transition-all duration-300 space-y-6 animate-[fadeInUp_0.6s_ease-out_0.1s]">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-700/60 pb-4">
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-white">
-                Teacher's Concept Breakdown: Event-driven programming model concepts
-              </h2>
+              <h3 className="text-lg font-bold text-slate-100 flex items-center gap-2">
+                <span>⚡</span> Interactive Event Dispatcher & State Machine
+              </h3>
               <p className="text-xs text-slate-400">
-                Understanding Python mechanics and design patterns from first principles
+                Click anywhere on the canvas to trigger asynchronous <code className="text-cyan-300 font-mono">onclick(x, y)</code> callbacks, or trigger the Traffic Light event state transition.
+              </p>
+            </div>
+
+            <button
+              onClick={handleTrafficAdvance}
+              className="px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 shadow-lg shadow-amber-500/25 transition cursor-pointer flex items-center gap-2"
+            >
+              <span>🚦</span> Trigger Spacebar Event (Advance Light)
+            </button>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 items-center">
+            {/* View 1: Interactive Canvas */}
+            <div className="flex flex-col items-center p-4 bg-slate-950 rounded-xl border border-slate-800">
+              <span className="text-xs font-mono text-cyan-400 mb-2">
+                Interactive Canvas (Click to trigger onclick callback)
+              </span>
+              <svg
+                viewBox="0 0 320 190"
+                xmlns="http://www.w3.org/2000/svg"
+                onClick={handleCanvasClick}
+                className="w-full max-w-sm h-auto bg-slate-950 rounded-lg cursor-crosshair border border-slate-800"
+              >
+                {/* Traffic Light Housing (Left) */}
+                <rect x="25" y="25" width="55" height="140" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="2" />
+                {/* Red Light */}
+                <circle
+                  cx="52"
+                  cy="50"
+                  r="16"
+                  fill={trafficState === "red" ? "#ef4444" : "#450a0a"}
+                  className={trafficState === "red" ? "animate-[pulseSignal_2s_infinite] text-red-500" : ""}
+                />
+                {/* Yellow Light */}
+                <circle
+                  cx="52"
+                  cy="95"
+                  r="16"
+                  fill={trafficState === "yellow" ? "#eab308" : "#422006"}
+                  className={trafficState === "yellow" ? "animate-[pulseSignal_2s_infinite] text-yellow-500" : ""}
+                />
+                {/* Green Light */}
+                <circle
+                  cx="52"
+                  cy="140"
+                  r="16"
+                  fill={trafficState === "green" ? "#22c55e" : "#052e16"}
+                  className={trafficState === "green" ? "animate-[pulseSignal_2s_infinite] text-green-500" : ""}
+                />
+
+                {/* Stamped Click Shapes */}
+                {stamps.map((s, idx) => (
+                  <circle
+                    key={idx}
+                    cx={s.x}
+                    cy={s.y}
+                    r="12"
+                    fill={s.color}
+                    stroke="#ffffff"
+                    strokeWidth="1.5"
+                    className="transition-all duration-300"
+                  />
+                ))}
+
+                {/* Instructions */}
+                <text x="195" y="170" fill="#64748b" fontSize="8.5" textAnchor="middle" fontFamily="monospace">
+                  CLICK CANVAS TO STAMP
+                </text>
+              </svg>
+            </div>
+
+            {/* View 2: Real-Time Event Dispatch Log */}
+            <div className="space-y-4 bg-gray-900 p-5 rounded-xl border border-slate-800 text-xs">
+              <div className="text-sm font-bold text-cyan-400 flex justify-between items-center">
+                <span>OS Event Queue Telemetry</span>
+                <span className="font-mono text-xs px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-300">
+                  Event Loop: RUNNING
+                </span>
+              </div>
+
+              {/* Event Logs Stream */}
+              <div className="space-y-2 max-h-36 overflow-y-auto pr-1">
+                {eventLogs.map((log) => (
+                  <div key={log.id} className="p-2.5 bg-slate-950 rounded-lg border border-slate-800 flex items-start justify-between gap-2">
+                    <span className="font-mono text-[10px] text-amber-300 font-bold shrink-0">{log.type}</span>
+                    <span className="text-[11px] text-slate-300 font-mono text-right">{log.msg}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Code Snippet Box */}
+              <div className="p-3 bg-slate-950 rounded-lg border border-slate-800 space-y-1">
+                <span className="text-[10px] text-slate-500 font-mono uppercase tracking-wider block">
+                  # Event Binding Blueprint
+                </span>
+                <pre className="font-mono text-emerald-300 text-xs overflow-x-auto">
+{`# 1. Bind Listeners (Pass reference WITHOUT ())
+screen.onclick(on_canvas_click)
+screen.onkeypress(advance_light, "space")
+# 2. Give window focus
+screen.listen()
+# 3. Enter Event Dispatcher Loop
+screen.mainloop()`}
+                </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            PROTOTYPES SPECIFICATION TABLE
+        ========================================================================= */}
+        <div className="bg-gray-800/60 rounded-2xl p-6 border border-slate-800 animate-[fadeInUp_0.6s_ease-out_0.2s]">
+          <h2 className="text-xl font-bold text-cyan-400 mb-4 flex items-center gap-2">
+            <span>⚙️</span> Event-Driven Architecture Core APIs
+          </h2>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-gray-700 text-gray-400 text-xs uppercase tracking-wider">
+                  <th className="py-3 px-4">Method / Keyword</th>
+                  <th className="py-3 px-4">Event Domain</th>
+                  <th className="py-3 px-4">Asynchronous Role</th>
+                  <th className="py-3 px-4">Standard Syntax</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-800 text-gray-200">
+                {prototypes.map((proto, index) => (
+                  <tr key={index} className="hover:bg-gray-800/40 transition">
+                    <td className="py-3.5 px-4 font-mono text-cyan-300 font-bold text-xs">{proto.name}</td>
+                    <td className="py-3.5 px-4 font-mono text-indigo-400 text-xs">{proto.returnType}</td>
+                    <td className="py-3.5 px-4 text-xs text-gray-300">{proto.purpose}</td>
+                    <td className="py-3.5 px-4 font-mono text-amber-300 text-xs">{proto.usage}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            PYTHON CODE IMPLEMENTATION SCRIPTS
+        ========================================================================= */}
+        <div className="space-y-6 animate-[fadeInUp_0.6s_ease-out_0.3s]">
+          <h2 className="text-2xl font-bold text-slate-100 flex items-center gap-2">
+            <span>💻</span> Professional Python Implementation Scripts
+          </h2>
+
+          <div className="space-y-6">
+            {/* File 1: event_driven_paradigm_intro.py */}
+            <PythonFileLoader
+              fileModule={eventParadigmCode}
+              title="event_driven_paradigm_intro.py"
+              highlightLines={[24, 32, 40, 41, 44, 47]}
+            />
+
+            {/* File 2: callbacks_first_class_functions.py */}
+            <PythonFileLoader
+              fileModule={callbacksCode}
+              title="callbacks_first_class_functions.py"
+              highlightLines={[12, 18, 35, 36, 37, 39, 40]}
+            />
+
+            {/* File 3: interactive_traffic_light_controller.py */}
+            <PythonFileLoader
+              fileModule={trafficLightCode}
+              title="interactive_traffic_light_controller.py"
+              highlightLines={[18, 20, 39, 40, 46, 47, 48]}
+            />
+          </div>
+        </div>
+
+        {/* =========================================================================
+            REAL-WORLD CLASSROOM SCENARIOS
+        ========================================================================= */}
+        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.4s]">
+          <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800 space-y-3">
+            <h3 className="font-bold text-cyan-400 text-lg flex items-center gap-2">
+              <span>🎨</span> Barrackpore Digital Sketchbook
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Susmita built a digital drawing app in Barrackpore. When she mistakenly wrote <code className="text-rose-300 font-mono">screen.onclick(draw_circle())</code>, the circle drew immediately at startup and failed on mouse clicks. Teacher Sukanta Hui helped her remove the parentheses (<code className="text-cyan-300 font-mono">screen.onclick(draw_circle)</code>). Her sketchpad worked like magic!
+            </p>
+          </div>
+
+          <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800 space-y-3">
+            <h3 className="font-bold text-emerald-400 text-lg flex items-center gap-2">
+              <span>🚦</span> Kolkata Smart Traffic Simulator
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Abhronila modeled a dynamic traffic signal junction in Kolkata. By binding pedestrian emergency pushbuttons to asynchronous event handlers with dictionary state transitions, her junction dynamically adjusted light cycles without freezing vehicle animation!
+            </p>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            COMMON BEGINNER TRAPS & PITFALLS
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-slate-800 space-y-4 animate-[fadeInUp_0.6s_ease-out_0.5s]">
+          <h3 className="text-xl font-bold text-amber-400 flex items-center gap-2">
+            <span>⚠️</span> Top 4 Event-Driven Traps to Avoid
+          </h3>
+
+          <div className="grid sm:grid-cols-2 gap-4 text-xs text-gray-300">
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">1. Calling the Function in Event Binding</strong>
+              <p className="text-slate-400">
+                Writing <code className="text-rose-300 font-mono">screen.onclick(my_func())</code> executes the function immediately once and binds <code className="text-rose-300 font-mono">None</code>. Always pass the function reference <code className="text-cyan-300 font-mono">screen.onclick(my_func)</code>.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">2. Forgetting screen.listen()</strong>
+              <p className="text-slate-400">
+                Registering keyboard handlers without calling <code className="text-cyan-300 font-mono">screen.listen()</code> means the canvas never gains keyboard focus, ignoring all keystrokes.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">3. Incorrect onclick Argument Count</strong>
+              <p className="text-slate-400">
+                <code className="text-cyan-300 font-mono">screen.onclick</code> always passes <code className="text-amber-300 font-mono">(x, y)</code>. Defining a 0-argument function <code className="text-rose-300 font-mono">def click():</code> raises a <code className="text-rose-300 font-mono">TypeError: takes 0 positional arguments but 2 were given</code>.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">4. Heavy Blocking Loops Inside Callbacks</strong>
+              <p className="text-slate-400">
+                Placing a 5-second computation or <code className="text-rose-300 font-mono">time.sleep(5)</code> inside an event callback freezes the GUI thread, causing the window to crash and stop responding.
               </p>
             </div>
           </div>
+        </div>
 
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
-                  <span>💡</span> Architectural Insight
-                </span>
-                <p className="text-sm text-slate-200 leading-relaxed font-medium">
-                  In modern software engineering, <strong className="text-teal-300">Event-driven programming model concepts</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
-                </p>
-                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
-                  Readable Syntax · Deterministic Execution · Fast Prototyping
-                </div>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
-                </p>
+        {/* =========================================================================
+            STUDENT CHECKLIST
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-cyan-500/30 animate-[fadeInUp_0.6s_ease-out_0.6s]">
+          <h3 className="text-xl font-semibold text-cyan-400 mb-3">📝 Student Mastery Checklist</h3>
+          <div className="grid sm:grid-cols-2 gap-2.5 text-xs text-gray-200">
+            {[
+              "I understand the difference between linear sequential scripts and event-driven architecture",
+              "I know that callbacks are first-class function references passed without parentheses `()`",
+              "I always call `screen.listen()` to enable keyboard event capturing",
+              "I know that `screen.onclick` passes `(x, y)` coordinates to its callback function",
+              "I use `lambda` or `functools.partial` to pass custom parameters to event handlers",
+              "I understand that `screen.mainloop()` / `turtle.done()` keeps the event dispatcher alive"
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-2 p-2 rounded-lg bg-gray-900/60 border border-slate-800">
+                <span className="text-cyan-400 font-bold shrink-0">✓</span>
+                <span>{item}</span>
               </div>
-              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
-                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
-              </div>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
-                  <span>🏫</span> Real-World Engineering Analogy
-                </span>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Imagine an automated logistics dispatch office in Barrackpore:
-                </p>
-                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
-                  <li>
-                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
-                  </li>
-                  <li>
-                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
-                  </li>
-                </ul>
-              </div>
-              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
-                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
-              </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
 
-        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Event-driven programming model concepts
-          </h2>
-          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
-            
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
-                <button
-                  onClick={() => setActiveTab("concept")}
-                  className={clsx(
-                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
-                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
-                  )}
-                &gt;
-                  Structured View
-                </button>
-                <button
-                  onClick={() => setActiveTab("json")}
-                  className={clsx(
-                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
-                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
-                  )}
-                &gt;
-                  Raw Dictionary JSON
-                </button>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                  Filter Minimum Salary (₹):
-                </label>
-                <select
-                  value={filterThreshold}
-                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
-                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
-                &gt;
-                  <option value={60000}>₹60,000+ (All 4 Records)</option>
-                  <option value={75000}>₹75,000+ (3 Records)</option>
-                  <option value={85000}>₹85,000+ (2 Records)</option>
-                  <option value={90000}>₹90,000+ (Top Earner)</option>
-                </select>
-              </div>
-            </div>
-
-            {activeTab === "concept" ? (
-              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
-                <table className="w-full text-left text-xs font-mono">
-                  <thead>
-                    <tr className="border-b border-slate-800 text-slate-400">
-                      <th className="pb-2">ID</th>
-                      <th className="pb-2">Employee</th>
-                      <th className="pb-2">Location</th>
-                      <th className="pb-2">Salary</th>
-                      <th className="pb-2">Performance</th>
-                      <th className="pb-2">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
-                    {filteredList.map((emp) => (
-                      <tr key={emp.id} className="hover:bg-slate-900/40">
-                        <td className="py-2.5 text-slate-500">{emp.id}</td>
-                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
-                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
-                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
-                        <td className="py-2.5">
-                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
-                            ⭐ {emp.score}
-                          </span>
-                        </td>
-                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            ) : (
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
-                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
-                  {JSON.stringify(filteredList, null, 2)}
-                </pre>
-              </div>
-            )}
+        {/* =========================================================================
+            HINTS & EXPERT MINDSET
+        ========================================================================= */}
+        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.7s]">
+          <div className="bg-cyan-900/20 rounded-2xl p-5 border border-cyan-500/30 space-y-2">
+            <h3 className="text-lg font-semibold text-cyan-300">💡 Hints to Explore</h3>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Think about:</strong> How modern web frameworks (React `onClick`, Node.js EventEmitter) use the exact same first-class callback function pattern!
+            </p>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Observe:</strong> How clicking the canvas creates colorful stamps instantly without blocking other background animations!
+            </p>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Try changing:</strong> Bind keypresses `'r'`, `'g'`, `'b'` to instantly change the active paintbrush color!
+            </p>
           </div>
-        </section>
 
-        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
-                    BARRACKPORE ENTERPRISE
-                  </span>
-                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
-                100% Automated Financial Auditing
-              </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
-                    JADAVPUR ROBOTICS
-                  </span>
-                  <span className="text-xs text-slate-400">Jadavpur University</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
-                Sub-Millisecond Telemetry Ingestion
-              </div>
-            </div>
+          <div className="bg-indigo-900/20 rounded-2xl p-5 border border-indigo-500/30 space-y-2">
+            <h3 className="text-lg font-semibold text-indigo-300">🚀 Expert Mindset</h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Event-driven programming transforms software from passive calculators into interactive, living user experiences. Understanding Inversion of Control, asynchronous event queues, and callback functions is one of the most empowering milestones in your journey toward becoming a professional full-stack software engineer.
+            </p>
           </div>
-        </section>
+        </div>
 
-        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
-              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
-                <span>⚠️</span> Common Beginner Pitfalls
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
-                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
-                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
-              </div>
-            </div>
+        {/* =========================================================================
+            FAQS TEMPLATE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_0.8s]">
+          <FAQTemplate title="Event-Driven Programming FAQs" questions={questions} />
+        </div>
 
-            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
-              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
-                <span>✓</span> Production Best Practices
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
-                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
-                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <FAQTemplate
-            title="Event-driven programming model concepts FAQs"
-            questions={questions}
-            subtitle="Test your comprehension with 30 deep-dive questions"
-            showPrint
-            showExpandAll
-            showSearch
-            showProgress
-          />
-        </section>
-
-        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+        {/* =========================================================================
+            PLAIN TEXT PRINT & DOWNLOAD NOTE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_0.9s]">
           <PlainTextPrint
             content={noteText}
-            title="Event-driven programming model concepts"
+            title="Topic 0: Event-Driven Programming Study Note"
             stampEnabled={true}
             showDownload={true}
-            downloadButtonText="Download Note"
+            downloadButtonText="Download Study Note"
             downloadFileName="topic0_note.txt"
           />
-        </section>
+        </div>
 
-        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+        {/* =========================================================================
+            TEACHER'S NOTE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_1s]">
           <Teacher
-            note={
-              "In software development, simplicity is the ultimate sophistication. " +
-              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
-            }
+            note="Welcome to Module 005_006 at Coder & AccoTax in Barrackpore and Kolkata! This is where software becomes truly interactive. Up until now, your code told the computer what to do step-by-step; today, you teach your program how to listen and respond to the user. Master callback functions and event listeners, and you will be ready to build any interactive GUI, game, or web app!"
           />
-        </section>
+        </div>
 
-        {/* ─── 9. Footer ──────────────────────────────────────── */}
-        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
-          <span>
-            Topic 0 · Event-driven programming model concepts · Python Masterclass · Coder &amp; AccoTax Barrackpore
-          </span>
-        </footer>
       </div>
-    </>
+    </div>
   );
 };
 
