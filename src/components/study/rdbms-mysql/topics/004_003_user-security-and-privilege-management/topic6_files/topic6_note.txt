@@ -1,0 +1,75 @@
+================================================================================
+MYSQL 8.0 DATABASE SECURITY & PRIVILEGE MANAGEMENT
+TOPIC 6: Assigning Privileges with GRANT & Removing Privileges with REVOKE
+================================================================================
+
+1. THE SYNTAX OF GRANT AND REVOKE
+--------------------------------------------------------------------------------
+A. GRANT Syntax:
+   GRANT privilege_list ON object_level TO 'user'@'host' [WITH GRANT OPTION];
+
+   -- Granting multiple privileges across a database:
+   GRANT SELECT, INSERT, UPDATE, DELETE ON kolkata_retail.* TO 'app_service'@'10.0.%.%';
+
+   -- Granting column-level privileges:
+   GRANT SELECT (order_id, order_status), UPDATE (order_status) 
+   ON kolkata_retail.orders TO 'clerk'@'192.168.1.%';
+
+   -- Granting with delegated authority:
+   GRANT ALL PRIVILEGES ON kolkata_retail.* TO 'team_lead'@'10.0.%.%' WITH GRANT OPTION;
+
+B. REVOKE Syntax:
+   REVOKE privilege_list ON object_level FROM 'user'@'host';
+
+   -- Revoking specific privileges:
+   REVOKE DELETE, DROP ON kolkata_retail.* FROM 'app_service'@'10.0.%.%';
+
+   -- Revoking GRANT OPTION without revoking the underlying privileges:
+   REVOKE GRANT OPTION ON kolkata_retail.* FROM 'team_lead'@'10.0.%.%';
+
+   -- Revoking ALL privileges at once:
+   REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'former_employee'@'%';
+
+2. REVOKE RULES & ATOMIC BEHAVIORS IN MYSQL 8.0
+--------------------------------------------------------------------------------
+1. Non-Subtractive Rule:
+   - You cannot grant at database scope (`db.*`) and revoke on a specific table (`db.tbl`).
+   - The target scope in REVOKE must match the scope where the privilege was originally granted.
+
+2. Revoking Column Privileges:
+   - To revoke column-level access:
+     REVOKE SELECT (credit_card_hash) ON kolkata_retail.customers FROM 'analyst'@'%';
+
+3. REVOKE ALL PRIVILEGES:
+   - `REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'user'@'host';` strips all static privileges
+     across all scopes and revokes grant delegation, leaving the account with only USAGE.
+
+3. IN-MEMORY CACHE SYNCHRONIZATION & FLUSH PRIVILEGES
+--------------------------------------------------------------------------------
+- When DDL statements (`GRANT` or `REVOKE`) are executed, MySQL updates BOTH the underlying
+  data dictionary tables (`mysql.user`, `mysql.db`, `mysql.tables_priv`, etc.) and the
+  active in-memory grant structures immediately.
+- `FLUSH PRIVILEGES` is NOT required when using `GRANT` or `REVOKE`!
+- `FLUSH PRIVILEGES` is ONLY needed if someone modified `mysql.user` or `mysql.db` directly
+  via manual DML (`INSERT`/`UPDATE`/`DELETE`), which is an anti-pattern in MySQL 8.0.
+
+4. PARTIAL REVOKES (partial_revokes SYSTEM VARIABLE)
+--------------------------------------------------------------------------------
+In MySQL 8.0.16+, MySQL introduced Partial Revokes to solve the multi-tenant privilege problem.
+- System Variable: `SET PERSIST partial_revokes = ON;`
+- Allows granting a Global privilege while explicitly denying access to specific databases:
+  -- 1. Grant global SELECT:
+  GRANT SELECT ON *.* TO 'auditor'@'%';
+  -- 2. Partially revoke on the sensitive HR database:
+  REVOKE SELECT ON hr_payroll.* FROM 'auditor'@'%';
+- Recorded with an AS RESTRICT ON clause in `SHOW GRANTS`.
+
+5. PRODUCTION SECURITY BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Never execute `GRANT ALL PRIVILEGES ON *.*` unless provisioning a root DBA.
+2. Avoid `WITH GRANT OPTION` on application accounts to prevent privilege escalation.
+3. When decommissioning user accounts, execute `REVOKE ALL PRIVILEGES, GRANT OPTION`
+   prior to `DROP USER` to prevent permission artifacts.
+4. Enable `partial_revokes = ON` in multi-tenant environments where global read-only
+   auditors must be quarantined from financial/PII schemas.
+================================================================================

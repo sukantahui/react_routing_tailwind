@@ -1,335 +1,380 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
-import Teacher from "../../../../../common/TeacherSukantaHui";
 
-// Python example files (place these in topic0_files/ folder)
-import helloFunctionDef from "./topic0_files/hello_function.py?raw";
-import callHelloFunction from "./topic0_files/call_function.py?raw";
-import reusableGreeting from "./topic0_files/reusable_greeting.py?raw";
+// ─── Common Framework Imports ──────────────────────────────────────────
+import Teacher from "../../../../../common/TeacherSukantaHui";
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import questions from "./topic0_files/topic0_questions";
+import noteText from "./topic0_files/topic0_note.txt?raw";
 
 /**
- * Topic 0: Introduction to Functions – Definition, Syntax, and Purpose
- * 
- * This component explains:
- * - What is a function? (Reusable block of code)
- * - Why do we need functions? (DRY, modularity, readability)
- * - Python function syntax: `def function_name():` followed by indented body
- * - How to call a function: `function_name()`
- * 
- * No prior knowledge of parameters, return values, or advanced scoping is assumed.
- * Only the most fundamental concepts are covered.
+ * Topic0 – Introduction to Functions: Definition, syntax, and purpose
+ * Module: 002_001_functions-basics (Functions & Modular Logic)
+ * Track: Python from Basic to Pro
+ *
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
  */
-export default function Topic0() {
+const Topic0 = () => {
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
+  const sectionRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const addRef = (el) => {
+    if (el && !sectionRefs.current.includes(el)) {
+      sectionRefs.current.push(el);
+    }
+  };
+
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  ];
+
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 py-8 space-y-12 bg-gray-900 text-gray-100">
-      {/* ========== SECTION 1: THEORY & EXPLANATION ========== */}
-      <section className="space-y-6 reveal-fade-up">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-          📘 Introduction to Functions
-        </h1>
-        <div className="prose prose-invert max-w-none space-y-4">
-          <p className="text-lg leading-relaxed">
-            In programming, a <strong className="text-blue-300">function</strong> is like a mini‑program inside your main program.
-            It’s a reusable block of code that performs a specific task. Think of it as a <em>recipe</em> – you write it once,
-            and then you can “use” it (call it) as many times as you need.
-          </p>
-          <p className="leading-relaxed">
-            Functions help you avoid repeating the same code over and over. They make your code <strong>cleaner</strong>,
-            <strong>easier to read</strong>, and <strong>simpler to debug</strong>. Almost every real‑world Python program uses functions.
-          </p>
-        </div>
-      </section>
-
-      {/* ========== SECTION 2: SYNTAX (PROTOTYPE / SIGNATURE) ========== */}
-      <section className="space-y-6 reveal-fade-up" style={{ animationDelay: "0.1s" }}>
-        <h2 className="text-3xl font-semibold border-l-4 border-blue-500 pl-4">
-          🔧 Function Syntax (Definition)
-        </h2>
-        <div className="bg-gray-800 rounded-xl p-5 border border-gray-700 hover:border-blue-500 transition-all duration-300">
-          <pre className="text-sm font-mono text-emerald-300 overflow-x-auto">
-{`def function_name():
-    # body of the function
-    # (indented code block)
-    print("Hello from function!")`}
-          </pre>
-          <p className="mt-4 text-gray-300">
-            <strong className="text-yellow-300">def</strong> → keyword that tells Python “I am defining a function”.<br />
-            <strong className="text-yellow-300">function_name</strong> → follows the same naming rules as variables (letters, numbers, underscore, cannot start with number).<br />
-            <strong className="text-yellow-300">()</strong> → parentheses (we will put parameters here later).<br />
-            <strong className="text-yellow-300">:</strong> → colon marks the start of the function body.<br />
-            <strong className="text-yellow-300">Indentation</strong> → all code inside the function must be indented (usually 4 spaces).
-          </p>
-        </div>
-
-        <div className="bg-gray-800/50 rounded-xl p-5 mt-4">
-          <h3 className="text-xl font-medium text-purple-300">Calling a Function</h3>
-          <pre className="text-sm font-mono text-emerald-300 overflow-x-auto mt-2">
-{`function_name()   # this executes the function`}
-          </pre>
-          <p className="mt-2 text-gray-300">
-            When you call a function, Python jumps into the function body, runs every indented line,
-            and then returns to the point where you called it.
-          </p>
-        </div>
-      </section>
-
-      {/* ========== SECTION 3: PURPOSE & REAL-WORLD USE ========== */}
-      <section className="space-y-6 reveal-fade-up" style={{ animationDelay: "0.2s" }}>
-        <h2 className="text-3xl font-semibold border-l-4 border-green-500 pl-4">
-          🎯 Why Use Functions? (Purpose)
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-gray-800/70 rounded-xl p-5 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
-            <div className="text-3xl mb-2">♻️</div>
-            <h3 className="text-xl font-semibold text-green-300">Reusability (DRY)</h3>
-            <p className="text-gray-300">Write once, use many times. Avoid copy‑paste errors.</p>
-          </div>
-          <div className="bg-gray-800/70 rounded-xl p-5 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
-            <div className="text-3xl mb-2">📦</div>
-            <h3 className="text-xl font-semibold text-green-300">Modularity</h3>
-            <p className="text-gray-300">Break large programs into small, manageable pieces.</p>
-          </div>
-          <div className="bg-gray-800/70 rounded-xl p-5 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
-            <div className="text-3xl mb-2">🐛</div>
-            <h3 className="text-xl font-semibold text-green-300">Easier Debugging</h3>
-            <p className="text-gray-300">Fix a bug in one place; it’s fixed everywhere the function is used.</p>
-          </div>
-          <div className="bg-gray-800/70 rounded-xl p-5 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
-            <div className="text-3xl mb-2">👥</div>
-            <h3 className="text-xl font-semibold text-green-300">Team Collaboration</h3>
-            <p className="text-gray-300">Different people can work on different functions simultaneously.</p>
-          </div>
-        </div>
-        <div className="bg-blue-900/30 border border-blue-700 rounded-xl p-5">
-          <p className="italic text-gray-200">
-            <span className="font-bold text-blue-300">Real‑world analogy:</span> A school canteen has a “make_burger” function.
-            Every time a student orders, the cook follows the same recipe (function body).
-            If the recipe improves, all future burgers improve automatically.
-          </p>
-        </div>
-      </section>
-
-      {/* ========== SECTION 4: CODE EXAMPLES (WITH PYTHON FILE LOADER) ========== */}
-      <section className="space-y-8 reveal-fade-up" style={{ animationDelay: "0.3s" }}>
-        <h2 className="text-3xl font-semibold border-l-4 border-yellow-500 pl-4">
-          💻 Live Python Examples
-        </h2>
-
-        {/* Example 1: Defining a simple function */}
-        <div className="space-y-3">
-          <h3 className="text-xl font-medium text-yellow-300">1️⃣ Defining a function (hello_function.py)</h3>
-          <PythonFileLoader
-            fileModule={helloFunctionDef}
-            title="hello_function.py"
-            highlightLines={[]}
-          />
-          <p className="text-gray-400 text-sm">
-            This file <strong>defines</strong> a function named <code className="bg-gray-700 px-1 rounded">greet()</code>.
-            Nothing is printed until the function is <strong>called</strong>.
-          </p>
-        </div>
-
-        {/* Example 2: Calling the function */}
-        <div className="space-y-3">
-          <h3 className="text-xl font-medium text-yellow-300">2️⃣ Calling the function (call_function.py)</h3>
-          <PythonFileLoader
-            fileModule={callHelloFunction}
-            title="call_function.py"
-            highlightLines={[]}
-          />
-          <p className="text-gray-400 text-sm">
-            Here we <strong>call</strong> <code className="bg-gray-700 px-1 rounded">greet()</code> three times.
-            Each call executes the same code block.
-          </p>
-        </div>
-
-        {/* Example 3: Reusability in action */}
-        <div className="space-y-3">
-          <h3 className="text-xl font-medium text-yellow-300">3️⃣ Reusing a function (reusable_greeting.py)</h3>
-          <PythonFileLoader
-            fileModule={reusableGreeting}
-            title="reusable_greeting.py"
-            highlightLines={[]}
-          />
-          <p className="text-gray-400 text-sm">
-            Functions can be called from anywhere in your program. This example greets different students
-            (Swadeep, Tuhina, Abhronila) using the same function.
-          </p>
-        </div>
-      </section>
-
-      {/* ========== SECTION 5: TIPS & TRICKS (PROFESSIONAL) ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.4s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          💡 <span>Tips & Tricks (Professional Level)</span>
-        </h2>
-        <ul className="list-disc list-inside space-y-2 text-gray-300 bg-gray-800/50 p-5 rounded-xl">
-          <li><strong className="text-purple-300">Naming convention:</strong> Use lowercase with underscores (snake_case) for function names, e.g., <code>calculate_average</code>.</li>
-          <li><strong className="text-purple-300">Verb first:</strong> Start function names with an action verb: <code>get_data()</code>, <code>print_report()</code>, <code>validate_input()</code>.</li>
-          <li><strong className="text-purple-300">Single responsibility:</strong> A function should do one thing and do it well. If you find yourself writing “and” in the name, split it.</li>
-          <li><strong className="text-purple-300">Docstrings:</strong> Always write a short description inside triple quotes right after the definition – it helps others (and your future self).</li>
-        </ul>
-      </section>
-
-      {/* ========== SECTION 6: COMMON PITFALLS (BEGINNER MISTAKES) ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.5s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          ⚠️ <span>Common Pitfalls</span>
-        </h2>
-        <div className="space-y-3">
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Forgetting the colon (:) after function definition</p>
-            <p className="text-gray-300">Python will throw a <code>SyntaxError</code>. Always add <code>:</code> at the end of <code>def ...()</code>.</p>
-          </div>
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Incorrect indentation</p>
-            <p className="text-gray-300">Mixing tabs and spaces or forgetting to indent the function body causes <code>IndentationError</code>.</p>
-          </div>
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Defining a function but never calling it</p>
-            <p className="text-gray-300">The code inside will never run. Many beginners forget the actual function call.</p>
-          </div>
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Using reserved keywords as function names</p>
-            <p className="text-gray-300">Names like <code>def</code>, <code>if</code>, <code>else</code> are illegal. Stick to descriptive names.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 7: BEST PRACTICES ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.6s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          ✅ <span>Best Practices</span>
-        </h2>
-        <div className="bg-emerald-900/20 border border-emerald-700 rounded-xl p-5">
-          <ul className="list-disc list-inside space-y-2 text-gray-200">
-            <li>Keep functions short – ideally less than 20 lines.</li>
-            <li>Use meaningful names that describe what the function does.</li>
-            <li>Add a docstring immediately after the function definition.</li>
-            <li>Don’t use global variables inside functions (we’ll cover this later).</li>
-            <li>Test each function separately before integrating into the whole program.</li>
-          </ul>
-        </div>
-      </section>
-
-      {/* ========== SECTION 8: MINI CHECKLIST ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.7s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          📋 <span>Mini Checklist (What Students Must Remember)</span>
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg">
-            <span className="text-green-400">✔️</span> Functions are defined with <code>def</code>
-          </div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg">
-            <span className="text-green-400">✔️</span> Followed by name, parentheses, colon
-          </div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg">
-            <span className="text-green-400">✔️</span> Body must be indented
-          </div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg">
-            <span className="text-green-400">✔️</span> Call function by its name plus parentheses
-          </div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg">
-            <span className="text-green-400">✔️</span> Functions promote code reuse
-          </div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg">
-            <span className="text-green-400">✔️</span> A function must be defined before it is called
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 9: HINT SECTION ========== */}
-      <section className="space-y-3 reveal-fade-up" style={{ animationDelay: "0.8s" }}>
-        <h2 className="text-2xl font-semibold text-amber-300">🧠 Think About...</h2>
-        <div className="bg-amber-900/20 border border-amber-700 rounded-xl p-5 italic text-gray-200">
-          <p>🔍 <strong>Observe carefully:</strong> What happens if you call a function <strong>before</strong> its definition? Try swapping the order in <code>call_function.py</code>.</p>
-          <p className="mt-2">🔍 <strong>Try changing this:</strong> Modify <code>greet()</code> to print a different message. How many places do you need to change if you want to update the greeting?</p>
-          <p className="mt-2">🔍 <strong>Think about:</strong> Why is it better to write a function once and call it many times instead of copying the same print statement everywhere?</p>
-        </div>
-      </section>
-
-      {/* ========== SECTION 10: TEACHER'S NOTE ========== */}
-      <section className="reveal-fade-up" style={{ animationDelay: "0.9s" }}>
-        <Teacher
-          note={
-            "Functions are the building blocks of modular programming. 🧱 " +
-            "Emphasise to students that indentation is not just for style – it’s the syntax! " +
-            "Use the analogy of a 'recipe book' – each recipe is a function. " +
-            "Point out that even `print()` and `input()` are functions (built-in). " +
-            "Encourage them to write tiny functions early, even for trivial tasks, to build muscle memory."
-          }
-        />
-      </section>
-
-      {/* ========== SVG ILLUSTRATION (FUNCTION MACHINE) ========== */}
-      <section className="reveal-fade-up" style={{ animationDelay: "1s" }}>
-        <div className="bg-gray-800/50 rounded-xl p-6 flex justify-center">
-          <svg width="400" height="200" viewBox="0 0 400 200" className="max-w-full h-auto">
-            <rect x="50" y="50" width="100" height="80" fill="#1e3a8a" stroke="#3b82f6" strokeWidth="2" rx="8">
-              <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" />
-            </rect>
-            <text x="100" y="95" fill="white" fontSize="14" textAnchor="middle" fontFamily="monospace">def</text>
-            <text x="100" y="115" fill="#94a3b8" fontSize="12" textAnchor="middle">function</text>
-
-            {/* Arrow left (input) */}
-            <line x1="30" y1="90" x2="48" y2="90" stroke="#fbbf24" strokeWidth="2" markerEnd="url(#arrowYellow)" />
-            <text x="15" y="80" fill="#fbbf24" fontSize="12">Input</text>
-
-            {/* Arrow right (output) */}
-            <line x1="152" y1="90" x2="170" y2="90" stroke="#34d399" strokeWidth="2" markerEnd="url(#arrowGreen)" />
-            <text x="178" y="80" fill="#34d399" fontSize="12">Output</text>
-
-            {/* Dashed box around "process" */}
-            <rect x="190" y="30" width="180" height="120" fill="none" stroke="#a78bfa" strokeWidth="1.5" strokeDasharray="5,5" />
-            <text x="280" y="55" fill="#c4b5fd" fontSize="12" textAnchor="middle">Processing (reusable)</text>
-
-            <animate attributeName="opacity" values="0.7;1;0.7" dur="4s" repeatCount="indefinite" />
-
-            <defs>
-              <marker id="arrowYellow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-                <path d="M0,0 L8,4 L0,8 Z" fill="#fbbf24" />
-              </marker>
-              <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-                <path d="M0,0 L8,4 L0,8 Z" fill="#34d399" />
-              </marker>
-            </defs>
-
-            <text x="280" y="100" fill="#9ca3af" fontSize="11" textAnchor="middle">• No repetition</text>
-            <text x="280" y="120" fill="#9ca3af" fontSize="11" textAnchor="middle">• Easy to update</text>
-            <text x="280" y="140" fill="#9ca3af" fontSize="11" textAnchor="middle">• Reuse anywhere</text>
-          </svg>
-        </div>
-        <p className="text-center text-sm text-gray-400 mt-2">
-          A function takes <span className="text-yellow-300">input</span> (later with parameters), performs a task, and optionally returns <span className="text-emerald-300">output</span>.
-        </p>
-      </section>
-
-      {/* ========== INLINE KEYFRAMES FOR REVEAL ANIMATIONS ========== */}
+    <>
       <style>{`
-        @keyframes fadeUp {
-          0% {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
+        .reveal-section {
+          transform: translateY(0);
+          transition: transform 0.4s ease-out;
         }
-        .reveal-fade-up {
-          animation: fadeUp 0.6s ease-out forwards;
-          opacity: 0; /* start invisible, becomes visible at end */
-          animation-fill-mode: forwards;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .reveal-fade-up {
-            animation: none;
-            opacity: 1;
-          }
+        .reveal-section.is-visible {
+          transform: translateY(0);
         }
       `}</style>
-    </div>
+
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 001 · Topic 0</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Introduction to Functions: Definition, syntax, and purpose
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Create reusable, clean, and modular building blocks using Python functions.
+          </p>
+
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
+          </div>
+        </header>
+
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
+        >
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Introduction to Functions: Definition, syntax, and purpose
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Introduction to Functions: Definition, syntax, and purpose</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Introduction to Functions: Definition, syntax, and purpose
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
+            </div>
+
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <FAQTemplate
+            title="Introduction to Functions: Definition, syntax, and purpose FAQs"
+            questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
+          />
+        </section>
+
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <PlainTextPrint
+            content={noteText}
+            title="Introduction to Functions: Definition, syntax, and purpose"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Note"
+            downloadFileName="topic0_note.txt"
+          />
+        </section>
+
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <Teacher
+            note={
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
+            }
+          />
+        </section>
+
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 0 · Introduction to Functions: Definition, syntax, and purpose · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
+        </footer>
+      </div>
+    </>
   );
-}
+};
+
+export default Topic0;

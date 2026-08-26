@@ -427,7 +427,7 @@ FROM students;`;
                 <span className="text-xs text-slate-500 font-mono">Barrackpore Academy</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Relational Algebra: $\\pi_{\\text{id, name, fee, fee} \\times 0.18 \\rightarrow \\text{gst, fee} \\times 1.18 \\rightarrow \\text{total}}(\\text{Students})$"}
+                {"Relational Algebra: $\\pi_{\id, name, fee, fee \\times 0.18 \\rightarrow \gst, fee \\times 1.18 \\rightarrow \total}(\Students)$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT student_id, full_name, admission_fee,
@@ -446,7 +446,7 @@ FROM students;`}
                 <span className="text-xs text-slate-500 font-mono">Kolkata University</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Relational Algebra: $\\pi_{\\text{name, TIMESTAMPDIFF(YEAR, dob, CURDATE())} \\rightarrow \\text{age}}(\\text{Students})$"}
+                {"Relational Algebra: $\\pi_{\name, TIMESTAMPDIFF(YEAR, dob, CURDATE()) \\rightarrow \age}(\Students)$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT full_name, dob, TIMESTAMPDIFF(YEAR, dob, CURDATE()) AS age_in_years

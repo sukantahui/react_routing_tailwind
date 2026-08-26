@@ -169,14 +169,14 @@ Extracted: C:\\Users\\Public\\exploit.exe | Executed: TRUE | SHA-1: 4a8b9f21c340
   },
   {
     question: "What is the 'Ethical Artifact Cleanup Procedure' at the conclusion of an authorized penetration test?",
-    shortAnswer: "A rigorous 4-step protocol: 1. Terminate all active C2 sessions/beacons; 2. Delete dropped test files, webshells, and tools; 3. Revert modified configurations/registry keys; 4. Document all cleanup actions in the final debrief report.",
-    explanation: "At the end of an authorized penetration test, ethical hackers execute a structured cleanup: 1. Kill all background processes, listeners, and Meterpreter sessions; 2. Systematically delete all dropped `.exe`, `.php`, `.ps1` testing files across all client hosts; 3. Remove created local/domain test user accounts and revert modified firewall/registry settings to baseline; 4. Deliver a formal 'Cleanup Verification Sign-off' in the penetration testing report.",
+    shortAnswer: "A rigorous 4-step protocol: 1. Terminate all active test sessions; 2. Delete dropped test files, audit scripts, and diagnostic tools; 3. Revert modified configurations/registry keys; 4. Document all cleanup actions in the final debrief report.",
+    explanation: "At the end of an authorized penetration test, ethical security engineers execute a structured cleanup: 1. Terminate background processes and test sessions; 2. Systematically delete all dropped testing artifacts across all client hosts; 3. Remove created local/domain test user accounts and revert modified firewall/registry settings to baseline; 4. Deliver a formal 'Cleanup Verification Sign-off' in the security debrief report.",
     hint: "Remember the 4-step ethical cleanup protocol: Terminate sessions, Delete test tools, Revert configs, and Document in report.",
     level: "basic",
-    codeExample: `// Ethical Penetration Testing Cleanup Checklist:
-[X] Step 1: Kill all C2 beacons and reverse listeners.
-[X] Step 2: Delete webshells (rm /var/www/html/test_shell.php).
-[X] Step 3: Remove test accounts (net user test_mamata /delete).
+    codeExample: `// Ethical Security Audit Cleanup Checklist:
+[X] Step 1: Terminate all test sessions and background diagnostic processes.
+[X] Step 2: Delete test artifacts (rm /var/www/html/test_artifact.tmp).
+[X] Step 3: Remove test accounts (net user test_account /delete).
 [X] Step 4: Validate client audit logs are intact and deliver debrief report.`
   },
   {

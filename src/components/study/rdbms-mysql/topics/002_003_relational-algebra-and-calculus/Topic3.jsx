@@ -423,7 +423,7 @@ const Topic3 = () => {
                 <span className="text-xs text-slate-500 font-mono">Barrackpore Academy</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Relational Algebra: $\\pi_{\\text{s.name, m.name}}(\\text{Students } s \\bowtie_{\\text{s.mentor_id} = \\text{m.id}} \\rho_m(\\text{Students}))$"}
+                {"Relational Algebra: $\\pi_{\s.name, m.name}(\Students  s \\bowtie_{\s.mentor_id = \m.id} \\rho_m(\Students))$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT s.full_name AS student_name, COALESCE(m.full_name, 'Head Mentor') AS mentor_name
@@ -441,7 +441,7 @@ LEFT JOIN students m ON s.mentor_id = m.student_id;`}
                 <span className="text-xs text-slate-500 font-mono">Kolkata University</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Relational Algebra: $\\pi_{S_1.\\text{name}, S_2.\\text{name}}(\\sigma_{S_1.\\text{city} = S_2.\\text{city} \\land S_1.\\text{id} < S_2.\\text{id}}(\\rho_{S_1}(\\text{Students}) \\times \\rho_{S_2}(\\text{Students})))$"}
+                {"Relational Algebra: $\\pi_{S_1.\name, S_2.\name}(\\sigma_{S_1.\city = S_2.\city \\land S_1.\id < S_2.\id}(\\rho_S_1(\Students) \\times \\rho_S_2(\Students)))$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT s1.full_name AS peer_1, s2.full_name AS peer_2, s1.city
@@ -584,8 +584,8 @@ JOIN students s2 ON s1.city = s2.city AND s1.student_id < s2.student_id;`}
               "The Rename operator ($\\rho$) may look simple, but it solves one of the most critical challenges in relational modeling: disambiguation! " +
               "In my classes in Barrackpore, whenever students need to query a table against itself—like finding which student mentors which student—they " +
               "encounter column collision errors. " +
-              "By creating an alias instance $\\rho_M(\\text{Students})$, you give your query engine a second distinct handle to traverse recursive relationships. " +
-              "And in pairwise queries, using $S_1.\\text{id} < S_2.\\text{id}$ is the golden rule that guarantees clean, non-duplicated pair matching. " +
+              "By creating an alias instance $\\rho_M(\Students)$, you give your query engine a second distinct handle to traverse recursive relationships. " +
+              "And in pairwise queries, using $S_1.\id < S_2.\id$ is the golden rule that guarantees clean, non-duplicated pair matching. " +
               "Mastering $\\rho$ is the key to mastering self-joins and recursive graph queries in SQL!"
             }
           />

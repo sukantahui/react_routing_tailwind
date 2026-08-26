@@ -1,0 +1,45 @@
+================================================================================
+RDBMS & MYSQL MASTERCLASS: DATABASE NORMALIZATION
+MODULE: HIGHER NORMAL FORMS (DKNF, 6NF) & ADVANCED NORMALIZATION THEORY
+TOPIC 1: DOMAIN-KEY NORMAL FORM (DKNF): THE ULTIMATE THEORETICAL PINNACLE OF NORMALIZATION BY FAGIN
+================================================================================
+
+1. EXECUTIVE OVERVIEW & LEARNING OBJECTIVES
+--------------------------------------------------------------------------------
+This topic provides an exhaustive theoretical and practical deep-dive into:
+"Domain-Key Normal Form (DKNF): The Ultimate Theoretical Pinnacle of Normalization by Fagin".
+Module: Higher Normal Forms (DKNF, 6NF) & Advanced Normalization Theory (006_008_higher-normal-forms-dknf-6nf)
+Level: Advanced | Estimated Study Time: 4 Hours
+
+2. THEORETICAL FOUNDATION & MATRICES
+--------------------------------------------------------------------------------
+- Core Concept: Relational normalization ensures that data dependencies are modeled
+  strictly according to business invariants, preventing update, deletion, and insertion anomalies.
+- Formal Rule: 1. Domain-Key Normal Form (DKNF): The Theoretical Pinnacle
+- Decomposition Strategy: Separate tables for each temporal attribute ensure microsecond-level historical point-in-time auditability.
+
+3. BEFORE-VS-AFTER SCHEMA TRANSFORMATION
+--------------------------------------------------------------------------------
+UNNORMALIZED / NON-COMPLIANT STATE:
+Every constraint on relation R must be a logical consequence of Domain Constraints and Key Constraints.
+Root Cause: DKNF guarantees that NO modification anomalies of any kind can exist, but is non-algorithmic and hard to enforce in standard SQL.
+
+NORMALIZED STATE:
+Immunity to temporal nulls and historical overwrites in banking and medical record systems.
+
+4. SENIOR ARCHITECTURAL PITFALLS & BEST PRACTICES
+--------------------------------------------------------------------------------
+- PITFALL: Used extensively in Anchor Modeling and temporal time-series databases for valid-time and transaction-time intervals.
+- BEST PRACTICE: Immunity to temporal nulls and historical overwrites in banking and medical record systems.
+- ACID INVARIANT: Always declare explicit foreign keys with ON DELETE RESTRICT to protect transactional ledgers.
+
+5. TEACHER'S MASTER SUMMARY - SIR SUKANTA HUI
+--------------------------------------------------------------------------------
+"In software architecture, bad database design cannot be fixed with faster hardware
+or clever application code. Normalization provides the mathematical guarantee that
+your system maintains internal consistency under high concurrent load. Master these
+normal form principles from first principles!"
+
+================================================================================
+END OF STUDY NOTE - TOPIC 1
+================================================================================

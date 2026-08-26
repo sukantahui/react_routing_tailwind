@@ -1,0 +1,48 @@
+================================================================================
+RDBMS MySQL Course - Module 001_004: Practice Labs, MCQs & Segment Assessment
+Topic 3: Hands-on Lab 3: Customer Order CRUD Query Challenges
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. LAB OVERVIEW: CUSTOMER ORDER CRUD QUERY CHALLENGES
+--------------------------------------------------------------------------------
+This lab presents students with hands-on, scenario-driven CRUD query challenges
+built on an e-commerce customer order processing database in West Bengal
+(serving customers in Barrackpore, Kolkata, Ichapur, and Jadavpur).
+
+2. SCHEMA ARCHITECTURE
+--------------------------------------------------------------------------------
+1. `customers` table:
+   - customer_id INT AUTO_INCREMENT PRIMARY KEY
+   - full_name VARCHAR(100) NOT NULL
+   - email VARCHAR(120) NOT NULL UNIQUE
+   - phone_number VARCHAR(15) NOT NULL UNIQUE
+   - city VARCHAR(50) DEFAULT 'Barrackpore'
+
+2. `orders` table:
+   - order_id INT AUTO_INCREMENT PRIMARY KEY
+   - customer_id INT NOT NULL (FK -> customers.customer_id)
+   - order_date DATE DEFAULT (CURDATE())
+   - order_total_inr DECIMAL(10,2) CHECK (order_total_inr >= 0)
+   - order_status ENUM('Pending', 'Processing', 'Shipped', 'Delivered', 'Cancelled') DEFAULT 'Pending'
+
+3. `order_items` table:
+   - item_id INT AUTO_INCREMENT PRIMARY KEY
+   - order_id INT NOT NULL (FK -> orders.order_id ON DELETE CASCADE)
+   - product_name VARCHAR(100) NOT NULL
+   - quantity INT CHECK (quantity > 0)
+   - unit_price_inr DECIMAL(10,2) CHECK (unit_price_inr > 0)
+
+4. `payment_transactions` table:
+   - payment_id INT AUTO_INCREMENT PRIMARY KEY
+   - order_id INT NOT NULL UNIQUE (FK -> orders.order_id)
+   - payment_method ENUM('UPI', 'Credit Card', 'Net Banking', 'Cash on Delivery') NOT NULL
+   - amount_paid_inr DECIMAL(10,2) CHECK (amount_paid_inr >= 0)
+   - payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+3. KEY CRUD CHALLENGE PATTERNS
+--------------------------------------------------------------------------------
+- Challenge 1: Insert an order with multiple line items in a single transaction.
+- Challenge 2: Query all 'Delivered' orders in 'Barrackpore' with total >= ₹5,000.
+- Challenge 3: Update order status to 'Shipped' for all pending orders placed today.
+- Challenge 4: Cancel and delete an order, verifying automatic cascading item deletion.

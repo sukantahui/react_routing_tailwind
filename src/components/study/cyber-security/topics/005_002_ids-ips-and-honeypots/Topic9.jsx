@@ -83,7 +83,7 @@ const Topic9 = () => {
     },
     zero_day_rootkit: {
       id: "zero_day_rootkit",
-      command: "./cve_2026_dirty_pipe_zero_day --inject-kernel",
+      command: "sample_kernel_privilege_escalation_probe --test-injection",
       type: "Novel Zero-Day Kernel Privilege Escalation",
       isKernelExploit: true,
       attemptsPivot: false

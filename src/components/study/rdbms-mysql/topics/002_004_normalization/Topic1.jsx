@@ -196,6 +196,168 @@ WHERE student_id = '#104' AND course_id = 'C103';
           </div>
         </div>
 
+        {/* ─── SECTION 0: Masterclass on Database Anomalies (Plain English Guide) ── */}
+        <section
+          ref={addRef}
+          className="reveal-section mb-12 rounded-2xl border border-rose-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-rose-950/20 transition-all duration-300 hover:border-rose-500/50"
+        >
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-500/20 text-rose-400 font-bold text-lg">
+              ⚠️
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                What are Database Anomalies? <span className="text-rose-400 text-sm font-normal">(Explained Simply &amp; Clearly)</span>
+              </h2>
+              <p className="text-xs text-slate-400">
+                How poor database schema design leads to unexpected, catastrophic side effects during daily operations
+              </p>
+            </div>
+          </div>
+
+          {/* Simple Definition & Everyday Analogy */}
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-rose-400 flex items-center gap-1.5 mb-2">
+                  <span>📖</span> The Core Definition
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  A <strong className="text-rose-300">Database Anomaly</strong> is an unexpected, damaging side-effect or data corruption that occurs when you try to <strong>Insert</strong>, <strong>Update</strong>, or <strong>Delete</strong> records in a poorly designed (unnormalized) database table.
+                </p>
+                <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+                  Anomalies happen when you force <strong>multiple independent business entities</strong> (like Students, Courses, and Teachers) to live inside the <strong>same single row</strong> instead of separating them into their own dedicated tables.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-rose-950/30 border border-rose-800/40 text-xs text-rose-200">
+                💡 <strong>The Core Law:</strong> <em>"When you mix 2 different real-world things in 1 table, changing one will always break the other!"</em>
+              </div>
+            </div>
+
+            {/* Real-World Analogy */}
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏡</span> The Real-World Hotel &amp; Guest Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine a hotel that does NOT keep a separate list of rooms, but only writes down rooms when a guest checks in:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-1.5 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Insertion Problem:</strong> You build a brand new luxury suite (Room 501), but you <em>cannot save it in the computer</em> until someone books it!
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Update Problem:</strong> If room price changes from ₹3,000 to ₹3,500, you have to edit 200 past guest bills. If you miss one, the price is desynchronized.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Deletion Problem:</strong> The only guest in Room 302 checks out. Deleting their bill <em>accidentally deletes Room 302 from the hotel's memory</em>!
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                🏨 <strong>Solution:</strong> Separate the <code className="font-mono text-amber-300">Rooms</code> table from the <code className="font-mono text-amber-300">Bookings</code> table!
+              </div>
+            </div>
+          </div>
+
+          {/* Deep Breakdown of the 3 Cardinal Anomalies */}
+          <div className="mt-8">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 text-center">
+              The 3 Cardinal Anomalies in Detail: What Happens &amp; Why MySQL Fails
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {/* 1. Insertion Anomaly */}
+              <div className="p-5 rounded-xl bg-slate-950 border border-rose-500/40 space-y-3 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-800">
+                      1. INSERTION ANOMALY
+                    </span>
+                  </div>
+                  <h4 className="text-sm font-bold text-white mt-2">The "Trapped Entity" Blocker</h4>
+                  <p className="text-xs text-slate-300 mt-2 leading-relaxed">
+                    <strong>The Problem:</strong> You want to record a new entity (e.g. hire a new teacher 'Debangshu Roy' or create a new course 'Python AI'), but no student has registered yet.
+                  </p>
+                  <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+                    <strong>Why MySQL Fails:</strong> The table's primary key is <code className="text-rose-300 font-mono">(student_id, course_id)</code>. Because primary key columns <em>cannot be NULL</em>, MySQL rejects the insert with <code className="text-rose-300 font-mono">Error 1048</code>!
+                  </p>
+                </div>
+                <div className="p-2.5 rounded bg-rose-950/40 border border-rose-900/50 text-[11px] font-mono text-rose-300">
+                  ❌ INSERT INTO universal VALUES (NULL, 'Debangshu', 'Lab-D'); -- BLOCKED!
+                </div>
+              </div>
+
+              {/* 2. Update Anomaly */}
+              <div className="p-5 rounded-xl bg-slate-950 border border-amber-500/40 space-y-3 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800">
+                      2. UPDATE ANOMALY
+                    </span>
+                  </div>
+                  <h4 className="text-sm font-bold text-white mt-2">The "Contradictory Truth" Bug</h4>
+                  <p className="text-xs text-slate-300 mt-2 leading-relaxed">
+                    <strong>The Problem:</strong> A single real-world fact changes (e.g. Teacher Sukanta relocates from 'Lab-A' to 'Lab-X').
+                  </p>
+                  <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+                    <strong>Why MySQL Fails:</strong> Because teacher room is duplicated on 500 student enrollment rows, an interrupted update query updates 499 rows and misses 1. The database now holds two conflicting rooms for the same teacher!
+                  </p>
+                </div>
+                <div className="p-2.5 rounded bg-amber-950/40 border border-amber-900/50 text-[11px] font-mono text-amber-300">
+                  ⚠️ 499 rows show 'Lab-X', 1 row shows 'Lab-A' (Data Corrupted!)
+                </div>
+              </div>
+
+              {/* 3. Deletion Anomaly */}
+              <div className="p-5 rounded-xl bg-slate-950 border border-rose-500/40 space-y-3 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-800">
+                      3. DELETION ANOMALY
+                    </span>
+                  </div>
+                  <h4 className="text-sm font-bold text-white mt-2">The "Accidental Erasure" Catastrophe</h4>
+                  <p className="text-xs text-slate-300 mt-2 leading-relaxed">
+                    <strong>The Problem:</strong> Susmita Ghosh is the only student enrolled in 'Cloud DevOps'. She cancels her admission.
+                  </p>
+                  <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+                    <strong>Why MySQL Fails:</strong> Because student and course details share the same physical row, deleting Susmita's student row permanently deletes the course title, syllabus, fee, and teacher from existence!
+                  </p>
+                </div>
+                <div className="p-2.5 rounded bg-rose-950/40 border border-rose-900/50 text-[11px] font-mono text-rose-300">
+                  💥 DELETE FROM universal WHERE student='#104'; -- Course Erased!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Checklist Card: How to Spot Anomalies */}
+          <div className="mt-8 p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-3">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-teal-300 flex items-center gap-2">
+              <span>🔍</span> The 3-Question Mental Checklist to Spot Anomalies in Any Table
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800">
+                <span className="font-bold text-rose-400 block mb-1">❓ Test 1 (Insertion):</span>
+                <p className="text-slate-300 text-[11px]"><em>"Can I add a course or teacher if no students are registered yet?"</em></p>
+                <span className="text-[10px] text-slate-500 mt-1 block">If NO &rarr; You have an Insertion Anomaly!</span>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800">
+                <span className="font-bold text-amber-400 block mb-1">❓ Test 2 (Update):</span>
+                <p className="text-slate-300 text-[11px]"><em>"If course fee or teacher phone changes, must I update multiple rows?"</em></p>
+                <span className="text-[10px] text-slate-500 mt-1 block">If YES &rarr; You have an Update Anomaly!</span>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800">
+                <span className="font-bold text-rose-400 block mb-1">❓ Test 3 (Deletion):</span>
+                <p className="text-slate-300 text-[11px]"><em>"If the last student drops out, do we lose the course information?"</em></p>
+                <span className="text-[10px] text-slate-500 mt-1 block">If YES &rarr; You have a Deletion Anomaly!</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ─── SECTION 1: Deep Anatomy of the 3 Modification Anomalies ── */}
         <section
           ref={addRef}

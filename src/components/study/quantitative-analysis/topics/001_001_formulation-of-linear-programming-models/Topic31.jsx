@@ -192,7 +192,7 @@ const Topic31 = () => {
             {
               strategy: "Consider categories",
               description: "Use subscripted variables for multiple categories.",
-              example: "x₁, x₂, x₃ for different products, or x_{ij} for shipping from i to j.",
+              example: "x₁, x₂, x₃ for different products, or x_ij for shipping from i to j.",
             },
           ].map((item, index) => (
             <div
@@ -244,7 +244,7 @@ const Topic31 = () => {
             },
             {
               pattern: "Shipping Quantities",
-              example: "x_{ij} = amount shipped from source i to destination j",
+              example: "x_ij = amount shipped from source i to destination j",
             },
             {
               pattern: "Time-Based Variables",

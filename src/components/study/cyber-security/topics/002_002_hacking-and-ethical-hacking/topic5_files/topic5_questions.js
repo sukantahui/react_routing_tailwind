@@ -93,11 +93,9 @@ Hiring: https://company.com/careers/security`
     explanation: "Created by a pseudonymous hacker known as 'Janit0r', BrickerBot performed 'Permanent Denial of Service' (PDoS). It used Telnet dictionary attacks on IoT cameras and routers, but instead of enslaving them into a botnet, it overwrote flash storage partitions with zeros (`/dev/mtd`) and wiped network configurations, permanently destroying the hardware. The author claimed this 'vigilante action' forced manufacturers and consumers to stop using insecure IoT hardware.",
     hint: "Recall the malware that permanently destroyed (bricked) insecure IoT devices to prevent DDoS attacks.",
     level: "expert",
-    codeExample: `// BrickerBot Destructive IoT Payload:
-// Corrupts flash storage to permanently disable device:
-system("rm -rf /bin /sbin /usr /etc");
-system("dd if=/dev/zero of=/dev/mtdblock0");
-system("reboot"); // Device fails to boot permanently (Bricked)`
+    codeExample: `// Conceptual Model of Permanent Denial of Service (PDoS):
+// Threat Actor corrupts device flash partitions to render hardware inoperable.
+// Defense: Hardware root-of-trust & cryptographically signed firmware verification.`
   },
   {
     question: "Who was Adrian Lamo ('The Homeless Hacker'), and how did his unauthorized intrusions exemplify Grey Hat methodology in the early 2000s?",

@@ -1,345 +1,380 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
-import Teacher from "../../../../../common/TeacherSukantaHui";
 
-// Python example files (place these in topic4_files/ folder)
-import positionalArgs from "./topic4_files/positional_args.py?raw";
-import keywordArgs from "./topic4_files/keyword_args.py?raw";
-import defaultArgs from "./topic4_files/default_args.py?raw";
+// ─── Common Framework Imports ──────────────────────────────────────────
+import Teacher from "../../../../../common/TeacherSukantaHui";
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import questions from "./topic4_files/topic4_questions";
+import noteText from "./topic4_files/topic4_note.txt?raw";
 
 /**
- * Topic 4: Types of Arguments – Positional, Keyword, Default, and Required
- * 
- * This component explains:
- * - Positional arguments: order matters, matched by position
- * - Keyword arguments: passed with parameter name, order doesn't matter
- * - Default arguments: parameters with predefined values
- * - Required arguments: parameters without default values (must be provided)
- * - Mixing argument types (rules: positional first, then keyword)
+ * Topic4 – Types of Arguments: Positional, Keyword, Default, and Required
+ * Module: 002_001_functions-basics (Functions & Modular Logic)
+ * Track: Python from Basic to Pro
+ *
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
  */
-export default function Topic4() {
+const Topic4 = () => {
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
+  const sectionRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const addRef = (el) => {
+    if (el && !sectionRefs.current.includes(el)) {
+      sectionRefs.current.push(el);
+    }
+  };
+
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  ];
+
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 py-8 space-y-12 bg-gray-900 text-gray-100">
-      {/* ========== SECTION 1: THEORY & EXPLANATION ========== */}
-      <section className="space-y-6 reveal-fade-up">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-          🔢 Types of Arguments: Positional, Keyword, Default, Required
-        </h1>
-        <div className="prose prose-invert max-w-none space-y-4">
-          <p className="text-lg leading-relaxed">
-            Python offers <strong className="text-blue-300">four ways</strong> to pass arguments to functions. 
-            Understanding these makes your code more flexible and readable.
-          </p>
-          <div className="bg-gray-800 p-4 rounded-lg border-l-4 border-blue-500">
-            <p className="font-mono text-sm">
-              <span className="text-yellow-300">def student_profile(name, age=18, city="Barrackpore"):</span><br />
-              &nbsp;&nbsp;&nbsp;&nbsp;{`print(f"{name}, {age}, from {city}")`}<br /><br />
-              <span className="text-green-300">student_profile("Swadeep", city="Ichapur", age=17)</span>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 2: DETAILED EXPLANATION OF EACH TYPE ========== */}
-      <section className="space-y-8 reveal-fade-up" style={{ animationDelay: "0.1s" }}>
-        <h2 className="text-3xl font-semibold border-l-4 border-green-500 pl-4">
-          🎯 The Four Argument Types
-        </h2>
-
-        {/* Positional Arguments */}
-        <div className="bg-gray-800/50 rounded-xl p-5 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
-          <h3 className="text-2xl font-semibold text-yellow-300">1️⃣ Positional Arguments</h3>
-          <p className="text-gray-300 mt-2">Arguments are assigned to parameters <strong>in the same order</strong> they appear in the function definition.</p>
-          <pre className="mt-3 text-sm font-mono text-emerald-300 bg-gray-900 p-3 rounded overflow-x-auto">
-{`def introduce(name, age, city):
-    print(f"{name}, {age}, from {city}")
-
-# Order matters: "Tuhina" → name, 16 → age, "Shyamnagar" → city
-introduce("Tuhina", 16, "Shyamnagar")`}
-          </pre>
-          <p className="text-gray-400 text-sm mt-2">✅ Most common way. Simple and straightforward.</p>
-        </div>
-
-        {/* Keyword Arguments */}
-        <div className="bg-gray-800/50 rounded-xl p-5 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300">
-          <h3 className="text-2xl font-semibold text-purple-300">2️⃣ Keyword Arguments</h3>
-          <p className="text-gray-300 mt-2">You specify the parameter name when calling. <strong>Order does not matter</strong>.</p>
-          <pre className="mt-3 text-sm font-mono text-emerald-300 bg-gray-900 p-3 rounded overflow-x-auto">
-{`introduce(city="Naihati", name="Debangshu", age=17)
-# Same result as positional version, but clearer`}
-          </pre>
-          <p className="text-gray-400 text-sm mt-2">✅ Improves readability, especially for functions with many parameters.</p>
-        </div>
-
-        {/* Default Arguments */}
-        <div className="bg-gray-800/50 rounded-xl p-5 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-300">
-          <h3 className="text-2xl font-semibold text-green-300">3️⃣ Default Arguments</h3>
-          <p className="text-gray-300 mt-2">Parameters that have a <strong>predefined value</strong> used if the caller doesn't provide one.</p>
-          <pre className="mt-3 text-sm font-mono text-emerald-300 bg-gray-900 p-3 rounded overflow-x-auto">
-{`def greet(name, greeting="Hello"):
-    print(f"{greeting}, {name}!")
-
-greet("Abhronila")              # Uses default "Hello"
-greet("Swadeep", "Namaste")     # Overrides default`}
-          </pre>
-          <p className="text-gray-400 text-sm mt-2">✅ Allows optional parameters. Defaults must come after non‑default parameters.</p>
-        </div>
-
-        {/* Required Arguments */}
-        <div className="bg-gray-800/50 rounded-xl p-5 hover:shadow-lg hover:shadow-red-500/10 transition-all duration-300">
-          <h3 className="text-2xl font-semibold text-red-300">4️⃣ Required Arguments</h3>
-          <p className="text-gray-300 mt-2">Parameters <strong>without default values</strong> – you must pass an argument for them, or Python raises an error.</p>
-          <pre className="mt-3 text-sm font-mono text-emerald-300 bg-gray-900 p-3 rounded overflow-x-auto">
-{`def register(username, password):
-    # Both are required (no defaults)
-    print(f"User {username} registered")
-
-register("swadeep_123")   # ERROR: missing password`}
-          </pre>
-          <p className="text-gray-400 text-sm mt-2">✅ Ensures essential data is always provided.</p>
-        </div>
-      </section>
-
-      {/* ========== SECTION 3: FUNCTION PROTOTYPE / SIGNATURE ========== */}
-      <section className="space-y-6 reveal-fade-up" style={{ animationDelay: "0.2s" }}>
-        <h2 className="text-3xl font-semibold border-l-4 border-yellow-500 pl-4">
-          📝 Function Signature Rules
-        </h2>
-        <div className="bg-gray-800 rounded-xl p-5 border border-gray-700">
-          <pre className="text-sm font-mono text-emerald-300 overflow-x-auto">
-{`def func_name(required1, required2, default1="value", default2="value"):
-    """required arguments first, then default arguments"""
-    pass`}
-          </pre>
-          <ul className="mt-4 space-y-2 text-gray-300 list-disc list-inside">
-            <li><strong>Required (positional) parameters</strong> must come <strong>before</strong> any default parameters.</li>
-            <li><strong>Default parameters</strong> are optional when calling; they can be overridden.</li>
-            <li>When calling, <strong>positional arguments come before keyword arguments</strong>.</li>
-            <li>You cannot specify the same argument both positionally and by keyword.</li>
-          </ul>
-        </div>
-      </section>
-
-      {/* ========== SECTION 4: CODE EXAMPLES ========== */}
-      <section className="space-y-8 reveal-fade-up" style={{ animationDelay: "0.3s" }}>
-        <h2 className="text-3xl font-semibold border-l-4 border-green-500 pl-4">
-          💻 Live Python Examples
-        </h2>
-
-        {/* Example 1: Positional arguments */}
-        <div className="space-y-3">
-          <h3 className="text-xl font-medium text-yellow-300">1️⃣ Positional Arguments (positional_args.py)</h3>
-          <PythonFileLoader
-            fileModule={positionalArgs}
-            title="positional_args.py"
-            highlightLines={[]}
-          />
-          <p className="text-gray-400 text-sm">
-            Demonstrates how the order of arguments determines which parameter receives which value.
-          </p>
-        </div>
-
-        {/* Example 2: Keyword arguments */}
-        <div className="space-y-3">
-          <h3 className="text-xl font-medium text-yellow-300">2️⃣ Keyword Arguments (keyword_args.py)</h3>
-          <PythonFileLoader
-            fileModule={keywordArgs}
-            title="keyword_args.py"
-            highlightLines={[]}
-          />
-          <p className="text-gray-400 text-sm">
-            Shows how to use parameter names when calling, making the code self‑documenting and order‑independent.
-          </p>
-        </div>
-
-        {/* Example 3: Default arguments */}
-        <div className="space-y-3">
-          <h3 className="text-xl font-medium text-yellow-300">3️⃣ Default Arguments (default_args.py)</h3>
-          <PythonFileLoader
-            fileModule={defaultArgs}
-            title="default_args.py"
-            highlightLines={[]}
-          />
-          <p className="text-gray-400 text-sm">
-            Demonstrates parameters with default values, how to override them, and the required order in definition.
-          </p>
-        </div>
-      </section>
-
-      {/* ========== SECTION 5: TIPS & TRICKS ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.4s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          💡 <span>Tips & Tricks (Professional Level)</span>
-        </h2>
-        <ul className="list-disc list-inside space-y-2 text-gray-300 bg-gray-800/50 p-5 rounded-xl">
-          <li><strong className="text-purple-300">Use keyword arguments for clarity:</strong> When calling a function with many parameters (especially boolean flags), keyword arguments act as documentation.</li>
-          <li><strong className="text-purple-300">Default arguments should be immutable:</strong> Avoid mutable defaults like <code>def f(lst=[])</code> – use <code>lst=None</code> and create a new list inside.</li>
-          <li><strong className="text-purple-300">Mix positional and keyword:</strong> All positional arguments must appear before any keyword argument in the call.</li>
-          <li><strong className="text-purple-300">Use defaults to evolve APIs:</strong> Adding a new parameter with a default value allows old code to keep working.</li>
-          <li><strong className="text-purple-300">IDE autocomplete:</strong> Keyword arguments trigger autocomplete in modern editors – use them to avoid typos.</li>
-        </ul>
-      </section>
-
-      {/* ========== SECTION 6: COMMON PITFALLS ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.5s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          ⚠️ <span>Common Pitfalls</span>
-        </h2>
-        <div className="space-y-3">
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Mismatched order with positional arguments</p>
-            <p className="text-gray-300"><code>greet(age=16, "Tuhina")</code> – SyntaxError. Positional arguments cannot follow keyword arguments.</p>
-          </div>
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Default parameters after non‑default</p>
-            <p className="text-gray-300"><code>def f(default=1, required)</code> – SyntaxError. All required parameters must come first.</p>
-          </div>
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Mutable default values (classic gotcha)</p>
-            <p className="text-gray-300"><code>def add_item(item, basket=[]): basket.append(item); return basket</code> – the same list persists across calls! Use <code>None</code> instead.</p>
-          </div>
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Forgetting that required arguments have no default</p>
-            <p className="text-gray-300">Calling a function without providing a required argument → <code>TypeError: missing 1 required positional argument</code>.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 7: BEST PRACTICES ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.6s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          ✅ <span>Best Practices</span>
-        </h2>
-        <div className="bg-emerald-900/20 border border-emerald-700 rounded-xl p-5">
-          <ul className="list-disc list-inside space-y-2 text-gray-200">
-            <li>Use positional arguments for the most important, required parameters.</li>
-            <li>Use keyword arguments when calling functions with many parameters or boolean flags.</li>
-            <li>Provide default values for optional parameters to make functions easier to use.</li>
-            <li>Order parameters from most specific to most general (or most required to least required).</li>
-            <li>Document default values clearly in the docstring.</li>
-          </ul>
-        </div>
-      </section>
-
-      {/* ========== SECTION 8: MINI CHECKLIST ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.7s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          📋 <span>Mini Checklist (What Students Must Remember)</span>
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg">
-            <span className="text-green-400">✔️</span> Positional = order matters
-          </div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg">
-            <span className="text-green-400">✔️</span> Keyword = use <code>param=value</code>, order irrelevant
-          </div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg">
-            <span className="text-green-400">✔️</span> Default = parameter with <code>= value</code> in definition
-          </div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg">
-            <span className="text-green-400">✔️</span> Required = no default value, must be provided
-          </div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg">
-            <span className="text-green-400">✔️</span> Defaults must come after required parameters
-          </div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg">
-            <span className="text-green-400">✔️</span> In calls: positional first, then keyword
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 9: HINT SECTION ========== */}
-      <section className="space-y-3 reveal-fade-up" style={{ animationDelay: "0.8s" }}>
-        <h2 className="text-2xl font-semibold text-amber-300">🧠 Think About...</h2>
-        <div className="bg-amber-900/20 border border-amber-700 rounded-xl p-5 italic text-gray-200">
-          <p>🔍 <strong>Observe carefully:</strong> In <code>default_args.py</code>, what happens if you try to define <code>def func(a=1, b):</code>? Why does Python forbid that?</p>
-          <p className="mt-2">🔍 <strong>Try changing this:</strong> Convert a positional call to a keyword call. Does the output change? Which style is easier to read?</p>
-          <p className="mt-2">🔍 <strong>Think about:</strong> When would you deliberately use keyword arguments even though positional would work? (Hint: functions with many boolean parameters).</p>
-        </div>
-      </section>
-
-      {/* ========== SECTION 10: TEACHER'S NOTE ========== */}
-      <section className="reveal-fade-up" style={{ animationDelay: "0.9s" }}>
-        <Teacher
-          note={
-            "This topic often confuses beginners because of the terminology. 🧑‍🏫 " +
-            "I recommend drawing a diagram: a function with parameters (like labeled boxes). Positional arguments fill boxes left to right. Keyword arguments label the box before filling. " +
-            "Demonstrate the mutable default pitfall with a small example – students love the 'gotcha' moment. " +
-            "Also show how default arguments are evaluated only once at definition time (the reason for the mutable default issue). " +
-            "Encourage them to use keyword arguments for any function call with more than 3 arguments."
-          }
-        />
-      </section>
-
-      {/* ========== SVG ILLUSTRATION ========== */}
-      <section className="reveal-fade-up" style={{ animationDelay: "1s" }}>
-        <div className="bg-gray-800/50 rounded-xl p-6 flex justify-center">
-          <svg width="580" height="240" viewBox="0 0 580 240" className="max-w-full h-auto">
-            {/* Function box */}
-            <rect x="180" y="20" width="220" height="100" fill="#1e3a8a" stroke="#3b82f6" strokeWidth="2" rx="8">
-              <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" />
-            </rect>
-            <text x="290" y="50" fill="white" fontSize="13" textAnchor="middle" fontFamily="monospace">def profile(</text>
-            <text x="290" y="70" fill="#fbbf24" fontSize="13" textAnchor="middle">name, age, city="Barrackpore"</text>
-            <text x="290" y="90" fill="white" fontSize="13" textAnchor="middle">):</text>
-
-            {/* Positional arguments arrow */}
-            <line x1="80" y1="70" x2="175" y2="70" stroke="#fbbf24" strokeWidth="2" markerEnd="url(#arrowYellow)" />
-            <text x="130" y="55" fill="#fbbf24" fontSize="11" textAnchor="middle">Positional</text>
-            <text x="130" y="85" fill="#fbbf24" fontSize="11" textAnchor="middle">"Tuhina", 16</text>
-
-            {/* Keyword arguments arrow */}
-            <line x1="405" y1="70" x2="500" y2="70" stroke="#a78bfa" strokeWidth="2" markerEnd="url(#arrowPurple)" />
-            <text x="450" y="55" fill="#c4b5fd" fontSize="11" textAnchor="middle">Keyword</text>
-            <text x="450" y="85" fill="#c4b5fd" fontSize="11" textAnchor="middle">city="Ichapur"</text>
-
-            {/* Default value indicator */}
-            <rect x="180" y="140" width="220" height="60" fill="#065a46" stroke="#34d399" strokeWidth="1.5" rx="6" strokeDasharray="4,4">
-              <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite" />
-            </rect>
-            <text x="290" y="165" fill="#34d399" fontSize="12" textAnchor="middle">Default: city="Barrackpore"</text>
-            <text x="290" y="185" fill="#9ca3af" fontSize="11" textAnchor="middle">Used if not provided</text>
-
-            <defs>
-              <marker id="arrowYellow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-                <path d="M0,0 L8,4 L0,8 Z" fill="#fbbf24" />
-              </marker>
-              <marker id="arrowPurple" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-                <path d="M0,0 L8,4 L0,8 Z" fill="#a78bfa" />
-              </marker>
-            </defs>
-          </svg>
-        </div>
-        <p className="text-center text-sm text-gray-400 mt-2">
-          Positional arguments (yellow) match by order; keyword arguments (purple) use names; default parameters (green) are optional.
-        </p>
-      </section>
-
-      {/* ========== INLINE KEYFRAMES ========== */}
+    <>
       <style>{`
-        @keyframes fadeUp {
-          0% {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
+        .reveal-section {
+          transform: translateY(0);
+          transition: transform 0.4s ease-out;
         }
-        .reveal-fade-up {
-          animation: fadeUp 0.6s ease-out forwards;
-          opacity: 0;
-          animation-fill-mode: forwards;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .reveal-fade-up {
-            animation: none;
-            opacity: 1;
-          }
+        .reveal-section.is-visible {
+          transform: translateY(0);
         }
       `}</style>
-    </div>
+
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 001 · Topic 4</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Types of Arguments: Positional, Keyword, Default, and Required
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Create reusable, clean, and modular building blocks using Python functions.
+          </p>
+
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
+          </div>
+        </header>
+
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
+        >
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Types of Arguments: Positional, Keyword, Default, and Required
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Types of Arguments: Positional, Keyword, Default, and Required</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Types of Arguments: Positional, Keyword, Default, and Required
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
+            </div>
+
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <FAQTemplate
+            title="Types of Arguments: Positional, Keyword, Default, and Required FAQs"
+            questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
+          />
+        </section>
+
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <PlainTextPrint
+            content={noteText}
+            title="Types of Arguments: Positional, Keyword, Default, and Required"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Note"
+            downloadFileName="topic4_note.txt"
+          />
+        </section>
+
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <Teacher
+            note={
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
+            }
+          />
+        </section>
+
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 4 · Types of Arguments: Positional, Keyword, Default, and Required · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
+        </footer>
+      </div>
+    </>
   );
-}
+};
+
+export default Topic4;

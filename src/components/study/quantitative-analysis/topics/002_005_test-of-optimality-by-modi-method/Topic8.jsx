@@ -547,7 +547,7 @@ const Topic8 = () => {
                 'Verified exactly m + n - 1 basic cells in the new basis',
                 'Calculated new total cost Z_1 and verified Delta Z = θ × |d_enter|',
                 'Computed fresh u_i\' and v_j\' potentials on the new basic cells',
-                'Evaluated new opportunity costs d_{ij}\' for the Iteration 2 audit',
+                'Evaluated new opportunity costs d_ij\' for the Iteration 2 audit',
               ].map((text, idx) => (
                 <div key={idx} className="p-3 rounded-lg bg-slate-800/40 border border-slate-700/60 flex items-center space-x-3">
                   <span className="text-emerald-400">✅</span>

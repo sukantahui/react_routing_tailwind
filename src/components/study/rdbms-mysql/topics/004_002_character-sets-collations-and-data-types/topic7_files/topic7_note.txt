@@ -1,0 +1,27 @@
+================================================================================
+RDBMS MySQL Course - Module 004_002: Character Sets, Collations, JSON & Spatial Types
+Topic 7: Native JSON Data Type: Storage Format, Validation, and Advantages over Plain Text
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHY NATIVE JSON INSTEAD OF PLAIN TEXT?
+--------------------------------------------------------------------------------
+Storing JSON in `VARCHAR` or `LONGTEXT` has severe drawbacks:
+1. No Syntax Validation: Any broken string can be inserted silently.
+2. Slow Query Parsing: MySQL must parse the entire string from start to finish.
+3. Full Document Rewrites: Updating one field rewrites the entire document.
+4. No Indexing: Cannot index specific JSON keys directly.
+
+2. THE NATIVE JSON DATA TYPE ADVANTAGES
+--------------------------------------------------------------------------------
+1. Automatic Syntax Validation:
+   - MySQL validates JSON documents at write time, throwing Error 3140 if malformed.
+2. Optimized Internal Binary Format:
+   - Keys are sorted alphabetically and stored with byte offsets.
+   - Finding a key (e.g. `$.status`) performs a fast binary search ($O(\log K)$) without
+     parsing the entire document.
+3. Partial In-Place Updates (MySQL 8.0+):
+   - Modifying a small key in a large JSON document updates only the specific byte offset
+     in the InnoDB page without rewriting the entire document to disk!
+4. Normalization:
+   - Automatically removes insignificant whitespace and standardizes key formatting.

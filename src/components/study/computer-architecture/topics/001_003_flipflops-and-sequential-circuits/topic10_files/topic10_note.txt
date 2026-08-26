@@ -1,0 +1,59 @@
+================================================================================
+COMPUTER ARCHITECTURE MASTERCLASS - TOPIC 10: MASTER-SLAVE JK FLIP-FLOP
+8-NAND GATE ARCHITECTURE, TWO-PHASE CLOCKING & RACE-AROUND ELIMINATION
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE RACE-AROUND CONDITION PROBLEM IN SINGLE JK FLIP-FLOPS
+--------------------------------------------------------------------------------
+- In a level-triggered JK flip-flop, when J = 1, K = 1, and Clock = HIGH:
+  * Output toggles: Q(t+1) = Q_bar(t).
+  * In silicon, the gate propagation delay (t_pd) is around 2-10 ns.
+  * If the Clock pulse width (t_pulse) is wider than t_pd (t_pulse > t_pd),
+    the new inverted output immediately feeds back to the input gates while
+    the clock is still HIGH.
+  * Result: The output toggles repeatedly (0 -> 1 -> 0 -> 1...) causing high-frequency
+    oscillation and ringing. The state of Q when the clock falls is completely random!
+
+2. THE 8-NAND GATE MASTER-SLAVE SOLUTION
+--------------------------------------------------------------------------------
+The Master-Slave structure permanently solves race-around by cascading two
+distinct stages driven by complementary clock signals (CLK and CLK_bar):
+
+A. Stage 1: The Master (NAND 1, 2, 3, 4) - Driven by CLK
+   - When CLK = 1: Master is ENABLED. It samples inputs J and K (along with global
+     feedback from the Slave) and computes intermediate state Y.
+   - Meanwhile, Slave clock CLK_bar = 0 (DISABLED), completely freezing output Q.
+
+B. Stage 2: The Slave (NAND 5, 6, 7, 8) - Driven by CLK_bar (Inverter Output)
+   - When CLK drops to 0: Master is DISABLED (isolated from J and K inputs).
+   - Inverted clock CLK_bar rises to 1, ENABLING the Slave.
+   - The Slave copies the intermediate state Y to the final output Q.
+
+C. Key Theorem:
+   Because Master and Slave are NEVER active at the same instant:
+   - When inputs change Master, Slave output is frozen.
+   - When Slave updates output, Master inputs are locked out.
+   - The global feedback loop is broken during every transition.
+   - EXACTLY ONE toggle occurs per clock pulse. Zero race-around!
+
+3. CIRCUIT SPECIFICATIONS & CHARACTERISTIC EQUATION
+--------------------------------------------------------------------------------
+- Characteristic Equation: Q(t+1) = J · Q_bar + K_bar · Q
+- Excitation Table:
+  Q(t) -> Q(t+1) |  J   K  | Action
+  ---------------+---------+---------------------------
+    0  ->   0    |  0   X  | No change / Reset
+    0  ->   1    |  1   X  | Set / Toggle
+    1  ->   0    |  X   1  | Reset / Toggle
+    1  ->   1    |  X   0  | No change / Set
+
+- Operating Modes:
+  J=0, K=0 -> No Change (Hold)
+  J=0, K=1 -> Synchronous Reset (Q=0)
+  J=1, K=0 -> Synchronous Set (Q=1)
+  J=1, K=1 -> Clean Toggle (f_out = f_clk / 2)
+
+================================================================================
+END OF STUDY NOTE - TOPIC 10
+================================================================================

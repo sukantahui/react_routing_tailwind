@@ -160,7 +160,7 @@ const Topic14 = () => {
       name: "5. The Student Feature Vector",
       tag: "d-Dimensional Input",
       tagColor: "bg-amber-950 text-amber-300 border-amber-800",
-      mathDef: "x_i = [x_{i1}, x_{i2}, ..., x_{id}]^T ∈ ℝ^d",
+      mathDef: "x_i = [x_i1, x_i2, ..., x_id]^T ∈ ℝ^d",
       plainEnglish: "The set of numerical measurements and biomarkers collected for the i-th student.",
       studentContext: "x_i = [Attendance Rate (0.85), Weekly Study Hours (0.70), Mock Quiz Score (0.80)]^T. All values are normalized between 0.0 and 1.0.",
       extremeCase: "If features are not normalized (e.g. study hours in raw minutes 1200 vs attendance 0.85), regularization unfairly penalizes features with smaller numeric ranges."

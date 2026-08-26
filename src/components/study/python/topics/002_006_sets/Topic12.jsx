@@ -1,522 +1,380 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 
-// Common Shared Components
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
-import PlainTextPrint from "../../../../../common/PlainTextPrint";
-import FAQTemplate from "../../../../../common/FAQTemplate";
+// ─── Common Framework Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
-
-// Python Code Examples (Imported with ?raw)
-import subsetDemo from "./topic12_files/subset_superset_demo.py?raw";
-import properSubsetDemo from "./topic12_files/proper_subset_superset.py?raw";
-import isdisjointDemo from "./topic12_files/isdisjoint_performance.py?raw";
-import rbacAudit from "./topic12_files/rbac_security_audit.py?raw";
-
-// Plain Text Note for Printing/Downloading
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import questions from "./topic12_files/topic12_questions";
 import noteText from "./topic12_files/topic12_note.txt?raw";
 
-// FAQ Questions
-import questions from "./topic12_files/topic12_questions";
-
 /**
- * Topic12: Set Comparison: Subset, Superset, Disjoint Sets
- * Module: 002_006_sets
- * Segment: 2 (Practical Python for Real-World Development)
+ * Topic12 – Set comparison: subset, superset, disjoint sets
+ * Module: 002_006_sets (Sets & Set Operations)
+ * Track: Python from Basic to Pro
  *
- * In-depth guide to relational set logic: subset (<= / issubset),
- * superset (>= / issuperset), strict proper comparisons (< and >),
- * and disjoint set evaluation (isdisjoint) with short-circuit optimization.
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
  */
-export default function Topic12() {
+const Topic12 = () => {
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
   const sectionRefs = useRef([]);
-  const [activeTab, setActiveTab] = useState("containment");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("section-visible");
+            entry.target.classList.add("is-visible");
           }
         });
       },
-      {
-        threshold: 0.08,
-        rootMargin: "0px 0px -40px 0px",
-      }
+      { threshold: 0.1 }
     );
 
-    sectionRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
   }, []);
 
-  const addToRefs = (el) => {
+  const addRef = (el) => {
     if (el && !sectionRefs.current.includes(el)) {
       sectionRefs.current.push(el);
     }
   };
 
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  ];
+
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 antialiased font-sans p-4 sm:p-6 md:p-10 pb-28 selection:bg-emerald-500/30 selection:text-emerald-200">
-      {/* Scoped Keyframes for Lightweight Zero-Config Micro-Animations */}
+    <>
       <style>{`
-        .section-hidden {
-          transform: translateY(18px);
-          transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        .reveal-section {
+          transform: translateY(0);
+          transition: transform 0.4s ease-out;
         }
-        .section-visible {
+        .reveal-section.is-visible {
           transform: translateY(0);
         }
       `}</style>
 
-      {/* ==================================================================== */}
-      {/* HEADER SECTION */}
-      {/* ==================================================================== */}
-      <header
-        ref={addToRefs}
-        className="section-hidden max-w-5xl mx-auto mb-12 pb-8 border-b border-slate-800/80"
-      >
-        <div className="flex flex-wrap items-center gap-3 mb-3">
-          <span className="text-xs sm:text-sm font-mono font-semibold bg-emerald-950/80 text-emerald-300 px-3 py-1 rounded-full border border-emerald-800/80 shadow-sm shadow-emerald-950/50">
-            Segment 2 • Module 002_006
-          </span>
-          <span className="text-xs sm:text-sm font-mono bg-sky-950/80 text-sky-300 px-3 py-1 rounded-full border border-sky-800/80 shadow-sm shadow-sky-950/50">
-            Topic 12
-          </span>
-          <span className="text-xs sm:text-sm font-medium text-slate-400">
-            Relational Set Algebra
-          </span>
-        </div>
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 006 · Topic 12</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Set comparison: subset, superset, disjoint sets
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Master distinct element collections, set theory operations, and high-performance membership checks.
+          </p>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-          Set Comparisons: Subset, Superset & Disjoint
-        </h1>
-        <p className="text-lg sm:text-xl text-slate-300 mt-3 max-w-3xl font-normal leading-relaxed">
-          Mastering relational set logic: verifying prerequisites with <code className="text-emerald-400 font-mono">&lt;=</code>, asserting capabilities with <code className="text-sky-400 font-mono">&gt;=</code>, and detecting zero-overlap schedules with <code className="text-purple-400 font-mono">isdisjoint()</code>.
-        </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
+          </div>
+        </header>
 
-        <div className="flex flex-wrap gap-2 sm:gap-3 mt-5">
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            ⊆ Subset (&lt;= / issubset)
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            ⊇ Superset (&gt;= / issuperset)
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            ⊂ Strict Proper Subset (&lt;)
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            ⚡ Short-Circuit isdisjoint()
-          </span>
-        </div>
-      </header>
-
-      {/* ==================================================================== */}
-      {/* MAIN CONTENT WRAPPER */}
-      {/* ==================================================================== */}
-      <div className="max-w-5xl mx-auto space-y-16">
-
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 1: RELATIONAL SET OPERATORS */}
-        {/* ------------------------------------------------------------------ */}
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
         <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">⚖️</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              1. Relational Set Comparisons
-            </h2>
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Set comparison: subset, superset, disjoint sets
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
           </div>
 
-          <div className="space-y-4 text-slate-300 leading-relaxed text-base sm:text-lg">
-            <p>
-              Unlike sequence equality which checks element-by-element order, set comparisons verify <strong className="text-emerald-400">containment hierarchies</strong> and <strong className="text-purple-400">mutual exclusivity</strong>:
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6 not-prose">
-              {/* Card 1: Subset */}
-              <div className="p-5 rounded-xl bg-slate-950/70 border border-emerald-800/60 shadow-lg shadow-emerald-950/30 transition-all duration-300 hover:border-emerald-500">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2 text-emerald-400 font-bold text-lg">
-                    <span>⊆</span> Subset: A &lt;= B
-                  </div>
-                  <span className="text-xs font-mono bg-emerald-950 text-emerald-300 px-2 py-0.5 rounded border border-emerald-800">
-                    A.issubset(B)
-                  </span>
-                </div>
-                <p className="text-sm text-slate-300 mb-2">
-                  True if <strong className="text-white">every element of A exists in B</strong>. Allows A == B.
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Set comparison: subset, superset, disjoint sets</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
                 </p>
-                <div className="text-xs font-mono text-emerald-300 bg-slate-900 p-2 rounded">
-                  {'{1, 2} <= {1, 2, 3}'} -&gt; True
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
                 </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
+                </p>
               </div>
-
-              {/* Card 2: Proper Subset */}
-              <div className="p-5 rounded-xl bg-slate-950/70 border border-teal-800/60 shadow-lg shadow-teal-950/30 transition-all duration-300 hover:border-teal-500">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2 text-teal-400 font-bold text-lg">
-                    <span>⊂</span> Proper Subset: A &lt; B
-                  </div>
-                  <span className="text-xs font-mono bg-teal-950 text-teal-300 px-2 py-0.5 rounded border border-teal-800">
-                    Operator Only!
-                  </span>
-                </div>
-                <p className="text-sm text-slate-300 mb-2">
-                  True if A &lt;= B <strong className="text-white">AND A != B</strong> (A is strictly smaller).
-                </p>
-                <div className="text-xs font-mono text-teal-300 bg-slate-900 p-2 rounded">
-                  {'{1, 2} < {1, 2}'} -&gt; False
-                </div>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
               </div>
+            </div>
 
-              {/* Card 3: Superset */}
-              <div className="p-5 rounded-xl bg-slate-950/70 border border-sky-800/60 shadow-lg shadow-sky-950/30 transition-all duration-300 hover:border-sky-500">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2 text-sky-400 font-bold text-lg">
-                    <span>⊇</span> Superset: A &gt;= B
-                  </div>
-                  <span className="text-xs font-mono bg-sky-950 text-sky-300 px-2 py-0.5 rounded border border-sky-800">
-                    A.issuperset(B)
-                  </span>
-                </div>
-                <p className="text-sm text-slate-300 mb-2">
-                  True if <strong className="text-white">A contains every element of B</strong>.
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
                 </p>
-                <div className="text-xs font-mono text-sky-300 bg-slate-900 p-2 rounded">
-                  {'{1, 2, 3} >= {1, 2}'} -&gt; True
-                </div>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
+                </ul>
               </div>
-
-              {/* Card 4: Disjoint */}
-              <div className="p-5 rounded-xl bg-slate-950/70 border border-purple-800/60 shadow-lg shadow-purple-950/30 transition-all duration-300 hover:border-purple-500">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2 text-purple-400 font-bold text-lg">
-                    <span>⚡</span> Disjoint: isdisjoint()
-                  </div>
-                  <span className="text-xs font-mono bg-purple-950 text-purple-300 px-2 py-0.5 rounded border border-purple-800">
-                    Zero Overlap
-                  </span>
-                </div>
-                <p className="text-sm text-slate-300 mb-2">
-                  True if sets share <strong className="text-white">ZERO common items</strong> (A ∩ B == ∅).
-                </p>
-                <div className="text-xs font-mono text-purple-300 bg-slate-900 p-2 rounded">
-                  {'{1, 2}.isdisjoint({3, 4})'} -&gt; True
-                </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
               </div>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 2: INTERACTIVE SVG VISUALIZER */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <div className="flex items-center gap-3">
-              <span className="text-3xl">🔬</span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white">
-                2. Visualizing Containment Hierarchies & Disjoint Testing
-              </h2>
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Set comparison: subset, superset, disjoint sets
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
             </div>
 
-            {/* Toggle Tabs */}
-            <div className="flex bg-slate-950 p-1.5 rounded-xl border border-slate-800 text-xs font-semibold">
-              <button
-                onClick={() => setActiveTab("containment")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeTab === "containment"
-                    ? "bg-emerald-900/50 text-emerald-300 border border-emerald-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                Subset Containment (A &lt;= B)
-              </button>
-              <button
-                onClick={() => setActiveTab("disjointflow")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeTab === "disjointflow"
-                    ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                Disjoint Short-Circuit Flow
-              </button>
-            </div>
-          </div>
-
-          {/* SVG Diagram Canvas */}
-          <div className="bg-slate-950 rounded-xl p-4 sm:p-6 overflow-x-auto border border-slate-800/90 shadow-2xl">
-            {activeTab === "containment" ? (
-              <svg viewBox="0 0 850 320" className="w-full h-auto min-w-[650px] font-sans">
-                <text x="30" y="35" fill="#f8fafc" fontSize="15" fontWeight="bold">
-                  Subset Containment: Set A (Prerequisites) nested completely inside Set B (Candidate Skills)
-                </text>
-
-                {/* Outer Circle B (Superset) */}
-                <circle cx="425" cy="170" r="115" fill="#0369a133" stroke="#0ea5e9" strokeWidth="2" />
-                <text x="340" y="85" fill="#38bdf8" fontSize="13" fontWeight="bold">Set B: Candidate Skills (Superset)</text>
-                <text x="340" y="105" fill="#94a3b8" fontSize="11">{'{"FastAPI", "React", "Docker", ...}'}</text>
-
-                {/* Inner Circle A (Subset) */}
-                <circle cx="425" cy="180" r="65" fill="#04785744" stroke="#10b981" strokeWidth="2.5" />
-                <text x="365" y="175" fill="#a7f3d0" fontSize="12" fontWeight="bold">Set A: Core Prereqs</text>
-                <text x="375" y="195" fill="#ffffff" fontSize="11">{'{"Python", "SQL"}'}</text>
-
-                {/* Outer Skills */}
-                <text x="490" y="140" fill="#cbd5e1" fontSize="11">"FastAPI"</text>
-                <text x="330" y="210" fill="#cbd5e1" fontSize="11">"Docker"</text>
-                <text x="480" y="230" fill="#cbd5e1" fontSize="11">"React"</text>
-
-                {/* Result Box */}
-                <rect x="30" y="275" width="790" height="35" rx="6" fill="#0f172a" stroke="#10b981" />
-                <text x="50" y="297" fill="#34d399" fontSize="12" fontWeight="bold">
-                  A &lt;= B is True (A is a subset of B) • A &lt; B is True (A is a strict proper subset) • B &gt;= A is True (B is superset)
-                </text>
-              </svg>
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             ) : (
-              <svg viewBox="0 0 850 320" className="w-full h-auto min-w-[650px] font-sans">
-                <text x="30" y="35" fill="#f8fafc" fontSize="15" fontWeight="bold">
-                  Disjoint Set Evaluation: Testing Zero Mutual Overlap
-                </text>
-
-                {/* Left Circle A */}
-                <circle cx="280" cy="160" r="90" fill="#9333ea22" stroke="#a855f7" strokeWidth="2" />
-                <text x="220" y="140" fill="#f5d0fe" fontSize="13" fontWeight="bold">Morning Shift</text>
-                <text x="210" y="165" fill="#cbd5e1" fontSize="11">{'{"Susmita", "Mamata"}'}</text>
-
-                {/* Right Circle B */}
-                <circle cx="570" cy="160" r="90" fill="#9333ea22" stroke="#a855f7" strokeWidth="2" />
-                <text x="520" y="140" fill="#f5d0fe" fontSize="13" fontWeight="bold">Night Shift</text>
-                <text x="510" y="165" fill="#cbd5e1" fontSize="11">{'{"Tanmay", "Bikram"}'}</text>
-
-                {/* Middle Gap */}
-                <path d="M 380 160 L 470 160" stroke="#10b981" strokeWidth="2" strokeDasharray="4 4" />
-                <text x="395" y="150" fill="#34d399" fontSize="11" fontWeight="bold">0 Overlap</text>
-
-                {/* Result Box */}
-                <rect x="30" y="275" width="790" height="35" rx="6" fill="#0f172a" stroke="#a855f7" />
-                <text x="50" y="297" fill="#f5d0fe" fontSize="12" fontWeight="bold">
-                  morning_shift.isdisjoint(night_shift) -&gt; True (Zero scheduling conflict between shifts!)
-                </text>
-              </svg>
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
             )}
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 3: CODE LABS */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 space-y-8"
-        >
-          <div className="flex items-center gap-3">
-            <span className="text-3xl">💻</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              3. Interactive Python Code Labs
-            </h2>
-          </div>
-
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Lab A: issubset() & issuperset() Prerequisite Readiness Testing
-              </h3>
-              <PythonFileLoader
-                fileModule={subsetDemo}
-                title="subset_superset_demo.py"
-                highlightLines={[6, 14, 19, 24]}
-              />
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
             </div>
 
-            <div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Lab B: Proper / Strict Subset (&lt;) vs Standard Subset (&lt;=)
-              </h3>
-              <PythonFileLoader
-                fileModule={properSubsetDemo}
-                title="proper_subset_superset.py"
-                highlightLines={[6, 11, 16, 21]}
-              />
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Lab C: isdisjoint() Short-Circuit Evaluation & Shift Auditing
-              </h3>
-              <PythonFileLoader
-                fileModule={isdisjointDemo}
-                title="isdisjoint_performance.py"
-                highlightLines={[6, 12, 16]}
-              />
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Lab D: Real-World RBAC Access Clearance & Security Audit in ₹
-              </h3>
-              <PythonFileLoader
-                fileModule={rbacAudit}
-                title="rbac_security_audit.py"
-                highlightLines={[6, 15, 20, 26]}
-              />
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 4: REAL-WORLD APPLICATIONS */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">🏛️</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              4. Real-World Applications in West Bengal Industry
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800/80 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500">
-              <div className="flex items-center gap-2 font-bold text-white text-base mb-2">
-                <span className="text-xl">🔐</span> 1. Enterprise RBAC Access Clearance
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
               </div>
-              <p className="text-sm text-slate-300">
-                Security platforms in <strong>Kolkata</strong> verify financial operator roles using <code className="font-mono text-emerald-400">user_perms &gt;= FINANCE_PERMS</code>, while asserting <code className="font-mono text-emerald-400">user_perms.isdisjoint(BANNED_ACTIONS)</code> to prevent privilege escalation.
-              </p>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
             </div>
 
-            <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800/80 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-sky-500">
-              <div className="flex items-center gap-2 font-bold text-white text-base mb-2">
-                <span className="text-xl">🎓</span> 2. Student Prerequisite Gateways
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
               </div>
-              <p className="text-sm text-slate-300">
-                Academic ERPs in <strong>Barrackpore</strong> check whether candidates have mastered foundational prerequisites (<code className="font-mono text-sky-400">core_prereqs &lt;= student_skills</code>) before unlocking advanced tracks (<strong className="text-emerald-300">₹6,500 Data Science Track</strong>).
-              </p>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800/80 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-purple-500">
-              <div className="flex items-center gap-2 font-bold text-white text-base mb-2">
-                <span className="text-xl">🗓️</span> 3. Employee Shift Collision Detection
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
               </div>
-              <p className="text-sm text-slate-300">
-                Hospital and institute scheduling engines verify <code className="font-mono text-purple-400">shift_a.isdisjoint(shift_b)</code> in <strong>Ichapur</strong>, guaranteeing zero double-booking staffing errors.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800/80 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-amber-500">
-              <div className="flex items-center gap-2 font-bold text-white text-base mb-2">
-                <span className="text-xl">📋</span> 4. API Request Schema Validation
-              </div>
-              <p className="text-sm text-slate-300">
-                FastAPI microservices in <strong>Jadavpur</strong> validate incoming JSON payloads by checking <code className="font-mono text-amber-400">required_keys &lt;= payload.keys()</code> in O(len(req)) time.
-              </p>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 5: COMMON PITFALLS */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">⚠️</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              5. Pitfalls & Tricky Gotchas in Set Comparisons
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm sm:text-base">
-            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-900/60">
-              <div className="font-bold text-rose-400 mb-1">
-                ❌ Pitfall 1: No Method for Strict Proper Subsets
-              </div>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                Calling <code className="bg-rose-900/40 px-1 py-0.5 rounded font-mono text-rose-200">s.ispropersubset(other)</code> raises <code className="text-rose-400 font-bold">AttributeError</code>! You must use the <code className="font-mono text-emerald-400">&lt;</code> operator.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-900/60">
-              <div className="font-bold text-rose-400 mb-1">
-                ❌ Pitfall 2: Comparing Unrelated Sets
-              </div>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                <code className="bg-rose-900/40 px-1 py-0.5 rounded font-mono text-rose-200">{'{1, 2}'} &lt; {'{3, 4}'}</code> returns <strong className="text-rose-400 font-bold">False</strong> because set comparisons test subset containment, not numerical element magnitudes!
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-900/60">
-              <div className="font-bold text-rose-400 mb-1">
-                ❌ Pitfall 3: TypeError on Lists with Operators
-              </div>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                <code className="bg-rose-900/40 px-1 py-0.5 rounded font-mono text-rose-200">s &lt;= [1, 2]</code> fails with TypeError. Use <code className="font-mono text-emerald-400">s.issubset([1, 2])</code> when passing non-set iterables.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-900/60">
-              <div className="font-bold text-rose-400 mb-1">
-                ❌ Pitfall 4: Slow bool(A & B) vs isdisjoint()
-              </div>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                Writing <code className="bg-rose-900/40 px-1 py-0.5 rounded font-mono text-rose-200">not (A &amp; B)</code> allocates a brand new intersection set. Use <code className="font-mono text-emerald-400">A.isdisjoint(B)</code> for instant short-circuit speed!
-              </p>
-            </div>
-          </div>
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <FAQTemplate
+            title="Set comparison: subset, superset, disjoint sets FAQs"
+            questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
+          />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 6: PRINTABLE STUDY NOTE */}
-        {/* ------------------------------------------------------------------ */}
-        <section ref={addToRefs} className="section-hidden">
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <PlainTextPrint
             content={noteText}
-            title="Topic 12: Set Comparison Study Guide"
+            title="Set comparison: subset, superset, disjoint sets"
             stampEnabled={true}
             showDownload={true}
-            downloadButtonText="Download Printable Study Note"
-            downloadFileName="topic12_set_comparisons_note.txt"
+            downloadButtonText="Download Note"
+            downloadFileName="topic12_note.txt"
           />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 7: FAQS (30 COMPREHENSIVE QUESTIONS) */}
-        {/* ------------------------------------------------------------------ */}
-        <section ref={addToRefs} className="section-hidden">
-          <FAQTemplate
-            title="Topic 12 • Set Comparisons (Subset, Superset, Disjoint): Master Viva & Review Questions"
-            questions={questions}
-          />
-        </section>
-
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 8: TEACHER'S NOTE */}
-        {/* ------------------------------------------------------------------ */}
-        <section ref={addToRefs} className="section-hidden">
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <Teacher
-            note="Teacher's Verification Rule: Set comparison methods are your primary defense when writing robust security authorization and prerequisite engines. Remember: required <= user_perms tests access in O(len(req)), and isdisjoint() guarantees zero privilege escalation with short-circuiting speed. Keep your permission matrices clean and your code will stay bulletproof!"
+            note={
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
+            }
           />
         </section>
 
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 12 · Set comparison: subset, superset, disjoint sets · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
+        </footer>
       </div>
-    </div>
+    </>
   );
-}
+};
+
+export default Topic12;

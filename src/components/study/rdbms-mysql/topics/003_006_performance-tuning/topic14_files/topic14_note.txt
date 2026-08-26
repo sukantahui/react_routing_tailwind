@@ -1,0 +1,40 @@
+================================================================================
+RDBMS MySQL Course - Module 003_006: Query Execution Plans & Performance Tuning
+Topic 14: Hands-on Performance Tuning Workshop: Transforming a 5-second Query to 5 Milliseconds
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE 1,000X OPTIMIZATION CASE STUDY
+--------------------------------------------------------------------------------
+We take a real-world enterprise reporting query that runs in 5,200 milliseconds (5.2 seconds)
+on a 500,000-row database and systematically refactor it down to 4.8 milliseconds (1,080x faster!).
+
+2. THE 5-PHASE SYSTEMATIC TRANSFORMATION
+--------------------------------------------------------------------------------
+Phase 1: Baseline Diagnosis (5,200 ms) 🚨
+- Flaws: SELECT *, YEAR(date)=2026, unquoted phone number, correlated subquery in SELECT,
+  unindexed ORDER BY, and deep OFFSET 50,000 LIMIT 20.
+- EXPLAIN: type=ALL, Using where, Using temporary, Using filesort.
+
+Phase 2: Sargability & Projection (840 ms - 6x speedup) ⚡
+- Refactor: Isolate raw date range (>= '2026-01-01' AND < '2027-01-01'), quote phone string ('98300...'),
+  project only explicit columns.
+
+Phase 3: Set-Based JOIN / CTE Aggregation (180 ms - 28x speedup) ⚡
+- Refactor: Replace row-by-row correlated subquery with a pre-aggregated Common Table Expression (CTE).
+
+Phase 4: Composite & Covering Indexing (14 ms - 370x speedup) ⚡
+- Refactor: Create composite covering index `idx_ledger_cov (city, status, balance_inr DESC, student_id, name)`.
+- Eliminates clustered bookmark lookups and filesort!
+
+Phase 5: Keyset Cursor Pagination & Deferred Join (4.8 ms - 1,080x speedup!) 🚀
+- Refactor: Replace `LIMIT 50000, 20` with Keyset pagination (`WHERE student_id > 50000 LIMIT 20`).
+- Final Latency: 4.8 ms (Constant O(1) time!).
+
+3. PERFORMANCE TUNING RULES OF THUMB
+--------------------------------------------------------------------------------
+1. Measure first with EXPLAIN ANALYZE before writing any code.
+2. Fix SQL query architecture (sargability, joins, projection) before adding indexes.
+3. Design composite indexes following the Equality -> Range -> Sort column rule.
+4. Replace deep OFFSET pagination with Keyset pagination.
+5. Verify CPU, I/O, and memory savings via Performance Schema.

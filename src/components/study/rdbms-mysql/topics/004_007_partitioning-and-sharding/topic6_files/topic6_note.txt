@@ -1,0 +1,72 @@
+================================================================================
+MYSQL 8.0 TABLE PARTITIONING & HORIZONTAL SHARDING STRATEGIES
+TOPIC 6: KEY Partitioning & LINEAR KEY – MySQL Internal Hash Functions
+================================================================================
+
+1. WHAT IS KEY PARTITIONING?
+--------------------------------------------------------------------------------
+KEY partitioning is similar to HASH partitioning, but uses **MySQL's internal hashing function**
+(based on MD5 / password hashing) rather than a user-supplied integer expression.
+
+Key Advantages over HASH:
+1. **Natively Supports Non-Integers**: Partitions directly on `VARCHAR`, `CHAR`, `UUID`,
+   `VARBINARY`, `DATE`, `DATETIME` without custom integer conversion functions.
+2. **Default Primary Key Hashing**: If columns are omitted (`PARTITION BY KEY()`), MySQL
+   automatically partitions on the table's Primary Key (or Unique Key).
+
+2. KEY PARTITIONING SYNTAX VARIANTS
+--------------------------------------------------------------------------------
+-- 1. Default Primary Key Hashing (UUID / String Primary Keys):
+CREATE TABLE api_keys (
+  api_key VARCHAR(64) NOT NULL,
+  client_name VARCHAR(100),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (api_key)
+) ENGINE = InnoDB
+PARTITION BY KEY()
+PARTITIONS 8;
+
+-- 2. Explicit Column KEY Partitioning:
+CREATE TABLE customer_profiles (
+  customer_uuid VARCHAR(36) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  profile_data JSON,
+  PRIMARY KEY (customer_uuid)
+) ENGINE = InnoDB
+PARTITION BY KEY (customer_uuid)
+PARTITIONS 16;
+
+-- 3. LINEAR KEY Partitioning (Fast Scalability):
+CREATE TABLE clickstream_events (
+  event_id VARCHAR(64) NOT NULL,
+  session_id VARCHAR(64) NOT NULL,
+  PRIMARY KEY (event_id, session_id)
+) ENGINE = InnoDB
+PARTITION BY LINEAR KEY (session_id)
+PARTITIONS 8;
+
+3. ALGORITHM = 1 VS ALGORITHM = 2 IN MYSQL 8.0
+--------------------------------------------------------------------------------
+Flag                 Hash Mechanism & Version Standard
+--------------------------------------------------------------------------------
+`ALGORITHM = 1`      Legacy MySQL 5.1 password hashing algorithm (maintained for
+                     backward compatibility during cross-version migrations).
+
+`ALGORITHM = 2`      Default MySQL 8.0 internal MD5 hash algorithm with improved
+                     bit dispersion and CPU endianness neutrality.
+
+4. MANAGING KEY PARTITIONS (ADD & COALESCE)
+--------------------------------------------------------------------------------
+-- 1. Adding 4 new partitions:
+ALTER TABLE customer_profiles ADD PARTITION PARTITIONS 4;
+
+-- 2. Removing 4 partitions:
+ALTER TABLE customer_profiles COALESCE PARTITION 4;
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Use `KEY` partitioning for tables with UUID, email, or hash string primary keys.
+2. Use `LINEAR KEY` when tables will require dynamic partition scaling online.
+3. Standardize on `ALGORITHM = 2` for all modern MySQL 8.0 deployments.
+4. Ensure primary keys and unique keys include all columns listed in the `KEY()` definition.
+================================================================================

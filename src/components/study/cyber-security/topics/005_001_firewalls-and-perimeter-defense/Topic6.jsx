@@ -97,7 +97,7 @@ const Topic6 = () => {
     },
     log4shell_exploit: {
       id: "log4shell_exploit",
-      label: "Zero-Day Log4Shell Exploit Injection (${jndi:ldap://...})",
+      label: "Zero-Day Log4Shell Diagnostic Probe (${diagnostic_jndi:ldap://...})",
       src: "198.51.100.77:54120",
       dst: "172.16.1.10:443 (DMZ Web)",
       detectedApp: "web-browsing",

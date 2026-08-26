@@ -1,0 +1,45 @@
+================================================================================
+RDBMS MySQL Course - Module 004_002: Character Sets, Collations, JSON & Spatial Types
+Topic 3: Server, Database, Table, and Column-Level Character Set Hierarchies
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE 4-LEVEL INHERITANCE HIERARCHY
+--------------------------------------------------------------------------------
+MySQL resolves character sets and collations using a strict 4-level top-down
+inheritance hierarchy:
+
+Level 1: Server Level (Global Fallback):
+  - Defined in `my.cnf` by `character_set_server` and `collation_server`.
+  - Applies when a database is created without explicit charset options.
+
+Level 2: Database / Schema Level:
+  - Defined in `CREATE DATABASE db CHARACTER SET ... COLLATE ...`.
+  - Applies when a table is created inside that database without explicit charset options.
+
+Level 3: Table Level:
+  - Defined in `CREATE TABLE tbl (...) CHARACTER SET ... COLLATE ...`.
+  - Applies when a string column is defined without explicit charset options.
+
+Level 4: Column Level (Most Specific):
+  - Defined in `col VARCHAR(100) CHARACTER SET ... COLLATE ...`.
+  - Explicitly overrides table, database, and server defaults for that single column.
+
+2. INHERITANCE RESOLUTION RULES
+--------------------------------------------------------------------------------
+1. If both `CHARACTER SET` and `COLLATE` are specified:
+   - Uses the exact charset and collation specified.
+2. If `CHARACTER SET` is specified without `COLLATE`:
+   - Uses that charset and assigns its default collation (e.g. `utf8mb4` -> `utf8mb4_0900_ai_ci`).
+3. If `COLLATE` is specified without `CHARACTER SET`:
+   - Uses that collation and assigns its parent character set.
+4. If neither is specified:
+   - Inherits `CHARACTER SET` and `COLLATE` from the parent level.
+
+3. THE CLIENT-CONNECTION BRIDGE
+--------------------------------------------------------------------------------
+Independent of stored tables, the communication bridge uses three variables:
+- `character_set_client`: Charset of queries sent by the application.
+- `character_set_connection`: Charset used by the server to process string literals.
+- `character_set_results`: Charset of data sent back to the application.
+Executing `SET NAMES 'utf8mb4';` sets all three simultaneously.

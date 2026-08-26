@@ -1,27 +1,25 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 
-// Common Components
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
-import FAQTemplate from "../../../../../common/FAQTemplate";
+// ─── Common Framework Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
-
-// Python code examples
-import simpleReadExample from "./topic0_files/simple_read.py?raw";
-import simpleWriteExample from "./topic0_files/simple_write.py?raw";
-import contextManagerExample from "./topic0_files/context_manager.py?raw";
-import exceptionHandlingExample from "./topic0_files/exception_handling.py?raw";
-
-// FAQ data
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import questions from "./topic0_files/topic0_questions";
+import noteText from "./topic0_files/topic0_note.txt?raw";
 
 /**
- * Topic0: Introduction to File Handling
+ * Topic0 – Introduction to File Handling & Persistence
+ * Module: 002_008_file-handling (File Handling & Persistence (Text, CSV & JSON))
+ * Track: Python from Basic to Pro
  *
- * This component introduces the concept of file handling in programming,
- * explaining what it is, why it's needed, and providing real-world context.
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
  */
 const Topic0 = () => {
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
   const sectionRefs = useRef([]);
 
   useEffect(() => {
@@ -29,781 +27,353 @@ const Topic0 = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("section-visible");
+            entry.target.classList.add("is-visible");
           }
         });
       },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      }
+      { threshold: 0.1 }
     );
 
-    sectionRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
   }, []);
 
-  const addToRefs = (el) => {
+  const addRef = (el) => {
     if (el && !sectionRefs.current.includes(el)) {
       sectionRefs.current.push(el);
     }
   };
 
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  ];
+
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-800 dark:text-gray-200 p-6 md:p-8 lg:p-12 font-sans leading-relaxed">
-      {/* ====== PAGE HEADER ====== */}
-      <header
-        ref={addToRefs}
-        className="section-hidden max-w-5xl mx-auto mb-12 pb-8 border-b border-gray-200 dark:border-gray-800"
-      >
-        <div className="flex items-center gap-3 mb-3">
-          <span className="text-sm font-mono bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full">
-            Topic 0
-          </span>
-          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
-            Foundation
-          </span>
-        </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">
-          Introduction to File Handling
-        </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-400 mt-3 max-w-3xl">
-          Understanding how programs interact with files — the bridge between
-          volatile memory and persistent storage.
-        </p>
-        <div className="flex flex-wrap gap-3 mt-4">
-          <span className="text-sm bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full text-gray-600 dark:text-gray-400">
-            📁 Persistent Storage
-          </span>
-          <span className="text-sm bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full text-gray-600 dark:text-gray-400">
-            💾 Data Persistence
-          </span>
-          <span className="text-sm bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full text-gray-600 dark:text-gray-400">
-            🔄 I/O Operations
-          </span>
-        </div>
-      </header>
+    <>
+      <style>{`
+        .reveal-section {
+          transform: translateY(0);
+          transition: transform 0.4s ease-out;
+        }
+        .reveal-section.is-visible {
+          transform: translateY(0);
+        }
+      `}</style>
 
-      <div className="max-w-5xl mx-auto space-y-16">
-        {/* ====== SECTION 1: WHAT IS FILE HANDLING ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">📂</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              What is File Handling?
-            </h2>
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 008 · Topic 0</span>
           </div>
-          <div className="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
-            <p>
-              <strong className="text-gray-900 dark:text-white">
-                File handling
-              </strong>{" "}
-              is the process of storing, retrieving, and manipulating data on a
-              computer's persistent storage (hard drive, SSD, etc.) through a
-              program. It's how applications remember information between
-              sessions — from a simple text editor saving your notes to a
-              complex database system managing millions of records.
-            </p>
-            <p>
-              In Python, file handling is built around the concept of a{" "}
-              <strong className="text-gray-900 dark:text-white">file object</strong>
-              , which acts as a bridge between your program and the operating
-              system's file system. When you open a file, Python creates a
-              connection to that file, allowing you to read from it, write to
-              it, or both.
-            </p>
-          </div>
-
-          {/* SVG Illustration: File I/O Flow */}
-          <div className="mt-8 bg-gray-50 dark:bg-gray-900/50 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-700">
-            <div className="flex justify-center">
-              <svg
-                viewBox="0 0 700 260"
-                className="w-full max-w-3xl h-auto"
-                aria-label="File I/O flow diagram showing program, file, and storage"
-              >
-                {/* Program box */}
-                <rect
-                  x="30"
-                  y="60"
-                  width="160"
-                  height="100"
-                  rx="16"
-                  fill="#3B82F6"
-                  fillOpacity="0.15"
-                  stroke="#3B82F6"
-                  strokeWidth="2"
-                >
-                  <animate
-                    attributeName="stroke-opacity"
-                    values="0.6;1;0.6"
-                    dur="3s"
-                    repeatCount="indefinite"
-                  />
-                </rect>
-                <text x="110" y="105" textAnchor="middle" fill="#3B82F6" fontSize="20" fontWeight="600">
-                  Program
-                </text>
-                <text x="110" y="132" textAnchor="middle" fill="#60A5FA" fontSize="14">
-                  (Memory)
-                </text>
-
-                {/* Read arrow */}
-                <line
-                  x1="190"
-                  y1="95"
-                  x2="290"
-                  y2="95"
-                  stroke="#10B981"
-                  strokeWidth="3"
-                  strokeDasharray="8 4"
-                >
-                  <animate
-                    attributeName="stroke-dashoffset"
-                    values="0;-24"
-                    dur="2s"
-                    repeatCount="indefinite"
-                  />
-                </line>
-                <text x="240" y="82" textAnchor="middle" fill="#10B981" fontSize="14" fontWeight="500">
-                  Read
-                </text>
-                <polygon points="290,90 300,95 290,100" fill="#10B981" />
-
-                {/* Write arrow (below) */}
-                <line
-                  x1="190"
-                  y1="125"
-                  x2="290"
-                  y2="125"
-                  stroke="#F59E0B"
-                  strokeWidth="3"
-                  strokeDasharray="8 4"
-                >
-                  <animate
-                    attributeName="stroke-dashoffset"
-                    values="0;-24"
-                    dur="2s"
-                    repeatCount="indefinite"
-                    begin="1s"
-                  />
-                </line>
-                <text x="240" y="148" textAnchor="middle" fill="#F59E0B" fontSize="14" fontWeight="500">
-                  Write
-                </text>
-                <polygon points="290,120 300,125 290,130" fill="#F59E0B" />
-
-                {/* File box */}
-                <rect
-                  x="310"
-                  y="55"
-                  width="170"
-                  height="110"
-                  rx="12"
-                  fill="#8B5CF6"
-                  fillOpacity="0.12"
-                  stroke="#8B5CF6"
-                  strokeWidth="2"
-                >
-                  <animate
-                    attributeName="stroke-opacity"
-                    values="0.6;1;0.6"
-                    dur="3.5s"
-                    repeatCount="indefinite"
-                  />
-                </rect>
-                <text x="395" y="98" textAnchor="middle" fill="#8B5CF6" fontSize="20" fontWeight="600">
-                  File
-                </text>
-                <text x="395" y="125" textAnchor="middle" fill="#A78BFA" fontSize="14">
-                  (Buffer)
-                </text>
-
-                {/* Persistence arrow */}
-                <line
-                  x1="480"
-                  y1="110"
-                  x2="560"
-                  y2="110"
-                  stroke="#6B7280"
-                  strokeWidth="2"
-                >
-                  <animate
-                    attributeName="stroke-opacity"
-                    values="0.4;1;0.4"
-                    dur="4s"
-                    repeatCount="indefinite"
-                  />
-                </line>
-                <text x="520" y="130" textAnchor="middle" fill="#9CA3AF" fontSize="13">
-                  Persist
-                </text>
-                <polygon points="560,105 572,110 560,115" fill="#6B7280" />
-
-                {/* Storage box */}
-                <rect
-                  x="580"
-                  y="50"
-                  width="100"
-                  height="120"
-                  rx="8"
-                  fill="#EF4444"
-                  fillOpacity="0.10"
-                  stroke="#EF4444"
-                  strokeWidth="2"
-                >
-                  <animate
-                    attributeName="stroke-opacity"
-                    values="0.5;1;0.5"
-                    dur="4s"
-                    repeatCount="indefinite"
-                  />
-                </rect>
-                <text x="630" y="98" textAnchor="middle" fill="#EF4444" fontSize="18" fontWeight="600">
-                  Disk
-                </text>
-                <text x="630" y="125" textAnchor="middle" fill="#F87171" fontSize="13">
-                  Storage
-                </text>
-
-                {/* Labels */}
-                <rect x="30" y="210" width="140" height="28" rx="6" fill="#3B82F6" fillOpacity="0.10" />
-                <text x="100" y="229" textAnchor="middle" fill="#60A5FA" fontSize="12">
-                  🔄 In-Memory
-                </text>
-
-                <rect x="310" y="210" width="140" height="28" rx="6" fill="#8B5CF6" fillOpacity="0.10" />
-                <text x="380" y="229" textAnchor="middle" fill="#A78BFA" fontSize="12">
-                  📄 File System
-                </text>
-
-                <rect x="580" y="210" width="100" height="28" rx="6" fill="#EF4444" fillOpacity="0.10" />
-                <text x="630" y="229" textAnchor="middle" fill="#F87171" fontSize="12">
-                  💾 Persistent
-                </text>
-              </svg>
-            </div>
-            <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-3">
-              Data flows between your program (memory), the file (buffer), and
-              permanent storage (disk).
-            </p>
-          </div>
-        </section>
-
-        {/* ====== SECTION 2: WHY FILE HANDLING IS NEEDED ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-100"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">❓</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Why File Handling is Needed
-            </h2>
-          </div>
-          <div className="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
-            <p>
-              Without file handling, every piece of data you enter into a
-              program would disappear the moment you close it. Imagine writing a
-              letter in a word processor, only to have it vanish when you quit
-              the application. That's the reality of programs that don't use
-              persistent storage.
-            </p>
-            <p>
-              File handling enables <strong className="text-gray-900 dark:text-white">data persistence</strong> —
-              the ability to save information and retrieve it later. This is
-              essential for:
-            </p>
-          </div>
-
-          {/* Reasons Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-            {[
-              {
-                icon: "💾",
-                title: "Data Persistence",
-                desc: "Save user data, preferences, and application state between sessions.",
-              },
-              {
-                icon: "📊",
-                title: "Data Processing",
-                desc: "Read large datasets, logs, and configuration files for analysis.",
-              },
-              {
-                icon: "📤",
-                title: "Data Exchange",
-                desc: "Share data between different applications or systems using common file formats.",
-              },
-              {
-                icon: "📋",
-                title: "Reporting",
-                desc: "Generate reports, export results, and create output files for users.",
-              },
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-5 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-700 hover:-translate-y-1"
-              >
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl">{item.icon}</span>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">
-                      {item.title}
-                    </h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ====== SECTION 3: REAL-WORLD CONTEXT ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-200"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">🌍</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Real-World Context
-            </h2>
-          </div>
-          <div className="space-y-4">
-            <div className="bg-blue-50 dark:bg-blue-950/30 rounded-xl p-6 border border-blue-200 dark:border-blue-800/50 transition-all duration-300 hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-600">
-              <div className="flex items-start gap-4">
-                <span className="text-3xl">🏫</span>
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">
-                    School Student Records
-                  </h4>
-                  <p className="text-gray-700 dark:text-gray-300 mt-1">
-                    Think of a school in Barrackpore maintaining student
-                    records. Each student — Swadeep, Tuhina, Abhronila,
-                    Debangshu — has a file containing their marks, attendance,
-                    and personal details. When the teacher updates a grade, the
-                    program writes to that file. When the principal needs a
-                    report, the program reads from those files.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-purple-50 dark:bg-purple-950/30 rounded-xl p-6 border border-purple-200 dark:border-purple-800/50 transition-all duration-300 hover:shadow-lg hover:border-purple-300 dark:hover:border-purple-600">
-              <div className="flex items-start gap-4">
-                <span className="text-3xl">🏪</span>
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">
-                    Retail Inventory System
-                  </h4>
-                  <p className="text-gray-700 dark:text-gray-300 mt-1">
-                    A shop in Shyamnagar uses a program to track inventory. Each
-                    product's stock level, price, and supplier information is
-                    stored in a file. When a sale happens, the program updates
-                    the file. When the owner checks stock, the program reads
-                    from the file. This is file handling in action.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-green-50 dark:bg-green-950/30 rounded-xl p-6 border border-green-200 dark:border-green-800/50 transition-all duration-300 hover:shadow-lg hover:border-green-300 dark:hover:border-green-600">
-              <div className="flex items-start gap-4">
-                <span className="text-3xl">📱</span>
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">
-                    Mobile App Preferences
-                  </h4>
-                  <p className="text-gray-700 dark:text-gray-300 mt-1">
-                    When you open a mobile app and it remembers your theme
-                    preference, login status, or last viewed page — that's file
-                    handling. The app writes your preferences to a configuration
-                    file and reads it back when you reopen the app.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ====== SECTION 4: PYTHON CODE EXAMPLES ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">🐍</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Python in Action
-            </h2>
-          </div>
-          <p className="text-gray-700 dark:text-gray-300 text-lg mb-6">
-            Here are simple examples showing how Python interacts with files.
-            Don't worry about understanding every detail yet — we'll explore
-            each concept in depth throughout this course.
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Introduction to File Handling &amp; Persistence
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Master file I/O operations, context managers, structured CSV and JSON data persistence.
           </p>
 
-          <div className="space-y-6">
-            <PythonFileLoader
-              fileModule={simpleReadExample}
-              title="Reading a File"
-              highlightLines={[]}
-            />
-            <PythonFileLoader
-              fileModule={simpleWriteExample}
-              title="Writing to a File"
-              highlightLines={[]}
-            />
-            <PythonFileLoader
-              fileModule={contextManagerExample}
-              title="Using Context Manager (Recommended)"
-              highlightLines={[]}
-            />
-            <PythonFileLoader
-              fileModule={exceptionHandlingExample}
-              title="Handling File Errors"
-              highlightLines={[]}
-            />
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
           </div>
-        </section>
+        </header>
 
-        {/* ====== SECTION 5: TIPS & TRICKS ====== */}
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
         <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
         >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">💡</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Tips & Tricks
-            </h2>
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Introduction to File Handling &amp; Persistence
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {[
-              {
-                title: "Always Use Context Managers",
-                desc: "The `with open()` statement automatically closes files, even if exceptions occur. It's the professional way to handle files.",
-              },
-              {
-                title: "Check File Existence First",
-                desc: "Before reading a file, check if it exists using `os.path.exists()` to avoid FileNotFoundError.",
-              },
-              {
-                title: "Use Meaningful Filenames",
-                desc: "Name your files clearly: `student_records_2024.csv` is better than `data1.csv`.",
-              },
-              {
-                title: "Handle Encoding Explicitly",
-                desc: "Always specify encoding like `encoding='utf-8'` when opening text files to avoid platform-specific issues.",
-              },
-              {
-                title: "Close Files Promptly",
-                desc: "Files hold system resources. Close them as soon as you're done — or use context managers.",
-              },
-              {
-                title: "Use Buffered I/O for Performance",
-                desc: "Python's built-in file handling is buffered by default, which is efficient for most use cases.",
-              },
-            ].map((tip, idx) => (
-              <div
-                key={idx}
-                className="bg-amber-50 dark:bg-amber-950/20 rounded-xl p-5 border border-amber-200 dark:border-amber-800/50 transition-all duration-300 hover:shadow-lg hover:border-amber-300 dark:hover:border-amber-600 hover:-translate-y-1"
-              >
-                <h4 className="font-semibold text-gray-900 dark:text-white flex items-start gap-2">
-                  <span className="text-amber-500">✦</span> {tip.title}
-                </h4>
-                <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">
-                  {tip.desc}
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Introduction to File Handling &amp; Persistence</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
                 </p>
               </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ====== SECTION 6: COMMON MISTAKES ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">⚠️</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Common Mistakes
-            </h2>
-          </div>
-          <div className="space-y-3">
-            {[
-              {
-                mistake: "Forgetting to close files",
-                fix: "Use `with open()` context manager or call `.close()` explicitly.",
-              },
-              {
-                mistake: "Assuming a file exists before reading",
-                fix: "Use `os.path.exists()` or handle FileNotFoundError with try-except.",
-              },
-              {
-                mistake: "Not handling file encoding issues",
-                fix: "Always specify `encoding='utf-8'` for text files.",
-              },
-              {
-                mistake: "Writing to a file in read mode",
-                fix: "Check the file mode you're using: 'r' for read, 'w' for write, 'a' for append.",
-              },
-              {
-                mistake: "Using absolute paths without portability",
-                fix: "Use relative paths or `os.path.join()` for cross-platform compatibility.",
-              },
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-red-50 dark:bg-red-950/20 rounded-xl p-5 border border-red-200 dark:border-red-800/50 transition-all duration-300 hover:shadow-lg hover:border-red-300 dark:hover:border-red-600"
-              >
-                <div className="flex items-start gap-3">
-                  <span className="text-red-500 text-lg">✗</span>
-                  <div>
-                    <p className="text-gray-800 dark:text-gray-200 font-medium">
-                      {item.mistake}
-                    </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                      ✓ {item.fix}
-                    </p>
-                  </div>
-                </div>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
               </div>
-            ))}
+            </div>
+
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* ====== SECTION 7: BEST PRACTICES ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">✅</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Best Practices
-            </h2>
-          </div>
-          <div className="bg-emerald-50 dark:bg-emerald-950/20 rounded-xl p-6 border border-emerald-200 dark:border-emerald-800/50 transition-all duration-300 hover:shadow-lg hover:border-emerald-300 dark:hover:border-emerald-600">
-            <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-500 text-lg">✓</span>
-                <span>
-                  <strong className="text-gray-900 dark:text-white">
-                    Use context managers:
-                  </strong>{" "}
-                  Always use <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">
-                    with open()
-                  </code>{" "}
-                  for automatic resource cleanup.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-500 text-lg">✓</span>
-                <span>
-                  <strong className="text-gray-900 dark:text-white">
-                    Specify encoding:
-                  </strong>{" "}
-                  Use <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">
-                    encoding='utf-8'
-                  </code>{" "}
-                  for text files to avoid cross-platform issues.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-500 text-lg">✓</span>
-                <span>
-                  <strong className="text-gray-900 dark:text-white">
-                    Handle exceptions:
-                  </strong>{" "}
-                  Use try-except blocks to gracefully handle file-related errors.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-500 text-lg">✓</span>
-                <span>
-                  <strong className="text-gray-900 dark:text-white">
-                    Use appropriate modes:
-                  </strong>{" "}
-                  Choose the right file mode ('r', 'w', 'a', 'rb', etc.) for your operation.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-500 text-lg">✓</span>
-                <span>
-                  <strong className="text-gray-900 dark:text-white">
-                    Check file existence:
-                  </strong>{" "}
-                  Before reading, verify the file exists using <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">
-                    os.path.exists()
-                  </code>.
-                </span>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        {/* ====== SECTION 8: MINI CHECKLIST ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">📋</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Mini Checklist
-            </h2>
-          </div>
-          <div className="bg-indigo-50 dark:bg-indigo-950/20 rounded-xl p-6 border border-indigo-200 dark:border-indigo-800/50 transition-all duration-300 hover:shadow-lg hover:border-indigo-300 dark:hover:border-indigo-600">
-            <p className="text-gray-700 dark:text-gray-300 mb-4">
-              By the end of this topic, you should understand:
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {[
-                "What file handling is and why it's needed",
-                "The difference between memory and persistent storage",
-                "How programs interact with files (read/write)",
-                "Real-world applications of file handling",
-                "Basic Python file operations (open, read, write, close)",
-                "The importance of error handling with files",
-                "Why context managers are the preferred approach",
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-center gap-2 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-900/50 px-4 py-2 rounded-lg"
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Introduction to File Handling &amp; Persistence
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
                 >
-                  <span className="text-indigo-400">☐</span>
-                  <span className="text-sm">{item}</span>
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
+            </div>
+
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
                 </div>
-              ))}
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
             </div>
-          </div>
-        </section>
 
-        {/* ====== SECTION 9: HINT SECTION ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">🤔</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Think About…
-            </h2>
-          </div>
-          <div className="bg-yellow-50 dark:bg-yellow-950/20 rounded-xl p-6 border border-yellow-200 dark:border-yellow-800/50 transition-all duration-300 hover:shadow-lg hover:border-yellow-300 dark:hover:border-yellow-600">
-            <div className="space-y-4 text-gray-700 dark:text-gray-300">
-              <div className="flex items-start gap-3">
-                <span className="text-yellow-500 text-lg">💭</span>
-                <p>
-                  <strong className="text-gray-900 dark:text-white">
-                    Observe carefully:
-                  </strong>{" "}
-                  When you save a document in Microsoft Word or Google Docs,
-                  where does the data actually go? What happens if you don't
-                  save before closing?
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
                 </p>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-yellow-500 text-lg">💭</span>
-                <p>
-                  <strong className="text-gray-900 dark:text-white">
-                    Try changing this:
-                  </strong>{" "}
-                  What would happen if a program tried to read a file that
-                  doesn't exist? How would you handle that situation gracefully?
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-yellow-500 text-lg">💭</span>
-                <p>
-                  <strong className="text-gray-900 dark:text-white">
-                    Think about:
-                  </strong>{" "}
-                  Why might a school in Ichapur need to store student records in
-                  files rather than just in memory? What happens when the
-                  computer is turned off?
-                </p>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
               </div>
             </div>
           </div>
         </section>
 
-        {/* ====== SECTION 10: FAQ ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <FAQTemplate
-            title="Introduction to File Handling FAQs"
+            title="Introduction to File Handling &amp; Persistence FAQs"
             questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
           />
         </section>
 
-        {/* ====== SECTION 11: TEACHER'S NOTE ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <PlainTextPrint
+            content={noteText}
+            title="Introduction to File Handling &amp; Persistence"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Note"
+            downloadFileName="topic0_note.txt"
+          />
+        </section>
+
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <Teacher
             note={
-              "File handling is the foundation of data persistence in programming. " +
-              "Students often struggle with the concept of 'state' — that memory is " +
-              "volatile and files are permanent. Use real-world analogies like saving " +
-              "a game or writing a letter to make it relatable. Emphasize that every " +
-              "application you've ever used that 'remembers' anything uses file handling " +
-              "under the hood. Start with simple text files and gradually introduce " +
-              "binary files, CSV, and JSON. The most common mistake beginners make is " +
-              "forgetting to close files — hammer this point home with context managers."
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
             }
           />
         </section>
 
-        {/* ====== FOOTER ====== */}
-        <footer className="pt-8 mt-8 border-t border-gray-200 dark:border-gray-800 text-center text-sm text-gray-500 dark:text-gray-400">
-          <p>
-            Topic 0: Introduction to File Handling · Built with ❤️ for
-            classroom learning
-          </p>
-          <p className="mt-1">
-            Next: Topic 1 — Why File Handling is Needed
-          </p>
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 0 · Introduction to File Handling &amp; Persistence · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
         </footer>
       </div>
-
-      {/* ====== INLINE STYLES FOR REVEAL ANIMATIONS ====== */}
-      <style>{`
-        .section-hidden {
-          opacity: 0;
-          transform: translateY(30px);
-          transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-        }
-        .section-visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        /* Motion-safe: respect reduced motion preferences */
-        @media (prefers-reduced-motion: reduce) {
-          .section-hidden {
-            opacity: 1;
-            transform: none;
-          }
-          .section-hidden * {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-          }
-        }
-      `}</style>
-    </div>
+    </>
   );
 };
 

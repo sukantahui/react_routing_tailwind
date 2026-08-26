@@ -401,7 +401,7 @@ const Topic2 = () => {
                 <span className="text-xs text-slate-500 font-mono">Barrackpore Academy</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Relational Algebra: $\\pi_{\\text{city}}(\\text{Students})$"}
+                {"Relational Algebra: $\\pi_{\city}(\Students)$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`-- Pure Relational Projection in MySQL (Deduplication via DISTINCT)
@@ -418,7 +418,7 @@ SELECT DISTINCT city FROM students;`}
                 <span className="text-xs text-slate-500 font-mono">Kolkata University</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Relational Algebra: $\\pi_{\\text{course_title, fee}}(\\text{Courses})$"}
+                {"Relational Algebra: $\\pi_{\course_title, fee}(\Courses)$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`-- Multi-Attribute Projection in MySQL
@@ -558,7 +558,7 @@ SELECT DISTINCT course_title, fee FROM courses;`}
           <Teacher
             note={
               "Projection ($\\pi$) is the vertical counterpart to Selection ($\\sigma$)! " +
-              "In my classes in Barrackpore, I emphasize that in pure Relational Algebra, $\\pi_{\\text{city}}(\\text{Students})$ " +
+              "In my classes in Barrackpore, I emphasize that in pure Relational Algebra, $\\pi_{\city}(\Students)$ " +
               "must always produce a deduplicated set of cities. " +
               "Because SQL was designed for commercial efficiency, SQL defaults to Multiset (Bag) semantics and preserves duplicates " +
               "unless you explicitly write `SELECT DISTINCT`. " +

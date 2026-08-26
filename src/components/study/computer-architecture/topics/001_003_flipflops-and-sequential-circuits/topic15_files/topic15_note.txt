@@ -1,0 +1,63 @@
+================================================================================
+COMPUTER ARCHITECTURE MASTERCLASS: MODULE 001_003 · TOPIC 15
+REGISTERS: DATA STORAGE, PARALLEL LOAD & DATA TRANSFER
+================================================================================
+
+1. ARCHITECTURAL FOUNDATIONS:
+--------------------------------------------------------------------------------
+A. Definition:
+   - A Register is a synchronous group of N flip-flops sharing a common clock
+     and control lines to store an N-bit binary word (e.g. 4-bit, 8-bit, 64-bit).
+   - Flip-Flop = 1-bit elementary storage cell.
+   - Register = N-bit word storage datapath element.
+
+B. Why Free-Running Flip-Flops Fail:
+   - Without a Load control signal, free-running clocked flip-flops overwrite
+     their contents on every single clock cycle.
+   - A CPU register must hold data across thousands of clock cycles until
+     specifically commanded to update.
+
+--------------------------------------------------------------------------------
+2. PARALLEL LOAD REGISTERS (MULTIPLEXER STEERING ARCHITECTURE):
+--------------------------------------------------------------------------------
+A. Hardware Implementation:
+   - Each flip-flop is preceded by a 2-to-1 Multiplexer (or AND-OR steering logic).
+   - Boolean Excitation Equation:
+     D_i = (Load' * Q_i) + (Load * I_i)
+
+B. Operational Modes:
+   - When Load = 0 (Hold / Retain Mode):
+     MUX selects the flip-flop's own output Q_i (D_i = Q_i).
+     Data circulates in a stable feedback loop on every clock tick.
+   - When Load = 1 (Parallel Load Mode):
+     MUX selects external parallel input bus line I_i (D_i = I_i).
+     On the next active clock edge (posedge CLK), all N bits (I_3..I_0) are
+     simultaneously captured into Q_3..Q_0 in exactly ONE clock cycle.
+
+--------------------------------------------------------------------------------
+3. SERIAL VS. PARALLEL DATA TRANSFER:
+--------------------------------------------------------------------------------
++-------------------+-----------------------------+----------------------------+
+| Metric            | Parallel Transfer           | Serial Transfer            |
++-------------------+-----------------------------+----------------------------+
+| Wires Required    | N data lines + 1 clock line | 1 data line + 1 clock line |
+| Clock Cycles      | Exactly 1 clock cycle       | N sequential clock cycles  |
+| Data Throughput   | Maximum (N bits / cycle)    | Lower (1 bit / cycle)      |
+| Distance Limit    | Short distances (< 1 meter) | Long distances (kilometers)|
+| Physical Hazards  | Clock skew & bus crosstalk  | Immune to bus skew         |
+| Primary Usage     | CPU ALUs, Internal Buses    | PCIe, SATA, USB, Ethernet  |
++-------------------+-----------------------------+----------------------------+
+
+--------------------------------------------------------------------------------
+4. KEY CPU REGISTERS & THEIR ROLES:
+--------------------------------------------------------------------------------
+- Program Counter (PC): Holds the memory address of the next instruction.
+- Instruction Register (IR): Holds the binary opcode of the executing instruction.
+- Accumulator (AC): Default operational register for ALU arithmetic/logic outputs.
+- Memory Address Register (MAR): Drives the memory address bus lines.
+- Memory Data Register (MDR): Buffers data words moving to/from main memory RAM.
+- Status / Flags Register: Records ALU flags (Zero, Carry, Sign, Overflow).
+
+================================================================================
+CODER & ACCOTAX BARRACKPORE · INDUSTRIAL VLSI & COMPUTER ARCHITECTURE DIVISION
+================================================================================

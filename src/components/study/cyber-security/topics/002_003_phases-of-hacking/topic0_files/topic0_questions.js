@@ -15,12 +15,11 @@ Phase 5: Clearing Tracks -> Log wiping, timestomping, deleting dropped binaries`
   {
     question: "What is the crucial operational difference between how a Black Hat Hacker and an Ethical White Hat Hacker handles Phase 5 (Clearing Tracks)?",
     shortAnswer: "A Black Hat maliciously deletes or alters system audit logs and event trails; an Ethical Hacker NEVER deletes client logs, but carefully removes dropped testing tools and documents the cleanup in their report.",
-    explanation: "In Phase 5, black hat criminals execute anti-forensics by wiping Windows Event Logs (`wevtutil cl System`) or deleting Linux `/var/log/auth.log` to hinder law enforcement. An ethical hacker must NEVER delete or tamper with client audit logs, as doing so destroys legal compliance trails. Instead, the ethical hacker removes dropped webshells/test accounts, restores modified configs to their baseline, and logs all cleanup actions in the final penetration testing deliverable.",
+    explanation: "In Phase 5, threat actors attempt anti-forensics by tampering with logs to hinder investigations. An ethical security auditor must NEVER delete or tamper with client audit logs, as doing so destroys compliance trails. Instead, the auditor removes temporary testing accounts and diagnostic tools, restores modified configs to their baseline, and logs all cleanup actions in the final deliverable.",
     hint: "Think about why an ethical tester cleans up their own test tools but never deletes the client's actual audit logs.",
     level: "basic",
     codeExample: `// Phase 5 Ethical Cleanup Mandate:
-BLACK HAT:    wevtutil cl Security (Maliciously erases all evidence of intrusion)
-ETHICAL AUDIT: rm /tmp/pentest_webshell.php && kill -9 $BEACON_PID (Cleans testing artifacts only, preserves client logs!)`
+AUDIT CLEANUP: rm /tmp/security_audit_test.tmp && kill -9 $DIAGNOSTIC_PID (Cleans testing artifacts only, preserves client logs!)`
   },
   {
     question: "What distinguishes 'Passive Reconnaissance' from 'Active Reconnaissance' in Phase 1?",

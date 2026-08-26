@@ -297,12 +297,12 @@ const certInHidsLog = {
   {
     id: 27,
     question: "How does a HIDS detect 'Living-off-the-Land Binaries' (LOLBins) like PowerShell, `certutil`, or `wmic`?",
-    shortAnswer: "By analyzing process command-line arguments for suspicious flags (e.g., `certutil -urlcache -split -f http://...` or `powershell -ExecutionPolicy Bypass -WindowStyle Hidden -EncodedCommand`).",
+    shortAnswer: "By analyzing process command-line arguments for suspicious flags (e.g., unauthorized external URLs or encoded script flags passed to native system binaries).",
     explanation: "Attackers use built-in Windows administrative utilities to download malware without triggering basic antivirus. HIDS inspects command-line parameters and flags suspicious download or execution arguments.",
     hint: "Catching hackers using built-in Windows admin tools to download and run malicious scripts.",
     level: "Moderate",
     codeExample: `// LOLBin Detection Rule:
-// Process == "certutil.exe" AND CommandLine MATCHES "-(urlcache|split)" ➔ CRITICAL ALERT (Malware Download!)`
+// Process == "certutil.exe" AND CommandLine contains external network download ➔ CRITICAL ALERT!`
   },
   {
     id: 28,

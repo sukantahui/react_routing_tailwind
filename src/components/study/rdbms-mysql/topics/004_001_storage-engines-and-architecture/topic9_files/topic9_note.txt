@@ -1,0 +1,37 @@
+================================================================================
+RDBMS MySQL Course - Module 004_001: MySQL Architecture & Storage Engines Deep Dive
+Topic 9: Tablespace Management: File-per-table (innodb_file_per_table), Shrinking and Defragmenting Tablespaces
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. TABLESPACE BLOAT & THE HIGH-WATER MARK
+--------------------------------------------------------------------------------
+When rows are deleted from an InnoDB table using `DELETE FROM table_name WHERE ...`,
+the `.ibd` file size on the operating system does NOT shrink!
+
+Why this happens:
+- Deleted row records are simply flagged with `delete_mark` and placed on an
+  in-page Free List for internal reuse.
+- The physical size of the `.ibd` file on disk represents the **High-Water Mark**
+  of maximum pages allocated over time.
+- The unused space is reported as `data_free` in `information_schema.tables`.
+
+2. REBUILDING & DEFRAGMENTING TABLESPACES
+--------------------------------------------------------------------------------
+To reclaim unused `data_free` space and return physical storage to the OS filesystem:
+1. `OPTIMIZE TABLE table_name;`
+2. `ALTER TABLE table_name ENGINE = InnoDB, ALGORITHM = INPLACE, LOCK = NONE;`
+
+Both commands execute an Online Table Rebuild:
+- Creates a new, compact `.ibd` file in the background.
+- Copies active rows into tightly-packed 93% full B+ tree pages.
+- Atomically replaces the old bloated `.ibd` file and unlinks it, immediately
+  freeing gigabytes of disk space to the OS filesystem.
+
+3. TRANSPORTABLE TABLESPACES
+--------------------------------------------------------------------------------
+- Used to relocate multi-gigabyte tables across different drives or servers:
+  1. `FLUSH TABLES table_name FOR EXPORT;`
+  2. Copy `table_name.ibd` and `table_name.cfg`.
+  3. `ALTER TABLE table_name DISCARD TABLESPACE;`
+  4. `ALTER TABLE table_name IMPORT TABLESPACE;`

@@ -211,7 +211,7 @@ ORDER BY e.subject_name, subject_standardized_percentile DESC;`,
                 <span>📈</span> PERCENT_RANK()
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Evaluates relative rank on a 0.0 to 1.0 continuous scale ($(\text{Rank}-1)/(N-1)$). Bottom row is always 0.0.
+                Evaluates relative rank on a 0.0 to 1.0 continuous scale ($(Rank-1)/(N-1)$). Bottom row is always 0.0.
               </p>
             </div>
 

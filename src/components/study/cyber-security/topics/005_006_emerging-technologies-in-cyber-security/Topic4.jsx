@@ -519,7 +519,7 @@ const Topic4 = () => {
         {/* TEACHER'S NOTE */}
         {/* ========================================================================= */}
         <Teacher
-          note="For your BCA BCAC703 examination: Master the mathematical structure of block headers ($H_i = \text{SHA256}(H_{i-1} || \text{MerkleRoot} || \text{Nonce})$) and explain the Tamper Cascade effect. Detail how Merkle Binary Trees enable $O(\log N)$ verification proofs. Explain the mechanics and limitations of a 51% Consensus Attack (it enables double-spending but cannot forge signatures). Detail how blockchain anchors tamper-proof SIEM audit logs."
+          note="For your BCA BCAC703 examination: Master the mathematical structure of block headers ($H_i = SHA256(H_{i-1} || MerkleRoot || Nonce)$) and explain the Tamper Cascade effect. Detail how Merkle Binary Trees enable $O(\log N)$ verification proofs. Explain the mechanics and limitations of a 51% Consensus Attack (it enables double-spending but cannot forge signatures). Detail how blockchain anchors tamper-proof SIEM audit logs."
         />
 
         {/* ========================================================================= */}

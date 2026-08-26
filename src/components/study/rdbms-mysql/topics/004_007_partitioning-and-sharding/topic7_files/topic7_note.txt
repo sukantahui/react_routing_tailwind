@@ -1,0 +1,79 @@
+================================================================================
+MYSQL 8.0 TABLE PARTITIONING & HORIZONTAL SHARDING STRATEGIES
+TOPIC 7: Composite Partitioning (Subpartitioning) – RANGE-HASH & LIST-KEY
+================================================================================
+
+1. WHAT IS COMPOSITE PARTITIONING (SUBPARTITIONING)?
+--------------------------------------------------------------------------------
+Composite partitioning is a two-tier physical data division strategy where:
+1. **Primary Partitioning**: Divides data along a high-level business dimension
+   (using `RANGE` or `LIST`).
+2. **Secondary Subpartitioning**: Further divides each primary partition into
+   smaller physical sub-buckets (using `HASH` or `KEY`).
+
+Total Physical Files: $\text{Files} = \text{Primary Count} \times \text{Subpartition Count}$
+
+2. SUPPORTED COMPOSITE COMBINATIONS IN MYSQL 8.0
+--------------------------------------------------------------------------------
+Combination          Primary Method      Secondary Subpartition Method
+--------------------------------------------------------------------------------
+RANGE-HASH           `RANGE` by Date     `HASH` by Integer ID
+RANGE-KEY            `RANGE` by Date     `KEY` by String / UUID
+LIST-HASH            `LIST` by Region    `HASH` by Customer ID
+LIST-KEY             `LIST` by Tenant    `KEY` by String Token
+
+*Note*: Subpartitions MUST be `HASH` or `KEY`. (RANGE-RANGE is not supported in MySQL).
+
+3. PRODUCTION SYNTAX PATTERNS
+--------------------------------------------------------------------------------
+-- 1. RANGE-HASH Composite Partitioning (Time-Series + User Load Balancing):
+CREATE TABLE telemetry_ledger (
+  reading_id BIGINT NOT NULL,
+  reading_date DATE NOT NULL,
+  device_id INT NOT NULL,
+  reading_val DOUBLE,
+  PRIMARY KEY (reading_id, reading_date, device_id)
+) ENGINE = InnoDB
+PARTITION BY RANGE (YEAR(reading_date))
+SUBPARTITION BY HASH (device_id)
+SUBPARTITIONS 4 (
+  PARTITION p2024 VALUES LESS THAN (2025),
+  PARTITION p2025 VALUES LESS THAN (2026),
+  PARTITION p_future VALUES LESS THAN MAXVALUE
+);
+
+-- 2. LIST-KEY Composite Partitioning (Regional Multi-Tenant + UUID Hash):
+CREATE TABLE regional_user_vault (
+  user_uuid VARCHAR(36) NOT NULL,
+  region_name VARCHAR(30) NOT NULL,
+  user_data JSON,
+  PRIMARY KEY (user_uuid, region_name)
+) ENGINE = InnoDB
+PARTITION BY LIST COLUMNS (region_name)
+SUBPARTITION BY KEY (user_uuid)
+SUBPARTITIONS 4 (
+  PARTITION p_bengal VALUES IN ('Kolkata', 'Barrackpore'),
+  PARTITION p_delhi  VALUES IN ('New Delhi', 'Noida'),
+  PARTITION p_mumbai VALUES IN ('Mumbai', 'Pune')
+);
+
+4. TWO-DIMENSIONAL PARTITION PRUNING
+--------------------------------------------------------------------------------
+Query Filter                   Pruning Execution
+--------------------------------------------------------------------------------
+Both Dimensions Filtered       **Full 2D Pruning**: Scans exactly 1 single subpartition `.ibd` file!
+                               `WHERE reading_date = '2025-06-15' AND device_id = 101`
+
+Primary Filter Only            **1D Primary Pruning**: Scans 4 subpartitions of `p2025`.
+                               `WHERE reading_date = '2025-06-15'`
+
+Subpartition Filter Only       **1D Subpartition Pruning**: Scans subpartition 1 across all years.
+                               `WHERE device_id = 101`
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Standardize on power-of-two subpartition counts (4, 8, 16) for optimal hash balance.
+2. Use RANGE-HASH for high-volume logs to enable instant yearly drops and write spreading.
+3. Ensure Primary Keys contain both the primary partition key and subpartition key.
+4. Verify 2D pruning on critical transactional queries via `EXPLAIN SELECT ...`.
+================================================================================

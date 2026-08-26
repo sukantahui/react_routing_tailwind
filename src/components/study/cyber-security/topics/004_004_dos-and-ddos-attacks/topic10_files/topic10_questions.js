@@ -281,7 +281,7 @@ resource "aws_security_group_rule" "allow_cloudflare_https_only" {
   {
     question: "What is 'WAF Custom Threat Intelligence Feed Ingestion' (STIX/TAXII)?",
     shortAnswer: "Automatically ingesting real-time threat intelligence feeds from CERT-In, Shadowserver, and commercial ISACs into the WAF via STIX/TAXII protocols, dynamically blocking malicious botnet C2 IP addresses and bulletproof proxies within seconds.",
-    explanation: "Modern cloud WAFs integrate automated threat intel feeds. When CERT-In or an international intelligence partner discovers a new botnet proxy network or booter VPS cluster, the IP addresses are formatted in STIX 2.1 and pushed via TAXII to the cloud WAF. The WAF dynamically updates its global IP blocklists across all 300 data centers, dropping attack traffic before the campaign reaches the customer's portal.",
+    explanation: "Modern cloud WAFs can use browser-verification challenges when traffic exceeds expected thresholds. Legitimate browsers can complete the verification, while automated clients may fail and receive an HTTP error response or be rate-limited.",
     hint: "An automated police radio that instantly updates every patrol officer's digital wanted list whenever a new suspect is identified.",
     level: "expert",
     codeExample: `// Python STIX/TAXII Threat Feed Ingester for Cloud WAF:
@@ -305,7 +305,7 @@ for obj in collection.get_objects():
   {
     question: "What is 'Rate-Based WAF Rules with CAPTCHA Interstitial Challenges' (Turnstile / reCAPTCHA v3)?",
     shortAnswer: "When an individual IP address exceeds a moderate request threshold (e.g. > 20 req/min), the WAF serves a seamless cryptographic CAPTCHA challenge; human users solve it in 200ms with zero friction, while automated flood scripts fail and are blocked.",
-    explanation: "Instead of permanently blocking an IP that exceeds a rate limit (which might be an entire corporate office behind a NAT gateway), modern cloud WAFs issue an interstitial CAPTCHA challenge (Cloudflare Turnstile). Real browsers solve the cryptographic Proof-of-Work challenge invisibly in 200ms, receiving a clearance token (`cf_clearance`). Dumb bot scripts cannot execute the challenge and are blocked with HTTP 403.",
+    explanation: "Modern cloud WAFs can use browser-verification challenges when traffic exceeds expected thresholds. Legitimate browsers can complete the verification, while automated clients may fail and receive an HTTP error response or be rate-limited.",
     hint: "Asking a visitor at the gate to press a quick buzzer before entering instead of permanently banning them.",
     level: "moderate",
     codeExample: `// Cloudflare WAF Rate-Based Challenge Rule:

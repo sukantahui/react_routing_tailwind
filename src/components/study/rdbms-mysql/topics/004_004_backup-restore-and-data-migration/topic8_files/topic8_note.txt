@@ -1,0 +1,60 @@
+================================================================================
+MYSQL 8.0 BACKUP, POINT-IN-TIME RECOVERY & DATA MIGRATION
+TOPIC 8: Locating Binary Log Positions & Restoring to Specific Coordinates
+================================================================================
+
+1. INSPECTING BINARY LOGS (SQL VS CLI)
+--------------------------------------------------------------------------------
+A. Using SQL Commands (Live Server):
+   -- List active binary log files and sizes:
+   SHOW BINARY LOGS;
+
+   -- View events inside a specific binary log file:
+   SHOW BINLOG EVENTS IN 'binlog.000045' FROM 1582 LIMIT 20;
+
+B. Using Command-Line mysqlbinlog (Forensic Inspection):
+   -- Decode ROW events into readable pseudo-SQL:
+   mysqlbinlog --base64-output=DECODE-ROWS -v /var/log/mysql/binlog.000045
+
+2. ANATOMY OF A BINARY LOG EVENT RECORD
+--------------------------------------------------------------------------------
+# at 928410                                     <-- Starting Byte Position
+#260825 14:30:00 server id 1  end_log_pos 928520 CRC32 0x7a81b901
+Query   thread_id=452   exec_time=0   error_code=0
+use `kolkata_ecommerce`/*!*/;
+SET TIMESTAMP=1787649000/*!*/;
+DROP TABLE orders                               <-- Destructive Event!
+/*!*/;
+# at 928520                                     <-- End Byte Position
+
+3. LOCATING THE TARGET RECOVERY POSITION (THE 3-STEP FORMULA)
+--------------------------------------------------------------------------------
+Step 1: Search for the destructive query text in the binary log:
+  mysqlbinlog --base64-output=DECODE-ROWS -v binlog.000045 | \\
+    grep -n -C 5 -i "DROP TABLE orders"
+
+Step 2: Identify the `# at <pos>` immediately preceding the destructive statement:
+  In the example above, the `DROP TABLE` starts at `# at 928410`.
+
+Step 3: Target the safe stopping coordinate:
+  -- The safe stopping coordinate is `--stop-position=928410` (the byte offset
+  immediately BEFORE the DROP begins).
+
+4. EXECUTING TARGETED POSITION-BASED RESTORATION
+--------------------------------------------------------------------------------
+# Restore base backup:
+mysql -u root -p < /backups/base_backup.sql
+
+# Roll forward binary log to the exact byte position:
+mysqlbinlog --start-position=1582 \\
+            --stop-position=928410 \\
+            --disable-log-bin \\
+            /var/log/mysql/binlog.000045 | mysql -u root -p
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Always verify the transaction commit boundary (`Xid` or `COMMIT`) before choosing a stop position.
+2. Use `--base64-output=DECODE-ROWS -vv` to inspect column data types during incident response.
+3. Save the filtered replay statements to a preview `.sql` file to visually confirm the bad query is absent.
+4. Set `sync_binlog = 1` to guarantee zero missing log events on crash recovery.
+================================================================================

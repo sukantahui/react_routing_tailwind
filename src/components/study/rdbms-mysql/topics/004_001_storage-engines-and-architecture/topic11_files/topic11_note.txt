@@ -1,0 +1,40 @@
+================================================================================
+RDBMS MySQL Course - Module 004_001: MySQL Architecture & Storage Engines Deep Dive
+Topic 11: Configuring Buffer Pool Size (innodb_buffer_pool_size) and Tuning Memory Parameters
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. BUFFER POOL SIZING & THE 50-75% RULE
+--------------------------------------------------------------------------------
+The InnoDB Buffer Pool (`innodb_buffer_pool_size`) is the single most critical
+configuration variable in MySQL.
+
+Sizing Guidelines:
+- Dedicated Database Server: Allocate 50% to 75% of total physical RAM.
+  (e.g., On a 64 GB RAM server, allocate 32 GB to 48 GB to the Buffer Pool).
+- Shared Application Server: Allocate 20% to 40% of total physical RAM.
+- Golden Rule: Never allocate > 80% of RAM, as the OS kernel, connection threads,
+  sort buffers, and temp tables require sufficient physical memory. Over-allocation
+  triggers Out-of-Memory (OOM) kernel kills.
+
+2. BUFFER POOL INSTANCES & CHUNK ALIGNMENT
+--------------------------------------------------------------------------------
+- On multi-core servers with Buffer Pools > 1 GB, set `innodb_buffer_pool_instances`
+  (typically 8 or 16) to eliminate mutex lock contention across CPU cores.
+- Buffer Pool Size Formula:
+  `innodb_buffer_pool_size` must always be an exact multiple of:
+  `innodb_buffer_pool_chunk_size * innodb_buffer_pool_instances`.
+
+3. PER-THREAD MEMORY & MAXIMUM SERVER RAM USAGE
+--------------------------------------------------------------------------------
+Total Server Memory Consumption Formula:
+`Total RAM = Global Buffers + (max_connections * Per-Thread Buffers)`
+- Global Buffers: Buffer Pool + Log Buffer + TempTable RAM.
+- Per-Thread Buffers: sort_buffer_size + join_buffer_size + read_buffer_size +
+  read_rnd_buffer_size + binlog_cache_size.
+
+4. WARMUP DUMP & LOAD
+--------------------------------------------------------------------------------
+- Enable `innodb_buffer_pool_dump_at_shutdown = ON` and
+  `innodb_buffer_pool_load_at_startup = ON` to eliminate cold-cache performance
+  degradation after server restarts.

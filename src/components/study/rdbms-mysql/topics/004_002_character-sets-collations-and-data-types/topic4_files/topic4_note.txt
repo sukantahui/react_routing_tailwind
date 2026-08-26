@@ -1,0 +1,40 @@
+================================================================================
+RDBMS MySQL Course - Module 004_002: Character Sets, Collations, JSON & Spatial Types
+Topic 4: String Data Types Deep Dive: CHAR vs VARCHAR vs TEXT vs BLOB (Storage, Truncation, Limits)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. CHAR VS VARCHAR STORAGE MECHANICS
+--------------------------------------------------------------------------------
+1. CHAR(M) [Fixed Length, M from 0 to 255 characters]:
+   - Always allocates fixed space for M characters.
+   - Right-pads strings with spaces upon storage; trailing spaces are removed on retrieval.
+   - Ideal for fixed-length data: ISO Country Codes (CHAR(2)), Pincodes (CHAR(6)),
+     MD5 Hashes (CHAR(32)), UUIDs (CHAR(36)).
+   - Benefit: Zero length-prefix byte overhead; prevents row fragmentation on updates.
+
+2. VARCHAR(M) [Variable Length, M from 0 to 65,535 bytes]:
+   - Stores only the actual characters inserted + a length prefix:
+     * 1-byte length prefix if column max size <= 255 bytes.
+     * 2-byte length prefix if column max size > 255 bytes.
+   - Preserves trailing spaces in MySQL 8.0+.
+   - Max length subject to the 65,535-byte total InnoDB row size limit.
+
+2. TEXT VS BLOB HIERARCHY
+--------------------------------------------------------------------------------
+Type          Max Length (Bytes)  Length Prefix  Character Set / Collation
+--------------------------------------------------------------------------------
+TINYTEXT      255 Bytes           1 Byte         Yes (Case-Insensitive if _ci)
+TINYBLOB      255 Bytes           1 Byte         No  (Raw Binary Bytes)
+TEXT          64 KB (65,535 B)    2 Bytes        Yes
+BLOB          64 KB (65,535 B)    2 Bytes        No
+MEDIUMTEXT    16 MB (16,777,215)  3 Bytes        Yes
+MEDIUMBLOB    16 MB (16,777,215)  3 Bytes        No
+LONGTEXT      4 GB                4 Bytes        Yes
+LONGBLOB      4 GB                4 Bytes        No
+
+3. OFF-PAGE OVERFLOW & INDEXING RULES
+--------------------------------------------------------------------------------
+- Under `ROW_FORMAT=DYNAMIC`, if a row exceeds ~8KB, InnoDB offloads `TEXT` / `BLOB`
+  data to external 16KB Overflow Pages, keeping a 20-byte pointer in the B+ tree leaf.
+- Indexing `TEXT`/`BLOB` requires an explicit prefix length: `INDEX (description(50))`.

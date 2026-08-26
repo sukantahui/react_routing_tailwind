@@ -1,0 +1,52 @@
+================================================================================
+MYSQL 8.0 REPLICATION, HIGH AVAILABILITY & FAILOVER TOPOLOGIES
+TOPIC 2: Asynchronous Replication vs Lossless Semi-Synchronous Replication
+================================================================================
+
+1. REPLICATION MODES COMPARED
+--------------------------------------------------------------------------------
+Feature               Asynchronous Replication          Lossless Semi-Sync Replication (AFTER_SYNC)
+--------------------------------------------------------------------------------
+Commit Wait Point     Zero wait; commits locally        Waits for >= 1 replica ACK before
+                      and returns immediately.          committing to InnoDB storage engine.
+
+Data Loss Risk (RPO)  RPO > 0 (Committed transactions   RPO = 0 (Transactions guaranteed in
+                      can be lost if Source crashes).   replica relay log before commit returns).
+
+Phantom Reads Risk    None locally, but un-replicated   Zero phantom reads on Source crash.
+                      data disappears on failover.
+
+Client Latency        0ms replication latency overhead  Network Round-Trip Time (RTT) added
+                      added to client commits.          to each write transaction commit (~1ms).
+
+2. LOSSLESS SEMI-SYNC WAIT POINTS: AFTER_SYNC VS AFTER_COMMIT
+--------------------------------------------------------------------------------
+1. `AFTER_SYNC` (MySQL 8.0 Default / Recommended):
+   - Flow: Prepare in InnoDB -> Flush to Binlog -> Send to Replica -> WAIT FOR REPLICA ACK -> Commit in InnoDB -> Return to Client.
+   - Benefit: Other concurrent sessions cannot see the data until it is safely acknowledged by the replica (Lossless!).
+
+2. `AFTER_COMMIT` (Legacy Semi-Sync):
+   - Flow: Prepare in InnoDB -> Flush to Binlog -> Commit in InnoDB -> Send to Replica -> WAIT FOR REPLICA ACK -> Return to Client.
+   - Flaw: If Source crashes while waiting for ACK, other sessions already saw data that was never replicated (Phantom Reads!).
+
+3. CONFIGURATION RUNBOOK FOR MYSQL 8.0
+--------------------------------------------------------------------------------
+-- On Source (Primary):
+INSTALL PLUGIN rpl_semi_sync_master SONAME 'semisync_master.so';
+SET GLOBAL rpl_semi_sync_master_enabled = 1;
+SET GLOBAL rpl_semi_sync_master_wait_point = 'AFTER_SYNC';
+SET GLOBAL rpl_semi_sync_master_timeout = 10000; -- 10 seconds before fallback to async
+SET GLOBAL rpl_semi_sync_master_wait_for_num_slaves = 1;
+
+-- On Replica (Standby):
+INSTALL PLUGIN rpl_semi_sync_slave SONAME 'semisync_slave.so';
+SET GLOBAL rpl_semi_sync_slave_enabled = 1;
+STOP REPLICA IO_THREAD; START REPLICA IO_THREAD;
+
+4. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Always enforce `rpl_semi_sync_master_wait_point = 'AFTER_SYNC'` for RPO = 0.
+2. Size `rpl_semi_sync_master_timeout` (e.g. 10000ms) to prevent permanent write freezes.
+3. Monitor `Rpl_semi_sync_master_status` to ensure semi-sync is actively ON (1).
+4. Alert when `Rpl_semi_sync_master_yes_tx` stops incrementing and `no_tx` rises.
+================================================================================

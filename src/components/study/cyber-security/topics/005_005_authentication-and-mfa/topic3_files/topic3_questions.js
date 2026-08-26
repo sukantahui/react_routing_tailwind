@@ -90,8 +90,8 @@ const questions = [
     hint: "Hardware key binds authentication directly to the exact browser domain in the URL bar.",
     level: "Expert",
     codeExample: `// Cryptographic Origin Binding:
-// Client on 'evil-phish.in' -> Hardware key signs: { origin: 'https://evil-phish.in', challenge: '...' }
-// Real server 'bank.com' checks signature -> Origin mismatch ('evil-phish.in' !== 'bank.com') -> REJECTED ❌`
+// Client on 'attacker-phish.net' -> Hardware key signs: { origin: 'https://attacker-phish.net', challenge: '...' }
+// Real server 'bank.com' checks signature -> Origin mismatch ('attacker-phish.net' !== 'bank.com') -> REJECTED ❌`
   },
   {
     id: 9,

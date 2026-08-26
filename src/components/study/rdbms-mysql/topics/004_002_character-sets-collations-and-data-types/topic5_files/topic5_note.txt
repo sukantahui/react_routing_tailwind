@@ -1,0 +1,33 @@
+================================================================================
+RDBMS MySQL Course - Module 004_002: Character Sets, Collations, JSON & Spatial Types
+Topic 5: Numeric Data Types Deep Dive: INT, BIGINT, DECIMAL (Exact Precision) vs FLOAT / DOUBLE
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE INTEGER DATA TYPE SPECTRUM
+--------------------------------------------------------------------------------
+Type       Bytes  Signed Range                           Unsigned Range
+--------------------------------------------------------------------------------
+TINYINT    1 B    -128 to 127                            0 to 255
+SMALLINT   2 B    -32,768 to 32,767                      0 to 65,535
+MEDIUMINT  3 B    -8,388,608 to 8,388,607                0 to 16,777,215
+INT        4 B    -2,147,483,648 to 2,147,483,647        0 to 4,294,967,295
+BIGINT     8 B    -9.22 Quintillion to 9.22 Quintillion  0 to 18.44 Quintillion
+
+Note on MySQL 8.0: Display width specifications like INT(11) are deprecated and
+ignored, as storage is always determined strictly by the byte width of the type.
+
+2. EXACT (DECIMAL) VS APPROXIMATE (FLOAT / DOUBLE) PRECISION
+--------------------------------------------------------------------------------
+1. DECIMAL(M, D) / NUMERIC(M, D) [Exact Fixed-Point]:
+   - M = Total number of significant digits (1 to 65).
+   - D = Number of decimal places to the right of the point (0 to 30).
+   - Uses packed binary format (4 bytes per 9 digits) to store numbers with 100%
+     mathematical accuracy.
+   - MANDATORY for banking, invoices, payroll, and Indian Rupee (₹) financial ledgers!
+
+2. FLOAT (4 Bytes) & DOUBLE (8 Bytes) [Approximate Floating-Point]:
+   - Implements IEEE 754 binary floating-point representation.
+   - Prone to rounding errors (e.g. `0.1 + 0.2 = 0.30000000000000004`).
+   - Suitable ONLY for scientific simulations, sensor telemetry, and graphics metrics.
+   - NEVER use FLOAT or DOUBLE for financial or monetary values!

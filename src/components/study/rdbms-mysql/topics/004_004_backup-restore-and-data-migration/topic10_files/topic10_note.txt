@@ -1,0 +1,76 @@
+================================================================================
+MYSQL 8.0 BACKUP, POINT-IN-TIME RECOVERY & DATA MIGRATION
+TOPIC 10: Exporting Query Results to CSV / Text Files – SELECT ... INTO OUTFILE
+================================================================================
+
+1. WHAT IS SELECT ... INTO OUTFILE?
+--------------------------------------------------------------------------------
+`SELECT ... INTO OUTFILE` exports query result sets directly from the MySQL server
+engine into formatted text or CSV files on the server's local filesystem.
+
+Key Capabilities:
+- High-Speed Server-Side Export: Bypasses client-side rendering bottlenecks.
+- Flexible Delimiters: Custom field separators, quote enclosures, and line breaks.
+- Direct Query Filtering: Exports filtered aggregates, joins, and subsets.
+
+2. CORE SYNTAX & FORMATTING OPTIONS
+--------------------------------------------------------------------------------
+SELECT 
+  order_id,
+  customer_name,
+  amount,
+  status,
+  DATE_FORMAT(order_date, '%Y-%m-%d %H:%i:%s')
+FROM kolkata_retail.orders
+WHERE order_date >= '2026-01-01'
+INTO OUTFILE '/var/lib/mysql-files/q1_orders.csv'
+FIELDS TERMINATED BY ',' 
+OPTIONALLY ENCLOSED BY '"' 
+ESCAPED BY '\\'
+LINES TERMINATED BY '\n';
+
+3. PREPENDING COLUMN HEADERS TO CSV EXPORTS
+--------------------------------------------------------------------------------
+By default, `SELECT ... INTO OUTFILE` does not include column header titles.
+To prepend headers, use a `UNION ALL` pattern:
+
+SELECT 'Order ID', 'Customer Name', 'Amount (₹)', 'Status', 'Order Date'
+UNION ALL
+SELECT 
+  order_id, 
+  customer_name, 
+  CAST(amount AS CHAR), 
+  status, 
+  DATE_FORMAT(order_date, '%Y-%m-%d')
+FROM kolkata_retail.orders
+INTO OUTFILE '/var/lib/mysql-files/orders_with_headers.csv'
+FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n';
+
+4. SECURITY ARCHITECTURE & SECURE_FILE_PRIV
+--------------------------------------------------------------------------------
+A. Directory Restrictions:
+   - Exports can ONLY be written to the directory specified by `secure_file_priv`
+     (e.g. `/var/lib/mysql-files/`).
+   - If `secure_file_priv = NULL`, all file export operations are completely disabled.
+
+B. File Overwrite Prevention:
+   - MySQL will NEVER overwrite an existing file. If `/var/lib/mysql-files/orders.csv`
+     already exists, the query fails with `ERROR 1086 (HY000): File already exists`.
+   - Protects against accidental data destruction and malicious file overwrites.
+
+C. Operating System Permissions:
+   - Output files are created with ownership `mysql:mysql` and permission `0640`.
+
+5. CLIENT-SIDE EXPORT ALTERNATIVE (WITHOUT SERVER FILE ACCESS)
+--------------------------------------------------------------------------------
+When DBAs do not have local filesystem access to the server:
+mysql -u user -p -h db.kolkata.internal -e "SELECT * FROM kolkata_retail.orders;" \\
+  --batch --raw | tr '\t' ',' > /local_client/orders.csv
+
+6. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Always write exports to the designated `secure_file_priv` directory.
+2. Grant the global `FILE` privilege only to strictly authorized administrative accounts.
+3. Use `DATE_FORMAT()` and string casting to ensure consistent date and numeric formatting.
+4. Remove or archive exported CSV files promptly to prevent sensitive data leakage.
+================================================================================

@@ -98,8 +98,8 @@ Day 50: Released final data dump and disbanded; Sabu later unmasked by FBI`
     explanation: "Booter and Stresser services disguise themselves as 'network load-testing tools' but operate as commercial DDoS platforms. Script kiddies pay ₹800 to ₹4,000 via cryptocurrency or PayPal, select a target IP address (such as a school exam portal or rival gaming server), and trigger synchronized amplification attacks (NTP, DNS, SSDP reflection) reaching 50 to 500+ Gbps without writing a single line of code.",
     hint: "Think about websites where teenagers pay a few dollars to take down gaming servers or school websites with DDoS attacks.",
     level: "basic",
-    codeExample: `// Booter / Stresser Web Interface API:
-POST https://booter-service.net/api/attack
+    codeExample: `// Booter / Stresser Web Interface API (Educational Placeholder):
+POST https://attacker-stresser.net/api/attack
 {
     "target_ip": "192.0.2.1",
     "port": 80,
@@ -117,8 +117,8 @@ POST https://booter-service.net/api/attack
 {
   "type": "indicator",
   "id": "indicator--8e2e28ce-33e5-4c00-a443-bf05d970f890",
-  "name": "Lazarus FASTCash C2 Domain",
-  "pattern": "[domain-name:value = 'malicious-c2-bank.com']",
+  "name": "Threat Actor C2 Domain Indicator",
+  "pattern": "[domain-name:value = 'attacker-c2.net']",
   "pattern_type": "stix",
   "valid_from": "2026-08-23T00:00:00Z"
 }`
@@ -131,7 +131,7 @@ POST https://booter-service.net/api/attack
     level: "expert",
     codeExample: `// Domain Fronting Request Structure:
 TLS SNI Header (Visible to Firewall):   "d1234.cloudfront.net" (Trusted AWS CDN)
-Encrypted HTTP Host Header (To CDN):    "Host: apt-c2-hidden-server.com" (Routes secretly to attacker C2)`
+Encrypted HTTP Host Header (To CDN):    "Host: attacker-c2.net" (Routes secretly to attacker C2)`
   },
   {
     question: "What are 'Cyber Mercenaries' and 'Commercial Spyware Vendors' (e.g., NSO Group / Pegasus), and what category of threat actor do they represent?",
@@ -160,10 +160,9 @@ Statutory Penalty: LIFE IMPRISONMENT (Non-Bailable Offense under Indian Cyber La
     explanation: "When a user logs into a Windows workstation or server, the operating system caches their credentials in the memory space of `lsass.exe` to enable Single Sign-On (SSO). Threat actors with local administrator rights inject into or dump LSASS memory (using Mimikatz, ProcDump, or comsvcs.dll), stealing cached domain administrator credentials and enabling rapid lateral movement across the entire enterprise network.",
     hint: "Think about dumping the Windows memory process that holds logged-in users' passwords and Kerberos tickets.",
     level: "expert",
-    codeExample: `// LSASS Dumping Command (Mimikatz):
-privilege::debug
-sekurlsa::logonpasswords
-// Output: Extracts plaintext passwords & NTLM hashes for all currently logged-in domain users.`
+    codeExample: `// LSASS Protection Telemetry Verification (PowerShell):
+Get-CimInstance -ClassName Win32_DeviceGuard -Namespace root\\Microsoft\\Windows\\DeviceGuard
+// Verification: Confirms Credential Guard and Virtualization-Based Security (VBS) are ACTIVE.`
   },
   {
     question: "What is 'Social Engineering Pretexting' by Nation-State APTs targeting defense and aerospace engineers on LinkedIn?",

@@ -1,0 +1,61 @@
+================================================================================
+MYSQL 8.0 TABLE PARTITIONING & HORIZONTAL SHARDING STRATEGIES
+TOPIC 5: HASH Partitioning & LINEAR HASH – Even Bucket Distribution
+================================================================================
+
+1. WHAT IS HASH PARTITIONING?
+--------------------------------------------------------------------------------
+HASH partitioning distributes table rows evenly across a fixed number of physical
+partitions ($N$) based on a user-defined SQL expression that returns an integer.
+
+Core Goal:
+- Distributes rows pseudorandomly without requiring artificial range or category boundaries.
+- Eliminates hot-spot write bottlenecks by spreading sequential IDs across multiple disks.
+
+2. STANDARD HASH VS LINEAR HASH ALGORITHM
+--------------------------------------------------------------------------------
+Feature              Standard HASH                        LINEAR HASH
+--------------------------------------------------------------------------------
+Formula              `MOD(ABS(expr), N)`                  Linear Powers-of-Two Bitwise
+Distribution Quality Perfectly uniform (zero skew)        Good uniform (slight skew)
+Resizing Cost        **Extremely Heavy**: Adding 1        **Lightweight & Fast**: Only
+                     partition redistributes ~100% of     splits/merges rows from the
+                     all rows in the entire table!        specific affected partition ($1/N$).
+
+3. SYNTAX EXAMPLES
+--------------------------------------------------------------------------------
+-- 1. Standard HASH Partitioning (4 Buckets):
+CREATE TABLE user_sessions (
+  session_id BIGINT NOT NULL AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  ip_address VARCHAR(45),
+  PRIMARY KEY (session_id, user_id)
+) ENGINE = InnoDB
+PARTITION BY HASH (user_id)
+PARTITIONS 4;
+
+-- 2. LINEAR HASH Partitioning (Fast Scalability):
+CREATE TABLE iot_sensor_telemetry (
+  reading_id BIGINT NOT NULL,
+  sensor_id INT NOT NULL,
+  reading_value DOUBLE,
+  PRIMARY KEY (reading_id, sensor_id)
+) ENGINE = InnoDB
+PARTITION BY LINEAR HASH (sensor_id)
+PARTITIONS 8;
+
+4. MANAGING HASH PARTITIONS (ADD & COALESCE)
+--------------------------------------------------------------------------------
+-- 1. Adding 2 new partitions (Increases from 4 to 6):
+ALTER TABLE user_sessions ADD PARTITION PARTITIONS 2;
+
+-- 2. Reducing partition count (Coalesces 2 partitions):
+ALTER TABLE user_sessions COALESCE PARTITION 2;
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Standardize on `LINEAR HASH` for high-growth tables where partition counts will change.
+2. Use a power of 2 for partition counts (e.g. 4, 8, 16, 32) in LINEAR HASH for optimal balance.
+3. Ensure the hashing expression returns an integer and produces high-cardinality values.
+4. Verify partition pruning on equality queries (`WHERE user_id = 105`).
+================================================================================

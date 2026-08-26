@@ -396,7 +396,7 @@ const Topic1 = () => {
                 <span className="text-xs text-slate-500 font-mono">Barrackpore Academy</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Relational Algebra: $\\sigma_{\\text{city} = 'Barrackpore' \\land \\text{fee} \\ge 5000}(\\text{Students})$"}
+                {"Relational Algebra: $\\sigma_{\city = 'Barrackpore' \\land \fee \\ge 5000}(\Students)$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT * FROM students
@@ -413,7 +413,7 @@ WHERE city = 'Barrackpore' AND admission_fee >= 5000;`}
                 <span className="text-xs text-slate-500 font-mono">Kolkata Portal</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Relational Algebra: $\\sigma_{(\\text{city} = 'Kolkata' \\lor \\text{city} = 'Ichapur') \\land \\text{status} = 'Active'}(\\text{Students})$"}
+                {"Relational Algebra: $\\sigma_{(\city = 'Kolkata' \\lor \city = 'Ichapur') \\land \status = 'Active'}(\Students)$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT * FROM students

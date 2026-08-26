@@ -1,0 +1,44 @@
+================================================================================
+RDBMS MySQL Course - Module 004_001: MySQL Architecture & Storage Engines Deep Dive
+Topic 1: Comparing Storage Engines: InnoDB, MyISAM, MEMORY, CSV, ARCHIVE, BLACKHOLE
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. STORAGE ENGINE COMPARATIVE ARCHITECTURE
+--------------------------------------------------------------------------------
+MySQL's pluggable storage engine architecture allows selecting the ideal engine
+for each specific workload requirement.
+
+Key Engine Comparison:
+
+1. InnoDB (Default & Universal OLTP Engine):
+   - Transactions: Full ACID support (COMMIT, ROLLBACK, SAVEPOINT).
+   - Locking: Row-level locking with Multi-Version Concurrency Control (MVCC).
+   - Foreign Keys: Yes (Declarative referential integrity).
+   - Data Storage: Clustered Index B+ Tree on Primary Key (16KB pages).
+   - Crash Recovery: Automatic Write-Ahead Logging (WAL Redo Log).
+
+2. MyISAM (Legacy Engine):
+   - Transactions: No.
+   - Locking: Table-level locks (concurrency bottleneck).
+   - Foreign Keys: No.
+   - Crash Recovery: Requires manual `REPAIR TABLE` on crash.
+
+3. MEMORY (HEAP):
+   - Storage: 100% RAM resident; ephemeral (data lost on server restart).
+   - Indexes: Hash indexes (O(1) lookups) and B-Tree indexes.
+   - Use Case: Ephemeral session caching, quick lookup tables.
+
+4. CSV:
+   - Storage: Comma-Separated plain text files on disk (`.csv`).
+   - Indexes: None.
+   - Use Case: Direct data exchange with spreadsheets and ETL pipelines.
+
+5. ARCHIVE:
+   - Storage: Zlib compressed append-only storage.
+   - Operations: Supports INSERT and SELECT; NO UPDATE or DELETE.
+   - Use Case: Massive historical server log and telemetry archival.
+
+6. BLACKHOLE:
+   - Storage: Discards all data ("black hole"), writes events to binary log.
+   - Use Case: Multi-tier replication filtering and binlog relay nodes.

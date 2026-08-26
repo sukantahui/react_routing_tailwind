@@ -621,9 +621,9 @@ INNER JOIN fee_bands b ON s.admission_fee >= b.min_fee AND s.admission_fee <= b.
             note={
               "Theta Join ($\\bowtie_\\theta$) is the true workhorse of relational databases! " +
               "In my classes in Barrackpore, I teach students that an Equijoin is simply a Theta Join where the condition is strict equality ($=$). " +
-              "Remember: unlike Natural Join, an Equijoin keeps BOTH key columns in its output schema ($R.\\text{id}$ and $S.\\text{id}$). " +
+              "Remember: unlike Natural Join, an Equijoin keeps BOTH key columns in its output schema ($R.\id$ and $S.\id$). " +
               "And when you need to match values against continuous intervals—such as matching a student's admission fee to a scholarship tier—" +
-              "a Non-Equi Join ($s.\\text{fee} \\ge b.\\text{min} \\land s.\\text{fee} \\le b.\\text{max}$) is the exact algebraic tool for the job. " +
+              "a Non-Equi Join ($s.\fee \\ge b.\min \\land s.\fee \\le b.\max$) is the exact algebraic tool for the job. " +
               "Always make sure your join foreign keys are indexed with B-Trees so MySQL can turn a slow Cartesian search into a lightning-fast hash or index nested loop join!"
             }
           />

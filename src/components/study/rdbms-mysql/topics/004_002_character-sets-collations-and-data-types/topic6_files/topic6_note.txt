@@ -1,0 +1,35 @@
+================================================================================
+RDBMS MySQL Course - Module 004_002: Character Sets, Collations, JSON & Spatial Types
+Topic 6: Temporal Types Deep Dive: DATE, TIME, DATETIME vs TIMESTAMP (Timezone Conversions & Limits)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. TEMPORAL DATA TYPE SPECTRUM & STORAGE SIZES
+--------------------------------------------------------------------------------
+Type       Storage (Bytes)  Range                                    Timezone Aware?
+--------------------------------------------------------------------------------
+YEAR       1 Byte           1901 to 2155                             No
+DATE       3 Bytes          1000-01-01 to 9999-12-31                 No
+TIME       3 Bytes          -838:59:59 to 838:59:59                  No
+DATETIME   5 Bytes (+ FSP)  1000-01-01 00:00:00 to 9999-12-31 23:59  No (Literal)
+TIMESTAMP  4 Bytes (+ FSP)  1970-01-01 00:00:01 to 2038-01-19 03:14  YES (Converts to UTC)
+
+* FSP (Fractional Seconds Precision): (0) = 0 bytes, (1-2) = 1 byte, (3-4) = 2 bytes, (5-6) = 3 bytes.
+
+2. DATETIME VS TIMESTAMP: CRITICAL DIFFERENCES
+--------------------------------------------------------------------------------
+1. Timezone Conversion:
+   - `DATETIME`: Stores the literal date/time as provided. Unaffected by server/session timezone changes.
+   - `TIMESTAMP`: Automatically converts from current session timezone to UTC on INSERT, and
+     converts back from UTC to session timezone on SELECT!
+
+2. The Year 2038 Problem (Y2038):
+   - `TIMESTAMP` uses a 32-bit integer measuring seconds since 1970-01-01 (Unix Epoch).
+   - On January 19, 2038 at 03:14:07 UTC, the integer overflows, causing inserts to fail.
+   - Never use `TIMESTAMP` for future-dated events (e.g. 30-year bank loans, life insurance policies)!
+   - Always use `DATETIME` for historical birthdates and future expiration dates!
+
+3. AUTOMATIC INITIALIZATION & UPDATES
+--------------------------------------------------------------------------------
+`created_at DATETIME(6) DEFAULT CURRENT_TIMESTAMP(6)`
+`updated_at DATETIME(6) DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)`

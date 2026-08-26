@@ -252,19 +252,19 @@ const Topic4 = () => {
                   <span className="font-mono text-slate-400 text-[10px]">{activeDigestSnippet}... (160 bits)</span>
                 </div>
                 <div className="p-2.5 bg-slate-900 rounded-lg border border-slate-800 flex items-center justify-between">
-                  <span>2. Dynamic Offset ($HS[19] \ \& \ \text{0x0F}$):</span>
+                  <span>2. Dynamic Offset ($HS[19] \ \& \ 0x0F$):</span>
                   <span className="font-mono text-cyan-300 font-bold">Offset = {activeOffset} (0 to 15)</span>
                 </div>
                 <div className="p-2.5 bg-slate-900 rounded-lg border border-slate-800 flex items-center justify-between">
-                  <span>3. 4-Byte Extraction ($HS[\text{Offset} : \text{Offset}+4]$):</span>
+                  <span>3. 4-Byte Extraction ($HS[Offset : Offset+4]$):</span>
                   <span className="font-mono text-indigo-300 font-bold">4 Bytes Extracted</span>
                 </div>
                 <div className="p-2.5 bg-slate-900 rounded-lg border border-slate-800 flex items-center justify-between">
-                  <span>4. Mask MSB ($\text{Binary} \ \& \ \text{0x7FFFFFFF}$):</span>
+                  <span>4. Mask MSB ($Binary \ \& \ 0x7FFFFFFF$):</span>
                   <span className="font-mono text-purple-300">Positive 31-bit Integer</span>
                 </div>
                 <div className="p-2.5 bg-cyan-950/40 rounded-lg border border-cyan-800/80 flex items-center justify-between font-bold">
-                  <span className="text-cyan-300">5. Modulo Reduction ($\text{Binary} \pmod{10^6}$):</span>
+                  <span className="text-cyan-300">5. Modulo Reduction ($Binary \pmod{10^6}$):</span>
                   <span className="font-mono text-white text-sm tracking-wider">{activeCode}</span>
                 </div>
               </div>
@@ -332,7 +332,7 @@ const Topic4 = () => {
                   {driftAssessment.verdict}
                 </div>
                 <p className="text-xs text-slate-400 leading-relaxed pt-2">
-                  When a client clock drifts by more than $\pm 30\text{ seconds}$, the generated time counter advances to $T \pm 2$, 
+                  When a client clock drifts by more than $\pm 30 seconds$, the generated time counter advances to $T \pm 2$, 
                   causing legitimate authentication requests to fail completely.
                 </p>
               </div>
@@ -365,7 +365,7 @@ const Topic4 = () => {
                 Physical Hardware Token (Key Fob)
               </span>
               <div className="text-2xl font-bold font-mono text-cyan-300">
-                Counter $C_{client} = {clientHotpCounter}$
+                Counter $C_client = {clientHotpCounter}$
               </div>
               <button
                 onClick={advanceClientCounter}
@@ -381,7 +381,7 @@ const Topic4 = () => {
                 Authentication Server State
               </span>
               <div className="text-2xl font-bold font-mono text-emerald-300">
-                Counter $C_{server} = {serverHotpCounter}$
+                Counter $C_server = {serverHotpCounter}$
               </div>
               <button
                 onClick={simulateSuccessfulLogin}
@@ -398,7 +398,7 @@ const Topic4 = () => {
                 <span className="font-mono text-cyan-400 font-bold">{lookAheadWindow} steps</span>
               </div>
               <p className="text-slate-300 leading-relaxed text-[11px]">
-                Server checks candidate counters from $C_{server}+1$ to $C_{server}+{lookAheadWindow}$.
+                Server checks candidate counters from $C_server+1$ to $C_server+{lookAheadWindow}$.
                 Current Counter Gap: <strong className="text-white font-mono">{hotpSyncState.diff} steps</strong>.
               </p>
             </div>
@@ -521,14 +521,14 @@ const Topic4 = () => {
             <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
               <span className="font-bold text-cyan-300">Think About:</span>
               <p className="leading-relaxed">
-                Why does TOTP need no internet connection on your phone? Because both your phone and the server share the exact same Base32 secret key and compute HMAC-SHA1 using the same Unix epoch time counter ($T = \lfloor \text{time}/30 \rfloor$)!
+                Why does TOTP need no internet connection on your phone? Because both your phone and the server share the exact same Base32 secret key and compute HMAC-SHA1 using the same Unix epoch time counter ($T = \lfloor time/30 \rfloor$)!
               </p>
             </div>
             <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
               <span className="font-bold text-emerald-300">Student Checklist:</span>
               <ul className="space-y-1.5 list-disc list-inside text-slate-400">
-                <li>HOTP Formula: $\text{HOTP}(K, C) = \text{Truncate}(\text{HMAC-SHA1}(K, C)) \pmod{10^d}$.</li>
-                <li>TOTP Formula: $\text{TOTP}(K, T) = \text{HOTP}(K, \lfloor \text{time}/30 \rfloor)$.</li>
+                <li>HOTP Formula: $HOTP(K, C) = Truncate(HMAC-SHA1(K, C)) \pmod{10^d}$.</li>
+                <li>TOTP Formula: $TOTP(K, T) = HOTP(K, \lfloor time/30 \rfloor)$.</li>
                 <li>Dynamic Truncation uses low 4 bits of last byte as offset (0 to 15).</li>
                 <li>Tolerance Window ($W = \pm 1$ step) prevents clock drift lockouts.</li>
                 <li>Atomic Redis cache prevents 30-second window code replay attacks.</li>

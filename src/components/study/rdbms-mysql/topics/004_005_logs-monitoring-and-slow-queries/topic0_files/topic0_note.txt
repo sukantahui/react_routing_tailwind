@@ -1,0 +1,57 @@
+================================================================================
+MYSQL 8.0 SERVER LOGS, MONITORING & PERFORMANCE SCHEMA
+TOPIC 0: Overview of MySQL Server Log Architecture and Log Files
+================================================================================
+
+1. THE SIX CORE MYSQL LOG TYPES
+--------------------------------------------------------------------------------
+MySQL generates six distinct log subsystems, each serving specific diagnostic,
+replication, performance, and transactional durability requirements:
+
+1. Error Log (`log_error`):
+   - Scope: Startup, shutdown, fatal crashes, warnings, critical engine alerts.
+   - Overhead: Negligible (<0.1%). Always enabled in production.
+
+2. General Query Log (`general_log`):
+   - Scope: Audits every established connection and every SQL statement received.
+   - Overhead: Extreme (15-30% QPS drop). Strictly disabled in production.
+
+3. Binary Log (`log_bin`):
+   - Scope: Sequential record of all data modifications (DML/DDL).
+   - Purpose: Replication source streaming and Point-in-Time Recovery (PITR).
+   - Overhead: Low to Moderate (~2-4% with `sync_binlog = 1`).
+
+4. Slow Query Log (`slow_query_log`):
+   - Scope: Queries exceeding `long_query_time` (e.g. >1.0s) or missing indexes.
+   - Overhead: Minimal (~1%) when configured with reasonable thresholds.
+
+5. Relay Log (Replication Replica):
+   - Scope: Transactions received by replica I/O thread awaiting SQL execution.
+
+6. DDL Log (InnoDB Metadata):
+   - Scope: Internal crash-safe atomic DDL recovery journal (`ddl_log.log`).
+
+2. LOG DESTINATION: FILE VS TABLE (log_output)
+--------------------------------------------------------------------------------
+The `log_output` system variable determines where General and Slow Query logs are stored:
+- `log_output = 'FILE'`: High-speed OS filesystem writes (Recommended for performance).
+- `log_output = 'TABLE'`: Stores logs in CSV tables (`mysql.general_log`, `mysql.slow_log`).
+- `log_output = 'FILE,TABLE'`: Dual output for staging audit.
+
+3. PERFORMANCE IMPACT & PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+Log Type            Production Status   Storage Destination      Recommended Config
+--------------------------------------------------------------------------------
+Error Log           MANDATORY           Dedicated Disk / Journal log_error_verbosity=2
+Binary Log          MANDATORY           Dedicated NVMe Volume    sync_binlog=1, binlog_expire=7d
+Slow Query Log      RECOMMENDED         Fast Local Filesystem    long_query_time=1.0s, log_output=FILE
+General Query Log   FORBIDDEN (Prod)    Temporary Debug Only     Disabled (general_log=OFF)
+
+4. ESSENTIAL RUNTIME TELEMETRY & STATUS INSPECTION
+--------------------------------------------------------------------------------
+-- Check log status dynamically:
+SHOW VARIABLES LIKE '%log%';
+SHOW VARIABLES LIKE 'log_output';
+SHOW VARIABLES LIKE 'long_query_time';
+
+================================================================================

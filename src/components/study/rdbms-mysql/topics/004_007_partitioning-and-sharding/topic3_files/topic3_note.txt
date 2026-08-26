@@ -1,0 +1,66 @@
+================================================================================
+MYSQL 8.0 TABLE PARTITIONING & HORIZONTAL SHARDING STRATEGIES
+TOPIC 3: RANGE Partitioning – Date Ranges, Years, and ID Intervals
+================================================================================
+
+1. WHAT IS RANGE PARTITIONING?
+--------------------------------------------------------------------------------
+RANGE partitioning assigns rows to physical partitions based on whether the value
+of a partitioning expression falls within a given contiguous, non-overlapping range.
+
+Syntax Variant         Characteristics                       Example
+--------------------------------------------------------------------------------
+`RANGE (int_expr)`     Requires expression returning         `PARTITION BY RANGE (YEAR(order_date))`
+                       an integer or monotonic function.     `VALUES LESS THAN (2025)`
+
+`RANGE COLUMNS`        Direct partitioning on `DATE`,        `PARTITION BY RANGE COLUMNS (order_date)`
+                       `DATETIME`, `VARCHAR`, or multi-cols  `VALUES LESS THAN ('2025-01-01')`
+                       without wrapping helper functions.
+
+2. CORE RULES OF RANGE PARTITIONING
+--------------------------------------------------------------------------------
+1. **Ascending Order**: Partition boundary values MUST be defined in strictly
+   increasing numerical or chronological order ($V_0 < V_1 < V_2 < \dots$).
+2. **Non-Inclusive Bounds**: `VALUES LESS THAN (X)` means values $< X$ are accepted,
+   while value $= X$ is routed to the next higher partition.
+3. **MAXVALUE Catch-All**: Adding `PARTITION p_future VALUES LESS THAN MAXVALUE`
+   prevents `INSERT` failures when incoming data exceeds existing upper bounds.
+4. **NULL Handling**: `NULL` is treated as smaller than any integer/date value and is
+   always stored in the lowest-valued partition ($p_0$).
+
+3. DATE PARTITIONING RUNBOOK (YEARLY VS MONTHLY)
+--------------------------------------------------------------------------------
+-- 1. Yearly Partitioning (Medium Volume):
+CREATE TABLE annual_sales (
+  order_id BIGINT NOT NULL,
+  order_date DATE NOT NULL,
+  amount DECIMAL(10,2),
+  PRIMARY KEY (order_id, order_date)
+) ENGINE = InnoDB
+PARTITION BY RANGE (YEAR(order_date)) (
+  PARTITION p2024 VALUES LESS THAN (2025),
+  PARTITION p2025 VALUES LESS THAN (2026),
+  PARTITION p_max VALUES LESS THAN MAXVALUE
+);
+
+-- 2. High-Precision Monthly Partitioning with RANGE COLUMNS (High Volume):
+CREATE TABLE financial_ledger (
+  txn_id BIGINT NOT NULL,
+  txn_date DATE NOT NULL,
+  amount DECIMAL(12,2),
+  PRIMARY KEY (txn_id, txn_date)
+) ENGINE = InnoDB
+PARTITION BY RANGE COLUMNS (txn_date) (
+  PARTITION p2025_01 VALUES LESS THAN ('2025-02-01'),
+  PARTITION p2025_02 VALUES LESS THAN ('2025-03-01'),
+  PARTITION p2025_03 VALUES LESS THAN ('2025-04-01'),
+  PARTITION p_future  VALUES LESS THAN MAXVALUE
+);
+
+4. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Standardize on `RANGE COLUMNS (date_col)` to eliminate `TO_DAYS()` function overhead.
+2. Always define a `MAXVALUE` safety partition to prevent runtime insert errors.
+3. Schedule automated monthly maintenance cron jobs to reorganize `p_future` into new monthly partitions.
+4. Ensure primary keys and unique keys include the range partition column.
+================================================================================

@@ -48,7 +48,7 @@ const Topic7 = () => {
       mechanism: "Triggers command execution inside WMI repository (OBJECTS.DATA) upon system events without files on disk.",
       badgeClass: "bg-purple-950 text-purple-300 border-purple-800",
       icon: "🕸️",
-      sampleSyntax: "$F = Set-WmiInstance __EventFilter -Args @{Name='BootF'; Query='SELECT * FROM __InstanceModificationEvent...'}\n$C = Set-WmiInstance CommandLineEventConsumer -Args @{Name='BootC'; CommandLineTemplate='powershell -enc ...'}",
+      sampleSyntax: "$F = Set-WmiInstance __EventFilter -Args @{Name='BootF'; Query='SELECT * FROM __InstanceModificationEvent...'}\n$C = Set-WmiInstance CommandLineEventConsumer -Args @{Name='BootC'; CommandLineTemplate='powershell -File C:\\\\Scripts\\\\maintenance.ps1'}",
       sysmonId: "Sysmon Event ID 19, 20, 21 (WmiEvent) • Mitre T1546.003",
       detectionAndRemoval: "Query WMI subscriptions via `Get-CimInstance -Namespace root\\subscription __EventFilter` and purge malicious bindings."
     },

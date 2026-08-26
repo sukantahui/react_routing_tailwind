@@ -1,0 +1,69 @@
+================================================================================
+COMPUTER ARCHITECTURE MASTERCLASS: MODULE 001_003 · TOPIC 14
+FLIP-FLOP TIMING PARAMETERS & METASTABILITY ELIMINATION
+================================================================================
+
+1. FUNDAMENTAL TIMING INVARIANTS:
+--------------------------------------------------------------------------------
+A. Setup Time (t_su):
+   - The minimum continuous duration data (D) must remain stable BEFORE
+     the active clock trigger edge (posedge CLK).
+   - Violation leads to internal sampling of unresolved intermediate voltages.
+
+B. Hold Time (t_h):
+   - The minimum continuous duration data (D) must remain stable AFTER
+     the active clock trigger edge (posedge CLK).
+   - Violation causes the fast racing path to overwrite the currently sampled bit.
+
+C. Clock-to-Q Delay (t_cq):
+   - The propagation delay elapsed from the active clock edge until the
+     output pin Q updates to the new logic state.
+
+--------------------------------------------------------------------------------
+2. STATIC TIMING ANALYSIS (STA) SLACK EQUATIONS:
+--------------------------------------------------------------------------------
+A. Setup Slack (Max-Delay Constraint):
+   Slack_setup = (T_clk + t_skew) - (t_cq + t_comb_max + t_su) >= 0
+   - Determines Maximum Operating Frequency:
+     f_max = 1 / (t_cq + t_comb_max + t_su - t_skew)
+   - Setup violations CAN be resolved by reducing clock frequency (increasing T_clk).
+
+B. Hold Slack (Min-Delay Constraint):
+   Slack_hold = (t_cq + t_comb_min - t_skew) - t_h >= 0
+   - Independent of clock period (T_clk)!
+   - Evaluated on the exact same launch/capture clock edge.
+   - Hold violations CANNOT be resolved by lowering clock frequency.
+   - Must be fixed by inserting non-inverting delay buffers into fast data paths.
+
+--------------------------------------------------------------------------------
+3. CLOCK SKEW & JITTER DYNAMICS:
+--------------------------------------------------------------------------------
+- Clock Skew (t_skew = t_clk_capture - t_clk_launch):
+  * Positive Skew (Capture delayed): Increases setup margin, worsens hold margin.
+  * Negative Skew (Capture early): Reduces setup margin, protects hold margin.
+- Clock Jitter (t_jitter):
+  * Dynamic cycle-to-cycle edge uncertainty due to power/thermal noise.
+  * Subtracted as uncertainty penalty from available clock period.
+
+--------------------------------------------------------------------------------
+4. METASTABILITY & MTBF PHYSICS:
+--------------------------------------------------------------------------------
+- Definition:
+  When setup or hold times are violated, internal bistable latch nodes receive
+  intermediate voltages (V_DD / 2), causing the cross-coupled inverter pair
+  to balance at an unstable equilibrium with high-frequency analog oscillation.
+
+- Mean Time Between Failures (MTBF) Formula:
+  MTBF = exp( t_r / tau ) / ( T_0 * f_clk * f_async_data )
+  * t_r: Available settling / resolution time (T_clk - t_su)
+  * tau: Internal latch regeneration time constant
+  * T_0, f_clk, f_data: Device characteristics and transition frequencies
+
+- Clock Domain Crossing (CDC) Resolution:
+  * 2-Stage Flip-Flop Synchronizer (absorbs metastability over 1 clock period).
+  * 3-Stage Synchronizer for ultra-high GHz clock frequencies.
+  * Gray-Code Pointers for multi-bit asynchronous FIFO pointers.
+
+================================================================================
+CODER & ACCOTAX BARRACKPORE · INDUSTRIAL VLSI & COMPUTER ARCHITECTURE DIVISION
+================================================================================

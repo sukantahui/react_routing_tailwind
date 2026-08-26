@@ -108,16 +108,19 @@ User-Agent: Mozilla/5.0...
 // Mitigation    : TLS Session Resumption (Session Tickets) & Disabling Client-Initiated TLS Renegotiation`
   },
   {
-    question: "How does 'JavaScript Cryptographic Proof-of-Work' (Cloudflare Under Attack Mode) Neutralize Automated HTTP Floods?",
-    shortAnswer: "By serving an intermediate interstitial challenge requiring the client browser to compute a mathematical cryptographic puzzle (e.g. SHA-256 hash collision) within 5 seconds before granting access, filtering out dumb automated bot scripts.",
-    explanation: "Layer 7 botnets use lightweight HTTP libraries (Python `requests`, `curl`, Go HTTP) that cannot execute JavaScript engines. When Under Attack Mode is active, the cloud proxy returns an HTTP 503 with an embedded JavaScript math challenge. Real web browsers (Chrome, Firefox) execute the JavaScript, solve the puzzle in 200ms, and obtain a clearance cookie (`cf_clearance`). Simple bot scripts fail the challenge and are blocked with HTTP 403.",
-    hint: "A computational bouncer asking visitors to solve a complex math puzzle on their calculator before letting them in.",
+    question: "How does JavaScript-based browser verification help mitigate automated HTTP floods?",
+    shortAnswer: "By presenting an intermediate browser-verification challenge that helps distinguish normal interactive browsers from simple automated HTTP clients before allowing access.",
+    explanation: "Layer 7 botnets may use lightweight HTTP clients that cannot behave like full browsers. Modern cloud WAFs can use browser-verification and challenge mechanisms to distinguish automated traffic from legitimate users. Clients that fail verification can be blocked or rate-limited.",
+    hint: "Think of a computational bouncer checking whether a visitor behaves like a normal browser before allowing access.",
     level: "basic",
-    codeExample: `// JavaScript Proof-of-Work Challenge Concept:
-// Server Challenge: Find integer 'N' such that SHA256("kolkata-" + N) ends with "00000"
-// Real Browser    : Computes 100,000 hashes in 300ms ➔ Submits answer ➔ Receives 'cf_clearance' cookie!
-// Dumb HTTP Bot   : Cannot execute JavaScript ➔ BLOCKED WITH HTTP 403!`
-  },
+    codeExample: `// Browser Verification — Defensive Concept:
+// 1. Server presents a verification challenge.
+// 2. A normal browser completes the required verification.
+// 3. The server evaluates the verification result.
+// 4. Suspicious or automated traffic can be blocked or rate-limited.
+//
+// Challenge-solving implementation and access-token handling are omitted.`
+  }, ,
   {
     question: "Under CERT-In Mandatory Directions 2022, what is the mandatory incident reporting timeline for Application Layer DDoS attacks affecting Indian organizations?",
     shortAnswer: "All organizations in India must report Application Layer DDoS attacks affecting public services, banking portals, or healthcare applications to CERT-In within 6 HOURS of detection.",

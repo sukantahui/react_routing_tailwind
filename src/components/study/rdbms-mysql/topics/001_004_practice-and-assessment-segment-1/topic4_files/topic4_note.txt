@@ -1,0 +1,46 @@
+================================================================================
+RDBMS MySQL Course - Module 001_004: Practice Labs, MCQs & Segment Assessment
+Topic 4: Common SQL Beginner Errors and How to Debug Them
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. TOP MYSQL ERROR CODES & DIAGNOSTIC DIRECTORY
+--------------------------------------------------------------------------------
+Understanding error messages and resolving them quickly is an essential skill
+for every database developer.
+
+1. Error 1064 (42000): Syntax Error
+   - Cause: Trailing commas in CREATE TABLE, missing quotes on strings, reserved
+     word collisions (e.g. naming a column `order`, `group`, `table`).
+   - Fix: Remove trailing commas; wrap reserved words in backticks (`order`).
+
+2. Error 1062 (23000): Duplicate Entry Violation
+   - Cause: Inserting a value that already exists in a PRIMARY KEY or UNIQUE column.
+   - Fix: Verify existing data; use `INSERT IGNORE` or `ON DUPLICATE KEY UPDATE`.
+
+3. Error 1452 (23000): Foreign Key Child Constraint Failure
+   - Cause: Inserting a child record referencing a non-existent parent primary key.
+   - Fix: Insert parent record first or check foreign key ID values.
+
+4. Error 1451 (23000): Foreign Key Parent Deletion Failure
+   - Cause: Deleting a parent row while child rows still reference it under RESTRICT.
+   - Fix: Delete child records first, or configure `ON DELETE CASCADE`.
+
+5. Error 1054 (42S22): Unknown Column
+   - Cause: Typo in column name, or using double quotes around string literals
+     in strict ANSI SQL mode.
+   - Fix: Double-check spelling with `DESCRIBE table_name;`.
+
+6. Error 1175 (HY000): Safe Update Mode Rejection
+   - Cause: Running `UPDATE` or `DELETE` without a `WHERE` targeting a KEY column.
+   - Fix: Include a primary key condition, or set `SET SQL_SAFE_UPDATES = 0;`.
+
+7. Error 3819 (HY000): Check Constraint Violated
+   - Cause: Inserting data that fails a custom `CHECK (col >= value)` rule.
+   - Fix: Provide compliant data matching domain business requirements.
+
+2. SILENT SEMANTIC BUGS (ERRORS THAT RETURN NO ERROR MESSAGE)
+--------------------------------------------------------------------------------
+- `WHERE column = NULL`: Returns 0 rows silently because equality evaluates to UNKNOWN.
+  (Fix: Always use `IS NULL` or `IS NOT NULL`).
+- Cartesian Join: Omitting `ON` condition multiplies rows (`N * M`).

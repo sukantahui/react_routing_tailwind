@@ -34,8 +34,8 @@ In Phase 4 of ethical hacking, technical operators execute two essential discipl
 | 2. Unquoted Service| Service ImagePath has   | - Drop Program.exe | Add quotation marks around executable paths    |
 |    Paths           | spaces without quotes   |   in `C:\`         | in Registry ImagePath strings                  |
 +--------------------+-------------------------+--------------------+------------------------------------------------+
-| 3. AlwaysInstall   | Registry policy forces  | - msfvenom .msi    | Set AlwaysInstallElevated to 0 in both         |
-|    Elevated        | elevated MSI installs   |   `msiexec /q shell| HKLM and HKCU registry policies                |
+| 3. AlwaysInstall   | Registry policy forces  | - Custom MSI pkg   | Set AlwaysInstallElevated to 0 in both         |
+|    Elevated        | elevated MSI installs   |   `msiexec /q test`| HKLM and HKCU registry policies                |
 +--------------------+-------------------------+--------------------+------------------------------------------------+
 | 4. Insecure Service| Standard users have     | - `accesschk.exe`  | Restrict service configuration permissions     |
 |    Permissions     | SERVICE_ALL_ACCESS      | - `sc.exe config`  | using `sc.exe sdset`                           |

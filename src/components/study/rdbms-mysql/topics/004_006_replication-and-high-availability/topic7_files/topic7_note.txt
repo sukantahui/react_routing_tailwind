@@ -1,0 +1,59 @@
+================================================================================
+MYSQL 8.0 REPLICATION, HIGH AVAILABILITY & FAILOVER TOPOLOGIES
+TOPIC 7: Read/Write Splitting Architectures – ProxySQL & MySQL Router
+================================================================================
+
+1. THE NEED FOR A DATABASE PROXY LAYER
+--------------------------------------------------------------------------------
+Without a proxy, applications must maintain two separate database connection pools:
+one for writes (Primary) and one for reads (Replicas). If a primary fails or a replica
+lags, application code must be manually reconfigured.
+
+A database proxy (ProxySQL / MySQL Router) provides a single virtual endpoint:
+  [Client Web App] ──(Port 6033)──> [ProxySQL / MySQL Router]
+                                            │
+               ┌────────────────────────────┴────────────────────────────┐
+               ▼ (Writes: INSERT/UPDATE/DELETE)                          ▼ (Reads: SELECT)
+      [Hostgroup 10: Primary]                                   [Hostgroup 20: Replicas]
+
+2. PROXYSQL QUERY ROUTING RULES & HOSTGROUPS
+--------------------------------------------------------------------------------
+-- 1. Define Server Hostgroups in ProxySQL Admin (Port 6032):
+INSERT INTO mysql_servers (hostgroup_id, hostname, port, max_replication_lag) 
+VALUES 
+  (10, '192.168.1.10', 3306, 0),    -- Writer (Primary)
+  (20, '192.168.1.20', 3306, 5),    -- Reader 1 (Replica)
+  (20, '192.168.1.30', 3306, 5);    -- Reader 2 (Replica)
+LOAD MYSQL SERVERS TO RUNTIME; SAVE MYSQL SERVERS TO DISK;
+
+-- 2. Configure Transparent Query Splitting Rules:
+-- Rule 1: Route SELECT ... FOR UPDATE to Writer Hostgroup 10:
+INSERT INTO mysql_query_rules (rule_id, active, match_pattern, destination_hostgroup, apply) 
+VALUES (1, 1, '^SELECT.*FOR UPDATE', 10, 1);
+
+-- Rule 2: Route all general SELECT queries to Reader Hostgroup 20:
+INSERT INTO mysql_query_rules (rule_id, active, match_pattern, destination_hostgroup, apply) 
+VALUES (2, 1, '^SELECT', 20, 1);
+
+LOAD MYSQL QUERY RULES TO RUNTIME; SAVE MYSQL QUERY RULES TO DISK;
+
+3. AUTOMATED REPLICATION LAG PROTECTION
+--------------------------------------------------------------------------------
+ProxySQL monitors `Seconds_Behind_Source` via dedicated monitoring credentials.
+If a replica's lag exceeds `max_replication_lag` (e.g. 5 seconds), ProxySQL
+automatically sets its status to `SHUNNED` and diverts SELECT queries to
+healthy replicas, preventing users from reading stale data.
+
+4. MYSQL ROUTER IN INNODB CLUSTER
+--------------------------------------------------------------------------------
+- Port `6446`: Routes all read-write queries to the active Primary.
+- Port `6447`: Load balances read-only queries across secondary replicas.
+- Topology changes (failovers) are discovered automatically via Metadata Schema.
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Route `SELECT ... FOR UPDATE` strictly to the writer hostgroup.
+2. Configure `max_replication_lag` (e.g. 3-5 seconds) on all reader servers.
+3. Deploy redundant ProxySQL instances behind Keepalived / Virtual IP (VIP).
+4. Leverage ProxySQL connection multiplexing to reduce backend server thread load.
+================================================================================

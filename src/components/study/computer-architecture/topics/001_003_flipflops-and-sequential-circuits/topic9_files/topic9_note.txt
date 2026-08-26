@@ -1,0 +1,31 @@
+================================================================================
+COMPUTER ARCHITECTURE MASTERCLASS - TOPIC 9: JK FLIP-FLOP (NAND-BASED)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE JK FLIP-FLOP EVOLUTION & 4-NAND TOPOLOGY
+--------------------------------------------------------------------------------
+The JK Flip-Flop is the most versatile sequential storage element. It improves upon the
+SR Flip-Flop by cross-feeding the outputs Q and Q_bar back into the 3-input steering NANDs.
+
+Gate Layout:
+  - Top 3-Input Steering NAND 1: Inputs = J, CLK, and feedback Q_bar.
+    Output = ~(J . CLK . Q_bar)
+  - Bottom 3-Input Steering NAND 2: Inputs = K, CLK, and feedback Q.
+    Output = ~(K . CLK . Q)
+  - Top Storage NAND 3: Output Q = ~(NAND1_out . Q_bar)
+  - Bottom Storage NAND 4: Output Q_bar = ~(NAND2_out . Q)
+
+2. TRUTH TABLE & TOGGLE MODE:
+  CLK   J   K  |  Q(t+1)  Q_bar(t+1) | State Description
+   ↑    0   0  |   Q(t)    Q_bar(t)  | Memory Hold (No Change)
+   ↑    0   1  |    0         1      | Reset State (Forces Q = 0)
+   ↑    1   0  |    1         0      | Set State (Forces Q = 1)
+   ↑    1   1  |   Q̄(t)     Q(t)     | TOGGLE STATE (Inverts previous output!)
+
+3. THE RACE-AROUND CONDITION PROBLEM
+--------------------------------------------------------------------------------
+In a level-triggered JK flip-flop with J=1, K=1: if the clock pulse width (t_p) is longer
+than the gate propagation delay (t_pd), the output will toggle back and forth repeatedly
+(oscillating) during a single clock pulse. Solved by Edge-Triggering or Master-Slave design.
+================================================================================

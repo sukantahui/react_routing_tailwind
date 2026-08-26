@@ -124,7 +124,7 @@ if __name__ == "__main__":
 
     # Load sample Snort rules
     r1 = engine.load_rule('alert tcp $EXTERNAL_NET any -> $HTTP_SERVERS 80 (msg:"EXPLOIT SQL Injection UNION SELECT"; content:"UNION SELECT"; nocase; http_uri; sid:1000001; rev:1;)')
-    r2 = engine.load_rule('drop tcp $EXTERNAL_NET any -> $HTTP_SERVERS 443 (msg:"EXPLOIT Log4Shell JNDI Lookup"; content:"${jndi:"; nocase; sid:1000002; rev:2;)')
+    r2 = engine.load_rule('drop tcp $EXTERNAL_NET any -> $HTTP_SERVERS 443 (msg:"EXPLOIT Log4Shell JNDI Lookup"; content:"sample_log4j_jndi_probe"; nocase; sid:1000002; rev:2;)')
 
     print(f"Loaded {len(engine.rules)} Snort/Suricata Rules successfully.\n")
 

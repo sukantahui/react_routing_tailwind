@@ -281,7 +281,8 @@ http2_max_concurrent_pushes 0;
     hint: "The notorious IoT botnet written in C that scanned the internet for default passwords and took down Dyn DNS in 2016.",
     level: "expert",
     codeExample: `// Mirai C Scanner Loop (Mirai Source):
-// Hardcoded Default Credentials: "root:xc3511", "admin:admin", "root:vizxv", "root:admin"
+// Mirai historically abused weak/default IoT credentials.
+// Specific credential lists and scanning details are omitted.
 // Probe Mechanism: Asynchronous non-blocking TCP connect on port 23/2323
 // Target Spread   : Infected 400,000 IoT Devices within 72 Hours!`
   },

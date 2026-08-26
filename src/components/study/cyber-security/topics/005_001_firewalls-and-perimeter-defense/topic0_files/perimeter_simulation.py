@@ -32,7 +32,7 @@ class PerimeterDefensePipeline:
         self.waf_signatures = ["UNION SELECT", "<script>", "../", "etc/passwd", "OR 1=1"]
         
         # 4. Host EDR Sandbox Rules
-        self.edr_blocked_payloads = ["mimikatz", "powershell -enc", "vssadmin delete shadows", "rundll32"]
+        self.edr_blocked_payloads = ["credential_dump_tool", "powershell_encoded_script", "shadow_deletion_command", "rundll32"]
 
     def inspect_packet(self, pkt: Packet) -> Dict[str, any]:
         """Passes an incoming network packet through the 6 concentric defense layers."""
@@ -98,9 +98,9 @@ if __name__ == "__main__":
     pipeline = PerimeterDefensePipeline()
     test_packets = [
         Packet("127.0.0.99", "192.168.1.10", 49152, 443, "TCP", "Normal user login", "SYN"),
-        Packet("203.0.113.5", "192.168.1.10", 50123, 4444, "TCP", "Meterpreter bind shell probe", "SYN"),
+        Packet("203.0.113.5", "192.168.1.10", 50123, 4444, "TCP", "Unauthorized reverse shell probe", "SYN"),
         Packet("198.51.100.12", "192.168.1.10", 55210, 443, "TCP", "GET /api/user?id=10' UNION SELECT * FROM users--", "SYN"),
-        Packet("198.51.100.45", "192.168.1.10", 58190, 443, "TCP", "POST /upload payload=powershell -enc JABzAHIA...", "SYN"),
+        Packet("198.51.100.45", "192.168.1.10", 58190, 443, "TCP", "POST /upload payload=credential_dump_tool", "SYN"),
         Packet("198.51.100.77", "192.168.1.20", 61000, 22, "TCP", "SSH login attempt without MFA", "SYN", is_authenticated=False),
         Packet("198.51.100.88", "192.168.1.10", 62000, 443, "TCP", "GET /index.html HTTP/1.1", "SYN", is_authenticated=True)
     ]

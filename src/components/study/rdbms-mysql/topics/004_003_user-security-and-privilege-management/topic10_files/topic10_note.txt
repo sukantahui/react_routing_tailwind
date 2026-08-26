@@ -1,0 +1,81 @@
+================================================================================
+MYSQL 8.0 DATABASE SECURITY & PRIVILEGE MANAGEMENT
+TOPIC 10: SQL Injection (SQLi) – Attack Vectors & Parameterized Defense
+================================================================================
+
+1. WHAT IS SQL INJECTION (SQLi)?
+--------------------------------------------------------------------------------
+SQL Injection occurs when untrusted user input is directly concatenated into a
+dynamic SQL query string instead of being separated into literal parameters.
+This allows attackers to manipulate query logic, bypass authentication, exfiltrate
+sensitive data, mutate database state, or execute administrative commands.
+
+2. COMMON SQL INJECTION ATTACK VECTORS
+--------------------------------------------------------------------------------
+A. Authentication Bypass (Tautology Attack):
+   - Dynamic Vulnerable Code:
+     query = "SELECT * FROM users WHERE username = '" + userInput + "' AND password = '" + passInput + "'";
+   - Attacker Payload in username:
+     admin' OR '1'='1' -- 
+   - Evaluated SQL:
+     SELECT * FROM users WHERE username = 'admin' OR '1'='1' -- ' AND password = '...';
+   - Result: '1'='1' is always TRUE; the trailing query is commented out; login succeeds!
+
+B. UNION-Based Data Exfiltration:
+   - Attacker injects a UNION SELECT query to siphon data from another table:
+     1 UNION SELECT 1, user, authentication_string, 4 FROM mysql.user -- 
+
+C. Blind SQL Injection (Boolean & Time-Based):
+   - Boolean-based: Observing differences in application response between TRUE/FALSE conditions.
+   - Time-based: Forcing database latency using `SLEEP(5)` or `BENCHMARK()` to infer data byte-by-byte.
+
+D. Second-Order SQL Injection:
+   - Malicious payload is stored in the database safely, but executed later when
+     an internal administrative script concatenates the stored value into a second query.
+
+3. THE PRIMARY DEFENSE: PARAMETERIZED QUERIES (PREPARED STATEMENTS)
+--------------------------------------------------------------------------------
+Why Prepared Statements 100% Neutralize SQL Injection:
+- 2-Stage Query Lifecycle:
+  Stage 1 (Prepare): The SQL template is sent to MySQL Server. The query parser
+  compiles the syntax and generates the execution plan.
+  Stage 2 (Execute): User parameters are transmitted separately as pure data values.
+- Mathematical Separation of Code and Data:
+  Because the query structure is already compiled, user inputs can NEVER be
+  interpreted as SQL syntax, keywords (`OR`, `UNION`, `DROP`), or comment markers (`--`).
+
+4. IMPLEMENTATION ACROSS PROGRAMMING LANGUAGES
+--------------------------------------------------------------------------------
+A. Native MySQL Prepared Statements (SQL Layer):
+   PREPARE stmt_find_user FROM 'SELECT user_id, email FROM users WHERE username = ? AND status = ?';
+   SET @user = 'mamata', @status = 'ACTIVE';
+   EXECUTE stmt_find_user USING @user, @status;
+   DEALLOCATE PREPARE stmt_find_user;
+
+B. Node.js (mysql2 with Prepared Statements):
+   const [rows] = await connection.execute(
+     'SELECT user_id, email, balance FROM accounts WHERE customer_id = ? AND city = ?',
+     [customerId, city]
+   );
+
+C. Java (JDBC PreparedStatement):
+   String sql = "SELECT account_id, balance FROM accounts WHERE account_num = ?";
+   PreparedStatement stmt = conn.prepareStatement(sql);
+   stmt.setString(1, accountNum);
+   ResultSet rs = stmt.executeQuery();
+
+D. Python (PyMySQL / mysql-connector-python):
+   cursor.execute(
+     "SELECT user_id, full_name FROM customers WHERE phone = %s",
+     (phone_input,)
+   );
+
+5. DEFENSE-IN-DEPTH: SECONDARY COUNTERMEASURES
+--------------------------------------------------------------------------------
+1. Principle of Least Privilege: Application database accounts must have 0 DDL permissions.
+2. Input Validation & Strict Typing: Cast integer IDs (`parseInt()`) before query execution.
+3. Allowlisting for Dynamic Table/Column Names:
+   - Prepared statements cannot parameterize table names (`FROM ?`) or column names.
+   - Use strict switch-case allowlists for dynamic sorting or table selection.
+4. Web Application Firewall (WAF) & ModSecurity: Provides edge perimeter filtering.
+================================================================================

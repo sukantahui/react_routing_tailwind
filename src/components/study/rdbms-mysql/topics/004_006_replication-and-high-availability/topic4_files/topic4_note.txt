@@ -1,0 +1,71 @@
+================================================================================
+MYSQL 8.0 REPLICATION, HIGH AVAILABILITY & FAILOVER TOPOLOGIES
+TOPIC 4: Setting Up Source-Replica Replication Step-by-Step (Runbook)
+================================================================================
+
+1. STEP-BY-STEP REPLICATION PROVISIONING RUNBOOK
+--------------------------------------------------------------------------------
+STEP 1: CONFIGURE SOURCE (PRIMARY) IN /etc/mysql/my.cnf:
+[mysqld]
+server_id = 1
+log_bin = mysql-bin
+binlog_format = ROW
+gtid_mode = ON
+enforce_gtid_consistency = ON
+log_replica_updates = ON
+
+STEP 2: CREATE REPLICATION USER ON SOURCE:
+CREATE USER 'repl_user'@'192.168.1.%' IDENTIFIED BY 'ReplSecurePass#2026' REQUIRE SSL;
+GRANT REPLICATION SLAVE ON *.* TO 'repl_user'@'192.168.1.%';
+FLUSH PRIVILEGES;
+
+STEP 3: CONFIGURE REPLICA (STANDBY) IN /etc/mysql/my.cnf:
+[mysqld]
+server_id = 2
+gtid_mode = ON
+enforce_gtid_consistency = ON
+read_only = ON
+super_read_only = ON
+relay_log_recovery = ON
+master_info_repository = TABLE
+relay_log_info_repository = TABLE
+
+STEP 4: SEED INITIAL DATA SNAPSHOT:
+Option A (MySQL 8.0 Native Clone Plugin - Zero Dump/Restore!):
+CLONE INSTANCE FROM 'clone_user'@'192.168.1.10':3306 IDENTIFIED BY 'ClonePass#2026';
+
+Option B (mysqldump):
+mysqldump -u root -p --single-transaction --triggers --routines --events \
+  --set-gtid-purged=ON --all-databases > full_cluster_dump.sql
+mysql -u root -p < full_cluster_dump.sql
+
+STEP 5: ESTABLISH REPLICATION CONNECTION ON REPLICA:
+CHANGE REPLICATION SOURCE TO
+  SOURCE_HOST = '192.168.1.10',
+  SOURCE_PORT = 3306,
+  SOURCE_USER = 'repl_user',
+  SOURCE_PASSWORD = 'ReplSecurePass#2026',
+  SOURCE_AUTO_POSITION = 1,
+  SOURCE_SSL = 1;
+
+STEP 6: START AND VERIFY REPLICATION:
+START REPLICA;
+SHOW REPLICA STATUS\G
+
+2. KEY STATUS VERIFICATION CHECKLIST
+--------------------------------------------------------------------------------
+Metric                  Target Value    Meaning
+--------------------------------------------------------------------------------
+`Replica_IO_Running`    Yes             I/O Receiver thread is connected and streaming.
+`Replica_SQL_Running`   Yes             SQL Applier thread is executing events in InnoDB.
+`Seconds_Behind_Source` 0               Replica is 100% caught up with Source.
+`Last_IO_Errno`         0               Zero network transport errors.
+`Last_SQL_Errno`        0               Zero SQL execution constraint errors.
+
+3. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Ensure unique `server_id` numbers across all nodes (Source: 1, Replica: 2, 3...).
+2. Enforce SSL encryption on replication streams (`SOURCE_SSL = 1`).
+3. Set `super_read_only = ON` on all replicas to prevent accidental writes.
+4. Leverage the MySQL 8.0 Clone plugin for ultra-fast multi-gigabyte replica provisioning.
+================================================================================

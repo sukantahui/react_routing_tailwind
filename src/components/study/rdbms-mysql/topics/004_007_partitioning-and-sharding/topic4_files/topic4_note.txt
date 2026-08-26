@@ -1,0 +1,54 @@
+================================================================================
+MYSQL 8.0 TABLE PARTITIONING & HORIZONTAL SHARDING STRATEGIES
+TOPIC 4: LIST Partitioning – Discrete Categories, Regions, and Status Codes
+================================================================================
+
+1. WHAT IS LIST PARTITIONING?
+--------------------------------------------------------------------------------
+LIST partitioning assigns rows to physical partitions based on whether a column's value
+matches one of a discrete set of enumerated values defined in a `VALUES IN (...)` list.
+
+Syntax Variant         Characteristics                       Example
+--------------------------------------------------------------------------------
+`LIST (int_expr)`      Requires an expression returning      `PARTITION BY LIST (region_id)`
+                       integer category codes.               `VALUES IN (10, 11, 12)`
+
+`LIST COLUMNS`         Direct partitioning on `VARCHAR`,     `PARTITION BY LIST COLUMNS (region_name)`
+                       `CHAR`, `DATE` strings without        `VALUES IN ('Kolkata', 'Barrackpore')`
+                       requiring integer ID mappings.
+
+2. CORE RULES OF LIST PARTITIONING
+--------------------------------------------------------------------------------
+1. **Disjoint Sets**: Each enumerated value can appear in EXACTLY ONE partition list.
+   Duplicate values across partition lists trigger `ERROR 1495 (HY000)`.
+2. **Explicit Matching**: Incoming rows must match a defined value; unmapped values
+   fail with `ERROR 1526 (HY000): Table has no partition for value ...`.
+3. **NULL Handling**: `NULL` is only accepted if a partition explicitly lists it
+   (`PARTITION p_null VALUES IN (NULL)`).
+
+3. ENTERPRISE RUNBOOK (REGIONAL MULTI-TENANT ARCHITECTURE)
+--------------------------------------------------------------------------------
+-- 1. Standard LIST COLUMNS Table:
+CREATE TABLE regional_accounts (
+  account_id BIGINT NOT NULL,
+  region_name VARCHAR(30) NOT NULL,
+  balance DECIMAL(12,2),
+  PRIMARY KEY (account_id, region_name)
+) ENGINE = InnoDB
+PARTITION BY LIST COLUMNS (region_name) (
+  PARTITION p_bengal VALUES IN ('Kolkata', 'Barrackpore', 'Howrah'),
+  PARTITION p_delhi  VALUES IN ('New Delhi', 'Noida', 'Gurgaon'),
+  PARTITION p_mumbai VALUES IN ('Mumbai', 'Pune', 'Thane')
+);
+
+-- 2. Querying with 100% Partition Pruning:
+EXPLAIN SELECT * FROM regional_accounts WHERE region_name = 'Kolkata';
+-- Prunes to scan ONLY partition 'p_bengal'!
+
+4. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Standardize on `LIST COLUMNS (varchar_col)` for intuitive categorical routing.
+2. Group low-traffic regions into consolidated regional partitions.
+3. Explicitly define a `PARTITION p_null VALUES IN (NULL)` if the column allows NULLs.
+4. Use `ALTER TABLE ... ADD PARTITION` to add new regions dynamically online.
+================================================================================

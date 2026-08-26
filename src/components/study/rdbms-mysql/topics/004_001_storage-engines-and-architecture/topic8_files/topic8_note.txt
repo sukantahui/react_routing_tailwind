@@ -1,0 +1,35 @@
+================================================================================
+RDBMS MySQL Course - Module 004_001: MySQL Architecture & Storage Engines Deep Dive
+Topic 8: B+ Tree Physical Structure: Pages, Extents, Segments, and Page Layout (16KB Page Size)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. INNODB PHYSICAL STORAGE HIERARCHY
+--------------------------------------------------------------------------------
+InnoDB organizes on-disk data in a strict 4-level physical storage hierarchy:
+1. Tablespace (`.ibd`): The outermost container on disk.
+2. Segments: Allocation units for specific structures within the B+ tree:
+   - Leaf Segment (Data Segment): Stores all leaf nodes containing table rows.
+   - Non-Leaf Segment (Index Segment): Stores internal B+ tree navigation pages.
+   - Rollback Segment: Stores undo log pages.
+3. Extents: Contiguous blocks of 64 pages (1 MB total) to optimize sequential I/O.
+4. Pages: The atomic 16KB (16,384 bytes) unit of disk allocation and RAM caching.
+
+2. ANATOMY OF A 16KB INNODB PAGE
+--------------------------------------------------------------------------------
+A standard 16KB page is partitioned into 7 distinct sections:
+1. File Header (38 Bytes): Checksum, Page Number, Prev/Next Page pointers (doubly linked list).
+2. Page Header (56 Bytes): Directory slots, number of records, garbage bytes.
+3. Infimum & Supremum (26 Bytes): Minimum and maximum virtual boundary records.
+4. User Records: Actual row records formatted according to ROW_FORMAT (COMPACT/DYNAMIC).
+5. Free Space: Unallocated byte area for future row insertions.
+6. Page Directory: Sparse array of slot pointers used for in-page binary search.
+7. File Trailer (8 Bytes): Checksum and low LSN to validate complete 16KB page writes.
+
+3. IN-PAGE BINARY SEARCH WITH THE PAGE DIRECTORY
+--------------------------------------------------------------------------------
+- Rows on a page are single-linked in ascending order.
+- To avoid scanning all rows linearly, the Page Directory groups rows into "slots"
+  (each slot points to 4 to 8 rows).
+- A search performs binary search on the Page Directory slots, then traverses
+  at most 4 to 8 rows linearly, achieving microsecond row lookups inside RAM.

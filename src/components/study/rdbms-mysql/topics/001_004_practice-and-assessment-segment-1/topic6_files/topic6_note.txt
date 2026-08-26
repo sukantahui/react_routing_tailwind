@@ -1,0 +1,37 @@
+================================================================================
+RDBMS MySQL Course - Module 001_004: Practice Labs, MCQs & Segment Assessment
+Topic 6: Code Review, Formatting & SQL Best Practices
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. SQL CODE REVIEW & STYLE GUIDE OVERVIEW
+--------------------------------------------------------------------------------
+Writing readable, consistent, and maintainable SQL is a hallmark of professional
+software engineers. Standardized SQL formatting reduces peer review cycle times
+and prevents production runtime bugs.
+
+2. CORE SQL FORMATTING CONVENTIONS
+--------------------------------------------------------------------------------
+1. Keyword Capitalization:
+   - Always write SQL keywords in UPPERCASE: `SELECT`, `FROM`, `JOIN`, `WHERE`,
+     `GROUP BY`, `ORDER BY`, `HAVING`, `LIMIT`.
+
+2. Identifier Casing:
+   - Write table and column names in snake_case lowercase: `student_id`,
+     `first_name`, `order_total_inr`.
+
+3. Clause Indentation:
+   - Place major clauses on new lines aligned to the left.
+   - Indent projected columns, join conditions, and predicates by 4 spaces.
+
+4. Naming Constraints:
+   - Always name constraints explicitly: `CONSTRAINT fk_child_parent FOREIGN KEY...`
+   - Never allow MySQL to assign auto-generated names like `table_ibfk_1`.
+
+3. CODE REVIEW ANTI-PATTERNS CHECKLIST
+--------------------------------------------------------------------------------
+- Avoid `SELECT *`: Explicitly name projected columns to save network bandwidth
+  and prevent application breaks on schema alterations.
+- Avoid storing currency in `FLOAT`: Always use `DECIMAL(10,2)`.
+- Avoid comparing to NULL with `=`: Always use `IS NULL` or `IS NOT NULL`.
+- Avoid monolithic 1-line queries: Format with clean line breaks.

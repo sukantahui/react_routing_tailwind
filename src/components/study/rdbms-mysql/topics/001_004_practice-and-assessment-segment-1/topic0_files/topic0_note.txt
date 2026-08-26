@@ -1,0 +1,31 @@
+================================================================================
+RDBMS MySQL Course - Module 001_004: Practice Labs, MCQs & Segment Assessment
+Topic 0: Segment 1 Comprehensive MCQ Self-Assessment
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. SEGMENT 1 CORE COMPETENCY REVIEW
+--------------------------------------------------------------------------------
+Segment 1 covers foundational database theory, MySQL installation, DDL/DML
+operations, key constraints, and basic filtering/sorting logic.
+
+Key Assessment Categories:
+1. Relational Database Concepts & Codd's Rules
+2. DDL (Data Definition Language) vs DML (Data Manipulation Language)
+3. Relational Keys: Primary, Candidate, Alternate, Composite, Foreign
+4. Data Integrity: NOT NULL, UNIQUE, CHECK, DEFAULT, AUTO_INCREMENT
+5. Basic Querying: WHERE, LIKE, BETWEEN, IN, IS NULL, ORDER BY, LIMIT/OFFSET
+
+2. ASSESSMENT SCORING & REVISION GUIDELINES
+--------------------------------------------------------------------------------
+- Total Evaluated Questions: 30 Questions
+- Passing Benchmark: 80% (24/30 Correct)
+- Focus Areas: Distinguishing candidate vs primary keys, understanding NULL
+  evaluation rules, and preventing syntax errors in ALTER TABLE statements.
+
+3. COMMON CONCEPTUAL TRAPS IN SEGMENT 1
+--------------------------------------------------------------------------------
+- NULL comparisons: Always use `IS NULL` or `IS NOT NULL`, never `= NULL`.
+- DROP vs TRUNCATE: DROP removes table structure + data; TRUNCATE resets table data.
+- Foreign Key requirements: Data types and signedness must match the referenced PK.
+- Composite Keys: Cannot contain NULL values in standard relational integrity.

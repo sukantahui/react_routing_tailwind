@@ -1,0 +1,26 @@
+================================================================================
+COMPUTER ARCHITECTURE MASTERCLASS - TOPIC 11: T (TOGGLE) FLIP-FLOP (NAND-BASED)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. ARCHITECTURAL DERIVATION & 4-NAND TOPOLOGY
+--------------------------------------------------------------------------------
+The Toggle (T) Flip-Flop is derived directly from the JK Flip-Flop by tying the J and K
+inputs together into a single Toggle (T) control line.
+
+Gate Layout:
+  - Top 3-Input Steering NAND 1: Inputs = T, CLK, and feedback Q_bar.
+  - Bottom 3-Input Steering NAND 2: Inputs = T, CLK, and feedback Q.
+  - Cross-Coupled Storage NANDs (3 & 4): Storing complementary outputs Q and Q_bar.
+
+2. TRUTH TABLE:
+  CLK   T  |  Q(t+1)  Q_bar(t+1) | State Description
+   ↑    0  |   Q(t)    Q_bar(t)  | Memory Hold (No Change)
+   ↑    1  |   Q̄(t)     Q(t)     | TOGGLE (Inverts output every clock cycle!)
+
+3. REAL-WORLD USAGE: BINARY FREQUENCY DIVIDER
+--------------------------------------------------------------------------------
+When T = 1 continuously, the output Q changes state on every active clock edge,
+generating an output square wave with exactly HALF the frequency of the input clock
+(f_out = f_in / 2). Cascading n T flip-flops creates a divide-by-2^n counter.
+================================================================================

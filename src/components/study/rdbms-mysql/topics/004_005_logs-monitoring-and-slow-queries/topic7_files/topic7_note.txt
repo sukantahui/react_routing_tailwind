@@ -1,0 +1,56 @@
+================================================================================
+MYSQL 8.0 SERVER LOGS, MONITORING & PERFORMANCE SCHEMA
+TOPIC 7: The sys Schema – Pre-Built Diagnostic Views, x$ Views & Stored Procedures
+================================================================================
+
+1. WHAT IS THE SYS SCHEMA?
+--------------------------------------------------------------------------------
+The `sys` schema is a pre-built diagnostic schema installed by default in MySQL 8.0.
+It translates raw, low-level Performance Schema and Information Schema telemetry into
+human-readable views, stored procedures, and formatting functions.
+
+Key Benefits:
+- Human-Readable Conversions: Formats picoseconds into seconds (`s`, `ms`, `us`) and
+  bytes into `KiB`, `MiB`, `GiB`.
+- Diagnostic Abstractions: Pre-calculated metrics for unused indexes, lock waits,
+  95th-percentile heavy statements, and global memory allocations.
+- Zero Overhead: Queries in-memory Performance Schema tables with no disk writes.
+
+2. FORMATTED VIEWS VS RAW x$ VIEWS
+--------------------------------------------------------------------------------
+Each diagnostic view in `sys` exists in two formats:
+1. Standard Formatted View (e.g. `sys.statement_analysis`):
+   - Formatted with text units (`5.42 s`, `12.50 MiB`).
+   - Designed for DBA terminal inspection via mysql client.
+2. Raw Unformatted View (e.g. `sys.x$statement_analysis`):
+   - Outputs raw integer picoseconds and raw bytes.
+   - Designed for Prometheus MySQL Exporter, Grafana, and automated monitoring agents.
+
+3. CORE DIAGNOSTIC DOMAINS & KEY VIEWS
+--------------------------------------------------------------------------------
+Domain               Key Views & Objects
+--------------------------------------------------------------------------------
+Heavy Statements     `sys.statement_analysis`, `sys.statements_with_full_table_scans`,
+                     `sys.statements_with_runtimes_in_95th_percentile`
+Index Optimization   `sys.schema_unused_indexes`, `sys.schema_redundant_indexes`
+Lock Contention      `sys.innodb_lock_waits`, `sys.schema_table_lock_waits`
+Memory Footprint     `sys.memory_global_by_current_bytes`, `sys.memory_global_total`
+Host & User Activity `sys.host_summary`, `sys.user_summary`
+
+4. AUTOMATED DIAGNOSTIC HEALTH REPORTS (`sys.diagnostics`)
+--------------------------------------------------------------------------------
+-- Generate a comprehensive 2-minute diagnostic report sampling every 30 seconds:
+CALL sys.diagnostics(120, 30, 'current');
+
+5. HELPER FORMATTING FUNCTIONS
+--------------------------------------------------------------------------------
+SELECT sys.format_time(4819200000000);  -- Returns: '4.82 s'
+SELECT sys.format_bytes(10737418240);   -- Returns: '10.00 GiB'
+
+6. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Use `sys.statement_analysis` to identify top 10 latency bottlenecks.
+2. Run `sys.schema_unused_indexes` before dropping unneeded indexes.
+3. Monitor `sys.innodb_lock_waits` during transaction stall incidents.
+4. Point Prometheus exporters to `sys.x$` views for raw numeric ingestion.
+================================================================================

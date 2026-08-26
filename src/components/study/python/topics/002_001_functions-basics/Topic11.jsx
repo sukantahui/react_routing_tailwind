@@ -1,277 +1,380 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
+
+// ─── Common Framework Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
 import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import questions from "./topic11_files/topic11_questions";
-
-// Python example files (place in topic11_files/)
-import lambdaBasic from "./topic11_files/lambda_basic.py?raw";
-import lambdaWithArgs from "./topic11_files/lambda_with_args.py?raw";
-import lambdaVsDef from "./topic11_files/lambda_vs_def.py?raw";
-import lambdaRealWorld from "./topic11_files/lambda_realworld.py?raw";
+import noteText from "./topic11_files/topic11_note.txt?raw";
 
 /**
- * Topic 11: Lambda (Anonymous) Functions – Syntax and Basic Usage
- * 
- * This component explains:
- * - What are lambda functions? (small, anonymous functions defined with `lambda`)
- * - Syntax: `lambda arguments: expression`
- * - Differences from regular `def` functions
- * - Use cases: short, one‑line functions, especially as arguments to higher‑order functions
- * - Limitations: only one expression, no statements, no type hints easily
+ * Topic11 – Lambda (Anonymous) Functions: Syntax and basic usage
+ * Module: 002_001_functions-basics (Functions & Modular Logic)
+ * Track: Python from Basic to Pro
+ *
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
  */
-export default function Topic11() {
+const Topic11 = () => {
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
+  const sectionRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const addRef = (el) => {
+    if (el && !sectionRefs.current.includes(el)) {
+      sectionRefs.current.push(el);
+    }
+  };
+
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  ];
+
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 py-8 space-y-12 bg-gray-900 text-gray-100">
-      {/* ========== SECTION 1: THEORY & EXPLANATION ========== */}
-      <section className="space-y-6 reveal-fade-up">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-          🐑 Lambda (Anonymous) Functions: Syntax and Basic Usage
-        </h1>
-        <div className="prose prose-invert max-w-none space-y-4">
-          <p className="text-lg leading-relaxed">
-            A <strong className="text-blue-300">lambda function</strong> is a small, anonymous function that can be defined 
-            <strong className="text-yellow-300"> in a single line</strong>. It's called "anonymous" because it doesn‘t have a name
-            (though you can assign it to a variable). Lambdas are often used for short, throwaway operations where a full `def` would be overkill.
-          </p>
-          <div className="bg-gray-800 p-4 rounded-lg border-l-4 border-blue-500">
-            <p className="font-mono text-sm">
-              <span className="text-yellow-300"># Regular function</span><br />
-              <span className="text-green-300">def add(x, y): return x + y</span><br /><br />
-              <span className="text-yellow-300"># Lambda equivalent</span><br />
-              <span className="text-green-300">add = lambda x, y: x + y</span><br /><br />
-              <span className="text-green-300">print(add(3, 5))  # 8</span>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 2: PROTOTYPE / SIGNATURE ========== */}
-      <section className="space-y-6 reveal-fade-up" style={{ animationDelay: "0.1s" }}>
-        <h2 className="text-3xl font-semibold border-l-4 border-green-500 pl-4">
-          📝 Lambda Syntax
-        </h2>
-        <div className="bg-gray-800 rounded-xl p-5 border border-gray-700">
-          <pre className="text-sm font-mono text-emerald-300 overflow-x-auto">
-{`lambda arguments: expression
-
-# arguments: comma-separated parameters (like in def)
-# expression: a single Python expression (no statements, no assignments)
-
-# Returns: the result of the expression`}
-          </pre>
-          <ul className="mt-4 space-y-2 text-gray-300 list-disc list-inside">
-            <li><strong>Return type:</strong> The type of the expression result (inferred).</li>
-            <li><strong>Purpose:</strong> Create small, inline functions without naming them.</li>
-            <li><strong>When & why:</strong> When you need a simple function for a short period, especially as an argument to functions like `map()`, `filter()`, `sorted()`.</li>
-          </ul>
-        </div>
-      </section>
-
-      {/* ========== SECTION 3: KEY CHARACTERISTICS ========== */}
-      <section className="space-y-6 reveal-fade-up" style={{ animationDelay: "0.2s" }}>
-        <h2 className="text-3xl font-semibold border-l-4 border-yellow-500 pl-4">
-          ⚙️ Lambda Characteristics
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-gray-800/70 rounded-xl p-4 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
-            <div className="text-yellow-300 text-xl mb-2">1️⃣ Single expression only</div>
-            <p className="text-gray-300">No statements like `return`, `if`‑`else` (but conditional expressions work).</p>
-            <pre className="text-xs mt-2 bg-gray-900 p-2 rounded">{`lambda x: x*2  # ok<br/># lambda x: if x>0: return x  # SyntaxError`}</pre>
-          </div>
-          <div className="bg-gray-800/70 rounded-xl p-4 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300">
-            <div className="text-purple-300 text-xl mb-2">2️⃣ Anonymous (no name)</div>
-            <p className="text-gray-300">Often used directly without assigning to a variable.</p>
-            <pre className="text-xs mt-2 bg-gray-900 p-2 rounded">sorted(data, key=lambda x: x[1])</pre>
-          </div>
-          <div className="bg-gray-800/70 rounded-xl p-4 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-300">
-            <div className="text-green-300 text-xl mb-2">3️⃣ Can be assigned to a variable</div>
-            <p className="text-gray-300">But then it's no longer truly anonymous; still useful for short functions.</p>
-            <pre className="text-xs mt-2 bg-gray-900 p-2 rounded">square = lambda x: x**2</pre>
-          </div>
-          <div className="bg-gray-800/70 rounded-xl p-4 hover:shadow-lg hover:shadow-red-500/10 transition-all duration-300">
-            <div className="text-red-300 text-xl mb-2">4️⃣ Limited to one line</div>
-            <p className="text-gray-300">For anything complex, use a regular `def`.</p>
-            <pre className="text-xs mt-2 bg-gray-900 p-2 rounded"># lambda cannot contain loops or multiple statements</pre>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 4: CODE EXAMPLES ========== */}
-      <section className="space-y-8 reveal-fade-up" style={{ animationDelay: "0.3s" }}>
-        <h2 className="text-3xl font-semibold border-l-4 border-green-500 pl-4">
-          💻 Live Python Examples
-        </h2>
-
-        <div className="space-y-3">
-          <h3 className="text-xl font-medium text-yellow-300">1️⃣ Basic Lambda Usage (lambda_basic.py)</h3>
-          <PythonFileLoader fileModule={lambdaBasic} title="lambda_basic.py" highlightLines={[]} />
-          <p className="text-gray-400 text-sm">Simple lambda functions for arithmetic, string operations, and conditional expressions.</p>
-        </div>
-
-        <div className="space-y-3">
-          <h3 className="text-xl font-medium text-yellow-300">2️⃣ Lambda with Multiple Arguments (lambda_with_args.py)</h3>
-          <PythonFileLoader fileModule={lambdaWithArgs} title="lambda_with_args.py" highlightLines={[]} />
-          <p className="text-gray-400 text-sm">Demonstrates lambda functions that take multiple parameters and use default arguments.</p>
-        </div>
-
-        <div className="space-y-3">
-          <h3 className="text-xl font-medium text-yellow-300">3️⃣ Lambda vs Regular `def` (lambda_vs_def.py)</h3>
-          <PythonFileLoader fileModule={lambdaVsDef} title="lambda_vs_def.py" highlightLines={[]} />
-          <p className="text-gray-400 text-sm">Compares lambdas with traditional functions, highlighting when each is appropriate.</p>
-        </div>
-
-        <div className="space-y-3">
-          <h3 className="text-xl font-medium text-yellow-300">4️⃣ Real‑World: Inline Operations (lambda_realworld.py)</h3>
-          <PythonFileLoader fileModule={lambdaRealWorld} title="lambda_realworld.py" highlightLines={[]} />
-          <p className="text-gray-400 text-sm">Practical examples: sorting with custom keys, filtering data, transforming sequences.</p>
-        </div>
-      </section>
-
-      {/* ========== SECTION 5: TIPS & TRICKS ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.4s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          💡 <span>Tips & Tricks (Professional Level)</span>
-        </h2>
-        <ul className="list-disc list-inside space-y-2 text-gray-300 bg-gray-800/50 p-5 rounded-xl">
-          <li><strong className="text-purple-300">Use lambdas for simple transformations</strong> – Great for `map()`, `filter()`, `sorted()` keys.</li>
-          <li><strong className="text-purple-300">Avoid complex logic in lambdas</strong> – If you need `if`‑`else` blocks or loops, write a `def`.</li>
-          <li><strong className="text-purple-300">Conditional expressions work</strong> – `lambda x: "even" if x%2==0 else "odd"` is fine.</li>
-          <li><strong className="text-purple-300">Lambdas capture variables from outer scope</strong> – Be careful with late binding in loops.</li>
-          <li><strong className="text-purple-300">Use `functools.reduce` with lambdas</strong> – For cumulative operations, but readability suffers.</li>
-        </ul>
-      </section>
-
-      {/* ========== SECTION 6: COMMON PITFALLS ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.5s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          ⚠️ <span>Common Pitfalls</span>
-        </h2>
-        <div className="space-y-3">
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Trying to use statements (like `return`, `print`)</p>
-            <p className="text-gray-300">Lambdas only allow expressions. `lambda x: print(x)` is technically allowed (print returns None), but not typical.</p>
-          </div>
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Overusing lambdas, harming readability</p>
-            <p className="text-gray-300">A named function can be clearer; don't cram complex logic into a lambda.</p>
-          </div>
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Late binding in loops (common gotcha)</p>
-            <p className="text-gray-300">Creating lambdas in a loop that reference the loop variable – they all see the final value.</p>
-          </div>
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ No type hints</p>
-            <p className="text-gray-300">Lambdas don't support type annotations, which can make code less self‑documenting.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 7: BEST PRACTICES ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.6s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          ✅ <span>Best Practices</span>
-        </h2>
-        <div className="bg-emerald-900/20 border border-emerald-700 rounded-xl p-5">
-          <ul className="list-disc list-inside space-y-2 text-gray-200">
-            <li>Keep lambdas short (one line, simple expression). If it grows, convert to `def`.</li>
-            <li>Use lambdas primarily as arguments to higher‑order functions (`map`, `filter`, `sorted`).</li>
-            <li>Avoid assigning lambdas to variables; just use `def` for named functions.</li>
-            <li>If a lambda needs a docstring or type hints, it's a sign you should use `def`.</li>
-            <li>Be mindful of variable capture – use default arguments to bind loop variables if necessary.</li>
-          </ul>
-        </div>
-      </section>
-
-      {/* ========== SECTION 8: MINI CHECKLIST ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.7s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          📋 <span>Mini Checklist</span>
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg"><span className="text-green-400">✔️</span> Syntax: `lambda args: expression`</div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg"><span className="text-green-400">✔️</span> Returns the expression value</div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg"><span className="text-green-400">✔️</span> No statements allowed</div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg"><span className="text-green-400">✔️</span> Often used as inline functions</div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg"><span className="text-green-400">✔️</span> Prefer `def` for complex logic</div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg"><span className="text-green-400">✔️</span> Great for `key` in sorting</div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 9: HINT SECTION ========== */}
-      <section className="space-y-3 reveal-fade-up" style={{ animationDelay: "0.8s" }}>
-        <h2 className="text-2xl font-semibold text-amber-300">🧠 Think About...</h2>
-        <div className="bg-amber-900/20 border border-amber-700 rounded-xl p-5 italic text-gray-200">
-          <p>🔍 <strong>Observe carefully:</strong> What is the difference between `lambda x: x*2` and `def double(x): return x*2`? When would you choose one over the other?</p>
-          <p className="mt-2">🔍 <strong>Try changing this:</strong> Write a lambda that returns the larger of two numbers (use the conditional expression).</p>
-          <p className="mt-2">🔍 <strong>Think about:</strong> Why can't lambdas contain `while` loops or `if` statements? How would you work around that?</p>
-        </div>
-      </section>
-
-      {/* ========== SECTION 10: FAQ ========== */}
-      <section className="reveal-fade-up" style={{ animationDelay: "0.85s" }}>
-        <FAQTemplate title="Lambda Functions FAQs" questions={questions} />
-      </section>
-
-      {/* ========== SECTION 11: TEACHER'S NOTE ========== */}
-      <section className="reveal-fade-up" style={{ animationDelay: "0.9s" }}>
-        <Teacher note={
-          "Lambdas are a functional programming feature that many students find intriguing. 🧑‍🏫 " +
-          "I tell them: 'Lambdas are like sticky notes – great for quick reminders, but you wouldn't write a novel on one.' " +
-          "Show how `sorted(students, key=lambda s: s['age'])` is more concise than defining a separate function. " +
-          "Emphasise the expression‑only limitation: `lambda x: x+1` works, `lambda x: x+=1` doesn't. " +
-          "The late‑binding gotcha is important: `funcs = [lambda i=i: i for i in range(3)]` to capture current value. " +
-          "Exercise: convert a list of temperatures from Celsius to Fahrenheit using `map` and a lambda."
-        } />
-      </section>
-
-      {/* ========== SVG ILLUSTRATION ========== */}
-      <section className="reveal-fade-up" style={{ animationDelay: "1s" }}>
-        <div className="bg-gray-800/50 rounded-xl p-6 flex justify-center">
-          <svg width="560" height="220" viewBox="0 0 560 220" className="max-w-full h-auto">
-            <rect x="20" y="20" width="220" height="80" fill="#1e3a8a" stroke="#3b82f6" strokeWidth="2" rx="8">
-              <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" />
-            </rect>
-            <text x="130" y="45" fill="white" fontSize="13" textAnchor="middle" fontFamily="monospace">lambda x, y: x + y</text>
-            <text x="130" y="65" fill="#94a3b8" fontSize="12" textAnchor="middle">↑ arguments</text>
-            <text x="130" y="85" fill="#fbbf24" fontSize="11" textAnchor="middle">expression</text>
-
-            <line x1="240" y1="60" x2="280" y2="60" stroke="#a78bfa" strokeWidth="2" markerEnd="url(#arrowPurple)" />
-
-            <rect x="290" y="20" width="250" height="80" fill="#065a46" stroke="#34d399" strokeWidth="2" rx="8">
-              <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" begin="0.5s" repeatCount="indefinite" />
-            </rect>
-            <text x="415" y="45" fill="white" fontSize="13" textAnchor="middle" fontFamily="monospace">sorted(pairs,</text>
-            <text x="415" y="65" fill="white" fontSize="13" textAnchor="middle" fontFamily="monospace">key=lambda p: p[1])</text>
-            <text x="415" y="85" fill="#fbbf24" fontSize="11" textAnchor="middle">inline usage</text>
-
-            <rect x="20" y="130" width="520" height="60" fill="#1f2937" stroke="#fbbf24" strokeWidth="1.5" rx="6" strokeDasharray="4,4">
-              <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite" />
-            </rect>
-            <text x="280" y="155" fill="#fcd34d" fontSize="12" textAnchor="middle">💡 Lambdas are anonymous, single‑expression functions. Great for short callbacks.</text>
-            <text x="280" y="175" fill="#9ca3af" fontSize="11" textAnchor="middle">Use `def` for anything longer than a line or needing statements.</text>
-
-            <defs><marker id="arrowPurple" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#a78bfa" /></marker></defs>
-          </svg>
-        </div>
-        <p className="text-center text-sm text-gray-400 mt-2">Lambda functions provide a compact way to define small, one‑line functions, often used as arguments to other functions.</p>
-      </section>
-
+    <>
       <style>{`
-        @keyframes fadeUp {
-          0% { opacity: 0; transform: translateY(20px); }
-          100% { opacity: 1; transform: translateY(0); }
+        .reveal-section {
+          transform: translateY(0);
+          transition: transform 0.4s ease-out;
         }
-        .reveal-fade-up {
-          animation: fadeUp 0.6s ease-out forwards;
-          opacity: 0;
-          animation-fill-mode: forwards;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .reveal-fade-up { animation: none; opacity: 1; }
+        .reveal-section.is-visible {
+          transform: translateY(0);
         }
       `}</style>
-    </div>
+
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 001 · Topic 11</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Lambda (Anonymous) Functions: Syntax and basic usage
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Create reusable, clean, and modular building blocks using Python functions.
+          </p>
+
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
+          </div>
+        </header>
+
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
+        >
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Lambda (Anonymous) Functions: Syntax and basic usage
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Lambda (Anonymous) Functions: Syntax and basic usage</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Lambda (Anonymous) Functions: Syntax and basic usage
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
+            </div>
+
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <FAQTemplate
+            title="Lambda (Anonymous) Functions: Syntax and basic usage FAQs"
+            questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
+          />
+        </section>
+
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <PlainTextPrint
+            content={noteText}
+            title="Lambda (Anonymous) Functions: Syntax and basic usage"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Note"
+            downloadFileName="topic11_note.txt"
+          />
+        </section>
+
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <Teacher
+            note={
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
+            }
+          />
+        </section>
+
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 11 · Lambda (Anonymous) Functions: Syntax and basic usage · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
+        </footer>
+      </div>
+    </>
   );
-}
+};
+
+export default Topic11;

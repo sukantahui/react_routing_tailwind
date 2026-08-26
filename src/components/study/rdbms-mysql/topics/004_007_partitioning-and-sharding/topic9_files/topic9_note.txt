@@ -1,0 +1,52 @@
+================================================================================
+MYSQL 8.0 TABLE PARTITIONING & HORIZONTAL SHARDING STRATEGIES
+TOPIC 9: Horizontal Sharding Foundations – Application vs Middleware Sharding
+================================================================================
+
+1. TABLE PARTITIONING VS HORIZONTAL SHARDING
+--------------------------------------------------------------------------------
+Dimension            Table Partitioning                   Horizontal Sharding
+--------------------------------------------------------------------------------
+Scope                Single MySQL Server Instance         Multiple Autonomous MySQL Nodes
+Hardware             Shared CPU, RAM, and Disk IOPS       Shared-Nothing (Independent Nodes)
+Scaling Axis         Vertical (Scale-Up) + I/O Isolation  Horizontal (Scale-Out) to Infinity
+Failure Blast Radius Server crash impacts entire table    Node failure impacts only 1 shard
+
+2. APPLICATION-LEVEL VS MIDDLEWARE-LEVEL SHARDING
+--------------------------------------------------------------------------------
+Type                 Implementation Mechanism             Pros & Cons
+--------------------------------------------------------------------------------
+Application-Level    App code / ORM evaluates shard key   + Zero proxy network latency hop.
+                     and selects target connection pool:  + Total control over connection routing.
+                     `getConnection(userId % 4)`          - Distributed joins must be hand-coded.
+                                                          - Code tightly coupled to shard logic.
+
+Middleware-Level     Database Proxy (ShardingSphere,      + 100% transparent to app developers.
+                     Vitess) intercepts standard SQL,     + Handles distributed joins & 2PC.
+                     routes to nodes, and merges results. - Adds ~1-2ms network proxy latency.
+                                                          - Additional middleware infrastructure.
+
+3. ANATOMY OF A CROSS-SHARD SCATTER-GATHER QUERY
+--------------------------------------------------------------------------------
+[App / Client] ──> [SELECT SUM(balance) FROM accounts]
+                         │
+                         ▼
+        [Sharding Router / Proxy Engine]
+        ┌────────────────┼────────────────┐
+        ▼ (Query S0)     ▼ (Query S1)     ▼ (Query S2)
+     [Shard 0]        [Shard 1]        [Shard 2]
+     (Returns ₹40M)   (Returns ₹60M)   (Returns ₹50M)
+        └────────────────┼────────────────┘
+                         ▼
+             [Merge Engine: ₹150M Total]
+                         │
+                         ▼
+             [Returned to Client App]
+
+4. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Select a high-cardinality, business-aligned Shard Key (e.g. `tenant_id` or `customer_id`).
+2. Design queries to include the Shard Key in 95%+ of transactional workloads (Point Routing).
+3. Minimize cross-shard joins and distributed transactions to prevent latency spikes.
+4. Deploy redundant replica nodes behind each shard node for high availability.
+================================================================================

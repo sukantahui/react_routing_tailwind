@@ -1,0 +1,45 @@
+================================================================================
+RDBMS & MYSQL MASTERCLASS: DATABASE NORMALIZATION
+MODULE: PRACTICAL DATABASE DENORMALIZATION & REAL-WORLD ENGINEERING TRADE-OFFS
+TOPIC 7: MATERIALIZED VIEWS, READ REPLICAS, AND IN-MEMORY CACHING (REDIS) AS ALTERNATIVES TO DENORMALIZATION
+================================================================================
+
+1. EXECUTIVE OVERVIEW & LEARNING OBJECTIVES
+--------------------------------------------------------------------------------
+This topic provides an exhaustive theoretical and practical deep-dive into:
+"Materialized Views, Read Replicas, and In-Memory Caching (Redis) as Alternatives to Denormalization".
+Module: Practical Database Denormalization & Real-World Engineering Trade-offs (006_009_practical-denormalization-and-engineering-tradeoffs)
+Level: Advanced | Estimated Study Time: 5 Hours
+
+2. THEORETICAL FOUNDATION & MATRICES
+--------------------------------------------------------------------------------
+- Core Concept: Relational normalization ensures that data dependencies are modeled
+  strictly according to business invariants, preventing update, deletion, and insertion anomalies.
+- Formal Rule: 1. Intentional Denormalization for High-Throughput Read Endpoints
+- Decomposition Strategy: Maintain a strictly normalized 3NF transactional database for ACID writes, while offloading reads to Redis and OLAP replicas.
+
+3. BEFORE-VS-AFTER SCHEMA TRANSFORMATION
+--------------------------------------------------------------------------------
+UNNORMALIZED / NON-COMPLIANT STATE:
+E-Commerce checkout API executes 8-table joins on every single product page load, causing database CPU spikes.
+Root Cause: Under extreme read pressure (10,000 reads/sec vs 5 writes/sec), controlled redundancy dramatically accelerates query latency.
+
+NORMALIZED STATE:
+Best of both worlds: zero transactional anomalies on writes, sub-millisecond query responses on reads.
+
+4. SENIOR ARCHITECTURAL PITFALLS & BEST PRACTICES
+--------------------------------------------------------------------------------
+- PITFALL: Storing a pre-computed `total_amount_inr` on the parent `orders` table reduces multi-row table scans to single-row index lookups.
+- BEST PRACTICE: Best of both worlds: zero transactional anomalies on writes, sub-millisecond query responses on reads.
+- ACID INVARIANT: Always declare explicit foreign keys with ON DELETE RESTRICT to protect transactional ledgers.
+
+5. TEACHER'S MASTER SUMMARY - SIR SUKANTA HUI
+--------------------------------------------------------------------------------
+"In software architecture, bad database design cannot be fixed with faster hardware
+or clever application code. Normalization provides the mathematical guarantee that
+your system maintains internal consistency under high concurrent load. Master these
+normal form principles from first principles!"
+
+================================================================================
+END OF STUDY NOTE - TOPIC 7
+================================================================================

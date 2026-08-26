@@ -94,16 +94,16 @@ const Topic6 = () => {
     },
     mysql_into_outfile_webshell: {
       key: "mysql_into_outfile_webshell",
-      name: "6. MySQL INTO OUTFILE Web Shell Dropping",
-      category: "PHASE 4: PERSISTENT BACKDOOR INJECTION",
+      name: "6. MySQL INTO OUTFILE Arbitrary File Write",
+      category: "PHASE 4: UNAUTHORIZED FILE EXPORT",
       categoryBadge: "bg-indigo-950 text-indigo-300 border-indigo-800",
-      targetImpact: "Writing executable PHP backdoors to the web server root.",
+      targetImpact: "Writing unauthorized files to web server document directories.",
       vulnerabilityMechanism:
-        "Using `SELECT ... INTO OUTFILE '/var/www/html/shell.php'` to drop interactive web shells, allowing continuous arbitrary command execution via HTTP.",
+        "Using `SELECT ... INTO OUTFILE '/var/www/html/demo_test.txt'` to perform unauthorized file creation on the host filesystem.",
       mitigationPattern: "Set `secure_file_priv` to a non-web directory and revoke `FILE` privilege.",
-      typicalPayload: "' UNION SELECT '<?php system($_GET[\"cmd\"]); ?>' INTO OUTFILE '/var/www/html/backdoor.php'--",
-      codeSnippet: `// Web Shell Upload:
-// MySQL writes PHP backdoor file directly into web root (/var/www/html/shell.php)!`
+      typicalPayload: "' UNION SELECT [UNTRUSTED_CONTENT] INTO OUTFILE '/var/www/html/demo_test.txt'--",
+      codeSnippet: `// Unauthorized File Export Mitigation:
+// Setting secure_file_priv restricts INTO OUTFILE to safe staging directories!`
     },
     mimikatz_lateral_movement: {
       key: "mimikatz_lateral_movement",
@@ -114,7 +114,7 @@ const Topic6 = () => {
       vulnerabilityMechanism:
         "After gaining host RCE via `xp_cmdshell`, attackers dump LSASS memory using Mimikatz, extracting Domain Admin Kerberos tickets and pivoting to enterprise servers.",
       mitigationPattern: "Run database as unprivileged service account; isolate database subnets.",
-      typicalPayload: "'; EXEC master..xp_cmdshell 'powershell.exe -c \"Invoke-Mimikatz\"';--",
+      typicalPayload: "'; EXEC master..xp_cmdshell 'whoami';--",
       codeSnippet: `// Domain Takeover Pivot:
 // Extracts Domain Admin credentials from LSASS memory, compromising Domain Controller!`
     },
@@ -312,7 +312,7 @@ FLUSH PRIVILEGES;`,
       threatType: "REMOTE CODE EXECUTION (RCE) & ACTIVE DIRECTORY DOMAIN TAKEOVER",
       budget: "₹92,00,000",
       incident:
-        "Threat actors injected `'; EXEC master..xp_cmdshell 'powershell.exe -enc ...'--` into legacy payment search endpoints attempting to spawn interactive shells on the core settlement cluster.",
+        "Threat actors injected `'; EXEC master..xp_cmdshell 'whoami'--` into legacy payment search endpoints attempting to verify command execution privileges on the core settlement cluster.",
       defenseStrategy:
         "Mamata disabled `xp_cmdshell` globally, revoked all extended procedure grants, and migrated 100% of payment APIs to Parameterized Prepared Statements.",
       outcome: "100% of host takeover attempts neutralized; zero command execution; ₹4,100 Crores in daily UPI and corporate settlements safeguarded.",
@@ -328,14 +328,14 @@ FLUSH PRIVILEGES;`,
       lead: "Debangshu",
       role: "Principal Industrial OT Security Officer",
       location: "Barrackpore 220kV State Power Transmission Grid",
-      threatType: "MySQL INTO OUTFILE WEB SHELL BACKDOOR UPLOAD",
-      title: "Hardening Substation SCADA Databases Against Web Shell Uploads and Unauthorized Switching",
+      threatType: "MySQL INTO OUTFILE UNAUTHORIZED FILE EXPORT ATTEMPT",
+      title: "Hardening Substation SCADA Databases Against Arbitrary File Writes",
       budget: "₹61,00,000",
       incident:
-        "Adversaries attempted to drop PHP web shells (`INTO OUTFILE '/var/www/html/shell.php'`) via SQLi into substation telemetry portals to seize breaker switching controls.",
+        "Adversaries attempted unauthorized file write operations (`INTO OUTFILE '/var/www/html/demo_test.txt'`) via SQLi into substation telemetry portals.",
       defenseStrategy:
         "Debangshu configured `secure_file_priv = /var/lib/mysql-files`, deployed AppArmor Linux process sandboxing, and air-gapped substation database hosts.",
-      outcome: "100% of web shell write attempts blocked by Linux kernel; zero unauthorized switching commands; 100% regional power stability across North 24 Parganas.",
+      outcome: "100% of unauthorized write attempts blocked by Linux kernel; zero unauthorized switching commands; 100% regional power stability across North 24 Parganas.",
       metrics: {
         webshellUploadsBlocked: "100.0%",
         substationsProtected: "18 High-Voltage Nodes",

@@ -1,0 +1,61 @@
+================================================================================
+MYSQL 8.0 REPLICATION, HIGH AVAILABILITY & FAILOVER TOPOLOGIES
+TOPIC 9: Multi-Threaded Slave (MTS / Parallel Replication) Configuration
+================================================================================
+
+1. THE EVOLUTION OF MYSQL PARALLEL REPLICATION
+--------------------------------------------------------------------------------
+Mode                  Evaluation Basis                 Limitation / Capability
+--------------------------------------------------------------------------------
+Legacy Single-Thread  Sequential (1 Worker)            Single CPU core bottleneck; high lag.
+DATABASE Mode         Schema Name                      Only parallelizes if writes target different
+(MySQL 5.6)                                            database schemas (useless for single-DB).
+LOGICAL_CLOCK Mode    Group Commit Windows             Parallelizes all transactions committed
+(MySQL 5.7 / 8.0)     (`last_committed`)               in the same group commit window.
+WRITESET Dependency   Row-Level Write Hashes           Maximum parallelism: parallelizes any
+Tracking (MySQL 8.0)  (`transaction_write_set`)        transactions that touch different rows!
+
+2. HOW LOGICAL_CLOCK & WRITESET PARALLELISM OPERATES
+--------------------------------------------------------------------------------
+[Primary (Source)]
+     │ (Binary Log Group Commit)
+     ▼
+[Binlog Header: last_committed=10, sequence_number=11]
+[Binlog Header: last_committed=10, sequence_number=12] ──> Same last_committed!
+[Binlog Header: last_committed=10, sequence_number=13]     Zero lock conflicts!
+     │ (TCP Stream)
+     ▼
+[Replica: Coordinator Thread]
+     ├──> [Worker Thread 1: Executes Tx 11] ──┐
+     ├──> [Worker Thread 2: Executes Tx 12] ──┼──> [replica_preserve_commit_order = ON]
+     └──> [Worker Thread 3: Executes Tx 13] ──┘    (Guarantees exact commit sequence!)
+
+3. PRODUCTION CONFIGURATION RUNBOOK (MYSQL 8.0)
+--------------------------------------------------------------------------------
+-- 1. On Source (Primary):
+[mysqld]
+binlog_transaction_dependency_tracking = WRITESET
+binlog_transaction_dependency_history_size = 25000
+
+-- 2. On Replica (Standby):
+[mysqld]
+replica_parallel_workers = 8          # Size to 1x-2x CPU cores
+replica_parallel_type = LOGICAL_CLOCK
+replica_preserve_commit_order = ON    # Mandatory for transactional consistency
+replica_checkpoint_group = 512
+replica_checkpoint_period = 300
+
+4. CRITICAL ROLE OF replica_preserve_commit_order = ON
+--------------------------------------------------------------------------------
+Without `replica_preserve_commit_order = ON`, Worker 2 might commit before Worker 1,
+creating transient phantom gaps in auto-increment keys and causing GTID sequence gaps.
+Enforcing `ON` guarantees that transactions are committed to InnoDB in the exact order
+they were committed on the Source.
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Always pair `replica_parallel_workers > 0` with `replica_preserve_commit_order = ON`.
+2. Enable `binlog_transaction_dependency_tracking = WRITESET` on the Source.
+3. Monitor worker thread utilization via `performance_schema.replication_applier_status_by_worker`.
+4. Sizing rule: 4-16 workers per replica depending on available CPU cores and disk IOPS.
+================================================================================

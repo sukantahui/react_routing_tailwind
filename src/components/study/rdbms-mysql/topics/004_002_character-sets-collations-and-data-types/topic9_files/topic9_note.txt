@@ -1,0 +1,31 @@
+================================================================================
+RDBMS MySQL Course - Module 004_002: Character Sets, Collations, JSON & Spatial Types
+Topic 9: JSON Functions: JSON_EXTRACT, JSON_ARRAY, JSON_OBJECT, JSON_SET, JSON_INSERT, JSON_REPLACE, JSON_REMOVE, JSON_CONTAINS
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. CREATION & AGGREGATION FUNCTIONS
+--------------------------------------------------------------------------------
+1. `JSON_OBJECT('name', 'Mamata', 'city', 'Barrackpore')` -> `{"name": "Mamata", "city": "Barrackpore"}`
+2. `JSON_ARRAY('MySQL', 'React', 'Node.js')` -> `["MySQL", "React", "Node.js"]`
+3. `JSON_ARRAYAGG(col)`: Aggregates table rows into a single JSON array.
+4. `JSON_OBJECTAGG(key_col, val_col)`: Aggregates key-value rows into a JSON object.
+
+2. MODIFICATION FUNCTIONS: SET VS INSERT VS REPLACE
+--------------------------------------------------------------------------------
+Function        If Key Exists           If Key Does NOT Exist
+--------------------------------------------------------------------------------
+JSON_SET        REPLACES existing value INSERTS new key-value pair (Upsert)
+JSON_INSERT     DOES NOTHING            INSERTS new key-value pair (Insert-only)
+JSON_REPLACE    REPLACES existing value DOES NOTHING (Update-only)
+JSON_REMOVE     DELETES key or array index at path
+
+3. SEARCH & MEMBERSHIP FUNCTIONS
+--------------------------------------------------------------------------------
+1. `JSON_CONTAINS(target, candidate[, path])`:
+   - Checks if a candidate element or sub-document exists inside target.
+   - Example: `JSON_CONTAINS(portfolio->'$.skills', '"React"')` returns 1 if present.
+2. `JSON_CONTAINS_PATH(doc, 'one'|'all', '$.city', '$.zip')`:
+   - Checks if specific path keys exist in document.
+3. `JSON_MERGE_PATCH(doc1, doc2)`:
+   - Modern RFC 7396 compliant merge (doc2 overwrites doc1 keys).

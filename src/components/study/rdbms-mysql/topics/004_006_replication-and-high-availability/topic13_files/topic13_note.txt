@@ -1,0 +1,64 @@
+================================================================================
+MYSQL 8.0 REPLICATION, HIGH AVAILABILITY & FAILOVER TOPOLOGIES
+TOPIC 13: Automated Failover, Split-Brain Prevention & Disaster Recovery
+================================================================================
+
+1. HIGH AVAILABILITY (HA) VS DISASTER RECOVERY (DR)
+--------------------------------------------------------------------------------
+Dimension            High Availability (HA)             Disaster Recovery (DR)
+--------------------------------------------------------------------------------
+Scope                Local Datacenter / Zone Failure    Regional Datacenter / Geo Outage
+Target RPO           RPO = 0 (Zero lost transactions)   RPO < 5s (Low tolerable delta)
+Target RTO           RTO < 5s (Automated instant)       RTO < 15m (Controlled promotion)
+Mechanism            InnoDB Cluster (Group Replication) Asynchronous / Semi-Sync ClusterSet
+
+2. SPLIT-BRAIN PREVENTION MECHANISMS
+--------------------------------------------------------------------------------
+Split-Brain occurs when a network partition creates two isolated cluster segments,
+both believing they are the active Primary and accepting conflicting writes.
+
+Defensive Hardening:
+1. Paxos Majority Quorum: Minority partition (<50%) automatically locks in `super_read_only`.
+2. STONITH (Shoot The Other Node In The Head): Power distribution (IPMI) power cutoff.
+3. Keepalived Virtual IP (VIP): Virtual IP bound to active master with gratuitous ARP.
+4. ProxySQL / MySQL Router: Actively polls cluster metadata to route writes to true Primary.
+
+3. THE 6-STEP ENTERPRISE DISASTER RECOVERY RUNBOOK
+--------------------------------------------------------------------------------
+Phase 1: Outage Confirmation & Quorum Assessment
+  Verify primary is dead (`systemctl status mysql`, ping timeout).
+
+Phase 2: Elect Most Advanced Standby Node
+  Identify replica with the largest `Executed_Gtid_Set`:
+  `SELECT @@GLOBAL.gtid_executed;`
+
+Phase 3: Promote Standby to Primary
+  On chosen replica:
+  `STOP REPLICA;`
+  `SET GLOBAL super_read_only = OFF;`
+  `SET GLOBAL read_only = OFF;`
+
+Phase 4: Repoint Downstream Replicas
+  On remaining replicas:
+  `CHANGE REPLICATION SOURCE TO SOURCE_HOST = '192.168.1.20', SOURCE_AUTO_POSITION = 1;`
+  `START REPLICA;`
+
+Phase 5: Redirect Client Application Traffic
+  Shift Virtual IP / Update ProxySQL Hostgroup / Reconfigure MySQL Router:
+  `LOAD MYSQL SERVERS TO RUNTIME;`
+
+Phase 6: Recover Former Master as Read-Only Replica
+  Use MySQL Clone Plugin or flashback tool to re-align GTIDs and join as secondary.
+
+4. AUTOMATED FAILOVER ORCHESTRATORS
+--------------------------------------------------------------------------------
+- **MySQL InnoDB Cluster**: Native Paxos automated failover in <5 seconds.
+- **GitHub Orchestrator**: External topology manager, refactoring replication trees and handling VIP failover for asynchronous/semi-sync clusters.
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Standardize on GTID auto-positioning for seamless multi-node repointing.
+2. Conduct quarterly disaster recovery drills (GameDay chaos testing).
+3. Set DNS TTL to 5 seconds for database CNAME records.
+4. Enforce `super_read_only = ON` on all standby replicas by default.
+================================================================================

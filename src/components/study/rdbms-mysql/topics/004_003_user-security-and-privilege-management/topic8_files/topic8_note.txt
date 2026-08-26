@@ -1,0 +1,93 @@
+================================================================================
+MYSQL 8.0 DATABASE SECURITY & PRIVILEGE MANAGEMENT
+TOPIC 8: MySQL 8.0 Roles – Creating, Granting, Assigning & Activating
+================================================================================
+
+1. WHAT ARE ROLES IN MYSQL 8.0?
+--------------------------------------------------------------------------------
+A role is a named collection of privileges. Instead of granting dozens of
+individual permissions directly to 50 separate user accounts, administrators
+create a single Role, grant permissions to the Role, and assign the Role to users.
+
+Key Benefits:
+- Drastically reduces permission duplication and privilege drift.
+- Atomic updates: Modifying a role instantly updates permissions for all assigned users.
+- Role hierarchy: Roles can be granted to other roles to create modular inheritance graphs.
+
+2. THE 4-STEP ROLE LIFECYCLE WORKFLOW
+--------------------------------------------------------------------------------
+Step 1: CREATE ROLE
+  CREATE ROLE 'finance_reader', 'finance_writer', 'report_analyst';
+
+Step 2: GRANT PRIVILEGES TO ROLE
+  GRANT SELECT ON kolkata_finance.* TO 'finance_reader';
+  GRANT SELECT, INSERT, UPDATE, DELETE ON kolkata_finance.* TO 'finance_writer';
+  GRANT EXECUTE ON PROCEDURE kolkata_finance.sp_generate_gst TO 'report_analyst';
+
+Step 3: ASSIGN ROLE TO USERS (GRANT ROLE)
+  GRANT 'finance_reader' TO 'mamata'@'192.168.1.%', 'susmita'@'192.168.1.%';
+  GRANT 'finance_writer' TO 'debangshu'@'localhost';
+
+Step 4: ACTIVATE DEFAULT ROLES (SET DEFAULT ROLE)
+  -- By default, assigned roles are INACTIVE when a user connects!
+  -- Set default roles to activate automatically on login:
+  SET DEFAULT ROLE 'finance_reader' TO 'mamata'@'192.168.1.%';
+  SET DEFAULT ROLE ALL TO 'susmita'@'192.168.1.%';
+
+3. RUNTIME ROLE ACTIVATION & SESSION CONTROL
+--------------------------------------------------------------------------------
+Users can dynamically activate and deactivate assigned roles in their active session:
+
+A. Session Activation Commands:
+   -- Activate all assigned roles in current session:
+   SET ROLE ALL;
+
+   -- Activate all assigned roles EXCEPT a specific one:
+   SET ROLE ALL EXCEPT 'finance_writer';
+
+   -- Activate specific role:
+   SET ROLE 'finance_reader';
+
+   -- Deactivate all roles (revert to baseline USAGE):
+   SET ROLE NONE;
+
+B. Inspecting Active Roles in Session:
+   SELECT CURRENT_ROLE();
+   -- Returns active role names or NONE
+
+C. Automatic Server-Wide Role Activation:
+   -- To make all assigned roles automatically active for all users server-wide:
+   SET PERSIST activate_all_roles_on_login = ON;
+
+4. ROLE INHERITANCE & ROLE GRAPH ARCHITECTURE
+--------------------------------------------------------------------------------
+Roles can be nested to form modular security graphs:
+  -- Create base and composite roles:
+  CREATE ROLE 'intern_role', 'developer_role', 'lead_architect_role';
+
+  -- Grant privileges to base role:
+  GRANT SELECT ON app_db.* TO 'intern_role';
+
+  -- Developer inherits intern privileges + write access:
+  GRANT 'intern_role' TO 'developer_role';
+  GRANT INSERT, UPDATE ON app_db.* TO 'developer_role';
+
+  -- Lead architect inherits developer privileges + DDL:
+  GRANT 'developer_role' TO 'lead_architect_role';
+  GRANT CREATE, DROP, ALTER ON app_db.* TO 'lead_architect_role';
+
+5. DATA DICTIONARY SYSTEM TABLES FOR ROLES
+--------------------------------------------------------------------------------
+- `mysql.role_edges`: Stores directed edges representing role grants (`FROM_USER` -> `TO_USER`).
+- `mysql.default_roles`: Stores default activated roles per user.
+- Dynamic Privilege for RBAC: `ROLE_ADMIN` allows delegating role management.
+
+6. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Always execute `SET DEFAULT ROLE ALL TO 'user'@'host'` after assigning roles to prevent
+   confusion where users cannot access tables upon login.
+2. Enable `activate_all_roles_on_login = ON` if your architecture expects all assigned
+   roles to be active by default without session DDL.
+3. Structure role hierarchies logically: Read-Only -> Read-Write -> Admin.
+4. When dropping roles via `DROP ROLE`, MySQL automatically updates `mysql.role_edges`.
+================================================================================

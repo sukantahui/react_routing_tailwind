@@ -1,0 +1,381 @@
+import React, { useState } from "react";
+import clsx from "clsx";
+
+// ─── Common Framework Imports ──────────────────────────────────────────
+import Teacher from "../../../../../common/TeacherSukantaHui";
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import questions from "./topic10_files/topic10_questions";
+import noteText from "./topic10_files/topic10_note.txt?raw";
+
+/**
+ * Topic10 – Final Project Documentation, GitHub Repository Submission & Viva Defense
+ * Module: 004_008_capstone-project
+ *
+ * @component
+ * @returns {JSX.Element} Interactive educational workbench for Final Project Documentation, GitHub Repository Submission & Viva Defense.
+ */
+const Topic10 = () => {
+  const [selectedConceptKey, setSelectedConceptKey] = useState("concept1");
+
+  const conceptsData = {
+    concept1: {
+      conceptName: "1. Repo Structure",
+      title: "1. Industry-Standard GitHub Repository Layout",
+      badge: "GitHub Repo",
+      badgeColor: "emerald",
+      sqlSnippet: `-- 📁 CAPSTONE GITHUB REPOSITORY STRUCTURE:
+-- ├── README.md                 &rarr; Executive summary, architecture overview, setup guide
+-- ├── docs/
+-- │   ├── eer_diagram.png       &rarr; High-res Crow's Foot EER diagram
+-- │   ├── normalization_proof.md-&gt; Functional dependencies & 3NF proofs
+-- │   ├── data_dictionary.md    &rarr; Complete table & column specifications
+-- │   └── disaster_recovery.md  &rarr; Backup & PITR runbook
+-- ├── sql/
+-- │   ├── 01_schema.sql         &rarr; Production DDL scripts
+-- │   ├── 02_seeds.sql          &rarr; 100,000+ mock records
+-- │   ├── 03_analytics.sql      &rarr; 15 Analytical queries (Window / CTEs)
+-- │   ├── 04_procedures.sql     &rarr; Stored procedures, triggers, events
+-- │   └── 05_optimization.sql   &rarr; EXPLAIN benchmark reports`,
+      explanation: "A clean, modular repository layout ensures evaluators and prospective employers can clone, inspect, and run your project seamlessly.",
+      keyTakeaways: ["Include a clear README.md with architecture badges, setup commands, and quick-start instructions.","Separate DDL, seed data, analytical queries, and stored routines into numbered files.","Provide visual EER diagrams and markdown data dictionaries."]
+    },
+    concept2: {
+      conceptName: "2. Technical README",
+      title: "2. Writing an Impactful Technical README.md",
+      badge: "Technical README",
+      badgeColor: "cyan",
+      sqlSnippet: `-- 📝 ESSENTIAL README.MD SECTIONS:
+-- 1. Project Title & Problem Statement: What real-world system does this model?
+-- 2. Architecture & Domain Highlights: Core entities, scale, and transaction volume.
+-- 3. Entity-Relationship Overview: Embedded EER diagram and key relationship explanations.
+-- 4. Quick Start (Single-command deployment):
+--    mysql -u root -p &lt; sql/01_schema.sql
+--    mysql -u root -p < sql/02_seeds.sql
+-- 5. Performance Benchmarks: Table showing 900x speedup with covering indexes.
+-- 6. Author Bio & Acknowledgments: Dedicated to Sukanta Hui & Coder & AccoTax.`,
+      explanation: "The README is your project's resume. A polished README with clear performance benchmarks leaves a lasting professional impression.",
+      keyTakeaways: ["Highlight quantifiable achievements (e.g. 'Optimized 500k row ledger queries by 900x').","Provide reproducible reproduction steps for quick verification.","Embed crisp vector diagram screenshots and SQL execution samples."]
+    },
+    concept3: {
+      conceptName: "3. Viva Preparation",
+      title: "3. Viva Voce Defense & Tough Architectural Questions",
+      badge: "Viva Voce",
+      badgeColor: "purple",
+      sqlSnippet: `-- 🎙️ TOP 5 VIVA DEFENSE QUESTIONS:
+-- Q1: "Why did you choose 3NF over 2NF for the order_items table?"
+-- A1: "To eliminate transitive dependencies between product categories and item prices."
+-- Q2: "How did you prevent race conditions during concurrent checkouts?"
+-- A2: "Used SELECT ... FOR UPDATE pessimistic row locks inside an atomic stored procedure."
+-- Q3: "What is the leftmost prefix rule and how did you apply it?"
+-- A3: "Structured composite indexes with equality columns first to satisfy multiple query shapes."`,
+      explanation: "Anticipating tough viva questions on ACID isolation, normalization trade-offs, and index mechanics ensures confident defense.",
+      keyTakeaways: ["Be ready to justify every single table, column type, and constraint in your schema.","Explain why you selected specific index composite columns based on EXPLAIN analysis.","Demonstrate live query execution and show error handling during edge cases."]
+    },
+    concept4: {
+      conceptName: "4. Portfolio & Career",
+      title: "4. Showcasing Your Database Capstone on LinkedIn & Resumes",
+      badge: "Career Impact",
+      badgeColor: "rose",
+      sqlSnippet: `-- 💼 RESUME PROJECT BULLET POINTS EXAMPLE:
+-- • Architected an enterprise 22-table MySQL 8.0 relational database for multi-vendor retail handling 200,000+ seed records with strict 3NF normalization.
+-- • Developed 15+ analytical KPI dashboards using Window Functions (DENSE_RANK, LAG) and CTEs.
+-- • Optimized query performance by 916x using composite covering indexes and EXPLAIN ANALYZE.
+-- • Implemented automated checkout stored procedures, audit triggers, RBAC security, and PITR disaster recovery runbooks.`,
+      explanation: "Framing your capstone achievements with metrics (row counts, speedup percentages, transaction volume) stands out to tech recruiters.",
+      keyTakeaways: ["Use action verbs and quantifiable metrics on your resume.","Record a 3-minute video walkthrough of your schema, queries, and EXPLAIN improvements.","Link your GitHub repository prominently in your LinkedIn portfolio and resume."]
+    }
+  };
+
+  const currentConcept = conceptsData[selectedConceptKey] || conceptsData["concept1"];
+
+  return (
+    <div className="bg-slate-950 text-slate-100 min-h-screen py-10 px-4 sm:px-6 lg:px-8 font-sans">
+      {/* ─── Header Banner ────────────────────────────────────────────── */}
+      <header className="max-w-6xl mx-auto mb-10 text-center sm:text-left border-b border-slate-800 pb-8">
+        <div className="flex flex-wrap items-center gap-3 mb-3">
+          <span className="px-3 py-1 bg-emerald-950/80 text-emerald-400 border border-emerald-800 rounded-full text-xs font-mono font-semibold uppercase tracking-wider">
+            Module 004.8: Capstone
+          </span>
+          <span className="px-3 py-1 bg-cyan-950/80 text-cyan-400 border border-cyan-800 rounded-full text-xs font-mono font-semibold uppercase tracking-wider">
+            Topic 10 of 11
+          </span>
+        </div>
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          Final Project Documentation, GitHub Repository Submission & Viva Defense
+        </h1>
+        <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">
+          Structuring the capstone GitHub repository, writing technical architecture documentation, and preparing for live schema defense and viva voce examination.
+        </p>
+      </header>
+
+      <main className="max-w-6xl mx-auto space-y-16">
+        {/* ─── SECTION 1: Architectural Pillars ───────────────────────── */}
+        <section id="pillars" className="space-y-6">
+          <div className="border-l-4 border-emerald-500 pl-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              1. Four Architectural Pillars
+            </h2>
+            <p className="text-slate-400 mt-1 text-sm sm:text-base">
+              Core design foundations and production engineering standards.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-2">
+              <span className="text-xs font-mono text-emerald-400 font-bold uppercase">Pillar 1</span>
+              <h3 className="font-bold text-white text-base">Clean Repo</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">Modular GitHub structure separating schema, seeds, procedures, and docs.</p>
+            </div>
+            <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-2">
+              <span className="text-xs font-mono text-cyan-400 font-bold uppercase">Pillar 2</span>
+              <h3 className="font-bold text-white text-base">README Rigor</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">Professional technical README with embedded diagrams and setup runbooks.</p>
+            </div>
+            <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-2">
+              <span className="text-xs font-mono text-purple-400 font-bold uppercase">Pillar 3</span>
+              <h3 className="font-bold text-white text-base">Viva Mastery</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">Confident defense of relational decisions, locking strategies, and indexes.</p>
+            </div>
+            <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-2">
+              <span className="text-xs font-mono text-rose-400 font-bold uppercase">Pillar 4</span>
+              <h3 className="font-bold text-white text-base">Resume Impact</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">Quantifiable bullet points highlighting 900x optimization for recruiters.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── SECTION 2: Interactive Concept Workbench ───────────────── */}
+        <section id="interactive-workbench" className="space-y-6">
+          <div className="border-l-4 border-cyan-500 pl-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              2. Interactive Engineering Workbench
+            </h2>
+            <p className="text-slate-400 mt-1 text-sm sm:text-base">
+              Explore live SQL implementation scripts, schema patterns, and architectural takeaways.
+            </p>
+          </div>
+
+          {/* Workbench Tabs */}
+          <div className="flex flex-wrap gap-3">
+            {Object.keys(conceptsData).map((key) => {
+              const concept = conceptsData[key];
+              const isSelected = selectedConceptKey === key;
+              return (
+                <button
+                  key={key}
+                  onClick={() => setSelectedConceptKey(key)}
+                  className={clsx(
+                    "px-4 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all duration-200 border",
+                    isSelected
+                      ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
+                      : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
+                  )}
+                >
+                  {concept.conceptName}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Dynamic Display Card */}
+          <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+              <div>
+                <span className="text-xs font-mono text-cyan-400 font-semibold uppercase tracking-wider">
+                  Phase Implementation
+                </span>
+                <h3 className="text-lg sm:text-xl font-bold text-white mt-1">
+                  {currentConcept.title}
+                </h3>
+              </div>
+              <span
+                className={clsx(
+                  "px-3 py-1 rounded-full text-xs font-mono font-semibold border w-fit",
+                  currentConcept.badgeColor === "emerald" && "bg-emerald-950/80 text-emerald-300 border-emerald-700",
+                  currentConcept.badgeColor === "cyan" && "bg-cyan-950/80 text-cyan-300 border-cyan-700",
+                  currentConcept.badgeColor === "purple" && "bg-purple-950/80 text-purple-300 border-purple-700",
+                  currentConcept.badgeColor === "rose" && "bg-rose-950/80 text-rose-300 border-rose-700"
+                )}
+              >
+                {currentConcept.badge}
+              </span>
+            </div>
+
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              {currentConcept.explanation}
+            </p>
+
+            {/* SQL Snippet */}
+            <div className="space-y-2">
+              <span className="text-xs font-mono text-slate-400 font-semibold">
+                SQL Runbook &amp; Production Snippet:
+              </span>
+              <pre className="p-4 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs text-emerald-300 overflow-x-auto leading-relaxed">
+                {currentConcept.sqlSnippet}
+              </pre>
+            </div>
+
+            {/* Key Takeaways */}
+            <div className="space-y-2 pt-2 border-t border-slate-800/80">
+              <span className="text-xs font-mono text-slate-400 font-semibold">
+                Key Architectural Takeaways:
+              </span>
+              <ul className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-slate-300">
+                {currentConcept.keyTakeaways.map((item, i) => (
+                  <li key={i} className="p-3 rounded-lg bg-slate-950/70 border border-slate-800/60 flex items-start gap-2">
+                    <span className="text-emerald-400 font-bold">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── SECTION 3: Real-World Case Studies ─────────────────────── */}
+        <section id="case-studies" className="space-y-6">
+          <div className="border-l-4 border-purple-500 pl-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              3. Real-World Engineering Scenarios in Bengal
+            </h2>
+            <p className="text-slate-400 mt-1 text-sm sm:text-base">
+              Practical production database case studies in Barrackpore, Kolkata, Ichapur, and Jadavpur.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                <h3 className="text-base font-bold text-white flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+                  Case 1: Susmita & Mamata – Capstone Defense Success in Barrackpore
+                </h3>
+                <span className="text-xs font-mono text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded-full border border-emerald-800">
+                  Viva Defense
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Susmita and Mamata defended their retail database before an external evaluation panel. When asked how they prevented race conditions during flash sales, they presented their sp_process_checkout procedure with row-level pessimistic locking and EXPLAIN metrics, earning the highest project grade.
+              </p>
+            </div>
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                <h3 className="text-base font-bold text-white flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+                  Case 2: Debangshu & Abhronila – Landing Database Engineering Roles in Kolkata
+                </h3>
+                <span className="text-xs font-mono text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded-full border border-emerald-800">
+                  Career Placement
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                In Kolkata, Debangshu and Abhronila showcased their GitHub capstone repository during senior software engineering interviews. The interviewers were impressed by their complete PITR runbooks and 15 analytical window function queries, leading to immediate job offers.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── SECTION 4: Senior Pitfalls & Best Practices ────────────── */}
+        <section id="pitfalls-rules" className="space-y-6">
+          <div className="border-l-4 border-rose-500 pl-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              4. Senior Pitfalls &amp; Production Best Practices
+            </h2>
+            <p className="text-slate-400 mt-1 text-sm sm:text-base">
+              Essential guardrails, common anti-patterns, and enterprise coding standards.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800">
+              <h3 className="text-base font-bold text-rose-400 mb-3 flex items-center gap-2">
+                <span>⚠️</span> Pitfall 1: Empty or Incomplete README
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
+                Submitting a GitHub repository with just SQL files and no explanatory README prevents evaluators from understanding your architectural design.
+              </p>
+              <div className="text-xs font-mono text-emerald-400 p-2 bg-slate-950 rounded border border-slate-800">
+                Rule: Treat the README as your project's executive summary and user guide.
+              </div>
+            </div>
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800">
+              <h3 className="text-base font-bold text-rose-400 mb-3 flex items-center gap-2">
+                <span>⚠️</span> Pitfall 2: Memorizing Answers Without Understanding
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
+                Failing to explain why an index was created or how a trigger works during viva defense damages credibility.
+              </p>
+              <div className="text-xs font-mono text-emerald-400 p-2 bg-slate-950 rounded border border-slate-800">
+                Rule: Understand the underlying B-Tree, MVCC, and transactional mechanics thoroughly.
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800">
+              <h3 className="text-base font-bold text-emerald-400 mb-3 flex items-center gap-2">
+                <span>✓</span> Best Practice 1: Perform a Dry Run Viva with Peers
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
+                Have a classmate grill your project with edge-case questions (e.g. deadlock scenarios, backup failures).
+              </p>
+              <div className="text-xs text-slate-400">
+                Builds spontaneous technical communication skills under pressure.
+              </div>
+            </div>
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800">
+              <h3 className="text-base font-bold text-emerald-400 mb-3 flex items-center gap-2">
+                <span>✓</span> Best Practice 2: Pin the Repository on GitHub
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
+                Pin your capstone repository to your GitHub profile and include it in your email signature and resume.
+              </p>
+              <div className="text-xs text-slate-400">
+                Maximizes visibility to tech leads and hiring managers.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── SECTION 5: Printable Note & Teacher Advice ──────────────── */}
+        <section id="printable-note" className="space-y-6">
+          <div className="border-l-4 border-emerald-500 pl-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              5. Printable Study Note &amp; Teacher Advice
+            </h2>
+            <p className="text-slate-400 mt-1 text-sm sm:text-base">
+              Download complete printable notes and review key takeaways from Sir Sukanta Hui.
+            </p>
+          </div>
+
+          <PlainTextPrint
+            title="Topic 10: Final Project Documentation, GitHub Repository Submission & Viva Defense"
+            content={noteText}
+          />
+
+          <Teacher
+            note="Congratulations on reaching the final milestone of your RDBMS & MySQL journey! Your capstone project is the crowning achievement of all your hard work. Present your project with pride, defend your schema with architectural confidence, and use this enterprise project to launch your career as a world-class database and backend engineer. You have all the skills—now go build greatness!"
+          />
+        </section>
+
+        {/* ─── SECTION 6: FAQ Accordion ───────────────────────────────── */}
+        <section id="faq-section" className="space-y-6">
+          <div className="border-l-4 border-cyan-500 pl-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              6. Frequently Asked Questions (30 Deep-Dive Questions)
+            </h2>
+            <p className="text-slate-400 mt-1 text-sm sm:text-base">
+              Master the technical nuances and viva voce examination questions for this milestone.
+            </p>
+          </div>
+
+          <FAQTemplate
+            title="Final Project Documentation, GitHub Repository Submission & Viva Defense FAQs"
+            questions={questions}
+          />
+        </section>
+      </main>
+    </div>
+  );
+};
+
+export default Topic10;

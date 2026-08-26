@@ -59,7 +59,7 @@ const Topic9 = () => {
       topic: 'Topic 1: m×2 Games Formulation',
       q: 'How does parameterizing Player B’s mixed strategy as q = [q₁, 1−q₁]ᵀ transform an m×2 game?',
       a: 'It converts m payout functions into continuous straight lines on a 1D probability simplex [0, 1]. Player A maximizes payoff (Player B’s loss) to create an Upper Envelope, which Player B minimizes at the Minimax Trough.',
-      formula: 'Upper Envelope: f_upper(q₁) = max_i [ (a_{i1} − a_{i2})q₁ + a_{i2} ]',
+      formula: 'Upper Envelope: f_upper(q₁) = max_i [ (a_i1 − a_i2)q₁ + a_i2 ]',
     },
     {
       topic: 'Topic 2: The Graphical Method',

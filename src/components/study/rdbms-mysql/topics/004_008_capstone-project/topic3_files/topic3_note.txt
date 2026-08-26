@@ -1,0 +1,117 @@
+================================================================================
+RDBMS & MYSQL 8.0 ENTERPRISE CAPSTONE PROJECT ROADMAP
+TOPIC 3: PHASE 2: FORMAL NORMALIZATION TO 3NF / BCNF & SCHEMA ARCHITECTURE MAPPING
+================================================================================
+
+1. EXECUTIVE OVERVIEW & ARCHITECTURAL OBJECTIVES
+--------------------------------------------------------------------------------
+Applying functional dependency analysis, attribute closures, Armstrong's axioms, and lossless join decomposition to eliminate data anomalies.
+
+Key Engineering Pillars:
+1. Closures: Mathematical attribute closure algorithm proving candidate key uniqueness.
+2. 3NF Standard: Eliminating partial and transitive dependencies across all project tables.
+3. BCNF Rigor: Strict superkey determinant verification for overlapping candidate keys.
+4. Snapshots: Intentional transaction price snapshots for immutable financial records.
+
+2. CORE CONCEPTS & IMPLEMENTATION RUNBOOKS
+--------------------------------------------------------------------------------
+[1. FUNCTIONAL DEPENDENCIES]
+Functional dependency analysis determines mathematical determinants and identifies partial or transitive anomalies.
+
+SQL Implementation:
+-- 🔬 FUNCTIONAL DEPENDENCY ANALYSIS:
+-- Relation: StudentCourse (student_id, course_id, student_name, instructor, room)
+-- Dependencies:
+-- FD1: student_id -> student_name
+-- FD2: course_id -> instructor, room
+-- FD3: {student_id, course_id} -> Grade
+-- Candidate Key: {student_id, course_id}
+-- Violations: FD1 and FD2 are Partial Dependencies! (Violates 2NF)
+
+Takeaways:
+- Calculate attribute closures (X+) to prove that a candidate key uniquely determines all attributes.
+- Identify all non-trivial functional dependencies before initiating decomposition.
+- Ensure candidate keys are minimal superkeys with zero redundant attributes.
+
+--------------------------------------------------------------------------------
+[2. 1NF TO 3NF]
+Systematically decomposes relations to 1NF (atomic values), 2NF (no partial dependencies), and 3NF (no transitive dependencies).
+
+SQL Implementation:
+-- 🔄 3NF DECOMPOSITION RESULT:
+-- Table 1: Students (student_id PK, student_name) [Eliminated FD1 Partial Dependency]
+-- Table 2: Courses (course_id PK, instructor, room) [Eliminated FD2 Partial Dependency]
+-- Table 3: Enrollments (student_id, course_id PK, grade) [Full Functional Dependency]
+-- Guaranteed: Lossless Join & Dependency Preserving!
+
+Takeaways:
+- 1NF guarantees all column values are atomic scalar primitives.
+- 2NF removes partial key dependencies in composite key tables.
+- 3NF removes transitive dependencies (Non-Key -> Non-Key).
+
+--------------------------------------------------------------------------------
+[3. BCNF RIGOR]
+BCNF eliminates anomalies when non-trivial determinants exist that are candidate keys or overlapping candidate keys.
+
+SQL Implementation:
+-- 🎯 BCNF RULE:
+-- In every functional dependency X -> Y, X MUST be a Superkey!
+-- Example: Clinic (doctor_id, patient_id, appointment_slot)
+-- FD1: {doctor_id, appointment_slot} -> patient_id
+-- FD2: patient_id -> doctor_id (Patient can only see one assigned doctor)
+-- In FD2, patient_id is NOT a superkey! Violates BCNF!
+-- Decomposition: Assign (patient_id PK, doctor_id) and Slots (patient_id, appointment_slot PK)
+
+Takeaways:
+- BCNF is strictly stronger than 3NF when multiple overlapping candidate keys exist.
+- Every determinant in a BCNF table must be a full candidate key.
+- Decompose systematically while verifying lossless join properties.
+
+--------------------------------------------------------------------------------
+[4. INTENTIONAL DENORMALIZATION]
+Controlled denormalization preserves immutable historical transaction snapshots and avoids expensive 8-table joins on high-throughput read paths.
+
+SQL Implementation:
+-- ⚡ CONTROLLED DENORMALIZATION IN E-COMMERCE:
+-- Storing snapshot unit_price and tax_amount directly in order_items table!
+-- Why? Product master price changes over time; historical orders must reflect exact price paid!
+CREATE TABLE order_items (
+  order_item_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  order_id BIGINT NOT NULL,
+  product_id BIGINT NOT NULL,
+  snapshot_price DECIMAL(10,2) NOT NULL, -- Intentional snapshot duplicate!
+  quantity INT NOT NULL
+);
+
+Takeaways:
+- Historical price snapshots are mandatory for invoicing and financial audits.
+- Document every denormalized column and enforce consistency via triggers or backend code.
+- Benchmark query latency before and after denormalization.
+
+
+3. REAL-WORLD BENGAL ENGINEERING SCENARIOS
+--------------------------------------------------------------------------------
+* Case 1: Abhronila & Susmita – BCNF Deconstruction in Kolkata Clinic
+  Abhronila and Susmita discovered an anomaly where patient room assignments caused transitive dependencies on nurse ward shifts. By decomposing the relation into Patient_Admissions and Ward_Rosters, they reached 3NF, eliminating room change update anomalies.
+
+* Case 2: Mamata & Debangshu – Snapshot Denormalization in Barrackpore Invoicing
+  Mamata and Debangshu initially pulled current product prices dynamically for invoice generation. When vendor catalog prices increased, older customer invoices retroactively displayed wrong totals. They denormalized invoice_items with immutable snapshot_unit_price, preserving audit accuracy.
+
+
+4. SENIOR PITFALLS & PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+Pitfalls to Avoid:
+- Pitfall 1: Premature Denormalization: Denormalizing tables before reaching 3NF introduces data duplication and integrity bugs without clear performance justifications. (Rule: Normalize to 3NF first; denormalize only specific read-heavy attributes with documented justification.)
+- Pitfall 2: Over-Splitting into 1-Column Tables: Excessive normalization beyond BCNF into trivial 1-column tables increases join overhead without adding relational value. (Rule: Maintain balance between 3NF integrity and query maintainability.)
+
+Production Best Practices:
+- Best Practice 1: Document Functional Dependencies: Include a formal table of all functional dependencies and candidate key derivations in your capstone technical report. (Proves mathematical rigor during academic and viva evaluation.)
+- Best Practice 2: Validate Lossless Join Property: Ensure R1 ∩ R2 forms a candidate key for at least one decomposed sub-relation. (Guarantees decomposed tables can be rejoined without phantom rows.)
+
+5. TEACHER'S MASTER ADVICE - SIR SUKANTA HUI
+--------------------------------------------------------------------------------
+Normalization is not just an academic exercise—it is the foundation of database integrity! In your capstone report, explicitly state the functional dependencies for each entity, show how you eliminated 2NF and 3NF violations, and explain where you intentionally retained snapshot columns like order item unit prices for financial correctness.
+
+================================================================================
+END OF STUDY NOTE - TOPIC 3
+================================================================================

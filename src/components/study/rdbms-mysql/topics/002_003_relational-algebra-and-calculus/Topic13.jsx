@@ -591,7 +591,7 @@ const Topic13 = () => {
                 <span className="text-xs text-slate-500 font-mono">Barrackpore Academy</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Relational Algebra: $\\text{Students} \\mathbin{\\unicode{x27D5}} \\text{Enrollments}$"}
+                {"Relational Algebra: $\Students \\mathbin{\\unicode{x27D5}} \Enrollments$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT s.student_id, s.full_name, COALESCE(e.course_id, 'Not Enrolled') AS course_id
@@ -609,7 +609,7 @@ LEFT JOIN enrollments e ON s.student_id = e.student_id;`}
                 <span className="text-xs text-slate-500 font-mono">Kolkata University</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Relational Algebra: $\\text{Students} \\mathbin{\\unicode{x27D7}} \\text{Courses}$"}
+                {"Relational Algebra: $\Students \\mathbin{\\unicode{x27D7}} \Courses$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT s.student_id, s.full_name, c.course_id, c.course_title

@@ -409,7 +409,7 @@ const Topic15 = () => {
                 <span className="text-xs text-slate-500 font-mono">Barrackpore Academy</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Optimized Form: $(\\sigma_{\\text{city='Barrackpore'}}(\\text{Students})) \\bowtie (\\sigma_{\\text{grade='A+'}}(\\text{Enrollments}))$"}
+                {"Optimized Form: $(\\sigma_{\city='Barrackpore'}(\Students)) \\bowtie (\\sigma_{\grade='A+'}(\Enrollments))$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT s.full_name, e.course_id
@@ -427,7 +427,7 @@ JOIN (SELECT * FROM enrollments WHERE grade = 'A+') e ON s.student_id = e.studen
                 <span className="text-xs text-slate-500 font-mono">Kolkata University</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Optimized Form: $\\sigma_{\\text{city='Kolkata'}}(\\text{Online}) \\cup \\sigma_{\\text{city='Kolkata'}}(\\text{Offline})$"}
+                {"Optimized Form: $\\sigma_{\city='Kolkata'}(\Online) \\cup \\sigma_{\city='Kolkata'}(\Offline)$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT student_id, full_name FROM online_students WHERE city = 'Kolkata'

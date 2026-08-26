@@ -1,0 +1,48 @@
+================================================================================
+RDBMS MySQL Course - Module 001_004: Practice Labs, MCQs & Segment Assessment
+Topic 2: Hands-on Lab 2: Retail Product Catalog & Inventory DDL Scripts
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. LAB OVERVIEW: RETAIL INVENTORY & CATALOG DATABASE
+--------------------------------------------------------------------------------
+This lab guides students through designing, constraining, and altering a retail
+catalog and warehouse inventory database for electronics and consumer goods
+merchants in West Bengal (Barrackpore, Kolkata, and Ichapur warehouses).
+
+2. SCHEMA ARCHITECTURE & CONSTRAINTS
+--------------------------------------------------------------------------------
+1. `categories` table:
+   - category_id INT AUTO_INCREMENT PRIMARY KEY
+   - category_name VARCHAR(50) NOT NULL UNIQUE
+   - description TEXT
+
+2. `suppliers` table:
+   - supplier_id INT AUTO_INCREMENT PRIMARY KEY
+   - supplier_name VARCHAR(100) NOT NULL
+   - contact_person VARCHAR(100) NOT NULL
+   - phone_number VARCHAR(15) NOT NULL UNIQUE
+   - city VARCHAR(50) DEFAULT 'Kolkata'
+
+3. `products` table:
+   - product_id INT AUTO_INCREMENT PRIMARY KEY
+   - category_id INT NOT NULL (FK -> categories.category_id)
+   - supplier_id INT NOT NULL (FK -> suppliers.supplier_id)
+   - sku_code VARCHAR(30) NOT NULL UNIQUE
+   - product_name VARCHAR(120) NOT NULL
+   - unit_price_inr DECIMAL(10,2) CHECK (unit_price_inr > 0)
+   - is_active BOOLEAN DEFAULT TRUE
+
+4. `inventory_stock` table:
+   - stock_id INT AUTO_INCREMENT PRIMARY KEY
+   - product_id INT NOT NULL UNIQUE (FK -> products.product_id)
+   - warehouse_city VARCHAR(50) DEFAULT 'Barrackpore'
+   - stock_quantity INT CHECK (stock_quantity >= 0) DEFAULT 0
+   - reorder_level INT DEFAULT 10
+   - last_restocked_date DATE DEFAULT (CURDATE())
+
+3. ALTER TABLE DRILLS & SCHEMA EVOLUTIONS
+--------------------------------------------------------------------------------
+- Adding discount percentage column: `ALTER TABLE products ADD COLUMN discount_pct DECIMAL(4,2) DEFAULT 0.00;`
+- Modifying stock quantity constraint: `ALTER TABLE inventory_stock MODIFY stock_quantity INT NOT NULL DEFAULT 0;`
+- Renaming warehouse column: `ALTER TABLE inventory_stock RENAME COLUMN warehouse_city TO storage_location;`

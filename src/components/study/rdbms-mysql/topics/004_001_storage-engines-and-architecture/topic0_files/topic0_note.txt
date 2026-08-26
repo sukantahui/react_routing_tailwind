@@ -1,0 +1,39 @@
+================================================================================
+RDBMS MySQL Course - Module 004_001: MySQL Architecture & Storage Engines Deep Dive
+Topic 0: MySQL Server Architecture: Client Layer, Core Server Layer, and Storage Engine API
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. MYSQL 3-TIER LOGICAL SERVER ARCHITECTURE
+--------------------------------------------------------------------------------
+MySQL is architected as a modular, three-tier database system that cleanly
+separates client connection handling, SQL query processing/optimization, and
+physical data storage.
+
+1. Tier 1: Client / Connection Layer
+   - Handles network connections, thread pool allocation, and authentication
+     (caching_sha2_password, SSL/TLS handshake).
+   - Manages client sessions and allocates dedicated connection threads.
+
+2. Tier 2: Core Server (SQL) Layer
+   - Parser: Lexical and grammatical tokenization, constructing Parse Tree.
+   - Preprocessor: Semantic validation, permission checks, column resolution.
+   - Cost-Based Optimizer (CBO): Selects optimal access paths, index joins,
+     and creates the physical execution plan.
+   - Query Cache (Removed in MySQL 8.0) and Query Execution Engine.
+   - Built-in Functions, Stored Routines, Triggers, Views, and Information Schema.
+
+3. Tier 3: Pluggable Storage Engine Layer
+   - The Pluggable Storage Engine API is an open abstraction interface (handler API).
+   - Engines (InnoDB, MyISAM, MEMORY, CSV, ARCHIVE) handle physical page reading,
+     writing, row formatting, indexing, and transactional logging.
+   - The server layer delegates table operations (`handler::read_row()`,
+     `handler::write_row()`) to the underlying engine through standard C++ interfaces.
+
+2. STORAGE ENGINE HANDLER API INTERACTION
+--------------------------------------------------------------------------------
+- The core server layer has NO knowledge of physical disk layouts or B+ trees.
+- When an execution plan evaluates `SELECT * FROM students WHERE id = 5`,
+  the optimizer calls `handler::ha_index_read_map()` on the InnoDB handler.
+- InnoDB retrieves the 16KB data page from the Buffer Pool, decodes the row,
+  and returns standard tuple buffers to the server layer.

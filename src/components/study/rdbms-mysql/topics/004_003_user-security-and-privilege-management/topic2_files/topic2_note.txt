@@ -1,0 +1,34 @@
+================================================================================
+RDBMS MySQL Course - Module 004_003: User Security, Roles, Privileges & Encryption
+Topic 2: Host Matching Rules (localhost, IP addresses, % wildcards, subnet masks)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE FUNDAMENTAL HOST SPECIFIERS
+--------------------------------------------------------------------------------
+1. `localhost`:
+   - Connects via **UNIX Domain Socket** (Unix/Linux) or Shared Memory (Windows).
+   - Does NOT use TCP/IP networking!
+2. `127.0.0.1`:
+   - Connects via **TCP/IP loopback** socket.
+3. `%` (Wildcard):
+   - Matches ANY client host connecting over TCP/IP.
+   - Does NOT match Unix domain socket connections (`localhost`).
+4. IP Subnet Masks & CIDR:
+   - `192.168.1.%` (Prefix wildcard)
+   - `192.168.1.0/255.255.255.0` (Explicit netmask)
+
+2. HOST RESOLUTION SORT ORDER (MOST SPECIFIC MATCH FIRST)
+--------------------------------------------------------------------------------
+When a client connects, MySQL searches in-memory `mysql.user` records sorted by:
+1. Exact IP Address (e.g. '192.168.1.50')     -> Priority 1 (Most Specific)
+2. Subnet Mask (e.g. '192.168.1.0/255.255.255.0') -> Priority 2
+3. Wildcard IP Prefix (e.g. '192.168.1.%')    -> Priority 3
+4. Universal Wildcard ('%')                   -> Priority 4 (Least Specific)
+
+3. DNS RESOLUTION & SKIP-NAME-RESOLVE
+--------------------------------------------------------------------------------
+- If hostnames like `'user'@'app.barrackpore.com'` are used, MySQL performs a reverse
+  DNS lookup on every connection.
+- Production Rule: Enable `skip_name_resolve = 1` in `my.cnf` to disable DNS lookups
+  and strictly use IP addresses/subnets for instant sub-millisecond connections.

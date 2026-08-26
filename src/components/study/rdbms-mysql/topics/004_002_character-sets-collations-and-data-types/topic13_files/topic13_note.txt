@@ -1,0 +1,43 @@
+================================================================================
+RDBMS MySQL Course - Module 004_002: Character Sets, Collations, JSON & Spatial Types
+Topic 13: Practical Workshop: Building a Hybrid Relational + JSON Product Document Schema
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE HYBRID RELATIONAL + DOCUMENT ARCHITECTURAL PATTERN
+--------------------------------------------------------------------------------
+Modern enterprise systems need both:
+1. Strict Relational Integrity:
+   - Primary Keys, Foreign Keys, ACID transactions, exact DECIMAL currency math (₹).
+2. Document Flexibility:
+   - Dynamic polymorphic product attributes (laptops have RAM/CPU; clothing has size/color).
+
+2. THE ENTERPRISE PRODUCT CATALOG BLUEPRINT
+--------------------------------------------------------------------------------
+CREATE TABLE product_catalog (
+    product_id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    sku VARCHAR(32) CHARACTER SET ascii COLLATE ascii_bin UNIQUE NOT NULL,
+    product_name VARCHAR(150) NOT NULL,
+    base_price_inr DECIMAL(10, 2) NOT NULL,
+    stock_quantity INT UNSIGNED NOT NULL DEFAULT 0,
+    
+    -- Dynamic Polymorphic Attributes (JSON):
+    attributes JSON NOT NULL,
+    
+    -- Virtual Relational Bridge Columns for Instant Indexing:
+    brand VARCHAR(50) GENERATED ALWAYS AS (attributes->>'$.brand') VIRTUAL,
+    rating DECIMAL(3, 2) GENERATED ALWAYS AS (CAST(attributes->>'$.rating' AS DECIMAL(3,2))) VIRTUAL,
+    
+    -- Warehouse GIS Location:
+    warehouse_location POINT NOT NULL SRID 4326,
+    
+    -- Audit Timestamps:
+    created_at DATETIME(6) DEFAULT CURRENT_TIMESTAMP(6),
+    updated_at DATETIME(6) DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+    
+    -- Indexes:
+    INDEX idx_brand (brand),
+    INDEX idx_rating (rating),
+    INDEX idx_tags ((CAST(attributes->'$.tags' AS CHAR(30) ARRAY))),
+    SPATIAL INDEX (warehouse_location)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

@@ -1,0 +1,38 @@
+================================================================================
+RDBMS MySQL Course - Module 003_006: Query Execution Plans & Performance Tuning
+Topic 10: Optimizer Hints: USE INDEX, FORCE INDEX, IGNORE INDEX, JOIN_ORDER, BATCH_KEY_ACCESS
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT ARE OPTIMIZER HINTS?
+--------------------------------------------------------------------------------
+Optimizer hints are explicit directives given to the MySQL Cost-Based Optimizer (CBO)
+to influence query execution plans, access paths, join orders, and memory buffers.
+
+2. LEGACY INDEX HINTS VS MYSQL 8.0+ COMMENT HINTS
+--------------------------------------------------------------------------------
+1. Legacy Index Hints (Table-Level):
+   - USE INDEX (idx): Suggests considering only named index.
+   - FORCE INDEX (idx): Treats table scan as prohibitively costly, compelling index use.
+   - IGNORE INDEX (idx): Excludes specific index from optimizer consideration.
+   - Granular Scopes: FOR ORDER BY, FOR GROUP BY, FOR JOIN.
+
+2. Modern MySQL 8.0+ Comment Hints (/*+ ... */):
+   - Index Control:  /*+ INDEX(table_name idx_name) */, /*+ NO_INDEX(t idx) */
+   - Join Order:     /*+ JOIN_ORDER(t1, t2, t3) */, /*+ JOIN_PREFIX(t1) */
+   - Join Algorithm: /*+ BATCH_KEY_ACCESS(t) */ (BKA), /*+ NO_BNL(t) */, /*+ HASH_JOIN(t) */
+   - Dynamic Memory: /*+ SET_VAR(sort_buffer_size = 16M) */
+   - Query Timeout:  /*+ MAX_EXECUTION_TIME(2000) */ (Kill after 2,000 ms)
+
+3. BATCH KEY ACCESS (BKA) & MULTI-RANGE READ (MRR)
+--------------------------------------------------------------------------------
+BKA buffers joined outer rows in memory (`join_buffer_size`), sorts their keys
+in clustered order, and probes the inner index in sequential batches, transforming
+random disk I/O into sequential reads.
+
+4. GOLDEN RULES FOR PRODUCTION HINTS
+--------------------------------------------------------------------------------
+1. Try `ANALYZE TABLE tbl_name` first before adding hints (updates index cardinality).
+2. Prefer modern MySQL 8.0 `/*+ ... */` comment hints over legacy syntax.
+3. Document why the hint was added and schedule periodic reviews.
+4. Use `/*+ MAX_EXECUTION_TIME(ms) */` on user-facing analytical endpoints.

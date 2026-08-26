@@ -1,0 +1,58 @@
+================================================================================
+MYSQL 8.0 TABLE PARTITIONING & HORIZONTAL SHARDING STRATEGIES
+TOPIC 1: Partitioning Mechanics – How the Storage Engine Handles Partitioned Tables
+================================================================================
+
+1. THE ARCHITECTURE OF HA_PARTITION & INNODB HANDLERS
+--------------------------------------------------------------------------------
+In MySQL 8.0, partitioned tables are orchestrated through a specialized handler proxy:
+  [SQL Parser / Optimizer]
+            │
+            ▼
+  [ha_partition (Partition Handler Proxy)]
+            │ (Evaluates Partitioning Expression)
+     ┌──────┴──────┐
+     ▼             ▼
+  [ha_innobase]  [ha_innobase]  ──> (Underlying InnoDB Engine Instances)
+  (Partition 0)  (Partition 1)
+     │             │
+     ▼             ▼
+  [table#p#p0.ibd] [table#p#p1.ibd] (Independent Physical Tablespaces)
+
+2. QUERY EXECUTION PATHWAY IN PARTITIONED TABLES
+--------------------------------------------------------------------------------
+Operation           Internal Execution Mechanics
+--------------------------------------------------------------------------------
+`INSERT`            `ha_partition` evaluates expression (e.g. `YEAR(order_date)`),
+                    identifies partition ID $p_i$, and delegates insert to $p_i$'s InnoDB handler.
+
+`SELECT` (Pruned)   Optimizer evaluates `WHERE` clause, identifies matching partition $p_i$,
+                    and opens *only* the specific `$p_i.ibd` tablespace.
+
+`SELECT` (Unpruned) `ha_partition` opens all partition handlers, scans each `.ibd` file,
+                    and merges result streams (Scatter-Gather penalty).
+
+`UPDATE` (Same Part)`ha_innobase` updates row in place inside the same `.ibd` tablespace.
+
+`UPDATE` (Cross Part)InnoDB executes an atomic **delete from old partition** followed by
+                    **insert into new partition** within the same transaction.
+
+3. PHYSICAL DISK LAYOUT & DATA DICTIONARY
+--------------------------------------------------------------------------------
+- Each partition has its own `.ibd` file: `db_name/table_name#p#partition_name.ibd`.
+- Partition metadata is stored transactionally in MySQL 8.0 Data Dictionary (`mysql.ibd`).
+- No legacy `.par` metadata files exist in MySQL 8.0.
+
+4. LOCKING & CONCURRENCY CHARACTERISTICS
+--------------------------------------------------------------------------------
+- **Row-Level Record Locks**: Isolated to the specific partition's `.ibd` tablespace.
+- Concurrent transactions modifying different partitions experience ZERO lock contention!
+- DDL partition operations (`ADD PARTITION`, `DROP PARTITION`) acquire brief Metadata Locks (`MDL`).
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Ensure `innodb_file_per_table = ON` to allow independent `.ibd` partition management.
+2. Monitor open file descriptors via `open_files_limit` for tables with many partitions.
+3. Minimize cross-partition updates by choosing stable, immutable partitioning columns.
+4. Inspect partition storage usage via `information_schema.PARTITIONS`.
+================================================================================

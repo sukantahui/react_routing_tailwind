@@ -1,0 +1,45 @@
+================================================================================
+RDBMS & MYSQL MASTERCLASS: DATABASE NORMALIZATION
+MODULE: FIRST NORMAL FORM (1NF) – ATOMICITY, REPEATING GROUPS & ARRAY DECOMPOSITION
+TOPIC 3: DETAILED EXAMPLE: DECOMPOSING COMMA-SEPARATED VALUES (CSV / DELIMITED LISTS) INTO 1NF TABLES
+================================================================================
+
+1. EXECUTIVE OVERVIEW & LEARNING OBJECTIVES
+--------------------------------------------------------------------------------
+This topic provides an exhaustive theoretical and practical deep-dive into:
+"Detailed Example: Decomposing Comma-Separated Values (CSV / Delimited Lists) into 1NF Tables".
+Module: First Normal Form (1NF) – Atomicity, Repeating Groups & Array Decomposition (006_002_first-normal-form-1nf)
+Level: Intermediate | Estimated Study Time: 3 Hours
+
+2. THEORETICAL FOUNDATION & MATRICES
+--------------------------------------------------------------------------------
+- Core Concept: Relational normalization ensures that data dependencies are modeled
+  strictly according to business invariants, preventing update, deletion, and insertion anomalies.
+- Formal Rule: 1. Comma-Separated Values (CSV) Violation in Single Cell
+- Decomposition Strategy: Decompose multivalued attributes into a discrete child table where each row contains exactly one scalar value.
+
+3. BEFORE-VS-AFTER SCHEMA TRANSFORMATION
+--------------------------------------------------------------------------------
+UNNORMALIZED / NON-COMPLIANT STATE:
+Student 'Susmita Ghosh' has hobbies stored as 'Coding, Chess, Robotics' in a single VARCHAR column.
+Root Cause: Violates 1NF rule: Every column in every row must hold atomic (indivisible) scalar values.
+
+NORMALIZED STATE:
+Full 1NF compliance allows direct B-Tree indexing, deterministic GROUP BY aggregations, and standard SQL JOIN operations.
+
+4. SENIOR ARCHITECTURAL PITFALLS & BEST PRACTICES
+--------------------------------------------------------------------------------
+- PITFALL: Hardcoded column repetitions waste disk space with NULLs and complicate WHERE clause search queries.
+- BEST PRACTICE: Full 1NF compliance allows direct B-Tree indexing, deterministic GROUP BY aggregations, and standard SQL JOIN operations.
+- ACID INVARIANT: Always declare explicit foreign keys with ON DELETE RESTRICT to protect transactional ledgers.
+
+5. TEACHER'S MASTER SUMMARY - SIR SUKANTA HUI
+--------------------------------------------------------------------------------
+"In software architecture, bad database design cannot be fixed with faster hardware
+or clever application code. Normalization provides the mathematical guarantee that
+your system maintains internal consistency under high concurrent load. Master these
+normal form principles from first principles!"
+
+================================================================================
+END OF STUDY NOTE - TOPIC 3
+================================================================================

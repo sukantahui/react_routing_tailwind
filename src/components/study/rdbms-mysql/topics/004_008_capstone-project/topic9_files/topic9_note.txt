@@ -1,0 +1,121 @@
+================================================================================
+RDBMS & MYSQL 8.0 ENTERPRISE CAPSTONE PROJECT ROADMAP
+TOPIC 9: PHASE 8: SECURITY ROLE DESIGN, PRIVILEGE ASSIGNMENT & BACKUP/DISASTER RECOVERY RUNBOOK
+================================================================================
+
+1. EXECUTIVE OVERVIEW & ARCHITECTURAL OBJECTIVES
+--------------------------------------------------------------------------------
+Implementing Role-Based Access Control (RBAC), least-privilege service accounts, SSL/TLS, hot logical backups, and Point-in-Time Recovery (PITR).
+
+Key Engineering Pillars:
+1. RBAC Matrix: Granular roles (readonly, readwrite, admin) enforcing least privilege.
+2. Prepared Stmts: Parameterized prepared statements eliminating SQL injection vectors.
+3. Hot Backup: Non-blocking mysqldump --single-transaction hot snapshot exports.
+4. Sub-Second PITR: Point-in-Time Recovery replaying binary logs to the exact second of failure.
+
+2. CORE CONCEPTS & IMPLEMENTATION RUNBOOKS
+--------------------------------------------------------------------------------
+[1. RBAC MATRIX]
+MySQL 8.0 roles simplify permission management by grouping privileges and assigning roles to specific application and admin accounts.
+
+SQL Implementation:
+-- 👥 CREATING ROLES & GRANTING LEAST PRIVILEGE:
+-- 1. Create Roles:
+CREATE ROLE 'role_app_readonly', 'role_app_readwrite', 'role_dba_admin';
+
+-- 2. Assign Granular Privileges:
+GRANT SELECT ON ecommerce_db.* TO 'role_app_readonly';
+GRANT SELECT, INSERT, UPDATE, DELETE ON ecommerce_db.* TO 'role_app_readwrite';
+GRANT ALL PRIVILEGES ON ecommerce_db.* TO 'role_dba_admin';
+
+-- 3. Create Service Users and Assign Roles:
+CREATE USER 'svc_web_app'@'10.0.1.%' IDENTIFIED BY 'StrongPass#2026' REQUIRE SSL;
+GRANT 'role_app_readwrite' TO 'svc_web_app'@'10.0.1.%';
+SET DEFAULT ROLE 'role_app_readwrite' TO 'svc_web_app'@'10.0.1.%';
+
+Takeaways:
+- Never connect web applications using the root superuser account.
+- Restrict user hostnames to specific IP subnets (e.g. 10.0.1.%) and enforce SSL.
+- Activate default roles with SET DEFAULT ROLE.
+
+--------------------------------------------------------------------------------
+[2. INJECTION DEFENSE]
+Prepared statements parameterize user input, neutralizing SQL injection attacks like ' OR '1'='1 at the database protocol level.
+
+SQL Implementation:
+-- 🛡️ PARAMETERIZED PREPARED STATEMENT DEFENSE:
+PREPARE stmt_user_login FROM 
+  'SELECT user_id, password_hash FROM users WHERE email = ? AND is_active = TRUE';
+
+SET @email_input = 'mamata@example.in';
+EXECUTE stmt_user_login USING @email_input;
+DEALLOCATE PREPARE stmt_user_login;
+
+-- 💡 Why this prevents SQLi:
+-- Parameter values are treated strictly as data literals, never executable SQL code!
+
+Takeaways:
+- Prepared statements separate SQL syntax from untrusted user input parameters.
+- Enforce parameterized queries in backend frameworks (Node.js, Python, Java).
+- Reject concatenated dynamic raw SQL strings in application layers.
+
+--------------------------------------------------------------------------------
+[3. HOT BACKUPS]
+mysqldump with --single-transaction takes a consistent ACID snapshot of InnoDB tables without locking active read or write traffic.
+
+SQL Implementation:
+-- 💾 PRODUCTION HOT BACKUP COMMAND (NON-BLOCKING):
+mysqldump -u dba_backup -p   --single-transaction   --quick   --routines   --triggers   --events   --set-gtid-purged=OFF   ecommerce_db > /backups/ecommerce_db_$(date +%F_%H%M%S).sql
+
+Takeaways:
+- --single-transaction uses MVCC to dump tables without table locking.
+- --routines, --triggers, and --events preserve server-side procedural logic.
+- --quick streams large dumps row-by-row, avoiding memory exhaustion.
+
+--------------------------------------------------------------------------------
+[4. PITR RUNBOOK]
+Point-in-Time Recovery combines full baseline dumps with replayed binary logs to recover data up to the exact second prior to an outage.
+
+SQL Implementation:
+-- 🚑 POINT-IN-TIME RECOVERY RUNBOOK:
+-- 1. Restore the last full backup:
+mysql -u root -p ecommerce_db < /backups/full_backup_midnight.sql
+
+-- 2. Locate the timestamp/position immediately BEFORE disaster (e.g. accidental DROP):
+-- Disaster occurred at '2026-08-25 14:35:10'
+
+-- 3. Replay binary logs up to exact stop time:
+mysqlbinlog --stop-datetime="2026-08-25 14:35:09"   /var/log/mysql/binlog.000045 /var/log/mysql/binlog.000046 | mysql -u root -p ecommerce_db;
+
+Takeaways:
+- Binary logs record all data-modifying statements with precise timestamps.
+- mysqlbinlog replays transactions safely up to the exact millisecond before corruption.
+- Test disaster recovery drills regularly to guarantee Recovery Time Objectives (RTO).
+
+
+3. REAL-WORLD BENGAL ENGINEERING SCENARIOS
+--------------------------------------------------------------------------------
+* Case 1: Susmita & Mamata – Disaster Recovery Drill in Barrackpore Retail
+  In Barrackpore, Susmita simulated an accidental DROP TABLE orders event at 2:30 PM. Mamata restored the 12:00 AM full backup and replayed binary logs up to 2:29:59 PM using mysqlbinlog, recovering all ₹4.5 Lakhs in morning transactions with zero data loss.
+
+* Case 2: Abhronila & Debangshu – RBAC Security Lockdown in Kolkata Bank
+  In Kolkata, Abhronila established strict RBAC roles separating teller staff from database administrators. Application microservices connected via restricted read-write accounts over TLS connections, preventing unauthorized table drop commands.
+
+
+4. SENIOR PITFALLS & PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+Pitfalls to Avoid:
+- Pitfall 1: Storing Backups on the Same Disk: Saving backup SQL dumps on the same physical server disk provides zero protection if the server hardware or SSD fails. (Rule: Replicate backups automatically to offsite encrypted cloud storage (e.g. AWS S3).)
+- Pitfall 2: Disabling Binary Logging: Running MySQL without log_bin enabled makes Point-in-Time Recovery impossible after an accidental deletion. (Rule: Always keep binary logging enabled in production with 7+ days retention.)
+
+Production Best Practices:
+- Best Practice 1: Schedule Automated Nightly Dumps: Automate mysqldump scripts via cron or cloud schedulers with log rotation and Slack/Email alerts. (Ensures fresh daily recovery points with zero manual human effort.)
+- Best Practice 2: Practice Restore Drills Monthly: Periodically restore production dumps into a staging database to verify backup integrity. (Verifies backup files are uncorrupted and disaster runbooks remain accurate.)
+
+5. TEACHER'S MASTER ADVICE - SIR SUKANTA HUI
+--------------------------------------------------------------------------------
+A database architecture is incomplete without robust security and disaster recovery! In your capstone report, define your RBAC permission matrix for developers, analysts, and application accounts. Include your mysqldump hot backup command and write a step-by-step Point-in-Time Recovery (PITR) guide showing how you recover from an accidental table drop!
+
+================================================================================
+END OF STUDY NOTE - TOPIC 9
+================================================================================

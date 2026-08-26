@@ -1,15 +1,15 @@
 {
   "trackId": "rdbms-mysql-basic-to-pro",
   "trackTitle": "RDBMS based on MySQL",
-  "description": "A complete roadmap for learning Relational Database Management Systems (RDBMS) using MySQL, from beginner to advanced with practical SQL, database design, normalization, transactions, optimization, projects and assessments.",
+  "description": "A complete, industry-standard roadmap for learning Relational Database Management Systems (RDBMS) using MySQL, featuring dedicated deep-dive segments on database design, complete normalization theory (1NF to 6NF & DKNF), advanced SQL, transactions, performance tuning, DBA administration, cloud databases, and real-world engineering capstones.",
   "institute": {
     "name": "Coder & AccoTax",
     "website": "https://www.codernaccotax.co.in",
     "author": "Sukanta Hui",
     "trackType": "RDBMS using MySQL Tutorial Roadmap",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "location": "25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore, West Bengal, India",
-    "lastUpdated": "2026-08-24"
+    "lastUpdated": "2026-08-26"
   },
   "folder": "rdbms-mysql",
   "subject": "RDBMS using MySQL",
@@ -53,7 +53,14 @@
           "difficulty": "Easy",
           "estimatedHours": 8,
           "summary": "Comprehensive overview of data, information, traditional file systems vs DBMS, relational models, key concepts, MySQL installation, and executing SQL scripts in Workbench.",
-          "tags": ["dbms", "rdbms", "keys", "relational-model", "mysql-workbench", "installation"],
+          "tags": [
+            "dbms",
+            "rdbms",
+            "keys",
+            "relational-model",
+            "mysql-workbench",
+            "installation"
+          ],
           "topics": [
             "Introduction to Data and Information",
             "Understanding Data Processing",
@@ -112,7 +119,16 @@
           "difficulty": "Easy",
           "estimatedHours": 6,
           "summary": "Hands-on foundation in DDL and DML commands: creating and altering databases/tables, inserting records, querying with WHERE, updating, deleting, sorting, and pagination.",
-          "tags": ["sql", "ddl", "dml", "crud", "select", "where", "order-by", "limit"],
+          "tags": [
+            "sql",
+            "ddl",
+            "dml",
+            "crud",
+            "select",
+            "where",
+            "order-by",
+            "limit"
+          ],
           "topics": [
             "Understanding MySQL Data Types (Numeric, String, Date/Time)",
             "CREATE DATABASE and DROP DATABASE Statements",
@@ -149,7 +165,14 @@
           "difficulty": "Medium",
           "estimatedHours": 5,
           "summary": "Deep dive into data integrity constraints: PRIMARY KEY, FOREIGN KEY, UNIQUE, NOT NULL, CHECK, DEFAULT, AUTO_INCREMENT, and constraint management.",
-          "tags": ["primary-key", "foreign-key", "constraints", "data-integrity", "auto-increment", "check-constraint"],
+          "tags": [
+            "primary-key",
+            "foreign-key",
+            "constraints",
+            "data-integrity",
+            "auto-increment",
+            "check-constraint"
+          ],
           "topics": [
             "Understanding Data Integrity (Entity, Domain, Referential)",
             "PRIMARY KEY Constraint: Single-Column and Composite Primary Keys",
@@ -181,7 +204,13 @@
           "difficulty": "Medium",
           "estimatedHours": 4,
           "summary": "Review, validate, and reinforce Segment 1 skills through MCQ tests, real-world DDL/DML exercises, mini-project design, and segment assessment.",
-          "tags": ["practice", "mcq", "assessment", "mini-project", "lab"],
+          "tags": [
+            "practice",
+            "mcq",
+            "assessment",
+            "mini-project",
+            "lab"
+          ],
           "topics": [
             "Segment 1 Comprehensive MCQ Self-Assessment",
             "Hands-on Lab 1: College Student Admission Database Setup",
@@ -203,7 +232,7 @@
     },
     {
       "segmentId": "design",
-      "title": "Segment 2 – Relational Database Design, Normalization & Querying",
+      "title": "Segment 2 – Relational Database Design, ER Modeling & Querying",
       "level": "Intermediate",
       "summary": "Master relational schema design, in-depth ER & EER modeling, formal Relational Algebra, functional dependencies, 1NF to BCNF normalization, advanced SQL joins, built-in functions, and indexing fundamentals.",
       "allocatedHours": 40,
@@ -216,7 +245,14 @@
           "difficulty": "Medium",
           "estimatedHours": 5,
           "summary": "Understand relationship cardinalities, junction tables for many-to-many relationships, self-referencing tables, and cascading referential actions.",
-          "tags": ["relationships", "cardinality", "foreign-key", "cascade", "many-to-many", "junction-table"],
+          "tags": [
+            "relationships",
+            "cardinality",
+            "foreign-key",
+            "cascade",
+            "many-to-many",
+            "junction-table"
+          ],
           "topics": [
             "Understanding Relationship Cardinality & Modality (Optionality)",
             "One-to-One (1:1) Relationship: Schema Design & Use Cases",
@@ -244,7 +280,17 @@
           "difficulty": "Medium",
           "estimatedHours": 6,
           "summary": "Comprehensive, deep dive into conceptual database modeling using ER and Extended ER (EER) diagrams: entity sets, attributes, key constraints, weak entities, structural cardinality/modality constraints, Chen vs Crow's Foot notations, specialization/generalization hierarchies, union types/categories, aggregation, and the complete ER-to-Relational schema mapping methodology.",
-          "tags": ["er-diagram", "eer", "crows-foot", "chen-notation", "weak-entities", "generalization", "specialization", "aggregation", "schema-mapping"],
+          "tags": [
+            "er-diagram",
+            "eer",
+            "crows-foot",
+            "chen-notation",
+            "weak-entities",
+            "generalization",
+            "specialization",
+            "aggregation",
+            "schema-mapping"
+          ],
           "topics": [
             "Conceptual vs Logical vs Physical Database Design Lifecycles",
             "Entities, Entity Sets, and Types of Attributes (Simple vs Composite, Single vs Multi-valued, Stored vs Derived)",
@@ -284,7 +330,16 @@
           "difficulty": "Hard",
           "estimatedHours": 6,
           "summary": "Formal theoretical foundation of relational database query processing: fundamental relational algebra operations, derived and extended operators, query tree construction, algebraic equivalence rules for query optimization, and introduction to Tuple & Domain Relational Calculus.",
-          "tags": ["relational-algebra", "relational-calculus", "selection", "projection", "natural-join", "division-operator", "query-trees", "query-optimization"],
+          "tags": [
+            "relational-algebra",
+            "relational-calculus",
+            "selection",
+            "projection",
+            "natural-join",
+            "division-operator",
+            "query-trees",
+            "query-optimization"
+          ],
           "topics": [
             "Introduction to Formal Relational Query Languages & Relational Completeness",
             "Relational Algebra Core Operations: Selection Operator (σ) with Complex Predicates",
@@ -323,7 +378,15 @@
           "difficulty": "Medium",
           "estimatedHours": 6,
           "summary": "Eliminate data redundancy and anomalies through formal database normalization: functional dependencies, Armstrong's axioms, 1NF, 2NF, 3NF, BCNF, and practical denormalization.",
-          "tags": ["normalization", "1nf", "2nf", "3nf", "bcnf", "functional-dependencies", "denormalization"],
+          "tags": [
+            "normalization",
+            "1nf",
+            "2nf",
+            "3nf",
+            "bcnf",
+            "functional-dependencies",
+            "denormalization"
+          ],
           "topics": [
             "The Purpose of Normalization: Eliminating Redundancy and Anomalies",
             "Database Anomalies: Insertion, Update, and Deletion Anomalies",
@@ -357,7 +420,15 @@
           "difficulty": "Medium",
           "estimatedHours": 6,
           "summary": "Master relational querying across multiple tables with INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL OUTER JOIN emulation, SELF JOIN, CROSS JOIN, and non-equi joins.",
-          "tags": ["joins", "inner-join", "left-join", "right-join", "self-join", "cross-join", "union"],
+          "tags": [
+            "joins",
+            "inner-join",
+            "left-join",
+            "right-join",
+            "self-join",
+            "cross-join",
+            "union"
+          ],
           "topics": [
             "Understanding Cartesian Products and the Mechanism of Joining Tables",
             "INNER JOIN: Syntax, ON Predicate, and INNER Keyword",
@@ -389,7 +460,15 @@
           "difficulty": "Medium",
           "estimatedHours": 6,
           "summary": "Explore built-in scalar, string, numeric, date/time, and flow-control functions, along with powerful data grouping via GROUP BY, HAVING, and ROLLUP.",
-          "tags": ["functions", "aggregate", "group-by", "having", "string-functions", "date-functions", "rollup"],
+          "tags": [
+            "functions",
+            "aggregate",
+            "group-by",
+            "having",
+            "string-functions",
+            "date-functions",
+            "rollup"
+          ],
           "topics": [
             "Scalar Functions vs Aggregate Functions Overview",
             "String Functions: CONCAT, CONCAT_WS, SUBSTRING, LENGTH, CHAR_LENGTH",
@@ -423,7 +502,14 @@
           "difficulty": "Medium",
           "estimatedHours": 5,
           "summary": "Create and manage SQL Views for security and abstraction, learn indexing mechanisms (B-Tree, clustered, secondary), and profile basic query performance.",
-          "tags": ["views", "indexes", "b-tree", "clustered-index", "performance", "query-profiling"],
+          "tags": [
+            "views",
+            "indexes",
+            "b-tree",
+            "clustered-index",
+            "performance",
+            "query-profiling"
+          ],
           "topics": [
             "What is a Database View? Benefits of Abstraction and Security",
             "CREATE VIEW, ALTER VIEW, and DROP VIEW Syntax",
@@ -455,7 +541,13 @@
           "difficulty": "Hard",
           "estimatedHours": 6,
           "summary": "Apply Segment 2 knowledge to real-world schema design, normalization, complex multi-table analytical queries, and end-of-segment project challenges.",
-          "tags": ["project", "schema-design", "case-study", "normalization-practice", "complex-queries"],
+          "tags": [
+            "project",
+            "schema-design",
+            "case-study",
+            "normalization-practice",
+            "complex-queries"
+          ],
           "topics": [
             "Design Project 1: University Library Management System (Schema + Queries)",
             "Design Project 2: Multi-Branch Hospital & Patient Appointment DB",
@@ -476,8 +568,355 @@
       ]
     },
     {
+      "segmentId": "normalization-theory-and-practice",
+      "title": "Segment 3 – Comprehensive Database Normalization & Schema Optimization",
+      "level": "Intermediate to Advanced",
+      "summary": "A dedicated, exhaustive deep dive into relational database normalization: from functional dependencies, Armstrong's axioms, 1NF, 2NF, 3NF, BCNF, 4NF, 5NF (PJNF), DKNF, and 6NF to real-world schema decomposition, exceptions, and controlled denormalization strategies.",
+      "allocatedHours": 35,
+      "modules": [
+        {
+          "moduleId": "normalization-foundations-anomalies-fds",
+          "slug": "006_001_normalization-foundations-and-functional-dependencies",
+          "title": "Normalization Foundations, Data Anomalies & Functional Dependencies",
+          "level": "Intermediate",
+          "difficulty": "Medium",
+          "estimatedHours": 4,
+          "summary": "Understand why normalization is critical for database integrity. Explore insertion, deletion, and update anomalies with concrete failure examples, formal functional dependency theory (X -> Y), Armstrong's axioms, attribute closure algorithms, minimal covers, and lossless join decomposition.",
+          "tags": [
+            "normalization",
+            "functional-dependencies",
+            "anomalies",
+            "armstrongs-axioms",
+            "attribute-closure",
+            "minimal-cover",
+            "lossless-join"
+          ],
+          "topics": [
+            "The Core Philosophy of Normalization: Eliminating Data Redundancy and Modification Anomalies",
+            "Real-World Demonstrations of Insertion Anomalies in Flat File and Spreadsheet Imports",
+            "Deletion Anomalies: How Inadvertent Data Loss Destroys Historical Business Context",
+            "Update/Modification Anomalies: Data Inconsistency Risks in Multi-User Concurrent Systems",
+            "Formal Mathematical Definition and Semantics of Functional Dependencies (X -> Y)",
+            "Full Functional Dependencies vs Partial Functional Dependencies Explained with Attributes",
+            "Trivial, Non-Trivial, and Completely Non-Trivial Functional Dependencies with Counter-Examples",
+            "Armstrong's Inference Axioms: Reflexivity, Augmentation, and Transitivity with Mathematical Proofs",
+            "Secondary Inference Rules: Union, Decomposition, Composition, and Pseudotransitivity",
+            "Attribute Closure (X+) Algorithm: Step-by-Step Mathematical Calculation and Matrix Walkthrough",
+            "Systematic Identification of Superkeys and Candidate Keys Using Attribute Closure Sets",
+            "Canonical Cover (Minimal Cover / Irreducible Set) Algorithm & Redundant FD Elimination",
+            "Lossless-Join (Non-Loss) Decomposition: Mathematical Condition and Matrix Testing Algorithm",
+            "Dependency Preservation Property: Definition, Verification Algorithm, and Architectural Importance",
+            "Discussion: Mathematical Purity vs Practical Application Query Performance",
+            "Exceptions and Common Analytical Pitfalls When Formulating Functional Dependencies"
+          ],
+          "learningOutcomes": [
+            "Identify insertion, update, and deletion anomalies in poorly structured database schemas",
+            "Derive and mathematically prove functional dependencies using Armstrong's inference axioms",
+            "Calculate attribute closures (X+) to find all candidate keys and superkeys of any relation",
+            "Verify lossless-join decomposition and dependency preservation properties for relational schemas"
+          ]
+        },
+        {
+          "moduleId": "first-normal-form-1nf",
+          "slug": "006_002_first-normal-form-1nf",
+          "title": "First Normal Form (1NF) – Atomicity, Repeating Groups & Array Decomposition",
+          "level": "Intermediate",
+          "difficulty": "Easy",
+          "estimatedHours": 3,
+          "summary": "Master First Normal Form (1NF). Learn the atomicity principle, how to eliminate multivalued attributes and repeating columns, composite attribute decomposition, and exceptions in modern databases.",
+          "tags": [
+            "1nf",
+            "atomicity",
+            "repeating-groups",
+            "csv-decomposition",
+            "multivalued-attributes",
+            "composite-attributes"
+          ],
+          "topics": [
+            "Formal Definition and Theoretical Rules of First Normal Form (1NF)",
+            "The Concept of Atomicity: Scalar Data Values vs Composite and Multivalued Attributes",
+            "Identifying Multivalued Attributes in Legacy Spreadsheets, Web Forms, and Billing Files",
+            "Detailed Example: Decomposing Comma-Separated Values (CSV / Delimited Lists) into 1NF Tables",
+            "Identifying and Eliminating Repeating Column Groups (e.g., phone_1, phone_2, phone_3)",
+            "Composite Attribute Splitting: Handling Full Names, Multiline Addresses, and Geo-Coordinates",
+            "Primary Key Selection and Composite Primary Key Formation in 1NF Relational Tables",
+            "Query Performance Comparison: Filtering and Indexing in 1NF vs Non-1NF Schemas",
+            "MySQL Native JSON Data Type vs Relational 1NF: When JSON Violates 1NF and When It Is Justified",
+            "Discussion: Normalizing Modern Web Attributes (Tags, Product Color Variants, Category Trees)",
+            "Exceptions and Edge Cases: When Breaking 1NF is Tolerated (Compound Text, Serialized Payloads)",
+            "Step-by-Step 1NF Transformation Walkthrough with Before-and-After SQL DDL and Migration Scripts"
+          ],
+          "learningOutcomes": [
+            "Detect and resolve non-atomic values and comma-separated strings into relational 1NF tables",
+            "Eliminate repeating column groups by creating related child entities with foreign keys",
+            "Properly define composite primary keys on newly normalized 1NF tables",
+            "Analyze performance and query maintainability differences between 1NF and non-1NF designs"
+          ]
+        },
+        {
+          "moduleId": "second-normal-form-2nf",
+          "slug": "006_003_second-normal-form-2nf",
+          "title": "Second Normal Form (2NF) – Partial Functional Dependencies & Composite Keys",
+          "level": "Intermediate",
+          "difficulty": "Medium",
+          "estimatedHours": 4,
+          "summary": "Deep dive into Second Normal Form (2NF). Understand prime vs non-prime attributes, identify partial dependencies against composite candidate keys, and execute lossless decomposition into 2NF tables.",
+          "tags": [
+            "2nf",
+            "partial-dependency",
+            "composite-keys",
+            "prime-attributes",
+            "non-prime-attributes",
+            "decomposition"
+          ],
+          "topics": [
+            "Formal Definition and Mathematical Criteria for Second Normal Form (2NF)",
+            "Understanding Candidate Keys, Prime Attributes, and Non-Prime Attributes in Multi-Column Keys",
+            "The Core Culprit: Partial Functional Dependency (X -> Y where X is Proper Subset of Candidate Key)",
+            "Why Tables with Single-Attribute Primary Keys Automatically Satisfy 2NF Requirements",
+            "Comprehensive Example: Student-Course Enrollment Schema with Instructor and Course Details",
+            "Comprehensive Example: Order-Item Invoice Line Schema with Product Names and Unit Prices",
+            "Step-by-Step Algorithm for Decomposing Non-2NF Tables into Multiple 2NF Relations",
+            "How 2NF Eliminates Redundancy, Insertion Anomalies, and Deletion Anomalies in Composite Tables",
+            "Real-World Discussion: Managing Historical Snapshot Data (e.g., Sold Price vs Current Catalog Price)",
+            "Common Design Mistakes: Confusing Multiple Individual Foreign Keys with Composite Primary Keys",
+            "Exceptions and Real-World Trade-offs: When Intermediate 2NF Forms are Maintained During Migration",
+            "Practice Exercises: Identifying Partial Dependencies and Writing Complete 2NF Schemas in SQL"
+          ],
+          "learningOutcomes": [
+            "Differentiate between prime and non-prime attributes across composite key structures",
+            "Detect partial functional dependencies in junction and bridge tables",
+            "Decompose 1NF tables into 2NF relations while ensuring lossless joins and referential integrity",
+            "Safely preserve historical financial and order data when normalizing transactional line items"
+          ]
+        },
+        {
+          "moduleId": "third-normal-form-3nf",
+          "slug": "006_004_third-normal-form-3nf",
+          "title": "Third Normal Form (3NF) – Transitive Dependencies & Synthesis Algorithm",
+          "level": "Intermediate",
+          "difficulty": "Medium",
+          "estimatedHours": 4,
+          "summary": "Explore Third Normal Form (3NF), the gold standard for OLTP transactional database design. Master transitive dependency detection, the prime-attribute condition, 3NF synthesis (Bernstein's algorithm), and edge cases.",
+          "tags": [
+            "3nf",
+            "transitive-dependency",
+            "synthesis-algorithm",
+            "bernsteins-algorithm",
+            "oltp-standard",
+            "prime-attributes"
+          ],
+          "topics": [
+            "Formal Definition and Mathematical Criteria for Third Normal Form (3NF)",
+            "Understanding Transitive Functional Dependencies (X -> Y and Y -> Z where X is Superkey)",
+            "Dissecting Codd's 3NF Rule: For every X -> A, either X is a Superkey OR A is a Prime Attribute",
+            "Why the Prime Attribute Condition (A in Candidate Key) Exists in 3NF and What It Protects",
+            "Detailed Example: Employee-Department-Location Schema Decomposition to 3NF",
+            "Detailed Example: Hospital Patient-Doctor-Room Allocation Schema Normalized to 3NF",
+            "Detailed Example: E-Commerce Shipping Address, Zip Code, City, and State Dependencies",
+            "Bernstein's 3NF Synthesis Algorithm: Creating 3NF Schemas from Minimal Functional Dependency Sets",
+            "Proving Lossless Join and Dependency Preservation in 3NF Synthesis Decomposition",
+            "Discussion: Why 3NF is the Industry Benchmark Standard for Enterprise OLTP Databases",
+            "Derived and Calculated Attributes in 3NF: Handling Total Amounts, Age from DOB, and Balances",
+            "Exceptions, Edge Cases, and Real-World Anomaly Demonstrations Remaining in 3NF"
+          ],
+          "learningOutcomes": [
+            "Identify transitive dependencies where non-key attributes determine other non-key attributes",
+            "Apply Codd's 3NF rule and leverage the prime attribute condition appropriately",
+            "Execute Bernstein's 3NF synthesis algorithm to construct minimal, dependency-preserving schemas",
+            "Architect clean OLTP relational database models that prevent data modification anomalies"
+          ]
+        },
+        {
+          "moduleId": "boyce-codd-normal-form-bcnf",
+          "slug": "006_005_boyce-codd-normal-form-bcnf",
+          "title": "Boyce-Codd Normal Form (BCNF) – Strict Superkey Normal Form & Overlapping Keys",
+          "level": "Advanced",
+          "difficulty": "Hard",
+          "estimatedHours": 4,
+          "summary": "Understand Boyce-Codd Normal Form (BCNF / 3.5NF). Learn why 3NF can still harbor redundancy with overlapping candidate keys, how BCNF tightens the determinant rule, and why dependency preservation may be sacrificed.",
+          "tags": [
+            "bcnf",
+            "boyce-codd",
+            "overlapping-keys",
+            "superkey-determinant",
+            "dependency-loss",
+            "advanced-normalization"
+          ],
+          "topics": [
+            "Motivation for BCNF: Identifying Residual Anomalies in 3NF Tables with Multiple Candidate Keys",
+            "Formal Definition of Boyce-Codd Normal Form: For Every Functional Dependency X -> Y, X Must Be a Superkey",
+            "The Critical Difference Between 3NF and BCNF (Elimination of the Prime Attribute Escape Clause)",
+            "The Overlapping Candidate Keys Problem: Conditions Under Which 3NF Fails to Eliminate Anomalies",
+            "Classic Example: Student-Subject-Advisor Schema (Advisor -> Subject, Student, Subject -> Advisor)",
+            "Classic Example: Postal Code, Street, and City Dependencies with Overlapping Keys",
+            "BCNF Decomposition Algorithm: Recursive Partitioning and Projection of Dependency Sets",
+            "The Fundamental Theoretical Dilemma: Loss of Functional Dependency Preservation in BCNF",
+            "Comparing BCNF vs 3NF: When to Enforce BCNF and When to Settle for 3NF with Application Checks",
+            "Detailed Step-by-Step SQL Implementation: Decomposing a 3NF Schema into BCNF Tables",
+            "Discussion: Production System Design Decisions Involving BCNF and High-Throughput APIs",
+            "Complex Edge Cases and Real-World Technical Interview Scenarios Involving BCNF"
+          ],
+          "learningOutcomes": [
+            "Diagnose overlapping candidate key anomalies that bypass standard 3NF validation",
+            "Perform recursive BCNF decomposition to eliminate non-superkey determinants",
+            "Evaluate the architectural trade-off between strict BCNF purity and functional dependency preservation",
+            "Solve advanced BCNF database design challenges for complex enterprise domains"
+          ]
+        },
+        {
+          "moduleId": "fourth-normal-form-4nf",
+          "slug": "006_006_fourth-normal-form-4nf",
+          "title": "Fourth Normal Form (4NF) – Multivalued Dependencies (MVD) & Independent Relationships",
+          "level": "Advanced",
+          "difficulty": "Hard",
+          "estimatedHours": 4,
+          "summary": "Explore Fourth Normal Form (4NF). Learn the nature of multivalued dependencies (MVD), how multiple independent 1-to-many relationships cause Cartesian explosion in a single table, and how to decompose into 4NF.",
+          "tags": [
+            "4nf",
+            "multivalued-dependencies",
+            "mvd",
+            "cartesian-explosion",
+            "independent-attributes",
+            "junction-tables"
+          ],
+          "topics": [
+            "Beyond Functional Dependencies: Introducing Multivalued Dependencies (MVD)",
+            "Notation and Semantics of Multivalued Dependency: X ->> Y (X Multidetermines Y)",
+            "Trivial vs Non-Trivial Multivalued Dependencies: Definitions and Concrete Examples",
+            "The Cartesian Product Explosion: How Unrelated 1:N Relationships Generate Redundant Rows",
+            "Comprehensive Example: Employee Skills and Spoken Languages (EmpID ->> Skill, EmpID ->> Language)",
+            "Comprehensive Example: Restaurant Menu Items, Available Delivery Cities, and Dietary Badges",
+            "Formal Definition and Mathematical Criteria for Fourth Normal Form (4NF)",
+            "4NF Decomposition Algorithm: Isolating Independent Multivalued Dependencies into Separate Tables",
+            "MVD Inference Rules: Complementation, Augmentation, Transitivity, and Coalescence",
+            "Discussion: How 4NF Relates to Many-to-Many Bridge / Junction Tables in Relational Modeling",
+            "Exceptions and Comparisons: How Document / NoSQL Databases Handle MVDs vs Relational Tables",
+            "Practical Guidelines for Detecting Hidden Multivalued Dependencies in Enterprise Schemas"
+          ],
+          "learningOutcomes": [
+            "Identify multivalued dependencies (MVDs) in tables combining multiple independent 1:N relations",
+            "Prevent Cartesian product row duplication by decomposing relations into 4NF schemas",
+            "Apply formal MVD inference rules to verify multi-attribute dependency validity",
+            "Design clean many-to-many relational architectures that eliminate MVD anomalies"
+          ]
+        },
+        {
+          "moduleId": "fifth-normal-form-5nf",
+          "slug": "006_007_fifth-normal-form-5nf-pjnf",
+          "title": "Fifth Normal Form (5NF / PJNF) – Join Dependencies & Cyclic Constraints",
+          "level": "Advanced",
+          "difficulty": "Hard",
+          "estimatedHours": 4,
+          "summary": "Understand Fifth Normal Form (5NF / Project-Join Normal Form). Learn about Join Dependencies (JD), 3-way cyclic relationships, preventing spurious tuples, and the mathematical boundaries of relational decomposition.",
+          "tags": [
+            "5nf",
+            "pjnf",
+            "join-dependencies",
+            "cyclic-constraints",
+            "spurious-tuples",
+            "3-way-joins"
+          ],
+          "topics": [
+            "Motivation for Fifth Normal Form: Anomalies that Cannot Be Detected by Functional or Multivalued Dependencies",
+            "Definition and Mathematical Notation of Join Dependency: *[R1, R2, ..., Rn]",
+            "Formal Definition of Fifth Normal Form (5NF / Project-Join Normal Form - PJNF)",
+            "Understanding the Difference Between Binary Decomposition and Multi-Way (N-Way) Decomposition",
+            "The Classic 3-Way Relationship Example: Supplier-Part-Project (SPJ) Cyclic Constraint",
+            "Why Decomposing into 3 Tables (SP, PJ, SJ) Losslessly Reconstructs the Original SPJ Table",
+            "Understanding Spurious Tuples: When Natural Joins Produce False Business Facts",
+            "Trivial vs Non-Trivial Join Dependencies and Superkey Conditions",
+            "Discussion: The Extreme Rarity and Cognitive Complexity of 5NF in Production Software Engineering",
+            "Real-World Scenario: Doctor-Hospital-Insurance Network Authorization Triplet",
+            "Exceptions and Industry Consensus: Why Most Enterprise Architectures Stop Normalization at BCNF/4NF",
+            "Comprehensive Comparative Summary: Progression of Normal Forms from 1NF through 5NF"
+          ],
+          "learningOutcomes": [
+            "Understand the theoretical formulation and mathematical notation of Join Dependencies",
+            "Identify 3-way cyclic relational constraints that cannot be factored into two binary relations",
+            "Decompose 5NF relations without generating spurious tuples upon natural reconstruction",
+            "Evaluate whether 5NF decomposition is practically justified in enterprise production settings"
+          ]
+        },
+        {
+          "moduleId": "higher-normal-forms-dknf-6nf",
+          "slug": "006_008_higher-normal-forms-dknf-6nf",
+          "title": "Higher Normal Forms (DKNF, 6NF) & Advanced Normalization Theory",
+          "level": "Advanced",
+          "difficulty": "Hard",
+          "estimatedHours": 4,
+          "summary": "Explore the frontiers of relational theory: Domain-Key Normal Form (DKNF), Sixth Normal Form (6NF), and temporal database architectures for event logs, anchor modeling, and data warehousing.",
+          "tags": [
+            "dknf",
+            "6nf",
+            "domain-key",
+            "temporal-databases",
+            "anchor-modeling",
+            "advanced-theory",
+            "monadic-relations"
+          ],
+          "topics": [
+            "Introduction to Advanced Normal Forms: Theoretical Milestones and Specialized Architectures",
+            "Domain-Key Normal Form (DKNF): The Ultimate Theoretical Pinnacle of Normalization by Fagin",
+            "Formal Definition of DKNF: Every Constraint is a Logical Consequence of Domain Constraints and Key Constraints",
+            "Why DKNF Guarantees Zero Modification Anomalies but is Non-Algorithmic and Hard to Verify in SQL",
+            "Sixth Normal Form (6NF): Definition and Decomposition for Irreducible Monadic Relations",
+            "6NF in Temporal Databases: Managing Valid-Time, Transaction-Time, and Bi-Temporal Schemas",
+            "Anchor Modeling and 6NF in Enterprise Data Warehousing and Time-Series Analytics",
+            "Elementary Key Normal Form (EKNF) and Extended Relational Normal Forms",
+            "Discussion: Academic Rigor vs Industrial Pragmatism in Database Architecture",
+            "Real-World Exceptions: Dealing with the Extreme Table Proliferation and JOIN Latency of 6NF",
+            "Case Study: Financial Ledger Auditability and Immutable Event Sourcing Using 6NF Principles"
+          ],
+          "learningOutcomes": [
+            "Articulate the formal definition and theoretical guarantees of Domain-Key Normal Form (DKNF)",
+            "Explain why DKNF represents the theoretical limit of constraint-free relational design",
+            "Construct 6NF temporal schemas for historical auditability, anchor modeling, and event tracking",
+            "Critique the trade-offs between 6NF irreducibility and query execution performance"
+          ]
+        },
+        {
+          "moduleId": "practical-denormalization",
+          "slug": "006_009_practical-denormalization-and-engineering-tradeoffs",
+          "title": "Practical Database Denormalization & Real-World Engineering Trade-offs",
+          "level": "Advanced",
+          "difficulty": "Medium",
+          "estimatedHours": 5,
+          "summary": "Bridge theory and production reality. Learn when, why, and how to intentionally denormalize relational schemas for read performance, OLAP workloads, caching strategies, and data consistency maintenance.",
+          "tags": [
+            "denormalization",
+            "oltp-vs-olap",
+            "caching",
+            "materialized-views",
+            "performance-optimization",
+            "star-schema"
+          ],
+          "topics": [
+            "What is Denormalization? Purpose, Philosophy, and Controlled Redundancy",
+            "OLTP (Normalized / 3NF) vs OLAP (Denormalized / Star & Snowflake Schemas) Contrasted",
+            "Performance Benchmarking: Quantifying the Cost of Complex Joins vs Write Amplification",
+            "Common Denormalization Techniques: Pre-Aggregated Summary Columns and Running Totals",
+            "Common Denormalization Techniques: Duplicating Frequently Looked-Up Foreign Names and Codes",
+            "Common Denormalization Techniques: Historical Snapshots and Document Duplication in Invoices",
+            "Techniques for Maintaining Consistency in Denormalized Tables (Database Triggers vs Application Layer)",
+            "Materialized Views, Read Replicas, and In-Memory Caching (Redis) as Alternatives to Denormalization",
+            "Real-World Case Study: High-Throughput E-Commerce Checkout, Cart, and Order Processing",
+            "Real-World Case Study: Social Network Feed Generation, Like Counters, and Follower Counts",
+            "Architectural Decision Framework: A Step-by-Step Flowchart for Deciding When to Normalize vs Denormalize",
+            "Comprehensive Normalization & Denormalization Review, Viva Defense Questions, and Assessment Challenges"
+          ],
+          "learningOutcomes": [
+            "Identify performance bottlenecks caused by excessive relational joins in high-traffic OLTP queries",
+            "Apply controlled denormalization techniques while enforcing consistency via triggers or transactions",
+            "Architect hybrid database systems combining normalized OLTP cores with denormalized caches and OLAP stores",
+            "Defend architectural normalization decisions in senior database and system design interviews"
+          ]
+        }
+      ]
+    },
+    {
       "segmentId": "advanced-sql",
-      "title": "Segment 3 – Advanced SQL, Procedural Programming & Transactions",
+      "title": "Segment 4 – Advanced SQL, Procedural Programming & Transactions",
       "level": "Advanced",
       "summary": "Master subqueries, Common Table Expressions (CTEs), Window Functions, stored procedures, functions, triggers, error handling, cursors, ACID transactions, concurrency, and query optimization with EXPLAIN.",
       "allocatedHours": 35,
@@ -490,7 +929,14 @@
           "difficulty": "Hard",
           "estimatedHours": 5,
           "summary": "Master nested scalar subqueries, multi-row operators (IN, ANY, ALL), correlated subqueries, EXISTS/NOT EXISTS, and Common Table Expressions (CTEs) including recursive CTEs.",
-          "tags": ["subqueries", "correlated-subquery", "exists", "cte", "recursive-cte", "with-clause"],
+          "tags": [
+            "subqueries",
+            "correlated-subquery",
+            "exists",
+            "cte",
+            "recursive-cte",
+            "with-clause"
+          ],
           "topics": [
             "Subqueries Concept and Execution Phases",
             "Single-Row Subqueries with Comparison Operators",
@@ -522,7 +968,15 @@
           "difficulty": "Hard",
           "estimatedHours": 5,
           "summary": "Leverage MySQL 8.0+ Window Functions for enterprise analytics: OVER clause, PARTITION BY, ranking functions, value offsets (LAG/LEAD), running totals, and moving averages.",
-          "tags": ["window-functions", "over-clause", "partition-by", "rank", "dense-rank", "lag-lead", "running-total"],
+          "tags": [
+            "window-functions",
+            "over-clause",
+            "partition-by",
+            "rank",
+            "dense-rank",
+            "lag-lead",
+            "running-total"
+          ],
           "topics": [
             "Introduction to Window (Analytic) Functions vs Aggregate Functions",
             "The OVER Clause: Defining Partitions (PARTITION BY) and Order (ORDER BY)",
@@ -555,7 +1009,14 @@
           "difficulty": "Hard",
           "estimatedHours": 7,
           "summary": "Build server-side procedural logic in MySQL: DELIMITER, Stored Procedures with IN/OUT parameters, Stored Functions, BEFORE/AFTER Triggers, and Event Schedulers.",
-          "tags": ["stored-procedures", "stored-functions", "triggers", "delimiter", "event-scheduler", "procedural-sql"],
+          "tags": [
+            "stored-procedures",
+            "stored-functions",
+            "triggers",
+            "delimiter",
+            "event-scheduler",
+            "procedural-sql"
+          ],
           "topics": [
             "Introduction to Procedural SQL and Server-Side Programming",
             "The DELIMITER Keyword: Why and How to Change Command Terminators",
@@ -589,7 +1050,14 @@
           "difficulty": "Hard",
           "estimatedHours": 4,
           "summary": "Handle exceptions gracefully in stored routines using DECLARE HANDLER, SIGNAL/RESIGNAL, and process row-by-row datasets using SQL Cursors.",
-          "tags": ["error-handling", "declare-handler", "signal", "resignal", "cursors", "sqlstate"],
+          "tags": [
+            "error-handling",
+            "declare-handler",
+            "signal",
+            "resignal",
+            "cursors",
+            "sqlstate"
+          ],
           "topics": [
             "Exception Handling Architecture in MySQL Stored Routines",
             "Understanding MySQL Error Codes and standard ANSI SQLSTATE Values",
@@ -619,7 +1087,16 @@
           "difficulty": "Hard",
           "estimatedHours": 6,
           "summary": "Master transaction control, ACID guarantees, transaction isolation levels, row/table locking, gap locks, pessimistic/optimistic concurrency, and deadlock handling.",
-          "tags": ["transactions", "acid", "isolation-levels", "locks", "deadlock", "savepoint", "commit", "rollback"],
+          "tags": [
+            "transactions",
+            "acid",
+            "isolation-levels",
+            "locks",
+            "deadlock",
+            "savepoint",
+            "commit",
+            "rollback"
+          ],
           "topics": [
             "Understanding Database Transactions and Real-World Motivation (Banking Example)",
             "The ACID Properties Deep Dive: Atomicity, Consistency, Isolation, Durability",
@@ -652,7 +1129,14 @@
           "difficulty": "Hard",
           "estimatedHours": 7,
           "summary": "Diagnose bottlenecks and optimize slow queries using EXPLAIN, EXPLAIN ANALYZE, index optimization, query refactoring, optimizer hints, and profiling.",
-          "tags": ["explain", "explain-analyze", "query-optimization", "performance-tuning", "indexes", "slow-query"],
+          "tags": [
+            "explain",
+            "explain-analyze",
+            "query-optimization",
+            "performance-tuning",
+            "indexes",
+            "slow-query"
+          ],
           "topics": [
             "MySQL Query Execution Lifecycle: Parser, Preprocessor, Optimizer, Storage Engine",
             "Generating Execution Plans using EXPLAIN, EXPLAIN FORMAT=JSON, and EXPLAIN FORMAT=TREE",
@@ -681,7 +1165,7 @@
     },
     {
       "segmentId": "dba-enterprise",
-      "title": "Segment 4 – Database Administration, Security & Enterprise MySQL",
+      "title": "Segment 5 – Database Administration, Security & Enterprise MySQL",
       "level": "Expert",
       "summary": "Master enterprise DBA skills: storage engine internals, character sets, user security, role management, backups, point-in-time recovery, logs, replication, high availability, and table partitioning.",
       "allocatedHours": 40,
@@ -694,7 +1178,15 @@
           "difficulty": "Hard",
           "estimatedHours": 5,
           "summary": "Explore MySQL pluggable storage engine architecture, InnoDB internals (Buffer Pool, Redo/Undo logs, MVCC), MyISAM, MEMORY, and tablespace management.",
-          "tags": ["storage-engines", "innodb", "myisam", "buffer-pool", "mvcc", "redo-log", "tablespace"],
+          "tags": [
+            "storage-engines",
+            "innodb",
+            "myisam",
+            "buffer-pool",
+            "mvcc",
+            "redo-log",
+            "tablespace"
+          ],
           "topics": [
             "MySQL Server Architecture: Client Layer, Core Server Layer, and Storage Engine API",
             "Comparing Storage Engines: InnoDB, MyISAM, MEMORY, CSV, ARCHIVE, BLACKHOLE",
@@ -724,7 +1216,14 @@
           "difficulty": "Medium",
           "estimatedHours": 4,
           "summary": "Master character encodings (utf8mb4), collation rules, data type nuances, native JSON data type, JSON path operators, generated columns, and spatial GIS types.",
-          "tags": ["utf8mb4", "collations", "json", "json-functions", "generated-columns", "spatial-gis"],
+          "tags": [
+            "utf8mb4",
+            "collations",
+            "json",
+            "json-functions",
+            "generated-columns",
+            "spatial-gis"
+          ],
           "topics": [
             "Understanding Character Sets: ASCII, Latin1, UTF-8 (utf8mb3) vs utf8mb4 (Full Unicode / Emojis)",
             "Understanding Collations: _ci (Case Insensitive), _cs (Case Sensitive), _bin (Binary)",
@@ -756,7 +1255,16 @@
           "difficulty": "Hard",
           "estimatedHours": 5,
           "summary": "Implement enterprise security: user authentication plugins, granular GRANT/REVOKE privileges, MySQL Roles, SQL injection defense, data encryption at rest and in transit.",
-          "tags": ["security", "user-management", "grant", "revoke", "roles", "sql-injection", "encryption", "ssl"],
+          "tags": [
+            "security",
+            "user-management",
+            "grant",
+            "revoke",
+            "roles",
+            "sql-injection",
+            "encryption",
+            "ssl"
+          ],
           "topics": [
             "MySQL Security Architecture and Privilege System Overview",
             "User Account Management: CREATE USER, ALTER USER, DROP USER, RENAME USER",
@@ -788,7 +1296,16 @@
           "difficulty": "Hard",
           "estimatedHours": 5,
           "summary": "Formulate backup and disaster recovery strategies: logical vs physical backups, mysqldump, Point-in-Time Recovery (PITR) with binary logs, and bulk ETL data migration.",
-          "tags": ["backup", "restore", "mysqldump", "pitr", "binary-log", "mysqlbinlog", "etl", "migration"],
+          "tags": [
+            "backup",
+            "restore",
+            "mysqldump",
+            "pitr",
+            "binary-log",
+            "mysqlbinlog",
+            "etl",
+            "migration"
+          ],
           "topics": [
             "Backup Strategies: Recovery Time Objective (RTO) and Recovery Point Objective (RPO)",
             "Backup Classification: Logical vs Physical Backups, Cold vs Hot vs Warm Backups, Full vs Incremental Backups",
@@ -819,7 +1336,15 @@
           "difficulty": "Hard",
           "estimatedHours": 5,
           "summary": "Monitor and diagnose MySQL health: Error log, General Query log, Binary log, Slow Query log, Performance Schema, sys Schema, and server health telemetry.",
-          "tags": ["logs", "error-log", "slow-query-log", "performance-schema", "sys-schema", "monitoring", "telemetry"],
+          "tags": [
+            "logs",
+            "error-log",
+            "slow-query-log",
+            "performance-schema",
+            "sys-schema",
+            "monitoring",
+            "telemetry"
+          ],
           "topics": [
             "Overview of MySQL Server Log Architecture and Log Files",
             "The Error Log: Configuration, Rotation, Diagnostic Messages, and Critical Alerts",
@@ -850,7 +1375,15 @@
           "difficulty": "Hard",
           "estimatedHours": 6,
           "summary": "Scale reads and build high availability: Source-Replica (Master-Slave) replication, GTID-based replication, semi-sync replication, replication lag, and InnoDB Cluster.",
-          "tags": ["replication", "high-availability", "gtid", "master-slave", "failover", "innodb-cluster", "group-replication"],
+          "tags": [
+            "replication",
+            "high-availability",
+            "gtid",
+            "master-slave",
+            "failover",
+            "innodb-cluster",
+            "group-replication"
+          ],
           "topics": [
             "High Availability (HA) and Horizontal Scalability Concepts in Database Engineering",
             "How MySQL Replication Works: Binary Log on Source, I/O Thread, Relay Log, and SQL Thread on Replica",
@@ -882,7 +1415,14 @@
           "difficulty": "Hard",
           "estimatedHours": 4,
           "summary": "Manage massive multi-million record datasets using table partitioning: RANGE, LIST, HASH, KEY, subpartitioning, partition pruning, and horizontal sharding.",
-          "tags": ["partitioning", "range-partitioning", "hash-partitioning", "partition-pruning", "sharding", "big-data"],
+          "tags": [
+            "partitioning",
+            "range-partitioning",
+            "hash-partitioning",
+            "partition-pruning",
+            "sharding",
+            "big-data"
+          ],
           "topics": [
             "Why and When to Partition Tables in Large-Scale Databases (VLDB)",
             "Partitioning Mechanics: How the Storage Engine Handles Partitioned Tables",
@@ -912,7 +1452,14 @@
           "difficulty": "Hard",
           "estimatedHours": 15,
           "summary": "Build and present a complete production-grade relational database system: requirements analysis, normalized schema, indexes, stored procedures, triggers, views, and optimization reports.",
-          "tags": ["capstone", "enterprise-project", "production-schema", "stored-routines", "indexing", "viva-defense"],
+          "tags": [
+            "capstone",
+            "enterprise-project",
+            "production-schema",
+            "stored-routines",
+            "indexing",
+            "viva-defense"
+          ],
           "topics": [
             "Capstone Project Guidelines, Scope, and Industry-Standard Requirements",
             "Domain Options: Multi-Vendor E-Commerce Platform, Core Banking & Ledger System, Enterprise ERP & Supply Chain, Multi-Specialty Hospital Management System",
@@ -937,7 +1484,7 @@
     },
     {
       "segmentId": "ecosystem-cloud-interview",
-      "title": "Segment 5 – Application Integration, Cloud Databases & Interview Mastery",
+      "title": "Segment 6 – Application Integration, Cloud Databases & Interview Mastery",
       "level": "Professional",
       "summary": "Connect MySQL to backend stacks (Node.js, Python, Java), manage cloud databases (AWS RDS, GCP Cloud SQL, PlanetScale), and master top RDBMS/MySQL technical interview questions.",
       "allocatedHours": 25,
@@ -950,7 +1497,16 @@
           "difficulty": "Medium",
           "estimatedHours": 8,
           "summary": "Connect backend services to MySQL: mysql2/Prisma in Node.js, PyMySQL/SQLAlchemy in Python, JDBC/Hibernate in Java, connection pooling, and ORM vs Raw SQL trade-offs.",
-          "tags": ["backend", "nodejs", "python", "java", "jdbc", "sqlalchemy", "prisma", "connection-pooling"],
+          "tags": [
+            "backend",
+            "nodejs",
+            "python",
+            "java",
+            "jdbc",
+            "sqlalchemy",
+            "prisma",
+            "connection-pooling"
+          ],
           "topics": [
             "Overview of Application-to-Database Communication Protocols",
             "Understanding Connection Pooling: Why Creating New Connections per Request is an Anti-Pattern",
@@ -980,7 +1536,15 @@
           "difficulty": "Medium",
           "estimatedHours": 7,
           "summary": "Deploy and operate managed MySQL in the cloud: AWS RDS MySQL, Google Cloud SQL, Azure Database for MySQL, serverless PlanetScale, automated snapshots, and scaling.",
-          "tags": ["cloud", "aws-rds", "cloud-sql", "planetscale", "managed-database", "serverless", "scaling"],
+          "tags": [
+            "cloud",
+            "aws-rds",
+            "cloud-sql",
+            "planetscale",
+            "managed-database",
+            "serverless",
+            "scaling"
+          ],
           "topics": [
             "Self-Hosted MySQL vs Managed Cloud Database Services (DBaaS)",
             "Amazon Web Services (AWS) RDS for MySQL: Provisioning, Multi-AZ Deployments, and Read Replicas",
@@ -1008,7 +1572,14 @@
           "difficulty": "Hard",
           "estimatedHours": 10,
           "summary": "Ace technical database interviews: top 100 conceptual and query questions, query writing interview challenges, system design scenario questions, and quick reference cheat sheet.",
-          "tags": ["interview-prep", "cheat-sheet", "sql-queries", "system-design", "viva", "job-ready"],
+          "tags": [
+            "interview-prep",
+            "cheat-sheet",
+            "sql-queries",
+            "system-design",
+            "viva",
+            "job-ready"
+          ],
           "topics": [
             "Top 25 Core RDBMS & Theoretical Interview Questions (ACID, Codd's Rules, Normalization, Keys)",
             "Top 25 SQL Query Writing Interview Challenges (Nth Highest Salary, Duplicate Removal, Running Totals, Top-N Per Group)",

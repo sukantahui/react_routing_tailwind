@@ -1,736 +1,380 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 
-// Common Shared Components
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
-import PlainTextPrint from "../../../../../common/PlainTextPrint";
-import FAQTemplate from "../../../../../common/FAQTemplate";
+// ─── Common Framework Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
-
-// Python Code Examples (Imported with ?raw)
-import reqPinning from "./topic9_files/requirements_generation_and_pinning.py?raw";
-import layeredReqs from "./topic9_files/layered_requirements_architecture.py?raw";
-import freezeVsCompile from "./topic9_files/pip_freeze_vs_pip_reqs_and_lockfiles.py?raw";
-import validatorAudit from "./topic9_files/dependency_validator_and_license_audit.py?raw";
-
-// Plain Text Note for Printing/Downloading
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import questions from "./topic9_files/topic9_questions";
 import noteText from "./topic9_files/topic9_note.txt?raw";
 
-// FAQ Questions
-import questions from "./topic9_files/topic9_questions";
-
 /**
- * Topic9: requirements.txt generation and dependency management
- * Module: 002_009_modules-packages
- * Segment: 2 (Practical Python for Real-World Development)
+ * Topic9 – requirements.txt generation and dependency management
+ * Module: 002_009_modules-packages (Modules, Packages & Python Standard Library)
+ * Track: Python from Basic to Pro
  *
- * Premium Dark Theme Default with Rich Micro-Animations & Full Interactivity.
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
  */
-export default function Topic9() {
+const Topic9 = () => {
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
   const sectionRefs = useRef([]);
-  const [activeInteractiveTab, setActiveInteractiveTab] = useState("deployflow");
-
-  // Interactive Generator State
-  const [envTier, setEnvTier] = useState("dev"); // base, dev, prod
-  const [includeFastAPI, setIncludeFastAPI] = useState(true);
-  const [includeRequests, setIncludeRequests] = useState(true);
-  const [includePytest, setIncludePytest] = useState(true);
-  const [includeGunicorn, setIncludeGunicorn] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("section-visible");
+            entry.target.classList.add("is-visible");
           }
         });
       },
-      {
-        threshold: 0.08,
-        rootMargin: "0px 0px -40px 0px",
-      }
+      { threshold: 0.1 }
     );
 
-    sectionRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
   }, []);
 
-  const addToRefs = (el) => {
+  const addRef = (el) => {
     if (el && !sectionRefs.current.includes(el)) {
       sectionRefs.current.push(el);
     }
   };
 
-  const getRequirementsContent = () => {
-    const lines = ["# Coder & AccoTax Dependency Manifest"];
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  ];
 
-    if (envTier === "dev") {
-      lines.push("-r base.txt\n");
-      if (includePytest) lines.push("pytest==8.0.2");
-      lines.push("black==24.2.0");
-      lines.push("flake8==7.0.0");
-      lines.push("mypy==1.8.0");
-    } else if (envTier === "prod") {
-      lines.push("-r base.txt\n");
-      if (includeGunicorn) lines.push("gunicorn==21.2.0");
-      lines.push("uvicorn[standard]==0.27.1");
-      lines.push("sentry-sdk==1.40.6");
-    } else {
-      if (includeFastAPI) lines.push("fastapi==0.110.0");
-      if (includeRequests) lines.push("requests>=2.31.0");
-      lines.push("pydantic~=2.6.0");
-      lines.push("colorama>=0.4.6; sys_platform == 'win32'");
-    }
-
-    return lines.join("\n");
-  };
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 antialiased font-sans p-4 sm:p-6 md:p-10 pb-28 selection:bg-teal-500/30 selection:text-teal-200">
-      {/* Scoped Keyframes for Lightweight Zero-Config Micro-Animations */}
+    <>
       <style>{`
-        .section-hidden {
-          transform: translateY(18px);
-          transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .section-visible {
+        .reveal-section {
           transform: translateY(0);
+          transition: transform 0.4s ease-out;
         }
-        @keyframes pulseGlowTeal {
-          0%, 100% { filter: drop-shadow(0 0 4px rgba(20, 184, 166, 0.4)); }
-          50% { filter: drop-shadow(0 0 10px rgba(20, 184, 166, 0.8)); }
-        }
-        .animate-glow-teal {
-          animation: pulseGlowTeal 3s infinite ease-in-out;
+        .reveal-section.is-visible {
+          transform: translateY(0);
         }
       `}</style>
 
-      {/* ==================================================================== */}
-      {/* HEADER SECTION */}
-      {/* ==================================================================== */}
-      <header
-        ref={addToRefs}
-        className="section-hidden max-w-5xl mx-auto mb-12 pb-8 border-b border-slate-800/80"
-      >
-        <div className="flex flex-wrap items-center gap-3 mb-3">
-          <span className="text-xs sm:text-sm font-mono font-semibold bg-teal-950/80 text-teal-300 px-3 py-1 rounded-full border border-teal-800/80 shadow-sm shadow-teal-950/50">
-            Segment 2 • Module 002_009
-          </span>
-          <span className="text-xs sm:text-sm font-mono bg-cyan-950/80 text-cyan-300 px-3 py-1 rounded-full border border-cyan-800/80 shadow-sm shadow-cyan-950/50">
-            Topic 9 • Module Finale
-          </span>
-          <span className="text-xs sm:text-sm font-medium text-slate-400">
-            Modules, Packages &amp; Python Standard Library
-          </span>
-        </div>
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 009 · Topic 9</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            requirements.txt generation and dependency management
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Learn to structure large codebases with modules, packages, the standard library, and virtual environments.
+          </p>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-          <code className="text-teal-400 font-mono">requirements.txt</code> Generation &amp; Dependency Management
-        </h1>
-        <p className="text-lg sm:text-xl text-slate-300 mt-3 max-w-3xl font-normal leading-relaxed">
-          Master reproducible Python deployments: version specifiers (<code className="text-teal-300 font-mono">==</code>, <code className="text-cyan-300 font-mono">~=</code>, <code className="text-purple-300 font-mono">&gt;=</code>), environment markers, layered architecture (<code className="text-amber-300 font-mono">base.txt</code> / <code className="text-amber-300 font-mono">dev.txt</code> / <code className="text-amber-300 font-mono">prod.txt</code>), <code className="text-teal-300 font-mono">pip-tools</code> lockfiles, and automated dependency auditing.
-        </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
+          </div>
+        </header>
 
-        <div className="flex flex-wrap gap-2 sm:gap-3 mt-5">
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🔒 Exact Pinning (==) &amp; SemVer (~=)
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🏗️ Layered Architecture (-r base.txt)
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🎯 Platform Environment Markers
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🛡️ pip-tools Lockfiles &amp; Security Audits
-          </span>
-        </div>
-      </header>
-
-      {/* ==================================================================== */}
-      {/* MAIN CONTENT WRAPPER */}
-      {/* ==================================================================== */}
-      <div className="max-w-5xl mx-auto space-y-16">
-
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 1: THE DEPENDENCY MANIFEST */}
-        {/* ------------------------------------------------------------------ */}
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
         <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">📄</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              1. The Dependency Manifest &amp; Version Specifiers
-            </h2>
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: requirements.txt generation and dependency management
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
           </div>
 
-          <div className="space-y-4 text-slate-300 leading-relaxed text-base sm:text-lg">
-            <p>
-              A <code className="text-teal-400 font-mono">requirements.txt</code> file is the blueprint of your project's external dependencies. It guarantees that any team member or production server can replicate your exact environment:
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6 not-prose">
-              {/* Card 1: Pinning */}
-              <div className="p-4 rounded-xl bg-teal-950/40 border border-teal-800/60 shadow-lg shadow-teal-950/30">
-                <div className="text-teal-400 font-bold text-base mb-1">== Exact Pinning</div>
-                <code className="text-xs font-mono text-teal-300 block mb-1">requests==2.31.0</code>
-                <p className="text-[11px] text-slate-300">
-                  Mandatory for production deployments; eliminates breaking unexpected updates.
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">requirements.txt generation and dependency management</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
                 </p>
               </div>
-
-              {/* Card 2: SemVer */}
-              <div className="p-4 rounded-xl bg-cyan-950/40 border border-cyan-800/60 shadow-lg shadow-cyan-950/30">
-                <div className="text-cyan-400 font-bold text-base mb-1">~= Compatible Release</div>
-                <code className="text-xs font-mono text-cyan-300 block mb-1">pydantic~=2.6.0</code>
-                <p className="text-[11px] text-slate-300">
-                  Accepts bug-fix patches (&gt;=2.6.0, ==2.6.*) while blocking breaking version changes.
-                </p>
-              </div>
-
-              {/* Card 3: Markers */}
-              <div className="p-4 rounded-xl bg-purple-950/40 border border-purple-800/60 shadow-lg shadow-purple-950/30">
-                <div className="text-purple-400 font-bold text-base mb-1">; Environment Markers</div>
-                <code className="text-xs font-mono text-purple-300 block mb-1">; sys_platform == 'win32'</code>
-                <p className="text-[11px] text-slate-300">
-                  Conditionally installs packages only on matching operating systems or Python versions.
-                </p>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
               </div>
             </div>
 
-            <div className="bg-slate-950/70 p-5 rounded-xl border-l-4 border-teal-500 border border-slate-800/80">
-              <h3 className="text-white font-bold text-base mb-1">
-                The Golden Deployment Command
-              </h3>
-              <code className="text-emerald-300 font-mono text-sm block">
-                $ python -m pip install -r requirements.txt
-              </code>
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 2: INTERACTIVE VISUAL ARCHITECTURE (SVG TABS) */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <div className="flex items-center gap-3">
-              <span className="text-3xl">📐</span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white">
-                2. Visualizing Dependency Management Architectures
-              </h2>
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: requirements.txt generation and dependency management
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
             </div>
 
-            {/* Interactive Toggle for Diagram Perspectives */}
-            <div className="flex bg-slate-950 p-1.5 rounded-xl border border-slate-800 text-xs font-semibold">
-              <button
-                onClick={() => setActiveInteractiveTab("deployflow")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeInteractiveTab === "deployflow"
-                    ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                Deployment Flow
-              </button>
-              <button
-                onClick={() => setActiveInteractiveTab("layered")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeInteractiveTab === "layered"
-                    ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                Layered Architecture (-r)
-              </button>
-              <button
-                onClick={() => setActiveInteractiveTab("lockfiles")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeInteractiveTab === "lockfiles"
-                    ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                pip-tools Lockfile Engine
-              </button>
-            </div>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base">
-            Examining dependency export pipelines, multi-environment separation, and deterministic lockfile compilation:
-          </p>
-
-          {/* SVG Diagram Container */}
-          <div className="bg-slate-950 rounded-xl p-4 sm:p-6 overflow-x-auto border border-slate-800/90 shadow-2xl">
-            {activeInteractiveTab === "deployflow" ? (
-              <svg viewBox="0 0 880 340" className="w-full h-auto min-w-[700px] font-sans">
-                <text x="30" y="30" fill="#2dd4bf" fontSize="14" fontWeight="bold">REQUIREMENTS EXPORT &amp; PRODUCTION DEPLOYMENT WORKFLOW</text>
-
-                {/* 3 Steps */}
-                <g transform="translate(30, 60)">
-                  {/* Step 1 */}
-                  <rect x="0" y="0" width="240" height="180" rx="8" fill="#134e4a" stroke="#14b8a6" />
-                  <text x="20" y="30" fill="#99f6e4" fontSize="13" fontWeight="bold">1. Developer Machine</text>
-                  <text x="20" y="60" fill="#ecfdf5" fontSize="11 font-mono">$ python -m venv .venv</text>
-                  <text x="20" y="85" fill="#ecfdf5" fontSize="11 font-mono">$ pip install fastapi requests</text>
-                  <text x="20" y="115" fill="#34d399" fontSize="11 font-mono font-bold">$ pip freeze &gt; req.txt</text>
-                  <text x="20" y="145" fill="#a7f3d0" fontSize="10">Exports pinned dependency manifest</text>
-
-                  {/* Arrow 1 */}
-                  <text x="255" y="95" fill="#38bdf8" fontSize="24" fontWeight="bold">→</text>
-
-                  {/* Step 2 */}
-                  <rect x="285" y="0" width="240" height="180" rx="8" fill="#1e1b4b" stroke="#8b5cf6" />
-                  <text x="305" y="30" fill="#c4b5fd" fontSize="13" fontWeight="bold">2. Git Version Control</text>
-                  <text x="305" y="60" fill="#cbd5e1" fontSize="11 font-mono">git add requirements.txt</text>
-                  <text x="305" y="85" fill="#cbd5e1" fontSize="11 font-mono">git commit -m "Add deps"</text>
-                  <text x="305" y="110" fill="#cbd5e1" fontSize="11 font-mono">git push origin main</text>
-                  <text x="305" y="145" fill="#fca5a5" fontSize="10 font-bold">(.venv is in .gitignore!)</text>
-
-                  {/* Arrow 2 */}
-                  <text x="540" y="95" fill="#38bdf8" fontSize="24" fontWeight="bold">→</text>
-
-                  {/* Step 3 */}
-                  <rect x="570" y="0" width="240" height="180" rx="8" fill="#064e3b" stroke="#10b981" />
-                  <text x="590" y="30" fill="#a7f3d0" fontSize="13" fontWeight="bold">3. Production Server</text>
-                  <text x="590" y="60" fill="#ecfdf5" fontSize="11 font-mono">git pull</text>
-                  <text x="590" y="85" fill="#ecfdf5" fontSize="11 font-mono font-bold">pip install -r req.txt</text>
-                  <text x="590" y="115" fill="#34d399" fontSize="11">✓ 100% Identical Versions</text>
-                  <text x="590" y="145" fill="#a7f3d0" fontSize="10">Zero deployment surprises!</text>
-                </g>
-              </svg>
-            ) : activeInteractiveTab === "layered" ? (
-              <svg viewBox="0 0 880 340" className="w-full h-auto min-w-[700px] font-sans">
-                <text x="30" y="30" fill="#38bdf8" fontSize="14" fontWeight="bold">LAYERED REQUIREMENTS ARCHITECTURE (-r base.txt)</text>
-
-                {/* Base */}
-                <g transform="translate(300, 50)">
-                  <rect x="0" y="0" width="280" height="100" rx="8" fill="#134e4a" stroke="#14b8a6" />
-                  <text x="20" y="30" fill="#99f6e4" fontSize="13" fontWeight="bold">requirements/base.txt</text>
-                  <text x="20" y="55" fill="#ecfdf5" fontSize="11 font-mono">fastapi==0.110.0</text>
-                  <text x="20" y="75" fill="#ecfdf5" fontSize="11 font-mono">requests==2.31.0</text>
-                </g>
-
-                {/* Dev & Prod children */}
-                <g transform="translate(50, 180)">
-                  <rect x="0" y="0" width="350" height="110" rx="8" fill="#1e1b4b" stroke="#8b5cf6" />
-                  <text x="20" y="30" fill="#c4b5fd" fontSize="13" fontWeight="bold">requirements/dev.txt (Local &amp; CI)</text>
-                  <text x="20" y="55" fill="#34d399" fontSize="11 font-mono font-bold">-r base.txt</text>
-                  <text x="20" y="75" fill="#cbd5e1" fontSize="11 font-mono">pytest==8.0.2, black==24.2.0</text>
-                  <text x="20" y="95" fill="#94a3b8" fontSize="10">Testing &amp; Linting Tools</text>
-                </g>
-
-                <g transform="translate(480, 180)">
-                  <rect x="0" y="0" width="350" height="110" rx="8" fill="#064e3b" stroke="#10b981" />
-                  <text x="20" y="30" fill="#a7f3d0" fontSize="13" fontWeight="bold">requirements/prod.txt (Docker / Server)</text>
-                  <text x="20" y="55" fill="#34d399" fontSize="11 font-mono font-bold">-r base.txt</text>
-                  <text x="20" y="75" fill="#ecfdf5" fontSize="11 font-mono">gunicorn==21.2.0, sentry-sdk==1.40.6</text>
-                  <text x="20" y="95" fill="#a7f3d0" fontSize="10">Zero dev tools in production!</text>
-                </g>
-              </svg>
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             ) : (
-              <svg viewBox="0 0 880 340" className="w-full h-auto min-w-[700px] font-sans">
-                <text x="30" y="30" fill="#c084fc" fontSize="14" fontWeight="bold">pip-tools: requirements.in → DETERMINISTIC LOCKFILE</text>
-
-                {/* Left: in */}
-                <g transform="translate(30, 50)">
-                  <rect x="0" y="0" width="350" height="240" rx="8" fill="#134e4a" stroke="#14b8a6" />
-                  <text x="20" y="30" fill="#99f6e4" fontSize="13" fontWeight="bold">Direct Intent: requirements.in</text>
-                  <text x="20" y="65" fill="#ecfdf5" fontSize="12 font-mono">fastapi&gt;=0.110.0</text>
-                  <text x="20" y="90" fill="#ecfdf5" fontSize="12 font-mono">pandas&gt;=2.0.0</text>
-                  <rect x="20" y="145" width="310" height="70" rx="4" fill="#090d16" stroke="#475569" />
-                  <text x="30" y="170" fill="#34d399" fontSize="11 font-bold">Human-Readable Intent:</text>
-                  <text x="30" y="195" fill="#cbd5e1" fontSize="10">Only contains packages you actually imported!</text>
-                </g>
-
-                {/* Middle Action */}
-                <g transform="translate(395, 130)">
-                  <text x="10" y="35" fill="#38bdf8" fontSize="22" fontWeight="bold">→</text>
-                  <text x="-15" y="65" fill="#38bdf8" fontSize="10 font-mono">pip-compile</text>
-                </g>
-
-                {/* Right: Compiled Lockfile */}
-                <g transform="translate(490, 50)">
-                  <rect x="0" y="0" width="360" height="240" rx="8" fill="#064e3b" stroke="#10b981" />
-                  <text x="20" y="30" fill="#a7f3d0" fontSize="13" fontWeight="bold">Locked: requirements.txt</text>
-                  <text x="20" y="60" fill="#cbd5e1" fontSize="11 font-mono">fastapi==0.110.0</text>
-                  <text x="20" y="80" fill="#cbd5e1" fontSize="11 font-mono">pydantic==2.6.4 # via fastapi</text>
-                  <text x="20" y="100" fill="#cbd5e1" fontSize="11 font-mono">numpy==1.26.4 # via pandas</text>
-                  <rect x="20" y="145" width="320" height="70" rx="4" fill="#022c22" stroke="#059669" />
-                  <text x="30" y="170" fill="#34d399" fontSize="11 font-bold">Machine-Deterministic Lockfile:</text>
-                  <text x="30" y="195" fill="#ecfdf5" fontSize="10">Annotated with dependency provenance &amp; hashes!</text>
-                </g>
-              </svg>
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
             )}
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 3: INTERACTIVE REQUIREMENTS GENERATOR */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">🎮</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              3. Interactive <code className="text-teal-400 font-mono">requirements.txt</code> Builder &amp; Parser
-            </h2>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base leading-relaxed">
-            Select an environment tier and configure packages to generate production-ready layered requirement manifests:
-          </p>
-
-          {/* Tier Buttons */}
-          <div className="flex flex-wrap gap-2 mb-6">
-            {[
-              { id: "base", label: "Base Tier (requirements/base.txt)" },
-              { id: "dev", label: "Dev Tier (requirements/dev.txt)" },
-              { id: "prod", label: "Prod Tier (requirements/prod.txt)" },
-            ].map((tier) => (
-              <button
-                key={tier.id}
-                onClick={() => setEnvTier(tier.id)}
-                className={clsx(
-                  "py-2.5 px-4 rounded-xl text-xs sm:text-sm font-mono font-bold border transition-all",
-                  envTier === tier.id
-                    ? "bg-teal-950 border-teal-500 text-teal-300 shadow-md shadow-teal-950"
-                    : "bg-slate-950 border-slate-800 text-slate-400 hover:text-white"
-                )}
-              >
-                {tier.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Builder Card */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-950 p-6 rounded-xl border border-slate-800">
-            {/* Left Controls */}
-            <div className="space-y-4">
-              <span className="text-xs font-mono uppercase tracking-wider text-teal-400 block font-bold">
-                Configure Tier Dependencies
-              </span>
-
-              {envTier === "base" ? (
-                <div className="space-y-3">
-                  <label className="flex items-center gap-3 p-3 rounded-lg bg-slate-900 border border-slate-800 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={includeFastAPI}
-                      onChange={(e) => setIncludeFastAPI(e.target.checked)}
-                      className="rounded border-slate-700 text-teal-500"
-                    />
-                    <div>
-                      <code className="text-xs font-mono text-emerald-300 font-bold block">fastapi==0.110.0</code>
-                      <span className="text-[11px] text-slate-400">Web &amp; API microservice framework</span>
-                    </div>
-                  </label>
-
-                  <label className="flex items-center gap-3 p-3 rounded-lg bg-slate-900 border border-slate-800 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={includeRequests}
-                      onChange={(e) => setIncludeRequests(e.target.checked)}
-                      className="rounded border-slate-700 text-teal-500"
-                    />
-                    <div>
-                      <code className="text-xs font-mono text-emerald-300 font-bold block">requests&gt;=2.31.0</code>
-                      <span className="text-[11px] text-slate-400">HTTP client library</span>
-                    </div>
-                  </label>
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
                 </div>
-              ) : envTier === "dev" ? (
-                <div className="space-y-3">
-                  <div className="p-3 bg-slate-900 rounded-lg border border-slate-800 text-xs font-mono text-slate-300">
-                    <span className="text-teal-400 font-bold block mb-1">Inherits:</span>
-                    <code>-r base.txt (All core application libraries)</code>
-                  </div>
-                  <label className="flex items-center gap-3 p-3 rounded-lg bg-slate-900 border border-slate-800 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={includePytest}
-                      onChange={(e) => setIncludePytest(e.target.checked)}
-                      className="rounded border-slate-700 text-teal-500"
-                    />
-                    <div>
-                      <code className="text-xs font-mono text-cyan-300 font-bold block">pytest==8.0.2</code>
-                      <span className="text-[11px] text-slate-400">Automated testing &amp; assertion framework</span>
-                    </div>
-                  </label>
-                </div>
-              ) : (
-                <div className="space-y-3">
-                  <div className="p-3 bg-slate-900 rounded-lg border border-slate-800 text-xs font-mono text-slate-300">
-                    <span className="text-teal-400 font-bold block mb-1">Inherits:</span>
-                    <code>-r base.txt (All core application libraries)</code>
-                  </div>
-                  <label className="flex items-center gap-3 p-3 rounded-lg bg-slate-900 border border-slate-800 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={includeGunicorn}
-                      onChange={(e) => setIncludeGunicorn(e.target.checked)}
-                      className="rounded border-slate-700 text-teal-500"
-                    />
-                    <div>
-                      <code className="text-xs font-mono text-emerald-300 font-bold block">gunicorn==21.2.0</code>
-                      <span className="text-[11px] text-slate-400">Production WSGI HTTP Server</span>
-                    </div>
-                  </label>
-                </div>
-              )}
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
             </div>
 
-            {/* Right Generated File */}
-            <div className="space-y-2 flex flex-col justify-between">
-              <span className="text-xs font-mono uppercase tracking-wider text-slate-400 block">
-                Generated requirements/{envTier}.txt
-              </span>
-              <pre className="p-4 bg-slate-900 rounded-lg border border-slate-800 text-teal-300 font-mono text-xs overflow-x-auto whitespace-pre-wrap flex-1 max-h-64">
-                {getRequirementsContent()}
-              </pre>
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 4: MASTER VERSION OPERATORS MATRIX */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">📊</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              4. Master Version Specifiers &amp; Operators Matrix
-            </h2>
-          </div>
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
+            </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-slate-300 border-collapse">
-              <thead>
-                <tr className="border-b border-slate-700 text-slate-200 bg-slate-950/60">
-                  <th className="py-3.5 px-4 font-bold">Operator</th>
-                  <th className="py-3.5 px-4 font-bold">Meaning</th>
-                  <th className="py-3.5 px-4 font-bold">Example</th>
-                  <th className="py-3.5 px-4 font-bold">Recommended Usage</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-800">
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-teal-300 font-semibold">==</td>
-                  <td className="py-3 px-4">Exact Pinning</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">requests==2.31.0</td>
-                  <td className="py-3 px-4">Mandatory for live production deployments</td>
-                </tr>
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-emerald-300 font-semibold">~=</td>
-                  <td className="py-3 px-4">Compatible Release</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">pydantic~=2.6.0</td>
-                  <td className="py-3 px-4">Allows safe bug-fix patches (&gt;=2.6.0, ==2.6.*)</td>
-                </tr>
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-cyan-300 font-semibold">&gt;=</td>
-                  <td className="py-3 px-4">Minimum Version</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">pandas&gt;=2.0.0</td>
-                  <td className="py-3 px-4">Reusable libraries and initial development</td>
-                </tr>
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-rose-400 font-semibold">!=</td>
-                  <td className="py-3 px-4">Exclude Buggy Version</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">pydantic!=2.5.0</td>
-                  <td className="py-3 px-4">Skip a known broken or vulnerable release</td>
-                </tr>
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-purple-300 font-semibold">;</td>
-                  <td className="py-3 px-4">Environment Marker</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">; sys_platform == 'win32'</td>
-                  <td className="py-3 px-4">OS-specific and Python-version specific packages</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 5: LIVE PYTHON CODE LAB */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">💻</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              5. Interactive Code Lab: Production Scripts
-            </h2>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base">
-            Explore 4 production-grade Python scripts demonstrating requirements pinning, layered multi-environment architectures, pip-tools lockfiles, and compliance auditors:
-          </p>
-
-          <PythonFileLoader
-            files={[
-              {
-                filename: "requirements_generation_and_pinning.py",
-                code: reqPinning,
-                description: "Anatomy of requirements.txt, 5 version specifiers, and platform environment markers.",
-              },
-              {
-                filename: "layered_requirements_architecture.py",
-                code: layeredReqs,
-                description: "Layered multi-tier architecture (base.txt, dev.txt, prod.txt) using recursive -r includes.",
-              },
-              {
-                filename: "pip_freeze_vs_pip_reqs_and_lockfiles.py",
-                code: freezeVsCompile,
-                description: "Drawbacks of naive pip freeze vs pip-tools (pip-compile) deterministic lockfiles.",
-              },
-              {
-                filename: "dependency_validator_and_license_audit.py",
-                code: validatorAudit,
-                description: "Automated requirements parser and dependency compliance auditor matching specs against installed packages.",
-              },
-            ]}
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <FAQTemplate
+            title="requirements.txt generation and dependency management FAQs"
+            questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
           />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 6: COMMON TRAPS & EDGE CASES */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">⚠️</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              6. Common Traps, Anti-Patterns &amp; Edge Cases
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Trap 1 */}
-            <div className="p-6 rounded-xl bg-rose-950/30 border border-rose-800/60 shadow-lg space-y-3">
-              <div className="flex items-center gap-2 text-rose-400 font-bold text-base">
-                <span>❌</span> Trap 1: Freezing Global Python
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Running <code className="text-rose-300 font-mono">pip freeze &gt; requirements.txt</code> outside a virtualenv dumps 200 unrelated global system packages into your project!
-              </p>
-              <div className="text-xs font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-400">
-                <span className="text-emerald-400 font-bold">Fix:</span> Always activate your project virtual environment before running <code className="text-emerald-300">pip freeze</code>.
-              </div>
-            </div>
-
-            {/* Trap 2 */}
-            <div className="p-6 rounded-xl bg-amber-950/30 border border-amber-800/60 shadow-lg space-y-3">
-              <div className="flex items-center gap-2 text-amber-400 font-bold text-base">
-                <span>❌</span> Trap 2: Testing Tools in Production Images
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Installing <code className="text-amber-300 font-mono">pytest</code>, <code className="text-amber-300 font-mono">black</code>, and <code className="text-amber-300 font-mono">mypy</code> on production servers adds 300MB of unnecessary attack surface.
-              </p>
-              <div className="text-xs font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-400">
-                <span className="text-emerald-400 font-bold">Fix:</span> Use layered <code className="text-emerald-300">requirements/prod.txt</code> for Docker builds.
-              </div>
-            </div>
-
-            {/* Trap 3 */}
-            <div className="p-6 rounded-xl bg-purple-950/30 border border-purple-800/60 shadow-lg space-y-3">
-              <div className="flex items-center gap-2 text-purple-400 font-bold text-base">
-                <span>❌</span> Trap 3: Unpinned Dependencies in Production
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Leaving <code className="text-purple-300 font-mono">requests</code> without version pins allows a breaking upstream release to crash your web app during an automated restart.
-              </p>
-              <div className="text-xs font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-400">
-                <span className="text-emerald-400 font-bold">Fix:</span> Pin exact versions (<code className="text-emerald-300">==</code>) in production manifests.
-              </div>
-            </div>
-
-            {/* Trap 4 */}
-            <div className="p-6 rounded-xl bg-cyan-950/30 border border-cyan-800/60 shadow-lg space-y-3">
-              <div className="flex items-center gap-2 text-cyan-400 font-bold text-base">
-                <span>❌</span> Trap 4: Broken Dependency Conflicts
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Manually editing version numbers in <code className="text-cyan-300 font-mono">requirements.txt</code> can create conflicting sub-dependencies.
-              </p>
-              <div className="text-xs font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-400">
-                <span className="text-emerald-400 font-bold">Fix:</span> Run <code className="text-emerald-300">python -m pip check</code> to verify environment integrity!
-              </div>
-            </div>
-          </div>
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <PlainTextPrint
+            content={noteText}
+            title="requirements.txt generation and dependency management"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Note"
+            downloadFileName="topic9_note.txt"
+          />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 7: FAQ & INTERVIEW REVIEW QUESTIONS */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">❓</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              7. Master Review &amp; Interview Questions (25 FAQs)
-            </h2>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base">
-            Comprehensive question-and-answer repository covering requirements.txt generation, version specifiers, layered architectures, and lockfile compilation:
-          </p>
-
-          <FAQTemplate questions={questions} />
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <Teacher
+            note={
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
+            }
+          />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 8: STUDY NOTES, PRINTABLE HANDOUT & TEACHER BIO */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">📄</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              8. Study Notes, Printable Handout &amp; Teacher Profile
-            </h2>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base">
-            Download or print the complete reference sheet with version specifier tables, layered requirements templates, and pip-tools recipes:
-          </p>
-
-          <div className="mb-10">
-            <PlainTextPrint
-              content={noteText}
-              filename="python_topic9_requirements_and_dependencies_notes.txt"
-              title="Print Topic 9 Study Notes"
-            />
-          </div>
-
-          {/* Teacher Bio Card */}
-          <Teacher />
-        </section>
-
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 9 · requirements.txt generation and dependency management · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
+        </footer>
       </div>
-    </div>
+    </>
   );
-}
+};
+
+export default Topic9;

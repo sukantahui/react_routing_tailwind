@@ -195,9 +195,9 @@ const questions = [
     hint: "A universal rule format that converts into search queries for Splunk, Elastic, or Microsoft Sentinel.",
     level: "Moderate",
     codeExample: `// Sigma Detection Rule (YAML):
-// title: Mimikatz Execution
+// title: Unauthorized Memory Access Detection
 // logsource: { product: windows, service: security }
-// detection: { selection: { EventID: 4688, CommandLine|contains: 'sekurlsa' } }`
+// detection: { selection: { EventID: 4688, CommandLine|contains: 'lsass_memory_probe' } }`
   },
   {
     id: 20,

@@ -101,8 +101,8 @@ if __name__ == "__main__":
     print(f"Fingerprint Risk  : {res1['fingerprint_risk']}")
     print(f"Operational Risk  : {res1['operational_security_risk']}")
 
-    # Test 2: Novel Zero-Day Kernel Exploit with Outbound Pivot Attempt
-    cmd2 = AttackerCommand(command_str="./cve_2026_dirty_pipe_zero_day --pivot 10.10.1.5", is_kernel_exploit=True, attempts_outbound_pivot=True)
+    # Test 2: Novel Kernel Privilege Escalation Simulation with Outbound Pivot Attempt
+    cmd2 = AttackerCommand(command_str="sample_privilege_escalation_sim --pivot 10.10.1.5", is_kernel_exploit=True, attempts_outbound_pivot=True)
     print("\n--- 2. High-Interaction VM with Honeywall ---")
     res2 = sim.execute_high_interaction(cmd2, honeywall_active=True)
     print(f"Shell Response    : {res2['shell_response']}")

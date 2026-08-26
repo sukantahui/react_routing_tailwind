@@ -135,7 +135,7 @@ const questions = [
     level: "Expert",
     codeExample: `// DNS Tunneling Anomaly:
 // Normal: "api.google.com" (Entropy: 2.8, Length: 14)
-// Exfil : "dGhpcyBpcyBhIHNlY3JldCBwYXNzd29yZAo.c2.evil.com" (Entropy: 5.8, Length: 48) ➔ ALERT 🚨`
+// Exfil : "dGhpcyBpcyBhIHNlY3JldCBwYXNzd29yZAo.attacker-c2.net" (Entropy: 5.8, Length: 48) ➔ ALERT 🚨`
   },
   {
     id: 14,

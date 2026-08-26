@@ -1,0 +1,57 @@
+================================================================================
+RDBMS MySQL Course - Module 003_006: Query Execution Plans & Performance Tuning
+Topic 7: Covering Index Strategy: Eliminating Disk Reads with Index-Only Access
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS A COVERING INDEX?
+--------------------------------------------------------------------------------
+A Covering Index is an index design where the index itself contains all the
+columns required to satisfy the entire query—including columns in `SELECT`,
+`WHERE`, `JOIN`, `GROUP BY`, and `ORDER BY`.
+
+In MySQL EXPLAIN, a covering index is identified by:
+    Extra = 'Using index'
+
+2. THE TWO-STEP LOOKUP VS INDEX-ONLY ACCESS
+--------------------------------------------------------------------------------
+Non-Covering Secondary Index Lookup:
+  Step 1: Traverse Secondary B+Tree -> Fetch matching Primary Key (PK).
+  Step 2: Clustered Index Seek (Bookmark Lookup / Random I/O) -> Fetch remaining columns.
+
+Covering Index Access (Index-Only):
+  Step 1: Traverse Secondary B+Tree -> All requested columns exist in the leaf node!
+  Step 2: ELIMINATED! Zero base table reads.
+
+3. INNODB IMPLICIT PRIMARY KEY INCLUSION
+--------------------------------------------------------------------------------
+In the InnoDB storage engine, every secondary index physically stores:
+    (Indexed_Columns, Clustered_Primary_Key)
+
+Therefore, an index on `idx_city (city)` on a table with Primary Key `(student_id)`
+automatically acts as a covering index for:
+    SELECT student_id, city FROM students WHERE city = 'Barrackpore';
+
+4. THE DEFERRED JOIN (LATE ROW LOOKUP) PATTERN
+--------------------------------------------------------------------------------
+When executing deep pagination (e.g., `LIMIT 100000, 20`), standard queries perform
+100,020 clustered table seeks.
+
+A Deferred Join uses a covering index subquery to perform the offset in-index,
+fetching only 20 full rows:
+    SELECT s.* 
+    FROM students s
+    JOIN (
+        SELECT student_id 
+        FROM students 
+        WHERE status = 'Active' 
+        ORDER BY created_at DESC 
+        LIMIT 100000, 20
+    ) AS page ON s.student_id = page.student_id;
+
+5. CRITICAL BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Eliminate `SELECT *` in high-throughput APIs to preserve covering index status.
+2. Order composite covering index columns: (Equality WHERE, Range WHERE, SELECT cols).
+3. Do not over-index (keep index column count balanced to avoid write degradation).
+4. Leverage implicit Primary Key inclusion to keep secondary index byte widths small.

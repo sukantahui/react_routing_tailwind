@@ -312,7 +312,7 @@ public class SecureLdapAuthenticator {
       threatType: "OS COMMAND INJECTION & HOST SHELL ESCAPE (RCE Threat)",
       budget: "₹87,00,000",
       incident:
-        "An adversary submitted filenames containing shell metacharacters (`report.pdf; nc -e /bin/bash ...`) targeting the backend PDF converter utility.",
+        "An adversary submitted filenames containing shell metacharacters (`report.pdf; whoami`) targeting the backend PDF converter utility.",
       defenseStrategy:
         "Mamata refactored the image conversion pipeline to use `child_process.execFile()` passing arguments as structured arrays without invoking a shell.",
       outcome: "100% of command injection payloads treated as literal filenames; zero shell access; ₹3,600 Crores in financial transactions safeguarded.",

@@ -1,0 +1,34 @@
+================================================================================
+RDBMS MySQL Course - Module 004_001: MySQL Architecture & Storage Engines Deep Dive
+Topic 7: InnoDB Doublewrite Buffer: Preventing Torn Pages on Disk Failure
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE TORN PAGE (PARTIAL WRITE) DILEMMA
+--------------------------------------------------------------------------------
+- Standard operating system filesystems write data in 4KB disk blocks, whereas
+  InnoDB data and index pages are 16KB (16,384 bytes).
+- A single 16KB InnoDB page write requires 4 contiguous 4KB OS write operations.
+- If a server experiences a sudden power outage after writing only 1 or 2 blocks
+  (4KB or 8KB), the page on disk becomes corrupted. This is a **Torn Page**.
+- Why the Redo Log cannot fix a torn page directly:
+  InnoDB redo logs use physiological logging (page offset deltas), which assumes
+  that the existing base page on disk is structurally intact.
+
+2. DOUBLEWRITE BUFFER TWO-STEP WRITE ARCHITECTURE
+--------------------------------------------------------------------------------
+Before flushing any dirty page from the Buffer Pool to its final tablespace location:
+1. Step 1 (Contiguous Sequential Write):
+   InnoDB writes batches of 16KB pages to contiguous disk blocks in the
+   **Doublewrite Buffer** (`.dblwr` files) and immediately calls `fsync()`.
+   Because this write is contiguous and sequential, overhead is minimal (~3-5%).
+2. Step 2 (Random Tablespace Write):
+   InnoDB writes the 16KB pages to their actual random positions in their
+   respective `.ibd` tablespaces.
+
+3. CRASH RECOVERY REPAIR MECHANICS
+--------------------------------------------------------------------------------
+- Upon restart after a crash, InnoDB inspects the CRC32 checksum of every page header.
+- If a page has a checksum mismatch (a Torn Page), InnoDB looks up the intact copy
+  of that 16KB page inside the Doublewrite Buffer, overwrites the damaged tablespace
+  page, and then applies Redo Log changes to bring it up to date.

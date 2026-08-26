@@ -598,7 +598,7 @@ const Topic9 = () => {
                 'Evaluated opportunity costs d\'_{ij} at each iteration pass',
                 'Executed loop pivoting and flow updates for each sub-optimal state',
                 'Verified monotonic cost decrease across iterations (Z_0 > Z_1 > Z_2)',
-                'Terminated when all d_{ij} ≥ 0 and certified final minimum cost Z',
+                'Terminated when all d_ij ≥ 0 and certified final minimum cost Z',
               ].map((text, idx) => (
                 <div key={idx} className="p-3 rounded-lg bg-slate-800/40 border border-slate-700/60 flex items-center space-x-3">
                   <span className="text-emerald-400">✅</span>

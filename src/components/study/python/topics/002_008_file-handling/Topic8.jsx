@@ -1,31 +1,25 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 
-// Common Components
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
-import FAQTemplate from "../../../../../common/FAQTemplate";
+// ─── Common Framework Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
-
-// Python code examples
-import readMode from "./topic8_files/read_mode.py?raw";
-import writeMode from "./topic8_files/write_mode.py?raw";
-import appendMode from "./topic8_files/append_mode.py?raw";
-import exclusiveMode from "./topic8_files/exclusive_mode.py?raw";
-import modeComparison from "./topic8_files/mode_comparison.py?raw";
-
-// FAQ data
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import questions from "./topic8_files/topic8_questions";
+import noteText from "./topic8_files/topic8_note.txt?raw";
 
 /**
- * Topic8: File Modes (r, w, a, x)
+ * Topic8 – Reading Files: read(), read(size), readline(), readlines()
+ * Module: 002_008_file-handling (File Handling & Persistence (Text, CSV & JSON))
+ * Track: Python from Basic to Pro
  *
- * This component explains the four basic file modes in Python:
- * - 'r': read (file must exist)
- * - 'w': write (creates/overwrites)
- * - 'a': append (creates/appends)
- * - 'x': exclusive creation (fails if exists)
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
  */
 const Topic8 = () => {
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
   const sectionRefs = useRef([]);
 
   useEffect(() => {
@@ -33,818 +27,353 @@ const Topic8 = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("section-visible");
+            entry.target.classList.add("is-visible");
           }
         });
       },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      }
+      { threshold: 0.1 }
     );
 
-    sectionRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
   }, []);
 
-  const addToRefs = (el) => {
+  const addRef = (el) => {
     if (el && !sectionRefs.current.includes(el)) {
       sectionRefs.current.push(el);
     }
   };
 
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  ];
+
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-800 dark:text-gray-200 p-6 md:p-8 lg:p-12 font-sans leading-relaxed">
-      {/* ====== PAGE HEADER ====== */}
-      <header
-        ref={addToRefs}
-        className="section-hidden max-w-5xl mx-auto mb-12 pb-8 border-b border-gray-200 dark:border-gray-800"
-      >
-        <div className="flex items-center gap-3 mb-3">
-          <span className="text-sm font-mono bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full">
-            Topic 8
-          </span>
-          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
-            Core
-          </span>
-        </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">
-          File Modes (r, w, a, x)
-        </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-400 mt-3 max-w-3xl">
-          Understanding the four fundamental modes for opening files in Python
-          and when to use each.
-        </p>
-        <div className="flex flex-wrap gap-3 mt-4">
-          <span className="text-sm bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full text-gray-600 dark:text-gray-400">
-            📖 Read ('r')
-          </span>
-          <span className="text-sm bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full text-gray-600 dark:text-gray-400">
-            ✍️ Write ('w')
-          </span>
-          <span className="text-sm bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full text-gray-600 dark:text-gray-400">
-            ➕ Append ('a')
-          </span>
-          <span className="text-sm bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full text-gray-600 dark:text-gray-400">
-            ❌ Exclusive ('x')
-          </span>
-        </div>
-      </header>
+    <>
+      <style>{`
+        .reveal-section {
+          transform: translateY(0);
+          transition: transform 0.4s ease-out;
+        }
+        .reveal-section.is-visible {
+          transform: translateY(0);
+        }
+      `}</style>
 
-      <div className="max-w-5xl mx-auto space-y-16">
-        {/* ====== SECTION 1: OVERVIEW ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">📋</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              The Four Basic Modes
-            </h2>
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 008 · Topic 8</span>
           </div>
-          <div className="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
-            <p>
-              Python's <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">open()</code> function
-              accepts a <strong>mode</strong> string that determines how the
-              file is opened. The four basic modes are:
-            </p>
-            <ul>
-              <li>
-                <strong className="text-gray-900 dark:text-white">'r'</strong> —
-                <strong>Read</strong>. Opens an existing file for reading.
-              </li>
-              <li>
-                <strong className="text-gray-900 dark:text-white">'w'</strong> —
-                <strong>Write</strong>. Opens a file for writing; creates or
-                overwrites.
-              </li>
-              <li>
-                <strong className="text-gray-900 dark:text-white">'a'</strong> —
-                <strong>Append</strong>. Opens a file for appending; creates if
-                doesn't exist, writes at the end.
-              </li>
-              <li>
-                <strong className="text-gray-900 dark:text-white">'x'</strong> —
-                <strong>Exclusive creation</strong>. Creates a new file; fails
-                if the file already exists.
-              </li>
-            </ul>
-            <p>
-              Each mode has a distinct purpose and behavior regarding file
-              creation, truncation, and the initial position of the file pointer.
-            </p>
-          </div>
-
-          {/* SVG: Mode Comparison */}
-          <div className="mt-8 bg-gray-50 dark:bg-gray-900/50 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-700">
-            <div className="flex justify-center">
-              <svg viewBox="0 0 700 160" className="w-full max-w-3xl h-auto">
-                <text x="350" y="25" textAnchor="middle" fill="#6B7280" fontSize="14">Behavior of Each Mode</text>
-
-                <rect x="30" y="45" width="140" height="45" rx="6" fill="#3B82F6" fillOpacity="0.15" stroke="#3B82F6" strokeWidth="2" />
-                <text x="100" y="72" textAnchor="middle" fill="#60A5FA" fontSize="16" fontWeight="600">'r'</text>
-                <text x="100" y="88" textAnchor="middle" fill="#93C5FD" fontSize="11">Read (must exist)</text>
-
-                <rect x="190" y="45" width="140" height="45" rx="6" fill="#EF4444" fillOpacity="0.15" stroke="#EF4444" strokeWidth="2" />
-                <text x="260" y="72" textAnchor="middle" fill="#F87171" fontSize="16" fontWeight="600">'w'</text>
-                <text x="260" y="88" textAnchor="middle" fill="#FCA5A5" fontSize="11">Write (overwrite)</text>
-
-                <rect x="350" y="45" width="140" height="45" rx="6" fill="#10B981" fillOpacity="0.15" stroke="#10B981" strokeWidth="2" />
-                <text x="420" y="72" textAnchor="middle" fill="#34D399" fontSize="16" fontWeight="600">'a'</text>
-                <text x="420" y="88" textAnchor="middle" fill="#6EE7B7" fontSize="11">Append (to end)</text>
-
-                <rect x="510" y="45" width="140" height="45" rx="6" fill="#8B5CF6" fillOpacity="0.15" stroke="#8B5CF6" strokeWidth="2" />
-                <text x="580" y="72" textAnchor="middle" fill="#A78BFA" fontSize="16" fontWeight="600">'x'</text>
-                <text x="580" y="88" textAnchor="middle" fill="#C4B5FD" fontSize="11">Exclusive (create)</text>
-
-                <text x="100" y="135" textAnchor="middle" fill="#6B7280" fontSize="12">✓ Read only</text>
-                <text x="260" y="135" textAnchor="middle" fill="#6B7280" fontSize="12">✓ Creates/overwrites</text>
-                <text x="420" y="135" textAnchor="middle" fill="#6B7280" fontSize="12">✓ Appends</text>
-                <text x="580" y="135" textAnchor="middle" fill="#6B7280" fontSize="12">✓ Fails if exists</text>
-              </svg>
-            </div>
-            <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-3">
-              Choose the mode based on your operation: reading, writing, appending, or ensuring a new file.
-            </p>
-          </div>
-        </section>
-
-        {/* ====== SECTION 2: READ MODE 'r' ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-100"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">📖</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Read Mode ('r')
-            </h2>
-          </div>
-          <div className="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
-            <p>
-              <strong className="text-gray-900 dark:text-white">Purpose:</strong> To
-              read data from an existing file.
-            </p>
-            <ul>
-              <li><strong>File must exist:</strong> If the file doesn't exist, a FileNotFoundError is raised.</li>
-              <li><strong>Position:</strong> File pointer is at the beginning (position 0).</li>
-              <li><strong>Read-only:</strong> You cannot write to the file; attempting to write raises an error.</li>
-              <li><strong>Default mode:</strong> This is the default mode for `open()`.</li>
-            </ul>
-            <div className="bg-yellow-50 dark:bg-yellow-950/20 border-l-4 border-yellow-500 p-4 rounded-r-xl">
-              <p className="text-yellow-700 dark:text-yellow-300 font-medium">
-                💡 Usage:
-              </p>
-              <p className="text-yellow-600 dark:text-yellow-400 text-sm">
-                Use 'r' when you need to read configuration files, data files,
-                logs, or any existing text/binary data. Always check if the file
-                exists beforehand or handle the FileNotFoundError.
-              </p>
-            </div>
-          </div>
-          <div className="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-4 border border-gray-200 dark:border-gray-800 mt-4">
-            <code className="text-sm text-gray-800 dark:text-gray-200">
-              with open('data.txt', 'r', encoding='utf-8') as f:<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;content = f.read()
-            </code>
-          </div>
-        </section>
-
-        {/* ====== SECTION 3: WRITE MODE 'w' ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-200"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">✍️</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Write Mode ('w')
-            </h2>
-          </div>
-          <div className="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
-            <p>
-              <strong className="text-gray-900 dark:text-white">Purpose:</strong> To
-              write data to a file, creating a new file or <em>overwriting</em> an
-              existing one.
-            </p>
-            <ul>
-              <li><strong>Creates if missing:</strong> If the file doesn't exist, Python creates it.</li>
-              <li><strong>Truncates (overwrites):</strong> If the file exists, its content is erased before writing.</li>
-              <li><strong>Position:</strong> File pointer is at the beginning.</li>
-              <li><strong>Write-only:</strong> You cannot read from a file opened in 'w' mode.</li>
-            </ul>
-            <div className="bg-red-50 dark:bg-red-950/20 border-l-4 border-red-500 p-4 rounded-r-xl">
-              <p className="text-red-700 dark:text-red-300 font-medium">
-                ⚠️ Caution:
-              </p>
-              <p className="text-red-600 dark:text-red-400 text-sm">
-                'w' mode <strong>destroys existing data</strong>. Use it only when
-                you intend to replace the file completely. For adding to existing
-                files, use 'a' (append) or 'r+' (read+write).
-              </p>
-            </div>
-          </div>
-          <div className="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-4 border border-gray-200 dark:border-gray-800 mt-4">
-            <code className="text-sm text-gray-800 dark:text-gray-200">
-              with open('output.txt', 'w', encoding='utf-8') as f:<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;f.write('This overwrites the file.')
-            </code>
-          </div>
-        </section>
-
-        {/* ====== SECTION 4: APPEND MODE 'a' ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">➕</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Append Mode ('a')
-            </h2>
-          </div>
-          <div className="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
-            <p>
-              <strong className="text-gray-900 dark:text-white">Purpose:</strong> To
-              add new data to the <em>end</em> of an existing file, or create a
-              new file if it doesn't exist.
-            </p>
-            <ul>
-              <li><strong>Creates if missing:</strong> Like 'w', if the file doesn't exist, it's created.</li>
-              <li><strong>No truncation:</strong> Existing content is preserved; writes are added at the end.</li>
-              <li><strong>Position:</strong> File pointer is at the end of the file for each write.</li>
-              <li><strong>Write-only:</strong> You cannot read from a file opened in 'a' mode.</li>
-            </ul>
-            <div className="bg-blue-50 dark:bg-blue-950/20 border-l-4 border-blue-500 p-4 rounded-r-xl">
-              <p className="text-blue-700 dark:text-blue-300 font-medium">
-                ✅ Ideal for:
-              </p>
-              <p className="text-blue-600 dark:text-blue-400 text-sm">
-                Log files, audit trails, transaction logs, and any situation
-                where you need to <em>preserve history</em> and add new entries.
-              </p>
-            </div>
-          </div>
-          <div className="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-4 border border-gray-200 dark:border-gray-800 mt-4">
-            <code className="text-sm text-gray-800 dark:text-gray-200">
-              with open('log.txt', 'a', encoding='utf-8') as f:<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;{`f.write(f'[{datetime.now()}] Event occurred.\n')`}
-            </code>
-          </div>
-        </section>
-
-        {/* ====== SECTION 5: EXCLUSIVE MODE 'x' ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">❌</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Exclusive Mode ('x')
-            </h2>
-          </div>
-          <div className="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
-            <p>
-              <strong className="text-gray-900 dark:text-white">Purpose:</strong> To
-              create a new file <em>only if it does not already exist</em>.
-            </p>
-            <ul>
-              <li><strong>Exclusive creation:</strong> The file must not exist; otherwise, FileExistsError is raised.</li>
-              <li><strong>Write-only:</strong> You can only write; reading is not allowed.</li>
-              <li><strong>Position:</strong> File pointer is at the beginning.</li>
-              <li><strong>Safety:</strong> Prevents accidental overwriting of existing files.</li>
-            </ul>
-            <div className="bg-green-50 dark:bg-green-950/20 border-l-4 border-green-500 p-4 rounded-r-xl">
-              <p className="text-green-700 dark:text-green-300 font-medium">
-                ✅ Ideal for:
-              </p>
-              <p className="text-green-600 dark:text-green-400 text-sm">
-                Creating unique files, ensuring you don't overwrite existing
-                data (e.g., backup files, generated reports with timestamped names).
-              </p>
-            </div>
-          </div>
-          <div className="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-4 border border-gray-200 dark:border-gray-800 mt-4">
-            <code className="text-sm text-gray-800 dark:text-gray-200">
-              try:<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;with open('newfile.txt', 'x', encoding='utf-8') as f:<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f.write('This is a new file.')<br />
-              except FileExistsError:<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;print('File already exists.')
-            </code>
-          </div>
-        </section>
-
-        {/* ====== SECTION 6: COMPARISON TABLE ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">⚖️</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Mode Comparison
-            </h2>
-          </div>
-          <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:shadow-lg">
-            <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-800">
-              <thead className="bg-gray-100 dark:bg-gray-800/50">
-                <tr>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">Mode</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">Read?</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">Write?</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">File must exist?</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">Creates if missing?</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">Truncates?</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">Initial position</th>
-                </tr>
-              </thead>
-              <tbody className="bg-white dark:bg-gray-900/50 divide-y divide-gray-200 dark:divide-gray-800 text-gray-700 dark:text-gray-300">
-                <tr>
-                  <td className="px-6 py-4 font-mono text-sm font-bold">'r'</td>
-                  <td className="px-6 py-4">✅</td>
-                  <td className="px-6 py-4">❌</td>
-                  <td className="px-6 py-4">✅</td>
-                  <td className="px-6 py-4">❌</td>
-                  <td className="px-6 py-4">❌</td>
-                  <td className="px-6 py-4">Start</td>
-                </tr>
-                <tr>
-                  <td className="px-6 py-4 font-mono text-sm font-bold">'w'</td>
-                  <td className="px-6 py-4">❌</td>
-                  <td className="px-6 py-4">✅</td>
-                  <td className="px-6 py-4">❌</td>
-                  <td className="px-6 py-4">✅</td>
-                  <td className="px-6 py-4">✅</td>
-                  <td className="px-6 py-4">Start</td>
-                </tr>
-                <tr>
-                  <td className="px-6 py-4 font-mono text-sm font-bold">'a'</td>
-                  <td className="px-6 py-4">❌</td>
-                  <td className="px-6 py-4">✅</td>
-                  <td className="px-6 py-4">❌</td>
-                  <td className="px-6 py-4">✅</td>
-                  <td className="px-6 py-4">❌</td>
-                  <td className="px-6 py-4">End (write)</td>
-                </tr>
-                <tr>
-                  <td className="px-6 py-4 font-mono text-sm font-bold">'x'</td>
-                  <td className="px-6 py-4">❌</td>
-                  <td className="px-6 py-4">✅</td>
-                  <td className="px-6 py-4">❌ (must not exist)</td>
-                  <td className="px-6 py-4">✅</td>
-                  <td className="px-6 py-4">✅</td>
-                  <td className="px-6 py-4">Start</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
-            Understanding these differences is crucial for choosing the right mode for your task.
-          </p>
-        </section>
-
-        {/* ====== SECTION 7: REAL-WORLD SCENARIOS ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">🌍</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Real-World Scenarios
-            </h2>
-          </div>
-          <div className="space-y-4">
-            <div className="bg-blue-50 dark:bg-blue-950/30 rounded-xl p-6 border border-blue-200 dark:border-blue-800/50 transition-all duration-300 hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-600">
-              <div className="flex items-start gap-4">
-                <span className="text-3xl">📊</span>
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">
-                    Reading Student Data ('r')
-                  </h4>
-                  <p className="text-gray-700 dark:text-gray-300 mt-1">
-                    The school in Shyamnagar reads the student list from
-                    <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">students.csv</code> using 'r' mode.
-                    If the file is missing, the program shows a friendly error
-                    instead of crashing.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-purple-50 dark:bg-purple-950/30 rounded-xl p-6 border border-purple-200 dark:border-purple-800/50 transition-all duration-300 hover:shadow-lg hover:border-purple-300 dark:hover:border-purple-600">
-              <div className="flex items-start gap-4">
-                <span className="text-3xl">📝</span>
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">
-                    Generating Exam Results ('w')
-                  </h4>
-                  <p className="text-gray-700 dark:text-gray-300 mt-1">
-                    Every term, the school in Naihati generates a new results file.
-                    Using 'w' mode ensures that the old file is replaced with the
-                    latest marks, avoiding outdated data.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-green-50 dark:bg-green-950/30 rounded-xl p-6 border border-green-200 dark:border-green-800/50 transition-all duration-300 hover:shadow-lg hover:border-green-300 dark:hover:border-green-600">
-              <div className="flex items-start gap-4">
-                <span className="text-3xl">📋</span>
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">
-                    Logging Events ('a')
-                  </h4>
-                  <p className="text-gray-700 dark:text-gray-300 mt-1">
-                    A web application in Barrackpore logs every user login and
-                    action using 'a' mode. The log file grows over time, preserving
-                    a complete audit trail.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-indigo-50 dark:bg-indigo-950/30 rounded-xl p-6 border border-indigo-200 dark:border-indigo-800/50 transition-all duration-300 hover:shadow-lg hover:border-indigo-300 dark:hover:border-indigo-600">
-              <div className="flex items-start gap-4">
-                <span className="text-3xl">🔒</span>
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">
-                    Creating Backup Files ('x')
-                  </h4>
-                  <p className="text-gray-700 dark:text-gray-300 mt-1">
-                    A backup script in Ichapur creates timestamped backup files
-                    using 'x' mode. If a file with the same name already exists,
-                    the script handles it gracefully, preventing accidental overwrites.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ====== SECTION 8: PYTHON CODE EXAMPLES ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">🐍</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Python in Action
-            </h2>
-          </div>
-          <p className="text-gray-700 dark:text-gray-300 text-lg mb-6">
-            The following examples demonstrate each mode in practical scenarios.
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Reading Files: read(), read(size), readline(), readlines()
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Master file I/O operations, context managers, structured CSV and JSON data persistence.
           </p>
 
-          <div className="space-y-6">
-            <PythonFileLoader
-              fileModule={readMode}
-              title="Read Mode ('r') – Safe Reading"
-              highlightLines={[]}
-            />
-            <PythonFileLoader
-              fileModule={writeMode}
-              title="Write Mode ('w') – Overwriting"
-              highlightLines={[]}
-            />
-            <PythonFileLoader
-              fileModule={appendMode}
-              title="Append Mode ('a') – Adding to Logs"
-              highlightLines={[]}
-            />
-            <PythonFileLoader
-              fileModule={exclusiveMode}
-              title="Exclusive Mode ('x') – Safe Creation"
-              highlightLines={[]}
-            />
-            <PythonFileLoader
-              fileModule={modeComparison}
-              title="Mode Comparison – Side by Side"
-              highlightLines={[]}
-            />
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
           </div>
-        </section>
+        </header>
 
-        {/* ====== SECTION 9: TIPS & TRICKS ====== */}
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
         <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
         >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">💡</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Tips & Tricks
-            </h2>
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Reading Files: read(), read(size), readline(), readlines()
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {[
-              {
-                title: "Always handle FileNotFoundError for 'r'",
-                desc: "Check `os.path.exists()` or use try‑except to avoid crashes.",
-              },
-              {
-                title: "Use 'w' only when you want to replace",
-                desc: "If you need to keep existing content, use 'a' or 'r+'.",
-              },
-              {
-                title: "Append mode is perfect for logs",
-                desc: "It preserves history and doesn't overwrite.",
-              },
-              {
-                title: "Use 'x' for unique file generation",
-                desc: "Combine with timestamps or UUIDs to avoid naming collisions.",
-              },
-              {
-                title: "Test modes with a dummy file first",
-                desc: "Always test file operations in a controlled environment.",
-              },
-              {
-                title: "Combine with encoding for text files",
-                desc: "Always add `encoding='utf-8'` for text modes.",
-              },
-            ].map((tip, idx) => (
-              <div
-                key={idx}
-                className="bg-amber-50 dark:bg-amber-950/20 rounded-xl p-5 border border-amber-200 dark:border-amber-800/50 transition-all duration-300 hover:shadow-lg hover:border-amber-300 dark:hover:border-amber-600 hover:-translate-y-1"
-              >
-                <h4 className="font-semibold text-gray-900 dark:text-white flex items-start gap-2">
-                  <span className="text-amber-500">✦</span> {tip.title}
-                </h4>
-                <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">
-                  {tip.desc}
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Reading Files: read(), read(size), readline(), readlines()</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
                 </p>
               </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ====== SECTION 10: COMMON MISTAKES ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">⚠️</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Common Mistakes
-            </h2>
-          </div>
-          <div className="space-y-3">
-            {[
-              {
-                mistake: "Using 'w' instead of 'a' and losing data",
-                fix: "If you want to add, use 'a'. Only use 'w' to start fresh.",
-              },
-              {
-                mistake: "Using 'r' on a non‑existent file and crashing",
-                fix: "Check existence or wrap in try‑except.",
-              },
-              {
-                mistake: "Forgetting to specify encoding, causing Unicode errors",
-                fix: "Always use `encoding='utf-8'`.",
-              },
-              {
-                mistake: "Using 'x' without handling FileExistsError",
-                fix: "Catch the exception or check existence first.",
-              },
-              {
-                mistake: "Trying to read from a file opened in 'w' or 'a'",
-                fix: "Those modes are write‑only; use 'r' or 'r+' for reading.",
-              },
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-red-50 dark:bg-red-950/20 rounded-xl p-5 border border-red-200 dark:border-red-800/50 transition-all duration-300 hover:shadow-lg hover:border-red-300 dark:hover:border-red-600"
-              >
-                <div className="flex items-start gap-3">
-                  <span className="text-red-500 text-lg">✗</span>
-                  <div>
-                    <p className="text-gray-800 dark:text-gray-200 font-medium">
-                      {item.mistake}
-                    </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                      ✓ {item.fix}
-                    </p>
-                  </div>
-                </div>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
               </div>
-            ))}
+            </div>
+
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* ====== SECTION 11: BEST PRACTICES ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">✅</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Best Practices
-            </h2>
-          </div>
-          <div className="bg-emerald-50 dark:bg-emerald-950/20 rounded-xl p-6 border border-emerald-200 dark:border-emerald-800/50 transition-all duration-300 hover:shadow-lg hover:border-emerald-300 dark:hover:border-emerald-600">
-            <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-500 text-lg">✓</span>
-                <span>
-                  <strong className="text-gray-900 dark:text-white">
-                    Choose the correct mode for the operation:
-                  </strong>{" "}
-                  'r' for reading, 'w' for new/overwrite, 'a' for append, 'x' for safe creation.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-500 text-lg">✓</span>
-                <span>
-                  <strong className="text-gray-900 dark:text-white">
-                    Always use `with` for automatic closure:
-                  </strong>{" "}
-                  Regardless of mode, `with open()` is the safest.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-500 text-lg">✓</span>
-                <span>
-                  <strong className="text-gray-900 dark:text-white">
-                    Be explicit about encoding:
-                  </strong>{" "}
-                  For text modes, specify `encoding='utf-8'`.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-500 text-lg">✓</span>
-                <span>
-                  <strong className="text-gray-900 dark:text-white">
-                    Handle errors gracefully:
-                  </strong>{" "}
-                  Anticipate FileNotFoundError, FileExistsError, and PermissionError.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-500 text-lg">✓</span>
-                <span>
-                  <strong className="text-gray-900 dark:text-white">
-                    Use 'x' for race‑condition safety:
-                  </strong>{" "}
-                  When creating files in concurrent environments, 'x' helps avoid overwrites.
-                </span>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        {/* ====== SECTION 12: MINI CHECKLIST ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">📋</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Mini Checklist
-            </h2>
-          </div>
-          <div className="bg-indigo-50 dark:bg-indigo-950/20 rounded-xl p-6 border border-indigo-200 dark:border-indigo-800/50 transition-all duration-300 hover:shadow-lg hover:border-indigo-300 dark:hover:border-indigo-600">
-            <p className="text-gray-700 dark:text-gray-300 mb-4">
-              By the end of this topic, you should understand:
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {[
-                "The purpose and behavior of 'r' (read) mode",
-                "The purpose and behavior of 'w' (write) mode",
-                "The purpose and behavior of 'a' (append) mode",
-                "The purpose and behavior of 'x' (exclusive) mode",
-                "When to use each mode (use cases)",
-                "The differences in file creation, truncation, and pointer position",
-                "Common pitfalls and best practices",
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-center gap-2 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-900/50 px-4 py-2 rounded-lg"
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Reading Files: read(), read(size), readline(), readlines()
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
                 >
-                  <span className="text-indigo-400">☐</span>
-                  <span className="text-sm">{item}</span>
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
+            </div>
+
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
                 </div>
-              ))}
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
             </div>
-          </div>
-        </section>
 
-        {/* ====== SECTION 13: HINT SECTION ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">🤔</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Think About…
-            </h2>
-          </div>
-          <div className="bg-yellow-50 dark:bg-yellow-950/20 rounded-xl p-6 border border-yellow-200 dark:border-yellow-800/50 transition-all duration-300 hover:shadow-lg hover:border-yellow-300 dark:hover:border-yellow-600">
-            <div className="space-y-4 text-gray-700 dark:text-gray-300">
-              <div className="flex items-start gap-3">
-                <span className="text-yellow-500 text-lg">💭</span>
-                <p>
-                  <strong className="text-gray-900 dark:text-white">
-                    Observe carefully:
-                  </strong>{" "}
-                  What happens if you open a file with 'w' and then with 'a'?
-                  How does the content change?
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
                 </p>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-yellow-500 text-lg">💭</span>
-                <p>
-                  <strong className="text-gray-900 dark:text-white">
-                    Try changing this:
-                  </strong>{" "}
-                  Write a script that uses 'x' to create a file, then try to run
-                  it again. How do you handle the FileExistsError?
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-yellow-500 text-lg">💭</span>
-                <p>
-                  <strong className="text-gray-900 dark:text-white">
-                    Think about:
-                  </strong>{" "}
-                  A school wants to store attendance records daily. Should they
-                  use 'w' or 'a'? Why?
-                </p>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
               </div>
             </div>
           </div>
         </section>
 
-        {/* ====== SECTION 14: FAQ ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <FAQTemplate
-            title="File Modes – FAQs"
+            title="Reading Files: read(), read(size), readline(), readlines() FAQs"
             questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
           />
         </section>
 
-        {/* ====== SECTION 15: TEACHER'S NOTE ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <PlainTextPrint
+            content={noteText}
+            title="Reading Files: read(), read(size), readline(), readlines()"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Note"
+            downloadFileName="topic8_note.txt"
+          />
+        </section>
+
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <Teacher
             note={
-              "This topic is critical because mode selection is a common source " +
-              "of bugs, especially 'w' vs 'a'. Emphasize that 'w' destroys data. " +
-              "Use the analogy of a notebook: 'r' = reading, 'w' = tearing out pages " +
-              "and writing new, 'a' = adding pages at the end, 'x' = starting a " +
-              "new notebook only if it doesn't already exist. Encourage students to " +
-              "always consider what happens to existing data. Show them real logs " +
-              "and config files to illustrate."
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
             }
           />
         </section>
 
-        {/* ====== FOOTER ====== */}
-        <footer className="pt-8 mt-8 border-t border-gray-200 dark:border-gray-800 text-center text-sm text-gray-500 dark:text-gray-400">
-          <p>
-            Topic 8: File Modes (r, w, a, x) · Built with ❤️ for classroom learning
-          </p>
-          <p className="mt-1">Next: Topic 9 — Read & Write Modes (r+, w+, a+)</p>
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 8 · Reading Files: read(), read(size), readline(), readlines() · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
         </footer>
       </div>
-
-      {/* ====== INLINE STYLES FOR REVEAL ANIMATIONS ====== */}
-      <style>{`
-        .section-hidden {
-          opacity: 0;
-          transform: translateY(30px);
-          transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-        }
-        .section-visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .section-hidden {
-            opacity: 1;
-            transform: none;
-          }
-          .section-hidden * {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-          }
-        }
-      `}</style>
-    </div>
+    </>
   );
 };
 

@@ -393,7 +393,7 @@ const Topic14 = () => {
                 <span className="text-xs text-slate-500 font-mono">Barrackpore Academy</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Optimized Tree: $\\pi_{\\text{name, title}}((\\sigma_{\\text{city='Barrackpore'}}(\\text{Students}) \\bowtie \\text{Enrollments}) \\bowtie \\sigma_{\\text{fee}>4000}(\\text{Courses}))$"}
+                {"Optimized Tree: $\\pi_{\name, title}((\\sigma_{\city='Barrackpore'}(\Students) \\bowtie \Enrollments) \\bowtie \\sigma_{\fee>4000}(\Courses))$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT s.full_name, c.course_title
@@ -559,7 +559,7 @@ WHERE s.city = 'Barrackpore';`}
               "In my classes in Barrackpore, I teach students that when you type a SQL query, MySQL does not execute it line-by-line: " +
               "It parses the query into a Canonical Query Tree, and then its query optimizer applies heuristic transformations to push selections " +
               "and projections down as close to the physical disk leaves as possible. " +
-              "By pushing $\\sigma_{\\text{city='Barrackpore'}}$ down before joining with `Enrollments`, the engine avoids scanning 100,000 students " +
+              "By pushing $\\sigma_{\city='Barrackpore'}$ down before joining with `Enrollments`, the engine avoids scanning 100,000 students " +
               "and only processes the 5 Barrackpore students, turning a 5-second query into a 0.2-millisecond instant lookup! " +
               "Understanding query trees makes you a true database performance architect."
             }

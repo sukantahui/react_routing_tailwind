@@ -462,7 +462,7 @@ const Topic0 = () => {
                 <span className="text-xs text-slate-500 font-mono">Barrackpore Academy</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Relational Algebra: $\\sigma_{\\text{city} = 'Barrackpore'}(\\text{Students})$"}
+                {"Relational Algebra: $\\sigma_{\city = 'Barrackpore'}(\Students)$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`-- Relational Selection in MySQL
@@ -481,7 +481,7 @@ WHERE city = 'Barrackpore';`}
                 <span className="text-xs text-slate-500 font-mono">Kolkata University</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Relational Algebra: $\\pi_{\\text{full\\_name, course\\_title}}(\\text{Students} \\bowtie \\text{Enrollments} \\bowtie \\text{Courses})$"}
+                {"Relational Algebra: $\\pi_{\full\\_name, course\\_title}(\Students \\bowtie \Enrollments \\bowtie \Courses)$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`-- Relational Projection over Multi-Table Join in MySQL
@@ -628,7 +628,7 @@ JOIN courses c ON e.course_id = c.course_id;`}
               "is like learning arithmetic without understanding numbers. " +
               "Dr. E. F. Codd created the Relational Model on pure set theory and predicate logic. " +
               "When you write `SELECT name FROM students WHERE city = 'Barrackpore'`, your MySQL engine parses that declarative statement " +
-              "into a relational algebra expression: $\\pi_{\\text{name}}(\\sigma_{\\text{city} = 'Barrackpore'}(\\text{Students}))$. " +
+              "into a relational algebra expression: $\\pi_{\name}(\\sigma_{\city = 'Barrackpore'}(\Students))$. " +
               "Understanding these mathematical operators empowers you to master query optimization, understand EXPLAIN plans, and write blazing-fast queries."
             }
           />

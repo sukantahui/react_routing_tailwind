@@ -1,0 +1,56 @@
+================================================================================
+MYSQL 8.0 SERVER LOGS, MONITORING & PERFORMANCE SCHEMA
+TOPIC 3: The Binary Log (binlog) – Formats (ROW vs STATEMENT), Purging & Recovery
+================================================================================
+
+1. WHAT IS THE MYSQL BINARY LOG?
+--------------------------------------------------------------------------------
+The Binary Log (`log_bin`) is an append-only sequence of binary event records that
+documents every committed data modification (DML & DDL) across all database schemas.
+
+Two Mission-Critical Roles:
+1. Replication Engine: Streams data modifications from Primary (Source) to Replicas.
+2. Point-in-Time Recovery (PITR): Replays transactional deltas post-base-restore.
+
+2. BINARY LOG FORMATS: STATEMENT VS ROW VS MIXED
+--------------------------------------------------------------------------------
+Format        Description                          Determinism       MySQL 8.0 Status
+--------------------------------------------------------------------------------
+STATEMENT     Logs raw SQL query text              RISKY (Non-det)   Deprecated
+ROW (Default) Logs before/after 16KB row deltas    100% Safe (Det)   MANDATED STANDARD
+MIXED         Switches dynamically between both    Variable          Deprecated
+
+Why ROW-Based Logging is the Industry Standard:
+- Non-deterministic queries (e.g. `UPDATE tbl SET code = UUID();`, `NOW()`, or
+  `DELETE ... LIMIT 10`) produce identical row states on replicas with zero drift.
+
+3. OPTIMIZING ROW IMAGE SIZES (binlog_row_image)
+--------------------------------------------------------------------------------
+- `binlog_row_image = 'FULL'` (Default): Logs all columns in before and after images.
+- `binlog_row_image = 'MINIMAL'`: Logs only the primary key in the before image and
+  only modified columns in the after image (cuts binlog disk size by up to 60%).
+- `binlog_row_image = 'NOBLOB'`: Omits unchanged `BLOB` and `TEXT` columns.
+
+4. DURABILITY & FLUSH TUNING (sync_binlog)
+--------------------------------------------------------------------------------
+- `sync_binlog = 1` (ACID Compliant / Recommended):
+  Flushes the binary log to physical storage after every commit. Zero data loss.
+- `sync_binlog = 0`:
+  Buffers flushes in OS page cache. Higher throughput, but risks data loss on host crash.
+
+5. PURGING & EXPIRATION POLICY
+--------------------------------------------------------------------------------
+A. Automated Retention (MySQL 8.0):
+   SET PERSIST binlog_expire_logs_seconds = 604800; -- 7 Days
+
+B. Manual Safe Purging:
+   PURGE BINARY LOGS BEFORE DATE_SUB(NOW(), INTERVAL 7 DAY);
+   PURGE BINARY LOGS TO 'binlog.000085';
+
+6. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Enforce `binlog_format = ROW` globally for all production clusters.
+2. Mandate `sync_binlog = 1` on financial and ecommerce primary masters.
+3. Configure `binlog_expire_logs_seconds` between 7 and 14 days.
+4. Mount binary logs on dedicated NVMe storage partitions.
+================================================================================

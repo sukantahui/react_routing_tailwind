@@ -1,0 +1,129 @@
+================================================================================
+RDBMS & MYSQL 8.0 ENTERPRISE CAPSTONE PROJECT ROADMAP
+TOPIC 4: PHASE 3: PRODUCTION DDL IMPLEMENTATION WITH CONSTRAINTS, FOREIGN KEYS, AND CASCADING ACTIONS
+================================================================================
+
+1. EXECUTIVE OVERVIEW & ARCHITECTURAL OBJECTIVES
+--------------------------------------------------------------------------------
+Writing industrial SQL DDL scripts with strict data types, CHECK constraints, auto-increment primary keys, foreign keys, and cascading rules.
+
+Key Engineering Pillars:
+1. Data Types: Precise type allocation (DECIMAL, BIGINT, CHAR(36), TIMESTAMP) preventing bloat.
+2. CHECK Rules: Native MySQL 8.0 CHECK constraints enforcing domain business rules.
+3. Cascade Rules: Balanced ON DELETE CASCADE and RESTRICT rules preserving data history.
+4. Sequencing: Numbered versioned SQL migration scripts for reproducible builds.
+
+2. CORE CONCEPTS & IMPLEMENTATION RUNBOOKS
+--------------------------------------------------------------------------------
+[1. PRODUCTION DDL]
+Production DDL includes explicit storage engines, default collations, UUIDs, CHECK constraints, and automatic timestamp updates.
+
+SQL Implementation:
+-- 🏗️ PRODUCTION DDL TEMPLATE IN MYSQL 8.0:
+CREATE TABLE customers (
+  customer_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  uuid CHAR(36) NOT NULL UNIQUE DEFAULT (UUID()),
+  full_name VARCHAR(100) NOT NULL,
+  email VARCHAR(150) NOT NULL UNIQUE,
+  phone VARCHAR(20) NOT NULL,
+  credit_limit DECIMAL(12,2) NOT NULL DEFAULT 50000.00 CHECK (credit_limit >= 0),
+  is_active BOOLEAN NOT NULL DEFAULT TRUE,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+Takeaways:
+- Always specify ENGINE=InnoDB and utf8mb4_0900_ai_ci explicitly.
+- Use BIGINT AUTO_INCREMENT for high-volume primary keys to prevent sequence exhaustion.
+- Incorporate updated_at ON UPDATE CURRENT_TIMESTAMP for automated record tracking.
+
+--------------------------------------------------------------------------------
+[2. CONSTRAINTS & INTEGRITY]
+MySQL 8.0 enforces CHECK constraints to prevent invalid business values like negative balances or self-transfers at the database kernel level.
+
+SQL Implementation:
+-- 🛡️ DOMAIN VALIDATION CONSTRAINTS:
+CREATE TABLE transactions (
+  transaction_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  from_account_id BIGINT NOT NULL,
+  to_account_id BIGINT NOT NULL,
+  amount DECIMAL(15,2) NOT NULL,
+  currency CHAR(3) NOT NULL DEFAULT 'INR',
+  status ENUM('PENDING', 'COMPLETED', 'FAILED', 'REVERSED') NOT NULL DEFAULT 'PENDING',
+  CONSTRAINT chk_positive_amt CHECK (amount > 0),
+  CONSTRAINT chk_diff_acc CHECK (from_account_id != to_account_id)
+);
+
+Takeaways:
+- Name constraints explicitly (e.g. chk_positive_amt) for clear error debugging.
+- Enforce multi-column business rules directly inside table definitions.
+- Use ENUM for discrete low-cardinality state machines.
+
+--------------------------------------------------------------------------------
+[3. REFERENTIAL ACTIONS]
+Choosing between CASCADE, RESTRICT, and SET NULL ensures parent deletions do not corrupt dependent business records.
+
+SQL Implementation:
+-- 🔗 CONFIGURING REFERENTIAL ACTIONS:
+CREATE TABLE order_items (
+  order_item_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  order_id BIGINT NOT NULL,
+  product_id BIGINT NOT NULL,
+  quantity INT NOT NULL CHECK (quantity > 0),
+  unit_price DECIMAL(10,2) NOT NULL,
+  -- When order is deleted, delete its items automatically:
+  CONSTRAINT fk_order FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE CASCADE,
+  -- Prevent deleting a product if active order items exist:
+  CONSTRAINT fk_prod FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE RESTRICT
+);
+
+Takeaways:
+- Use ON DELETE CASCADE for tightly-bound child records (e.g., Order -> Order_Items).
+- Use ON DELETE RESTRICT for master data (e.g., Products, Users, Doctors).
+- Use ON DELETE SET NULL for optional associations (e.g., assigned coupon code).
+
+--------------------------------------------------------------------------------
+[4. MIGRATION SEQUENCING]
+Sequencing DDL scripts prevents foreign key dependency errors during automated deployments and CI/CD pipelines.
+
+SQL Implementation:
+-- 📂 SCRIPT SEQUENCING (FLYWAY / LIQUIBASE PATTERN):
+-- 01_cleanup.sql         -> DROP TABLE IF EXISTS in reverse dependency order
+-- 02_schema_master.sql   -> Parent tables (users, roles, categories, branches)
+-- 03_schema_child.sql    -> Child tables (orders, accounts, appointments)
+-- 04_schema_junction.sql -> M:N junction tables (user_roles, doctor_specialties)
+-- 05_indexes.sql         -> Secondary & composite indexes
+-- 06_views.sql           -> Security & reporting views
+
+Takeaways:
+- Create independent master tables first before referencing child tables.
+- Drop tables in reverse dependency order during schema resets.
+- Separate DDL structure, index creation, and view definitions into distinct files.
+
+
+3. REAL-WORLD BENGAL ENGINEERING SCENARIOS
+--------------------------------------------------------------------------------
+* Case 1: Mahima & Susmita – Preventing Orphan Prescriptions in Jadavpur
+  In Jadavpur, Mahima configured ON DELETE RESTRICT on Doctor records and ON DELETE CASCADE on Prescription_Items. When a doctor retired, the database blocked accidental deletion of historical medical logs, ensuring patient prescription compliance.
+
+* Case 2: Debangshu & Mamata – Negative Balance Prevention in Barrackpore Bank
+  Debangshu implemented a named constraint CONSTRAINT chk_min_bal CHECK (current_balance >= minimum_balance) on savings accounts in Barrackpore. When concurrent ATM withdrawal requests occurred, the database kernel blocked overdrafts before funds were dispensed.
+
+
+4. SENIOR PITFALLS & PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+Pitfalls to Avoid:
+- Pitfall 1: Missing Foreign Key Indexes: MySQL creates indexes on foreign keys automatically, but composite foreign keys require verification to prevent join lock contention. (Rule: Verify index creation on all foreign key reference columns with SHOW INDEX.)
+- Pitfall 2: Blindly Using CASCADE on Master Data: Setting ON DELETE CASCADE on a customer table accidentally deletes all their historical financial ledgers upon account closure. (Rule: Use soft deletes (is_deleted = TRUE) or RESTRICT for auditing-critical tables.)
+
+Production Best Practices:
+- Best Practice 1: Execute in Strict SQL Mode: Enable STRICT_TRANS_TABLES and ERROR_FOR_DIVISION_BY_ZERO to reject invalid data insertions. (Prevents silent data truncation on string and numeric overflows.)
+- Best Practice 2: Include Comments on Complex Columns: Add COMMENT 'Formula: (base + tax) - discount' directly in DDL for developer clarity. (Documents business logic directly in the information_schema.)
+
+5. TEACHER'S MASTER ADVICE - SIR SUKANTA HUI
+--------------------------------------------------------------------------------
+Your DDL scripts are the concrete foundation of your application. Avoid shortcut types like VARCHAR(255) for small codes or FLOAT for currency. Write clean, formatted DDL with explicit CHECK constraints, thoughtful cascading actions, and modular script sequencing!
+
+================================================================================
+END OF STUDY NOTE - TOPIC 4
+================================================================================

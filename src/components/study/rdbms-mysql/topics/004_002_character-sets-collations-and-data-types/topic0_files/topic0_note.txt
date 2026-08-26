@@ -1,0 +1,43 @@
+================================================================================
+RDBMS MySQL Course - Module 004_002: Character Sets, Collations, JSON & Spatial Types
+Topic 0: Understanding Character Sets: ASCII, Latin1, UTF-8 (utf8mb3) vs utf8mb4 (Full Unicode / Emojis)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS A CHARACTER SET?
+--------------------------------------------------------------------------------
+A Character Set (Charset) is a defined mapping between symbols/glyphs (letters,
+digits, punctuation, international characters, emojis) and their binary encodings
+(bytes stored on disk and transmitted across networks).
+
+2. EVOLUTION OF CHARACTER SETS IN COMPUTING & MYSQL
+--------------------------------------------------------------------------------
+1. ASCII (7-bit):
+   - Encodings 0-127 (English alphabet, basic punctuation, control codes).
+   - 1 Byte per character. Incapable of representing accented or non-Latin scripts.
+
+2. Latin1 / ISO-8859-1 (8-bit):
+   - Encodings 0-255 (Western European languages).
+   - 1 Byte per character. Cannot store Bengali, Hindi, Chinese, or modern emojis.
+
+3. Legacy UTF-8 in MySQL (utf8 / utf8mb3):
+   - In MySQL 5.5 and earlier, "utf8" only allocated a maximum of **3 bytes per character**
+     (handling Basic Multilingual Plane characters: U+0000 to U+FFFF).
+   - Major Flaw: Cannot store 4-byte Supplementary Multilingual Plane characters,
+     such as emojis (😀, 🚀), historical scripts, or mathematical symbols.
+   - Inserting an emoji into a `utf8mb3` column throws Error 1366:
+     "Incorrect string value: '\xF0\x9F\x98\x80' for column...".
+
+4. Full Modern Unicode: utf8mb4 (4-Byte UTF-8):
+   - Allocates 1 to 4 bytes dynamically per character according to the Unicode standard.
+   - Supports 100% of all global languages (Bengali, Hindi, Japanese, Arabic) plus
+     all modern Unicode emojis.
+   - Recommended standard for all new tables and databases in MySQL 8.0+.
+
+3. STORAGE IMPLICATIONS & VARCHAR LIMITS
+--------------------------------------------------------------------------------
+Because `utf8mb4` characters can consume up to 4 bytes each:
+- `VARCHAR(255)` in `latin1` consumes up to 255 bytes.
+- `VARCHAR(255)` in `utf8mb4` can consume up to 1,020 bytes in memory and index buffers.
+- Maximum index prefix length in InnoDB is 3072 bytes, which accommodates up to
+  `VARCHAR(768)` in `utf8mb4`.

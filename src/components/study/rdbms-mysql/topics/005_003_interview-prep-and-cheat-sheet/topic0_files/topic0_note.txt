@@ -1,0 +1,110 @@
+================================================================================
+MYSQL & RDBMS TECHNICAL INTERVIEW MASTERY & CHEAT SHEET ROADMAP
+TOPIC 0: TOP 25 CORE RDBMS & THEORETICAL INTERVIEW QUESTIONS (ACID, CODD'S RULES, NORMALIZATION, KEYS)
+================================================================================
+
+1. EXECUTIVE SUMMARY & INTERVIEW OBJECTIVES
+--------------------------------------------------------------------------------
+Acing theoretical database interviews: mastering ACID transactions, Codd's 12 relational rules, functional dependency math, candidate key derivations, and 1NF-BCNF normalization.
+
+Key Engineering Pillars:
+1. ACID Internals: Undo log atomicity, redo log durability, and MVCC transaction isolation.
+2. Codd's Rules: Relational completeness, guaranteed access, and information rule theory.
+3. Key Hierarchy: Superkeys, minimal candidate keys, alternate keys, and composite keys.
+4. 3NF & BCNF: Mathematical decomposition proofs eliminating anomalies and redundancy.
+
+2. CORE CONCEPTS & QUERY RUNBOOKS
+--------------------------------------------------------------------------------
+[1. ACID PROPERTIES]
+ACID guarantees form the bedrock of relational transactions, ensuring financial data accuracy across concurrent client operations.
+
+SQL / Code Pattern:
+-- 🧪 ACID GUARANTEES IN MYSQL INNODB:
+-- Atomicity:   All-or-nothing execution guaranteed via Undo Logs & Rollback segments.
+-- Consistency: Schema constraints (FK, CHECK, NOT NULL) preserved before and after commit.
+-- Isolation:   Concurrent transactions cannot see intermediate uncommitted states (MVCC).
+-- Durability:  Committed changes survive crashes via Write-Ahead Redo Logging (WAL) & fsync.
+
+Takeaways:
+- Explain how Undo logs implement Atomicity and MVCC Isolation.
+- Explain how Redo logs implement Durability through Write-Ahead Logging (WAL).
+- Differentiate between physical consistency and business state consistency.
+
+--------------------------------------------------------------------------------
+[2. CODD'S 12 RULES]
+Dr. Edgar F. Codd established 12 foundational mathematical rules defining the standard for relational database management systems (RDBMS).
+
+SQL / Code Pattern:
+-- 📜 KEY CODD'S RULES TESTED IN INTERVIEWS:
+-- Rule 1: The Information Rule (All data is represented strictly in tables as row/column values).
+-- Rule 2: Guaranteed Access Rule (Every value is reachable via TableName + PK + ColumnName).
+-- Rule 3: Systematic Treatment of NULL (NULL represents missing/inapplicable data, not zero or space).
+-- Rule 4: Dynamic Online Catalog (Database metadata stored in relational tables - information_schema).
+-- Rule 9: Logical Data Independence (Changes to logical schema do not break client applications).
+
+Takeaways:
+- Rule 0 states the system must qualify purely as relational to manage data.
+- NULL is treated systematically and requires special operators (IS NULL / IS NOT NULL).
+- Understanding Codd's rules demonstrates deep relational theoretical mastery.
+
+--------------------------------------------------------------------------------
+[3. RELATIONAL KEYS]
+Clear definitions and mathematical differentiation of keys is a staple interview question for senior software and database engineers.
+
+SQL / Code Pattern:
+-- 🔑 TAXONOMY OF RELATIONAL KEYS:
+-- Superkey:      Any set of attributes that uniquely identifies a row.
+-- Candidate Key: A minimal superkey (no redundant attributes).
+-- Primary Key:   The candidate key chosen by the architect as the primary row identifier.
+-- Alternate Key: Candidate keys not chosen as the Primary Key (enforced with UNIQUE NOT NULL).
+-- Composite Key: A Primary or Candidate Key composed of 2 or more columns.
+-- Foreign Key:   An attribute in a child table matching a Candidate Key in a parent table.
+
+Takeaways:
+- Every Candidate Key is a Superkey, but not every Superkey is a Candidate Key.
+- Alternate keys must be enforced using UNIQUE NOT NULL constraints.
+- Foreign keys establish referential integrity between child and parent candidate keys.
+
+--------------------------------------------------------------------------------
+[4. NORMALIZATION PROOFS]
+Mastering step-by-step schema decomposition and attribute closure calculations guarantees high scores in technical interview rounds.
+
+SQL / Code Pattern:
+-- 🎯 NORMALIZATION STAGES SUMMARY:
+-- 1NF: Atomic values only; no repeating arrays or comma-delimited CSV columns.
+-- 2NF: In 1NF + No Partial Functional Dependencies (All non-key attributes fully depend on whole PK).
+-- 3NF: In 2NF + No Transitive Dependencies (Non-Key attribute cannot determine another Non-Key attribute).
+-- BCNF: In 3NF + In every non-trivial FD X -> Y, X MUST be a Superkey!
+
+Takeaways:
+- Memorize the definition of Partial, Transitive, and Multi-valued dependencies.
+- Show how 2NF applies only to composite primary keys.
+- Explain why BCNF is strictly stronger than 3NF when overlapping candidate keys exist.
+
+
+3. REAL-WORLD BENGAL ENGINEERING SCENARIOS
+--------------------------------------------------------------------------------
+* Case 1: Mamata & Susmita – Answering ACID & MVCC at Kolkata Tech Round
+  During a senior backend interview in Kolkata, Mamata was asked how MySQL InnoDB achieves Durability and Atomicity simultaneously. She explained Write-Ahead Logging (WAL) via the Redo Log buffer and uncommitted rollback via the Undo Log tablespace, securing the lead architect position.
+
+* Case 2: Debangshu & Abhronila – Deriving BCNF Closures at Barrackpore Viva
+  In Barrackpore, Debangshu derived the attribute closure of a complex clinic schema during an academic viva. By identifying an overlapping candidate key violation in 3NF, he decomposed the schema to BCNF, earning a perfect score from the evaluation panel.
+
+
+4. SENIOR PITFALLS & PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+Pitfalls to Avoid:
+- Pitfall 1: Confusing Superkey and Candidate Key: Stating that a superkey is minimal is incorrect; a candidate key is a minimal superkey with no redundant columns. (Rule: Superkey = Any unique identifier; Candidate Key = Minimal unique identifier.)
+- Pitfall 2: Saying 2NF Applies to All Tables: A table with a single-column Primary Key is automatically in 2NF because partial dependencies are mathematically impossible. (Rule: 2NF violations can only occur in tables with composite Primary Keys.)
+
+Production Best Practices:
+- Best Practice 1: Structure Interview Answers Methodically: Answer with: 1. Formal Definition -> 2. Underlying Mechanism -> 3. Real-World SQL Example -> 4. Trade-offs. (Demonstrates clear structured engineering communication.)
+- Best Practice 2: Draw Schema Diagrams on Whiteboards: Illustrate functional dependencies (X -> Y) visually during technical interviews. (Makes theoretical normalization proofs intuitive and convincing.)
+
+5. TEACHER'S MASTER ADVICE - SIR SUKANTA HUI
+--------------------------------------------------------------------------------
+Theoretical interview questions separate true relational database architects from developers who just write basic queries! Practice explaining ACID in terms of Redo and Undo logs, know Codd's rules, and be ready to derive candidate keys using attribute closures on the whiteboard with complete confidence!
+
+================================================================================
+END OF STUDY NOTE - TOPIC 0
+================================================================================

@@ -1,0 +1,24 @@
+================================================================================
+COMPUTER ARCHITECTURE MASTERCLASS - TOPIC 2: GATED SR LATCH (NAND-BASED)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. ARCHITECTURE & 4-NAND GATE TOPOLOGY
+--------------------------------------------------------------------------------
+The Gated SR Latch introduces an Enable (EN / CLK) control input to isolate the internal
+cross-coupled latch from input noise.
+
+Gate Layout:
+  - Top Steering Gate (NAND 1): Inputs = S and EN. Output S' = ~(S . EN)
+  - Bottom Steering Gate (NAND 2): Inputs = R and EN. Output R' = ~(R . EN)
+  - Top Storage Gate (NAND 3): Inputs = S' and Q_bar. Output Q = ~(S' . Q_bar)
+  - Bottom Storage Gate (NAND 4): Inputs = R' and Q. Output Q_bar = ~(R' . Q)
+
+2. TRUTH TABLE (LEVEL-SENSITIVE):
+  EN  S  R  |  Q(t+1)  Q_bar(t+1) | State Description
+   0  X  X  |   Q(t)    Q_bar(t)  | Latch Locked (Memory Hold)
+   1  0  0  |   Q(t)    Q_bar(t)  | No Change (Hold)
+   1  0  1  |    0         1      | Reset State (Forces Q = 0)
+   1  1  0  |    1         0      | Set State (Forces Q = 1)
+   1  1  1  |    1         1      | FORBIDDEN STATE (Invalid Q = Q_bar = 1)
+================================================================================

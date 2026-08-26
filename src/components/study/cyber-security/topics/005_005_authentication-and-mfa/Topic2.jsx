@@ -710,7 +710,7 @@ const Topic2 = () => {
             <ul className="space-y-3 text-xs text-slate-300">
               <li className="flex items-start gap-2">
                 <span className="text-emerald-400 font-bold">•</span>
-                <span><strong>Enforce Long Passphrases (NIST SP 800-63B):</strong> Mandate 15+ character multi-word passphrases delivering $H &gt; 80\text{ bits}$ of entropy.</span>
+                <span><strong>Enforce Long Passphrases (NIST SP 800-63B):</strong> Mandate 15+ character multi-word passphrases delivering $H &gt; 80 bits$ of entropy.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-emerald-400 font-bold">•</span>

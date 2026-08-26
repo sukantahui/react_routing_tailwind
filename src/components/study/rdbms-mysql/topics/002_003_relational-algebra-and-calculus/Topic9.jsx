@@ -446,7 +446,7 @@ const Topic9 = () => {
                 <span className="text-xs text-slate-500 font-mono">Barrackpore Academy</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Relational Algebra: $\\text{Students} \\ltimes \\text{Enrollments}$"}
+                {"Relational Algebra: $\Students \\ltimes \Enrollments$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT s.* FROM students s
@@ -465,7 +465,7 @@ WHERE EXISTS (
                 <span className="text-xs text-slate-500 font-mono">Kolkata Marketing</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Relational Algebra: $\\text{Students} \\triangleright \\text{Enrollments}$"}
+                {"Relational Algebra: $\Students \\triangleright \Enrollments$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT s.* FROM students s

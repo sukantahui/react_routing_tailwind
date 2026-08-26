@@ -1,0 +1,63 @@
+================================================================================
+COMPUTER ARCHITECTURE MASTERCLASS - TOPIC 13: MASTER-SLAVE FLIP-FLOP
+TWO-STAGE DATA ISOLATION, TIMING CONTROL & RACE-AROUND ELIMINATION
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS THE RACE-AROUND PHENOMENON IN SEQUENTIAL LOGIC?
+--------------------------------------------------------------------------------
+- In a standard level-triggered JK flip-flop, when J = 1 and K = 1, the device
+  is configured to toggle its state (Q_next = Q_bar).
+- In modern silicon gates, the internal gate propagation delay (t_pd) is very
+  short (typically 1 to 5 nanoseconds).
+- However, standard clock pulses (t_pulse) last significantly longer (e.g., 20 to 100 ns).
+- While the clock remains HIGH:
+  1. Output Q inverts after t_pd.
+  2. This new inverted output immediately travels back through the feedback wires
+     to the input NAND steering gates.
+  3. Because CLK is still HIGH, the flip-flop toggles again after another t_pd!
+  4. This cycle repeats continuously (0 -> 1 -> 0 -> 1 -> 0...) throughout the
+     entire clock pulse duration.
+  5. When CLK finally drops to LOW, the state in which Q freezes is completely
+     unpredictable and non-deterministic! This is the RACE-AROUND CONDITION.
+
+2. THE MATHEMATICAL CONDITION FOR RACE-AROUND
+--------------------------------------------------------------------------------
+Race-around occurs if and only if:
+                       t_pd < t_pulse < T
+where:
+- t_pd    = Internal gate propagation delay from input to output.
+- t_pulse = Duration for which the clock pulse remains active (HIGH).
+- T       = Total clock period (1 / frequency).
+
+3. THE MASTER-SLAVE ARCHITECTURAL SOLUTION
+--------------------------------------------------------------------------------
+The Master-Slave Flip-Flop permanently eliminates race-around by using TWO
+cascaded latches driven by COMPLEMENTARY CLOCKS (CLK and CLK_bar):
+
+A. Phase 1 (Clock Pulse is HIGH, CLK = 1):
+   - Master Latch: ENABLED. It samples external inputs (J, K) and sets intermediate
+     signals Y and Y_bar.
+   - Slave Latch: DISABLED because CLK_bar = 0. Its outputs (Q, Q_bar) remain
+     completely frozen.
+   - Crucial Result: The feedback from Slave to Master remains static. No toggle
+     can propagate to the outside world!
+
+B. Phase 2 (Clock Pulse drops to LOW, CLK = 0):
+   - Master Latch: DISABLED. It is completely isolated from any changes on J and K.
+   - Inverter output rises: CLK_bar = 1, ENABLING the Slave Latch.
+   - Slave Latch copies the stable intermediate state Y to the output Q.
+   - Crucial Result: When the output Q updates, the Master is already locked.
+     Feedback cannot cause another toggle!
+
+4. COMPARISON OF RACE-AROUND MITIGATION STRATEGIES
+--------------------------------------------------------------------------------
+Strategy                     | Mechanism              | Silicon Feasibility
+-----------------------------+------------------------+-------------------------
+1. Narrow Clock (t_p < t_pd) | Reduce clock width     | Poor (Clock skew/jitter)
+2. Master-Slave Architecture | Two-stage clock isolation | Gold Standard in SSI/MSI
+3. Edge-Triggered FF (RC/Cap)| Dynamic edge detection | Standard in Modern ASICs
+
+================================================================================
+END OF STUDY NOTE - TOPIC 13
+================================================================================

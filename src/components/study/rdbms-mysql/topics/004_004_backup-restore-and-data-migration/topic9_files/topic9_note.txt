@@ -1,0 +1,75 @@
+================================================================================
+MYSQL 8.0 BACKUP, POINT-IN-TIME RECOVERY & DATA MIGRATION
+TOPIC 9: High-Performance Bulk Data Import – LOAD DATA INFILE & mysqlimport
+================================================================================
+
+1. WHAT IS LOAD DATA INFILE?
+--------------------------------------------------------------------------------
+`LOAD DATA INFILE` is the ultimate high-performance bulk loading engine in MySQL.
+It parses and inserts delimited flat files (CSV, TSV) directly into InnoDB storage
+pages, bypassing SQL tokenizer overhead to achieve up to 20x the speed of standard
+multi-row `INSERT` statements.
+
+2. CORE SYNTAX & CLAUSES
+--------------------------------------------------------------------------------
+LOAD DATA INFILE '/var/lib/mysql-files/kolkata_orders.csv'
+INTO TABLE kolkata_retail.orders
+FIELDS TERMINATED BY ',' 
+OPTIONALLY ENCLOSED BY '"' 
+ESCAPED BY '\\'
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES
+(order_id, customer_name, @raw_amount, @raw_date, status)
+SET 
+  amount = CAST(REPLACE(@raw_amount, '₹', '') AS DECIMAL(10,2)),
+  order_date = STR_TO_DATE(@raw_date, '%d-%m-%Y %H:%i:%s');
+
+3. SERVER-SIDE VS CLIENT-SIDE (LOCAL) IMPORT & SECURITY
+--------------------------------------------------------------------------------
+A. Server-Side Import (LOAD DATA INFILE):
+   - Reads file located on the MySQL server's local filesystem.
+   - Governed by `secure_file_priv` system variable (e.g. `/var/lib/mysql-files/`).
+   - Requires `FILE` global privilege.
+
+B. Client-Side Import (LOAD DATA LOCAL INFILE):
+   - Reads file located on the client workstation and streams it over TCP/IP to MySQL.
+   - Security requirement: Must be enabled on BOTH server and client:
+     * Server: `SET PERSIST local_infile = ON;`
+     * Client: `mysql --local-infile=1 -u user -p`
+
+4. THE MYSQLIMPORT COMMAND-LINE UTILITY
+--------------------------------------------------------------------------------
+`mysqlimport` is a multi-threaded CLI utility that wraps `LOAD DATA INFILE`:
+- File naming convention: File basename MUST match target table name (e.g. `orders.csv` -> `orders` table).
+
+A. Parallel Multi-Threaded Import:
+   mysqlimport -u root -p \\
+     --local \\
+     --use-threads=8 \\
+     --fields-terminated-by=',' \\
+     --fields-optionally-enclosed-by='"' \\
+     --lines-terminated-by='\n' \\
+     --ignore-lines=1 \\
+     kolkata_retail /data/csv_imports/orders.csv /data/csv_imports/order_items.csv
+
+5. MAXIMIZING BULK IMPORT THROUGHPUT (10X ACCELERATION)
+--------------------------------------------------------------------------------
+1. Disable Constraints & Checks:
+   SET foreign_key_checks = 0;
+   SET unique_checks = 0;
+   SET sql_log_bin = 0;
+
+2. Optimize Redo Log Flushing:
+   SET GLOBAL innodb_flush_log_at_trx_commit = 2;
+
+3. Pre-Sort Data by Primary Key:
+   - Inserting rows pre-sorted by primary key avoids random B-tree page splits and
+     achieves sequential page write throughput.
+
+6. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Restrict server-side imports to a dedicated directory via `secure_file_priv`.
+2. Disable `local_infile` globally when not in use to prevent client file exfiltration attacks.
+3. Use column variable mapping (`@var`) to clean and transform dates/currencies on the fly.
+4. Execute `ANALYZE TABLE` immediately after bulk importing millions of rows.
+================================================================================

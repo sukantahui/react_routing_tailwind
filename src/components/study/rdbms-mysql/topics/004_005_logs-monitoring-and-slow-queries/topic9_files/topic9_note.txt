@@ -1,0 +1,59 @@
+================================================================================
+MYSQL 8.0 SERVER LOGS, MONITORING & PERFORMANCE SCHEMA
+TOPIC 9: Inspecting Real-Time Health via SHOW GLOBAL STATUS & VARIABLES
+================================================================================
+
+1. WHAT ARE SHOW GLOBAL STATUS & SHOW GLOBAL VARIABLES?
+--------------------------------------------------------------------------------
+MySQL provides two core command families for inspecting real-time health and runtime
+configuration:
+
+1. `SHOW GLOBAL STATUS`:
+   - Reports live operational telemetry and cumulative performance counters.
+   - Examples: Active connections (`Threads_running`), total queries executed (`Questions`),
+     buffer pool disk reads (`Innodb_buffer_pool_reads`), server uptime (`Uptime`).
+
+2. `SHOW GLOBAL VARIABLES`:
+   - Reports the active configuration settings governing the MySQL instance.
+   - Examples: Maximum allowed connections (`max_connections`), buffer pool size
+     (`innodb_buffer_pool_size`), transaction isolation level (`transaction_isolation`).
+
+2. GLOBAL VS SESSION SCOPE
+--------------------------------------------------------------------------------
+Scope      Description                                 Command
+--------------------------------------------------------------------------------
+GLOBAL     Aggregated across the entire server since   `SHOW GLOBAL STATUS;`
+           startup (or config across all connections). `SHOW GLOBAL VARIABLES;`
+SESSION    Scoped exclusively to the current client    `SHOW SESSION STATUS;`
+           connection thread.                          `SHOW SESSION VARIABLES;`
+
+3. QUERYING PERFORMANCE_SCHEMA TABLES WITH SQL
+--------------------------------------------------------------------------------
+In MySQL 8.0, status variables are accessible as standard relational tables:
+-- Query global status with SQL filters and joins:
+SELECT VARIABLE_NAME, VARIABLE_VALUE 
+FROM performance_schema.global_status 
+WHERE VARIABLE_NAME IN ('Uptime', 'Threads_connected', 'Threads_running', 'Questions');
+
+-- Query global variables:
+SELECT VARIABLE_NAME, VARIABLE_VALUE 
+FROM performance_schema.global_variables 
+WHERE VARIABLE_NAME LIKE 'innodb_buffer_pool%';
+
+4. REAL-TIME RATE OF CHANGE VIA MYSQLADMIN
+--------------------------------------------------------------------------------
+CLI Tools for Live Telemetry Streaming:
+1. Quick Status Summary:
+   mysqladmin -u root -p status
+   -- Output: Uptime: 86400  Threads: 45  Questions: 2500000  Slow queries: 12  QPS: 28.9
+
+2. Streaming Delta per Second (-r = rate / diff, -i 1 = 1-second interval):
+   mysqladmin -u root -p -i 1 -r extended-status | grep -E "Queries|Threads_running|Innodb_buffer_pool_reads"
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Monitor `Threads_running` vs `Threads_connected` to detect connection saturation.
+2. Query `performance_schema.global_status` in monitoring scripts for SQL filtering.
+3. Use `mysqladmin extended-status -r -i 1` for real-time second-by-second triage.
+4. Calculate rates (deltas divided by elapsed time) rather than raw cumulative counters.
+================================================================================

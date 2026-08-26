@@ -1,0 +1,70 @@
+================================================================================
+MYSQL 8.0 BACKUP, POINT-IN-TIME RECOVERY & DATA MIGRATION
+TOPIC 4: Restoring Databases from mysqldump SQL Files & Foreign Key Handling
+================================================================================
+
+1. RESTORATION FUNDAMENTALS
+--------------------------------------------------------------------------------
+A. Standard Command-Line Restore:
+   # If dump was created WITH --databases (includes CREATE DATABASE & USE):
+   mysql -u root -p < /backups/kolkata_services.sql
+
+   # If dump was created WITHOUT --databases (must create & specify target DB):
+   mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS kolkata_ecommerce;"
+   mysql -u root -p kolkata_ecommerce < /backups/ecommerce_single.sql
+
+B. Streaming Decompression on Restore:
+   # Direct decompression to mysql client without intermediate disk files:
+   zstd -dc /backups/retail_backup.sql.zst | mysql -u root -p
+   gunzip < /backups/retail_backup.sql.gz | mysql -u root -p
+
+C. Real-Time Progress Tracking with pv (Pipe Viewer):
+   pv /backups/bank_backup.sql | mysql -u root -p kolkata_bank
+   # Displays throughput (MB/s), percentage complete, and ETA!
+
+2. FOREIGN KEY CHECKS DURING RESTORATION
+--------------------------------------------------------------------------------
+Why Foreign Key Checks Break Imports:
+- Tables are dumped alphabetically by default. If child table `order_items` is
+  restored before parent table `orders`, foreign key validation fails immediately
+  with `ERROR 1215 (HY000): Cannot add foreign key constraint` or row insert rejections.
+
+The Solution:
+- `mysqldump` places these safety headers at the top of every dump:
+  /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+  /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+- And restores them at the bottom:
+  /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+  /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+
+3. ACCELERATING LOGICAL RESTORE PERFORMANCE (10X SPEEDUP)
+--------------------------------------------------------------------------------
+To minimize RTO during disaster recovery, optimize target server session variables:
+
+1. Disable Binary Logging during restore (on standalone or replica):
+   SET sql_log_bin = 0;
+
+2. Disable Constraint Checking:
+   SET foreign_key_checks = 0;
+   SET unique_checks = 0;
+
+3. Enable Bulk Transaction Commits:
+   SET autocommit = 0;
+
+4. Target Server Hardware Tuning:
+   - `innodb_buffer_pool_size`: Set to 70-80% of total host RAM.
+   - `innodb_redo_log_capacity`: Set to 4GB+ to prevent redo log flush bottlenecks.
+   - `max_allowed_packet`: Set to 128MB+ to accept multi-row extended inserts.
+
+4. EXTRACTING A SINGLE TABLE FROM A MONOLITHIC DUMP
+--------------------------------------------------------------------------------
+# Extract only the 'customers' table from a 50GB full dump using sed:
+sed -n -e '/DROP TABLE.*\`customers\`/,/UNLOCK TABLES/p' full_dump.sql > customers_only.sql
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Always verify target database character set matches source (`utf8mb4`).
+2. Use `pv` to monitor restore throughput and accurately report RTO ETA to management.
+3. Disable `sql_log_bin = 0` when restoring onto a replica to prevent replication loops.
+4. Run `ANALYZE TABLE` on all imported tables after restore to refresh optimizer statistics.
+================================================================================

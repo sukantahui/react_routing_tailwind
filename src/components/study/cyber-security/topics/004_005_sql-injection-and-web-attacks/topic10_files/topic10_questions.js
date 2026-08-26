@@ -92,9 +92,9 @@ const TransferSchema = z.object({
   },
   {
     question: "What is 'Null-Byte Injection' (`%00`, `\0`) and how does it Bypass Naive File Upload and Path Validation?",
-    shortAnswer: "In languages with C-based runtimes, a null byte (`\0`) indicates the end of a string; an attacker uploads `shell.php%00.jpg`; naive string checks see `.jpg` and allow the upload, but the underlying OS filesystem truncates the filename at the null byte, saving it as `shell.php`.",
-    explanation: "When `fopen(\"uploads/\" + filename)` is called in C/PHP: The path `uploads/shell.php\0.jpg` is read up to the null byte, creating an executable PHP script on disk. Modern runtimes (PHP 5.3.4+, Node.js, Python 3) explicitly reject null bytes in file paths, but developers must sanitize inputs for `\0`.",
-    hint: "Using a secret zero character to make the security filter see '.jpg' while the operating system saves '.php'.",
+    shortAnswer: "In languages with C-based runtimes, a null byte (`\0`) indicates the end of a string; an attacker uploads `document.pdf%00.jpg`; naive string checks see `.jpg` and allow the upload, but the underlying OS filesystem truncates the filename at the null byte, saving it as `document.pdf`.",
+    explanation: "When `fopen(\"uploads/\" + filename)` is called in legacy runtimes: The path `uploads/document.pdf\0.jpg` is read up to the null byte, creating a different file extension on disk. Modern runtimes explicitly reject null bytes in file paths, but developers must sanitize inputs for `\0`.",
+    hint: "Using a zero byte character to truncate file extensions during filesystem path handling.",
     level: "expert",
     codeExample: `// Null-Byte Sanitization Function:
 function sanitizeFilename(filename) {

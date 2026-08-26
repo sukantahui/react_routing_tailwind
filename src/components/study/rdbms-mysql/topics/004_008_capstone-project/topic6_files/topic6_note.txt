@@ -1,0 +1,145 @@
+================================================================================
+RDBMS & MYSQL 8.0 ENTERPRISE CAPSTONE PROJECT ROADMAP
+TOPIC 6: PHASE 5: ANALYTICAL SQL REPORTS (WINDOW FUNCTIONS, CTES, GROUP BY ROLLUP, FINANCIAL METRICS)
+================================================================================
+
+1. EXECUTIVE OVERVIEW & ARCHITECTURAL OBJECTIVES
+--------------------------------------------------------------------------------
+Developing 15 enterprise-grade analytical queries for executive KPI dashboards, period-over-period growth, top-N rankings, and running ledger totals.
+
+Key Engineering Pillars:
+1. Window Framing: PARTITION BY and ORDER BY framing computing running totals and rankings.
+2. Time-Series: LAG() and LEAD() offsets measuring period-over-period percentage growth.
+3. ROLLUP: Hierarchical multidimensional subtotals and grand totals in one pass.
+4. RFM Scoring: Customer lifetime value and cohort segmentation using statistical NTILE.
+
+2. CORE CONCEPTS & IMPLEMENTATION RUNBOOKS
+--------------------------------------------------------------------------------
+[1. WINDOW ANALYTICS]
+Window functions calculate category rankings and cumulative sales totals without requiring multiple correlated subqueries.
+
+SQL Implementation:
+-- 📈 TOP 3 BEST-SELLING PRODUCTS PER CATEGORY + RUNNING SALES:
+WITH RankedSales AS (
+  SELECT 
+    c.category_name,
+    p.product_name,
+    SUM(oi.quantity * oi.unit_price) AS total_revenue,
+    DENSE_RANK() OVER (
+      PARTITION BY c.category_id 
+      ORDER BY SUM(oi.quantity * oi.unit_price) DESC
+    ) AS category_rank,
+    SUM(SUM(oi.quantity * oi.unit_price)) OVER (
+      PARTITION BY c.category_id 
+      ORDER BY SUM(oi.quantity * oi.unit_price) DESC
+    ) AS category_running_total
+  FROM order_items oi
+  JOIN products p ON oi.product_id = p.product_id
+  JOIN categories c ON p.category_id = c.category_id
+  GROUP BY c.category_id, c.category_name, p.product_id, p.product_name
+)
+SELECT * FROM RankedSales WHERE category_rank <= 3;
+
+Takeaways:
+- Use DENSE_RANK() to assign contiguous ranking positions without gaps.
+- Use SUM() OVER (PARTITION BY ... ORDER BY ...) to compute cumulative progress.
+- Wrap analytics inside Common Table Expressions (CTEs) for modular readability.
+
+--------------------------------------------------------------------------------
+[2. MOM & YOY GROWTH]
+The LAG() window function retrieves preceding period revenues to calculate precise percentage growth rates across monthly intervals.
+
+SQL Implementation:
+-- 📊 MONTH-OVER-MONTH REVENUE GROWTH USING LAG():
+WITH MonthlyRevenue AS (
+  SELECT 
+    DATE_FORMAT(order_date, '%Y-%m') AS sales_month,
+    SUM(total_amount) AS current_month_revenue
+  FROM orders
+  WHERE order_status = 'COMPLETED'
+  GROUP BY DATE_FORMAT(order_date, '%Y-%m')
+)
+SELECT 
+  sales_month,
+  current_month_revenue,
+  LAG(current_month_revenue, 1) OVER (ORDER BY sales_month) AS prev_month_revenue,
+  ROUND(
+    ((current_month_revenue - LAG(current_month_revenue, 1) OVER (ORDER BY sales_month)) / 
+    LAG(current_month_revenue, 1) OVER (ORDER BY sales_month)) * 100, 2
+  ) AS mom_growth_percentage
+FROM MonthlyRevenue;
+
+Takeaways:
+- LAG(col, 1) accesses the previous row value according to window ordering.
+- Handle NULL on the first row with COALESCE or IFNULL.
+- Essential KPI for business intelligence and financial reporting dashboards.
+
+--------------------------------------------------------------------------------
+[3. HIERARCHICAL SUMMARIES]
+WITH ROLLUP automatically computes hierarchical subtotals and grand totals in a single unified database query pass.
+
+SQL Implementation:
+-- 🏢 MULTI-LEVEL SALES REPORT WITH SUB-TOTALS & GRAND TOTAL:
+SELECT 
+  COALESCE(branch_name, '--- ALL BRANCHES (GRAND TOTAL) ---') AS branch,
+  COALESCE(department_name, '--- SUB TOTAL ---') AS department,
+  SUM(salary) AS total_payroll_expense,
+  COUNT(employee_id) AS total_staff_count
+FROM employees
+GROUP BY branch_name, department_name WITH ROLLUP;
+
+Takeaways:
+- Generates super-aggregate summary rows along grouping hierarchies.
+- Use COALESCE to replace NULL labels with human-friendly subtotal descriptions.
+- Replaces multiple UNION ALL queries with a single optimized scan.
+
+--------------------------------------------------------------------------------
+[4. CUSTOMER RETENTION]
+RFM analytics segments customers into quintiles using NTILE(5) to identify high-value VIP patrons versus churn risks.
+
+SQL Implementation:
+-- 👥 RFM (RECENCY, FREQUENCY, MONETARY) SEGMENTATION:
+SELECT 
+  customer_id,
+  DATEDIFF(CURDATE(), MAX(order_date)) AS recency_days,
+  COUNT(order_id) AS frequency_orders,
+  SUM(total_amount) AS monetary_value,
+  NTILE(5) OVER (ORDER BY DATEDIFF(CURDATE(), MAX(order_date)) ASC) AS r_score,
+  NTILE(5) OVER (ORDER BY COUNT(order_id) DESC) AS f_score,
+  NTILE(5) OVER (ORDER BY SUM(total_amount) DESC) AS m_score
+FROM orders
+WHERE order_status = 'COMPLETED'
+GROUP BY customer_id;
+
+Takeaways:
+- NTILE(5) buckets records into 5 equal statistical quintiles.
+- Combines aggregate metrics (Recency, Frequency, Monetary) into actionable scores.
+- Powers marketing automation and customer loyalty programs.
+
+
+3. REAL-WORLD BENGAL ENGINEERING SCENARIOS
+--------------------------------------------------------------------------------
+* Case 1: Susmita & Mamata – MoM Sales Growth in Barrackpore Retail
+  Susmita designed a Month-over-Month sales report using LAG() across ₹1.8 Crores in retail revenue in Barrackpore. The query highlighted a 34% surge during festive quarters and pinpointed slow product categories for discount clearance.
+
+* Case 2: Debangshu & Abhronila – Multi-Branch Payroll Rollup in Kolkata
+  Debangshu implemented a GROUP BY branch_name, department_name WITH ROLLUP query across 12 Kolkata bank branches. The single-statement report provided branch managers with department breakdowns while giving the CFO instant grand total payroll numbers.
+
+
+4. SENIOR PITFALLS & PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+Pitfalls to Avoid:
+- Pitfall 1: Filtering Window Functions in WHERE: Attempting to write WHERE DENSE_RANK() <= 3 directly in the same query block triggers SQL syntax errors. (Rule: Wrap window function calculations in a CTE or derived subquery before applying WHERE filters.)
+- Pitfall 2: Forgetting PARTITION BY in Rolling Sums: Omitting PARTITION BY when calculating customer running totals mixes transactions across all customers into a single continuous sum. (Rule: Always specify PARTITION BY customer_id to isolate window calculations per entity.)
+
+Production Best Practices:
+- Best Practice 1: Structure with Modular CTEs: Use Common Table Expressions (WITH clause) to break complex 40-line analytics into clean, testable logical steps. (Improves SQL readability, maintainability, and code review speed.)
+- Best Practice 2: Index ORDER BY Columns: Ensure columns used in PARTITION BY and ORDER BY within window clauses have matching composite indexes. (Allows the MySQL query engine to stream window results without temporary filesorts.)
+
+5. TEACHER'S MASTER ADVICE - SIR SUKANTA HUI
+--------------------------------------------------------------------------------
+Analytical SQL is where you demonstrate the true power of relational databases! For your capstone project, write 15 distinct analytical queries: include top-N rankings per category, running balance totals, period-over-period growth with LAG(), and hierarchical summaries with ROLLUP. Explain what business decisions each query enables!
+
+================================================================================
+END OF STUDY NOTE - TOPIC 6
+================================================================================

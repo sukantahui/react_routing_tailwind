@@ -1,0 +1,81 @@
+================================================================================
+MYSQL 8.0 BACKUP, POINT-IN-TIME RECOVERY & DATA MIGRATION
+TOPIC 5: High-Speed Parallel Logical Dumps – mydumper/myloader, mysqlpump & MySQL Shell
+================================================================================
+
+1. THE SINGLE-THREADED BOTTLENECK OF MYSQLDUMP
+--------------------------------------------------------------------------------
+Standard `mysqldump` operates on a single CPU thread, reading one table at a time
+sequentially. On a 100GB database, single-threaded processing results in:
+- Backup time: 45 - 60 minutes
+- Restore time: 3 - 5 hours (due to single-threaded SQL parsing and index building)
+
+2. MYDUMPER & MYLOADER: THE PARALLEL OPEN-SOURCE STANDARD
+--------------------------------------------------------------------------------
+`mydumper` and `myloader` overcome this bottleneck by implementing multi-threaded
+parallelism at both the database level and the table-chunk level.
+
+Key Features:
+- Multi-Threaded Dump: Dumps 8, 16, or 32 tables/chunks concurrently.
+- Table Chunking (`--rows`): Automatically divides giant multi-gigabyte tables into
+  indexed integer chunks and dumps them across parallel worker threads.
+- Modular File Layout: Creates individual schema DDL files and chunked data files
+  (`db.table.00000.sql.zst`), eliminating monolithic dump files.
+- High-Performance Multi-Threaded Restore (`myloader`): Re-creates tables and inserts
+  data in parallel across multiple worker connections.
+
+A. mydumper Parallel Backup Command:
+   mydumper -u root -p \\
+     -B kolkata_retail \\
+     --threads=8 \\
+     --rows=250000 \\
+     --compress=ZSTD \\
+     --compress-level=3 \\
+     --events --routines --triggers \\
+     --outputdir=/backups/retail_parallel/
+
+B. myloader Parallel Restore Command:
+   myloader -u root -p \\
+     -B kolkata_retail \\
+     --threads=8 \\
+     --directory=/backups/retail_parallel/ \\
+     --overwrite-tables
+
+3. MYSQLPUMP & MODERN MYSQL SHELL DUMP/LOAD UTILITIES
+--------------------------------------------------------------------------------
+A. `mysqlpump` (Oracle Legacy Parallel Tool):
+   -- Dumps tables using multiple threads:
+   mysqlpump -u root -p --default-parallelism=8 --databases kolkata_retail > pump.sql
+   * Note: Deprecated in MySQL 8.0.34 in favor of MySQL Shell.
+
+B. Modern MySQL Shell Dump & Load (`util.dumpSchemas` / `util.loadDump`):
+   -- Inside MySQL Shell (JavaScript Mode):
+   util.dumpSchemas(['kolkata_retail'], '/backups/shell_dump', {
+     threads: 8,
+     compression: 'zstd',
+     chunking: true,
+     bytesPerChunk: '128M'
+   });
+
+   -- Parallel High-Speed Load:
+   util.loadDump('/backups/shell_dump', {
+     threads: 8,
+     resetProgress: true
+   });
+
+4. PERFORMANCE BENCHMARK COMPARISON (100GB DATASET)
+--------------------------------------------------------------------------------
+Tool                      Backup Time       Restore Time      Threads Used
+--------------------------------------------------------------------------------
+mysqldump (Standard)      52 mins           3 hrs 45 mins     1 (Single core)
+mysqlpump                 24 mins           2 hrs 10 mins     8 (Multi-table)
+mydumper / myloader       9 mins            22 mins           8 (Parallel chunks)
+MySQL Shell (util.load)   7 mins            18 mins           16 (Parallel chunks)
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Adopt `mydumper`/`myloader` or MySQL Shell for datasets between 20GB and 200GB.
+2. Size `--threads` to match available CPU cores on the database host (e.g. 8 or 16).
+3. Use `--rows=250000` to split large tables into parallel chunks.
+4. Always leverage built-in Zstandard (`--compress=ZSTD`) compression.
+================================================================================

@@ -944,7 +944,7 @@ const Topic2 = () => {
             },
             {
               domain: "Transportation",
-              variables: "x_{ij} = units shipped from i to j",
+              variables: "x_ij = units shipped from i to j",
               objective: "Minimize shipping cost",
             },
             {

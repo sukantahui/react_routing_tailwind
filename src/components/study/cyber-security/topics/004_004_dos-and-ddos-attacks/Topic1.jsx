@@ -32,16 +32,20 @@ const Topic1 = () => {
       category: "IOT CONSUMER DEVICE EXPLOITATION",
       categoryBadge: "bg-rose-950 text-rose-300 border-rose-800",
       c2Architecture: "Centralized C2 with Telnet Scanning Engine",
-      exploitationVector:
-        "The malware scans IPv4 on Telnet ports 23/2323, brute-forcing 62 hardcoded factory default credential pairs (`admin:admin`, `root:xc3511`) on cameras and DVRs, assembling 400,000 bots in 48 hours.",
+     exploitationVector:
+        "Mirai-style malware historically propagated by targeting vulnerable IoT devices with exposed remote-access services and weak or default credentials. Compromised cameras, DVRs, and routers could be enrolled into a botnet and coordinated for large-scale DDoS activity. Operational scanning and credential details are omitted.",
       vulnerabilityImpact:
         "Historic 1+ Tbps volumetric DDoS floods capable of bringing down major DNS providers (Dyn 2016) and national telecommunications networks.",
-      telemetryIndicator: "Surge in outbound TCP SYN scanning on ports 23/2323 originating from unmanaged IoT devices",
+      telemetryIndicator:
+        "Unusual outbound connection-scanning activity from unmanaged IoT devices targeting remote-access services",
       resilientDefense: "Disabling default passwords, enforcing network segmentation for IoT hardware, and deploying BGP Anycast scrubbing.",
-      codeSnippet: `// Mirai Default Credential Table (C Source Snippet):
-char *usernames[] = {"root", "admin", "user", "guest"};
-char *passwords[] = {"xc3511", "vizxv", "admin", "123456", "default", "password"};
-// Scanned Telnet port 23 across all IPv4 ➔ Infected 400,000 IoT devices in 48 hours!`
+      codeSnippet: `// Mirai Botnet — Safe Conceptual Flow:
+      // 1. Identify vulnerable IoT devices
+      // 2. Detect weak or default security configurations
+      // 3. Compromise vulnerable devices
+      // 4. Enroll compromised devices into a botnet
+      // 5. Coordinate defensive analysis and simulation
+      // Credential lists, scanning logic, and attack procedures are omitted.`
     },
     p2p_kademlia_dht_topology: {
       key: "p2p_kademlia_dht_topology",
@@ -91,8 +95,8 @@ def generate_dga_domain(date_str, index):
       telemetryIndicator: "DNS responses containing 5-10 distinct global IP addresses with TTLs of 60 seconds or less",
       resilientDefense: "Passive DNS historical tracking and blocking authoritative name servers exhibiting abnormal flux rates.",
       codeSnippet: `// Fast-Flux DNS Record Query (TTL = 60s):
-// Minute 01: c2.evil.in ➔ 185.220.101.5, 103.25.10.8, 198.51.100.4
-// Minute 02: c2.evil.in ➔ 45.33.32.156, 172.56.21.90, 82.102.23.4
+// Minute 01: attacker-c2.net ➔ 185.220.101.5, 103.25.10.8, 198.51.100.4
+// Minute 02: attacker-c2.net ➔ 45.33.32.156, 172.56.21.90, 82.102.23.4
 // Result: Static firewall IP blocking is completely rendered useless!`
     },
     multivector_concurrency_floods: {
@@ -125,7 +129,7 @@ def generate_dga_domain(date_str, index):
       telemetryIndicator: "Standardized attack packet payloads matching known open-source booter attack scripts",
       resilientDefense: "Law enforcement booter infrastructure takedowns and upstream threat intelligence blocklists.",
       codeSnippet: `// Booter / Stresser API Attack Request:
-POST https://stresser-c2.evil-hub.in/api/v1/attack
+POST https://stresser-attacker-c2.net/api/v1/attack
 {
     "target": "103.25.10.50", "port": 443, "duration_seconds": 3600,
     "method": "CLOUDFLARE_BYPASS_UAM", "threads": 500

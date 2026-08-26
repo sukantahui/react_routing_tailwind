@@ -1,0 +1,59 @@
+================================================================================
+MYSQL 8.0 REPLICATION, HIGH AVAILABILITY & FAILOVER TOPOLOGIES
+TOPIC 3: GTID-Based Replication – Architecture, Lifecycle & Failover Advantages
+================================================================================
+
+1. WHAT IS A GLOBAL TRANSACTION IDENTIFIER (GTID)?
+--------------------------------------------------------------------------------
+A Global Transaction Identifier (GTID) is a unique identifier generated and assigned
+to every committed transaction across a MySQL replication topology.
+
+Structure:
+  GTID = <server_uuid>:<transaction_id>
+  Example: 3E11FA47-71CA-11E1-9E33-C80AA9429562:1042
+
+- `server_uuid`: 128-bit UUID generated when the MySQL server is initialized (stored in `auto.cnf`).
+- `transaction_id`: Monotonically increasing 64-bit integer sequence (1, 2, 3...).
+
+2. GTID VS POSITIONAL BINARY LOG REPLICATION
+--------------------------------------------------------------------------------
+Feature               Positional Replication (File:Pos)     GTID-Based Replication (AUTO_POSITION)
+--------------------------------------------------------------------------------
+Configuration         Must specify exact log file and       Simply specify `SOURCE_AUTO_POSITION = 1`.
+                      byte offset (e.g. binlog.000004:452). Replica automatically asks for missing GTIDs.
+
+Failover Re-pointing  Complex manual calculation of         Zero math! New replicas negotiate missing
+                      equivalent binlog coordinates.        GTIDs automatically with the new primary.
+
+Duplicate Prevention  Risk of re-executing transactions     100% Idempotent; already-executed GTIDs
+                      if coordinates are misaligned.        are automatically detected and skipped.
+
+Crash Consistency     Prone to offset desynchronization.    Fully crash-safe via `mysql.gtid_executed`.
+
+3. KEY GTID SYSTEM VARIABLES & STATUS
+--------------------------------------------------------------------------------
+Variable                    Description
+--------------------------------------------------------------------------------
+`gtid_mode`                 `ON` enforces GTID generation for all transactions.
+`enforce_gtid_consistency`  `ON` prevents non-deterministic queries (e.g. CREATE TABLE ... SELECT).
+`gtid_executed`             Set of all GTIDs executed on this server or received via replication.
+`gtid_purged`               Set of GTIDs whose binary log events have been deleted from disk.
+`SOURCE_AUTO_POSITION = 1`  Enables automated GTID handshake protocol on replica.
+
+4. SKIPPING A BROKEN TRANSACTION USING GTID EMPTY COMMITS
+--------------------------------------------------------------------------------
+-- 1. Identify the failing GTID from SHOW REPLICA STATUS (e.g. 3E11FA47-...:105)
+-- 2. Inject an empty transaction with that exact GTID on the replica:
+STOP REPLICA;
+SET GTID_NEXT = '3E11FA47-71CA-11E1-9E33-C80AA9429562:105';
+BEGIN; COMMIT;
+SET GTID_NEXT = 'AUTOMATIC';
+START REPLICA;
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Always enable `gtid_mode = ON` and `enforce_gtid_consistency = ON` on all MySQL 8.0 nodes.
+2. Use `CHANGE REPLICATION SOURCE TO SOURCE_AUTO_POSITION = 1` for all replica connections.
+3. Never use legacy `sql_slave_skip_counter` with GTIDs; use empty transactions instead.
+4. Ensure `server_uuid` values are strictly unique across all cloned virtual machines.
+================================================================================

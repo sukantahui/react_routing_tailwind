@@ -1,0 +1,30 @@
+================================================================================
+RDBMS MySQL Course - Module 004_002: Character Sets, Collations, JSON & Spatial Types
+Topic 10: Generated Columns: Virtual Columns vs Stored Columns on JSON Fields
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT ARE GENERATED COLUMNS?
+--------------------------------------------------------------------------------
+A Generated Column is a column whose value is calculated from an expression
+referencing other columns in the same row.
+
+Syntax:
+`col_name data_type [GENERATED ALWAYS] AS (expression) [VIRTUAL | STORED]`
+
+2. VIRTUAL VS STORED GENERATED COLUMNS
+--------------------------------------------------------------------------------
+Characteristic      VIRTUAL (Default)                   STORED
+--------------------------------------------------------------------------------
+Disk Storage        0 Bytes (Not stored in row)         Stored physically in row
+Computation Time    Evaluated at READ time in RAM       Evaluated at WRITE time
+Write Overhead      Zero CPU write penalty              Extra CPU & Disk I/O on write
+InnoDB Indexing     Fully Indexable in B+ Tree! ✅       Fully Indexable in B+ Tree! ✅
+Best Use Case       Extracting JSON keys for indexing   Heavy CPU calculations read often
+
+3. BRIDGING JSON AND RELATIONAL DATA
+--------------------------------------------------------------------------------
+Generated columns allow extracting JSON properties into typed relational columns:
+`city VARCHAR(50) AS (profile->>'$.city') VIRTUAL`
+- Can be used in standard WHERE, GROUP BY, and JOIN queries.
+- Can be indexed directly with `INDEX (city)` for instant lookups!

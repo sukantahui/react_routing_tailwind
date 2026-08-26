@@ -1,282 +1,380 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
+
+// ─── Common Framework Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
 import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import questions from "./topic8_files/topic8_questions";
-
-// Python example files (place in topic8_files/)
-import unpackList from "./topic8_files/unpack_list.py?raw";
-import unpackDict from "./topic8_files/unpack_dict.py?raw";
-import mixedUnpack from "./topic8_files/mixed_unpack.py?raw";
-import unpackRealWorld from "./topic8_files/unpack_realworld.py?raw";
+import noteText from "./topic8_files/topic8_note.txt?raw";
 
 /**
- * Topic 8: Unpacking arguments in function calls
- * 
- * This component explains:
- * - What is argument unpacking? (using * and ** in function calls)
- * - Unpacking iterables (lists, tuples) with * to pass as positional arguments
- * - Unpacking dictionaries with ** to pass as keyword arguments
- * - Combining unpacking with regular arguments
- * - Using * and ** multiple times (Python 3.5+)
- * - Common use cases: merging, forwarding, flexible APIs
+ * Topic8 – Unpacking arguments in function calls
+ * Module: 002_001_functions-basics (Functions & Modular Logic)
+ * Track: Python from Basic to Pro
+ *
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
  */
-export default function Topic8() {
+const Topic8 = () => {
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
+  const sectionRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const addRef = (el) => {
+    if (el && !sectionRefs.current.includes(el)) {
+      sectionRefs.current.push(el);
+    }
+  };
+
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  ];
+
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 py-8 space-y-12 bg-gray-900 text-gray-100">
-      {/* ========== SECTION 1: THEORY & EXPLANATION ========== */}
-      <section className="space-y-6 reveal-fade-up">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-          📦 Unpacking Arguments in Function Calls
-        </h1>
-        <div className="prose prose-invert max-w-none space-y-4">
-          <p className="text-lg leading-relaxed">
-            Unpacking allows you to take elements from an iterable (list, tuple) or a dictionary and pass them 
-            as <strong className="text-blue-300">individual arguments</strong> to a function. 
-            The <code className="bg-gray-700 px-1 rounded">*</code> operator unpacks sequences; 
-            <code className="bg-gray-700 px-1 rounded">**</code> unpacks dictionaries.
-          </p>
-          <div className="bg-gray-800 p-4 rounded-lg border-l-4 border-blue-500">
-            <p className="font-mono text-sm">
-              <span className="text-yellow-300">def greet(name, age, city):</span><br />
-              &nbsp;&nbsp;&nbsp;&nbsp;{`print(f"{name}, {age}, from {city}")`}<br /><br />
-              <span className="text-green-300"># Unpack list as positional arguments</span><br />
-              <span className="text-green-300">data = ["Swadeep", 17, "Barrackpore"]</span><br />
-              <span className="text-green-300">greet(*data)</span><br /><br />
-              <span className="text-green-300"># Unpack dict as keyword arguments</span><br />
-              <span className="text-green-300">info = {"{"}"name": "Tuhina", "age": 16, "city": "Shyamnagar"{"}"}</span><br />
-              <span className="text-green-300">greet(**info)</span>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 2: PROTOTYPE / SIGNATURE ========== */}
-      <section className="space-y-6 reveal-fade-up" style={{ animationDelay: "0.1s" }}>
-        <h2 className="text-3xl font-semibold border-l-4 border-green-500 pl-4">
-          📝 Unpacking Syntax in Calls
-        </h2>
-        <div className="bg-gray-800 rounded-xl p-5 border border-gray-700">
-          <pre className="text-sm font-mono text-emerald-300 overflow-x-auto">
-{`# Unpack sequence (list, tuple, any iterable) -> positional arguments
-func(*iterable)
-
-# Unpack dictionary -> keyword arguments
-func(**dictionary)
-
-# Mix regular arguments with unpacking
-func(regular, *iterable, keyword=value, **dictionary)`}
-          </pre>
-          <ul className="mt-4 space-y-2 text-gray-300 list-disc list-inside">
-            <li><strong>Purpose:</strong> Convert a collection into separate arguments, making code cleaner and more dynamic.</li>
-            <li><strong>When & why:</strong> When you have data already in a list/dict and need to pass it to a function that expects individual parameters.</li>
-          </ul>
-        </div>
-      </section>
-
-      {/* ========== SECTION 3: KEY BEHAVIOR ========== */}
-      <section className="space-y-6 reveal-fade-up" style={{ animationDelay: "0.2s" }}>
-        <h2 className="text-3xl font-semibold border-l-4 border-yellow-500 pl-4">
-          ⚙️ How Unpacking Works
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-gray-800/70 rounded-xl p-4 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
-            <div className="text-yellow-300 text-xl mb-2">1️⃣ `*` unpacks sequences</div>
-            <p className="text-gray-300">List, tuple, string, or any iterable → each element becomes a positional argument.</p>
-            <pre className="text-xs mt-2 bg-gray-900 p-2 rounded">def add(a,b): return a+b<br/>nums = [5,3]; add(*nums) → 8</pre>
-          </div>
-          <div className="bg-gray-800/70 rounded-xl p-4 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300">
-            <div className="text-purple-300 text-xl mb-2">2️⃣ `**` unpacks dictionaries</div>
-            <p className="text-gray-300">Dictionary key-value pairs become keyword arguments (keys must be valid identifiers).</p>
-            <pre className="text-xs mt-2 bg-gray-900 p-2 rounded">{`def greet(name, msg): print(f"{msg}, {name}")`}<br/>d ={` {"name":"Swadeep", "msg":"Hi"}`}<br/>greet(**d) → "Hi, Swadeep"</pre>
-          </div>
-          <div className="bg-gray-800/70 rounded-xl p-4 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-300">
-            <div className="text-green-300 text-xl mb-2">3️⃣ Can be used multiple times (Python 3.5+)</div>
-            <p className="text-gray-300">You can unpack several iterables/dicts in one call.</p>
-            <pre className="text-xs mt-2 bg-gray-900 p-2 rounded">def f(a,b,c): pass<br/>f(*[1,2], *[3])  # a=1,b=2,c=3<br/>f(**d1, **d2)   # merges dicts</pre>
-          </div>
-          <div className="bg-gray-800/70 rounded-xl p-4 hover:shadow-lg hover:shadow-red-500/10 transition-all duration-300">
-            <div className="text-red-300 text-xl mb-2">4️⃣ Mix with regular arguments</div>
-            <p className="text-gray-300">Regular positional arguments must come before `*` unpacking; keyword arguments before `**`.</p>
-            <pre className="text-xs mt-2 bg-gray-900 p-2 rounded">{`func(1, *[2,3], x=4, **{"y":5})`}</pre>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 4: CODE EXAMPLES ========== */}
-      <section className="space-y-8 reveal-fade-up" style={{ animationDelay: "0.3s" }}>
-        <h2 className="text-3xl font-semibold border-l-4 border-green-500 pl-4">
-          💻 Live Python Examples
-        </h2>
-
-        <div className="space-y-3">
-          <h3 className="text-xl font-medium text-yellow-300">1️⃣ Unpacking Lists/Tuples with `*` (unpack_list.py)</h3>
-          <PythonFileLoader fileModule={unpackList} title="unpack_list.py" highlightLines={[]} />
-          <p className="text-gray-400 text-sm">Shows how to unpack sequences into positional arguments.</p>
-        </div>
-
-        <div className="space-y-3">
-          <h3 className="text-xl font-medium text-yellow-300">2️⃣ Unpacking Dictionaries with `**` (unpack_dict.py)</h3>
-          <PythonFileLoader fileModule={unpackDict} title="unpack_dict.py" highlightLines={[]} />
-          <p className="text-gray-400 text-sm">Demonstrates converting a dict into keyword arguments.</p>
-        </div>
-
-        <div className="space-y-3">
-          <h3 className="text-xl font-medium text-yellow-300">3️⃣ Mixed Unpacking and Multiple Unpacks (mixed_unpack.py)</h3>
-          <PythonFileLoader fileModule={mixedUnpack} title="mixed_unpack.py" highlightLines={[]} />
-          <p className="text-gray-400 text-sm">Combines regular arguments with multiple `*` and `**` unpackings.</p>
-        </div>
-
-        <div className="space-y-3">
-          <h3 className="text-xl font-medium text-yellow-300">4️⃣ Real‑World: Data Processing and API Calls (unpack_realworld.py)</h3>
-          <PythonFileLoader fileModule={unpackRealWorld} title="unpack_realworld.py" highlightLines={[]} />
-          <p className="text-gray-400 text-sm">Practical examples: reading CSV rows, merging configs, calling functions dynamically.</p>
-        </div>
-      </section>
-
-      {/* ========== SECTION 5: TIPS & TRICKS ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.4s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          💡 <span>Tips & Tricks (Professional Level)</span>
-        </h2>
-        <ul className="list-disc list-inside space-y-2 text-gray-300 bg-gray-800/50 p-5 rounded-xl">
-          <li><strong className="text-purple-300">Unpack to avoid indexing</strong> – Instead of `args[0], args[1]`, do `func(*args)`.</li>
-          <li><strong className="text-purple-300">{`Merge dictionaries with \`{**d1, **d2}`}</strong> – Python 3.5+ allows dictionary unpacking in dict literals.</li>
-          <li><strong className="text-purple-300">Use `*` to flatten nested structures</strong> – `func(*[1,2], *[3,4])` passes four arguments.</li>
-          <li><strong className="text-purple-300">Combine with `*args` in definition</strong> – `def f(*args):` then `f(*some_list)` forwards the list.</li>
-          <li><strong className="text-purple-300">Be careful with order</strong> – Later unpacked items can override earlier ones for `**` (dict merging).</li>
-        </ul>
-      </section>
-
-      {/* ========== SECTION 6: COMMON PITFALLS ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.5s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          ⚠️ <span>Common Pitfalls</span>
-        </h2>
-        <div className="space-y-3">
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Unpacking too many or too few elements</p>
-            <p className="text-gray-300">If the number of elements in the iterable doesn't match the function's parameters, you get TypeError.</p>
-          </div>
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Using `**` on a dict with non‑string keys</p>
-            <p className="text-gray-300">Dictionary keys must be strings; otherwise, TypeError: `keywords must be strings`.</p>
-          </div>
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Unpacking a dict with keys that are not valid Python identifiers</p>
-            <p className="text-gray-300">Keys like `"my-key"` or `"123"` are not allowed as keyword argument names. Use `**` only on dicts with identifier‑compliant keys.</p>
-          </div>
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Forgetting that unpacking creates a copy</p>
-            <p className="text-gray-300">The function receives the values, not references to the original container. Modifying the container after unpacking has no effect.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 7: BEST PRACTICES ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.6s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          ✅ <span>Best Practices</span>
-        </h2>
-        <div className="bg-emerald-900/20 border border-emerald-700 rounded-xl p-5">
-          <ul className="list-disc list-inside space-y-2 text-gray-200">
-            <li>Use unpacking to make code more declarative: `max(*numbers)` instead of `max(numbers[0], numbers[1], ...)`.</li>
-            <li>{`When merging dictionaries, prefer \`{**defaults, **overrides}\` for clear precedence (overrides win).`}</li>
-            <li>Validate the length of the iterable before unpacking if the function expects a fixed number of arguments.</li>
-            <li>Use unpacking in wrapper functions to transparently pass arguments: `def wrapper(*args, **kwargs): return func(*args, **kwargs)`.</li>
-            <li>Document that a function expects unpacked data when designing APIs that rely on this pattern.</li>
-          </ul>
-        </div>
-      </section>
-
-      {/* ========== SECTION 8: MINI CHECKLIST ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.7s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          📋 <span>Mini Checklist</span>
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg"><span className="text-green-400">✔️</span> `*` unpacks sequences → positional args</div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg"><span className="text-green-400">✔️</span> `**` unpacks dicts → keyword args</div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg"><span className="text-green-400">✔️</span> Number of elements must match function parameters</div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg"><span className="text-green-400">✔️</span> Dict keys must be valid identifiers</div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg"><span className="text-green-400">✔️</span> Can unpack multiple times (Python 3.5+)</div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg"><span className="text-green-400">✔️</span> Great for forwarding arguments in decorators</div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 9: HINT SECTION ========== */}
-      <section className="space-y-3 reveal-fade-up" style={{ animationDelay: "0.8s" }}>
-        <h2 className="text-2xl font-semibold text-amber-300">🧠 Think About...</h2>
-        <div className="bg-amber-900/20 border border-amber-700 rounded-xl p-5 italic text-gray-200">
-          <p>🔍 <strong>Observe carefully:</strong> In `unpack_list.py`, what happens if the list has 4 elements but the function expects 3?</p>
-          <p className="mt-2">🔍 <strong>Try changing this:</strong> Write a function `print_all(*args)` that prints each argument. Then call it with `print_all(*[1,2,3])`. What does `*` do now?</p>
-          <p className="mt-2">🔍 <strong>Think about:</strong>{`Why might you want to merge two dictionaries with {**a, **b} instead of 'a.update(b)'?`}</p>
-        </div>
-      </section>
-
-      {/* ========== SECTION 10: FAQ ========== */}
-      <section className="reveal-fade-up" style={{ animationDelay: "0.85s" }}>
-        <FAQTemplate title="Unpacking Arguments FAQs" questions={questions} />
-      </section>
-
-      {/* ========== SECTION 11: TEACHER'S NOTE ========== */}
-      <section className="reveal-fade-up" style={{ animationDelay: "0.9s" }}>
-        <Teacher note={
-          "Unpacking is one of those features that makes Python code elegant. 🧑‍🏫 " +
-          "I tell students: 'If you find yourself writing `a = data[0]; b = data[1]`, you probably want unpacking.' " +
-          "Show the difference between `*` in definition (packing) and `*` in call (unpacking). " +
-          "A great exercise: read a CSV row as a list and unpack it into variables. " +
-          "Also demonstrate merging configurations with `**` – it's a pattern used in many frameworks like Django settings."
-        } />
-      </section>
-
-      {/* ========== SVG ILLUSTRATION ========== */}
-      <section className="reveal-fade-up" style={{ animationDelay: "1s" }}>
-        <div className="bg-gray-800/50 rounded-xl p-6 flex justify-center">
-          <svg width="580" height="220" viewBox="0 0 580 220" className="max-w-full h-auto">
-            <rect x="20" y="20" width="240" height="80" fill="#1e3a8a" stroke="#3b82f6" strokeWidth="2" rx="8">
-              <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" />
-            </rect>
-            <text x="140" y="45" fill="white" fontSize="13" textAnchor="middle" fontFamily="monospace">def show(a, b, c):</text>
-            <text x="140" y="65" fill="#94a3b8" fontSize="12" textAnchor="middle">print(a, b, c)</text>
-            <text x="140" y="85" fill="#fbbf24" fontSize="11" textAnchor="middle">3 parameters</text>
-
-            <line x1="260" y1="60" x2="300" y2="60" stroke="#a78bfa" strokeWidth="2" markerEnd="url(#arrowPurple)" />
-
-            <rect x="310" y="20" width="250" height="80" fill="#065a46" stroke="#34d399" strokeWidth="2" rx="8">
-              <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" begin="0.5s" repeatCount="indefinite" />
-            </rect>
-            <text x="435" y="45" fill="white" fontSize="13" textAnchor="middle" fontFamily="monospace">data = [1, 2, 3]</text>
-            <text x="435" y="65" fill="white" fontSize="13" textAnchor="middle" fontFamily="monospace">show(*data)</text>
-            <text x="435" y="85" fill="#fbbf24" fontSize="11" textAnchor="middle">← unpacks list → 3 args</text>
-
-            <rect x="20" y="130" width="540" height="60" fill="#1f2937" stroke="#fbbf24" strokeWidth="1.5" rx="6" strokeDasharray="4,4">
-              <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite" />
-            </rect>
-            <text x="290" y="155" fill="#fcd34d" fontSize="12" textAnchor="middle">💡 `*` unpacks iterables into positional arguments; `**` unpacks dicts into keyword arguments</text>
-            <text x="290" y="175" fill="#9ca3af" fontSize="11" textAnchor="middle">Useful for dynamic calls, config merging, and argument forwarding</text>
-
-            <defs><marker id="arrowPurple" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#a78bfa" /></marker></defs>
-          </svg>
-        </div>
-        <p className="text-center text-sm text-gray-400 mt-2">Unpacking turns a collection into separate arguments, making function calls cleaner and more dynamic.</p>
-      </section>
-
+    <>
       <style>{`
-        @keyframes fadeUp {
-          0% { opacity: 0; transform: translateY(20px); }
-          100% { opacity: 1; transform: translateY(0); }
+        .reveal-section {
+          transform: translateY(0);
+          transition: transform 0.4s ease-out;
         }
-        .reveal-fade-up {
-          animation: fadeUp 0.6s ease-out forwards;
-          opacity: 0;
-          animation-fill-mode: forwards;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .reveal-fade-up { animation: none; opacity: 1; }
+        .reveal-section.is-visible {
+          transform: translateY(0);
         }
       `}</style>
-    </div>
+
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 001 · Topic 8</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Unpacking arguments in function calls
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Create reusable, clean, and modular building blocks using Python functions.
+          </p>
+
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
+          </div>
+        </header>
+
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
+        >
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Unpacking arguments in function calls
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Unpacking arguments in function calls</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Unpacking arguments in function calls
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
+            </div>
+
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <FAQTemplate
+            title="Unpacking arguments in function calls FAQs"
+            questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
+          />
+        </section>
+
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <PlainTextPrint
+            content={noteText}
+            title="Unpacking arguments in function calls"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Note"
+            downloadFileName="topic8_note.txt"
+          />
+        </section>
+
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <Teacher
+            note={
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
+            }
+          />
+        </section>
+
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 8 · Unpacking arguments in function calls · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
+        </footer>
+      </div>
+    </>
   );
-}
+};
+
+export default Topic8;

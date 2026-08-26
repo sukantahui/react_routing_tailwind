@@ -1,0 +1,63 @@
+================================================================================
+MYSQL 8.0 REPLICATION, HIGH AVAILABILITY & FAILOVER TOPOLOGIES
+TOPIC 8: Replication Lag – Root Causes, Diagnostics & Production Mitigation
+================================================================================
+
+1. WHAT IS REPLICATION LAG?
+--------------------------------------------------------------------------------
+Replication lag is the delay between a transaction committing on the Primary (Source)
+and that same transaction being executed and visible on a Replica.
+
+Standard Metric: `Seconds_Behind_Source` (in `SHOW REPLICA STATUS`)
+Formula:
+  Seconds_Behind_Source = Current_Clock_Time_Replica - Transaction_Commit_Timestamp_Source
+
+2. THE TOP 5 ROOT CAUSES OF REPLICATION LAG
+--------------------------------------------------------------------------------
+Root Cause                      Mechanism & Impact
+--------------------------------------------------------------------------------
+1. Single-Threaded Applier      Primary executes writes across 64 concurrent client threads;
+                                legacy replica applies transactions serially on 1 SQL thread.
+
+2. Large Batch Transactions     A single `DELETE FROM audit WHERE date < '2025'` takes 10 minutes
+                                on Primary, blocking all downstream transactions for 10 minutes!
+
+3. Unindexed DML on Replica     Missing secondary indexes on replica causes table scans for
+                                every row event during ROW-based binary log application.
+
+4. Asymmetric Hardware / IOPS   Primary runs on fast NVMe storage; Replica runs on slower HDD
+                                or restricted cloud storage (low IOPS / throttle).
+
+5. Table-Locking Schema DDL     Heavy `ALTER TABLE` locks tables during execution, halting
+                                the SQL thread until schema migration completes.
+
+3. REPLICATION LAG MITIGATION RUNBOOK
+--------------------------------------------------------------------------------
+1. Enable Multi-Threaded Parallel Replication (MTS):
+   `replica_parallel_workers = 8`
+   `replica_parallel_type = 'LOGICAL_CLOCK'`
+
+2. Chunk Massive Transactions into Micro-Batches:
+   ```sql
+   -- Instead of 1 massive DELETE, chunk in batches of 5000:
+   DELETE FROM logs WHERE created_at < '2025-01-01' LIMIT 5000;
+   ```
+
+3. Maintain Symmetric Hardware & InnoDB Sizing:
+   - Ensure `innodb_buffer_pool_size` and NVMe IOPS on Replica match the Primary.
+
+4. Enforce Online DDL Tools:
+   - Use `ALGORITHM=INPLACE` or `gh-ost` / `pt-online-schema-change` for zero-lock DDL.
+
+4. ACCURATE LAG MONITORING WITH PT-HEARTBEAT
+--------------------------------------------------------------------------------
+`pt-heartbeat` injects a microsecond timestamp table on Primary and reads it on Replica,
+providing true, sub-millisecond lag metrics immune to NTP clock drift.
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Alert when `Seconds_Behind_Source` exceeds 10 seconds.
+2. Ensure NTP time synchronization across all cluster nodes to prevent negative lag values.
+3. Keep `sync_binlog = 1` and `innodb_flush_log_at_trx_commit = 1` on Primary.
+4. On Replicas, set `sync_binlog = 0` or `1000` (if acceptable) to reduce fsync disk bottlenecks.
+================================================================================

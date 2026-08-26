@@ -1,491 +1,380 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 
-// Common Shared Components
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
-import PlainTextPrint from "../../../../../common/PlainTextPrint";
-import FAQTemplate from "../../../../../common/FAQTemplate";
+// ─── Common Framework Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
-
-// Python Code Examples (Imported with ?raw)
-import createLiteral from "./topic1_files/create_literal_demo.py?raw";
-import createConstructor from "./topic1_files/create_constructor_demo.py?raw";
-import emptySetDemo from "./topic1_files/empty_set_demo.py?raw";
-import iterableConversion from "./topic1_files/iterable_conversion_demo.py?raw";
-
-// Plain Text Note for Printing/Downloading
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import questions from "./topic1_files/topic1_questions";
 import noteText from "./topic1_files/topic1_note.txt?raw";
 
-// FAQ Questions
-import questions from "./topic1_files/topic1_questions";
-
 /**
- * Topic1: Creating Sets (Set Literal and Set Constructor)
- * Module: 002_006_sets
- * Segment: 2 (Practical Python for Real-World Development)
+ * Topic1 – Creating sets (set literal and set constructor)
+ * Module: 002_006_sets (Sets & Set Operations)
+ * Track: Python from Basic to Pro
  *
- * Comprehensive exploration of set literals {}, the set() constructor,
- * the empty set trap, iterable conversions, and bytecode BUILD_SET optimizations.
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
  */
-export default function Topic1() {
+const Topic1 = () => {
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
   const sectionRefs = useRef([]);
-  const [activeTab, setActiveTab] = useState("syntax");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("section-visible");
+            entry.target.classList.add("is-visible");
           }
         });
       },
-      {
-        threshold: 0.08,
-        rootMargin: "0px 0px -40px 0px",
-      }
+      { threshold: 0.1 }
     );
 
-    sectionRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
   }, []);
 
-  const addToRefs = (el) => {
+  const addRef = (el) => {
     if (el && !sectionRefs.current.includes(el)) {
       sectionRefs.current.push(el);
     }
   };
 
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  ];
+
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 antialiased font-sans p-4 sm:p-6 md:p-10 pb-28 selection:bg-emerald-500/30 selection:text-emerald-200">
-      {/* Scoped Keyframes for Lightweight Zero-Config Micro-Animations */}
+    <>
       <style>{`
-        .section-hidden {
-          transform: translateY(18px);
-          transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        .reveal-section {
+          transform: translateY(0);
+          transition: transform 0.4s ease-out;
         }
-        .section-visible {
+        .reveal-section.is-visible {
           transform: translateY(0);
         }
       `}</style>
 
-      {/* ==================================================================== */}
-      {/* HEADER SECTION */}
-      {/* ==================================================================== */}
-      <header
-        ref={addToRefs}
-        className="section-hidden max-w-5xl mx-auto mb-12 pb-8 border-b border-slate-800/80"
-      >
-        <div className="flex flex-wrap items-center gap-3 mb-3">
-          <span className="text-xs sm:text-sm font-mono font-semibold bg-emerald-950/80 text-emerald-300 px-3 py-1 rounded-full border border-emerald-800/80 shadow-sm shadow-emerald-950/50">
-            Segment 2 • Module 002_006
-          </span>
-          <span className="text-xs sm:text-sm font-mono bg-sky-950/80 text-sky-300 px-3 py-1 rounded-full border border-sky-800/80 shadow-sm shadow-sky-950/50">
-            Topic 1
-          </span>
-          <span className="text-xs sm:text-sm font-medium text-slate-400">
-            Set Construction & Syntax
-          </span>
-        </div>
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 006 · Topic 1</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Creating sets (set literal and set constructor)
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Master distinct element collections, set theory operations, and high-performance membership checks.
+          </p>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-          Creating Sets: Literals vs Constructors
-        </h1>
-        <p className="text-lg sm:text-xl text-slate-300 mt-3 max-w-3xl font-normal leading-relaxed">
-          Mastering set literal syntax <code className="text-emerald-400 font-mono">{"{ ... }"}</code>, the built-in <code className="text-sky-400 font-mono">set()</code> constructor, dynamic iterable conversions, and avoiding the dreaded empty dictionary trap.
-        </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
+          </div>
+        </header>
 
-        <div className="flex flex-wrap gap-2 sm:gap-3 mt-5">
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            ⚡ BUILD_SET Opcode Optimization
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🔄 Iterable Unpacking
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            ⚠️ {"{}"} vs set() Empty Trap
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🧩 Dict Keys/Values/Items
-          </span>
-        </div>
-      </header>
-
-      {/* ==================================================================== */}
-      {/* MAIN CONTENT WRAPPER */}
-      {/* ==================================================================== */}
-      <div className="max-w-5xl mx-auto space-y-16">
-
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 1: TWO ROADS TO SET CREATION */}
-        {/* ------------------------------------------------------------------ */}
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
         <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">🛣️</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              1. Two Pathways to Set Creation
-            </h2>
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Creating sets (set literal and set constructor)
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
           </div>
 
-          <div className="space-y-4 text-slate-300 leading-relaxed text-base sm:text-lg">
-            <p>
-              In Python, you have two complementary ways to instantiate a set object. Choosing the right one depends on whether you have <strong className="text-emerald-400">static compile-time constants</strong> or <strong className="text-sky-400">dynamic runtime iterables</strong>:
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-6 not-prose">
-              {/* Card 1: Literal */}
-              <div className="p-5 rounded-xl bg-slate-950/70 border border-emerald-800/60 shadow-lg shadow-emerald-950/30 transition-all duration-300 hover:scale-[1.01] hover:border-emerald-500">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-2 text-emerald-400 font-bold text-lg">
-                    <span>✨</span> Set Literal Syntax
-                  </div>
-                  <span className="text-xs font-mono bg-emerald-950 text-emerald-300 px-2 py-0.5 rounded border border-emerald-800">
-                    Faster (BUILD_SET)
-                  </span>
-                </div>
-                <p className="text-sm text-slate-300 mb-3">
-                  Encloses comma-separated hashable elements in curly braces: <code className="font-mono text-emerald-300">{"s = {10, 20, 30}"}</code>.
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Creating sets (set literal and set constructor)</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
                 </p>
-                <div className="text-xs font-mono bg-slate-900 p-2.5 rounded-lg border border-slate-800 text-slate-400">
-                  <span className="text-emerald-400">✓</span> Best for: Known constants, short configs, inline lookup sets.
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
                 </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
+                </p>
               </div>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
+              </div>
+            </div>
 
-              {/* Card 2: Constructor */}
-              <div className="p-5 rounded-xl bg-slate-950/70 border border-sky-800/60 shadow-lg shadow-sky-950/30 transition-all duration-300 hover:scale-[1.01] hover:border-sky-500">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-2 text-sky-400 font-bold text-lg">
-                    <span>🏗️</span> set() Constructor
-                  </div>
-                  <span className="text-xs font-mono bg-sky-950 text-sky-300 px-2 py-0.5 rounded border border-sky-800">
-                    Universal Adapter
-                  </span>
-                </div>
-                <p className="text-sm text-slate-300 mb-3">
-                  Calls the built-in type constructor on any iterable: <code className="font-mono text-sky-300">s = set(iterable)</code>.
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
                 </p>
-                <div className="text-xs font-mono bg-slate-900 p-2.5 rounded-lg border border-slate-800 text-slate-400">
-                  <span className="text-sky-400">✓</span> Best for: Empty set creation (<code className="text-sky-300">set()</code>), converting lists/strings/dicts/ranges.
-                </div>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
               </div>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 2: INTERACTIVE SVG VISUALIZER */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <div className="flex items-center gap-3">
-              <span className="text-3xl">🔍</span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white">
-                2. Visualizing Set Construction Mechanics
-              </h2>
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Creating sets (set literal and set constructor)
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
             </div>
 
-            {/* Toggle Tabs */}
-            <div className="flex bg-slate-950 p-1.5 rounded-xl border border-slate-800 text-xs font-semibold">
-              <button
-                onClick={() => setActiveTab("syntax")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeTab === "syntax"
-                    ? "bg-emerald-900/50 text-emerald-300 border border-emerald-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                Literal vs Constructor Flow
-              </button>
-              <button
-                onClick={() => setActiveTab("emptytrap")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeTab === "emptytrap"
-                    ? "bg-amber-900/50 text-amber-300 border border-amber-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                The Empty Set Anatomy
-              </button>
-            </div>
-          </div>
-
-          {/* SVG Diagram Canvas */}
-          <div className="bg-slate-950 rounded-xl p-4 sm:p-6 overflow-x-auto border border-slate-800/90 shadow-2xl">
-            {activeTab === "syntax" ? (
-              <svg viewBox="0 0 850 340" className="w-full h-auto min-w-[650px] font-sans">
-                {/* Method 1: Set Literal */}
-                <text x="30" y="35" fill="#34d399" fontSize="14" fontWeight="bold">METHOD 1: SET LITERAL {"{ 'A', 'B', 'C' }"}</text>
-
-                <rect x="30" y="55" width="220" height="50" rx="8" fill="#1e293b" stroke="#059669" strokeWidth="1.5" />
-                <text x="45" y="85" fill="#f8fafc" fontSize="13" fontWeight="bold">{"{'Kolkata', 'Barrackpore'}"}</text>
-
-                <path d="M 250 80 L 320 80" stroke="#10b981" strokeWidth="2" fill="none" />
-                <text x="260" y="72" fill="#10b981" fontSize="10">BUILD_SET</text>
-
-                <rect x="320" y="55" width="490" height="50" rx="8" fill="#064e3b" stroke="#10b981" strokeWidth="1.5" />
-                <text x="340" y="85" fill="#a7f3d0" fontSize="13" fontWeight="bold">Direct Stack Allocation → Instant Set Object created!</text>
-
-                {/* Method 2: Constructor Unpacking */}
-                <text x="30" y="160" fill="#38bdf8" fontSize="14" fontWeight="bold">METHOD 2: CONSTRUCTOR set("BANANA")</text>
-
-                <rect x="30" y="180" width="220" height="50" rx="8" fill="#1e293b" stroke="#0284c7" strokeWidth="1.5" />
-                <text x="45" y="210" fill="#f8fafc" fontSize="13" fontWeight="bold">String "BANANA"</text>
-
-                <path d="M 250 205 L 320 205" stroke="#38bdf8" strokeWidth="2" fill="none" />
-                <text x="255" y="197" fill="#38bdf8" fontSize="10">Iterate & Hash</text>
-
-                {/* Stream Box */}
-                <rect x="320" y="170" width="490" height="135" rx="8" fill="#0f172a" stroke="#0284c7" strokeWidth="1.5" />
-                <text x="340" y="195" fill="#38bdf8" fontSize="12" fontWeight="bold">Stream Unpacking Step-by-Step:</text>
-
-                <text x="340" y="220" fill="#94a3b8" fontSize="12">'B' → Hash bucket created (1st item)</text>
-                <text x="340" y="240" fill="#94a3b8" fontSize="12">'A' → Hash bucket created (2nd item)</text>
-                <text x="340" y="260" fill="#94a3b8" fontSize="12">'N' → Hash bucket created (3rd item)</text>
-                <text x="340" y="280" fill="#fca5a5" fontSize="12">'A', 'N', 'A' → Collisions discarded as duplicates!</text>
-                <text x="590" y="280" fill="#34d399" fontSize="12" fontWeight="bold">Result: {'{"B", "A", "N"}'}</text>
-              </svg>
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             ) : (
-              <svg viewBox="0 0 850 320" className="w-full h-auto min-w-[650px] font-sans">
-                <text x="30" y="35" fill="#f8fafc" fontSize="15" fontWeight="bold">The Crucial Distinction: {"{}"} vs set()</text>
-
-                {/* Empty Braces Card */}
-                <rect x="30" y="65" width="380" height="220" rx="10" fill="#1e293b" stroke="#ef4444" strokeWidth="2" />
-                <text x="50" y="95" fill="#fca5a5" fontSize="15" fontWeight="bold">x = {"{}"}  (Empty Braces)</text>
-
-                <rect x="50" y="115" width="340" height="40" rx="6" fill="#450a0a" border="1" stroke="#ef4444" />
-                <text x="65" y="140" fill="#fecaca" fontSize="13" fontWeight="bold">Type: &lt;class 'dict'&gt; (DICTIONARY!)</text>
-
-                <text x="50" y="185" fill="#cbd5e1" fontSize="12">• Does NOT create an empty set.</text>
-                <text x="50" y="210" fill="#cbd5e1" fontSize="12">• Creates a hash map expecting key:value pairs.</text>
-                <text x="50" y="235" fill="#fca5a5" fontSize="12" fontWeight="bold">• Calling x.add(5) will crash with AttributeError!</text>
-
-                {/* Constructor Card */}
-                <rect x="440" y="65" width="380" height="220" rx="10" fill="#1e293b" stroke="#10b981" strokeWidth="2" />
-                <text x="460" y="95" fill="#34d399" fontSize="15" fontWeight="bold">x = set()  (Constructor)</text>
-
-                <rect x="460" y="115" width="340" height="40" rx="6" fill="#064e3b" stroke="#10b981" />
-                <text x="475" y="140" fill="#a7f3d0" fontSize="13" fontWeight="bold">Type: &lt;class 'set'&gt; (TRUE SET!)</text>
-
-                <text x="460" y="185" fill="#cbd5e1" fontSize="12">• The ONLY standard way to create an empty set.</text>
-                <text x="460" y="210" fill="#cbd5e1" fontSize="12">• Has len(x) == 0.</text>
-                <text x="460" y="235" fill="#34d399" fontSize="12" fontWeight="bold">• Ready for x.add(5), x.update([...]) operations!</text>
-              </svg>
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
             )}
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 3: CODE DEMONSTRATIONS */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 space-y-8"
-        >
-          <div className="flex items-center gap-3">
-            <span className="text-3xl">💻</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              3. Interactive Python Code Labs
-            </h2>
-          </div>
-
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Lab A: Set Literal Syntax & Heterogeneous Elements
-              </h3>
-              <PythonFileLoader
-                fileModule={createLiteral}
-                title="create_literal_demo.py"
-                highlightLines={[6, 11, 15, 20]}
-              />
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
             </div>
 
-            <div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Lab B: Converting Strings, Tuples, Lists & Ranges with set()
-              </h3>
-              <PythonFileLoader
-                fileModule={createConstructor}
-                title="create_constructor_demo.py"
-                highlightLines={[7, 12, 18, 23]}
-              />
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Lab C: The Empty Set Trap (isinstance & Type Checks)
-              </h3>
-              <PythonFileLoader
-                fileModule={emptySetDemo}
-                title="empty_set_demo.py"
-                highlightLines={[7, 13, 18]}
-              />
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Lab D: Dictionary Keys, Values, Items & Generator Conversions
-              </h3>
-              <PythonFileLoader
-                fileModule={iterableConversion}
-                title="iterable_conversion_demo.py"
-                highlightLines={[14, 18, 22, 26]}
-              />
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 4: REAL-WORLD INDUSTRY APPLICATIONS */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">🌐</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              4. Real-World Applications in Indian Industry
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800/80 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500">
-              <div className="flex items-center gap-2 font-bold text-white text-base mb-2">
-                <span className="text-xl">💰</span> 1. Course Fee Tier Consolidation
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
               </div>
-              <p className="text-sm text-slate-300">
-                When auditing 50 courses across <strong>Barrackpore</strong> and <strong>Jadavpur</strong>, calling <code className="font-mono text-emerald-400">set(course_fees.values())</code> extracts distinct pricing tiers (e.g. <strong className="text-emerald-300">₹3,500, ₹4,500, ₹6,500</strong>) for fee structure planning.
-              </p>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
             </div>
 
-            <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800/80 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-sky-500">
-              <div className="flex items-center gap-2 font-bold text-white text-base mb-2">
-                <span className="text-xl">📊</span> 2. SQL Query Record Deduplication
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
               </div>
-              <p className="text-sm text-slate-300">
-                Backend microservices querying thousands of transaction tuples from MySQL convert database cursor rows to sets <code className="font-mono text-sky-400">set(cursor.fetchall())</code> to eliminate duplicate order payloads before invoice processing.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800/80 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-purple-500">
-              <div className="flex items-center gap-2 font-bold text-white text-base mb-2">
-                <span className="text-xl">🔤</span> 3. Unique Character Vocabulary in NLP
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
               </div>
-              <p className="text-sm text-slate-300">
-                Natural language processing engines pass multilingual text corpora into <code className="font-mono text-purple-400">set(text)</code> to build distinct token dictionaries and alphabet character sets in Bengali and English.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800/80 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-amber-500">
-              <div className="flex items-center gap-2 font-bold text-white text-base mb-2">
-                <span className="text-xl">⚡</span> 4. Config Whitelist Initialization
-              </div>
-              <p className="text-sm text-slate-300">
-                Microservices initialize static whitelists using set literals <code className="font-mono text-amber-400">ALLOWED_HOSTS = {"{'api.codernaccotax.co.in', 'auth.codernaccotax.co.in'}"}</code> at boot time for zero-overhead validation.
-              </p>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 5: COMMON PITFALLS */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">⚠️</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              5. Pitfalls, Traps & Compiler Quirks
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm sm:text-base">
-            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-900/60">
-              <div className="font-bold text-rose-400 mb-1">
-                ❌ Pitfall 1: Passing Non-Iterable to set()
-              </div>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                Writing <code className="bg-rose-900/40 px-1 py-0.5 rounded font-mono text-rose-200">set(500)</code> raises <code className="text-rose-400 font-bold">TypeError: 'int' object is not iterable</code>. Use <code className="font-mono text-slate-200">{"{500}"}</code> or <code className="font-mono text-slate-200">set([500])</code>.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-900/60">
-              <div className="font-bold text-rose-400 mb-1">
-                ❌ Pitfall 2: Nested Mutable Literals
-              </div>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                <code className="bg-rose-900/40 px-1 py-0.5 rounded font-mono text-rose-200">{"{ {1, 2}, {3, 4} }"}</code> fails because sets are unhashable. Wrap nested sets with <code className="font-mono text-emerald-400">frozenset()</code>.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-900/60">
-              <div className="font-bold text-rose-400 mb-1">
-                ❌ Pitfall 3: Dict Values Extraction Omission
-              </div>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                <code className="bg-rose-900/40 px-1 py-0.5 rounded font-mono text-rose-200">set(my_dict)</code> takes keys only. If you need unique values, explicitly specify <code className="font-mono text-emerald-400">set(my_dict.values())</code>.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-900/60">
-              <div className="font-bold text-rose-400 mb-1">
-                ❌ Pitfall 4: Tuple String Packing Confusion
-              </div>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                <code className="bg-rose-900/40 px-1 py-0.5 rounded font-mono text-rose-200">set('hello')</code> gives 4 characters, while <code className="bg-rose-900/40 px-1 py-0.5 rounded font-mono text-rose-200">set(('hello',))</code> preserves the 1 complete string.
-              </p>
-            </div>
-          </div>
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <FAQTemplate
+            title="Creating sets (set literal and set constructor) FAQs"
+            questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
+          />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 6: PRINTABLE STUDY NOTE */}
-        {/* ------------------------------------------------------------------ */}
-        <section ref={addToRefs} className="section-hidden">
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <PlainTextPrint
             content={noteText}
-            title="Topic 1: Creating Sets Study Guide"
+            title="Creating sets (set literal and set constructor)"
             stampEnabled={true}
             showDownload={true}
-            downloadButtonText="Download Printable Study Note"
-            downloadFileName="topic1_creating_sets_note.txt"
+            downloadButtonText="Download Note"
+            downloadFileName="topic1_note.txt"
           />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 7: FAQS (30 COMPREHENSIVE QUESTIONS) */}
-        {/* ------------------------------------------------------------------ */}
-        <section ref={addToRefs} className="section-hidden">
-          <FAQTemplate
-            title="Topic 1 • Creating Sets: Master Viva & Review Questions"
-            questions={questions}
-          />
-        </section>
-
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 8: TEACHER'S NOTE */}
-        {/* ------------------------------------------------------------------ */}
-        <section ref={addToRefs} className="section-hidden">
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <Teacher
-            note="Teacher's Tip: Use set literals {...} whenever you define constant lookups in your code—they compile directly to the lightning-fast BUILD_SET opcode. When Debangshu, Susmita, and Mamata convert runtime data from files or databases in Barrackpore and Kolkata, pass the list or generator into set()!"
+            note={
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
+            }
           />
         </section>
 
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 1 · Creating sets (set literal and set constructor) · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
+        </footer>
       </div>
-    </div>
+    </>
   );
-}
+};
+
+export default Topic1;

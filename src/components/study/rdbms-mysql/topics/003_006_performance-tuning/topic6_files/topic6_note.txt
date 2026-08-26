@@ -1,0 +1,44 @@
+================================================================================
+RDBMS MySQL Course - Module 003_006: Query Execution Plans & Performance Tuning
+Topic 6: Table Scan vs Index Scan vs Index Range Scan vs Const Lookup
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. OVERVIEW OF MYSQL DATA ACCESS PATHS
+--------------------------------------------------------------------------------
+MySQL accesses tabular data through distinct access methods (indicated by the
+`type` column in EXPLAIN). Ranked from fastest to slowest:
+
+  1. `const` / `system`      -> O(1) direct memory/primary key lookup
+  2. `eq_ref`                -> 1-to-1 unique join lookup
+  3. `ref`                   -> Non-unique index equality lookup
+  4. `range`                 -> B+Tree boundary probe + linked leaf scan
+  5. `index`                 -> Full B+Tree leaf scan (Index Scan)
+  6. `ALL`                   -> Full Table Scan across all 16KB data pages
+
+2. DETAILED COMPARISON MATRIX
+--------------------------------------------------------------------------------
+| Access Type | Complexity      | Mechanism                           | Disk / Buffer I/O  |
+|-------------|-----------------|-------------------------------------|--------------------|
+| const       | O(1) / O(log N) | Primary Key / Unique exact match    | Single page lookup |
+| eq_ref      | O(1) per row    | Unique index join lookup            | 1 page per row     |
+| ref         | O(log N + M)    | Non-unique index equality match     | Few page lookups   |
+| range       | O(log N + K)    | B+Tree root probe + leaf range scan | Contiguous leaves  |
+| index       | O(N_index)      | Full scan of compact index leaf pages| Sequentially fast |
+| ALL         | O(N_table)      | Sequential scan of all table pages  | Heavy, buffer flush|
+
+3. THE OPTIMIZER TIPPING POINT (20% - 30% RULE)
+--------------------------------------------------------------------------------
+Why does MySQL switch from `range` to `ALL` on indexed columns?
+- Secondary index lookup requires 2 steps:
+  1) Traverse secondary B+Tree -> Obtain Primary Key
+  2) Clustered Index Seek (Random I/O) -> Read full row
+- If the range matches > 20%-30% of total rows, random I/O cost exceeds
+  the cost of a sequential Full Table Scan. Hence, MySQL chooses `ALL`.
+
+4. BEST PRACTICES FOR INDEX ACCESS
+--------------------------------------------------------------------------------
+1. Ensure high cardinality on indexed columns to maintain `ref` or `range`.
+2. Use Covering Indexes to eliminate clustered index random seeks.
+3. Watch out for implicit type casting that downgrades `const`/`ref` to `ALL`.
+4. Monitor Buffer Pool hit ratio to prevent Full Table Scans from evicting hot pages.

