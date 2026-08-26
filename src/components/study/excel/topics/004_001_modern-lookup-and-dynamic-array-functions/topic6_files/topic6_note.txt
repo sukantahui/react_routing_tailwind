@@ -1,0 +1,21 @@
+TOPIC 6 SUMMARY NOTES
+================================================================================
+Topic: Generating Numeric and Date Sequences with SEQUENCE (Rows, Columns, Start, Step)
+Module: 004_001_modern-lookup-and-dynamic-array-functions
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+Key Formula Signature:
+=SEQUENCE(rows, [columns], [start], [step])
+
+Core Arguments:
+1. `rows` (Required): Number of rows to generate down vertically.
+2. `[columns]` (Optional, default 1): Number of columns to generate across horizontally.
+3. `[start]` (Optional, default 1): Starting number or date serial.
+4. `[step]` (Optional, default 1): Increment amount per element (can be negative for countdowns).
+
+Key Industrial Applications:
+- Self-Adjusting Auto-Numbering: `=SEQUENCE(COUNTA(B2:B100))`
+- Dynamic Date Calendars: `=SEQUENCE(365, 1, DATE(2026,1,1), 1)`
+- 2D Seating / Voucher Grids: `=SEQUENCE(5, 4, 101, 1)`
+- Reverse Countdowns: `=SEQUENCE(10, 1, 10, -1)`
+- Tiered Pricing / Tax Slabs: `=SEQUENCE(10, 1, 10000, 5000)`

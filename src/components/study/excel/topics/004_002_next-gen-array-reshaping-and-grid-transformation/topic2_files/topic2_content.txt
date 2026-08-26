@@ -1,0 +1,32 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: TOROW HORIZONTAL RESHAPING ENGINE
+================================================================================
+Module: 004_002_next-gen-array-reshaping-and-grid-transformation
+Topic 2: Flattening 2D tables into 1D horizontal vectors with TOROW
+================================================================================
+
+1. CORE MECHANICS OF TOROW:
+The TOROW function transforms an (N x M) rectangular 2D matrix or an (N x 1)
+vertical column into a (1 x (N*M)) horizontal spilled row vector.
+
+2. SUMMARY OF ARGUMENTS:
+- array: The source dataset.
+- ignore:
+    0 = Keep all (default)
+    1 = Drop empty cells
+    2 = Drop error cells
+    3 = Drop both empty and error cells
+- scan_by_column:
+    FALSE (0) = Row-by-row (left to right, then next row)
+    TRUE (1)  = Column-by-column (down col 1, then down col 2)
+
+3. PRACTICAL WORKFLOW PATTERNS:
+- Top 5 KPI Ribbon:
+  =TOROW(TAKE(SORT(TOCOL(SalesGrid, 1), 1, -1), 5))
+
+- Horizontal Delimited Header:
+  =TEXTJOIN(" | ", TRUE, TOROW(DeptList, 1))
+
+- Rotating Single Column to Row:
+  =TOROW(A2:A20, 1)
+================================================================================

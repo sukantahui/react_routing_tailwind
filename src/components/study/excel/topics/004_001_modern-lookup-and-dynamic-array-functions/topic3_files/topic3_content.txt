@@ -1,0 +1,22 @@
+TOPIC 3 CONCEPTUAL REFERENCE CONTENT
+================================================================================
+Title: Dynamic Multi-Condition Data Filtering with the FILTER Function (AND / OR Logic in Arrays)
+Course: EXCEL-PRO-901
+
+1. The Limitations of Legacy Filtering:
+Historically, filtering data in Excel meant applying manual AutoFilters (Ctrl+Shift+L) which hide rows on the primary worksheet, breaking formula calculations and layout structure. Extracting filtered subsets to separate sheets required Advanced Filter or fragile VBA macros.
+
+2. The Modern FILTER Function:
+`FILTER` dynamically streams rows matching one or more criteria to a new location in real time.
+
+3. Why AND() and OR() Fail in Array Formulas:
+Excel's native `AND(condition1, condition2)` aggregates all values across all rows into one single boolean TRUE/FALSE. When passed to FILTER, it cannot evaluate row-by-row.
+Instead, boolean algebra is used:
+- TRUE * TRUE = 1 (Match)
+- TRUE * FALSE = 0 (No Match)
+- FALSE * FALSE = 0 (No Match)
+- TRUE + FALSE = 1 (Match)
+- TRUE + TRUE = 2 (>0 is treated as TRUE by FILTER)
+
+4. The [if_empty] Safety Fallback:
+If an applied criteria yields zero matching rows, omitting the 3rd argument returns a `#CALC!` (Calculation Error: Empty Array). Always supply a descriptive string like `"No Records Found"` or `""` (empty string) to maintain clean dashboards.

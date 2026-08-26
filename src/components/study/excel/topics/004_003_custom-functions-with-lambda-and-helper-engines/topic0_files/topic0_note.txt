@@ -1,0 +1,32 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: INTRODUCTION TO LAMBDA & FUNCTIONAL EXCEL
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_003: Custom Functions with LAMBDA & Helper Engines
+Topic 0: Introduction to LAMBDA: Creating native reusable custom functions without VBA or macros
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. WHAT IS LAMBDA IN EXCEL 365?
+--------------------------------------------------------------------------------
+LAMBDA allows users to build custom, named, and reusable functions using pure
+formula syntax. It eliminates the need for VBA macros (.xlsm files) and add-ins.
+
+Syntax: =LAMBDA([parameter1, parameter2, ...], calculation)
+
+2. CORE CAPABILITIES OF THE LAMBDA ECOSYSTEM
+--------------------------------------------------------------------------------
+• Reusability: Register in Name Manager (Ctrl+F3) to use anywhere in the workbook.
+• Immediate Execution: Test in cells with =(LAMBDA(x, x*2))(5) &rarr; 10.
+• Helper Functions: Pair with MAP, SCAN, REDUCE, BYROW, BYCOL, and MAKEARRAY.
+• Pure Functional Recursion: Execute algorithmic loops without VBA For/While loops.
+• Cross-Platform: 100% compatible with Excel for Web, Mac, Windows, and iPad.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Never deploy an untested LAMBDA in Name Manager. Always test with immediate
+  execution syntax: =(LAMBDA(param, calc))(test_val) directly in a worksheet cell!
+• Pair with LET to cache intermediate variables and optimize calculation speeds.
+• Document every parameter in the Name Manager 'Comment' field for end-users.
+================================================================================

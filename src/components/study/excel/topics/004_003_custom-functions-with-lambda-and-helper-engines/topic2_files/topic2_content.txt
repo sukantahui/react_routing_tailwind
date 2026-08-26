@@ -1,0 +1,23 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: NAME MANAGER REGISTRATION ENGINE
+================================================================================
+Module: 004_003_custom-functions-with-lambda-and-helper-engines
+Topic 2: Registering and naming LAMBDA functions in Excel Name Manager
+================================================================================
+
+1. NAME MANAGER DATA MODEL:
+Name Manager stores key-value pairs in the workbook binary dictionary:
+- Key: Defined Identifier (e.g. FX_LOAN_EMI)
+- Value: AST (Abstract Syntax Tree) of =LAMBDA(P, r, n, ...)
+- Scope: Workbook or Specific Sheet
+
+2. INVOKING NAMED LAMBDAS:
+- In cell: =FX_GROSS_SALARY(E5, F5, G5)
+- In dynamic array pipeline: =MAP(Range, FX_TAX_CALC)
+- In nested higher-order functions: =BYROW(Matrix, FX_ROW_SUM)
+
+3. ERROR DIAGNOSTICS:
+- Unregistered Name &rarr; #NAME?
+- Trailing args in 'Refers to' &rarr; Static value stored instead of callable function
+- Missing required non-optional argument &rarr; #VALUE!
+================================================================================

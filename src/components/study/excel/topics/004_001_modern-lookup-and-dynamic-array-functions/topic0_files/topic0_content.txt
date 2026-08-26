@@ -1,0 +1,24 @@
+TOPIC 0 CONCEPTUAL REFERENCE CONTENT
+================================================================================
+Title: Understanding Excel's Modern Calculation Engine & Dynamic Array Spill (#SPILL!) Behavior
+Course: EXCEL-PRO-901
+
+Historical Context:
+Prior to 2018 (Excel 2019 and older), Excel's calculation engine operated on scalar cell evaluations. When an array formula was required, users had to select the exact target output range, type the formula, and press Ctrl+Shift+Enter (CSE). If the output size changed, formulas broke or returned erroneous truncation.
+
+Modern Dynamic Array Engine:
+With Excel 365 and Excel 2021+, the calculation engine was completely rewritten. Formulas now return arrays natively. Entering `=UNIQUE(A2:A100)` into a single cell causes Excel to automatically allocate a rectangular grid of cells to house all output elements. This behavior is called "spilling".
+
+Spill Mechanics:
+- Origin Cell: Contains the active formula. Editing this cell updates the entire array.
+- Ghost Cells: The remaining cells occupied by the spill. Editing a ghost cell is prohibited; attempting to type into a ghost cell immediately produces a `#SPILL!` collision error.
+- Spill Range Reference (`A2#`): Downstream formulas can refer to the entire dynamic range without knowing its exact row/column dimensions in advance (e.g., `=COUNTA(A2#)`, `=SUM(A2#)`).
+
+The 7 Classes of #SPILL! Errors:
+1. Spill range isn't blank (Blocked by values, formulas, or spaces).
+2. Spill range contains merged cells.
+3. Spill range extends beyond the worksheet edge.
+4. Formula is inside an Excel Table (`ListObject`).
+5. Out of memory / Indeterminate array dimensions.
+6. Unknown / Calculation timeout.
+7. Nested dynamic arrays within unsupported legacy matrix functions.

@@ -1,0 +1,26 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: EXPAND DIMENSIONAL PADDING ENGINE
+================================================================================
+Module: 004_002_next-gen-array-reshaping-and-grid-transformation
+Topic 7: Resizing and padding arrays to fixed dimensions with EXPAND
+================================================================================
+
+1. CORE MECHANICS OF EXPAND:
+EXPAND enlarges any (R_in x C_in) matrix to a target (R_out x C_out) grid,
+populating all newly created coordinate cells with pad_with.
+
+2. PARAMETER CONSTRAINTS:
+- R_out >= R_in (otherwise #VALUE!)
+- C_out >= C_in (otherwise #VALUE!)
+- pad_with: Any primitive (text, number, date, boolean, error). Defaults to #N/A.
+
+3. ADVANCED ARCHITECTURAL RECIPES:
+- HSTACK Alignment:
+  =HSTACK(PrimaryTable, EXPAND(SecondaryTable, ROWS(PrimaryTable), , ""))
+
+- Matrix Zero Initialization:
+  =EXPAND(0, 10, 10, 0)
+
+- Dynamic Roster Standardization:
+  =EXPAND(FilteredStaff, 20, 5, "Unassigned")
+================================================================================

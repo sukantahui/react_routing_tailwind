@@ -1,0 +1,22 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: ISOMITTED & DEFAULT ASSIGNMENTS
+================================================================================
+Module: 004_003_custom-functions-with-lambda-and-helper-engines
+Topic 4: Handling optional parameters with ISOMITTED and default value assignment
+================================================================================
+
+1. ISOMITTED MECHANICS:
+- Function: =ISOMITTED(parameter)
+- Returns: TRUE if caller left parameter unsupplied; FALSE otherwise.
+- Restriction: Works strictly inside LAMBDA functions.
+
+2. DEFAULT VALUE PATTERNS:
+- Pattern 1: Basic Fallback:
+  LET(tax, IF(ISOMITTED(custom_tax), 0.18, custom_tax), ...)
+
+- Pattern 2: Fallback with Blank Cell Support:
+  LET(tax, IF(OR(ISOMITTED(custom_tax), custom_tax=""), 0.18, custom_tax), ...)
+
+- Pattern 3: Multi-Optional Parameter Ingestion:
+  =LAMBDA(rate, [gst], [disc], LET(g, IF(ISOMITTED(gst), 0.18, gst), d, IF(ISOMITTED(disc), 0, disc), ...))
+================================================================================

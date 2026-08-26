@@ -1,0 +1,36 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: TRANSPOSE & MULTI-BLOCK ALIGNMENT ENGINE
+================================================================================
+Module: 004_002_next-gen-array-reshaping-and-grid-transformation
+Topic 11: Matrix transposition and multi-block dataset alignment using array functions
+================================================================================
+
+1. ENGINE MECHANICS:
+TRANSPOSE maps array coordinates (Row i, Col j) to (Row j, Col i).
+  Rows_out = Cols_in
+  Cols_out = Rows_in
+
+2. GRID LIMITATION WARNING:
+- Rows limit: 1,048,576
+- Columns limit: 16,384
+- Transposing an array with > 16,384 rows horizontally will throw #REF! / #NUM!.
+
+3. ADVANCED ARCHITECTURAL RECIPES:
+- Multi-Entity Alignment Pipeline:
+  =VSTACK(Corporate_Vert, DROP(TRANSPOSE(Regional_Horiz), 1))
+
+- 2D Cross-Tab Unpivoting:
+  =LET(
+     cats, A2:A6,
+     months, B1:E1,
+     vals, B2:E6,
+     HSTACK(
+       TOCOL(IF(vals<>"", cats)),
+       TOCOL(IF(vals<>"", months)),
+       TOCOL(vals)
+     )
+   )
+
+- Horizontal Column Sorting:
+  =TRANSPOSE(SORT(TRANSPOSE(Data), 1, 1))
+================================================================================

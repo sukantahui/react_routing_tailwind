@@ -1,0 +1,40 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: RESHAPING 1D DATA STREAMS WITH WRAPCOLS
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_002: Next-Gen Array Reshaping & Grid Transformation
+Topic 9: Reshaping 1D data streams vertically into fixed-height columns with WRAPCOLS
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. FORMULA SYNTAX & COLUMN-WISE SHAPING
+--------------------------------------------------------------------------------
+Syntax: =WRAPCOLS(vector, wrap_count, [pad_with])
+
+Argument 1: vector (Required)
+  The 1D source vector (vertical column or horizontal row) to wrap vertically.
+
+Argument 2: wrap_count (Required)
+  The fixed row height per column (must be an integer >= 1).
+
+Argument 3: [pad_with] (Optional)
+  The fallback value for unfilled cells at the bottom of the final column.
+  Defaults to #N/A. Best practice: supply "" or "-".
+
+2. CORE ENTERPRISE USE CASES
+--------------------------------------------------------------------------------
+• Printable Multi-Column Rosters: Format 100 staff into 5 columns of 20 names each
+  for single-page A4 printing without scrolling.
+• Exam Hall Seat Allocation: Distribute 60 students into 3 classroom columns of
+  20 seats each: =WRAPCOLS(Students, 20, "Unassigned").
+• Manufacturing Shift Scheduling: Assign workers to fixed-height shift blocks.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• WRAPCOLS requires a 1D vector. If you pass a 2D matrix, it throws #VALUE!.
+  Flatten with TOCOL first: =WRAPCOLS(TOCOL(Range, 1), wrap_count).
+• WRAPCOLS fills vertically (down Column 1, then Column 2), whereas WRAPROWS
+  fills horizontally (across Row 1, then Row 2).
+• Use WRAPCOLS for single-page dashboard cards to eliminate vertical scrollbars.
+================================================================================

@@ -1,0 +1,35 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: REAL-WORLD BANKING STATEMENT ETL PROJECT
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_002: Next-Gen Array Reshaping & Grid Transformation
+Topic 12: Real-world project: Converting unformatted multi-column bank transaction statements into clean tabular data
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. PROJECT OVERVIEW & PIPELINE ARCHITECTURE
+--------------------------------------------------------------------------------
+Objective: Transform a raw, messy 20-line banking stream into a 6-column,
+sorted, tax-calculated financial ledger with master headers and summary footer.
+
+Pipeline Stages:
+1. DROP: Strip 2 introductory metadata banner lines.
+2. WRAPROWS: Unroll continuous 4-field records into a 4-column relational body.
+3. CHOOSECOLS / HSTACK: Attach 18% GST and Gross Invoiced calculation vectors.
+4. VSTACK: Attach master column headers and grand-total summary footer.
+5. SORT: Order transactions descending by Net Amount.
+
+2. WHY DYNAMIC ARRAYS SUPERSEDE LEGACY VBA
+--------------------------------------------------------------------------------
+• Cross-Platform: Works seamlessly on Excel Web, Mac, and Windows.
+• Zero-VBA Security: Completely avoids IT macro security blockades.
+• Live Dynamic Reactivity: Automatically resizes and recalculates when new
+  transactions are pasted into the raw data feed.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Never manually edit or delete rows in raw bank statement files!
+• Verify token periodicity (4 items/record) to prevent phase-shift misalignment.
+• Cache pipeline stages in LET for optimal memory efficiency and clarity.
+================================================================================

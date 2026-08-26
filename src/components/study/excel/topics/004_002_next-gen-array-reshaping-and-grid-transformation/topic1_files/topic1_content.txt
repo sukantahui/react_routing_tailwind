@@ -1,0 +1,33 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: TOCOL VECTOR FLATTENING ENGINE
+================================================================================
+Module: 004_002_next-gen-array-reshaping-and-grid-transformation
+Topic 1: Flattening 2D tables into 1D vertical vectors with TOCOL (ignoring blanks and errors)
+================================================================================
+
+1. CORE MECHANICS OF TOCOL:
+The TOCOL function takes any rectangular 2D matrix of shape (Rows x Cols) and
+transforms it into a 1D column vector of shape ((Rows * Cols) x 1).
+
+2. THE 4 IGNORE MODES:
+Mode 0: Retains all items (Blanks become 0, errors like #N/A preserved).
+Mode 1: Skips empty cells. (Useful when flattening sparse matrix rosters).
+Mode 2: Skips error cells. (Useful when flattening tables with broken lookups).
+Mode 3: Skips both blanks and errors. (Best practice for automated ETL pipelines).
+
+3. SCAN DIRECTION MATHEMATICS:
+Row-Major (scan_by_column = FALSE):
+  Index formula: cell[r, c] -> pos = (r - 1) * total_cols + c
+Column-Major (scan_by_column = TRUE):
+  Index formula: cell[r, c] -> pos = (c - 1) * total_rows + r
+
+4. ADVANCED RECIPES:
+- Distinct Deduplicated List from 2D Matrix:
+  =SORT(UNIQUE(TOCOL(ScheduleTable, 1)))
+
+- Non-Zero Numeric Siphon:
+  =LET(v, TOCOL(Matrix, 3), FILTER(v, ISNUMBER(v)*(v>0)))
+
+- 2D Cross-Tab Lookup:
+  =XLOOKUP(TargetVal, TOCOL(IDMatrix, 1), TOCOL(NameMatrix, 1))
+================================================================================

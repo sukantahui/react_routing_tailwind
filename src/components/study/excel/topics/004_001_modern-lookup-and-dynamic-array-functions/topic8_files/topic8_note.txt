@@ -1,0 +1,19 @@
+TOPIC 8 SUMMARY NOTES
+================================================================================
+Topic: Combining FILTER, UNIQUE, and SORT for Automated Alphabetical Searchable Lists
+Module: 004_001_modern-lookup-and-dynamic-array-functions
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+Key Formula Pipeline Architecture:
+=SORT(UNIQUE(FILTER(array, include, [if_empty])))
+
+The 3-Tier Pipeline Execution Flow:
+1. FILTER (Inner Engine): Isolates only the rows that satisfy the search criteria or category filter (e.g. `Status="Active"`).
+2. UNIQUE (Middle Engine): Strips all repetitive duplicate values from the filtered record stream.
+3. SORT (Outer Engine): Alphabetizes or numerically orders the distinct filtered list (A to Z or High to Low).
+
+Dynamic UI/UX Master Pattern:
+=SORT(UNIQUE(FILTER(B2:B50, (J1="") + ISNUMBER(SEARCH(J1, B2:B50)), "No Records Found")))
+- When search box J1 is empty, displays all unique names alphabetized.
+- When characters are typed into J1, filters matching distinct names in real time!
+- Data Validation dropdown points to `=L2#` to create a live auto-completing dropdown!

@@ -1,0 +1,18 @@
+TOPIC 10 CONCEPTUAL REFERENCE CONTENT
+================================================================================
+Title: Dynamic Two-Way Lookups with XLOOKUP Spilling Entire Rows or Columns
+Course: EXCEL-PRO-901
+
+1. The Evolution of Matrix Lookups:
+In legacy Excel, looking up an intersection in a 2D matrix (e.g. Course Fee by Branch and Course Program) required `=INDEX(Matrix, MATCH(RowVal, RowHeaders, 0), MATCH(ColVal, ColHeaders, 0))`. Furthermore, returning multiple columns required repeating VLOOKUP across 10 individual cells with hardcoded index numbers (`2, 3, 4...`).
+
+2. Modern Multi-Column XLOOKUP Spilling:
+In modern dynamic arrays, passing a multi-column matrix to the `return_array` argument causes XLOOKUP to return all columns at once as a horizontal spilled array.
+
+3. Nested Two-Way XLOOKUP:
+When nesting XLOOKUP:
+- Inner XLOOKUP: `=XLOOKUP(TargetBranch, B1:F1, B2:F6)` looks up the branch header horizontally and returns that entire branch column vector.
+- Outer XLOOKUP: `=XLOOKUP(TargetCourse, A2:A6, InnerXLOOKUP)` finds the course row in the returned column vector, isolating the exact intersection cell.
+
+4. Vectorized Array Lookups:
+Passing a spilled array of keys into the 1st argument `=XLOOKUP(Keys#, MasterIDs, MasterData)` calculates lookups for thousands of records simultaneously without dragging formulas down columns.

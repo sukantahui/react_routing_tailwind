@@ -1,0 +1,15 @@
+TOPIC 5 CONCEPTUAL REFERENCE CONTENT
+================================================================================
+Title: Multi-Level Custom Sorting with SORTBY Based on Auxiliary Columns
+Course: EXCEL-PRO-901
+
+1. The Limitation of the SORT Function:
+The standard `SORT` function is limited to a single sort column index within the source array. When you need primary, secondary, and tertiary sorting levels (e.g. Group by Region, then Department, then Revenue descending), `SORT` is insufficient.
+
+2. The Power of SORTBY:
+`SORTBY` accepts multiple pairs of `(by_array, sort_order)`. Furthermore, the `by_array` does not need to be part of the returned `array`! This enables powerful external sorting paradigms:
+- Custom Business Priority: Sort employee records according to a custom seniority list `{"Managing Director", "Senior Consultant", "Junior Associate"}` using `=SORTBY(Data, MATCH(JobTitle, SeniorityList, 0), 1)`.
+- Multi-Column Tie-Breaking: Sort first by Branch (A-Z), then by Performance Rating (highest first), then by Gross Revenue (highest first).
+
+3. Array Dimension Matching Rule:
+Every `by_array` supplied must have the exact same number of rows (or columns) as the primary `array`. If `array` is 20 rows and `by_array1` is 25 rows, Excel returns a `#VALUE!` error.

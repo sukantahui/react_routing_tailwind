@@ -1,0 +1,18 @@
+TOPIC 12 CONCEPTUAL REFERENCE CONTENT
+================================================================================
+Title: Real-World Project: Building an Automated Live Search and Filter Table Without VBA
+Course: EXCEL-PRO-901
+
+1. Corporate Project Overview:
+Enterprises in Barrackpore and Kolkata require fast, interactive lookup portals where customer service agents can search hundreds of daily invoices by typing keywords, selecting regional branch dropdowns, and toggling sort orders without relying on fragile VBA macros.
+
+2. Component Architecture:
+- Control Layer: Cells J1 (Keyword Box), J2 (Branch Dropdown), J3 (Sort Toggle).
+- Feeder Layer: `=VSTACK("All", SORT(UNIQUE(Table1[Branch_Office])))` feeding cell J2 Data Validation `=$P$2#`.
+- Processing Layer: A master `LET()` formula combining multi-column wildcard text searching, boolean multiplication for branch filtering, and dynamic sorting.
+- Presentation Layer: Clean spilled grid formatted with currency symbols and dynamic header KPI cards (`="Showing " & ROWS(A6#) & " Invoices"`).
+
+3. Error Handling & Edge Cases:
+- Empty Search State: `(J1="") +` displays all records when search box is empty.
+- "All" Filter State: `(J2="All") +` displays all branches when "All" is chosen.
+- Zero Match Handling: Returns clean user message `"No Matching Invoices Found"` instead of `#CALC!`.

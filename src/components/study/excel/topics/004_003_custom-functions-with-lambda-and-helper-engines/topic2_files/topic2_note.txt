@@ -1,0 +1,32 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: REGISTERING LAMBDAS IN NAME MANAGER
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_003: Custom Functions with LAMBDA & Helper Engines
+Topic 2: Registering and naming LAMBDA functions in Excel Name Manager
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. NAME MANAGER DEPLOYMENT WORKFLOW
+--------------------------------------------------------------------------------
+Step 1: Press Ctrl+F3 to open Name Manager & click 'New'.
+Step 2: Enter Name (e.g. FX_GROSS_SALARY).
+Step 3: Scope: Set to 'Workbook'.
+Step 4: Refers to: Paste =LAMBDA(basic, da, hra, basic * (1 + da + hra))
+        (IMPORTANT: Do NOT include trailing test argument parentheses!).
+Step 5: Comment: Add parameter help text for autocomplete tooltips.
+
+2. CORE ADVANTAGES OF NAME MANAGER DEPLOYMENT
+--------------------------------------------------------------------------------
+• Single Point of Truth: Update the formula in Name Manager once to update
+  thousands of dependent cells across all worksheets automatically.
+• Reduced File Size: Formula text stored once in the name dictionary.
+• Cross-Platform: Fully functional on Excel for Web, Mac, and Windows.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Always use prefix standards like FX_ or CORP_ to prevent future name collisions.
+• Avoid worksheet-specific scope unless function is strictly private to one sheet.
+• Test with immediate execution in a cell before committing to Name Manager!
+================================================================================

@@ -1,0 +1,33 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: LOCAL SCOPED VARIABLES WITH LET
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_003: Custom Functions with LAMBDA & Helper Engines
+Topic 5: Creating local scoped variables with the LET function to optimize formula performance and readability
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. WHAT IS THE LET FUNCTION?
+--------------------------------------------------------------------------------
+Syntax: =LET(name1, val1, [name2, val2, ...], calculation)
+
+Core Purpose:
+• Declare locally scoped variables to store intermediate calculations.
+• Evaluate expensive expressions (e.g. XLOOKUP, compound interest) ONCE in RAM.
+• Transform messy, unreadable formulas into clean, maintainable pipelines.
+
+2. PERFORMANCE & MEMORY MECHANICS
+--------------------------------------------------------------------------------
+• 2N + 1 Rule: Total arguments must be odd (N variable pairs + 1 calculation).
+• Sub-Millisecond Caching: Values cached in C++ RAM during formula execution.
+• Sequential Left-to-Right Evaluation: Later variables can reference earlier ones.
+• Local Scoping: Variables exist only within the enclosing formula.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Never repeat an XLOOKUP or heavy arithmetic formula twice in a single cell.
+  Always cache it in a LET variable!
+• Use semantic, self-documenting variable names (e.g. `taxable_base`, `cgst_amt`)
+  rather than cryptic single letters (`a`, `b`, `c`).
+================================================================================

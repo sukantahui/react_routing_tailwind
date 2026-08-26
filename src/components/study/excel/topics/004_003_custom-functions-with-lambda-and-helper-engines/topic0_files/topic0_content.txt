@@ -1,0 +1,27 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: LAMBDA FOUNDATIONS & ARCHITECTURE
+================================================================================
+Module: 004_003_custom-functions-with-lambda-and-helper-engines
+Topic 0: Introduction to LAMBDA: Creating native reusable custom functions without VBA or macros
+================================================================================
+
+1. THE LAMBDA PARADIGM SHIFT:
+Prior to LAMBDA, creating custom functions required writing VBA code in .xlsm
+workbooks, which caused macro security blocks and broke compatibility on Web.
+LAMBDA brings first-class functional programming natively into Excel's calculation
+tree in compiled C++.
+
+2. KEY ARCHITECTURAL WORKFLOW:
+Stage 1: Logic Prototype inside LET.
+Stage 2: Wrap inside LAMBDA parameters.
+Stage 3: Validate in worksheet with trailing argument block `(test_val1, test_val2)`.
+Stage 4: Register in Name Manager with descriptive comments.
+Stage 5: Consume as a native worksheet function organization-wide.
+
+3. RECURSION & HELPER FUNCTION INTEGRATION:
+- MAP: Transforms arrays element-by-element.
+- BYROW / BYCOL: Vector aggregations along matrix axes.
+- SCAN: Running accumulator sequences (bank statements).
+- REDUCE: Multi-step array reductions.
+- MAKEARRAY: Procedural dynamic matrix generation.
+================================================================================

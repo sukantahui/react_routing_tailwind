@@ -1,0 +1,19 @@
+TOPIC 9 SUMMARY NOTES
+================================================================================
+Topic: Resolving #SPILL! Errors: Blocked Cells, Merged Cells, and Dynamic Range Clashes
+Module: 004_001_modern-lookup-and-dynamic-array-functions
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+Key Diagnostic Error: #SPILL!
+
+The 7 Root Causes of #SPILL! Errors:
+1. Non-Empty Spill Range: Even a single occupied cell, stray space character, or formula in the projected rectangular spill perimeter triggers #SPILL!.
+2. Merged Cells: Dynamic arrays require standard rectangular grids; ANY merged cell in the spill path halts calculation.
+3. Spilling Inside Excel Tables (`ListObject`): Excel Tables do not support spilled dynamic arrays inside table columns.
+4. Infinite / Unbounded Arrays: Using full column references like `=UNIQUE(A:A)` generates over 1,048,576 elements, hitting sheet boundaries.
+5. Volatile Range Clashes: Dynamic array ranges that overlap with other spilled arrays.
+6. Unknown / Floating Size: Formulas that attempt to determine their own dimensions dynamically inside iterative calculation loops.
+7. Out of Memory / Worksheet Edge: Attempting to spill past row 1,048,576 or column XFD (16,384).
+
+Pro Troubleshooting Tool:
+- Click the Error Indicator Tag on the origin cell -> Click "Select Obstructing Cell" -> Press Delete to clear blockage!

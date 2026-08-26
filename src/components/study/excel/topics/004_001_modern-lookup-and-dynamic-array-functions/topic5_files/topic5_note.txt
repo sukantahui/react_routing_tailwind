@@ -1,0 +1,19 @@
+TOPIC 5 SUMMARY NOTES
+================================================================================
+Topic: Multi-Level Custom Sorting with SORTBY Based on Auxiliary Columns
+Module: 004_001_modern-lookup-and-dynamic-array-functions
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+Key Formula Signature:
+=SORTBY(array, by_array1, [sort_order1], [by_array2], [sort_order2], ...)
+
+Core Mechanics & Arguments:
+1. `array` (Required): The data table or range to sort and return.
+2. `by_array1` (Required): The first column or array to sort by.
+3. `[sort_order1]` (Optional): 1 for Ascending (default), -1 for Descending.
+4. `[by_array2], [sort_order2]` (Optional pairs): Secondary and tertiary sorting tiers.
+
+Key Advantages over SORT():
+- Multi-Tier Hierarchy: Sort by Department ascending (1), then within each department sort by Annual CTC descending (-1).
+- External Auxiliary Sorting: Can sort an array by a column that is completely omitted from the final returned output (e.g. sort Names by Appraisal Grade without showing the grade column).
+- Formula-Driven Sort Order: Sort by string length (`LEN(A2:A20)`), frequency count (`COUNTIF(...)`), or custom list rank (`MATCH(...)`).

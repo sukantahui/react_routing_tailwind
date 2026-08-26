@@ -1,0 +1,26 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: LET FUNCTION MEMORY ENGINE
+================================================================================
+Module: 004_003_custom-functions-with-lambda-and-helper-engines
+Topic 5: Creating local scoped variables with the LET function to optimize formula performance and readability
+================================================================================
+
+1. FORMULA ANATOMY:
+=LET(
+  var1, expr1,
+  var2, expr2,
+  ...
+  varN, exprN,
+  final_calculation
+)
+
+2. PRACTICAL FINANCIAL PATTERNS:
+- Loan EMI & Payment Spills:
+  =LET(P, D5, r, E5/12, n, F5, emi, P*r*(1+r)^n/((1+r)^n-1), HSTACK(emi, emi*n, (emi*n)-P))
+
+- Tax Pipeline:
+  =LET(sub, B5:B10*C5:C10, cgst, sub*0.09, sgst, sub*0.09, gross, sub+cgst+sgst, HSTACK(sub, cgst, sgst, gross))
+
+- Lookups with Sanitization:
+  =LET(raw, XLOOKUP(id, IDs, Data), IF(ISBLANK(raw), "N/A", raw))
+================================================================================

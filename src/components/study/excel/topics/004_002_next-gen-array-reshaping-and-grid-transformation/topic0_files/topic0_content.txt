@@ -1,0 +1,58 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: EXCEL 365 ARRAY MANIPULATION ENGINE
+================================================================================
+Module: 004_002_next-gen-array-reshaping-and-grid-transformation
+Topic 0: Overview of Excel 365 Array Manipulation and Reshaping Functions
+================================================================================
+
+1. TAXONOMY OF ARRAY RESHAPING FUNCTIONS:
+
+[Category 1: Vector Flattening]
+- TOCOL(array, [ignore], [scan_by_col])
+  Flattens any 2D table into a 1D column vector.
+  Flags for ignore: 0=Keep All, 1=Ignore Blanks, 2=Ignore Errors, 3=Ignore Both.
+  scan_by_col: FALSE (by row) / TRUE (by column).
+
+- TOROW(array, [ignore], [scan_by_col])
+  Flattens any 2D table into a 1D horizontal row vector.
+
+[Category 2: Slicing & Subsetting]
+- CHOOSEROWS(array, row_num1, [row_num2]...)
+  Extracts specific rows from an array. Supports negative indexing (-1 for last row).
+  Can duplicate rows by repeating arguments.
+
+- CHOOSECOLS(array, col_num1, [col_num2]...)
+  Extracts and dynamically reorders specific columns.
+
+[Category 3: Boundary Manipulation]
+- TAKE(array, rows, [columns])
+  Takes N rows and M columns from the start (positive) or end (negative) of an array.
+
+- DROP(array, rows, [columns])
+  Drops N rows and M columns from the start (positive) or end (negative) of an array.
+
+[Category 4: Matrix Resizing & Stream Shaping]
+- EXPAND(array, rows, [columns], [pad_with])
+  Enlarges an array to target dimensions, padding with custom values or #N/A.
+
+- WRAPROWS(vector, wrap_count, [pad_with])
+  Transforms a 1D linear stream into a 2D matrix filled horizontally row-by-row.
+
+- WRAPCOLS(vector, wrap_count, [pad_with])
+  Transforms a 1D linear stream into a 2D matrix filled vertically column-by-column.
+
+[Category 5: Array Stacking & Composition]
+- VSTACK(array1, [array2]...)
+  Appends arrays vertically into a unified table.
+
+- HSTACK(array1, [array2]...)
+  Joins arrays horizontally side-by-side.
+
+2. REAL-WORLD COMPOSITION PATTERNS:
+- Top 5 Highest Performers:
+  =TAKE(SORT(Table, 3, -1), 5)
+- Dynamic Data Consolidation Without Duplicate Headers:
+  =VSTACK(Table1, DROP(Table2, 1), DROP(Table3, 1))
+- Deduplicated Flattened Schedule:
+  =UNIQUE(TOCOL(WeeklyScheduleMatrix, 1))
+================================================================================

@@ -1,0 +1,31 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: ELEMENT-BY-ELEMENT ITERATION WITH MAP
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_003: Custom Functions with LAMBDA & Helper Engines
+Topic 6: Iterating across arrays element-by-element with the MAP function
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. WHAT IS THE MAP HELPER FUNCTION?
+--------------------------------------------------------------------------------
+Syntax: =MAP(array1, [array2, ...], lambda)
+
+Core Mechanics:
+• Iterates element-by-element across one or more parallel arrays.
+• LAMBDA parameter count MUST match the number of input arrays.
+• Output matrix has the exact same dimensions (rows x columns) as input arrays.
+
+2. WHY MAP IS CRITICAL IN EXCEL 365
+--------------------------------------------------------------------------------
+• Vectorizes functions that otherwise collapse ranges (e.g. AND, OR, TEXTJOIN).
+• Eliminates manual formula dragging down thousands of rows.
+• Pairs parallel data columns (e.g. Days + Performance Score &rarr; Bonus Tier).
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• All arrays passed to MAP must have IDENTICAL dimensions (same rows and cols).
+• Each MAP iteration must return a SINGLE scalar value (not nested arrays).
+• Combine with LET inside the LAMBDA for complex multi-stage row calculations!
+================================================================================

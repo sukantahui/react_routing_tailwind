@@ -1,0 +1,29 @@
+TOPIC 13 SUMMARY NOTES
+================================================================================
+Topic: Practice Lab: Multi-Criteria Customer Segmentation Engine with Dynamic Array Spilling
+Module: 004_001_modern-lookup-and-dynamic-array-functions
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+Capstone Lab Architecture:
+A complete corporate customer segmentation engine that classifies clients into 4 tiers:
+- Platinum Tier: Spend >= ₹12,00,000 AND Rating >= 4.8
+- Gold Tier: Spend >= ₹10,00,000 AND Rating >= 4.6
+- Silver Tier: Spend >= ₹8,00,000
+- Bronze Tier: All remaining accounts
+
+Core Multi-Tier Segmentation Formula:
+=LET(
+  raw, Table1[#Data],
+  spend, CHOOSECOLS(raw, 4),
+  rating, CHOOSECOLS(raw, 5),
+  tier, IFS(
+    (spend >= 1200000) * (rating >= 4.8), "Platinum VIP",
+    (spend >= 1000000) * (rating >= 4.6), "Gold Tier",
+    spend >= 800000, "Silver Tier",
+    TRUE, "Bronze Tier"
+  ),
+  HSTACK(raw, tier)
+)
+
+Filtered Cohort Spilling:
+=SORT(FILTER(HSTACK(raw, tier), CHOOSECOLS(HSTACK(raw, tier), 7)=SelectedTier), 4, -1)

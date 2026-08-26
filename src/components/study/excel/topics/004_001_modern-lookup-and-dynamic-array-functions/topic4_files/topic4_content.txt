@@ -1,0 +1,18 @@
+TOPIC 4 CONCEPTUAL REFERENCE CONTENT
+================================================================================
+Title: Sorting Spilled Arrays Dynamically with SORT (Single Index, Ascending/Descending)
+Course: EXCEL-PRO-901
+
+1. The Problem with Legacy Data Sorting:
+In traditional spreadsheets, sorting required selecting table rows, opening Data > Sort, and physically re-ordering cells on the worksheet. This destructive action broke manual cell references, disturbed audit trails, and required manual repetition whenever new sales or invoice logs arrived.
+
+2. The Modern SORT Function:
+`SORT` extracts and organizes data dynamically in memory. The raw dataset remains immutable in chronological or entry order, while executive dashboards view a live, self-updating ranked matrix.
+
+3. Anatomy of Sorting Arguments:
+- `=SORT(A2:D20)` -> Sorts by column 1 in ascending order.
+- `=SORT(A2:D20, 4, -1)` -> Sorts the 4-column matrix by column 4 (Revenue) in descending order (highest to lowest).
+- `=SORT(B1:M5, 1, 1, TRUE)` -> Sorts a horizontal dataset across columns.
+
+4. Performance & Memory Optimization:
+`SORT` runs an optimized introsort algorithm (hybrid of quicksort, heapsort, and insertion sort) in Excel's compiled core, completing array sorts of 10,000+ elements in under 15 milliseconds without worksheet redraw overhead.

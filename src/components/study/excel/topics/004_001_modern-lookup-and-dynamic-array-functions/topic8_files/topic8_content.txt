@@ -1,0 +1,17 @@
+TOPIC 8 CONCEPTUAL REFERENCE CONTENT
+================================================================================
+Title: Combining FILTER, UNIQUE, and SORT for Automated Alphabetical Searchable Lists
+Course: EXCEL-PRO-901
+
+1. The Paradigm Shift: Composable Array Pipelines
+In legacy Excel, creating a search-filtered distinct dropdown list required VBA event handlers (`Worksheet_Change`), hidden helper columns with volatile array formulas, and complex Named Ranges with `OFFSET/COUNTA`.
+
+2. The Modern 3-Tier Dynamic Array Pipeline:
+Because dynamic array functions return arrays in memory, they compose seamlessly into functional data processing pipelines.
+- Pipeline Structure: Raw Data -> FILTER (Filter conditions) -> UNIQUE (Deduplicate) -> SORT (Alphabetize) -> UI Component (Spilled list / Data Validation Dropdown).
+
+3. Search Box Dynamic Pattern:
+By incorporating `(SearchBox="") + ISNUMBER(SEARCH(SearchBox, TargetColumn))`, the pipeline provides a live, non-destructive search box. If the search cell is blank, the entire deduplicated roster is shown; when text is typed, the list contracts in real time.
+
+4. Performance & Memory Management:
+Nesting `SORT(UNIQUE(FILTER(...)))` inside a single cell avoids creating intermediate worksheet columns, ensuring zero worksheet bloat and immediate recalculation speeds across tens of thousands of records.

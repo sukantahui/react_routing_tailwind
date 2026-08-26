@@ -1,0 +1,25 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: CAPSTONE CHALLENGE LAB
+================================================================================
+Module: 004_002_next-gen-array-reshaping-and-grid-transformation
+Topic 13: Assessment: Advanced Grid Reshaping and Dimension Transformation Challenge
+================================================================================
+
+1. THE 11 CORE RESHAPING FUNCTIONS:
+- TOCOL: Vector flattening (column).
+- TOROW: Vector flattening (row).
+- CHOOSEROWS: Arbitrary row extraction & reordering.
+- CHOOSECOLS: Arbitrary column extraction & reordering.
+- TAKE: Perimeter boundary slicing.
+- DROP: Perimeter boundary exclusion.
+- EXPAND: Matrix padding to target dimensions.
+- WRAPROWS: 1D to 2D row-wise wrapping.
+- WRAPCOLS: 1D to 2D column-wise wrapping.
+- VSTACK: Vertical row concatenation (UNION ALL).
+- HSTACK: Horizontal column joining (JOIN).
+- TRANSPOSE: Matrix rotation & axis swapping.
+
+2. GRADUATION COMPETENCY:
+Full architectural capability to design zero-VBA, in-memory corporate ETL
+and financial modeling pipelines in Excel 365.
+================================================================================

@@ -1,0 +1,41 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: FLATTENING 2D TABLES WITH TOCOL
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_002: Next-Gen Array Reshaping & Grid Transformation
+Topic 1: Flattening 2D tables into 1D vertical vectors with TOCOL (ignoring blanks and errors)
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. FORMULA SYNTAX & ARGUMENT FLAGS
+--------------------------------------------------------------------------------
+Syntax: =TOCOL(array, [ignore], [scan_by_column])
+
+Argument 1: array (Required)
+  The source 2D matrix or range to be flattened into a single vertical column.
+
+Argument 2: [ignore] (Optional)
+  • 0 (Default) : Keep all values (empty cells return 0, errors are retained).
+  • 1           : Ignore blank / empty cells.
+  • 2           : Ignore error values (#N/A, #VALUE!, #DIV/0!, etc.).
+  • 3           : Ignore BOTH blanks AND error values.
+
+Argument 3: [scan_by_column] (Optional)
+  • FALSE / 0 (Default) : Scan row-by-row (left-to-right, then top-to-bottom).
+  • TRUE / 1            : Scan column-by-column (top-to-bottom, then left-to-right).
+
+2. KEY ARCHITECTURAL ADVANTAGES
+--------------------------------------------------------------------------------
+• Replaces fragile legacy INDEX + INT + MOD unpivoting formulas.
+• Operates completely in-memory with native C++ SIMD speed.
+• Cleanly chains into UNIQUE, SORT, and FILTER for immediate deduplication.
+• Eliminates the need for Power Query for simple unpivoting tasks.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• For Chronological Time-Series: Set scan_by_column = TRUE (1) to keep Q1, Q2, Q3 in sequence.
+• For Entity-Wise Slicing: Keep default scan_by_column = FALSE (0).
+• Always use [ignore] = 3 when processing raw user inputs or uncleaned schedules with formula errors.
+• Do not reference unbounded whole columns like A:D to avoid memory stalls.
+================================================================================

@@ -1,0 +1,37 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: OPTIONAL PARAMETERS & ISOMITTED
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_003: Custom Functions with LAMBDA & Helper Engines
+Topic 4: Handling optional parameters with ISOMITTED and default value assignment
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. HOW TO DECLARE & HANDLE OPTIONAL PARAMETERS
+--------------------------------------------------------------------------------
+Syntax Declaration:
+  =LAMBDA(base_rate, [discount_pct], [gst_rate], ...)
+
+Handling Defaults inside LET:
+  =LAMBDA(rate, [disc],
+    LET(
+      d, IF(ISOMITTED(disc), 0.05, disc),
+      rate * (1 - d)
+    )
+  )
+
+2. CORE RULES FOR OPTIONAL PARAMETERS
+--------------------------------------------------------------------------------
+• Trailing Requirement: All bracketed [optional] parameters must appear AFTER
+  all mandatory parameters in the parameter list.
+• ISOMITTED: Returns TRUE only when caller leaves argument blank or omits it.
+• Sensible Defaults: Provide standard corporate rates (e.g. 5% discount, 18% GST)
+  so users only need to provide inputs for simple cases.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Always sanitize optional parameters at the very beginning of LET.
+• Explicitly document default fallback values in Name Manager comments
+  so users know what value is used when they omit the argument!
+================================================================================

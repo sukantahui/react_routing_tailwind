@@ -1,0 +1,29 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: WRAPROWS STREAM SHAPING ENGINE
+================================================================================
+Module: 004_002_next-gen-array-reshaping-and-grid-transformation
+Topic 8: Reshaping 1D data streams into structured 2D tables with WRAPROWS
+================================================================================
+
+1. STREAM RECONSTRUCTION MECHANICS:
+WRAPROWS consumes a 1D sequence of length L and breaks it into rows containing
+K elements each, producing a 2D matrix of shape:
+  Rows = CEILING(L / K)
+  Columns = K
+
+2. TRAVERSAL ORDER:
+Row 1: Element 1, Element 2 ... Element K
+Row 2: Element K+1, Element K+2 ... Element 2K
+...
+Final Row: Padded with pad_with if L % K != 0.
+
+3. ADVANCED ARCHITECTURAL RECIPES:
+- Bank Log Parsing:
+  =WRAPROWS(DROP(RawBankStream, 2), 4, "NO_DATA")
+
+- Dynamic Weekly Calendar:
+  =WRAPROWS(SEQUENCE(31), 7, "")
+
+- Single-Cell Delimited Text Parser:
+  =WRAPROWS(TEXTSPLIT(CSV_Cell, ","), 4, "")
+================================================================================

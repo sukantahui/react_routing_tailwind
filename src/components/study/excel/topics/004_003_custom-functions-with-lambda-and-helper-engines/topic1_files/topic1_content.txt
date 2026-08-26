@@ -1,0 +1,28 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: LAMBDA SYNTAX & IN-CELL TESTING
+================================================================================
+Module: 004_003_custom-functions-with-lambda-and-helper-engines
+Topic 1: LAMBDA syntax: Parameters, Calculation expressions, and immediate execution syntax `(LAMBDA(x, x*2)(5))`
+================================================================================
+
+1. SYNTAX SIGNATURE & RULES:
+=LAMBDA(param1, param2, ..., paramN, calculation)
+- Param names: Up to 253 identifiers.
+- Calculation: Final required expression evaluating output.
+- Non-optional parameters require exact argument count match.
+
+2. IMMEDIATE EXECUTION PATTERNS:
+- Single Parameter:
+  =(LAMBDA(x, x^2))(9) &rarr; 81
+
+- Multi-Parameter Commercial Billing:
+  =(LAMBDA(price, qty, disc, price * qty * (1 - disc)))(C5, D5, E5)
+
+- Spilled Array Return:
+  =(LAMBDA(net, HSTACK(net, net*0.18, net*1.18)))(50000)
+
+3. ERROR DIAGNOSTICS:
+- Naked LAMBDA &rarr; #CALC!
+- Argument Count Mismatch &rarr; #VALUE!
+- Non-numeric Input in Math Expression &rarr; #VALUE!
+================================================================================

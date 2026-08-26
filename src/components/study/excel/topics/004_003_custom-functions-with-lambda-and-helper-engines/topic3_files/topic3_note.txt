@@ -1,0 +1,31 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: DOCUMENTING LAMBDAS & SYNTAX HINTS
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_003: Custom Functions with LAMBDA & Helper Engines
+Topic 3: Documenting LAMBDA parameters and syntax hints for end-users
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. THE ROLE OF DOCUMENTATION IN PRODUCTION LAMBDAS
+--------------------------------------------------------------------------------
+Excel allows model authors to write descriptive guidance in the 'Comment' box
+of Name Manager (Ctrl+F3). This text is displayed in Excel's autocomplete tooltip.
+
+2. DOCUMENTATION BEST PRACTICES
+--------------------------------------------------------------------------------
+• Descriptive Parameter Identifiers: Use `taxable_value` and `gst_rate_pct`
+  instead of ambiguous single letters `x` or `y`.
+• Structured Comment Format:
+  [Function Summary] - Params: [param: desc] - Returns: [return structure].
+• Clarify Spilled Footprints: If returning HSTACK or VSTACK, specify:
+  "Spills 4 columns: [Taxable, CGST, SGST, Total]".
+• Document Default Fallbacks: Indicate default values for optional parameters.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Never deploy an undocumented function in enterprise workbooks.
+• Test your documentation by typing `=FX_` in an empty cell to ensure tooltips
+  are clean and readable for junior staff members.
+================================================================================

@@ -1,0 +1,27 @@
+TOPIC 2 SUMMARY NOTES
+================================================================================
+Topic: Extracting Distinct Data with the UNIQUE Function (Single-Column & Multi-Column Unique Rows)
+Module: 004_001_modern-lookup-and-dynamic-array-functions
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+Key Formula Syntax:
+=UNIQUE(array, [by_col], [exactly_once])
+
+Core Concepts:
+1. Arguments Breakdown:
+   - `array` (Required): The input range or matrix to evaluate for duplicates.
+   - `[by_col]` (Optional):
+     • FALSE / Omitted (Default): Compares row-by-row vertically (standard behavior).
+     • TRUE: Compares column-by-column horizontally.
+   - `[exactly_once]` (Optional):
+     • FALSE / Omitted (Default): Returns all DISTINCT values (the first occurrence of each unique item).
+     • TRUE: Returns strictly values that occur EXACTLY ONCE (filters out all items with any duplicates).
+
+2. Single-Column vs. Multi-Column Uniqueness:
+   - Single-Column: `=UNIQUE(B2:B20)` returns distinct student names.
+   - Multi-Column: `=UNIQUE(B2:D20)` returns distinct composite combinations of (Student + City + Course). If Swadeep takes two different courses, both composite rows are preserved.
+
+3. Combining with Downstream Engines:
+   - Alphabetical Sorting: `=SORT(UNIQUE(A2:A50))`
+   - Dynamic Count: `=COUNTA(UNIQUE(A2:A50))` or `=ROWS(UNIQUE(A2:A50))`
+   - Filtered Extraction: `=UNIQUE(FILTER(A2:A50, C2:C50="Barrackpore"))`

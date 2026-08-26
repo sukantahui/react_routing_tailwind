@@ -1,0 +1,19 @@
+TOPIC 10 SUMMARY NOTES
+================================================================================
+Topic: Dynamic Two-Way Lookups with XLOOKUP Spilling Entire Rows or Columns
+Module: 004_001_modern-lookup-and-dynamic-array-functions
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+Key Formula Signatures:
+1. Multi-Column Spilled Row Lookup:
+   =XLOOKUP(lookup_value, lookup_array, return_matrix)
+   • E.g.: `=XLOOKUP("Swadeep Roy", A2:A50, B2:G50)` spills all 6 columns in one single formula!
+
+2. Vectorized Multi-Key Spilling:
+   =XLOOKUP(SpillKeyOrigin#, lookup_array, return_array)
+   • E.g.: `=XLOOKUP(J2#, A2:A50, E2:E50)` evaluates every key in J2# and spills all results simultaneously!
+
+3. Dynamic Two-Way Matrix Intersection Lookup:
+   =XLOOKUP(lookup_row_val, row_headers, XLOOKUP(lookup_col_val, col_headers, matrix_body))
+   • The inner XLOOKUP isolates the target column vector; the outer XLOOKUP extracts the specific row element.
+   • Eliminates brittle legacy `INDEX/MATCH/MATCH` formulas completely!

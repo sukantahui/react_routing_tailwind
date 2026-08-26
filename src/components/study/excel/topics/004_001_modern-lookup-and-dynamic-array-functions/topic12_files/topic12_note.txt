@@ -1,0 +1,27 @@
+TOPIC 12 SUMMARY NOTES
+================================================================================
+Topic: Real-World Project: Building an Automated Live Search and Filter Table Without VBA
+Module: 004_001_modern-lookup-and-dynamic-array-functions
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+Project Architecture:
+A complete corporate transaction search engine that reacts live to 3 input controls:
+1. Text Search Input (Cell J1): Filters across Officer Name and Course Title via `ISNUMBER(SEARCH(J1, ...))`.
+2. Branch Dropdown (Cell J2): Filters specific branch (or "All") via `(J2="All") + (BranchCol=J2)`.
+3. Sort Order Toggle (Cell J3): Flips sorting direction between Descending (-1) and Ascending (1).
+
+Master Unified Formula:
+=LET(
+  raw, Table1[#Data],
+  filtered, FILTER(raw,
+    ((J1="") + ISNUMBER(SEARCH(J1, Table1[Sales_Officer])) + ISNUMBER(SEARCH(J1, Table1[Course_Program]))) *
+    ((J2="All") + (Table1[Branch_Office]=J2)),
+    "No Matching Records Found"
+  ),
+  IF(ISARRAY(filtered), SORT(filtered, 7, IF(J3="Highest First", -1, 1)), filtered)
+)
+
+Key Benefits:
+- Zero VBA Macro warnings / security blocks.
+- Instantaneous sub-millisecond calculation updates.
+- 100% cloud & Excel Online web compatible.

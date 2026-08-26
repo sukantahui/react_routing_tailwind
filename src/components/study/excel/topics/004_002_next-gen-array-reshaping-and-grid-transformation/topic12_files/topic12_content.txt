@@ -1,0 +1,27 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: REAL-WORLD BANKING ETL PIPELINE
+================================================================================
+Module: 004_002_next-gen-array-reshaping-and-grid-transformation
+Topic 12: Real-world project: Converting unformatted multi-column bank transaction statements into clean tabular data
+================================================================================
+
+1. COMPLETE MULTI-STAGE ETL PIPELINE IN 1 FORMULA:
+=LET(
+   raw, A2:A21,
+   clean_stream, DROP(raw, 2),
+   body_4col, WRAPROWS(clean_stream, 4, "-"),
+   sorted_body, SORT(body_4col, 4, -1),
+   amounts, CHOOSECOLS(sorted_body, 4),
+   gst_col, amounts * 0.18,
+   gross_col, amounts * 1.18,
+   full_body, HSTACK(sorted_body, gst_col, gross_col),
+   headers, {"Txn_ID", "Date", "Customer_Name", "Net_Amount", "GST_18%", "Gross_Total"},
+   footer, {"Grand Total", "", "", SUM(amounts), SUM(gst_col), SUM(gross_col)},
+   VSTACK(headers, full_body, footer)
+ )
+
+2. KEY DESIGN HIGHLIGHTS:
+- 100% Macro-Free and Formula-Driven.
+- C++ Linear Time Execution in RAM.
+- Integrated Tax Calculation and Audit Footers.
+================================================================================

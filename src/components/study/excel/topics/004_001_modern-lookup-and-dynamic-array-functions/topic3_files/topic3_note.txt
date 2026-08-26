@@ -1,0 +1,24 @@
+TOPIC 3 SUMMARY NOTES
+================================================================================
+Topic: Dynamic Multi-Condition Data Filtering with the FILTER Function (AND / OR Logic in Arrays)
+Module: 004_001_modern-lookup-and-dynamic-array-functions
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+Key Formula Signature:
+=FILTER(array, include, [if_empty])
+
+Core Mechanics & Arguments:
+1. `array` (Required): The data range or matrix to filter and return.
+2. `include` (Required): A boolean array (TRUE/FALSE) of the same height/width as array.
+3. `[if_empty]` (Optional): Fallback value (e.g. "No Matching Records Found") if zero rows meet the criteria. If omitted, returns `#CALC!`.
+
+Boolean Logic in Dynamic Arrays (CRITICAL):
+- Standard `AND()` and `OR()` functions DO NOT work because they collapse arrays into a single scalar value.
+- AND Logic (Multiplication *): `(Branch="Barrackpore") * (Revenue>=50000)`
+- OR Logic (Addition +): `(Branch="Barrackpore") + (Branch="Shyamnagar")`
+- Combined Compound Logic: `((Branch="Barrackpore") + (Branch="Ichapur")) * (Status="Delivered")`
+
+Common Downstream Pipelines:
+- Sort Filtered Data: `=SORT(FILTER(Data, Criteria), SortCol, -1)`
+- Unique Filtered Items: `=UNIQUE(FILTER(Data, Criteria))`
+- Dynamic Count of Matches: `=ROWS(FILTER(Data, Criteria, ""))`

@@ -1,0 +1,36 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: EXTRACTING SPECIFIC ROWS WITH CHOOSEROWS
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_002: Next-Gen Array Reshaping & Grid Transformation
+Topic 3: Extracting specific rows from complex arrays with CHOOSEROWS (positive and negative indexing)
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. FORMULA SYNTAX & INDEXING MECHANICS
+--------------------------------------------------------------------------------
+Syntax: =CHOOSEROWS(array, row_num1, [row_num2], ...)
+
+Argument 1: array (Required)
+  The source 2D table, range, or spilled array from which to extract rows.
+
+Argument 2+: row_num1, row_num2... (Required / Optional)
+  Positive integers (1, 2, 3...) count from the top of the array downwards.
+  Negative integers (-1, -2, -3...) count from the bottom of the array upwards.
+  Array constants (e.g. {1, 3, 5}) or SEQUENCE functions can be passed directly.
+
+2. CORE ADVANTAGES OVER LEGACY EXCEL
+--------------------------------------------------------------------------------
+• Negative Indexing: Index -1 always refers to the last row, eliminating the need
+  for dynamic count calculations with ROWS() or COUNTA().
+• Row Duplication & Oversampling: Repeating row index arguments (e.g. 1, 1, 2, 2)
+  repeats rows in the output matrix.
+• Arbitrary Slicing: Slices non-adjacent rows across any part of the matrix.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Never pass 0 as a row index — row indexing starts at 1 (top) or -1 (bottom).
+• Combine with XMATCH to extract multi-key employee profiles in a single formula.
+• Use =CHOOSEROWS(Ledger, 1, -1) to create instant first-and-last transaction summaries.
+================================================================================

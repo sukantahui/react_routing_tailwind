@@ -1,0 +1,19 @@
+TOPIC 2 CONCEPTUAL REFERENCE CONTENT
+================================================================================
+Title: Extracting Distinct Data with the UNIQUE Function (Single-Column & Multi-Column Unique Rows)
+Course: EXCEL-PRO-901
+
+1. The Evolution of Deduplication in Spreadsheets:
+Historically, extracting unique items from a list required destructive operations (Data > Remove Duplicates), static Advanced Filters, or complex volatile matrix formulas involving `INDEX(MATCH(0, COUNTIF(...), 0))`. If raw transaction data changed, the deduplicated list remained stale.
+
+2. The Modern UNIQUE Function:
+The `UNIQUE` function operates non-destructively in memory, evaluating the source array and dynamically spilling the distinct elements.
+
+3. Anatomy of Arguments:
+- `=UNIQUE(A2:A20)` -> Returns every unique item once (Distinct list).
+- `=UNIQUE(A2:A20, FALSE, TRUE)` -> Returns only items that appear exactly one time in the raw list. Any value that appears 2 or more times is completely omitted. Useful for fraud detection, single-transaction customer audits, and anomaly detection.
+- `=UNIQUE(A2:C20)` -> Multi-column composite key deduplication. Two rows are duplicates only if all columns in that row match identically.
+
+4. Performance & Case Insensitivity:
+- Case Insensitive: In standard Excel calculation, "EXCEL", "Excel", and "excel" are treated as duplicates. `UNIQUE` returns the casing of the first encountered record.
+- Non-Volatile Memory Graph: `UNIQUE` calculates only when the referenced range is modified, scaling cleanly to thousands of records.

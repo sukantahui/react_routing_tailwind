@@ -1,0 +1,41 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: RESIZING & PADDING ARRAYS WITH EXPAND
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_002: Next-Gen Array Reshaping & Grid Transformation
+Topic 7: Resizing and padding arrays to fixed dimensions with EXPAND
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. FORMULA SYNTAX & DIMENSIONAL EXPANSION
+--------------------------------------------------------------------------------
+Syntax: =EXPAND(array, rows, [columns], [pad_with])
+
+Argument 1: array (Required)
+  The source 2D matrix, range, or spilled array to expand.
+
+Argument 2: rows (Required)
+  The target row height (must be >= ROWS(array)).
+
+Argument 3: [columns] (Optional)
+  The target column width (must be >= COLUMNS(array)). Omitted keeps existing width.
+
+Argument 4: [pad_with] (Optional)
+  The constant value used to fill newly created cells.
+  Defaults to #N/A if omitted. Best practice: use "" or 0.
+
+2. CORE ENTERPRISE USE CASES
+--------------------------------------------------------------------------------
+• Matrix Dimension Normalization: Equalize unequal branch tables before applying
+  HSTACK (horizontal join) or mathematical matrix multiplication.
+• Template Standardization: Expand sparse rosters or historical financials to
+  standard 12-month or 15-day fixed layout matrices.
+• Default Value Imputation: Fill missing slots with "N/A", "Absent", or 0.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• EXPAND cannot shrink arrays. If target < source, it throws #VALUE!. Use TAKE/DROP to shrink.
+• Avoid whole column references like A:C because 1,048,576 rows will break EXPAND.
+• When pairing with HSTACK, write: =HSTACK(T1, EXPAND(T2, ROWS(T1), , ""))
+================================================================================

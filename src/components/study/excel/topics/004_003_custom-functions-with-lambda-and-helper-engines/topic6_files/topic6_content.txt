@@ -1,0 +1,26 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: MAP HELPER FUNCTION ENGINE
+================================================================================
+Module: 004_003_custom-functions-with-lambda-and-helper-engines
+Topic 6: Iterating across arrays element-by-element with the MAP function
+================================================================================
+
+1. FORMULA SIGNATURE:
+=MAP(arr1, arr2, ..., arrN, LAMBDA(p1, p2, ..., pN, calculation))
+
+2. COMMON ENTERPRISE PATTERNS:
+- Multi-Condition Employee Tiering:
+  =MAP(E5:E9, F5:F9, LAMBDA(days, score, IF(AND(days>=25, score>=90), "Tier-1 Bonus", "Standard")))
+
+- Matrix Value Capping:
+  =MAP(A2:D20, LAMBDA(v, IF(v<0, 0, v)))
+
+- Multi-Variable Financial Modeling:
+  =MAP(Principals, Rates, Years, LAMBDA(p, r, t, p * (1 + r)^t))
+
+3. ERROR CONDITIONS:
+- Mismatched Array Dimensions &rarr; #VALUE!
+- Non-LAMBDA Final Argument &rarr; #VALUE!
+- Obstructed Destination Spill Zone &rarr; #SPILL!
+- Nested Array Return &rarr; #CALC!
+================================================================================

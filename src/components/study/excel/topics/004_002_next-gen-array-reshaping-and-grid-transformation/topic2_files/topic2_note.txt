@@ -1,0 +1,40 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: FLATTENING 2D TABLES WITH TOROW
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_002: Next-Gen Array Reshaping & Grid Transformation
+Topic 2: Flattening 2D tables into 1D horizontal vectors with TOROW
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. FORMULA SYNTAX & ARGUMENT FLAGS
+--------------------------------------------------------------------------------
+Syntax: =TOROW(array, [ignore], [scan_by_column])
+
+Argument 1: array (Required)
+  The source 2D matrix, range, or vertical column to be flattened into a single horizontal row.
+
+Argument 2: [ignore] (Optional)
+  • 0 (Default) : Retain all cells (blanks return 0, errors are preserved).
+  • 1           : Ignore blank / empty cells.
+  • 2           : Ignore cell errors (#N/A, #VALUE!, #DIV/0!, etc.).
+  • 3           : Ignore BOTH blanks AND error values.
+
+Argument 3: [scan_by_column] (Optional)
+  • FALSE / 0 (Default) : Scan row-by-row (left-to-right, then top-to-bottom).
+  • TRUE / 1            : Scan column-by-column (top-to-bottom, then left-to-right).
+
+2. KEY DIFFERENCES: TOROW vs. TRANSPOSE vs. TOCOL
+--------------------------------------------------------------------------------
+• TOROW vs. TRANSPOSE : TRANSPOSE maintains 2D matrix shape (swapping rows & cols);
+                        TOROW flattens the entire 2D matrix into a 1D horizontal row vector.
+• TOROW vs. TOCOL     : TOROW outputs 1 Row x N Columns; TOCOL outputs N Rows x 1 Column.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Use TOROW to construct executive KPI ribbons at the top of dashboard sheets.
+• When building horizontal timeline projections, set scan_by_column = TRUE (1)
+  to preserve chronological monthly sequences.
+• Beware of Excel's 16,384 column limit (Column XFD) when flattening large matrices horizontally.
+================================================================================

@@ -1,0 +1,36 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: CAPSTONE ASSESSMENT & CHALLENGE LAB
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_002: Next-Gen Array Reshaping & Grid Transformation
+Topic 13: Assessment: Advanced Grid Reshaping and Dimension Transformation Challenge
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. ASSESSMENT OBJECTIVES & RUBRIC
+--------------------------------------------------------------------------------
+This capstone challenge evaluates practical competency across all 11 array reshaping
+functions:
+• 1D Vector Flattening: TOCOL, TOROW
+• Coordinate Slicing: CHOOSEROWS, CHOOSECOLS
+• Boundary Subsetting: TAKE, DROP
+• Tensor Normalization: EXPAND
+• Stream Shaping: WRAPROWS, WRAPCOLS
+• Dual-Axis Consolidation: VSTACK, HSTACK
+• Matrix Transposition: TRANSPOSE
+
+2. EVALUATION STANDARDS
+--------------------------------------------------------------------------------
+• Syntax & Argument Precision (25%)
+• Memory & Computational Complexity Optimization (25%)
+• Error Diagnostic & Troubleshooting Skills (25%)
+• Real-World Corporate Architectural Design (25%)
+
+3. GRADUATION ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Treat dynamic arrays as first-class mathematical tensors.
+• Always sanitize inputs with FILTER/DROP before reshaping.
+• Avoid full-column references to prevent calculation lag.
+• Congratulations on mastering Next-Gen Array Reshaping & Grid Transformation!
+================================================================================

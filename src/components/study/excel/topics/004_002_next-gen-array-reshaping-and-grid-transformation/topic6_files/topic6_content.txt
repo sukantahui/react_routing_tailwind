@@ -1,0 +1,28 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: DROP BOUNDARY EXCLUSION ENGINE
+================================================================================
+Module: 004_002_next-gen-array-reshaping-and-grid-transformation
+Topic 6: Excluding headers, totals, or metadata rows/columns with DROP
+================================================================================
+
+1. BOUNDARY EXCLUSION MECHANICS:
+The DROP function removes peripheral rows and columns from the outer bounds
+of an array, returning the remaining inner body.
+
+2. PARAMETER BEHAVIOR:
+- rows > 0: Excludes top rows.
+- rows < 0: Excludes bottom rows.
+- columns > 0: Excludes left columns.
+- columns < 0: Excludes right columns.
+- |rows| >= total_rows or |cols| >= total_cols: Throws #CALC! (empty array).
+
+3. PRACTICAL ETL PATTERNS:
+- Master Stacking without Duplicate Headers:
+  =VSTACK(Branch1_All, DROP(Branch2_All, 1), DROP(Branch3_All, 1))
+
+- Dual-Ended Boundary Stripping:
+  =DROP(DROP(RawReport, 2), -1)
+
+- In-Memory Subtotal Calculation:
+  =SUM(DROP(DROP(RevenueColumn, 1), -1))
+================================================================================

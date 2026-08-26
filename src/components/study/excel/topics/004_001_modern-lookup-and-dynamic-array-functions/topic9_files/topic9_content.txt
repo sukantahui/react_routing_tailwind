@@ -1,0 +1,20 @@
+TOPIC 9 CONCEPTUAL REFERENCE CONTENT
+================================================================================
+Title: Resolving #SPILL! Errors: Blocked Cells, Merged Cells, and Dynamic Range Clashes
+Course: EXCEL-PRO-901
+
+1. The Geometry of Spilled Arrays:
+When a dynamic array formula executes, Excel's calculation engine computes the expected rectangular matrix dimensions $[R \times C]$ in memory. Before writing values onto the worksheet grid, Excel verifies that all cells in that $[R \times C]$ bounding box are strictly empty, unmerged, and outside Excel Tables.
+
+2. Diagnostic Anatomy of #SPILL!:
+- Obstructed Cell: Excel shows a dotted blue boundary around the required spill perimeter. If any cell has content (even an invisible space `' '`), `#SPILL!` is returned.
+- Merged Cells: Merged cells break standard coordinate indexing ($A1, B1$) because secondary cells in a merged group have null addresses.
+- Excel Table Conflict: Inside `ListObject` tables, columns use implicit intersection (`@`). Spilling is disabled by design to maintain table structural integrity.
+- Full Column Reference: Writing `=FILTER(A:A, B:B="Active")` calculates across 1,048,576 rows, easily overflowing available worksheet space.
+
+3. Step-by-Step Resolution Architecture:
+1. Select the origin cell displaying `#SPILL!`.
+2. Inspect the blue dotted spill outline on the grid.
+3. Click the smart tag indicator: 'Select Obstructing Cell'.
+4. Delete or move the blocking content, or unmerge affected cells.
+5. Watch the formula resolve and populate instantly!

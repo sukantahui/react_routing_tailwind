@@ -1,0 +1,33 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: COMBINING VSTACK & HSTACK FOR DATA CONSOLIDATION
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_002: Next-Gen Array Reshaping & Grid Transformation
+Topic 10: Combining VSTACK and HSTACK to append and merge disparate datasets in memory
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. FORMULA SYNTAX & STACKING ARCHITECTURE
+--------------------------------------------------------------------------------
+Vertical Stacking:   =VSTACK(array1, [array2], ...)
+Horizontal Joining:  =HSTACK(array1, [array2], ...)
+
+• VSTACK appends rows vertically (SQL UNION ALL equivalent).
+• HSTACK joins columns side-by-side (SQL JOIN / horizontal concatenation).
+
+2. CORE ENTERPRISE USE CASES
+--------------------------------------------------------------------------------
+• Multi-Branch Consolidation: Consolidate Barrackpore, Shyamnagar, and Naihati
+  branch tables: =VSTACK(BK_Data, DROP(SH_Data, 1), DROP(NH_Data, 1)).
+• Dynamic Calculated Columns: Attach GST-inclusive pricing using HSTACK:
+  =HSTACK(ProductGrid, CHOOSECOLS(ProductGrid, 3)*1.18).
+• Full Dashboard Construction: Stack Header Ribbons + Data Rows + Summary Totals
+  in 1 single dynamic formula in RAM.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Always DROP secondary table headers before vertical stacking.
+• Always standardize column order with CHOOSECOLS before VSTACK if branch schemas differ.
+• Never stack full columns (e.g. A:D) as it exceeds the 1,048,576 row worksheet limit!
+================================================================================

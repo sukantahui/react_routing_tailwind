@@ -1,0 +1,39 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: RESHAPING 1D DATA STREAMS WITH WRAPROWS
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_002: Next-Gen Array Reshaping & Grid Transformation
+Topic 8: Reshaping 1D data streams into structured 2D tables with WRAPROWS
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. FORMULA SYNTAX & STREAM RECONSTRUCTION
+--------------------------------------------------------------------------------
+Syntax: =WRAPROWS(vector, wrap_count, [pad_with])
+
+Argument 1: vector (Required)
+  The 1D source vector (vertical column or horizontal row) to wrap.
+
+Argument 2: wrap_count (Required)
+  The maximum number of elements per row (must be an integer >= 1).
+
+Argument 3: [pad_with] (Optional)
+  The fallback value for unfilled cells in the final row (defaults to #N/A).
+  Best practice: supply "" or "N/A" to avoid error alerts.
+
+2. CORE ENTERPRISE USE CASES
+--------------------------------------------------------------------------------
+• Unformatted Bank Statement Ingestion: Convert repeating 4-line text streams
+  [Txn_ID, Date, Narration, Amount] into clean 4-column relational tables.
+• Dynamic Calendar & Schedule Grids: =WRAPROWS(SEQUENCE(31), 7, "") generates
+  a 7-day weekly calendar matrix in 1 cell.
+• Re-shaping 2D Matrices: Pair with TOCOL: =WRAPROWS(TOCOL(Matrix, 1), 4).
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• WRAPROWS requires a 1D vector. If you pass a 2D matrix, it throws #VALUE!.
+  Flatten with TOCOL first: =WRAPROWS(TOCOL(Range, 1), wrap_count).
+• Verify stream periodicity: ensure every record has the same number of lines.
+• Combine with DROP to strip introductory header text: =WRAPROWS(DROP(Logs, 3), 4).
+================================================================================

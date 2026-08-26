@@ -1,0 +1,37 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: EXTRACTING & REORDERING COLUMNS WITH CHOOSECOLS
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_002: Next-Gen Array Reshaping & Grid Transformation
+Topic 4: Extracting specific columns and reordering layouts with CHOOSECOLS
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. FORMULA SYNTAX & COLUMN PROJECTION
+--------------------------------------------------------------------------------
+Syntax: =CHOOSECOLS(array, col_num1, [col_num2], ...)
+
+Argument 1: array (Required)
+  The source 2D table, range, or in-memory dynamic array.
+
+Argument 2+: col_num1, col_num2... (Required / Optional)
+  Positive integers (1, 2, 3...) count from the left (Column A onwards).
+  Negative integers (-1, -2, -3...) count backwards from the rightmost column.
+  Array constants (e.g. {1, 4, 2}) can be passed to reorder fields dynamically.
+
+2. CORE ENTERPRISE USE CASES
+--------------------------------------------------------------------------------
+• Data Masking: Project only non-sensitive columns (Emp_ID, Name, Net_Pay),
+  omitting confidential base salary and tax deduction columns.
+• Dynamic Column Reordering: Reorganize backend database fields into desired
+  presentation schemas without altering the raw database structure.
+• Negative Indexing (-1): Dynamically reference the last column regardless of
+  intervening columns added or deleted over time.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Never hardcode intermediate helper columns — use CHOOSECOLS directly in memory.
+• Combine with FILTER: =CHOOSECOLS(FILTER(Table, Criteria), 1, 2, 5).
+• Check destination footprint to prevent #SPILL! errors across columns.
+================================================================================

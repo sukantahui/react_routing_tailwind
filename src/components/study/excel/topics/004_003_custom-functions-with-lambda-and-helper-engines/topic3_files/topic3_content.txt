@@ -1,0 +1,21 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: LAMBDA DOCUMENTATION & TOOLTIPS
+================================================================================
+Module: 004_003_custom-functions-with-lambda-and-helper-engines
+Topic 3: Documenting LAMBDA parameters and syntax hints for end-users
+================================================================================
+
+1. NAME MANAGER COMMENT FIELD:
+- Surfaces as tooltip in Formula Autocomplete Intellisense.
+- Character limit: ~255 characters.
+- Structured pattern: Purpose | Parameters | Return Schema.
+
+2. PARAMETER NAMING CONVENTIONS:
+- Base: `amount_inr`, `tax_rate_pct`, `tenure_months`
+- Boolean: `is_interstate`, `is_metro`
+- Range/Array: `sales_vector`, `data_matrix`
+
+3. SHORTCUTS & TOOLS:
+- Ctrl+Shift+A: Inserts argument placeholder names in formula bar.
+- Advanced Formula Environment (AFE): JSDoc-style docstrings and markdown notes.
+================================================================================

@@ -1,0 +1,249 @@
+// topic9_questions.js - 30 Comprehensive Practice & Viva Voce Questions for Topic 9
+// Topic: Reshaping 1D Data Streams Vertically into Fixed-Height Columns with WRAPCOLS
+// Module: 004_002_next-gen-array-reshaping-and-grid-transformation
+// Lead Academic Mentor: Sukanta Hui (Coder & AccoTax)
+
+const questions = [
+  {
+    question: "What is the primary function of WRAPCOLS in Excel 365?",
+    shortAnswer: "It transforms a 1D vector into a 2D matrix by wrapping elements column-by-column up to a specified vertical height.",
+    explanation: "WRAPCOLS fills Column 1 vertically with N items before wrapping into Column 2, creating fixed-height column blocks from a flat stream.",
+    hint: "Wraps a 1D vector vertically down columns.",
+    level: "basic",
+    codeExample: "=WRAPCOLS(A2:A21, 5, \"-\")"
+  },
+  {
+    question: "What is the syntax signature of the WRAPCOLS function?",
+    shortAnswer: "=WRAPCOLS(vector, wrap_count, [pad_with])",
+    explanation: "WRAPCOLS requires 'vector' (1D source array) and 'wrap_count' (maximum items per column). '[pad_with]' is optional, defaulting to #N/A for unfilled cells in the final column.",
+    hint: "Vector, items per column, optional pad value.",
+    level: "basic",
+    codeExample: "=WRAPCOLS(A2:A31, 7, \"\")"
+  },
+  {
+    question: "How does WRAPCOLS differ from WRAPROWS?",
+    shortAnswer: "WRAPCOLS fills vertically down columns (top to bottom); WRAPROWS fills horizontally across rows (left to right).",
+    explanation: "In WRAPCOLS, items 1 to N occupy Column 1 (cells A1:AN). In WRAPROWS, items 1 to N occupy Row 1 (cells A1:N1).",
+    hint: "Vertical column filling vs horizontal row filling.",
+    level: "basic",
+    codeExample: "=WRAPCOLS(V, 4) vs =WRAPROWS(V, 4)"
+  },
+  {
+    question: "How does WRAPCOLS construct newspaper-style multi-column print rosters?",
+    shortAnswer: "By wrapping a long vertical list of 100 staff into 5 side-by-side columns of 20 names each for single-page printing.",
+    explanation: "Setting wrap_count=20 formats 100 names into a 20-row x 5-column layout that fits onto a single printed sheet without vertical scrolling.",
+    hint: "Creates fixed-height printable column blocks.",
+    level: "moderate",
+    codeExample: "=WRAPCOLS(StaffList, 20, \"\")"
+  },
+  {
+    question: "What happens if the length of the vector is not an exact multiple of wrap_count in WRAPCOLS?",
+    shortAnswer: "Excel pads the remaining empty cells at the bottom of the final column with #N/A (or the specified [pad_with] value).",
+    explanation: "If you wrap 14 elements into columns of 5, Excel builds 2 full columns (10 items) and a 3rd column with 4 items and 1 padded cell.",
+    hint: "Pads the bottom of the last column with pad_with or #N/A.",
+    level: "basic",
+    codeExample: "=WRAPCOLS(A1:A14, 5, \"-\")"
+  },
+  {
+    question: "What error occurs if wrap_count is set to 0 or a negative number in WRAPCOLS?",
+    shortAnswer: "#VALUE! error.",
+    explanation: "The wrap_count parameter must be a positive integer &ge; 1. Values &le; 0 trigger #VALUE!.",
+    hint: "wrap_count must be a positive integer &ge; 1.",
+    level: "basic",
+    codeExample: "#VALUE!"
+  },
+  {
+    question: "Can WRAPCOLS accept a 1D horizontal row vector as its input?",
+    shortAnswer: "Yes, WRAPCOLS accepts both vertical columns and horizontal rows as 1D vector inputs.",
+    explanation: "Whether the source spans vertically (A1:A20) or horizontally (A1:T1), WRAPCOLS wraps elements down columns.",
+    hint: "Accepts 1D inputs in either orientation.",
+    level: "basic",
+    codeExample: "=WRAPCOLS(A1:T1, 5)"
+  },
+  {
+    question: "What error occurs if the input array passed to WRAPCOLS is a 2D matrix (e.g. 4 rows x 3 cols)?",
+    shortAnswer: "#VALUE! error.",
+    explanation: "WRAPCOLS strictly requires a 1D vector. Passing a 2D range triggers #VALUE!. To wrap a 2D matrix, flatten with TOCOL first: =WRAPCOLS(TOCOL(Matrix, 1), 5).",
+    hint: "Flatten with TOCOL first if input is 2D.",
+    level: "advanced",
+    codeExample: "=WRAPCOLS(TOCOL(A2:C10, 1), 5)"
+  },
+  {
+    question: "How can you pad missing cells in the final column with an empty string \"\" using WRAPCOLS?",
+    shortAnswer: "=WRAPCOLS(vector, wrap_count, \"\")",
+    explanation: "Passing \"\" as the third parameter replaces #N/A with clean blank text.",
+    hint: "Pass \"\" as the pad_with parameter.",
+    level: "basic",
+    codeExample: "=WRAPCOLS(A2:A25, 6, \"\")"
+  },
+  {
+    question: "How does WRAPCOLS interact with Excel's Spilled Range Operator (#)?",
+    shortAnswer: "WRAPCOLS can consume any dynamic spilled 1D vector directly by referencing its anchor cell (e.g. =WRAPCOLS(G2#, 5)).",
+    explanation: "If an upstream formula produces a dynamic list in G2, WRAPCOLS reshapes it column-wise automatically.",
+    hint: "Use G2# as the vector argument.",
+    level: "basic",
+    codeExample: "=WRAPCOLS(G2#, 5)"
+  },
+  {
+    question: "What is the total number of columns generated by =WRAPCOLS(Vector, N)?",
+    shortAnswer: "=ROUNDUP(ROWS(Vector) / N, 0)",
+    explanation: "The output column width is the mathematical ceiling of total vector elements divided by wrap_count.",
+    hint: "Ceiling division: ROUNDUP(Total / N, 0).",
+    level: "moderate",
+    codeExample: "=ROUNDUP(ROWS(A1:A25)/5, 0) &rarr; 5 Columns"
+  },
+  {
+    question: "How can you create a 7-day vertical weekly calendar column block from a SEQUENCE of 31 days using WRAPCOLS?",
+    shortAnswer: "=WRAPCOLS(SEQUENCE(31), 7, \"\")",
+    explanation: "SEQUENCE generates 1 to 31; WRAPCOLS wraps them into 7-day vertical week columns (Week 1 in Col A, Week 2 in Col B, etc.).",
+    hint: "Wrap 31 days into 7-day vertical columns.",
+    level: "advanced",
+    codeExample: "=WRAPCOLS(SEQUENCE(31), 7, \"\")"
+  },
+  {
+    question: "What error occurs if destination cells where WRAPCOLS needs to spill are blocked?",
+    shortAnswer: "#SPILL! error.",
+    explanation: "Any non-empty cell in the output footprint halts calculation and triggers #SPILL!.",
+    hint: "Destination collision error.",
+    level: "basic",
+    codeExample: "#SPILL!"
+  },
+  {
+    question: "In exam seat allocation, how can WRAPCOLS distribute 60 students into 3 classroom examination halls of 20 seats each?",
+    shortAnswer: "=WRAPCOLS(StudentRollVector, 20, \"Unassigned\")",
+    explanation: "Setting wrap_count=20 allocates students 1-20 to Hall 1 (Col 1), 21-40 to Hall 2 (Col 2), and 41-60 to Hall 3 (Col 3).",
+    hint: "Distributes students into 20-seat hall columns.",
+    level: "moderate",
+    codeExample: "=WRAPCOLS(RollNumbers, 20, \"Unassigned\")"
+  },
+  {
+    question: "How does WRAPCOLS handle date and numeric formatting in source vectors?",
+    shortAnswer: "It preserves the exact underlying serial numbers and data types without alteration.",
+    explanation: "WRAPCOLS transfers underlying data values faithfully into destination cells.",
+    hint: "Data types and serial numbers are preserved.",
+    level: "basic",
+    codeExample: "=WRAPCOLS(DateVector, 5)"
+  },
+  {
+    question: "How can you dynamically control wrap_count using a cell dropdown (e.g. cell K1)?",
+    shortAnswer: "=WRAPCOLS(Vector, K1, \"\")",
+    explanation: "Referencing cell K1 allows users to dynamically change column height from 5 to 10 or 20 rows.",
+    hint: "Reference the dropdown cell in the wrap_count argument.",
+    level: "basic",
+    codeExample: "=WRAPCOLS(A2:A50, K1, \"\")"
+  },
+  {
+    question: "Can WRAPCOLS accept an inline array constant like {1, 2, 3, 4, 5, 6}?",
+    shortAnswer: "Yes, WRAPCOLS processes array constants directly in memory.",
+    explanation: "Writing =WRAPCOLS({1,2,3,4,5,6}, 3) returns a 3-row x 2-column matrix with elements 1-3 in Col 1 and 4-6 in Col 2.",
+    hint: "Inline array constants work identically to cell ranges.",
+    level: "basic",
+    codeExample: "=WRAPCOLS({1,2,3,4,5,6}, 3)"
+  },
+  {
+    question: "How does LET optimize formulas that use WRAPCOLS alongside CHOOSECOLS and SORT?",
+    shortAnswer: "LET computes the wrapped table once in RAM, preventing duplicate wrapping operations during downstream calculations.",
+    explanation: "Writing =LET(w, WRAPCOLS(Data, 10, \"\"), HSTACK(w, AVERAGE(w))) evaluates the wrapped grid once.",
+    hint: "Cache the wrapped table in a LET variable.",
+    level: "advanced",
+    codeExample: "=LET(w, WRAPCOLS(A1:A100, 10, \"\"), HSTACK(w, AVERAGE(w)))"
+  },
+  {
+    question: "Why should you avoid passing whole column references (e.g. A:A) to WRAPCOLS?",
+    shortAnswer: "Processing 1,048,576 rows causes severe memory bloat, calculation lag, and potential worksheet freeze.",
+    explanation: "Always use bounded ranges (e.g. A2:A500) or structured Table references.",
+    hint: "Use bounded ranges to prevent memory stalls.",
+    level: "expert",
+    codeExample: "Use A2:A500 instead of A:A"
+  },
+  {
+    question: "How can you count the total number of columns generated by WRAPCOLS?",
+    shortAnswer: "=COLUMNS(WRAPCOLS(Vector, N, \"\"))",
+    explanation: "Wrapping the WRAPCOLS expression in COLUMNS() returns the total horizontal width.",
+    hint: "Use COLUMNS() on the WRAPCOLS expression.",
+    level: "basic",
+    codeExample: "=COLUMNS(WRAPCOLS(A1:A25, 5, \"\"))"
+  },
+  {
+    question: "What happens if wrap_count is greater than or equal to the total elements in the vector?",
+    shortAnswer: "Excel outputs a single column containing all elements followed by padding values up to wrap_count.",
+    explanation: "If you wrap 5 items with wrap_count=10, Excel creates a 1-column array of 5 items and 5 padded cells.",
+    hint: "Produces 1 column with trailing padding.",
+    level: "moderate",
+    codeExample: "=WRAPCOLS(A1:A5, 10, \"-\")"
+  },
+  {
+    question: "How can WRAPCOLS and TOROW be used together to re-shape a 1D horizontal vector into a 3-row vertical matrix?",
+    shortAnswer: "=WRAPCOLS(HorizontalVector, 3, \"\")",
+    explanation: "WRAPCOLS directly accepts horizontal vectors and wraps elements down columns 3 rows high.",
+    hint: "WRAPCOLS accepts horizontal vectors directly.",
+    level: "moderate",
+    codeExample: "=WRAPCOLS(A1:Z1, 3, \"\")"
+  },
+  {
+    question: "How does WRAPCOLS handle boolean TRUE/FALSE values during column wrapping?",
+    shortAnswer: "Boolean values are preserved in their native logical format without coercion.",
+    explanation: "WRAPCOLS does not convert Booleans to numbers or text.",
+    hint: "Logical types remain unchanged.",
+    level: "basic",
+    codeExample: "=WRAPCOLS(LogicVector, 4)"
+  },
+  {
+    question: "How can you extract only the 2nd column of a matrix generated by WRAPCOLS?",
+    shortAnswer: "=CHOOSECOLS(WRAPCOLS(Vector, 5, \"\"), 2)",
+    explanation: "CHOOSECOLS extracts the 2nd column block directly from the in-memory wrapped matrix.",
+    hint: "Wrap with WRAPCOLS, then slice with CHOOSECOLS.",
+    level: "moderate",
+    codeExample: "=CHOOSECOLS(WRAPCOLS(A1:A100, 5, \"\"), 2)"
+  },
+  {
+    question: "Why does WRAPCOLS calculate significantly faster than legacy INDEX with division and modulo formulas?",
+    shortAnswer: "WRAPCOLS is compiled in native C++ and performs bulk memory copying without evaluating individual cell formulas.",
+    explanation: "Legacy formulas required complex coordinate mathematics in every cell. WRAPCOLS calculates the entire matrix in 1 step.",
+    hint: "Native C++ vectorization vs individual cell formulas.",
+    level: "expert",
+    codeExample: "High-speed C++ SIMD execution"
+  },
+  {
+    question: "How can you unroll a 100-student merit list into 4 classroom display boards of 25 students each using WRAPCOLS?",
+    shortAnswer: "=WRAPCOLS(StudentMeritList, 25, \"-\")",
+    explanation: "Setting wrap_count=25 places the top 25 in Col A (Board 1), 26-50 in Col B (Board 2), 51-75 in Col C (Board 3), and 76-100 in Col D (Board 4).",
+    hint: "Set wrap_count=25 for 4 display boards.",
+    level: "basic",
+    codeExample: "=WRAPCOLS(A2:A101, 25, \"-\")"
+  },
+  {
+    question: "Can WRAPCOLS pad missing cells with a formula result like TODAY() or 0?",
+    shortAnswer: "Yes, any constant, number, or scalar formula can be supplied to [pad_with].",
+    explanation: "Passing 0 or TODAY() fills the remaining cells at the bottom of the final column with the evaluated result.",
+    hint: "Dynamic scalar formula results can be passed as pad_with.",
+    level: "moderate",
+    codeExample: "=WRAPCOLS(Data, 5, 0)"
+  },
+  {
+    question: "How can WRAPCOLS be used to create a 4-shift manufacturing roster where each shift has a fixed height of 8 workers?",
+    shortAnswer: "=WRAPCOLS(WorkerPool, 8, \"Open Slot\")",
+    explanation: "Setting wrap_count=8 assigns 8 workers per shift column, marking unfilled positions as \"Open Slot\".",
+    hint: "Set wrap_count=8 to fill 8-worker shift columns.",
+    level: "moderate",
+    codeExample: "=WRAPCOLS(WorkerList, 8, \"Open Slot\")"
+  },
+  {
+    question: "What is the difference between =WRAPCOLS(Data, 5) and =TRANSPOSE(WRAPROWS(Data, 5))?",
+    shortAnswer: "WRAPCOLS fills Column 1 (items 1-5), then Column 2 (6-10). TRANSPOSE(WRAPROWS) places items 1-5 across Row 1, and transposing makes them Column 1, but order in subsequent cells differs based on total elements.",
+    explanation: "WRAPCOLS maintains sequential vertical column continuity directly without transposing intermediate matrices.",
+    hint: "WRAPCOLS provides direct column continuity.",
+    level: "expert",
+    codeExample: "=WRAPCOLS(Data, 5) vs =TRANSPOSE(WRAPROWS(Data, 5))"
+  },
+  {
+    question: "What is Instructor Sukanta Hui's golden rule for printable dashboard layout using WRAPCOLS?",
+    shortAnswer: "Use WRAPCOLS to format long single-column rosters into compact multi-column printable cards that eliminate vertical scrolling.",
+    explanation: "When presenting 50+ staff names or account codes, a single vertical column forces users to scroll across multiple pages. Using WRAPCOLS(StaffList, 15, \"\") creates a compact 15-row x 4-column printable card that fits perfectly on a single screen or printed A4 page!",
+    hint: "Create compact multi-column printable cards with WRAPCOLS.",
+    level: "expert",
+    codeExample: "Printable Card: =WRAPCOLS(MasterStaffList, 15, \"\")"
+  }
+];
+
+export default questions;

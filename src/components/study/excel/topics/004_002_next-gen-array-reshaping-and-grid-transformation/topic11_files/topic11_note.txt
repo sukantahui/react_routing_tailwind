@@ -1,0 +1,35 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: MATRIX TRANSPOSITION & MULTI-BLOCK ALIGNMENT
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_002: Next-Gen Array Reshaping & Grid Transformation
+Topic 11: Matrix transposition and multi-block dataset alignment using array functions
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. FORMULA SYNTAX & ROTATION MECHANICS
+--------------------------------------------------------------------------------
+Syntax: =TRANSPOSE(array)
+
+Argument 1: array (Required)
+  The 2D matrix, range, or 1D vector whose orientation is to be rotated.
+  Swaps row and column coordinates: (M x N) &rarr; (N x M).
+
+2. CORE ENTERPRISE USE CASES
+--------------------------------------------------------------------------------
+• Cross-Tab Matrix Harmonization: Align horizontally formatted branch budgets
+  with vertically structured corporate ledgers before stacking with VSTACK.
+• Dynamic Scorecards: Flip horizontal KPI financial projections into clean
+  vertical scorecard columns for executive reporting.
+• Unpivoting 2D Matrices: Combine TOCOL, WRAPROWS, and dynamic array indexing
+  to unpivot 2D cross-tab reports into flat normalized databases.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Never use TRANSPOSE on whole columns like A:A! 1,048,576 rows cannot fit into
+  the 16,384 available columns on an Excel worksheet and will crash.
+• When multi-branch datasets differ in layout, transpose the odd one:
+  =VSTACK(Branch1, DROP(TRANSPOSE(Branch2_Horizontal), 1)).
+• Double transposition (=TRANSPOSE(TRANSPOSE(X))) always restores original shape.
+================================================================================

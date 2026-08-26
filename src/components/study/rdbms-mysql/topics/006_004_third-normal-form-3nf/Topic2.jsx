@@ -71,7 +71,7 @@ const Topic2 = () => {
             <span>Relational Normalization Masterclass · Topic 2</span>
           </div>
           <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Dissecting Codd's 3NF Rule: For every X -> A, either X is a Superkey OR A is a Prime Attribute
+            Dissecting Codd's 3NF Rule: For every X &rarr; A, either X is a Superkey OR A is a Prime Attribute
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Explore Third Normal Form (3NF), the gold standard for OLTP transactional database design. Master transitive dependency detection, the prime-attribute condition, 3NF synthesis (Bernstein's algorithm), and edge cases.
@@ -374,7 +374,7 @@ const Topic2 = () => {
         {/* ─── Footer ─────────────────────────────────────────── */}
         <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
           <span>
-            Topic 2 · Dissecting Codd's 3NF Rule: For every X -> A, either X is a Superkey OR A is a Prime Attribute · RDBMS MySQL Masterclass · Coder & AccoTax Barrackpore
+            Topic 2 · Dissecting Codd's 3NF Rule: For every X &rarr; A, either X is a Superkey OR A is a Prime Attribute · RDBMS MySQL Masterclass · Coder &amp; AccoTax Barrackpore
           </span>
         </footer>
       </div>

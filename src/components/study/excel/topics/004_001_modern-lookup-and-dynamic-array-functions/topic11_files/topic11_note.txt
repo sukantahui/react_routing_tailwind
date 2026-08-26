@@ -1,0 +1,18 @@
+TOPIC 11 SUMMARY NOTES
+================================================================================
+Topic: Dynamic Validation Lists Fed Directly by Spilled Array Ranges (A2# Syntax)
+Module: 004_001_modern-lookup-and-dynamic-array-functions
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+Key Technical Architecture:
+Data Validation > Settings > Allow: List > Source: =$OriginCell#
+
+Why =$A2# Replaced Legacy Methods:
+1. Legacy Flaws:
+   - Required volatile `=OFFSET($A$2, 0, 0, COUNTA($A:$A)-1, 1)` inside Name Manager.
+   - Required fragile `=INDIRECT(Substitute(...))` for cascading dropdowns (which fails on spaces and special characters).
+2. Modern Dynamic Validation:
+   - Generate deduplicated list: Cell L2 holds `=SORT(UNIQUE(FILTER(MasterTable[Branch], MasterTable[Region]=J1)))`
+   - Set Dropdown Source: `=$L$2#`
+   - As criteria change, the dropdown automatically expands, contracts, and updates its choices in real time!
+   - Excel 365 natively supports auto-complete typing inside dynamic dropdowns.

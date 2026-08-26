@@ -1,0 +1,39 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: EXTRACTING TOP/BOTTOM N RECORDS WITH TAKE
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_002: Next-Gen Array Reshaping & Grid Transformation
+Topic 5: Extracting Top N or Bottom N records from arrays with TAKE
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. FORMULA SYNTAX & BOUNDARY SLICING
+--------------------------------------------------------------------------------
+Syntax: =TAKE(array, rows, [columns])
+
+Argument 1: array (Required)
+  The source 2D matrix, range, or in-memory array from which to take data.
+
+Argument 2: rows (Required)
+  Positive (+N): Takes the first N rows from the top.
+  Negative (-N): Takes the last N rows from the bottom.
+
+Argument 3: [columns] (Optional)
+  Positive (+N): Takes the first N columns from the left.
+  Negative (-N): Takes the last N columns from the right.
+  Omitted: Keeps all columns.
+
+2. CORE ADVANTAGES OVER LEGACY EXCEL
+--------------------------------------------------------------------------------
+• Eliminates complex LARGE / SMALL + MATCH tie-breaker formula bugs.
+• Graceful boundary capping: If you ask for 100 rows on a 12-row table,
+  TAKE returns all 12 rows without throwing an error.
+• Clean composition with SORT and VSTACK to build Top & Bottom variance cards.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Always sort deterministically before applying TAKE to prevent tie-breaking confusion.
+• To build a rolling 12-month summary, use =TAKE(MonthlyLedger, -12).
+• Use =LET(s, SORT(Data, 2, -1), VSTACK(TAKE(s, 5), TAKE(s, -5))) for high-speed executive leaderboards.
+================================================================================

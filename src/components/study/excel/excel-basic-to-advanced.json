@@ -1,7 +1,8 @@
 {
-  "trackId": "excel-basic-to-pro-standard",
-  "trackTitle": "Excel from Basic to Pro (Standard Track)",
-  "description": "A complete Microsoft Excel learning path from absolute beginner to advanced user, focused on formulas, formatting, charts, data analysis and reporting for students and office professionals.",
+  "trackId": "excel-basic-to-ultra-expert",
+  "trackTitle": "Microsoft Excel: From Zero to Ultra Expert (Financial Modeling, Advanced Analytics, Power BI Stack, VBA/Macros & Cloud Automation)",
+  "description": "A comprehensive, industry-standard master roadmap for Microsoft Excel (Excel 365, Excel 2021, and Cloud). Covers spreadsheet fundamentals, data engineering, advanced functional logic, statistical distribution modeling, financial valuation & investment modeling, modern dynamic arrays & LAMBDA calculus, Power Query automated ETL with M code, Power Pivot star-schema data modeling & DAX time-intelligence, VBA/macro automation with SQL database connections, modern TypeScript Office Scripts with Power Automate, Python in Excel data science integration, executive KPI dashboards, and enterprise business intelligence capstones.",
+  "subjectCode": "EXCEL-PRO-901",
   "folder": "excel",
   "subject": "Excel",
   "subjectLogo": {
@@ -9,34 +10,243 @@
     "icon": "excel",
     "type": "svg",
     "path": "/logos/excel.svg",
-    "alt": "Python Logo"
+    "alt": "Microsoft Excel Logo"
   },
   "institute": {
     "name": "Coder & AccoTax",
     "website": "https://www.codernaccotax.co.in",
     "author": "Sukanta Hui",
     "location": "25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore, West Bengal, India",
-    "trackType": "Excel Tutorial Roadmap (Standard)",
-    "version": "1.0.0",
-    "lastUpdated": "2025-12-08"
+    "trackType": "Excel Master Roadmap (Ultra Expert Track)",
+    "version": "2.5.0",
+    "lastUpdated": "2026-08-26"
+  },
+  "teacher": {
+    "name": "Sukanta Hui",
+    "designation": "Senior Technology Educator & Corporate Financial Modeling Trainer",
+    "organization": "Founder, Coder & AccoTax",
+    "location": "Barrackpore, West Bengal, India",
+    "photo": "/teachers/sukantahui.jpg",
+    "bio": "Over 25+ years of practical training expertise in Enterprise Software Development, Financial Accounting, Advanced Excel Analytics, Database Systems, and Automated Business Systems.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/sukantahui/",
+      "twitter": "https://twitter.com/sukantahui",
+      "website": "https://www.codernaccotax.co.in",
+      "github": "https://github.com/sukantahui",
+      "email": "contact@codernaccotax.co.in",
+      "phone": "+917003756860",
+      "whatsapp": "+917003756860"
+    }
+  },
+  "course": {
+    "id": "excel-master-pro",
+    "title": "Mastering Microsoft Excel: From Basics to Ultra Expert",
+    "code": "EXCEL-PRO-901",
+    "level": "Beginner to Ultra Expert",
+    "category": "Data Analytics, Financial Modeling, Business Intelligence & Automation",
+    "totalAllottedHours": 145,
+    "prerequisites": [
+      "Basic computer operating skills and file management",
+      "Familiarity with foundational arithmetic (percentages, proportions, ratios)",
+      "Curiosity for data analysis, business reporting, and workflow automation"
+    ],
+    "targetAudience": [
+      "Data Analysts, Business Analysts & Reporting Specialists",
+      "Finance Professionals, Accountants, Auditing & Taxation Experts",
+      "Operations Managers, Project Leads & Corporate Executives",
+      "Software Developers, Database Engineers & MIS Executives",
+      "B.Com, BBA, MBA, B.Tech, and BCA Students aiming for elite workplace spreadsheet mastery"
+    ],
+    "keyFeatures": [
+      "End-to-end curriculum from cell formatting to recursive LAMBDA functions and Python in Excel",
+      "Complete coverage of Power BI Stack inside Excel (Power Query M Code & Power Pivot DAX)",
+      "VBA Object Model, UserForms, SQL ADODB database queries, and TypeScript Office Scripts",
+      "Hands-on financial valuation (DCF, XNPV, XIRR, Amortization) and What-If Solver optimization",
+      "100+ lab exercises, 30+ mini projects, and 4 industrial real-world capstones",
+      "Direct instructor doubt clearance via WhatsApp"
+    ],
+    "certification": "Certificate of Mastery in Advanced Excel, Business Analytics & Financial Modeling (Coder & AccoTax)"
+  },
+  "courseOutcomes": [
+    {
+      "code": "CO1",
+      "description": "Master spreadsheet architecture, interface ergonomics, data entry hygiene, custom formatting, and core mathematical formulas.",
+      "learningLevels": [
+        1,
+        2,
+        3
+      ],
+      "mappedModules": [
+        "excel-intro",
+        "excel-data-entry-formatting",
+        "excel-basic-formulas",
+        "excel-basic-charts"
+      ]
+    },
+    {
+      "code": "CO2",
+      "description": "Execute complex multi-condition data queries, dynamic structured table filtering, advanced lookups (XLOOKUP, INDEX-MATCH, CHOOSEROWS), and statistical distribution modeling.",
+      "learningLevels": [
+        3,
+        4
+      ],
+      "mappedModules": [
+        "excel-tables-filters",
+        "excel-text-date-functions",
+        "excel-conditional-logic",
+        "excel-statistical-functions",
+        "excel-lookup-functions-advanced",
+        "excel-pivot-intro"
+      ]
+    },
+    {
+      "code": "CO3",
+      "description": "Build financial valuation models, amortization schedules, sensitivity tables, and constrained resource optimization engines using Excel Solver.",
+      "learningLevels": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "mappedModules": [
+        "excel-financial-functions",
+        "excel-data-validation-cleaning",
+        "excel-whatif-analysis",
+        "excel-dashboard-basics"
+      ]
+    },
+    {
+      "code": "CO4",
+      "description": "Harness modern dynamic array formulas (FILTER, UNIQUE, SORTBY, TOCOL) and construct reusable recursive functions using LAMBDA, MAP, SCAN, and REDUCE.",
+      "learningLevels": [
+        4,
+        5,
+        6
+      ],
+      "mappedModules": [
+        "excel-modern-functions",
+        "excel-array-manipulation",
+        "excel-lambda-functions",
+        "excel-regex-text"
+      ]
+    },
+    {
+      "code": "CO5",
+      "description": "Build robust automated ETL pipelines using Power Query and custom M code to ingest, clean, normalize, and merge disparate multi-source enterprise data.",
+      "learningLevels": [
+        4,
+        5,
+        6
+      ],
+      "mappedModules": [
+        "excel-power-query",
+        "excel-advanced-power-query-m"
+      ]
+    },
+    {
+      "code": "CO6",
+      "description": "Design dimensional Star Schema data models in Power Pivot and author high-performance DAX measures with time-intelligence and context transitions.",
+      "learningLevels": [
+        4,
+        5,
+        6
+      ],
+      "mappedModules": [
+        "excel-power-pivot",
+        "excel-dax-mastery"
+      ]
+    },
+    {
+      "code": "CO7",
+      "description": "Program robust VBA macros, event-driven procedures, UserForms, external ADODB SQL database queries, and modern TypeScript Office Scripts with Power Automate.",
+      "learningLevels": [
+        4,
+        5,
+        6
+      ],
+      "mappedModules": [
+        "excel-vba-macros",
+        "excel-advanced-vba",
+        "excel-vba-sql-integration",
+        "excel-office-scripts"
+      ]
+    },
+    {
+      "code": "CO8",
+      "description": "Integrate Python in Excel (pandas, seaborn, statsmodels) and deploy production-ready executive dashboards with automated KPI reporting and certification.",
+      "learningLevels": [
+        5,
+        6
+      ],
+      "mappedModules": [
+        "excel-python-analytics",
+        "excel-ai-tools",
+        "excel-capstone-project",
+        "excel-final-certification"
+      ]
+    }
+  ],
+  "recommendedLearningOrder": [
+    "Phase 1: Spreadsheet Architecture & Functional Foundations (Modules 1–4)",
+    "Phase 2: Data Manipulation, Intermediate Functions & Statistical Modeling (Modules 5–10)",
+    "Phase 3: Financial Engineering, What-If Analysis & Executive Dashboards (Modules 11–14)",
+    "Phase 4: Modern Dynamic Arrays, Array Reshaping & LAMBDA Calculus (Modules 15–18)",
+    "Phase 5: Enterprise Power Query ETL & Power Pivot DAX Data Modeling (Modules 19–22)",
+    "Phase 6: VBA Automation, Object Architecture & TypeScript Office Scripts (Modules 23–26)",
+    "Phase 7: Python in Excel & AI Copilot Productivity Workflows (Modules 27–28)",
+    "Phase 8: Comprehensive Skill Tests, Industrial Capstone & Final Certification (Modules 29–33)"
+  ],
+  "textBooks": [
+    "Excel 365 Bible – Michael Alexander & Dick Kusleika (Wiley)",
+    "Financial Analysis and Modeling Using Excel and VBA (2nd Edition) – Chandan Sengupta (Wiley)",
+    "Master Your Data with Power Query in Excel and Power BI – Ken Puls & Miguel Escobar (Holy Macro! Books)",
+    "The Definitive Guide to DAX: Business Intelligence with Microsoft Power BI, SQL Server Analysis Services, and Excel – Marco Russo & Alberto Ferrari (Microsoft Press)",
+    "Excel VBA Programming For Dummies (5th Edition) – Michael Alexander & John Walkenbach (John Wiley & Sons)"
+  ],
+  "referenceBooks": [
+    "Microsoft Excel 365 Formulas and Functions – Paul McFedries (Microsoft Press)",
+    "Python for Excel: A Modern Environment for Automation and Data Analysis – Felix Zumstein (O'Reilly Media)",
+    "Excel Data Analysis For Dummies – Stephen L. Nelson & E. C. Nelson (Wiley)",
+    "Spreadsheet Modeling & Decision Analysis: A Practical Introduction to Business Analytics – Cliff Ragsdale (Cengage Learning)",
+    "Microsoft Learn: Official Documentation for Excel Formulas, Power Query M, and DAX Reference (Microsoft)"
+  ],
+  "assessment": {
+    "type": "Multi-Stage Evaluation (MCQs, Practical Workbooks, Financial Models, DAX Queries & Industrial Capstone Dashboard)",
+    "passScore": 75,
+    "recommendedPractice": [
+      "Build real-time multi-sheet sales trackers with dynamic lookups",
+      "Develop complete 3-statement financial models with dynamic debt schedules",
+      "Construct automated ETL pipelines with Power Query M code transformations",
+      "Design Star Schema data models with complex DAX measures in Power Pivot",
+      "Develop interactive executive dashboards with slicers, KPI cards, and dynamic charting",
+      "Write event-driven VBA automation macros and cloud Office Scripts"
+    ],
+    "examPattern": [
+      "Foundational & Functional MCQs (40 Questions - 25% Weightage)",
+      "Practical Hands-on Workbook Tasks (Formula engineering & Data transformation - 35% Weightage)",
+      "Financial Modeling & Power Query / DAX Assessment (20% Weightage)",
+      "Industrial Capstone Project Evaluation & Viva (20% Weightage)"
+    ]
   },
   "segments": [
     {
       "segmentId": "basic",
-      "title": "Segment 1 - Excel Core Foundations (Beginner)",
+      "title": "Segment 1 - Excel Core Foundations & Interface Mastery (Beginner)",
       "level": "Beginner",
-      "summary": "Start from zero and build a strong foundation in Excel: interface, workbooks, data entry, basic formulas and simple charts.",
+      "summary": "Start from absolute zero and build an unshakeable foundation in Excel: spreadsheet architecture, ribbon ergonomics, efficient data entry, cell formatting, mathematical computation, and native charting.",
       "modules": [
         {
           "moduleId": "excel-intro",
-          "slug": "getting-started-with-excel",
+          "slug": "001_001_getting-started-with-excel",
           "title": "Getting Started with Excel",
           "level": "Beginner",
-          "estimatedHours": 3,
+          "estimatedHours": 4,
           "tags": [
             "what-is-excel",
             "interface",
-            "workbooks"
+            "workbooks",
+            "navigation",
+            "cell-references"
           ],
           "topics": [
             "What Excel is and where it is used in study and work",
@@ -51,63 +261,65 @@
             "Quick Check Quiz"
           ],
           "learningOutcomes": [
-            "Explain what Excel is and common use cases",
-            "Comfortably navigate the Excel interface and worksheets",
-            "Create, save and manage basic Excel workbooks"
+            "Explain spreadsheet architecture, grid coordinate systems, and core business use cases",
+            "Navigate workbooks efficiently using keyboard shortcuts, Name Box, and Go To Special",
+            "Create, save, protect, and manage multi-sheet Excel workbooks across local and cloud environments"
           ],
           "prerequisites": [],
           "difficulty": "Easy",
           "difficultyIndex": 1,
-          "summary": "Get comfortable with the Excel environment and learn to handle workbooks and worksheets.",
+          "summary": "Get completely comfortable with the Excel environment, ribbon customization, workbook structures, and fundamental navigation.",
           "miniProjects": [
-            "Mini Project: Create a simple personal expense sheet template"
+            "Mini Project: Build a structured Personal Expense & Monthly Budget template with categorized tabs"
           ],
           "exercises": {
-            "mcq": 10,
-            "coding": 6,
+            "mcq": 15,
+            "coding": 8,
             "projects": 1
           },
           "assessment": {
-            "type": "Quiz + Practical Tasks",
+            "type": "Quiz + Practical Workbook Tasks",
             "passScore": 70
           },
           "useCases": [
-            "Keeping small study or tuition records",
-            "Maintaining simple lists such as books, contacts or tasks"
+            "Personal finance, budget tracking, and bill management",
+            "Academic tuition tracking, student registers, and attendance logging"
           ],
           "careerSkills": [
-            "Confidently working in Excel at a basic level",
-            "Understanding how spreadsheets are used in offices"
+            "Fluent navigation and professional workspace management in Excel",
+            "Structuring tabular data cleanly to prevent downstream formula errors"
           ],
           "commonMistakes": [
-            "Forgetting to save work regularly",
-            "Typing data in random cells without structure"
+            "Saving workbooks in outdated compatibility formats (.xls instead of .xlsx)",
+            "Scattering data haphazardly across unaligned rows and columns"
           ],
           "references": [
-            "Microsoft Excel official quick start guide",
-            "Introductory Excel tutorials"
+            "Microsoft Excel Official Quick Start Guide",
+            "Excel 365 Bible - Chapter 1: Getting Started with Excel"
           ],
           "teachingTips": [
-            "Ask students to recreate a simple handwritten table inside Excel.",
-            "Compare a paper register with the same data in Excel."
+            "Have students replicate a physical paper register into a clean digital worksheet.",
+            "Emphasize the difference between cell display value and underlying formula bar value."
           ],
           "preReading": [
-            "Basic idea of what spreadsheets are and why they are used"
+            "Overview of tabular data concepts, rows, columns, and spreadsheet coordinates"
           ],
           "previousModule": null,
           "nextModule": "excel-data-entry-formatting",
-          "badge": "Excel Beginner Badge"
+          "badge": "Excel Explorer Badge"
         },
         {
           "moduleId": "excel-data-entry-formatting",
-          "slug": "data-entry-and-formatting",
+          "slug": "001_002_data-entry-editing-and-formatting",
           "title": "Data Entry, Editing and Formatting",
           "level": "Beginner",
           "estimatedHours": 5,
           "tags": [
             "data-entry",
             "formatting",
-            "cell-styles"
+            "number-formats",
+            "flash-fill",
+            "conditional-formatting"
           ],
           "topics": [
             "Best practices for data entry: headers, no blank columns, consistent formats",
@@ -122,22 +334,22 @@
             "Test Your Skill"
           ],
           "learningOutcomes": [
-            "Enter and clean up basic tabular data in Excel",
-            "Apply cell formatting to improve readability and presentation",
-            "Use AutoFill, Flash Fill and basic conditional formatting"
+            "Apply industry-standard data entry best practices ensuring data integrity and consistency",
+            "Format numbers, currencies, percentages, and custom date serials with precision",
+            "Leverage Flash Fill, AutoFill series, Format Painter, and built-in Conditional Formatting rules"
           ],
           "prerequisites": [
             "excel-intro"
           ],
           "difficulty": "Easy",
           "difficultyIndex": 2,
-          "summary": "Learn to enter, clean and format data clearly for further analysis.",
+          "summary": "Learn professional data entry hygiene, cell styling, custom number formatting, and visual conditional formatting.",
           "miniProjects": [
-            "Mini Project: Format a student marks sheet with conditional coloring for pass/fail"
+            "Mini Project: Format an Executive Student Marksheet with automatic pass/fail color-coding and highlight rules"
           ],
           "exercises": {
-            "mcq": 12,
-            "coding": 8,
+            "mcq": 15,
+            "coding": 10,
             "projects": 1
           },
           "assessment": {
@@ -145,42 +357,44 @@
             "passScore": 70
           },
           "useCases": [
-            "Creating neat classroom registers or attendance sheets",
-            "Formatting simple office lists such as inventory or contacts"
+            "Creating professional corporate reports, price lists, and employee directories",
+            "Highlighting overdue invoices, low stock items, and high-performing accounts automatically"
           ],
           "careerSkills": [
-            "Presenting data in a clean and professional format",
-            "Reducing mistakes in data entry through structure"
+            "Delivering boardroom-ready, visually polished spreadsheets",
+            "Preventing text-stored-as-numbers errors that corrupt calculation pipelines"
           ],
           "commonMistakes": [
-            "Storing numbers as text and causing calculation errors",
-            "Using merged cells in places that break sorting and filtering later"
+            "Using merged cells that break column sorting, filtering, and VBA automation",
+            "Storing numbers as text causing mathematical formulas to return zero or error"
           ],
           "references": [
-            "Excel documentation on cell formatting",
-            "Online resources on Flash Fill and AutoFill"
+            "Microsoft Support: Custom Number Formats Guide",
+            "Excel 365 Bible - Chapter 4: Formatting Worksheets"
           ],
           "teachingTips": [
-            "Show examples of bad formatting and ask students to fix them.",
-            "Encourage students to use consistent styles for headers and totals."
+            "Demonstrate how 'Center Across Selection' provides the visual look of merged cells without breaking tabular integrity.",
+            "Showcase Flash Fill pattern extraction with names and phone numbers."
           ],
           "preReading": [
             "Getting Started with Excel module"
           ],
           "previousModule": "excel-intro",
           "nextModule": "excel-basic-formulas",
-          "badge": "Data Entry Hero Badge"
+          "badge": "Data Styling Hero Badge"
         },
         {
           "moduleId": "excel-basic-formulas",
-          "slug": "basic-formulas-and-functions",
+          "slug": "001_003_basic-formulas-and-functions",
           "title": "Basic Formulas and Functions",
           "level": "Beginner",
           "estimatedHours": 6,
           "tags": [
             "formulas",
             "functions",
-            "basic-maths"
+            "relative-reference",
+            "absolute-reference",
+            "error-handling"
           ],
           "topics": [
             "Understanding formulas: equals sign, cell references and formula bar",
@@ -194,65 +408,68 @@
             "Test Your Skill"
           ],
           "learningOutcomes": [
-            "Write and copy simple formulas across ranges",
-            "Use common basic functions for totals and averages",
-            "Identify and fix common formula errors in Excel"
+            "Construct robust mathematical calculations using arithmetic operators and order of operations (BODMAS/PEMDAS)",
+            "Master relative (A1), absolute ($A$1), and mixed ($A1 / A$1) cell references when copying formulas",
+            "Utilize core summary functions (SUM, AVERAGE, MIN, MAX, COUNT, COUNTA) and diagnose calculation errors"
           ],
           "prerequisites": [
             "excel-data-entry-formatting"
           ],
           "difficulty": "Easy-Medium",
           "difficultyIndex": 3,
-          "summary": "Build the core skill of calculating and summarising data with formulas and basic functions.",
+          "summary": "Build core computational mastery: formula anatomy, referencing rules ($), basic statistical aggregators, and error diagnosis.",
           "miniProjects": [
-            "Mini Project: Build a simple monthly expense calculator with totals and averages"
+            "Mini Project: Build a Dynamic Multi-Store Monthly Sales & Commission Calculator with fixed tax rate referencing"
           ],
           "exercises": {
-            "mcq": 14,
-            "coding": 10,
+            "mcq": 16,
+            "coding": 12,
             "projects": 1
           },
           "assessment": {
-            "type": "Quiz + Practical Formula Sheet",
+            "type": "Quiz + Formula Calculation Lab",
             "passScore": 70
           },
           "useCases": [
-            "Calculating totals and averages for marks, sales or expenses",
-            "Quickly summarizing columns of data in reports"
+            "Monthly sales auditing, expense tracking, and salary slip calculations",
+            "Automated retail billing with tax computation and discount percentages"
           ],
           "careerSkills": [
-            "Confident basic calculation and summarization in Excel",
-            "Avoiding common mistakes when copying formulas"
+            "Flawless formula replication across thousands of rows using absolute references",
+            "Fast troubleshooting of standard spreadsheet error codes"
           ],
           "commonMistakes": [
-            "Breaking formulas after inserting or deleting rows and columns",
-            "Forgetting to use absolute references when needed (e.g. tax rate cell)"
+            "Forgetting absolute reference ($) on constant cells (e.g. tax rate, discount rate)",
+            "Using COUNT on text columns instead of COUNTA"
           ],
           "references": [
-            "Excel help on formulas and functions",
-            "Introductory tutorials on relative and absolute references"
+            "Microsoft Excel Functions Reference (SUM, AVERAGE, COUNT)",
+            "Microsoft Excel 365 Formulas and Functions - Chapter 2"
           ],
           "teachingTips": [
-            "Use real-life examples such as tuition fee calculation or small shop billing.",
-            "Ask students to predict formula results before hitting Enter."
+            "Use F4 key drill to toggle through A1 -> $A$1 -> A$1 -> $A1 -> A1.",
+            "Have students predict formula results before pressing Enter."
           ],
           "preReading": [
             "Data Entry, Editing and Formatting module"
           ],
           "previousModule": "excel-data-entry-formatting",
           "nextModule": "excel-basic-charts",
-          "badge": "Formula Starter Badge"
+          "badge": "Formula Wizard Badge"
         },
         {
           "moduleId": "excel-basic-charts",
-          "slug": "basic-charts-and-visualization",
+          "slug": "001_004_basic-charts-and-visualizations",
           "title": "Basic Charts and Visualizations",
           "level": "Beginner",
-          "estimatedHours": 4,
+          "estimatedHours": 5,
           "tags": [
             "charts",
             "visualization",
-            "presentation"
+            "column-chart",
+            "bar-chart",
+            "pie-chart",
+            "visual-storytelling"
           ],
           "topics": [
             "Why charts matter: seeing patterns and trends visually",
@@ -266,73 +483,75 @@
             "Quick Check Quiz"
           ],
           "learningOutcomes": [
-            "Create basic charts to represent data visually",
-            "Customize chart elements for better understanding",
-            "Choose suitable chart types for typical scenarios"
+            "Select the appropriate chart type for categorical comparisons, time-series trends, and proportions",
+            "Build and format Column, Bar, Line, Area, and Pie charts with custom styling and elements",
+            "Follow data visualization best practices to avoid 3D distortion and misleading axes"
           ],
           "prerequisites": [
             "excel-basic-formulas"
           ],
           "difficulty": "Easy-Medium",
-          "difficultyIndex": 4,
-          "summary": "Learn to convert raw numbers into clear visual stories using simple charts.",
+          "difficultyIndex": 3,
+          "summary": "Transform raw numeric tables into compelling, clear visual charts and management infographics.",
           "miniProjects": [
-            "Mini Project: Build a marks vs subject chart and attendance trend chart"
+            "Mini Project: Build a Quarterly Business Performance Visual Report with synchronized column and line charts"
           ],
           "exercises": {
-            "mcq": 10,
-            "coding": 6,
+            "mcq": 14,
+            "coding": 8,
             "projects": 1
           },
           "assessment": {
-            "type": "Quiz + Chart Creation Assignment",
+            "type": "Quiz + Charting Lab Assignment",
             "passScore": 70
           },
           "useCases": [
-            "Presenting marks, sales or performance in meetings",
-            "Making basic dashboards for school or small office"
+            "Sales trend visualization, quarterly revenue comparisons, and department expense breakdowns",
+            "Visualizing academic performance distribution across classrooms"
           ],
           "careerSkills": [
-            "Translating data into visuals that non-technical people understand",
-            "Choosing appropriate visuals for different messages"
+            "Visual communication of quantitative data to non-technical stakeholders",
+            "Designing clean, clutter-free charts tailored for executive presentations"
           ],
           "commonMistakes": [
-            "Using 3D or flashy charts that reduce clarity",
-            "Selecting wrong ranges and mixing totals with raw values"
+            "Using 3D pie charts with too many slices making comparisons impossible",
+            "Truncating the Y-axis without clear justification creating false visual variance"
           ],
           "references": [
-            "Excel charting documentation",
-            "Online resources on basic chart design"
+            "Storytelling with Data by Cole Nussbaumer Knaflic",
+            "Excel 365 Bible - Chapter 18: Creating Charts"
           ],
           "teachingTips": [
-            "Show both bad and good chart designs for the same data.",
-            "Ask students to present their chart to the class like a mini-report."
+            "Compare the same dataset in a table vs. column chart to illustrate instant pattern recognition.",
+            "Demonstrate how adjusting axis scales changes perception."
           ],
           "preReading": [
             "Basic Formulas and Functions module"
           ],
           "previousModule": "excel-basic-formulas",
-          "nextModule": null,
-          "badge": "Chart Creator Badge"
+          "nextModule": "excel-tables-filters",
+          "badge": "Visualization Artisan Badge"
         }
       ]
     },
     {
       "segmentId": "intermediate",
-      "title": "Segment 2 - Productivity and Data Handling (Intermediate)",
+      "title": "Segment 2 - Productivity, Functional Logic & Statistical Analysis (Intermediate)",
       "level": "Intermediate",
-      "summary": "Improve speed and accuracy with tables, sorting, filtering, text and date functions, conditional logic and lookup formulas.",
+      "summary": "Master structured tables, multi-condition logical formulas, text/date manipulation, comprehensive statistical distribution functions, lookups (VLOOKUP, INDEX-MATCH, XLOOKUP), and interactive Pivot Tables.",
       "modules": [
         {
           "moduleId": "excel-tables-filters",
-          "slug": "tables-sorting-filtering",
+          "slug": "002_001_tables-sorting-and-filtering",
           "title": "Tables, Sorting and Filtering",
           "level": "Intermediate",
           "estimatedHours": 5,
           "tags": [
-            "tables",
+            "excel-tables",
+            "structured-references",
             "sorting",
-            "filtering"
+            "autofilter",
+            "advanced-filter"
           ],
           "topics": [
             "Converting data ranges into Excel Tables",
@@ -346,210 +565,230 @@
             "Test Your Skill"
           ],
           "learningOutcomes": [
-            "Organize data into structured Excel Tables",
-            "Sort and filter data accurately for analysis",
-            "Remove duplicates and summarize data using Table features"
+            "Convert standard data ranges into dynamic Excel Tables (Ctrl+T) with auto-expanding ranges",
+            "Author formulas using clean structured references (`[@Salary] * [@[Tax Rate]]`)",
+            "Execute multi-level custom sorting, dynamic text/date filtering, and duplicate removal"
           ],
           "prerequisites": [
-            "excel-basic-formulas"
+            "excel-basic-charts"
           ],
           "difficulty": "Medium",
-          "difficultyIndex": 5,
-          "summary": "Handle real-world lists more efficiently with Tables, sorting and filtering.",
+          "difficultyIndex": 4,
+          "summary": "Harness the power of official Excel Tables, structured formula syntax, dynamic filtering, and multi-tier sorting.",
           "miniProjects": [
-            "Mini Project: Design a student or customer list with filters and totals"
+            "Mini Project: Build an Automated Inventory Ledger with structured table references and dynamic Total Row"
           ],
           "exercises": {
-            "mcq": 12,
-            "coding": 8,
+            "mcq": 15,
+            "coding": 10,
             "projects": 1
           },
           "assessment": {
-            "type": "Quiz + Practical List Management Task",
-            "passScore": 70
+            "type": "Quiz + Practical Table Assignment",
+            "passScore": 75
           },
           "useCases": [
-            "Filtering student lists by class, grade or status",
-            "Sorting sales data by region, product or salesperson"
+            "Managing large customer databases, sales logs, and inventory registers",
+            "Feeding dynamic, auto-expanding datasets into Pivot Tables and Lookups"
           ],
           "careerSkills": [
-            "Quickly answering questions from large lists",
-            "Keeping data well-structured for future reporting"
+            "Writing self-documenting formulas using structured table syntax",
+            "Rapid data segmentation and anomaly identification via smart filters"
           ],
           "commonMistakes": [
-            "Sorting only one column and misaligning data",
-            "Leaving blank rows and columns that break Tables"
+            "Leaving blank rows or columns inside tables which disrupts structured reference bounds",
+            "Mixing raw cell coordinates (A2:A100) instead of table column names inside table formulas"
           ],
           "references": [
-            "Excel documentation on Tables and filters",
-            "Articles on list cleaning and duplicate removal"
+            "Microsoft Support: Using Structured References with Excel Tables",
+            "Excel 365 Bible - Chapter 6: Working with Tables"
           ],
           "teachingTips": [
-            "Show wrong sorting examples and their consequences.",
-            "Use real-style datasets with 100+ rows to practice."
+            "Show how adding a new row to an Excel Table instantly propagates formatting and formulas automatically.",
+            "Demonstrate multi-column sort with custom list ordering (e.g. Low, Medium, High)."
           ],
           "preReading": [
             "Basic Charts and Visualizations module"
           ],
-          "previousModule": null,
+          "previousModule": "excel-basic-charts",
           "nextModule": "excel-text-date-functions",
-          "badge": "Data Organizer Badge"
+          "badge": "Table Architect Badge"
         },
         {
           "moduleId": "excel-text-date-functions",
-          "slug": "text-date-time-functions",
+          "slug": "002_002_text-date-and-time-functions",
           "title": "Text, Date and Time Functions",
           "level": "Intermediate",
-          "estimatedHours": 5,
+          "estimatedHours": 6,
           "tags": [
             "text-functions",
-            "date-time",
-            "cleaning"
+            "date-functions",
+            "time-calculations",
+            "textjoin",
+            "datedif",
+            "textsplit"
           ],
           "topics": [
-            "Understanding how Excel stores dates and times internally",
-            "Essential date functions: TODAY, NOW, DAY, MONTH, YEAR, EOMONTH",
-            "Calculating age, tenure and durations using dates",
-            "Text functions: LEFT, RIGHT, MID, LEN, TRIM, UPPER, LOWER, PROPER",
-            "Combining text using CONCAT, TEXTJOIN and ampersand (&)",
-            "Using TEXT function for custom date and number formatting in formulas",
-            "Practical cleaning examples: splitting full names, cleaning spaces, fixing case",
-            "Practice These Topics",
-            "Quick Check Quiz"
+            "Text manipulation essentials: UPPER, LOWER, PROPER, TRIM, and CLEAN",
+            "Substring extraction: LEFT, RIGHT, MID, LEN, and FIND vs SEARCH",
+            "Concatenation strategies: CONCAT, TEXTJOIN with custom delimiters, and the & operator",
+            "Number-to-text formatting with the TEXT function (custom number formats, currency, dates)",
+            "Date serial numbering in Excel: DATE, DAY, MONTH, YEAR, and TODAY",
+            "Working day calculations: WORKDAY, WORKDAY.INTL, NETWORKDAYS, and NETWORKDAYS.INTL",
+            "Date differences and milestone calculations: DATEDIF and YEARFRAC",
+            "Time calculations: TIME, HOUR, MINUTE, SECOND, NOW, and handling elapsed hours (>24h)",
+            "Modern text manipulation: TEXTBEFORE, TEXTAFTER, and TEXTSPLIT",
+            "Replacing and substituting strings: REPLACE and SUBSTITUTE",
+            "Converting text strings to numeric values: VALUE, NUMBERVALUE, and DATEVALUE",
+            "Real-world case study: Parsing messy customer names, addresses, and timestamps",
+            "Practice: Employee shift duration and overtime calculator",
+            "Assessment: Advanced Text and Date Functions Challenge"
           ],
           "learningOutcomes": [
-            "Work with dates and times correctly in Excel formulas",
-            "Use text functions to clean and transform data",
-            "Combine text and dates for reporting and labels"
+            "Sanitize messy text data by stripping whitespace, unprintable characters, and standardizing casing",
+            "Parse, extract, and split delimited strings using LEFT, MID, FIND, TEXTBEFORE, TEXTAFTER, and TEXTSPLIT",
+            "Perform complex calendar arithmetic, business working day calculations, and elapsed hour computations"
           ],
           "prerequisites": [
             "excel-tables-filters"
           ],
           "difficulty": "Medium",
-          "difficultyIndex": 6,
-          "summary": "Clean and prepare text and date fields for proper analysis and reporting.",
+          "difficultyIndex": 4,
+          "summary": "Master comprehensive text parsing, string concatenation, date serial math, and working day engineering.",
           "miniProjects": [
-            "Mini Project: Take a messy contact list and clean names, dates and labels"
+            "Mini Project: Build an Automated HR Attendance, Shift Overtime & Tenure Calculation Engine"
           ],
           "exercises": {
-            "mcq": 14,
-            "coding": 10,
+            "mcq": 18,
+            "coding": 14,
             "projects": 1
           },
           "assessment": {
-            "type": "Quiz + Practical Data Cleaning Task",
-            "passScore": 70
+            "type": "Quiz + String & Date Processing Lab",
+            "passScore": 75
           },
           "useCases": [
-            "Calculating ages or service durations from date of birth/joining",
-            "Preparing clean names and labels for reports"
+            "Cleaning raw ERP exports, splitting full names into First/Last, extracting phone numbers",
+            "Project milestone scheduling, service level agreement (SLA) countdowns, and loan maturity tracking"
           ],
           "careerSkills": [
-            "Data cleaning for HR, sales or academic records",
-            "Reducing manual correction of messy inputs"
+            "Data wrangling and ETL cleansing before feeding data into reporting models",
+            "Handling international date format discrepancies and elapsed time accounting"
           ],
           "commonMistakes": [
-            "Treating text dates as real dates without conversion",
-            "Not accounting for regional date formats (dd/mm vs mm/dd)"
+            "Confusing FIND (case-sensitive) with SEARCH (case-insensitive)",
+            "Using standard formatting on elapsed hours over 24 instead of `[h]:mm`"
           ],
           "references": [
-            "Excel date and time function references",
-            "Text function examples from documentation"
+            "Microsoft Excel Text and Date Functions Documentation",
+            "Excel 365 Formulas and Functions - Chapters 5 & 6"
           ],
           "teachingTips": [
-            "Show how incorrect date formats break calculations.",
-            "Give mixed-case, extra-space text data to clean using formulas."
+            "Explain that Excel stores dates as integers (days since Jan 1, 1900) and time as decimal fractions.",
+            "Demonstrate how TEXTJOIN ignores empty cells when merging multiple address lines."
           ],
           "preReading": [
             "Tables, Sorting and Filtering module"
           ],
           "previousModule": "excel-tables-filters",
           "nextModule": "excel-conditional-logic",
-          "badge": "Data Cleaner Badge"
+          "badge": "String & Date Master Badge"
         },
         {
           "moduleId": "excel-conditional-logic",
-          "slug": "conditional-logic-if-functions",
+          "slug": "002_003_conditional-logic-with-if-and-related-functions",
           "title": "Conditional Logic with IF and Related Functions",
           "level": "Intermediate",
-          "estimatedHours": 5,
+          "estimatedHours": 6,
           "tags": [
-            "if",
-            "logical-functions",
-            "conditions"
+            "if-function",
+            "nested-if",
+            "ifs",
+            "switch",
+            "and-or",
+            "iferror",
+            "boolean-logic"
           ],
           "topics": [
-            "Basic IF function: syntax and examples",
-            "Using relational operators inside IF",
-            "Nested IF vs IFS for multi-level decisions",
-            "Logical functions: AND, OR, NOT inside IF",
-            "Building grading systems, tax slabs and commission rules",
-            "Combining IF with text and date conditions",
-            "Error handling using IFERROR and IFNA",
-            "Practice These Topics",
-            "Test Your Skill"
+            "Boolean fundamentals in Excel: TRUE, FALSE, comparison operators, and ISBLANK/ISNUMBER",
+            "Single condition evaluation with the IF function",
+            "Compound logical conditions with AND, OR, and NOT functions",
+            "Mastering Nested IF formulas and avoiding deeply nested formula pitfalls",
+            "Modern multi-condition evaluation with the IFS function",
+            "Value branching and condition mapping with the SWITCH function",
+            "Error interception and handling: IFERROR, IFNA, and ISERROR",
+            "Array-based conditional logic and Boolean arithmetic (0/1 multiplication)",
+            "Dynamic threshold scoring and tier classification systems",
+            "Conditional formatting using custom logical formulas",
+            "Combining logical functions with SUM, AVERAGE, and LOOKUP functions",
+            "Real-world case study: Automated student grade generator with honors and pass/fail rules",
+            "Real-world case study: Progressive income tax bracket calculation using nested logic",
+            "Practice Lab: Multi-tier sales commission and bonus calculation matrix"
           ],
           "learningOutcomes": [
-            "Write conditional formulas using IF for different scenarios",
-            "Combine logical functions with IF for complex rules",
-            "Handle errors gracefully using IFERROR or IFNA"
+            "Construct robust branching logic using IF, AND, OR, NOT, IFS, and SWITCH functions",
+            "Shield reports from disruptive error codes using IFERROR, IFNA, and ISBLANK gracefully",
+            "Implement multi-tier business rules such as progressive income tax brackets and tiered volume commissions"
           ],
           "prerequisites": [
             "excel-text-date-functions"
           ],
           "difficulty": "Medium",
-          "difficultyIndex": 7,
-          "summary": "Implement business rules and conditions in Excel using IF and logical functions.",
+          "difficultyIndex": 5,
+          "summary": "Master decision-making formulas, compound boolean expressions, nested conditions, and error shielding.",
           "miniProjects": [
-            "Mini Project: Create a grading and scholarship eligibility sheet with rules"
+            "Mini Project: Build an Automated Progressive Income Tax & Surcharge Computation Engine"
           ],
           "exercises": {
-            "mcq": 14,
-            "coding": 10,
+            "mcq": 18,
+            "coding": 14,
             "projects": 1
           },
           "assessment": {
-            "type": "Quiz + Conditional Logic Worksheet",
+            "type": "Quiz + Logical Rules Modeling Lab",
             "passScore": 75
           },
           "useCases": [
-            "Automating pass/fail, promotion, discount and eligibility decisions",
-            "Building simple rule-based calculators inside Excel"
+            "Automated credit scoring, loan qualification approval, and customer credit tiering",
+            "Dynamic pricing rules based on customer loyalty status and purchase volume"
           ],
           "careerSkills": [
-            "Translating policy and rules into Excel logic",
-            "Reducing manual decision-making by encoding rules"
+            "Translating complex business decision trees into robust, maintainable spreadsheet logic",
+            "Error-proofing mission-critical spreadsheets for non-technical users"
           ],
           "commonMistakes": [
-            "Creating very long nested IF formulas without planning",
-            "Not testing boundary conditions (equal to vs greater than)"
+            "Nesting too many IFs when a clean SWITCH, IFS, or lookup table is significantly faster and cleaner",
+            "Wrapping entire formulas in generic IFERROR that masks legitimate typo errors during debugging"
           ],
           "references": [
-            "Excel IF and logical functions documentation",
-            "Practical examples of nested IF and IFS"
+            "Microsoft Support: IF function advanced usage",
+            "Excel 365 Bible - Chapter 8: Logical Functions"
           ],
           "teachingTips": [
-            "Ask students to write rule descriptions in plain language first, then convert.",
-            "Start with small rules and gradually increase complexity."
+            "Draw a flowchart before writing nested IF statements.",
+            "Demonstrate SWITCH function as a clean replacement for repetitive exact-match IF chains."
           ],
           "preReading": [
             "Text, Date and Time Functions module"
           ],
           "previousModule": "excel-text-date-functions",
           "nextModule": "excel-statistical-functions",
-          "badge": "Logic Builder Badge"
+          "badge": "Logic Architect Badge"
         },
         {
           "moduleId": "excel-statistical-functions",
-          "slug": "statistical-functions-analysis",
+          "slug": "002_004_statistical-functions-for-data-analysis",
           "title": "Statistical Functions for Data Analysis",
           "level": "Intermediate",
-          "estimatedHours": 5,
+          "estimatedHours": 10,
           "tags": [
-            "statistics",
-            "analysis",
-            "variance",
-            "correlation"
+            "statistical-functions",
+            "sumifs",
+            "countifs",
+            "averageifs",
+            "standard-deviation",
+            "correlation",
+            "forecasting"
           ],
           "topics": [
             "Revision: SUM Function",
@@ -593,75 +832,68 @@
             "Test Your Skill"
           ],
           "learningOutcomes": [
-            "Calculate and interpret standard descriptive statistics in Excel",
-            "Use conditional statistical functions to answer targeted questions",
-            "Apply correlation and basic linear forecasting to real data",
-            "Identify outliers and understand data spread using variance and percentiles"
+            "Execute multi-condition conditional aggregation using SUMIFS, COUNTIFS, and AVERAGEIFS with dynamic criteria",
+            "Calculate central tendencies and dispersion metrics: STDEV.S, STDEV.P, VAR.S, MEDIAN, and MODE.MULT",
+            "Perform percentile ranking, outlier detection (IQR method), correlation analysis (CORREL), and linear forecasting"
           ],
           "prerequisites": [
             "excel-conditional-logic"
           ],
-          "difficulty": "Medium",
-          "difficultyIndex": 7.5,
-          "summary": "Go beyond basic averages and learn to analyse data like a statistician – using variance, correlation, conditional aggregations and simple forecasting.",
+          "difficulty": "Medium-Hard",
+          "difficultyIndex": 6,
+          "summary": "In-depth statistical modeling, conditional aggregations (SUMIFS/COUNTIFS), variance analysis, ranking, and predictive forecasting across 39 comprehensive topics.",
           "miniProjects": [
-            "Mini Project: Analyse a sales or student dataset – find median, standard deviation, correlation between study hours and marks, and forecast next period value"
+            "Mini Project: Build a Statistical Quality Control & Outlier Detection Dashboard with dynamic standard deviation bands"
           ],
           "exercises": {
-            "mcq": 15,
-            "coding": 10,
-            "projects": 1
+            "mcq": 30,
+            "coding": 25,
+            "projects": 2
           },
           "assessment": {
-            "type": "Quiz + Practical Statistical Analysis Task",
+            "type": "Comprehensive Statistical Lab & MCQs",
             "passScore": 75
           },
           "useCases": [
-            "Analysing exam score consistency (standard deviation) across subjects",
-            "Finding correlation between advertising spend and sales",
-            "Forecasting next month's revenue using historical data",
-            "Identifying top/bottom performing products with LARGE/SMALL"
+            "Financial risk assessment, sales variance analysis, and KPI distribution modeling",
+            "Manufacturing quality control, defect rate tracking, and customer survey analysis"
           ],
           "careerSkills": [
-            "Data-driven decision making using statistical summaries",
-            "Preparing data for business intelligence reports",
-            "Understanding variability and relationships in datasets"
+            "Quantitative data analysis and hypothesis validation in corporate environments",
+            "Extracting Top/Bottom performers and predicting quarterly trends accurately"
           ],
           "commonMistakes": [
-            "Confusing population (STDEV.P) vs sample (STDEV.S) standard deviation",
-            "Using correlation to imply causation without context",
-            "Not cleaning data (removing blanks/text) before statistical functions"
+            "Using STDEV.P on sample data instead of STDEV.S resulting in biased standard deviations",
+            "Mismatched range sizes in SUMIFS criteria ranges vs sum range causing formula failure"
           ],
           "references": [
-            "Excel statistical functions documentation",
-            "Khan Academy statistics basics (complementary)"
+            "Excel Data Analysis For Dummies - Chapter 4: Statistical Analysis",
+            "Microsoft Excel 365 Formulas and Functions - Chapter 12: Statistical Functions"
           ],
           "teachingTips": [
-            "Compare AVERAGE vs MEDIAN with skewed data (e.g. income).",
-            "Show how correlation works with scatter plots before using CORREL.",
-            "Use real-world data: sports scores, weather, sales."
+            "Demonstrate how wildcards (* and ?) work inside SUMIFS and COUNTIFS criteria.",
+            "Plot standard deviation normal curve overlays on real examination score distributions."
           ],
           "preReading": [
             "Conditional Logic with IF and Related Functions module"
           ],
           "previousModule": "excel-conditional-logic",
-          "nextModule": "excel-lookup-basics",
+          "nextModule": "excel-lookup-functions-advanced",
           "badge": "Statistical Analyst Badge"
         },
         {
           "moduleId": "excel-lookup-functions-advanced",
-          "slug": "lookup-functions-vlookup-hlookup-index-match-xlookup",
+          "slug": "002_005_lookup-functions-vlookup-hlookup-index-match-and-xlookup",
           "title": "Lookup Functions: VLOOKUP, HLOOKUP, INDEX-MATCH and XLOOKUP",
           "level": "Intermediate",
           "estimatedHours": 8,
           "tags": [
-            "lookup",
             "vlookup",
             "hlookup",
             "index-match",
             "xlookup",
-            "data-retrieval",
-            "reference-functions"
+            "two-way-lookup",
+            "approximate-match"
           ],
           "topics": [
             "Understanding Lookup Functions and Reference Tables",
@@ -687,800 +919,1977 @@
             "Test Your Skill"
           ],
           "learningOutcomes": [
-            "Retrieve data from reference tables using VLOOKUP",
-            "Perform horizontal lookups using HLOOKUP",
-            "Use INDEX-MATCH for flexible and powerful lookups",
-            "Understand modern XLOOKUP functionality",
-            "Handle lookup errors professionally using IFERROR",
-            "Create cross-sheet and multi-table lookup solutions",
-            "Build dynamic lookup-based reports and dashboards"
+            "Master exact and approximate lookups using VLOOKUP, HLOOKUP, INDEX-MATCH, and modern XLOOKUP",
+            "Build dynamic two-way matrix lookups (row + column intersection) and multi-criteria queries",
+            "Optimize lookup performance on large datasets and handle missing values seamlessly"
           ],
           "prerequisites": [
             "excel-statistical-functions"
           ],
-          "difficulty": "Medium",
-          "difficultyIndex": 8,
-          "summary": "Learn how to connect and retrieve data from multiple tables using Excel's lookup and reference functions. Master VLOOKUP, INDEX-MATCH and modern XLOOKUP techniques used in business reporting and data analysis.",
+          "difficulty": "Medium-Hard",
+          "difficultyIndex": 6,
+          "summary": "Master all relational lookup paradigms: VLOOKUP, HLOOKUP, 2-Way INDEX-MATCH, and next-gen XLOOKUP with fallback handling across 21 structured topics.",
           "miniProjects": [
-            "Student Information System using VLOOKUP",
-            "Employee Salary Sheet linked to Master Data Table",
-            "Product Price List with Automatic Rate Fetching",
-            "Sales Dashboard using INDEX-MATCH",
-            "Customer Lookup System with XLOOKUP"
+            "Mini Project: Build an Automated Multi-Tier Price & Product Catalog Lookup Engine with dynamic discount matrices"
           ],
           "exercises": {
             "mcq": 25,
-            "coding": 15,
-            "projects": 5
+            "coding": 20,
+            "projects": 2
           },
           "assessment": {
-            "type": "Quiz + Practical Lookup Workbook",
+            "type": "Quiz + Relational Lookup Engineering Lab",
             "passScore": 75
           },
           "useCases": [
-            "Fetching student details from admission numbers",
-            "Retrieving employee information from HR master sheets",
-            "Linking product prices to invoices",
-            "Generating salary sheets from employee databases",
-            "Creating dynamic business reports",
-            "Building dashboard source tables"
+            "Merging customer profiles with sales transactions across different sheets",
+            "Tax bracket lookups, commission tier determinations, and inventory SKU price retrieval"
           ],
           "careerSkills": [
-            "Data Analysis",
-            "MIS Reporting",
-            "Business Data Management",
-            "Excel Automation",
-            "Reference Table Management",
-            "Data Validation and Accuracy"
+            "Relational data linking and dynamic reference architecture in spreadsheets",
+            "Troubleshooting data type mismatches (text numbers vs numeric numbers) in lookups"
           ],
           "commonMistakes": [
-            "Using approximate match instead of exact match",
-            "Not locking table arrays with absolute references",
-            "Using wrong column index numbers",
-            "Duplicate IDs causing incorrect results",
-            "Lookup value data type mismatch",
-            "Not handling #N/A errors properly",
-            "Using VLOOKUP when INDEX-MATCH is more suitable"
+            "Hardcoding column index numbers in VLOOKUP which break whenever new columns are inserted",
+            "Omitting the exact match argument (0 / FALSE) in VLOOKUP resulting in false match lookups"
           ],
           "references": [
-            "Microsoft Excel Documentation for VLOOKUP",
-            "Microsoft Excel Documentation for XLOOKUP",
-            "Microsoft Excel Documentation for INDEX and MATCH",
-            "ExcelJet Lookup Function Guides",
-            "Practical Business Reporting Tutorials"
+            "Microsoft Support: XLOOKUP function comprehensive reference",
+            "Excel 365 Bible - Chapter 9: Lookup and Reference Functions"
           ],
           "teachingTips": [
-            "Demonstrate real-world master data examples.",
-            "Show common VLOOKUP mistakes and how to fix them.",
-            "Compare VLOOKUP, INDEX-MATCH and XLOOKUP side by side.",
-            "Use employee, student and inventory datasets.",
-            "Emphasize data cleaning before performing lookups."
+            "Show why XLOOKUP eliminates left-lookup limitations and column index counting entirely.",
+            "Teach INDEX(MATCH) as a two-dimensional grid coordinate retrieval system."
           ],
           "preReading": [
-            "Statistical Functions for Data Analysis",
-            "Working with Large Datasets"
+            "Statistical Functions for Data Analysis module"
           ],
           "previousModule": "excel-statistical-functions",
           "nextModule": "excel-pivot-intro",
-          "badge": "Lookup Master Badge"
+          "badge": "Lookup Grandmaster Badge"
         },
         {
           "moduleId": "excel-pivot-intro",
-          "slug": "intro-pivot-tables",
+          "slug": "002_006_introduction-to-pivot-tables-and-pivot-charts",
           "title": "Introduction to Pivot Tables and Pivot Charts",
           "level": "Intermediate",
-          "estimatedHours": 5,
+          "estimatedHours": 6,
           "tags": [
             "pivot-tables",
             "pivot-charts",
-            "summaries"
+            "slicers",
+            "timelines",
+            "calculated-fields",
+            "data-summarization"
           ],
           "topics": [
-            "What pivot tables are and when to use them",
-            "Creating a pivot table from a data range or Table",
-            "Arranging fields in rows, columns, values and filters",
-            "Summarizing data by counts, sums and averages",
-            "Sorting and filtering pivot tables",
-            "Creating basic pivot charts from pivot tables",
-            "Refreshing pivot tables when data changes",
-            "Practice These Topics",
-            "Quick Check Quiz"
+            "Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization",
+            "Preparing source data for Pivot Tables: Flat tables vs Matrix layouts",
+            "Creating Pivot Tables: Fields list, Rows, Columns, Values, and Filters areas",
+            "Value field settings: Sum, Count, Average, Min, Max, and Distinct Count (Data Model)",
+            "Showing values as: % of Grand Total, % of Column/Row, Difference From, Running Total",
+            "Grouping data in Pivot Tables: Grouping dates (Years, Quarters, Months), Numbers, and Text",
+            "Calculated Fields and Calculated Items: Adding custom business logic",
+            "Sorting and filtering Pivot Tables: Top 10 filters, Label filters, and Value filters",
+            "Interactive filtering with Slicers and multi-pivot slicer connections",
+            "Time-series filtering with Timelines",
+            "Designing Pivot Charts: Column, Bar, Line, and Combo pivot charts",
+            "Formatting and Layout options: Compact, Outline, Tabular forms, and blank rows",
+            "Refreshing data, updating data sources, and dynamic table references",
+            "Real-world project: Building a 12-month commercial sales performance pivot report"
           ],
           "learningOutcomes": [
-            "Create pivot tables to summarize large datasets quickly",
-            "Change pivot layouts to answer different questions",
-            "Use pivot charts for dynamic visual summaries"
+            "Transform large multi-thousand-row transaction logs into multidimensional summary reports in seconds",
+            "Configure custom aggregations, percentage of totals, running totals, and date groupings (Year/Quarter/Month)",
+            "Build interactive analytical dashboards powered by interconnected Slicers, Timelines, and dynamic Pivot Charts"
           ],
           "prerequisites": [
-            "excel-lookup-basics"
+            "excel-lookup-functions-advanced"
           ],
           "difficulty": "Medium",
-          "difficultyIndex": 9,
-          "summary": "Use pivot tables to answer questions from larger datasets without manual formulas.",
+          "difficultyIndex": 5,
+          "summary": "Master dynamic data summarization, multi-level grouping, calculated fields, slicer panels, and interactive Pivot Charts.",
           "miniProjects": [
-            "Mini Project: Create a pivot-based sales or marks summary with multiple views"
+            "Mini Project: Build an Interactive Multi-Region Sales & Profitability Pivot Dashboard with connected Slicers"
           ],
           "exercises": {
-            "mcq": 14,
-            "coding": 8,
+            "mcq": 18,
+            "coding": 12,
             "projects": 1
           },
           "assessment": {
-            "type": "Quiz + Pivot Report Assignment",
+            "type": "Quiz + Pivot Table Data Analysis Lab",
             "passScore": 75
           },
           "useCases": [
-            "Summarizing sales by product, region or month",
-            "Summarizing marks by subject, teacher or class"
+            "Executive sales reviews, monthly expense variance analysis, and customer segment profiling",
+            "Inventory turnover analysis and regional revenue contribution breakdowns"
           ],
           "careerSkills": [
-            "Answering questions from large data quickly using pivots",
-            "Creating simple interactive summary reports"
+            "Rapid data exploration and executive presentation generation without writing complex formulas",
+            "Building self-serve interactive reports for business managers"
           ],
           "commonMistakes": [
-            "Forgetting to refresh pivot tables after data updates",
-            "Using poorly structured source data for pivot tables"
+            "Building Pivot Tables from non-flat source data containing merged cells or empty header rows",
+            "Forgetting to refresh Pivot Tables after underlying database source records update"
           ],
           "references": [
-            "Pivot table tutorials in Excel documentation",
-            "Online videos demonstrating pivot tables for analysis"
+            "Excel 365 Bible - Chapters 20 & 21: Analyzing Data with Pivot Tables",
+            "Microsoft Support: Create a PivotTable to analyze worksheet data"
           ],
           "teachingTips": [
-            "Start with a simple sales dataset and build multiple pivot views.",
-            "Encourage students to ask their own questions and answer using pivots."
+            "Always convert source data into an official Excel Table before creating a Pivot Table so range updates are automatic.",
+            "Demonstrate 'Show Values As > % of Column Total' for instant Pareto understanding."
           ],
           "preReading": [
-            "Lookup Functions: VLOOKUP, HLOOKUP and INDEX-MATCH (Intro) module"
+            "Lookup Functions module"
           ],
-          "previousModule": "excel-lookup-basics",
-          "nextModule": null,
-          "badge": "Pivot Starter Badge"
+          "previousModule": "excel-lookup-functions-advanced",
+          "nextModule": "excel-financial-functions",
+          "badge": "Pivot Table Champion Badge"
         }
       ]
     },
     {
       "segmentId": "advanced",
-      "title": "Segment 3 - Analysis and Reporting (Advanced)",
+      "title": "Segment 3 - Advanced Business Modeling, Data Integrity & Optimization (Advanced)",
       "level": "Advanced",
-      "summary": "Build advanced analysis and reporting skills with data validation, data cleaning, what-if analysis and basic dashboards.",
+      "summary": "Master corporate financial engineering (PMT, XNPV, XIRR, DCF), data validation, formula auditing, What-If sensitivity modeling, Excel Solver optimization, and executive KPI dashboard architecture.",
       "modules": [
         {
           "moduleId": "excel-financial-functions",
-          "slug": "financial-functions-basic-to-advanced",
+          "slug": "003_001_financial-functions-in-excel-basic-to-professional",
           "title": "Financial Functions in Excel (Basic to Professional)",
-          "level": "Beginner to Advanced",
+          "level": "Advanced",
           "estimatedHours": 10,
           "tags": [
-            "finance",
-            "emi",
-            "loan",
-            "investment",
-            "npv",
-            "irr"
+            "financial-modeling",
+            "pmt",
+            "xnpv",
+            "xirr",
+            "amortization",
+            "dcf-valuation",
+            "depreciation"
           ],
           "topics": [
-            "Introduction to Financial Functions in Excel",
-            "Understanding Time Value of Money (TVM)",
-            "Future Value (FV) – Investment growth calculation",
-            "Present Value (PV) – Current worth of future money",
-            "PMT – EMI calculation for loans",
-            "RATE – Interest rate calculation",
-            "NPER – Number of periods calculation",
-            "IPMT & PPMT – Interest and Principal breakdown",
-            "NPV – Net Present Value for projects",
-            "IRR – Internal Rate of Return",
-            "XNPV & XIRR – Advanced irregular cash flow analysis",
-            "Creating Loan EMI Calculator (Practical)",
-            "Investment Planning Sheet",
-            "Break-even & Profitability Analysis",
-            "Financial Dashboard (Mini Project)"
+            "Time Value of Money (TVM) principles: Present Value, Future Value, and Interest Rates",
+            "Loan payment computation with PMT, PPMT (Principal), and IPMT (Interest)",
+            "Cumulative loan interest and principal: CUMIPMT and CUMPRINC",
+            "Designing a dynamic Loan Amortization Schedule with extra payment simulation",
+            "Investment appraisal: Net Present Value (NPV) and Present Value (PV)",
+            "Real-world irregular cash flow valuation with XNPV",
+            "Internal Rate of Return (IRR) vs Modified Internal Rate of Return (MIRR)",
+            "Precise irregular cash flow return computation with XIRR",
+            "Nominal vs Effective interest rates: NOMINAL and EFFECTIVE functions",
+            "Bond valuation and yield calculation: YIELD, PRICE, DURATION, and MDURATION",
+            "Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD",
+            "Building a multi-period Discounted Cash Flow (DCF) company valuation model",
+            "Working Capital and Free Cash Flow to Firm (FCFF) financial engineering",
+            "Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value",
+            "Advanced financial modeling best practices: Color coding, dynamic inputs, and auditing",
+            "Real-world case study: Commercial real estate investment appraisal model",
+            "Practice: Corporate equipment lease vs purchase decision matrix",
+            "Assessment: Comprehensive Financial Valuation & Amortization Lab"
           ],
           "learningOutcomes": [
-            "Understand time value of money concepts",
-            "Calculate EMI, interest, and investment growth",
-            "Evaluate business projects using NPV and IRR",
-            "Build real-life financial models in Excel"
-          ],
-          "difficulty": "Medium-Advanced",
-          "difficultyIndex": 8.5,
-          "miniProjects": [
-            "Loan EMI Calculator",
-            "Personal Investment Planner",
-            "Business Project Evaluation using NPV & IRR"
-          ],
-          "exercises": {
-            "mcq": 20,
-            "coding": 12,
-            "projects": 2
-          },
-          "assessment": {
-            "type": "Practical Financial Model + Quiz",
-            "passScore": 75
-          }
-        },
-        {
-          "moduleId": "excel-data-validation-cleaning",
-          "slug": "data-validation-and-cleaning",
-          "title": "Data Validation, Protection and Cleaning Techniques",
-          "level": "Advanced",
-          "estimatedHours": 5,
-          "tags": [
-            "data-validation",
-            "cleaning",
-            "protection"
-          ],
-          "topics": [
-            "Using Data Validation for drop-down lists and allowed ranges",
-            "Preventing invalid data entry with custom rules",
-            "Input messages and error alerts for better user guidance",
-            "Using Find & Replace, Go To Special and filters for cleaning data",
-            "Protecting sheets and workbooks with passwords appropriately",
-            "Working with comments, notes and basic documentation in sheets",
-            "Practical examples: controlled data entry templates",
-            "Practice These Topics",
-            "Test Your Skill"
-          ],
-          "learningOutcomes": [
-            "Build templates that reduce data entry mistakes",
-            "Clean and correct existing datasets efficiently",
-            "Apply basic protection to prevent accidental edits"
+            "Model complete loan amortization schedules with dynamic principal/interest breakdowns using PMT, PPMT, and IPMT",
+            "Conduct capital budgeting and corporate investment appraisal using NPV, XNPV, IRR, XIRR, and MIRR",
+            "Build complete Discounted Cash Flow (DCF) valuation models with dynamic terminal growth and WACC sensitivities"
           ],
           "prerequisites": [
             "excel-pivot-intro"
           ],
-          "difficulty": "Medium-Advanced",
-          "difficultyIndex": 10,
-          "summary": "Control data quality and prevent common errors before they spread.",
+          "difficulty": "Hard",
+          "difficultyIndex": 7,
+          "summary": "Master corporate financial mathematics: TVM equations, dynamic loan amortization, capital budgeting (XNPV/XIRR), and multi-scenario DCF company valuation.",
           "miniProjects": [
-            "Mini Project: Design a controlled data entry form with proper validation rules"
+            "Mini Project: Build an Institutional-Grade 5-Year DCF Company Valuation & Sensitivity Matrix Model"
           ],
           "exercises": {
-            "mcq": 14,
-            "coding": 10,
-            "projects": 1
+            "mcq": 20,
+            "coding": 15,
+            "projects": 2
           },
           "assessment": {
-            "type": "Quiz + Template Building Assignment",
+            "type": "Financial Valuation Model Submission + Viva",
             "passScore": 75
           },
           "useCases": [
-            "Building controlled HR, admission or registration forms in Excel",
-            "Reducing data cleaning time for recurring reports"
+            "Corporate finance M&A valuation, venture capital investment analysis, and startup financial forecasting",
+            "Banking loan underwriting, residential mortgage amortization, and corporate bond portfolio management"
           ],
           "careerSkills": [
-            "Creating reusable, error-resistant Excel templates",
-            "Implementing simple governance on data entry and structure"
+            "Wall Street-grade financial modeling following FAST standard conventions",
+            "Rigorous capital budgeting and risk-adjusted return evaluation"
           ],
           "commonMistakes": [
-            "Overprotecting sheets and blocking legitimate edits",
-            "Not updating validation rules when requirements change"
+            "Mixing annual interest rates with monthly period counts without dividing rate by 12",
+            "Using regular NPV on cash flows with irregular calendar dates instead of XNPV"
           ],
           "references": [
-            "Excel data validation documentation",
-            "Articles on sheet protection best practices"
+            "Financial Analysis and Modeling Using Excel and VBA by Chandan Sengupta",
+            "Mastering Financial Modelling in Microsoft Excel by Alastair Day"
           ],
           "teachingTips": [
-            "Show real-world messy input forms and how validation prevents them.",
-            "Encourage students to balance flexibility and strictness in validation."
+            "Always verify that cash outflow periods are negative numbers and inflows are positive in TVM equations.",
+            "Demonstrate how XIRR handles realistic uneven dates compared to regular IRR."
           ],
           "preReading": [
             "Introduction to Pivot Tables and Pivot Charts module"
           ],
-          "previousModule": null,
+          "previousModule": "excel-pivot-intro",
+          "nextModule": "excel-data-validation-cleaning",
+          "badge": "Financial Engineer Badge"
+        },
+        {
+          "moduleId": "excel-data-validation-cleaning",
+          "slug": "003_002_data-validation-protection-and-cleaning-techniques",
+          "title": "Data Validation, Protection and Cleaning Techniques",
+          "level": "Advanced",
+          "estimatedHours": 6,
+          "tags": [
+            "data-validation",
+            "dependent-dropdowns",
+            "formula-auditing",
+            "sheet-protection",
+            "workbook-security"
+          ],
+          "topics": [
+            "Data validation fundamentals: Whole numbers, Decimals, Dates, and Text Length",
+            "Creating dynamic drop-down lists from named ranges and tables",
+            "Dependent (Cascading) drop-down lists using INDIRECT and dynamic arrays",
+            "Custom data validation with advanced formulas (preventing duplicates, regex-like rules)",
+            "Input messages, error alerts (Stop, Warning, Information), and circle invalid data",
+            "Formula auditing tools: Trace Precedents, Trace Dependents, and Remove Arrows",
+            "Step-by-step formula evaluation using Evaluate Formula tool",
+            "Watch Window: Monitoring key KPI cells across multiple worksheets and workbooks",
+            "Identifying and resolving circular references and calculation bottlenecks",
+            "Cell protection: Locking formulas, unlocking input cells, and worksheet passwords",
+            "Workbook-level protection: Structure protection, encryption, and read-only recommendation",
+            "Document Inspector: Removing hidden properties, personal information, and metadata",
+            "Real-world case study: Designing a tamper-proof corporate budget entry template",
+            "Practice Lab: Multi-department procurement request form with strict validation"
+          ],
+          "learningOutcomes": [
+            "Enforce strict data integrity rules using standard and custom formula data validations",
+            "Build multi-level cascading (dependent) drop-down menus (e.g. Country > State > City)",
+            "Audit complex multi-sheet formula networks using Trace Precedents/Dependents, Watch Window, and Sheet Encryption"
+          ],
+          "prerequisites": [
+            "excel-financial-functions"
+          ],
+          "difficulty": "Medium-Hard",
+          "difficultyIndex": 6,
+          "summary": "Fortify spreadsheets against user errors with dynamic validation rules, cascading drop-downs, formula auditing, and enterprise security protection.",
+          "miniProjects": [
+            "Mini Project: Build a Tamper-Proof Multi-Branch Budget Submission Template with cell locking and audit traces"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Security & Validation Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "Standardizing data entry across distributed corporate branches and departmental input forms",
+            "Preventing accidental formula deletion in mission-critical executive models"
+          ],
+          "careerSkills": [
+            "Designing enterprise-ready, user-proof templates for corporate deployment",
+            "Auditing and refactoring legacy corporate workbooks with circular reference errors"
+          ],
+          "commonMistakes": [
+            "Locking cells without protecting the worksheet, meaning protection is not active",
+            "Using volatile INDIRECT in hundreds of cells causing calculation slowdowns"
+          ],
+          "references": [
+            "Microsoft Support: Apply data validation to cells",
+            "Excel 365 Bible - Chapter 7: Data Validation and Protection"
+          ],
+          "teachingTips": [
+            "Show the Evaluate Formula tool in slow motion to demystify complex nested formulas.",
+            "Demonstrate how to circle invalid data after pasting dirty records."
+          ],
+          "preReading": [
+            "Financial Functions in Excel module"
+          ],
+          "previousModule": "excel-financial-functions",
           "nextModule": "excel-whatif-analysis",
-          "badge": "Data Quality Guardian Badge"
+          "badge": "Data Governance Specialist Badge"
         },
         {
           "moduleId": "excel-whatif-analysis",
-          "slug": "what-if-analysis-tools",
+          "slug": "003_003_what-if-analysis-and-scenario-planning",
           "title": "What-If Analysis and Scenario Planning",
           "level": "Advanced",
-          "estimatedHours": 4,
+          "estimatedHours": 6,
           "tags": [
-            "what-if",
+            "what-if-analysis",
             "goal-seek",
-            "scenarios"
+            "data-tables",
+            "scenario-manager",
+            "solver",
+            "optimization"
           ],
           "topics": [
-            "What-if thinking: exploring outcomes by changing inputs",
-            "Goal Seek to find required inputs for desired outcomes",
-            "Scenario Manager for storing different assumption sets",
-            "Data Tables for sensitivity analysis on one and two variables",
-            "Practical examples: EMI, savings, pricing and break-even analysis",
-            "Embedding what-if analysis inside templates and reports",
-            "Practice These Topics",
-            "Quick Check Quiz"
+            "Introduction to What-If Analysis and Sensitivity Modeling in Decision Making",
+            "Goal Seek: Finding the exact input required to hit a targeted financial outcome",
+            "One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue)",
+            "Two-Variable Data Tables: Cross-matrix sensitivity analysis (e.g., price vs volume vs profit)",
+            "Optimizing performance: Setting calculation mode to automatic except for data tables",
+            "Scenario Manager: Creating, editing, and comparing Best Case, Base Case, and Worst Case scenarios",
+            "Generating Scenario Summary Reports and Pivot Scenario Views",
+            "Introduction to Microsoft Excel Solver add-in: When Goal Seek is not enough",
+            "Formulating Linear Programming (LP) problems: Objective cell, Variable cells, and Constraints",
+            "Solver solving methods: Simplex LP, GRG Nonlinear, and Evolutionary algorithms",
+            "Adding integer, binary (0/1), and range constraints in Solver",
+            "Solver Sensitivity and Answer reports for management decision review",
+            "Real-world project: Production mix optimization to maximize corporate profit under resource limits",
+            "Real-world project: Optimal investment portfolio allocation using Markowitz mean-variance Solver model"
           ],
           "learningOutcomes": [
-            "Run what-if analysis using Goal Seek and Data Tables",
-            "Create multiple scenarios for different assumptions",
-            "Use Excel to support decision making with numbers"
+            "Perform reverse goal engineering using Goal Seek for break-even and target pricing analysis",
+            "Construct one-variable and two-variable sensitivity Data Tables for stress-testing business plans",
+            "Solve complex constrained optimization problems (production scheduling, portfolio allocation) using Excel Solver"
           ],
           "prerequisites": [
             "excel-data-validation-cleaning"
           ],
-          "difficulty": "Advanced",
-          "difficultyIndex": 11,
-          "summary": "Use Excel to ask 'what if' questions and model different future outcomes.",
+          "difficulty": "Hard",
+          "difficultyIndex": 7,
+          "summary": "Master managerial decision science: Goal Seek, 2-Variable Sensitivity Tables, Scenario Manager, and linear/nonlinear Solver optimization.",
           "miniProjects": [
-            "Mini Project: Build a simple profit planner with what-if and scenario options"
+            "Mini Project: Build a Corporate Supply Chain Resource & Profit Optimization Engine using Excel Solver"
           ],
           "exercises": {
-            "mcq": 12,
-            "coding": 8,
-            "projects": 1
+            "mcq": 18,
+            "coding": 14,
+            "projects": 2
           },
           "assessment": {
-            "type": "Quiz + Scenario Planning Exercise",
+            "type": "Optimization Problem Modeling Lab + Report",
             "passScore": 75
           },
           "useCases": [
-            "Planning personal or business finances with variable assumptions",
-            "Analysing risk and impact of changes in key inputs"
+            "Corporate strategic planning, stress-testing financial models under recession scenarios",
+            "Manufacturing production scheduling, staff shift allocation, and logistics route optimization"
           ],
           "careerSkills": [
-            "Supporting managerial decisions using spreadsheet models",
-            "Communicating implications of changing key drivers"
+            "Prescriptive analytics and operations research problem-solving in corporate business",
+            "Designing executive sensitivity matrices for investment committee presentations"
           ],
           "commonMistakes": [
-            "Building what-if models on poorly structured sheets",
-            "Not documenting which inputs should be changed vs fixed"
+            "Leaving Solver model unbound without non-negativity constraints leading to negative inventory results",
+            "Overburdening large workbooks with live data tables without using 'Automatic Except Data Tables' mode"
           ],
           "references": [
-            "Excel documentation on what-if tools",
-            "Blogs showing business examples of what-if analysis"
+            "Spreadsheet Modeling & Decision Analysis by Cliff Ragsdale",
+            "Excel 365 Bible - Chapter 30: Performing What-If Analysis"
           ],
           "teachingTips": [
-            "Ask students to model a familiar scenario like tuition fee planning.",
-            "Emphasize documenting all key assumptions on the sheet."
+            "Frame optimization problems clearly: 1. What are we trying to maximize/minimize? 2. What can we change? 3. What constraints restrict us?",
+            "Use visual charts to plot Solver optimal frontier curves."
           ],
           "preReading": [
             "Data Validation, Protection and Cleaning Techniques module"
           ],
           "previousModule": "excel-data-validation-cleaning",
           "nextModule": "excel-dashboard-basics",
-          "badge": "Scenario Planner Badge"
+          "badge": "Optimization Strategist Badge"
         },
         {
           "moduleId": "excel-dashboard-basics",
-          "slug": "basic-dashboards-and-reporting",
+          "slug": "003_004_basic-dashboards-and-reporting",
           "title": "Basic Dashboards and Reporting",
           "level": "Advanced",
-          "estimatedHours": 6,
+          "estimatedHours": 8,
           "tags": [
-            "dashboards",
-            "reporting",
-            "storytelling"
+            "executive-dashboards",
+            "kpi-reporting",
+            "dynamic-charts",
+            "form-controls",
+            "sparklines",
+            "waterfall-chart"
           ],
           "topics": [
-            "Dashboard vs report: differences and goals",
-            "Principles of good dashboard design: simplicity, focus and clarity",
-            "Bringing together charts, pivot tables and key metrics",
-            "Using cell-based KPIs, sparklines and indicators",
-            "Layout techniques: grouping, alignment, color usage and fonts",
-            "Linking a summary sheet to raw data sheets",
-            "Simple interactivity using slicers with Tables and pivots (if available)",
-            "Practice These Topics",
-            "Capstone Style Task"
+            "Anatomy of an Executive Dashboard: Grid system, visual hierarchy, and color palettes",
+            "Defining and calculating Key Performance Indicators (KPIs): Target vs Actual, YoY Growth, MoM Variance",
+            "Building KPI Summary Cards with dynamic change indicators (▲ / ▼) and conditional styling",
+            "Interactive form controls: Drop-downs, Checkboxes, Option buttons, and Spinners",
+            "Dynamic named ranges using OFFSET, INDEX, and dynamic arrays for automated chart updates",
+            "Advanced visualization types: Waterfall charts for variance and P&L walk-throughs",
+            "Treemap and Sunburst charts for hierarchical data breakdown",
+            "Histogram and Pareto charts (80/20 rule analysis) for quality and sales insights",
+            "Bullet charts and Gauge charts for target vs achievement tracking",
+            "In-cell data visualization: Micro-charts with Sparklines (Line, Column, Win/Loss)",
+            "In-cell progress bars and heatmap matrices using advanced conditional formatting",
+            "Connecting multiple charts to synchronized slicer panels",
+            "Designing clean print/PDF report layouts for C-suite executive briefings",
+            "Real-world capstone: Building an Executive C-Suite Sales & Profitability Dashboard from scratch",
+            "Assessment: Interactive Operations & Supply Chain Executive KPI Portal"
           ],
           "learningOutcomes": [
-            "Design basic dashboards that summarize important information",
-            "Combine multiple Excel features into a coherent report view",
-            "Apply visual best practices to make information easy to read"
+            "Architect C-suite level executive dashboards following modern UX/UI grid principles and visual hierarchy",
+            "Implement advanced business visuals: Waterfall, Treemap, Pareto, Sparklines, and Bullet charts",
+            "Integrate interactive Form Controls, synchronized Slicer panels, and dynamic named range chart feeds"
           ],
           "prerequisites": [
             "excel-whatif-analysis"
           ],
-          "difficulty": "Advanced",
-          "difficultyIndex": 12,
-          "summary": "Create simple yet effective dashboards using standard Excel features.",
+          "difficulty": "Hard",
+          "difficultyIndex": 7,
+          "summary": "Design state-of-the-art interactive Executive KPI Dashboards with form controls, waterfall charts, sparklines, and synchronized slicers.",
           "miniProjects": [
-            "Mini Project: Design a small dashboard for marks, sales or attendance using charts and KPIs"
+            "Mini Project: Build an Interactive Executive Financial & Commercial Operations Dashboard with dynamic theme switching"
           ],
           "exercises": {
-            "mcq": 14,
-            "coding": 10,
-            "projects": 1
+            "mcq": 18,
+            "coding": 15,
+            "projects": 2
           },
           "assessment": {
-            "type": "Practical Dashboard Project + Review",
+            "type": "Complete Dashboard Project Evaluation",
             "passScore": 80
           },
           "useCases": [
-            "Monthly summaries for school, tuition or small business",
-            "Department-level reporting for basic metrics"
+            "Executive monthly performance dashboards for Board of Directors briefings",
+            "Sales team regional KPI scorecards, marketing campaign ROI tracking, and supply chain monitors"
           ],
           "careerSkills": [
-            "Presenting data in a management-friendly way",
-            "Structuring Excel files for repeatable monthly reporting"
+            "Delivering high-impact, interactive business intelligence portals inside pure Excel",
+            "Translating raw multidimensional metrics into clear executive narratives"
           ],
           "commonMistakes": [
-            "Overloading dashboards with too many details",
-            "Using colors that distract instead of guide attention"
+            "Cluttering dashboards with excessive gaudy colors and meaningless 3D gauge graphics",
+            "Failing to lock dashboard structure so user clicks accidentally distort chart layouts"
           ],
           "references": [
-            "Dashboard design principles articles",
-            "Examples of simple Excel dashboards online"
+            "Information Dashboard Design by Stephen Few",
+            "Excel 365 Bible - Chapter 23: Building Dashboards"
           ],
           "teachingTips": [
-            "Ask students to first sketch dashboards on paper.",
-            "Review dashboards as a class, giving positive and improvement feedback."
+            "Enforce a strict 3-tier workbook architecture: 1. Raw Data tab, 2. Calculation Engine tab, 3. Clean Dashboard Presentation tab.",
+            "Hide gridlines and formula bars on presentation sheets for a clean web-app aesthetic."
           ],
           "preReading": [
             "What-If Analysis and Scenario Planning module"
           ],
           "previousModule": "excel-whatif-analysis",
-          "nextModule": null,
-          "badge": "Dashboard Creator Badge"
+          "nextModule": "excel-modern-functions",
+          "badge": "Executive Dashboard Master Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "modern-dynamic-arrays",
+      "title": "Segment 4 - Dynamic Arrays, Calculation Engine & Modern LAMBDA Functions (Expert)",
+      "level": "Expert",
+      "summary": "Master Excel 365's next-generation calculation engine: Dynamic Array Spilling, array reshaping functions (TOCOL, CHOOSEROWS, TAKE), custom recursive functions with LAMBDA, helper algorithms (MAP, SCAN, REDUCE), and native Regular Expressions.",
+      "modules": [
+        {
+          "moduleId": "excel-modern-functions",
+          "slug": "004_001_modern-lookup-and-dynamic-array-functions",
+          "title": "Modern Lookup & Dynamic Array Functions",
+          "level": "Expert",
+          "estimatedHours": 7,
+          "tags": [
+            "dynamic-arrays",
+            "filter-function",
+            "sort-function",
+            "unique-function",
+            "spill-operator",
+            "sequence",
+            "randarray"
+          ],
+          "topics": [
+            "Understanding Excel's Modern Calculation Engine and the Dynamic Array Spill (#SPILL!) behavior",
+            "The Spill Operator (#) and referencing spilled array ranges dynamically",
+            "Extracting distinct data with the UNIQUE function (single-column and multi-column unique rows)",
+            "Dynamic multi-condition data filtering with the FILTER function (AND / OR logic in arrays)",
+            "Sorting spilled arrays dynamically with SORT (single index, ascending/descending)",
+            "Multi-level custom sorting with SORTBY based on auxiliary columns",
+            "Generating numeric and date sequences with SEQUENCE (rows, columns, start, step)",
+            "Generating random datasets and Monte Carlo inputs with RANDARRAY",
+            "Combining FILTER, UNIQUE, and SORT for automated alphabetical searchable lists",
+            "Resolving #SPILL! errors: Blocked cells, merged cells, and dynamic range clashes",
+            "Dynamic two-way lookups with XLOOKUP spilling entire rows or columns",
+            "Dynamic validation lists fed directly by spilled array ranges (A2# syntax)",
+            "Real-world project: Building an automated live search and filter table without VBA",
+            "Practice Lab: Multi-criteria customer segmentation engine with dynamic array spilling"
+          ],
+          "learningOutcomes": [
+            "Harness Excel's modern dynamic array calculation engine and leverage the spilled range operator (#)",
+            "Construct live search engines and dynamic multi-criteria filtered tables using FILTER, SORT, SORTBY, and UNIQUE",
+            "Eliminate legacy Ctrl+Shift+Enter array formulas with high-performance native dynamic arrays"
+          ],
+          "prerequisites": [
+            "excel-dashboard-basics"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 8,
+          "summary": "Master the modern 365 calculation engine: array spilling (#), FILTER, SORT, SORTBY, UNIQUE, SEQUENCE, and dynamic validation dropdowns.",
+          "miniProjects": [
+            "Mini Project: Build an Automated Multi-Criteria Live Search & Filtering Ledger without writing a single line of VBA"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 15,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Dynamic Array Formulation Lab",
+            "passScore": 80
+          },
+          "useCases": [
+            "Dynamic automated reporting tables that expand instantly as new rows are logged",
+            "Interactive search boxes with instant auto-complete suggestions"
+          ],
+          "careerSkills": [
+            "Writing modern, high-speed formulas that replace dozens of fragile legacy formulas",
+            "Building self-updating analytical models that require zero manual formula dragging"
+          ],
+          "commonMistakes": [
+            "Placing blocking data or formatting in the spill path causing #SPILL! errors",
+            "Using regular range references when referencing a spilled result instead of the `#` operator"
+          ],
+          "references": [
+            "Microsoft Support: Dynamic array formulas and spilled array behavior",
+            "Microsoft Excel 365 Formulas and Functions - Chapter 4: Dynamic Arrays"
+          ],
+          "teachingTips": [
+            "Show how `=SORT(UNIQUE(FILTER(...)))` replaces hours of manual filtering and copy-pasting.",
+            "Demonstrate how Data Validation dropdowns can point directly to `=A2#` to auto-expand."
+          ],
+          "preReading": [
+            "Basic Dashboards and Reporting module"
+          ],
+          "previousModule": "excel-dashboard-basics",
+          "nextModule": "excel-array-manipulation",
+          "badge": "Dynamic Array Master Badge"
+        },
+        {
+          "moduleId": "excel-array-manipulation",
+          "slug": "004_002_next-gen-array-reshaping-and-grid-transformation",
+          "title": "Next-Gen Array Reshaping & Grid Transformation",
+          "level": "Expert",
+          "estimatedHours": 6,
+          "tags": [
+            "tocol",
+            "torow",
+            "chooserows",
+            "choosecols",
+            "take",
+            "drop",
+            "expand",
+            "wraprows",
+            "wrapcols",
+            "vstack",
+            "hstack"
+          ],
+          "topics": [
+            "Overview of Excel 365 Array Manipulation and Reshaping Functions",
+            "Flattening 2D tables into 1D vertical vectors with TOCOL (ignoring blanks and errors)",
+            "Flattening 2D tables into 1D horizontal vectors with TOROW",
+            "Extracting specific rows from complex arrays with CHOOSEROWS (positive and negative indexing)",
+            "Extracting specific columns and reordering layouts with CHOOSECOLS",
+            "Extracting Top N or Bottom N records from arrays with TAKE",
+            "Excluding headers, totals, or metadata rows/columns with DROP",
+            "Resizing and padding arrays to fixed dimensions with EXPAND",
+            "Reshaping 1D data streams into structured 2D tables with WRAPROWS",
+            "Reshaping 1D data streams vertically into fixed-height columns with WRAPCOLS",
+            "Combining VSTACK and HSTACK to append and merge disparate datasets in memory",
+            "Matrix transposition and multi-block dataset alignment using array functions",
+            "Real-world project: Converting unformatted multi-column bank transaction statements into clean tabular data",
+            "Assessment: Advanced Grid Reshaping and Dimension Transformation Challenge"
+          ],
+          "learningOutcomes": [
+            "Reshape, stack, and flatten complex multidimensional tables using TOCOL, TOROW, VSTACK, and HSTACK in memory",
+            "Slice, dice, and reorder matrix datasets dynamically using CHOOSEROWS, CHOOSECOLS, TAKE, and DROP",
+            "Convert continuous linear data streams into structured tabular matrices using WRAPROWS and WRAPCOLS"
+          ],
+          "prerequisites": [
+            "excel-modern-functions"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 8,
+          "summary": "Master modern grid transformations: VSTACK, HSTACK, TOCOL, TOROW, CHOOSEROWS, CHOOSECOLS, DROP, TAKE, and WRAPROWS.",
+          "miniProjects": [
+            "Mini Project: Build an Automated Multi-Branch Transaction Consolidator and Normalizer using VSTACK and CHOOSEROWS"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 15,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Array Reshaping Lab Assignment",
+            "passScore": 80
+          },
+          "useCases": [
+            "Combining multiple regional tables into a unified consolidated report in a single formula",
+            "Unpacking complex ERP matrix dumps into clean normalized database columns"
+          ],
+          "careerSkills": [
+            "Advanced matrix manipulation and data reconstruction without external scripts",
+            "Writing ultra-compact, high-performance transformation formulas"
+          ],
+          "commonMistakes": [
+            "Passing mismatched column counts into HSTACK without padding leading to #N/A alignment issues",
+            "Forgetting that negative index arguments in CHOOSEROWS/TAKE count backwards from the end of the array"
+          ],
+          "references": [
+            "Microsoft Support: New Excel functions for reshaping arrays",
+            "Excel 365 Formulas and Functions - Chapter 14"
+          ],
+          "teachingTips": [
+            "Demonstrate how `VSTACK(Table1, Table2, Table3)` eliminates complex manual copy-paste consolidation.",
+            "Showcase `TOCOL(Range, 1)` to automatically skip blank cells in matrix schedules."
+          ],
+          "preReading": [
+            "Modern Lookup & Dynamic Array Functions module"
+          ],
+          "previousModule": "excel-modern-functions",
+          "nextModule": "excel-lambda-functions",
+          "badge": "Array Reshaping Virtuoso Badge"
+        },
+        {
+          "moduleId": "excel-lambda-functions",
+          "slug": "004_003_custom-functions-with-lambda-and-helper-engines",
+          "title": "Custom Functions with LAMBDA & Helper Engines",
+          "level": "Expert",
+          "estimatedHours": 8,
+          "tags": [
+            "lambda",
+            "let-function",
+            "map-function",
+            "scan-function",
+            "reduce-function",
+            "byrow",
+            "bycol",
+            "makearray"
+          ],
+          "topics": [
+            "Introduction to LAMBDA: Creating native reusable custom functions without VBA or macros",
+            "LAMBDA syntax: Parameters, Calculation expressions, and immediate execution syntax `(LAMBDA(x, x*2)(5))`",
+            "Registering and naming LAMBDA functions in Excel Name Manager",
+            "Documenting LAMBDA parameters and syntax hints for end-users",
+            "Handling optional parameters with ISOMITTED and default value assignment",
+            "Creating local scoped variables with the LET function to optimize formula performance and readability",
+            "Iterating across arrays element-by-element with the MAP function",
+            "Row-by-row matrix processing with BYROW (e.g., calculating weighted averages per row)",
+            "Column-by-column matrix processing with BYCOL",
+            "Generating dynamic procedural grids with MAKEARRAY",
+            "Accumulator algorithms: Running balances and progressive totals with SCAN",
+            "Aggregation algorithms: Custom multi-step reductions with REDUCE",
+            "Recursive LAMBDAs: Solving algorithmic loops (e.g., string sanitization, factorial, nested splits)",
+            "Building a centralized corporate LAMBDA function library (.xlsx / add-in)",
+            "Real-world project: Building custom corporate business functions (GST_CALC, REVERSE_TEXT, CLEAN_PHONE, LOAN_SCHEDULE)"
+          ],
+          "learningOutcomes": [
+            "Author, test, and deploy custom reusable functions using LAMBDA and Name Manager without VBA",
+            "Optimize calculation performance and formula readability by declaring scoped variables with the LET function",
+            "Execute advanced functional programming algorithms across matrices using MAP, SCAN, REDUCE, BYROW, and BYCOL"
+          ],
+          "prerequisites": [
+            "excel-array-manipulation"
+          ],
+          "difficulty": "Ultra Hard",
+          "difficultyIndex": 9,
+          "summary": "Master pure functional programming inside Excel: LET scoped variables, LAMBDA custom functions, recursive algorithms, and helper functions (MAP/SCAN/REDUCE).",
+          "miniProjects": [
+            "Mini Project: Build a Complete Enterprise Corporate LAMBDA Library (GST/VAT Engines, Clean Text, Dynamic Loan Amortization)"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 16,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "LAMBDA Function Engineering & Recursion Lab",
+            "passScore": 80
+          },
+          "useCases": [
+            "Standardizing complex corporate proprietary calculations across all company workbooks",
+            "Iterative string parsing and custom progressive tax computations in pure formula syntax"
+          ],
+          "careerSkills": [
+            "Advanced functional programming and algorithmic design in modern spreadsheet engineering",
+            "Building modular, maintainable calculation engines that non-technical users can consume easily"
+          ],
+          "commonMistakes": [
+            "Writing redundant repeated calculations without LET, causing dramatic performance degradation",
+            "Exceeding maximum recursion limits in recursive LAMBDAs without a proper base termination condition"
+          ],
+          "references": [
+            "Microsoft Support: LAMBDA function and helper functions reference",
+            "The LAMBDA Calculus in Excel - Microsoft Research Documentation"
+          ],
+          "teachingTips": [
+            "Start by building the calculation in LET, then wrap it in LAMBDA and name it in Name Manager.",
+            "Demonstrate SCAN as a running bank balance accumulator."
+          ],
+          "preReading": [
+            "Next-Gen Array Reshaping & Grid Transformation module"
+          ],
+          "previousModule": "excel-array-manipulation",
+          "nextModule": "excel-regex-text",
+          "badge": "LAMBDA Calculus Grandmaster Badge"
+        },
+        {
+          "moduleId": "excel-regex-text",
+          "slug": "004_004_modern-text-intelligence-and-regular-expressions",
+          "title": "Modern Text Intelligence & Regular Expressions",
+          "level": "Expert",
+          "estimatedHours": 6,
+          "tags": [
+            "regex",
+            "regextest",
+            "regexextract",
+            "regexreplace",
+            "textsplit",
+            "textbefore",
+            "textafter",
+            "data-cleaning"
+          ],
+          "topics": [
+            "Introduction to Excel's Native Regular Expression Functions (Excel 365)",
+            "Regex pattern fundamentals: Metacharacters, Character classes, Quantifiers, and Anchors",
+            "Pattern matching and validation with REGEXTEST (email, phone, PAN, GSTIN, postal codes)",
+            "Extracting substrings matching regex patterns with REGEXEXTRACT (extracting invoice numbers, dates, amounts)",
+            "Global vs first-match extractions and capturing groups in REGEXEXTRACT",
+            "Cleaning, masking, and reformatting text with REGEXREPLACE",
+            "Splitting complex strings by multiple delimiters with TEXTSPLIT",
+            "Extracting prefixes and leading data with TEXTBEFORE (instance numbers, match modes)",
+            "Extracting suffixes and trailing data with TEXTAFTER",
+            "Combining Regex functions with dynamic array functions (FILTER, BYROW, TOCOL)",
+            "Automated data sanitization: Stripping HTML tags, non-alphanumeric noise, and excess whitespace",
+            "Parsing semi-structured log files, invoice text blocks, and ERP export strings",
+            "Real-world project: Building an automated enterprise customer master data validator and parser",
+            "Assessment: Advanced Regex and String Intelligence Lab"
+          ],
+          "learningOutcomes": [
+            "Validate complex business strings (emails, phone numbers, tax IDs, postal codes) using REGEXTEST",
+            "Extract structured tokens, transaction numbers, and dates from unstructured strings using REGEXEXTRACT",
+            "Sanitize, mask, and reformat dirty legacy data using REGEXREPLACE, TEXTSPLIT, TEXTBEFORE, and TEXTAFTER"
+          ],
+          "prerequisites": [
+            "excel-lambda-functions"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 8,
+          "summary": "Master native regular expressions in Excel: REGEXTEST, REGEXEXTRACT, REGEXREPLACE, TEXTSPLIT, and advanced text intelligence.",
+          "miniProjects": [
+            "Mini Project: Build an Automated Enterprise Customer Master Data Validator & Bank Statement String Parser"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 15,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Regex Parsing & Data Sanitization Lab",
+            "passScore": 80
+          },
+          "useCases": [
+            "Validating tax ID formats (PAN, GSTIN, SSN, VAT), email addresses, and international telephone numbers",
+            "Extracting monetary amounts and invoice IDs from messy banking narration strings"
+          ],
+          "careerSkills": [
+            "Industrial-grade text engineering and pattern extraction inside spreadsheets",
+            "Automating complex data cleaning workflows without relying on external Python scripts"
+          ],
+          "commonMistakes": [
+            "Writing overly greedy regex quantifiers that consume unintended trailing characters",
+            "Failing to escape special regex characters (e.g. `\\.` or `\\$`) when searching for literals"
+          ],
+          "references": [
+            "Microsoft Support: Regular Expression functions in Excel",
+            "Mastering Regular Expressions by Jeffrey E.F. Friedl"
+          ],
+          "teachingTips": [
+            "Build regex patterns incrementally starting from character classes `[0-9]` to quantifiers `+` and anchors `^$`.",
+            "Use REGEXTEST directly inside Conditional Formatting rules to highlight invalid entries in red live."
+          ],
+          "preReading": [
+            "Custom Functions with LAMBDA & Helper Engines module"
+          ],
+          "previousModule": "excel-lambda-functions",
+          "nextModule": "excel-power-query",
+          "badge": "Regex Intelligence Specialist Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "power-bi-stack",
+      "title": "Segment 5 - Power BI Stack — Power Query ETL & Power Pivot Data Modeling (Ultra Expert)",
+      "level": "Ultra Expert",
+      "summary": "Transform Excel into an enterprise BI machine: automated ETL ingestion pipelines, Power Query M code scripting, dimensional Star Schema data modeling, and high-performance DAX time-intelligence measures.",
+      "modules": [
+        {
+          "moduleId": "excel-power-query",
+          "slug": "005_001_power-query-import-transform-and-clean-data",
+          "title": "Power Query – Import, Transform & Clean Data",
+          "level": "Ultra Expert",
+          "estimatedHours": 8,
+          "tags": [
+            "power-query",
+            "etl",
+            "data-transformation",
+            "unpivot",
+            "merge-queries",
+            "append-queries",
+            "fuzzy-matching"
+          ],
+          "topics": [
+            "Introduction to Power Query and Modern Automated ETL (Extract, Transform, Load) Architecture",
+            "Connecting to data sources: Excel workbooks, CSV/Text files, Folders, Web APIs, and SQL Databases",
+            "The Power Query Editor interface: Queries pane, Applied Steps, and Formula bar",
+            "Cleaning and profiling data: Column quality, Column distribution, and Column profile",
+            "Core transformations: Promoting headers, changing data types, removing blanks, and replacing values",
+            "Filtering rows, sorting columns, and removing duplicates at scale",
+            "Text transformations: Splitting columns, trimming, uppercase/lowercase, extracting delimiters",
+            "Number and date transformations: Age calculation, start/end of month, rounding, and parity",
+            "Unpivoting columns: Transforming crosstab reports into normalized tabular data",
+            "Pivoting columns and custom aggregations in Power Query",
+            "Appending queries (Union / Stacking datasets vertically from monthly files)",
+            "Merging queries (Joins: Left Outer, Right Outer, Full Outer, Inner, Left Anti, Right Anti)",
+            "Fuzzy matching: Merging datasets with typos and approximate spellings",
+            "Loading options: Close & Load to Table, Connection Only, and adding directly to Data Model"
+          ],
+          "learningOutcomes": [
+            "Build automated data ingestion pipelines from CSV, Excel, Folders, Web, and SQL databases",
+            "Clean, reshape, and unpivot matrix reports into normalized tabular datasets with repeatable Applied Steps",
+            "Merge and append multiple enterprise datasets using relational joins and AI-powered fuzzy matching"
+          ],
+          "prerequisites": [
+            "excel-regex-text"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 8,
+          "summary": "Master automated ETL data pipelines: data profiling, unpivoting, merging, appending, fuzzy matching, and loading directly to Data Model.",
+          "miniProjects": [
+            "Mini Project: Build an Automated Multi-File Folder Ingestion & Normalization Pipeline for monthly financial reports"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 15,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Power Query ETL Pipeline Project Evaluation",
+            "passScore": 80
+          },
+          "useCases": [
+            "Consolidating 50+ monthly regional sales CSV files into a unified master database with a single refresh click",
+            "Cleaning dirty vendor price catalogs with fuzzy matching and automated type coercion"
+          ],
+          "careerSkills": [
+            "Eliminating hours of manual copy-pasting with 100% automated repeatable ETL workflows",
+            "Building data ingestion pipelines identical to Microsoft Power BI"
+          ],
+          "commonMistakes": [
+            "Performing transformations manually in Excel grid instead of recording them in Power Query Applied Steps",
+            "Hardcoding fixed file paths in queries instead of using dynamic parameter tables"
+          ],
+          "references": [
+            "Master Your Data with Power Query by Ken Puls & Miguel Escobar",
+            "Microsoft Learn: Power Query Documentation"
+          ],
+          "teachingTips": [
+            "Demonstrate the 'Unpivot Columns' feature on a wide 12-month budget table to show the power of relational normalization.",
+            "Show how dropping a new CSV file into a watched folder and clicking 'Refresh All' updates everything automatically."
+          ],
+          "preReading": [
+            "Modern Text Intelligence & Regular Expressions module"
+          ],
+          "previousModule": "excel-regex-text",
+          "nextModule": "excel-advanced-power-query-m",
+          "badge": "ETL Data Engineer Badge"
+        },
+        {
+          "moduleId": "excel-advanced-power-query-m",
+          "slug": "005_002_advanced-power-query-m-code-scripting-and-custom-functions",
+          "title": "Advanced Power Query: M Code Scripting & Custom Functions",
+          "level": "Ultra Expert",
+          "estimatedHours": 8,
+          "tags": [
+            "power-query-m",
+            "m-language",
+            "custom-m-functions",
+            "parameters",
+            "web-scraping",
+            "query-folding"
+          ],
+          "topics": [
+            "Introduction to the Power Query M Formula Language: Syntax, Case sensitivity, and Let...In blocks",
+            "Understanding M Data Types: Primitive types, Lists `{...}`, Records `[...]`, and Tables `#table(...)`",
+            "Essential M standard library functions: `Table.*`, `List.*`, `Record.*`, and `Text.*`",
+            "Writing custom M functions to automate repetitive transformations",
+            "Parameterizing Power Query: Creating dynamic file path and date range parameters",
+            "Ingesting data from entire folders: Dynamic multi-file consolidation with custom schema handling",
+            "Web scraping and REST API data ingestion with Power Query (`Web.Contents` and `Json.Document`)",
+            "Handling API pagination, authentication tokens, and rate limits in M",
+            "Error handling in M: `try...otherwise` constructs and step-level validation",
+            "Query Folding: Understanding how Power Query pushes ETL transformations to backend SQL servers",
+            "Optimizing Power Query performance: Buffering tables (`Table.Buffer`), reducing memory footprint",
+            "Documenting and organizing complex enterprise ETL query groups",
+            "Real-world project: Building an automated multi-branch daily sales consolidation pipeline",
+            "Assessment: Advanced M Scripting & Enterprise ETL Engineering Challenge"
+          ],
+          "learningOutcomes": [
+            "Write and edit custom M language scripts directly in Advanced Editor using `let...in` syntax",
+            "Develop parameter-driven reusable M custom functions for multi-source data extraction and web API ingestion",
+            "Leverage Query Folding to delegate heavy transformations to backend database servers for lightning performance"
+          ],
+          "prerequisites": [
+            "excel-power-query"
+          ],
+          "difficulty": "Ultra Hard",
+          "difficultyIndex": 9,
+          "summary": "Master the M programming language: Advanced Editor, Lists/Records, custom M functions, API scraping, Query Folding, and memory buffering.",
+          "miniProjects": [
+            "Mini Project: Build an Automated Cloud REST API Ingestion Pipeline in M with dynamic pagination and error handling"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 15,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "M Code Scripting Lab & Code Review",
+            "passScore": 80
+          },
+          "useCases": [
+            "Automated currency exchange rate and commodity price fetching from public web APIs directly into Excel",
+            "Consolidating workbooks with shifting header structures using dynamic column name resolvers in M"
+          ],
+          "careerSkills": [
+            "Professional M code developer capabilities transferable 100% to Power BI Dataflows and Fabric",
+            "Engineering high-performance enterprise data extraction pipelines"
+          ],
+          "commonMistakes": [
+            "Breaking Query Folding by injecting unsupported M steps early in the query pipeline",
+            "Case-sensitivity errors in M function names (e.g., typing `table.selectrows` instead of `Table.SelectRows`)"
+          ],
+          "references": [
+            "Power Query M Reference Guide - Microsoft Learn",
+            "M Is for (Data) Monkey by Ken Puls & Miguel Escobar"
+          ],
+          "teachingTips": [
+            "Open the Advanced Editor on a simple query to show how every UI button click generates an immutable M step variable.",
+            "Demonstrate `Table.Buffer` to prevent repeated slow web API calls during multi-step transformations."
+          ],
+          "preReading": [
+            "Power Query – Import, Transform & Clean Data module"
+          ],
+          "previousModule": "excel-power-query",
+          "nextModule": "excel-power-pivot",
+          "badge": "M Code Specialist Badge"
+        },
+        {
+          "moduleId": "excel-power-pivot",
+          "slug": "005_003_power-pivot-and-data-modeling",
+          "title": "Power Pivot & Data Modeling",
+          "level": "Ultra Expert",
+          "estimatedHours": 8,
+          "tags": [
+            "power-pivot",
+            "data-modeling",
+            "star-schema",
+            "relationships",
+            "vertipaq",
+            "calendar-table",
+            "measures"
+          ],
+          "topics": [
+            "Introduction to Power Pivot and the xVelocity In-Memory Tabular Engine (VertiPaq)",
+            "Overcoming Excel's 1-million row limit: Handling millions of rows with high compression",
+            "Dimensional Modeling principles: Fact Tables vs Dimension Tables (Star Schema vs Snowflake Schema)",
+            "Creating and managing relationships: One-to-Many (1:*) and Cardinality",
+            "Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths",
+            "Designing a dedicated Calendar / Date Dimension table (Standard and Fiscal calendars)",
+            "Calculated Columns vs Calculated Measures: Memory footprint vs CPU computation at query time",
+            "Implicit measures vs Explicit measures: Best practices in model governance",
+            "Formatting measures, organizing display folders, and hiding technical keys from end-users",
+            "Creating Hierarchies (Year > Quarter > Month > Day, Category > Subcategory > Product)",
+            "Defining Key Performance Indicators (KPIs) with status thresholds in Power Pivot",
+            "Connecting Excel Pivot Tables directly to the Power Pivot Data Model",
+            "Analyzing VertiPaq compression, memory usage, and relationship integrity",
+            "Real-world project: Designing an Enterprise Retail Data Model with multi-table relationships"
+          ],
+          "learningOutcomes": [
+            "Analyze multi-million row datasets exceeding standard sheet limits using the in-memory VertiPaq engine",
+            "Design normalized Star Schema data models with Fact and Dimension tables connected by One-to-Many relationships",
+            "Implement standardized Calendar date dimensions, display folder hierarchies, and explicit calculated measures"
+          ],
+          "prerequisites": [
+            "excel-advanced-power-query-m"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 8,
+          "summary": "Master enterprise data modeling: VertiPaq tabular engine, Star Schema architecture, Fact/Dimension relationships, and multi-million row analysis.",
+          "miniProjects": [
+            "Mini Project: Build an Enterprise Retail Star Schema Data Model with 5 Dimension Tables and 2 Fact Tables"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 15,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Data Model Architecture Submission & Audit",
+            "passScore": 80
+          },
+          "useCases": [
+            "Analyzing 10M+ transaction records without Excel crashing or slowing down",
+            "Consolidating sales, budget, inventory, and customer master data in a unified relational model"
+          ],
+          "careerSkills": [
+            "Enterprise dimensional data modeling skills directly applicable to Power BI, SSAS, and Fabric",
+            "Eliminating brittle VLOOKUP columns by replacing them with high-speed memory relationships"
+          ],
+          "commonMistakes": [
+            "Creating calculated columns for aggregations instead of explicit DAX measures, wasting RAM memory",
+            "Using bidirectional cross-filtering indiscriminately creating ambiguous relationship paths"
+          ],
+          "references": [
+            "The Definitive Guide to DAX - Chapter 1 & 2: What is DAX & The Tabular Model",
+            "Star Schema The Complete Reference by Christopher Adamson"
+          ],
+          "teachingTips": [
+            "Show how Power Pivot compresses repetitive column values using dictionary encoding and run-length compression.",
+            "Emphasize the golden rule: 'Do your ETL in Power Query, do your modeling in Power Pivot'."
+          ],
+          "preReading": [
+            "Advanced Power Query: M Code Scripting module"
+          ],
+          "previousModule": "excel-advanced-power-query-m",
+          "nextModule": "excel-dax-mastery",
+          "badge": "Data Model Architect Badge"
+        },
+        {
+          "moduleId": "excel-dax-mastery",
+          "slug": "005_004_dax-formulas-mastery-and-time-intelligence",
+          "title": "DAX (Data Analysis Expressions) Mastery & Time Intelligence",
+          "level": "Ultra Expert",
+          "estimatedHours": 10,
+          "tags": [
+            "dax",
+            "calculate",
+            "filter-context",
+            "row-context",
+            "time-intelligence",
+            "sumx",
+            "datesytd"
+          ],
+          "topics": [
+            "Introduction to DAX: Philosophy, Syntax, and Comparison with Excel formulas",
+            "Understanding Evaluation Contexts: Row Context vs Filter Context (The core of DAX)",
+            "Context Transition: Transforming Row Context into Filter Context with CALCULATE",
+            "The CALCULATE function: Modifying and overriding filter contexts dynamically",
+            "Modifying filters with ALL, ALLEXCEPT, ALLSELECTED, and REMOVEFILTERS",
+            "Iterator functions (X-functions): SUMX, AVERAGEX, MINX, MAXX, and COUNTX",
+            "Dynamic condition filtering with the FILTER function",
+            "Handling multiple relationships with USERELATIONSHIP (Active vs Inactive relationships)",
+            "Time Intelligence setup: Requirements for standard date tables and continuous dates",
+            "Year-to-Date, Quarter-to-Date, Month-to-Date metrics: TOTALYTD, DATESYTD, TOTALQTD, TOTALMTD",
+            "Period-over-Period comparisons: SAMEPERIODLASTYEAR, DATEADD, and PARALLELPERIOD",
+            "Moving averages and rolling totals: DATESINPERIOD and DATESBETWEEN",
+            "Semi-additive measures: Opening and Closing balances for inventory and banking (CLOSINGBALANCEMONTH)",
+            "Advanced ranking and top-performer DAX: RANKX and TOPN",
+            "Real-world capstone: Building an Enterprise Financial & Sales Performance DAX Measure Suite"
+          ],
+          "learningOutcomes": [
+            "Master DAX evaluation contexts (Row Context, Filter Context) and execute Context Transitions using CALCULATE",
+            "Author sophisticated Time Intelligence measures: YTD growth, YoY variance, MoM comparisons, and rolling 12-month metrics",
+            "Implement iterator calculations (SUMX, AVERAGEX) and handle multiple calendar relationships with USERELATIONSHIP"
+          ],
+          "prerequisites": [
+            "excel-power-pivot"
+          ],
+          "difficulty": "Ultra Hard",
+          "difficultyIndex": 9,
+          "summary": "Master enterprise DAX: CALCULATE engine, filter/row context transitions, iterators (SUMX), and comprehensive Time Intelligence formulas.",
+          "miniProjects": [
+            "Mini Project: Author an Enterprise 50-Measure DAX Library (YoY Growth, Rolling 90-Day Averages, YTD Budget Variances)"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "coding": 20,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "DAX Formulation & Time Intelligence Exam",
+            "passScore": 80
+          },
+          "useCases": [
+            "Executive YoY revenue and profit margin analytics with dynamic date comparisons",
+            "Banking daily balance calculations and inventory stock age distribution metrics"
+          ],
+          "careerSkills": [
+            "Authoring enterprise-grade DAX measures identical to Power BI production environments",
+            "Mastering the most powerful analytical calculation language in modern business intelligence"
+          ],
+          "commonMistakes": [
+            "Passing entire tables to CALCULATE filter arguments instead of single column predicate expressions",
+            "Attempting Time Intelligence calculations on models without a designated continuous Date Table"
+          ],
+          "references": [
+            "The Definitive Guide to DAX by Marco Russo & Alberto Ferrari",
+            "DAX Patterns (2nd Edition) - daxpatterns.com"
+          ],
+          "teachingTips": [
+            "Explain CALCULATE as a function that creates a brand new filter context before evaluating the inner expression.",
+            "Draw filter context flow diagrams showing how slicer selections propagate down relationship paths."
+          ],
+          "preReading": [
+            "Power Pivot & Data Modeling module"
+          ],
+          "previousModule": "excel-power-pivot",
+          "nextModule": "excel-vba-macros",
+          "badge": "DAX Master Strategist Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "automation-vba-scripts",
+      "title": "Segment 6 - Automation with VBA, Macros & Cloud Office Scripts (Ultra Expert)",
+      "level": "Ultra Expert",
+      "summary": "Automate complex enterprise spreadsheet operations: Visual Basic for Applications (VBA) object-oriented architecture, custom UserForms, event-driven coding, external ADODB SQL database connectivity, and modern TypeScript Office Scripts with Power Automate.",
+      "modules": [
+        {
+          "moduleId": "excel-vba-macros",
+          "slug": "006_001_vba-and-macro-automation",
+          "title": "VBA & Macro Automation",
+          "level": "Ultra Expert",
+          "estimatedHours": 8,
+          "tags": [
+            "vba",
+            "macros",
+            "vbe",
+            "object-model",
+            "loops",
+            "user-defined-functions",
+            "performance-optimization"
+          ],
+          "topics": [
+            "Introduction to Visual Basic for Applications (VBA) and Excel Automation",
+            "Enabling the Developer Tab, Macro Security settings, and Trust Center configuration",
+            "Recording macros: Relative vs Absolute recording modes and examining generated code",
+            "Exploring the Visual Basic Editor (VBE): Code Window, Project Explorer, and Properties Window",
+            "VBA Language fundamentals: Variables, Data types, Option Explicit, and Scope (Dim, Public, Private)",
+            "The Excel Object Model hierarchy: Application > Workbooks > Worksheets > Range > Cells",
+            "Working with Ranges and Cells: Value, Text, Formula, Offset, CurrentRegion, and SpecialCells",
+            "Control structures: If...Then...Else, Select Case, and Boolean conditions",
+            "Looping constructs: For...Next, For Each...Next (Looping over sheets, cells, shapes), and Do While/Until",
+            "Writing Sub procedures and custom User-Defined Functions (UDFs) callable in worksheet cells",
+            "Speed optimization techniques: `Application.ScreenUpdating = False`, `Application.Calculation = xlCalculationManual`",
+            "Basic error handling: `On Error Resume Next`, `On Error GoTo ErrorHandler`",
+            "Working with MsgBox and InputBox for user interaction",
+            "Real-world project: Building an automated one-click workbook report generator and formatter"
+          ],
+          "learningOutcomes": [
+            "Navigate the Visual Basic Editor (VBE) and write structured, bug-free VBA macros using Option Explicit",
+            "Manipulate the Excel Object Model (Application, Workbooks, Worksheets, Range, Cells) with loops and conditional logic",
+            "Accelerate macro execution speed up to 50x using `ScreenUpdating = False` and array memory manipulation"
+          ],
+          "prerequisites": [
+            "excel-dax-mastery"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 8,
+          "summary": "Master core VBA programming: Visual Basic Editor, Object Model hierarchy, Range manipulation, control structures, loops, UDFs, and execution optimization.",
+          "miniProjects": [
+            "Mini Project: Build an Automated Multi-Sheet Consolidator & Formatting Macro Suite with progress indicator"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 15,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "VBA Macro Scripting Lab & Code Review",
+            "passScore": 80
+          },
+          "useCases": [
+            "Automating repetitive daily reporting tasks that take hours into a 3-second button click",
+            "Creating custom worksheet formulas (UDFs) for specialized business calculations"
+          ],
+          "careerSkills": [
+            "Process automation and desktop workflow optimization in enterprise environments",
+            "Writing modular, maintainable VBA code with proper exception handling"
+          ],
+          "commonMistakes": [
+            "Using `.Select` and `.Activate` excessively in recorded code which slows macro execution dramatically",
+            "Omitting `Option Explicit` leading to silent bugs from misspelled variable names"
+          ],
+          "references": [
+            "Excel VBA Programming For Dummies by Michael Alexander & John Walkenbach",
+            "Microsoft Learn: Office VBA Reference - Excel"
+          ],
+          "teachingTips": [
+            "Teach students to delete `.Select` lines by directly chaining target ranges: `Range('A1').Value = 100` instead of `Range('A1').Select; Selection.Value = 100`.",
+            "Demonstrate how `Application.ScreenUpdating = False` prevents screen flickering and speeds up execution."
+          ],
+          "preReading": [
+            "DAX Mastery & Time Intelligence module"
+          ],
+          "previousModule": "excel-dax-mastery",
+          "nextModule": "excel-advanced-vba",
+          "badge": "VBA Automation Engineer Badge"
+        },
+        {
+          "moduleId": "excel-advanced-vba",
+          "slug": "006_002_advanced-vba-userforms-events-and-system-integration",
+          "title": "Advanced VBA: UserForms, Events & System Integration",
+          "level": "Ultra Expert",
+          "estimatedHours": 10,
+          "tags": [
+            "userforms",
+            "worksheet-events",
+            "workbook-events",
+            "fso",
+            "outlook-automation",
+            "pdf-export",
+            "add-ins"
+          ],
+          "topics": [
+            "Event-Driven Programming: Workbook events (`Workbook_Open`, `Workbook_BeforeSave`, `Workbook_BeforeClose`)",
+            "Worksheet events: `Worksheet_Change`, `Worksheet_SelectionChange`, `Worksheet_Calculate`",
+            "Designing professional GUI UserForms: TextBoxes, ComboBoxes, ListBoxes, CheckBoxes, and CommandButtons",
+            "UserForm validation, initialization events (`UserForm_Initialize`), and data write-back to worksheets",
+            "Multi-page and Tabbed UserForms for complex enterprise data entry",
+            "File System Automation using `Scripting.FileSystemObject` (FSO): Creating, moving, reading, and deleting files/folders",
+            "Batch processing all workbooks inside a directory automatically",
+            "Exporting worksheets to PDF and dynamic email distribution via Microsoft Outlook VBA integration",
+            "Automating PowerPoint from Excel VBA: Generating executive slide decks dynamically from Excel charts",
+            "Robust enterprise error handling, call stack tracing, and debug logging to text files",
+            "Windows API declarations in VBA (64-bit PtrSafe calls, sleep timers, file dialogs)",
+            "Protecting and locking VBA Project code with passwords and obfuscation principles",
+            "Creating and distributing custom Excel Add-ins (`.xlam`)",
+            "Real-world project: Developing a full-fledged Corporate Inventory Management & Billing System with UserForms"
+          ],
+          "learningOutcomes": [
+            "Design responsive Graphical User Interfaces (UserForms) with input validation for interactive business applications",
+            "Implement event-driven automation triggered by cell edits (`Worksheet_Change`) and workbook launches (`Workbook_Open`)",
+            "Automate external Microsoft Office applications (Outlook emails, PowerPoint slide generation) and Windows File Systems (FSO)"
+          ],
+          "prerequisites": [
+            "excel-vba-macros"
+          ],
+          "difficulty": "Ultra Hard",
+          "difficultyIndex": 9,
+          "summary": "Build full-fledged business desktop applications inside Excel: UserForms, event procedures, Outlook/PowerPoint automation, FSO batch processing, and Add-in distribution.",
+          "miniProjects": [
+            "Mini Project: Build a Complete Corporate Billing, Inventory Control & Automated Outlook Invoicing System"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 15,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Enterprise VBA Application Submission & Defense",
+            "passScore": 80
+          },
+          "useCases": [
+            "Standalone billing and point-of-sale systems built entirely within Excel for small-to-medium enterprises",
+            "Automated month-end PDF statement generation and personalized email dispatch to hundreds of clients"
+          ],
+          "careerSkills": [
+            "Building robust desktop applications with modern GUI forms and event listeners",
+            "Cross-application Office automation and enterprise add-in deployment"
+          ],
+          "commonMistakes": [
+            "Causing infinite recursion loops in `Worksheet_Change` events by forgetting `Application.EnableEvents = False`",
+            "Using 32-bit API declarations in modern 64-bit Excel without `PtrSafe` qualifiers"
+          ],
+          "references": [
+            "Professional Excel Development by Rob Bovey, Dennis Wallentin, Stephen Bullen, and John Green",
+            "Microsoft Learn: VBA UserForms and Controls Guide"
+          ],
+          "teachingTips": [
+            "Always wrap event modification code in `Application.EnableEvents = False ... Application.EnableEvents = True` with an error handler fallback.",
+            "Demonstrate how to bundle custom macros into a `.xlam` add-in with a dedicated custom Ribbon button."
+          ],
+          "preReading": [
+            "VBA & Macro Automation module"
+          ],
+          "previousModule": "excel-vba-macros",
+          "nextModule": "excel-vba-sql-integration",
+          "badge": "Enterprise VBA Developer Badge"
+        },
+        {
+          "moduleId": "excel-vba-sql-integration",
+          "slug": "006_003_external-data-automation-adodb-sql-connections-and-web-apis",
+          "title": "External Data Automation: ADODB SQL Connections & Web APIs",
+          "level": "Ultra Expert",
+          "estimatedHours": 8,
+          "tags": [
+            "adodb",
+            "sql-queries",
+            "mysql",
+            "sql-server",
+            "database-connection",
+            "xmlhttp",
+            "json-parsing"
+          ],
+          "topics": [
+            "Introduction to ADO (ActiveX Data Objects) and connecting Excel to relational databases",
+            "Establishing connection strings for MySQL, PostgreSQL, SQL Server, and Microsoft Access",
+            "Executing SQL Queries (SELECT, INSERT, UPDATE, DELETE) directly from Excel VBA",
+            "Fetching SQL recordsets into Excel ranges with high-speed `Range.CopyFromRecordset`",
+            "Parameterized SQL queries in VBA to prevent SQL injection and handle dynamic user inputs",
+            "Querying closed Excel workbooks as relational database tables using SQL without opening them",
+            "Consuming external REST APIs and JSON endpoints using `MSXML2.ServerXMLHTTP` in VBA",
+            "Parsing JSON responses in VBA using lightweight parser classes",
+            "Automating multi-database ETL data extraction into Excel staging sheets",
+            "Managing database transactions in VBA (`BeginTrans`, `CommitTrans`, `RollbackTrans`)",
+            "Security best practices: Managing database credentials securely in VBA",
+            "Real-world project: Building an automated two-way synchronization tool between Excel and a MySQL Server",
+            "Real-world project: Automated daily exchange rate and stock price fetcher via web API",
+            "Assessment: Enterprise Database Automation & SQL Integration Lab"
+          ],
+          "learningOutcomes": [
+            "Connect Excel workbooks to external relational database servers (SQL Server, MySQL, PostgreSQL) via ADODB",
+            "Execute direct SQL queries (SELECT/INSERT/UPDATE) and stream millions of rows instantly via `CopyFromRecordset`",
+            "Consume external REST web APIs and parse JSON responses directly inside VBA procedures"
+          ],
+          "prerequisites": [
+            "excel-advanced-vba"
+          ],
+          "difficulty": "Ultra Hard",
+          "difficultyIndex": 9,
+          "summary": "Master enterprise database integration: ADODB connections, high-speed SQL queries, closed workbook SQL, REST API consumption, and JSON parsing in VBA.",
+          "miniProjects": [
+            "Mini Project: Build a Two-Way Synchronized Database Portal (Excel UI <-> MySQL Database) with parameterized SQL"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 14,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Database Connection & SQL Query Lab",
+            "passScore": 80
+          },
+          "useCases": [
+            "Live ERP database reporting without manual file exports",
+            "Querying massive historical transaction databases on remote SQL servers from an executive Excel dashboard"
+          ],
+          "careerSkills": [
+            "Bridging spreadsheets with enterprise relational databases (RDBMS)",
+            "Automating end-to-end data pipelines between cloud/on-premise SQL servers and executive workbooks"
+          ],
+          "commonMistakes": [
+            "Looping through recordset rows one by one instead of using the instantaneous `Range.CopyFromRecordset` method",
+            "Concatenating raw user inputs into SQL strings creating SQL injection vulnerabilities"
+          ],
+          "references": [
+            "Microsoft ADO (ActiveX Data Objects) Technical Reference",
+            "Connecting Excel to SQL Server and MySQL - Developer Documentation"
+          ],
+          "teachingTips": [
+            "Benchmark fetching 50,000 records: cell loop (60 seconds) vs `CopyFromRecordset` (0.2 seconds) to shock students with performance reality.",
+            "Demonstrate querying closed Excel files using `Microsoft.ACE.OLEDB.12.0`."
+          ],
+          "preReading": [
+            "Advanced VBA: UserForms, Events & System Integration module"
+          ],
+          "previousModule": "excel-advanced-vba",
+          "nextModule": "excel-office-scripts",
+          "badge": "Database Automation Specialist Badge"
+        },
+        {
+          "moduleId": "excel-office-scripts",
+          "slug": "006_004_modern-office-scripts-typescript-and-power-automate",
+          "title": "Modern Office Scripts (TypeScript) & Power Automate",
+          "level": "Ultra Expert",
+          "estimatedHours": 8,
+          "tags": [
+            "office-scripts",
+            "typescript",
+            "power-automate",
+            "cloud-automation",
+            "excel-web",
+            "sharepoint",
+            "teams"
+          ],
+          "topics": [
+            "Introduction to Office Scripts: Modern cross-platform automation for Excel on the Web and Desktop",
+            "Comparing VBA vs Office Scripts: TypeScript/JavaScript vs Visual Basic, Cloud vs Desktop",
+            "The Office Scripts Code Editor and Action Recorder in Excel for Web",
+            "TypeScript fundamentals for Excel: Variables, Types, Arrays, Objects, and Async/Await",
+            "The Office Scripts Object Model: `ExcelScript.Workbook`, `Worksheet`, `Range`, `Table`",
+            "Reading, writing, and formatting ranges with Office Scripts",
+            "Creating, modifying, and auto-sorting Excel Tables and Pivot Tables via script",
+            "Adding parameters and return values to Office Scripts for external execution",
+            "Integrating Office Scripts with Microsoft Power Automate (Cloud Flows)",
+            "Triggering automated Excel workflows from Microsoft Forms, Emails, or scheduled cloud timers",
+            "Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive",
+            "Generating automated Teams/Slack notifications and PDF reports from Excel via Power Automate",
+            "Error handling, logging with `console.log()`, and script debugging best practices",
+            "Real-world project: Building an automated cloud expense approval and ledger posting pipeline"
+          ],
+          "learningOutcomes": [
+            "Write cross-platform automation scripts in TypeScript using Microsoft Office Scripts for Excel Web and Desktop",
+            "Connect Excel scripts to Microsoft Power Automate to build 100% cloud-hosted scheduled workflows",
+            "Automate end-to-end cloud business pipelines triggered by emails, Forms submissions, and SharePoint updates"
+          ],
+          "prerequisites": [
+            "excel-vba-sql-integration"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 8,
+          "summary": "Master next-gen cloud automation: TypeScript-based Office Scripts, Excel for Web APIs, Power Automate cloud triggers, and automated SharePoint/Teams workflows.",
+          "miniProjects": [
+            "Mini Project: Build an Automated Cloud Form Submission & Excel Ledger Pipeline with Power Automate & Office Scripts"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 14,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Cloud Workflow & TypeScript Scripting Lab",
+            "passScore": 80
+          },
+          "useCases": [
+            "Automating cloud spreadsheets without requiring any desktop application to be open",
+            "Capturing employee expense forms from mobile and auto-updating central SharePoint master sheets"
+          ],
+          "careerSkills": [
+            "Next-generation cloud productivity and workflow automation in Microsoft 365 ecosystems",
+            "Modern TypeScript programming for enterprise spreadsheet automation"
+          ],
+          "commonMistakes": [
+            "Attempting to use legacy VBA code in Excel for Web where only Office Scripts can run",
+            "Writing synchronous blocking loops in Office Scripts instead of leveraging batch range operations"
+          ],
+          "references": [
+            "Microsoft Learn: Office Scripts Documentation and API Reference",
+            "Microsoft Power Automate Documentation"
+          ],
+          "teachingTips": [
+            "Show how Office Scripts run in the Microsoft Cloud even when your computer is completely turned off.",
+            "Record a simple script in Excel for Web and inspect the clean TypeScript code generated."
+          ],
+          "preReading": [
+            "External Data Automation: ADODB SQL Connections module"
+          ],
+          "previousModule": "excel-vba-sql-integration",
+          "nextModule": "excel-python-analytics",
+          "badge": "Cloud Automation Architect Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "ai-python-datascience",
+      "title": "Segment 7 - AI, Python in Excel & Modern Data Science Workflows (Next-Gen)",
+      "level": "Next-Gen",
+      "summary": "Unlock next-generation data science inside Excel: native Python integration with pandas, seaborn, and scikit-learn, alongside Microsoft Copilot and AI prompt engineering for spreadsheet workflows.",
+      "modules": [
+        {
+          "moduleId": "excel-python-analytics",
+          "slug": "007_001_python-in-excel-data-science-and-machine-learning",
+          "title": "Python in Excel: Data Science & Machine Learning",
+          "level": "Next-Gen",
+          "estimatedHours": 8,
+          "tags": [
+            "python-in-excel",
+            "pandas",
+            "matplotlib",
+            "seaborn",
+            "scikit-learn",
+            "data-science",
+            "statsmodels"
+          ],
+          "topics": [
+            "Introduction to Python in Excel: Running secure Python analytics natively in Microsoft Cloud containers",
+            "The `=PY()` formula: Syntax, cell referencing (`xl(\"A1:D100\", headers=True)`), and execution flow",
+            "Python Objects vs Excel Values: Viewing DataFrames and data structures in cells",
+            "Data wrangling with pandas in Excel: Filtering, grouping, merging, and reshaping DataFrames",
+            "Descriptive statistics and summary matrices with pandas (`describe()`, `corr()`, `value_counts()`)",
+            "Advanced data visualization in Excel cells with matplotlib and seaborn (Heatmaps, Pair plots, Violin plots)",
+            "Time-series analysis, rolling statistics, and trend decomposition with pandas",
+            "Statistical modeling and hypothesis testing with scipy.stats (t-tests, ANOVA, Chi-square)",
+            "Linear and multiple regression modeling with statsmodels in Excel",
+            "Predictive modeling and machine learning with scikit-learn (Classification, Clustering, Decision Trees)",
+            "Handling missing data, imputation, and outlier detection with Python algorithms",
+            "Sharing Python-powered workbooks with non-technical team members seamlessly",
+            "Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel",
+            "Assessment: Advanced Python in Excel Data Science Lab"
+          ],
+          "learningOutcomes": [
+            "Execute native Python code directly in Excel worksheets using the `=PY()` calculation formula",
+            "Wrangle, clean, and group complex tabular datasets using Python's pandas DataFrame library",
+            "Build publication-quality statistical visualizations (seaborn heatmaps, pair plots) and machine learning models in Excel"
+          ],
+          "prerequisites": [
+            "excel-office-scripts"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 8,
+          "summary": "Run native Python in Excel cells: pandas DataFrames, seaborn visualizations, scipy statistical tests, and scikit-learn machine learning models.",
+          "miniProjects": [
+            "Mini Project: Build an Automated Customer Churn Prediction & Cohort Analysis Model using Python in Excel"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 15,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Python in Excel ML Model Submission",
+            "passScore": 80
+          },
+          "useCases": [
+            "Advanced statistical modeling and distribution fitting without leaving the corporate Excel interface",
+            "Plotting high-dimensional seaborn correlation heatmaps and violin plots directly inside worksheet grids"
+          ],
+          "careerSkills": [
+            "Combining Excel's intuitive grid layout with Python's elite data science ecosystem (Anaconda distribution)",
+            "Deploying machine learning models directly into spreadsheets for business consumers"
+          ],
+          "commonMistakes": [
+            "Referencing external Python libraries that are not included in the standard Microsoft Cloud Anaconda container",
+            "Forgetting to specify `headers=True` when importing Excel tables into pandas via `xl()`"
+          ],
+          "references": [
+            "Python for Excel: A Modern Environment for Automation and Data Analysis by Felix Zumstein",
+            "Microsoft Learn: Python in Excel Overview and Documentation"
+          ],
+          "teachingTips": [
+            "Demonstrate how `df.describe()` generates an instant 8-statistic summary of 50 columns in one cell.",
+            "Show how seaborn correlation heatmaps render as high-resolution native image objects in Excel cells."
+          ],
+          "preReading": [
+            "Modern Office Scripts (TypeScript) module"
+          ],
+          "previousModule": "excel-office-scripts",
+          "nextModule": "excel-ai-tools",
+          "badge": "Python Spreadsheet Data Scientist Badge"
+        },
+        {
+          "moduleId": "excel-ai-tools",
+          "slug": "007_002_using-ai-with-excel-for-productivity",
+          "title": "Using AI with Excel for Productivity",
+          "level": "Next-Gen",
+          "estimatedHours": 6,
+          "tags": [
+            "copilot",
+            "generative-ai",
+            "prompt-engineering",
+            "ai-formulas",
+            "chatgpt-excel",
+            "automated-insights"
+          ],
+          "topics": [
+            "Introduction to AI in Excel: Microsoft Copilot, GPT-4, and LLM-assisted spreadsheet productivity",
+            "Getting started with Microsoft Copilot in Excel: Requirements, Interface, and capabilities",
+            "Prompt Engineering for Spreadsheets: Crafting precise instructions for formula generation and data manipulation",
+            "Using Copilot to generate complex nested formulas, dynamic arrays, and regular expressions",
+            "Automated data analysis: Asking natural language questions to discover trends, outliers, and insights",
+            "Generating instant visualizations, pivot tables, and scenario summaries with AI prompts",
+            "AI-assisted data cleaning: Extracting entities, standardizing messy text, and pattern recognition",
+            "Integrating OpenAI / Claude APIs with Excel via Power Query and VBA / Office Scripts",
+            "Creating custom AI functions in Excel (`=ASK_AI()`, `=SUMMARIZE_TEXT()`, `=TRANSLATE()`)",
+            "Ethical AI usage, data privacy in enterprise spreadsheets, and verifying AI-generated calculations",
+            "Best practices for debugging and auditing AI-generated formulas and VBA code",
+            "Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard"
+          ],
+          "learningOutcomes": [
+            "Harness Microsoft Copilot in Excel to generate formulas, pivot tables, and automated analytical summaries via natural language",
+            "Master prompt engineering for data analysis to extract insights, detect anomalies, and format complex models",
+            "Integrate external AI APIs (OpenAI/Anthropic) to build custom AI-powered worksheet functions (`=ASK_AI()`)"
+          ],
+          "prerequisites": [
+            "excel-python-analytics"
+          ],
+          "difficulty": "Medium-Hard",
+          "difficultyIndex": 6,
+          "summary": "Master AI in Excel: Microsoft Copilot, prompt engineering for financial formulas, automated data profiling, and custom AI formula integration.",
+          "miniProjects": [
+            "Mini Project: Build an AI-Assisted Customer Survey Sentiment & Text Summarization Intelligence Dashboard"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "AI Prompting & Analysis Portfolio",
+            "passScore": 75
+          },
+          "useCases": [
+            "Rapid data exploration and natural language querying across multi-thousand row datasets",
+            "Automated translation, categorization, and sentiment scoring of unstructured feedback text"
+          ],
+          "careerSkills": [
+            "AI-augmented data analysis workflows that 10x analytical productivity",
+            "Critical formula auditing to catch subtle hallucination errors in AI-generated calculations"
+          ],
+          "commonMistakes": [
+            "Blindly trusting AI-generated formulas without rigorous manual verification and edge-case testing",
+            "Pasting confidential proprietary enterprise data into unvetted public AI tools without governance"
+          ],
+          "references": [
+            "Microsoft Learn: Microsoft Copilot in Excel Guide",
+            "Prompt Engineering for Generative AI - O'Reilly Media"
+          ],
+          "teachingTips": [
+            "Teach students the 'Trust but Verify' principle for all AI-generated spreadsheet code and formulas.",
+            "Demonstrate how specific, multi-clause prompts generate vastly superior formulas compared to vague queries."
+          ],
+          "preReading": [
+            "Python in Excel: Data Science & Machine Learning module"
+          ],
+          "previousModule": "excel-python-analytics",
+          "nextModule": "excel-test-beginner",
+          "badge": "AI Spreadsheet Pioneer Badge"
         }
       ]
     },
     {
       "segmentId": "excel-tests",
-      "title": "Segment 4 - Excel Test & Assessment Zone",
-      "level": "All Levels",
-      "summary": "A dedicated testing zone to evaluate Excel skills through structured quizzes, scenario-based questions, practical tasks and final certification assessments.",
+      "title": "Segment 8 - Enterprise Assessment, Capstones & Certification (Mastery)",
+      "level": "Mastery",
+      "summary": "Validate your complete end-to-end spreadsheet mastery through rigorous multi-level skill tests, an industrial enterprise business intelligence capstone suite, and the official Final Certification Exam.",
       "modules": [
         {
           "moduleId": "excel-test-beginner",
-          "slug": "excel-beginner-skill-test",
+          "slug": "008_001_excel-beginner-skill-test",
           "title": "Excel Beginner Skill Test",
           "level": "Beginner",
-          "estimatedHours": 1.5,
-          "tags": [
-            "test",
-            "beginner",
-            "assessment",
-            "mcq"
-          ],
-          "topics": [
-            "Multiple-choice questions on core Excel tools",
-            "Basic formulas & functions test (SUM, AVERAGE, COUNT)",
-            "Data entry & formatting scenario questions",
-            "Simple chart identification questions",
-            "Short practical tasks (e.g., create total column, format sheet)"
-          ],
-          "learningOutcomes": [
-            "Demonstrate foundational Excel knowledge",
-            "Perform simple calculations and formatting tasks",
-            "Understand and apply basic Excel functions accurately"
-          ],
-          "prerequisites": [
-            "excel-basic-formulas"
-          ],
-          "difficulty": "Basic",
-          "difficultyIndex": 1,
-          "summary": "A quick but structured test to measure readiness before entering intermediate Excel.",
-          "miniProjects": [
-            "Assessment Task: Create a formatted student marks table with totals"
-          ],
-          "exercises": {
-            "mcq": 20,
-            "practical": 3
-          },
-          "assessment": {
-            "type": "Online Quiz + Practical Task Upload",
-            "passScore": 65
-          },
-          "useCases": [
-            "Evaluate student readiness after learning the basics",
-            "Conduct quick tests during classroom sessions"
-          ],
-          "careerSkills": [
-            "Basic spreadsheet literacy",
-            "Entry-level office data handling"
-          ],
-          "badge": "Excel Beginner Test Badge",
-          "previousModule": null,
-          "nextModule": "excel-test-intermediate"
-        },
-        {
-          "moduleId": "excel-test-intermediate",
-          "slug": "excel-intermediate-skill-test",
-          "title": "Excel Intermediate Skill Test",
-          "level": "Intermediate",
           "estimatedHours": 2,
           "tags": [
-            "test",
-            "intermediate",
-            "assessment",
-            "lookup"
+            "beginner-test",
+            "mcq",
+            "practical-exam",
+            "foundations-test"
           ],
           "topics": [
-            "Moderate-level MCQs (VLOOKUP, MATCH, INDEX, COUNTIF)",
-            "Relative, absolute and mixed reference questions",
-            "Data cleaning & conditional formatting test items",
-            "Sorting, filtering and table-based questions",
-            "Real-world scenario test: Sales sheet, attendance, expenses"
+            "Core Interface & Workbook Navigation Speed Test",
+            "Tabular Data Entry & Professional Formatting Assignment",
+            "Basic Mathematical & Aggregation Formula Challenge",
+            "Visual Chart Construction & Customization Lab",
+            "Comprehensive Beginner MCQ & Practical Evaluation"
           ],
           "learningOutcomes": [
-            "Apply intermediate Excel tools confidently",
-            "Use lookup functions to solve real problems",
-            "Work efficiently with structured data and tables"
+            "Verify foundational proficiency in Excel interface navigation, data hygiene, and number formatting",
+            "Demonstrate accuracy in writing basic mathematical formulas with relative and absolute references",
+            "Construct clean, readable visual charts from raw sample business data"
           ],
           "prerequisites": [
-            "excel-basic-formulas",
             "excel-basic-charts"
           ],
-          "difficulty": "Moderate",
-          "difficultyIndex": 2,
-          "summary": "A complete evaluation of your intermediate Excel skills, covering functions, tools and data analysis tasks.",
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 3,
+          "summary": "Comprehensive assessment evaluating core spreadsheet navigation, cell formatting, basic formula construction, and charting.",
           "miniProjects": [
-            "Assessment Task: Clean and summarise a sales dataset using formulas & formatting"
+            "Practical Assessment: 45-Minute Timed Workbook Construction from Raw Specifications"
           ],
           "exercises": {
             "mcq": 25,
-            "practical": 4
+            "coding": 10,
+            "projects": 1
           },
           "assessment": {
-            "type": "Timed MCQ Test + Data Analysis Task",
-            "passScore": 70
-          },
-          "useCases": [
-            "Prepare students for corporate Excel requirements",
-            "Assess readiness for advanced Excel components"
-          ],
-          "careerSkills": [
-            "Data cleaning & transformation",
-            "Intermediate business analysis"
-          ],
-          "badge": "Excel Intermediate Test Badge",
-          "previousModule": "excel-test-beginner",
-          "nextModule": "excel-test-advanced"
-        },
-        {
-          "moduleId": "excel-test-advanced",
-          "slug": "excel-advanced-skill-test",
-          "title": "Excel Advanced Skill Test",
-          "level": "Advanced",
-          "estimatedHours": 2.5,
-          "tags": [
-            "test",
-            "advanced",
-            "pivot",
-            "dashboard",
-            "power-tools"
-          ],
-          "topics": [
-            "Advanced MCQs (IFS, XLOOKUP, nested functions)",
-            "PivotTable and PivotChart interpretation test",
-            "Complex formula debugging questions",
-            "Data modelling case studies",
-            "Dashboard logical reasoning questions",
-            "What-if analysis & Goal Seek test items"
-          ],
-          "learningOutcomes": [
-            "Demonstrate mastery in advanced Excel usage",
-            "Understand data analytics and automation tools",
-            "Solve business-level Excel case studies accurately"
-          ],
-          "prerequisites": [
-            "excel-test-intermediate"
-          ],
-          "difficulty": "Advanced",
-          "difficultyIndex": 3,
-          "summary": "A rigorous test designed for senior-level Excel users, covering analytics, pivoting, logic building and scenario modelling.",
-          "miniProjects": [
-            "Assessment Task: Build a mini dashboard with charts, KPIs and slicers"
-          ],
-          "exercises": {
-            "mcq": 30,
-            "practical": 5
-          },
-          "assessment": {
-            "type": "Advanced MCQ + Dashboard Creation",
+            "type": "Timed Examination (MCQ + Practical Sheet)",
             "passScore": 75
           },
           "useCases": [
-            "Corporate job skill assessment",
-            "Pre-interview Excel evaluations"
+            "Entry-level spreadsheet qualification and internship readiness validation"
           ],
           "careerSkills": [
-            "Business analytics",
-            "Advanced spreadsheet modelling",
-            "Dashboard reporting"
+            "Proven foundational competency in Microsoft Excel"
           ],
-          "badge": "Excel Advanced Test Badge",
-          "previousModule": "excel-test-intermediate",
-          "nextModule": "excel-final-certification"
+          "commonMistakes": [
+            "Rushing through formula entry and making cell coordinate reference typos"
+          ],
+          "references": [
+            "Microsoft Excel Associate (MO-200) Exam Guide"
+          ],
+          "teachingTips": [
+            "Review test results immediately to correct early misconceptions before advanced modules."
+          ],
+          "preReading": [
+            "Segment 1 Modules"
+          ],
+          "previousModule": "excel-ai-tools",
+          "nextModule": "excel-test-intermediate",
+          "badge": "Excel Foundational Certified Badge"
         },
         {
-          "moduleId": "excel-final-certification",
-          "slug": "excel-final-certificate-exam",
-          "title": "Excel Final Certification Exam",
-          "level": "Mixed",
+          "moduleId": "excel-test-intermediate",
+          "slug": "008_002_excel-intermediate-skill-test",
+          "title": "Excel Intermediate Skill Test",
+          "level": "Intermediate",
           "estimatedHours": 3,
           "tags": [
-            "exam",
-            "certificate",
-            "final-assessment"
+            "intermediate-test",
+            "tables-test",
+            "lookups-test",
+            "pivot-tables-test",
+            "statistical-test"
           ],
           "topics": [
-            "Full-length 50 Marks MCQ exam (mixed difficulty)"
+            "Structured Tables & Advanced Multi-column Filter Challenge",
+            "Text, Date & Complex Conditional Logic Test",
+            "Statistical Analysis & Multi-condition Summation Challenge",
+            "VLOOKUP, INDEX-MATCH & XLOOKUP Accuracy Test",
+            "Pivot Table & Slicer Interactive Summary Assessment"
           ],
           "learningOutcomes": [
-            "Demonstrate end-to-end Excel proficiency",
-            "Solve industry-level spreadsheet problems",
-            "Prepare for office or business-related Excel work"
+            "Demonstrate mastery of relational lookups (XLOOKUP, INDEX-MATCH) and conditional aggregations (SUMIFS/COUNTIFS)",
+            "Build dynamic multi-dimensional Pivot Table reports with custom calculated items and connected slicers",
+            "Execute string cleaning, date arithmetic, and multi-tier nested conditional logic accurately"
           ],
           "prerequisites": [
-            "excel-test-beginner",
-            "excel-test-intermediate",
-            "excel-test-advanced"
+            "excel-pivot-intro"
           ],
-          "difficulty": "Mixed",
-          "difficultyIndex": 5,
-          "summary": "A comprehensive examination awarding the official Coder & AccoTax Excel Certification.",
+          "difficulty": "Medium-Hard",
+          "difficultyIndex": 6,
+          "summary": "Rigorous test covering structured tables, text/date manipulation, SUMIFS/COUNTIFS, relational lookups, and Pivot Tables.",
           "miniProjects": [
-            "Final Project: Generate a business report using formulas, charts, pivots and formatting"
+            "Practical Assessment: Real-World Commercial Sales Log Transformation & Multi-Pivot Analytical Report"
           ],
           "exercises": {
-            "mcq": 60,
-            "practical": 6
+            "mcq": 30,
+            "coding": 15,
+            "projects": 1
           },
           "assessment": {
-            "type": "Full Certification Exam",
-            "passScore": 75,
-            "certificate": "Yes"
+            "type": "Timed Intermediate Practical Exam",
+            "passScore": 75
           },
           "useCases": [
-            "Final level assessment for students",
-            "Corporate training completion test"
+            "Business Analyst and Financial Analyst technical screening evaluation"
           ],
           "careerSkills": [
-            "Full Excel proficiency",
-            "Job-ready analytical skills"
+            "Demonstrated workplace data analysis and relational modeling competency"
           ],
-          "badge": "Excel Certified Professional Badge",
-          "previousModule": "excel-test-advanced",
-          "nextModule": null
-        }
-      ]
-    },
-    {
-      "segmentId": "professional",
-      "title": "Segment 5 - Excel Automation & Smart Analytics (Professional)",
-      "level": "Professional",
-      "summary": "Master automation, advanced lookups, dynamic arrays, Power tools and AI-driven Excel workflows for real business environments.",
-      "modules": [
-        {
-          "moduleId": "excel-modern-functions",
-          "slug": "modern-lookup-dynamic-arrays",
-          "title": "Modern Lookup & Dynamic Array Functions",
-          "level": "Professional",
-          "estimatedHours": 6,
-          "tags": [
-            "xlookup",
-            "filter",
-            "unique",
-            "sort",
-            "dynamic-arrays"
+          "commonMistakes": [
+            "Failing to test lookup formulas with edge cases like missing IDs or duplicate values"
           ],
-          "topics": [
-            "Why XLOOKUP replaces VLOOKUP & HLOOKUP",
-            "XLOOKUP syntax with exact, approximate & reverse search",
-            "Dynamic array concept & spill behaviour",
-            "FILTER, UNIQUE, SORT, SORTBY practical usage",
-            "Combining dynamic arrays with dashboards",
-            "Replacing complex formulas with clean dynamic arrays"
+          "references": [
+            "Microsoft Excel Expert (MO-201) Exam Guide"
           ],
-          "learningOutcomes": [
-            "Build fully dynamic reports without helper columns",
-            "Use modern Excel tools used in MNC offices"
+          "teachingTips": [
+            "Emphasize speed and accuracy in combining multiple functions inside a single calculation."
           ],
-          "prerequisites": [
-            "excel-lookup-basics"
-          ]
+          "preReading": [
+            "Segment 2 Modules"
+          ],
+          "previousModule": "excel-test-beginner",
+          "nextModule": "excel-test-advanced",
+          "badge": "Intermediate Analytics Certified Badge"
         },
         {
-          "moduleId": "excel-power-query",
-          "slug": "power-query-data-cleaning",
-          "title": "Power Query – Import, Transform & Clean Data",
-          "level": "Professional",
-          "estimatedHours": 7,
-          "tags": [
-            "power-query",
-            "data-cleaning",
-            "automation"
-          ],
-          "topics": [
-            "Importing CSV, TXT, PDF & Excel files",
-            "Removing errors, duplicates & unwanted columns",
-            "Splitting, merging & transforming columns",
-            "Creating reusable refreshable queries",
-            "Connecting multiple data sources automatically"
-          ],
-          "learningOutcomes": [
-            "Automate raw data cleaning",
-            "Prepare datasets for reporting in seconds"
-          ]
-        },
-        {
-          "moduleId": "excel-power-pivot",
-          "slug": "power-pivot-data-model",
-          "title": "Power Pivot & Data Modeling",
-          "level": "Professional",
-          "estimatedHours": 6,
-          "tags": [
-            "power-pivot",
-            "relationships",
-            "dax"
-          ],
-          "topics": [
-            "Creating relationships between tables",
-            "Understanding Data Model",
-            "Calculated columns & measures",
-            "Intro to DAX formulas",
-            "Building multi-table pivot reports"
-          ],
-          "learningOutcomes": [
-            "Handle datasets with 1 lakh+ records",
-            "Create relational Excel models like databases"
-          ]
-        },
-        {
-          "moduleId": "excel-vba-macros",
-          "slug": "vba-and-macro-automation",
-          "title": "VBA & Macro Automation",
-          "level": "Professional",
-          "estimatedHours": 8,
-          "tags": [
-            "vba",
-            "macros",
-            "automation"
-          ],
-          "topics": [
-            "Recording & editing macros",
-            "VBA editor overview",
-            "Writing basic VBA code",
-            "Automating reports & formatting",
-            "Button-based automation"
-          ],
-          "learningOutcomes": [
-            "Eliminate repetitive manual work",
-            "Build one-click Excel solutions"
-          ]
-        },
-        {
-          "moduleId": "excel-ai-tools",
-          "slug": "ai-in-excel",
-          "title": "Using AI with Excel for Productivity",
-          "level": "Professional",
+          "moduleId": "excel-test-advanced",
+          "slug": "008_003_excel-advanced-and-financial-modeling-skill-test",
+          "title": "Excel Advanced & Financial Modeling Skill Test",
+          "level": "Advanced",
           "estimatedHours": 4,
           "tags": [
-            "ai",
-            "copilot",
-            "chatgpt",
-            "productivity"
+            "advanced-test",
+            "financial-modeling-test",
+            "solver-test",
+            "dynamic-arrays-test",
+            "dax-test"
           ],
           "topics": [
-            "Excel Copilot overview",
-            "Using ChatGPT to generate formulas",
-            "Error debugging using AI",
-            "AI-powered data analysis examples"
+            "Financial Amortization & Investment Valuation Lab (XNPV, XIRR)",
+            "Data Validation & Tamper-Proof Sheet Protection Test",
+            "What-If Sensitivity & Solver Optimization Challenge",
+            "Dynamic Array Spilling & Array Reshaping Test",
+            "Power Query M Transformation & Unpivoting Practical",
+            "DAX Measure & Evaluation Context Exam"
           ],
           "learningOutcomes": [
-            "Work 5x faster using AI support",
-            "Debug & build formulas intelligently"
-          ]
+            "Build complete institutional-grade financial models with amortization, XNPV, XIRR, and sensitivity tables",
+            "Solve complex resource optimization problems using Excel Solver and formulate dynamic array solutions",
+            "Demonstrate advanced competency in Power Query automated ETL and Power Pivot DAX measures"
+          ],
+          "prerequisites": [
+            "excel-dax-mastery"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 8,
+          "summary": "Comprehensive advanced evaluation covering financial engineering, Solver optimization, dynamic arrays, Power Query ETL, and DAX.",
+          "miniProjects": [
+            "Practical Assessment: 2-Hour Comprehensive Corporate Valuation & Multi-Table Data Modeling Challenge"
+          ],
+          "exercises": {
+            "mcq": 35,
+            "coding": 20,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Advanced Practical Exam & Model Audit",
+            "passScore": 80
+          },
+          "useCases": [
+            "Senior Financial Analyst, Senior BI Specialist, and Lead MIS Officer evaluation"
+          ],
+          "careerSkills": [
+            "Elite corporate financial modeling, optimization, and Power BI stack mastery"
+          ],
+          "commonMistakes": [
+            "Over-complicating formulas when a clean Power Query step or DAX measure is far more robust"
+          ],
+          "references": [
+            "Financial Modeling Best Practices Handbook"
+          ],
+          "teachingTips": [
+            "Evaluate models based on structure, dynamic flexibility, documentation, and computational accuracy."
+          ],
+          "preReading": [
+            "Segments 3, 4, and 5 Modules"
+          ],
+          "previousModule": "excel-test-intermediate",
+          "nextModule": "excel-capstone-project",
+          "badge": "Advanced Modeling Certified Badge"
         },
         {
           "moduleId": "excel-capstone-project",
-          "slug": "excel-real-world-project",
+          "slug": "008_004_professional-capstone-real-business-dashboard",
           "title": "Professional Capstone – Real Business Dashboard",
-          "level": "Professional",
-          "estimatedHours": 10,
+          "level": "Mastery",
+          "estimatedHours": 14,
+          "tags": [
+            "capstone-project",
+            "enterprise-bi",
+            "power-query",
+            "dax",
+            "vba-automation",
+            "executive-dashboard"
+          ],
           "topics": [
-            "Raw data import using Power Query",
-            "Clean & model using Power Pivot",
-            "Dynamic dashboard using XLOOKUP & FILTER",
-            "Automation with VBA",
-            "Final presentation & documentation"
+            "Capstone Architecture: Problem Statement, Data Pipeline & System Specification",
+            "Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline",
+            "Phase 2: Star Schema Data Modeling, Dimensional Relationships & Advanced DAX Analytics",
+            "Phase 3: Interactive Executive KPI Dashboard with Slicers, Visualizations & Dynamic Charting",
+            "Phase 4: VBA / Office Script Automation for Scheduled Reporting, PDF Export & Email Dispatch"
           ],
           "learningOutcomes": [
-            "Deliver corporate-level Excel solutions",
-            "Become fully job-ready"
-          ]
+            "Architect and deliver an end-to-end industrial Enterprise Business Intelligence & Automation Suite from raw data to C-suite portal",
+            "Integrate Power Query ETL, Power Pivot Star Schema modeling, advanced DAX time intelligence, and interactive UI dashboards",
+            "Deploy VBA / Office Script automation routines for automated one-click PDF generation and scheduled email distribution"
+          ],
+          "prerequisites": [
+            "excel-test-advanced",
+            "excel-office-scripts"
+          ],
+          "difficulty": "Ultra Hard",
+          "difficultyIndex": 10,
+          "summary": "The ultimate real-world capstone: design, build, and deploy an enterprise-grade automated Business Intelligence and executive reporting suite.",
+          "miniProjects": [
+            "Industrial Capstone: End-to-End Enterprise Commercial Operations, Financial Modeling & Automated Automation Portal"
+          ],
+          "exercises": {
+            "mcq": 0,
+            "coding": 25,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Complete Project Defense, Code Audit & Live Demonstration",
+            "passScore": 85
+          },
+          "useCases": [
+            "Full enterprise business intelligence deployment for multi-million dollar corporate operations",
+            "Portfolio showcase piece for top-tier management consulting, finance, and data analytics roles"
+          ],
+          "careerSkills": [
+            "Complete end-to-end data product engineering from raw ingestion to executive presentation",
+            "Professional portfolio artifact demonstrating mastery of all modern Excel technologies"
+          ],
+          "commonMistakes": [
+            "Neglecting user experience design and documentation in the final executive dashboard delivery",
+            "Hardcoding file references that break when deployed on another client machine"
+          ],
+          "references": [
+            "The Visual Display of Quantitative Information by Edward Tufte",
+            "Enterprise Business Intelligence Architecture Guidelines"
+          ],
+          "teachingTips": [
+            "Guide students through the 4-phase agile project lifecycle with milestone reviews at each stage.",
+            "Conduct a mock C-suite executive presentation where the student defends their dashboard numbers live."
+          ],
+          "preReading": [
+            "All Curriculum Segments (1 through 7)"
+          ],
+          "previousModule": "excel-test-advanced",
+          "nextModule": "excel-final-certification",
+          "badge": "Enterprise Capstone Laureate Badge"
+        },
+        {
+          "moduleId": "excel-final-certification",
+          "slug": "008_005_excel-final-certification-exam",
+          "title": "Excel Final Certification Exam",
+          "level": "Mastery",
+          "estimatedHours": 4,
+          "tags": [
+            "final-exam",
+            "certification",
+            "master-eval",
+            "comprehensive-assessment"
+          ],
+          "topics": [
+            "Comprehensive Master Level Practical Exam & Certification Assessment"
+          ],
+          "learningOutcomes": [
+            "Demonstrate total mastery across all 8 segments of the Microsoft Excel Ultra Expert Curriculum",
+            "Solve complex, timed multi-disciplinary problems spanning advanced formulas, dynamic arrays, Power Query, DAX, and VBA",
+            "Earn the prestigious Certificate of Mastery in Advanced Excel, Business Analytics & Financial Modeling from Coder & AccoTax"
+          ],
+          "prerequisites": [
+            "excel-capstone-project"
+          ],
+          "difficulty": "Ultra Hard",
+          "difficultyIndex": 10,
+          "summary": "The comprehensive final exit examination validating complete mastery of modern Microsoft Excel, Financial Modeling, Power BI stack, and Automation.",
+          "miniProjects": [
+            "Final Certification Practical Examination: 3-Hour Comprehensive Industrial Problem Solving Challenge"
+          ],
+          "exercises": {
+            "mcq": 50,
+            "coding": 30,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Official Final Practical Examination & Oral Viva",
+            "passScore": 80
+          },
+          "useCases": [
+            "Official institutional certification and corporate credentialing for high-impact employment",
+            "Demonstrating verified mastery to employers, clients, and academic institutions"
+          ],
+          "careerSkills": [
+            "Certified mastery in Enterprise Microsoft Excel, Financial Engineering, and Modern Business Intelligence",
+            "Confidence to architect and troubleshoot any spreadsheet challenge in global corporate environments"
+          ],
+          "commonMistakes": [
+            "Time mismanagement during the multi-part practical examination",
+            "Failing to review calculation outputs against business logic sanity checks"
+          ],
+          "references": [
+            "Coder & AccoTax Official Examination Standards",
+            "Microsoft Certified: Power BI & Excel Enterprise Standards"
+          ],
+          "teachingTips": [
+            "Review past exam trends and conduct a mock time-pressured practical simulation prior to the final exam.",
+            "Celebrate student transformation from zero/beginner to elite ultra-expert."
+          ],
+          "preReading": [
+            "Complete Master Course Syllabus"
+          ],
+          "previousModule": "excel-capstone-project",
+          "nextModule": null,
+          "badge": "Excel Ultra Expert Master Certified Badge"
         }
       ]
     }

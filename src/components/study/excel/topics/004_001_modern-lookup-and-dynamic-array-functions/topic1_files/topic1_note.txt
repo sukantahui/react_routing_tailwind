@@ -1,0 +1,24 @@
+TOPIC 1 SUMMARY NOTES
+================================================================================
+Topic: The Spill Operator (#) and Referencing Spilled Array Ranges Dynamically
+Module: 004_001_modern-lookup-and-dynamic-array-functions
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+Key Concepts:
+1. The Spilled Range Operator (#):
+   - Syntax: Append `#` to the top-left origin cell address (e.g., `A2#`, `Sheet1!C5#`).
+   - Function: Binds to the live, elastic rectangular perimeter of any active spilled dynamic array.
+   - Self-Adjusting: If the underlying source data expands or contracts, `A2#` updates its bounding coordinates instantaneously without editing downstream formulas.
+
+2. Downstream Vectorized Operations:
+   - Arithmetic on arrays: `=A2# * 0.18` (applies 18% tax to every spilled element).
+   - String concatenation on arrays: `=A2# & " Branch"` (broadcasting text prefix/suffix across all rows).
+   - Aggregations on arrays: `=SUM(A2#)`, `=AVERAGE(A2#)`, `=COUNTA(A2#)`, `=MAX(A2#)`.
+
+3. Cross-Sheet Spilled References:
+   - Syntax: `=SUM(DataSheet!J2#)`.
+   - The `#` must immediately follow the cell coordinate, NOT the sheet name (Correct: `Sheet1!A2#`; Incorrect: `Sheet1#!A2`).
+
+4. Dynamic Data Validation & Dropdowns:
+   - In Data Validation > List > Source: `=A2#`.
+   - Allows dropdown lists to expand dynamically without named formulas or OFFSET.

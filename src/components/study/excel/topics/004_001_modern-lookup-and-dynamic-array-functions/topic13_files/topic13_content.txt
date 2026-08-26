@@ -1,0 +1,18 @@
+TOPIC 13 CONCEPTUAL REFERENCE CONTENT
+================================================================================
+Title: Practice Lab: Multi-Criteria Customer Segmentation Engine with Dynamic Array Spilling
+Course: EXCEL-PRO-901
+
+1. Corporate Analytics Capstone:
+Modern CRM and customer lifetime value (LTV) models require automated cohort segmentation. Instead of assigning static customer tiers that become stale, dynamic array formulas evaluate multi-variable thresholds (Monetary Spend, Quality Rating, Engagement Frequency) in memory.
+
+2. Matrix Augmentation with HSTACK:
+`HSTACK(raw, tier)` appends the newly computed classification column directly to the raw data matrix in memory without altering the physical worksheet table structure.
+
+3. Downstream Segment Cohort Extraction:
+By filtering on the computed segment column, marketing teams can drill down into any specific customer cohort (e.g. "Platinum VIP" in Barrackpore) and spill an alphabetized, ranked roster dynamically.
+
+4. Statistical Cohort Analytics:
+- Segment Revenue: `=SUM(FILTER(RevenueCol, TierCol="Platinum VIP"))`
+- Segment Count: `=ROWS(FILTER(IDCol, TierCol="Platinum VIP"))`
+- Share of Wallet: `=SegmentRevenue / TotalRevenue`

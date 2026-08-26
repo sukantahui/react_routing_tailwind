@@ -1,0 +1,29 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: CHOOSECOLS COLUMN PROJECTION ENGINE
+================================================================================
+Module: 004_002_next-gen-array-reshaping-and-grid-transformation
+Topic 4: Extracting specific columns and reordering layouts with CHOOSECOLS
+================================================================================
+
+1. COLUMN EXTRACTION & REORDERING:
+CHOOSECOLS performs column projection and layout transformation in RAM.
+
+2. INDEXING SPECIFICATIONS:
+- Positive Index (k >= 1): Slices the k-th column from the left.
+- Negative Index (k <= -1): Slices the |k|-th column from the right.
+- Zero (k = 0): Throws a #VALUE! error.
+- Out-of-bounds (|k| > COLUMNS(array)): Throws a #VALUE! error.
+
+3. ADVANCED ARCHITECTURAL RECIPES:
+- Reordered Presentation View:
+  =CHOOSECOLS(PayrollMaster, 1, 5, 2, 4, 10)
+
+- First and Last Column Extract:
+  =CHOOSECOLS(MasterTable, 1, -1)
+
+- Dynamic Horizontal Reverse:
+  =CHOOSECOLS(DataTable, SEQUENCE(1, COLUMNS(DataTable), COLUMNS(DataTable), -1))
+
+- Calculated Field Augmentation:
+  =HSTACK(CHOOSECOLS(Table, 1, 2), CHOOSECOLS(Table, 6)*1.18)
+================================================================================

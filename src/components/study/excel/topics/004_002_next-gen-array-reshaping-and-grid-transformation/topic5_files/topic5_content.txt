@@ -1,0 +1,31 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: TAKE BOUNDARY SLICING ENGINE
+================================================================================
+Module: 004_002_next-gen-array-reshaping-and-grid-transformation
+Topic 5: Extracting Top N or Bottom N records from arrays with TAKE
+================================================================================
+
+1. BOUNDARY SLICING MECHANICS:
+The TAKE function extracts a contiguous sub-matrix from the perimeter of a 2D array.
+
+2. PARAMETER BEHAVIOR:
+- rows > 0: Slices from top down.
+- rows < 0: Slices from bottom up.
+- columns > 0: Slices from left to right.
+- columns < 0: Slices from right to left.
+- rows = 0 or cols = 0: Throws #CALC! (empty array).
+- |rows| > total_rows: Returns all available rows gracefully (no error).
+
+3. PRACTICAL COMPOSITION PATTERNS:
+- Top 5 Leaderboard:
+  =TAKE(SORT(ScoreTable, ScoreCol, -1), 5)
+
+- Bottom 3 Underperformers:
+  =TAKE(SORT(ScoreTable, ScoreCol, -1), -3)
+
+- Top & Bottom Consolidated Card:
+  =LET(s, SORT(DataTable, ColIdx, -1), VSTACK(TAKE(s, 5), TAKE(s, -5)))
+
+- Dynamic Rolling 12-Month Window:
+  =TAKE(ContinuousMonthlyData, -12)
+================================================================================

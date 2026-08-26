@@ -1,0 +1,22 @@
+TOPIC 7 SUMMARY NOTES
+================================================================================
+Topic: Generating Random Datasets and Monte Carlo Inputs with RANDARRAY
+Module: 004_001_modern-lookup-and-dynamic-array-functions
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+Key Formula Signature:
+=RANDARRAY([rows], [columns], [min], [max], [whole_number])
+
+Core Arguments:
+1. `[rows]` (Optional, default 1): Number of rows to generate.
+2. `[columns]` (Optional, default 1): Number of columns to generate.
+3. `[min]` (Optional, default 0): Lower boundary for random values.
+4. `[max]` (Optional, default 1): Upper boundary for random values.
+5. `[whole_number]` (Optional, default FALSE):
+   • `FALSE` / Omitted: Generates random floating-point decimals.
+   • `TRUE`: Generates random integers (whole numbers).
+
+Volatile Calculation Management:
+- Like `RAND()`, `RANDARRAY` is volatile and recalculates on every workbook event (F9).
+- When generating synthetic mock datasets or sample training tables, freeze generated arrays using Copy -> Paste Special -> Values (`Alt + E + S + V`).
+- In Monte Carlo risk modeling, leave dynamic to simulate scenario probabilities across revenue, interest rates, and footfall perturbations.

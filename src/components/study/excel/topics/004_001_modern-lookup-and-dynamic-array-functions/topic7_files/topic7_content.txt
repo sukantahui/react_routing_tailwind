@@ -1,0 +1,16 @@
+TOPIC 7 CONCEPTUAL REFERENCE CONTENT
+================================================================================
+Title: Generating Random Datasets and Monte Carlo Inputs with RANDARRAY
+Course: EXCEL-PRO-901
+
+1. The Legacy RAND() and RANDBETWEEN() Bottlenecks:
+In legacy Excel, generating random matrices required filling `=RAND()` or `=RANDBETWEEN(bottom, top)` across thousands of individual cells. This created heavy workbook bloat and dragged calculation performance.
+
+2. The Modern RANDARRAY Function:
+`RANDARRAY` generates an entire uniform random matrix in a single formula. It accepts custom minimum and maximum bounds directly and supports both floating-point numbers (for interest rates, volatility models, WACC sensitivity) and discrete integers (for simulated unit counts, transaction volumes, dice rolls).
+
+3. Monte Carlo Simulation Engine:
+By feeding `RANDARRAY` into financial discounted cash flow (DCF) models, corporate analysts can simulate 10,000 iterations of revenue growth and inflation rates to construct probability distribution curves and Value at Risk (VaR) matrices.
+
+4. Random Sampling & Permutation:
+Pairing `RANDARRAY` with `SORTBY` allows non-repeating random lottery sampling and lottery permutations: `=SORTBY(Candidates, RANDARRAY(ROWS(Candidates)))`.

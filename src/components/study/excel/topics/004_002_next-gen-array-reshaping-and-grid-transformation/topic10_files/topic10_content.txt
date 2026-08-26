@@ -1,0 +1,30 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: VSTACK & HSTACK MEMORY ENGINE
+================================================================================
+Module: 004_002_next-gen-array-reshaping-and-grid-transformation
+Topic 10: Combining VSTACK and HSTACK to append and merge disparate datasets in memory
+================================================================================
+
+1. ENGINE MECHANICS:
+- VSTACK: Concatenates arrays along Axis 0 (vertical row dimension).
+- HSTACK: Concatenates arrays along Axis 1 (horizontal column dimension).
+
+2. DIMENSIONAL MISMATCH HANDLING:
+- VSTACK: When column counts differ, shorter arrays receive #N/A in missing cols.
+- HSTACK: When row heights differ, shorter arrays receive #N/A in missing rows.
+- Mitigation: Wrap shorter arrays in EXPAND with fallback value ("" or 0).
+
+3. ADVANCED ARCHITECTURAL RECIPES:
+- Single-Formula Composite Dashboard:
+  =VSTACK(
+     HSTACK("Branch", "Revenue", "GST @ 18%", "Total"),
+     HSTACK(BranchList, RevCol, RevCol*0.18, RevCol*1.18),
+     HSTACK("Grand Total", SUM(RevCol), SUM(RevCol*0.18), SUM(RevCol*1.18))
+   )
+
+- Multi-Campus Union with Source Identification:
+  =VSTACK(
+     HSTACK(EXPAND("Barrackpore", ROWS(BK_Data), , "Barrackpore"), BK_Data),
+     HSTACK(EXPAND("Shyamnagar", ROWS(SH_Data), , "Shyamnagar"), DROP(SH_Data, 1))
+   )
+================================================================================

@@ -1,0 +1,30 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: LAMBDA SYNTAX & IMMEDIATE EXECUTION
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_003: Custom Functions with LAMBDA & Helper Engines
+Topic 1: LAMBDA syntax: Parameters, Calculation expressions, and immediate execution syntax `(LAMBDA(x, x*2)(5))`
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. FORMULA SYNTAX & IMMEDIATE EXECUTION
+--------------------------------------------------------------------------------
+Syntax: =LAMBDA([param1, param2, ...], calculation)
+
+Immediate Execution Syntax in a Worksheet Cell:
+  =(LAMBDA(price, qty, price * qty * 1.18))(1500, 4) &rarr; Returns 7080
+
+2. WHY IMMEDIATE EXECUTION IS ESSENTIAL
+--------------------------------------------------------------------------------
+• Bare LAMBDAs without arguments return #CALC! in worksheet cells.
+• Trailing parentheses `(arg1, arg2, ...)` pass test inputs positionally in-place.
+• Enables sandbox testing of complex logic on real data before Name Manager registration.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Parameters cannot contain spaces, match cell references (A1, C2), or match
+  native Excel function names (SUM, MAX).
+• Combine with LET inside the calculation block to optimize heavy formulas.
+• Highlight formula in the formula bar and press F9 to evaluate in memory.
+================================================================================

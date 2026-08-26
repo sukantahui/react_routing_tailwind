@@ -1,0 +1,29 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: WRAPCOLS COLUMN-WISE SHAPING ENGINE
+================================================================================
+Module: 004_002_next-gen-array-reshaping-and-grid-transformation
+Topic 9: Reshaping 1D data streams vertically into fixed-height columns with WRAPCOLS
+================================================================================
+
+1. COLUMN-WISE SHAPING MECHANICS:
+WRAPCOLS consumes a 1D sequence of length L and breaks it into columns of fixed
+height H, producing a 2D matrix of shape:
+  Rows = H
+  Columns = CEILING(L / H)
+
+2. TRAVERSAL ORDER:
+Column 1: Element 1, Element 2 ... Element H (cells A1:AH)
+Column 2: Element H+1, Element H+2 ... Element 2H (cells B1:BH)
+...
+Final Column: Padded with pad_with if L % H != 0.
+
+3. ADVANCED ARCHITECTURAL RECIPES:
+- Newspaper Multi-Column Print View:
+  =WRAPCOLS(StaffNamesVector, 20, "")
+
+- Exam Hall Seat Allocation:
+  =WRAPCOLS(RollNumbers, 20, "Vacant")
+
+- Shift Rotation Matrix:
+  =WRAPCOLS(WorkerPool, 8, "Open Slot")
+================================================================================

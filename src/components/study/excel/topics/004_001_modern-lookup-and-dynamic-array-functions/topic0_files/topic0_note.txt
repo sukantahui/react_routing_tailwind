@@ -1,0 +1,24 @@
+TOPIC 0 SUMMARY NOTES
+================================================================================
+Topic: Understanding Excel's Modern Calculation Engine & Dynamic Array Spill (#SPILL!) Behavior
+Module: 004_001_modern-lookup-and-dynamic-array-functions
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+Key Concepts:
+1. Modern Calculation Engine:
+   - Excel 365 and 2021+ natively treat all formulas as potential array formulas.
+   - Any formula that returns multiple values automatically "spills" into adjacent blank cells (down and right).
+   - Completely replaces legacy Ctrl+Shift+Enter (CSE) array formulas with high-performance native vectorization.
+
+2. The Spill Border & Spill Operator (#):
+   - The primary cell holding the formula shows a standard formula; all spilled cells display a ghosted formula bar and blue highlight border.
+   - Referencing the entire spilled array is accomplished simply by appending `#` to the top-left origin cell (e.g. `A2#`).
+
+3. The #SPILL! Error Root Causes & Fixes:
+   - Spill range is blocked by data, formatted empty text, or cell formulas (Fix: clear the obstructing cells).
+   - Spill range contains merged cells (Fix: unmerge cells; use Center Across Selection).
+   - Volatile formula referencing an entire column (e.g., `SEQUENCE(1048576)` extends beyond the sheet grid limits).
+   - Table limitation: Dynamic array formulas cannot spill inside official Excel Tables (`ListObject`).
+
+4. The Implicit Intersection Operator (@):
+   - Legacy formulas migrated into modern Excel receive the `@` prefix to force single-cell evaluation if needed.

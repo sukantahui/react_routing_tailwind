@@ -1,0 +1,474 @@
+================================================================================
+MICROSOFT EXCEL MASTER TUTORIAL GENERATION PROMPT & ARCHITECTURAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert (Course Code: EXCEL-PRO-901)
+Target Stack: React 19 (Function Components) + Tailwind CSS (Zero-Config / Modern)
+Layout Philosophy: Single-Column Vertical Flow, Default Dark Mode, Interactive Visualizations
+
+--------------------------------------------------------------------------------
+1. DIRECTORY & FILE HIERARCHY (MANDATORY)
+--------------------------------------------------------------------------------
+The Excel study module structure:
+  src/components/study/excel/
+  ├── assets/
+  │   └── cnat.png                     (Official CNAT Organization Logo for Workbooks)
+  ├── instruction.txt                  (This master architecture & generation prompt)
+  ├── excel-basic-to-advanced.json     (Curriculum Roadmap & Bloom's Taxonomy Taxonomy)
+  └── topics/[SSS_MMM_slug]/           (Dedicated Directory per Module)
+      ├── Topic0.jsx                   (Primary React 19 Topic Component)
+      ├── Topic1.jsx
+      ├── Topic[N].jsx
+      ├── excel_files/                 (Common Module Workbook Directory)
+      │   └── [module_name].xlsx       (ONE common master workbook for the whole module)
+      ├── generate_sheets.cjs          (Node.js Script to generate [module_name].xlsx)
+      └── topic[N]_files/              (Companion Data Folder per Topic)
+          ├── topic[N]_questions.js    (30 Structured FAQ & Practice Questions)
+          ├── topic[N]_note.txt        (Quick Summary & Instructor Reference)
+          └── topic[N]_content.txt     (Raw Conceptual Reference Notes)
+
+--------------------------------------------------------------------------------
+2. COMMON MODULE WORKBOOK & SHEET ARCHITECTURE
+--------------------------------------------------------------------------------
+• A SINGLE COMMON `.xlsx` WORKBOOK per Module:
+    - Every module has ONE central, comprehensive Excel workbook stored in:
+        `./excel_files/[module_name].xlsx`
+    - This single workbook serves as the master interactive worksheet for all topics in that chapter.
+    - Inside this workbook, each topic has its own dedicated worksheet (e.g. `Topic0_Overview`, `Topic1_Calc`, `VLOOKUP_Table`, etc.).
+    - When a topic requires multi-table comparisons or relational joins, multiple related sheets can be included (e.g. `Orders_Data`, `Customers_Master`).
+• MANDATORY DOWNLOAD BUTTON IN EVERY TOPIC:
+    - Every `Topic[N].jsx` must include an intuitive, high-visibility **Download Practice Workbook (.xlsx)** button.
+    - The button downloads the common module `.xlsx` file directly to the learner's computer so they can open and practice in their local Microsoft Excel / Office software.
+    - Uses Vite's `?url` asset import to obtain the direct downloadable asset URL:
+        import sampleWorkbookUrl from "./excel_files/[module_name].xlsx?url";
+
+--------------------------------------------------------------------------------
+3. INSTRUCTIONS & STANDARDS FOR CREATING THE EXCEL WORKBOOK (.xlsx)
+--------------------------------------------------------------------------------
+When generating or expanding a tutorial module, you MUST also generate the common `.xlsx` workbook. Follow these strict data engineering standards:
+
+• Tooling:
+    - Use Node.js with the pre-installed `exceljs` package (`const ExcelJS = require('exceljs');`).
+    - `exceljs` enables rich cell fills, custom fonts, borders, alignments, and high-resolution image embedding (`workbook.addImage(...)`).
+• Mandatory Executive Landing Sheet (Sheet 1: `Overview`):
+    - Every master module `.xlsx` workbook MUST feature a beautifully formatted, colorful, and graphical `Overview` landing sheet as its very first worksheet (`SheetNames[0]`).
+    - **Logo Placement**: Embed the official CNAT logo (`src/components/study/excel/assets/cnat.png`) in the top-left banner area (`A1:B5`) with 120x120px dimensions.
+    - **Top Executive Banner**: Deep Slate Navy background (`#0F172A`), Bold White 20pt title `CODER & ACCOTAX`, Cyan 10pt subtitle `ISO 9001:2015 Certified Centre of Excellence...`, and Amber 9pt workbook description.
+    - **Section 1: 🏢 ORGANISATION PROFILE & CONTACT DETAILS** (Sky Blue Header `#0284C7`):
+        • Institute Name: `Coder & AccoTax`
+        • Accreditation: `ISO 9001:2015 Certified Training & Professional Development Institute`
+        • Campus Address: `25(10/A) Shibtala Road, Nona Chandan Pukur, Barrackpore, Kolkata 700122, West Bengal, India`
+        • Phone / WhatsApp: `+91 70037 56860`
+        • Official Email: `sukantahui@codernaccotax.co.in | info@codernaccotax.co.in`
+        • Web Portal: `https://codernaccotax.co.in`
+        • Core Specializations: `Full Stack Software Engineering, Python & Data Science, Advanced Excel (Dynamic Arrays, Power Query), Power BI, Tally Prime, GST, Corporate Income Tax & Financial Modeling`
+    - **Section 2: 👨‍🏫 LEAD INSTRUCTOR & MASTER MENTOR PROFILE** (Emerald Header `#059669`):
+        • Lead Instructor / Mentor: `Sukanta Hui`
+        • Designation: `Senior Software Engineer, Corporate Financial Consultant & Lead Academic Mentor`
+        • Industry Experience: `27+ Years of Experience in Building Scalable Software Applications & Mentoring (Since May 1998)`
+        • GitHub Portfolio: `https://github.com/sukantahui`
+        • Technical Arsenal: `Python, Advanced Excel, Power BI, SQL, Financial Modeling, C, C++, Java, JavaScript, Angular, React, Laravel, Shell Scripting, Data Structures & Algorithms`
+        • Teaching Philosophy: `Bridging rigorous industrial standard practices with practical, hands-on, zero-VBA modern spreadsheet architecture.`
+    - **Section 3: 🎓 COURSE & MODULE ACADEMIC METRICS** (Violet Header `#7C3AED`):
+        • Curriculum Code & Title (e.g. `EXCEL-PRO-901: Advanced Excel & Modern Dynamic Array Mastery`)
+        • Active Module Slug & Bloom's Taxonomy Competency (`CO1 to CO8`)
+        • Total Topics & Structured Assessment FAQs count
+    - **Section 4: 📑 WORKBOOK SHEET DIRECTORY & LAB NAVIGATION** (Amber Header `#D97706`):
+        • A complete mapped table of all workbook sheets, target topics, primary formulas/techniques, and dataset contexts with zebra striping and thin slate borders.
+    - **Password Protection (Mandatory)**:
+        • The `Overview` Landing Sheet MUST be protected with password: `sukantahui`
+        • Code: `await wsOverview.protect('sukantahui', { selectLockedCells: true, selectUnlockedCells: true });`
+        • Topic sheets (Sheets 2 onwards) MUST remain unprotected so learners can edit cells, practice formulas, and complete assignments.
+
+• Multi-Sheet Topic Structure (Sheets 2 onwards):
+    - Create ONE sheet per topic in the module, named cleanly (e.g. `Topic0_Spill_Engine`, `Topic1_Spill_Operator`, `Topic2_Unique_Deduplication`).
+    - Sheet names must match the exact `sheetName` prop passed to `<ExcelFileLoader sheetName="..." />` in the topic JSX files.
+    - Each topic sheet MUST feature a dark bold header row (height 26px), white text, thin cell borders, alternate row zebra fills (`#F8FAFC`), and explicit column widths.
+• Dataset Realism & Richness (Non-Negotiable):
+    - Minimum 20 to 50 rows per sheet of authentic, realistic data (no lazy 3-row tables, no "Foo/Bar/Test" placeholders).
+    - Clear, professional header row (e.g. `Emp_ID`, `Employee_Name`, `Department`, `Joining_Date`, `Basic_Salary`, `HRA`, `Gross_Salary`, `Performance_Rating`, `Location`).
+    - Authentic Indian & Local Names:
+        • Students: Swadeep, Tuhina, Abhronila, Susmita, Debangshu, Rahul, Priya, Aniket, Sourav, Sneha.
+        • Locations: Barrackpore, Shyamnagar, Ichapur, Naihati, Titagarh, Kolkata.
+• Formulas in Cells:
+    - Where calculations are taught, populate calculation columns with real working Excel formulas (`{ f: "SUM(E2:G2)", v: 45000 }` or string formulas) so students can inspect the formula bar in their desktop Excel.
+• Automated Node.js Generator Script Blueprint (`generate_sheets.cjs`):
+    Write and run a script in the module directory using `exceljs` to construct the workbook cleanly:
+
+```javascript
+// generate_sheets.cjs
+const ExcelJS = require('exceljs');
+const fs = require('fs');
+const path = require('path');
+
+async function buildMasterWorkbook() {
+  const wb = new ExcelJS.Workbook();
+  wb.creator = 'Coder & AccoTax';
+  wb.lastModifiedBy = 'Sukanta Hui';
+
+  // Sheet 1: Overview (Landing Page - Colourful, Graphical with CNAT Logo)
+  const wsOverview = wb.addWorksheet('Overview', { views: [{ showGridLines: true }] });
+  wsOverview.columns = [{ width: 22 }, { width: 26 }, { width: 28 }, { width: 32 }, { width: 26 }, { width: 36 }];
+
+  // Embed CNAT Logo from dedicated study/excel/assets/ directory
+  const logoPath = path.resolve(__dirname, '../../assets/cnat.png');
+  if (fs.existsSync(logoPath)) {
+    const logoId = wb.addImage({ filename: logoPath, extension: 'png' });
+    wsOverview.addImage(logoId, { tl: { col: 0.3, row: 0.3 }, ext: { width: 120, height: 120 }, editAs: 'oneCell' });
+  }
+
+  // Header Banner
+  wsOverview.mergeCells('C1:F2');
+  const bannerTitle = wsOverview.getCell('C1');
+  bannerTitle.value = 'CODER & ACCOTAX';
+  bannerTitle.font = { name: 'Segoe UI', size: 20, bold: true, color: { argb: 'FFFFFFFF' } };
+  bannerTitle.alignment = { vertical: 'middle', horizontal: 'left', indent: 1 };
+  bannerTitle.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF0F172A' } };
+
+  // ... Sections 1, 2, 3, 4 with rich fills and borders ...
+
+  // Protect Overview Landing Sheet with password 'sukantahui'
+  await wsOverview.protect('sukantahui', { selectLockedCells: true, selectUnlockedCells: true });
+
+  // Topic Sheets (Sheets 2 onwards remain unlocked for student practice)
+  // ... addStyledTopicSheet('Topic0_Sales', 'FF0F172A', columns, data);
+
+  const outputDir = path.join(__dirname, 'excel_files');
+  if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
+  await wb.xlsx.writeFile(path.join(outputDir, 'dynamic_arrays_master.xlsx'));
+  console.log('✓ Successfully generated master module workbook with protected Overview Landing Page & CNAT logo');
+}
+
+buildMasterWorkbook();
+```
+
+--------------------------------------------------------------------------------
+4. REACT 19 & TAILWIND CSS TECHNICAL SPECIFICATIONS
+--------------------------------------------------------------------------------
+• Strict React 19 Function Components:
+    - Pure JavaScript functions only (NO class components).
+    - Use standard hooks (`useState`, `useEffect`, `useRef`, `useMemo`, `useCallback`) intentionally.
+    - No unnecessary re-renders or missing dependency warnings.
+• Tailwind CSS Guidelines:
+    - Latest Tailwind CSS with NO external plugins, NO tailwind.config.js requirements.
+    - Zero-config animations using Tailwind arbitrary values (e.g. `animate-[fadeIn_0.6s_ease-out]`).
+    - Use inline `<style>` keyframes scoped to the component when custom animations are needed.
+    - MUST support `motion-safe` for accessibility.
+    - Use `clsx` for dynamic class composition to avoid messy backtick strings:
+        import clsx from "clsx";
+• Visual & Layout Rules:
+    - DARK MODE BY DEFAULT: Main wrapper `dark bg-slate-950 text-slate-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8`.
+    - SINGLE-COLUMN VERTICAL FLOW: Stack all cards and sections one after another (`max-w-5xl mx-auto space-y-10`).
+      Do NOT create cramped horizontal multi-column splits for primary reading content.
+    - NEVER USE `opacity-0` (Prevents invisible text if JavaScript animation observer fails).
+    - Subtle hover elevation and soft glow borders on cards (`hover:border-sky-500/40 transition-all duration-300`).
+
+--------------------------------------------------------------------------------
+5. EXCEL PEDAGOGICAL BLUEPRINT (12 MANDATORY SECTIONS PER TOPIC)
+--------------------------------------------------------------------------------
+Every `Topic[N].jsx` file must systematically include the following sections:
+
+[Section 1: Hero Header & Overview]
+  - Badges: Topic Number, Level (Beginner / Intermediate / Advanced / Expert), Excel Version Compatibility.
+  - Large title with subtle gradient accent (`from-sky-400 via-teal-300 to-indigo-400`).
+  - Executive summary and learning outcomes bullet list.
+
+[Section 2: Formula & Syntax Anatomy Card]
+  - Exact Formula Signature / Prototype: `=FUNCTION_NAME(req_arg1, req_arg2, [opt_arg3])`
+  - Argument-by-argument table (Name, Type, Required/Optional, Description).
+  - Return Type (e.g., Scalar Value, 1D Array, Dynamic Spilled Matrix, Boolean).
+  - Purpose, When to Use, and Why it is chosen over legacy alternatives.
+
+[Section 3: Deep Conceptual & Theoretical Mechanics]
+  - Step-by-step breakdown of how Excel evaluates the calculation under the hood.
+  - Cell coordinate matrix diagrams and evaluation order (BODMAS, array vectorization).
+
+[Section 4: Interactive Semantic SVG Diagram]
+  - Native SVG illustrations explaining data flow, lookup scanning, or matrix transformation.
+  - High-contrast labels, directional arrows, and step indicators.
+  - Lightweight SVG `<animate>` or CSS pulse effects.
+
+[Section 5: Interactive Excel Practice Grid & Direct Download Portal]
+  - Prominent Action Bar with **Download Practice Sheet (.xlsx)** button.
+  - Embedded `ExcelFileLoader` loading the topic's dedicated sheet with `showSheetSelector={true}` enabled so students can toggle between related chapter sheets.
+  - Direct import pattern:
+      import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
+      import sampleWorkbookUrl from "./excel_files/[module_name].xlsx?url";
+
+[Section 6: Real-World Business Scenarios (At Least 4 In-Depth Examples)]
+  - Authentic practical scenarios incorporating local and corporate contexts:
+      • Students: Swadeep, Tuhina, Abhronila, Susmita, Debangshu.
+      • Locations: Barrackpore, Shyamnagar, Ichapur, Naihati.
+  - Show input data tables, exact formula applied, and resulting output values with clear explanation.
+
+[Section 7: Step-by-Step Practical Calculation Walkthrough]
+  - Step 1: Data Preparation & Hygiene
+  - Step 2: Formula Entry & Absolute Referencing ($)
+  - Step 3: Calculation & Spill Behavior Analysis
+  - Step 4: Verification & Output Validation
+
+[Section 8: Common Pitfalls & Troubleshooting Matrix]
+  - Dedicated troubleshooting grid for classic Excel errors:
+      • `#N/A`, `#VALUE!`, `#REF!`, `#DIV/0!`, `#SPILL!`, `#NAME?`, `#NUM!`, `#CALC!`
+  - Cause, Diagnostic Method, and Foolproof Prevention / Fix.
+
+[Section 9: Pro Tips & Productivity Shortcuts]
+  - Classroom-tested keyboard shortcuts (F4, Alt+=, Ctrl+Shift+L, Ctrl+`, F9 formula evaluation).
+  - Speed optimization tricks and industry best practices.
+
+[Section 10: Socratic Hint Section ("Think About...")]
+  - Thought-provoking questions encouraging analytical thinking without spoon-feeding answers:
+      • "Think about what happens if a new column is inserted..."
+      • "Observe carefully how absolute $ signs freeze references..."
+      • "Try changing the match type argument from 0 to 1..."
+
+[Section 11: Comprehensive FAQ Section (30 Questions via FAQTemplate)]
+  - Integration with `FAQTemplate` loading 30 questions from `topic[N]_files/topic[N]_questions.js`:
+      import FAQTemplate from '../../../../../common/FAQTemplate';
+      import questions from './topic[N]_files/topic[N]_questions';
+
+      <FAQTemplate
+        title="[Topic Name] Frequently Asked Questions"
+        questions={questions}
+      />
+
+[Section 12: Teacher's Note Section]
+  - Wisdom, pedagogical anchors, and exam memory tips from Instructor Sukanta Hui:
+      import Teacher from "../../../../../common/TeacherSukantaHui";
+
+      <Teacher note={"Practical advice, memory hooks, and real-world corporate warnings from instructor Sukanta Hui."} />
+
+--------------------------------------------------------------------------------
+6. COMPANION DATA FILE SPECIFICATION (`topic[N]_questions.js`)
+--------------------------------------------------------------------------------
+Every topic MUST have a companion file `topic[N]_files/topic[N]_questions.js` containing exactly 30 structured, moderate-to-expert questions adhering to this schema:
+
+```javascript
+const questions = [
+  {
+    question: "How does exact match (0) differ from approximate match (1/TRUE) in lookup functions?",
+    shortAnswer: "Exact match finds the identical key; approximate match requires sorted data and returns the closest value <= lookup value.",
+    explanation: "In exact match mode, Excel searches sequentially or via hash map for an exact string/numeric equality. In approximate match mode, data must be sorted in ascending order, and Excel uses binary search to return the largest value less than or equal to the lookup value. Using approximate match on unsorted data yields unpredictable, silent errors.",
+    hint: "Think about tax brackets vs looking up an employee ID.",
+    level: "moderate", // "basic" | "moderate" | "advanced" | "expert"
+    codeExample: "=XLOOKUP(E2, A2:A100, B2:B100, \"Not Found\", 0)"
+  },
+  // ... (Generate exactly 30 rich, domain-specific questions)
+];
+
+export default questions;
+```
+
+--------------------------------------------------------------------------------
+7. COMPLETE TOPIC COMPONENT BOILERPLATE TEMPLATE (`Topic[N].jsx`)
+--------------------------------------------------------------------------------
+```jsx
+"use client";
+
+import React, { useEffect, useRef } from "react";
+import clsx from "clsx";
+import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
+import sampleWorkbookUrl from "./excel_files/lookup_functions.xlsx?url";
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import questions from "./topic0_files/topic0_questions";
+import Teacher from "../../../../../common/TeacherSukantaHui";
+
+export default function Topic0() {
+  const sectionsRef = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+    );
+    sectionsRef.current.forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  // Handler to download the module's master Excel worksheet
+  const handleDownload = () => {
+    if (!sampleWorkbookUrl) return;
+    const link = document.createElement("a");
+    link.href = sampleWorkbookUrl;
+    link.download = "lookup_functions_practice.xlsx";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  return (
+    <div className="dark bg-slate-950 text-slate-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+      {/* Scoped CSS Keyframes */}
+      <style>{`
+        @keyframes fadeInSlide {
+          from { transform: translateY(18px); }
+          to { transform: translateY(0); }
+        }
+        .reveal-section {
+          animation: fadeInSlide 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+      `}</style>
+
+      <div className="max-w-5xl mx-auto space-y-10">
+        {/* 1. Header */}
+        <header
+          ref={(el) => (sectionsRef.current[0] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/80 border border-slate-800"
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950 border border-sky-800 text-sky-300 text-xs font-semibold uppercase tracking-wider mb-3">
+            <span>📊</span> Excel Masterclass · Topic 0
+          </div>
+          <h1 className="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent">
+            [Topic Title Here]
+          </h1>
+          <p className="text-slate-300 mt-3 text-base sm:text-lg leading-relaxed">
+            [Executive Topic Overview and Real-World Significance]
+          </p>
+        </header>
+
+        {/* 2. Formula Syntax & Anatomy Card */}
+        <section
+          ref={(el) => (sectionsRef.current[1] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all duration-300 space-y-4"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+            <span className="text-sky-400">⚡</span> Formula Anatomy & Syntax
+          </h2>
+          {/* Syntax, Arguments Table, Return Type */}
+        </section>
+
+        {/* 3. Deep Theoretical Mechanics */}
+        <section
+          ref={(el) => (sectionsRef.current[2] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-4"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+            <span className="text-emerald-400">🔬</span> Conceptual & Calculation Mechanics
+          </h2>
+          {/* Detailed step-by-step evaluation explanation */}
+        </section>
+
+        {/* 4. Interactive Semantic SVG Diagram */}
+        <section
+          ref={(el) => (sectionsRef.current[3] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-4"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+            <span className="text-indigo-400">📐</span> Visual Calculation Flow
+          </h2>
+          {/* Semantic SVG with labels, coordinate grid, and arrows */}
+        </section>
+
+        {/* 5. Live Excel File Loader & Direct Download Bar */}
+        <section
+          ref={(el) => (sectionsRef.current[4] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                <span className="text-emerald-400">📥</span> Interactive Spreadsheet & Practice Workbook
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                Explore the dataset below live in the browser or download the full chapter workbook to practice in Microsoft Excel.
+              </p>
+            </div>
+            <button
+              onClick={handleDownload}
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all duration-200 shadow-lg shadow-emerald-950/40 hover:scale-[1.02] active:scale-[0.98] shrink-0"
+              title="Download the full .xlsx practice workbook for this module"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              <span>Download Workbook (.xlsx)</span>
+            </button>
+          </div>
+
+          <ExcelFileLoader
+            fileModule={sampleWorkbookUrl}
+            sheetName="topic_data"
+            title="Interactive Practice Grid"
+            rowsPerPage={25}
+            showSheetSelector={true}
+          />
+        </section>
+
+        {/* 6. Real-World Business Scenarios */}
+        <section
+          ref={(el) => (sectionsRef.current[5] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Business Scenarios
+          </h2>
+          {/* 4+ In-Depth Cases with Barrackpore / Student context */}
+        </section>
+
+        {/* 7. Common Pitfalls & Troubleshooting */}
+        <section
+          ref={(el) => (sectionsRef.current[6] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-4"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+            <span className="text-rose-400">⚠️</span> Common Errors & Troubleshooting Matrix
+          </h2>
+          {/* Troubleshooting Table */}
+        </section>
+
+        {/* 8. Pro Tips & Shortcuts */}
+        <section
+          ref={(el) => (sectionsRef.current[7] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-4"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+            <span className="text-purple-400">💡</span> Pro Tips & High-Speed Shortcuts
+          </h2>
+          {/* Pro Tips List */}
+        </section>
+
+        {/* 9. Socratic Hints ("Think About...") */}
+        <section
+          ref={(el) => (sectionsRef.current[8] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-4"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+            <span className="text-teal-400">🤔</span> Socratic Analytical Hints
+          </h2>
+          {/* Thought questions */}
+        </section>
+
+        {/* 10. Frequently Asked Questions (30 Questions) */}
+        <div ref={(el) => (sectionsRef.current[9] = el)} className="reveal-section">
+          <FAQTemplate
+            title="Frequently Asked Questions"
+            questions={questions}
+          />
+        </div>
+
+        {/* 11. Teacher's Note */}
+        <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
+          <Teacher
+            note={"Remember: In professional financial and data modeling, accuracy precedes speed. Always verify calculation edge cases and test with zero and negative values."}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+--------------------------------------------------------------------------------
+8. GENERATION & WORKFLOW PROTOCOL
+--------------------------------------------------------------------------------
+1. Read the topic list from the module in `excel-basic-to-advanced.json`.
+2. Generate the common module workbook `.xlsx` inside `excel_files/[module_name].xlsx` using `generate_sheets.cjs` with dedicated sheets for each topic.
+3. Generate ONE topic at a time (e.g. `Topic0.jsx`) with the embedded `handleDownload` button, `ExcelFileLoader`, and its companion `topic0_files/topic0_questions.js` (30 questions).
+4. Ensure every single file is 100% complete, fully articulated (no `// TODO` or truncated sections), and ready for production copy-pasting.
+5. Wait for confirmation before advancing to the next sequential topic (`Topic1.jsx`, `Topic2.jsx`, etc.).

@@ -1,0 +1,29 @@
+================================================================================
+RAW CONCEPTUAL REFERENCE NOTES: CHOOSEROWS SLICING ENGINE
+================================================================================
+Module: 004_002_next-gen-array-reshaping-and-grid-transformation
+Topic 3: Extracting specific rows from complex arrays with CHOOSEROWS (positive and negative indexing)
+================================================================================
+
+1. POSITIONAL ROW SLICING ENGINE:
+CHOOSEROWS extracts horizontal slices across all columns from a 2D matrix.
+
+2. INDEXING RULES:
+- Positive Index (k >= 1): Returns the k-th row from the top.
+- Negative Index (k <= -1): Returns the |k|-th row from the bottom.
+- Zero (k = 0): Throws a #VALUE! error.
+- Out-of-bounds (|k| > ROWS(array)): Throws a #VALUE! error.
+
+3. ADVANCED ARCHITECTURAL PATTERNS:
+- First and Last Record Summary:
+  =CHOOSEROWS(DataTable, 1, -1)
+
+- Even Row Sampling:
+  =CHOOSEROWS(DataTable, SEQUENCE(INT(ROWS(DataTable)/2), 1, 2, 2))
+
+- Vertical Reverse Flip:
+  =CHOOSEROWS(DataTable, SEQUENCE(ROWS(DataTable), 1, ROWS(DataTable), -1))
+
+- Relational Join via XMATCH:
+  =CHOOSEROWS(MasterTable, XMATCH(TargetKeyList, MasterTable[KeyColumn]))
+================================================================================

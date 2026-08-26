@@ -1,0 +1,41 @@
+================================================================================
+INSTRUCTOR STUDY NOTE: EXCLUDING HEADERS & TOTALS WITH DROP
+================================================================================
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Module: 004_002: Next-Gen Array Reshaping & Grid Transformation
+Topic 6: Excluding headers, totals, or metadata rows/columns with DROP
+Lead Academic Mentor: Sukanta Hui (Senior Software Engineer & Financial Consultant)
+Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
+================================================================================
+
+1. FORMULA SYNTAX & BOUNDARY EXCLUSION
+--------------------------------------------------------------------------------
+Syntax: =DROP(array, rows, [columns])
+
+Argument 1: array (Required)
+  The source 2D matrix, range, or spilled array from which to exclude data.
+
+Argument 2: rows (Required)
+  Positive (+N): Drops the first N rows from the top (e.g. metadata headers).
+  Negative (-N): Drops the last N rows from the bottom (e.g. summary totals).
+  0: Drops no rows (leaves rows intact).
+
+Argument 3: [columns] (Optional)
+  Positive (+N): Drops the first N columns from the left (e.g. serial numbers).
+  Negative (-N): Drops the last N columns from the right.
+  Omitted: Retains all columns.
+
+2. CORE ADVANTAGES OVER LEGACY EXCEL
+--------------------------------------------------------------------------------
+• Automated Multi-Table Stacking: =VSTACK(Table1, DROP(Table2, 1), DROP(Table3, 1))
+  prevents duplicate header rows across consolidated branch ledgers.
+• Dynamic Data Sanitization: Strips ERP title banners and subtotal footers in RAM.
+• Raw Data Integrity: Leaves source spreadsheets untouched while delivering clean
+  sanitized matrices downstream.
+
+3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
+--------------------------------------------------------------------------------
+• Never manually edit or delete rows in raw accounting exports.
+• To strip both top 2 title lines and bottom summary row: =DROP(DROP(Data, 2), -1).
+• Combine with CHOOSECOLS and SORT for fully automated zero-VBA ETL pipelines.
+================================================================================
