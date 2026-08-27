@@ -1,0 +1,31 @@
+MODULE 1.2 - TOPIC 9
+Title: Quick Check Quiz: Number Formatting, Data Hygiene & Grid Editing Fundamentals
+Level: Beginner | Bloom's Level 1 & 2: Remember & Understand
+
+Overview:
+Final foundational checkpoint quiz for Module 1.2: Consolidate your mastery of data hygiene, custom number masks, date/time serial calculations, and Flash Fill pattern intelligence before advancing to Module 1.3 (Basic Formulas and Functions).
+
+Technical Anatomy:
+Signature: =QUIZ_SCORE(Module_1_2)
+Return Type: Final Module 1.2 Mastery Evaluation
+
+Real-World Business Scenarios:
+[Graduation Assessment: Advancing from Module 1.2 to Module 1.3]
+Context: Coder & AccoTax students transition from data entry & formatting to writing mathematical formulas.
+Applied: Module 1.2 Certification Milestone
+Result: Ready for high-speed mathematical formula authoring.
+
+[Barrackpore Corporate Placement Technical Demonstration]
+Context: A student demonstrates instant Flash Fill and custom formatting to corporate recruiters.
+Applied: Speed Ergonomics Execution
+Result: Selected for Senior MIS Analyst role.
+
+[Shyamnagar Corporate Balance Sheet Final Packaging]
+Context: Applying executive cell styles, borders, and frozen panes to a multi-branch financial workbook.
+Applied: Executive Presentation Design
+Result: Boardroom-ready financial model approved by management.
+
+[Kolkata Auditing Quality Control Sign-Off]
+Context: Final verification that zero hardcoded text strings exist in calculation columns.
+Applied: Automated Data Type Verification
+Result: Audited financial model certified error-free.

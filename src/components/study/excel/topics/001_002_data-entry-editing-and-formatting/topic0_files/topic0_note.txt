@@ -1,0 +1,10 @@
+TOPIC 0: TYPES OF DATA IN EXCEL: TEXT, NUMBERS, DATES, TIMES, BOOLEANS AND ERROR TOKENS
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Excel assigns default horizontal alignment based on data type: Numbers and Dates right-align, Text strings left-align, and Booleans center-align.
+- Numbers in Excel are IEEE 754 floating-point numbers with 15 digits of precision. Any digits beyond 15 (e.g. 16-digit credit card numbers) are automatically zeroed out unless entered as Text.
+- Dates are not a distinct data type in the storage engine; they are simply formatted integers. Time values are fractional decimals representing the portion of a 24-hour day (e.g. 0.5 = 12:00 PM).
+
+Teacher Note:
+Data hygiene is the golden rule of spreadsheet engineering! Always observe cell alignment: numbers right-align, text left-aligns. If your numbers are left-aligned, Excel sees them as text and your =SUM() formulas will silently return zero!

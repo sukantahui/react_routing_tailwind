@@ -1,0 +1,31 @@
+MODULE 1.1 - TOPIC 7
+Title: Comprehensive Laboratory Practice Session: Basic Navigation, Interface Ergonomics and Grid Mechanics
+Level: Beginner | Bloom's Level 3 & 4: Apply & Analyze
+
+Overview:
+Hands-on capstone laboratory practice for Module 1.1: Integrate interface shortcuts, navigation traversal, formula bar expansions, custom status bar monitoring, and relative/absolute cell referencing across a comprehensive 50-row enterprise trading dataset.
+
+Technical Anatomy:
+Signature: =SUM(D2:D50) + AVERAGE(E2:E50)
+Return Type: Integrated Laboratory Workbook
+
+Real-World Business Scenarios:
+[Naihati Trading Enterprise 50-Row Full Ledger Construction]
+Context: Students construct a multi-product sales ledger with quantity, unit price, gross sales, 18% GST ($B$1), and net revenue.
+Applied: Relative unit pricing + Absolute GST tax parameter referencing ($B$1)
+Result: Complete 50-row ledger constructed and audited in under 5 minutes.
+
+[Barrackpore Academy Cross-Footing Mathematical Integrity Check]
+Context: Verifying total revenue across 3 departments using horizontal and vertical sum checks.
+Applied: Cross-Footing: =SUM(F2:F3) must equal =SUM(B4:E4)
+Result: INR 1,464,000 verified from both vertical and horizontal summation axes.
+
+[Shyamnagar Regional Supermarket Missing Entry Auto-Audit]
+Context: Using F5 Go To Special -> Blanks to find unbilled items in a 500-line daily register.
+Applied: Go To Special Blanks Audit
+Result: 14 unbilled records flagged and corrected prior to day-end settlement.
+
+[Kolkata Branch Final Model Freezing & Presentation Packaging]
+Context: Freezing top 3 header rows and locking column A so employee names remain visible during horizontal scrolling.
+Applied: View Tab -> Freeze Panes with cursor at B4
+Result: Professional executive spreadsheet ready for board review.

@@ -1,0 +1,31 @@
+MODULE 1.1 - TOPIC 1
+Title: Excel vs Google Sheets vs Other Modern Spreadsheet Engines: Architectural Feature Comparison
+Level: Beginner | Bloom's Level 2 & 4: Understand & Analyze
+
+Overview:
+Deep technical comparison between Microsoft Excel 365, Google Sheets, LibreOffice Calc, and modern database-backed spreadsheet engines. Learn grid capacities, calculation multi-threading, Power Query ETL, DAX modeling, and corporate suitability.
+
+Technical Anatomy:
+Signature: =IF(engine="Excel", "Desktop Powerhouse", "Cloud Collaborative")
+Return Type: Categorical Comparison Matrix
+
+Real-World Business Scenarios:
+[Kolkata CA Firm 500,000-Row Bank Statement Audit]
+Context: A chartered accountancy firm in Kolkata audits half a million transaction lines from multiple bank accounts.
+Applied: Power Query ETL Ingestion + Pivot Reconciliation
+Result: Reconciled 500,000 rows in under 2 minutes.
+
+[Barrackpore Training Institute Real-Time Group Assignment Submission]
+Context: Coder & AccoTax students collaborate simultaneously on a shared group homework schedule.
+Applied: =IF(isRealTimeCollab, "Sheets/Excel Online", "Excel Desktop")
+Result: Appropriate tool selected based on teamwork vs computational complexity.
+
+[Naihati Trading Company GST Invoice Export Compatibility]
+Context: A wholesaler in Naihati exports monthly sales bills into government GST offline tools and Tally Prime.
+Applied: Direct Export to Excel Workbook (.xlsx)
+Result: Zero format corruption when filing GSTR-1 returns.
+
+[Shyamnagar Pharmaceutical Distribution Inventory Modeling]
+Context: A pharma distributor models reorder points and safety stock levels across 10,000 SKU lines.
+Applied: =SUMPRODUCT(C2:C1000, D2:D1000)
+Result: Reorder levels and total working capital tied up calculated instantly.

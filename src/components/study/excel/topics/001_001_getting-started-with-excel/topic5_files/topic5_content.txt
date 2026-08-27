@@ -1,0 +1,31 @@
+MODULE 1.1 - TOPIC 5
+Title: High-Speed Navigation: Keyboard Shortcuts, Range Selection, Name Box Teleportation & Go To Special
+Level: Beginner | Bloom's Level 2 & 3: Understand & Apply
+
+Overview:
+Master lightning-fast keyboard spreadsheet navigation: Ctrl + Arrow edge traversal, Ctrl + Shift range selection, Name Box coordinate teleportation, and F5 / Ctrl+G Go To Special for selecting blanks, formulas, and constants.
+
+Technical Anatomy:
+Signature: =ADDRESS(ROW(), COLUMN())
+Return Type: Cell Coordinate Address / Navigation Target
+
+Real-World Business Scenarios:
+[Kolkata Retail 50,000-Row Bottom Verification]
+Context: An auditor verifies whether the ledger ends at row 50,000 without manually scrolling the mouse wheel.
+Applied: Ctrl + Down Arrow from cell A1
+Result: Cursor lands on row 50,000 instantly.
+
+[Barrackpore Student Attendance Batch Blank Filling]
+Context: Filling 'Absent' into 200 blank cells across a 1,000-row student roll sheet.
+Applied: F5 -> Alt + S -> K -> Enter -> Type 'Absent' -> Ctrl + Enter
+Result: 200 blank cells filled in 3 seconds without loop programming.
+
+[Shyamnagar Factory Filtered Copy (Visible Cells Only)]
+Context: Copying filtered sub-totals without accidentally copying hidden rows.
+Applied: Alt + ; (Select Visible Cells Only)
+Result: Clean paste with zero hidden rows transferred.
+
+[Ichapur Production Master Name Box Named Range Jump]
+Context: Teleporting directly to the raw material pricing schedule located at Sheet3!AA500:AD750.
+Applied: Name Box Named Range Teleportation
+Result: Selected entire 250-row pricing matrix in one keystroke.

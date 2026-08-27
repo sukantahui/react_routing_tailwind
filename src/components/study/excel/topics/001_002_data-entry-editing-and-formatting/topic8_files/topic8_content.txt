@@ -1,0 +1,31 @@
+MODULE 1.2 - TOPIC 8
+Title: Practice Multiple Choice Questions (MCQ): Data Entry, Editing & Custom Number Formatting Mastery
+Level: Beginner | Bloom's Level 1 & 2: Remember & Understand
+
+Overview:
+Test your theoretical and practical mastery of Module 1.2: Data types, floating-point precision, Flash Fill pattern mechanics, Custom Number Formatting masks (Positive; Negative; Zero; Text), Date serial conversions, and Center Across Selection.
+
+Technical Anatomy:
+Signature: =MCQ_EVALUATION(Module_1_2)
+Return Type: Self-Assessment Knowledge Score
+
+Real-World Business Scenarios:
+[MOS Specialist & Corporate Interview Preparation Scenario]
+Context: A candidate prepares for advanced data formatting questions in corporate technical screenings.
+Applied: Complete 30 Structured FAQ Questions below
+Result: 100% readiness for corporate data analytics technical rounds.
+
+[Auditing Firm Trainee Onboarding Validation]
+Context: Validating that trainee accountants understand visual formatting vs mathematical values.
+Applied: Conceptual Precision Verification
+Result: Zero rounding discrepancies in audited financial reports.
+
+[GST Reconciliation Data Type Alignment]
+Context: Ensuring invoice numbers with leading zeroes are not corrupted by numeric conversion.
+Applied: Text Data Type Enforcement
+Result: 100% tax filing compliance.
+
+[Financial Timesheet Cumulative Hours Validation]
+Context: Verifying that overtime pay formulas calculate elapsed hours exceeding 24h correctly.
+Applied: Square Bracket [h] Formatting
+Result: Zero payroll calculation errors.

@@ -1,0 +1,31 @@
+MODULE 1.1 - TOPIC 8
+Title: Practice Multiple Choice Questions (MCQ): Comprehensive Interface & Navigation Mastery
+Level: Beginner | Bloom's Level 1 & 2: Remember & Understand
+
+Overview:
+Test your theoretical and practical comprehension across all foundational concepts of Microsoft Excel: Interface architecture, Ribbon systems, 2D Cartesian grid limits, file formats (.xlsx, .xlsm, .xlsb), keyboard traversal, and cell referencing.
+
+Technical Anatomy:
+Signature: =MCQ_EVALUATION(Q1:Q30)
+Return Type: Self-Assessment Knowledge Score
+
+Real-World Business Scenarios:
+[MOS Certification Exam Preparation Scenario]
+Context: A student prepares for the Microsoft Office Specialist Excel Associate examination.
+Applied: Complete 30 Structured FAQ Questions below
+Result: 100% readiness for corporate MIS interviews.
+
+[Corporate MIS Executive Technical Interview Screening]
+Context: A multinational company tests candidates on spreadsheet memory models and shortcuts.
+Applied: Mastery of Technical Specifications
+Result: Candidate passes technical interview with distinction.
+
+[Auditing Firm Junior Accountant Onboarding Check]
+Context: New trainees are assessed on finding hidden formula errors before touching live client books.
+Applied: Keyboard-driven error detection
+Result: Zero undetected calculation anomalies in audited ledgers.
+
+[Taxation Specialist GSTR-1 Data Preparation Screening]
+Context: Validating GST ledger tables for proper column data types before portal upload.
+Applied: Data Type Hygiene Check
+Result: Zero portal JSON validation rejections during monthly GST filing.

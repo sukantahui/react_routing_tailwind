@@ -1,0 +1,31 @@
+MODULE 1.1 - TOPIC 3
+Title: Understanding Workbooks, Worksheets, Rows, Columns and Grid Coordinate Limits
+Level: Beginner | Bloom's Level 1 & 2: Remember & Understand
+
+Overview:
+Explore the physical boundary constraints of Microsoft Excel: 1,048,576 rows by 16,384 columns (XFD), 17.17 billion cells per worksheet, workbook XML container parts, worksheet naming rules, and memory consumption dynamics.
+
+Technical Anatomy:
+Signature: =ROWS(A1:A1048576)
+Return Type: Numerical Dimension / Grid Coordinates
+
+Real-World Business Scenarios:
+[Kolkata Retail Chain Multi-Year Transaction Storage Planning]
+Context: An IT manager checks whether 3 years of 300,000 annual sales receipts fit in a single worksheet.
+Applied: =ROWS(A:A)
+Result: 1,048,576 rows capacity verified.
+
+[Barrackpore Academic Institute Semester-Wise Sheet Tab Organization]
+Context: Coder & AccoTax structures a workbook with dedicated sheets for Sem1, Sem2, Sem3, and Summary.
+Applied: Sheet Tab Naming Protocol
+Result: Structured workbook with zero tab name corruption.
+
+[Naihati Logistics Used Range Bloat Elimination]
+Context: A file of 500 rows ballooned to 45 MB because formatting was applied to column Z row 1,000,000.
+Applied: Delete rows 506 to 1048576 -> Save Workbook
+Result: Workbook opens instantly with zero memory lag.
+
+[Shyamnagar Manufacturing Monthly 3D Consolidation]
+Context: Consolidating sales figures from 12 monthly sheets (Jan to Dec) into an Annual Summary sheet.
+Applied: =SUM('Jan:Dec'!B5)
+Result: 3D formula sums identical cell coordinates across sheet tabs.

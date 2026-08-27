@@ -1,0 +1,31 @@
+MODULE 1.1 - TOPIC 0
+Title: What Excel Is and Where It Is Used in Study and Work
+Level: Beginner | Bloom's Level 1 & 2: Remember & Understand
+
+Overview:
+Understand Microsoft Excel's fundamental architecture, computational grid structure, and why it is the primary industry standard tool for accounting, data analysis, GST reconciliation, MIS reporting, and corporate decision making.
+
+Technical Anatomy:
+Signature: =CELL("address", A1)
+Return Type: Grid Matrix / Calculated Scalar
+
+Real-World Business Scenarios:
+[Coder & AccoTax Barrackpore Academic Cohort Registry]
+Context: Instructor Sukanta Hui tracks diploma student performance and attendance across 35 enrolled students.
+Applied: =AVERAGE(E2:E35)
+Result: Class average score of 89.4 calculated instantly.
+
+[Shyamnagar Multi-Counter Retail Supermarket Daily Reconciliation]
+Context: A busy departmental store in Shyamnagar reconciles counter-wise cash, card, and UPI collections.
+Applied: =SUM(E2:E4)
+Result: INR 437,000 reconciled across all registers.
+
+[Ichapur Engineering Works Machine Maintenance & Oil Replacement Log]
+Context: A factory in Ichapur logs CNC lathe running hours to trigger preventive servicing.
+Applied: =COUNTIF(E2:E25, "DUE")
+Result: 3 machines flagged for urgent maintenance.
+
+[Kolkata Freight Logistics Fleet Diesel Mileage Audit]
+Context: A transportation operator running trucks between Barrackpore and Kolkata Port audits fuel efficiency.
+Applied: =AVERAGE(E2:E15)
+Result: 6.98 KM/L fleet average economy verified.

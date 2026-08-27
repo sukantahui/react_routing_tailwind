@@ -1,0 +1,31 @@
+MODULE 1.1 - TOPIC 6
+Title: Cell Referencing Fundamentals: Relative, Absolute ($), Mixed ($A1 vs A$1) and 3D Sheet References
+Level: Beginner | Bloom's Level 2 & 3: Understand & Apply
+
+Overview:
+Master the mathematical cornerstone of spreadsheet calculation: Relative referencing (A1), Absolute referencing ($A$1), Mixed column/row freezing ($A1 vs A$1), and 3D cross-sheet references. Learn how formulas adapt dynamically during drag-fill operations.
+
+Technical Anatomy:
+Signature: =A1 + $B$1 + $C1 + D$1
+Return Type: Calculated Value / Dynamic Coordinate Reference
+
+Real-World Business Scenarios:
+[Coder & AccoTax Barrackpore Staff Payroll Model with Fixed GST Rate]
+Context: Calculating 18% GST and 40% HRA on employee salaries referencing fixed parameter cells.
+Applied: Formula: =C2*$B$1 copied down
+Result: Relative cell C2 shifts to C3, C4; Parameter $B$1 remains securely locked.
+
+[Kolkata Retail 10x10 Price Multiplier Table (Mixed Referencing)]
+Context: Building a 2D matrix multiplying product base prices (Column A) by quantity discounts (Row 1).
+Applied: Single Formula: =$A2*B$1 copied across entire 10x10 grid
+Result: 100 table cells populated correctly using 1 formula without manual adjustments.
+
+[Shyamnagar Multi-Branch 3D Cross-Sheet Consolidation]
+Context: Summing total revenue across 4 quarterly sheets (Q1, Q2, Q3, Q4) into an Annual Master sheet.
+Applied: =SUM('Q1:Q4'!B5)
+Result: Accurate corporate annual total consolidated across all quarterly tabs.
+
+[Ichapur Machinery Depreciation with Fixed Scrap Value]
+Context: Computing straight-line depreciation where asset cost is relative but scrap value and life are absolute.
+Applied: =(B2-$E$1)/$E$2 copied down
+Result: Annual depreciation calculated accurately for all machinery assets.

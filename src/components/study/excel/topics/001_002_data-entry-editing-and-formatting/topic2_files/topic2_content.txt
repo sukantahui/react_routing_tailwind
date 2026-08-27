@@ -1,0 +1,31 @@
+MODULE 1.2 - TOPIC 2
+Title: AutoFill Magic, Custom Lists and AI-Powered Flash Fill (Ctrl + E) Pattern Intelligence
+Level: Beginner | Bloom's Level 3: Apply
+
+Overview:
+Harness Excel's data transformation engines: AutoFill series extension (months, weekdays, linear sequences, exponential trends), Custom Lists creation, and AI pattern-matching Flash Fill (Ctrl + E) to split, concatenate, clean, and reformat dirty data without writing complex formulas.
+
+Technical Anatomy:
+Signature: =FLASH_FILL(pattern, source_column)
+Return Type: Pattern-Extracted Array / Clean Text
+
+Real-World Business Scenarios:
+[Kolkata Corporate Full Name Splitting into First & Last Names]
+Context: Splitting 500 employee full names (e.g. 'Swadeep Mukherjee') into First and Last Name columns.
+Applied: Type 'Swadeep' -> Press Ctrl + E
+Result: All 500 first and last names extracted in 1 second with zero formulas.
+
+[Barrackpore Mobile Number International Formatting Masking]
+Context: Reformatting raw 10-digit mobile numbers (9830123456) into +91 98301-23456 format.
+Applied: Type '+91 98301-23456' in B2 -> Press Ctrl + E
+Result: 500 phone numbers formatted with international prefixes instantly.
+
+[North 24 Parganas Custom Branch Office AutoFill List]
+Context: Creating a custom list for Barrackpore, Shyamnagar, Ichapur, Naihati, Titagarh.
+Applied: File -> Options -> Advanced -> Edit Custom Lists
+Result: Instant local geography cycling in all future workbooks.
+
+[Shyamnagar Industrial PAN Card and GSTIN Deconstruction]
+Context: Extracting 10-character PAN cards from 15-character GSTIN numbers (e.g. 19ABCDE1234F1Z5 -> ABCDE1234F).
+Applied: Type 'ABCDE1234F' in B2 -> Press Ctrl + E
+Result: All PAN cards extracted from state-coded GSTIN numbers.

@@ -1,0 +1,10 @@
+TOPIC 8: PRACTICE MULTIPLE CHOICE QUESTIONS (MCQ): COMPREHENSIVE INTERFACE & NAVIGATION MASTERY
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Regular retrieval practice solidifies cognitive pathways for keyboard shortcuts and spreadsheet architecture.
+- Understanding the exact mechanics behind grid limits, OpenXML containers, and calculation chains prepares students for Microsoft Office Specialist (MOS) and corporate MIS certification exams.
+- Review both the short answer and deep explanation for every question to identify subtle edge-case behaviors.
+
+Teacher Note:
+Test yourself thoroughly with the 30 FAQ questions below! Review every single explanation carefully. If you score above 27/30, you have mastered Module 1.1 with excellence.

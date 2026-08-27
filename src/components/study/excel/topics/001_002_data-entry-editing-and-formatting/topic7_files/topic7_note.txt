@@ -1,0 +1,10 @@
+TOPIC 7: COMPREHENSIVE LABORATORY PRACTICE SESSION: DATA CLEANING, FORMATTING AND ENTRY AUDIT
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Professional data engineering starts with data hygiene. Before applying formulas or building dashboards, data must be normalized, typed, and formatted.
+- Clean spreadsheets adhere to the 3-color rule: Blue text for hardcoded inputs, Black text for calculated formulas, and Green text for external sheet links.
+- Never present raw unformatted numbers in executive reports. Every number must have a clear unit mask (₹, %, Days, or Units).
+
+Teacher Note:
+Great job completing the Data Entry & Formatting Lab! Remember: A great data analyst makes complex data instantly understandable. Master custom number formatting and Flash Fill, and you will save hundreds of hours of manual data cleaning every year!

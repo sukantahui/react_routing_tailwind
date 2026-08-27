@@ -1,0 +1,31 @@
+MODULE 1.2 - TOPIC 7
+Title: Comprehensive Laboratory Practice Session: Data Cleaning, Formatting and Entry Audit
+Level: Beginner | Bloom's Level 3 & 4: Apply & Analyze
+
+Overview:
+Hands-on capstone laboratory practice for Module 1.2: Clean dirty multi-branch sales data, split names with Flash Fill (Ctrl+E), apply custom Indian Rupee currency masks, format dates and elapsed hours, configure Center Across Selection banners, and eliminate cell errors.
+
+Technical Anatomy:
+Signature: =CLEAN_AND_FORMAT(Raw_Table)
+Return Type: Audited & Standardized Production Table
+
+Real-World Business Scenarios:
+[Kolkata Distribution Master 50-Row Dirty Data Cleaning]
+Context: Cleaning a messy 50-row sales export with mixed name formats, unmasked phone numbers, and unformatted currencies.
+Applied: Integrated Data Hygiene Workflow
+Result: Pristine, 100% calculable corporate dataset constructed in 4 minutes.
+
+[Barrackpore Academy Monthly Fee Ledger Construction]
+Context: Building an automated student fee billing register with GST and late fee penalties.
+Applied: Custom Format ₹ #,##0.00;"-" and =SUM() calculations
+Result: Clean fee register with zero visual clutter.
+
+[Shyamnagar Supermarket Price List Abbreviation]
+Context: Formatting a 1,000-item inventory catalog in Lakhs and Crores for executive summary.
+Applied: Custom Formats: ₹ 0.00,, " Cr" and ₹ 0.00, " L"
+Result: Concise boardroom presentation summary.
+
+[Ichapur Engineering Plant Safety Inspection Audit]
+Context: Formatting machinery maintenance logs with high-contrast colored status tags.
+Applied: Custom Conditional Masking
+Result: Instant visual hazard warning without slow conditional formatting rules.

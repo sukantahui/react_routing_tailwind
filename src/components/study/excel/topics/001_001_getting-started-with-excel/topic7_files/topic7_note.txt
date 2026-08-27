@@ -1,0 +1,10 @@
+TOPIC 7: COMPREHENSIVE LABORATORY PRACTICE SESSION: BASIC NAVIGATION, INTERFACE ERGONOMICS AND GRID MECHANICS
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Practical mastery of spreadsheet fundamentals requires combining keyboard navigation speed with absolute mathematical precision.
+- Cross-footing (auditing the sum of row totals against the sum of column totals) is the golden rule of corporate accounting and MIS reporting.
+- Building clean spreadsheet models requires establishing consistent formatting rules: Blue text for hardcoded inputs, Black text for calculated formulas, and Green text for external links.
+
+Teacher Note:
+Congratulations on completing the laboratory lab! In the corporate world, an analyst who knows how to audit their own spreadsheets with cross-footing and Go To Special is valued 10x higher than one who simply types formulas. Always verify your totals from two independent directions!

@@ -1,0 +1,10 @@
+TOPIC 1: EXCEL VS GOOGLE SHEETS VS OTHER MODERN SPREADSHEET ENGINES: ARCHITECTURAL FEATURE COMPARISON
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Microsoft Excel operates on an optimized native desktop C++ calculation engine with multi-core multi-threading support (up to 64 physical cores).
+- Google Sheets executes in a cloud sandbox using JavaScript V8 engines, prioritizing simultaneous real-time multi-user collaboration over raw million-row dataset processing.
+- For financial modeling, regulatory taxation, and large corporate auditing, Excel 365's combination of 64-bit memory addressing, Power Query, and native Python makes it the definitive enterprise platform.
+
+Teacher Note:
+In corporate finance and data analytics, never compromise on computing power. Use Excel 365 64-bit desktop for mission-critical financial models, while leveraging cloud co-authoring when quick team input is required.

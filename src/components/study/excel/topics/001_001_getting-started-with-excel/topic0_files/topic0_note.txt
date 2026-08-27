@@ -1,0 +1,10 @@
+TOPIC 0: WHAT EXCEL IS AND WHERE IT IS USED IN STUDY AND WORK
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Excel organizes computational data in a structured 2D Cartesian grid. Each cell is uniquely addressed by its column header (A to XFD) and row index (1 to 1,048,576).
+- The workbook container (.xlsx) uses the OpenXML compressed package architecture. When opened, Excel parses cell data into high-speed memory buffers for instant recalculation.
+- The calculation engine distinguishes between constant values (literals, strings, timestamps) and active calculation dependencies (starting with '='). Dependent cells are registered into a dependency tree for multi-threaded background recalculation.
+
+Teacher Note:
+Remember: Spreadsheet structure is the foundation of data integrity. Always design your workbooks with clean separation between Raw Inputs, Calculation Models, and Presentation Reports. Never hardcode static numbers directly inside computational formulas!

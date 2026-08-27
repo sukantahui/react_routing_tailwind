@@ -1,0 +1,10 @@
+TOPIC 8: PRACTICE MULTIPLE CHOICE QUESTIONS (MCQ): DATA ENTRY, EDITING & CUSTOM NUMBER FORMATTING MASTERY
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Testing your knowledge of formatting tokens (#, 0, ?, @, [h], [Red]) prepares you for corporate financial modeling standards.
+- Review the question explanations below to master edge cases in date arithmetic, time fractions, and text coercion.
+- Achieve 90%+ on this assessment before moving forward to Basic Formulas & Functions in Module 1.3.
+
+Teacher Note:
+Test yourself with the 30 FAQ questions below! Make sure you understand the 4-section format mask and the difference between visual formatting and underlying numbers.

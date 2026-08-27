@@ -1,0 +1,10 @@
+TOPIC 9: QUICK CHECK QUIZ: INTERFACE ERGONOMICS, GRID MECHANICS & SPREADSHEET FUNDAMENTALS
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Foundational ergonomics form 80% of daily spreadsheet efficiency. Mastering interface keytips, formula bar controls, and navigation shortcuts frees mental bandwidth for advanced analytics.
+- A true Excel expert never touches the mouse for standard grid operations. Developing keyboard muscle memory now will make advanced Dynamic Arrays, Power Query, and VBA intuitive.
+- Review the comprehensive FAQ and Teacher's Note below to finalize your Module 1.1 certification readiness.
+
+Teacher Note:
+Bravo! You have completed Module 1.1: Getting Started with Excel. You now possess the foundational grid knowledge, keyboard reflexes, and structural understanding of a professional spreadsheet engineer. Carry this discipline forward into Module 1.2 as we master Data Entry, Editing, and Custom Formatting!

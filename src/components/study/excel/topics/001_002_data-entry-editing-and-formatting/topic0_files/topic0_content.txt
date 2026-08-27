@@ -1,0 +1,31 @@
+MODULE 1.2 - TOPIC 0
+Title: Types of Data in Excel: Text, Numbers, Dates, Times, Booleans and Error Tokens
+Level: Beginner | Bloom's Level 1 & 2: Remember & Understand
+
+Overview:
+Understand how Microsoft Excel detects, parses, coerces, and stores different fundamental data types in memory: Numeric constants, Text strings, Date/Time serial integers, Boolean logical states (TRUE/FALSE), and Error tokens (#N/A, #VALUE!).
+
+Technical Anatomy:
+Signature: =TYPE(A1)
+Return Type: Data Type Code (1=Number, 2=Text, 4=Logical, 16=Error, 64=Array)
+
+Real-World Business Scenarios:
+[Barrackpore Student Phone & Aadhar Number Storage]
+Context: Entering 12-digit Aadhar numbers and 10-digit mobile numbers without scientific notation truncation.
+Applied: Data Type Formatting (Text / Custom Mask)
+Result: Full 12-digit IDs and leading zeros preserved completely.
+
+[Kolkata Corporate GST Invoice Aging Calculation]
+Context: Calculating how many days an invoice is overdue using date subtraction arithmetic.
+Applied: =TODAY() - B2
+Result: 17 overdue days calculated instantly.
+
+[Shyamnagar Factory Overtime Decimal Conversion]
+Context: Converting 6 hours and 30 minutes of machine runtime into decimal hours for wage payout.
+Applied: =B2 * 24 * D2
+Result: INR 1,300 gross wage calculated accurately.
+
+[Ichapur Production Coercion of Text Numbers with Double Unary (--)]
+Context: Cleaning ERP export where numbers were downloaded enclosed in quotation marks.
+Applied: =--A2 or =VALUE(A2)
+Result: Text converted to pure calculation-ready numeric format.

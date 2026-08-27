@@ -1,0 +1,31 @@
+MODULE 1.2 - TOPIC 3
+Title: Grid Structure Editing: Inserting, Deleting, Hiding, Grouping and Resizing Rows & Columns
+Level: Beginner | Bloom's Level 2 & 3: Understand & Apply
+
+Overview:
+Master structural grid editing: inserting/deleting rows and columns, Column Width & Row Height AutoFitting, Hide vs Outline Grouping (Shift+Alt+Right), and Clearing Formats vs Clearing Contents.
+
+Technical Anatomy:
+Signature: =COLUMNS(A:Z)
+Return Type: Structural Grid Manipulation
+
+Real-World Business Scenarios:
+[Barrackpore Payroll Structure Addition of PF Deduction Column]
+Context: Inserting a new Provident Fund (PF) column between Gross Salary and Net Salary.
+Applied: Ctrl + Space (Select Col) -> Ctrl + Shift + + (Insert Col)
+Result: New column inserted with zero broken formula references.
+
+[Kolkata Audit Report Multi-Level Outline Grouping]
+Context: Grouping detailed quarterly sales columns under Q1, Q2, Q3, Q4 headers for executive presentation.
+Applied: Shift + Alt + Right Arrow (Data Grouping)
+Result: Interactive collapsible financial report ready for C-suite presentation.
+
+[Shyamnagar Inventory Column Width AutoFitting]
+Context: Fixing '###' overflow errors across a 30-column product inventory table.
+Applied: Ctrl + A -> Alt + H + O + I
+Result: Zero '###' display truncation across the entire worksheet.
+
+[Ichapur Client Master Data Sterilization (Clear All)]
+Context: Wiping old client records including yellow background fills, thick borders, and conditional formatting.
+Applied: Alt + H + E + A (Clear All)
+Result: Completely pristine default grid cells ready for fresh import.

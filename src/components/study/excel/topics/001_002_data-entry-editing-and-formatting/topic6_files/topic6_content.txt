@@ -1,0 +1,31 @@
+MODULE 1.2 - TOPIC 6
+Title: Alignment, Text Wrapping, Center Across Selection vs Merge, and Executive Cell Styles
+Level: Beginner | Bloom's Level 2 & 3: Understand & Apply
+
+Overview:
+Master executive spreadsheet formatting: Text Wrapping (Alt+H+W), Vertical/Horizontal Alignment, Text Orientation, Indentation for financial hierarchy, why 'Center Across Selection' is 10x superior to dangerous 'Merge & Center', and corporate Cell Styles.
+
+Technical Anatomy:
+Signature: =CELL("alignment", A1)
+Return Type: Visual Layout & Structural Alignment
+
+Real-World Business Scenarios:
+[Kolkata Corporate Financial Balance Sheet Title Centering]
+Context: Centering 'CODER & ACCOTAX ANNUAL BALANCE SHEET' across columns A to G without breaking column sorting.
+Applied: Format Cells (Ctrl+1) -> Alignment -> Horizontal: Center Across Selection
+Result: Executive centered banner with zero structural grid damage.
+
+[Barrackpore Student Ledger Hierarchical Indentation]
+Context: Structuring chart of accounts with Parent Accounts and indented Sub-Ledgers.
+Applied: Home Tab -> Increase Indent (Alt + H + 6)
+Result: Clean audited financial statement hierarchy without messy leading spaces.
+
+[Shyamnagar Multi-Column Header Text Wrapping]
+Context: Fitting long descriptive headers ('Quarterly Gross Revenue After Trade Discount') without making columns 500 pixels wide.
+Applied: Alt + H + W (Wrap Text)
+Result: Compact, print-friendly multi-line column header layout.
+
+[Ichapur Engineering Quality Inspection Rotated Headers]
+Context: Angling test parameter column headers by 45 degrees to save horizontal printable width.
+Applied: Format Cells -> Alignment -> Orientation: 45 Degrees
+Result: Compact engineering quality matrix fitting perfectly on A4 printable width.

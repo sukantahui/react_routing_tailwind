@@ -1,0 +1,31 @@
+MODULE 1.2 - TOPIC 1
+Title: Efficient Data Entry Techniques, AutoComplete, Pick from Drop-Down and Keyboard Shortcuts
+Level: Beginner | Bloom's Level 2 & 3: Understand & Apply
+
+Overview:
+Master lightning-fast data entry workflows: AutoComplete matching, Alt + Down Arrow Pick from List drop-downs, Ctrl + D Fill Down, Ctrl + R Fill Right, Ctrl + ; current date stamping, and Enter vs Tab directional movement.
+
+Technical Anatomy:
+Signature: =IF(entry="Keyboard", "5x Faster", "Mouse Drag")
+Return Type: High-Speed Data Entry Workflow
+
+Real-World Business Scenarios:
+[Barrackpore Student Department Tagging via Alt + Down Arrow]
+Context: Entering student departments across 100 rows without typing repetitive words.
+Applied: Alt + Down Arrow Pick List
+Result: 100 student departments populated with perfect categorical consistency.
+
+[Kolkata Retail Cashier Instant Timestamp Logging]
+Context: A billing cashier stamps the current date and time upon generating customer receipts.
+Applied: Ctrl + ; and Ctrl + Shift + :
+Result: Permanent un-shifting audit timestamps captured instantly.
+
+[Shyamnagar Factory Batch Parameter Duplication via Ctrl + D]
+Context: Copying batch production date and supervisor name down 50 rows.
+Applied: Ctrl + D Fill Down
+Result: 48 rows filled in a fraction of a second.
+
+[Naihati Logistics Bounding Box Fast Ledger Entry]
+Context: Entering 200 rows of 3 columns (Qty, Rate, Total) without touching the arrow keys.
+Applied: Bounding Box Entry (Tab + Enter)
+Result: 600 cells populated with zero mouse or arrow key redirection.

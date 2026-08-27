@@ -1,0 +1,10 @@
+TOPIC 2: AUTOFILL MAGIC, CUSTOM LISTS AND AI-POWERED FLASH FILL (CTRL + E) PATTERN INTELLIGENCE
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Flash Fill uses inductive program synthesis algorithms. It analyzes the character-level transformation between an input column and your sample output to generate an internal transformation rule.
+- AutoFill inspects selected numerical or date intervals to determine step values (e.g. selecting 10 and 20 extends as 30, 40, 50).
+- Custom Lists are stored in Excel's global registry, enabling automatic repetitive cycling of branch names or department names in any new workbook.
+
+Teacher Note:
+Flash Fill (Ctrl+E) is pure spreadsheet magic! When a client sends you messy data with combined names, codes, or telephone numbers, never waste hours writing complex text formulas. Give Excel one clean example in the adjacent column and press Ctrl+E!

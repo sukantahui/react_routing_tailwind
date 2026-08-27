@@ -1,0 +1,31 @@
+MODULE 1.2 - TOPIC 5
+Title: Date and Time Mechanics: Serial Numbers, Epoch 1900, Elapsed Time and Custom Date Codes
+Level: Beginner | Bloom's Level 2 & 3: Understand & Apply
+
+Overview:
+Master the internal mechanics of dates and times in Excel: The 1900 Epoch serial system (Day 1 = 01-Jan-1900), Julian date conversions, calculating elapsed business days, hourly wage calculations, and custom date format codes (DD-MMM-YYYY, DDDD, HH:MM:SS, [h]:mm).
+
+Technical Anatomy:
+Signature: =DATE(YEAR(A1), MONTH(A1)+1, 1)
+Return Type: Date Serial Integer / Time Fraction
+
+Real-World Business Scenarios:
+[Barrackpore Staff Monthly Timesheet Cumulative Overtime]
+Context: Summing weekly work hours across 5 days (8:30 + 9:15 + 8:45 + 9:00 + 10:00 = 45 hours 30 mins).
+Applied: Format String: [h]:mm and Formula: =SUM(B2:F2)*24
+Result: 45.5 cumulative hours calculated accurately without 24-hour truncation.
+
+[Kolkata Freight Logistics Delivery SLA & Transit Time]
+Context: Calculating dispatch to delivery turnaround time across multi-day highway transits.
+Applied: Formula: =INT(B2-A2) & " Days " & TEXT(MOD(B2-A2,1), "hh:mm")
+Result: Precise multi-day elapsed transit time verified.
+
+[Shyamnagar Regional Bank Fixed Deposit Maturity Date Calculation]
+Context: Computing maturity dates for 180-day and 365-day fixed deposits.
+Applied: =A2 + B2 with format DD-MMM-YYYY
+Result: Maturity dates projected with 100% calendar accuracy.
+
+[Ichapur Factory Maintenance Day-of-Week Schedule (DDDD)]
+Context: Displaying the full weekday name (e.g. 'Thursday') for machine safety inspections.
+Applied: Format String: DDDD, DD-MMMM-YYYY
+Result: Full formal weekday name formatted cleanly.

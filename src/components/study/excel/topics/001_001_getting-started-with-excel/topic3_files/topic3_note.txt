@@ -1,0 +1,10 @@
+TOPIC 3: UNDERSTANDING WORKBOOKS, WORKSHEETS, ROWS, COLUMNS AND GRID COORDINATE LIMITS
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Each Excel worksheet is a fixed 2D grid matrix consisting of exactly 2^20 (1,048,576) rows and 2^14 (16,384) columns.
+- Worksheet tab names are limited to 31 characters and cannot contain forbidden characters: \ / ? * [ ] :.
+- Excel uses the 'Used Range' concept in memory. If a user enters data in A1 and formats cell Z10000, Excel allocates memory for the entire rectangular boundary (A1:Z10000), increasing file size.
+
+Teacher Note:
+Keep your workbooks lean! Always audit your Used Range by pressing Ctrl+End before saving. Never format entire million-row columns with background fills—format only the active data table!

@@ -1,0 +1,10 @@
+TOPIC 2: EXPLORING THE INTERFACE: RIBBON, TABS, FORMULA BAR, QUICK ACCESS TOOLBAR & STATUS BAR ERGONOMICS
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- The Excel user interface employs the Fluent Ribbon architecture. Keytips (activated via the Alt key) provide full keyboard accessibility to every command without touching the mouse.
+- The Formula Bar acts as a bidirectional viewport: while the cell displays the evaluated presentation result, the Formula Bar displays the underlying expression.
+- The Status Bar performs real-time, non-destructive background aggregation on selected cells, calculating instant metrics without modifying worksheet formulas.
+
+Teacher Note:
+Master the Ribbon keytips! Professional Excel modeling is keyboard-driven. Learn Alt+H for Home, Alt+N for Insert, Alt+M for Formulas, and Alt+A for Data to navigate at 5x the speed of a mouse user.

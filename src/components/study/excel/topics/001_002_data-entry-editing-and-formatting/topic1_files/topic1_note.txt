@@ -1,0 +1,10 @@
+TOPIC 1: EFFICIENT DATA ENTRY TECHNIQUES, AUTOCOMPLETE, PICK FROM DROP-DOWN AND KEYBOARD SHORTCUTS
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- AutoComplete scans the contiguous text values directly above the active cell and suggests matches as soon as a unique character prefix is typed.
+- Alt + Down Arrow generates an in-memory unique list of all text values in the current column block, allowing mouse-free selection and eliminating spelling typos.
+- Pressing Enter moves cursor Down, Shift + Enter moves Up, Tab moves Right, and Shift + Tab moves Left. When a bounding range is pre-selected, Enter wraps automatically to the next row.
+
+Teacher Note:
+Speed in accounting and data modeling begins at data entry! Never type the current date manually—press Ctrl+; in a split second. Use Alt+Down Arrow to pick repeated vendor or department names with 100% spelling precision.

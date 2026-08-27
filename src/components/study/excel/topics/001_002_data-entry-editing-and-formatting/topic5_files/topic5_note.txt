@@ -1,0 +1,10 @@
+TOPIC 5: DATE AND TIME MECHANICS: SERIAL NUMBERS, EPOCH 1900, ELAPSED TIME AND CUSTOM DATE CODES
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Excel stores every date as a sequential integer starting with Day 1 = January 1, 1900. Day 46261 corresponds to August 27, 2026.
+- Because dates are integers, basic arithmetic works natively: `Date + 30` adds 30 days; `Date2 - Date1` returns elapsed days.
+- Times exceeding 24 hours wrap around to 0:00 unless enclosed in square brackets `[h]:mm`. For timesheet payroll, `[h]:mm` is essential to show 45:30 total weekly hours.
+
+Teacher Note:
+Remember: Dates are integers, times are fractions! When building payroll timesheets, always format total overtime cells as [h]:mm so hours do not reset past 24. Always multiply time decimals by 24 when multiplying by hourly wage rates!
