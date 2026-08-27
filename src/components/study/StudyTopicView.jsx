@@ -727,12 +727,13 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                       key={idx}
                       ref={isActive ? activeTopicRef : null}
                       to={`/${roadmapData.folder}/topic/${moduleSlug}/${idx}`}
-                      className={`relative flex items-center gap-3 px-3.5 py-2.5 rounded-xl border transition-all text-sm leading-normal ${isActive
-                          ? "border-slate-700 bg-slate-800/90 text-white font-bold shadow-md"
+                      className={`relative flex items-center gap-2.5 px-3 py-2 rounded-xl border transition-all text-xs sm:text-sm leading-normal ${
+                        isActive
+                          ? "border-slate-700 bg-slate-800 text-white font-bold shadow-sm"
                           : isDone
-                            ? "border-slate-850 bg-slate-900/40 text-slate-400 hover:bg-slate-900 hover:text-slate-200"
-                            : "border-transparent text-slate-300 hover:bg-slate-900/80 hover:border-slate-800"
-                        }`}
+                          ? "border-transparent bg-slate-950/40 text-slate-300 hover:bg-slate-900/70 hover:text-white"
+                          : "border-transparent text-slate-400 hover:bg-slate-900/60 hover:text-slate-200"
+                      }`}
                     >
                       {isDone ? (
                         <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />

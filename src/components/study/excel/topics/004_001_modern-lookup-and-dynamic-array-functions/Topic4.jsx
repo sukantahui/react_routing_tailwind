@@ -77,7 +77,7 @@ export default function Topic4() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-amber-400 via-yellow-300 to-emerald-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
             Sorting Spilled Arrays Dynamically with SORT (Single Index, Ascending/Descending)
           </h1>
 

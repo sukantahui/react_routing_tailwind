@@ -61,27 +61,22 @@ export default function Topic8() {
         ========================================================================= */}
         <header
           ref={(el) => (sectionsRef.current[0] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-10 bg-gradient-to-b from-slate-900/90 via-slate-900/60 to-slate-950 border border-slate-800 shadow-2xl relative overflow-hidden"
+          className="reveal-section rounded-2xl p-5 sm:p-7 bg-slate-900/50 border border-slate-800 shadow-md relative overflow-hidden"
         >
-          <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
-          
-          <div className="flex flex-wrap items-center gap-2.5 mb-4">
-            <span className="px-3.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              ⚡ Composite Pipeline · Topic 8
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <span className="px-2.5 py-0.5 rounded-md bg-slate-950 text-slate-300 border border-slate-800 text-xs font-semibold">
+              Composite Pipeline · Topic 8
             </span>
-            <span className="px-3 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-semibold">
-              SORT(UNIQUE(FILTER()))
-            </span>
-            <span className="px-3 py-1 rounded-full bg-purple-950/80 border border-purple-700/60 text-purple-300 text-xs font-semibold">
-              Live Search Portals
+            <span className="px-2.5 py-0.5 rounded-md bg-slate-950 text-slate-400 border border-slate-800 text-xs font-mono">
+              =SORT(UNIQUE(FILTER()))
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
             Combining FILTER, UNIQUE, and SORT for Automated Alphabetical Searchable Lists
           </h1>
 
-          <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
+          <p className="text-slate-300 text-sm sm:text-base mt-3 leading-relaxed max-w-4xl">
             Synthesize modern dynamic arrays into a unified, high-speed data pipeline. 
             By composing <strong className="text-emerald-300 font-mono">SORT(UNIQUE(FILTER()))</strong> into a single formula, 
             you can filter data on active criteria, eliminate duplicate entries, and alphabetize distinct items in real time. 
@@ -89,18 +84,18 @@ export default function Topic8() {
             feed dynamic Data Validation dropdown lists via the <code className="text-sky-300 font-mono">#</code> spill operator.
           </p>
 
-          <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
-            <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-emerald-400 text-base">✓</span>
+          <div className="mt-5 pt-4 border-t border-slate-800 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm">
+            <div className="flex items-center gap-2 text-slate-300">
+              <span className="text-emerald-400 text-sm">✓</span>
               <span><strong>3-Tier Pipeline:</strong> Filter → Deduplicate → Alphabetize</span>
             </div>
-            <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-sky-400 text-base">✓</span>
+            <div className="flex items-center gap-2 text-slate-300">
+              <span className="text-sky-400 text-sm">✓</span>
               <span><strong>Live Search Box:</strong> Type keywords to filter instantly</span>
             </div>
-            <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-purple-400 text-base">✓</span>
-              <span><strong>Dropdown Ready:</strong> Direct Data Validation binding with <code className="font-mono text-sky-300">#</code></span>
+            <div className="flex items-center gap-2 text-slate-300">
+              <span className="text-purple-400 text-sm">✓</span>
+              <span><strong>Dropdown Ready:</strong> Direct Data Validation with <code className="font-mono text-sky-300">#</code></span>
             </div>
           </div>
         </header>

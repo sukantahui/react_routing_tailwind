@@ -1397,7 +1397,8 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
               </div>
               <div className="mt-2 text-center">
                 <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-emerald-400">
-                  <CheckCircle2 size={11} /> Verified Lead
+                  <CheckCircle2 size={11} />
+                  <span>Verified Lead</span>
                 </span>
               </div>
             </div>

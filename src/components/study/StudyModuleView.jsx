@@ -472,7 +472,7 @@ export default function StudyModuleView({
                 {moduleData.learningOutcomes.map((outcome, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-2 p-2 rounded-lg bg-slate-950/50 border border-slate-850 text-xs text-slate-300 leading-normal"
+                    className="flex items-start gap-2 p-2 rounded-lg bg-slate-950/50 border border-slate-800/60 text-xs text-slate-300 leading-normal"
                   >
                     <CheckCircle2 size={14} className="text-emerald-400 shrink-0 mt-0.5" />
                     <span>{outcome}</span>
@@ -500,7 +500,7 @@ export default function StudyModuleView({
             <div className="flex items-center gap-2 self-end sm:self-auto shrink-0">
               <button
                 onClick={() => handleMarkAllTopics(completedCount < totalTopics)}
-                className="px-3 py-1.5 rounded-lg bg-slate-950 hover:bg-slate-850 border border-slate-800 text-xs font-semibold text-slate-300 hover:text-white transition flex items-center gap-1.5"
+                className="px-3 py-1.5 rounded-lg bg-slate-950 hover:bg-slate-800 border border-slate-800 text-xs font-semibold text-slate-300 hover:text-white transition flex items-center gap-1.5"
               >
                 <CheckCheck size={14} className="text-slate-400" />
                 <span>{completedCount < totalTopics ? "Mark All Done" : "Clear All"}</span>
@@ -510,7 +510,7 @@ export default function StudyModuleView({
                 <button
                   onClick={() => handleMarkAllTopics(false)}
                   title="Reset topic progress"
-                  className="p-1.5 rounded-lg bg-slate-950 hover:bg-slate-850 border border-slate-800 text-slate-400 hover:text-slate-200 transition"
+                  className="p-1.5 rounded-lg bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-slate-200 transition"
                 >
                   <RotateCcw size={14} />
                 </button>
@@ -634,9 +634,9 @@ export default function StudyModuleView({
           {/* Topics Items */}
           {topicViewMode === "list" ? (
             /* ====================================================== */
-            /* Compact Soothing List Mode */
+            /* Compact Soothing Unified List Mode */
             /* ====================================================== */
-            <div className="space-y-1.5">
+            <div className="rounded-2xl border border-slate-800/60 bg-slate-950/40 backdrop-blur-sm overflow-hidden divide-y divide-slate-800/40 shadow-sm">
               {filteredTopics.map(({ topic, idx }) => {
                 const isDone = completedTopics.includes(idx);
                 const isLastVisited = lastTopicIndex === idx;
@@ -645,12 +645,12 @@ export default function StudyModuleView({
                 return (
                   <div
                     key={idx}
-                    className={`group flex items-center justify-between gap-3 px-3 py-2 sm:py-2.5 rounded-xl border transition-all duration-150 ${
+                    className={`group flex items-center justify-between gap-3 px-3.5 py-2.5 sm:py-3 transition-colors duration-150 ${
                       isDone
-                        ? "bg-slate-950/40 border-slate-850/60 hover:bg-slate-900/40 hover:border-slate-800"
+                        ? "bg-slate-950/20 hover:bg-slate-900/30"
                         : isLastVisited
-                        ? "bg-sky-950/25 border-sky-800/40 hover:border-sky-700/60 shadow-sm"
-                        : "bg-slate-950/70 border-slate-850/80 hover:bg-slate-900/80 hover:border-slate-750"
+                        ? "bg-sky-950/20 hover:bg-sky-950/30"
+                        : "bg-transparent hover:bg-slate-900/40"
                     }`}
                   >
                     {/* Left: Checkbox + Number + Title + Badges */}
@@ -693,7 +693,7 @@ export default function StudyModuleView({
                         )}
 
                         {isLastVisited && (
-                          <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-sky-950 text-sky-300 border border-sky-700/80 shrink-0">
+                          <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-sky-950/80 text-sky-300 border border-sky-800/80 shrink-0">
                             Last Viewed
                           </span>
                         )}
@@ -704,12 +704,12 @@ export default function StudyModuleView({
                     <Link
                       to={`/${roadmapData.folder}/topic/${moduleData.slug}/${idx}`}
                       onClick={() => handleTopicClick(idx)}
-                      className={`shrink-0 px-2.5 py-1 rounded-lg border text-xs font-semibold flex items-center gap-1 transition ${
+                      className={`shrink-0 px-2.5 py-1 rounded-lg border text-xs font-medium flex items-center gap-1 transition ${
                         isDone
-                          ? "bg-slate-900/60 text-slate-400 border-slate-800 hover:text-slate-200 hover:bg-slate-850"
+                          ? "bg-slate-900/40 text-slate-400 border-slate-800/60 hover:text-slate-200 hover:bg-slate-800"
                           : isLastVisited
-                          ? "bg-sky-900/50 text-sky-200 border-sky-700/80 hover:bg-sky-850"
-                          : "bg-slate-900 text-slate-300 border-slate-800 group-hover:border-slate-700 group-hover:text-white hover:bg-slate-800"
+                          ? "bg-sky-900/40 text-sky-200 border-sky-800/80 hover:bg-sky-800/50"
+                          : "bg-slate-900/60 text-slate-300 border-slate-800/60 group-hover:border-slate-700 group-hover:text-white hover:bg-slate-800"
                       }`}
                     >
                       <span className="text-[11px]">{isDone ? "Review" : "Study"}</span>
@@ -732,12 +732,12 @@ export default function StudyModuleView({
                 return (
                   <div
                     key={idx}
-                    className={`group p-3 rounded-xl border transition-all flex flex-col justify-between ${
+                    className={`group p-3.5 rounded-xl border transition-all flex flex-col justify-between ${
                       isDone
-                        ? "bg-slate-950/40 border-slate-850/60 text-slate-400"
+                        ? "bg-slate-950/30 border-slate-800/40 text-slate-400 hover:bg-slate-900/30 hover:border-slate-800/70"
                         : isLastVisited
-                        ? "bg-sky-950/25 border-sky-800/40 shadow-sm"
-                        : "bg-slate-950/70 border-slate-850/80 hover:bg-slate-900/80 hover:border-slate-750"
+                        ? "bg-sky-950/20 border-sky-800/50 shadow-sm hover:border-sky-700/70"
+                        : "bg-slate-950/50 border-slate-800/60 hover:bg-slate-900/50 hover:border-slate-700/60"
                     }`}
                   >
                     <div className="flex items-start gap-2.5 mb-2">
@@ -765,7 +765,7 @@ export default function StudyModuleView({
                             </span>
                           )}
                           {isLastVisited && (
-                            <span className="px-1.5 py-0.2 rounded text-[9px] font-bold bg-sky-950 text-sky-300 border border-sky-700/80">
+                            <span className="px-1.5 py-0.2 rounded text-[9px] font-bold bg-sky-950/80 text-sky-300 border border-sky-800/80">
                               Last Viewed
                             </span>
                           )}
@@ -784,7 +784,7 @@ export default function StudyModuleView({
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-end pt-2 border-t border-slate-850/60">
+                    <div className="flex items-center justify-end pt-2 border-t border-slate-800/40">
                       <Link
                         to={`/${roadmapData.folder}/topic/${moduleData.slug}/${idx}`}
                         onClick={() => handleTopicClick(idx)}
@@ -802,7 +802,7 @@ export default function StudyModuleView({
 
           {/* Empty State */}
           {filteredTopics.length === 0 && (
-            <div className="text-center py-8 px-4 rounded-xl bg-slate-950 border border-slate-850 text-slate-400">
+            <div className="text-center py-8 px-4 rounded-xl bg-slate-950 border border-slate-800/60 text-slate-400">
               <Search size={22} className="text-slate-600 mx-auto mb-1.5" />
               <p className="text-xs">No topics matched your search filters.</p>
               <button
@@ -837,7 +837,7 @@ export default function StudyModuleView({
               </div>
             </Link>
           ) : (
-            <div className="p-4 rounded-xl bg-slate-950/40 border border-slate-850 text-slate-500 text-xs flex items-center">
+            <div className="p-4 rounded-xl bg-slate-950/40 border border-slate-800/60 text-slate-500 text-xs flex items-center">
               Beginning of course curriculum
             </div>
           )}
@@ -856,7 +856,7 @@ export default function StudyModuleView({
               <ArrowRight size={18} className="text-slate-400 group-hover:translate-x-0.5 transition-transform shrink-0" />
             </Link>
           ) : (
-            <div className="p-4 rounded-xl bg-slate-950/40 border border-slate-850 text-slate-500 text-xs flex items-center justify-end">
+            <div className="p-4 rounded-xl bg-slate-950/40 border border-slate-800/60 text-slate-500 text-xs flex items-center justify-end">
               Course completed 🎉
             </div>
           )}
