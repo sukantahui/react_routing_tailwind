@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Power Pivot & Data Modeling
-Topic 0: Introduction to Power Pivot and the xVelocity In-Memory Tabular Engine (VertiPaq)
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 0 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Introduction to Power Pivot and the xVelocity In-Memory Tabular Engine (VertiPaq)
+Module: 005_003_power-pivot-and-data-modeling
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Data Model Architecture: VertiPaq Columnar Store (In-Memory Compression) | Tabular Metadata Engine | Power Pivot Ribbon
+
+PRIMARY CONCEPT:
+Understanding Power Pivot and the VertiPaq (xVelocity) columnar in-memory calculation engine: columnar storage, dictionary encoding, run-length compression, and bit-packing
+
+TEACHER'S ADVICE:
+Power Pivot changes everything. You are no longer trapped in Excel's 1-million row prison. With VertiPaq, you can load 15 million rows into Excel, compress it into 50MB, and pivot it in milliseconds.
+
+COMMON TRAPS TO AVOID:
+- Loading Unnecessary High-Cardinality Columns (GUIDs): Loading unique primary keys or transaction timestamps with milliseconds destroys VertiPaq compression ratios. -> Fix: Remove high-cardinality IDs and split timestamps into Date and Hour columns.
+- Power Pivot Tab Missing in Excel Ribbon: Power Pivot is an advanced COM Add-in that is disabled by default in standard Excel installations. -> Fix: File > Options > Add-ins > COM Add-ins > Check 'Microsoft Power Pivot for Excel'.
+- Confusing Workbook Grid Limits with Data Model Capacity: Thinking Excel cannot handle more than 1,048,576 rows. -> Fix: Load data directly into the Data Model (VertiPaq) rather than pasting onto standard worksheet grids.
+================================================================================

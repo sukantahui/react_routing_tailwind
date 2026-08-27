@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Excel Beginner Skill Test
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Excel Beginner Skill Test
 Topic 2: Basic Mathematical & Aggregation Formula Challenge
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Basic Mathematical & Aggregation Formula Challenge is an essential evaluation milestone in spreadsheet mastery, data modeling rigor, and executive reporting.
+It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Aggregation Formulas: =SUM(B2:B100) | =AVERAGE(B2:B100) | =COUNT(B2:B100) | =MAX(B2:B100) | =MIN(B2:B100) | AutoSum: Alt + =
+
+3. CORE TECHNICAL MECHANICS
+1. Mathematical Order of Operations (PEMDAS/BODMAS):
+   Ensuring proper parenthetical grouping in multi-step formulas: `=(Revenue - Cost) / Revenue`.
+
+2. The Absolute Reference Lock ($):
+   Locking tax rate cells (`$B$1`) with F4 so formulas copy down without drift.
+
+3. COUNT vs COUNTA Precision:
+   `COUNT` counts numeric cells only; `COUNTA` counts all non-blank text and numeric cells.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Lead Assessor, Barrackpore HQ):
+  Corporate Sales Summary Aggregation Lab - Evaluates candidates on constructing total revenue, gross margin %, and average order size formulas across 50 regional tables.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Tax Surcharge Allocation Challenge - Tests candidate use of absolute cell referencing (`$D$2`) to allocate corporate tax surcharges across branch ledgers.
+• Abhronila Das (Plant Quality Superintendent, Ichapur Works):
+  Shift Machine Telemetry Min/Max Challenge - Evaluates candidate calculations of peak temperature (`MAX`), lowest pressure (`MIN`), and sample count (`COUNTA`).
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Carrier Transit Cost Aggregation Test - Tests AutoSum multi-range calculations across regional delivery manifests.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Missing Absolute Lock ($) on Multiplier Cell:
+  Root Cause: Writing `=A2*B1` and dragging down becomes `=A3*B2` (multiplying against wrong blank cells).
+  Diagnostic Fix: Press F4 on multiplier cell to lock coordinates: `=A2*$B$1`.
+• Omitting Parentheses in Percentage Calculations:
+  Root Cause: Writing `=A2-B2/A2` calculates `A2 - (B2/A2)` instead of `(A2-B2)/A2` due to operator precedence.
+  Diagnostic Fix: Wrap subtraction in parentheses: `=(A2-B2)/A2`.
+• Using COUNT on Text Columns:
+  Root Cause: `COUNT(NamesRange)` returns 0 because names are text strings.
+  Diagnostic Fix: Use `COUNTA()` for text columns.
+
+6. PRO TIPS & SHORTCUTS
+• Instant AutoSum (Alt + =): Automatically writes =SUM() for active row or column.
+• Toggle Lock ($) (Press F4 while in formula): Cycles through $A$1 -> A$1 -> $A1 -> A1.
+• Highlight All Cells (Ctrl + Shift + 8 (or Ctrl + A)): Selects contiguous table range.
+================================================================================

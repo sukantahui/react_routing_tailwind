@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Power Pivot & Data Modeling
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Power Pivot and Data Modeling
 Topic 6: Calculated Columns vs Calculated Measures: Memory footprint vs CPU computation at query time
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Calculated Columns vs Calculated Measures: Memory footprint vs CPU computation at query time is an essential discipline in enterprise data architecture, business intelligence, and large-scale analytical modeling.
+It provides the core protocols required to shatter Excel's 1-million row limit, establish clean relational schemas, and build high-performance data models.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Calculated Column (Row Context): Sales[Margin] = Sales[Revenue] - Sales[Cost] | Measure (Filter Context): TotalMargin := SUM(Sales[Revenue]) - SUM(Sales[Cost])
+
+3. CORE TECHNICAL MECHANICS
+1. Calculated Columns (RAM Storage & Row Context):
+   Evaluated row-by-row during data refresh. Appends a physical column to the table in RAM. Increases workbook file size.
+
+2. Calculated Measures (CPU on-the-fly & Filter Context):
+   Evaluated dynamically when an end-user pivots data. Consumes ZERO storage RAM. Recalculates dynamically based on active slicers and row/column headers.
+
+3. The Golden Rule of Modeling:
+   Use Calculated Columns ONLY for slicer and category grouping attributes. Use Calculated Measures for ALL mathematical sums, averages, ratios, and KPIs.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Data Architect, Barrackpore HQ):
+  Enterprise Memory Footprint Optimization - Cuts corporate Data Model memory footprint from 450 MB down to 45 MB by replacing 25 redundant Calculated Columns with explicit DAX Measures.
+• Tuhina Mukherjee (Head of Financial Planning, Shyamnagar Plant):
+  Dynamic Margin % Ratio Measure - Constructs explicit `ProfitMargin% := DIVIDE([TotalProfit], [TotalRevenue])` measure that aggregates correctly at all pivot levels.
+• Abhronila Das (Plant Quality Controller, Ichapur Works):
+  Machine Age Categorization Column - Uses a Calculated Column for `=IF(Machinery[Years] > 10, "Legacy", "Modern")` to allow slicing by machine age.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Dynamic Fuel Cost per KM Measure - Calculates fleet fuel burn efficiency on-the-fly across dynamic truck and route slicer combinations.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Averaging a Calculated Column Ratio (The Fatal Math Error):
+  Root Cause: Creating a column `Margin% = Profit / Rev` and selecting `AVERAGE(Margin%)` in PivotTable computes the arithmetic average of percentages rather than the true weighted margin.
+  Diagnostic Fix: Always compute financial ratios as explicit DAX measures: `Margin% := DIVIDE([TotalProfit], [TotalRevenue])`.
+• Creating Calculated Columns for Simple Math:
+  Root Cause: Adding `Sales[Total] = Sales[Qty] * Sales[Price]` across 10 million rows adds 80MB of wasted RAM.
+  Diagnostic Fix: Use DAX Iterator measure: `TotalSales := SUMX(Sales, Sales[Qty] * Sales[Price])`.
+• Using Measures as Slicer Categories:
+  Root Cause: Attempting to drag a Calculated Measure into a PivotTable Slicer or Row label area (Excel only allows Columns in Slicers).
+  Diagnostic Fix: Use a Calculated Column if the attribute is required as a categorical slicer.
+
+6. PRO TIPS & SHORTCUTS
+• Columns for Slicers (Use Calculated Columns for categories & bins): Allows slicing and grouping by custom attributes.
+• Measures for Math (Use Measures for all numeric KPIs & ratios): Zero memory overhead and dynamically weighted accuracy.
+• DIVIDE() for Safe Division (=DIVIDE(Num, Denom, 0)): Safe division handling zero denominators with zero errors.
+================================================================================

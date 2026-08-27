@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Advanced VBA: UserForms, Events & System Integration
-Topic 5: File System Automation using `Scripting.FileSystemObject` (FSO): Creating, moving, reading, and deleting files/folders
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 5 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: File System Automation using `Scripting.FileSystemObject` (FSO): Creating, moving, reading, and deleting files/folders
+Module: 006_002_advanced-vba-userforms-events-and-system-integration
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+FileSystemObject: Set fso = CreateObject("Scripting.FileSystemObject") | fso.FileExists(path) | fso.FolderExists | fso.CopyFile | fso.OpenTextFile
+
+PRIMARY CONCEPT:
+Automating operating system file management from Excel VBA using Scripting.FileSystemObject (FSO): creating folders, moving files, checking existence, and reading/writing text/CSV logs
+
+TEACHER'S ADVICE:
+FileSystemObject (FSO) is the best way to handle files and folders in Windows. Use `fso.FileExists(path)` to verify files before opening, and `fso.CreateFolder` to build folder structures automatically.
+
+COMMON TRAPS TO AVOID:
+- Failing to Check if Directory Exists Before Creating: Calling `fso.CreateFolder("C:\A\B\C")` when parent folder `C:\A\B` does not exist throws runtime error. -> Fix: Create nested parent folders iteratively or verify with `If Not fso.FolderExists(path) Then`.
+- Leaving OpenTextFile Streams Unclosed in RAM: Forgetting `ts.Close` locks the external file on disk, preventing other applications from accessing it. -> Fix: Always include `ts.Close: Set ts = Nothing` in clean-up blocks.
+- Overwriting Existing Files Without Overwrite Parameter: Calling `fso.CopyFile` over an existing file without setting `Overwrite:=True` throws 'File already exists'. -> Fix: Explicitly pass `fso.CopyFile src, dest, True`.
+================================================================================

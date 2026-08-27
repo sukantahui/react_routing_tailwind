@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Using AI with Excel for Productivity
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Using AI with Excel for Productivity
 Topic 8: Creating custom AI functions in Excel (`=ASK_AI()`, `=SUMMARIZE_TEXT()`, `=TRANSLATE()`)
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Creating custom AI functions in Excel (`=ASK_AI()`, `=SUMMARIZE_TEXT()`, `=TRANSLATE()`) is an essential discipline in AI-assisted spreadsheet engineering, generative business intelligence, and modern workplace productivity.
+It provides the core protocols required to leverage Microsoft Copilot, construct precision prompt workflows, integrate external LLM APIs, and build custom AI formulas.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Custom AI Functions: =ASK_AI(Prompt, [ContextCell], [Model]) | =SUMMARIZE_TEXT(TextCell, WordCount) | =TRANSLATE(TextCell, TargetLang)
+
+3. CORE TECHNICAL MECHANICS
+1. Native Worksheet UDF Ergonomics:
+   Enables non-technical users to type `=ASK_AI("Categorize this expense", A2)` directly into cells just like native Excel formulas.
+
+2. In-Memory Response Caching Engine:
+   Caches API responses in a VBA Dictionary or Office Scripts cache so formulas do not re-bill API tokens on every worksheet recalculation.
+
+3. Deterministic Prompt Templates:
+   Wraps cell inputs in robust, tested system prompt templates guaranteeing concise, formatted single-cell string returns.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Deploying =ASK_AI() Across Corporate Subsidiary Workbooks - Authors and distributes `=ASK_AI(Question, DataCell)` across 500 corporate financial analyst laptops via an Excel Add-In (`.xlam`).
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Custom =TRANSLATE_INVOICE() UDF - Builds `=TRANSLATE_TEXT(A2, "English")` translating multilingual regional vendor invoices into English for statutory compliance.
+• Abhronila Das (Plant Operations Superintendent, Ichapur Works):
+  Custom =SUMMARIZE_INCIDENT() Function - Builds `=SUMMARIZE_TEXT(A2, 10)` condensing lengthy maintenance logs into 10-word summary headlines.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Custom =SENTIMENT_SCORE() Function - Scores driver and client communications on a -1.0 to +1.0 sentiment scale.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• API Token Storm on Sheet Recalculation (No Caching):
+  Root Cause: Pressing F9 recalculates 1,000 `=ASK_AI()` cells simultaneously, incurring massive API billing charges and hitting rate limits.
+  Diagnostic Fix: Implement a Dictionary cache in VBA returning stored responses for identical cell inputs.
+• Making Custom AI Functions Volatile (`Application.Volatile`):
+  Root Cause: Declaring AI UDFs as Volatile causes them to re-call OpenAI every time any cell in the workbook changes!
+  Diagnostic Fix: Never declare AI custom functions as Volatile; allow normal dependency recalculation.
+• LLM Returning Chatty Conversational Filler:
+  Root Cause: AI returning 'Sure! Here is your answer: Electronics' instead of just 'Electronics'.
+  Diagnostic Fix: Instruct AI in system prompt: 'Return ONLY the classification category. Zero conversational text'.
+
+6. PRO TIPS & SHORTCUTS
+• Strict System Prompt ('Return ONLY the answer. No intro/outro text.'): Guarantees clean, single-value cell returns.
+• In-Memory Cache (If cache.Exists(hash) Then ASK_AI = cache(hash)): Eliminates duplicate API costs and accelerates recalculations.
+• Distribute via .XLAM (Save As Excel Add-in (*.xlam)): Makes =ASK_AI() available in every workbook on user's PC.
+================================================================================

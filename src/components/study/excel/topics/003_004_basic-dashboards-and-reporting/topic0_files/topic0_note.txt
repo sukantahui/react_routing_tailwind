@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Basic Dashboards and Reporting
-Topic 0: Anatomy of an Executive Dashboard: Grid system, visual hierarchy, and color palettes
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 0 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Anatomy of an Executive Dashboard: Grid system, visual hierarchy, and color palettes
+Module: 003_004_basic-dashboards-and-reporting
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Dashboard Canvas Standard: 4-Quadrant Visual Grid | 1 Screen Fit (No Horizontal Scroll) | 60-30-10 Color Rule
+
+PRIMARY CONCEPT:
+Mastering executive dashboard architecture: grid systems, visual scanning hierarchy (F-pattern), muted corporate color palettes, and single-screen fit principles
+
+TEACHER'S ADVICE:
+Great dashboard design is all about discipline. Turn off gridlines, use a muted 3-color palette, and fit everything onto one clean screen. Your executives will be blown away.
+
+COMMON TRAPS TO AVOID:
+- The 'Christmas Tree' Color Trap: Using 15 bright saturated rainbow colors across charts creates visual clutter and decision fatigue. -> Fix: Enforce a unified 3-color palette following the 60-30-10 information design rule.
+- Forcing Horizontal Scrolling: Designing dashboards wider than standard 1920x1080 resolution forces executives to scroll horizontally. -> Fix: Fit all core visual insights within columns A through N (1 screen width).
+- Leaving Default Sheet Gridlines On: Raw Excel cell gridlines make the dashboard look like a messy spreadsheet rather than polished software. -> Fix: Uncheck View > Gridlines and containerize cards with rounded shapes or subtle borders.
+================================================================================

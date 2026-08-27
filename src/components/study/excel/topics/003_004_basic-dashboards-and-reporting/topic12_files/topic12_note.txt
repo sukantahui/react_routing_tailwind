@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Basic Dashboards and Reporting
-Topic 12: Designing clean print/PDF report layouts for C-suite executive briefings
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 12 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Designing clean print/PDF report layouts for C-suite executive briefings
+Module: 003_004_basic-dashboards-and-reporting
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Print Layout: Page Layout > Page Setup > Print Area (Alt+P+R+S) | Fit to 1 Page Wide by 1 Tall (Alt+P+S+P) | Export to PDF (Alt+F+E+A)
+
+PRIMARY CONCEPT:
+Designing pixel-perfect print and PDF export layouts for C-suite executive briefings: configuring Print Areas, 1-page fit constraints, header/footer branding, and vector PDF exports
+
+TEACHER'S ADVICE:
+Never print or export to PDF without checking Page Break Preview (Alt + W + I) first! Drag the blue lines so your dashboard fits on exactly ONE landscape page. Professional presentation is everything.
+
+COMMON TRAPS TO AVOID:
+- The 'Orphan Column' Print Split (Fatal Presentation Error): Allowing a 5-column dashboard to split column 5 onto a second useless page. -> Fix: Page Layout > Width: 1 page, Height: 1 page (or Fit to 1 page wide).
+- Tiny Unreadable Shrinkage on Massive Sheets: Forcing a 100-row table onto 1 page tall shrinks text to 4pt microscopic unreadable font. -> Fix: Set Width to 1 page, but leave Height as 'Automatic' for multi-page tables.
+- Printing Unwanted Scratch Notes & Calc Columns: Leaving background calculation scratchpad areas unhidden in printouts. -> Fix: Explicitly set the Print Area: Select dashboard > Page Layout > Print Area > Set Print Area.
+================================================================================

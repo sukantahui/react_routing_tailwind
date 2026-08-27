@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
-Topic 1: Comparing VBA vs Office Scripts: TypeScript/JavaScript vs Visual Basic, Cloud vs Desktop
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 1 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Comparing VBA vs Office Scripts: TypeScript/JavaScript vs Visual Basic, Cloud vs Desktop
+Module: 006_004_modern-office-scripts-typescript-and-power-automate
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Paradigm Comparison: VBA (Visual Basic, Desktop COM, .xlsm, Local PC) vs Office Scripts (TypeScript, Cloud API, .osts, Web/Cloud/Desktop)
+
+PRIMARY CONCEPT:
+Evaluating architectural trade-offs between legacy desktop VBA and modern cloud Office Scripts: execution environment, platform portability, security sandboxing, and enterprise automation strategy
+
+TEACHER'S ADVICE:
+Use VBA when you need heavy desktop UserForms or local database connections. Use Office Scripts when you want your automation to run automatically in the cloud 24/7 via Power Automate without touching your computer!
+
+COMMON TRAPS TO AVOID:
+- Trying to Automate Other Desktop Apps from Office Scripts: Office Scripts cannot launch desktop PowerPoint or Outlook like VBA COM automation. -> Fix: Use Power Automate cloud connectors for cross-app automation (Forms, Outlook, Teams, SharePoint).
+- Using VBA When Cloud 24/7 Headless Execution is Required: VBA requires a physical computer turned on with Excel running. -> Fix: Migrate unattended server workflows to Office Scripts triggered by Power Automate.
+- Expecting ActiveSheet Focus to Always Exist in Cloud: Headless cloud runs do not have an active visual user selection. -> Fix: Always reference worksheets explicitly by name: `workbook.getWorksheet("Data")`.
+================================================================================

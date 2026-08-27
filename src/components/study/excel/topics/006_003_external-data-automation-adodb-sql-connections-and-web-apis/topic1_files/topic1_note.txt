@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: External Data Automation: ADODB SQL Connections & Web APIs
-Topic 1: Establishing connection strings for MySQL, PostgreSQL, SQL Server, and Microsoft Access
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 1 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Establishing connection strings for MySQL, PostgreSQL, SQL Server, and Microsoft Access
+Module: 006_003_external-data-automation-adodb-sql-connections-and-web-apis
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Connection Strings: SQL Server: "Provider=MSOLEDBSQL;Server=myServer;Database=myDB;Trusted_Connection=yes;" | MySQL: "Driver={MySQL ODBC 8.0 Driver};Server=myServer;Database=myDB;Uid=user;Pwd=pass;"
+
+PRIMARY CONCEPT:
+Configuring robust connection strings for enterprise databases: SQL Server (MSOLEDBSQL), MySQL ODBC, PostgreSQL, and Microsoft Access (ACE.OLEDB.12.0) across 32-bit and 64-bit drivers
+
+TEACHER'S ADVICE:
+Connection strings are just recipes: Driver name + Server IP + Database name + Login info. Bookmark `connectionstrings.com`! Once you have the right string, connecting to any database in the world takes 2 seconds.
+
+COMMON TRAPS TO AVOID:
+- Driver Architecture Bitness Mismatch (Fatal Connection Error): Installing a 64-bit MySQL driver when using 32-bit Excel (or vice-versa) throws '[Microsoft][ODBC Driver Manager] Data source name not found'. -> Fix: Install the exact ODBC driver bitness matching your Excel version (Check File > Account > About Excel).
+- Missing Port Number on Non-Standard Database Ports: Database running on non-default port (e.g. MySQL on 3307 instead of 3306) fails to connect. -> Fix: Include explicit port: `Server=192.168.1.100,1433;` or `Port=3307;`.
+- Unescaped Special Characters in Passwords: Semicolons or quotes inside database passwords breaking connection string parsing. -> Fix: Enclose passwords containing semicolons in single quotes or curly braces: `Pwd='p;ssw@rd';`.
+================================================================================

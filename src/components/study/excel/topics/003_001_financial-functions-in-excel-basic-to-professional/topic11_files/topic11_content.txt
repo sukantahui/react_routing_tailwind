@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Financial Functions in Excel (Basic to Professional)
 Topic 11: Building a multi-period Discounted Cash Flow (DCF) company valuation model
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Building a multi-period Discounted Cash Flow (DCF) company valuation model is a foundational pillar of corporate financial modeling, investment banking, and capital budgeting.
+It equips financial modelers with the exact mathematical tools to value assets, evaluate debt structures, and appraise investments.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: DCF Enterprise Valuation: Enterprise Value = PV(Discrete Forecast FCFF @ WACC) + PV(Terminal Value @ WACC) - Net Debt
+
+3. CORE TECHNICAL MECHANICS
+1. Free Cash Flow to Firm (FCFF) Engine:
+   `FCFF = EBIT*(1-Tax) + D&A - Capex - ChangeInNWC`. Represents cash generated that is available to all capital providers.
+
+2. Weighted Average Cost of Capital (WACC):
+   `WACC = (E/V * Ke) + (D/V * Kd * (1-Tax))`. Serves as the fundamental hurdle discount rate.
+
+3. Gordon Growth Terminal Value (TV):
+   `Terminal Value = (FCFF_final * (1 + g)) / (WACC - g)`. Represents firm value beyond the explicit 5-year forecast horizon (typically 65-80% of total Enterprise Value).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Managing Director M&A, Barrackpore HQ):
+  ₹250 Crore Acquisition DCF Valuation Model - Builds a complete 5-year DCF model to value an industrial manufacturing acquisition target, deriving Enterprise Value of ₹248.5 Crore and Implied Share Price of ₹485/share.
+• Tuhina Mukherjee (Senior Equity Research Lead, Shyamnagar Plant):
+  Public Company Target Price Valuation - Models multi-scenario DCF valuations for publicly traded manufacturing companies.
+• Abhronila Das (Corporate Planning Lead, Ichapur Works):
+  Divisional Spinoff Enterprise Appraisal - Values a precision engineering manufacturing division for strategic corporate spinoff.
+• Debangshu Roy (Infrastructure Valuation Lead, Naihati Logistics):
+  Logistics Hub 20-Year DCF Concession Model - Models long-term discounted cash flows for public-private partnership logistics terminal concessions.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Terminal Growth Rate (g) Exceeding GDP Growth:
+  Root Cause: Assuming a perpetual terminal growth rate > 4% mathematically implies the company will eventually become larger than the global economy.
+  Diagnostic Fix: Keep terminal growth rate (g) conservative: typically between 2.0% and 3.5% (in line with long-term GDP growth).
+• Double-Discounting Terminal Value:
+  Root Cause: Terminal Value is calculated at t=5; forgetting to discount it back to t=0 at the WACC rate overstates valuation by over 60%.
+  Diagnostic Fix: Always discount Terminal Value back to t=0: `=TerminalValue / (1 + WACC)^5`.
+• Confusing Enterprise Value with Equity Value:
+  Root Cause: Forgetting to subtract Net Debt (Debt - Cash) from Enterprise Value to arrive at Equity Value.
+  Diagnostic Fix: `Equity Value = Enterprise Value - Total Debt + Cash & Equivalents`.
+
+6. PRO TIPS & SHORTCUTS
+• Terminal Value Formula (=(FCFF5 * (1 + g)) / (WACC - g)): The classic Gordon Growth perpetuity formula.
+• Discount Terminal Value (=TV / (1 + WACC)^5): Discounts Year 5 Terminal Value back to today's present value.
+• Implied Share Price (=EquityValue / DilutedShares): Calculates intrinsic fair value per share.
+================================================================================

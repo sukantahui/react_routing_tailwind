@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: External Data Automation: ADODB SQL Connections & Web APIs
-Topic 10: Security best practices: Managing database credentials securely in VBA
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 10 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Security best practices: Managing database credentials securely in VBA
+Module: 006_003_external-data-automation-adodb-sql-connections-and-web-apis
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Security Architecture: Windows Integrated Auth | Secure Vault API | Storing Encrypted Credentials in Registry / Hidden Worksheets
+
+PRIMARY CONCEPT:
+Managing database credentials securely in Excel VBA: eliminating hardcoded plaintext passwords, leveraging Windows Integrated Authentication, DPAPI credential storage, and password vaulting
+
+TEACHER'S ADVICE:
+Never write passwords in your VBA code! If you are connecting to SQL Server, use `Trusted_Connection=Yes;` so it uses your Windows login. If you must use passwords, prompt the user or load it from an environment variable.
+
+COMMON TRAPS TO AVOID:
+- Committing Plaintext Passwords to Shared Network Drives: Saving an `.xlsm` file with master database administrative credentials in a shared public folder. -> Fix: Never store plaintext credentials in code; use Windows Authentication or prompt dynamically.
+- Using 'sa' or Root Administrative Accounts in Spreadsheets: Connecting Excel using the database 'root' superuser account. -> Fix: Create dedicated restricted database users with `SELECT` and `INSERT` permissions only on specific tables.
+- Leaving VBA Project Unprotected with Stored Strings: Leaving connection strings readable in unlocked VBE code windows. -> Fix: Lock the VBA Project with a strong password (Tools > VBAProject Properties > Protection).
+================================================================================

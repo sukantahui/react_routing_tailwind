@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: What-If Analysis and Scenario Planning
 Topic 1: Goal Seek: Finding the exact input required to hit a targeted financial outcome
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Goal Seek: Finding the exact input required to hit a targeted financial outcome is an essential discipline in corporate decision modeling, capital allocation, and risk management.
+It provides the core protocols required to stress-test financial projections, solve backwards for target goals, and mathematically optimize resource utilization.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Data > What-If Analysis > Goal Seek: Set cell: TargetCell | To value: ExactTargetValue | By changing cell: InputCell
+
+3. CORE TECHNICAL MECHANICS
+1. Backwards-Solving Engine:
+   Goal Seek iterates through possible values of a single input cell until the dependent formula cell matches the desired target value.
+
+2. Strict Formula Linkage Requirement:
+   The 'Set cell' MUST contain a dynamic formula that directly or indirectly depends on the 'By changing cell'.
+
+3. Single Variable Convergence:
+   Operates exclusively on ONE input variable. (For multiple variables with constraints, use Solver).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Banking, Barrackpore HQ):
+  Target Loan EMI Principal Sizing - Finds the exact maximum loan amount a corporate client can borrow (=PMT()) while keeping monthly payments at exactly ₹5,00,000.
+• Tuhina Mukherjee (Financial Planning Lead, Shyamnagar Plant):
+  Break-Even Sales Unit Calculation - Uses Goal Seek to find the exact sales unit volume required to drive Net Operating Income (=EBIT) to exactly ₹0.00.
+• Abhronila Das (Plant Capex Controller, Ichapur Works):
+  Target Project Hurdle Rate Pricing - Determines the minimum product selling price required to achieve an exact 15.0% Project IRR.
+• Debangshu Roy (Logistics Pricing Director, Naihati Logistics):
+  Target Fleet Profit Margin per KM - Solves for the exact base freight freight rate per kilometer required to hit a 20% Net Operating Margin.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Goal Seek May Not Have Found a Solution:
+  Root Cause: If the formula is non-continuous, stepped, or has no mathematical solution, Goal Seek stops at an approximate value.
+  Diagnostic Fix: Verify that the changing cell is mathematically linked to the target cell without circular locks.
+• Setting Hardcoded Value in 'Set Cell':
+  Root Cause: Attempting to run Goal Seek on a cell containing a static hardcoded number returns 'Cell must contain a formula'.
+  Diagnostic Fix: Ensure 'Set cell' contains a live formula.
+• Overwriting Target Cell Value:
+  Root Cause: Typing the target number directly into the formula cell destroys the dynamic calculation.
+  Diagnostic Fix: Always use Data > What-If Analysis > Goal Seek dialog to solve backwards.
+
+6. PRO TIPS & SHORTCUTS
+• Goal Seek Shortcut (Alt + A + W + G): Instantly opens the Goal Seek backwards-solving modal.
+• Break-Even in 3 Seconds (Set EBIT to 0 by changing Units): Fastest way to calculate financial break-even volume.
+• Precision Iteration Setting (Options > Formulas > Max Change: 0.0001): Increases Goal Seek calculation precision for tight decimal targets.
+================================================================================

@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
-Topic 5: Real-world irregular cash flow valuation with XNPV
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 5 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Real-world irregular cash flow valuation with XNPV
+Module: 003_001_financial-functions-in-excel-basic-to-professional
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+=XNPV(discount_rate, cash_flows_range, dates_range)
+
+PRIMARY CONCEPT:
+Discounted cash flow valuation for real-world projects with irregular, non-annual transaction dates using the precision XNPV engine
+
+TEACHER'S ADVICE:
+Contrast this carefully: In standard NPV, Year 0 is OUTSIDE the formula. In XNPV, Year 0 is INSIDE the formula! Knowing this difference is what separates financial pros from amateurs.
+
+COMMON TRAPS TO AVOID:
+- Adding Initial Outflow Separately in XNPV (Double Deduction): Applying the standard NPV rule to XNPV (`=XNPV(...) + CF0`) double-deducts the initial capex. -> Fix: In XNPV, include the initial cash flow (CF0) and its date directly inside the formula ranges.
+- Unsorted Chronological Dates (#NUM!): If the first date in dates_range is not the earliest date, XNPV returns a #NUM! error. -> Fix: Sort cash flow schedules in strict ascending chronological date order.
+- Text Date Entry in Dates Range: Dates entered as text strings ('27/08/2026') trigger a #VALUE! error. -> Fix: Ensure the dates range contains genuine Excel serial date numbers.
+================================================================================

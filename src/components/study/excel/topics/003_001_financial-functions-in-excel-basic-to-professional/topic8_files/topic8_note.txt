@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
-Topic 8: Nominal vs Effective interest rates: NOMINAL and EFFECTIVE functions
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 8 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Nominal vs Effective interest rates: NOMINAL and EFFECTIVE functions
+Module: 003_001_financial-functions-in-excel-basic-to-professional
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+=NOMINAL(effect_rate, npery) | =EFFECT(nominal_rate, npery)
+
+PRIMARY CONCEPT:
+Understanding the compounding frequency effect on interest rates: converting between Annual Percentage Rate (NOMINAL) and Annual Percentage Yield (EFFECT)
+
+TEACHER'S ADVICE:
+Never compare loan interest rates by their headline numbers! A 10% rate compounded monthly costs 10.47% per year. Always use =EFFECT(rate, 12) to uncover the true cost of debt.
+
+COMMON TRAPS TO AVOID:
+- Confusing npery with Total Loan Years: Entering total years (e.g. 5) instead of compounding periods per year (12) produces distorted rate conversions. -> Fix: Remember: npery is periods PER YEAR (e.g. 12 for monthly, 4 for quarterly, 365 for daily).
+- Passing Percentages as Whole Numbers: Entering 8 instead of 8% (or 0.08) causes Excel to treat the rate as 800% interest. -> Fix: Always enter interest rates with % sign (`8.5%`) or decimal fraction (`0.085`).
+- Ignoring Compounding in Loan Comparisons: Choosing a loan with 9.8% monthly compounding over 10.0% annual compounding without realizing the 9.8% loan actually costs 10.25% APY. -> Fix: Always convert all competing debt offers to EFFECT() before comparing.
+================================================================================

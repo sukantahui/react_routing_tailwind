@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Professional Capstone – Real Business Dashboard
-Topic 2: Phase 2: Star Schema Data Modeling, Dimensional Relationships & Advanced DAX Analytics
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 2 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Phase 2: Star Schema Data Modeling, Dimensional Relationships & Advanced DAX Analytics
+Module: 008_004_professional-capstone-real-business-dashboard
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Phase 2 Modeling: Power Pivot Star Schema (1:Many Relationships) + DAX Measure Suite (Revenue, Gross Margin %, YTD, SPLY Growth %)
+
+PRIMARY CONCEPT:
+Constructing the enterprise Star Schema data model and authoring the DAX Measure calculation suite: establishing 1-to-many relationships, configuring official Date tables, and authoring core KPIs, YTD metrics, and variances
+
+TEACHER'S ADVICE:
+Phase 2 is the brain of your dashboard. Connect your Fact table to your Dimension tables with 1-to-many relationships, write your DAX measures using `DIVIDE` and `CALCULATE`, and your data model will calculate instantly across millions of rows.
+
+COMMON TRAPS TO AVOID:
+- Creating Many-to-Many Relationships Without Bridge Tables: Duplicate keys in dimension tables creating ambiguous relationships. -> Fix: Ensure dimension tables contain 100% unique primary keys.
+- Using Bi-Directional Cross-Filtering Indiscriminately: Bi-directional relationships causing unpredictable filter propagation and calculation performance degradation. -> Fix: Keep relationships strictly single-directional (1-to-many).
+- Omitting Continuous Date Table for Time Intelligence: Time intelligence DAX functions returning `#ERROR` on missing calendar dates. -> Fix: Generate complete contiguous Date table in Power Query or DAX.
+================================================================================

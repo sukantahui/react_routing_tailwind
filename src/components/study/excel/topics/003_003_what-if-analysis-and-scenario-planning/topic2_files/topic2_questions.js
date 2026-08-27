@@ -1,248 +1,244 @@
-// topic2_questions.js - 30 Comprehensive Mastery Questions
-// Topic 2: One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue)
-// Module: 003_003_what-if-analysis-and-scenario-planning
-
+// topic2_files/topic2_questions.js - 30 Comprehensive Mastery Questions on One-Variable Data Tables
 const questions = [
   {
-    "question": "Question 1 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "What is the primary architectural purpose of a One-Variable Data Table in Excel?",
+    "shortAnswer": "To test how changing a single input parameter across multiple values impacts one or more output formulas simultaneously.",
+    "explanation": "A One-Variable Data Table automates sensitivity analysis by substituting a list of values (arranged in either a column or a row) into a designated input cell and recording the recalculated results of output formulas in a structured matrix.",
+    "hint": "Think about testing 10 different interest rates to see their impact on Monthly EMI, Total Interest, and Total Outflow all at once.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "{=TABLE(, B3)}"
   },
   {
-    "question": "Question 2 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
-  },
-  {
-    "question": "Question 3 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
-  },
-  {
-    "question": "Question 4 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
-  },
-  {
-    "question": "Question 5 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
-  },
-  {
-    "question": "Question 6 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
-  },
-  {
-    "question": "Question 7 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
-  },
-  {
-    "question": "Question 8 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
-  },
-  {
-    "question": "Question 9 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
-  },
-  {
-    "question": "Question 10 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
-  },
-  {
-    "question": "Question 11 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "Where must the output calculation formulas be placed in a Column-Oriented One-Variable Data Table?",
+    "shortAnswer": "In the row directly above the first result cell, one column to the right of the input value list (the header row of the table).",
+    "explanation": "In a column-oriented table (where input values run down a column, e.g. D6:D16), the formulas being evaluated (e.g. =B6, =B7, =B8) must reside in cells E5, F5, G5. Excel requires this specific structural anchor to link input substitutions to outputs.",
+    "hint": "Formulas sit in the top row of the output columns.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "D5: [Blank/Header] | E5: =B6 | F5: =B7"
   },
   {
-    "question": "Question 12 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
-  },
-  {
-    "question": "Question 13 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
-  },
-  {
-    "question": "Question 14 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
-  },
-  {
-    "question": "Question 15 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
-  },
-  {
-    "question": "Question 16 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
-  },
-  {
-    "question": "Question 17 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
-  },
-  {
-    "question": "Question 18 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
-  },
-  {
-    "question": "Question 19 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
-  },
-  {
-    "question": "Question 20 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
-  },
-  {
-    "question": "Question 21 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
-  },
-  {
-    "question": "Question 22 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
-  },
-  {
-    "question": "Question 23 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "How do you hide the raw formula references (like =B6) in the header of a Data Table so it displays professional text like 'Monthly EMI'?",
+    "shortAnswer": "Use Custom Number Formatting with the mask: ;;;\"Monthly EMI\"",
+    "explanation": "Because typing regular text over the formula cell destroys the underlying formula link, applying the custom format mask ;;;\"Custom Text\" hides the numeric value returned by the formula and displays the label text without breaking the Data Table calculation engine.",
+    "hint": "Three semicolons in custom formatting hide positive, negative, and zero values.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Format Cells > Custom > Type: ;;;\"Monthly EMI\""
   },
   {
-    "question": "Question 24 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "question": "What special array formula syntax is generated by Excel when you create a Column-Oriented Data Table?",
+    "shortAnswer": "{=TABLE(, ColumnInputCell)}",
+    "explanation": "Excel automatically applies the native array formula {=TABLE(, InputCell)}, where the comma before the cell reference indicates that the Row Input Cell was left blank and the substitutions are driven by the Column Input Cell.",
+    "hint": "Notice the leading comma inside the curly brackets.",
+    "level": "moderate",
+    "codeExample": "{=TABLE(, B3)}"
   },
   {
-    "question": "Question 25 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "question": "Why does Excel throw the error 'Cannot change part of a data table' when you try to delete a single result cell?",
+    "shortAnswer": "Because the Data Table results are locked as a single unified multi-cell array block.",
+    "explanation": "Excel protects the integrity of Data Tables by treating the entire results grid as an immutable array. To edit, move, or delete results, you must select the entire data table range and delete it all at once.",
+    "hint": "Array formulas cannot be modified one cell at a time.",
+    "level": "basic",
+    "codeExample": "Select D6:G16 > Press Delete"
   },
   {
-    "question": "Question 26 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 6 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 6), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 6.",
+    "level": "moderate",
+    "codeExample": "{=TABLE(, $B$3)}"
   },
   {
-    "question": "Question 27 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 7 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 7), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 7.",
+    "level": "moderate",
+    "codeExample": "{=TABLE(, $B$4)}"
   },
   {
-    "question": "Question 28 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 8 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 8), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 8.",
+    "level": "moderate",
+    "codeExample": "{=TABLE(, $B$5)}"
   },
   {
-    "question": "Question 29 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
-    "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 9 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 9), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 9.",
+    "level": "moderate",
+    "codeExample": "{=TABLE(, $B$6)}"
   },
   {
-    "question": "Question 30 on One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue): What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 2.",
-    "explanation": "Mastering One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue) ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 10 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 10), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 10.",
+    "level": "moderate",
+    "codeExample": "{=TABLE(, $B$2)}"
+  },
+  {
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 11 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 11), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 11.",
+    "level": "moderate",
+    "codeExample": "{=TABLE(, $B$3)}"
+  },
+  {
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 12 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 12), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 12.",
+    "level": "moderate",
+    "codeExample": "{=TABLE(, $B$4)}"
+  },
+  {
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 13 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 13), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 13.",
+    "level": "moderate",
+    "codeExample": "{=TABLE(, $B$5)}"
+  },
+  {
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 14 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 14), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 14.",
+    "level": "moderate",
+    "codeExample": "{=TABLE(, $B$6)}"
+  },
+  {
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 15 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 15), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 15.",
+    "level": "moderate",
+    "codeExample": "{=TABLE(, $B$2)}"
+  },
+  {
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 16 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 16), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 16.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "{=TABLE(, $B$3)}"
+  },
+  {
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 17 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 17), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 17.",
+    "level": "advanced",
+    "codeExample": "{=TABLE(, $B$4)}"
+  },
+  {
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 18 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 18), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 18.",
+    "level": "advanced",
+    "codeExample": "{=TABLE(, $B$5)}"
+  },
+  {
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 19 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 19), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 19.",
+    "level": "advanced",
+    "codeExample": "{=TABLE(, $B$6)}"
+  },
+  {
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 20 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 20), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 20.",
+    "level": "advanced",
+    "codeExample": "{=TABLE(, $B$2)}"
+  },
+  {
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 21 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 21), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 21.",
+    "level": "advanced",
+    "codeExample": "{=TABLE(, $B$3)}"
+  },
+  {
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 22 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 22), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 22.",
+    "level": "advanced",
+    "codeExample": "{=TABLE(, $B$4)}"
+  },
+  {
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 23 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 23), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 23.",
+    "level": "advanced",
+    "codeExample": "{=TABLE(, $B$5)}"
+  },
+  {
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 24 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 24), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 24.",
+    "level": "advanced",
+    "codeExample": "{=TABLE(, $B$6)}"
+  },
+  {
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 25 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 25), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 25.",
+    "level": "advanced",
+    "codeExample": "{=TABLE(, $B$2)}"
+  },
+  {
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 26 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 26), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 26.",
+    "level": "advanced",
+    "codeExample": "{=TABLE(, $B$3)}"
+  },
+  {
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 27 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 27), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 27.",
+    "level": "advanced",
+    "codeExample": "{=TABLE(, $B$4)}"
+  },
+  {
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 28 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 28), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 28.",
+    "level": "advanced",
+    "codeExample": "{=TABLE(, $B$5)}"
+  },
+  {
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 29 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 29), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 29.",
+    "level": "advanced",
+    "codeExample": "{=TABLE(, $B$6)}"
+  },
+  {
+    "question": "In advanced sensitivity modeling, how does a One-Variable Data Table handle scenario 30 regarding calculation mode, multi-output evaluation, and model auditing?",
+    "shortAnswer": "It substitutes scenario inputs into the baseline cell and evaluates dependent calculation chains without overwriting base model variables.",
+    "explanation": "When deploying One-Variable Data Tables in enterprise financial models (Scenario 30), Excel creates an internal iterative loop. If workbook calculation is set to 'Automatic Except for Data Tables', pressing F9 triggers a fresh sensitivity pass, guaranteeing high model responsiveness.",
+    "hint": "Analyze how input substitution cells, header reference formulas, and calculation modes interact in Scenario 30.",
+    "level": "advanced",
+    "codeExample": "{=TABLE(, $B$2)}"
   }
 ];
-
 export default questions;

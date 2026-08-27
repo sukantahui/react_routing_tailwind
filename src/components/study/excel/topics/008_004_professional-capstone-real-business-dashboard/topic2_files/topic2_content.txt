@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Professional Capstone – Real Business Dashboard
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Professional Capstone – Real Business Dashboard
 Topic 2: Phase 2: Star Schema Data Modeling, Dimensional Relationships & Advanced DAX Analytics
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Phase 2: Star Schema Data Modeling, Dimensional Relationships & Advanced DAX Analytics is an essential evaluation milestone in spreadsheet mastery, data modeling rigor, and executive reporting.
+It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Phase 2 Modeling: Power Pivot Star Schema (1:Many Relationships) + DAX Measure Suite (Revenue, Gross Margin %, YTD, SPLY Growth %)
+
+3. CORE TECHNICAL MECHANICS
+1. Star Schema Relationship Modeling:
+   Builds 1-to-many unidirectional relationships between `Fact_Sales` and `Dim_Customer`, `Dim_Product`, `Dim_Store`, and `Dim_Date`.
+
+2. Core Financial KPI Suite:
+   Authors foundational DAX measures: `[Total Revenue]`, `[Total COGS]`, `[Gross Profit]`, `[Gross Margin %]`, and `[Average Order Value]`.
+
+3. Time Intelligence & Period Variance Suite:
+   Authors advanced time intelligence measures: `[Revenue YTD]`, `[Revenue SPLY]`, `[YoY Growth %]`, and `[3-Month Rolling Average]`.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Quantitative Officer, Barrackpore HQ):
+  Enterprise 15-Measure DAX Suite Implementation - Authors a complete institutional DAX measure suite powering corporate financial scorecards and regional variance analysis.
+• Tuhina Mukherjee (Head of Corporate Audit, Shyamnagar Plant):
+  Statutory Tax DAX Reconciliation Model - Builds DAX measures calculating CGST/SGST/IGST breakdowns and tax liability variances.
+• Abhronila Das (Director of Manufacturing, Ichapur Works):
+  Plant Yield & OEE DAX Modeling - Authors complex DAX measures tracking furnace throughput, defect rates, and overall equipment effectiveness.
+• Debangshu Roy (VP Supply Chain Logistics, Naihati Logistics Hub):
+  Carrier SLA Performance DAX Metrics - Constructs DAX measures calculating on-time delivery rates and fuel cost per ton-kilometer.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Creating Many-to-Many Relationships Without Bridge Tables:
+  Root Cause: Duplicate keys in dimension tables creating ambiguous relationships.
+  Diagnostic Fix: Ensure dimension tables contain 100% unique primary keys.
+• Using Bi-Directional Cross-Filtering Indiscriminately:
+  Root Cause: Bi-directional relationships causing unpredictable filter propagation and calculation performance degradation.
+  Diagnostic Fix: Keep relationships strictly single-directional (1-to-many).
+• Omitting Continuous Date Table for Time Intelligence:
+  Root Cause: Time intelligence DAX functions returning `#ERROR` on missing calendar dates.
+  Diagnostic Fix: Generate complete contiguous Date table in Power Query or DAX.
+
+6. PRO TIPS & SHORTCUTS
+• Single-Directional Relationships (1:Many Unidirectional Standard): Guarantees clean, predictable filter context flow.
+• Use Explicit DAX Measures (Always write explicit measures with =SUMX or =DIVIDE): Lightweight, reusable, and high-performance.
+• Mark as Date Table (Design > Mark as Date Table): Enables all DAX Time Intelligence functions.
+================================================================================

@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
-Topic 7: Statistical modeling and hypothesis testing with scipy.stats (t-tests, ANOVA, Chi-square)
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 7 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Statistical modeling and hypothesis testing with scipy.stats (t-tests, ANOVA, Chi-square)
+Module: 007_001_python-in-excel-data-science-and-machine-learning
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Statistical Testing: from scipy import stats; t_stat, p_val = stats.ttest_ind(groupA, groupB); f_stat, p_val = stats.f_oneway(g1, g2, g3); chi2, p_val, ... = stats.chi2_contingency(table)
+
+PRIMARY CONCEPT:
+Conducting rigorous statistical inference and hypothesis testing in Excel using scipy.stats: Two-sample independent t-tests, Paired t-tests, One-Way ANOVA, and Chi-square tests of independence
+
+TEACHER'S ADVICE:
+No more guessing in meetings! Use `scipy.stats.ttest_ind(groupA, groupB)` to prove mathematically whether Campaign A beat Campaign B. If the p-value is less than 0.05, you have scientific proof.
+
+COMMON TRAPS TO AVOID:
+- Misinterpreting p-value (p < 0.05 vs p >= 0.05): Rejecting null hypothesis when p-value is 0.12 (insufficient statistical evidence). -> Fix: Enforce standard alpha threshold: Reject H0 only if `p_val < 0.05`.
+- Ignoring Normality & Variance Assumptions: Running standard t-tests on highly skewed non-normal data without variance checks. -> Fix: Check variance equality (`stats.levene`) or use non-parametric Mann-Whitney U test (`stats.mannwhitneyu`).
+- Passing Unequal Sample Sizes into Paired T-Test: Calling `stats.ttest_rel()` on arrays with different lengths throws ValueError. -> Fix: Ensure paired observations have identical row lengths.
+================================================================================

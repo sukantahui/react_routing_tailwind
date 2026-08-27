@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Advanced VBA: UserForms, Events & System Integration
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Advanced VBA: UserForms, Events and System Integration
 Topic 1: Worksheet events: `Worksheet_Change`, `Worksheet_SelectionChange`, `Worksheet_Calculate`
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Worksheet events: `Worksheet_Change`, `Worksheet_SelectionChange`, `Worksheet_Calculate` is an essential discipline in enterprise desktop software engineering, event-driven architecture, and multi-application Office automation.
+It provides the core protocols required to construct custom GUI forms, automate cross-application reporting decks, and deploy enterprise add-ins.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Worksheet Events (Sheet Modules): Private Sub Worksheet_Change(ByVal Target As Range) | Worksheet_SelectionChange | Worksheet_Calculate
+
+3. CORE TECHNICAL MECHANICS
+1. The `Target` Range Parameter:
+   `Target` represents the exact cell or multi-cell range that was modified by the user or formula.
+
+2. The Mandatory `Intersect` Guard Rail:
+   `If Not Intersect(Target, Range("B2:B100")) Is Nothing Then` ensures the macro runs ONLY when the user edits designated monitoring columns.
+
+3. Event Loop Suppression (`EnableEvents = False`):
+   If `Worksheet_Change` modifies another cell on the sheet, it will trigger ITSELF recursively unless wrapped in `Application.EnableEvents = False`.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Automated Modification Timestamp & Auditor Trail - Uses `Worksheet_Change` to auto-stamp `Target.Offset(0, 1).Value = Now` and record `Target.Offset(0, 2).Value = Environ("USERNAME")` whenever price cells change.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Instant Uppercase HSN Code Formatter - Auto-converts entered voucher text to uppercase in real time using `Target.Value = UCase(Target.Value)`.
+• Abhronila Das (Plant Operations Superintendent, Ichapur Works):
+  Dynamic Secondary Dropdown Reset - Clears sub-category selection cells automatically whenever the primary category cell is modified by an operator.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Immediate Visual Highlight on Status Change - Turns entire row green when driver status column changes to 'Delivered'.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• The Fatal Infinite Event Recurse Crash:
+  Root Cause: Modifying a cell inside `Worksheet_Change` without `Application.EnableEvents = False` causes the macro to trigger itself endlessly until Excel crashes.
+  Diagnostic Fix: Always wrap cell writes in `Application.EnableEvents = False ... Target.Offset(0,1).Value = Now ... Application.EnableEvents = True`.
+• Crashing on Multi-Cell Paste or Delete:
+  Root Cause: Assuming `Target` is a single cell (`Target.Value`) crashes with 'Type Mismatch' when user pastes 50 cells at once.
+  Diagnostic Fix: Check `If Target.CountLarge > 1 Then Exit Sub` or loop `For Each c In Target`.
+• Placing Code in Standard Module:
+  Root Cause: Sheet events written in Module1 are completely ignored by Excel.
+  Diagnostic Fix: Place code in the specific `Sheet1 (Code)` object.
+
+6. PRO TIPS & SHORTCUTS
+• Intersect Guard Rail (If Not Intersect(Target, Range("A:A")) Is Nothing Then): Restricts execution strictly to target columns.
+• Mandatory Event Toggle (Application.EnableEvents = False (before writing)): Prevents catastrophic recursive event loops.
+• Multi-Cell Guard (If Target.CountLarge > 1 Then Exit Sub): Prevents runtime errors on large paste operations.
+================================================================================

@@ -1,247 +1,247 @@
-// topic10_questions.js - 30 Comprehensive Mastery Questions
+// topic10_files/topic10_questions.js - 30 Comprehensive Mastery Questions
 // Topic 10: Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD
 // Module: 003_001_financial-functions-in-excel-basic-to-professional
 
 const questions = [
   {
-    "question": "Question 1 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Core Financial Mathematics & Cash Flow Signs regarding TVM discounting, cash flow sign conventions, and compounding frequencies (Question 1)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Core Financial Mathematics & Cash Flow Signs with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Core Financial Mathematics & Cash Flow Signs is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how TVM discounting, cash flow sign conventions, and compounding frequencies affects financial valuation and risk modeling.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 2 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Debt Servicing & Amortization Mechanics regarding PMT decomposition, CUMIPMT boundaries, and dynamic prepayment modeling (Question 2)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Debt Servicing & Amortization Mechanics with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Debt Servicing & Amortization Mechanics is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how PMT decomposition, CUMIPMT boundaries, and dynamic prepayment modeling affects financial valuation and risk modeling.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 3 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Investment Appraisal & Return Metrics regarding NPV Day 0 adjustments, XNPV exact day counts, IRR flaws, and MIRR reinvestment (Question 3)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Investment Appraisal & Return Metrics with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Investment Appraisal & Return Metrics is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how NPV Day 0 adjustments, XNPV exact day counts, IRR flaws, and MIRR reinvestment affects financial valuation and risk modeling.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 4 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Corporate Valuation & DCF Engineering regarding FCFF derivations, WACC calculations, Gordon Growth Terminal Value, and net debt deductions (Question 4)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Corporate Valuation & DCF Engineering with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Corporate Valuation & DCF Engineering is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how FCFF derivations, WACC calculations, Gordon Growth Terminal Value, and net debt deductions affects financial valuation and risk modeling.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 5 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Fixed Income & Risk Sensitivity regarding Bond pricing, Modified Duration yield shifts, and 2D What-If sensitivity tables (Question 5)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Fixed Income & Risk Sensitivity with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Fixed Income & Risk Sensitivity is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how Bond pricing, Modified Duration yield shifts, and 2D What-If sensitivity tables affects financial valuation and risk modeling.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 6 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Wall Street Modeling Standards & Governance regarding universal color coding, FAST standards, balance sheet audit flags, and zero-hardcoding rules (Question 6)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Wall Street Modeling Standards & Governance with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Wall Street Modeling Standards & Governance is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how universal color coding, FAST standards, balance sheet audit flags, and zero-hardcoding rules affects financial valuation and risk modeling.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 7 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Core Financial Mathematics & Cash Flow Signs regarding TVM discounting, cash flow sign conventions, and compounding frequencies (Question 7)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Core Financial Mathematics & Cash Flow Signs with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Core Financial Mathematics & Cash Flow Signs is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how TVM discounting, cash flow sign conventions, and compounding frequencies affects financial valuation and risk modeling.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 8 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Debt Servicing & Amortization Mechanics regarding PMT decomposition, CUMIPMT boundaries, and dynamic prepayment modeling (Question 8)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Debt Servicing & Amortization Mechanics with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Debt Servicing & Amortization Mechanics is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how PMT decomposition, CUMIPMT boundaries, and dynamic prepayment modeling affects financial valuation and risk modeling.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 9 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Investment Appraisal & Return Metrics regarding NPV Day 0 adjustments, XNPV exact day counts, IRR flaws, and MIRR reinvestment (Question 9)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Investment Appraisal & Return Metrics with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Investment Appraisal & Return Metrics is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how NPV Day 0 adjustments, XNPV exact day counts, IRR flaws, and MIRR reinvestment affects financial valuation and risk modeling.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 10 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Corporate Valuation & DCF Engineering regarding FCFF derivations, WACC calculations, Gordon Growth Terminal Value, and net debt deductions (Question 10)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Corporate Valuation & DCF Engineering with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Corporate Valuation & DCF Engineering is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how FCFF derivations, WACC calculations, Gordon Growth Terminal Value, and net debt deductions affects financial valuation and risk modeling.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 11 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Fixed Income & Risk Sensitivity regarding Bond pricing, Modified Duration yield shifts, and 2D What-If sensitivity tables (Question 11)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Fixed Income & Risk Sensitivity with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Fixed Income & Risk Sensitivity is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how Bond pricing, Modified Duration yield shifts, and 2D What-If sensitivity tables affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 12 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Wall Street Modeling Standards & Governance regarding universal color coding, FAST standards, balance sheet audit flags, and zero-hardcoding rules (Question 12)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Wall Street Modeling Standards & Governance with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Wall Street Modeling Standards & Governance is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how universal color coding, FAST standards, balance sheet audit flags, and zero-hardcoding rules affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 13 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Core Financial Mathematics & Cash Flow Signs regarding TVM discounting, cash flow sign conventions, and compounding frequencies (Question 13)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Core Financial Mathematics & Cash Flow Signs with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Core Financial Mathematics & Cash Flow Signs is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how TVM discounting, cash flow sign conventions, and compounding frequencies affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 14 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Debt Servicing & Amortization Mechanics regarding PMT decomposition, CUMIPMT boundaries, and dynamic prepayment modeling (Question 14)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Debt Servicing & Amortization Mechanics with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Debt Servicing & Amortization Mechanics is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how PMT decomposition, CUMIPMT boundaries, and dynamic prepayment modeling affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 15 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Investment Appraisal & Return Metrics regarding NPV Day 0 adjustments, XNPV exact day counts, IRR flaws, and MIRR reinvestment (Question 15)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Investment Appraisal & Return Metrics with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Investment Appraisal & Return Metrics is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how NPV Day 0 adjustments, XNPV exact day counts, IRR flaws, and MIRR reinvestment affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 16 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Corporate Valuation & DCF Engineering regarding FCFF derivations, WACC calculations, Gordon Growth Terminal Value, and net debt deductions (Question 16)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Corporate Valuation & DCF Engineering with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Corporate Valuation & DCF Engineering is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how FCFF derivations, WACC calculations, Gordon Growth Terminal Value, and net debt deductions affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 17 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Fixed Income & Risk Sensitivity regarding Bond pricing, Modified Duration yield shifts, and 2D What-If sensitivity tables (Question 17)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Fixed Income & Risk Sensitivity with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Fixed Income & Risk Sensitivity is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how Bond pricing, Modified Duration yield shifts, and 2D What-If sensitivity tables affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 18 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Wall Street Modeling Standards & Governance regarding universal color coding, FAST standards, balance sheet audit flags, and zero-hardcoding rules (Question 18)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Wall Street Modeling Standards & Governance with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Wall Street Modeling Standards & Governance is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how universal color coding, FAST standards, balance sheet audit flags, and zero-hardcoding rules affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 19 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Core Financial Mathematics & Cash Flow Signs regarding TVM discounting, cash flow sign conventions, and compounding frequencies (Question 19)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Core Financial Mathematics & Cash Flow Signs with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Core Financial Mathematics & Cash Flow Signs is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how TVM discounting, cash flow sign conventions, and compounding frequencies affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 20 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Debt Servicing & Amortization Mechanics regarding PMT decomposition, CUMIPMT boundaries, and dynamic prepayment modeling (Question 20)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Debt Servicing & Amortization Mechanics with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Debt Servicing & Amortization Mechanics is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how PMT decomposition, CUMIPMT boundaries, and dynamic prepayment modeling affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 21 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Investment Appraisal & Return Metrics regarding NPV Day 0 adjustments, XNPV exact day counts, IRR flaws, and MIRR reinvestment (Question 21)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Investment Appraisal & Return Metrics with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Investment Appraisal & Return Metrics is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how NPV Day 0 adjustments, XNPV exact day counts, IRR flaws, and MIRR reinvestment affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 22 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Corporate Valuation & DCF Engineering regarding FCFF derivations, WACC calculations, Gordon Growth Terminal Value, and net debt deductions (Question 22)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Corporate Valuation & DCF Engineering with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Corporate Valuation & DCF Engineering is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how FCFF derivations, WACC calculations, Gordon Growth Terminal Value, and net debt deductions affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 23 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Fixed Income & Risk Sensitivity regarding Bond pricing, Modified Duration yield shifts, and 2D What-If sensitivity tables (Question 23)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Fixed Income & Risk Sensitivity with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Fixed Income & Risk Sensitivity is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how Bond pricing, Modified Duration yield shifts, and 2D What-If sensitivity tables affects financial valuation and risk modeling.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 24 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Wall Street Modeling Standards & Governance regarding universal color coding, FAST standards, balance sheet audit flags, and zero-hardcoding rules (Question 24)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Wall Street Modeling Standards & Governance with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Wall Street Modeling Standards & Governance is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how universal color coding, FAST standards, balance sheet audit flags, and zero-hardcoding rules affects financial valuation and risk modeling.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 25 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Core Financial Mathematics & Cash Flow Signs regarding TVM discounting, cash flow sign conventions, and compounding frequencies (Question 25)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Core Financial Mathematics & Cash Flow Signs with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Core Financial Mathematics & Cash Flow Signs is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how TVM discounting, cash flow sign conventions, and compounding frequencies affects financial valuation and risk modeling.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 26 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Debt Servicing & Amortization Mechanics regarding PMT decomposition, CUMIPMT boundaries, and dynamic prepayment modeling (Question 26)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Debt Servicing & Amortization Mechanics with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Debt Servicing & Amortization Mechanics is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how PMT decomposition, CUMIPMT boundaries, and dynamic prepayment modeling affects financial valuation and risk modeling.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 27 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Investment Appraisal & Return Metrics regarding NPV Day 0 adjustments, XNPV exact day counts, IRR flaws, and MIRR reinvestment (Question 27)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Investment Appraisal & Return Metrics with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Investment Appraisal & Return Metrics is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how NPV Day 0 adjustments, XNPV exact day counts, IRR flaws, and MIRR reinvestment affects financial valuation and risk modeling.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 28 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Corporate Valuation & DCF Engineering regarding FCFF derivations, WACC calculations, Gordon Growth Terminal Value, and net debt deductions (Question 28)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Corporate Valuation & DCF Engineering with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Corporate Valuation & DCF Engineering is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how FCFF derivations, WACC calculations, Gordon Growth Terminal Value, and net debt deductions affects financial valuation and risk modeling.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 29 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Fixed Income & Risk Sensitivity regarding Bond pricing, Modified Duration yield shifts, and 2D What-If sensitivity tables (Question 29)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Fixed Income & Risk Sensitivity with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Fixed Income & Risk Sensitivity is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how Bond pricing, Modified Duration yield shifts, and 2D What-If sensitivity tables affects financial valuation and risk modeling.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   },
   {
-    "question": "Question 30 on Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, how does Excel evaluate Wall Street Modeling Standards & Governance regarding universal color coding, FAST standards, balance sheet audit flags, and zero-hardcoding rules (Question 30)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Wall Street Modeling Standards & Governance with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD, mastering Wall Street Modeling Standards & Governance is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how universal color coding, FAST standards, balance sheet audit flags, and zero-hardcoding rules affects financial valuation and risk modeling.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)"
   }
 ];
 

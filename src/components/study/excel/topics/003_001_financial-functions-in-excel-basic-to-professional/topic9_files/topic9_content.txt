@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Financial Functions in Excel (Basic to Professional)
 Topic 9: Bond valuation and yield calculation: YIELD, PRICE, DURATION, and MDURATION
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Bond valuation and yield calculation: YIELD, PRICE, DURATION, and MDURATION is a foundational pillar of corporate financial modeling, investment banking, and capital budgeting.
+It equips financial modelers with the exact mathematical tools to value assets, evaluate debt structures, and appraise investments.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: =PRICE(settlement, maturity, rate, yld, redemption, frequency, [basis]) | =YIELD(settlement, maturity, rate, pr, redemption, frequency, [basis]) | =DURATION(...) | =MDURATION(...)
+
+3. CORE TECHNICAL MECHANICS
+1. Inverse Price-Yield Relationship:
+   When market yields rise above coupon rate, bond trades at a Discount (`PRICE < 100`); when yields fall below coupon rate, bond trades at a Premium (`PRICE > 100`).
+
+2. Yield to Maturity (YTM) Solver:
+   YIELD() calculates the total annualized rate of return expected on a bond held until maturity based on current market price.
+
+3. Duration & Interest Rate Sensitivity:
+   Macaulay DURATION measures weighted average cash flow maturity; Modified Duration (MDURATION) estimates the exact % change in bond price for a 1% shift in interest rates (`%ΔPrice ≈ -MDuration * ΔYield`).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Treasury Officer, Barrackpore HQ):
+  Institutional Corporate Bond Portfolio Valuation - Prices ₹50 Crore 8.25% semi-annual corporate bonds: =PRICE(SettlementDate, MaturityDate, 8.25%, 7.80%, 100, 2) trading at ₹102.45 premium.
+• Tuhina Mukherjee (Fixed Income Auditor, Shyamnagar Plant):
+  Government Security YTM Auditing - Computes exact Yield to Maturity on 10-year benchmark Indian Sovereign G-Secs using =YIELD().
+• Abhronila Das (Treasury Risk Manager, Ichapur Works):
+  Bond Portfolio Interest Rate Risk Hedging - Calculates Modified Duration (=MDURATION(...)) to hedge a ₹25 Crore bond portfolio against RBI interest rate hikes.
+• Debangshu Roy (Commercial Paper Controller, Naihati Logistics):
+  Short-Term Debenture Secondary Market Pricing - Evaluates secondary market pricing for 3-year commercial debentures.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Pricing Stated per 100 Par vs Total Value:
+  Root Cause: Forgetting that Excel's PRICE and YIELD functions output values per ₹100 face value, not total currency.
+  Diagnostic Fix: Multiply output by `(FaceValue / 100)` to calculate total trade settlement value.
+• Settlement Date >= Maturity Date (#NUM!):
+  Root Cause: Settlement date must be strictly earlier than maturity date.
+  Diagnostic Fix: Ensure settlement date precedes maturity date.
+• Frequency Parameter Invalid Code:
+  Root Cause: Passing invalid frequency integers (only 1 = Annual, 2 = Semi-Annual, 4 = Quarterly are supported).
+  Diagnostic Fix: Use frequency code 2 for standard semi-annual corporate and sovereign bonds.
+
+6. PRO TIPS & SHORTCUTS
+• Semi-Annual Bond Price (=PRICE(Settlement, Maturity, Coupon, YTM, 100, 2)): Standard institutional formula for semi-annual bond pricing.
+• Price Sensitivity Rule (% Price Change ≈ -MDURATION * YieldChange): Instant calculation of portfolio loss if interest rates rise by 1%.
+• Day Count Convention (Basis: 1 (Actual/Actual) for G-Secs): Use basis 1 for Indian Government Securities and US Treasuries.
+================================================================================

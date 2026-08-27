@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Conditional Logic with IF and Related Functions
-Topic 6: Error interception and handling: IFERROR, IFNA, and ISERROR
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 6 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Error interception and handling: IFERROR, IFNA, and ISERROR
+Module: 002_003_conditional-logic-with-if-and-related-functions
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+=IFERROR(value, value_if_error) | =IFNA(value, value_if_na) | =ISERROR(value)
+
+PRIMARY CONCEPT:
+Trapping and handling formula calculation errors (#N/A, #VALUE!, #DIV/0!, #REF!) gracefully to build bulletproof executive dashboards
+
+TEACHER'S ADVICE:
+Golden Rule of Financial Modeling: NEVER wrap a lookup in IFERROR during development! Use IFNA instead. IFERROR hides misspelled functions and broken #REF! formulas from your view.
+
+COMMON TRAPS TO AVOID:
+- Masking Structural #REF! / #NAME? Bugs with IFERROR: Wrapping an entire formula in IFERROR hides deleted column references (#REF!) or misspelled function names (#NAME?), obscuring critical model bugs. -> Fix: Use IFNA() for lookup formulas so structural errors (#REF!) remain visible during audit reviews.
+- Blank Fallback Disrupts Downstream Math: Returning "" (text) as fallback causes downstream =SUM(A1:A5) to ignore cells, but =A1+A2 triggers a fatal #VALUE! error. -> Fix: Return numeric 0 if the column will be used in downstream arithmetic.
+- Overusing IFERROR During Formula Development: Wrapping unverified formulas in IFERROR makes debugging formula logic impossible. -> Fix: Build and test the core formula first; apply error handling only after verifying logic.
+================================================================================

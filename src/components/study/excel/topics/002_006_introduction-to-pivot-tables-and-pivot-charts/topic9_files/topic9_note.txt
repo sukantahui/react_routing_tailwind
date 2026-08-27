@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Introduction to Pivot Tables and Pivot Charts
-Topic 9: Time-series filtering with Timelines
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 9 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Time-series filtering with Timelines
+Module: 002_006_introduction-to-pivot-tables-and-pivot-charts
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Timeline Component: Year | Quarter | Month | Day Sliding Granularity Window
+
+PRIMARY CONCEPT:
+Implementing interactive Timeline slicers to filter time-series data dynamically across Years, Quarters, Months, and Days with visual range sliders
+
+TEACHER'S ADVICE:
+Timelines provide the most intuitive UI for historical analysis. Always pair a Timeline (for continuous periods) with categorical Slicers (for regions and products) on executive dashboards.
+
+COMMON TRAPS TO AVOID:
+- Timeline Disabled ('No Valid Date Fields'): If the source column contains text dates or blank cells, Excel refuses to insert a Timeline. -> Fix: Ensure source date column contains 100% pure serial dates without blank cells.
+- Non-Contiguous Date Selection Limitation: Timelines only support continuous date ranges; you cannot select Jan 2025 and Mar 2025 while excluding Feb. -> Fix: Use a standard Slicer with a 'Month' grouping field for non-contiguous date filtering.
+- Theme Styling Inconsistency: Default bright blue timeline clashes with dark corporate dashboard color schemes. -> Fix: Apply matching custom Timeline styles from the Timeline ribbon tab.
+================================================================================

@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Modern Office Scripts (TypeScript) & Power Automate
 Topic 10: Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive is an essential discipline in cloud spreadsheet automation, serverless enterprise workflows, and TypeScript-driven business intelligence.
+It provides the core protocols required to author cross-platform scripts, connect Excel to Microsoft Power Automate, and construct 24/7 autonomous cloud pipelines.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table
+
+3. CORE TECHNICAL MECHANICS
+1. Automated Attachment Interception:
+   Detects incoming emails with attachments, filters by extension (`.csv` or `.xlsx`), and saves raw attachment streams to SharePoint staging folders.
+
+2. CSV String Streaming to Office Scripts:
+   Passes raw CSV text content directly into an Office Script parameter (`csvData: string`), parsing rows and appending records in RAM in 0.3 seconds.
+
+3. Zero Manual Download / Copy-Paste:
+   Completely eliminates manual downloading, opening, and copy-pasting of daily vendor statements.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Commercial Systems Architect, Barrackpore HQ):
+  Automated Daily 50-Branch Email Attachment Ingestion - Intercepts daily 6:00 PM sales CSV attachments emailed from 50 regional retail branches, parsing 20,000 rows into the cloud master sales table in 8 seconds.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Vendor Monthly Invoice CSV Auto-Ingestion - Ingests raw vendor purchase CSV attachments into audited tax staging tables automatically.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  Daily Spectrometer Metal Assay File Ingestion - Processes lab test CSV files emailed from foundry spectrometry machines.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Carrier EDI Waybill Attachment Processor - Parses daily freight waybill text attachments into logistics tracking tables.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Base64 Encoding Confusion on File Content:
+  Root Cause: Passing raw base64 binary strings instead of decoded text to CSV parsing scripts.
+  Diagnostic Fix: Use `base64ToString()` expression in Power Automate before passing CSV string to script.
+• Processing Non-Target Attachments (Signatures / Logos):
+  Root Cause: Looping through email signature `.png` logos and failing to parse as CSV.
+  Diagnostic Fix: Add condition: `If attachment name ends with .csv`.
+• Corrupted CSV Due to Commas Inside Quoted Fields:
+  Root Cause: Simple `row.split(",")` breaking on addresses like `"Flat 4B, Park Street"`.
+  Diagnostic Fix: Use a robust regex or state-machine CSV parser inside the TypeScript script.
+
+6. PRO TIPS & SHORTCUTS
+• Filter Attachments (EndsWith(item()?['name'], '.csv')): Ignores email logos and non-data files.
+• base64ToString Expression (base64ToString(items('Apply_to_each')?['contentBytes'])): Converts binary email payload to clean text string.
+• Archive Processed Emails (Move email to 'Processed' folder): Maintains a clean corporate inbox.
+================================================================================

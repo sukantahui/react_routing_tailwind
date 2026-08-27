@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Text, Date and Time Functions
-Topic 7: Time calculations: TIME, HOUR, MINUTE, SECOND, NOW, and handling elapsed hours (>24h)
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 7 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Time calculations: TIME, HOUR, MINUTE, SECOND, NOW, and handling elapsed hours (>24h)
+Module: 002_002_text-date-and-time-functions
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+=TIME(hour, minute, second) | =HOUR(serial_time) | =MINUTE(serial_time) | =SECOND(serial_time) | =NOW()
+
+PRIMARY CONCEPT:
+Time calculations, fractional day serial math (1 hour = 1/24), clock arithmetic, and elapsed duration formatting
+
+TEACHER'S ADVICE:
+The =MOD(End - Start, 1) trick is one of the most famous and useful formulas in Excel history. Memorize it for all shift, payroll, and timesheet models.
+
+COMMON TRAPS TO AVOID:
+- Overnight Shift Negative Result: Subtracting StartTime (22:00) from EndTime (06:00) yields negative number (-0.667) displaying ######. -> Fix: Use `=MOD(EndTime - StartTime, 1)` to handle midnight boundary crossing seamlessly.
+- Multiplying Time Directly by Wage Rate: Calculating `=TimeCell * HourlyRate` without multiplying by 24 results in 1/24th of the true pay amount. -> Fix: Always multiply by 24: `=(EndTime - StartTime) * 24 * HourlyWage`.
+- 24-Hour Rollover in Sums: Summing 30 hours of work using 'hh:mm' displays as '06:00' due to modulo 24 reset. -> Fix: Apply custom number format `[h]:mm` to display cumulative hours over 24.
+================================================================================

@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
-Topic 2: The Office Scripts Code Editor and Action Recorder in Excel for Web
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 2 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: The Office Scripts Code Editor and Action Recorder in Excel for Web
+Module: 006_004_modern-office-scripts-typescript-and-power-automate
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Action Recorder: Automate > Record Actions > Perform Clicks/Formatting > Stop Recording > Inspect TypeScript Code in Monaco Editor
+
+PRIMARY CONCEPT:
+Mastering the Action Recorder and Monaco Code Editor in Excel for Web: recording interactive clicks, analyzing clean TypeScript generation, and leveraging IntelliSense auto-completion
+
+TEACHER'S ADVICE:
+The Action Recorder in Excel for Web is fantastic. Click 'Record Actions', format your table, and Excel writes clean, professional TypeScript for you. Then press Ctrl + Space in Monaco editor to see all available methods!
+
+COMMON TRAPS TO AVOID:
+- Recording Hardcoded Absolute Cell Coordinates: Recording a format on `A1:D10` hardcodes that specific range in TypeScript. -> Fix: Edit the code in Monaco to use dynamic `range.getSurroundingRegion()` or `table.getRange()`.
+- Forgetting to Save Script in Monaco Editor: Closing the editor pane before clicking 'Save Script' loses unsaved code modifications. -> Fix: Always click 'Save script' button at top right.
+- Trying to Run Action Recorder on Unsupported Features: Attempting to record features not yet supported in Excel for Web. -> Fix: Write custom TypeScript code directly using the Office Scripts API documentation.
+================================================================================

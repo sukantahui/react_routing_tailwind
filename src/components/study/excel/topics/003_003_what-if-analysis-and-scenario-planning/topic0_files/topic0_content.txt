@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: What-If Analysis and Scenario Planning
 Topic 0: Introduction to What-If Analysis and Sensitivity Modeling in Decision Making
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Introduction to What-If Analysis and Sensitivity Modeling in Decision Making is an essential discipline in corporate decision modeling, capital allocation, and risk management.
+It provides the core protocols required to stress-test financial projections, solve backwards for target goals, and mathematically optimize resource utilization.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: What-If Decision Framework: Assumptions (Variables) -> Financial Logic Engine -> Sensitivity Outputs (KPIs)
+
+3. CORE TECHNICAL MECHANICS
+1. Deterministic vs Probabilistic Modeling:
+   Transforms static single-point estimates into dynamic range forecasts, evaluating how changing input variables impacts bottom-line profitability.
+
+2. Sensitivity vs Scenario Analysis:
+   Sensitivity Analysis varies ONE or TWO variables systematically (Data Tables); Scenario Analysis changes a WHOLE SUITE of variables simultaneously (Scenario Manager).
+
+3. Optimization via Linear Programming:
+   When multiple variables and operational constraints interact, Solver finds the mathematically optimal solution to maximize or minimize an objective.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Corporate Stress Testing Under Inflation - Simulates the financial impact of raw material price hikes (+10% to +35%) on quarterly EBITDA margins across 12 manufacturing facilities.
+• Tuhina Mukherjee (Corporate Financial Planner, Shyamnagar Plant):
+  Price Elasticity & Volume Tradeoff Model - Evaluates revenue sensitivity when retail prices rise by 5% while sales volume drops by 3%.
+• Abhronila Das (Plant Operations Lead, Ichapur Works):
+  Energy Tariff Surge Contingency Planning - Models plant operating cash flow viability across variable industrial electricity peak tariffs.
+• Debangshu Roy (Supply Chain Financial Director, Naihati Logistics):
+  Diesel Fuel Price Shock Sensitivity - Stress-tests fleet transportation contract margins across diesel price fluctuations from ₹85 to ₹120 per liter.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Single-Point Estimate Bias:
+  Root Cause: Presenting a single 'expected' revenue figure to executive leadership without modeling downside risk boundaries.
+  Diagnostic Fix: Always present 3-scenario bounds (Best, Base, Worst) and 2D sensitivity matrices.
+• Unlinked Assumption Cells:
+  Root Cause: Typing hardcoded numbers into formulas prevents What-If tools from recalculating model outputs dynamically.
+  Diagnostic Fix: Enforce strict dynamic cell links to central Assumption Blocks.
+• Ignoring Multi-Variable Correlations:
+  Root Cause: Assuming price can increase by 50% without any reduction in customer sales volume.
+  Diagnostic Fix: Incorporate realistic price elasticity demand curves in sensitivity assumptions.
+
+6. PRO TIPS & SHORTCUTS
+• Centralize Assumptions (Assumption Block on Sheet1): Keep all variable inputs grouped in a clean, color-coded assumption block.
+• Dynamic Sensitivity Range (Vary key drivers by ±10%, ±20%): Standard corporate finance spread for sensitivity testing.
+• Visual Tornado Chart (Insert Stacked Bar): Ranks which input variable has the greatest impact on net project valuation.
+================================================================================

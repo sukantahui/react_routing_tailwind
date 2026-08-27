@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Basic Dashboards and Reporting
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Basic Dashboards and Reporting
 Topic 6: Treemap and Sunburst charts for hierarchical data breakdown
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Treemap and Sunburst charts for hierarchical data breakdown is an essential discipline in corporate business intelligence, executive reporting, and visual analytics.
+It provides the core protocols required to transform dense tabular data into intuitive, interactive, single-screen command centers.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Hierarchical Charts: Insert > Hierarchy Chart > Treemap (Nested Rectangles) | Sunburst (Concentric Rings)
+
+3. CORE TECHNICAL MECHANICS
+1. Proportional Area Encoding (Treemap):
+   Represents categorical hierarchies as nested rectangles where rectangle area is strictly proportional to metric value, ideal for market share and budget breakdowns.
+
+2. Concentric Ring Hierarchy (Sunburst):
+   Visualizes relational depth where inner rings represent high-level categories (e.g. Division) and outer rings represent fine-grained sub-categories (e.g. Products).
+
+3. Multi-Column Tabular Source Layout:
+   Source table must be organized hierarchically: Column 1 = Major Category, Column 2 = Sub-Category, Column 3 = Value.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Enterprise Product Portfolio Revenue Breakdown - Visualizes ₹200 Crore product catalog revenue across 4 Divisions and 35 Sub-Lines using an executive Treemap chart.
+• Tuhina Mukherjee (Statutory Spend Auditor, Shyamnagar Plant):
+  Corporate Procurement Expense Treemap - Maps annual supplier expenditures across Raw Materials, Utilities, Logistics, and SG&A expense categories.
+• Abhronila Das (Plant Quality Lead, Ichapur Works):
+  Manufacturing Defect Taxonomy Sunburst - Illustrates component defect hierarchies (Mechanical > Machining > Tool Wear) across 3 production shifts.
+• Debangshu Roy (Logistics Network Director, Naihati Logistics):
+  Regional Freight Volume Distribution Sunburst - Visualizes shipping tonnage distribution from State -> City -> Depot using multi-ring Sunburst concentric charts.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Unsorted / Interspersed Category Rows:
+  Root Cause: Scattering rows of the same parent category throughout the table fragments Treemap tiles into disconnected blocks.
+  Diagnostic Fix: Sort source table by Major Category first, then Sub-Category.
+• Zero or Negative Values in Sunburst (#VALUE!):
+  Root Cause: Hierarchy charts cannot process negative numbers or zero values in area-proportional slices.
+  Diagnostic Fix: Filter out zero and negative entries before generating Treemap or Sunburst charts.
+• Excessive Text Label Truncation:
+  Root Cause: Small tile slices truncate long category descriptions.
+  Diagnostic Fix: Format Data Labels to show 'Category Name and Value' with concise abbreviations.
+
+6. PRO TIPS & SHORTCUTS
+• Treemap for Size Comparison (Insert > Hierarchy > Treemap): Best for comparing proportional metric volumes across many categories.
+• Sunburst for Deep Structure (Insert > Hierarchy > Sunburst): Best for showing multi-level organizational or taxonomic depth.
+• Sort Before Plotting (Data > Sort Ascending by Parent Category): Guarantees clean, unbroken hierarchical tile grouping.
+================================================================================

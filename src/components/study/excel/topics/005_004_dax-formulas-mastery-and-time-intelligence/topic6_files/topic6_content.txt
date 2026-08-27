@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: DAX Formulas Mastery and Time Intelligence
 Topic 6: Dynamic condition filtering with the FILTER function
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Dynamic condition filtering with the FILTER function is an essential discipline in enterprise business intelligence, quantitative finance, and advanced data modeling.
+It provides the core protocols required to construct complex multi-dimensional financial measures, calculate period-over-period growth, and evaluate dynamic rankings.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: FILTER(Table, LogicalCondition) | CALCULATE([TotalSales], FILTER(Dim_Product, [GrossMargin%] > 0.35))
+
+3. CORE TECHNICAL MECHANICS
+1. Table-Returning Function Architecture:
+   FILTER does NOT return a single scalar number. It takes a table, scans it row-by-row in a Row Context, and returns a refined SUBSET TABLE.
+
+2. Filtering by Dynamic Measure Values:
+   Allows filtering dimension tables based on calculated measure performance: `FILTER(Dim_Customer, [TotalSales] > 100000)`.
+
+3. Consuming Virtual Tables in Aggregators:
+   Filtered virtual tables are passed as inputs to `CALCULATE()`, `SUMX()`, `COUNTROWS()`, or `AVERAGEX()`.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Elite VIP Customer Revenue Contribution - Measures revenue from top clients: `VIPSales := CALCULATE([TotalSales], FILTER(Dim_Customer, [TotalSales] > 5000000))`.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  High-Risk Vendor Transaction Ledger - Isolates purchases from non-compliant suppliers using `FILTER(Dim_VendorMaster, Dim_VendorMaster[RiskScore] > 80)`.
+• Abhronila Das (Plant Quality Controller, Ichapur Works):
+  Critical Temperature Batch Yield - Aggregates production batches where furnace heat exceeded tolerance: `FILTER(Fact_Batches, Fact_Batches[Temp] > 1200)`.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Delayed Long-Haul Transit Volume - Filters long-distance shipments experiencing transit delays exceeding 48 hours.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Wrapping Entire Fact Table in FILTER() Unnecessarily:
+  Root Cause: Writing `CALCULATE([Sales], FILTER(Fact_Sales, Fact_Sales[Region]="East"))` forces DAX to scan 10 million rows in slow row context.
+  Diagnostic Fix: Use simple Boolean filters or filter the small Dimension table: `CALCULATE([Sales], Dim_Customer[Region]="East")`.
+• Forgetting That FILTER Returns a Table, Not a Scalar Number:
+  Root Cause: Attempting to assign `=FILTER(...)` directly to a single PivotTable cell measure.
+  Diagnostic Fix: Wrap FILTER inside an aggregator like `CALCULATE()`, `COUNTROWS()`, or `SUMX()`.
+• Filter Masking Existing Context:
+  Root Cause: Passing `FILTER(Dim_Product, ...)` without `ALL()` can inadvertently intersect with active slicers.
+  Diagnostic Fix: Use `FILTER(ALL(Dim_Product[Category]), ...)` when full table scanning is required.
+
+6. PRO TIPS & SHORTCUTS
+• FILTER Returns a Table (Use inside CALCULATE or SUMX): The foundational virtual table constructor in DAX.
+• Filter by Measure Performance (FILTER(Dim_Customer, [TotalProfit] > 0)): Filter entities based on dynamic calculated results.
+• COUNTROWS on FILTER (COUNTROWS(FILTER(Customer, [Sales]>100000))): Instantly counts how many customers exceed sales thresholds.
+================================================================================

@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Modern Office Scripts (TypeScript) & Power Automate
 Topic 8: Integrating Office Scripts with Microsoft Power Automate (Cloud Flows)
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Integrating Office Scripts with Microsoft Power Automate (Cloud Flows) is an essential discipline in cloud spreadsheet automation, serverless enterprise workflows, and TypeScript-driven business intelligence.
+It provides the core protocols required to author cross-platform scripts, connect Excel to Microsoft Power Automate, and construct 24/7 autonomous cloud pipelines.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Power Automate Connector: Excel Online (Business) > Action: 'Run script' > Select Location (SharePoint/OneDrive) > Select File > Select Script
+
+3. CORE TECHNICAL MECHANICS
+1. The 'Run Script' Cloud Connector:
+   A native Microsoft 365 cloud connector that executes Office Scripts inside SharePoint/OneDrive workbooks without launching Excel.
+
+2. 24/7 Autonomous Unattended Execution:
+   Workflows trigger and execute automatically in Microsoft data centers 24 hours a day, 365 days a year with zero human intervention.
+
+3. Dynamic Data Token Handshake:
+   Passes outputs from earlier flow steps (e.g. Microsoft Form response fields) into the script's parameters and forwards script results to subsequent actions.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Enterprise 24/7 Daily Revenue Consolidation Flow - Builds a scheduled Power Automate cloud flow running every midnight at 00:00, executing an Office Script that consolidates 30 branch files into the master executive deck.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Automated Monthly Vendor Statement Generator - Schedules monthly flow iterating through vendor list, running Office Scripts to generate statement workbooks.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  Hourly Plant Production Telemetry Flow - Triggers Office Scripts every hour on the hour to calculate rolling machine efficiency averages.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Automated Carrier Fuel Surcharge Updater - Updates cloud rate cards daily at 06:00 AM based on published diesel prices.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Selecting Wrong SharePoint Site / File Location:
+  Root Cause: Hardcoding a personal OneDrive path instead of shared corporate SharePoint Document Library.
+  Diagnostic Fix: Store enterprise workbooks in dedicated SharePoint Team Sites for shared tenant access.
+• Concurrent Flow Execution Conflicts (File Lock):
+  Root Cause: Triggering 10 flows simultaneously modifying the same Excel file concurrently.
+  Diagnostic Fix: Configure Power Automate concurrency control (Settings > Concurrency = 1) to queue runs sequentially.
+• Script Execution Timeout on Massive Workbooks:
+  Root Cause: Office Scripts has a default execution timeout of 120 seconds in Power Automate.
+  Diagnostic Fix: Optimize script algorithms to complete in under 5 seconds using batch array processing.
+
+6. PRO TIPS & SHORTCUTS
+• Run Script Action (Excel Online (Business) > Run script): The foundational action for running Office Scripts in cloud flows.
+• Concurrency Control = 1 (Flow Settings > Concurrency Control > 1): Prevents file lock collisions on high-frequency triggers.
+• Dynamic SharePoint Path (Pass file IDs dynamically): Allows 1 flow to process hundreds of different workbooks.
+================================================================================

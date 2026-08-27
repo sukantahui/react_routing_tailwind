@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Using AI with Excel for Productivity
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Using AI with Excel for Productivity
 Topic 11: Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard is an essential discipline in AI-assisted spreadsheet engineering, generative business intelligence, and modern workplace productivity.
+It provides the core protocols required to leverage Microsoft Copilot, construct precision prompt workflows, integrate external LLM APIs, and build custom AI formulas.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard
+
+3. CORE TECHNICAL MECHANICS
+1. End-to-End AI Sentiment Pipeline:
+   Ingests raw unstructured customer feedback comments, extracts Sentiment (Positive, Neutral, Negative) and Theme (Product Quality, Pricing, Delivery, Support) using AI formulas.
+
+2. Executive KPI HUD & Visual Analytics:
+   Constructs dynamic Net Sentiment Scorecard (NSS), trend line charts, and category breakdown matrices.
+
+3. 1-Click AI Executive Summary Generator:
+   Generates natural language executive briefing summaries of customer sentiment trends for C-Suite presentations in 1 click.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Commercial Officer, Barrackpore HQ):
+  Enterprise 10,000-Review Sentiment Dashboard - Deploys an automated AI sentiment dashboard analyzing 10,000 customer reviews across 4 regional commercial hubs, boosting Net Promoter Score by 18 points.
+• Tuhina Mukherjee (Head of Corporate Quality, Shyamnagar Plant):
+  Vendor Service Feedback Sentiment Tracker - Analyzes internal department feedback on vendor compliance and delivery speed.
+• Abhronila Das (Director of Manufacturing, Ichapur Works):
+  Operator Shift Incident Sentiment Suite - Classifies shopfloor operator maintenance feedback into equipment, safety, and tooling categories.
+• Debangshu Roy (VP Supply Chain Logistics, Naihati Logistics Hub):
+  Shipper SLA Delivery Satisfaction Tracker - Monitors daily shipping customer delivery satisfaction feedback in real time.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Inconsistent Sentiment Labeling Across Rows:
+  Root Cause: AI returning 'Positive', 'Pos', 'Great', 'Good' instead of standardized category names.
+  Diagnostic Fix: Constrain AI prompt: 'Return ONLY one of: [Positive, Neutral, Negative]'.
+• High Latency on Massive Review Ingestion:
+  Root Cause: Calling cloud LLMs on 50,000 rows without caching or batching.
+  Diagnostic Fix: Use Power Query batch processing or local in-memory Dictionary caching.
+• Biased Sentiment Interpretation on Sarcasm:
+  Root Cause: AI misinterpreting sarcastic customer reviews as positive.
+  Diagnostic Fix: Include few-shot examples in system prompt to teach sarcasm detection.
+
+6. PRO TIPS & SHORTCUTS
+• Standardized Labels (Positive | Neutral | Negative): Enables seamless Pivot Table aggregation.
+• Net Sentiment Score (NSS) (% Positive - % Negative): The gold-standard executive sentiment metric.
+• 1-Click Summary Prompt (Prompt: 'Summarize top 3 pain points'): Generates instant executive briefing notes.
+================================================================================

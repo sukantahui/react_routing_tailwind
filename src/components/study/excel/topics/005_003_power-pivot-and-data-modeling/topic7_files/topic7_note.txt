@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Power Pivot & Data Modeling
-Topic 7: Implicit measures vs Explicit measures: Best practices in model governance
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 7 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Implicit measures vs Explicit measures: Best practices in model governance
+Module: 005_003_power-pivot-and-data-modeling
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Implicit Measure: Dragging numeric column into Values area | Explicit Measure: TotalSales := SUM(Sales[Amount]) in DAX Calculation Area
+
+PRIMARY CONCEPT:
+Understanding Implicit measures (dragging raw numeric columns into Pivot Values) vs Explicit measures (defining formal DAX calculation formulas) and institutional model governance
+
+TEACHER'S ADVICE:
+Always write Explicit Measures! In the Power Pivot calculation area, type: `TotalSales := SUM(Sales[Amount])`. Explicit measures can be reused inside other formulas and ported directly to Power BI.
+
+COMMON TRAPS TO AVOID:
+- Relying on Implicit Auto-Sums for Multi-Table Models: Dragging raw columns from multiple tables into a single pivot can result in disconnected Cartesian cross-joins if relationships are complex. -> Fix: Always write explicit DAX measures using `SUM()`, `SUMX()`, or `CALCULATE()`.
+- Measure Definition Duplication: Re-typing `=SUM(Sales[Amount])` inside 10 different formulas instead of referencing `[TotalSales]` directly. -> Fix: Practice Measure Branching: reference base measures by name `[BaseMeasure]`.
+- Exposing Raw Numeric Fact Columns to Users: Leaving raw numeric columns unhidden encourages end-users to create broken implicit sums. -> Fix: Hide raw numeric fact columns in the Data Model so users ONLY interact with approved explicit measures.
+================================================================================

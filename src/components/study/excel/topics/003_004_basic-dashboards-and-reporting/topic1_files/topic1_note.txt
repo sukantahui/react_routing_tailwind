@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Basic Dashboards and Reporting
-Topic 1: Defining and calculating Key Performance Indicators (KPIs): Target vs Actual, YoY Growth, MoM Variance
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 1 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Defining and calculating Key Performance Indicators (KPIs): Target vs Actual, YoY Growth, MoM Variance
+Module: 003_004_basic-dashboards-and-reporting
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+YoY Growth: =(Current - PriorYear) / PriorYear | MoM Variance: =Current - PriorMonth | Target Achievement: =Actual / Target
+
+PRIMARY CONCEPT:
+Defining, calculating, and presenting core enterprise Key Performance Indicators: Target vs Actual, Year-over-Year (YoY) Growth, Month-over-Month (MoM) Variance, and Run Rates
+
+TEACHER'S ADVICE:
+Never forget the ABS denominator trick: `=(Current - Prior) / ABS(Prior)`. If a company moves from -₹10 Lakhs loss to +₹5 Lakhs profit, only this formula correctly shows a positive +150% turnaround.
+
+COMMON TRAPS TO AVOID:
+- Division by Zero on New Business Units: Calculating YoY growth when prior year revenue was ₹0 returns `#DIV/0!`. -> Fix: Wrap in safe division formula: `=IFERROR((Current - Prior) / Prior, "N/A")`.
+- Negative Prior Year Mathematical Distortion: If Prior Year Net Income was -₹10L and Current is +₹5L, standard `(5 - (-10)) / -10` returns -150% (indicating a decline when profits actually rebounded). -> Fix: Always use absolute value in the denominator: `=(Current - Prior) / ABS(Prior)`.
+- Comparing Non-Equivalent Time Horizons: Comparing YTD 5-month sales against full 12-month prior year budget. -> Fix: Ensure comparisons use strictly annualized run rates or identical Year-to-Date periods.
+================================================================================

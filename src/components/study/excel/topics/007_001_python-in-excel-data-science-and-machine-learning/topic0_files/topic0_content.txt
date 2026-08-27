@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Python in Excel: Data Science & Machine Learning
 Topic 0: Introduction to Python in Excel: Running secure Python analytics natively in Microsoft Cloud containers
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Introduction to Python in Excel: Running secure Python analytics natively in Microsoft Cloud containers is an essential discipline in modern spreadsheet data science, applied machine learning, and advanced business analytics.
+It provides the core protocols required to run Python analytics natively inside Excel, manipulate pandas DataFrames, and deploy predictive AI models.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Python in Excel Entry: =PY(import pandas as pd; import seaborn as sns; df = xl("A1:D100", headers=True); df.describe())
+
+3. CORE TECHNICAL MECHANICS
+1. Native Azure Container Sandbox:
+   Python code runs in isolated Microsoft Cloud hypervisor containers. Zero local Python or pip installation required on user laptops.
+
+2. Pre-Loaded Anaconda Data Science Stack:
+   Comes pre-packaged with industry-standard libraries: pandas, numpy, scipy, matplotlib, seaborn, statsmodels, and scikit-learn.
+
+3. Enterprise Security & Data Isolation:
+   Containers have zero internet access, preventing data leaks. Containers spin down automatically after calculation.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Quantitative Officer, Barrackpore HQ):
+  Enterprise Financial Econometrics Pipeline - Runs sophisticated statistical regressions and Monte Carlo simulations on corporate data using Python directly in Excel cells.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Tax Outlier Detection with Isolation Forests - Applies Python machine learning algorithms to detect anomalies across 100,000 purchase tax records in Excel.
+• Abhronila Das (Plant Data Scientist, Ichapur Works):
+  Factory Sensor Signal FFT Analysis - Performs Fast Fourier Transform (FFT) signal processing on industrial vibration telemetry using Python scipy.
+• Debangshu Roy (Supply Chain Financial Director, Naihati Logistics):
+  Logistics Fuel Price Forecasting - Builds ARIMA time-series models for quarterly fuel tariff projections.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Attempting to Connect to Internet / External APIs (Security Sandbox):
+  Root Cause: Calling `requests.get()` or socket connections inside Python in Excel fails because Azure containers have zero outbound internet access.
+  Diagnostic Fix: Ingest external web data via Power Query first, then pass the table into Python via `xl()`.
+• Attempting to Install Custom Pip Packages:
+  Root Cause: Running `!pip install my_package` is not supported in the locked Anaconda sandbox.
+  Diagnostic Fix: Use the extensive built-in Anaconda data science library suite.
+• Saving Files to Local Disk from Python:
+  Root Cause: Calling `df.to_csv("C:\data.csv")` fails in cloud containers.
+  Diagnostic Fix: Output results directly to worksheet cells as Excel Values.
+
+6. PRO TIPS & SHORTCUTS
+• Toggle Python Mode (Type =PY in cell or press Ctrl + Alt + Shift + P): Activates Python formula editor mode in active cell.
+• Formula Bar Expansion (Ctrl + Shift + U): Expands formula bar for comfortable multi-line Python coding.
+• Commit Python Code (Ctrl + Enter): Calculates Python formula and executes in Azure container.
+================================================================================

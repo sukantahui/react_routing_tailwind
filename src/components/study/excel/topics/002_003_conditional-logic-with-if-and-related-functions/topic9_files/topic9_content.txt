@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Conditional Logic with IF and Related Functions
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Conditional Logic with IF and Related Functions
 Topic 9: Conditional formatting using custom logical formulas
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Conditional formatting using custom logical formulas is an essential discipline in modern financial modeling and automated decision support.
+It provides the core formulas required to evaluate complex business rules and multi-tier criteria.
+
+2. SYNTAX & TOKEN STRUCTURE
+Formula Code: =$B2 > 100000 /* Highlight Row */ | =AND($C2="Pending", TODAY()-$D2>30) /* Overdue Alert */
+
+3. CORE TECHNICAL MECHANICS
+1. Formula-Driven Rule Engine:
+   Conditional Formatting applies visual formatting (fills, borders, fonts) to every cell in the 'Applies to' range where the formula evaluates to TRUE.
+
+2. The Absolute Column Anchor ($A2):
+   Anchoring the column letter with `$` (e.g. `=$C2="Critical"`) forces Excel to evaluate column C for every cell across the entire row, highlighting the whole row uniformly.
+
+3. Top-Left Relative Referencing:
+   Formulas must be written relative to the top-left cell of the selection (e.g. row 2), allowing Excel to translate references row-by-row automatically.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Risk Officer, Barrackpore HQ):
+  Critical Overdue Loan Row Highlighting - Highlights entire loan ledger rows in soft red when =AND($E2="Default", $F2>1000000) is satisfied.
+• Tuhina Mukherjee (Tax Compliance Lead, Shyamnagar Plant):
+  GST Audit Discrepancy Highlighting - Highlights vendor invoice rows in amber where the computed tax differs from the invoiced tax (=$G2<>$H2).
+• Abhronila Das (Plant Maintenance Lead, Ichapur Works):
+  Overdue Equipment Service Warnings - Applies pulsing yellow fills to machinery rows where next service date is within 7 days (=$D2-TODAY()<=7).
+• Debangshu Roy (Dispatch Controller, Naihati Logistics):
+  VIP Express Shipment Row Highlighting - Highlights high-priority dispatch manifest lines in emerald green using =$B2="VIP".
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Missing Column Dollar Anchor ($):
+  Root Cause: Writing =C2="Critical" instead of =$C2="Critical" highlights only individual cells in column C rather than entire rows.
+  Diagnostic Fix: Anchor the column letter with `$`: `=$C2="Critical"`.
+• Relative Row Reference Mismatch:
+  Root Cause: Selecting range A2:G100 but writing formula relative to =$C1 shifts formatting one row out of sync.
+  Diagnostic Fix: Always write the formula referencing the top-left row of your active selection (row 2).
+• Conditional Formatting Rule Bloat:
+  Root Cause: Copying and pasting formatted cells creates dozens of duplicate fragmented rules, causing severe workbook lag.
+  Diagnostic Fix: Clean rules regularly via Home > Conditional Formatting > Manage Rules > Clear Duplicate Rules.
+
+6. PRO TIPS & SHORTCUTS
+• Full Row Highlight Formula (=$StatusCol="Overdue"): Always lock the column letter with $ to highlight complete table rows.
+• Manage Rules Shortcut (Alt + H + L + R): Instantly open the Conditional Formatting Rule Manager.
+• Muted Executive Palette (Soft fills + dark text): Use subtle pastel fills rather than glaring neon colors for boardroom presentations.
+================================================================================

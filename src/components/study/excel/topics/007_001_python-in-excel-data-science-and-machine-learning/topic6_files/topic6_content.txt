@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Python in Excel: Data Science & Machine Learning
 Topic 6: Time-series analysis, rolling statistics, and trend decomposition with pandas
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Time-series analysis, rolling statistics, and trend decomposition with pandas is an essential discipline in modern spreadsheet data science, applied machine learning, and advanced business analytics.
+It provides the core protocols required to run Python analytics natively inside Excel, manipulate pandas DataFrames, and deploy predictive AI models.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Time Series: df['Date'] = pd.to_datetime(df['Date']); df.set_index('Date', inplace=True); df['Rolling_7D'] = df['Sales'].rolling('7D').mean()
+
+3. CORE TECHNICAL MECHANICS
+1. Native Datetime Indexation:
+   Converts raw date strings to `pd.to_datetime()` and sets as DatetimeIndex, unlocking high-speed calendar slicing (`df['2026-Q1']`).
+
+2. Dynamic Rolling Windows (`.rolling()`):
+   Calculates 7-day, 30-day, and 90-day moving averages and rolling standard deviations with zero row offset formula errors.
+
+3. Seasonal Trend Decomposition:
+   Decomposes revenue time series into Trend, Seasonal, and Residual components using `statsmodels.tsa.seasonal_decompose()`.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  3-Year Revenue Trend & Seasonality Decomposition - Decomposes 36 months of corporate revenue into underlying secular growth trends and Diwali seasonal spikes using Python.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Monthly Tax Outflow Resampling - Resamples daily voucher records into monthly tax liability summaries using `df.resample('ME').sum()`.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  Machine Vibration 30-Day Rolling Volatility - Computes rolling standard deviation of furnace sensor metrics to predict bearing failure.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  7-Day Rolling Freight Volume Forecast - Calculates 7-day moving average carrier freight shipments for depot dispatch scheduling.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Failing to Convert Dates to pd.to_datetime() First:
+  Root Cause: Calling `.resample()` or date slicing on string date columns throws TypeError.
+  Diagnostic Fix: Always convert date column: `df['Date'] = pd.to_datetime(df['Date']); df.set_index('Date', inplace=True)`.
+• Unsorted Datetime Index Breaking Rolling Windows:
+  Root Cause: Calculating rolling averages on chronologically unsorted data produces invalid trend metrics.
+  Diagnostic Fix: Always sort index before time series operations: `df.sort_index(inplace=True)`.
+• Resample Frequency Deprecation Warnings ('M' vs 'ME'):
+  Root Cause: Using deprecated frequency string `'M'` in newer pandas versions.
+  Diagnostic Fix: Use modern frequency aliases: `'ME'` (Month End), `'QE'` (Quarter End), `'YE'` (Year End).
+
+6. PRO TIPS & SHORTCUTS
+• Rolling 7-Day Average (df['Sales'].rolling(7).mean()): Smooths out day-of-week volatility.
+• Monthly Resample (df.resample('ME').sum()): Aggregates daily data into clean monthly buckets.
+• Date Range Slicing (df['2026-01':'2026-03']): Intuitive date range filtering on DatetimeIndex.
+================================================================================

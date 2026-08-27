@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Using AI with Excel for Productivity
-Topic 1: Getting started with Microsoft Copilot in Excel: Requirements, Interface, and capabilities
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 1 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Getting started with Microsoft Copilot in Excel: Requirements, Interface, and capabilities
+Module: 007_002_using-ai-with-excel-for-productivity
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Copilot Setup: Microsoft 365 Copilot License + AutoSave On (OneDrive / SharePoint) + Structured Table (Ctrl + T)
+
+PRIMARY CONCEPT:
+Configuring the Microsoft 365 Copilot environment in Excel: license requirements, file cloud storage on OneDrive/SharePoint, AutoSave prerequisites, side-pane navigation, and prompt suggestions
+
+TEACHER'S ADVICE:
+If the Copilot button is grayed out: 1. Save your file to OneDrive. 2. Turn on AutoSave at the top left. 3. Press Ctrl + T on your data. Now the Copilot button will light up and you can start chatting!
+
+COMMON TRAPS TO AVOID:
+- Copilot Button Grayed Out / Disabled: Workbook is saved locally on C:\ drive or AutoSave is turned OFF. -> Fix: Save file to OneDrive or SharePoint and ensure AutoSave toggle is ON at top left.
+- Trying to Use Copilot on .xls / .csv Files: Legacy `.xls` or flat `.csv` formats do not support modern M365 Copilot features. -> Fix: Save workbook as standard `.xlsx` or `.xlsm`.
+- Multiple Unrelated Tables on Same Sheet: Confusing Copilot with 5 different disconnected tables on one tab. -> Fix: Maintain clean single-table architecture per worksheet tab.
+================================================================================

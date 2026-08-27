@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Introduction to Pivot Tables and Pivot Charts
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Introduction to Pivot Tables and Pivot Charts
 Topic 6: Calculated Fields and Calculated Items: Adding custom business logic
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Calculated Fields and Calculated Items: Adding custom business logic is an essential discipline in corporate business intelligence and reporting.
+It provides the foundation for dynamic in-memory summarization, multi-dimensional slicing, and interactive dashboards.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Calculated Field: =Sales * 0.18 (Across Columns) | Calculated Item: ='2026' - '2025' (Across Rows)
+
+3. CORE TECHNICAL MECHANICS
+1. Calculated Fields (Column Operations):
+   Creates new synthetic measures calculated from the SUM of underlying fields (e.g. `='Gross Revenue' - 'Cost of Goods Sold'`). Executes at the aggregated subtotal level.
+
+2. Calculated Items (Row Operations):
+   Creates new synthetic rows inside an existing field (e.g. `=North + South`). Caution: modifies row cache and disables date grouping.
+
+3. Order of Calculation Rule:
+   Calculated Fields ALWAYS perform the calculation on the sum of the components: `SUM(Price) * SUM(Qty)`, NOT `SUM(Price * Qty)`.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Financial Officer, Barrackpore HQ):
+  Dynamic Gross Margin % Field Creation - Creates a Calculated Field `='Gross Profit' / 'Gross Revenue'` to display mathematically accurate margins across all hierarchical levels.
+• Tuhina Mukherjee (Tax Compliance Lead, Shyamnagar Plant):
+  Automated GST Liability Field - Embeds `='Taxable Value' * 0.18` directly in the pivot to audit statutory 18% GST collections.
+• Abhronila Das (Plant Controller, Ichapur Works):
+  Material Scrap Ratio Calculation - Calculates synthetic scrap efficiency ratios: `='Scrap Weight' / 'Total Billet Weight'`.
+• Debangshu Roy (Freight Billing Lead, Naihati Logistics):
+  Fuel Surcharge Markup Field - Adds automated 12.5% carrier fuel surcharges via Calculated Field: `='Base Freight' * 0.125`.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Multiplication Order of Operations Bug:
+  Root Cause: Creating a Calculated Field `='Unit Price' * 'Quantity'` calculates `=SUM(UnitPrice) * SUM(Qty)`, producing wildly inflated numbers.
+  Diagnostic Fix: Calculate `Price * Qty` in a source table helper column first, then sum that column in the pivot.
+• Calculated Items Disable Date Grouping:
+  Root Cause: Adding a Calculated Item to any field disables date grouping across the entire PivotTable.
+  Diagnostic Fix: Avoid Calculated Items; use Calculated Fields or Power Pivot DAX measures instead.
+• Data Model Incompatibility:
+  Root Cause: Calculated Fields and Items are disabled in PivotTables connected to the Excel Data Model (Power Pivot).
+  Diagnostic Fix: In Data Model pivots, create DAX Explicit Measures instead.
+
+6. PRO TIPS & SHORTCUTS
+• Insert Calculated Field (PivotTable Analyze > Fields, Items, & Sets > Calculated Field (Alt + J + T + J + F)): Opens the custom formula editor dialog.
+• Formula-Preserving Ratio (='Profit' / 'Revenue'): Safe division formula that calculates accurate margins at every subtotal level.
+• List All Formulas (Fields, Items & Sets > List Formulas): Generates a dedicated worksheet documenting all embedded calculated field formulas.
+================================================================================

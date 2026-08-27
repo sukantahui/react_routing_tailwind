@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: VBA & Macro Automation
-Topic 9: Writing Sub procedures and custom User-Defined Functions (UDFs) callable in worksheet cells
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 9 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Writing Sub procedures and custom User-Defined Functions (UDFs) callable in worksheet cells
+Module: 006_001_vba-and-macro-automation
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+User-Defined Function: Function CalculateTax(Income As Double, Slab As String) As Double ... CalculateTax = Result ... End Function
+
+PRIMARY CONCEPT:
+Authoring Sub procedures (action-oriented macros) versus custom User-Defined Functions (UDFs) callable directly inside worksheet cells like native Excel formulas
+
+TEACHER'S ADVICE:
+Custom functions (UDFs) are amazing. You can write `=CALCULATE_GST(A2, 18)` and use it across your entire spreadsheet just like `=VLOOKUP()`. Always put your UDF in a Standard Module!
+
+COMMON TRAPS TO AVOID:
+- Attempting to Format Cells Inside a UDF: Writing `Range("A1").Interior.Color = vbGreen` inside a worksheet UDF causes the function to fail and return `#VALUE!`. -> Fix: UDFs called from cells can ONLY calculate and return values; use Sub procedures for formatting.
+- Forgetting to Assign the Return Value to the Function Name: In VBA, functions return values by assigning to the function name (`CalculateTax = dblTax`); forgetting this causes function to return 0. -> Fix: Assign the final result to the Function Name: `FunctionName = Result`.
+- Missing Application.Volatile on Timestamp UDFs: Custom UDF not recalculating when other cells change. -> Fix: Add `Application.Volatile True` at the top of the function if it must recalculate on every worksheet change.
+================================================================================

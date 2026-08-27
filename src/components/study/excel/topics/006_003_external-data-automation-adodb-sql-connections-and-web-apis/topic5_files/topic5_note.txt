@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: External Data Automation: ADODB SQL Connections & Web APIs
-Topic 5: Querying closed Excel workbooks as relational database tables using SQL without opening them
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 5 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Querying closed Excel workbooks as relational database tables using SQL without opening them
+Module: 006_003_external-data-automation-adodb-sql-connections-and-web-apis
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Query Closed Excel: Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Data\Book.xlsx;Extended Properties="Excel 12.0 Xml;HDR=YES;IMEX=1;" | SQL: SELECT * FROM [Sheet1$] WHERE Amount > 1000
+
+PRIMARY CONCEPT:
+Querying external closed Excel workbooks as if they were relational database tables using SQL without opening them: ACE OLEDB provider, `[SheetName$]` table syntax, and IMEX=1
+
+TEACHER'S ADVICE:
+You can query closed Excel files with SQL! Just use the ACE.OLEDB driver and write `SELECT * FROM [Sheet1$] WHERE Amount > 5000`. You can pull data from 500 closed workbooks in 2 seconds without opening any of them.
+
+COMMON TRAPS TO AVOID:
+- Omitting Dollar Sign ($) in Sheet Name Syntax: Writing `SELECT * FROM [Sheet1]` without the `$` throws error 'The Microsoft Access database engine could not find the object'. -> Fix: Always append a dollar sign to sheet names: `SELECT * FROM [Sheet1$]`.
+- The 'Type Guessing' Null Value Bug (Type Mismatch): By default, the ACE driver inspects the first 8 rows (TypeGuessRows). If rows 1-8 are numbers and row 9 is text, it returns NULL for row 9. -> Fix: Add `IMEX=1;` to Extended Properties in the connection string to treat mixed columns as text.
+- Querying Open Files with Write Locks: Attempting to query a file currently open in exclusive mode by another user. -> Fix: Open with `Mode=Read;` in connection string.
+================================================================================

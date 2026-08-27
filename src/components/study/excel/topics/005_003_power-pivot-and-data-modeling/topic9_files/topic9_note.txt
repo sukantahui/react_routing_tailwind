@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Power Pivot & Data Modeling
-Topic 9: Creating Hierarchies (Year > Quarter > Month > Day, Category > Subcategory > Product)
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 9 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Creating Hierarchies (Year > Quarter > Month > Day, Category > Subcategory > Product)
+Module: 005_003_power-pivot-and-data-modeling
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Hierarchy Definition: Diagram View > Right-Click Column > Create Hierarchy -> Drag Child Levels (Category > Subcategory > Product)
+
+PRIMARY CONCEPT:
+Building multi-level Drill-Down Hierarchies in Power Pivot Diagram View: Date Hierarchies (Year > Qtr > Month > Day) and Organizational/Product Taxonomies (Region > State > Branch)
+
+TEACHER'S ADVICE:
+Hierarchies make your PivotTables feel like custom enterprise BI software. Create a Date Hierarchy (Year -> Quarter -> Month) and a Product Hierarchy. Users drag ONE field and can drill down to individual transactions in 1 click.
+
+COMMON TRAPS TO AVOID:
+- Reversed Hierarchy Level Ordering: Placing Product SKU at the top and Category at the bottom inverts the drill-down navigation. -> Fix: Order hierarchy levels strictly from coarsest (Top) to finest granularity (Bottom).
+- Creating Hierarchies Across Separate Tables: Attempting to create a single hierarchy combining columns located in two different tables. -> Fix: All levels of a hierarchy MUST reside within the same Dimension table.
+- Leaving Original Hierarchy Columns Unhidden: Leaving individual columns (Year, Quarter, Month) visible alongside the new Date Hierarchy creates field list confusion. -> Fix: Hide the individual component columns to encourage users to use the unified hierarchy.
+================================================================================

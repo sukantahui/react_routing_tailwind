@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Using AI with Excel for Productivity
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Using AI with Excel for Productivity
 Topic 1: Getting started with Microsoft Copilot in Excel: Requirements, Interface, and capabilities
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Getting started with Microsoft Copilot in Excel: Requirements, Interface, and capabilities is an essential discipline in AI-assisted spreadsheet engineering, generative business intelligence, and modern workplace productivity.
+It provides the core protocols required to leverage Microsoft Copilot, construct precision prompt workflows, integrate external LLM APIs, and build custom AI formulas.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Copilot Setup: Microsoft 365 Copilot License + AutoSave On (OneDrive / SharePoint) + Structured Table (Ctrl + T)
+
+3. CORE TECHNICAL MECHANICS
+1. Prerequisites Checklist:
+   1. Microsoft 365 Copilot Add-On License; 2. Workbook saved to OneDrive or SharePoint with AutoSave ON; 3. Data formatted as official Excel Table.
+
+2. The Copilot Chat Side-Pane:
+   Provides conversational interactive prompt bar, suggested prompt cards ('Add formula columns', 'Highlight', 'Sort and Filter', 'Analyze'), and history.
+
+3. Formula Column Preview & Insert:
+   Previews calculated results in a ghost column before committing changes to the permanent worksheet table.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Enterprise Copilot Onboarding & Governance - Configures Microsoft 365 Copilot licenses across corporate finance laptops, setting up OneDrive cloud governance protocols.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Copilot Cloud AutoSave Configuration - Enables AutoSave on SharePoint tax workbooks to activate Copilot analysis panels.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  Tablet Copilot Setup for Shift Supervisors - Configures Excel for Web Copilot panels on factory floor tablet terminals.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Logistics Dispatch Copilot Workspace - Activates Copilot for dynamic freight manifest analysis.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Copilot Button Grayed Out / Disabled:
+  Root Cause: Workbook is saved locally on C:\ drive or AutoSave is turned OFF.
+  Diagnostic Fix: Save file to OneDrive or SharePoint and ensure AutoSave toggle is ON at top left.
+• Trying to Use Copilot on .xls / .csv Files:
+  Root Cause: Legacy `.xls` or flat `.csv` formats do not support modern M365 Copilot features.
+  Diagnostic Fix: Save workbook as standard `.xlsx` or `.xlsm`.
+• Multiple Unrelated Tables on Same Sheet:
+  Root Cause: Confusing Copilot with 5 different disconnected tables on one tab.
+  Diagnostic Fix: Maintain clean single-table architecture per worksheet tab.
+
+6. PRO TIPS & SHORTCUTS
+• Save to OneDrive (File > Save As > OneDrive / SharePoint): Enables cloud synchronization and Copilot activation.
+• Turn AutoSave ON (Top left AutoSave toggle): Mandatory requirement for real-time AI grounding.
+• Suggested Prompts (Click sparkler icon above prompt box): Discovers pre-built analysis templates.
+================================================================================

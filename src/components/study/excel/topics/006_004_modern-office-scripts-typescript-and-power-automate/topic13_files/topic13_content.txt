@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Modern Office Scripts (TypeScript) & Power Automate
 Topic 13: Real-world project: Building an automated cloud expense approval and ledger posting pipeline
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Real-world project: Building an automated cloud expense approval and ledger posting pipeline is an essential discipline in cloud spreadsheet automation, serverless enterprise workflows, and TypeScript-driven business intelligence.
+It provides the core protocols required to author cross-platform scripts, connect Excel to Microsoft Power Automate, and construct 24/7 autonomous cloud pipelines.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Expense Approval Pipeline: Microsoft Forms (Submit Expense) -> Power Automate -> Office Script (Validate & Post to Ledger Table) -> Approver Email with Action Buttons -> Post to ERP
+
+3. CORE TECHNICAL MECHANICS
+1. End-to-End Cloud System Integration:
+   Integrates 5 cloud components: Microsoft Forms (Employee Submission), Power Automate (Flow Controller), Office Scripts (Ledger Validation & Table Append), Outlook Approvals (Manager Sign-Off), and Teams Broadcast.
+
+2. Automated Ledger Posting & Audit Trail:
+   Office Script validates receipt amounts, assigns unique transaction IDs (`EXP-2026-XXXX`), appends records to structured `tblExpenses`, and calculates budget balances.
+
+3. Autonomous 24/7 Serverless Architecture:
+   Operates 100% serverless in the Microsoft 365 cloud with zero desktop software or physical servers required.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Financial Officer, Barrackpore HQ):
+  Enterprise Cloud Expense Pipeline Deployment - Deploys an automated corporate expense pipeline processing 5,000 monthly employee expense claims with automated approval routing and real-time ledger posting.
+• Tuhina Mukherjee (Head of Corporate Audit, Shyamnagar Plant):
+  Factory Petty Cash Cloud Approval Flow - Automates factory petty cash requisitions, GST claim validation, and manager approvals.
+• Abhronila Das (Director of Manufacturing, Ichapur Works):
+  Maintenance Spare Parts Requisition Pipeline - Deploys cloud approval flows for urgent plant machinery spare parts procurement.
+• Debangshu Roy (VP Supply Chain Logistics, Naihati Logistics Hub):
+  Driver Fuel & Toll Cloud Reimbursement System - Manages automated driver trip expense submissions and automated mobile reimbursements.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Posting Expenses Before Manager Approval:
+  Root Cause: Appending unapproved expenses directly to the finalized general ledger table.
+  Diagnostic Fix: Post to a `Staging_Pending` table first; move to `Approved_Ledger` only after approval.
+• Handling Duplicate Submissions on Refresh:
+  Root Cause: User refreshing browser submitting duplicate expense entries.
+  Diagnostic Fix: Check for duplicate submission IDs in the script before appending.
+• Unchecked Currency Conversion on Multi-Currency Expenses:
+  Root Cause: Mixing USD and INR amounts in the same numerical column without conversion.
+  Diagnostic Fix: Include currency normalization in the TypeScript calculation logic.
+
+6. PRO TIPS & SHORTCUTS
+• Full-Stack Serverless (Forms + Power Automate + Office Scripts + Teams): The ultimate modern enterprise software architecture.
+• Unique Transaction ID (`EXP-${Date.now()}`): Guarantees unique audit identification for every transaction.
+• Interactive Approval Buttons (Power Automate Approvals Connector): Allows managers to approve directly from Outlook or Teams.
+================================================================================

@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Power Pivot & Data Modeling
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Power Pivot and Data Modeling
 Topic 12: Analyzing VertiPaq compression, memory usage, and relationship integrity
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Analyzing VertiPaq compression, memory usage, and relationship integrity is an essential discipline in enterprise data architecture, business intelligence, and large-scale analytical modeling.
+It provides the core protocols required to shatter Excel's 1-million row limit, establish clean relational schemas, and build high-performance data models.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Diagnostic Tools: VertiPaq Analyzer (DAX Studio) | File Size Auditing | Memory Cardinality Optimization
+
+3. CORE TECHNICAL MECHANICS
+1. Column Cardinality (The #1 Memory Driver):
+   Cardinality (number of unique values in a column) dictates dictionary size and run-length compression efficiency. Low cardinality = Tiny RAM; High cardinality = Huge RAM.
+
+2. Memory Breakdown Architecture:
+   Total Data Model Memory = Data Hierarchy Columns + Column Dictionaries + Relationship Indexes + User Hierarchies.
+
+3. Eliminating Timestamp Precision Bloat:
+   Splitting a DateTime column (`12/04/2026 14:32:15.892`) into separate Date and Hour columns can reduce column RAM footprint by 95%.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Data Architect, Barrackpore HQ):
+  Enterprise Model Optimization (1.2 GB to 85 MB) - Profiles a massive corporate financial model, discovering that 2 unneeded GUID columns accounted for 88% of total workbook file size; removing them restored instant responsiveness.
+• Tuhina Mukherjee (Model Audit Lead, Shyamnagar Plant):
+  Tax Database Memory Footprint Audit - Audits column cardinalities across 10 million purchase ledger records to ensure smooth execution on auditor laptops.
+• Abhronila Das (Systems Performance Analyst, Ichapur Works):
+  IoT Sensor Column Optimization - Optimizes sensor telemetry columns by rounding floating-point temperatures to 1 decimal place, slashing dictionary memory by 80%.
+• Debangshu Roy (Supply Chain Financial Director, Naihati Logistics):
+  Waybill Tracking Model Acceleration - Splits shipment timestamps into discrete Date and Hour columns to maximize VertiPaq run-length compression.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Leaving High-Precision Floats Unrounded:
+  Root Cause: Storing numbers with 10 decimal places (`₹45.129847192`) creates millions of unique values, destroying VertiPaq dictionary compression.
+  Diagnostic Fix: Round decimal currencies to 2 decimal places in Power Query.
+• Keeping Auto Date/Time Hidden Tables Enabled:
+  Root Cause: Excel creating hidden date hierarchy tables for every single date column in the model, wasting megabytes of RAM.
+  Diagnostic Fix: Disable Auto Date/Time in Power Pivot options; use a dedicated Date Dimension table.
+• Unused Technical Columns Left in Fact Table:
+  Root Cause: Leaving 30 database audit columns (`CreatedBy`, `ModifiedDate`, `RowID`) in a 5-million row model.
+  Diagnostic Fix: Remove all columns not strictly required for reporting in Power Query before loading.
+
+6. PRO TIPS & SHORTCUTS
+• Cardinality Rule (Low Unique Count = Maximum Speed): The foundational principle of tabular data modeling.
+• Split Date & Time (Transform > Date & Time into 2 columns): Slashes timestamp memory footprint by up to 95%.
+• Remove Unused Columns (Power Query > Choose Columns): The fastest way to optimize any Power Pivot workbook.
+================================================================================

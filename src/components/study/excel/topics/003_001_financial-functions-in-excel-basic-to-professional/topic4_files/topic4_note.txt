@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
-Topic 4: Investment appraisal: Net Present Value (NPV) and Present Value (PV)
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 4 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Investment appraisal: Net Present Value (NPV) and Present Value (PV)
+Module: 003_001_financial-functions-in-excel-basic-to-professional
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+=NPV(discount_rate, value1, [value2], ...) + Initial_Outflow | =PV(rate, nper, pmt, [fv])
+
+PRIMARY CONCEPT:
+Capital budgeting and investment appraisal using Net Present Value (NPV) and Present Value (PV), mastering the crucial Day 0 cash outflow adjustment rule
+
+TEACHER'S ADVICE:
+The #1 mistake in Excel financial modeling interview tests: Putting Year 0 inside the NPV function! Always write `=NPV(rate, Year1:Year5) + Year0`. Memorize this forever.
+
+COMMON TRAPS TO AVOID:
+- Including Year 0 Outflow Inside NPV Range (Fatal Error): Writing =NPV(10%, CF0:CF5) incorrectly discounts Year 0 capex by (1+r)^1, severely overestimating project value. -> Fix: Always exclude CF0 from NPV range: `=NPV(rate, CF1:CF5) + CF0`.
+- Subtracting a Negative Outflow: Writing `=NPV(rate, CF1:CF5) - CF0` when CF0 is already negative (-1000) results in adding the capex instead of subtracting. -> Fix: If CF0 is negative (-1000), use `+ CF0`. If CF0 is positive (1000), use `- CF0`.
+- Mismatching Cash Flow Frequency with Discount Rate: Using an annual WACC (12%) to discount monthly cash flows without converting to monthly rate. -> Fix: Use `(1 + WACC)^(1/12) - 1` or `WACC/12` for monthly cash flow schedules.
+================================================================================

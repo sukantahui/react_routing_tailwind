@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
-Topic 5: Iterator functions (X-functions): SUMX, AVERAGEX, MINX, MAXX, and COUNTX
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 5 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Iterator functions (X-functions): SUMX, AVERAGEX, MINX, MAXX, and COUNTX
+Module: 005_004_dax-formulas-mastery-and-time-intelligence
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Iterator Functions: SUMX(Table, Expression) | AVERAGEX(Table, Expression) | MINX | MAXX | COUNTX
+
+PRIMARY CONCEPT:
+Mastering DAX Iterator functions (X-functions): SUMX, AVERAGEX, MINX, MAXX, and COUNTX to evaluate row-by-row expressions across temporary virtual tables with zero RAM storage
+
+TEACHER'S ADVICE:
+SUM only takes ONE column: `SUM(Sales[Amount])`. If you need to multiply two columns (like `Qty * Price`), use SUMX: `SUMX(Sales, Sales[Qty] * Sales[Price])`. It is clean, fast, and saves RAM.
+
+COMMON TRAPS TO AVOID:
+- Using SUMX When Standard SUM Suffices: Writing `SUMX(Sales, Sales[Amount])` when `SUM(Sales[Amount])` accomplishes the exact same thing faster. -> Fix: Use `SUM()` for single-column additions; reserve `SUMX()` for multi-column math or expressions.
+- Iterating Massive Unfiltered Fact Tables with Complex Measures: Calling a complex measure inside SUMX over 10 million rows causes high CPU latency. -> Fix: Iterate small Dimension tables (`SUMX(Dim_Customer, ...)`), or push row math to raw columns.
+- Confusing SUM of Averages with Average of Sums: Writing `AVERAGEX(Sales, [Margin%])` averages transactions equally rather than weighting by dollar volume. -> Fix: Use the ratio of sums: `DIVIDE([TotalMargin], [TotalSales])`.
+================================================================================

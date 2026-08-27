@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
-Topic 1: The `=PY()` formula: Syntax, cell referencing (`xl("A1:D100", headers=True)`), and execution flow
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 1 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: The `=PY()` formula: Syntax, cell referencing (`xl("A1:D100", headers=True)`), and execution flow
+Module: 007_001_python-in-excel-data-science-and-machine-learning
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Cell Referencing Syntax: df = xl("Sales_Table[#All]", headers=True) | Single Cell: val = xl("Sheet1!B2") | Calc Order: Top-to-Bottom, Left-to-Right
+
+PRIMARY CONCEPT:
+Mastering the =PY() formula syntax and xl() bridge function: referencing cell ranges, structured tables, sheet qualifications, headers parameters, and grid calculation sequence
+
+TEACHER'S ADVICE:
+Remember the Golden Rule of Python in Excel: Top-to-Bottom, Left-to-Right! Define your DataFrame in cell A1, do your calculations in cell B5, and output your charts in cell D10. If you try to reference backwards, Python will say 'Variable Not Defined'.
+
+COMMON TRAPS TO AVOID:
+- Backward Calculation Dependency (#NAME? / NameError): Attempting to reference variable `df` in cell A1 when `df` was created in cell E20 (violates top-to-bottom calculation order). -> Fix: Place foundational Python data definitions in the upper-left of the worksheet.
+- Omitting headers=True on Data Tables: Omitting `headers=True` causes column names to be treated as row 0 data, corrupting numeric types. -> Fix: Always pass `headers=True` when reading tables: `xl("A1:D50", headers=True)`.
+- Circular Calculation Dependency: Cell A1 referencing B1 while B1 references A1 in Python. -> Fix: Maintain clean unidirectional dataflows.
+================================================================================

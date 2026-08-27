@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Python in Excel: Data Science & Machine Learning
 Topic 7: Statistical modeling and hypothesis testing with scipy.stats (t-tests, ANOVA, Chi-square)
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Statistical modeling and hypothesis testing with scipy.stats (t-tests, ANOVA, Chi-square) is an essential discipline in modern spreadsheet data science, applied machine learning, and advanced business analytics.
+It provides the core protocols required to run Python analytics natively inside Excel, manipulate pandas DataFrames, and deploy predictive AI models.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Statistical Testing: from scipy import stats; t_stat, p_val = stats.ttest_ind(groupA, groupB); f_stat, p_val = stats.f_oneway(g1, g2, g3); chi2, p_val, ... = stats.chi2_contingency(table)
+
+3. CORE TECHNICAL MECHANICS
+1. Two-Sample Independent T-Tests (`ttest_ind`):
+   Tests whether the difference in mean revenue or conversion rates between two marketing campaigns (A/B testing) is statistically significant.
+
+2. One-Way ANOVA (`f_oneway`):
+   Evaluates whether mean output differs significantly across 3 or more regional factory production lines.
+
+3. Chi-Square Test of Independence (`chi2_contingency`):
+   Tests for significant categorical association between customer demographics and product return rates.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Commercial Officer, Barrackpore HQ):
+  A/B Pricing Campaign Statistical Significance Test - Performs two-sample t-test on ₹10 Crore sales experiment, confirming price increase increased revenue with p-value < 0.001.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Vendor Audit Error Rate ANOVA Test - Executes One-Way ANOVA across 4 regional vendor groups to test if tax compliance error rates differ significantly.
+• Abhronila Das (Plant Quality Lead, Ichapur Works):
+  Shift Defect Rate Chi-Square Independence Test - Conducts Chi-Square test determining whether scrap rates are independent of machine shift crews.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Carrier SLA Difference Paired T-Test - Tests transit speed differences across matched shipment routes.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Misinterpreting p-value (p < 0.05 vs p >= 0.05):
+  Root Cause: Rejecting null hypothesis when p-value is 0.12 (insufficient statistical evidence).
+  Diagnostic Fix: Enforce standard alpha threshold: Reject H0 only if `p_val < 0.05`.
+• Ignoring Normality & Variance Assumptions:
+  Root Cause: Running standard t-tests on highly skewed non-normal data without variance checks.
+  Diagnostic Fix: Check variance equality (`stats.levene`) or use non-parametric Mann-Whitney U test (`stats.mannwhitneyu`).
+• Passing Unequal Sample Sizes into Paired T-Test:
+  Root Cause: Calling `stats.ttest_rel()` on arrays with different lengths throws ValueError.
+  Diagnostic Fix: Ensure paired observations have identical row lengths.
+
+6. PRO TIPS & SHORTCUTS
+• Two-Sample T-Test (stats.ttest_ind(groupA, groupB)): The gold standard for commercial A/B testing.
+• p-Value Evaluation (is_significant = p_val < 0.05): Statistically significant at 95% confidence level.
+• One-Way ANOVA (stats.f_oneway(group1, group2, group3)): Compares means across 3+ categories simultaneously.
+================================================================================

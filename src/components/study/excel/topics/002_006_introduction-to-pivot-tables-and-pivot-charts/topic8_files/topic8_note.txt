@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Introduction to Pivot Tables and Pivot Charts
-Topic 8: Interactive filtering with Slicers and multi-pivot slicer connections
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 8 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Interactive filtering with Slicers and multi-pivot slicer connections
+Module: 002_006_introduction-to-pivot-tables-and-pivot-charts
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Slicer Architecture: Visual Button Filtering | Multi-Pivot Slicer Connections | Multi-Select (Ctrl / Shift)
+
+PRIMARY CONCEPT:
+Building interactive executive dashboard interfaces using visual Slicers, configuring multi-pivot report connections, and formatting custom button palettes
+
+TEACHER'S ADVICE:
+Slicers turn boring spreadsheets into interactive software apps. Always right-click your slicer, choose Size and Properties, and select 'Don't move or size with cells' so your layout stays locked.
+
+COMMON TRAPS TO AVOID:
+- Different Pivot Cache Connection Lockout: Report Connections only shows PivotTables that share the exact same Pivot Cache or Data Model. -> Fix: Create all dashboard PivotTables from the same source table so they share a unified cache.
+- Slicer Sizing Distortion on Row Resize: Inserting or expanding rows moves and distorts slicer dimensions. -> Fix: Right-click Slicer > Size and Properties > Properties > Select 'Don't move or size with cells'.
+- Hiding Items with No Data Glitch: Slicers display inactive grayed-out buttons that clutter executive views. -> Fix: Slicer Settings > Check 'Hide items with no data'.
+================================================================================

@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Power Pivot & Data Modeling
-Topic 10: Defining Key Performance Indicators (KPIs) with status thresholds in Power Pivot
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 10 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Defining Key Performance Indicators (KPIs) with status thresholds in Power Pivot
+Module: 005_003_power-pivot-and-data-modeling
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Power Pivot KPI: Home > KPI > New KPI | Base Measure: [TotalRevenue] | Target: Absolute (₹50 Cr) / Measure ([RevenueTarget]) | Status Thresholds (60% / 90%)
+
+PRIMARY CONCEPT:
+Configuring native Power Pivot Key Performance Indicators (KPIs): defining Base Measures, Target Benchmarks, and dynamic 3-color Status Thresholds (Traffic Lights / Gauges)
+
+TEACHER'S ADVICE:
+Power Pivot KPIs add instant executive polish. In the Power Pivot window, select your measure, click 'New KPI', set your budget target measure, and pick Traffic Light icons. Your PivotTables will display real graphical status badges.
+
+COMMON TRAPS TO AVOID:
+- Setting Target to Absolute Number for Sliced Views: Setting target to a static ₹10 Crore means the target is ₹10 Crore whether viewing a single branch or the whole nation. -> Fix: Set Target Goal to a dynamic measure: `Target: Measure -> [BudgetRevenue]`.
+- Reversed Thresholds for Cost Metrics: Showing green traffic lights when departmental expenses exceed budget limits. -> Fix: Select the inverted status icon pattern (Lower is Better) in KPI setup.
+- KPI Icons Not Rendering in Older Excel Viewers: Opening modern Data Model KPIs in third-party spreadsheet viewers can render status icons as raw integer values (-1, 0, 1). -> Fix: Ensure corporate viewers use standard modern Microsoft Excel versions.
+================================================================================

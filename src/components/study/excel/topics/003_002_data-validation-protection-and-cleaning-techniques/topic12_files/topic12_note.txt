@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Data Validation, Protection and Cleaning Techniques
-Topic 12: Real-world case study: Designing a tamper-proof corporate budget entry template
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 12 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Real-world case study: Designing a tamper-proof corporate budget entry template
+Module: 003_002_data-validation-protection-and-cleaning-techniques
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Tamper-Proof Corporate Budget Engine: Unlocked Blue Inputs + Locked Black Formulas + Cascading Dropdowns + Stop Alerts + Structure Lock
+
+PRIMARY CONCEPT:
+Building an institutional tamper-proof corporate budget entry model combining data validation gates, dependent cascading menus, locked formulas, and structural encryption
+
+TEACHER'S ADVICE:
+Building a tamper-proof budget template is the true test of an enterprise Excel architect. When you hand your model to 50 users and nobody can break it, you have achieved mastery.
+
+COMMON TRAPS TO AVOID:
+- Unprotected Source Lookup Lists: Leaving master category tables on an unprotected sheet allows users to modify approved cost center codes. -> Fix: Move lookup tables to a dedicated 'Admin_Lists' sheet, set to Very Hidden or protected with a password.
+- Overly Restrictive Validation Blocking Legitimate Exceptions: Setting hard Stop Alerts on items that occasionally require CFO variance approval. -> Fix: Use Warning Alerts for boundary thresholds where executive override is permitted.
+- Allowing Copy-Paste from External Sheets: External copy-pasting strips cell validation and alters locked statuses. -> Fix: Lock sheet permissions and provide clear user training on 'Paste Special Values'.
+================================================================================

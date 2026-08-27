@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
-Topic 12: Real-world project: Production mix optimization to maximize corporate profit under resource limits
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 12 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Real-world project: Production mix optimization to maximize corporate profit under resource limits
+Module: 003_003_what-if-analysis-and-scenario-planning
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Production Mix Optimization: Maximize Profit = SUMPRODUCT(Margins, Units) | Subject to: Machine, Labor, Material Limits
+
+PRIMARY CONCEPT:
+Comprehensive industrial capstone project: formulating and solving a multi-product manufacturing profit maximization model under complex multi-tier resource limits using Simplex LP
+
+TEACHER'S ADVICE:
+This project is the ultimate demonstration of Excel's analytical ROI. By simply reallocating existing factory machine hours with Simplex LP, companies routinely unlock millions in pure profit with zero new capital expenditure.
+
+COMMON TRAPS TO AVOID:
+- Omitting Market Demand Ceilings: Solver allocates 100% of factory capacity to the single highest-margin product, producing 50,000 units when market demand is only 5,000. -> Fix: Add `Production <= MaxMarketDemand` constraints for every product.
+- Fractional Unit Outputs in Physical Goods: Producing 1,420.65 units of heavy industrial valves. -> Fix: Add Integer (`int`) constraint to decision variable cells.
+- Failing to Save Solver Model on Sheet: Reopening the sheet later and finding Solver settings blank. -> Fix: Solver > Options > 'Save Model' to store configuration parameters directly in worksheet cells.
+================================================================================

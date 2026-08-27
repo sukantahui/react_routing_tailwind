@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Excel Intermediate Skill Test
-Topic 4: Pivot Table & Slicer Interactive Summary Assessment
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 4 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Pivot Table & Slicer Interactive Summary Assessment
+Module: 008_002_excel-intermediate-skill-test
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Pivot Architecture: Insert > PivotTable | Fields: Rows, Columns, Values, Filters | Value Field Settings: Sum, Average, % of Column Total | Slicers & Timelines
+
+PRIMARY CONCEPT:
+Testing comprehensive Pivot Table construction: multidimensional field placement, custom value calculations (% of Column Total, Difference From), grouping dates/numbers, calculated fields, Slicers, and Timelines
+
+TEACHER'S ADVICE:
+Pivot Tables turn days of work into 10 seconds. Group your dates by month, show values as '% of Column Total', and connect your Slicers to all your Pivot Tables using 'Report Connections'. You will look like a business intelligence rockstar!
+
+COMMON TRAPS TO AVOID:
+- Pivot Table Slicers Not Filtering All Dashboard Tables: Forgetting to configure Report Connections on the Slicer. -> Fix: Right-click Slicer > Report Connections > check all Pivot Tables on dashboard.
+- Blank Rows in Source Data Causing '(blank)' Grouping: Selecting empty rows below table when creating Pivot Table. -> Fix: Create Pivot Table from an official structured Excel Table (`tblSales`).
+- Forgetting That Pivot Tables Do Not Auto-Refresh: Editing source numbers and wondering why Pivot Table numbers did not update. -> Fix: Right-click Pivot Table > Refresh (or press `Alt + F5`).
+================================================================================

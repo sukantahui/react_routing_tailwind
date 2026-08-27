@@ -1,0 +1,15 @@
+TECHNICAL SPECIFICATION: DYNAMIC RANGE MODELING WITH OFFSET
+================================================================================
+1. EXECUTIVE OVERVIEW
+The OFFSET function is one of the most powerful and dynamic reference tools in Microsoft Excel. It enables financial modelers to construct dynamic ranges, sliding rolling averages, self-expanding named ranges for charts, and 2-way matrix lookups.
+
+2. PARAMETER BREAKDOWN
+• reference (Required): Starting anchor cell or contiguous range.
+• rows (Required): Number of rows to shift up (negative) or down (positive).
+• cols (Required): Number of columns to shift left (negative) or right (positive).
+• height (Optional): Number of rows high the returned range should be.
+• width (Optional): Number of columns wide the returned range should be.
+
+3. VOLATILITY & ENGINE MECHANICS
+OFFSET is a volatile function that flags its dependent cells as dirty on every worksheet recalculation event. For massive enterprise workbooks, non-volatile INDEX-colon syntax provides identical dynamic behavior with zero recalculation lag.
+================================================================================

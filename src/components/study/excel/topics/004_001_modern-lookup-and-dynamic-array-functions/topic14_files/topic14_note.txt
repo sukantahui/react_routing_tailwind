@@ -1,0 +1,21 @@
+TOPIC 14 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Modern Dynamic Array Aggregations: Building formula-based Pivot Tables with GROUPBY, PIVOTBY, and PERCENTOF
+Module: 004_001_modern-lookup-and-dynamic-array-functions
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+GROUPBY / PIVOTBY Suite: =GROUPBY(row_fields, values, function, [headers], [total_depth], [sort_order], [filter_array]) | =PIVOTBY(...) | =PERCENTOF(val, total)
+
+PRIMARY CONCEPT:
+Mastering modern formula-based pivot table engines in Excel 365: generating live multi-dimensional summary grids with GROUPBY and PIVOTBY, configuring totals and sort orders, and computing percentage distributions with PERCENTOF
+
+TEACHER'S ADVICE:
+GROUPBY and PIVOTBY are pure magic! You write ONE formula: `=GROUPBY(Category, Sales, SUM)` and Excel builds an entire Pivot Table with headers, totals, and subtotals. And best of all: it updates instantly the millisecond you type new numbers!
+
+COMMON TRAPS TO AVOID:
+- Older Excel Builds Lacking GROUPBY / PIVOTBY Support: Functions only available in Excel 365 and Excel 2024+. -> Fix: Use classic Pivot Tables or FILTER/UNIQUE/SUMIFS combinations for older Excel versions.
+- Header Parameter Mismatch Causing Misplaced Column Titles: Passing `headers = 0` when source range includes headers. -> Fix: Set `headers = 3` (Show headers and generate totals) for clean table outputs.
+- Spill Path Blockage (#SPILL!): Target cells occupied by other text. -> Fix: Clear all cells in spill path.
+================================================================================

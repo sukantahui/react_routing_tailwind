@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Modern Office Scripts (TypeScript) & Power Automate
 Topic 1: Comparing VBA vs Office Scripts: TypeScript/JavaScript vs Visual Basic, Cloud vs Desktop
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Comparing VBA vs Office Scripts: TypeScript/JavaScript vs Visual Basic, Cloud vs Desktop is an essential discipline in cloud spreadsheet automation, serverless enterprise workflows, and TypeScript-driven business intelligence.
+It provides the core protocols required to author cross-platform scripts, connect Excel to Microsoft Power Automate, and construct 24/7 autonomous cloud pipelines.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Paradigm Comparison: VBA (Visual Basic, Desktop COM, .xlsm, Local PC) vs Office Scripts (TypeScript, Cloud API, .osts, Web/Cloud/Desktop)
+
+3. CORE TECHNICAL MECHANICS
+1. Platform Portability & Cloud Execution:
+   VBA is locked to Windows/Mac desktop installations; Office Scripts runs anywhere (Web, Mac, iPad, Linux browsers) and headless in the cloud.
+
+2. Language Architecture (VB6 vs TypeScript):
+   VBA uses 1990s procedural Visual Basic 6.0; Office Scripts uses modern TypeScript with compile-time type safety and JSON object support.
+
+3. Security Model & Governance:
+   VBA files (`.xlsm`) trigger security warnings; Office Scripts are sandboxed scripts stored centrally in OneDrive with enterprise Entra ID governance.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Technology Architect, Barrackpore HQ):
+  Enterprise Automation Migration Strategy - Audits corporate toolset: keeps low-level Windows API / UserForm tools in VBA, while migrating all cloud reporting and email pipelines to Office Scripts + Power Automate.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Selecting Right Automation Tool for Tax Portals - Deploys Office Scripts for cloud SharePoint tax registers and VBA for local desktop database extraction.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  Mobile Tablet Cloud Script Deployment - Chooses Office Scripts to enable iPad operators on shopfloor to trigger automated table sorting.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Automated Cloud Waybill Ingestion - Replaces fragile desktop scheduler macros with cloud-native Office Scripts triggered 24/7 by Power Automate.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Trying to Automate Other Desktop Apps from Office Scripts:
+  Root Cause: Office Scripts cannot launch desktop PowerPoint or Outlook like VBA COM automation.
+  Diagnostic Fix: Use Power Automate cloud connectors for cross-app automation (Forms, Outlook, Teams, SharePoint).
+• Using VBA When Cloud 24/7 Headless Execution is Required:
+  Root Cause: VBA requires a physical computer turned on with Excel running.
+  Diagnostic Fix: Migrate unattended server workflows to Office Scripts triggered by Power Automate.
+• Expecting ActiveSheet Focus to Always Exist in Cloud:
+  Root Cause: Headless cloud runs do not have an active visual user selection.
+  Diagnostic Fix: Always reference worksheets explicitly by name: `workbook.getWorksheet("Data")`.
+
+6. PRO TIPS & SHORTCUTS
+• When to Use VBA (Desktop UserForms, Windows APIs, local files): Best for heavy local PC automation.
+• When to Use Office Scripts (Excel for Web, Power Automate, Cloud flows): Best for 24/7 headless automated cloud pipelines.
+• Unified Ecosystem (Combine both strategically): The modern enterprise automation standard.
+================================================================================

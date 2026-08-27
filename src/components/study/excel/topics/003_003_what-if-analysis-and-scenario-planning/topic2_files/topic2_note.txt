@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
-Topic 2: One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue)
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 2: ONE-VARIABLE DATA TABLES & SENSITIVITY MODELING
+================================================================================
+Module: 003_003_what-if-analysis-and-scenario-planning
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+PRIMARY SYNTAX & ARCHITECTURE:
+• Column-Oriented: {=TABLE(, ColumnInputCell)}
+• Row-Oriented:    {=TABLE(RowInputCell, )}
+
+THE 6 BUSINESS VARIATIONS:
+1. Loan Interest Rate Sensitivity: Testing 7% to 12% on EMI, Total Interest, and Outflow.
+2. Product Pricing Sensitivity: Testing Unit Price steps on Gross Revenue and Operating Margin.
+3. Break-Even Volume Modeling: Testing Sales Volume on Contribution Margin & EBIT.
+4. Capital Budgeting Discount Rate Sensitivity: Testing Cost of Capital (WACC) on Project NPV.
+5. Commercial Real Estate Occupancy Yield: Testing Occupancy % on Net Operating Income (NOI).
+6. Multi-Output FX Rate Matrix: Testing USD/INR variations across Revenue, Cost, and Forex Gain/Loss.
+
+PRO TIP:
+Hide ugly formula headers (like =B6) using Custom Number Formatting: ;;;"Monthly EMI". This maintains the formula link while displaying clean executive labels!
+================================================================================

@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: External Data Automation: ADODB SQL Connections & Web APIs
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: External Data Automation: ADODB SQL Connections & Web APIs
 Topic 1: Establishing connection strings for MySQL, PostgreSQL, SQL Server, and Microsoft Access
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Establishing connection strings for MySQL, PostgreSQL, SQL Server, and Microsoft Access is an essential discipline in enterprise database engineering, cloud systems integration, and full-stack financial automation.
+It provides the core protocols required to connect Excel directly to enterprise relational databases, query closed workbooks via SQL, and consume cloud REST APIs.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Connection Strings: SQL Server: "Provider=MSOLEDBSQL;Server=myServer;Database=myDB;Trusted_Connection=yes;" | MySQL: "Driver={MySQL ODBC 8.0 Driver};Server=myServer;Database=myDB;Uid=user;Pwd=pass;"
+
+3. CORE TECHNICAL MECHANICS
+1. The Anatomy of a Connection String:
+   Consists of semicolon-delimited key-value pairs declaring Provider/Driver, Server network address, Port, Initial Catalog (Database), and Security Credentials.
+
+2. OLE DB vs ODBC Providers:
+   OLE DB (`Provider=MSOLEDBSQL`) is native and faster for Microsoft SQL Server / Access; ODBC (`Driver={MySQL ODBC 8.0 Driver}`) is standard for open-source databases.
+
+3. 32-Bit vs 64-Bit Driver Bitness Alignment:
+   The bitness of your installed database driver (32-bit vs 64-bit) MUST match the exact bitness of your Microsoft Office installation.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Data Architect, Barrackpore HQ):
+  Enterprise SQL Server Clustered Connection String - Configures failover SQL Server connection strings with `MultiSubnetFailover=Yes` across enterprise banking clusters.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  SSL-Encrypted MySQL Connection Configuration - Configures SSL-secured MySQL ODBC connection strings with `SSLMode=Required` for audited tax data extraction.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  PostgreSQL Port 5432 OLE DB Connector - Builds PostgreSQL connection strings for factory telemetry databases.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Microsoft Access ACE OLEDB Local Staging DB - Connects dispatch models to local `Provider=Microsoft.ACE.OLEDB.12.0` databases.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Driver Architecture Bitness Mismatch (Fatal Connection Error):
+  Root Cause: Installing a 64-bit MySQL driver when using 32-bit Excel (or vice-versa) throws '[Microsoft][ODBC Driver Manager] Data source name not found'.
+  Diagnostic Fix: Install the exact ODBC driver bitness matching your Excel version (Check File > Account > About Excel).
+• Missing Port Number on Non-Standard Database Ports:
+  Root Cause: Database running on non-default port (e.g. MySQL on 3307 instead of 3306) fails to connect.
+  Diagnostic Fix: Include explicit port: `Server=192.168.1.100,1433;` or `Port=3307;`.
+• Unescaped Special Characters in Passwords:
+  Root Cause: Semicolons or quotes inside database passwords breaking connection string parsing.
+  Diagnostic Fix: Enclose passwords containing semicolons in single quotes or curly braces: `Pwd='p;ssw@rd';`.
+
+6. PRO TIPS & SHORTCUTS
+• ConnectionStrings.com Reference (Universal reference for all database drivers): Gold-standard reference for accurate driver syntax.
+• SQL Server Native OLE DB (Provider=MSOLEDBSQL;Server=...;Trusted_Connection=yes;): The fastest, most secure driver for SQL Server.
+• Test Connection Function (conn.Open: If conn.State = 1 Then MsgBox "Connected!"): Verifies database connectivity in 1 second.
+================================================================================

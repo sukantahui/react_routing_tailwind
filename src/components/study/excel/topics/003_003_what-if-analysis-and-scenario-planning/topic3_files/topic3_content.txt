@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: What-If Analysis and Scenario Planning
 Topic 3: Two-Variable Data Tables: Cross-matrix sensitivity analysis (e.g., price vs volume vs profit)
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Two-Variable Data Tables: Cross-matrix sensitivity analysis (e.g., price vs volume vs profit) is an essential discipline in corporate decision modeling, capital allocation, and risk management.
+It provides the core protocols required to stress-test financial projections, solve backwards for target goals, and mathematically optimize resource utilization.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: 2-Variable Data Table: Top-Left Anchor: =OutputCell | Row Input Cell: TopVarCell | Col Input Cell: LeftVarCell
+
+3. CORE TECHNICAL MECHANICS
+1. 2D Cartesian Intersection Grid:
+   Evaluates a single target output formula across the cross-product matrix of Row Inputs (horizontal top) and Column Inputs (vertical left).
+
+2. Top-Left Corner Anchor Cell:
+   The top-left intersection cell MUST contain a formula link directly referencing the single target KPI (e.g. `=NetProfit` or `=SharePrice`).
+
+3. Dynamic Conditional Heatmap Formatting:
+   Applying 3-color gradient conditional formatting highlights profitability zones, break-even contours, and loss-making parameter combinations.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Unit Price vs Sales Volume Profit Matrix - Cross-analyzes Selling Price (₹500 to ₹700) against Sales Volume (10,000 to 25,000 units) to map total EBITDA profitability zones.
+• Tuhina Mukherjee (Corporate M&A Lead, Shyamnagar Plant):
+  WACC vs Terminal Growth DCF Valuation Grid - Constructs boardroom M&A valuation matrices cross-tabulating WACC (9%-13%) against perpetual growth rates (2%-4%).
+• Abhronila Das (Plant Operations Lead, Ichapur Works):
+  Raw Material Cost vs Scrap Rate Matrix - Maps manufacturing operating profit across billet steel costs and shopfloor scrap percentages.
+• Debangshu Roy (Logistics Pricing Director, Naihati Logistics):
+  Diesel Price vs Fleet Fuel Efficiency Matrix - Evaluates transport delivery cost per ton across fuel price hikes and engine efficiency levels.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Reversing Row and Column Input Cells:
+  Root Cause: Assigning the horizontal variable to Column Input and vertical variable to Row Input inverts the entire sensitivity matrix.
+  Diagnostic Fix: Row Input Cell = Top Horizontal Header variable; Column Input Cell = Left Vertical Column variable.
+• Top-Left Corner Left Blank:
+  Root Cause: Leaving top-left cell empty causes the table to compute zeroes across all cells.
+  Diagnostic Fix: Link top-left cell to the target output formula: `=TargetCell`.
+• Multiple Target Formulas in 2D Table:
+  Root Cause: Attempting to evaluate multiple KPIs inside a 2D table (2-Variable tables only support ONE target KPI).
+  Diagnostic Fix: Build separate 2D tables for each KPI, or use 1-Variable tables for multiple KPIs.
+
+6. PRO TIPS & SHORTCUTS
+• Top-Left Masking (Format Cells > Custom: ;;;): Hides the raw top-left formula link so the table displays clean row/column labels.
+• 3-Color Conditional Heatmap (Home > Conditional Formatting > Color Scales): Visualizes profit gradients (Green to Red) across the matrix.
+• Check Input Orientation (Horizontal = Row Input, Vertical = Col Input): The foolproof rule to avoid inverted data tables.
+================================================================================

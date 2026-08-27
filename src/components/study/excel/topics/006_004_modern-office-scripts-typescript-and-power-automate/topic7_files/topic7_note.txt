@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
-Topic 7: Adding parameters and return values to Office Scripts for external execution
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 7 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Adding parameters and return values to Office Scripts for external execution
+Module: 006_004_modern-office-scripts-typescript-and-power-automate
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Script Interface: function main(workbook: ExcelScript.Workbook, branchName: string, targetRevenue: number): { success: boolean, totalSales: number } { ... return { success: true, totalSales: sum }; }
+
+PRIMARY CONCEPT:
+Authoring parameterized Office Scripts that act as cloud microservices: accepting external input parameters from Power Automate and returning structured JSON payload responses
+
+TEACHER'S ADVICE:
+This is true modern programming. You can pass inputs into your script like `function main(workbook, branchName, target)`, calculate the answer in Excel, and return the result to Power Automate to send in an email!
+
+COMMON TRAPS TO AVOID:
+- Using Non-Serializable Return Types: Returning complex circular objects or DOM references causes Power Automate flow execution to fail. -> Fix: Return clean primitive types, arrays, or simple JSON objects (`{ status: string, total: number }`).
+- Missing Parameter Types on Main Function: Omitting TypeScript type annotations on input parameters (`function main(workbook, arg1)`). -> Fix: Always declare explicit types: `function main(workbook: ExcelScript.Workbook, arg1: string)`.
+- Testing in Excel Without Passing Mock Arguments: Running a parameterized script in the editor without providing test values in the Run panel. -> Fix: Enter test parameters in the Monaco editor parameters panel before clicking Run.
+================================================================================

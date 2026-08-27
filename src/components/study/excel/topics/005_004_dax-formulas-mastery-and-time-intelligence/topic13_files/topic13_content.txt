@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: DAX Formulas Mastery and Time Intelligence
 Topic 13: Advanced ranking and top-performer DAX: RANKX and TOPN
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Advanced ranking and top-performer DAX: RANKX and TOPN is an essential discipline in enterprise business intelligence, quantitative finance, and advanced data modeling.
+It provides the core protocols required to construct complex multi-dimensional financial measures, calculate period-over-period growth, and evaluate dynamic rankings.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Ranking & Top N: RANKX(ALL(Dim_Product), [TotalSales], , DESC, Dense) | TOPN(10, Dim_Customer, [TotalSales], DESC)
+
+3. CORE TECHNICAL MECHANICS
+1. RANKX Architecture & Context:
+   `RANKX(Table, Expression, [Value], [Order], [Ties])`. Table argument must typically be wrapped in `ALL()` or `ALLSELECTED()` to establish the full ranking population.
+
+2. Dynamic Slicer Re-Ranking:
+   Wrapping in `ALLSELECTED(Dim_Customer[Name])` re-ranks customers dynamically from 1 to N within the active regional slicer selection.
+
+3. TOPN Virtual Table Constructor:
+   `TOPN(10, Dim_Product, [TotalSales])` generates a temporary 10-row table of top-performing products, passed to `CALCULATE()` to compute 'Top 10 Sales Share'.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Commercial Officer, Barrackpore HQ):
+  National Branch Sales Performance Ranking - Builds `BranchRank := RANKX(ALL(Dim_Branch[Name]), [TotalSales], , DESC, Dense)` ranking 50 branches across India.
+• Tuhina Mukherjee (Procurement Audit Lead, Shyamnagar Plant):
+  Top 10 Vendor Spend Concentration - Computes `Top10VendorSpend := CALCULATE([TotalSpend], TOPN(10, ALL(Dim_VendorMaster), [TotalSpend], DESC))`.
+• Abhronila Das (Plant Quality Superintendent, Ichapur Works):
+  Machine Scrap Severity Ranking - Ranks manufacturing machines dynamically based on monthly scrap rate percentage.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Freight Corridor Volume Rank - Ranks 100 shipping corridors dynamically by total transported tonnage.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• The 'Every Row is Rank 1' Bug (The Classic RANKX Trap):
+  Root Cause: Passing a table without `ALL()` (e.g. `RANKX(Dim_Product, [TotalSales])`) restricts the ranking population to the single row in the pivot, so every product ranks #1 against itself.
+  Diagnostic Fix: Always wrap the ranking entity in `ALL()` or `ALLSELECTED()`: `RANKX(ALL(Dim_Product[Name]), [TotalSales])`.
+• Ranking Columns with Identical Values (Ties):
+  Root Cause: Multiple entities with identical sales receiving identical rank numbers.
+  Diagnostic Fix: Configure the 5th parameter `[Ties]` as `Dense` or `Skip`, or add secondary decimal tie-breakers.
+• Performance Lag on 500,000 Row RANKX:
+  Root Cause: Running RANKX over massive fact tables.
+  Diagnostic Fix: Run RANKX exclusively over Dimension tables (`Dim_Customer`, `Dim_Product`).
+
+6. PRO TIPS & SHORTCUTS
+• The ALL() Wrap Mandatory (RANKX(ALL(Dim[Name]), [Measure])): Guarantees proper evaluation across the entire population.
+• Top 10 Filter Measure (IF([Rank] <= 10, [TotalSales], BLANK())): Filters PivotTable to show only the top 10 entities.
+• TOPN Aggregation (CALCULATE([Sales], TOPN(5, ALL(Product), [Sales]))): Directly computes sales for top 5 products.
+================================================================================

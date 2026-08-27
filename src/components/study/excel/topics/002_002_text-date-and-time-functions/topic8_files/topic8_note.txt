@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Text, Date and Time Functions
-Topic 8: Modern text manipulation: TEXTBEFORE, TEXTAFTER, and TEXTSPLIT
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 8 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Modern text manipulation: TEXTBEFORE, TEXTAFTER, and TEXTSPLIT
+Module: 002_002_text-date-and-time-functions
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+=TEXTBEFORE(text, delimiter, [instance_num], [match_mode], [match_end], [if_not_found]) | =TEXTAFTER(text, delimiter, ...) | =TEXTSPLIT(text, col_delimiter, [row_delimiter], ...)
+
+PRIMARY CONCEPT:
+Next-gen text manipulation eliminating complex LEFT/MID/FIND formulas using modern dynamic array functions (TEXTBEFORE, TEXTAFTER, TEXTSPLIT)
+
+TEACHER'S ADVICE:
+TEXTBEFORE, TEXTAFTER, and TEXTSPLIT have retired 30 years of complex nested LEFT/MID/FIND formulas. They are the new industry standard for text parsing.
+
+COMMON TRAPS TO AVOID:
+- Delimiter Not Found (#N/A): If the target delimiter does not exist in the source string, TEXTBEFORE/TEXTAFTER returns #N/A. -> Fix: Provide the optional `if_not_found` argument: =TEXTBEFORE(A2, "-", , , , A2).
+- #SPILL! Blocked Output in TEXTSPLIT: If cells to the right or below TEXTSPLIT output are occupied, Excel returns #SPILL!. -> Fix: Clear all obstructing cells in the spill range.
+- Version Incompatibility (Excel 2019/2021): TEXTBEFORE, TEXTAFTER, and TEXTSPLIT are only available in Excel 365 and Excel 2024. -> Fix: Use classic LEFT/MID/FIND fallback formulas for legacy client workbooks.
+================================================================================

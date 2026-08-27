@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: What-If Analysis and Scenario Planning
 Topic 12: Real-world project: Production mix optimization to maximize corporate profit under resource limits
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Real-world project: Production mix optimization to maximize corporate profit under resource limits is an essential discipline in corporate decision modeling, capital allocation, and risk management.
+It provides the core protocols required to stress-test financial projections, solve backwards for target goals, and mathematically optimize resource utilization.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Production Mix Optimization: Maximize Profit = SUMPRODUCT(Margins, Units) | Subject to: Machine, Labor, Material Limits
+
+3. CORE TECHNICAL MECHANICS
+1. Multi-Constraint Matrix Formulation:
+   Optimizes production across 5 industrial product lines subject to Melting Furnace Hours, CNC Machining Hours, Quality Inspection Hours, and Raw Billet Tonnage.
+
+2. Market Demand Upper Bounds:
+   Includes maximum market sales absorption limits (`UnitsProduced <= MarketDemand`) to prevent overproducing unsellable inventory.
+
+3. Managerial Sensitivity Interpretation:
+   Generates full Answer and Sensitivity reports, providing executive recommendations for bottleneck debottlenecking and capacity expansion.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Manufacturing Operations, Barrackpore HQ):
+  Enterprise Annual Production Plan Optimization - Optimizes annual production mix across ₹200 Crore industrial alloy output, increasing annual EBITDA contribution by ₹8.4 Crores in 1 Solver run.
+• Tuhina Mukherjee (Head of Operations Audit, Shyamnagar Plant):
+  Factory Capacity Utilization Benchmark - Audits production schedules to eliminate idle bottleneck capacity across CNC lathe centers.
+• Abhronila Das (Plant Superintendent, Ichapur Works):
+  Shift Labor & Material Allocation - Allocates 120 technicians and 500 MT of specialty steel across daily fabrication lines.
+• Debangshu Roy (Supply Chain Financial Director, Naihati Logistics):
+  Finished Goods Distribution Optimization - Synchronizes factory production output with regional distribution warehouse inventory targets.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Omitting Market Demand Ceilings:
+  Root Cause: Solver allocates 100% of factory capacity to the single highest-margin product, producing 50,000 units when market demand is only 5,000.
+  Diagnostic Fix: Add `Production <= MaxMarketDemand` constraints for every product.
+• Fractional Unit Outputs in Physical Goods:
+  Root Cause: Producing 1,420.65 units of heavy industrial valves.
+  Diagnostic Fix: Add Integer (`int`) constraint to decision variable cells.
+• Failing to Save Solver Model on Sheet:
+  Root Cause: Reopening the sheet later and finding Solver settings blank.
+  Diagnostic Fix: Solver > Options > 'Save Model' to store configuration parameters directly in worksheet cells.
+
+6. PRO TIPS & SHORTCUTS
+• Save Solver Model (Solver > Options > Save Model): Stores entire optimization configuration permanently in worksheet cells.
+• Clean 3-Block Layout (Unit Margins -> Variables -> Constraint Matrix): The industrial standard layout for optimization workbooks.
+• Capacity Slack Column (=Available - Used): Visual indicator showing remaining unused capacity for each resource.
+================================================================================

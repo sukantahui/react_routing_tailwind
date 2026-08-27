@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Data Validation, Protection and Cleaning Techniques
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Data Validation, Protection and Cleaning Techniques
 Topic 0: Data validation fundamentals: Whole numbers, Decimals, Dates, and Text Length
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Data validation fundamentals: Whole numbers, Decimals, Dates, and Text Length is an essential discipline in corporate spreadsheet governance, data integrity, and template security.
+It provides the core protocols required to prevent data corruption, audit complex formulas, and encrypt sensitive corporate assets.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Data Validation: Allow: Whole number | Decimal | Date | Time | Text length (Between Min and Max)
+
+3. CORE TECHNICAL MECHANICS
+1. Point-of-Entry Gatekeeper:
+   Data Validation intercepts user keystrokes before they commit to the worksheet cell, preventing corrupted data types from entering analytical pipelines.
+
+2. Boundary Operators:
+   Supports Between, Not Between, Equal To, Greater Than, Less Than, and custom relative formulas referencing other cells.
+
+3. Type Coercion Prevention:
+   Blocks users from entering text into numeric budget cells or typing invalid impossible date strings.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Risk Compliance Director, Barrackpore HQ):
+  Corporate Loan Interest Rate Cap - Restricts loan officer interest rate entries: Allow: Decimal, Between 7.50% and 18.00% across corporate lending desks.
+• Tuhina Mukherjee (Tax Compliance Lead, Shyamnagar Plant):
+  Statutory Tax Invoice Date Boundary - Limits invoice entry dates to the current active financial year: Allow: Date, Between 01-Apr-2026 and 31-Mar-2027.
+• Abhronila Das (Plant Inventory Controller, Ichapur Works):
+  Raw Material Reorder Quantity Constraints - Forces warehouse staff to enter positive integers: Allow: Whole number, Greater than 0 for billet orders.
+• Debangshu Roy (Logistics Manifest Lead, Naihati Logistics):
+  Driver 10-Digit Mobile Number Validation - Enforces exact 10-character mobile phone entry: Allow: Text length, Equal to 10.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Bypassing Validation via Copy-Paste (The Trojan Horse):
+  Root Cause: Copying and pasting a cell directly over a validated cell overwrites and DESTROYS the Data Validation rule completely.
+  Diagnostic Fix: Lock the worksheet structure or instruct users to Paste Values Only (Alt + E + S + V).
+• Ignoring Pre-Existing Corrupted Data:
+  Root Cause: Applying Data Validation to a column with existing bad data does not retroactively flag or delete invalid entries.
+  Diagnostic Fix: Use Data > Data Validation > 'Circle Invalid Data' to highlight existing violations.
+• Text Stored as Number in Length Check:
+  Root Cause: Checking Text Length on a number treats the digit count as characters (e.g. 1000 has length 4), but decimals include period character.
+  Diagnostic Fix: Use Whole Number checks for numeric ranges; reserve Text Length for codes and IDs.
+
+6. PRO TIPS & SHORTCUTS
+• Data Validation Shortcut (Alt + A + V + V): Instantly opens the Data Validation configuration modal.
+• Circle Invalid Data (Alt + A + V + C): Draws red circles around any cells in the table violating validation rules.
+• Clear Validation Circles (Alt + A + V + R): Clears red visual audit circles from the active worksheet.
+================================================================================

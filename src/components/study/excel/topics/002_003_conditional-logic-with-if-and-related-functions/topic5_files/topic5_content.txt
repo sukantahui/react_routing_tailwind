@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Conditional Logic with IF and Related Functions
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Conditional Logic with IF and Related Functions
 Topic 5: Value branching and condition mapping with the SWITCH function
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Value branching and condition mapping with the SWITCH function is an essential discipline in modern financial modeling and automated decision support.
+It provides the core formulas required to evaluate complex business rules and multi-tier criteria.
+
+2. SYNTAX & TOKEN STRUCTURE
+Formula Code: =SWITCH(expression, value1, result1, [value2, result2], ..., [default])
+
+3. CORE TECHNICAL MECHANICS
+1. Single Expression Evaluation:
+   Evaluates the initial expression ONCE, then compares the result directly against discrete case values (e.g. `=SWITCH(A2, 1, "Low", 2, "Med", 3, "High", "Unknown")`).
+
+2. Built-In Trailing Default:
+   If an odd argument remains at the end, SWITCH treats it as the default return value without needing a `TRUE` tag.
+
+3. The `SWITCH(TRUE, ...)` Boolean Idiom:
+   Passing `TRUE` as the initial expression allows SWITCH to evaluate full logical comparison expressions just like IFS.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (ERP Systems Specialist, Barrackpore HQ):
+  General Ledger Department Code Mapping - Translates numeric GL department codes (100 -> 'Sales', 200 -> 'Engineering', 300 -> 'Finance', 'Other') in single-line formulas.
+• Tuhina Mukherjee (Tax Consultant, Shyamnagar Plant):
+  GST Tax Rate Lookup by HSN Category - Maps tax slab codes (A -> 5%, B -> 12%, C -> 18%, D -> 28%, 0%) across 20,000 product line items.
+• Abhronila Das (Shift Supervisor, Ichapur Works):
+  Factory Shift Name Decoding - Converts shift code integers (1 -> 'Morning 06:00-14:00', 2 -> 'Evening 14:00-22:00', 3 -> 'Night 22:00-06:00', 'Off').
+• Debangshu Roy (Logistics Router, Naihati Logistics Hub):
+  Carrier Service Level Assignment - Maps courier service codes (EXP -> 'Express Air', STD -> 'Surface', ECO -> 'Economy', 'Standard').
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Missing Default Value Return (#N/A):
+  Root Cause: If the input value does not match any case and no trailing default argument is supplied, SWITCH returns #N/A.
+  Diagnostic Fix: Always supply a final default fallback argument at the end of the argument list.
+• Data Type Mismatch in Cases:
+  Root Cause: Matching the number 1 against the text string "1" fails because SWITCH performs strict type matching.
+  Diagnostic Fix: Ensure data types match: use numbers for numeric codes, quoted strings for text codes.
+• Confusing SWITCH with IFS Syntax:
+  Root Cause: Putting full conditions (A2>100) inside standard SWITCH arguments fails because SWITCH expects discrete target values.
+  Diagnostic Fix: Use `SWITCH(TRUE, A2>100, "High", ...)` or use IFS.
+
+6. PRO TIPS & SHORTCUTS
+• The SWITCH(TRUE) Hack (=SWITCH(TRUE, A2>90, "A", A2>80, "B", "C")): Enables evaluating comparison expressions inside SWITCH.
+• Trailing Default (Last argument without pair): An unpaired final argument automatically acts as the clean default fallback.
+• Compact GL Mapping (=SWITCH(A2, 10, "HQ", 20, "Plant", "Branch")): Eliminates repetitive cell references in multi-value mappings.
+================================================================================

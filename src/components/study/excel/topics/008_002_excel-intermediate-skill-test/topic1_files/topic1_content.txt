@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Excel Intermediate Skill Test
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Excel Intermediate Skill Test
 Topic 1: Text, Date & Complex Conditional Logic Test
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Text, Date & Complex Conditional Logic Test is an essential evaluation milestone in spreadsheet mastery, data modeling rigor, and executive reporting.
+It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Text/Date/Logic: =IFS(B2>1000000, "Tier 1", B2>500000, "Tier 2", TRUE, "Standard") | Date: =EDATE(A2, 3) | Text: =TEXTJOIN(", ", TRUE, A2:C2)
+
+3. CORE TECHNICAL MECHANICS
+1. Multi-Tier IFS Logical Branching:
+   Evaluates multi-condition business rules sequentially without unreadable nested IF parentheses: `=IFS(Cond1, Val1, Cond2, Val2, TRUE, DefaultVal)`.
+
+2. Calendar & Maturity Date Modeling:
+   Calculates precise fiscal quarter ends (`EOMONTH`), milestone deadlines (`EDATE`), and tenure durations (`DATEDIF`).
+
+3. Modern String Aggregation (TEXTJOIN):
+   Concatenates variable-length text ranges with custom delimiters while ignoring blank cells.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Commercial Officer, Barrackpore HQ):
+  Enterprise Customer Tier & Contract Maturity Test - Evaluates candidates on constructing multi-condition commission tier formulas and contract expiration date calculations for 5,000 corporate clients.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  GST Filing Due Date & Penalty Logic Test - Tests candidate formulas calculating statutory filing deadlines with late fee penalty IF conditions.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  Machine Maintenance Due Date Calculator - Evaluates candidate use of `EDATE` to project equipment servicing schedules across factory units.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Waybill Address TEXTJOIN & Status Logic - Tests address concatenation and delivery SLA threshold IF formulas.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Reversing Inequality Order in IFS Statements:
+  Root Cause: Placing `B2 > 100000` before `B2 > 1000000` causes all high numbers to trigger the smaller tier first.
+  Diagnostic Fix: Order inequalities strictly from most restrictive (highest) to least restrictive.
+• Omitting Final 'TRUE, Default' Catch-All in IFS:
+  Root Cause: IFS returning `#N/A` when no condition matches.
+  Diagnostic Fix: Always end IFS formulas with `TRUE, "DefaultValue"`.
+• Using Hardcoded Date Strings ('15/08/2026') in Formulas:
+  Root Cause: Regional date format misinterpretation causing formula errors.
+  Diagnostic Fix: Use the `DATE(year, month, day)` function for reliable date construction.
+
+6. PRO TIPS & SHORTCUTS
+• IFS Catch-All (IFS(..., TRUE, "Other")): Guarantees no #N/A errors for unmatched cases.
+• Month-End Date (EOMONTH(Date, 0)): Calculates exact last day of current month.
+• Clean TEXTJOIN (TEXTJOIN(", ", TRUE, Range)): Joins text strings with commas, skipping blanks.
+================================================================================

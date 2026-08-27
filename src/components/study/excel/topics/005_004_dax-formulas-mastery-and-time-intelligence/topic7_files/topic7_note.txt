@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
-Topic 7: Handling multiple relationships with USERELATIONSHIP (Active vs Inactive relationships)
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 7 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Handling multiple relationships with USERELATIONSHIP (Active vs Inactive relationships)
+Module: 005_004_dax-formulas-mastery-and-time-intelligence
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+USERELATIONSHIP(Fact_Table[Date_FK], Dim_Calendar[Date_PK]) | ShipSales := CALCULATE([TotalSales], USERELATIONSHIP(Fact_Sales[ShipDate], Dim_Calendar[Date]))
+
+PRIMARY CONCEPT:
+Handling multiple date relationships (Role-Playing Dimensions) using USERELATIONSHIP: analyzing Order Date, Ship Date, and Delivery Date against a single master Calendar table
+
+TEACHER'S ADVICE:
+Do not create 3 different calendar tables! Create ONE Calendar table, link OrderDate (Active - solid line) and ShipDate (Inactive - dotted line). Then write: `SalesByShipDate := CALCULATE([TotalSales], USERELATIONSHIP(Fact[ShipDate], Calendar[Date]))`. Pure elegance.
+
+COMMON TRAPS TO AVOID:
+- Using USERELATIONSHIP Outside of CALCULATE: Writing `USERELATIONSHIP()` as a standalone measure throws a DAX syntax error. -> Fix: USERELATIONSHIP can ONLY be passed as a filter argument inside `CALCULATE()`.
+- Duplicating 5 Calendar Tables (Anti-Pattern): Creating `Calendar_Order`, `Calendar_Ship`, `Calendar_Pay` tables bloats the model and fragments slicers. -> Fix: Use 1 Master Calendar table with inactive relationships and `USERELATIONSHIP()`.
+- Data Type Mismatch on Inactive Relationship Keys: Key data types differing between foreign and primary keys breaks activation. -> Fix: Ensure both key columns share identical data types in Power Query.
+================================================================================

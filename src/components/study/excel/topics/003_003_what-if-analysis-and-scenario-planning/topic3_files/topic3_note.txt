@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
-Topic 3: Two-Variable Data Tables: Cross-matrix sensitivity analysis (e.g., price vs volume vs profit)
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 3 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Two-Variable Data Tables: Cross-matrix sensitivity analysis (e.g., price vs volume vs profit)
+Module: 003_003_what-if-analysis-and-scenario-planning
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+2-Variable Data Table: Top-Left Anchor: =OutputCell | Row Input Cell: TopVarCell | Col Input Cell: LeftVarCell
+
+PRIMARY CONCEPT:
+Constructing 2-Variable Data Tables to evaluate cross-matrix financial sensitivities: intersecting two independent variables (e.g. Price vs Volume, or WACC vs Terminal Growth)
+
+TEACHER'S ADVICE:
+The 2-Variable Data Table is the undisputed king of sensitivity modeling. Always remember: Top row = Row Input Cell; Left column = Column Input Cell. Mask the top-left corner with `;;;` and add a subtle color scale.
+
+COMMON TRAPS TO AVOID:
+- Reversing Row and Column Input Cells: Assigning the horizontal variable to Column Input and vertical variable to Row Input inverts the entire sensitivity matrix. -> Fix: Row Input Cell = Top Horizontal Header variable; Column Input Cell = Left Vertical Column variable.
+- Top-Left Corner Left Blank: Leaving top-left cell empty causes the table to compute zeroes across all cells. -> Fix: Link top-left cell to the target output formula: `=TargetCell`.
+- Multiple Target Formulas in 2D Table: Attempting to evaluate multiple KPIs inside a 2D table (2-Variable tables only support ONE target KPI). -> Fix: Build separate 2D tables for each KPI, or use 1-Variable tables for multiple KPIs.
+================================================================================

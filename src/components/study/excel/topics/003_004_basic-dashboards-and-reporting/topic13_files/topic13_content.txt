@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Basic Dashboards and Reporting
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Basic Dashboards and Reporting
 Topic 13: Real-world capstone: Building an Executive C-Suite Sales & Profitability Dashboard from scratch
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Real-world capstone: Building an Executive C-Suite Sales & Profitability Dashboard from scratch is an essential discipline in corporate business intelligence, executive reporting, and visual analytics.
+It provides the core protocols required to transform dense tabular data into intuitive, interactive, single-screen command centers.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Executive C-Suite Sales & Profitability Dashboard: KPI Summary Cards + Waterfall P&L Bridge + Slicers + Treemap + Sparklines
+
+3. CORE TECHNICAL MECHANICS
+1. End-to-End Enterprise BI Synthesis:
+   Integrates 4 top KPI Cards with delta badges, a central Waterfall P&L margin bridge, a 12-month Sparkline trajectory matrix, and a Category Treemap.
+
+2. Unified Interactive Slicer Mesh:
+   Links Master Region, Product Line, and Fiscal Quarter slicers across all dashboard components simultaneously.
+
+3. Institutional Boardroom Formatting Standards:
+   Applies dark-themed container styling, hidden gridlines, locked column widths, and zero-hardcoding formula architecture.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Commercial Officer, Barrackpore HQ):
+  Enterprise Executive Sales & Profitability Command Center - Constructs and delivers a complete ₹250 Crore commercial sales and EBITDA profitability dashboard for the Board of Directors.
+• Tuhina Mukherjee (Head of Financial Planning, Shyamnagar Plant):
+  Manufacturing Division Strategic Performance Pack - Delivers comprehensive operational expenditure, yield variance, and net margin executive review dashboards.
+• Abhronila Das (Director of Production, Ichapur Works):
+  Factory Operational Excellence Command Console - Deploys real-time manufacturing yield, machine downtime, and quality defect analytics suites.
+• Debangshu Roy (VP Supply Chain Logistics, Naihati Logistics Hub):
+  Nationwide Freight Distribution Intelligence Hub - Monitors transit turnaround SLAs, carrier profitability, and route fuel efficiency across India.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Information Overload (Dashboard Bloat):
+  Root Cause: Crowding 25 disparate charts onto a single screen with no clear visual hierarchy.
+  Diagnostic Fix: Follow the rule of 5: 1 primary trend, 1 composition chart, 1 detailed table, and 4 top KPI cards.
+• Broken Cross-Sheet Formula Linkages:
+  Root Cause: Hardcoding numbers when transferring data from calculation sheets to the dashboard canvas.
+  Diagnostic Fix: Maintain strict dynamic formula links (`=Calcs!C10`) across all dashboard card elements.
+• Neglecting Mobile / Laptop Screen Aspect Ratios:
+  Root Cause: Designing only for massive 32-inch desktop monitors causes dashboard to clip on executive 14-inch laptops.
+  Diagnostic Fix: Design within standard 1366x768 / 1920x1080 responsive grid boundaries.
+
+6. PRO TIPS & SHORTCUTS
+• The 5-Second Executive Rule (Key metrics visible in 5 seconds): Executives must understand business health within 5 seconds of opening.
+• Single Source of Truth Sheet (Dedicated 'Calcs' engine tab): Keeps messy background formulas completely separate from the clean presentation canvas.
+• Export to Interactive PDF (File > Export > PDF): Delivers publication-grade executive briefing documents.
+================================================================================

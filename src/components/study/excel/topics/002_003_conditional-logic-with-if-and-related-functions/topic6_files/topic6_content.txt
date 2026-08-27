@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Conditional Logic with IF and Related Functions
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Conditional Logic with IF and Related Functions
 Topic 6: Error interception and handling: IFERROR, IFNA, and ISERROR
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Error interception and handling: IFERROR, IFNA, and ISERROR is an essential discipline in modern financial modeling and automated decision support.
+It provides the core formulas required to evaluate complex business rules and multi-tier criteria.
+
+2. SYNTAX & TOKEN STRUCTURE
+Formula Code: =IFERROR(value, value_if_error) | =IFNA(value, value_if_na) | =ISERROR(value)
+
+3. CORE TECHNICAL MECHANICS
+1. Universal Error Catch-All (IFERROR):
+   Traps ALL standard Excel errors (#N/A, #VALUE!, #REF!, #DIV/0!, #NUM!, #NAME?, #NULL!) and replaces them with a fallback value.
+
+2. Targeted Lookup Error Trap (IFNA):
+   Traps ONLY the #N/A (lookup not found) error, allowing critical syntax (#NAME?) and structural (#REF!) bugs to remain visible for debugging.
+
+3. Boolean Error Testing (ISERROR / ISNA):
+   Returns TRUE if the target expression yields an error, enabling conditional branching inside IF() statements.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Financial Modeler, Barrackpore HQ):
+  Zero-Division Safe Margin Calculations - Calculates profit margins safely via =IFERROR((Revenue - Cost) / Revenue, 0) preventing #DIV/0! on zero-revenue rows.
+• Tuhina Mukherjee (Senior Auditor, Shyamnagar Plant):
+  Graceful Lookup Fallbacks - Replaces missing vendor search results with clean notices: =IFNA(VLOOKUP(ID, VendorTable, 2, FALSE), "Vendor Not Registered").
+• Abhronila Das (Production Data Lead, Ichapur Works):
+  Sensor Anomaly Filtering - Filters corrupted machine telemetry readings using =IFERROR(VALUE(RawData), "SENSOR ERROR").
+• Debangshu Roy (Logistics Billing Lead, Naihati Logistics):
+  Cross-Branch Rate Card Fallback - Cascades rate lookups: =IFERROR(VLOOKUP(A2, ExpressRates, 2, 0), VLOOKUP(A2, StandardRates, 2, 0)).
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Masking Structural #REF! / #NAME? Bugs with IFERROR:
+  Root Cause: Wrapping an entire formula in IFERROR hides deleted column references (#REF!) or misspelled function names (#NAME?), obscuring critical model bugs.
+  Diagnostic Fix: Use IFNA() for lookup formulas so structural errors (#REF!) remain visible during audit reviews.
+• Blank Fallback Disrupts Downstream Math:
+  Root Cause: Returning "" (text) as fallback causes downstream =SUM(A1:A5) to ignore cells, but =A1+A2 triggers a fatal #VALUE! error.
+  Diagnostic Fix: Return numeric 0 if the column will be used in downstream arithmetic.
+• Overusing IFERROR During Formula Development:
+  Root Cause: Wrapping unverified formulas in IFERROR makes debugging formula logic impossible.
+  Diagnostic Fix: Build and test the core formula first; apply error handling only after verifying logic.
+
+6. PRO TIPS & SHORTCUTS
+• Use IFNA for Lookups (=IFNA(XLOOKUP(...), "Not Found")): Best practice: Traps missing items without masking broken formulas.
+• Safe Division Pattern (=IFERROR(A2 / B2, 0)): Universal pattern to prevent #DIV/0! on zero denominators.
+• Chained Fallback Lookups (=IFERROR(Lookup1, IFERROR(Lookup2, Default))): Cascades through secondary rate tables automatically.
+================================================================================

@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Conditional Logic with IF and Related Functions
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Conditional Logic with IF and Related Functions
 Topic 4: Modern multi-condition evaluation with the IFS function
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Modern multi-condition evaluation with the IFS function is an essential discipline in modern financial modeling and automated decision support.
+It provides the core formulas required to evaluate complex business rules and multi-tier criteria.
+
+2. SYNTAX & TOKEN STRUCTURE
+Formula Code: =IFS(logical_test1, value_if_true1, [logical_test2, value_if_true2], ..., [TRUE, default_value])
+
+3. CORE TECHNICAL MECHANICS
+1. Paired Condition-Value Syntax:
+   IFS takes arguments in alternating pairs: `Condition1, Result1, Condition2, Result2, Condition3, Result3`.
+
+2. First-Match Termination:
+   Evaluates condition pairs sequentially from left to right, returning the result of the first TRUE condition encountered.
+
+3. The Mandatory TRUE Fallback:
+   Because IFS lacks a built-in default argument, append `TRUE, default_value` as the final pair to prevent unhandled #N/A errors.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Financial Modeler, Barrackpore HQ):
+  Regional Corporate Tax Rate Assignment - Assigns tax rates based on country codes: =IFS(Region="IN", 0.25, Region="UK", 0.19, Region="US", 0.21, TRUE, 0.30).
+• Tuhina Mukherjee (Senior Auditor, Shyamnagar Plant):
+  Aging Account Receivable Classification - Categorizes overdue invoices: =IFS(Days>90, "Critical", Days>60, "Delinquent", Days>30, "Watchlist", TRUE, "Current").
+• Abhronila Das (Safety Supervisor, Ichapur Works):
+  Equipment Maintenance Alert Codes - Maps vibration readings into operational alert statuses (Red, Amber, Green) via concise IFS pairs.
+• Debangshu Roy (Operations Lead, Naihati Logistics):
+  Courier Transit Priority Tagging - Classifies shipment dispatch priority based on destination distance zones.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Missing Final TRUE Fallback (#N/A Error):
+  Root Cause: If none of the condition pairs evaluate to TRUE and no default pair exists, IFS returns #N/A.
+  Diagnostic Fix: Always end your IFS formula with the catch-all pair: `TRUE, "Default_Value"`.
+• Odd Number of Arguments Error:
+  Root Cause: Supplying an unpaired condition or result triggers an invalid formula parameter error.
+  Diagnostic Fix: Ensure the total number of arguments passed to IFS is always an even number.
+• Performance on 50+ Pairs:
+  Root Cause: Using IFS for massive 50-item lists slows calculation and creates unwieldy formulas.
+  Diagnostic Fix: Use XLOOKUP against a dedicated two-column configuration table for large mapping lists.
+
+6. PRO TIPS & SHORTCUTS
+• Always Include TRUE Default (..., TRUE, "Other")): Prevents fatal #N/A errors when inputs fall outside anticipated categories.
+• Formatted Multi-Line Pairs (Alt + Enter per pair): Format each Condition-Result pair on its own dedicated formula bar line.
+• Descending Numeric Thresholds (>90, >60, >30...): Maintain strict descending order for numeric tier evaluations.
+================================================================================

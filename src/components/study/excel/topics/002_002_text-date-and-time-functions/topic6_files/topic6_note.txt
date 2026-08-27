@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Text, Date and Time Functions
-Topic 6: Date differences and milestone calculations: DATEDIF and YEARFRAC
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 6 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Date differences and milestone calculations: DATEDIF and YEARFRAC
+Module: 002_002_text-date-and-time-functions
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+=DATEDIF(start_date, end_date, unit) | =YEARFRAC(start_date, end_date, [basis])
+
+PRIMARY CONCEPT:
+Computing exact age, employee service tenure (Years, Months, Days), and fractional year accruals for financial interest calculations
+
+TEACHER'S ADVICE:
+DATEDIF is Excel's famous 'secret' undocumented function. Always use it for calculating employee tenures, age compliance, and warranty milestones.
+
+COMMON TRAPS TO AVOID:
+- DATEDIF #NUM! on Inverted Dates: Passing a start_date that is later than end_date triggers a #NUM! error. -> Fix: Ensure start_date <= end_date or wrap in IF(Start > End, DATEDIF(End, Start, ...), ...).
+- The 'MD' Unit Known Bug: The 'MD' unit in DATEDIF can yield negative or inaccurate day counts in certain leap-year month boundaries. -> Fix: Use `=end_date - EDATE(start_date, DATEDIF(start_date, end_date, "M"))` for bulletproof day accuracy.
+- YEARFRAC Day Count Basis Confusion: Using default US 30/360 (basis 0) instead of Actual/Actual (basis 1) causes interest calculation discrepancies in banking audits. -> Fix: Verify the statutory financial contract convention before setting the basis parameter.
+================================================================================

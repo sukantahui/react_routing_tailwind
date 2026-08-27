@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
-Topic 6: Generating Scenario Summary Reports and Pivot Scenario Views
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 6 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Generating Scenario Summary Reports and Pivot Scenario Views
+Module: 003_003_what-if-analysis-and-scenario-planning
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Scenario Manager > Summary: Report Type: Scenario Summary | Result Cells: $NetProfit, $IRR, $NPV
+
+PRIMARY CONCEPT:
+Generating executive Scenario Summary Reports and Pivot Scenario Views comparing all business cases, changing inputs, and resulting KPIs side-by-side on a dedicated presentation sheet
+
+TEACHER'S ADVICE:
+Scenario Summary reports give you instant executive credibility. When the CEO asks: 'What happens if sales drop 15% and costs rise 10%?', you hand them a clean Scenario Summary sheet with the exact answer.
+
+COMMON TRAPS TO AVOID:
+- Cryptic Cell Addresses in Summary Report: If changing cells and result cells are not named, the summary report displays ugly references like `$C$12` instead of 'Net Profit'. -> Fix: Name all changing and result cells prior to clicking 'Summary'.
+- Static Snapshot Nature of Scenario Summaries: Scenario Summary sheets are static snapshots; modifying model formulas does NOT update previously generated summary sheets. -> Fix: Regenerate the Scenario Summary report after altering underlying model formulas.
+- Including Irrelevant Intermediate Cells in Result Cells: Selecting 50 intermediate calculation cells clutters the executive presentation. -> Fix: Select only the top 3-5 core executive KPI result cells.
+================================================================================

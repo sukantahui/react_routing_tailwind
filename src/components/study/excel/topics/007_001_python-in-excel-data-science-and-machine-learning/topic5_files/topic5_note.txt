@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
-Topic 5: Advanced data visualization in Excel cells with matplotlib and seaborn (Heatmaps, Pair plots, Violin plots)
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 5 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Advanced data visualization in Excel cells with matplotlib and seaborn (Heatmaps, Pair plots, Violin plots)
+Module: 007_001_python-in-excel-data-science-and-machine-learning
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Visualization Syntax: import matplotlib.pyplot as plt; import seaborn as sns; fig, ax = plt.subplots(); sns.heatmap(df.corr(), annot=True, ax=ax); fig
+
+PRIMARY CONCEPT:
+Rendering publication-quality data visualizations directly inside Excel cells using matplotlib and seaborn: Correlation Heatmaps, Pair Plots, Violin Plots, Box Plots, and KDE Distribution Curves
+
+TEACHER'S ADVICE:
+You can put stunning data science charts right inside your Excel cells! Build a seaborn Heatmap or Violin plot, return `fig` on the last line, and you have visualizations that standard Excel charts could never dream of making.
+
+COMMON TRAPS TO AVOID:
+- Forgetting to Return 'fig' at the End of Script (Blank Cell): Creating plots without returning the `fig` object at the bottom causes the cell to display None or a memory pointer. -> Fix: Always place `fig` or `plt.gcf()` as the final line of the Python formula.
+- Calling plt.show() (Fails in Cloud Container): Calling interactive GUI method `plt.show()` throws error in headless cloud containers. -> Fix: Do NOT call `plt.show()`; simply return `fig` on the last line.
+- Overcrowded Axis Labels on Small Cell Sizes: Rendering 50 x-axis labels inside a standard 200px cell makes text illegible. -> Fix: Rotate labels with `plt.xticks(rotation=45)` and resize cell dimensions.
+================================================================================

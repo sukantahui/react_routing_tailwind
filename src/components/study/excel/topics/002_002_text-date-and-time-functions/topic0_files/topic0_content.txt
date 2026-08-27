@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Text, Date and Time Functions
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Text, Date and Time Functions
 Topic 0: Text manipulation essentials: UPPER, LOWER, PROPER, TRIM, and CLEAN
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Text manipulation essentials: UPPER, LOWER, PROPER, TRIM, and CLEAN is an essential discipline in corporate spreadsheet development and ETL workflows.
+It provides the core formulas required to sanitize, manipulate, and calculate text, dates, and times.
+
+2. SYNTAX & TOKEN STRUCTURE
+Formula Code: =TRIM(CLEAN(PROPER(text))) | =UPPER(text) | =LOWER(text)
+
+3. CORE TECHNICAL MECHANICS
+1. Non-Printable Character Stripping (CLEAN):
+   CLEAN() removes ASCII 0-31 control characters and line breaks often inherited from legacy mainframe or SQL exports.
+
+2. Whitespace Normalization (TRIM):
+   TRIM() eliminates leading/trailing spaces and condenses multi-space gaps down to single spaces. (Note: does not remove ASCII 160 non-breaking spaces).
+
+3. Case Transformation Engine:
+   PROPER() capitalizes the first letter of each word; UPPER() converts all letters to uppercase; LOWER() converts to lowercase for clean database joins.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (KYC Compliance Lead, Barrackpore HQ):
+  Customer Name Normalization - Transforms erratic customer names ('  swadeep   banerjee ') into standardized 'Swadeep Banerjee' across 50,000 banking records.
+• Tuhina Mukherjee (Tax Auditor, Shyamnagar Plant):
+  Vendor Master Code Standardization - Applies =UPPER(TRIM(A2)) on vendor tax IDs to guarantee exact case-insensitive matches during VLOOKUP tax audits.
+• Abhronila Das (Inventory Supervisor, Ichapur Heavy Works):
+  Scrap Batch Code Cleaning - Uses =CLEAN(TRIM(B2)) to strip hidden carriage returns imported from factory barcode scanners.
+• Debangshu Roy (Logistics Coordinator, Naihati Logistics Hub):
+  Dispatch City Name Hygiene - Standardizes mixed-case dispatch notes ('KOLKATA', 'kolkata', 'Kolkata ') into uniform proper-case city labels.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Non-Breaking Space (ASCII 160) Trap:
+  Root Cause: TRIM() only removes ASCII 32 regular spaces; web-scraped ASCII 160 spaces remain untouched.
+  Diagnostic Fix: Use =TRIM(CLEAN(SUBSTITUTE(A2, CHAR(160), " "))) to sanitize web text.
+• PROPER() Hyphen / Apostrophe Anomaly:
+  Root Cause: PROPER("o'connor") capitalizes after apostrophes resulting in "O'Connor" but "abc-corp" becomes "Abc-Corp".
+  Diagnostic Fix: Inspect names with special prefixes (e.g. McDonald) for post-processing adjustments.
+• Formula Reference Replacement:
+  Root Cause: Overwriting source columns directly without Copy > Paste as Values deletes dynamic formula logic.
+  Diagnostic Fix: Always copy cleaned output and Paste Special > Values (Alt + E + S + V).
+
+6. PRO TIPS & SHORTCUTS
+• Triple Clean Combo (=TRIM(CLEAN(PROPER(A2)))): The industrial gold standard for one-shot data cleansing.
+• Strip Web Spaces (SUBSTITUTE(A2, CHAR(160), " ")): Replaces stubborn non-breaking web spaces with normal spaces.
+• Paste Values Shortcut (Ctrl + Alt + V -> V): Instantly convert formula transformations into static text.
+================================================================================

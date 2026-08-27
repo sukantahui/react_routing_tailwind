@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
-Topic 9: Year-to-Date, Quarter-to-Date, Month-to-Date metrics: TOTALYTD, DATESYTD, TOTALQTD, TOTALMTD
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 9 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Year-to-Date, Quarter-to-Date, Month-to-Date metrics: TOTALYTD, DATESYTD, TOTALQTD, TOTALMTD
+Module: 005_004_dax-formulas-mastery-and-time-intelligence
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Cumulative DAX: TOTALYTD([Measure], Dim_Calendar[Date], "03-31") | DATESYTD(Dim_Calendar[Date]) | TOTALQTD | TOTALMTD
+
+PRIMARY CONCEPT:
+Calculating cumulative Year-to-Date (YTD), Quarter-to-Date (QTD), and Month-to-Date (MTD) metrics using TOTALYTD, DATESYTD, and configuring custom Indian Fiscal Year year-end parameters ("03-31")
+
+TEACHER'S ADVICE:
+For Indian corporate accounting (April to March), always add `"03-31"` at the end of TOTALYTD: `Sales_YTD := TOTALYTD([TotalSales], Dim_Calendar[Date], "03-31")`. It automatically starts accumulating from April 1st.
+
+COMMON TRAPS TO AVOID:
+- Forgetting the Fiscal Year-End String Parameter ("03-31"): Indian corporate models resetting YTD accumulation on December 31st rather than March 31st. -> Fix: Add `"03-31"` as 3rd argument in TOTALYTD: `TOTALYTD([Sales], Dim_Calendar[Date], "03-31")`.
+- Passing Sliced Months Beyond Current Date: YTD displaying flat repeated numbers for future months with zero sales. -> Fix: Wrap in condition checking if sales exist: `=IF([TotalSales] > 0, TOTALYTD(...), BLANK())`.
+- Using Table Name in DATESYTD: Passing entire table `DATESYTD(Dim_Calendar)` instead of date column `DATESYTD(Dim_Calendar[Date])`. -> Fix: Pass the specific Date column.
+================================================================================

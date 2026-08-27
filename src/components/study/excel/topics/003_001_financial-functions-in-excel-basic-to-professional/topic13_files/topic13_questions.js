@@ -1,247 +1,247 @@
-// topic13_questions.js - 30 Comprehensive Mastery Questions
+// topic13_files/topic13_questions.js - 30 Comprehensive Mastery Questions
 // Topic 13: Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value
 // Module: 003_001_financial-functions-in-excel-basic-to-professional
 
 const questions = [
   {
-    "question": "Question 1 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Core Financial Mathematics & Cash Flow Signs regarding TVM discounting, cash flow sign conventions, and compounding frequencies (Question 1)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Core Financial Mathematics & Cash Flow Signs with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Core Financial Mathematics & Cash Flow Signs is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how TVM discounting, cash flow sign conventions, and compounding frequencies affects financial valuation and risk modeling.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 2 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Debt Servicing & Amortization Mechanics regarding PMT decomposition, CUMIPMT boundaries, and dynamic prepayment modeling (Question 2)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Debt Servicing & Amortization Mechanics with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Debt Servicing & Amortization Mechanics is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how PMT decomposition, CUMIPMT boundaries, and dynamic prepayment modeling affects financial valuation and risk modeling.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 3 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Investment Appraisal & Return Metrics regarding NPV Day 0 adjustments, XNPV exact day counts, IRR flaws, and MIRR reinvestment (Question 3)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Investment Appraisal & Return Metrics with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Investment Appraisal & Return Metrics is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how NPV Day 0 adjustments, XNPV exact day counts, IRR flaws, and MIRR reinvestment affects financial valuation and risk modeling.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 4 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Corporate Valuation & DCF Engineering regarding FCFF derivations, WACC calculations, Gordon Growth Terminal Value, and net debt deductions (Question 4)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Corporate Valuation & DCF Engineering with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Corporate Valuation & DCF Engineering is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how FCFF derivations, WACC calculations, Gordon Growth Terminal Value, and net debt deductions affects financial valuation and risk modeling.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 5 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Fixed Income & Risk Sensitivity regarding Bond pricing, Modified Duration yield shifts, and 2D What-If sensitivity tables (Question 5)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Fixed Income & Risk Sensitivity with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Fixed Income & Risk Sensitivity is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how Bond pricing, Modified Duration yield shifts, and 2D What-If sensitivity tables affects financial valuation and risk modeling.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 6 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Wall Street Modeling Standards & Governance regarding universal color coding, FAST standards, balance sheet audit flags, and zero-hardcoding rules (Question 6)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Wall Street Modeling Standards & Governance with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Wall Street Modeling Standards & Governance is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how universal color coding, FAST standards, balance sheet audit flags, and zero-hardcoding rules affects financial valuation and risk modeling.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 7 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Core Financial Mathematics & Cash Flow Signs regarding TVM discounting, cash flow sign conventions, and compounding frequencies (Question 7)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Core Financial Mathematics & Cash Flow Signs with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Core Financial Mathematics & Cash Flow Signs is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how TVM discounting, cash flow sign conventions, and compounding frequencies affects financial valuation and risk modeling.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 8 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Debt Servicing & Amortization Mechanics regarding PMT decomposition, CUMIPMT boundaries, and dynamic prepayment modeling (Question 8)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Debt Servicing & Amortization Mechanics with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Debt Servicing & Amortization Mechanics is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how PMT decomposition, CUMIPMT boundaries, and dynamic prepayment modeling affects financial valuation and risk modeling.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 9 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Investment Appraisal & Return Metrics regarding NPV Day 0 adjustments, XNPV exact day counts, IRR flaws, and MIRR reinvestment (Question 9)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Investment Appraisal & Return Metrics with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Investment Appraisal & Return Metrics is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how NPV Day 0 adjustments, XNPV exact day counts, IRR flaws, and MIRR reinvestment affects financial valuation and risk modeling.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 10 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Corporate Valuation & DCF Engineering regarding FCFF derivations, WACC calculations, Gordon Growth Terminal Value, and net debt deductions (Question 10)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Corporate Valuation & DCF Engineering with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Corporate Valuation & DCF Engineering is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how FCFF derivations, WACC calculations, Gordon Growth Terminal Value, and net debt deductions affects financial valuation and risk modeling.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 11 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Fixed Income & Risk Sensitivity regarding Bond pricing, Modified Duration yield shifts, and 2D What-If sensitivity tables (Question 11)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Fixed Income & Risk Sensitivity with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Fixed Income & Risk Sensitivity is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how Bond pricing, Modified Duration yield shifts, and 2D What-If sensitivity tables affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 12 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Wall Street Modeling Standards & Governance regarding universal color coding, FAST standards, balance sheet audit flags, and zero-hardcoding rules (Question 12)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Wall Street Modeling Standards & Governance with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Wall Street Modeling Standards & Governance is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how universal color coding, FAST standards, balance sheet audit flags, and zero-hardcoding rules affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 13 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Core Financial Mathematics & Cash Flow Signs regarding TVM discounting, cash flow sign conventions, and compounding frequencies (Question 13)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Core Financial Mathematics & Cash Flow Signs with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Core Financial Mathematics & Cash Flow Signs is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how TVM discounting, cash flow sign conventions, and compounding frequencies affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 14 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Debt Servicing & Amortization Mechanics regarding PMT decomposition, CUMIPMT boundaries, and dynamic prepayment modeling (Question 14)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Debt Servicing & Amortization Mechanics with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Debt Servicing & Amortization Mechanics is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how PMT decomposition, CUMIPMT boundaries, and dynamic prepayment modeling affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 15 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Investment Appraisal & Return Metrics regarding NPV Day 0 adjustments, XNPV exact day counts, IRR flaws, and MIRR reinvestment (Question 15)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Investment Appraisal & Return Metrics with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Investment Appraisal & Return Metrics is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how NPV Day 0 adjustments, XNPV exact day counts, IRR flaws, and MIRR reinvestment affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 16 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Corporate Valuation & DCF Engineering regarding FCFF derivations, WACC calculations, Gordon Growth Terminal Value, and net debt deductions (Question 16)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Corporate Valuation & DCF Engineering with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Corporate Valuation & DCF Engineering is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how FCFF derivations, WACC calculations, Gordon Growth Terminal Value, and net debt deductions affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 17 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Fixed Income & Risk Sensitivity regarding Bond pricing, Modified Duration yield shifts, and 2D What-If sensitivity tables (Question 17)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Fixed Income & Risk Sensitivity with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Fixed Income & Risk Sensitivity is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how Bond pricing, Modified Duration yield shifts, and 2D What-If sensitivity tables affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 18 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Wall Street Modeling Standards & Governance regarding universal color coding, FAST standards, balance sheet audit flags, and zero-hardcoding rules (Question 18)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Wall Street Modeling Standards & Governance with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Wall Street Modeling Standards & Governance is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how universal color coding, FAST standards, balance sheet audit flags, and zero-hardcoding rules affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 19 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Core Financial Mathematics & Cash Flow Signs regarding TVM discounting, cash flow sign conventions, and compounding frequencies (Question 19)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Core Financial Mathematics & Cash Flow Signs with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Core Financial Mathematics & Cash Flow Signs is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how TVM discounting, cash flow sign conventions, and compounding frequencies affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 20 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Debt Servicing & Amortization Mechanics regarding PMT decomposition, CUMIPMT boundaries, and dynamic prepayment modeling (Question 20)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Debt Servicing & Amortization Mechanics with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Debt Servicing & Amortization Mechanics is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how PMT decomposition, CUMIPMT boundaries, and dynamic prepayment modeling affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 21 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Investment Appraisal & Return Metrics regarding NPV Day 0 adjustments, XNPV exact day counts, IRR flaws, and MIRR reinvestment (Question 21)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Investment Appraisal & Return Metrics with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Investment Appraisal & Return Metrics is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how NPV Day 0 adjustments, XNPV exact day counts, IRR flaws, and MIRR reinvestment affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 22 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Corporate Valuation & DCF Engineering regarding FCFF derivations, WACC calculations, Gordon Growth Terminal Value, and net debt deductions (Question 22)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Corporate Valuation & DCF Engineering with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Corporate Valuation & DCF Engineering is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how FCFF derivations, WACC calculations, Gordon Growth Terminal Value, and net debt deductions affects financial valuation and risk modeling.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 23 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Fixed Income & Risk Sensitivity regarding Bond pricing, Modified Duration yield shifts, and 2D What-If sensitivity tables (Question 23)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Fixed Income & Risk Sensitivity with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Fixed Income & Risk Sensitivity is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how Bond pricing, Modified Duration yield shifts, and 2D What-If sensitivity tables affects financial valuation and risk modeling.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 24 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Wall Street Modeling Standards & Governance regarding universal color coding, FAST standards, balance sheet audit flags, and zero-hardcoding rules (Question 24)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Wall Street Modeling Standards & Governance with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Wall Street Modeling Standards & Governance is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how universal color coding, FAST standards, balance sheet audit flags, and zero-hardcoding rules affects financial valuation and risk modeling.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 25 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Core Financial Mathematics & Cash Flow Signs regarding TVM discounting, cash flow sign conventions, and compounding frequencies (Question 25)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Core Financial Mathematics & Cash Flow Signs with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Core Financial Mathematics & Cash Flow Signs is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how TVM discounting, cash flow sign conventions, and compounding frequencies affects financial valuation and risk modeling.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 26 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Debt Servicing & Amortization Mechanics regarding PMT decomposition, CUMIPMT boundaries, and dynamic prepayment modeling (Question 26)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Debt Servicing & Amortization Mechanics with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Debt Servicing & Amortization Mechanics is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how PMT decomposition, CUMIPMT boundaries, and dynamic prepayment modeling affects financial valuation and risk modeling.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 27 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Investment Appraisal & Return Metrics regarding NPV Day 0 adjustments, XNPV exact day counts, IRR flaws, and MIRR reinvestment (Question 27)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Investment Appraisal & Return Metrics with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Investment Appraisal & Return Metrics is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how NPV Day 0 adjustments, XNPV exact day counts, IRR flaws, and MIRR reinvestment affects financial valuation and risk modeling.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 28 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Corporate Valuation & DCF Engineering regarding FCFF derivations, WACC calculations, Gordon Growth Terminal Value, and net debt deductions (Question 28)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Corporate Valuation & DCF Engineering with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Corporate Valuation & DCF Engineering is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how FCFF derivations, WACC calculations, Gordon Growth Terminal Value, and net debt deductions affects financial valuation and risk modeling.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 29 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Fixed Income & Risk Sensitivity regarding Bond pricing, Modified Duration yield shifts, and 2D What-If sensitivity tables (Question 29)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Fixed Income & Risk Sensitivity with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Fixed Income & Risk Sensitivity is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how Bond pricing, Modified Duration yield shifts, and 2D What-If sensitivity tables affects financial valuation and risk modeling.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   },
   {
-    "question": "Question 30 on Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 13.",
-    "explanation": "Mastering Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, how does Excel evaluate Wall Street Modeling Standards & Governance regarding universal color coding, FAST standards, balance sheet audit flags, and zero-hardcoding rules (Question 30)?",
+    "shortAnswer": "Excel utilizes its high-precision financial calculation engine to process Wall Street Modeling Standards & Governance with exact compounding and mathematical rigor.",
+    "explanation": "When deploying Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value, mastering Wall Street Modeling Standards & Governance is vital for enterprise corporate finance and valuation. Excel separates visual formatting from underlying floating-point precision, ensuring that complex financial valuations, bond pricing schedules, and amortization tables maintain audited mathematical integrity across multi-year projections.",
+    "hint": "Think about how universal color coding, FAST standards, balance sheet audit flags, and zero-hardcoding rules affects financial valuation and risk modeling.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)"
   }
 ];
 

@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Conditional Logic with IF and Related Functions
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Conditional Logic with IF and Related Functions
 Topic 7: Array-based conditional logic and Boolean arithmetic (0/1 multiplication)
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Array-based conditional logic and Boolean arithmetic (0/1 multiplication) is an essential discipline in modern financial modeling and automated decision support.
+It provides the core formulas required to evaluate complex business rules and multi-tier criteria.
+
+2. SYNTAX & TOKEN STRUCTURE
+Formula Code: =(Range1 = Crit1) * (Range2 = Crit2) * ValuesRange | =SUMPRODUCT((A2:A100="East") * (B2:B100>5000) * C2:C100)
+
+3. CORE TECHNICAL MECHANICS
+1. Binary Array Coercion:
+   Evaluating relational criteria on ranges yields Boolean vectors (e.g. `{TRUE; FALSE; TRUE}`). Multiplying vectors coerces them to binary `{1; 0; 1}`.
+
+2. Vector Multiplication as Logical AND:
+   Multiplying binary vectors `(Dept="Sales") * (Region="East")` returns 1 ONLY when both conditions are TRUE (1 * 1 = 1, 1 * 0 = 0).
+
+3. Vector Addition as Logical OR:
+   Adding binary vectors `(Dept="Sales") + (Dept="Marketing")` returns 1 (or >0) if either condition is satisfied.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Quantitative Risk Modeler, Barrackpore HQ):
+  Multi-Criteria Portfolio Exposure Aggregation - Calculates total high-risk loan exposure via =SUMPRODUCT((Rating="CCC") * (Tenure>5) * ExposureAmount) in a single formula.
+• Tuhina Mukherjee (Senior Tax Auditor, Shyamnagar Plant):
+  Conditional Tax Liability Filtering - Computes total GST payable across specific HSN codes and interstate branches using Boolean array multiplication.
+• Abhronila Das (Quality Assurance Lead, Ichapur Works):
+  Multi-Parameter Scrap Volume Calculation - Calculates total defective scrap volume across specific manufacturing shifts and machine lines.
+• Debangshu Roy (Logistics Analytics Lead, Naihati Logistics Hub):
+  Heavy Freight Waybill Aggregation - Aggregates freight billing totals for express shipments exceeding 1,000 KM using Boolean vector arithmetic.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Unequal Array Dimension Error (#VALUE!):
+  Root Cause: Multiplying arrays of different lengths (e.g. A2:A100 * B2:B50) triggers fatal #VALUE! mismatch.
+  Diagnostic Fix: Ensure all range arguments span identical row and column dimensions.
+• Double-Counting in Boolean Addition (OR):
+  Root Cause: Adding overlapping criteria `(A2:A100>10) + (B2:B100>5)` yields 2 when both are TRUE.
+  Diagnostic Fix: Wrap addition in `=( (Cond1 + Cond2) > 0 ) * Values` to normalize to binary 1.
+• Accidental String Inclusion in Multiplication:
+  Root Cause: Multiplying text headers inside SUMPRODUCT triggers a #VALUE! error.
+  Diagnostic Fix: Use comma-separated syntax in SUMPRODUCT or ensure range excludes header rows.
+
+6. PRO TIPS & SHORTCUTS
+• Multi-Condition SUMPRODUCT (=SUMPRODUCT((A2:A100="East") * (B2:B100="BKP") * C2:C100)): Replaces complex SUMIFS with flexible array arithmetic.
+• Normalize OR Overlaps (=--((Cond1 + Cond2) > 0)): Prevents double-counting when multiple OR conditions are satisfied.
+• Dynamic Array Filter Math (=FILTER(Data, (ColA="X") * (ColB="Y"))): Powers modern Excel 365 dynamic array filtering.
+================================================================================

@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Text, Date and Time Functions
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Text, Date and Time Functions
 Topic 11: Real-world case study: Parsing messy customer names, addresses, and timestamps
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Real-world case study: Parsing messy customer names, addresses, and timestamps is an essential discipline in corporate spreadsheet development and ETL workflows.
+It provides the core formulas required to sanitize, manipulate, and calculate text, dates, and times.
+
+2. SYNTAX & TOKEN STRUCTURE
+Formula Code: Composite Real-World Data Cleaning Pipeline: TRIM + CLEAN + TEXTSPLIT + NUMBERVALUE + DATE
+
+3. CORE TECHNICAL MECHANICS
+1. Multi-Tier Ingestion Sanitization:
+   Cleanses raw imported CSV text dumps containing mixed delimiters, non-breaking spaces, and leading zeroes.
+
+2. Relational Entity Extraction:
+   Deconstructs unstructured single-line client records into First Name, Last Name, Branch Code, Clean PAN, and Validated Phone.
+
+3. Audit Trail & Verification Flags:
+   Implements formula-based audit flags (=IF(ISNUMBER(...), 'VALID', 'CORRUPT')) to isolate defective records.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Lead Solutions Architect, Barrackpore HQ):
+  Enterprise Master Customer Migration - Transforms 250,000 legacy client records into clean CRM schema tables with automated name and address parsing.
+• Tuhina Mukherjee (Senior Tax Auditor, Shyamnagar Plant):
+  Vendor Compliance Database Scrub - Audits and sanitizes 10,000 vendor records, extracting valid 15-digit GSTINs and state jurisdiction codes.
+• Abhronila Das (Quality Assurance Lead, Ichapur Works):
+  Factory IoT Sensor Data Normalization - Parses high-frequency machine telemetry strings into structured time series tables for predictive maintenance.
+• Debangshu Roy (Operations Director, Naihati Logistics):
+  Freight Waybill Address Standardizer - Standardizes raw handwritten-entry dispatch strings into verified PIN-code delivery routes.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Pipeline Formula Bottleneck:
+  Root Cause: Chaining 10 complex text formulas across 500,000 rows causes workbook freezing.
+  Diagnostic Fix: Use Power Query ETL for large datasets, or convert intermediate cleaned columns to static values.
+• Uncaptured Edge-Case Formats:
+  Root Cause: Assuming all names follow 'First Last' fails for single names or four-part compound names.
+  Diagnostic Fix: Implement exception validation columns using IFERROR() to highlight unparsed rows.
+• Overwriting Raw Source Data:
+  Root Cause: Modifying original import sheets directly eliminates the audit trail.
+  Diagnostic Fix: Always keep Raw_Import sheets immutable and build transformations on Cleaned_Data sheets.
+
+6. PRO TIPS & SHORTCUTS
+• Modular Helper Columns (Break formulas into steps): Build modular helper columns for intermediate parsing before combining formulas.
+• Validation Status Column (=IF(ISNUMBER(B2), "OK", "CHECK")): Adds an instant visual audit flag for quality assurance.
+• Save Template Structure (Save as .xltx): Preserve clean ETL structures for recurring monthly data imports.
+================================================================================

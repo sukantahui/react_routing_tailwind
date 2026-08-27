@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: What-If Analysis and Scenario Planning
 Topic 13: Real-world project: Optimal investment portfolio allocation using Markowitz mean-variance Solver model
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Real-world project: Optimal investment portfolio allocation using Markowitz mean-variance Solver model is an essential discipline in corporate decision modeling, capital allocation, and risk management.
+It provides the core protocols required to stress-test financial projections, solve backwards for target goals, and mathematically optimize resource utilization.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Markowitz Mean-Variance Portfolio Optimization: Minimize Portfolio Variance = w' * CovMatrix * w | Subject to: Expected Return >= Target, Sum(w) = 1, w >= 0
+
+3. CORE TECHNICAL MECHANICS
+1. Markowitz Portfolio Variance Equation:
+   `Variance = SUMPRODUCT(Weights, MMULT(CovarianceMatrix, Weights))`. Quantifies portfolio risk factoring in inter-asset correlations.
+
+2. The Efficient Frontier Construction:
+   Iteratively solves for minimum portfolio variance across varying target return levels (e.g. 10% to 25%), tracing the hyperbolic Efficient Frontier curve.
+
+3. Maximum Sharpe Ratio Tangency Portfolio:
+   Maximizes the Sharpe Ratio `(PortfolioReturn - RiskFreeRate) / PortfolioStdDev` to identify the mathematically optimal asset allocation.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Investment Officer, Barrackpore HQ):
+  Institutional Treasury Investment Allocation - Optimizes a ₹100 Crore corporate treasury portfolio across Equities, Sovereign Bonds, Gold, and Commercial Paper, achieving a 14.8% return with 42% lower volatility.
+• Tuhina Mukherjee (Wealth Advisory Partner, Shyamnagar Plant):
+  High-Net-Worth Client Portfolio Customization - Constructs tailored asset allocation models along the Markowitz Efficient Frontier matching client risk tolerance profiles.
+• Abhronila Das (Quantitative Risk Analyst, Ichapur Works):
+  Corporate Pension Fund Asset-Liability Matching - Models optimal asset allocation to ensure long-term pension liability solvency.
+• Debangshu Roy (Treasury Asset Manager, Naihati Logistics):
+  Cash Reserve Liquidity & Yield Optimization - Allocates short-term liquid reserves across money market instruments to maximize yield at near-zero volatility.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Selecting Simplex LP for Portfolio Variance (Fails):
+  Root Cause: Portfolio variance contains quadratic terms (`w1*w2*Cov12`), which are non-linear; Simplex LP throws 'Linearly Conditions not satisfied'.
+  Diagnostic Fix: Always select GRG Nonlinear engine for Markowitz portfolio variance optimization.
+• Omitting the 100% Budget Constraint (Sum of Weights = 1):
+  Root Cause: Forgetting `SUM(Weights) = 1` allows Solver to achieve low risk by investing ₹0, or high returns by investing 500% capital.
+  Diagnostic Fix: Add the mandatory equality constraint: `TotalWeightCell = 1.0`.
+• Non-Positive-Definite Covariance Matrix:
+  Root Cause: Using inconsistent historical time windows creates mathematically corrupted covariance matrices where variance returns negative numbers.
+  Diagnostic Fix: Calculate covariance using Excel's native `=COVARIANCE.S()` across synchronized historical date ranges.
+
+6. PRO TIPS & SHORTCUTS
+• Matrix Multiplication Variance (=MMULT(TRANSPOSE(Weights), MMULT(CovMatrix, Weights))): The standard matrix formula for portfolio variance in Excel.
+• Engine: GRG Nonlinear (Select GRG Nonlinear): Mandatory solver engine for quadratic portfolio variance.
+• Max Sharpe Ratio Goal (Set Objective: Sharpe Ratio -> Max): Directly solves for the optimal tangency portfolio.
+================================================================================

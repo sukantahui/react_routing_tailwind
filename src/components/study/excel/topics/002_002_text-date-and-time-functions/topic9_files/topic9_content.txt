@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Text, Date and Time Functions
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Text, Date and Time Functions
 Topic 9: Replacing and substituting strings: REPLACE and SUBSTITUTE
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Replacing and substituting strings: REPLACE and SUBSTITUTE is an essential discipline in corporate spreadsheet development and ETL workflows.
+It provides the core formulas required to sanitize, manipulate, and calculate text, dates, and times.
+
+2. SYNTAX & TOKEN STRUCTURE
+Formula Code: =SUBSTITUTE(text, old_text, new_text, [instance_num]) | =REPLACE(old_text, start_num, num_chars, new_text)
+
+3. CORE TECHNICAL MECHANICS
+1. Content-Matching Substitution (SUBSTITUTE):
+   Searches for specific character strings (case-sensitive) and replaces all occurrences or a specific instance_num.
+
+2. Positional Character Replacement (REPLACE):
+   Replaces a chunk of characters based strictly on start_num index and length count, regardless of what text is inside.
+
+3. Counting Character Occurrences with LEN:
+   Calculates the count of a specific character via `=LEN(A2) - LEN(SUBSTITUTE(A2, ",", ""))`.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Security Auditor, Barrackpore HQ):
+  Tax ID & Credit Card Privacy Masking - Masks middle credit card digits using =REPLACE(A2, 5, 8, "-****-****-") for public dashboard reporting.
+• Tuhina Mukherjee (Tax Consultant, Shyamnagar Plant):
+  Accounting Code Delimiter Normalization - Converts forward slashes to standardized hyphens in invoice codes (=SUBSTITUTE(A2, "/", "-")).
+• Abhronila Das (Data Analyst, Ichapur Works):
+  CSV Multi-Item Counter - Counts total items in a comma-delimited string: =LEN(A2) - LEN(SUBSTITUTE(A2, ",", "")) + 1.
+• Debangshu Roy (Logistics Controller, Naihati Logistics):
+  Regional Dispatch Prefix Replacement - Updates legacy branch prefixes across 10,000 shipment codes (=SUBSTITUTE(A2, "OLD-", "BKP-", 1)).
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• SUBSTITUTE Case-Sensitivity Mismatch:
+  Root Cause: SUBSTITUTE("Kolkata", "k", "X") fails to replace capital 'K' because SUBSTITUTE is strictly case-sensitive.
+  Diagnostic Fix: Ensure exact case match or nest UPPER()/LOWER() transformations.
+• REPLACE Index Boundary Calculation Error:
+  Root Cause: Miscalculating start_num or num_chars replaces the wrong characters without warning.
+  Diagnostic Fix: Use FIND() inside REPLACE() to calculate dynamic starting positions.
+• Accidental Global Overwrite:
+  Root Cause: Omitting the optional instance_num parameter in SUBSTITUTE replaces ALL instances of target string.
+  Diagnostic Fix: Specify instance_num (e.g. 1 or 2) when only a specific occurrence should change.
+
+6. PRO TIPS & SHORTCUTS
+• Count Word / Item Occurrences (=LEN(A2) - LEN(SUBSTITUTE(A2, ",", "")) + 1): The universal Excel idiom for counting delimited list items.
+• Nested Multi-Replacement (=SUBSTITUTE(SUBSTITUTE(A2, "(", ""), ")", "")): Chains multiple substitutions to strip multiple punctuation characters.
+• Mask Center Digits (=REPLACE(A2, 5, 4, "****")): Fastest way to mask sensitive phone or ID numbers.
+================================================================================

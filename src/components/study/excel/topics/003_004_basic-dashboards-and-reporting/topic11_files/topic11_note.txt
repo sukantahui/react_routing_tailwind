@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Basic Dashboards and Reporting
-Topic 11: Connecting multiple charts to synchronized slicer panels
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 11 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Connecting multiple charts to synchronized slicer panels
+Module: 003_004_basic-dashboards-and-reporting
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables
+
+PRIMARY CONCEPT:
+Connecting multiple PivotTables, PivotCharts, and KPI Summary Cards to unified interactive Slicer panels using Report Connections for synchronized C-suite dashboards
+
+TEACHER'S ADVICE:
+The magic of executive dashboards: Connect 3 Slicers (Year, Region, Segment) to all 5 PivotTables on your sheet via Report Connections. Now your entire dashboard dances together at the click of a button.
+
+COMMON TRAPS TO AVOID:
+- Report Connections Missing Target PivotTables: PivotTables created from separate raw ranges have distinct Pivot Caches, preventing them from appearing in Report Connections. -> Fix: Create all dashboard PivotTables from the exact same source table so they share a unified cache.
+- Slicers Drifting on User Interaction: Expanding pivot tables shifts slicers out of alignment. -> Fix: Right-click Slicer > Size and Properties > Properties > Select 'Don't move or size with cells'.
+- Disconnected Chart Series Glitch: Having one standalone chart that does not update when slicers are clicked ruins the presentation. -> Fix: Verify that every single chart on the dashboard is linked to a connected PivotTable.
+================================================================================

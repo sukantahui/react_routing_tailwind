@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Using AI with Excel for Productivity
-Topic 11: Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 11 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard
+Module: 007_002_using-ai-with-excel-for-productivity
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard
+
+PRIMARY CONCEPT:
+Comprehensive end-to-end AI capstone project: engineering an automated AI-powered Customer Feedback Sentiment Analysis, Thematic Categorization, and Executive Reporting Dashboard in Excel
+
+TEACHER'S ADVICE:
+Congratulations on completing Using AI with Excel for Productivity! You have built a complete, commercial-grade AI sentiment analysis dashboard. You are now equipped with cutting-edge AI spreadsheet superpowers that put you at the top 1% of data professionals.
+
+COMMON TRAPS TO AVOID:
+- Inconsistent Sentiment Labeling Across Rows: AI returning 'Positive', 'Pos', 'Great', 'Good' instead of standardized category names. -> Fix: Constrain AI prompt: 'Return ONLY one of: [Positive, Neutral, Negative]'.
+- High Latency on Massive Review Ingestion: Calling cloud LLMs on 50,000 rows without caching or batching. -> Fix: Use Power Query batch processing or local in-memory Dictionary caching.
+- Biased Sentiment Interpretation on Sarcasm: AI misinterpreting sarcastic customer reviews as positive. -> Fix: Include few-shot examples in system prompt to teach sarcasm detection.
+================================================================================

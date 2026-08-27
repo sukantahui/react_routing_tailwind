@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Text, Date and Time Functions
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Text, Date and Time Functions
 Topic 6: Date differences and milestone calculations: DATEDIF and YEARFRAC
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Date differences and milestone calculations: DATEDIF and YEARFRAC is an essential discipline in corporate spreadsheet development and ETL workflows.
+It provides the core formulas required to sanitize, manipulate, and calculate text, dates, and times.
+
+2. SYNTAX & TOKEN STRUCTURE
+Formula Code: =DATEDIF(start_date, end_date, unit) | =YEARFRAC(start_date, end_date, [basis])
+
+3. CORE TECHNICAL MECHANICS
+1. The Undocumented DATEDIF Unit Codes:
+   "Y" (full years), "M" (full months), "D" (days), "YM" (remaining months excluding years), "MD" (remaining days excluding months).
+
+2. Composite Tenure Construction:
+   Combines unit codes to build human-readable tenures: `=DATEDIF(A2, B2, "Y") & " Yrs, " & DATEDIF(A2, B2, "YM") & " Mos, " & DATEDIF(A2, B2, "MD") & " Days"`.
+
+3. Financial Day Count Basis (YEARFRAC):
+   YEARFRAC() returns fractional year duration using actual/actual (basis 1), 30/360 (basis 0), or actual/365 (basis 3) for bond interest accruals.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Treasury Manager, Barrackpore HQ):
+  Corporate Commercial Paper Interest Accrual - Calculates precise accrued interest on 90-day debentures using =Principal * Rate * YEARFRAC(IssueDate, SettledDate, 3).
+• Tuhina Mukherjee (HR Gratuity Auditor, Shyamnagar Plant):
+  Employee Service Gratuity Eligibility - Determines statutory gratuity eligibility (>5 full years) using =DATEDIF(JoiningDate, TODAY(), "Y").
+• Abhronila Das (Asset Management Lead, Ichapur Works):
+  Heavy Machinery Depreciation Lifecycle - Computes fractional operational lifespans to calculate straight-line asset depreciation schedules.
+• Debangshu Roy (Leasing Controller, Naihati Logistics):
+  Warehouse Lease Contract Expiry Tracker - Tracks remaining warehouse lease tenures formatted as 'X Years, Y Months remaining'.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• DATEDIF #NUM! on Inverted Dates:
+  Root Cause: Passing a start_date that is later than end_date triggers a #NUM! error.
+  Diagnostic Fix: Ensure start_date <= end_date or wrap in IF(Start > End, DATEDIF(End, Start, ...), ...).
+• The 'MD' Unit Known Bug:
+  Root Cause: The 'MD' unit in DATEDIF can yield negative or inaccurate day counts in certain leap-year month boundaries.
+  Diagnostic Fix: Use `=end_date - EDATE(start_date, DATEDIF(start_date, end_date, "M"))` for bulletproof day accuracy.
+• YEARFRAC Day Count Basis Confusion:
+  Root Cause: Using default US 30/360 (basis 0) instead of Actual/Actual (basis 1) causes interest calculation discrepancies in banking audits.
+  Diagnostic Fix: Verify the statutory financial contract convention before setting the basis parameter.
+
+6. PRO TIPS & SHORTCUTS
+• Complete Tenure String (DATEDIF Y & YM & MD): The standard formula for employee service tenure cards.
+• Exact Age in Years (=DATEDIF(DOB, TODAY(), "Y")): Calculates completed age without rounding up premature birthdays.
+• Banking Year Fraction (=YEARFRAC(A2, B2, 1)): Calculates precise financial year fractions under Actual/Actual day counts.
+================================================================================

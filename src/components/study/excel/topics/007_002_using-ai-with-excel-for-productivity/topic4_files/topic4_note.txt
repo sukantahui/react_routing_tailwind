@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Using AI with Excel for Productivity
-Topic 4: Automated data analysis: Asking natural language questions to discover trends, outliers, and insights
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 4 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Automated data analysis: Asking natural language questions to discover trends, outliers, and insights
+Module: 007_002_using-ai-with-excel-for-productivity
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Automated Analysis: Prompt: 'Analyze this table and show me key trends, top performers, and outliers' -> Copilot Insight Cards
+
+PRIMARY CONCEPT:
+Discovering deep business insights by asking conversational natural language questions: trend analysis, identifying statistical outliers, top-performer rankings, and executive summary cards
+
+TEACHER'S ADVICE:
+Treat Copilot like your smartest business analyst. Ask it: 'Which products are growing the fastest?' or 'Show me my top 5 customers by profit'. In 2 seconds, it gives you the answer and builds a Pivot Table for you.
+
+COMMON TRAPS TO AVOID:
+- Asking Questions Outside Table Scope: Asking AI why revenue dropped without providing historical competitor or marketing data in the table. -> Fix: Ensure all relevant analytical dimensions are present in the table.
+- Accepting AI Summaries Without Spot-Checking: AI summarizing trends based on incomplete sample sets. -> Fix: Click 'Show query' or inspect the generated Pivot Table to verify numbers.
+- Confusing Sum with Average in Conversational Queries: Asking 'How did region East perform?' without specifying total sales vs average transaction size. -> Fix: Be explicit: 'Compare total revenue and average order value across regions'.
+================================================================================

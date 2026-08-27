@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Power Pivot & Data Modeling
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Power Pivot and Data Modeling
 Topic 8: Formatting measures, organizing display folders, and hiding technical keys from end-users
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Formatting measures, organizing display folders, and hiding technical keys from end-users is an essential discipline in enterprise data architecture, business intelligence, and large-scale analytical modeling.
+It provides the core protocols required to shatter Excel's 1-million row limit, establish clean relational schemas, and build high-performance data models.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Power Pivot Property Grid: Formatting: Currency (₹) | Display Folder: Financials\Margins | Hidden: True (Hide Foreign Keys)
+
+3. CORE TECHNICAL MECHANICS
+1. Display Folder Grouping:
+   Organizes dozens of measures into nested subfolders in the PivotTable field list (e.g. `Sales\YoY Metrics`, `Margins\Percentages`), eliminating field list clutter.
+
+2. Hiding Technical Keys from End-Users:
+   Hiding foreign keys (`Customer_ID_FK`, `Product_ID_FK`) and sorting helper columns prevents non-technical users from dragging useless technical codes into pivots.
+
+3. Model-Level Number Formatting:
+   Formats numbers at the Data Model level once; formatting persists automatically across all PivotTables and PivotCharts throughout the entire workbook.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Enterprise Field List UX Optimization - Organizes 60 corporate financial measures into 5 clean Display Folders (`Revenue`, `Gross Profit`, `Opex`, `EBITDA`, `Ratios`) for 200 non-technical sales directors.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Tax Model Technical Key Lockdown - Hides all internal database surrogate keys and raw integer timestamps to deliver an executive-clean tax audit pivot catalog.
+• Abhronila Das (Manufacturing Systems Architect, Ichapur Works):
+  Shopfloor Machine Metrics Catalog - Groups 40 telemetry calculations into `Shift Metrics`, `Scrap Rates`, and `Maintenance Alerts` display folders.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Freight Performance Field Catalog - Sets model-level INR Currency (`₹#,##0.00`) formatting on all freight billing measures.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• The 'Infinite Scroll' Field List Nightmare:
+  Root Cause: Leaving 80 unorganized measures scattered alphabetically in a flat table makes it impossible for users to locate specific KPIs.
+  Diagnostic Fix: Organize measures into logical Display Folders.
+• Formatting Measures Locally in Each PivotTable:
+  Root Cause: Spending 20 minutes re-formatting currency symbols in every single PivotTable manually.
+  Diagnostic Fix: Format the measure ONCE in the Power Pivot window; it will format automatically everywhere.
+• Hiding Dimension Description Columns by Mistake:
+  Root Cause: Accidentally hiding Customer Name instead of Customer ID Key.
+  Diagnostic Fix: Audit hidden column statuses in Diagram View (hidden items appear grayed out).
+
+6. PRO TIPS & SHORTCUTS
+• Create Display Folder (Select measure > Property Grid > Display Folder: FolderName): Organizes measures into neat collapsible folders in the field list.
+• Nested Folders (Use backslash: Finance\Revenue\YoY): Creates multi-level nested folder hierarchies.
+• Hide from Client Tools (Right-click column > Hide from Client Tools): Hides technical database keys from end-user view.
+================================================================================

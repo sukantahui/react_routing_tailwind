@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Financial Functions in Excel (Basic to Professional)
 Topic 1: Loan payment computation with PMT, PPMT (Principal), and IPMT (Interest)
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Loan payment computation with PMT, PPMT (Principal), and IPMT (Interest) is a foundational pillar of corporate financial modeling, investment banking, and capital budgeting.
+It equips financial modelers with the exact mathematical tools to value assets, evaluate debt structures, and appraise investments.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: =PMT(rate, nper, pv, [fv], [type]) | =PPMT(rate, per, nper, pv) | =IPMT(rate, per, nper, pv)
+
+3. CORE TECHNICAL MECHANICS
+1. The Equal Monthly Installment (PMT):
+   Calculates the fixed periodic payment required to fully amortize a loan balance over nper periods at a constant rate.
+
+2. Interest Component Decomposition (IPMT):
+   Computes the exact interest charge for specific period 'per' based on the remaining outstanding principal (`IPMT = RemainingBalance * Rate`).
+
+3. Principal Component Decomposition (PPMT):
+   Calculates the exact equity principal paid down in period 'per' (`PPMT = PMT - IPMT`).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Corporate Treasury, Barrackpore HQ):
+  Commercial Term Loan Debt Service - Structures ₹25 Crore syndicated bank loan repayments with monthly =PMT(8.75%/12, 84, -250000000) for corporate cash budgeting.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Interest Expense Tax Deduction Schedule - Extracts deductible annual corporate tax interest using =IPMT() schedules across 5 machinery bank loans.
+• Abhronila Das (Plant Finance Controller, Ichapur Works):
+  Heavy Equipment Asset Equity Accrual - Tracks principal paydown schedule via =PPMT() to verify fixed asset liability reduction on balance sheets.
+• Debangshu Roy (Fleet Finance Lead, Naihati Logistics):
+  Commercial Truck Financing Breakdown - Calculates monthly EMI and interest allocations for a 50-truck commercial transport fleet.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Period Index Out of Bounds (#NUM!):
+  Root Cause: Passing a period argument (per) less than 1 or greater than nper to PPMT/IPMT returns #NUM!.
+  Diagnostic Fix: Ensure 1 <= per <= nper in amortization row formulas.
+• Forgetting Rate Frequency Division:
+  Root Cause: Passing annual interest rate directly without dividing by 12 inflates monthly PMT payments by 10x.
+  Diagnostic Fix: Always pass `AnnualRate / 12` into monthly PMT formulas.
+• Summing IPMT + PPMT Discrepancy:
+  Root Cause: Rounding errors occurring when individual payments are formatted as rounded integers.
+  Diagnostic Fix: Verify that `=ROUND(PPMT + IPMT, 2)` exactly equals `=ROUND(PMT, 2)`.
+
+6. PRO TIPS & SHORTCUTS
+• Monthly EMI Formula (=PMT(Rate/12, Years*12, -LoanAmount)): Standard banking formula for equal monthly loan installments.
+• Verification Identity (PMT = PPMT + IPMT): In any loan period, principal + interest must equal total payment exactly.
+• Dynamic Month Index (PPMT(Rate/12, ROW(A1), Years*12, -Loan)): ROW(A1) provides a dynamic incrementing period counter for amortization tables.
+================================================================================

@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Power Pivot & Data Modeling
-Topic 2: Dimensional Modeling principles: Fact Tables vs Dimension Tables (Star Schema vs Snowflake Schema)
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 2 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Dimensional Modeling principles: Fact Tables vs Dimension Tables (Star Schema vs Snowflake Schema)
+Module: 005_003_power-pivot-and-data-modeling
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Schema Design: Star Schema (Central FactTable + Surrounding DimensionTables) | Snowflake Schema (Normalized Dimensions)
+
+PRIMARY CONCEPT:
+Architecting enterprise dimensional schemas: differentiating Fact Tables (metrics/transactions) from Dimension Tables (business context/filters), and optimizing Star vs Snowflake schemas
+
+TEACHER'S ADVICE:
+The #1 secret to mastering Power Pivot and DAX: Build a Star Schema! Put your numbers in the central Fact table, put your categories in the surrounding Dimension tables, and connect them with 1-to-Many relationships. Everything else becomes easy.
+
+COMMON TRAPS TO AVOID:
+- Building a Flat 'Mega-Table' (De-Normalized Anti-Pattern): Merging all customer, product, and regional text attributes into a single 50-column fact table destroys memory compression. -> Fix: Decompose flat tables into a normalized Star Schema: 1 Fact table + clean Dimension lookup tables.
+- Excessive Snowflake Normalization: Splitting dimensions into 5 cascading tiers (Product -> Subcategory -> Category -> Department -> Group) slows down DAX filter traversal. -> Fix: Collapse multi-tier dimensions back into a single clean Star Schema dimension table.
+- Putting Descriptive Attributes in the Fact Table: Leaving customer addresses and telephone numbers in the 5-million row fact table wastes gigabytes of RAM. -> Fix: Store descriptive attributes exclusively in Dimension tables.
+================================================================================

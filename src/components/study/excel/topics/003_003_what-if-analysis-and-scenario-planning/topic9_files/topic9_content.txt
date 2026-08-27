@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: What-If Analysis and Scenario Planning
 Topic 9: Solver solving methods: Simplex LP, GRG Nonlinear, and Evolutionary algorithms
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Solver solving methods: Simplex LP, GRG Nonlinear, and Evolutionary algorithms is an essential discipline in corporate decision modeling, capital allocation, and risk management.
+It provides the core protocols required to stress-test financial projections, solve backwards for target goals, and mathematically optimize resource utilization.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Solver Engine Selection: Simplex LP (Linear Models) | GRG Nonlinear (Smooth Curves) | Evolutionary (Genetic Algorithms)
+
+3. CORE TECHNICAL MECHANICS
+1. Simplex LP (Fastest & Globally Optimal):
+   Designed exclusively for pure linear equations. Guarantees finding the TRUE global maximum/minimum in milliseconds using matrix pivot operations.
+
+2. GRG Nonlinear (Smooth Curves):
+   Generalized Reduced Gradient solves smooth non-linear equations (e.g. diminishing returns, Markowitz portfolio variance). Finds local optima (enable 'Multistart' for global search).
+
+3. Evolutionary (Genetic Algorithms):
+   Uses natural selection genetic algorithms to solve highly complex, non-smooth models containing IF(), VLOOKUP(), and stepped functions.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Quantitative Strategist, Barrackpore HQ):
+  Markowitz Mean-Variance Portfolio Optimization - Selects GRG Nonlinear engine to solve quadratic portfolio risk variance equations (`w' * CovMatrix * w`) minimizing risk at target returns.
+• Tuhina Mukherjee (Operations Research Lead, Shyamnagar Plant):
+  Factory Production Mix Linear Optimization - Selects Simplex LP to solve a 50-variable factory scheduling model with certified global optimality.
+• Abhronila Das (Plant Engineering Lead, Ichapur Works):
+  Non-Linear Furnace Thermal Energy Minimization - Uses GRG Nonlinear with Multistart to optimize kiln fuel consumption curves.
+• Debangshu Roy (Fleet Routing Architect, Naihati Logistics):
+  Traveling Salesman Route Optimization - Selects Evolutionary engine with 'AllDifferent' permutation constraints to solve vehicle dispatch routing.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Using GRG Nonlinear on Linear Models (Suboptimal Speed):
+  Root Cause: Running GRG Nonlinear on large linear models is 100x slower and can get stuck in local approximations.
+  Diagnostic Fix: Always choose Simplex LP for linear models.
+• GRG Trapped in Local Optima:
+  Root Cause: Nonlinear surfaces have multiple peaks; GRG stops at the first nearby peak instead of the global best.
+  Diagnostic Fix: Solver Options > GRG Nonlinear tab > Check 'Use Multistart' with Population Size: 100.
+• Evolutionary Engine Timeouts:
+  Root Cause: Genetic algorithms evaluate millions of random permutations, running for minutes on large models.
+  Diagnostic Fix: Set reasonable Mutation Rates (0.075) and specify Maximum Time limits in Solver options.
+
+6. PRO TIPS & SHORTCUTS
+• Simplex LP for Speed (Engine: Simplex LP): Always select Simplex LP if all formulas use SUMPRODUCT and linear sums.
+• Enable Multistart for GRG (Solver Options > GRG > Use Multistart): Explores multiple random starting points to find true global peaks.
+• Evolutionary for Stepped Logic (Engine: Evolutionary): The only engine that handles IF(), ROUND(), and VLOOKUP() formulas.
+================================================================================

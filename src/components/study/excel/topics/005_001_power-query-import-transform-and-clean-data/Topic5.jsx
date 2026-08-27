@@ -125,7 +125,7 @@ export default function Topic5() {
           <div className="p-4 sm:p-5 rounded-2xl bg-slate-950 border border-slate-800 font-mono text-sm sm:text-base text-teal-300 space-y-2">
             <span className="text-slate-500">// 1. Row Filter with Logical AND</span>
             <div className="text-white font-bold text-xs sm:text-sm">
-              {'= Table.SelectRows(Source, each [Amount_INR] > 10000 and [Branch_City] = "Barrackpore")'}
+              {'= Table.SelectRows(Source, each [Amount_INR] &gt; 10000 and [Branch_City] = "Barrackpore")'}
             </div>
             <span className="text-slate-500">// 2. Multi-Column Hierarchical Sort</span>
             <div className="text-white font-bold text-xs sm:text-sm">

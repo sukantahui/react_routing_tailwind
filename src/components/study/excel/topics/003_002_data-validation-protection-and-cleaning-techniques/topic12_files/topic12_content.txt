@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Data Validation, Protection and Cleaning Techniques
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Data Validation, Protection and Cleaning Techniques
 Topic 12: Real-world case study: Designing a tamper-proof corporate budget entry template
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Real-world case study: Designing a tamper-proof corporate budget entry template is an essential discipline in corporate spreadsheet governance, data integrity, and template security.
+It provides the core protocols required to prevent data corruption, audit complex formulas, and encrypt sensitive corporate assets.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Tamper-Proof Corporate Budget Engine: Unlocked Blue Inputs + Locked Black Formulas + Cascading Dropdowns + Stop Alerts + Structure Lock
+
+3. CORE TECHNICAL MECHANICS
+1. Multi-Layered Defense-in-Depth:
+   Layer 1: Data validation on inputs (Numbers > 0, Dates in FY 2026-27); Layer 2: Dependent dropdowns for Cost Center -> Expense Account; Layer 3: Cell protection locking formulas; Layer 4: Workbook structure encryption.
+
+2. Tab-Key Guided Data Entry Workflow:
+   Users pressing the Tab key glide smoothly between unlocked input cells only, bypassing locked calculations entirely for high-speed error-free entry.
+
+3. Automated Variance & Cap Audit Flags:
+   Embeds conditional alerts and visual headers that turn red if departmental submissions exceed allocated capital expenditure ceilings.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Corporate Planning, Barrackpore HQ):
+  Enterprise Annual Operating Plan (AOP) Collection - Deploys standard budget collection templates across 45 business units, consolidating ₹350 Crore departmental budget submissions with zero formula corruptions.
+• Tuhina Mukherjee (Senior Financial Controller, Shyamnagar Plant):
+  Factory Opex Budget Control Template - Enforces strict capital allocation ceilings with automated Stop Alerts on maintenance expenditure overruns.
+• Abhronila Das (Plant Engineering Superintendent, Ichapur Works):
+  Shopfloor Tooling Capex Request System - Constructs standardized equipment procurement entry forms with dependent asset class cascading menus.
+• Debangshu Roy (Supply Chain Financial Controller, Naihati Logistics):
+  Regional Logistics Route Budget Consolidation - Collects 12-month freight budget projections with automated driver allowance rate boundary validations.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Unprotected Source Lookup Lists:
+  Root Cause: Leaving master category tables on an unprotected sheet allows users to modify approved cost center codes.
+  Diagnostic Fix: Move lookup tables to a dedicated 'Admin_Lists' sheet, set to Very Hidden or protected with a password.
+• Overly Restrictive Validation Blocking Legitimate Exceptions:
+  Root Cause: Setting hard Stop Alerts on items that occasionally require CFO variance approval.
+  Diagnostic Fix: Use Warning Alerts for boundary thresholds where executive override is permitted.
+• Allowing Copy-Paste from External Sheets:
+  Root Cause: External copy-pasting strips cell validation and alters locked statuses.
+  Diagnostic Fix: Lock sheet permissions and provide clear user training on 'Paste Special Values'.
+
+6. PRO TIPS & SHORTCUTS
+• Tab-Only Data Entry (Press Tab on protected sheet): Guarantees rapid data entry exclusively in approved input fields.
+• Hidden Admin Sheet (VBA: Sheet.Visible = 2): Hides master validation lists completely from user view.
+• Automated Budget Cap Flag (=IF(Total>BudgetLimit, "⚠️ EXCEEDED", "✓ OK")): Real-time visual compliance indicator.
+================================================================================

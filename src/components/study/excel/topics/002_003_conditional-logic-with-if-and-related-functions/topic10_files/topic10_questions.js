@@ -1,247 +1,247 @@
-// topic10_questions.js - 30 Comprehensive Mastery Questions
+// topic10_files/topic10_questions.js - 30 Comprehensive Mastery Questions
 // Topic 10: Combining logical functions with SUM, AVERAGE, and LOOKUP functions
 // Module: 002_003_conditional-logic-with-if-and-related-functions
 
 const questions = [
   {
-    "question": "Question 1 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Core Logical Evaluation Mechanics regarding short-circuit evaluation, truth table routing, and Boolean engine rules (Question 1)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Core Logical Evaluation Mechanics.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Core Logical Evaluation Mechanics is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how short-circuit evaluation, truth table routing, and Boolean engine rules affects formula evaluation and decision branching.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 2 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Data Types & Type Coercion regarding handling Boolean primitives, text numbers, empty strings, and 0/1 binary values (Question 2)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Data Types & Type Coercion.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Data Types & Type Coercion is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how handling Boolean primitives, text numbers, empty strings, and 0/1 binary values affects formula evaluation and decision branching.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 3 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Corporate Decision Modeling regarding structuring progressive tax brackets, sales commissions, and academic grading (Question 3)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Corporate Decision Modeling.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Corporate Decision Modeling is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how structuring progressive tax brackets, sales commissions, and academic grading affects formula evaluation and decision branching.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 4 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Formula Performance & Scalability regarding approximate lookup tables, array arithmetic, and avoiding deep nested IFs (Question 4)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Formula Performance & Scalability.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Formula Performance & Scalability is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how approximate lookup tables, array arithmetic, and avoiding deep nested IFs affects formula evaluation and decision branching.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 5 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Troubleshooting & Defensive Engineering regarding diagnosing #VALUE!, #N/A, reversed conditions, and missing defaults (Question 5)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Troubleshooting & Defensive Engineering.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Troubleshooting & Defensive Engineering is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how diagnosing #VALUE!, #N/A, reversed conditions, and missing defaults affects formula evaluation and decision branching.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 6 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Enterprise Best Practices regarding modular formula design, parameter configuration tables, and auditability (Question 6)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Enterprise Best Practices.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Enterprise Best Practices is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how modular formula design, parameter configuration tables, and auditability affects formula evaluation and decision branching.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 7 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Core Logical Evaluation Mechanics regarding short-circuit evaluation, truth table routing, and Boolean engine rules (Question 7)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Core Logical Evaluation Mechanics.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Core Logical Evaluation Mechanics is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how short-circuit evaluation, truth table routing, and Boolean engine rules affects formula evaluation and decision branching.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 8 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Data Types & Type Coercion regarding handling Boolean primitives, text numbers, empty strings, and 0/1 binary values (Question 8)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Data Types & Type Coercion.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Data Types & Type Coercion is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how handling Boolean primitives, text numbers, empty strings, and 0/1 binary values affects formula evaluation and decision branching.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 9 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Corporate Decision Modeling regarding structuring progressive tax brackets, sales commissions, and academic grading (Question 9)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Corporate Decision Modeling.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Corporate Decision Modeling is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how structuring progressive tax brackets, sales commissions, and academic grading affects formula evaluation and decision branching.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 10 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Formula Performance & Scalability regarding approximate lookup tables, array arithmetic, and avoiding deep nested IFs (Question 10)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Formula Performance & Scalability.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Formula Performance & Scalability is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how approximate lookup tables, array arithmetic, and avoiding deep nested IFs affects formula evaluation and decision branching.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 11 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Troubleshooting & Defensive Engineering regarding diagnosing #VALUE!, #N/A, reversed conditions, and missing defaults (Question 11)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Troubleshooting & Defensive Engineering.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Troubleshooting & Defensive Engineering is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how diagnosing #VALUE!, #N/A, reversed conditions, and missing defaults affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 12 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Enterprise Best Practices regarding modular formula design, parameter configuration tables, and auditability (Question 12)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Enterprise Best Practices.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Enterprise Best Practices is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how modular formula design, parameter configuration tables, and auditability affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 13 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Core Logical Evaluation Mechanics regarding short-circuit evaluation, truth table routing, and Boolean engine rules (Question 13)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Core Logical Evaluation Mechanics.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Core Logical Evaluation Mechanics is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how short-circuit evaluation, truth table routing, and Boolean engine rules affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 14 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Data Types & Type Coercion regarding handling Boolean primitives, text numbers, empty strings, and 0/1 binary values (Question 14)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Data Types & Type Coercion.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Data Types & Type Coercion is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how handling Boolean primitives, text numbers, empty strings, and 0/1 binary values affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 15 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Corporate Decision Modeling regarding structuring progressive tax brackets, sales commissions, and academic grading (Question 15)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Corporate Decision Modeling.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Corporate Decision Modeling is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how structuring progressive tax brackets, sales commissions, and academic grading affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 16 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Formula Performance & Scalability regarding approximate lookup tables, array arithmetic, and avoiding deep nested IFs (Question 16)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Formula Performance & Scalability.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Formula Performance & Scalability is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how approximate lookup tables, array arithmetic, and avoiding deep nested IFs affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 17 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Troubleshooting & Defensive Engineering regarding diagnosing #VALUE!, #N/A, reversed conditions, and missing defaults (Question 17)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Troubleshooting & Defensive Engineering.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Troubleshooting & Defensive Engineering is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how diagnosing #VALUE!, #N/A, reversed conditions, and missing defaults affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 18 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Enterprise Best Practices regarding modular formula design, parameter configuration tables, and auditability (Question 18)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Enterprise Best Practices.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Enterprise Best Practices is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how modular formula design, parameter configuration tables, and auditability affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 19 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Core Logical Evaluation Mechanics regarding short-circuit evaluation, truth table routing, and Boolean engine rules (Question 19)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Core Logical Evaluation Mechanics.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Core Logical Evaluation Mechanics is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how short-circuit evaluation, truth table routing, and Boolean engine rules affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 20 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Data Types & Type Coercion regarding handling Boolean primitives, text numbers, empty strings, and 0/1 binary values (Question 20)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Data Types & Type Coercion.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Data Types & Type Coercion is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how handling Boolean primitives, text numbers, empty strings, and 0/1 binary values affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 21 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Corporate Decision Modeling regarding structuring progressive tax brackets, sales commissions, and academic grading (Question 21)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Corporate Decision Modeling.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Corporate Decision Modeling is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how structuring progressive tax brackets, sales commissions, and academic grading affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 22 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Formula Performance & Scalability regarding approximate lookup tables, array arithmetic, and avoiding deep nested IFs (Question 22)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Formula Performance & Scalability.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Formula Performance & Scalability is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how approximate lookup tables, array arithmetic, and avoiding deep nested IFs affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 23 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Troubleshooting & Defensive Engineering regarding diagnosing #VALUE!, #N/A, reversed conditions, and missing defaults (Question 23)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Troubleshooting & Defensive Engineering.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Troubleshooting & Defensive Engineering is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how diagnosing #VALUE!, #N/A, reversed conditions, and missing defaults affects formula evaluation and decision branching.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 24 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Enterprise Best Practices regarding modular formula design, parameter configuration tables, and auditability (Question 24)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Enterprise Best Practices.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Enterprise Best Practices is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how modular formula design, parameter configuration tables, and auditability affects formula evaluation and decision branching.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 25 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Core Logical Evaluation Mechanics regarding short-circuit evaluation, truth table routing, and Boolean engine rules (Question 25)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Core Logical Evaluation Mechanics.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Core Logical Evaluation Mechanics is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how short-circuit evaluation, truth table routing, and Boolean engine rules affects formula evaluation and decision branching.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 26 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Data Types & Type Coercion regarding handling Boolean primitives, text numbers, empty strings, and 0/1 binary values (Question 26)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Data Types & Type Coercion.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Data Types & Type Coercion is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how handling Boolean primitives, text numbers, empty strings, and 0/1 binary values affects formula evaluation and decision branching.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 27 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Corporate Decision Modeling regarding structuring progressive tax brackets, sales commissions, and academic grading (Question 27)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Corporate Decision Modeling.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Corporate Decision Modeling is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how structuring progressive tax brackets, sales commissions, and academic grading affects formula evaluation and decision branching.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 28 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Formula Performance & Scalability regarding approximate lookup tables, array arithmetic, and avoiding deep nested IFs (Question 28)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Formula Performance & Scalability.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Formula Performance & Scalability is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how approximate lookup tables, array arithmetic, and avoiding deep nested IFs affects formula evaluation and decision branching.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 29 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Troubleshooting & Defensive Engineering regarding diagnosing #VALUE!, #N/A, reversed conditions, and missing defaults (Question 29)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Troubleshooting & Defensive Engineering.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Troubleshooting & Defensive Engineering is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how diagnosing #VALUE!, #N/A, reversed conditions, and missing defaults affects formula evaluation and decision branching.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   },
   {
-    "question": "Question 30 on Combining logical functions with SUM, AVERAGE, and LOOKUP functions: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 10.",
-    "explanation": "Mastering Combining logical functions with SUM, AVERAGE, and LOOKUP functions ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Combining logical functions with SUM, AVERAGE, and LOOKUP functions, how does Excel evaluate Enterprise Best Practices regarding modular formula design, parameter configuration tables, and auditability (Question 30)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Enterprise Best Practices.",
+    "explanation": "When working with Combining logical functions with SUM, AVERAGE, and LOOKUP functions, mastering Enterprise Best Practices is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how modular formula design, parameter configuration tables, and auditability affects formula evaluation and decision branching.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)"
   }
 ];
 

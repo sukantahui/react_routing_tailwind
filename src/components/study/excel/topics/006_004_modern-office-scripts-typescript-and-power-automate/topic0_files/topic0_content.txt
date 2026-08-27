@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Modern Office Scripts (TypeScript) & Power Automate
 Topic 0: Introduction to Office Scripts: Modern cross-platform automation for Excel on the Web and Desktop
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Introduction to Office Scripts: Modern cross-platform automation for Excel on the Web and Desktop is an essential discipline in cloud spreadsheet automation, serverless enterprise workflows, and TypeScript-driven business intelligence.
+It provides the core protocols required to author cross-platform scripts, connect Excel to Microsoft Power Automate, and construct 24/7 autonomous cloud pipelines.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Office Scripts Entry Point: function main(workbook: ExcelScript.Workbook) { const sheet = workbook.getActiveWorksheet(); sheet.getRange("A1").setValue("Automated"); }
+
+3. CORE TECHNICAL MECHANICS
+1. Cross-Platform Cloud Execution:
+   Runs seamlessly across Excel for Web (browser), Excel for Windows, and Excel for Mac with zero local installation dependencies.
+
+2. TypeScript-Powered Automation:
+   Written in strongly-typed TypeScript/JavaScript, providing modern ES6+ syntax, arrow functions, and compile-time type safety.
+
+3. Seamless Cloud Flow Integration:
+   Acts as cloud microservices callable directly by Microsoft Power Automate cloud flows without requiring a running desktop Excel instance.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Digital Transformation Officer, Barrackpore HQ):
+  Enterprise Cross-Platform Cloud Reporting - Deploys 20 Office Scripts across web-based SharePoint financial workbooks accessible seamlessly by Mac, Windows, and iPad executive teams.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Web-Based Tax Formatter Script - Builds a 1-click cloud button in Excel for Web that formats raw GST purchase exports instantly.
+• Abhronila Das (Plant Operations Superintendent, Ichapur Works):
+  Tablet Shopfloor Production Entry - Deploys web scripts for plant supervisors logging shift metrics on ruggedized Android tablets in Excel for Web.
+• Debangshu Roy (Supply Chain Financial Director, Naihati Logistics):
+  SharePoint Auto-Cleansing Script - Cleanses daily cloud carrier manifest files automatically on OneDrive.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Expecting VBA Methods (e.g. MsgBox, Application.ScreenUpdating):
+  Root Cause: Office Scripts runs in a sandboxed cloud browser environment where desktop VBA UI popups do not exist.
+  Diagnostic Fix: Use `console.log()` for debugging and return status values to Power Automate.
+• Missing Microsoft 365 Commercial / Enterprise License:
+  Root Cause: Office Scripts requires Microsoft 365 Business Standard, E3, or E5 license; not available on personal/family accounts.
+  Diagnostic Fix: Ensure your corporate M365 account has Office Scripts enabled by IT tenant admin.
+• Attempting File System Access (C:\ Drive):
+  Root Cause: Cloud scripts cannot access local C:\ drives directly.
+  Diagnostic Fix: Store files in OneDrive or SharePoint and access via Power Automate.
+
+6. PRO TIPS & SHORTCUTS
+• Automate Tab (Ribbon > Automate > New Script): Launches the Monaco Code Editor inside Excel.
+• Main Function (function main(workbook: ExcelScript.Workbook)): The required entry point for all Office Scripts.
+• Monaco Code Completion (IntelliSense auto-completes methods): Full TypeScript autocomplete and error diagnostics.
+================================================================================

@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Excel Beginner Skill Test
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Excel Beginner Skill Test
 Topic 4: Comprehensive Beginner MCQ & Practical Evaluation
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Comprehensive Beginner MCQ & Practical Evaluation is an essential evaluation milestone in spreadsheet mastery, data modeling rigor, and executive reporting.
+It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Beginner Certification Evaluation: Navigation + Formatting + Basic Math + Charting Comprehensive Lab
+
+3. CORE TECHNICAL MECHANICS
+1. Comprehensive Multi-Skill Synthesis:
+   Evaluates candidate proficiency across interface navigation, cell formatting, mathematical formula construction, and data visualization.
+
+2. Timed Accuracy & Speed Benchmark:
+   Tests candidate ability to deliver accurate financial tables under simulated corporate deadlines.
+
+3. Foundational Excel Certification:
+   Validates core spreadsheet literacy required for entry-level corporate finance, accounting, and data roles.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Academic Assessor, Barrackpore HQ):
+  Enterprise Excel Core Competency Exam - Evaluates candidates on building clean financial summary tables from scratch in 10 minutes.
+• Tuhina Mukherjee (Corporate Tax Trainer, Shyamnagar Plant):
+  Junior Accounting Candidate Evaluation - Assesses student submissions on tax ledger formatting, AutoSum formulas, and summary charts.
+• Abhronila Das (Plant Systems Lead, Ichapur Works):
+  Shopfloor Supervisor Spreadsheet Test - Tests candidate mastery of shift production data entry and error-free formula calculations.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Dispatch Coordinator Evaluation - Evaluates transit manifest formatting and basic route cost formulas.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Missing Absolute Referencing ($):
+  Root Cause: Formulas breaking when copied.
+  Diagnostic Fix: Lock parameter cells with F4.
+• Formatting Errors:
+  Root Cause: Leaving numbers unformatted.
+  Diagnostic Fix: Apply Indian Rupee and comma separators.
+• Unlinked Chart Titles:
+  Root Cause: Leaving generic titles.
+  Diagnostic Fix: Set descriptive dynamic titles.
+
+6. PRO TIPS & SHORTCUTS
+• Check Formula Bar (Ctrl + ` (Show Formulas)): Audits all formulas across the sheet simultaneously.
+• Professional Polish (Alt + W + V + G (Hide Gridlines)): Gives dashboards a clean white canvas appearance.
+• Save Your Work (Ctrl + S): Frequent saving prevents data loss.
+================================================================================

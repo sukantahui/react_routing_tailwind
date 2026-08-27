@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
-Topic 10: Handling missing data, imputation, and outlier detection with Python algorithms
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 10 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Handling missing data, imputation, and outlier detection with Python algorithms
+Module: 007_001_python-in-excel-data-science-and-machine-learning
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Data Cleaning: df.isnull().sum() | Imputation: df['Salary'].fillna(df['Salary'].median(), inplace=True) | Outliers: q1, q3 = df['Val'].quantile([0.25, 0.75]); iqr = q3 - q1
+
+PRIMARY CONCEPT:
+Engineering production-grade data hygiene pipelines in Python: missing value profiling (isnull), median/KNN imputation, IQR boxplot outlier filtering, and z-score anomaly detection
+
+TEACHER'S ADVICE:
+Clean data equals accurate answers. If your data has blanks, do not delete the whole row! Fill numeric blanks with the median (`df['Col'].fillna(df['Col'].median())`). It protects your model from distortion.
+
+COMMON TRAPS TO AVOID:
+- Mean Imputation on Skewed Datasets (Distortion Trap): Using mean imputation when data contains extreme billionaire outliers shifts the central tendency artificially high. -> Fix: Always use median imputation (`.median()`) for skewed financial data.
+- Deleting All Rows with Any NaN (Massive Data Loss): Calling `df.dropna()` indiscriminately deleting 80% of valuable transaction records. -> Fix: Impute missing features selectively or drop rows only when target label `y` is missing.
+- Overwriting Raw Data in Place Without Backup: Mutating original DataFrame without preserving a clean raw copy. -> Fix: Create a clean copy: `df_clean = df.copy()`.
+================================================================================

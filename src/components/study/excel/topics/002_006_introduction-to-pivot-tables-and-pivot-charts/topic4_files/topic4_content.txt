@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Introduction to Pivot Tables and Pivot Charts
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Introduction to Pivot Tables and Pivot Charts
 Topic 4: Showing values as: % of Grand Total, % of Column/Row, Difference From, Running Total
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Showing values as: % of Grand Total, % of Column/Row, Difference From, Running Total is an essential discipline in corporate business intelligence and reporting.
+It provides the foundation for dynamic in-memory summarization, multi-dimensional slicing, and interactive dashboards.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Show Values As: % of Grand Total | % of Column Total | % of Parent Row | Running Total In | Difference From
+
+3. CORE TECHNICAL MECHANICS
+1. Percentage Contributions (% of Grand / Column / Row Total):
+   Computes proportional distribution across the whole dataset (% of Grand Total) or within vertical/horizontal categories (% of Column / Row Total).
+
+2. Running Total In (Cumulative Curves):
+   Calculates progressive cumulative sums across date or milestone dimensions, essential for year-to-date (YTD) tracking.
+
+3. Difference From / % Difference From (Variance Tracking):
+   Computes absolute or percentage variance compared to a specified baseline category (e.g. Previous Month or Budget).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Regional Revenue Market Share Contribution - Displays regional branch revenue as '% of Grand Total' to identify revenue concentration risk across Bengal branches.
+• Tuhina Mukherjee (Financial Planning Lead, Shyamnagar Plant):
+  Month-over-Month Revenue Growth Variance - Configures monthly revenue with 'Show Values As > % Difference From > (Previous)' to display MoM growth percentages.
+• Abhronila Das (Production Controller, Ichapur Works):
+  Cumulative Annual Output Tracking - Applies 'Running Total In > Month' to track cumulative steel manufacturing output against annual production targets.
+• Debangshu Roy (Logistics Controller, Naihati Logistics):
+  Carrier Cost Distribution by Zone - Calculates shipping costs as '% of Parent Row Total' to evaluate route expense allocations.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• #N/A in First Period of Difference From:
+  Root Cause: Comparing against '(previous)' item creates a #N/A in the first row because no prior period exists.
+  Diagnostic Fix: This is mathematically expected; hide or annotate the first period row.
+• Confusing % of Column Total with % of Parent Row:
+  Root Cause: In multi-level nested hierarchies, % of Column Total evaluates against the overall total rather than the subcategory total.
+  Diagnostic Fix: Use '% of Parent Row Total' and select the specific parent grouping field.
+• Overwriting Original Measure:
+  Root Cause: Changing a field to '% of Total' hides the original dollar amount.
+  Diagnostic Fix: Drag the same field into the Values quadrant TWICE: display one as raw Sum and the second as '% of Total'.
+
+6. PRO TIPS & SHORTCUTS
+• Dual Value Columns (Drag field into Values twice): Display raw currency alongside percentage contribution side-by-side.
+• Instant Show Values As (Right-click > Show Values As): Quick context menu access to all 15 relative calculation modes.
+• YTD Cumulative Sum (Show Values As > Running Total In > Date): Builds a smooth cumulative revenue trajectory without complex formulas.
+================================================================================

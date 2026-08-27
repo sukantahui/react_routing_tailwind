@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Financial Functions in Excel (Basic to Professional)
 Topic 6: Internal Rate of Return (IRR) vs Modified Internal Rate of Return (MIRR)
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Internal Rate of Return (IRR) vs Modified Internal Rate of Return (MIRR) is a foundational pillar of corporate financial modeling, investment banking, and capital budgeting.
+It equips financial modelers with the exact mathematical tools to value assets, evaluate debt structures, and appraise investments.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: =IRR(values, [guess]) | =MIRR(values, finance_rate, reinvest_rate)
+
+3. CORE TECHNICAL MECHANICS
+1. Internal Rate of Return (IRR):
+   The discount rate that drives project NPV to exactly ZERO (`NPV = 0`). If `IRR > HurdleRate (WACC)`, the project is commercially viable.
+
+2. The Flawed IRR Reinvestment Assumption:
+   Standard IRR mathematically assumes intermediate cash inflows are reinvested at the internal IRR rate itself (e.g. 45%), distorting project returns.
+
+3. The Modified IRR Solution (MIRR):
+   MIRR resolves this by financing negative cash flows at `finance_rate` (cost of debt) and reinvesting positive cash inflows at `reinvest_rate` (true WACC).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Private Equity, Barrackpore HQ):
+  Enterprise Buyout Fund Return Appraisal - Evaluates buyout deal returns: Standard IRR shows an unrealistic 48%, while =MIRR(B2:B8, 10%, 12%) reflects a realistic 21.4% true equity return.
+• Tuhina Mukherjee (Capital Budgeting Analyst, Shyamnagar Plant):
+  Automated Foundry Project IRR vs WACC - Compares project IRR (16.8%) against corporate WACC hurdle rate (11.5%) to approve capex allocation.
+• Abhronila Das (Infrastructure Controller, Ichapur Works):
+  Captive Solar Power Plant Return Rate - Computes internal rate of return on ₹15 Crore solar installation investment.
+• Debangshu Roy (Logistics Hub Planner, Naihati Logistics):
+  Automated Cold Storage IRR Modeling - Evaluates project return metrics across cold storage facility investment horizons.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Multiple Sign Changes (Multiple IRRs Problem):
+  Root Cause: If cash flows change sign multiple times (+ to - to +), standard IRR algorithm can fail or return multiple conflicting rates.
+  Diagnostic Fix: Use MIRR or XIRR to guarantee a single, mathematically unique return rate.
+• No Negative Initial Outflow (#NUM!):
+  Root Cause: If all numbers in the values range are positive, IRR cannot converge and returns #NUM!.
+  Diagnostic Fix: Ensure the initial investment outflow is entered as a negative number (-).
+• Blind Reliance on High IRR:
+  Root Cause: A project with 50% IRR on ₹1 Lakh is often chosen over a project with 25% IRR on ₹100 Crores, destroying absolute firm value.
+  Diagnostic Fix: Always prioritize Net Present Value (NPV) in dollars over IRR percentage.
+
+6. PRO TIPS & SHORTCUTS
+• Standard IRR Formula (=IRR(CashFlowRange)): Quick calculation of discount rate where NPV = 0.
+• Realistic MIRR Formula (=MIRR(CashFlows, CostOfDebt, CostOfCapital)): The executive gold standard for realistic capital project returns.
+• Provide Guess Argument (=IRR(Values, 0.15)): Helps Excel converge when cash flows contain complex alternating signs.
+================================================================================

@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
-Topic 3: The CALCULATE function: Modifying and overriding filter contexts dynamically
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 3 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: The CALCULATE function: Modifying and overriding filter contexts dynamically
+Module: 005_004_dax-formulas-mastery-and-time-intelligence
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+CALCULATE(Expression, Filter1, Filter2, ...) | CALCULATE([TotalSales], Dim_Product[Category] = "Electronics", Dim_Calendar[Year] = 2026)
+
+PRIMARY CONCEPT:
+Mastering CALCULATE, the most powerful and fundamental function in DAX: modifying, overriding, injecting, and removing filter contexts to perform advanced analytical calculations
+
+TEACHER'S ADVICE:
+If you only learn one function in DAX, make it CALCULATE. It allows you to change the rules of the game: you can ignore slicers, inject new filters, and compare anything against anything.
+
+COMMON TRAPS TO AVOID:
+- Attempting Multiple Columns in Simple Boolean Filter: Writing `CALCULATE([Sales], Product[Price] > Product[Cost])` throws a DAX syntax error (simple Boolean filters cannot compare two columns directly). -> Fix: Wrap multi-column comparisons inside the `FILTER()` table function: `CALCULATE([Sales], FILTER(Product, Product[Price] > Product[Cost]))`.
+- Measure References in Boolean Filter Argument: Writing `CALCULATE([Sales], [Margin%] > 0.2)` throws an error (measures cannot be used as simple Boolean filter parameters). -> Fix: Use `FILTER(Dim_Product, [Margin%] > 0.2)`.
+- Order of Operations Confusion: CALCULATE modifies the filter context BEFORE evaluating the primary expression. -> Fix: undefined
+================================================================================

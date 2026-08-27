@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: DAX Formulas Mastery and Time Intelligence
 Topic 14: Real-world capstone: Building an Enterprise Financial & Sales Performance DAX Measure Suite
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Real-world capstone: Building an Enterprise Financial & Sales Performance DAX Measure Suite is an essential discipline in enterprise business intelligence, quantitative finance, and advanced data modeling.
+It provides the core protocols required to construct complex multi-dimensional financial measures, calculate period-over-period growth, and evaluate dynamic rankings.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Enterprise Financial & Sales Performance DAX Measure Suite: Revenue, Margin, YTD, YoY Growth, TTM, Semi-Additive Balances & Top N
+
+3. CORE TECHNICAL MECHANICS
+1. Measure Branching Architecture:
+   Tier 1: Core Base Aggregations (`[TotalSales]`, `[TotalCost]`); Tier 2: Mathematical Margins (`[GrossMargin]`, `[Margin%]`); Tier 3: Time Intelligence (`[Sales_YTD]`, `[Sales_LY]`, `[YoY_Growth%]`); Tier 4: Trailing Rolling Windows & Rankings (`[TTM_Sales]`, `[Rank]`).
+
+2. Enterprise Display Folder Organization:
+   Categorizes all 30 measures into clean, professional Display Folders for seamless executive C-suite dashboard presentation.
+
+3. Production Rigor & Verification:
+   Guarantees zero hardcoding, audited negative denominator handling, continuous Date Dimension integrity, and lightning-fast sub-second pivot execution.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Commercial Officer, Barrackpore HQ):
+  Enterprise Commercial BI DAX Suite Deployment - Architects and deploys the master corporate DAX measure suite powering ₹500 Crore executive commercial performance reviews.
+• Tuhina Mukherjee (Head of Financial Planning, Shyamnagar Plant):
+  Manufacturing Financial Statement DAX Model - Constructs audited P&L, balance sheet closing balances, and budget variance DAX measures.
+• Abhronila Das (Director of Manufacturing, Ichapur Works):
+  Plant Production & Scrap Analytics Suite - Deploys real-time machine availability, yield ratios, and trailing 30-day moving average scrap measures.
+• Debangshu Roy (VP Supply Chain Logistics, Naihati Logistics Hub):
+  Nationwide Logistics SLA & Margin Suite - Engineers freight ton-kilometer profitability, delivery turnaround SLAs, and carrier ranking measures.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Measure Inconsistency Across Reports:
+  Root Cause: Different analysts writing conflicting definitions for 'Gross Margin' across departmental spreadsheets.
+  Diagnostic Fix: Centralize all core definitions in the master Power Pivot Data Model Measure Suite.
+• Hardcoding Tax Rates or Fixed Values in DAX:
+  Root Cause: Typing `* 0.18` inside DAX formulas breaks when tax legislation changes.
+  Diagnostic Fix: Store tax rates in Dimension tables and link dynamically via relationships.
+• Failing to Port to Power BI:
+  Root Cause: Thinking DAX learned in Excel cannot be used in Power BI.
+  Diagnostic Fix: Every single DAX measure written in Excel Power Pivot ports 100% identically into Microsoft Power BI.
+
+6. PRO TIPS & SHORTCUTS
+• 4-Tier Measure Branching (Base -> Margin -> Time Intelligence -> Ranking): The universal architecture for enterprise DAX suites.
+• Direct Power BI Portability (Copy/Paste DAX into Power BI Desktop): 100% code reuse across Excel and Power BI platforms.
+• Audited & Production-Grade (DIVIDE() + Negative Denominator Checks): Guarantees error-free execution across all executive queries.
+================================================================================

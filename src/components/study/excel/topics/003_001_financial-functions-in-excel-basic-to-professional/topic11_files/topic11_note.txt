@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
-Topic 11: Building a multi-period Discounted Cash Flow (DCF) company valuation model
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 11 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Building a multi-period Discounted Cash Flow (DCF) company valuation model
+Module: 003_001_financial-functions-in-excel-basic-to-professional
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+DCF Enterprise Valuation: Enterprise Value = PV(Discrete Forecast FCFF @ WACC) + PV(Terminal Value @ WACC) - Net Debt
+
+PRIMARY CONCEPT:
+Building a multi-period Discounted Cash Flow (DCF) corporate valuation model: projecting Free Cash Flows to Firm (FCFF), calculating WACC, and modeling Gordon Growth Terminal Value
+
+TEACHER'S ADVICE:
+The DCF model is the crown jewel of corporate finance. Always remember: Enterprise Value is the value of the entire business, but Equity Value is what belongs to shareholders after subtracting debt and adding cash.
+
+COMMON TRAPS TO AVOID:
+- Terminal Growth Rate (g) Exceeding GDP Growth: Assuming a perpetual terminal growth rate > 4% mathematically implies the company will eventually become larger than the global economy. -> Fix: Keep terminal growth rate (g) conservative: typically between 2.0% and 3.5% (in line with long-term GDP growth).
+- Double-Discounting Terminal Value: Terminal Value is calculated at t=5; forgetting to discount it back to t=0 at the WACC rate overstates valuation by over 60%. -> Fix: Always discount Terminal Value back to t=0: `=TerminalValue / (1 + WACC)^5`.
+- Confusing Enterprise Value with Equity Value: Forgetting to subtract Net Debt (Debt - Cash) from Enterprise Value to arrive at Equity Value. -> Fix: `Equity Value = Enterprise Value - Total Debt + Cash & Equivalents`.
+================================================================================

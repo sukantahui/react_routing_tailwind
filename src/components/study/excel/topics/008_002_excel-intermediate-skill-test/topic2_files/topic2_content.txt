@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Excel Intermediate Skill Test
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Excel Intermediate Skill Test
 Topic 2: Statistical Analysis & Multi-condition Summation Challenge
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Statistical Analysis & Multi-condition Summation Challenge is an essential evaluation milestone in spreadsheet mastery, data modeling rigor, and executive reporting.
+It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Multi-Condition Aggregation: =SUMIFS(SumRng, CritRng1, Crit1, CritRng2, Crit2) | =COUNTIFS(...) | =AVERAGEIFS(...) | =MEDIAN(IF(...))
+
+3. CORE TECHNICAL MECHANICS
+1. Multi-Dimensional SUMIFS Architecture:
+   Syntax: `=SUMIFS(SumRange, CriteriaRange1, Criteria1, CriteriaRange2, Criteria2)`. Aggregates data intersecting multiple categorical and numerical conditions.
+
+2. Dynamic Date Window Summation:
+   Filtering transactions within specific date ranges: `CriteriaRange, ">="&StartDate, CriteriaRange, "<="&EndDate`.
+
+3. Wildcard Text Matching (*, ?):
+   Aggregating all product models containing 'Pro': `CritRange, "*Pro*"`.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Analytics, Barrackpore HQ):
+  Enterprise Regional Sales Matrix SUMIFS Challenge - Evaluates candidates on building a dynamic 2-way summary matrix calculating total sales by Region and Product Category using `SUMIFS` in 4 minutes.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Multi-Condition Tax Surcharge Reconciliation - Tests candidate formulas aggregating tax liabilities for specific tax slabs within Q3 date windows.
+• Abhronila Das (Plant Quality Superintendent, Ichapur Works):
+  Factory Machine Defect COUNTIFS Lab - Evaluates candidate calculations of defect occurrences matching specific shift and temperature criteria.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Carrier Multi-Zone Freight Volume SUMIFS - Tests freight tonnage aggregations across carrier zones and delivery urgency levels.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Confusing SUMIF vs SUMIFS Argument Order:
+  Root Cause: In `SUMIF`, the sum range is LAST; in `SUMIFS`, the sum range is FIRST! Mixing them causes formula errors.
+  Diagnostic Fix: Always use `SUMIFS` (sum range FIRST) even for single-condition queries for consistency.
+• Mismatched Range Dimensions in SUMIFS:
+  Root Cause: Sum range `B2:B100` with criteria range `A2:A150` throws `#VALUE!` error.
+  Diagnostic Fix: Ensure all range arguments have identical row and column dimensions.
+• Forgetting Ampersand in Dynamic Comparison Operators:
+  Root Cause: Writing `">=A1"` searches for the literal text '>A1' instead of comparing against cell value.
+  Diagnostic Fix: Concatenate operator with cell reference: `">=" & A1`.
+
+6. PRO TIPS & SHORTCUTS
+• Always Use SUMIFS (=SUMIFS(SumRng, CritRng1, Crit1)): Consistent argument order across all conditional queries.
+• Dynamic Cell Reference (">=" & StartDateCell): Mandatory concatenation syntax for cell dates/numbers.
+• Wildcard Matching ("*" & SearchText & "*"): Matches partial text anywhere within cells.
+================================================================================

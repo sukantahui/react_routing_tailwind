@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Introduction to Pivot Tables and Pivot Charts
-Topic 5: Grouping data in Pivot Tables: Grouping dates (Years, Quarters, Months), Numbers, and Text
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 5 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Grouping data in Pivot Tables: Grouping dates (Years, Quarters, Months), Numbers, and Text
+Module: 002_006_introduction-to-pivot-tables-and-pivot-charts
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Group By: Years, Quarters, Months (Dates) | Starting At, Ending At, By (Numeric Bins) | Custom Text Selection
+
+PRIMARY CONCEPT:
+Creating dynamic multi-tier date groupings (Years, Quarters, Months), numeric histogram bins (e.g. 0-10k, 10k-20k), and custom qualitative groupings in PivotTables
+
+TEACHER'S ADVICE:
+If Excel tells you 'Cannot group that selection', do not panic! It means you have a blank cell or text date in your source data. Find the blank, fill it in, and grouping will work instantly.
+
+COMMON TRAPS TO AVOID:
+- 'Cannot Group That Selection' Error: If the date column contains even a single blank cell, text date string ('27-Aug'), or invalid format, date grouping fails completely. -> Fix: Filter source column for blank cells and text strings; ensure 100% pure serial dates.
+- Group Hierarchy Propagating Across All Pivot Tables: Grouping dates in one PivotTable automatically groups the same date field across all other PivotTables sharing that Pivot Cache. -> Fix: Uncheck sharing or create independent Data Model pivots if isolated grouping is required.
+- Uneven Numeric Bracket Bounds: Choosing poor bin intervals creates misleading histogram distributions. -> Fix: Align numeric bin widths with corporate credit or operational bracket standards.
+================================================================================

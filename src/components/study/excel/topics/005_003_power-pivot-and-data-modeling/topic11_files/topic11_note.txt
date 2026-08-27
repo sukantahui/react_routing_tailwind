@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Power Pivot & Data Modeling
-Topic 11: Connecting Excel Pivot Tables directly to the Power Pivot Data Model
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 11 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Connecting Excel Pivot Tables directly to the Power Pivot Data Model
+Module: 005_003_power-pivot-and-data-modeling
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Data Model Connection: Insert > PivotTable > Select 'Use this workbook\'s Data Model' (Alt + N + V + M)
+
+PRIMARY CONCEPT:
+Connecting modern Excel PivotTables directly to the Power Pivot Data Model: multi-table field lists, leveraging explicit DAX measures, and drill-through details
+
+TEACHER'S ADVICE:
+When inserting a PivotTable, always choose 'Use this workbook's Data Model' (Alt + N + V + M). It gives you access to all tables, all relationships, and all explicit DAX measures in one unified field list.
+
+COMMON TRAPS TO AVOID:
+- Selecting Standard Worksheet Range by Mistake: Clicking 'Select a table or range' connects to the sheet rather than the high-performance Data Model. -> Fix: Always select 'Use this workbook's Data Model' (Alt + N + V + M).
+- Cartesian Explosion from Missing Relationships: Dragging fields from two unconnected tables causes the PivotTable to repeat the grand total across all rows. -> Fix: Go to Diagram View and establish the missing 1-to-Many relationship.
+- Disabling OLAP Tools Drill-Through: Attempting to double-click an OLAP Pivot cell when drill-through limit is set to default 1,000 rows. -> Fix: PivotTable Options > Data tab > Increase 'Maximum number of records to retrieve'.
+================================================================================

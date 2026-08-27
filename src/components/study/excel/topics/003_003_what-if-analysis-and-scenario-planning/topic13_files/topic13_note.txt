@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
-Topic 13: Real-world project: Optimal investment portfolio allocation using Markowitz mean-variance Solver model
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 13 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Real-world project: Optimal investment portfolio allocation using Markowitz mean-variance Solver model
+Module: 003_003_what-if-analysis-and-scenario-planning
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Markowitz Mean-Variance Portfolio Optimization: Minimize Portfolio Variance = w' * CovMatrix * w | Subject to: Expected Return >= Target, Sum(w) = 1, w >= 0
+
+PRIMARY CONCEPT:
+Nobel-Prize winning quantitative finance capstone: building a Markowitz Mean-Variance Investment Portfolio Optimization model in Excel using GRG Nonlinear Solver to construct the Efficient Frontier
+
+TEACHER'S ADVICE:
+Congratulations on completing What-If Analysis and Optimization! You have built the Markowitz Nobel-Prize winning portfolio model right inside Excel. You now possess world-class financial engineering capabilities.
+
+COMMON TRAPS TO AVOID:
+- Selecting Simplex LP for Portfolio Variance (Fails): Portfolio variance contains quadratic terms (`w1*w2*Cov12`), which are non-linear; Simplex LP throws 'Linearly Conditions not satisfied'. -> Fix: Always select GRG Nonlinear engine for Markowitz portfolio variance optimization.
+- Omitting the 100% Budget Constraint (Sum of Weights = 1): Forgetting `SUM(Weights) = 1` allows Solver to achieve low risk by investing ₹0, or high returns by investing 500% capital. -> Fix: Add the mandatory equality constraint: `TotalWeightCell = 1.0`.
+- Non-Positive-Definite Covariance Matrix: Using inconsistent historical time windows creates mathematically corrupted covariance matrices where variance returns negative numbers. -> Fix: Calculate covariance using Excel's native `=COVARIANCE.S()` across synchronized historical date ranges.
+================================================================================

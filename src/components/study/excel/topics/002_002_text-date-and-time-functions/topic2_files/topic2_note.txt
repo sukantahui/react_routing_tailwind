@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Text, Date and Time Functions
-Topic 2: Concatenation strategies: CONCAT, TEXTJOIN with custom delimiters, and the & operator
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 2 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Concatenation strategies: CONCAT, TEXTJOIN with custom delimiters, and the & operator
+Module: 002_002_text-date-and-time-functions
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+=TEXTJOIN(delimiter, ignore_empty, text1, [text2], ...) | =CONCAT(text1, [text2], ...) | =text1 & text2
+
+PRIMARY CONCEPT:
+Assembling composite strings, multi-line addresses, and delimited list aggregation with TEXTJOIN, CONCAT, and the & operator
+
+TEACHER'S ADVICE:
+TEXTJOIN is one of the most productive functions added to Excel. Use it with CHAR(10) to create beautiful multi-line executive cards inside single cells.
+
+COMMON TRAPS TO AVOID:
+- Missing Line Break Wrap Text: Using CHAR(10) to create multi-line text displays as square boxes or spaces unless Wrap Text is enabled. -> Fix: Enable Home > Wrap Text (Alt + H + W) on formatted cells.
+- Legacy CONCATENATE Range Limitation: Using old CONCATENATE(A2:D2) fails to span arrays and returns #VALUE! in older Excel. -> Fix: Use modern TEXTJOIN() or CONCAT() functions.
+- Forgetting ignore_empty Flag: Setting ignore_empty to FALSE produces duplicate delimiters (e.g. 'Item 1,,Item 3') when blank cells exist. -> Fix: Set the second argument of TEXTJOIN to TRUE.
+================================================================================

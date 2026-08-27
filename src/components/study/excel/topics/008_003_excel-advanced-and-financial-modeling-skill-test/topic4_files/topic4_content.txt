@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Excel Advanced & Financial Modeling Skill Test
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Excel Advanced & Financial Modeling Skill Test
 Topic 4: Power Query M Transformation & Unpivoting Practical
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Power Query M Transformation & Unpivoting Practical is an essential evaluation milestone in spreadsheet mastery, data modeling rigor, and executive reporting.
+It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: M-Code Transformation: Table.SelectRows -> Table.TransformColumnTypes -> Table.UnpivotOtherColumns -> Table.AddColumn -> Table.Group
+
+3. CORE TECHNICAL MECHANICS
+1. Unpivoting Wide Matrix Tables:
+   Transforms wide human-formatted reports (Month columns across the top) into normalized 3-column tabular databases (Date, Attribute, Value) using `Table.UnpivotOtherColumns`.
+
+2. Automated Multi-File Folder Consolidation:
+   Combines 50 monthly branch CSV files from a folder into a single unified table in 1 click.
+
+3. Data Type Coercion & Schema Standardization:
+   Enforces strict type safety (Int64, Currency, Date, Text) preventing corruptions before data enters the Excel Data Model.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Data Architect, Barrackpore HQ):
+  Enterprise 50-Branch Consolidation & Unpivot Lab - Evaluates candidates on ingesting 50 unformatted regional budget files, unpivoting 12 month columns, and loading a clean 100,000-row tabular dataset in 5 minutes.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Tax Ledger Multi-File Folder ETL Test - Tests candidate Power Query pipeline combining monthly purchase ledgers and stripping messy blank rows.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  Machine Telemetry Ingestion ETL - Cleanses and transforms industrial sensor logs into normalized time-series data tables.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Waybill EDI Text Ingestion Pipeline - Extracts, parses, and unpivots carrier freight rate tariffs via Power Query.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Unpivoting Selected Columns Instead of 'Unpivot Other Columns':
+  Root Cause: Using 'Unpivot Columns' hardcodes column names; when next month's data arrives, the query fails.
+  Diagnostic Fix: Always select fixed ID columns and click 'Unpivot Other Columns'.
+• Leaving Dirty 'Changed Type' Steps Hardcoding Deleted Columns:
+  Root Cause: Auto-generated Changed Type step referencing deleted columns breaking refresh.
+  Diagnostic Fix: Clean up intermediate M-code steps before publishing queries.
+• Loading Massive Data to Worksheet Grid Instead of Data Model Only:
+  Root Cause: Loading 5 million rows into Excel crashes sheet row limit (1,048,576).
+  Diagnostic Fix: Select 'Only Create Connection' and check 'Add this data to the Data Model'.
+
+6. PRO TIPS & SHORTCUTS
+• Unpivot Other Columns (Right-click ID cols > Unpivot Other Columns): Dynamic unpivoting that automatically handles new months.
+• Load to Data Model Only (Close & Load To > Only Create Connection + Data Model): Handles multi-million row datasets with zero worksheet lag.
+• View Advanced Editor (Home > Advanced Editor): Inspects and edits underlying Power Query M-Code.
+================================================================================

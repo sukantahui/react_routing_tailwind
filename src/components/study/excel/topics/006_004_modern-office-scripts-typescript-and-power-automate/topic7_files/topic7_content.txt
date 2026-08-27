@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Modern Office Scripts (TypeScript) & Power Automate
 Topic 7: Adding parameters and return values to Office Scripts for external execution
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Adding parameters and return values to Office Scripts for external execution is an essential discipline in cloud spreadsheet automation, serverless enterprise workflows, and TypeScript-driven business intelligence.
+It provides the core protocols required to author cross-platform scripts, connect Excel to Microsoft Power Automate, and construct 24/7 autonomous cloud pipelines.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Script Interface: function main(workbook: ExcelScript.Workbook, branchName: string, targetRevenue: number): { success: boolean, totalSales: number } { ... return { success: true, totalSales: sum }; }
+
+3. CORE TECHNICAL MECHANICS
+1. The Parameterized Function Signature:
+   Extends `main()` to accept strongly-typed input arguments: `function main(workbook: ExcelScript.Workbook, customerID: string, newLimit: number)`.
+
+2. Returning Structured Output Payloads:
+   Scripts can return typed objects: `return { processedRows: 500, status: "Approved", totalAmount: 4500000 };`.
+
+3. Dynamic Cloud Workflow Handshake:
+   Allows Power Automate to pass data from Microsoft Forms, emails, or webhooks directly into Excel, and receive computed metrics back to send in Teams messages.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Digital Systems Architect, Barrackpore HQ):
+  Parameterized Commercial Deal Approval Script - Authors a cloud script accepting `dealID` and `discountPct`, updates the financial model, and returns calculated profit margin back to Power Automate.
+• Tuhina Mukherjee (Corporate Tax Lead, Shyamnagar Plant):
+  Parameterized Tax Calculation Microservice - Accepts taxable income and regime parameters, returns calculated tax liability to an automated corporate portal.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  Machine Shift Parameter Injector - Accepts shift ID and operator count, updating plant efficiency logs.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Freight Quotation Pricing Microservice - Accepts origin, destination, and weight parameters, returning calculated carrier freight tariff.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Using Non-Serializable Return Types:
+  Root Cause: Returning complex circular objects or DOM references causes Power Automate flow execution to fail.
+  Diagnostic Fix: Return clean primitive types, arrays, or simple JSON objects (`{ status: string, total: number }`).
+• Missing Parameter Types on Main Function:
+  Root Cause: Omitting TypeScript type annotations on input parameters (`function main(workbook, arg1)`).
+  Diagnostic Fix: Always declare explicit types: `function main(workbook: ExcelScript.Workbook, arg1: string)`.
+• Testing in Excel Without Passing Mock Arguments:
+  Root Cause: Running a parameterized script in the editor without providing test values in the Run panel.
+  Diagnostic Fix: Enter test parameters in the Monaco editor parameters panel before clicking Run.
+
+6. PRO TIPS & SHORTCUTS
+• Explicit Return Type (function main(...): { status: string, count: number }): Self-documenting cloud microservice contract.
+• Test in Monaco Panel (Monaco provides input boxes for parameters): Interactive parameter testing right inside Excel.
+• JSON Return Payload (return { success: true, timestamp: new Date().toISOString() };): Clean payload consumed effortlessly by Power Automate.
+================================================================================

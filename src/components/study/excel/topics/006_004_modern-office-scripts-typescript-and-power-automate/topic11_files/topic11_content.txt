@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Modern Office Scripts (TypeScript) & Power Automate
 Topic 11: Generating automated Teams/Slack notifications and PDF reports from Excel via Power Automate
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Generating automated Teams/Slack notifications and PDF reports from Excel via Power Automate is an essential discipline in cloud spreadsheet automation, serverless enterprise workflows, and TypeScript-driven business intelligence.
+It provides the core protocols required to author cross-platform scripts, connect Excel to Microsoft Power Automate, and construct 24/7 autonomous cloud pipelines.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Notifications & PDF: Run Script (Calculate KPI & Generate Summary) -> Create File (SharePoint .pdf) -> Post message in a chat or channel (Teams / Slack) -> Send Email (Outlook)
+
+3. CORE TECHNICAL MECHANICS
+1. Rich Adaptive Cards in Microsoft Teams:
+   Posts interactive, color-coded Adaptive Cards directly into executive Teams channels displaying real-time revenue KPIs, profit deltas, and action buttons.
+
+2. Automated Cloud PDF Conversion:
+   Uses OneDrive 'Convert file' action to convert Excel worksheets into crisp vector PDF reports in the cloud with zero desktop software.
+
+3. Multi-Channel Stakeholder Broadcast:
+   Dispatches simultaneous Teams notifications, Slack alerts, and executive emails in a single coordinated cloud workflow.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Commercial Officer, Barrackpore HQ):
+  Daily Executive Flash Report on Teams - Calculates daily revenue in Office Scripts and posts a morning 'Daily Flash Report' Adaptive Card to the Boardroom Teams channel at 08:30 AM.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Automated Tax Discrepancy Teams Alerts - Pushes real-time alerts to the finance channel whenever vendor tax variance exceeds ₹50,000.
+• Abhronila Das (Director of Manufacturing, Ichapur Works):
+  Plant Production Yield Alert Deck - Broadcasts daily shift output summaries to production managers on Teams.
+• Debangshu Roy (VP Supply Chain Logistics, Naihati Logistics Hub):
+  Delayed Freight Shipment Slack Alert - Posts real-time Slack alerts for transit consignments exceeding SLA delivery windows.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Spamming Teams Channels with Every Single Row Entry:
+  Root Cause: Posting a Teams message for every individual transaction in a 5,000-row batch.
+  Diagnostic Fix: Aggregate metrics into a single summary payload and post ONE consolidated notification.
+• Invalid Adaptive Card JSON Syntax:
+  Root Cause: Malformed JSON structure in Adaptive Card payload breaking Teams message delivery.
+  Diagnostic Fix: Use the Microsoft Adaptive Card Designer (`adaptivecards.io`) to validate payload JSON.
+• Converting Unformatted Excel Sheets to PDF:
+  Root Cause: Converting sheets without print area setup resulting in truncated PDF pages.
+  Diagnostic Fix: Configure print titles and page scaling via Office Scripts prior to cloud PDF conversion.
+
+6. PRO TIPS & SHORTCUTS
+• Adaptive Cards Designer (adaptivecards.io): Visual designer for stunning Teams interactive cards.
+• Convert File Action (OneDrive for Business > Convert file (to PDF)): 100% cloud-native Excel-to-PDF conversion.
+• Single Executive Summary (Consolidate before notifying): Keeps executive communication channels clean and actionable.
+================================================================================

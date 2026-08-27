@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Introduction to Pivot Tables and Pivot Charts
-Topic 4: Showing values as: % of Grand Total, % of Column/Row, Difference From, Running Total
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 4 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Showing values as: % of Grand Total, % of Column/Row, Difference From, Running Total
+Module: 002_006_introduction-to-pivot-tables-and-pivot-charts
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Show Values As: % of Grand Total | % of Column Total | % of Parent Row | Running Total In | Difference From
+
+PRIMARY CONCEPT:
+Transforming raw numeric measures into powerful analytical insights: percentage contributions, running cumulative totals, and period-over-period variance tracking
+
+TEACHER'S ADVICE:
+Drag your numeric metric into the Values area TWICE. Keep the first column as raw currency (Sum) and set the second column to 'Show Values As -> % of Grand Total'. Executive teams love this layout.
+
+COMMON TRAPS TO AVOID:
+- #N/A in First Period of Difference From: Comparing against '(previous)' item creates a #N/A in the first row because no prior period exists. -> Fix: This is mathematically expected; hide or annotate the first period row.
+- Confusing % of Column Total with % of Parent Row: In multi-level nested hierarchies, % of Column Total evaluates against the overall total rather than the subcategory total. -> Fix: Use '% of Parent Row Total' and select the specific parent grouping field.
+- Overwriting Original Measure: Changing a field to '% of Total' hides the original dollar amount. -> Fix: Drag the same field into the Values quadrant TWICE: display one as raw Sum and the second as '% of Total'.
+================================================================================

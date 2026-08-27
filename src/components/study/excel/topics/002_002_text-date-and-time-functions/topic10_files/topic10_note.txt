@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Text, Date and Time Functions
-Topic 10: Converting text strings to numeric values: VALUE, NUMBERVALUE, and DATEVALUE
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 10 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Converting text strings to numeric values: VALUE, NUMBERVALUE, and DATEVALUE
+Module: 002_002_text-date-and-time-functions
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+=VALUE(text) | =NUMBERVALUE(text, [decimal_separator], [group_separator]) | =DATEVALUE(date_text) | =TIMEVALUE(time_text)
+
+PRIMARY CONCEPT:
+Converting stubborn text strings into calculable numerical floats, dates, and times, resolving international European decimal punctuation conflicts
+
+TEACHER'S ADVICE:
+Numbers stored as text are the silent killers of corporate spreadsheets. When a formula returns 0 unexpectedly, 99% of the time it is caused by numbers stored as text.
+
+COMMON TRAPS TO AVOID:
+- Currency Symbol / Text Trailing Character (#VALUE!): VALUE() fails if the text contains unrecognized non-numeric words or characters. -> Fix: Strip non-numeric characters using SUBSTITUTE or TEXTBEFORE before passing to VALUE().
+- European vs US Decimal Discrepancy: Using VALUE('1,250') in US Excel treats comma as thousands separator, turning 1.25 Euros into 1,250. -> Fix: Always use =NUMBERVALUE(A2, ",", ".") when ingesting international datasets.
+- Green Triangle 'Number Stored as Text' Alert: Excel flags numbers formatted as text with warning indicators. -> Fix: Select range > Click Error Button > Convert to Number, or apply =--Range.
+================================================================================

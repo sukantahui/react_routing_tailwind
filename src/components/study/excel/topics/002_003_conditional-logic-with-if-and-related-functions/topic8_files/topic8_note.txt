@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Conditional Logic with IF and Related Functions
-Topic 8: Dynamic threshold scoring and tier classification systems
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 8 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Dynamic threshold scoring and tier classification systems
+Module: 002_003_conditional-logic-with-if-and-related-functions
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+=XLOOKUP(score, threshold_array, tier_array, , -1, 1) | =INDEX(tiers, MATCH(score, thresholds, 1))
+
+PRIMARY CONCEPT:
+Building dynamic threshold scoring and tier classification systems using approximate match lookups, outperforming rigid nested IF structures
+
+TEACHER'S ADVICE:
+Never write an 8-level nested IF for sales tiers or tax brackets! Build a 2-column configuration table and use =XLOOKUP(score, MinTable, TierTable, , -1). It is clean, flexible, and professional.
+
+COMMON TRAPS TO AVOID:
+- Unsorted Thresholds in MATCH Type 1: Legacy MATCH(val, range, 1) requires threshold arrays to be sorted in strict ascending order; unsorted tables return garbage results. -> Fix: Sort lookup threshold arrays in ascending order (0, 1000, 5000, 10000).
+- Values Below Minimum Threshold (#N/A): If the input value is smaller than the lowest threshold in the table, approximate lookup returns #N/A. -> Fix: Always start threshold tables at 0 (or negative infinity).
+- Hardcoded Tier Thresholds Inside Formulas: Hardcoding numbers like 50000 and 100000 inside formulas forces costly manual updates when company policy changes. -> Fix: Store thresholds in a dedicated named Excel Table.
+================================================================================

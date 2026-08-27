@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
-Topic 12: Working Capital and Free Cash Flow to Firm (FCFF) financial engineering
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 12 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Working Capital and Free Cash Flow to Firm (FCFF) financial engineering
+Module: 003_001_financial-functions-in-excel-basic-to-professional
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+FCFF = EBIT*(1-t) + D&A - Capex - ΔNWC | NWC = (Current Assets - Cash) - (Current Liabilities - ShortTermDebt)
+
+PRIMARY CONCEPT:
+Engineering Free Cash Flow to Firm (FCFF) from audited financial statements, integrating Non-Cash D&A, Capex reinvestment, and Net Working Capital changes
+
+TEACHER'S ADVICE:
+Profit is an opinion; Cash is a fact! A company can show massive accounting profits on paper while bleeding cash due to working capital traps. Always bridge Net Income to FCFF.
+
+COMMON TRAPS TO AVOID:
+- Including Cash in Working Capital Calculation: Including cash balances in Current Assets when calculating Net Working Capital creates double-counting in cash flow models. -> Fix: Use Non-Cash Working Capital: `NWC = (Current Assets - Cash) - (Current Liabilities - Short-term Debt)`.
+- Inverting Change in NWC Sign: Treating an increase in Accounts Receivable as a positive cash flow (it actually represents uncollected cash). -> Fix: Subtract ΔNWC: `Increase in NWC = Cash Outflow (-)`; `Decrease in NWC = Cash Inflow (+)`.
+- Confusing Net Income with FCFF: Using Net Income instead of NOPAT includes interest expense, distorting the firm-level capital-structure-neutral valuation. -> Fix: Always start FCFF from EBIT*(1-t), not Net Income.
+================================================================================

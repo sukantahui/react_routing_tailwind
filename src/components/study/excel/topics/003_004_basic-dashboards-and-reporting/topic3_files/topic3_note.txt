@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Basic Dashboards and Reporting
-Topic 3: Interactive form controls: Drop-downs, Checkboxes, Option buttons, and Spinners
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 3 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Interactive form controls: Drop-downs, Checkboxes, Option buttons, and Spinners
+Module: 003_004_basic-dashboards-and-reporting
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Developer > Insert > Form Controls: Combo Box (Drop-down) | Option Button (Radio) | Check Box | Scroll Bar (Spinner)
+
+PRIMARY CONCEPT:
+Embedding interactive Excel Form Controls (Combo Boxes, Option Buttons, Checkboxes, and Spinners) to drive interactive dashboard scenario switches without VBA macros
+
+TEACHER'S ADVICE:
+Form Controls require ZERO macro code and work on all standard Excel installations. Link your combo box to cell A1, use =INDEX(Options, A1) in your chart title, and watch your dashboard become fully interactive.
+
+COMMON TRAPS TO AVOID:
+- Floating Form Controls Drifting on Window Resize: Form Controls moving across the screen when users open the file on different resolution screens. -> Fix: Right-click Form Control > Format Control > Properties > Select 'Don't move or size with cells'.
+- Uncontained Option Buttons Overriding Each Other: Option buttons placed on the sheet without a Group Box operate as a single global group, preventing multiple independent radio switches. -> Fix: Enclose each set of Option Buttons inside a dedicated Group Box.
+- Exposing Raw Linked Cell Numbers to Users: Leaving raw numbers (1, 2, 3) visible on the presentation dashboard surface. -> Fix: Hide linked cells behind the control or format them with custom number format `;;;`.
+================================================================================

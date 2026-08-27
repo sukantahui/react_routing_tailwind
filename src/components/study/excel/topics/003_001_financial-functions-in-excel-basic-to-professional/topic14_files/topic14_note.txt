@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
-Topic 14: Advanced financial modeling best practices: Color coding, dynamic inputs, and auditing
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 14 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Advanced financial modeling best practices: Color coding, dynamic inputs, and auditing
+Module: 003_001_financial-functions-in-excel-basic-to-professional
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Financial Modeling Standards: Blue (Hardcoded Inputs) | Black (Formulas) | Green (Cross-Sheet Links) | Red (External Links)
+
+PRIMARY CONCEPT:
+Implementing Wall Street financial modeling standards: universal color coding, dynamic input blocks, error audit flags, and FAST standard architecture
+
+TEACHER'S ADVICE:
+Professional models are judged by their clarity, not just their math. Blue font for inputs, Black for formulas, Green for links. Never bury hardcoded numbers inside formulas!
+
+COMMON TRAPS TO AVOID:
+- Hardcoding Constants Inside Formulas: Writing `=Revenue * 0.25` instead of `=Revenue * Assumption!$C$4` hides assumptions from auditors. -> Fix: Place all growth rates, tax rates, and parameters in dedicated Assumption Blocks.
+- Unchecked Balance Sheet Discrepancy: Submitting a financial model where Total Assets do not equal Total Liabilities + Equity. -> Fix: Add high-visibility Audit Flag headers: `=IF(Assets=Liab+Equity, "✓ BALANCED", "⚠️ ERROR")`.
+- Inconsistent Row Formula Logic: Changing the formula structure halfway across a 10-year timeline row creates hidden maintenance bugs. -> Fix: Ensure every row uses a consistent, unbroken formula logic from Year 1 to Year N.
+================================================================================

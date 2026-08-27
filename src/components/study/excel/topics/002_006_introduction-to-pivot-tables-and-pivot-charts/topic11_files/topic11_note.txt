@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Introduction to Pivot Tables and Pivot Charts
-Topic 11: Formatting and Layout options: Compact, Outline, Tabular forms, and blank rows
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 11 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Formatting and Layout options: Compact, Outline, Tabular forms, and blank rows
+Module: 002_006_introduction-to-pivot-tables-and-pivot-charts
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Report Layouts: Compact Form (Default) | Outline Form | Tabular Form (Flat Grid) | Repeat All Item Labels
+
+PRIMARY CONCEPT:
+Mastering PivotTable layout architectures: Compact Form, Outline Form, and Tabular Form (with label repetition), subtotals positioning, and blank row insertion
+
+TEACHER'S ADVICE:
+If you plan to use PivotTable output in VLOOKUPs or downstream models, ALWAYS switch to 'Design -> Report Layout -> Tabular Form' and select 'Repeat All Item Labels'. It creates a perfect database grid.
+
+COMMON TRAPS TO AVOID:
+- Missing Item Labels in Downstream Lookups: Tabular form leaves blank cells below category headers by default, breaking VLOOKUP / XLOOKUP on downstream formulas. -> Fix: Design tab > Report Layout > Select 'Repeat All Item Labels'.
+- Subtotal Visual Clutter: Having subtotals on every single row level creates a messy, repetitive report. -> Fix: Design tab > Subtotals > Select 'Do Not Show Subtotals' or toggle specific fields.
+- Column Width Auto-Reset on Refresh: Refreshing a PivotTable resets manually adjusted column widths back to default. -> Fix: PivotTable Options > Format > Uncheck 'Autofit column widths on update'.
+================================================================================

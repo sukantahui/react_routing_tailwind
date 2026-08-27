@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Advanced VBA: UserForms, Events & System Integration
-Topic 13: Real-world project: Developing a full-fledged Corporate Inventory Management & Billing System with UserForms
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 13 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Real-world project: Developing a full-fledged Corporate Inventory Management & Billing System with UserForms
+Module: 006_002_advanced-vba-userforms-events-and-system-integration
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Enterprise Inventory & Billing Engine: MultiPage GUI + Event Traps + FSO File Auditing + Outlook Invoicing + .XLAM Packaging
+
+PRIMARY CONCEPT:
+Comprehensive end-to-end enterprise capstone project: engineering a production-grade Corporate Inventory Management, Invoicing, and Billing System with tabbed UserForms, PDF generation, and automated Outlook email dispatch
+
+TEACHER'S ADVICE:
+Congratulations on completing Advanced VBA and System Integration! You have built a complete, commercial-grade enterprise software application right inside Microsoft Excel. You possess elite-level automation capabilities.
+
+COMMON TRAPS TO AVOID:
+- Allowing Invoicing of Out-of-Stock Items (Negative Inventory): UserForm accepting orders exceeding warehouse stock. -> Fix: Add stock validation check: `If reqQty > stockQty Then MsgBox "Insufficient Stock!", vbCritical: Exit Sub`.
+- Single-Point Transaction Failure Corrupting Balance: Writing the invoice but crashing before decrementing warehouse stock. -> Fix: Wrap transactions in structured rollback error handling.
+- Unsanitized User Inputs Causing SQL / Array Errors: Failing to validate special characters or apostrophes in client names. -> Fix: Sanitize all input strings using `Replace(str, "'", "''")`.
+================================================================================

@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Conditional Logic with IF and Related Functions
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Conditional Logic with IF and Related Functions
 Topic 2: Compound logical conditions with AND, OR, and NOT functions
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Compound logical conditions with AND, OR, and NOT functions is an essential discipline in modern financial modeling and automated decision support.
+It provides the core formulas required to evaluate complex business rules and multi-tier criteria.
+
+2. SYNTAX & TOKEN STRUCTURE
+Formula Code: =AND(logical1, [logical2], ...) | =OR(logical1, [logical2], ...) | =NOT(logical)
+
+3. CORE TECHNICAL MECHANICS
+1. Conjunction Gate (AND):
+   Returns TRUE only if EVERY supplied argument evaluates to TRUE; returns FALSE if even a single condition fails.
+
+2. Disjunction Gate (OR):
+   Returns TRUE if AT LEAST ONE argument evaluates to TRUE; returns FALSE only when all conditions are FALSE.
+
+3. Negation Gate (NOT):
+   Inverts Boolean state: converts TRUE to FALSE, and FALSE to TRUE.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Senior Credit Underwriter, Barrackpore HQ):
+  Corporate Mortgage Pre-Approval - Approves loans via =IF(AND(CreditScore>=750, DTI<=0.4, EmploymentYears>=3), "APPROVED", "DECLINED").
+• Tuhina Mukherjee (Tax Compliance Lead, Shyamnagar Plant):
+  GST Exemption Eligibility Verification - Determines tax exemption eligibility using =IF(OR(Turnover<2000000, IndustrySector="Agriculture"), "EXEMPT", "TAXABLE").
+• Abhronila Das (Production Safety Officer, Ichapur Works):
+  Boiler Pressure & Temperature Safety Lock - Enforces plant safety shutdowns using =IF(OR(Pressure>150, Temperature>300), "EMERGENCY STOP", "NORMAL").
+• Debangshu Roy (Fleet Controller, Naihati Logistics):
+  Driver Weekend Overtime Clearance - Authorizes overtime using =IF(AND(WeeklyHours>40, NOT(RestPeriodViolated)), "APPROVED", "REJECTED").
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Array Range Compression in AND/OR:
+  Root Cause: AND(A1:A5 > 10) aggregates the ENTIRE range into a single TRUE/FALSE scalar, not row-by-row arrays.
+  Diagnostic Fix: Use Boolean arithmetic `=(A1:A5 > 10) * (B1:B5 < 50)` for row-by-row array operations.
+• Confusing AND vs OR in Inclusive Ranges:
+  Root Cause: Writing OR(A1 >= 10, A1 <= 20) evaluates to TRUE for ALL numbers from negative infinity to infinity.
+  Diagnostic Fix: Use AND(A1 >= 10, A1 <= 20) for bounded intervals.
+• Premature Closing Parentheses:
+  Root Cause: Closing IF before completing AND arguments (e.g. IF(AND(A1>5), B1>10, ...)) triggers logic errors.
+  Diagnostic Fix: Carefully align parentheses: IF(AND(A1>5, B1>10), "True", "False").
+
+6. PRO TIPS & SHORTCUTS
+• Bounded Interval Test (=AND(A2 >= 10, A2 <= 50)): Standard formula to test if a number falls within an inclusive numeric range.
+• Any Condition Met (=OR(A2="VIP", B2>100000)): Applies executive priority if either VIP status or high spending is met.
+• Invert Complex Rule (=NOT(OR(A2=1, B2=2))): Ensures neither exclusion condition is satisfied.
+================================================================================

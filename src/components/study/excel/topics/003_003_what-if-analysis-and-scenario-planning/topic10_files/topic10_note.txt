@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
-Topic 10: Adding integer, binary (0/1), and range constraints in Solver
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 10 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Adding integer, binary (0/1), and range constraints in Solver
+Module: 003_003_what-if-analysis-and-scenario-planning
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Constraint Types: Cell <= RHS | Cell >= RHS | Cell = RHS | Cell = integer (int) | Cell = binary (bin) | Range = AllDifferent (dif)
+
+PRIMARY CONCEPT:
+Modeling discrete real-world business constraints in Solver: Integer restrictions (whole units), Binary variables (0/1 Go/No-Go project selection), and AllDifferent permutation constraints
+
+TEACHER'S ADVICE:
+Binary (0/1) optimization is pure financial magic. Set your project decision variables to 'bin', write `=SUMPRODUCT(NPV, Variables)` as your objective, and `=SUMPRODUCT(Capex, Variables) <= Budget` as your constraint. Solver will pick the perfect multi-million dollar portfolio instantly.
+
+COMMON TRAPS TO AVOID:
+- Ignoring Integer Tolerance Setting: By default, Excel Solver uses an 'Integer Optimality (%)' tolerance of 1% or 5%, stopping before finding the exact best integer combination. -> Fix: Solver Options > Integer tab > Set 'Integer Optimality (%)' to 0% for exact mathematical precision.
+- Exponential Computation Time on 20+ Binary Variables: Binary integer programming is NP-Hard; 30 binary variables require evaluating up to 2^30 (1 billion) combinations. -> Fix: Set reasonable time limits (e.g. 60 seconds) or supply heuristic upper bounds.
+- Applying Binary Constraint to Output Cells: Applying `bin` to calculated formula cells rather than decision variable cells. -> Fix: Apply `bin` or `int` constraints ONLY to editable Decision Variable cells.
+================================================================================

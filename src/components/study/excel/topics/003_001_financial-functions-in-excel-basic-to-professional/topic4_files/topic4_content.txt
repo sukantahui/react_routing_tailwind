@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Financial Functions in Excel (Basic to Professional)
 Topic 4: Investment appraisal: Net Present Value (NPV) and Present Value (PV)
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Investment appraisal: Net Present Value (NPV) and Present Value (PV) is a foundational pillar of corporate financial modeling, investment banking, and capital budgeting.
+It equips financial modelers with the exact mathematical tools to value assets, evaluate debt structures, and appraise investments.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: =NPV(discount_rate, value1, [value2], ...) + Initial_Outflow | =PV(rate, nper, pmt, [fv])
+
+3. CORE TECHNICAL MECHANICS
+1. The Fundamental NPV Rule:
+   NPV represents the net wealth added to a firm by an investment. If `NPV > 0`, accept project; if `NPV < 0`, reject.
+
+2. The Famous Day 0 Cash Outflow Glitch:
+   Excel's `=NPV(rate, Range)` assumes the FIRST value in Range occurs at the END of Period 1 (t=1). Initial Capex at t=0 MUST be excluded from NPV range and added outside: `=NPV(rate, CF1:CFn) + CF0`.
+
+3. Uniform Period Assumption:
+   Standard NPV assumes cash flows occur at strictly equal annual or monthly intervals. (For irregular dates, use XNPV).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Director of M&A, Barrackpore HQ):
+  Factory Acquisition Capital Valuation - Evaluates a ₹45 Crore automated factory expansion project at 12% WACC hurdle rate: =NPV(12%, C3:C7) + C2 yielding +₹8.4 Crore Net Value.
+• Tuhina Mukherjee (Investment Analyst, Shyamnagar Plant):
+  Solar Rooftop Energy Project Appraisal - Models 10-year discounted cash savings of a 2MW industrial solar plant against upfront installation capex.
+• Abhronila Das (Capital Projects Lead, Ichapur Works):
+  CNC Machinery Modernization NPV - Compares competing 5-year equipment replacement proposals using discounted cash flow metrics.
+• Debangshu Roy (Logistics Infrastructure Lead, Naihati Logistics):
+  Automated Sorting Hub Investment Appraisal - Calculates NPV of new computerized sorting conveyor systems over 7-year operational lifecycle.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Including Year 0 Outflow Inside NPV Range (Fatal Error):
+  Root Cause: Writing =NPV(10%, CF0:CF5) incorrectly discounts Year 0 capex by (1+r)^1, severely overestimating project value.
+  Diagnostic Fix: Always exclude CF0 from NPV range: `=NPV(rate, CF1:CF5) + CF0`.
+• Subtracting a Negative Outflow:
+  Root Cause: Writing `=NPV(rate, CF1:CF5) - CF0` when CF0 is already negative (-1000) results in adding the capex instead of subtracting.
+  Diagnostic Fix: If CF0 is negative (-1000), use `+ CF0`. If CF0 is positive (1000), use `- CF0`.
+• Mismatching Cash Flow Frequency with Discount Rate:
+  Root Cause: Using an annual WACC (12%) to discount monthly cash flows without converting to monthly rate.
+  Diagnostic Fix: Use `(1 + WACC)^(1/12) - 1` or `WACC/12` for monthly cash flow schedules.
+
+6. PRO TIPS & SHORTCUTS
+• Standard NPV Formula (=NPV(WACC, CF_Year1:CF_YearN) + CF_Year0): The correct, universally accepted financial modeling formula for NPV.
+• Decision Rule Tag (=IF(NPV_Cell > 0, "ACCEPT", "REJECT")): Automates capital allocation recommendations.
+• Sensitivity Discount Rate (Link WACC to parameter cell): Enables instant sensitivity analysis as interest rates fluctuate.
+================================================================================

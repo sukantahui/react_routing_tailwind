@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Introduction to Pivot Tables and Pivot Charts
-Topic 10: Designing Pivot Charts: Column, Bar, Line, and Combo pivot charts
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 10 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Designing Pivot Charts: Column, Bar, Line, and Combo pivot charts
+Module: 002_006_introduction-to-pivot-tables-and-pivot-charts
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+PivotChart Engine: Clustered Column | Stacked Bar | Line with Markers | Dual-Axis Combo Pivot Chart
+
+PRIMARY CONCEPT:
+Building dynamic Pivot Charts synchronized with PivotTable data caches, mastering Clustered Column, Stacked Bar, Line trends, and Dual-Axis Combo charts
+
+TEACHER'S ADVICE:
+The first thing every professional modeler does after creating a PivotChart: Go to PivotChart Analyze -> Field Buttons -> click 'Hide All'. It instantly transforms amateur charts into boardroom graphics.
+
+COMMON TRAPS TO AVOID:
+- Cluttered Grey Field Buttons: Default PivotCharts display ugly grey dropdown buttons that clutter executive presentation slides. -> Fix: PivotChart Analyze > Field Buttons > Click 'Hide All' to create clean, professional charts.
+- Secondary Axis Scale Distortion: Failing to set secondary axis bounds causes 20% margin lines to look identical to 80% margins. -> Fix: Format Secondary Axis > Minimum: 0.0, Maximum: 1.0 (or appropriate fixed bound).
+- Unsupported Pivot Chart Types: Excel does not support Scatter (XY), Bubble, Treemap, or Waterfall charts directly as native PivotCharts. -> Fix: Copy pivot data using GETPIVOTDATA or formulas to a secondary range to build advanced chart types.
+================================================================================

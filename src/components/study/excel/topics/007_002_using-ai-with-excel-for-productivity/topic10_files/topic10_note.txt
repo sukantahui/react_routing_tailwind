@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Using AI with Excel for Productivity
-Topic 10: Best practices for debugging and auditing AI-generated formulas and VBA code
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 10 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Best practices for debugging and auditing AI-generated formulas and VBA code
+Module: 007_002_using-ai-with-excel-for-productivity
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Auditing Checklist: Formula Bar Inspection (Ctrl+Shift+U) -> Evaluate Formula Tool (Alt+M+V) -> Trace Precedents (Ctrl+[) -> Error Bounds Testing
+
+PRIMARY CONCEPT:
+Mastering debugging and auditing frameworks for AI-generated formulas, Power Query M-code, and VBA scripts: formula decomposition, edge-case testing, Trace Precedents, and formula evaluation
+
+TEACHER'S ADVICE:
+Always audit AI code like a strict professor. Use `Alt + M + V` (Evaluate Formula) to watch Excel calculate the formula step-by-step. If AI wrote VBA code, always click 'Debug -> Compile VBAProject' to make sure every line is valid.
+
+COMMON TRAPS TO AVOID:
+- Assuming Syntactically Valid Code is Mathematically Correct: A formula can calculate without errors (`#VALUE!`) while producing completely incorrect business numbers due to flawed operator precedence. -> Fix: Verify calculated results manually against known test cases.
+- Failing to Check Formula Absolute/Relative Locks ($A$1 vs A1): AI omitting dollar signs on lookup tables, causing formulas to break when copied down the column. -> Fix: Verify range locking: `$A$1:$D$100` on reference tables.
+- Accepting Hallucinated VBA Methods: AI generating non-existent VBA methods like `Range("A1").SortAlphabetical()`. -> Fix: Compile code in VBE (Debug > Compile VBAProject) to verify syntax.
+================================================================================

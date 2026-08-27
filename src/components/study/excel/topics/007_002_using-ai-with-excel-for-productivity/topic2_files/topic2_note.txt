@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Using AI with Excel for Productivity
-Topic 2: Prompt Engineering for Spreadsheets: Crafting precise instructions for formula generation and data manipulation
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 2 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Prompt Engineering for Spreadsheets: Crafting precise instructions for formula generation and data manipulation
+Module: 007_002_using-ai-with-excel-for-productivity
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Prompt Engineering Framework: [Role] + [Context / Table Schema] + [Action / Formula Goal] + [Constraints & Edge Cases] + [Output Format]
+
+PRIMARY CONCEPT:
+Mastering spreadsheet-specific prompt engineering: structuring precision prompts with context, constraints, exact column references, error handling requirements, and expected mathematical outputs
+
+TEACHER'S ADVICE:
+The secret to getting amazing results from AI in Excel is being specific! Don't say 'Calculate commission'. Say: 'In [SalesTable], add a column [Commission] that multiplies [Revenue] by 5% if [Revenue] > 100000, else 2%'.
+
+COMMON TRAPS TO AVOID:
+- Using Generic Prompts ('Calculate profit'): Produces generic formulas that fail to account for gross vs net, taxes, discounts, or column names. -> Fix: Specify exact column names and mathematical formulas in prompt.
+- Forgetting to Specify Zero/Blank Handling: Generated formula dividing by zero and returning `#DIV/0!` across blank rows. -> Fix: Add prompt constraint: 'Handle zero denominators using IF or IFERROR'.
+- Mixing Up Multiple Unrelated Tasks in One Prompt: Asking AI to clean text, sort table, format colors, and calculate metrics all in one massive prompt. -> Fix: Decompose into sequential single-purpose prompts.
+================================================================================

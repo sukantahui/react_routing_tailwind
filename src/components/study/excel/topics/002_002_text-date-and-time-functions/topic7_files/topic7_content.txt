@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Text, Date and Time Functions
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Text, Date and Time Functions
 Topic 7: Time calculations: TIME, HOUR, MINUTE, SECOND, NOW, and handling elapsed hours (>24h)
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Time calculations: TIME, HOUR, MINUTE, SECOND, NOW, and handling elapsed hours (>24h) is an essential discipline in corporate spreadsheet development and ETL workflows.
+It provides the core formulas required to sanitize, manipulate, and calculate text, dates, and times.
+
+2. SYNTAX & TOKEN STRUCTURE
+Formula Code: =TIME(hour, minute, second) | =HOUR(serial_time) | =MINUTE(serial_time) | =SECOND(serial_time) | =NOW()
+
+3. CORE TECHNICAL MECHANICS
+1. Fractional Day Storage Model:
+   Time is stored as a decimal fraction of a 24-hour day (e.g. 06:00 AM = 0.25, 12:00 PM = 0.5, 06:00 PM = 0.75).
+
+2. Clock Arithmetic & Overnight Shifts:
+   Subtracting times across midnight (e.g. 10 PM to 6 AM) yields negative fractions. Solved cleanly with `=MOD(End - Start, 1)`.
+
+3. Converting Time Serials to Decimal Hours:
+   Multiply time serial by 24 to convert to decimal hours for billing (e.g. 01:30 * 24 = 1.50 billable hours).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Payroll Director, Barrackpore HQ):
+  Night-Shift Factory Overtime Payroll - Computes overnight shift durations (8 PM to 4 AM) using =MOD(OutTime - InTime, 1) * 24 to calculate overtime pay.
+• Tuhina Mukherjee (Hospital Operations Lead, Shyamnagar Plant):
+  ICU Doctor Shift Duty Tracker - Extracts hour and minute components to audit doctor duty allocations and emergency room coverage.
+• Abhronila Das (Plant Engineer, Ichapur Works):
+  Kiln Firing Duration Logs - Computes total elapsed furnace heating cycles exceeding 48 hours formatted as [h]:mm.
+• Debangshu Roy (Fleet Controller, Naihati Logistics):
+  Driver Trip Manifest Elapsed Hours - Calculates total transit turnaround time between toll plaza check-in and destination warehouse check-out.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Overnight Shift Negative Result:
+  Root Cause: Subtracting StartTime (22:00) from EndTime (06:00) yields negative number (-0.667) displaying ######.
+  Diagnostic Fix: Use `=MOD(EndTime - StartTime, 1)` to handle midnight boundary crossing seamlessly.
+• Multiplying Time Directly by Wage Rate:
+  Root Cause: Calculating `=TimeCell * HourlyRate` without multiplying by 24 results in 1/24th of the true pay amount.
+  Diagnostic Fix: Always multiply by 24: `=(EndTime - StartTime) * 24 * HourlyWage`.
+• 24-Hour Rollover in Sums:
+  Root Cause: Summing 30 hours of work using 'hh:mm' displays as '06:00' due to modulo 24 reset.
+  Diagnostic Fix: Apply custom number format `[h]:mm` to display cumulative hours over 24.
+
+6. PRO TIPS & SHORTCUTS
+• Overnight Shift Formula (=MOD(End - Start, 1)): Universal formula for shift durations crossing midnight.
+• Decimal Hours Conversion (=(End - Start) * 24): Converts time serial to standard decimal hours for hourly billing.
+• Current Timestamp Shortcut (Ctrl + Shift + ;): Inserts static unformatted current clock time.
+================================================================================

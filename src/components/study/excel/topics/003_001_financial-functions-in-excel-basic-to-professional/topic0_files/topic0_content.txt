@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Financial Functions in Excel (Basic to Professional)
 Topic 0: Time Value of Money (TVM) principles: Present Value, Future Value, and Interest Rates
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Time Value of Money (TVM) principles: Present Value, Future Value, and Interest Rates is a foundational pillar of corporate financial modeling, investment banking, and capital budgeting.
+It equips financial modelers with the exact mathematical tools to value assets, evaluate debt structures, and appraise investments.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: =PV(rate, nper, pmt, [fv], [type]) | =FV(rate, nper, pmt, [pv], [type]) | =NPER(rate, pmt, pv, [fv], [type]) | =RATE(nper, pmt, pv, [fv], [type])
+
+3. CORE TECHNICAL MECHANICS
+1. Discounting vs Compounding:
+   Compounding projects current capital into future values (`FV = PV * (1+r)^n`); Discounting calculates the current worth of future cash inflows (`PV = FV / (1+r)^n`).
+
+2. Cash Flow Sign Convention:
+   Outflows (investments/deposits) must be negative (-); Inflows (returns/proceeds) must be positive (+). Violating this produces invalid results or #NUM! errors.
+
+3. Rate and Period Matching Principle:
+   Annual interest rates must be divided by payment frequency (e.g. `Rate/12`), and years multiplied by frequency (`Years*12`).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Financial Officer, Barrackpore HQ):
+  Long-Term Corporate Sinking Fund - Calculates future capital accumulation for factory expansion: =FV(7.5%/12, 10*12, -250000, -10000000, 0) over a 10-year horizon.
+• Tuhina Mukherjee (Wealth Advisor, Shyamnagar Plant):
+  Retirement Corpus Lump-Sum Planning - Determines initial investment required today (=PV(8%/12, 20*12, 0, -50000000)) to fund a ₹5 Crore retirement corpus.
+• Abhronila Das (Capital Projects Lead, Ichapur Works):
+  Machinery Replacement Payback Period - Calculates total months required (=NPER(9%/12, 75000, -3500000)) to amortize capital machinery investments.
+• Debangshu Roy (Commercial Leasing Lead, Naihati Logistics):
+  Implied Vehicle Lease Financing Rate - Extracts effective annual lease financing cost (=RATE(36, -45000, 1400000)*12) across logistics fleet contracts.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Cash Flow Sign Reversal Trap:
+  Root Cause: Entering both PV and PMT as positive numbers causes FV to return a negative or distorted output.
+  Diagnostic Fix: Follow strict accounting signs: Cash Outflow is Negative (-), Cash Inflow is Positive (+).
+• Rate/Period Frequency Mismatch:
+  Root Cause: Using an annual rate (8%) with monthly periods (120 months) without dividing rate by 12 overcharges interest by 12x.
+  Diagnostic Fix: Always align rate and nper: `Rate/12` with `Years*12` for monthly compounding.
+• Annuity Type Misconfiguration (0 vs 1):
+  Root Cause: Leaving type as 0 (End of period) for advance lease payments (Start of period) underestimates interest accrual.
+  Diagnostic Fix: Set type = 1 for payments due at the beginning of the period (Annuity Due).
+
+6. PRO TIPS & SHORTCUTS
+• Monthly TVM Alignment (=PV(Rate/12, Years*12, -MonthlyPMT)): The standard pattern for all monthly financial calculations.
+• Beginning vs End of Period (Type: 1 (Start), Type: 0 (End)): Type 1 is mandatory for advance rent and upfront insurance annuities.
+• Extract Implied Annual Rate (=RATE(Periods, -PMT, LoanAmt) * 12): Annualizes monthly implied interest rate cleanly.
+================================================================================

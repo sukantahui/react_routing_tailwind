@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Text, Date and Time Functions
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Text, Date and Time Functions
 Topic 10: Converting text strings to numeric values: VALUE, NUMBERVALUE, and DATEVALUE
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Converting text strings to numeric values: VALUE, NUMBERVALUE, and DATEVALUE is an essential discipline in corporate spreadsheet development and ETL workflows.
+It provides the core formulas required to sanitize, manipulate, and calculate text, dates, and times.
+
+2. SYNTAX & TOKEN STRUCTURE
+Formula Code: =VALUE(text) | =NUMBERVALUE(text, [decimal_separator], [group_separator]) | =DATEVALUE(date_text) | =TIMEVALUE(time_text)
+
+3. CORE TECHNICAL MECHANICS
+1. The VALUE() Coercion Engine:
+   VALUE() converts numbers stored as text (e.g. '₹ 1,250.00' or ' 45.67 ') into pure floating point numbers.
+
+2. International NUMBERVALUE() Delimiter Resolver:
+   NUMBERVALUE(text, ",", ".") resolves European decimal formats (e.g. '1.250,50 €') where commas represent decimals and periods represent thousands.
+
+3. DATEVALUE() & TIMEVALUE() Serial Converters:
+   Converts text date strings ('2026-08-27') and text time strings ('14:30:00') into true integer and fractional serial numbers.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Foreign Banking Auditor, Barrackpore HQ):
+  European Subsidiary GL Reconciliation - Converts German ledger files ('14.500,75') into calculable INR values using =NUMBERVALUE(A2, ",", ".").
+• Tuhina Mukherjee (Tax Consultant, Shyamnagar Plant):
+  Accounting Software Text Export Fix - Converts text-formatted invoice totals into true numbers using double unary (=--A2) to allow =SUM() calculation.
+• Abhronila Das (Production Quality Lead, Ichapur Works):
+  Sensor Timestamp String Conversion - Converts raw equipment text timestamps ('2026-08-27 08:30:00') into real Excel serial dates using =DATEVALUE() + TIMEVALUE().
+• Debangshu Roy (Logistics Billing Manager, Naihati Logistics):
+  Courier Manifest Freight Weight Parsing - Extracts numeric weight values from text notes ('450.5 KG') via =VALUE(TEXTBEFORE(A2, " ")).
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Currency Symbol / Text Trailing Character (#VALUE!):
+  Root Cause: VALUE() fails if the text contains unrecognized non-numeric words or characters.
+  Diagnostic Fix: Strip non-numeric characters using SUBSTITUTE or TEXTBEFORE before passing to VALUE().
+• European vs US Decimal Discrepancy:
+  Root Cause: Using VALUE('1,250') in US Excel treats comma as thousands separator, turning 1.25 Euros into 1,250.
+  Diagnostic Fix: Always use =NUMBERVALUE(A2, ",", ".") when ingesting international datasets.
+• Green Triangle 'Number Stored as Text' Alert:
+  Root Cause: Excel flags numbers formatted as text with warning indicators.
+  Diagnostic Fix: Select range > Click Error Button > Convert to Number, or apply =--Range.
+
+6. PRO TIPS & SHORTCUTS
+• Double Unary Coercion (=--A2): Fastest native Excel calculation trick to coerce numeric text into real numbers.
+• European Currency Fix (=NUMBERVALUE(A2, ",", ".")): Guarantees accurate parsing of continental European financial data.
+• Combine Date & Time Serials (=DATEVALUE(A2) + TIMEVALUE(B2)): Builds a complete unified date-time serial timestamp.
+================================================================================

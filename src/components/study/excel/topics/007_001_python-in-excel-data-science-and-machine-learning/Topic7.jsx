@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
 import sampleWorkbookUrl from "./excel_files/python_in_excel_data_science_and_machine_learning_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
@@ -30,14 +31,14 @@ export default function Topic7() {
     if (!sampleWorkbookUrl) return;
     const link = document.createElement("a");
     link.href = sampleWorkbookUrl;
-    link.download = "007_001_python-in-excel-data-science-and-machine-learning_practice.xlsx";
+    link.download = "python_in_excel_data_science_practice.xlsx";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   return (
-    <div className="dark bg-slate-950 text-slate-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8 font-sans selection:bg-emerald-500/30 selection:text-emerald-200">
+    <div className="dark bg-slate-950 text-slate-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8 font-sans selection:bg-sky-500/30 selection:text-sky-200">
       <style>{`
         @keyframes fadeInSlide {
           from { transform: translateY(18px); }
@@ -56,39 +57,39 @@ export default function Topic7() {
           ref={(el) => (sectionsRef.current[0] = el)}
           className="reveal-section rounded-3xl p-6 sm:p-10 bg-gradient-to-b from-slate-900/90 via-slate-900/60 to-slate-950 border border-slate-800 shadow-2xl relative overflow-hidden"
         >
-          <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
-            <span className="px-3.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              ⚡ Topic 7
+            <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
+              {"🔬 Statistical Modeling & Hypothesis Testing"} · Topic 7
             </span>
-            <span className="px-3 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-semibold">
-              Python in Excel: Data Science &amp; Machine Learning
+            <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
+              {"Hypothesis Testing & Statistical Inference"}
             </span>
-            <span className="px-3 py-1 rounded-full bg-teal-950/80 border border-teal-700/60 text-teal-300 text-xs font-semibold">
-              Bloom's Level 4: Analyze &amp; Synthesize
+            <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
+              {"Advanced-Mastery · Bloom Level 5: Synthesize"}
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-300 bg-clip-text text-transparent leading-tight">
-            Statistical modeling and hypothesis testing with scipy.stats (t-tests, ANOVA, Chi-square)
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+            {"Statistical modeling and hypothesis testing with scipy.stats (t-tests, ANOVA, Chi-square)"}
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Master the rigorous implementation and practical execution of <strong>Statistical modeling and hypothesis testing with scipy.stats (t-tests, ANOVA, Chi-square)</strong> in modern Microsoft Excel workflows.
+            {"Conducting rigorous statistical inference and hypothesis testing in Excel using scipy.stats: Two-sample independent t-tests, Paired t-tests, One-Way ANOVA, and Chi-square tests of independence"}. Master native Python in Excel execution, pandas DataFrame wrangling, seaborn cell visualizations, statistical hypothesis testing, and scikit-learn predictive AI models.
           </p>
 
-          <div className="mt-8 pt-8 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
+          <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
             <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-emerald-400 text-base">✓</span>
+              <span className="text-sky-400 text-base">✓</span>
               <span><strong>Subject Code:</strong> EXCEL-PRO-901</span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-sky-400 text-base">✓</span>
-              <span><strong>Lab Focus:</strong> Enterprise spreadsheet modeling &amp; data integrity</span>
+              <span className="text-emerald-400 text-base">✓</span>
+              <span><strong>Module:</strong> Python in Excel &amp; Machine Learning</span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-teal-400 text-base">✓</span>
+              <span className="text-indigo-400 text-base">✓</span>
               <span><strong>Accreditation:</strong> Coder &amp; AccoTax Centre of Excellence</span>
             </div>
           </div>
@@ -99,22 +100,54 @@ export default function Topic7() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[1] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all duration-300 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-emerald-400">⚡</span> Formula Anatomy &amp; Execution Specification
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">⚡</span>
+              Python in Excel Syntax Standard &amp; =PY() Anatomy
             </h2>
-            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-800">
-              Syntax Specification
+            <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
+              Python Architecture
             </span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-950/90 border border-slate-800/80 font-mono text-xs sm:text-sm text-cyan-300 overflow-x-auto shadow-inner leading-relaxed space-y-2">
-            <div>
-              <span className="text-slate-500">// Core Practical Execution Pattern</span>
-              <br />
-              <span className="text-emerald-300 font-bold">=PROPER(TRIM(A2)) /* Standard Industrial Implementation */</span>
+          <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
+            {"Statistical Testing: from scipy import stats; t_stat, p_val = stats.ttest_ind(groupA, groupB); f_stat, p_val = stats.f_oneway(g1, g2, g3); chi2, p_val, ... = stats.chi2_contingency(table)"}
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm text-slate-300 border-collapse">
+              <thead>
+                <tr className="border-b border-slate-800 text-slate-400 font-semibold uppercase tracking-wider">
+                  <th className="py-3 px-4">Component / Expression</th>
+                  <th className="py-3 px-4">Role / Layer</th>
+                  <th className="py-3 px-4">Requirement</th>
+                  <th className="py-3 px-4">Operational Description</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/50 font-mono">
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">=PY() Formula Wrapper</td>
+                  <td className="py-3 px-4 text-teal-400">Formula Mode Entry</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Required</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Enables the multi-line Python formula editor in the cell and dispatches code to Azure cloud container.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">xl("Range", headers=True)</td>
+                  <td className="py-3 px-4 text-teal-400">Data Bridge Function</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Contextual</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Bridges worksheet cells and Tables into strongly-typed pandas DataFrames or scalar Python variables.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="p-4 rounded-xl bg-sky-950/40 border border-sky-800/60 flex items-start gap-3">
+            <span className="text-sky-400 text-lg">💡</span>
+            <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <strong className="text-white">Core Principle: </strong>
+              Python in Excel fuses the visual intimacy and accessibility of spreadsheets with the massive computational power of the Python data science ecosystem.
             </div>
           </div>
         </section>
@@ -124,35 +157,35 @@ export default function Topic7() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-teal-400">🔬</span> Conceptual Architecture &amp; Data Pipeline
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">🔬</span>
+              Cloud Container Runtime &amp; Python Data Engine Mechanics
             </h2>
-            <span className="text-xs font-mono text-teal-300 bg-teal-950/60 px-3 py-1 rounded-lg border border-teal-800">
-              Core Mechanics
+            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-800">
+              Under-The-Hood Architecture
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-300">
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 space-y-3">
-              <h3 className="font-bold text-emerald-300 text-base flex items-center gap-2">
-                <span>1.</span> Deterministic Functional Calculation
-              </h3>
-              <p className="leading-relaxed text-xs sm:text-sm text-slate-300">
-                Functional spreadsheet modeling ensures repeatable, error-free calculations across thousands of monthly business ledger transactions.
-              </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            
+            <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Two-Sample Independent T-Tests (`ttest_ind`)"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Tests whether the difference in mean revenue or conversion rates between two marketing campaigns (A/B testing) is statistically significant."}</p>
             </div>
-
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 space-y-3">
-              <h3 className="font-bold text-sky-300 text-base flex items-center gap-2">
-                <span>2.</span> Relational Data Schema Hygiene
-              </h3>
-              <p className="leading-relaxed text-xs sm:text-sm text-slate-300">
-                Establishing strict schema typing and boundary checks eliminates runtime calculation failures and audit discrepancies.
-              </p>
+            
+            <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. One-Way ANOVA (`f_oneway`)"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Evaluates whether mean output differs significantly across 3 or more regional factory production lines."}</p>
             </div>
+            
+            <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Chi-Square Test of Independence (`chi2_contingency`)"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Tests for significant categorical association between customer demographics and product return rates."}</p>
+            </div>
+            
           </div>
         </section>
 
@@ -161,35 +194,63 @@ export default function Topic7() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-emerald-400">📐</span> Execution Dataflow Architecture
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
+              Visual Dataflow: {"Statistical Hypothesis Testing Pipeline: Sample Data Extraction -> scipy.stats Engine -> p-value & Test Statistic -> Reject / Fail to Reject H0"}
             </h2>
-            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-800">
-              Dataflow Map
+            <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
+              Data Science Pipeline
             </span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-950/90 border border-slate-800/80 flex flex-col items-center justify-center overflow-x-auto shadow-inner">
-            <svg
-              viewBox="0 0 800 200"
-              className="w-full max-w-3xl h-auto text-slate-200 select-none font-sans"
-            >
-              <rect x="40" y="70" width="200" height="60" rx="8" fill="#1e293b" stroke="#475569" strokeWidth="1.5" />
-              <text x="140" y="105" textAnchor="middle" fill="#94a3b8" fontSize="12" fontWeight="bold">Raw Input Data</text>
+          <div className="p-4 rounded-xl bg-slate-950/90 border border-slate-800/80 flex flex-col items-center justify-center overflow-x-auto shadow-inner">
+            <svg viewBox="0 0 820 220" className="w-full max-w-4xl h-auto text-slate-200 select-none font-sans">
+              <defs>
+                <linearGradient id="gradFlowMod19_7" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#0369a1" stopOpacity="0.8" />
+                </linearGradient>
+                <marker id="arrowMod19_7" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+                </marker>
+              </defs>
 
-              <line x1="240" y1="100" x2="310" y2="100" stroke="#059669" strokeWidth="2" />
+              {/* Node 1: Excel Grid & xl() Bridge */}
+              <g transform="translate(30, 45)">
+                <rect width="210" height="130" rx="12" fill="#0f172a" stroke="#334155" strokeWidth="2" />
+                <rect x="12" y="12" width="186" height="26" rx="6" fill="#1e293b" />
+                <text x="105" y="30" textAnchor="middle" fill="#94a3b8" fontSize="11" fontWeight="bold">Excel Grid &amp; =PY() Formula</text>
+                <text x="105" y="75" textAnchor="middle" fill="#38bdf8" fontSize="14" fontFamily="monospace" fontWeight="bold">xl("A1:D100")</text>
+                <text x="105" y="100" textAnchor="middle" fill="#64748b" fontSize="10">Range to DataFrame Bridge</text>
+                <text x="105" y="118" textAnchor="middle" fill="#64748b" fontSize="10">Top-to-Bottom Execution</text>
+              </g>
 
-              <rect x="310" y="60" width="240" height="80" rx="10" fill="#065f46" stroke="#10b981" strokeWidth="2" />
-              <text x="430" y="95" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">Calculation Engine</text>
-              <text x="430" y="115" textAnchor="middle" fill="#a7f3d0" fontSize="11" fontFamily="monospace">Statistical modeling and</text>
+              <path d="M 245 110 L 305 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod19_7)" fill="none" />
 
-              <line x1="550" y1="100" x2="620" y2="100" stroke="#059669" strokeWidth="2" />
+              {/* Node 2: Azure Hyper-V Sandbox & Anaconda */}
+              <g transform="translate(315, 30)">
+                <rect width="250" height="160" rx="14" fill="#0c4a6e" stroke="#0284c7" strokeWidth="2" />
+                <rect x="14" y="14" width="222" height="28" rx="6" fill="#0369a1" />
+                <text x="125" y="33" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">Azure Cloud Container Sandbox</text>
+                <text x="125" y="75" textAnchor="middle" fill="#7dd3fc" fontSize="13" fontFamily="monospace" fontWeight="bold">{"Hypothesis Testing & Statistical Inference"}</text>
+                <text x="125" y="100" textAnchor="middle" fill="#bae6fd" fontSize="10">pandas · numpy · scipy · statsmodels</text>
+                <text x="125" y="120" textAnchor="middle" fill="#bae6fd" fontSize="10">seaborn · matplotlib · scikit-learn</text>
+                <text x="125" y="140" textAnchor="middle" fill="#38bdf8" fontSize="9" fontStyle="italic">Isolated Anaconda Python 3.11</text>
+              </g>
 
-              <rect x="620" y="70" width="140" height="60" rx="8" fill="#0284c7" stroke="#38bdf8" strokeWidth="1.5" />
-              <text x="690" y="105" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">Verified Output</text>
+              <path d="M 570 110 L 630 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod19_7)" fill="none" />
+
+              {/* Node 3: Result Return (Object vs Value) */}
+              <g transform="translate(640, 45)">
+                <rect width="150" height="130" rx="12" fill="#064e3b" stroke="#059669" strokeWidth="2" />
+                <rect x="10" y="12" width="130" height="26" rx="6" fill="#047857" />
+                <text x="75" y="30" textAnchor="middle" fill="#ffffff" fontSize="11" fontWeight="bold">Output Return</text>
+                <text x="75" y="75" textAnchor="middle" fill="#6ee7b7" fontSize="14" fontFamily="monospace" fontWeight="bold">Object / Spill</text>
+                <text x="75" y="105" textAnchor="middle" fill="#a7f3d0" fontSize="10">Ctrl+Alt+Shift+M</text>
+              </g>
             </svg>
           </div>
         </section>
@@ -199,15 +260,16 @@ export default function Topic7() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[4] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
             <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-                <span className="text-emerald-400">📥</span> Interactive Spreadsheet &amp; Practice Workbook
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">📥</span>
+                Interactive Spreadsheet &amp; Practice Workbook
               </h2>
               <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                Explore the dataset below or download the workbook to practice in Microsoft Excel.
+                Explore the dataset below live in the browser or download the full module workbook to practice in Microsoft Excel.
               </p>
             </div>
             <button
@@ -218,14 +280,14 @@ export default function Topic7() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
-              <span>Download Practice Workbook (.xlsx)</span>
+              <span>Download Workbook (.xlsx)</span>
             </button>
           </div>
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic7_Statistical_modeli"
-            title="Statistical modeling and hypothesis testing with scipy.stats (t-tests, ANOVA, Chi-square) - Practice Ledger"
+            title={"Statistical modeling and hypothesis testing with scipy.stats (t-tests, ANOVA, Chi-square) - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
           />
@@ -236,69 +298,56 @@ export default function Topic7() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[5] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-amber-400">🏢</span> Real-World Corporate Implementation Scenarios
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
+              Real-World Corporate Implementation Scenarios
             </h2>
             <span className="text-xs font-mono text-amber-300 bg-amber-950/60 px-3 py-1 rounded-lg border border-amber-800">
               Case Studies
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-emerald-500/40 transition-all duration-300 space-y-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            
+            <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">Scenario 1 · Enterprise Operations</span>
-                <span className="text-xs font-mono text-slate-400">Barrackpore HQ</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Chief Commercial Officer"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">
-                Swadeep Banerjee: Automated Contract Processing
-              </h3>
-              <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
-                Senior Lead <strong>Swadeep Banerjee</strong> applies advanced formula modeling across regional contract ledgers, eliminating data errors.
-              </p>
+              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: A/B Pricing Campaign Statistical Significance Test"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Performs two-sample t-test on ₹10 Crore sales experiment, confirming price increase increased revenue with p-value < 0.001."}</p>
             </div>
-
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
+            
+            <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-sky-400">Scenario 2 · Financial Audit</span>
-                <span className="text-xs font-mono text-slate-400">Shyamnagar Plant</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Corporate Tax Auditor"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">
-                Tuhina Mukherjee: Invoicing &amp; Compliance Audit
-              </h3>
-              <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
-                Audit Analyst <strong>Tuhina Mukherjee</strong> implements automated validation rules to ensure 100% compliance across billing streams.
-              </p>
+              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Vendor Audit Error Rate ANOVA Test"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Executes One-Way ANOVA across 4 regional vendor groups to test if tax compliance error rates differ significantly."}</p>
             </div>
-
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-teal-500/40 transition-all duration-300 space-y-3">
+            
+            <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-teal-400">Scenario 3 · Logistics Optimization</span>
-                <span className="text-xs font-mono text-slate-400">Ichapur Heavy Engg</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Plant Quality Lead"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">
-                Abhronila Das: Inventory &amp; Dispatch Tracking
-              </h3>
-              <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
-                Inventory Specialist <strong>Abhronila Das</strong> optimizes component dispatch schedules using dynamic calculation formulas.
-              </p>
+              <h3 className="font-bold text-white text-base">{"Abhronila Das: Shift Defect Rate Chi-Square Independence Test"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Conducts Chi-Square test determining whether scrap rates are independent of machine shift crews."}</p>
             </div>
-
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-purple-500/40 transition-all duration-300 space-y-3">
+            
+            <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-purple-400">Scenario 4 · Service Level Tracking</span>
-                <span className="text-xs font-mono text-slate-400">Naihati Logistics</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Logistics Optimization Lead"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">
-                Debangshu Roy: Turnaround Time Optimization
-              </h3>
-              <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
-                Logistics Lead <strong>Debangshu Roy</strong> tracks operational turnaround times to maintain peak delivery efficiency.
-              </p>
+              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Carrier SLA Difference Paired T-Test"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Tests transit speed differences across matched shipment routes."}</p>
             </div>
+            
           </div>
         </section>
 
@@ -307,45 +356,56 @@ export default function Topic7() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[6] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-sky-400">🛠️</span> Step-by-Step Implementation Guide
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">🛠️</span>
+              Step-by-Step Implementation &amp; Execution Guide
             </h2>
             <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
-              Lab Guide
+              Execution Protocol
             </span>
           </div>
 
           <div className="space-y-4 text-xs sm:text-sm">
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <h3 className="font-bold text-emerald-300 text-sm sm:text-base flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-300 flex items-center justify-center text-xs">1</span>
-                Step 1: Sanitize Inputs &amp; Validate Data Schema
-              </h3>
+            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-emerald-300 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-300 flex items-center justify-center text-xs">1</span>
+                Step 1: Enter Python Mode in Target Cell
+              </div>
               <p className="text-slate-300 leading-relaxed">
-                Confirm all input parameters are typed properly and eliminate blank or inconsistent rows.
+                Type <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">=PY</kbd> and press Tab, or press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Ctrl + Alt + Shift + P</kbd>.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <h3 className="font-bold text-sky-300 text-sm sm:text-base flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-sky-950 border border-sky-700 text-sky-300 flex items-center justify-center text-xs">2</span>
-                Step 2: Construct &amp; Apply Formula Engine
-              </h3>
+            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-sky-300 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-sky-950 border border-sky-700 text-sky-300 flex items-center justify-center text-xs">2</span>
+                Step 2: Reference Data via xl() &amp; Build Python Logic
+              </div>
               <p className="text-slate-300 leading-relaxed">
-                Enter the structured formula in the calculation column to transform input parameters dynamically.
+                Ingest ranges: <code className="text-cyan-300 font-mono font-bold">{"Statistical Testing: from scipy import stats; t_stat, p_val = stats.ttest_ind(groupA, groupB); f_stat, p_val = stats.f_oneway(g1, g2, g3); chi2, p_val, ... = stats.chi2_contingency(table)"}</code>.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <h3 className="font-bold text-teal-300 text-sm sm:text-base flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-teal-950 border border-teal-700 text-teal-300 flex items-center justify-center text-xs">3</span>
-                Step 3: Audit &amp; Validate Results
-              </h3>
+            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-teal-300 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-teal-950 border border-teal-700 text-teal-300 flex items-center justify-center text-xs">3</span>
+                Step 3: Execute in Cloud Container
+              </div>
               <p className="text-slate-300 leading-relaxed">
-                Validate outputs against edge cases and configure conditional formatting rules to highlight anomalies.
+                Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Ctrl + Enter</kbd> to execute code in Microsoft Azure sandbox.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-indigo-300 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-indigo-950 border border-indigo-700 text-indigo-300 flex items-center justify-center text-xs">4</span>
+                Step 4: Toggle Output Mode (Object vs Excel Value)
+              </div>
+              <p className="text-slate-300 leading-relaxed">
+                Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Ctrl + Alt + Shift + M</kbd> to spill values or preserve object cards.
               </p>
             </div>
           </div>
@@ -356,14 +416,15 @@ export default function Topic7() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[7] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-rose-400">⚠️</span> Common Pitfalls &amp; Diagnostic Fixes
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-500/20 text-rose-400 text-base font-mono">⚠️</span>
+              Common Pitfalls &amp; Troubleshooting Matrix
             </h2>
             <span className="text-xs font-mono text-rose-300 bg-rose-950/60 px-3 py-1 rounded-lg border border-rose-800">
-              Troubleshooting Matrix
+              Diagnostic Fixes
             </span>
           </div>
 
@@ -371,84 +432,128 @@ export default function Topic7() {
             <table className="w-full text-left text-xs sm:text-sm border-collapse">
               <thead>
                 <tr className="border-b border-slate-800 text-slate-400 font-semibold bg-slate-950/50">
-                  <th className="py-3 px-4">Problem / Error</th>
+                  <th className="py-3 px-4">Problem / Error Signature</th>
                   <th className="py-3 px-4">Root Cause</th>
-                  <th className="py-3 px-4">Diagnostic Fix</th>
+                  <th className="py-3 px-4">Diagnostic Fix &amp; Prevention</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
-                <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Calculation Error</td>
-                  <td className="py-3 px-4">Invalid data types or unhandled blank boundary cells.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Validate data types and wrap in IFERROR.</td>
+                
+                <tr key="0" className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Misinterpreting p-value (p < 0.05 vs p >= 0.05)"}</td>
+                  <td className="py-3 px-4">{"Rejecting null hypothesis when p-value is 0.12 (insufficient statistical evidence)."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Enforce standard alpha threshold: Reject H0 only if `p_val < 0.05`."}</td>
                 </tr>
+                
+                <tr key="1" className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Ignoring Normality & Variance Assumptions"}</td>
+                  <td className="py-3 px-4">{"Running standard t-tests on highly skewed non-normal data without variance checks."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Check variance equality (`stats.levene`) or use non-parametric Mann-Whitney U test (`stats.mannwhitneyu`)."}</td>
+                </tr>
+                
+                <tr key="2" className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Passing Unequal Sample Sizes into Paired T-Test"}</td>
+                  <td className="py-3 px-4">{"Calling `stats.ttest_rel()` on arrays with different lengths throws ValueError."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Ensure paired observations have identical row lengths."}</td>
+                </tr>
+                
               </tbody>
             </table>
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 9: PRO TIPS & HIGH-SPEED SHORTCUTS
+            SECTION 9: PRO TIPS & PRODUCTIVITY SHORTCUTS
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[8] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-emerald-400">💡</span> Pro Tips &amp; Keyboard Accelerators
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 text-base font-mono">💡</span>
+              Pro Tips &amp; High-Speed Accelerators
             </h2>
-            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-800">
-              Productivity Hacks
+            <span className="text-xs font-mono text-purple-300 bg-purple-950/60 px-3 py-1 rounded-lg border border-purple-800">
+              Productivity
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-emerald-300 flex items-center gap-2">
-                <span>⚡</span> Tip 1: Lock Coordinates via F4
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+            
+            <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+              <div className="font-bold text-purple-300 flex items-center gap-2">
+                <span>⚡</span> {"Two-Sample T-Test"}
               </div>
-              <p className="text-slate-300 leading-relaxed">
-                Always press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs">F4</kbd> when referencing fixed parameters to prevent floating reference errors.
-              </p>
+              <p className="text-slate-300 leading-relaxed">{"The gold standard for commercial A/B testing."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"stats.ttest_ind(groupA, groupB)"}</kbd>
             </div>
-
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-sky-300 flex items-center gap-2">
-                <span>⚡</span> Tip 2: Evaluate Formulas via F9
+            
+            <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+              <div className="font-bold text-purple-300 flex items-center gap-2">
+                <span>⚡</span> {"p-Value Evaluation"}
               </div>
-              <p className="text-slate-300 leading-relaxed">
-                Highlight formula fragments in the formula bar and press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs">F9</kbd> to inspect evaluated results.
-              </p>
+              <p className="text-slate-300 leading-relaxed">{"Statistically significant at 95% confidence level."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"is_significant = p_val < 0.05"}</kbd>
             </div>
+            
+            <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+              <div className="font-bold text-purple-300 flex items-center gap-2">
+                <span>⚡</span> {"One-Way ANOVA"}
+              </div>
+              <p className="text-slate-300 leading-relaxed">{"Compares means across 3+ categories simultaneously."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"stats.f_oneway(group1, group2, group3)"}</kbd>
+            </div>
+            
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 10: SOCRATIC ANALYTICAL HINTS ("THINK ABOUT...")
+            SECTION 10: SOCRATIC HINTS ("THINK ABOUT...")
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[9] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-teal-400">🤔</span> Socratic Analytical Hints ("Think About...")
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">🤔</span>
+              Socratic Analytical Hints ("Think About...")
             </h2>
             <span className="text-xs font-mono text-teal-300 bg-teal-950/60 px-3 py-1 rounded-lg border border-teal-800">
               Critical Thinking
             </span>
           </div>
 
-          <div className="space-y-4 text-xs sm:text-sm text-slate-300">
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
+          <div className="space-y-3 text-xs sm:text-sm text-slate-300">
+            
+            <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-emerald-400">💭</span> Question 1: How does automated calculation modeling prevent spreadsheet errors?
+                <span className="text-teal-400">💭</span> Question 1: {"What does a p-value less than 0.05 signify in a commercial A/B pricing test?"}
               </h3>
-              <p className="leading-relaxed">
-                Why does structuring calculations with clean, deterministic formulas ensure audit-proof enterprise reporting?
+              <p className="text-slate-400 leading-relaxed">
+                Reflect on Python data structures, cloud execution mechanics, and statistical inference.
               </p>
             </div>
+            
+            <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
+              <h3 className="font-bold text-white flex items-center gap-2">
+                <span className="text-teal-400">💭</span> Question 2: {"When should you use One-Way ANOVA (`f_oneway`) instead of multiple separate t-tests?"}
+              </h3>
+              <p className="text-slate-400 leading-relaxed">
+                Reflect on Python data structures, cloud execution mechanics, and statistical inference.
+              </p>
+            </div>
+            
+            <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
+              <h3 className="font-bold text-white flex items-center gap-2">
+                <span className="text-teal-400">💭</span> Question 3: {"How does the Chi-square test of independence evaluate categorical business variables?"}
+              </h3>
+              <p className="text-slate-400 leading-relaxed">
+                Reflect on Python data structures, cloud execution mechanics, and statistical inference.
+              </p>
+            </div>
+            
           </div>
         </section>
 
@@ -457,7 +562,7 @@ export default function Topic7() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Topic 7: Statistical modeling and hypothesis testing with scipy.stats (t-tests, ANOVA, Chi-square) FAQ"
+            title={"Statistical modeling and hypothesis testing with scipy.stats (t-tests, ANOVA, Chi-square) - Frequently Asked Questions"}
             questions={questions}
           />
         </div>
@@ -467,9 +572,7 @@ export default function Topic7() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note={
-              "Mastering this topic is essential for building scalable, high-performance financial and analytical models. Always write clean, self-documenting formulas and maintain strict data validation across your workbooks."
-            }
+            note={"No more guessing in meetings! Use `scipy.stats.ttest_ind(groupA, groupB)` to prove mathematically whether Campaign A beat Campaign B. If the p-value is less than 0.05, you have scientific proof."}
           />
         </div>
       </div>

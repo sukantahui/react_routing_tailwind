@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Basic Dashboards and Reporting
-Topic 2: Building KPI Summary Cards with dynamic change indicators (▲ / ▼) and conditional styling
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 2 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Building KPI Summary Cards with dynamic change indicators (▲ / ▼) and conditional styling
+Module: 003_004_basic-dashboards-and-reporting
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Custom Number Mask: [Color10]▲ +0.0%;[Red]▼ -0.0%;[Color16]▬ 0.0% | Dynamic KPI Formula: =TEXT(Val, "₹#,##0.0") & " (" & TEXT(Growth, "+0.0%") & ")"
+
+PRIMARY CONCEPT:
+Building high-impact C-suite KPI Summary Cards with dynamic Unicode delta arrows (▲ / ▼ / ▬), custom color formatting, and integrated micro-sparklines
+
+TEACHER'S ADVICE:
+Executives look at KPI cards first. Make the main number huge (24pt font), the label small and muted (10pt uppercase), and add a clean delta badge like '▲ +12.4% vs LY'. It looks like a Bloomberg terminal.
+
+COMMON TRAPS TO AVOID:
+- Reversed Direction Logic for Cost Metrics: Displaying a green ▲ arrow for an INCREASE in operating costs (where cost increases are actually negative alerts). -> Fix: Invert format mask for expenses: `[Red]▲ +0.0%;[Color10]▼ -0.0%` so cost increases display in red.
+- Overcrowding Card Borders with Dark Shadows: Heavy 3D drop-shadows and thick dark borders make cards look dated and clunky. -> Fix: Use subtle 1px border outlines (#334155) with soft neutral backgrounds.
+- Unanchored Card Shapes Drifting on Grid Resizing: Drawing cards as freeform shapes causes them to drift when columns are resized. -> Fix: Build KPI cards directly inside cell grids using merged cells and cell borders for perfect alignment.
+================================================================================

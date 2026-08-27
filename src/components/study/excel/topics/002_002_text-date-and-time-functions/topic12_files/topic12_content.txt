@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Text, Date and Time Functions
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Text, Date and Time Functions
 Topic 12: Practice: Employee shift duration and overtime calculator
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Practice: Employee shift duration and overtime calculator is an essential discipline in corporate spreadsheet development and ETL workflows.
+It provides the core formulas required to sanitize, manipulate, and calculate text, dates, and times.
+
+2. SYNTAX & TOKEN STRUCTURE
+Formula Code: Shift & Overtime Engine: =MOD(Out - In, 1) * 24 | =MAX(0, Hours - 8) * OvertimeRate
+
+3. CORE TECHNICAL MECHANICS
+1. Shift Gross Duration Calculation:
+   Calculates total elapsed shift hours crossing midnight using `=MOD(PunchOut - PunchIn, 1) * 24`.
+
+2. Automatic Meal Break Deduction:
+   Applies conditional break deductions (e.g. `IF(GrossHours > 5, GrossHours - 0.5, GrossHours)`).
+
+3. Statutory Overtime Tiering:
+   Separates regular hours (`MIN(8, NetHours)`) from overtime hours (`MAX(0, NetHours - 8)`) to compute double-time wage disbursements.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Head of Payroll, Barrackpore HQ):
+  Corporate Shift Payroll Disbursement - Builds a monthly timesheet calculation engine for 1,200 employees with variable day/night rotations and overtime tiers.
+• Tuhina Mukherjee (HR Compliance Officer, Shyamnagar Plant):
+  Statutory Factory Overtime Audit - Audits manufacturing shift logs to ensure overtime hours comply with maximum statutory weekly limits.
+• Abhronila Das (Plant Superintendent, Ichapur Heavy Works):
+  Rotational 3-Shift Roster Management - Tracks 8-hour shift handovers (Morning, Evening, Night) with automated break deductions.
+• Debangshu Roy (Transport Coordinator, Naihati Logistics Hub):
+  Long-Haul Driver Allowance Engine - Calculates driver transit allowances and rest period compliance across multi-day highway runs.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Missing Break Subtraction:
+  Root Cause: Failing to deduct mandatory 30-minute unpaid lunch breaks inflates payroll liabilities by 6.25%.
+  Diagnostic Fix: Embed automatic break deduction formulas into gross hour calculations.
+• Overtime Rate Double Multiplier Bug:
+  Root Cause: Applying 1.5x overtime multiplier directly to total hours rather than only hours exceeding 8.
+  Diagnostic Fix: Use `=(RegularHours * BaseRate) + (OvertimeHours * BaseRate * 1.5)`.
+• Decimal vs Clock Minute Confusion:
+  Root Cause: Treating '8.30' as 8 hours 30 minutes in decimal math (0.30 of an hour is 18 minutes, not 30).
+  Diagnostic Fix: Always convert time using serial fraction math `* 24` so 8:30 displays as 8.50 decimal hours.
+
+6. PRO TIPS & SHORTCUTS
+• Regular Hours Formula (=MIN(8, TotalHours)): Caps standard working shift hours at exactly 8 hours.
+• Overtime Hours Formula (=MAX(0, TotalHours - 8)): Isolates only the overtime hours exceeding standard shift threshold.
+• Total Wage Formula (=(Reg * Rate) + (OT * Rate * 1.5)): Standard statutory overtime pay calculation formula.
+================================================================================

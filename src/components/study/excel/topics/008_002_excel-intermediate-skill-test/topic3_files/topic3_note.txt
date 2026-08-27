@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Excel Intermediate Skill Test
-Topic 3: VLOOKUP, INDEX-MATCH & XLOOKUP Accuracy Test
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 3 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: VLOOKUP, INDEX-MATCH & XLOOKUP Accuracy Test
+Module: 008_002_excel-intermediate-skill-test
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Lookup Matrix: =XLOOKUP(LookupVal, LookupArray, ReturnArray, "Not Found", MatchMode, SearchMode) | =INDEX(Array, MATCH(...))
+
+PRIMARY CONCEPT:
+Testing candidate mastery across legacy and modern lookup engines: VLOOKUP exact vs approximate matching, INDEX-MATCH 2-way matrix lookups, XLOOKUP left lookups, built-in IFERROR handling, and wildcard lookups
+
+TEACHER'S ADVICE:
+`XLOOKUP` is the king of lookups! It looks left, it looks right, it doesn't care if someone inserts a column, and it has error handling built right in. If you are still using VLOOKUP, switch to XLOOKUP today!
+
+COMMON TRAPS TO AVOID:
+- VLOOKUP Column Insertion Breakage Bug: Inserting a new column in source data breaks hardcoded `col_index_num = 3`. -> Fix: Use `XLOOKUP` which references columns directly by range.
+- Omitting Exact Match Parameter (FALSE / 0) in VLOOKUP: Defaulting to approximate match on unsorted tables returning random incorrect values. -> Fix: Always pass `FALSE` in VLOOKUP: `=VLOOKUP(A2, Table, 3, FALSE)`.
+- Approximate Match on Unsorted Reference Tables: Running approximate lookup (`match_mode = 1`) on unsorted data. -> Fix: Ensure reference lookup table is sorted ascending when using approximate lookups.
+================================================================================

@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Basic Dashboards and Reporting
-Topic 7: Histogram and Pareto charts (80/20 rule analysis) for quality and sales insights
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 7 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Histogram and Pareto charts (80/20 rule analysis) for quality and sales insights
+Module: 003_004_basic-dashboards-and-reporting
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Statistical Charts: Insert > Statistical > Histogram (Bin Width / Number of Bins) | Pareto Chart (Frequency Bars + Cumulative Line)
+
+PRIMARY CONCEPT:
+Statistical distribution modeling and Pareto Analysis (80/20 Rule): identifying the vital few root causes driving 80% of corporate revenues or quality defects
+
+TEACHER'S ADVICE:
+The Pareto chart is the #1 tool of Six Sigma and management consulting. Use it to show management: 'If we fix these 2 defect types, we eliminate 80% of our scrap costs today'.
+
+COMMON TRAPS TO AVOID:
+- Pre-Aggregating Data for Native Histograms: Feeding summary frequency tables into Excel's native Histogram chart causes Excel to re-bin the frequencies rather than plotting the data. -> Fix: Feed raw unaggregated transactional lists into native Histograms; or use standard Combo charts for pre-aggregated data.
+- Unconfigured Overflow / Underflow Bins: Extreme outlier numbers stretching histogram axes into 50 empty, unreadable bins. -> Fix: Format Axis > Set 'Overflow bin' (e.g. 1000) and 'Underflow bin' (e.g. 0).
+- Misreading the 80% Intersection Line: Failing to draw attention to the 80% cumulative threshold cutoff point. -> Fix: Add a subtle horizontal marker line at 80% to emphasize the vital few drivers.
+================================================================================

@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Excel Advanced & Financial Modeling Skill Test
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Excel Advanced & Financial Modeling Skill Test
 Topic 3: Dynamic Array Spilling & Array Reshaping Test
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Dynamic Array Spilling & Array Reshaping Test is an essential evaluation milestone in spreadsheet mastery, data modeling rigor, and executive reporting.
+It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Dynamic Arrays: =CHOOSEROWS(SORTBY(FILTER(Data, Cond), SortKey, -1), 1, 2, 3) | =TOCOL(Range, 1) | =WRAPROWS(Vector, 4) | =LET(...)
+
+3. CORE TECHNICAL MECHANICS
+1. Vectorized Dynamic Array Spilling:
+   Single formula in top-left cell computes and spills across entire dynamic range (`#` spill operator).
+
+2. Grid Reshaping (TOCOL / WRAPROWS):
+   `=TOCOL(Range, 1)` flattens 2D matrices into single clean columns; `=WRAPROWS(Vector, 4)` wraps 1D lists into structured multi-column tables.
+
+3. Column/Row Slicing (CHOOSEROWS / CHOOSECOLS):
+   Extracts specific columns or top-N rows dynamically without writing multiple helper formulas.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Analytics, Barrackpore HQ):
+  Top-5 Regional Performers Dynamic Dashboard Deck - Evaluates candidates on authoring a single spilled `=CHOOSEROWS(SORT(FILTER(...)), 1, 2, 3, 4, 5)` formula building an executive leaderboard in 2 minutes.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Dynamic Tax Audit Discrepancy Array - Tests candidate construction of spilled FILTER / UNIQUE arrays isolating non-compliant vendor GSTINs.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  Machine Telemetry Matrix Flattening with TOCOL - Flattens a 50x12 sensor grid into a continuous time-series column using `=TOCOL(A2:L50, 1)`.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Waybill Manifest Reshaping with WRAPROWS - Wraps unformatted 1D shipment codes into 4-column logistics dispatch tables.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Spill Blockage Collision (#SPILL! Error):
+  Root Cause: Non-empty cells or text blocking the dynamic array spill path.
+  Diagnostic Fix: Clear all cells below and to the right of the formula cell.
+• Forgetting Empty String Ignore Flag in TOCOL:
+  Root Cause: `TOCOL(Range)` keeping blank rows.
+  Diagnostic Fix: Pass `ignore = 1` to skip blanks: `=TOCOL(Range, 1)`.
+• Referencing Single Cell Instead of Spill Range (#):
+  Root Cause: Writing `=SUM(E2)` instead of `=SUM(E2#)` to reference the entire spilled array.
+  Diagnostic Fix: Use the `#` spill operator: `=SUM(E2#)`.
+
+6. PRO TIPS & SHORTCUTS
+• The Spill Operator (#) (E2# (References entire spilled range)): Dynamic referencing that automatically sizes to array bounds.
+• Flatten 2D to 1D (=TOCOL(Range, 1)): Flattens matrix into 1 column, ignoring blanks.
+• Slice Top Rows (=CHOOSEROWS(SortedArray, 1, 2, 3)): Extracts top-N ranks dynamically.
+================================================================================

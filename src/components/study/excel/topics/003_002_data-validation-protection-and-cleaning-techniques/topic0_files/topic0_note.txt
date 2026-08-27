@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Data Validation, Protection and Cleaning Techniques
-Topic 0: Data validation fundamentals: Whole numbers, Decimals, Dates, and Text Length
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 0 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Data validation fundamentals: Whole numbers, Decimals, Dates, and Text Length
+Module: 003_002_data-validation-protection-and-cleaning-techniques
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Data Validation: Allow: Whole number | Decimal | Date | Time | Text length (Between Min and Max)
+
+PRIMARY CONCEPT:
+Enforcing rigorous data integrity constraints at point of entry: numeric boundaries (Whole/Decimal), date windows, and text character length constraints
+
+TEACHER'S ADVICE:
+Never trust user input! Always apply Data Validation at the entry point. And remember: Copy-Paste is the mortal enemy of Data Validation—always protect your sheet to prevent rule overwrites.
+
+COMMON TRAPS TO AVOID:
+- Bypassing Validation via Copy-Paste (The Trojan Horse): Copying and pasting a cell directly over a validated cell overwrites and DESTROYS the Data Validation rule completely. -> Fix: Lock the worksheet structure or instruct users to Paste Values Only (Alt + E + S + V).
+- Ignoring Pre-Existing Corrupted Data: Applying Data Validation to a column with existing bad data does not retroactively flag or delete invalid entries. -> Fix: Use Data > Data Validation > 'Circle Invalid Data' to highlight existing violations.
+- Text Stored as Number in Length Check: Checking Text Length on a number treats the digit count as characters (e.g. 1000 has length 4), but decimals include period character. -> Fix: Use Whole Number checks for numeric ranges; reserve Text Length for codes and IDs.
+================================================================================

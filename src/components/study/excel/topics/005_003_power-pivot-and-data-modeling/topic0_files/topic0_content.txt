@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Power Pivot & Data Modeling
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Power Pivot and Data Modeling
 Topic 0: Introduction to Power Pivot and the xVelocity In-Memory Tabular Engine (VertiPaq)
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Introduction to Power Pivot and the xVelocity In-Memory Tabular Engine (VertiPaq) is an essential discipline in enterprise data architecture, business intelligence, and large-scale analytical modeling.
+It provides the core protocols required to shatter Excel's 1-million row limit, establish clean relational schemas, and build high-performance data models.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Data Model Architecture: VertiPaq Columnar Store (In-Memory Compression) | Tabular Metadata Engine | Power Pivot Ribbon
+
+3. CORE TECHNICAL MECHANICS
+1. Columnar Storage Architecture:
+   Unlike traditional row-based Excel grids, VertiPaq stores each column as an independent contiguous vector in RAM, enabling 10x-20x data compression.
+
+2. Dictionary & Run-Length Encoding:
+   Replaces repetitive strings with compact integer IDs and compresses consecutive identical values, allowing millions of rows to fit in megabytes of RAM.
+
+3. High-Speed Parallel Vector Processing:
+   Scans billions of rows per second across multi-core CPU architectures without consuming disk I/O.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Data Architect, Barrackpore HQ):
+  Enterprise 10-Million Row Transaction Model - Compresses 10,000,000 corporate transaction records from 1.8 GB raw SQL into a 65 MB high-speed Power Pivot Data Model in Excel.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Multi-Year Purchase Ledger Consolidation - Loads 5 consecutive financial years of supplier purchase registers into an in-memory tabular schema for instant cross-year tax reconciliation.
+• Abhronila Das (Plant IoT Data Lead, Ichapur Works):
+  Factory Sensor Telemetry Model - Ingests 4 million daily furnace temperature sensor readings into Power Pivot for real-time shift analytics.
+• Debangshu Roy (Supply Chain Analytics Director, Naihati Logistics):
+  Nationwide Freight Waybill Hub - Maintains a 3-million row nationwide logistics manifest model refreshing in 4 seconds.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Loading Unnecessary High-Cardinality Columns (GUIDs):
+  Root Cause: Loading unique primary keys or transaction timestamps with milliseconds destroys VertiPaq compression ratios.
+  Diagnostic Fix: Remove high-cardinality IDs and split timestamps into Date and Hour columns.
+• Power Pivot Tab Missing in Excel Ribbon:
+  Root Cause: Power Pivot is an advanced COM Add-in that is disabled by default in standard Excel installations.
+  Diagnostic Fix: File > Options > Add-ins > COM Add-ins > Check 'Microsoft Power Pivot for Excel'.
+• Confusing Workbook Grid Limits with Data Model Capacity:
+  Root Cause: Thinking Excel cannot handle more than 1,048,576 rows.
+  Diagnostic Fix: Load data directly into the Data Model (VertiPaq) rather than pasting onto standard worksheet grids.
+
+6. PRO TIPS & SHORTCUTS
+• Enable Power Pivot (File > Options > Add-ins > COM Add-ins > Power Pivot): Activates the dedicated Power Pivot modeling ribbon.
+• Launch Data Model Window (Alt + B + M (or Power Pivot > Manage)): Opens the standalone Power Pivot tabular modeling environment.
+• Optimize Cardinality (Remove unnecessary high-unique columns): Dramatically slashes file size and supercharges DAX query speeds.
+================================================================================

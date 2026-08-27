@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Excel Beginner Skill Test
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Excel Beginner Skill Test
 Topic 3: Visual Chart Construction & Customization Lab
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Visual Chart Construction & Customization Lab is an essential evaluation milestone in spreadsheet mastery, data modeling rigor, and executive reporting.
+It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Chart Standard: Alt + F1 (Instant Embedded Chart) | F11 (Chart Sheet) | Elements: Data Labels, Deselect Gridlines, Clear Legend
+
+3. CORE TECHNICAL MECHANICS
+1. 1-Keystroke Chart Generation:
+   Pressing `Alt + F1` generates an instant embedded column chart on the active sheet from highlighted data.
+
+2. Data-to-Ink Ratio Optimization:
+   Removing cluttered background gridlines, eliminating redundant legends on single-series charts, and adding direct data labels.
+
+3. Axis Scaling & Dynamic Series:
+   Setting minimum and maximum axis bounds and linking chart titles directly to cell formulas (`=Sheet1!$A$1`).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Commercial Officer, Barrackpore HQ):
+  Regional Revenue Visual Briefing Test - Evaluates candidates on constructing an executive Clustered Column chart comparing regional actuals against annual targets with custom data labels.
+• Tuhina Mukherjee (Lead FP&A Analyst, Shyamnagar Plant):
+  Monthly Tax Outflow Trend Line Chart - Tests construction of 12-month tax liability trend line chart with highlighted peak markers.
+• Abhronila Das (Plant Operations Superintendent, Ichapur Works):
+  Daily Plant Scrap Breakdown Donut Chart - Evaluates creation of clean donut charts displaying defect contribution by factory shop.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Carrier On-Time Delivery Bar Chart - Tests horizontal bar charts ranking shipping carriers by on-time SLA performance.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Using 3D Charts or Exploding Pie Charts:
+  Root Cause: 3D perspective distorts visual proportions and misleads executive decision makers.
+  Diagnostic Fix: Always use clean 2D Clustered Column, Bar, or Line charts.
+• Leaving Redundant Legends on Single-Series Charts:
+  Root Cause: Displaying a legend saying 'Series 1' when chart title already explains data.
+  Diagnostic Fix: Delete legend on single-series charts to maximize chart canvas area.
+• Truncated Axis Labels Due to Overcrowding:
+  Root Cause: Trying to fit 30 monthly labels horizontally causing angled unreadable text.
+  Diagnostic Fix: Switch to a horizontal Bar chart for high-cardinality category comparisons.
+
+6. PRO TIPS & SHORTCUTS
+• Instant Embedded Chart (Alt + F1): Creates column chart from active selection in 1 keystroke.
+• Dynamic Chart Title (Click Title > Formula Bar > type =A1): Links chart title dynamically to cell content.
+• Clean Data-to-Ink Ratio (Delete background gridlines): Delivers sleek modern executive chart aesthetics.
+================================================================================

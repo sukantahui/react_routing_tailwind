@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Data Validation, Protection and Cleaning Techniques
-Topic 4: Input messages, error alerts (Stop, Warning, Information), and circle invalid data
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 4 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Input messages, error alerts (Stop, Warning, Information), and circle invalid data
+Module: 003_002_data-validation-protection-and-cleaning-techniques
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Validation Alerts: Style: Stop (Hard Lock) | Warning (User Override) | Information (Advisory Notice)
+
+PRIMARY CONCEPT:
+Designing professional user experience interfaces: Input Guidance Tooltips, configuring Stop vs Warning vs Information alert styles, and auditing dirty data with Circle Invalid Data
+
+TEACHER'S ADVICE:
+Always write helpful error messages! Do not let Excel display its cryptic default error. Tell the user: 'Please enter a valid 10-digit mobile number starting with 6-9'.
+
+COMMON TRAPS TO AVOID:
+- Using Warning Alert When Strict Enforcement is Needed: Setting alert style to Warning allows careless users to click 'Yes' and inject invalid data into your master database. -> Fix: Use Stop Alert whenever data integrity is mission-critical.
+- Cryptic Default Error Messages: Leaving title and error message blank displays generic 'The value doesn't match the data validation restrictions'. -> Fix: Always write clear, polite custom instructions explaining exact formatting requirements.
+- Annoying Input Message Clutter: Adding verbose floating tooltips to every single cell on a large data grid creates visual fatigue. -> Fix: Reserve Input Messages for complex, non-obvious entry columns only.
+================================================================================

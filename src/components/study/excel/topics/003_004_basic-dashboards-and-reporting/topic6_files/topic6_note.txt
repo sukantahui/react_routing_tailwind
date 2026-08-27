@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Basic Dashboards and Reporting
-Topic 6: Treemap and Sunburst charts for hierarchical data breakdown
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 6 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Treemap and Sunburst charts for hierarchical data breakdown
+Module: 003_004_basic-dashboards-and-reporting
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Hierarchical Charts: Insert > Hierarchy Chart > Treemap (Nested Rectangles) | Sunburst (Concentric Rings)
+
+PRIMARY CONCEPT:
+Visualizing complex multi-level hierarchical categorical data using Treemaps (proportional nested rectangular tiles) and Sunburst charts (concentric categorical rings)
+
+TEACHER'S ADVICE:
+Treemaps and Sunburst charts are modern visual powerhouses. When you have 50 products grouped into 5 categories, do not use 50 bars—use a Treemap! It looks stunning on executive presentation slides.
+
+COMMON TRAPS TO AVOID:
+- Unsorted / Interspersed Category Rows: Scattering rows of the same parent category throughout the table fragments Treemap tiles into disconnected blocks. -> Fix: Sort source table by Major Category first, then Sub-Category.
+- Zero or Negative Values in Sunburst (#VALUE!): Hierarchy charts cannot process negative numbers or zero values in area-proportional slices. -> Fix: Filter out zero and negative entries before generating Treemap or Sunburst charts.
+- Excessive Text Label Truncation: Small tile slices truncate long category descriptions. -> Fix: Format Data Labels to show 'Category Name and Value' with concise abbreviations.
+================================================================================

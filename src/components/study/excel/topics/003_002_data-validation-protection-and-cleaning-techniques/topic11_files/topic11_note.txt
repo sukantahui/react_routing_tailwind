@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Data Validation, Protection and Cleaning Techniques
-Topic 11: Document Inspector: Removing hidden properties, personal information, and metadata
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 11 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Document Inspector: Removing hidden properties, personal information, and metadata
+Module: 003_002_data-validation-protection-and-cleaning-techniques
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+File > Info > Check for Issues > Inspect Document (Remove Personal Info, Document Properties, Hidden Worksheets, Comments)
+
+PRIMARY CONCEPT:
+Sanitizing sensitive corporate files before external publication using Document Inspector: removing author metadata, hidden rows/columns, invisible sheets, and internal comments
+
+TEACHER'S ADVICE:
+Never email an Excel model to a client or competitor without running Document Inspector! It takes 10 seconds and prevents embarrassing leaks of internal comments and author metadata.
+
+COMMON TRAPS TO AVOID:
+- Irreversible Deletion of Necessary Hidden Sheets: Clicking 'Remove All' on Hidden Worksheets in Document Inspector permanently DELETES those sheets from the workbook. -> Fix: Always save a backup copy (`Model_Master_Internal.xlsx`) before running Document Inspector.
+- Accidental Removal of Live Pivot Cache XML: Removing Custom XML data can occasionally corrupt complex Power Query or third-party add-in connections. -> Fix: Review itemized inspection results before clicking 'Remove All'.
+- Publishing Internal Notes to Public Competitors: Forgetting to inspect documents leaves confidential internal margin discussions visible in cell comments. -> Fix: Make Document Inspection a mandatory step in corporate sign-off checklists.
+================================================================================

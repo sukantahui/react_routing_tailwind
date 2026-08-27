@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Excel Advanced & Financial Modeling Skill Test
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Excel Advanced & Financial Modeling Skill Test
 Topic 2: What-If Sensitivity & Solver Optimization Challenge
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+What-If Sensitivity & Solver Optimization Challenge is an essential evaluation milestone in spreadsheet mastery, data modeling rigor, and executive reporting.
+It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: What-If Suite: Data Table: Data > What-If Analysis > Data Table (Row/Col Input) | Solver: Objective Min/Max, Changing Cells, Constraints
+
+3. CORE TECHNICAL MECHANICS
+1. Two-Variable Sensitivity Data Tables:
+   Evaluates project Net Profit across 50 combinations of Price and Sales Volume simultaneously in an instant matrix.
+
+2. Excel Solver Linear Programming:
+   Maximizes Profit (`Objective: Max`) by adjusting production quantities (`Changing Cells`) subject to raw material and labor constraints (`<= Available`).
+
+3. Goal Seek Back-Solving:
+   Calculates exact required sales volume to achieve a target break-even profit margin.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Commercial Officer, Barrackpore HQ):
+  Enterprise Pricing Sensitivity Matrix Challenge - Evaluates candidates on building a 10x10 Two-Variable Data Table modeling EBITDA across various inflation and discount rate scenarios in 4 minutes.
+• Tuhina Mukherjee (Lead FP&A Analyst, Shyamnagar Plant):
+  Production Mix Profit Optimization Lab (Solver) - Uses Excel Solver to find the optimal manufacturing mix of 4 alloy steel products maximizing profit under furnace hour constraints.
+• Abhronila Das (Plant Operations Superintendent, Ichapur Works):
+  Foundry Raw Material Blending Solver - Solves least-cost raw material ingot blending formulas subject to chemical grade constraints.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Freight Distribution Cost Minimization Solver - Optimizes multi-depot shipping routes to minimize total freight cost.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Reversing Row and Column Input Cells in Two-Variable Data Table:
+  Root Cause: Swapping row/column inputs produces a matrix of completely inverted nonsensical numbers.
+  Diagnostic Fix: Ensure Row Input Cell matches top header variable; Column Input Cell matches left header variable.
+• Unbounded Solver Models (Infinite Profit / Crash):
+  Root Cause: Forgetting to add non-negativity constraint (`Make Unconstrained Variables Non-Negative`).
+  Diagnostic Fix: Always check 'Make Unconstrained Variables Non-Negative' in Solver.
+• Data Table Formulas Not Recalculating:
+  Root Cause: Excel calculation options set to 'Automatic Except for Data Tables'.
+  Diagnostic Fix: Press F9 or set Calculation Options to Automatic.
+
+6. PRO TIPS & SHORTCUTS
+• Two-Variable Data Table (Data > What-If Analysis > Data Table): Instantly generates 2D sensitivity matrix.
+• Top-Left Corner Formula (Link top-left cell of Data Table to Output Cell): Mandatory setup for Two-Variable Data Tables.
+• Simplex LP in Solver (Select 'Simplex LP' for linear models): Fastest, guaranteed optimal solution for linear optimization.
+================================================================================

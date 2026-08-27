@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Python in Excel: Data Science & Machine Learning
 Topic 3: Data wrangling with pandas in Excel: Filtering, grouping, merging, and reshaping DataFrames
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Data wrangling with pandas in Excel: Filtering, grouping, merging, and reshaping DataFrames is an essential discipline in modern spreadsheet data science, applied machine learning, and advanced business analytics.
+It provides the core protocols required to run Python analytics natively inside Excel, manipulate pandas DataFrames, and deploy predictive AI models.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: pandas Wrangling: df_filtered = df[df['Revenue'] > 500000] | GroupBy: df.groupby('Region')['Profit'].sum().reset_index() | Merge: pd.merge(df1, df2, on='ID', how='inner')
+
+3. CORE TECHNICAL MECHANICS
+1. Vectorized Boolean Filtering:
+   `df[(df['Zone'] == 'East') & (df['Margin'] > 0.15)]`. Executes conditional filtering across 500,000 rows in milliseconds.
+
+2. Multi-Aggregation GroupBy Engine:
+   `df.groupby(['Category', 'Year']).agg({'Sales': 'sum', 'Cost': 'mean', 'ID': 'count'}).reset_index()`.
+
+3. Relational Joins & Reshaping:
+   `pd.merge(dfSales, dfCustomers, on='CustID', how='left')` executes high-speed relational joins replacing complex multi-criteria XLOOKUPs.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Analytics, Barrackpore HQ):
+  Multi-Subsidiary Sales Consolidation & Grouping - Groups 250,000 transaction rows by subsidiary, product category, and financial quarter, calculating weighted average margins in 3 lines.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Automated Relational Tax Ledger Join - Executes inner join between purchase register and 2B tax ledger on invoice number and HSN code.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  Sensor Telemetry Reshaping with Melt - Unpivots 50 machine sensor columns into normalized key-value time-series format using `pd.melt()`.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Carrier Performance Pivot Table Engine - Builds dynamic multi-index logistics pivot tables summarizing transit delays.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Forgetting .reset_index() After GroupBy (Missing Column Names):
+  Root Cause: Grouping without `.reset_index()` leaves grouping keys in the DataFrame index, causing missing headers when spilled.
+  Diagnostic Fix: Always append `.reset_index()` to GroupBy operations: `df.groupby(...).sum().reset_index()`.
+• Merge Key Type Mismatch (String vs Integer):
+  Root Cause: Joining tables where ID in Table A is integer `101` and in Table B is string `"101"` returns empty DataFrame.
+  Diagnostic Fix: Cast join keys: `df1['ID'] = df1['ID'].astype(str)`.
+• Chained Indexing Assignment Warning:
+  Root Cause: Modifying DataFrame slices with `df[df['A']>5]['B'] = 10`.
+  Diagnostic Fix: Use `.loc`: `df.loc[df['A'] > 5, 'B'] = 10`.
+
+6. PRO TIPS & SHORTCUTS
+• Always Reset Index (df.groupby('Col').sum().reset_index()): Guarantees clean column headers on output.
+• High-Speed Join (pd.merge(df1, df2, on='Key', how='left')): Replaces 20 complex VLOOKUP formulas in 1 line.
+• Sort Values (df.sort_values(by='Revenue', ascending=False)): Sorts DataFrame by column.
+================================================================================

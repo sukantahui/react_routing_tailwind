@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Using AI with Excel for Productivity
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Using AI with Excel for Productivity
 Topic 5: Generating instant visualizations, pivot tables, and scenario summaries with AI prompts
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Generating instant visualizations, pivot tables, and scenario summaries with AI prompts is an essential discipline in AI-assisted spreadsheet engineering, generative business intelligence, and modern workplace productivity.
+It provides the core protocols required to leverage Microsoft Copilot, construct precision prompt workflows, integrate external LLM APIs, and build custom AI formulas.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Visualization Prompts: 'Create a column chart comparing quarterly revenue by region' | 'Create a pivot table showing total profit by product category and year'
+
+3. CORE TECHNICAL MECHANICS
+1. Intelligent Chart Selection:
+   AI analyzes data dimensionality (categorical vs time-series vs continuous) and automatically selects the optimal chart type (Bar vs Line vs Scatter).
+
+2. Automated Pivot Table Construction:
+   Configures Rows, Columns, Values, and Calculation Types (Sum, Average, % of Column Total) with zero manual dragging.
+
+3. 1-Click Presentation-Ready Dashboards:
+   Pivots and charts are generated on clean new worksheet tabs with corporate styling, titles, and legends pre-configured.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Instant 5-Chart Boardroom Deck Generation - Prompts Copilot to generate 5 executive charts (Regional Breakdown, Trend Line, Category Share, Pareto Chart, Waterfall) in 30 seconds.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Tax Slab Breakdown Pivot Chart - Prompts AI to build a stacked bar chart displaying monthly tax liabilities split by CGST, SGST, and IGST.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  Machine Downtime Pareto Chart Generation - Generates an 80/20 downtime Pareto chart from raw fault logs via AI prompt.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Carrier SLA Comparison Chart Deck - Builds multi-series carrier transit speed line charts.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• AI Selecting Inappropriate Chart Type (e.g. Pie Chart for 50 Categories):
+  Root Cause: Prompting 'Visualize this' on high-cardinality data resulting in unreadable pie charts.
+  Diagnostic Fix: Specify chart type explicitly: 'Create a horizontal bar chart of the top 10 products'.
+• Missing Chart Title or Legend Labels:
+  Root Cause: AI creating charts with generic titles like 'Chart 1'.
+  Diagnostic Fix: Prompt AI: 'Add title: FY 2026 Regional Revenue Performance'.
+• Creating Charts Over Existing Data Cells:
+  Root Cause: Pasting floating charts directly on top of table numbers.
+  Diagnostic Fix: Select 'Add to a new sheet' option.
+
+6. PRO TIPS & SHORTCUTS
+• Specify Chart Type (Prompt: 'Create a clustered column chart...'): Guarantees exact visual format.
+• Pivot Table with % of Total (Prompt: 'Show sales and % share of total'): Generates normalized contribution analysis.
+• New Sheet Standard (Click 'Add to a new sheet'): Keeps master data and dashboards cleanly separated.
+================================================================================

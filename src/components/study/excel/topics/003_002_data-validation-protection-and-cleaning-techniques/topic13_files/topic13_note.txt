@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Data Validation, Protection and Cleaning Techniques
-Topic 13: Practice Lab: Multi-department procurement request form with strict validation
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 13 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Practice Lab: Multi-department procurement request form with strict validation
+Module: 003_002_data-validation-protection-and-cleaning-techniques
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Procurement Request Portal: Multi-Tier Cascading Menus + Real-Time Duplicate PO Checks + Trace Auditing + Password Defense
+
+PRIMARY CONCEPT:
+Comprehensive practical lab building an enterprise Multi-Department Procurement Request Portal with strict multi-level validation, automated approval workflows, and audit security
+
+TEACHER'S ADVICE:
+Congratulations on mastering Data Validation, Protection, and Auditing! These skills protect multi-million dollar corporate models from user error, fraud, and data corruption. You build systems that last.
+
+COMMON TRAPS TO AVOID:
+- Bypassing Approval Tiers on Split Requisitions: Users splitting a ₹10 Lakh order into two ₹5 Lakh orders to bypass Board approval. -> Fix: Include monthly aggregate vendor spending checks using SUMIFS.
+- Missing Unit-of-Measure Consistency: Entering quantities in 'Bags' while cost is quoted in 'Metric Tons'. -> Fix: Lock Unit of Measure to a standardized dynamic drop-down list.
+- Unrestricted Vendor Name Entry: Allowing free-text typing of vendor names results in 'Tata Steel', 'TATA STEEL LTD', and 'Tata' as separate suppliers. -> Fix: Enforce strict vendor selection via approved Vendor Master drop-downs.
+================================================================================

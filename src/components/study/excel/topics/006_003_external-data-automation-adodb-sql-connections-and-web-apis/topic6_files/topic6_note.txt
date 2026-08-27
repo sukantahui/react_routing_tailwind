@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: External Data Automation: ADODB SQL Connections & Web APIs
-Topic 6: Consuming external REST APIs and JSON endpoints using `MSXML2.ServerXMLHTTP` in VBA
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 6 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Consuming external REST APIs and JSON endpoints using `MSXML2.ServerXMLHTTP` in VBA
+Module: 006_003_external-data-automation-adodb-sql-connections-and-web-apis
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+REST API Call: Set http = CreateObject("MSXML2.ServerXMLHTTP.6.0") | http.Open "GET", url, False | http.setRequestHeader "Authorization", "Bearer key" | http.Send | jsonResponse = http.responseText
+
+PRIMARY CONCEPT:
+Connecting Excel VBA to modern Cloud Web Services and REST APIs using MSXML2.ServerXMLHTTP: HTTP GET/POST methods, custom request headers (API Keys, Bearer Tokens), and capturing JSON payloads
+
+TEACHER'S ADVICE:
+Excel can talk to the internet! Use `MSXML2.ServerXMLHTTP.6.0` to fetch live stock prices, weather data, or currency rates from any REST API in the world. It takes 5 lines of code.
+
+COMMON TRAPS TO AVOID:
+- Using MSXML2.XMLHTTP Instead of ServerXMLHTTP (Caching Bug): `XMLHTTP` caches responses in Internet Explorer cache, returning stale exchange rates rather than fresh data. -> Fix: Always use `MSXML2.ServerXMLHTTP.6.0` to guarantee fresh, non-cached server responses.
+- Freezing Excel on Slow / Timed-Out Web Servers: Synchronous HTTP requests hanging indefinitely if external API server is down. -> Fix: Configure explicit timeouts: `http.setTimeouts 5000, 5000, 10000, 10000` (Resolve, Connect, Send, Receive in milliseconds).
+- Exposing Production API Keys in Unlocked Workbooks: Hardcoding proprietary API keys in exposed VBA modules. -> Fix: Lock VBA Project with password protection.
+================================================================================

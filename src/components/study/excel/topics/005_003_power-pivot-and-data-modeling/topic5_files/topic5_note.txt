@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Power Pivot & Data Modeling
-Topic 5: Designing a dedicated Calendar / Date Dimension table (Standard and Fiscal calendars)
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 5 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Designing a dedicated Calendar / Date Dimension table (Standard and Fiscal calendars)
+Module: 005_003_power-pivot-and-data-modeling
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Calendar Table: Power Pivot > Design > Date Table > New | DAX Calculated Table: Dim_Calendar = CALENDAR(DATE(2022,1,1), DATE(2030,12,31))
+
+PRIMARY CONCEPT:
+Engineering an institutional, dedicated Date Dimension (Calendar Table) required for all Time Intelligence DAX calculations: continuous dates, fiscal calendars, and Mark as Date Table
+
+TEACHER'S ADVICE:
+Rule #1 of DAX: Never use the date column inside your Fact table for pivots! Always create a dedicated Calendar table, link it to your fact table, and mark it as a Date Table. Then time intelligence works like magic.
+
+COMMON TRAPS TO AVOID:
+- Missing Date Gaps (Breaks Time Intelligence): Creating a calendar table from sales transactions containing days with zero sales breaks DAX time intelligence functions like TOTALYTD. -> Fix: Generate a continuous date sequence using `=CALENDAR(StartDate, EndDate)` or Power Pivot > Date Table > New.
+- Alphabetical Month Sorting Trap: PivotTables displaying months as 'April, August, December, February, January...' -> Fix: Select 'MonthName' column > Home > Sort by Column > Select 'MonthNumber'.
+- Forgetting 'Mark as Date Table': Failing to mark the calendar table prevents DAX from recognizing custom date hierarchies. -> Fix: Power Pivot > Design > Mark as Date Table > Select Date column.
+================================================================================

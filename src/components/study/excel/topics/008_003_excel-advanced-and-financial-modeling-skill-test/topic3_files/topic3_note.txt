@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Excel Advanced & Financial Modeling Skill Test
-Topic 3: Dynamic Array Spilling & Array Reshaping Test
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 3 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Dynamic Array Spilling & Array Reshaping Test
+Module: 008_003_excel-advanced-and-financial-modeling-skill-test
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Dynamic Arrays: =CHOOSEROWS(SORTBY(FILTER(Data, Cond), SortKey, -1), 1, 2, 3) | =TOCOL(Range, 1) | =WRAPROWS(Vector, 4) | =LET(...)
+
+PRIMARY CONCEPT:
+Testing advanced modern dynamic array formulas and grid manipulation: FILTER, SORTBY, UNIQUE, CHOOSEROWS, CHOOSECOLS, TOCOL, TOROW, WRAPROWS, WRAPCOLS, and multi-variable LET pipelines
+
+TEACHER'S ADVICE:
+Dynamic arrays are the biggest upgrade in Excel history. One formula in cell A1 can filter, sort, reshape, and spill 1,000 rows across your sheet. Always use the `#` operator (like `=SUM(A1#)`) to reference spilled data!
+
+COMMON TRAPS TO AVOID:
+- Spill Blockage Collision (#SPILL! Error): Non-empty cells or text blocking the dynamic array spill path. -> Fix: Clear all cells below and to the right of the formula cell.
+- Forgetting Empty String Ignore Flag in TOCOL: `TOCOL(Range)` keeping blank rows. -> Fix: Pass `ignore = 1` to skip blanks: `=TOCOL(Range, 1)`.
+- Referencing Single Cell Instead of Spill Range (#): Writing `=SUM(E2)` instead of `=SUM(E2#)` to reference the entire spilled array. -> Fix: Use the `#` spill operator: `=SUM(E2#)`.
+================================================================================

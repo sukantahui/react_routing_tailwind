@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Advanced VBA: UserForms, Events & System Integration
-Topic 9: Robust enterprise error handling, call stack tracing, and debug logging to text files
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 9 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Robust enterprise error handling, call stack tracing, and debug logging to text files
+Module: 006_002_advanced-vba-userforms-events-and-system-integration
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Enterprise Debug Logging: Open logPath For Append As #fNum -> Print #fNum, Format(Now, "yyyy-mm-dd hh:nn:ss") & " | " & ErrMsg -> Close #fNum
+
+PRIMARY CONCEPT:
+Building institutional logging frameworks and call stack tracing in VBA: writing persistent timestamped execution logs to external text files, catching silent failures, and debug auditing
+
+TEACHER'S ADVICE:
+When you build tools for other people, always include an Error Logger! Write a simple 3-line Sub that appends the error date, user name, and error description to `error_log.txt`. When someone says 'the macro broke', you can check the log and fix it in minutes.
+
+COMMON TRAPS TO AVOID:
+- Locking the Log File on Network Share: Multiple users running macros simultaneously trying to write to the same shared log file without error trapping. -> Fix: Use localized user log files (`"audit_" & Environ("USERNAME") & ".log"`) or brief append-and-close locks.
+- Logging Sensitive Passwords or PII Data in Plaintext: Writing database passwords or sensitive customer credit numbers into unencrypted log files. -> Fix: Sanitize and mask sensitive credentials before writing to audit logs.
+- Failing to Handle Log File Path Access Denied: Writing logs to `C:\Program Files\` where standard corporate users lack write permissions. -> Fix: Write logs to `ThisWorkbook.Path` or `Environ("LOCALAPPDATA")`.
+================================================================================

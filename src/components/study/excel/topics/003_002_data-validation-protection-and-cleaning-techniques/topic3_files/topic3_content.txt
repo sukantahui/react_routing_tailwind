@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Data Validation, Protection and Cleaning Techniques
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Data Validation, Protection and Cleaning Techniques
 Topic 3: Custom data validation with advanced formulas (preventing duplicates, regex-like rules)
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Custom data validation with advanced formulas (preventing duplicates, regex-like rules) is an essential discipline in corporate spreadsheet governance, data integrity, and template security.
+It provides the core protocols required to prevent data corruption, audit complex formulas, and encrypt sensitive corporate assets.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Custom Validation: Prevent Duplicates: =COUNTIF($A:$A, A2)<=1 | Upper Case Only: =EXACT(A2, UPPER(A2)) | No Spaces: =ISERROR(FIND(" ", A2))
+
+3. CORE TECHNICAL MECHANICS
+1. Custom Formula Boolean Evaluation:
+   Setting Allow: Custom allows entering any formula that returns TRUE or FALSE. Entry is accepted if formula evaluates to TRUE, blocked if FALSE.
+
+2. Duplicate Prevention Engine:
+   `=COUNTIF($A$2:$A$500, A2) <= 1` scans the entire column in real time, immediately blocking the entry if the value already exists in the column.
+
+3. Case & Format Exactness Enforcement:
+   `=EXACT(A2, UPPER(A2))` blocks lowercase entry; `=AND(ISNUMBER(A2), A2>0, MOD(A2, 100)=0)` enforces multiples of 100.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Risk Officer, Barrackpore HQ):
+  Unique Corporate Loan Account Number Gate - Blocks duplicate loan account numbers across 50,000 accounts using Allow: Custom -> =COUNTIF($A:$A, A2) <= 1.
+• Tuhina Mukherjee (Chartered Tax Auditor, Shyamnagar Plant):
+  Strict 10-Character Uppercase PAN Validation - Enforces 10-character uppercase PAN entries: =AND(LEN(A2)=10, EXACT(A2, UPPER(A2)), ISERROR(FIND(" ", A2))).
+• Abhronila Das (Quality Assurance Lead, Ichapur Works):
+  Multiple of 50 Batch Order Constraint - Enforces pallet ordering rules: Allow: Custom -> =AND(ISNUMBER(A2), A2>0, MOD(A2, 50)=0).
+• Debangshu Roy (Fleet Dispatch Manager, Naihati Logistics):
+  Sequential Waybill Serial Number Enforcer - Enforces strictly sequential odometer entries: Allow: Custom -> =A2 > A1.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Relative vs Absolute Reference Mismatch in COUNTIF:
+  Root Cause: Writing =COUNTIF(A2:A100, A2)<=1 without locking $A$2:$A$100 shifts the search range down row by row, missing duplicate entries.
+  Diagnostic Fix: Always anchor the range absolutely: `=COUNTIF($A$2:$A$500, A2) <= 1`.
+• Formula Reference Row Mismatch:
+  Root Cause: Selecting range A2:A100 but writing the formula referencing cell A1 in the Custom box.
+  Diagnostic Fix: Always write the custom formula referencing the ACTIVE top-left cell of your selection (cell A2).
+• Ignoring 'Ignore Blank' Checkbox Glitch:
+  Root Cause: Leaving 'Ignore blank' checked allows users to enter invalid text by clearing cells and typing invalid formats.
+  Diagnostic Fix: Uncheck 'Ignore blank' if blank entries must also be strictly validated.
+
+6. PRO TIPS & SHORTCUTS
+• No Duplicate Entries (=COUNTIF($A$2:$A$1000, A2) <= 1): The universal formula to block duplicate entries in Excel columns.
+• Uppercase Letters Only (=EXACT(A2, UPPER(A2))): Forces users to type codes in clean capital letters.
+• No Spaces Allowed (=ISERROR(FIND(" ", A2))): Blocks accidental space characters in ID and code fields.
+================================================================================

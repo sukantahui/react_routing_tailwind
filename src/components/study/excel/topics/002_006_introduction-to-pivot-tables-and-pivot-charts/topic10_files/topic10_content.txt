@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Introduction to Pivot Tables and Pivot Charts
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Introduction to Pivot Tables and Pivot Charts
 Topic 10: Designing Pivot Charts: Column, Bar, Line, and Combo pivot charts
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Designing Pivot Charts: Column, Bar, Line, and Combo pivot charts is an essential discipline in corporate business intelligence and reporting.
+It provides the foundation for dynamic in-memory summarization, multi-dimensional slicing, and interactive dashboards.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: PivotChart Engine: Clustered Column | Stacked Bar | Line with Markers | Dual-Axis Combo Pivot Chart
+
+3. CORE TECHNICAL MECHANICS
+1. Bi-Directional Synchronization:
+   Pivot Charts are intrinsically bound to their underlying PivotTable. Slicing, filtering, or drilling down in the chart immediately updates the table and vice versa.
+
+2. Dual-Axis Combo Pivot Charts:
+   Combines high-magnitude volume bars (Primary Axis: Revenue) with low-magnitude percentage lines (Secondary Axis: Gross Margin %) on a single canvas.
+
+3. Field Button De-Cluttering:
+   Hiding intrusive grey PivotChart field buttons creates publication-grade executive visualizations.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Executive Revenue & Margin Dual-Axis Combo - Designs a boardroom-ready combo chart showing monthly revenue bars on the primary axis and EBIT margin % line on the secondary axis.
+• Tuhina Mukherjee (Tax Compliance Lead, Shyamnagar Plant):
+  Regional Vendor Compliance Distribution - Builds 100% Stacked Bar pivot charts illustrating tax compliance status proportions across supplier tiers.
+• Abhronila Das (Quality Assurance Lead, Ichapur Works):
+  Production Line Scrap Defect Pareto Chart - Plots scrap defect quantities as descending columns with cumulative percentage curve on secondary axis.
+• Debangshu Roy (Logistics Analytics Lead, Naihati Logistics):
+  Fleet Tonnage & Turnaround Trendlines - Monitors monthly freight tonnage volume against average delivery turnaround time.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Cluttered Grey Field Buttons:
+  Root Cause: Default PivotCharts display ugly grey dropdown buttons that clutter executive presentation slides.
+  Diagnostic Fix: PivotChart Analyze > Field Buttons > Click 'Hide All' to create clean, professional charts.
+• Secondary Axis Scale Distortion:
+  Root Cause: Failing to set secondary axis bounds causes 20% margin lines to look identical to 80% margins.
+  Diagnostic Fix: Format Secondary Axis > Minimum: 0.0, Maximum: 1.0 (or appropriate fixed bound).
+• Unsupported Pivot Chart Types:
+  Root Cause: Excel does not support Scatter (XY), Bubble, Treemap, or Waterfall charts directly as native PivotCharts.
+  Diagnostic Fix: Copy pivot data using GETPIVOTDATA or formulas to a secondary range to build advanced chart types.
+
+6. PRO TIPS & SHORTCUTS
+• Hide All Field Buttons (PivotChart Analyze > Field Buttons > Hide All): The #1 visual enhancement for institutional-grade executive charts.
+• Dual-Axis Shortcut (Change Chart Type > Combo > Secondary Axis Checkbox): Plots percentages on secondary axis alongside currency bars.
+• Dynamic Chart Title (Select Title > Type =CellReference): Links chart title to a dynamic cell displaying active slicer selections.
+================================================================================

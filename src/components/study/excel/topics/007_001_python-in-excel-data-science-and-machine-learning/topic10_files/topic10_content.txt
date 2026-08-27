@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Python in Excel: Data Science & Machine Learning
 Topic 10: Handling missing data, imputation, and outlier detection with Python algorithms
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Handling missing data, imputation, and outlier detection with Python algorithms is an essential discipline in modern spreadsheet data science, applied machine learning, and advanced business analytics.
+It provides the core protocols required to run Python analytics natively inside Excel, manipulate pandas DataFrames, and deploy predictive AI models.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Data Cleaning: df.isnull().sum() | Imputation: df['Salary'].fillna(df['Salary'].median(), inplace=True) | Outliers: q1, q3 = df['Val'].quantile([0.25, 0.75]); iqr = q3 - q1
+
+3. CORE TECHNICAL MECHANICS
+1. Comprehensive Missing Value Profiling:
+   `df.isnull().sum()` / `df.isnull().mean() * 100` identifies the exact missing data percentage per column across massive datasets.
+
+2. Robust Imputation Strategies:
+   Replaces missing numerical values with median (resistant to extreme outliers) or mode for categorical features: `df['Income'].fillna(df['Income'].median())`.
+
+3. Tukey's IQR Outlier Boundary Detection:
+   Calculates Interquartile Range (`IQR = Q3 - Q1`); points below `Q1 - 1.5*IQR` or above `Q3 + 1.5*IQR` are flagged as statistical outliers.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Enterprise Customer Ledger Cleansing Pipeline - Cleanses 500,000 raw customer records, imputing missing postal codes and removing erroneous negative revenue outliers.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Automated Tax Ledger Data Sanitization - Profiles and imputes missing vendor PAN numbers and flags anomalous tax deduction spikes using IQR.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  Sensor Glitch & Drop-out Imputation - Interpolates missing temperature readings caused by brief sensor network dropouts using `df.interpolate(method='time')`.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Freight Weight Outlier Detection - Isolates impossible truck weight entries (e.g. 500,000 kg on a 10-ton vehicle) using Z-score filters.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Mean Imputation on Skewed Datasets (Distortion Trap):
+  Root Cause: Using mean imputation when data contains extreme billionaire outliers shifts the central tendency artificially high.
+  Diagnostic Fix: Always use median imputation (`.median()`) for skewed financial data.
+• Deleting All Rows with Any NaN (Massive Data Loss):
+  Root Cause: Calling `df.dropna()` indiscriminately deleting 80% of valuable transaction records.
+  Diagnostic Fix: Impute missing features selectively or drop rows only when target label `y` is missing.
+• Overwriting Raw Data in Place Without Backup:
+  Root Cause: Mutating original DataFrame without preserving a clean raw copy.
+  Diagnostic Fix: Create a clean copy: `df_clean = df.copy()`.
+
+6. PRO TIPS & SHORTCUTS
+• Median Imputation (df['Col'].fillna(df['Col'].median(), inplace=True)): Robust against extreme outlier distortion.
+• IQR Outlier Filter (df[(df['Val'] >= q1 - 1.5*iqr) & (df['Val'] <= q3 + 1.5*iqr)]): The standard Tukey boxplot outlier filter.
+• Missing Percent Summary (df.isnull().mean() * 100): Instant percentage of missing values per column.
+================================================================================

@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Text, Date and Time Functions
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Text, Date and Time Functions
 Topic 3: Number-to-text formatting with the TEXT function (custom number formats, currency, dates)
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Number-to-text formatting with the TEXT function (custom number formats, currency, dates) is an essential discipline in corporate spreadsheet development and ETL workflows.
+It provides the core formulas required to sanitize, manipulate, and calculate text, dates, and times.
+
+2. SYNTAX & TOKEN STRUCTURE
+Formula Code: =TEXT(value, format_text)
+
+3. CORE TECHNICAL MECHANICS
+1. Visual Format Mask Encoding:
+   TEXT() accepts any valid custom number format mask (e.g. `"₹#,##0.00"`, `"dddd, mmmm dd, yyyy"`, `"0.0%"`) as its second argument.
+
+2. String Literal Output Coercion:
+   The return value of TEXT() is strictly a text string, locking in visual presentation even when merged into sentence strings.
+
+3. Dynamic Boardroom Narration:
+   Enables creating narrative reporting formulas like `="Total Revenue reached " & TEXT(B2, "₹#,##,##0.00") & " on " & TEXT(C2, "dd-mmm-yyyy")`.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Executive Assistant, Barrackpore HQ):
+  Automated Board Memo Narration - Generates dynamic board summaries: 'Q3 EBITDA closed at ' & TEXT(E5, '₹#,##0.00 Lakhs') & ' (' & TEXT(F5, '+0.0%;-0.0%') & ').'
+• Tuhina Mukherjee (Tax Compliance Lead, Shyamnagar Plant):
+  Tax Invoice Serial Label Generation - Formats invoice serial codes as 'INV-2026-' & TEXT(ROW()-1, '00000') for statutory numbering.
+• Abhronila Das (Production Engineer, Ichapur Works):
+  Batch Weight Summary Certificates - Converts gross weights into formatted text notes ('Net Weight: ' & TEXT(D2, '0.00') & ' Metric Tons').
+• Debangshu Roy (Logistics Dispatcher, Naihati Logistics):
+  Driver Manifest Timestamp Stamps - Generates standardized dispatch strings: 'Dispatched on ' & TEXT(TODAY(), 'dddd, dd-mmm-yyyy') & ' at ' & TEXT(NOW(), 'hh:mm AM/PM').
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Lost Numerical Calculation Capability:
+  Root Cause: Applying TEXT() turns numbers into text strings; subsequent =SUM() on that column returns 0.
+  Diagnostic Fix: Use Custom Number Formatting (Ctrl+1) for grid cells; reserve TEXT() only for text concatenation.
+• Unquoted Format Mask Syntax Error:
+  Root Cause: Omitting double quotes around the format string (e.g. =TEXT(A2, 0.00)) returns #NAME? or syntax error.
+  Diagnostic Fix: Always wrap format masks in double quotes: =TEXT(A2, "0.00").
+• Language/Locale Mask Incompatibility:
+  Root Cause: Using localized tokens (e.g. 'jjjj' in German) fails in English Excel installations.
+  Diagnostic Fix: Use universal English tokens (yyyy, mm, dd) in standardized corporate templates.
+
+6. PRO TIPS & SHORTCUTS
+• Narrative KPI String (="Profit: " & TEXT(A2, "$#,##0.00")): Seamlessly embed formatted currency inside executive commentary.
+• Formatted Percentage (TEXT(A2, "0.0%")): Preserves clean percentage presentation when concatenated with text.
+• Day of Week String (TEXT(A2, "dddd")): Instantly extracts full weekday name ('Monday') as text.
+================================================================================

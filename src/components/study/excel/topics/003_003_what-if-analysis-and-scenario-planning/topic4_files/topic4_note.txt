@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
-Topic 4: Optimizing performance: Setting calculation mode to automatic except for data tables
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 4 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Optimizing performance: Setting calculation mode to automatic except for data tables
+Module: 003_003_what-if-analysis-and-scenario-planning
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+File > Options > Formulas > Calculation Options: Automatic except for data tables (Alt + M + X + E)
+
+PRIMARY CONCEPT:
+Optimizing calculation engine performance on massive financial models by configuring 'Automatic Except for Data Tables' mode to eliminate recalculation freezing
+
+TEACHER'S ADVICE:
+If your Excel workbook starts lagging and freezing every time you type a number, you have Data Tables running! Press Alt + M + X + E to switch to 'Automatic Except Data Tables'. Your model will instantly fly.
+
+COMMON TRAPS TO AVOID:
+- Thinking Data Table is Broken When Numbers Don't Change: In 'Automatic Except Data Tables' mode, changing an input does not update the table until F9 is pressed. -> Fix: Press F9 (Calculate Now) to refresh all data tables across the workbook.
+- Accidentally Leaving Excel in Full Manual Calculation: Setting mode to Manual stops ALL formulas from calculating, causing stale numbers across all sheets. -> Fix: Use 'Automatic Except for Data Tables' rather than full 'Manual' mode.
+- Status Bar 'Calculate' Indicator Missed: Ignoring the 'Calculate' indicator in the bottom status bar means displayed table numbers are out of sync. -> Fix: Press F9 whenever 'Calculate' appears in the Excel status bar.
+================================================================================

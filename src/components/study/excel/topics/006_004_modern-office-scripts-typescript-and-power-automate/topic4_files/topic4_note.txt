@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
-Topic 4: The Office Scripts Object Model: `ExcelScript.Workbook`, `Worksheet`, `Range`, `Table`
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 4 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: The Office Scripts Object Model: `ExcelScript.Workbook`, `Worksheet`, `Range`, `Table`
+Module: 006_004_modern-office-scripts-typescript-and-power-automate
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Object Model Hierarchy: workbook: ExcelScript.Workbook -> workbook.getWorksheets() -> worksheet.getRange("A1:B10") -> worksheet.getTables()
+
+PRIMARY CONCEPT:
+Mastering the Office Scripts ExcelScript Object Model hierarchy: Workbook, Worksheet, Range, Table, PivotTable, and Chart objects
+
+TEACHER'S ADVICE:
+Watch out for coordinate indexing! In VBA, `Cells(1,1)` is cell A1. But in Office Scripts (TypeScript), `ws.getCell(0,0)` is cell A1 because TypeScript uses 0-based indexing!
+
+COMMON TRAPS TO AVOID:
+- Calling getWorksheet with Non-Existent Tab Name: Calling `workbook.getWorksheet("Missing")` returns `undefined`, throwing error on next method call. -> Fix: Verify worksheet exists: `const ws = workbook.getWorksheet("Data"); if (!ws) throw new Error("Sheet not found");`.
+- Confusing getValues() with getText(): `getValues()` returns typed numbers/strings; `getTexts()` returns formatted display text (e.g. "$ 10.00"). -> Fix: Use `getValues()` for calculations; use `getTexts()` for display string parsing.
+- Attempting to Call Non-Existent VBA Methods: Calling `ws.Cells(1,1)` instead of `ws.getCell(0,0)` (Office Scripts uses 0-based coordinate indexing). -> Fix: Use `ws.getCell(rowIndex, colIndex)` where (0,0) is cell A1.
+================================================================================

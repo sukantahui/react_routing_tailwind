@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
-Topic 4: Modifying filters with ALL, ALLEXCEPT, ALLSELECTED, and REMOVEFILTERS
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 4 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Modifying filters with ALL, ALLEXCEPT, ALLSELECTED, and REMOVEFILTERS
+Module: 005_004_dax-formulas-mastery-and-time-intelligence
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Filter Modifiers: ALL(Table/Col) | ALLEXCEPT(Table, Col) | ALLSELECTED(Table/Col) | REMOVEFILTERS(Table/Col)
+
+PRIMARY CONCEPT:
+Controlling and removing filter context using ALL, ALLEXCEPT, ALLSELECTED, and REMOVEFILTERS: calculating % of Total, category contributions, and market share ratios
+
+TEACHER'S ADVICE:
+To calculate % of Total: Write `DIVIDE([TotalSales], CALCULATE([TotalSales], ALLSELECTED(Dim_Product)))`. Now when users slice by Region or Year, the percentages will beautifully sum to exactly 100% every time.
+
+COMMON TRAPS TO AVOID:
+- Using ALL() When ALLSELECTED() is Required: Using `ALL()` causes '% of Total' to divide by national sales even when the user explicitly filtered for 'Eastern Region', displaying 3.2% instead of 25.0%. -> Fix: Use `ALLSELECTED()` so percentages sum to 100% of the active slicer selection.
+- Passing Table to ALL() Instead of Column: Writing `ALL(Fact_Sales)` wipes filters across all dimensions, which is much slower than stripping a single column `ALL(Dim_Product[Category])`. -> Fix: Target specific dimension columns: `ALL(Dim_Product[Category])`.
+- Division by Zero on Empty Categories: Missing safe division wrap. -> Fix: Always wrap in `=DIVIDE(Numerator, Denominator, 0)`.
+================================================================================

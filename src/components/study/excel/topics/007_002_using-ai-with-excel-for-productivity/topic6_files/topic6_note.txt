@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Using AI with Excel for Productivity
-Topic 6: AI-assisted data cleaning: Extracting entities, standardizing messy text, and pattern recognition
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 6 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: AI-assisted data cleaning: Extracting entities, standardizing messy text, and pattern recognition
+Module: 007_002_using-ai-with-excel-for-productivity
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Data Cleaning Prompts: 'Extract the 6-digit PIN code from column Address' | 'Standardize customer names to Proper Case and remove extra spaces' | 'Split column Full_Name into First and Last'
+
+PRIMARY CONCEPT:
+Automating spreadsheet data cleansing with AI: extracting entities (PIN codes, Phone numbers, PAN/GST numbers), standardizing inconsistent text formats, pattern recognition, and deduplication
+
+TEACHER'S ADVICE:
+Cleaning dirty data is 80% of spreadsheet work. Don't clean it by hand! Tell Copilot: 'Extract the 6-digit PIN code from the address column into a new column'. It will write the formula and clean 10,000 rows in 2 seconds.
+
+COMMON TRAPS TO AVOID:
+- Edge-Case Pattern Inconsistencies (Missing PIN Codes): AI entity extraction failing on rows where addresses lack PIN codes. -> Fix: Include prompt condition: 'If PIN code is missing, return blank; wrap in IFERROR'.
+- Over-Aggressive Text Replacement: Standardizing 'St.' to 'Street' accidentally converting 'St. Xavier's' to 'Street Xavier's'. -> Fix: Inspect cleaned results across positive and negative sample cases.
+- Slow Execution When Calling Cloud AI on 1 Million Rows: Calling cloud LLMs row-by-row on massive datasets. -> Fix: Have AI generate a single vectorized Excel formula (`REGEXEXTRACT` / `TEXTSPLIT`) that runs instantly on client.
+================================================================================

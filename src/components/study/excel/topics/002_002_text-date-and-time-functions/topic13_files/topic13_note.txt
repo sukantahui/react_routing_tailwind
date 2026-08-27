@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Text, Date and Time Functions
-Topic 13: Assessment: Advanced Text and Date Functions Challenge
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 13 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Assessment: Advanced Text and Date Functions Challenge
+Module: 002_002_text-date-and-time-functions
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Comprehensive Advanced Text & Date Functions Assessment Challenge Deck
+
+PRIMARY CONCEPT:
+Comprehensive assessment testing mastery across the entire Text, Date, and Time function spectrum in enterprise scenarios
+
+TEACHER'S ADVICE:
+Congratulations on reaching the pinnacle of Excel Text, Date, and Time mastery! These capabilities form the essential foundation for advanced business modeling and Power Query ETL.
+
+COMMON TRAPS TO AVOID:
+- Hardcoding Variable Values: Hardcoding dates, rates, or character counts directly into formulas breaks model scalability. -> Fix: Always reference structured lookup cells, parameter blocks, or dynamic locator functions.
+- Ignoring Regional Date Standards: Building formulas that assume US date formats without handling international client settings. -> Fix: Use DATE(yyyy, mm, dd) and unambiguous dd-mmm-yyyy visual formats.
+- Failing to Handle Boundary Values: Testing formulas only with happy-path data while failing on blank, zero, or error inputs. -> Fix: Test formulas thoroughly against empty strings, leap days, and midnight crossovers.
+================================================================================

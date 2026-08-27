@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Text, Date and Time Functions
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Text, Date and Time Functions
 Topic 13: Assessment: Advanced Text and Date Functions Challenge
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Assessment: Advanced Text and Date Functions Challenge is an essential discipline in corporate spreadsheet development and ETL workflows.
+It provides the core formulas required to sanitize, manipulate, and calculate text, dates, and times.
+
+2. SYNTAX & TOKEN STRUCTURE
+Formula Code: Comprehensive Advanced Text & Date Functions Assessment Challenge Deck
+
+3. CORE TECHNICAL MECHANICS
+1. End-to-End Competency Synthesis:
+   Evaluates candidate proficiency across text hygiene, dynamic parsing, business day calendars, and shift duration models.
+
+2. Time-Pressured Problem Solving:
+   Challenges students to solve complex business modeling requirements under strict timed enterprise assessment conditions.
+
+3. Industrial Standard Best Practices:
+   Enforces production-grade documentation, defensive error handling, and zero-hardcoding modeling principles.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Lead Academic Assessor, Barrackpore HQ):
+  Enterprise Excel Certification Evaluation - Evaluates candidates on solving multi-layered data cleaning, working day calculations, and date logic scenarios.
+• Tuhina Mukherjee (Corporate Trainer, Shyamnagar Plant):
+  Advanced Text Parsing Challenge - Assesses student mastery of modern TEXTSPLIT, TEXTBEFORE, and classic nested FIND formulas.
+• Abhronila Das (Quality Assessor, Ichapur Works):
+  Manufacturing Timestamp Audit - Evaluates candidate submissions for equipment uptime tracking and shift duration calculations.
+• Debangshu Roy (Logistics Assessor, Naihati Logistics):
+  Freight Timeline & SLA Verification - Tests candidate mastery of WORKDAY.INTL custom weekend strings and holiday exclusion logic.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Hardcoding Variable Values:
+  Root Cause: Hardcoding dates, rates, or character counts directly into formulas breaks model scalability.
+  Diagnostic Fix: Always reference structured lookup cells, parameter blocks, or dynamic locator functions.
+• Ignoring Regional Date Standards:
+  Root Cause: Building formulas that assume US date formats without handling international client settings.
+  Diagnostic Fix: Use DATE(yyyy, mm, dd) and unambiguous dd-mmm-yyyy visual formats.
+• Failing to Handle Boundary Values:
+  Root Cause: Testing formulas only with happy-path data while failing on blank, zero, or error inputs.
+  Diagnostic Fix: Test formulas thoroughly against empty strings, leap days, and midnight crossovers.
+
+6. PRO TIPS & SHORTCUTS
+• Defensive Formula Design (Wrap with IFERROR()): Protect client dashboards against ugly #VALUE! and #N/A errors.
+• Audit Intermediate Steps (Evaluate Formula (Alt + M + V)): Step through complex nested formulas to pinpoint calculation bugs.
+• Named Ranges for Tables (Ctrl + F3): Use descriptive named ranges like HolidaysRange for readable formulas.
+================================================================================

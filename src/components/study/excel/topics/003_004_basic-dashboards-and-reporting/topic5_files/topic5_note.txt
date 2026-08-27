@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Basic Dashboards and Reporting
-Topic 5: Advanced visualization types: Waterfall charts for variance and P&L walk-throughs
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 5 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Advanced visualization types: Waterfall charts for variance and P&L walk-throughs
+Module: 003_004_basic-dashboards-and-reporting
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Waterfall Chart: Insert > Waterfall | Format Data Point: Set as Total (Clear/Subtotal Pillars) | Connector Lines
+
+PRIMARY CONCEPT:
+Building professional corporate Waterfall charts (Bridge charts) to visualize P&L walks, EBITDA reconciliations, and budget-to-actual variance waterfalls
+
+TEACHER'S ADVICE:
+The Waterfall chart is the language of CFOs. Always format your starting and ending pillars in Navy Blue, positive gains in Green, and negative expenses in Red. It tells a complete financial story in 5 seconds.
+
+COMMON TRAPS TO AVOID:
+- Forgetting to 'Set as Total' on Ending Milestone Bars: Leaving Net Income or Subtotals as floating variance bars causes them to stack on top of expenses rather than anchoring to the baseline. -> Fix: Right-click the subtotal column > select 'Set as Total'.
+- Inconsistent Sign Input Convention: Entering expense items as positive numbers causes the Waterfall chart to display cost additions as green increases rather than red subtractions. -> Fix: Enter expenses as negative numbers (-) in the data table.
+- Selecting Unsupported Waterfall Chart Options: Attempting to create a native PivotChart Waterfall (Excel does not support Waterfall charts directly on PivotTables). -> Fix: Link a standard formula range to the PivotTable output and build the Waterfall chart from that range.
+================================================================================

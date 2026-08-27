@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: DAX Formulas Mastery and Time Intelligence
 Topic 11: Moving averages and rolling totals: DATESINPERIOD and DATESBETWEEN
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Moving averages and rolling totals: DATESINPERIOD and DATESBETWEEN is an essential discipline in enterprise business intelligence, quantitative finance, and advanced data modeling.
+It provides the core protocols required to construct complex multi-dimensional financial measures, calculate period-over-period growth, and evaluate dynamic rankings.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Rolling Window: CALCULATE([Measure], DATESINPERIOD(Dim_Calendar[Date], MAX(Dim_Calendar[Date]), -3, MONTH)) | DATESBETWEEN
+
+3. CORE TECHNICAL MECHANICS
+1. DATESINPERIOD Dynamic Window Engine:
+   `DATESINPERIOD(DateCol, StartDate, NumberOfIntervals, Interval)`. Anchors on `MAX(Dim_Calendar[Date])` and looks backward by -3 MONTH or -12 MONTH.
+
+2. Rolling 12-Month Total (R12 / TTM):
+   Sums the trailing 12 months of performance, eliminating seasonal quarterly peaks and valleys for executive trend analysis.
+
+3. 3-Month Moving Average (Smoothing):
+   `DIVIDE(CALCULATE([TotalSales], DATESINPERIOD(Dim_Calendar[Date], MAX(Dim_Calendar[Date]), -3, MONTH)), 3)`.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Commercial Officer, Barrackpore HQ):
+  Enterprise Trailing 12-Month (TTM) Revenue - Constructs `TTM_Revenue := CALCULATE([TotalSales], DATESINPERIOD(Dim_Calendar[Date], MAX(Dim_Calendar[Date]), -12, MONTH))` for executive board reporting.
+• Tuhina Mukherjee (Lead Financial Analyst, Shyamnagar Plant):
+  3-Month Moving Average Cost Smoother - Smooths seasonal electricity and utility expenditure spikes using 3-month rolling averages.
+• Abhronila Das (Plant Quality Superintendent, Ichapur Works):
+  30-Day Rolling Scrap Rate Average - Tracks trailing 30-day moving average scrap percentages to evaluate Six Sigma process stability.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  90-Day Rolling On-Time Delivery SLA - Monitors 90-day moving average carrier delivery punctuality.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Omitting MAX(Date) Anchor in DATESINPERIOD:
+  Root Cause: Passing a static date instead of `MAX(Dim_Calendar[Date])` freezes the rolling window to a fixed historical date.
+  Diagnostic Fix: Always anchor with `MAX(Dim_Calendar[Date])` or `LASTDATE(Dim_Calendar[Date])`.
+• Distortion in Initial Historical Months (Ramp-Up Glitch):
+  Root Cause: Calculating a 12-month rolling average in Month 2 averages only 2 months of data, distorting trend charts.
+  Diagnostic Fix: Check if 12 full months of historical data exist before calculating.
+• Using DATESBETWEEN with Hardcoded Dates:
+  Root Cause: Hardcoding start/end dates prevents the rolling window from moving dynamically with the calendar.
+  Diagnostic Fix: Use `DATESINPERIOD` for dynamic relative rolling windows.
+
+6. PRO TIPS & SHORTCUTS
+• Rolling 12-Month Total (TTM) (CALCULATE([Sales], DATESINPERIOD(Calendar[Date], MAX(Calendar[Date]), -12, MONTH))): Trailing 12-month revenue sum.
+• 3-Month Moving Average (DIVIDE(CALCULATE([Sales], DATESINPERIOD(Calendar[Date], MAX(Calendar[Date]), -3, MONTH)), 3)): Smooths short-term monthly volatility.
+• Anchor on MAX(Date) (MAX(Dim_Calendar[Date])): Ensures the window slides dynamically with active pivot rows.
+================================================================================

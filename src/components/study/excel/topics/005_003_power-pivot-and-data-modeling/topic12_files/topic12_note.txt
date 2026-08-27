@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Power Pivot & Data Modeling
-Topic 12: Analyzing VertiPaq compression, memory usage, and relationship integrity
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 12 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Analyzing VertiPaq compression, memory usage, and relationship integrity
+Module: 005_003_power-pivot-and-data-modeling
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Diagnostic Tools: VertiPaq Analyzer (DAX Studio) | File Size Auditing | Memory Cardinality Optimization
+
+PRIMARY CONCEPT:
+Diagnosing, profiling, and optimizing Power Pivot Data Model memory consumption and query performance: analyzing column cardinality, relationship memory, and dictionary size
+
+TEACHER'S ADVICE:
+If your Power Pivot file is too big or slow, check your column cardinalities! Remove unique ID columns, split DateTime into Date and Hour, and round decimals to 2 places. Your model size will shrink by 90%.
+
+COMMON TRAPS TO AVOID:
+- Leaving High-Precision Floats Unrounded: Storing numbers with 10 decimal places (`₹45.129847192`) creates millions of unique values, destroying VertiPaq dictionary compression. -> Fix: Round decimal currencies to 2 decimal places in Power Query.
+- Keeping Auto Date/Time Hidden Tables Enabled: Excel creating hidden date hierarchy tables for every single date column in the model, wasting megabytes of RAM. -> Fix: Disable Auto Date/Time in Power Pivot options; use a dedicated Date Dimension table.
+- Unused Technical Columns Left in Fact Table: Leaving 30 database audit columns (`CreatedBy`, `ModifiedDate`, `RowID`) in a 5-million row model. -> Fix: Remove all columns not strictly required for reporting in Power Query before loading.
+================================================================================

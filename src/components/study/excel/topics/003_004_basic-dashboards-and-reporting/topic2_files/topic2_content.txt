@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Basic Dashboards and Reporting
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Basic Dashboards and Reporting
 Topic 2: Building KPI Summary Cards with dynamic change indicators (▲ / ▼) and conditional styling
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Building KPI Summary Cards with dynamic change indicators (▲ / ▼) and conditional styling is an essential discipline in corporate business intelligence, executive reporting, and visual analytics.
+It provides the core protocols required to transform dense tabular data into intuitive, interactive, single-screen command centers.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Custom Number Mask: [Color10]▲ +0.0%;[Red]▼ -0.0%;[Color16]▬ 0.0% | Dynamic KPI Formula: =TEXT(Val, "₹#,##0.0") & " (" & TEXT(Growth, "+0.0%") & ")"
+
+3. CORE TECHNICAL MECHANICS
+1. Three-Tier Card Information Hierarchy:
+   Tier 1 (Top): Small muted metric title (e.g. 'TOTAL REVENUE'); Tier 2 (Center): Massive bold KPI number (e.g. '₹45.8 Cr'); Tier 3 (Bottom): Dynamic delta badge (e.g. '▲ +12.4% vs LY').
+
+2. Unicode Delta Formatting Masks:
+   Uses embedded Unicode characters inside custom number formats: `[Color10]▲ +0.0%;[Red]▼ -0.0%;[Color16]▬ 0.0%` for automatic color-coded arrows.
+
+3. Dynamic Text Formula Integration:
+   Creates self-updating card subtitles: `="▲ " & TEXT(Growth, "0.0%") & " vs target (" & TEXT(Variance, "₹#,##0") & ")"`.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Executive Boardroom Top-Line KPI Cards - Constructs 4 master summary cards (Revenue, Gross Margin %, EBITDA, Active Accounts) featuring dynamic green/red delta badges.
+• Tuhina Mukherjee (Senior Tax Auditor, Shyamnagar Plant):
+  Tax Credit Utilization Summary Cards - Builds monthly input tax credit summary cards with variance indicators against projected tax liabilities.
+• Abhronila Das (Plant Superintendent, Ichapur Works):
+  Manufacturing OEE Efficiency Cards - Displays Overall Equipment Effectiveness (OEE) with real-time target variance arrows on shopfloor monitor displays.
+• Debangshu Roy (Logistics Operations Lead, Naihati Logistics):
+  Fleet Tonnage & Fuel Burn KPI Cards - Monitors monthly gross tonnage and average fuel efficiency with automated milestone badges.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Reversed Direction Logic for Cost Metrics:
+  Root Cause: Displaying a green ▲ arrow for an INCREASE in operating costs (where cost increases are actually negative alerts).
+  Diagnostic Fix: Invert format mask for expenses: `[Red]▲ +0.0%;[Color10]▼ -0.0%` so cost increases display in red.
+• Overcrowding Card Borders with Dark Shadows:
+  Root Cause: Heavy 3D drop-shadows and thick dark borders make cards look dated and clunky.
+  Diagnostic Fix: Use subtle 1px border outlines (#334155) with soft neutral backgrounds.
+• Unanchored Card Shapes Drifting on Grid Resizing:
+  Root Cause: Drawing cards as freeform shapes causes them to drift when columns are resized.
+  Diagnostic Fix: Build KPI cards directly inside cell grids using merged cells and cell borders for perfect alignment.
+
+6. PRO TIPS & SHORTCUTS
+• Unicode Delta Characters (▲ (Alt+30) | ▼ (Alt+31)): Embed real Unicode arrows directly into custom number formats.
+• Expense Card Color Inversion ([Red]▲ +0.0%;[Green]▼ -0.0%): Inverts colors so rising costs show as red alerts.
+• Grid-Aligned KPI Cards (Format cell ranges directly): Building cards in cell grids guarantees they never drift or misalign.
+================================================================================

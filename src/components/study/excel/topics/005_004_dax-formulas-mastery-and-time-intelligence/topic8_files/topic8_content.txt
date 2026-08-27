@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: DAX Formulas Mastery and Time Intelligence
 Topic 8: Time Intelligence setup: Requirements for standard date tables and continuous dates
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Time Intelligence setup: Requirements for standard date tables and continuous dates is an essential discipline in enterprise business intelligence, quantitative finance, and advanced data modeling.
+It provides the core protocols required to construct complex multi-dimensional financial measures, calculate period-over-period growth, and evaluate dynamic rankings.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Time Intelligence Prerequisites: 1. Contiguous Dates | 2. Full Years | 3. Mark as Date Table | 4. Link to Fact via 1:*
+
+3. CORE TECHNICAL MECHANICS
+1. Zero Missing Days Rule:
+   If even a single calendar date (e.g. Sunday or holiday) is missing from the Date table, DAX time intelligence functions produce corrupted results or return blank values.
+
+2. Full Year Coverage:
+   The Calendar table MUST span from January 1st of the earliest historical year to December 31st of the latest projected fiscal year.
+
+3. Date Column Data Type:
+   The primary key column MUST be of data type Date (not DateTime or Text integer like `20260401`).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Data Architect, Barrackpore HQ):
+  Enterprise Time Intelligence Certification - Audits the corporate 10-year Calendar table to guarantee full continuity across 3,653 consecutive dates for flawless YoY calculation.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Indian Fiscal Year Time Intelligence Engine - Configures fiscal date attributes allowing automated Q1-Q4 quarterly tax rollups.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  24/7 Factory Operating Date Dimension - Embeds shift and operational day flags into continuous calendar models.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Holiday-Aware Time Series Modeling - Integrates working-day offsets for accurate delivery pace calculations.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Using Fact Table Dates for Time Intelligence:
+  Root Cause: Passing `Fact_Sales[OrderDate]` into `DATESYTD()` returns incorrect results because sales dates have gaps.
+  Diagnostic Fix: Always pass the continuous date column from your dedicated Calendar table: `Dim_Calendar[Date]`.
+• DateTime Timestamps in Date Column:
+  Root Cause: Time components (`12/04/2026 15:30:00`) break date equality matching.
+  Diagnostic Fix: Convert column data type to pure Date (without time) in Power Query.
+• Calendar Ending Mid-Year:
+  Root Cause: Calendar table ending on today's date causes full-year functions like `SAMEPERIODLASTYEAR()` to fail.
+  Diagnostic Fix: Extend calendar to December 31st of the current or future year.
+
+6. PRO TIPS & SHORTCUTS
+• Always Use Dim_Calendar[Date] (Never pass Fact table date columns): The golden rule of DAX Time Intelligence.
+• Mark as Date Table (Design > Mark as Date Table): Disables hidden auto-date tables and optimizes DAX time engine.
+• Continuous Sequence (=CALENDARAUTO() or =CALENDAR(Min, Max)): Generates zero-gap date tables automatically.
+================================================================================

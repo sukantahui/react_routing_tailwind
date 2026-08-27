@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Python in Excel: Data Science & Machine Learning
 Topic 11: Sharing Python-powered workbooks with non-technical team members seamlessly
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Sharing Python-powered workbooks with non-technical team members seamlessly is an essential discipline in modern spreadsheet data science, applied machine learning, and advanced business analytics.
+It provides the core protocols required to run Python analytics natively inside Excel, manipulate pandas DataFrames, and deploy predictive AI models.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Sharing Best Practices: File > Save As > Standard .xlsx | Cloud Security: Azure container handles execution | Output: Excel Values for non-Python users
+
+3. CORE TECHNICAL MECHANICS
+1. Standard .XLSX File Format:
+   Python-powered workbooks save as standard `.xlsx` files with zero macro security warnings or special file extensions.
+
+2. Seamless Recipient Experience:
+   Recipients with Microsoft 365 can open, view, and interact with Python-generated charts, tables, and metrics even if they know zero Python.
+
+3. Cloud Calculation Infrastructure:
+   When formulas recalculate, Microsoft Azure handles the Python execution transparently in the background.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Commercial Officer, Barrackpore HQ):
+  Distributing Python Predictive Model to 50 Sales Directors - Shares a customer churn prediction workbook saved as standard `.xlsx` with 50 regional sales directors who view churn risk scores seamlessly.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Boardroom Tax Audit Deck Distribution - Distributes Python-audited general ledger models to external statutory auditors with zero software installation requirements.
+• Abhronila Das (Director of Manufacturing, Ichapur Works):
+  Shopfloor Quality Summary Distribution - Publishes Python seaborn quality trend decks to plant supervisors across tablet devices.
+• Debangshu Roy (VP Supply Chain Logistics, Naihati Logistics Hub):
+  Nationwide Route Optimization Model Sharing - Distributes freight optimization workbooks to depot managers.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Recipient Opening File in Legacy Desktop Excel 2016 / 2019:
+  Root Cause: Legacy perpetual Office versions lack cloud Python runtime, displaying `#NAME?` error on `=PY()` cells.
+  Diagnostic Fix: Advise recipients to open file in Excel for Web or upgrade to Microsoft 365.
+• Leaving 50 Unneeded Visualizations Rendering on Every Calc:
+  Root Cause: Recalculating 50 complex seaborn plots simultaneously on every cell edit causes cloud latency.
+  Diagnostic Fix: Convert static finalized plots to Excel Values or image snapshots.
+• Confusing Co-Authoring Lockups:
+  Root Cause: Multiple users editing Python code cells simultaneously in live co-authoring sessions.
+  Diagnostic Fix: Designate specific input assumption cells for collaborators while locking Python formula cells.
+
+6. PRO TIPS & SHORTCUTS
+• Standard .xlsx Format (No .xlsm required): Saves as standard clean Excel workbook.
+• Excel for Web Fallback (Opens in any web browser): Guarantees cross-platform viewing on Mac, Linux, and tablets.
+• Lock Python Formula Cells (Review > Protect Sheet): Prevents non-technical users from accidentally breaking Python formulas.
+================================================================================

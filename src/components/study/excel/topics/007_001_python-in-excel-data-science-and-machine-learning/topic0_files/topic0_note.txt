@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
-Topic 0: Introduction to Python in Excel: Running secure Python analytics natively in Microsoft Cloud containers
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 0 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Introduction to Python in Excel: Running secure Python analytics natively in Microsoft Cloud containers
+Module: 007_001_python-in-excel-data-science-and-machine-learning
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Python in Excel Entry: =PY(import pandas as pd; import seaborn as sns; df = xl("A1:D100", headers=True); df.describe())
+
+PRIMARY CONCEPT:
+Understanding Microsoft Python in Excel architecture: secure cloud container sandbox execution, Anaconda distribution integration (pandas, numpy, statsmodels, seaborn), and zero local Python setup
+
+TEACHER'S ADVICE:
+Python is now a native formula inside Excel! Just type `=PY` and press Tab. You can write real Python code, use pandas DataFrames, and run machine learning without installing Python on your computer.
+
+COMMON TRAPS TO AVOID:
+- Attempting to Connect to Internet / External APIs (Security Sandbox): Calling `requests.get()` or socket connections inside Python in Excel fails because Azure containers have zero outbound internet access. -> Fix: Ingest external web data via Power Query first, then pass the table into Python via `xl()`.
+- Attempting to Install Custom Pip Packages: Running `!pip install my_package` is not supported in the locked Anaconda sandbox. -> Fix: Use the extensive built-in Anaconda data science library suite.
+- Saving Files to Local Disk from Python: Calling `df.to_csv("C:\data.csv")` fails in cloud containers. -> Fix: Output results directly to worksheet cells as Excel Values.
+================================================================================

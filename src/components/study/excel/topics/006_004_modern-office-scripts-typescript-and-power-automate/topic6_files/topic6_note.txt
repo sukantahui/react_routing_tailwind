@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
-Topic 6: Creating, modifying, and auto-sorting Excel Tables and Pivot Tables via script
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 6 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Creating, modifying, and auto-sorting Excel Tables and Pivot Tables via script
+Module: 006_004_modern-office-scripts-typescript-and-power-automate
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Table Automation: const table = ws.addTable("A1:E100", true); table.setName("SalesTable"); table.getSort().apply([{key: 2, ascending: false}]);
+
+PRIMARY CONCEPT:
+Programmatic creation and manipulation of official Excel Tables and Pivot Tables: adding tables, modifying column names, applying multi-column sorts, calculating summary totals, and configuring Pivot Tables
+
+TEACHER'S ADVICE:
+Structured Tables (`addTable`) are the best thing in Excel. They give you automatic filter arrows, zebra stripes, and dynamic formulas. Always convert your raw data ranges into Tables using Office Scripts!
+
+COMMON TRAPS TO AVOID:
+- Adding Table Over Existing Table (Name Collision): Calling `addTable()` on a range that already contains an Excel Table throws runtime error. -> Fix: Check if table exists first, or clear existing tables before adding.
+- 0-Based Column Key Confusion in Sorting: Passing `{key: 1}` when intending to sort by Column A (Column A is `key: 0`). -> Fix: Remember table column keys are 0-based (`key: 0` = first column).
+- Adding Pivot Table on Occupied Cell Range: Creating a pivot table over existing cells causes collision errors. -> Fix: Create pivot tables on dedicated clean summary worksheets.
+================================================================================

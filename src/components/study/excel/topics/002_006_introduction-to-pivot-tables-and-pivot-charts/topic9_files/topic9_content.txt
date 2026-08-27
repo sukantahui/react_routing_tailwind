@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Introduction to Pivot Tables and Pivot Charts
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Introduction to Pivot Tables and Pivot Charts
 Topic 9: Time-series filtering with Timelines
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Time-series filtering with Timelines is an essential discipline in corporate business intelligence and reporting.
+It provides the foundation for dynamic in-memory summarization, multi-dimensional slicing, and interactive dashboards.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Timeline Component: Year | Quarter | Month | Day Sliding Granularity Window
+
+3. CORE TECHNICAL MECHANICS
+1. Dedicated Date-Field Filtering Component:
+   Timelines recognize true date serial fields and render continuous horizontal timeline sliders with interactive drag handles.
+
+2. Dynamic Granularity Switching:
+   Users can switch temporal zoom levels instantly between Years, Quarters, Months, and Days via a simple header dropdown.
+
+3. Continuous Date Range Scrubbing:
+   Drag edge handles to expand or contract historical observation windows (e.g. Q2 2025 through Q3 2026) across connected pivot reports.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Rolling Multi-Quarter Financial Performance - Uses an interactive Timeline slider to scrub through rolling 18-month revenue trends during executive committee reviews.
+• Tuhina Mukherjee (Statutory Tax Auditor, Shyamnagar Plant):
+  Fiscal Year Audit Period Selection - Filters multi-year transactional ledgers down to specific quarterly statutory filing periods in a single click.
+• Abhronila Das (Maintenance Controller, Ichapur Works):
+  Machinery Downtime Incident Timeline - Analyzes equipment breakdown frequencies during specific monsoon months using monthly timeline zooming.
+• Debangshu Roy (Fleet Logistics Lead, Naihati Logistics):
+  Peak Holiday Freight Shipping Window - Scrubs daily timeline windows during festive season rush periods to analyze transport bottleneck trends.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Timeline Disabled ('No Valid Date Fields'):
+  Root Cause: If the source column contains text dates or blank cells, Excel refuses to insert a Timeline.
+  Diagnostic Fix: Ensure source date column contains 100% pure serial dates without blank cells.
+• Non-Contiguous Date Selection Limitation:
+  Root Cause: Timelines only support continuous date ranges; you cannot select Jan 2025 and Mar 2025 while excluding Feb.
+  Diagnostic Fix: Use a standard Slicer with a 'Month' grouping field for non-contiguous date filtering.
+• Theme Styling Inconsistency:
+  Root Cause: Default bright blue timeline clashes with dark corporate dashboard color schemes.
+  Diagnostic Fix: Apply matching custom Timeline styles from the Timeline ribbon tab.
+
+6. PRO TIPS & SHORTCUTS
+• Insert Timeline Shortcut (PivotTable Analyze > Insert Timeline (Alt + J + T + T)): Quickly insert a time-series slider on any date field.
+• Switch Granularity (Timeline dropdown: Years / Quarters / Months): Instantly adjust analytical zoom from macro-years to micro-days.
+• Synchronize Across Pivots (Right-click Timeline > Report Connections): Link the timeline to update all time-series charts across the dashboard.
+================================================================================

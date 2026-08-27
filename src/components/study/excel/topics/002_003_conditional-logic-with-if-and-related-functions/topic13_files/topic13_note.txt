@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Conditional Logic with IF and Related Functions
-Topic 13: Practice Lab: Multi-tier sales commission and bonus calculation matrix
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 13 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Practice Lab: Multi-tier sales commission and bonus calculation matrix
+Module: 002_003_conditional-logic-with-if-and-related-functions
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Multi-Tier Commission Engine: =BaseSalary + (Sales * TierRate) + BonusKicker
+
+PRIMARY CONCEPT:
+Comprehensive practical lab building an enterprise multi-tier sales commission, quarterly accelerator, and executive bonus compensation matrix
+
+TEACHER'S ADVICE:
+Congratulations on completing the Conditional Logic Module! Combining Boolean logic, multi-tier lookups, and financial guardrails allows you to build industrial-strength commercial models.
+
+COMMON TRAPS TO AVOID:
+- Paying Commission on Uncollected Revenue: Calculating commission on invoiced revenue without checking customer payment status. -> Fix: Include =IF(PaymentStatus="CLEARED", Sales * Rate, 0) condition.
+- Uncapped Commission Liability: Failing to implement upper bounds on incentive formulas, exposing company to runaway bonus payouts. -> Fix: Use `=MIN(MaxCap, CalculatedCommission)` to enforce corporate bonus ceilings.
+- Hardcoded Commission Rates: Hardcoding 5%, 8%, 12% in formulas requires updating 50,000 cells when sales plans change. -> Fix: Store all commission tiers and bonus multipliers in a central Parameters table.
+================================================================================

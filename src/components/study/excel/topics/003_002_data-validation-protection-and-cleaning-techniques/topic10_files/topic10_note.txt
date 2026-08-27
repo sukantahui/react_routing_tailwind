@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Data Validation, Protection and Cleaning Techniques
-Topic 10: Workbook-level protection: Structure protection, encryption, and read-only recommendation
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 10 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Workbook-level protection: Structure protection, encryption, and read-only recommendation
+Module: 003_002_data-validation-protection-and-cleaning-techniques
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Workbook Protection: Review > Protect Workbook (Structure) | File > Info > Protect Workbook > Encrypt with Password (AES-256)
+
+PRIMARY CONCEPT:
+Protecting workbook structure (preventing adding, deleting, hiding, or renaming sheets) and implementing AES-256 cryptographic file encryption
+
+TEACHER'S ADVICE:
+Protect Sheet only protects cells; users can still right-click the sheet tab and DELETE it! Always go to Review -> Protect Workbook (Structure) to lock tabs from being deleted or renamed.
+
+COMMON TRAPS TO AVOID:
+- Lost Encryption Password (Unrecoverable): Forgetting the master encryption password locks everyone—including Microsoft and the author—out of the file permanently. -> Fix: Store corporate master encryption keys in secure enterprise password vaults.
+- Confusing Sheet Protection with Workbook Protection: Protecting the sheet still allows users to right-click the tab and DELETE the entire sheet. -> Fix: Apply BOTH Protect Sheet (cell level) and Protect Workbook (tab structure level).
+- Unhiding Sheets Blocked by Structure Lock: Trying to unhide a hidden sheet while Workbook Protection is active. -> Fix: Unprotect the workbook first (Review > Protect Workbook) before managing tabs.
+================================================================================

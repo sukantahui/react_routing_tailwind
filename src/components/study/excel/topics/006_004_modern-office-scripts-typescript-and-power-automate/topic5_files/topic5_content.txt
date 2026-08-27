@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Modern Office Scripts (TypeScript) & Power Automate
 Topic 5: Reading, writing, and formatting ranges with Office Scripts
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Reading, writing, and formatting ranges with Office Scripts is an essential discipline in cloud spreadsheet automation, serverless enterprise workflows, and TypeScript-driven business intelligence.
+It provides the core protocols required to author cross-platform scripts, connect Excel to Microsoft Power Automate, and construct 24/7 autonomous cloud pipelines.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Range Operations: const values = range.getValues(); range.setValues(newValues); range.getFormat().getFill().setColor("#0284c7"); range.getFormat().autofitColumns();
+
+3. CORE TECHNICAL MECHANICS
+1. Atomic 2D Batch Reading & Writing:
+   Reads thousands of cells in 1 shot (`range.getValues()`), transforms in memory, and writes back in 1 shot (`range.setValues()`), delivering maximum cloud speed.
+
+2. Dynamic Table Boundary Detection:
+   `range.getUsedRange()` or `range.getSurroundingRegion()` automatically detects the active data boundaries without hardcoding row counts.
+
+3. Professional Styling & Number Formats:
+   Applies currency formats (`range.setNumberFormat("₹#,##0.00")`), hex background fills (`#0284c7`), and white bold fonts in clean chained calls.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  10,000-Row Cloud Batch Formatter - Reads 10,000 sales transactions, formats currency columns, applies alternating row zebra shading, and auto-fits columns in 0.6 seconds.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Automated GST Number Formatting - Applies custom statutory tax number formats and highlight colors across cloud audit sheets.
+• Abhronila Das (Plant Quality Superintendent, Ichapur Works):
+  Out-of-Spec Defect Cell Highlighter - Scans quality values in RAM and highlights defective temperature cells in bright red.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Automated Carrier Rate Card Formatter - Applies corporate navy headers and currency formats to dispatch grids.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Dimensions Mismatch Between Array and Range (Fatal Error):
+  Root Cause: Trying to write a 5x2 array into a 10x2 range throws runtime error.
+  Diagnostic Fix: Size the target range dynamically using array dimensions: `ws.getRangeByIndexes(0, 0, arr.length, arr[0].length).setValues(arr)`.
+• Writing Cell-by-Cell in a Loop (Cloud Latency):
+  Root Cause: Calling `range.setValue()` 1,000 times across network round-trips makes cloud scripts crawl.
+  Diagnostic Fix: Always read all data into a 2D array, modify in RAM, and call `setValues()` once.
+• Invalid Hex Color String Format:
+  Root Cause: Passing invalid color like `"blue-dark"` instead of `#0284c7` throws format error.
+  Diagnostic Fix: Use standard 6-digit hex color strings (`#0284c7`).
+
+6. PRO TIPS & SHORTCUTS
+• Dynamic Target Range (ws.getRangeByIndexes(row, col, numRows, numCols)): Creates exact-sized target range for 2D array dumps.
+• AutoFit Columns (range.getFormat().autofitColumns()): Eliminates ### column width truncation.
+• Single Batch Write (range.setValues(dataArray)): 50x faster than cell-by-cell writing.
+================================================================================

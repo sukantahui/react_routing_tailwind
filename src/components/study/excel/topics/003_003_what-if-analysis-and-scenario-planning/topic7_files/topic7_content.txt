@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: What-If Analysis and Scenario Planning
 Topic 7: Introduction to Microsoft Excel Solver add-in: When Goal Seek is not enough
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Introduction to Microsoft Excel Solver add-in: When Goal Seek is not enough is an essential discipline in corporate decision modeling, capital allocation, and risk management.
+It provides the core protocols required to stress-test financial projections, solve backwards for target goals, and mathematically optimize resource utilization.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Data > Analyze > Solver: Set Objective: TargetCell (Max/Min/Value of) | By Changing Variable Cells | Subject to Constraints
+
+3. CORE TECHNICAL MECHANICS
+1. When Goal Seek is Not Enough:
+   Goal Seek changes ONE cell to hit ONE target with NO constraints. Solver changes DOZENS of variable cells to maximize, minimize, or target an objective subject to complex constraints.
+
+2. The 3 Core Optimization Components:
+   1. Objective Cell (Target KPI to Max/Min); 2. Variable Cells (Decision levers to adjust); 3. Constraints (Operational limitations: `<=`, `>=`, `=`, `int`, `bin`, `dif`).
+
+3. Native LP and Non-Linear Algorithms:
+   Leverages Simplex Linear Programming, Generalized Reduced Gradient (GRG) Nonlinear, and Evolutionary genetic algorithms.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Risk & Treasury Officer, Barrackpore HQ):
+  Syndicated Debt Portfolio Cost Minimization - Uses Solver to minimize total corporate debt interest expense across 8 credit facilities subject to bank liquidity and debt-covenant constraints.
+• Tuhina Mukherjee (Corporate Tax Strategist, Shyamnagar Plant):
+  Multi-Jurisdictional Tax Liability Minimization - Minimizes global corporate income tax across 5 state subsidiaries subject to statutory transfer pricing rules.
+• Abhronila Das (Director of Production, Ichapur Works):
+  Shopfloor Machine Resource Allocation - Maximizes weekly factory gross contribution profit subject to machine capacity hours, raw material limits, and labor availability.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Transport Freight Route Cost Minimization - Minimizes nationwide freight distribution costs across 4 warehouses and 25 retail destination hubs.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Solver Add-In Disabled by Default:
+  Root Cause: Solver does not appear in Data ribbon until explicitly activated in Excel options.
+  Diagnostic Fix: File > Options > Add-ins > Manage: Excel Add-ins > Go > Check 'Solver Add-in'.
+• Unbounded Problem ('Set Cell values do not converge'):
+  Root Cause: Omitting constraints on production capacity allows Solver to propose producing infinite units for infinite profit.
+  Diagnostic Fix: Always supply realistic upper bound constraints on all decision variables.
+• Linearity Violation in Simplex LP:
+  Root Cause: Using non-linear formulas (like IF, VLOOKUP, MAX, MIN) in a model solved with Simplex LP triggers 'Linearly Conditions not satisfied'.
+  Diagnostic Fix: Use pure linear math for Simplex LP, or switch solving method to GRG Nonlinear or Evolutionary.
+
+6. PRO TIPS & SHORTCUTS
+• Enable Solver Add-In (Alt + F + T > Add-ins > Excel Add-ins > Solver): Activates the Solver add-in on the Data ribbon tab.
+• Launch Solver (Data > Solver (Alt + A + Y + 2)): Opens the mathematical optimization engine dialog.
+• Make Unconstrained Variables Non-Negative (Check 'Make Unconstrained Variables Non-Negative'): Prevents Solver from proposing impossible negative production quantities.
+================================================================================

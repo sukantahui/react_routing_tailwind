@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Text, Date and Time Functions
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Text, Date and Time Functions
 Topic 8: Modern text manipulation: TEXTBEFORE, TEXTAFTER, and TEXTSPLIT
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Modern text manipulation: TEXTBEFORE, TEXTAFTER, and TEXTSPLIT is an essential discipline in corporate spreadsheet development and ETL workflows.
+It provides the core formulas required to sanitize, manipulate, and calculate text, dates, and times.
+
+2. SYNTAX & TOKEN STRUCTURE
+Formula Code: =TEXTBEFORE(text, delimiter, [instance_num], [match_mode], [match_end], [if_not_found]) | =TEXTAFTER(text, delimiter, ...) | =TEXTSPLIT(text, col_delimiter, [row_delimiter], ...)
+
+3. CORE TECHNICAL MECHANICS
+1. Directional Slicing (TEXTBEFORE / TEXTAFTER):
+   Extracts all text preceding or following any target delimiter string without calculating string lengths or character indexes.
+
+2. Instance Indexing & Negative Offsets:
+   Accepts instance_num parameter (e.g. -1 targets the last occurrence from right to left, solving file extension and path parsing).
+
+3. 2D Dynamic Grid Splitting (TEXTSPLIT):
+   Spills delimited strings across columns and rows simultaneously, replacing legacy Text-to-Columns wizardry.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Data Architect, Barrackpore HQ):
+  Full Name & Suffix Decomposition - Decomposes 'Dr. Swadeep Banerjee, Ph.D.' into First Name (=TEXTBEFORE(TEXTAFTER(A2, " "), ",")) and Credentials with zero nested FINDs.
+• Tuhina Mukherjee (Tax Consultant, Shyamnagar Plant):
+  GSTIN State & PAN Code Extraction - Extracts 10-digit PAN from 15-digit GSTIN codes via =TEXTBEFORE(TEXTAFTER(A2, 2), 1) in a single dynamic formula.
+• Abhronila Das (ERP Administrator, Ichapur Works):
+  Multi-Item PO Delimited Parsing - Splits comma-separated item codes across rows dynamically using =TEXTSPLIT(A2, , ",").
+• Debangshu Roy (Logistics Lead, Naihati Logistics Hub):
+  File Path & Extension Extraction - Retrieves file extension from full UNC network path using =TEXTAFTER(A2, ".", -1).
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Delimiter Not Found (#N/A):
+  Root Cause: If the target delimiter does not exist in the source string, TEXTBEFORE/TEXTAFTER returns #N/A.
+  Diagnostic Fix: Provide the optional `if_not_found` argument: =TEXTBEFORE(A2, "-", , , , A2).
+• #SPILL! Blocked Output in TEXTSPLIT:
+  Root Cause: If cells to the right or below TEXTSPLIT output are occupied, Excel returns #SPILL!.
+  Diagnostic Fix: Clear all obstructing cells in the spill range.
+• Version Incompatibility (Excel 2019/2021):
+  Root Cause: TEXTBEFORE, TEXTAFTER, and TEXTSPLIT are only available in Excel 365 and Excel 2024.
+  Diagnostic Fix: Use classic LEFT/MID/FIND fallback formulas for legacy client workbooks.
+
+6. PRO TIPS & SHORTCUTS
+• Last Element Slicer (=TEXTAFTER(A2, " ", -1)): Instantly extracts last name or final token using negative instance offset.
+• Split by Multiple Delimiters (=TEXTSPLIT(A2, {",", ";", "|"})): Handles mixed delimiter strings in a single function call.
+• Safe Missing Delimiter Fallback (=TEXTBEFORE(A2, "-", , , , A2)): Returns original string if delimiter is absent instead of #N/A.
+================================================================================

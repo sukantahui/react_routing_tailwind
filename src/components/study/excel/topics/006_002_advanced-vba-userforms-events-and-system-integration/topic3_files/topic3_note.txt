@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Advanced VBA: UserForms, Events & System Integration
-Topic 3: UserForm validation, initialization events (`UserForm_Initialize`), and data write-back to worksheets
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 3 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: UserForm validation, initialization events (`UserForm_Initialize`), and data write-back to worksheets
+Module: 006_002_advanced-vba-userforms-events-and-system-integration
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+UserForm Events: Private Sub UserForm_Initialize() | btnSubmit_Click() | txtAmount_KeyPress(ByVal KeyAscii As MSForms.ReturnInteger) | Unload Me
+
+PRIMARY CONCEPT:
+Building validation engines and data write-back pipelines in UserForms: UserForm_Initialize population, numeric keystroke trapping, mandatory field checks, and writing clean rows to worksheets
+
+TEACHER'S ADVICE:
+Remember: Everything inside a TextBox is TEXT! If you write `ws.Cells(1,1).Value = txtPrice.Text`, Excel will store it as text and formulas won't calculate. Always convert it: `ws.Cells(1,1).Value = CDbl(txtPrice.Text)`.
+
+COMMON TRAPS TO AVOID:
+- Writing UserForm Text Directly as Numbers to Worksheet: Writing `ws.Cells(r, 2).Value = txtAmount.Text` stores the number as TEXT with green error flags on the sheet. -> Fix: Convert text to numbers explicitly: `ws.Cells(r, 2).Value = CDbl(txtAmount.Text)` or `Val(txtAmount.Text)`.
+- Using UserForm_Activate Instead of UserForm_Initialize: `Activate` fires repeatedly every time the form regains focus, re-adding duplicate items to ComboBoxes. -> Fix: Populate lists inside `UserForm_Initialize`.
+- Using Hide Instead of Unload Me on Close: `UserForm.Hide` keeps the form in RAM with stale data; `Unload Me` completely flushes and resets the form. -> Fix: undefined
+================================================================================

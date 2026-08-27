@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Excel Beginner Skill Test
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Excel Beginner Skill Test
 Topic 0: Core Interface & Workbook Navigation Speed Test
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Core Interface & Workbook Navigation Speed Test is an essential evaluation milestone in spreadsheet mastery, data modeling rigor, and executive reporting.
+It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Navigation Benchmark: Ctrl+Arrow (Jump Boundaries) | Ctrl+Home/End | Shift+F11 (New Sheet) | Ctrl+PageUp/PageDown (Switch Tabs)
+
+3. CORE TECHNICAL MECHANICS
+1. Boundary Traversal Speed:
+   Navigating across 50,000-row grids in milliseconds using Ctrl + Arrow keys without touching the mouse.
+
+2. Sheet Lifecycle Management:
+   Creating, renaming, color-coding, and reordering worksheet tabs using keyboard shortcuts.
+
+3. View & Window Customization:
+   Configuring Freeze Panes (Alt + W + F + F) and Split Windows for seamless navigation across massive tables.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Lead Assessor, Barrackpore HQ):
+  Interface Navigation Speed Benchmark - Evaluates new financial analysts on navigating 100,000-row corporate ledger sheets under timed 2-minute test.
+• Tuhina Mukherjee (Tax Trainer, Shyamnagar Plant):
+  Freeze Panes & Split Window Setup - Tests candidates on freezing header rows and vendor columns on tax registers.
+• Abhronila Das (Plant Systems Lead, Ichapur Works):
+  Multi-Sheet Navigation Assessment - Tests candidate speed cycling through 30 shift inspection tabs using Ctrl + PageUp/Down.
+• Debangshu Roy (Logistics Assessor, Naihati Logistics):
+  Zoom & Gridlines Customization - Evaluates presentation layout setup on driver dispatch manifests.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Touching the Mouse for Basic Navigation:
+  Root Cause: Scrolling 10,000 rows with the mouse scroll wheel.
+  Diagnostic Fix: Use `Ctrl + Down Arrow` to jump to table bottom instantly.
+• Freezing Wrong Rows with Freeze Panes:
+  Root Cause: Placing cursor in cell A1 before clicking Freeze Panes.
+  Diagnostic Fix: Place active cursor in cell B2 to freeze Row 1 and Column A simultaneously.
+• Accidentally Hiding Formula Bar / Ribbon:
+  Root Cause: Pressing Ctrl + F1 hiding ribbon tabs.
+  Diagnostic Fix: Press `Ctrl + F1` to restore full ribbon.
+
+6. PRO TIPS & SHORTCUTS
+• Jump to Bottom (Ctrl + Down Arrow): Instantly navigates to last data cell.
+• Freeze Panes (Alt + W + F + F): Locks headers on screen while scrolling.
+• Select to End (Ctrl + Shift + Down Arrow): Highlights entire column data block.
+================================================================================

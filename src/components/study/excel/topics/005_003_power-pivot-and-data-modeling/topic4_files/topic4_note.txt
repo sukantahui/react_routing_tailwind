@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Power Pivot & Data Modeling
-Topic 4: Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 4 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths
+Module: 005_003_power-pivot-and-data-modeling
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships
+
+PRIMARY CONCEPT:
+Understanding filter propagation and cross-filter direction: default Single Direction (Dimension to Fact), dangers of Bi-directional filtering, and resolving ambiguous relationship paths
+
+TEACHER'S ADVICE:
+Keep your relationship arrows pointing ONE way: from Dimension to Fact. Never turn on 'Both' unless you have a very specific reason and understand the consequences. Use DAX CROSSFILTER instead!
+
+COMMON TRAPS TO AVOID:
+- Defaulting to Bi-Directional Filtering Everywhere: Setting all relationships to 'Both' cross-filter direction creates unpredictable results and massive CPU slowdowns. -> Fix: Keep relationships as Single direction; use DAX `CROSSFILTER(..., BOTH)` only when explicitly needed.
+- Ambiguous Relationship Paths Error: Creating multiple active relationship paths between the same two tables causes Power Pivot to disable one path. -> Fix: Use Inactive relationships and activate them dynamically in DAX with `USERELATIONSHIP()`.
+- Expecting Fact Filters to Filter Dimension Slicers: Wondering why filtering Fact_Sales doesn't reduce items in a Dim_Product slicer under Single Direction. -> Fix: Use measure-based visual filtering or explicit DAX filtering expressions.
+================================================================================

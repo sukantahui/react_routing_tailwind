@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Financial Functions in Excel (Basic to Professional)
 Topic 12: Working Capital and Free Cash Flow to Firm (FCFF) financial engineering
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Working Capital and Free Cash Flow to Firm (FCFF) financial engineering is a foundational pillar of corporate financial modeling, investment banking, and capital budgeting.
+It equips financial modelers with the exact mathematical tools to value assets, evaluate debt structures, and appraise investments.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: FCFF = EBIT*(1-t) + D&A - Capex - ΔNWC | NWC = (Current Assets - Cash) - (Current Liabilities - ShortTermDebt)
+
+3. CORE TECHNICAL MECHANICS
+1. Operating Profit After Tax (NOPAT):
+   `NOPAT = EBIT * (1 - MarginalTaxRate)`. Measures core operating profitability independent of debt capital structure.
+
+2. Non-Cash Adjustments & Capex Drag:
+   Adds back non-cash Depreciation & Amortization (D&A) and subtracts Capital Expenditures (Capex) required to maintain and expand fixed assets.
+
+3. Working Capital Cash Drag (ΔNWC):
+   Increases in Working Capital (e.g. rising receivables or inventory) tie up cash and reduce FCFF; decreases in NWC release cash.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Financial Engineering, Barrackpore HQ):
+  Enterprise Working Capital Cash Liberation - Engineers a ₹35 Crore cash flow turnaround by reducing Days Sales Outstanding (DSO) and optimizing inventory turnover cycles.
+• Tuhina Mukherjee (Chartered Forensic Auditor, Shyamnagar Plant):
+  P&L Profit vs True Cash Flow Reconciliation - Demonstrates how a company reporting ₹20 Crore net accounting profit actually experienced a negative ₹5 Crore FCFF due to inventory buildup.
+• Abhronila Das (Plant Capex Controller, Ichapur Works):
+  Growth vs Maintenance Capex Segregation - Segregates baseline asset replacement capex from strategic growth capex in multi-year FCFF models.
+• Debangshu Roy (Supply Chain Finance Lead, Naihati Logistics):
+  Logistics Working Capital Cash Conversion Cycle - Models working capital cash requirements across 90-day freight billing and payment terms.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Including Cash in Working Capital Calculation:
+  Root Cause: Including cash balances in Current Assets when calculating Net Working Capital creates double-counting in cash flow models.
+  Diagnostic Fix: Use Non-Cash Working Capital: `NWC = (Current Assets - Cash) - (Current Liabilities - Short-term Debt)`.
+• Inverting Change in NWC Sign:
+  Root Cause: Treating an increase in Accounts Receivable as a positive cash flow (it actually represents uncollected cash).
+  Diagnostic Fix: Subtract ΔNWC: `Increase in NWC = Cash Outflow (-)`; `Decrease in NWC = Cash Inflow (+)`.
+• Confusing Net Income with FCFF:
+  Root Cause: Using Net Income instead of NOPAT includes interest expense, distorting the firm-level capital-structure-neutral valuation.
+  Diagnostic Fix: Always start FCFF from EBIT*(1-t), not Net Income.
+
+6. PRO TIPS & SHORTCUTS
+• Non-Cash Working Capital (=(CA - Cash) - (CL - STDebt)): Standard corporate finance definition of Net Working Capital.
+• FCFF Standard Formula (=NOPAT + D&A - Capex - ΔNWC): The universal formula for Free Cash Flow to Firm.
+• Cash Conversion Cycle (CCC) (=DSO + DIO - DPO): Measures total days required to convert inventory investments into cash.
+================================================================================

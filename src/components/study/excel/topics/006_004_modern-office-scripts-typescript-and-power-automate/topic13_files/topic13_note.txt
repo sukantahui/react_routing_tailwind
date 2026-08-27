@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
-Topic 13: Real-world project: Building an automated cloud expense approval and ledger posting pipeline
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 13 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Real-world project: Building an automated cloud expense approval and ledger posting pipeline
+Module: 006_004_modern-office-scripts-typescript-and-power-automate
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Expense Approval Pipeline: Microsoft Forms (Submit Expense) -> Power Automate -> Office Script (Validate & Post to Ledger Table) -> Approver Email with Action Buttons -> Post to ERP
+
+PRIMARY CONCEPT:
+Comprehensive end-to-end cloud capstone project: engineering an automated Cloud Expense Approval and Ledger Posting Pipeline connecting Microsoft Forms, Power Automate, Office Scripts, Outlook approvals, and Teams alerts
+
+TEACHER'S ADVICE:
+Congratulations on completing Modern Office Scripts and Power Automate! You now possess the most modern, in-demand enterprise automation skills in the Microsoft 365 ecosystem. You can build completely serverless cloud automation pipelines that run 24/7 across the globe.
+
+COMMON TRAPS TO AVOID:
+- Posting Expenses Before Manager Approval: Appending unapproved expenses directly to the finalized general ledger table. -> Fix: Post to a `Staging_Pending` table first; move to `Approved_Ledger` only after approval.
+- Handling Duplicate Submissions on Refresh: User refreshing browser submitting duplicate expense entries. -> Fix: Check for duplicate submission IDs in the script before appending.
+- Unchecked Currency Conversion on Multi-Currency Expenses: Mixing USD and INR amounts in the same numerical column without conversion. -> Fix: Include currency normalization in the TypeScript calculation logic.
+================================================================================

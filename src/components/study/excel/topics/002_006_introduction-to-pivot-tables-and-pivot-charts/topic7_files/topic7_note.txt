@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Introduction to Pivot Tables and Pivot Charts
-Topic 7: Sorting and filtering Pivot Tables: Top 10 filters, Label filters, and Value filters
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 7 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Sorting and filtering Pivot Tables: Top 10 filters, Label filters, and Value filters
+Module: 002_006_introduction-to-pivot-tables-and-pivot-charts
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Filter Types: Report Filters | Label Filters (Text) | Value Filters (Top 10 / Thresholds) | Wildcard Filters
+
+PRIMARY CONCEPT:
+Applying precision filtering protocols: Top 10 rankings, threshold Value Filters, text Label Filters, and multi-key custom sorting
+
+TEACHER'S ADVICE:
+To apply both a Label filter ('Begins with BKP') and a Value filter ('Revenue > 10 Lakhs') on the same field, go to PivotTable Options -> Totals & Filters -> check 'Allow multiple filters per field'.
+
+COMMON TRAPS TO AVOID:
+- Label Filter vs Value Filter Mutual Exclusion: Applying a Value Filter clears your active Label Filter because Excel defaults to one filter per field. -> Fix: PivotTable Options > Totals & Filters > Check 'Allow multiple filters per field'.
+- Static Top 10 Visual Misconception: Thinking Top 10 filters are static; Top 10 dynamically recalculates when slicers or page filters change. -> Fix: Understand that Top 10 is dynamic and adapts to slicer selections automatically.
+- Sorting by Label Instead of Value: Sorting a PivotTable alphabetically when management expects descending ranking by revenue. -> Fix: Click row header dropdown > More Sort Options > Descending by Sum of Revenue.
+================================================================================

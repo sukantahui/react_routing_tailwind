@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Power Pivot & Data Modeling
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Power Pivot and Data Modeling
 Topic 11: Connecting Excel Pivot Tables directly to the Power Pivot Data Model
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Connecting Excel Pivot Tables directly to the Power Pivot Data Model is an essential discipline in enterprise data architecture, business intelligence, and large-scale analytical modeling.
+It provides the core protocols required to shatter Excel's 1-million row limit, establish clean relational schemas, and build high-performance data models.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Data Model Connection: Insert > PivotTable > Select 'Use this workbook\'s Data Model' (Alt + N + V + M)
+
+3. CORE TECHNICAL MECHANICS
+1. Multi-Table Unified Field List:
+   Unlike standard PivotTables that connect to a single sheet range, Data Model PivotTables display all Dimension and Fact tables in an integrated hierarchical catalog.
+
+2. Automatic DAX Query Generation:
+   Every user drag, filter, and sort generates an optimized DAX query behind the scenes, executed by VertiPaq in milliseconds.
+
+3. Server-Side OLAP Aggregation:
+   Calculations evaluate inside the in-memory engine, returning only the aggregated summary rows to the worksheet grid.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Analytics, Barrackpore HQ):
+  Enterprise Executive Sales & Margin Pivot - Builds a unified Data Model PivotTable combining `Dim_Customer`, `Dim_Product`, `Dim_Calendar`, and `Fact_Sales` with 8 explicit DAX measures.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Multi-Table Tax Reconciliation Pivot - Pivots purchase ledgers, vendor masters, and tax rate tables in a single unified audit matrix.
+• Abhronila Das (Plant Quality Controller, Ichapur Works):
+  Factory Machine Downtime Pivot Console - Combines machine telemetry facts with maintenance technician dimension tables.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Freight Corridor Transit SLA Pivot - Pivots 3 million shipment rows across transport zones and carrier dimensions.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Selecting Standard Worksheet Range by Mistake:
+  Root Cause: Clicking 'Select a table or range' connects to the sheet rather than the high-performance Data Model.
+  Diagnostic Fix: Always select 'Use this workbook's Data Model' (Alt + N + V + M).
+• Cartesian Explosion from Missing Relationships:
+  Root Cause: Dragging fields from two unconnected tables causes the PivotTable to repeat the grand total across all rows.
+  Diagnostic Fix: Go to Diagram View and establish the missing 1-to-Many relationship.
+• Disabling OLAP Tools Drill-Through:
+  Root Cause: Attempting to double-click an OLAP Pivot cell when drill-through limit is set to default 1,000 rows.
+  Diagnostic Fix: PivotTable Options > Data tab > Increase 'Maximum number of records to retrieve'.
+
+6. PRO TIPS & SHORTCUTS
+• Data Model Pivot Shortcut (Alt + N + V + M): Instantly creates a PivotTable connected to the Data Model.
+• Convert to Formulas (OLAP) (PivotTable Analyze > OLAP Tools > Convert to Formulas): Transforms PivotTable into dynamic CUBEVALUE formulas for custom dashboards.
+• Active vs All Tabs (Click 'All' in Pivot Field List): Displays all tables in the Data Model.
+================================================================================

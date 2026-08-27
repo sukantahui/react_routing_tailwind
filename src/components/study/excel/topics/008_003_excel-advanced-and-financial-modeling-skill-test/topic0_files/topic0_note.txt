@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Excel Advanced & Financial Modeling Skill Test
-Topic 0: Financial Amortization & Investment Valuation Lab (XNPV, XIRR)
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 0 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Financial Amortization & Investment Valuation Lab (XNPV, XIRR)
+Module: 008_003_excel-advanced-and-financial-modeling-skill-test
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Investment Valuation: =XNPV(DiscountRate, CashFlows, Dates) | =XIRR(CashFlows, Dates) | Loan Amortization: =PMT(r, n, pv) | =PPMT(...) | =IPMT(...)
+
+PRIMARY CONCEPT:
+Testing advanced corporate financial modeling: irregular cash flow valuation (XNPV, XIRR vs NPV/IRR), multi-tier loan amortization schedules (PMT, PPMT, IPMT), and cost of capital discounting
+
+TEACHER'S ADVICE:
+In corporate finance, NEVER use standard NPV or IRR—always use XNPV and XIRR! They use exact dates so your calculations are 100% accurate. And remember: your initial investment MUST be a negative number!
+
+COMMON TRAPS TO AVOID:
+- Using Standard NPV with Irregular Dates: Standard `=NPV()` assumes all cash flows occur at strictly equal 1-year intervals, producing invalid valuations. -> Fix: Always use `=XNPV(rate, cash_flows, dates)` for real-world projects.
+- Omitting Negative Sign on Initial Investment Outflow: Passing positive number for Year 0 investment in XIRR causes `#NUM!` error. -> Fix: Initial capital outflow MUST be negative: `-50000000`.
+- Annual vs Monthly Interest Rate Mismatch in PMT: Passing 12% annual rate into monthly loan formula without dividing by 12. -> Fix: Divide annual rate by 12 and multiply years by 12: `=PMT(Rate/12, Years*12, -LoanAmount)`.
+================================================================================

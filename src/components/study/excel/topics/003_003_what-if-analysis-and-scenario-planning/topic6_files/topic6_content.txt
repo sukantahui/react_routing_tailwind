@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: What-If Analysis and Scenario Planning
 Topic 6: Generating Scenario Summary Reports and Pivot Scenario Views
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Generating Scenario Summary Reports and Pivot Scenario Views is an essential discipline in corporate decision modeling, capital allocation, and risk management.
+It provides the core protocols required to stress-test financial projections, solve backwards for target goals, and mathematically optimize resource utilization.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Scenario Manager > Summary: Report Type: Scenario Summary | Result Cells: $NetProfit, $IRR, $NPV
+
+3. CORE TECHNICAL MECHANICS
+1. Automated Executive Comparison Deck:
+   Generates a formatted, dedicated worksheet displaying Current Values alongside all defined scenarios in side-by-side columns.
+
+2. Result Cells Mapping:
+   Modelers select key bottom-line KPI cells (`Result Cells: Revenue, EBITDA, NetProfit, IRR`); Excel extracts and displays the calculated outputs for every scenario.
+
+3. Pivot Scenario View:
+   Generates a PivotTable report connected to scenario results, allowing dynamic slicing and executive filtering.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Financial Officer, Barrackpore HQ):
+  Executive Committee Strategic Scenario Deck - Generates an automated Scenario Summary comparing Base, Bull, and Bear cases across Revenue, EBITDA Margin, and Levered Free Cash Flow for the Board of Directors.
+• Tuhina Mukherjee (Tax Advisory Partner, Shyamnagar Plant):
+  Cross-Border Transfer Pricing Summary - Produces scenario comparison reports mapping corporate tax burdens across 4 international supply chain routing models.
+• Abhronila Das (Director of Manufacturing, Ichapur Works):
+  Plant Modernization ROI Scenario Pack - Generates side-by-side summary sheets comparing equipment payback periods and capital expenditure requirements.
+• Debangshu Roy (Logistics Strategy Lead, Naihati Logistics):
+  Fleet Corridor Profitability Comparison - Presents transport network profitability across conservative and aggressive regional expansion scenarios.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Cryptic Cell Addresses in Summary Report:
+  Root Cause: If changing cells and result cells are not named, the summary report displays ugly references like `$C$12` instead of 'Net Profit'.
+  Diagnostic Fix: Name all changing and result cells prior to clicking 'Summary'.
+• Static Snapshot Nature of Scenario Summaries:
+  Root Cause: Scenario Summary sheets are static snapshots; modifying model formulas does NOT update previously generated summary sheets.
+  Diagnostic Fix: Regenerate the Scenario Summary report after altering underlying model formulas.
+• Including Irrelevant Intermediate Cells in Result Cells:
+  Root Cause: Selecting 50 intermediate calculation cells clutters the executive presentation.
+  Diagnostic Fix: Select only the top 3-5 core executive KPI result cells.
+
+6. PRO TIPS & SHORTCUTS
+• Generate Summary Shortcut (Scenario Manager > Click 'Summary' button): Creates the formatted executive comparison sheet in 1 click.
+• Clean Up Snapshot Sheets (Delete old summary tabs): Prevent clutter by deleting outdated scenario summary snapshots.
+• Select Non-Contiguous Result Cells (Ctrl + Click key KPI cells): Select Revenue, Net Profit, and IRR together across the sheet.
+================================================================================

@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
-Topic 2: Cumulative loan interest and principal: CUMIPMT and CUMPRINC
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 2 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Cumulative loan interest and principal: CUMIPMT and CUMPRINC
+Module: 003_001_financial-functions-in-excel-basic-to-professional
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+=CUMIPMT(rate, nper, pv, start_period, end_period, type) | =CUMPRINC(rate, nper, pv, start_period, end_period, type)
+
+PRIMARY CONCEPT:
+Calculating cumulative loan interest (CUMIPMT) and cumulative principal reduction (CUMPRINC) over arbitrary multi-period fiscal windows
+
+TEACHER'S ADVICE:
+Beware the trap: In PMT you enter Loan as -PV, but in CUMIPMT you MUST enter Loan as +PV! And you must always provide the 6th argument (type=0).
+
+COMMON TRAPS TO AVOID:
+- Negative PV Argument (#NUM! Error): Entering PV as negative (e.g. -5000000) causes CUMIPMT and CUMPRINC to immediately return #NUM!. -> Fix: Always pass PV as a POSITIVE number in CUMIPMT/CUMPRINC (unlike standard PMT).
+- Omitted 'Type' Argument Syntax Error: Omitting the 6th argument (type: 0 or 1) causes Excel to reject the formula. -> Fix: Always specify the 6th argument: 0 for end of period, 1 for start.
+- Invalid Period Range (Start > End or < 1): Passing start_period > end_period or start_period < 1 returns #NUM!. -> Fix: Ensure 1 <= start_period <= end_period <= nper.
+================================================================================

@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Power Pivot & Data Modeling
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Power Pivot and Data Modeling
 Topic 5: Designing a dedicated Calendar / Date Dimension table (Standard and Fiscal calendars)
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Designing a dedicated Calendar / Date Dimension table (Standard and Fiscal calendars) is an essential discipline in enterprise data architecture, business intelligence, and large-scale analytical modeling.
+It provides the core protocols required to shatter Excel's 1-million row limit, establish clean relational schemas, and build high-performance data models.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Calendar Table: Power Pivot > Design > Date Table > New | DAX Calculated Table: Dim_Calendar = CALENDAR(DATE(2022,1,1), DATE(2030,12,31))
+
+3. CORE TECHNICAL MECHANICS
+1. Mandatory Time Intelligence Prerequisites:
+   1. Must contain continuous dates with NO gaps; 2. Must cover full historical and projection years; 3. Must be explicitly flagged with 'Mark as Date Table'.
+
+2. Standard vs Fiscal Calendar Engineering:
+   Embeds Indian Fiscal Year (`FY 2026-27`), Fiscal Quarter (Q1 = Apr-Jun), and Fiscal Month Number (Apr = Month 1) columns.
+
+3. Sort by Column Configuration:
+   Month Name ('April', 'May') must be configured with 'Sort by Column -> MonthNumberOfYear' to prevent alphabetical sorting ('April', 'August', 'December').
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Director of FP&A, Barrackpore HQ):
+  Enterprise Indian Fiscal Year Calendar (Apr-Mar) - Builds a dedicated Indian Fiscal Calendar table spanning 2020 to 2030 with Fiscal Year, Fiscal Quarter, and Working Day flags.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Statutory Tax Quarter & Due Date Calendar - Constructs calendar tables mapping statutory GST and Advance Tax filing deadline windows.
+• Abhronila Das (Plant Production Controller, Ichapur Works):
+  Factory 4-4-5 Manufacturing Accounting Calendar - Builds retail/manufacturing 4-4-5 accounting period dimensions for weekly yield tracking.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  National Transit Holiday & Working Day Calendar - Embeds custom holiday and weekend boolean flags to calculate true business delivery turnaround days.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Missing Date Gaps (Breaks Time Intelligence):
+  Root Cause: Creating a calendar table from sales transactions containing days with zero sales breaks DAX time intelligence functions like TOTALYTD.
+  Diagnostic Fix: Generate a continuous date sequence using `=CALENDAR(StartDate, EndDate)` or Power Pivot > Date Table > New.
+• Alphabetical Month Sorting Trap:
+  Root Cause: PivotTables displaying months as 'April, August, December, February, January...'
+  Diagnostic Fix: Select 'MonthName' column > Home > Sort by Column > Select 'MonthNumber'.
+• Forgetting 'Mark as Date Table':
+  Root Cause: Failing to mark the calendar table prevents DAX from recognizing custom date hierarchies.
+  Diagnostic Fix: Power Pivot > Design > Mark as Date Table > Select Date column.
+
+6. PRO TIPS & SHORTCUTS
+• Generate Date Table (Design tab > Date Table > New): Instantly creates a complete standard calendar table in 1 click.
+• Sort by Column Mandatory (Sort MonthName by MonthNumber): Guarantees chronological sorting in all PivotTables and charts.
+• Mark as Date Table (Design > Mark as Date Table): Mandatory step to activate full DAX Time Intelligence capabilities.
+================================================================================

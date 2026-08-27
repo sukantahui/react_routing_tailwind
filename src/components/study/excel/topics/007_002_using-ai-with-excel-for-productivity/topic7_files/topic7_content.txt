@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Using AI with Excel for Productivity
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Using AI with Excel for Productivity
 Topic 7: Integrating OpenAI / Claude APIs with Excel via Power Query and VBA / Office Scripts
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Integrating OpenAI / Claude APIs with Excel via Power Query and VBA / Office Scripts is an essential discipline in AI-assisted spreadsheet engineering, generative business intelligence, and modern workplace productivity.
+It provides the core protocols required to leverage Microsoft Copilot, construct precision prompt workflows, integrate external LLM APIs, and build custom AI formulas.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: API Integration: Power Query Web.Contents("https://api.openai.com/v1/chat/completions", [Headers=[#"Authorization"="Bearer sk-...", ...]]) | VBA ServerXMLHTTP Request
+
+3. CORE TECHNICAL MECHANICS
+1. Power Query M-Code REST Integration:
+   Constructs parameterized HTTP POST calls inside Power Query using `Web.Contents()`, sending table rows to OpenAI and returning structured parsed AI responses.
+
+2. VBA / Office Scripts Custom AI Pipeline:
+   Uses `MSXML2.ServerXMLHTTP` or TypeScript `fetch()` to call external LLM endpoints with customizable system prompts, temperature settings, and JSON mode.
+
+3. Batch Row-by-Row AI Processing:
+   Sends 500 customer reviews or expense descriptions to GPT-4 in parallel, receiving sentiment scores, category tags, and summaries.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Digital Transformation Officer, Barrackpore HQ):
+  Enterprise OpenAI Power Query Batch Processing - Builds a Power Query M-Code pipeline that sends 5,000 corporate customer survey comments to GPT-4o-mini, categorizing feedback into 12 actionable themes.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Automated Tax Invoice Description Classifier - Calls Claude API from VBA to classify complex ambiguous expense line items into statutory tax categories.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  Machine Error Log AI Root Cause Summarizer - Streams industrial fault logs to OpenAI API, returning 1-sentence operator remediation guidance.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Automated Freight Waybill Description Standardization - Standardizes disparate carrier shipment descriptions using LLM API calls.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Exposing Production API Keys in Plaintext M-Code / VBA:
+  Root Cause: Hardcoding `Bearer sk-proj-12345` inside Power Query formulas or VBA code.
+  Diagnostic Fix: Store API keys in environment variables, secure SharePoint parameter tables, or Azure Key Vault.
+• API Rate Limit Exhaustion (HTTP 429 Too Many Requests):
+  Root Cause: Sending 10,000 individual row requests simultaneously in Power Query without throttling.
+  Diagnostic Fix: Batch requests into chunks of 50 or use asynchronous queue endpoints.
+• High API Token Costs on Massive Datasets:
+  Root Cause: Using expensive frontier models (GPT-4o) with giant system prompts on 100,000 rows.
+  Diagnostic Fix: Use lightweight cost-effective models (e.g. `gpt-4o-mini` or `claude-3-haiku`) with concise prompts.
+
+6. PRO TIPS & SHORTCUTS
+• Use Lightweight Models (gpt-4o-mini or claude-3-haiku): 98% cheaper with sub-second response times.
+• Enforce JSON Mode (response_format: { type: "json_object" }): Guarantees reliable structured JSON output for easy Excel parsing.
+• Low Temperature for Determinism (temperature: 0.0): Ensures consistent, repeatable categorical classifications.
+================================================================================

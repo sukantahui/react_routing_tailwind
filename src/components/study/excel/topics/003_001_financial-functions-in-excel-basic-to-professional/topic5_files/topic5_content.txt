@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Financial Functions in Excel (Basic to Professional)
 Topic 5: Real-world irregular cash flow valuation with XNPV
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Real-world irregular cash flow valuation with XNPV is a foundational pillar of corporate financial modeling, investment banking, and capital budgeting.
+It equips financial modelers with the exact mathematical tools to value assets, evaluate debt structures, and appraise investments.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: =XNPV(discount_rate, cash_flows_range, dates_range)
+
+3. CORE TECHNICAL MECHANICS
+1. Exact Day Count Exponential Discounting:
+   Discounts each cash flow based on the exact number of days elapsed since the initial investment date: `PV = CF_i / (1 + Rate)^((Date_i - Date_0) / 365)`.
+
+2. Includes Initial Outflow at t=0:
+   Unlike standard NPV, XNPV explicitly INCLUDES the initial cash outflow in the cash flows range (because Date 0 has elapsed days = 0, discounting factor = 1.0).
+
+3. Strict Date Pairing Requirement:
+   The cash_flows_range and dates_range must have identical dimensions; the first date must be the earliest date in the schedule.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Head of Private Equity, Barrackpore HQ):
+  Private Equity Portfolio Co-Investment Valuation - Values irregular venture capital milestone disbursements and exit dividends: =XNPV(15%, B2:B15, A2:A15).
+• Tuhina Mukherjee (Corporate M&A Auditor, Shyamnagar Plant):
+  Cross-Border Acquisition Earn-Out Valuation - Discounts contingent earn-out payments scheduled on irregular milestone completion dates.
+• Abhronila Das (Capital Infrastructure Lead, Ichapur Works):
+  Turbine Overhaul Vendor Staged Invoicing - Appraises heavy machinery procurement with irregular milestone progress billing dates.
+• Debangshu Roy (Commercial Asset Controller, Naihati Logistics):
+  Warehouse Construction Milestone Cash Flows - Evaluates construction drawdowns on warehouse development contracts spanning 18 months.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Adding Initial Outflow Separately in XNPV (Double Deduction):
+  Root Cause: Applying the standard NPV rule to XNPV (`=XNPV(...) + CF0`) double-deducts the initial capex.
+  Diagnostic Fix: In XNPV, include the initial cash flow (CF0) and its date directly inside the formula ranges.
+• Unsorted Chronological Dates (#NUM!):
+  Root Cause: If the first date in dates_range is not the earliest date, XNPV returns a #NUM! error.
+  Diagnostic Fix: Sort cash flow schedules in strict ascending chronological date order.
+• Text Date Entry in Dates Range:
+  Root Cause: Dates entered as text strings ('27/08/2026') trigger a #VALUE! error.
+  Diagnostic Fix: Ensure the dates range contains genuine Excel serial date numbers.
+
+6. PRO TIPS & SHORTCUTS
+• All-Inclusive XNPV (=XNPV(Rate, AllCashFlows, AllDates)): Includes Year 0 cash flow and date directly in the formula range.
+• Sort by Date First (Data > Sort Ascending by Date): Mandatory prerequisite to guarantee accurate XNPV calculation.
+• Exact Day Accuracy (365-day compounding): Provides audit-proof valuation for corporate M&A transactions.
+================================================================================

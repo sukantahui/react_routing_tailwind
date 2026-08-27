@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Power Pivot & Data Modeling
-Topic 13: Real-world project: Designing an Enterprise Retail Data Model with multi-table relationships
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 13 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Real-world project: Designing an Enterprise Retail Data Model with multi-table relationships
+Module: 005_003_power-pivot-and-data-modeling
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Enterprise Retail Data Model: Fact_Sales + Fact_Inventory + Dim_Customer + Dim_Product + Dim_Store + Dim_Calendar + Explicit DAX Measure Suite
+
+PRIMARY CONCEPT:
+Comprehensive end-to-end master capstone project: architecting an Enterprise Retail Data Model with multi-table Star Schemas, 1-to-Many relationships, Date dimensions, and explicit DAX measures
+
+TEACHER'S ADVICE:
+Congratulations on mastering Power Pivot and Data Modeling! You now command the same enterprise-grade data architecture used by Fortune 500 companies. Your models can handle millions of rows, complex relationships, and lightning-fast calculations.
+
+COMMON TRAPS TO AVOID:
+- Connecting Two Fact Tables Directly: Attempting to create a relationship between `Fact_Sales` and `Fact_Inventory` directly. -> Fix: Connect both Fact tables independently to shared Conformed Dimension tables (`Dim_Product`, `Dim_Store`, `Dim_Calendar`).
+- Inconsistent Key Formatting Across Tables: StoreKey formatted as Text in Dim_Store but Whole Number in Fact_Sales, breaking relationship creation. -> Fix: Standardize key column data types across all tables in Power Query.
+- Hardcoding Calculations in Worksheet Grid: Bypassing the Data Model and writing manual SUMIFS formulas on large datasets. -> Fix: Perform all calculations using explicit DAX measures in the Data Model.
+================================================================================

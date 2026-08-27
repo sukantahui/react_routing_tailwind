@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Introduction to Pivot Tables and Pivot Charts
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Introduction to Pivot Tables and Pivot Charts
 Topic 11: Formatting and Layout options: Compact, Outline, Tabular forms, and blank rows
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Formatting and Layout options: Compact, Outline, Tabular forms, and blank rows is an essential discipline in corporate business intelligence and reporting.
+It provides the foundation for dynamic in-memory summarization, multi-dimensional slicing, and interactive dashboards.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Report Layouts: Compact Form (Default) | Outline Form | Tabular Form (Flat Grid) | Repeat All Item Labels
+
+3. CORE TECHNICAL MECHANICS
+1. Compact Form (Indented Tree):
+   Default mode; places all row hierarchy fields in a single column with progressive indentation, saving horizontal space.
+
+2. Outline Form (Stepped Columns):
+   Separates each row hierarchy field into its own distinct column while keeping subtotals at the top of each group.
+
+3. Tabular Form (Relational Flat Grid):
+   Places each field in its own column with standard table headers. Pairing with 'Repeat All Item Labels' makes pivot output ready for downstream VLOOKUP and formulas.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (FP&A Director, Barrackpore HQ):
+  Institutional Boardroom Financial Summary - Formats corporate financial statements in Tabular Form with subtotal headers at the bottom and accounting single/double underlines.
+• Tuhina Mukherjee (Tax Auditor, Shyamnagar Plant):
+  Downstream VLOOKUP Table Export - Configures procurement pivots in Tabular Form with 'Repeat All Item Labels' to feed automated downstream tax reconciliation formulas.
+• Abhronila Das (Plant Superintendent, Ichapur Works):
+  Shift Handover Operations Ledger - Uses Outline Form with blank line separators between machine groups for clear shopfloor noticeboard printing.
+• Debangshu Roy (Logistics Router, Naihati Logistics):
+  Dispatch Manifest Route Schedules - Formats carrier route schedules in Tabular Form with subtotals disabled for clean ERP copy-pasting.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Missing Item Labels in Downstream Lookups:
+  Root Cause: Tabular form leaves blank cells below category headers by default, breaking VLOOKUP / XLOOKUP on downstream formulas.
+  Diagnostic Fix: Design tab > Report Layout > Select 'Repeat All Item Labels'.
+• Subtotal Visual Clutter:
+  Root Cause: Having subtotals on every single row level creates a messy, repetitive report.
+  Diagnostic Fix: Design tab > Subtotals > Select 'Do Not Show Subtotals' or toggle specific fields.
+• Column Width Auto-Reset on Refresh:
+  Root Cause: Refreshing a PivotTable resets manually adjusted column widths back to default.
+  Diagnostic Fix: PivotTable Options > Format > Uncheck 'Autofit column widths on update'.
+
+6. PRO TIPS & SHORTCUTS
+• Repeat Item Labels (Design > Report Layout > Repeat All Item Labels): Fills down all category labels, making pivot data 100% formula-ready.
+• Lock Column Widths (Pivot Options > Uncheck Autofit column widths on update): Prevents column widths from jumping and changing on every refresh.
+• Insert Blank Line (Design > Blank Rows > Insert Blank Line After Each Item): Creates visual breathing room between major division groups.
+================================================================================

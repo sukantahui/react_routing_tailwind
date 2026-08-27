@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
-Topic 10: Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 10 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD
+Module: 003_001_financial-functions-in-excel-basic-to-professional
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+=SLN(cost, salvage, life) | =DB(cost, salvage, life, period, [month]) | =DDB(cost, salvage, life, period, [factor]) | =SYD(cost, salvage, life, period)
+
+PRIMARY CONCEPT:
+Corporate fixed asset depreciation modeling: Straight-Line (SLN), Fixed Declining Balance (DB), Double Declining Balance (DDB), and Sum-of-Years' Digits (SYD)
+
+TEACHER'S ADVICE:
+Accelerated depreciation (DDB) is an CFO's best friend. By taking larger depreciation deductions in early years, you lower taxable income today and defer taxes into the future, creating real economic value.
+
+COMMON TRAPS TO AVOID:
+- DDB Depreciation Exceeding Salvage Value: In older Excel versions, DDB could depreciate below salvage value in edge cases. -> Fix: Use `=VDB(Cost, Salvage, Life, StartPeriod, EndPeriod, Factor, FALSE)` to ensure flawless salvage boundary adherence.
+- Mismatching Depreciation Periods with Life: Passing life in years (5) but period in months (36) causes formula breakdown. -> Fix: Ensure period and life use identical time units (all years or all months).
+- Ignoring Year 1 Partial Month Proration: Assets purchased mid-year require partial first-year depreciation. -> Fix: Use the optional `[month]` argument in DB() or use VDB() for exact fractional periods.
+================================================================================

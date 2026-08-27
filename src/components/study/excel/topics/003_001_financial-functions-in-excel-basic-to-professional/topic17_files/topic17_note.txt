@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
-Topic 17: Assessment: Comprehensive Financial Valuation & Amortization Lab
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 17 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Assessment: Comprehensive Financial Valuation & Amortization Lab
+Module: 003_001_financial-functions-in-excel-basic-to-professional
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Comprehensive Financial Valuation & Amortization Mastery Lab Deck
+
+PRIMARY CONCEPT:
+Comprehensive capstone assessment testing mastery across Time Value of Money, Amortization schedules, NPV/XNPV, IRR/XIRR, DCF modeling, and Bond mathematics
+
+TEACHER'S ADVICE:
+Congratulations on mastering Financial Functions in Excel! You now command the quantitative tools used by top investment bankers, private equity partners, and corporate CFOs worldwide. Build with rigor and precision.
+
+COMMON TRAPS TO AVOID:
+- Breaking Balance Sheet Linkages: Hardcoding cash balances to force balance sheets to balance destroys model integrity. -> Fix: Cash must flow strictly from the Cash Flow Statement ending balance.
+- Unbounded Terminal Perpetuity Formulas: Writing terminal value formulas without bounding checks produces nonsensical negative valuations when WACC < g. -> Fix: Ensure WACC > g and include validation flags.
+- Incomplete Sign Discipline Across Statements: Mixing negative and positive signs inconsistently between Cash Flow and Balance Sheet statements. -> Fix: Enforce strict accounting sign discipline across all financial statements.
+================================================================================

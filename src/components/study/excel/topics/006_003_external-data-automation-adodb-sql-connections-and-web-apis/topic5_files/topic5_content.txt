@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: External Data Automation: ADODB SQL Connections & Web APIs
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: External Data Automation: ADODB SQL Connections & Web APIs
 Topic 5: Querying closed Excel workbooks as relational database tables using SQL without opening them
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Querying closed Excel workbooks as relational database tables using SQL without opening them is an essential discipline in enterprise database engineering, cloud systems integration, and full-stack financial automation.
+It provides the core protocols required to connect Excel directly to enterprise relational databases, query closed workbooks via SQL, and consume cloud REST APIs.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Query Closed Excel: Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Data\Book.xlsx;Extended Properties="Excel 12.0 Xml;HDR=YES;IMEX=1;" | SQL: SELECT * FROM [Sheet1$] WHERE Amount > 1000
+
+3. CORE TECHNICAL MECHANICS
+1. The Microsoft ACE OLEDB Provider:
+   Treats closed `.xlsx` and `.xlsb` workbooks as read-only SQL relational databases. Does NOT launch Excel application instances in Task Manager.
+
+2. The `[Sheet1$]` Table Syntax:
+   Worksheet tabs are queried as tables by appending a dollar sign (`$`): `SELECT [CustomerID], [Revenue] FROM [Sales_Data$] WHERE [Region] = 'East'`.
+
+3. The `IMEX=1` Mixed Data Mode:
+   Setting `Extended Properties="Excel 12.0 Xml;HDR=YES;IMEX=1;"` forces the driver to treat mixed text/numeric columns safely as text, preventing null value drops.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Querying 500 Closed Branch Workbooks in 3 Seconds - Queries 500 closed regional monthly budget files on a network drive using SQL `SELECT SUM(Budget) FROM [Budget$]`, consolidating national totals without opening a single file.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Auditing Closed Vendor Ledger Files - Executes SQL join queries between two closed vendor pricing workbooks on disk.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  Closed Machine Log Aggregator - Extracts defect totals from closed historical factory workbooks.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Closed Waybill Rate Card Query - Queries historical carrier rate sheets without user interface lag.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Omitting Dollar Sign ($) in Sheet Name Syntax:
+  Root Cause: Writing `SELECT * FROM [Sheet1]` without the `$` throws error 'The Microsoft Access database engine could not find the object'.
+  Diagnostic Fix: Always append a dollar sign to sheet names: `SELECT * FROM [Sheet1$]`.
+• The 'Type Guessing' Null Value Bug (Type Mismatch):
+  Root Cause: By default, the ACE driver inspects the first 8 rows (TypeGuessRows). If rows 1-8 are numbers and row 9 is text, it returns NULL for row 9.
+  Diagnostic Fix: Add `IMEX=1;` to Extended Properties in the connection string to treat mixed columns as text.
+• Querying Open Files with Write Locks:
+  Root Cause: Attempting to query a file currently open in exclusive mode by another user.
+  Diagnostic Fix: Open with `Mode=Read;` in connection string.
+
+6. PRO TIPS & SHORTCUTS
+• Closed Excel Connection String (Provider=Microsoft.ACE.OLEDB.12.0;Data Source=path;Extended Properties="Excel 12.0 Xml;HDR=YES;IMEX=1;"): Universal string to query closed Excel workbooks.
+• Sheet Name Table Syntax (FROM [SheetName$]): Mandatory dollar sign syntax for worksheet tables.
+• Zero Excel Instances (Operates 100% headless): Zero memory footprint and zero Excel GUI overhead.
+================================================================================

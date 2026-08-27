@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: DAX Formulas Mastery and Time Intelligence
 Topic 12: Semi-additive measures: Opening and Closing balances for inventory and banking (CLOSINGBALANCEMONTH)
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Semi-additive measures: Opening and Closing balances for inventory and banking (CLOSINGBALANCEMONTH) is an essential discipline in enterprise business intelligence, quantitative finance, and advanced data modeling.
+It provides the core protocols required to construct complex multi-dimensional financial measures, calculate period-over-period growth, and evaluate dynamic rankings.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Semi-Additive DAX: CLOSINGBALANCEMONTH([Measure], Dim_Calendar[Date]) | OPENINGBALANCEMONTH | CALCULATE([Measure], LASTDATE(Dim_Calendar[Date]))
+
+3. CORE TECHNICAL MECHANICS
+1. The Semi-Additive Problem:
+   Sales are additive over time (Jan Sales + Feb Sales = Total Sales). Bank Balances and Inventory are NON-ADDITIVE over time (Jan Balance + Feb Balance is meaningless nonsense!).
+
+2. Closing Balance Architecture:
+   When aggregating across time, semi-additive measures must return the CLOSING SNAPSHOT of the last active date in the period rather than summing.
+
+3. Native Balance Functions:
+   `CLOSINGBALANCEMONTH([StockValue], Dim_Calendar[Date])` and `CLOSINGBALANCEYEAR()` automatically extract the ending period snapshot.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Head of Treasury Operations, Barrackpore HQ):
+  Enterprise Daily Cash Balance Console - Builds `ClosingCashBalance := CLOSINGBALANCEMONTH([CashBalance], Dim_Calendar[Date])` ensuring quarterly cash reports show ending quarter cash, not the sum of 90 daily balances.
+• Tuhina Mukherjee (Corporate Inventory Controller, Shyamnagar Plant):
+  Factory Warehouse Ending Inventory Valuation - Constructs semi-additive measures tracking warehouse closing stock values at month-end.
+• Abhronila Das (HR Analytics Lead, Ichapur Works):
+  Active Plant Headcount Metric - Tracks active monthly employee headcount snapshots across manufacturing shifts.
+• Debangshu Roy (Logistics Asset Manager, Naihati Logistics):
+  Active Fleet Truck Availability Snapshot - Monitors closing monthly operational fleet vehicle counts.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Summing Bank Balances Across Months (Fatal Accounting Error):
+  Root Cause: Using standard `=SUM(Bank[Balance])` adds January ₹10L + February ₹10L = ₹20L (inventing money that does not exist).
+  Diagnostic Fix: Always use semi-additive DAX: `CLOSINGBALANCEMONTH([BankBalance], Dim_Calendar[Date])`.
+• Blank Closing Balance on Incomplete Months:
+  Root Cause: If current month has no transactions on the 31st, `CLOSINGBALANCEMONTH` can return blank.
+  Diagnostic Fix: Use `CALCULATE([Balance], LASTNONBLANK(Dim_Calendar[Date], [Balance]))` to find the true last active day.
+• Confusing Opening Balance with Closing Balance of Prior Month:
+  Root Cause: Opening balance of March is mathematically identical to closing balance of February.
+  Diagnostic Fix: undefined
+
+6. PRO TIPS & SHORTCUTS
+• Closing Month Balance (CLOSINGBALANCEMONTH([Balance], Dim_Calendar[Date])): Returns the ending balance on the last day of the month.
+• Last Non-Blank Balance (CALCULATE([Balance], LASTNONBLANK(Calendar[Date], [Balance]))): Handles months where transactions ended before the 31st.
+• Additive vs Semi-Additive (Additive = Sum across all dims; Semi-Additive = Sum across dims, Snapshot over time): The fundamental taxonomy of financial measures.
+================================================================================

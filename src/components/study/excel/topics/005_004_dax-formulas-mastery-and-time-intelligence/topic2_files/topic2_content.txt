@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: DAX Formulas Mastery and Time Intelligence
 Topic 2: Context Transition: Transforming Row Context into Filter Context with CALCULATE
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Context Transition: Transforming Row Context into Filter Context with CALCULATE is an essential discipline in enterprise business intelligence, quantitative finance, and advanced data modeling.
+It provides the core protocols required to construct complex multi-dimensional financial measures, calculate period-over-period growth, and evaluate dynamic rankings.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context
+
+3. CORE TECHNICAL MECHANICS
+1. The Context Transition Mechanism:
+   When `CALCULATE()` executes inside a Row Context, it takes all column values of the current row and applies them as an exact Filter Context on the underlying tables.
+
+2. Automatic Measure Invocation Wrap:
+   Every time an explicit measure `[TotalSales]` is called, Excel silently wraps it in an invisible `CALCULATE([TotalSales])`, automatically triggering Context Transition.
+
+3. Iterating and Filtering Simultaneously:
+   Enables computing row-level metrics that depend on filtered table aggregates (e.g. ranking a customer against the total sales of their specific category).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Quantitative Strategist, Barrackpore HQ):
+  Customer Lifetime Value Decile Tagging - Uses Context Transition in a Calculated Column `=CALCULATE([TotalRevenue])` on `Dim_Customer` to compute each customer's total spend across all history.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Vendor Multi-Year Aggregate Audit - Computes total historical vendor purchases directly inside `Dim_VendorMaster` using Context Transition.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  Machine Breakdown Frequency Ranking - Transforms machine row context into filter context to calculate historical breakdown counts per machine.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Driver Cumulative Kilometers Metric - Calculates total driver lifetime mileage inside driver dimension tables.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Unintended Context Transition in Large Fact Tables:
+  Root Cause: Calling `[TotalSales]` inside a Calculated Column on a 10-million row fact table triggers 10 million individual CALCULATE transitions, freezing Excel for minutes.
+  Diagnostic Fix: Avoid Context Transition inside massive Fact tables; use it on small Dimension tables.
+• Thinking `SUM(Sales[Amount])` Triggers Context Transition:
+  Root Cause: Writing `SUM(Sales[Amount])` in a calculated column computes the grand total of the whole table, NOT the current row.
+  Diagnostic Fix: Wrap in `CALCULATE(SUM(Sales[Amount]))` or call the explicit measure `[TotalSales]` to trigger Context Transition.
+• Ignoring Duplicate Row Keys in Dimension Tables:
+  Root Cause: If the dimension table has duplicate rows, Context Transition filters multiple identical records simultaneously.
+  Diagnostic Fix: Ensure dimension tables have 100% unique primary keys.
+
+6. PRO TIPS & SHORTCUTS
+• Measures Have Hidden CALCULATE ([TotalSales] = CALCULATE([TotalSales])): Calling any measure inside a calculated column always triggers Context Transition.
+• Dimension Customer Spend (Customer[TotalSpend] = [TotalSales]): The cleanest way to add total customer lifetime revenue to customer dimension.
+• Performance Warning (Only use on Dimension tables (<100k rows)): Prevents CPU freezing on massive multi-million row fact tables.
+================================================================================

@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
-Topic 2: Context Transition: Transforming Row Context into Filter Context with CALCULATE
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 2 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Context Transition: Transforming Row Context into Filter Context with CALCULATE
+Module: 005_004_dax-formulas-mastery-and-time-intelligence
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context
+
+PRIMARY CONCEPT:
+Understanding Context Transition: how invoking `CALCULATE()` (or calling an explicit measure) inside a Row Context transforms the current row's values into an equivalent Filter Context
+
+TEACHER'S ADVICE:
+Context Transition is DAX's superpower. When you write `[TotalSales]` in a customer table column, DAX secretly puts `CALCULATE` around it, transforms that customer's ID into a filter, and calculates their individual sales total instantly.
+
+COMMON TRAPS TO AVOID:
+- Unintended Context Transition in Large Fact Tables: Calling `[TotalSales]` inside a Calculated Column on a 10-million row fact table triggers 10 million individual CALCULATE transitions, freezing Excel for minutes. -> Fix: Avoid Context Transition inside massive Fact tables; use it on small Dimension tables.
+- Thinking `SUM(Sales[Amount])` Triggers Context Transition: Writing `SUM(Sales[Amount])` in a calculated column computes the grand total of the whole table, NOT the current row. -> Fix: Wrap in `CALCULATE(SUM(Sales[Amount]))` or call the explicit measure `[TotalSales]` to trigger Context Transition.
+- Ignoring Duplicate Row Keys in Dimension Tables: If the dimension table has duplicate rows, Context Transition filters multiple identical records simultaneously. -> Fix: Ensure dimension tables have 100% unique primary keys.
+================================================================================

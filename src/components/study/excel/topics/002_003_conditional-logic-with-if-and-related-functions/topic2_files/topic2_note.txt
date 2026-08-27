@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Conditional Logic with IF and Related Functions
-Topic 2: Compound logical conditions with AND, OR, and NOT functions
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 2 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Compound logical conditions with AND, OR, and NOT functions
+Module: 002_003_conditional-logic-with-if-and-related-functions
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+=AND(logical1, [logical2], ...) | =OR(logical1, [logical2], ...) | =NOT(logical)
+
+PRIMARY CONCEPT:
+Evaluating multi-variable logical criteria using conjunction (AND), disjunction (OR), and negation (NOT) to drive decision formulas
+
+TEACHER'S ADVICE:
+When testing bounded numeric ranges (between X and Y), ALWAYS use AND. Using OR on bounded ranges is the most common beginner logical error in Excel.
+
+COMMON TRAPS TO AVOID:
+- Array Range Compression in AND/OR: AND(A1:A5 > 10) aggregates the ENTIRE range into a single TRUE/FALSE scalar, not row-by-row arrays. -> Fix: Use Boolean arithmetic `=(A1:A5 > 10) * (B1:B5 < 50)` for row-by-row array operations.
+- Confusing AND vs OR in Inclusive Ranges: Writing OR(A1 >= 10, A1 <= 20) evaluates to TRUE for ALL numbers from negative infinity to infinity. -> Fix: Use AND(A1 >= 10, A1 <= 20) for bounded intervals.
+- Premature Closing Parentheses: Closing IF before completing AND arguments (e.g. IF(AND(A1>5), B1>10, ...)) triggers logic errors. -> Fix: Carefully align parentheses: IF(AND(A1>5, B1>10), "True", "False").
+================================================================================

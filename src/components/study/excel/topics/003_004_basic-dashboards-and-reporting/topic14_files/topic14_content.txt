@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Basic Dashboards and Reporting
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Basic Dashboards and Reporting
 Topic 14: Assessment: Interactive Operations & Supply Chain Executive KPI Portal
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Assessment: Interactive Operations & Supply Chain Executive KPI Portal is an essential discipline in corporate business intelligence, executive reporting, and visual analytics.
+It provides the core protocols required to transform dense tabular data into intuitive, interactive, single-screen command centers.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Interactive Operations & Supply Chain Executive KPI Portal Challenge Deck
+
+3. CORE TECHNICAL MECHANICS
+1. Comprehensive Visual Synthesis:
+   Evaluates candidate proficiency across information architecture, formula-driven visual alerts, dynamic named ranges, and Pareto statistical analysis.
+
+2. Production Rigor & Data Hygiene:
+   Enforces production-grade Excel standards: zero hardcoded constants, responsive 1-screen canvas fit, and error-free multi-pivot slicer meshes.
+
+3. Timed Enterprise Case Challenges:
+   Tests speed and design execution under strict simulated C-suite presentation deadlines.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Lead Academic Assessor, Barrackpore HQ):
+  Enterprise BI Dashboard Certification Evaluation - Evaluates candidates on constructing integrated interactive executive dashboards with synchronized multi-chart slicers and dynamic KPI cards.
+• Tuhina Mukherjee (Corporate FP&A Trainer, Shyamnagar Plant):
+  Waterfall & Variance Bridge Challenge - Assesses student submissions on complex multi-step EBITDA bridge and P&L walk-through charts.
+• Abhronila Das (Manufacturing Operations Evaluator, Ichapur Works):
+  Plant Production Control Console Audit - Evaluates shopfloor Pareto defect analysis and in-cell Sparkline micro-chart implementations.
+• Debangshu Roy (Supply Chain Analytics Assessor, Naihati Logistics):
+  Freight SLA & Transit Portal Defense - Tests candidate mastery of bullet target charts, dynamic array chart ranges, and print/PDF export layouts.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Unanchored Floating Objects:
+  Root Cause: Leaving floating chart containers unlocked causes them to skew when stakeholders view on different resolutions.
+  Diagnostic Fix: Lock all visual elements to cell grids with 'Don't move or size with cells'.
+• Missing Zero-Baseline on Bar Charts:
+  Root Cause: Truncating the vertical axis on bar charts distorts visual comparisons and misleads executives.
+  Diagnostic Fix: Always start bar chart axes at zero.
+• Over-Complicated Navigation:
+  Root Cause: Requiring users to click through 10 menus to find basic summary numbers.
+  Diagnostic Fix: Keep core KPIs front-and-center on the landing screen.
+
+6. PRO TIPS & SHORTCUTS
+• Clean Canvas First (Hide Gridlines & Headers): Always start dashboard design on a clean, grid-free worksheet canvas.
+• Modular Card Reusability (Copy proven KPI card blocks): Reuse standardized KPI card containers across multiple dashboard projects.
+• Test on Multiple Monitors (Verify layout on laptop & external display): Guarantees flawless executive presentation across all devices.
+================================================================================

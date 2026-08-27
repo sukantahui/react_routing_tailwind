@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Using AI with Excel for Productivity
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Using AI with Excel for Productivity
 Topic 6: AI-assisted data cleaning: Extracting entities, standardizing messy text, and pattern recognition
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+AI-assisted data cleaning: Extracting entities, standardizing messy text, and pattern recognition is an essential discipline in AI-assisted spreadsheet engineering, generative business intelligence, and modern workplace productivity.
+It provides the core protocols required to leverage Microsoft Copilot, construct precision prompt workflows, integrate external LLM APIs, and build custom AI formulas.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Data Cleaning Prompts: 'Extract the 6-digit PIN code from column Address' | 'Standardize customer names to Proper Case and remove extra spaces' | 'Split column Full_Name into First and Last'
+
+3. CORE TECHNICAL MECHANICS
+1. Cognitive Entity Extraction:
+   Extracts addresses, dates, tracking numbers, and invoice IDs from messy, unstructured freehand text strings.
+
+2. Text Standardization & Normalization:
+   Converts messy text ('pvt ltd', 'PVT. LTD.', 'Private Limited') into standardized corporate naming conventions.
+
+3. Pattern Learning & Flash Fill Acceleration:
+   Learns data transformation intent from 1 or 2 examples, writing clean formulas or Flash Fill columns across 50,000 rows.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Operations, Barrackpore HQ):
+  Standardizing 20,000 Customer Account Names - Uses AI prompts to clean 20,000 messy client strings, removing legal suffixes and standardizing corporate capitalization.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Extracting GSTINs and Invoice Dates from Voucher Narratives - Extracts 15-character GST numbers and invoice dates from messy bank narrative text strings.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  Shopfloor Machine Error Code Extraction - Extracts standard ISO error codes from operator maintenance freehand text logs.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Address Parsing & Postal Code Extraction - Splits unformatted shipping addresses into City, State, and 6-digit PIN code columns.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Edge-Case Pattern Inconsistencies (Missing PIN Codes):
+  Root Cause: AI entity extraction failing on rows where addresses lack PIN codes.
+  Diagnostic Fix: Include prompt condition: 'If PIN code is missing, return blank; wrap in IFERROR'.
+• Over-Aggressive Text Replacement:
+  Root Cause: Standardizing 'St.' to 'Street' accidentally converting 'St. Xavier's' to 'Street Xavier's'.
+  Diagnostic Fix: Inspect cleaned results across positive and negative sample cases.
+• Slow Execution When Calling Cloud AI on 1 Million Rows:
+  Root Cause: Calling cloud LLMs row-by-row on massive datasets.
+  Diagnostic Fix: Have AI generate a single vectorized Excel formula (`REGEXEXTRACT` / `TEXTSPLIT`) that runs instantly on client.
+
+6. PRO TIPS & SHORTCUTS
+• Extract Formula Standard (Prompt: 'Write an Excel formula to extract...'): Generates reusable formulas that run instantly.
+• Pattern Examples (Provide 2 before/after examples in prompt): Dramatically improves extraction accuracy.
+• Proper Case Standard (Prompt: 'Format as Proper Case with single spaces'): Instantly cleans messy human data entry.
+================================================================================

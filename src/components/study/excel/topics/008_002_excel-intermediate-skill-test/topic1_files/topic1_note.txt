@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Excel Intermediate Skill Test
-Topic 1: Text, Date & Complex Conditional Logic Test
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 1 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Text, Date & Complex Conditional Logic Test
+Module: 008_002_excel-intermediate-skill-test
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Text/Date/Logic: =IFS(B2>1000000, "Tier 1", B2>500000, "Tier 2", TRUE, "Standard") | Date: =EDATE(A2, 3) | Text: =TEXTJOIN(", ", TRUE, A2:C2)
+
+PRIMARY CONCEPT:
+Testing complex logical branching and string/date manipulation: nested IFS, multi-condition AND/OR logic, TEXTJOIN, TEXTSPLIT, EDATE, EOMONTH, and DATEDIF calculations
+
+TEACHER'S ADVICE:
+Switch from `IF` to `IFS`! It is so much cleaner. Just write `=IFS(Score>=90, "A", Score>=80, "B", TRUE, "C")`. Always put `TRUE` at the end as your safety net.
+
+COMMON TRAPS TO AVOID:
+- Reversing Inequality Order in IFS Statements: Placing `B2 > 100000` before `B2 > 1000000` causes all high numbers to trigger the smaller tier first. -> Fix: Order inequalities strictly from most restrictive (highest) to least restrictive.
+- Omitting Final 'TRUE, Default' Catch-All in IFS: IFS returning `#N/A` when no condition matches. -> Fix: Always end IFS formulas with `TRUE, "DefaultValue"`.
+- Using Hardcoded Date Strings ('15/08/2026') in Formulas: Regional date format misinterpretation causing formula errors. -> Fix: Use the `DATE(year, month, day)` function for reliable date construction.
+================================================================================

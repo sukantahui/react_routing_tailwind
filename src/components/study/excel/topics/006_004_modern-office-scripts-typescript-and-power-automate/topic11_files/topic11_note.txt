@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
-Topic 11: Generating automated Teams/Slack notifications and PDF reports from Excel via Power Automate
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 11 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Generating automated Teams/Slack notifications and PDF reports from Excel via Power Automate
+Module: 006_004_modern-office-scripts-typescript-and-power-automate
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Notifications & PDF: Run Script (Calculate KPI & Generate Summary) -> Create File (SharePoint .pdf) -> Post message in a chat or channel (Teams / Slack) -> Send Email (Outlook)
+
+PRIMARY CONCEPT:
+Generating executive collaboration alerts and automated PDF reports from Excel via Power Automate: posting adaptive cards in Microsoft Teams/Slack and emailing converted PDF reports
+
+TEACHER'S ADVICE:
+C-Suite executives love Microsoft Teams alerts! Write an Office Script that calculates today's sales, have Power Automate format it as a beautiful card, and post it to the executive Teams channel every evening. Instant promotion!
+
+COMMON TRAPS TO AVOID:
+- Spamming Teams Channels with Every Single Row Entry: Posting a Teams message for every individual transaction in a 5,000-row batch. -> Fix: Aggregate metrics into a single summary payload and post ONE consolidated notification.
+- Invalid Adaptive Card JSON Syntax: Malformed JSON structure in Adaptive Card payload breaking Teams message delivery. -> Fix: Use the Microsoft Adaptive Card Designer (`adaptivecards.io`) to validate payload JSON.
+- Converting Unformatted Excel Sheets to PDF: Converting sheets without print area setup resulting in truncated PDF pages. -> Fix: Configure print titles and page scaling via Office Scripts prior to cloud PDF conversion.
+================================================================================

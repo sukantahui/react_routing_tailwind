@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: DAX Formulas Mastery and Time Intelligence
 Topic 10: Period-over-Period comparisons: SAMEPERIODLASTYEAR, DATEADD, and PARALLELPERIOD
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Period-over-Period comparisons: SAMEPERIODLASTYEAR, DATEADD, and PARALLELPERIOD is an essential discipline in enterprise business intelligence, quantitative finance, and advanced data modeling.
+It provides the core protocols required to construct complex multi-dimensional financial measures, calculate period-over-period growth, and evaluate dynamic rankings.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Period Comparisons: CALCULATE([TotalSales], SAMEPERIODLASTYEAR(Dim_Calendar[Date])) | YoY Growth: DIVIDE([Sales] - [SalesLY], [SalesLY])
+
+3. CORE TECHNICAL MECHANICS
+1. SAMEPERIODLASTYEAR (Exact 1-Year Shift):
+   Shifts the active date selection back by exactly 1 year. If viewing 'June 2026', it evaluates the measure over 'June 2025'.
+
+2. DATEADD (Universal Time Shifter):
+   The flexible time shifter: `DATEADD(Dim_Calendar[Date], -1, MONTH)` shifts by 1 month; `DATEADD(Dim_Calendar[Date], -1, QUARTER)` shifts by 1 quarter.
+
+3. PARALLELPERIOD (Full Period Shifter):
+   Shifts the entire period regardless of granular date filters (e.g. shifts whole year parallelly).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Enterprise YoY Revenue Growth Benchmark - Builds `Sales_LY := CALCULATE([TotalSales], SAMEPERIODLASTYEAR(Dim_Calendar[Date]))` and `YoY_Growth% := DIVIDE([TotalSales] - [Sales_LY], [Sales_LY])`.
+• Tuhina Mukherjee (Corporate FP&A Lead, Shyamnagar Plant):
+  Month-over-Month (MoM) Variance Tracking - Computes prior month spending: `PriorMonthSpend := CALCULATE([TotalOpex], DATEADD(Dim_Calendar[Date], -1, MONTH))`.
+• Abhronila Das (Plant Quality Controller, Ichapur Works):
+  Quarter-over-Quarter Scrap Comparison - Compares quarterly scrap rate metrics against the prior quarter using `DATEADD(..., -1, QUARTER)`.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Prior Year Freight Volume Comparison - Evaluates seasonal freight shipping volume against same period last year.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Comparing Incomplete Months (Apples-to-Oranges):
+  Root Cause: Comparing 15 days of current month against full 30 days of prior year month.
+  Diagnostic Fix: Ensure date range is synchronized to equivalent elapsed days using `DATESBETWEEN()`.
+• Division by Zero in YoY Growth Measure:
+  Root Cause: Prior year sales being zero returns `#DIV/0!`.
+  Diagnostic Fix: Always wrap in `DIVIDE([Sales] - [SalesLY], [SalesLY], 0)`.
+• Passing Inactive Date Column into DATEADD:
+  Root Cause: Passing non-continuous fact table dates.
+  Diagnostic Fix: Always pass the master `Dim_Calendar[Date]` column.
+
+6. PRO TIPS & SHORTCUTS
+• Prior Year Sales (CALCULATE([Sales], SAMEPERIODLASTYEAR(Dim_Calendar[Date]))): The standard DAX formula for Last Year revenue.
+• Prior Month Sales (CALCULATE([Sales], DATEADD(Dim_Calendar[Date], -1, MONTH))): Shifts time window back by exactly 1 month.
+• Safe YoY Growth % (DIVIDE([Sales] - [SalesLY], [SalesLY], 0)): Calculates YoY growth percentage with zero math errors.
+================================================================================

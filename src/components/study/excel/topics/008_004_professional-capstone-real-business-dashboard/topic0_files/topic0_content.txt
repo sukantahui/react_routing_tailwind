@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Professional Capstone – Real Business Dashboard
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Professional Capstone – Real Business Dashboard
 Topic 0: Capstone Architecture: Problem Statement, Data Pipeline & System Specification
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Capstone Architecture: Problem Statement, Data Pipeline & System Specification is an essential evaluation milestone in spreadsheet mastery, data modeling rigor, and executive reporting.
+It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Capstone Architecture: Enterprise Business Problem -> Requirements Spec -> Multi-Source Data Architecture -> Star Schema Blueprint
+
+3. CORE TECHNICAL MECHANICS
+1. Enterprise Problem Framing:
+   Defining business objectives: consolidating ₹250 Crore across multi-regional distribution hubs, monitoring EBITDA margins, and tracking operational SLAs.
+
+2. End-to-End Data Pipeline Architecture:
+   Designing multi-source data ingestion: ERP SQL Server database, POS MySQL stores, daily CSV bank registers, and live cloud exchange rate APIs.
+
+3. Star Schema Dimensional Design:
+   Structuring 1 centralized Fact Table (`Fact_Sales`) surrounded by 4 clean Dimension Tables (`Dim_Customer`, `Dim_Product`, `Dim_Store`, `Dim_Date`).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Commercial Officer, Barrackpore HQ):
+  Enterprise Executive Sales & Financial Dashboard Blueprint - Architects a multi-subsidiary corporate BI dashboard unifying commercial sales, profit margins, and regional performance across 4 Indian states.
+• Tuhina Mukherjee (Head of Corporate Audit, Shyamnagar Plant):
+  Factory P&L & Statutory Tax Reconciliation Blueprint - Designs factory financial dashboard blueprint integrating cost accounting, EBITDA variances, and GST compliance ledgers.
+• Abhronila Das (Director of Manufacturing, Ichapur Works):
+  Plant Operational Excellence Dashboard Specification - Designs industrial plant dashboard tracking scrap rates, equipment OEE, and shift yield metrics.
+• Debangshu Roy (VP Supply Chain Logistics, Naihati Logistics Hub):
+  Nationwide Logistics & Freight Optimization Architecture - Architects logistics dashboard tracking fleet dispatch, carrier SLAs, and fuel costs.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Building Dashboards Without Clear Business Question Alignment:
+  Root Cause: Designing 20 pretty charts that answer zero actionable business questions.
+  Diagnostic Fix: Define top 5 executive business questions before placing a single chart.
+• Single Giant Flat Table Architecture (Anti-Pattern):
+  Root Cause: Creating an unmaintainable 50-column flat table instead of a clean Star Schema.
+  Diagnostic Fix: Separate data into 1 Fact table and dedicated Dimension lookup tables.
+• Underestimating Data Cleansing Complexity:
+  Root Cause: Assuming raw corporate ERP data is clean and formatted.
+  Diagnostic Fix: Build robust Power Query ETL pipelines to sanitize all inputs.
+
+6. PRO TIPS & SHORTCUTS
+• Star Schema Design (1 Fact Table + Dimension Tables): The universal gold standard for Power Pivot data modeling.
+• Define Core KPIs First (Revenue, Gross Margin, Net Margin, Growth %): Anchors all dashboard metrics to C-Suite priorities.
+• Single Page HUD (Fit all key metrics on one 1080p screen): Eliminates scrolling and delivers instant situational awareness.
+================================================================================

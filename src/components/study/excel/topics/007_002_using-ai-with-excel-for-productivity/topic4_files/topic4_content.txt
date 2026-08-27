@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Using AI with Excel for Productivity
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Using AI with Excel for Productivity
 Topic 4: Automated data analysis: Asking natural language questions to discover trends, outliers, and insights
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Automated data analysis: Asking natural language questions to discover trends, outliers, and insights is an essential discipline in AI-assisted spreadsheet engineering, generative business intelligence, and modern workplace productivity.
+It provides the core protocols required to leverage Microsoft Copilot, construct precision prompt workflows, integrate external LLM APIs, and build custom AI formulas.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Automated Analysis: Prompt: 'Analyze this table and show me key trends, top performers, and outliers' -> Copilot Insight Cards
+
+3. CORE TECHNICAL MECHANICS
+1. Conversational Query Parsing:
+   Translates conversational business questions ('Which product category had the fastest growth in Q3?') into targeted statistical queries.
+
+2. Automated Statistical Anomaly Detection:
+   Scans data distribution tails to surface hidden anomalies ('Notice: 3 transactions in Mumbai exceeded 4x the regional average').
+
+3. 1-Click Insight Insertion:
+   Copilot insight cards feature 'Add to grid' and 'Insert as Pivot Table' buttons to paste findings directly onto the worksheet.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Commercial Officer, Barrackpore HQ):
+  C-Suite Quarterly Business Review Preparation - Asks Copilot: 'What are the top 3 drivers of revenue decline in the North region this quarter?' and receives instant executive bullet points.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Automated Tax Ledger Variance Discovery - Queries Copilot: 'Show me all vendors where the claimed GST exceeds calculated GST by more than 5%'.
+• Abhronila Das (Plant Quality Superintendent, Ichapur Works):
+  Factory Defect Trend Questioning - Asks Copilot to identify which furnace temperatures correlate highest with scrap rates.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Carrier SLA Bottleneck Analysis - Queries Copilot for top-5 delivery bottleneck routes.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Asking Questions Outside Table Scope:
+  Root Cause: Asking AI why revenue dropped without providing historical competitor or marketing data in the table.
+  Diagnostic Fix: Ensure all relevant analytical dimensions are present in the table.
+• Accepting AI Summaries Without Spot-Checking:
+  Root Cause: AI summarizing trends based on incomplete sample sets.
+  Diagnostic Fix: Click 'Show query' or inspect the generated Pivot Table to verify numbers.
+• Confusing Sum with Average in Conversational Queries:
+  Root Cause: Asking 'How did region East perform?' without specifying total sales vs average transaction size.
+  Diagnostic Fix: Be explicit: 'Compare total revenue and average order value across regions'.
+
+6. PRO TIPS & SHORTCUTS
+• Open-Ended Discovery (Prompt: 'What are the most interesting trends in this data?'): Surfaces non-obvious statistical correlations.
+• Top-N / Bottom-N (Prompt: 'Show top 5 products by margin %'): Instant ranking and contribution analysis.
+• Insert to Grid (Click 'Add to a new sheet'): Generates permanent analytical tabs in 1 click.
+================================================================================

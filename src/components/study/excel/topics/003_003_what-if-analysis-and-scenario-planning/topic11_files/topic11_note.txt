@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
-Topic 11: Solver Sensitivity and Answer reports for management decision review
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 11 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Solver Sensitivity and Answer reports for management decision review
+Module: 003_003_what-if-analysis-and-scenario-planning
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Solver Results Dialog: Reports: Answer Report | Sensitivity Report (Shadow Prices / Allowable Increase) | Limits Report
+
+PRIMARY CONCEPT:
+Interpreting Solver Answer, Sensitivity, and Limits reports: analyzing Shadow Prices (Dual Values), binding constraints, slack capacities, and Reduced Costs for executive decision reviews
+
+TEACHER'S ADVICE:
+Shadow Price is the most valuable output in management science. If your machine is at 100% capacity and has a Shadow Price of ₹500/hr, you can tell your CEO: 'We should pay up to ₹499/hr in overtime, and we will still make a profit!'
+
+COMMON TRAPS TO AVOID:
+- Sensitivity Report Disabled on Integer Models: Simplex LP cannot generate Sensitivity Reports (Shadow Prices) if any variable has an `int` or `bin` constraint. -> Fix: Solve the linear relaxation (remove integer constraints) to inspect shadow prices.
+- Applying Shadow Price Beyond Allowable Increase: Assuming you can buy 10,000 extra machine hours at the same shadow price when Allowable Increase is only 120 hours. -> Fix: Always verify that requested resource expansions fall within the 'Allowable Increase' window.
+- Misinterpreting Reduced Cost: Thinking Reduced Cost is an accounting expense; it actually represents how much the profit coefficient of an unproduced item must improve before it becomes profitable to manufacture. -> Fix: Use Reduced Cost to evaluate product redesign pricing targets.
+================================================================================

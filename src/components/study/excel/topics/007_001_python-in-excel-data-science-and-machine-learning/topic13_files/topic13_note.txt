@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
-Topic 13: Assessment: Advanced Python in Excel Data Science Lab
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 13 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Assessment: Advanced Python in Excel Data Science Lab
+Module: 007_001_python-in-excel-data-science-and-machine-learning
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Python in Excel Data Science Lab Competency Assessment Deck
+
+PRIMARY CONCEPT:
+Comprehensive capstone assessment testing mastery across Python in Excel architecture, =PY() formula referencing, pandas wrangling, seaborn charting, scipy statistical testing, statsmodels regressions, and scikit-learn ML
+
+TEACHER'S ADVICE:
+Congratulations on achieving complete mastery of Python in Excel! You now wield the most powerful analytical toolset in modern business. You can wrangle massive datasets, run machine learning models, and create world-class data science visualizations directly in your spreadsheets.
+
+COMMON TRAPS TO AVOID:
+- Breaking Top-to-Bottom Execution Order: Placing variable definitions below consuming formula cells. -> Fix: Maintain strict upper-left to bottom-right cell hierarchy.
+- Missing headers=True in xl() Calls: Corrupting column names into data rows. -> Fix: Always pass `headers=True` on tabular datasets.
+- Calling plt.show() in Cloud Cells: Triggering container exceptions. -> Fix: Return `fig` on the last line of visualization formulas.
+================================================================================

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
 import sampleWorkbookUrl from "./excel_files/using_ai_with_excel_for_productivity_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
@@ -30,14 +31,14 @@ export default function Topic0() {
     if (!sampleWorkbookUrl) return;
     const link = document.createElement("a");
     link.href = sampleWorkbookUrl;
-    link.download = "007_002_using-ai-with-excel-for-productivity_practice.xlsx";
+    link.download = "using_ai_with_excel_practice.xlsx";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   return (
-    <div className="dark bg-slate-950 text-slate-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8 font-sans selection:bg-emerald-500/30 selection:text-emerald-200">
+    <div className="dark bg-slate-950 text-slate-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8 font-sans selection:bg-sky-500/30 selection:text-sky-200">
       <style>{`
         @keyframes fadeInSlide {
           from { transform: translateY(18px); }
@@ -56,39 +57,39 @@ export default function Topic0() {
           ref={(el) => (sectionsRef.current[0] = el)}
           className="reveal-section rounded-3xl p-6 sm:p-10 bg-gradient-to-b from-slate-900/90 via-slate-900/60 to-slate-950 border border-slate-800 shadow-2xl relative overflow-hidden"
         >
-          <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
-            <span className="px-3.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              ⚡ Topic 0
+            <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
+              {"🤖 Introduction to AI in Excel & Copilot"} · Topic 0
             </span>
-            <span className="px-3 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-semibold">
-              Using AI with Excel for Productivity
+            <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
+              {"Generative AI & Spreadsheets"}
             </span>
-            <span className="px-3 py-1 rounded-full bg-teal-950/80 border border-teal-700/60 text-teal-300 text-xs font-semibold">
-              Bloom's Level 4: Analyze &amp; Synthesize
+            <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
+              {"Advanced · Bloom Level 3: Apply"}
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-300 bg-clip-text text-transparent leading-tight">
-            Introduction to AI in Excel: Microsoft Copilot, GPT-4, and LLM-assisted spreadsheet productivity
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+            {"Introduction to AI in Excel: Microsoft Copilot, GPT-4, and LLM-assisted spreadsheet productivity"}
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Master the rigorous implementation and practical execution of <strong>Introduction to AI in Excel: Microsoft Copilot, GPT-4, and LLM-assisted spreadsheet productivity</strong> in modern Microsoft Excel workflows.
+            {"Understanding Generative AI and Large Language Model (LLM) integration in Microsoft Excel: Microsoft 365 Copilot architecture, GPT-4 reasoning, cognitive formula generation, and spreadsheet productivity multipliers"}. Master Microsoft Copilot, prompt engineering frameworks, advanced formula generation, LLM REST API connectors, custom AI UDFs, and ethical governance.
           </p>
 
-          <div className="mt-8 pt-8 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
+          <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
             <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-emerald-400 text-base">✓</span>
+              <span className="text-sky-400 text-base">✓</span>
               <span><strong>Subject Code:</strong> EXCEL-PRO-901</span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-sky-400 text-base">✓</span>
-              <span><strong>Lab Focus:</strong> Enterprise spreadsheet modeling &amp; data integrity</span>
+              <span className="text-emerald-400 text-base">✓</span>
+              <span><strong>Module:</strong> Using AI with Excel for Productivity</span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-teal-400 text-base">✓</span>
+              <span className="text-indigo-400 text-base">✓</span>
               <span><strong>Accreditation:</strong> Coder &amp; AccoTax Centre of Excellence</span>
             </div>
           </div>
@@ -99,22 +100,54 @@ export default function Topic0() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[1] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all duration-300 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-emerald-400">⚡</span> Formula Anatomy &amp; Execution Specification
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">⚡</span>
+              AI Prompt Standard &amp; Operation Anatomy
             </h2>
-            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-800">
-              Syntax Specification
+            <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
+              AI Architecture
             </span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-950/90 border border-slate-800/80 font-mono text-xs sm:text-sm text-cyan-300 overflow-x-auto shadow-inner leading-relaxed space-y-2">
-            <div>
-              <span className="text-slate-500">// Core Practical Execution Pattern</span>
-              <br />
-              <span className="text-emerald-300 font-bold">=PROPER(TRIM(A2)) /* Standard Industrial Implementation */</span>
+          <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
+            {"AI in Excel Pipeline: Natural Language Prompt -> LLM Cognitive Parser -> Formula / Table / Chart Generation -> Excel Grid Insertion"}
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm text-slate-300 border-collapse">
+              <thead>
+                <tr className="border-b border-slate-800 text-slate-400 font-semibold uppercase tracking-wider">
+                  <th className="py-3 px-4">Component / Prompt Element</th>
+                  <th className="py-3 px-4">Role / Scope</th>
+                  <th className="py-3 px-4">Requirement</th>
+                  <th className="py-3 px-4">Operational Description</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/50 font-mono">
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Cognitive Intent / Prompt</td>
+                  <td className="py-3 px-4 text-teal-400">Natural Language Request</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Required</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Precise natural language instruction declaring role, schema anchors, mathematical goal, and constraints.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Synthesized Excel Output</td>
+                  <td className="py-3 px-4 text-teal-400">Execution Layer</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Contextual</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Generated LET formula, dynamic array, pivot table, REST API call, or sentiment classification column.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="p-4 rounded-xl bg-sky-950/40 border border-sky-800/60 flex items-start gap-3">
+            <span className="text-sky-400 text-lg">💡</span>
+            <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <strong className="text-white">Core Principle: </strong>
+              AI does not replace human domain expertise—it amplifies spreadsheet problem solvers, turning multi-hour manual data tasks into 5-second conversational prompts.
             </div>
           </div>
         </section>
@@ -124,35 +157,35 @@ export default function Topic0() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-teal-400">🔬</span> Conceptual Architecture &amp; Data Pipeline
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">🔬</span>
+              Cognitive Reasoning &amp; AI Spreadsheet Engine Mechanics
             </h2>
-            <span className="text-xs font-mono text-teal-300 bg-teal-950/60 px-3 py-1 rounded-lg border border-teal-800">
-              Core Mechanics
+            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-800">
+              Under-The-Hood Architecture
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-300">
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 space-y-3">
-              <h3 className="font-bold text-emerald-300 text-base flex items-center gap-2">
-                <span>1.</span> Deterministic Functional Calculation
-              </h3>
-              <p className="leading-relaxed text-xs sm:text-sm text-slate-300">
-                Functional spreadsheet modeling ensures repeatable, error-free calculations across thousands of monthly business ledger transactions.
-              </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            
+            <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. The Semantic Grounding Layer"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Microsoft Copilot grounds natural language prompts against the active workbook's structured tables, schemas, and Microsoft Graph enterprise context."}</p>
             </div>
-
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 space-y-3">
-              <h3 className="font-bold text-sky-300 text-base flex items-center gap-2">
-                <span>2.</span> Relational Data Schema Hygiene
-              </h3>
-              <p className="leading-relaxed text-xs sm:text-sm text-slate-300">
-                Establishing strict schema typing and boundary checks eliminates runtime calculation failures and audit discrepancies.
-              </p>
+            
+            <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Cognitive Formula Synthesis"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Translates high-level business queries ('Calculate the rolling 3-month average for products with margin > 20%') directly into validated Excel formulas."}</p>
             </div>
+            
+            <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Autonomous Data Exploration"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Scans tabular datasets to discover hidden correlations, distribution skews, and executive insights automatically without manual pivot tables."}</p>
+            </div>
+            
           </div>
         </section>
 
@@ -161,35 +194,63 @@ export default function Topic0() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-emerald-400">📐</span> Execution Dataflow Architecture
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
+              Visual Dataflow: {"AI in Excel Architecture: User Natural Language Prompt -> Microsoft Copilot Semantic Brain -> Grounding Layer -> Excel Grid Automation"}
             </h2>
-            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-800">
-              Dataflow Map
+            <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
+              AI Pipeline
             </span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-950/90 border border-slate-800/80 flex flex-col items-center justify-center overflow-x-auto shadow-inner">
-            <svg
-              viewBox="0 0 800 200"
-              className="w-full max-w-3xl h-auto text-slate-200 select-none font-sans"
-            >
-              <rect x="40" y="70" width="200" height="60" rx="8" fill="#1e293b" stroke="#475569" strokeWidth="1.5" />
-              <text x="140" y="105" textAnchor="middle" fill="#94a3b8" fontSize="12" fontWeight="bold">Raw Input Data</text>
+          <div className="p-4 rounded-xl bg-slate-950/90 border border-slate-800/80 flex flex-col items-center justify-center overflow-x-auto shadow-inner">
+            <svg viewBox="0 0 820 220" className="w-full max-w-4xl h-auto text-slate-200 select-none font-sans">
+              <defs>
+                <linearGradient id="gradFlowMod20_0" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#0369a1" stopOpacity="0.8" />
+                </linearGradient>
+                <marker id="arrowMod20_0" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+                </marker>
+              </defs>
 
-              <line x1="240" y1="100" x2="310" y2="100" stroke="#059669" strokeWidth="2" />
+              {/* Node 1: User Natural Language Prompt */}
+              <g transform="translate(30, 45)">
+                <rect width="210" height="130" rx="12" fill="#0f172a" stroke="#334155" strokeWidth="2" />
+                <rect x="12" y="12" width="186" height="26" rx="6" fill="#1e293b" />
+                <text x="105" y="30" textAnchor="middle" fill="#94a3b8" fontSize="11" fontWeight="bold">Natural Language Prompt</text>
+                <text x="105" y="75" textAnchor="middle" fill="#38bdf8" fontSize="14" fontFamily="monospace" fontWeight="bold">Copilot / AI Prompt</text>
+                <text x="105" y="100" textAnchor="middle" fill="#64748b" fontSize="10">Schema Anchored Context</text>
+                <text x="105" y="118" textAnchor="middle" fill="#64748b" fontSize="10">Business Intent Description</text>
+              </g>
 
-              <rect x="310" y="60" width="240" height="80" rx="10" fill="#065f46" stroke="#10b981" strokeWidth="2" />
-              <text x="430" y="95" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">Calculation Engine</text>
-              <text x="430" y="115" textAnchor="middle" fill="#a7f3d0" fontSize="11" fontFamily="monospace">Introduction to AI in Ex</text>
+              <path d="M 245 110 L 305 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod20_0)" fill="none" />
 
-              <line x1="550" y1="100" x2="620" y2="100" stroke="#059669" strokeWidth="2" />
+              {/* Node 2: Copilot / LLM Reasoning Engine */}
+              <g transform="translate(315, 30)">
+                <rect width="250" height="160" rx="14" fill="#0c4a6e" stroke="#0284c7" strokeWidth="2" />
+                <rect x="14" y="14" width="222" height="28" rx="6" fill="#0369a1" />
+                <text x="125" y="33" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">Copilot / LLM Cognitive Engine</text>
+                <text x="125" y="75" textAnchor="middle" fill="#7dd3fc" fontSize="13" fontFamily="monospace" fontWeight="bold">{"Generative AI & Spreadsheets"}</text>
+                <text x="125" y="100" textAnchor="middle" fill="#bae6fd" fontSize="10">Microsoft Graph &amp; Schema Grounding</text>
+                <text x="125" y="120" textAnchor="middle" fill="#bae6fd" fontSize="10">Zero Data Retention Security</text>
+                <text x="125" y="140" textAnchor="middle" fill="#38bdf8" fontSize="9" fontStyle="italic">GPT-4 / Claude / Copilot Core</text>
+              </g>
 
-              <rect x="620" y="70" width="140" height="60" rx="8" fill="#0284c7" stroke="#38bdf8" strokeWidth="1.5" />
-              <text x="690" y="105" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">Verified Output</text>
+              <path d="M 570 110 L 630 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod20_0)" fill="none" />
+
+              {/* Node 3: Synthesized Excel Output */}
+              <g transform="translate(640, 45)">
+                <rect width="150" height="130" rx="12" fill="#064e3b" stroke="#059669" strokeWidth="2" />
+                <rect x="10" y="12" width="130" height="26" rx="6" fill="#047857" />
+                <text x="75" y="30" textAnchor="middle" fill="#ffffff" fontSize="11" fontWeight="bold">Excel Output</text>
+                <text x="75" y="75" textAnchor="middle" fill="#6ee7b7" fontSize="14" fontFamily="monospace" fontWeight="bold">Formula / Chart</text>
+                <text x="75" y="105" textAnchor="middle" fill="#a7f3d0" fontSize="10">Audit &amp; Verify</text>
+              </g>
             </svg>
           </div>
         </section>
@@ -199,15 +260,16 @@ export default function Topic0() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[4] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
             <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-                <span className="text-emerald-400">📥</span> Interactive Spreadsheet &amp; Practice Workbook
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">📥</span>
+                Interactive Spreadsheet &amp; Practice Workbook
               </h2>
               <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                Explore the dataset below or download the workbook to practice in Microsoft Excel.
+                Explore the dataset below live in the browser or download the full module workbook to practice in Microsoft Excel.
               </p>
             </div>
             <button
@@ -218,14 +280,14 @@ export default function Topic0() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
-              <span>Download Practice Workbook (.xlsx)</span>
+              <span>Download Workbook (.xlsx)</span>
             </button>
           </div>
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic0_Introduction_to_AI"
-            title="Introduction to AI in Excel: Microsoft Copilot, GPT-4, and LLM-assisted spreadsheet productivity - Practice Ledger"
+            title={"Introduction to AI in Excel: Microsoft Copilot, GPT-4, and LLM-assisted spreadsheet productivity - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
           />
@@ -236,69 +298,56 @@ export default function Topic0() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[5] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-amber-400">🏢</span> Real-World Corporate Implementation Scenarios
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
+              Real-World Corporate Implementation Scenarios
             </h2>
             <span className="text-xs font-mono text-amber-300 bg-amber-950/60 px-3 py-1 rounded-lg border border-amber-800">
               Case Studies
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-emerald-500/40 transition-all duration-300 space-y-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            
+            <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">Scenario 1 · Enterprise Operations</span>
-                <span className="text-xs font-mono text-slate-400">Barrackpore HQ</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Chief Strategy Officer"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">
-                Swadeep Banerjee: Automated Contract Processing
-              </h3>
-              <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
-                Senior Lead <strong>Swadeep Banerjee</strong> applies advanced formula modeling across regional contract ledgers, eliminating data errors.
-              </p>
+              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: C-Suite AI-Driven Market Analysis"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Uses Copilot in Excel to analyze 10 years of corporate performance data, identifying top-3 margin drivers across regional subsidiaries in 5 seconds."}</p>
             </div>
-
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
+            
+            <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-sky-400">Scenario 2 · Financial Audit</span>
-                <span className="text-xs font-mono text-slate-400">Shyamnagar Plant</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Corporate Tax Auditor"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">
-                Tuhina Mukherjee: Invoicing &amp; Compliance Audit
-              </h3>
-              <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
-                Audit Analyst <strong>Tuhina Mukherjee</strong> implements automated validation rules to ensure 100% compliance across billing streams.
-              </p>
+              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: AI-Assisted Tax Anomaly Discovery"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Prompts Copilot to detect unusual vendor invoice rounding discrepancies and classify HSN rate variances."}</p>
             </div>
-
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-teal-500/40 transition-all duration-300 space-y-3">
+            
+            <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-teal-400">Scenario 3 · Logistics Optimization</span>
-                <span className="text-xs font-mono text-slate-400">Ichapur Heavy Engg</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Plant Operations Superintendent"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">
-                Abhronila Das: Inventory &amp; Dispatch Tracking
-              </h3>
-              <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
-                Inventory Specialist <strong>Abhronila Das</strong> optimizes component dispatch schedules using dynamic calculation formulas.
-              </p>
+              <h3 className="font-bold text-white text-base">{"Abhronila Das: Natural Language Factory Yield Insights"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Asks Copilot: 'Which machine shift experienced the highest scrap rate during high humidity days?' and receives instant pivot tables."}</p>
             </div>
-
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-purple-500/40 transition-all duration-300 space-y-3">
+            
+            <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-purple-400">Scenario 4 · Service Level Tracking</span>
-                <span className="text-xs font-mono text-slate-400">Naihati Logistics</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Supply Chain Financial Director"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">
-                Debangshu Roy: Turnaround Time Optimization
-              </h3>
-              <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
-                Logistics Lead <strong>Debangshu Roy</strong> tracks operational turnaround times to maintain peak delivery efficiency.
-              </p>
+              <h3 className="font-bold text-white text-base">{"Debangshu Roy: AI Route Profitability Optimization"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Generates multi-variable freight margin formulas using natural language prompt workflows."}</p>
             </div>
+            
           </div>
         </section>
 
@@ -307,45 +356,56 @@ export default function Topic0() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[6] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-sky-400">🛠️</span> Step-by-Step Implementation Guide
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">🛠️</span>
+              Step-by-Step Implementation &amp; Execution Guide
             </h2>
             <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
-              Lab Guide
+              Execution Protocol
             </span>
           </div>
 
           <div className="space-y-4 text-xs sm:text-sm">
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <h3 className="font-bold text-emerald-300 text-sm sm:text-base flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-300 flex items-center justify-center text-xs">1</span>
-                Step 1: Sanitize Inputs &amp; Validate Data Schema
-              </h3>
+            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-emerald-300 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-300 flex items-center justify-center text-xs">1</span>
+                Step 1: Format Dataset as Structured Table (Ctrl + T)
+              </div>
               <p className="text-slate-300 leading-relaxed">
-                Confirm all input parameters are typed properly and eliminate blank or inconsistent rows.
+                Highlight dataset and press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Ctrl + T</kbd> to enable AI schema grounding.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <h3 className="font-bold text-sky-300 text-sm sm:text-base flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-sky-950 border border-sky-700 text-sky-300 flex items-center justify-center text-xs">2</span>
-                Step 2: Construct &amp; Apply Formula Engine
-              </h3>
+            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-sky-300 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-sky-950 border border-sky-700 text-sky-300 flex items-center justify-center text-xs">2</span>
+                Step 2: Construct Structured Natural Language Prompt
+              </div>
               <p className="text-slate-300 leading-relaxed">
-                Enter the structured formula in the calculation column to transform input parameters dynamically.
+                Formulate prompt with bracketed columns: <code className="text-cyan-300 font-mono font-bold">{"AI in Excel Pipeline: Natural Language Prompt -> LLM Cognitive Parser -> Formula / Table / Chart Generation -> Excel Grid Insertion"}</code>.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <h3 className="font-bold text-teal-300 text-sm sm:text-base flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-teal-950 border border-teal-700 text-teal-300 flex items-center justify-center text-xs">3</span>
-                Step 3: Audit &amp; Validate Results
-              </h3>
+            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-teal-300 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-teal-950 border border-teal-700 text-teal-300 flex items-center justify-center text-xs">3</span>
+                Step 3: Preview Ghost Column / Chart Output
+              </div>
               <p className="text-slate-300 leading-relaxed">
-                Validate outputs against edge cases and configure conditional formatting rules to highlight anomalies.
+                Inspect AI generated preview card before clicking <strong>Insert Column</strong> or <strong>Add to Grid</strong>.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-indigo-300 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-indigo-950 border border-indigo-700 text-indigo-300 flex items-center justify-center text-xs">4</span>
+                Step 4: Audit &amp; Verify Calculation Logic (Alt + M + V)
+              </div>
+              <p className="text-slate-300 leading-relaxed">
+                Step through generated formulas with <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Alt + M + V</kbd> to verify mathematical accuracy.
               </p>
             </div>
           </div>
@@ -356,14 +416,15 @@ export default function Topic0() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[7] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-rose-400">⚠️</span> Common Pitfalls &amp; Diagnostic Fixes
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-500/20 text-rose-400 text-base font-mono">⚠️</span>
+              Common Pitfalls &amp; Troubleshooting Matrix
             </h2>
             <span className="text-xs font-mono text-rose-300 bg-rose-950/60 px-3 py-1 rounded-lg border border-rose-800">
-              Troubleshooting Matrix
+              Diagnostic Fixes
             </span>
           </div>
 
@@ -371,84 +432,128 @@ export default function Topic0() {
             <table className="w-full text-left text-xs sm:text-sm border-collapse">
               <thead>
                 <tr className="border-b border-slate-800 text-slate-400 font-semibold bg-slate-950/50">
-                  <th className="py-3 px-4">Problem / Error</th>
+                  <th className="py-3 px-4">Problem / Error Signature</th>
                   <th className="py-3 px-4">Root Cause</th>
-                  <th className="py-3 px-4">Diagnostic Fix</th>
+                  <th className="py-3 px-4">Diagnostic Fix &amp; Prevention</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
-                <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Calculation Error</td>
-                  <td className="py-3 px-4">Invalid data types or unhandled blank boundary cells.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Validate data types and wrap in IFERROR.</td>
+                
+                <tr key="0" className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Using Copilot on Flat Unformatted Cell Ranges (Fails)"}</td>
+                  <td className="py-3 px-4">{"Microsoft Copilot in Excel requires data to be formatted as an official structured Excel Table (`Ctrl + T`)."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Always convert flat data to an official Excel Table before launching Copilot."}</td>
                 </tr>
+                
+                <tr key="1" className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Blindly Trusting AI Calculations Without Verification (Hallucination)"}</td>
+                  <td className="py-3 px-4">{"LLMs can hallucinate non-existent formulas or misinterpret edge-case business logic."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Always inspect and audit the underlying formula generated by AI before signing off."}</td>
+                </tr>
+                
+                <tr key="2" className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Vague / Ambiguous Prompts"}</td>
+                  <td className="py-3 px-4">{"Prompting 'Fix my data' produces generic or incorrect transformations."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use precise prompt engineering: declare inputs, operations, constraints, and expected output formats."}</td>
+                </tr>
+                
               </tbody>
             </table>
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 9: PRO TIPS & HIGH-SPEED SHORTCUTS
+            SECTION 9: PRO TIPS & PRODUCTIVITY SHORTCUTS
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[8] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-emerald-400">💡</span> Pro Tips &amp; Keyboard Accelerators
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 text-base font-mono">💡</span>
+              Pro Tips &amp; High-Speed Accelerators
             </h2>
-            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-800">
-              Productivity Hacks
+            <span className="text-xs font-mono text-purple-300 bg-purple-950/60 px-3 py-1 rounded-lg border border-purple-800">
+              Productivity
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-emerald-300 flex items-center gap-2">
-                <span>⚡</span> Tip 1: Lock Coordinates via F4
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+            
+            <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+              <div className="font-bold text-purple-300 flex items-center gap-2">
+                <span>⚡</span> {"Convert to Table First"}
               </div>
-              <p className="text-slate-300 leading-relaxed">
-                Always press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs">F4</kbd> when referencing fixed parameters to prevent floating reference errors.
-              </p>
+              <p className="text-slate-300 leading-relaxed">{"Enables Copilot to understand schema and column names."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Ctrl + T (Mandatory for Copilot)"}</kbd>
             </div>
-
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-sky-300 flex items-center gap-2">
-                <span>⚡</span> Tip 2: Evaluate Formulas via F9
+            
+            <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+              <div className="font-bold text-purple-300 flex items-center gap-2">
+                <span>⚡</span> {"Launch Copilot Pane"}
               </div>
-              <p className="text-slate-300 leading-relaxed">
-                Highlight formula fragments in the formula bar and press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs">F9</kbd> to inspect evaluated results.
-              </p>
+              <p className="text-slate-300 leading-relaxed">{"Opens the interactive AI chat sidebar."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Home &gt; Copilot (or ribbon button)"}</kbd>
             </div>
+            
+            <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+              <div className="font-bold text-purple-300 flex items-center gap-2">
+                <span>⚡</span> {"Audit Generated Formulas"}
+              </div>
+              <p className="text-slate-300 leading-relaxed">{"Inspects underlying logic before adopting."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Click 'Insert Column' & check formula bar"}</kbd>
+            </div>
+            
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 10: SOCRATIC ANALYTICAL HINTS ("THINK ABOUT...")
+            SECTION 10: SOCRATIC HINTS ("THINK ABOUT...")
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[9] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-teal-400">🤔</span> Socratic Analytical Hints ("Think About...")
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">🤔</span>
+              Socratic Analytical Hints ("Think About...")
             </h2>
             <span className="text-xs font-mono text-teal-300 bg-teal-950/60 px-3 py-1 rounded-lg border border-teal-800">
               Critical Thinking
             </span>
           </div>
 
-          <div className="space-y-4 text-xs sm:text-sm text-slate-300">
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
+          <div className="space-y-3 text-xs sm:text-sm text-slate-300">
+            
+            <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-emerald-400">💭</span> Question 1: How does automated calculation modeling prevent spreadsheet errors?
+                <span className="text-teal-400">💭</span> Question 1: {"Why MUST your data be formatted as an official Excel Table (`Ctrl + T`) for Microsoft Copilot to analyze it?"}
               </h3>
-              <p className="leading-relaxed">
-                Why does structuring calculations with clean, deterministic formulas ensure audit-proof enterprise reporting?
+              <p className="text-slate-400 leading-relaxed">
+                Reflect on generative AI mechanics, prompt engineering structure, and auditing standards.
               </p>
             </div>
+            
+            <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
+              <h3 className="font-bold text-white flex items-center gap-2">
+                <span className="text-teal-400">💭</span> Question 2: {"How does the Semantic Grounding layer prevent LLMs from giving irrelevant generic answers?"}
+              </h3>
+              <p className="text-slate-400 leading-relaxed">
+                Reflect on generative AI mechanics, prompt engineering structure, and auditing standards.
+              </p>
+            </div>
+            
+            <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
+              <h3 className="font-bold text-white flex items-center gap-2">
+                <span className="text-teal-400">💭</span> Question 3: {"Why is human expert verification essential when adopting AI-generated spreadsheet calculations?"}
+              </h3>
+              <p className="text-slate-400 leading-relaxed">
+                Reflect on generative AI mechanics, prompt engineering structure, and auditing standards.
+              </p>
+            </div>
+            
           </div>
         </section>
 
@@ -457,7 +562,7 @@ export default function Topic0() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Topic 0: Introduction to AI in Excel: Microsoft Copilot, GPT-4, and LLM-assisted spreadsheet productivity FAQ"
+            title={"Introduction to AI in Excel: Microsoft Copilot, GPT-4, and LLM-assisted spreadsheet productivity - Frequently Asked Questions"}
             questions={questions}
           />
         </div>
@@ -467,9 +572,7 @@ export default function Topic0() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note={
-              "Mastering this topic is essential for building scalable, high-performance financial and analytical models. Always write clean, self-documenting formulas and maintain strict data validation across your workbooks."
-            }
+            note={"AI in Excel is like having a junior data analyst sitting next to you 24/7. Always format your data as a Table first (`Ctrl + T`), ask clear questions, and ALWAYS check the formula it writes!"}
           />
         </div>
       </div>

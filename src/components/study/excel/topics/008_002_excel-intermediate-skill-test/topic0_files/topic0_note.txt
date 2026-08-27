@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Excel Intermediate Skill Test
-Topic 0: Structured Tables & Advanced Multi-column Filter Challenge
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 0 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Structured Tables & Advanced Multi-column Filter Challenge
+Module: 008_002_excel-intermediate-skill-test
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Structured Table: Ctrl + T | Structured Reference: =SUM(tblSales[Revenue]) | Multi-Column Filter: Slicers + Advanced Filter Criteria
+
+PRIMARY CONCEPT:
+Testing candidate mastery of official Excel Tables: converting ranges (Ctrl + T), structured table referencing (`tbl[Column]`), total row calculations, multi-column filtering, and interactive Slicers
+
+TEACHER'S ADVICE:
+Structured Tables (`Ctrl + T`) are the backbone of modern Excel. Always give your table a name (like `tblSales`), use structured formulas like `=SUM(tblSales[Revenue])`, and add Slicers so your boss can filter with 1 click!
+
+COMMON TRAPS TO AVOID:
+- Using Hardcoded Cell Coordinates ($A$2:$A$100) Instead of Structured Names: Writing legacy formulas that fail to auto-expand when new rows are pasted into the table. -> Fix: Use structured table referencing: `tblSales[Revenue]`.
+- Adding Slicers to Unformatted Standard Ranges: Slicers require official Excel Tables or Pivot Tables to function. -> Fix: Press `Ctrl + T` to convert range to Table first.
+- Duplicate Column Header Names: Excel appending numbers (e.g. `Sales2`) causing formula ambiguity. -> Fix: Ensure every table column has a unique, descriptive header name.
+================================================================================

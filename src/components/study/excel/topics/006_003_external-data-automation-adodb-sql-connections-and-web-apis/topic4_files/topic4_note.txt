@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: External Data Automation: ADODB SQL Connections & Web APIs
-Topic 4: Parameterized SQL queries in VBA to prevent SQL injection and handle dynamic user inputs
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 4 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Parameterized SQL queries in VBA to prevent SQL injection and handle dynamic user inputs
+Module: 006_003_external-data-automation-adodb-sql-connections-and-web-apis
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Parameterized Query: Set cmd = CreateObject("ADODB.Command") | cmd.CommandText = "SELECT * FROM Sales WHERE Region = ? AND Year = ?" | cmd.Parameters.Append cmd.CreateParameter(..., adVarChar, adParamInput, 50, "East")
+
+PRIMARY CONCEPT:
+Defending enterprise databases against SQL Injection attacks using ADODB Parameterized Commands: prepared statements, type-safe parameter binding, and dynamic user inputs
+
+TEACHER'S ADVICE:
+Never concatenate user input directly into SQL strings! If a user types `' OR '1'='1`, your macro could expose your entire database. Use `ADODB.Command` with `?` placeholders for bulletproof enterprise security.
+
+COMMON TRAPS TO AVOID:
+- Concatenating User Input Directly into SQL (Fatal Security Vulnerability): Writing `sql = "SELECT * FROM Users WHERE User='" & txtUser.Text & "'"` leaves systems 100% exposed to catastrophic SQL injection data deletion. -> Fix: Always use `ADODB.Command` with `?` placeholders and parameters.
+- Parameter Data Type Mismatch (adInteger vs adVarChar): Passing string text into an integer parameter causes ADO to reject the execution. -> Fix: Match ADO parameter data types (`adVarChar`, `adInteger`, `adDate`, `adDouble`) to database column schema.
+- Missing Parameter Size on Variable Strings: Omitting the size parameter on `adVarChar` throws runtime error. -> Fix: Specify maximum string length: `cmd.CreateParameter(..., adVarChar, adParamInput, 100, strVal)`.
+================================================================================

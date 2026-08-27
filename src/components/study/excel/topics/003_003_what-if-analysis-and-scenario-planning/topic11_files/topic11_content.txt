@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: What-If Analysis and Scenario Planning
 Topic 11: Solver Sensitivity and Answer reports for management decision review
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Solver Sensitivity and Answer reports for management decision review is an essential discipline in corporate decision modeling, capital allocation, and risk management.
+It provides the core protocols required to stress-test financial projections, solve backwards for target goals, and mathematically optimize resource utilization.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Solver Results Dialog: Reports: Answer Report | Sensitivity Report (Shadow Prices / Allowable Increase) | Limits Report
+
+3. CORE TECHNICAL MECHANICS
+1. Answer Report (Executive Status):
+   Documents original vs final values for Objective and Variables, and classifies each constraint as 'Binding' (Zero Slack) or 'Not Binding' (Surplus Slack).
+
+2. Shadow Price (Dual Value):
+   The marginal increase in Objective Profit gained by increasing a binding resource constraint by ONE additional unit (e.g. Shadow Price of ₹450/hr on Machine Hours).
+
+3. Allowable Increase / Decrease Intervals:
+   The sensitivity range over which the calculated Shadow Price remains valid without altering the optimal basis.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Operating Officer, Barrackpore HQ):
+  Overtime Labor Premium Justification - Uses Solver Sensitivity Report to prove to the Board that paying ₹600/hr for overtime technician hours is profitable because the technician Shadow Price is ₹1,250/hr.
+• Tuhina Mukherjee (Procurement Cost Auditor, Shyamnagar Plant):
+  Raw Material Premium Bidding Analysis - Evaluates maximum allowable spot-market premium for scarce aluminum billets based on Solver Shadow Prices.
+• Abhronila Das (Director of Production, Ichapur Works):
+  Factory Bottleneck Machine Identification - Analyzes Binding Constraints in Solver Answer Report to prioritize which production machinery requires capital expansion.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Warehouse Storage Capacity Value - Determines the marginal economic value of leasing 1,000 sq ft additional warehouse storage.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Sensitivity Report Disabled on Integer Models:
+  Root Cause: Simplex LP cannot generate Sensitivity Reports (Shadow Prices) if any variable has an `int` or `bin` constraint.
+  Diagnostic Fix: Solve the linear relaxation (remove integer constraints) to inspect shadow prices.
+• Applying Shadow Price Beyond Allowable Increase:
+  Root Cause: Assuming you can buy 10,000 extra machine hours at the same shadow price when Allowable Increase is only 120 hours.
+  Diagnostic Fix: Always verify that requested resource expansions fall within the 'Allowable Increase' window.
+• Misinterpreting Reduced Cost:
+  Root Cause: Thinking Reduced Cost is an accounting expense; it actually represents how much the profit coefficient of an unproduced item must improve before it becomes profitable to manufacture.
+  Diagnostic Fix: Use Reduced Cost to evaluate product redesign pricing targets.
+
+6. PRO TIPS & SHORTCUTS
+• Generate Reports (Select Answer & Sensitivity in Solver Results dialog): Creates dedicated audit report worksheets automatically.
+• Shadow Price Rule (Marginal Value of 1 extra unit of resource): Tells management the exact maximum price to pay for overtime or extra materials.
+• Binding = Bottleneck (Slack = 0): Identifies the exact operational constraints capping company profits.
+================================================================================

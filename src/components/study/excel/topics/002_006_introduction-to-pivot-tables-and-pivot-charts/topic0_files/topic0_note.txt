@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Introduction to Pivot Tables and Pivot Charts
-Topic 0: Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 0 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization
+Module: 002_006_introduction-to-pivot-tables-and-pivot-charts
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid
+
+PRIMARY CONCEPT:
+Understanding the PivotTable in-memory cache architecture, separating dimensional categorical attributes (Rows/Columns) from numeric quantifiable measures (Values)
+
+TEACHER'S ADVICE:
+The Pivot Cache is Excel's in-memory analytical database. Understand that PivotTables summarize data from this cache, which is why clicking 'Refresh' is essential after updating records.
+
+COMMON TRAPS TO AVOID:
+- Pivot Cache Memory Bloat: Creating separate PivotTables from raw ranges rather than sharing a single Pivot Cache inflates workbook file size. -> Fix: Create subsequent PivotTables from the existing PivotTable to share a unified Pivot Cache.
+- Treating Pivot Table as Live Formula: Expecting PivotTables to update automatically when source cells change (unlike formulas, PivotTables require a Refresh). -> Fix: Right-click > Refresh (Alt + F5) or enable 'Refresh data when opening the file'.
+- Missing Grouping on Mixed Data Types: Mixing text strings in date columns prevents PivotTable date grouping features. -> Fix: Ensure source columns contain 100% pure serial dates without text entries.
+================================================================================

@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Text, Date and Time Functions
-Topic 3: Number-to-text formatting with the TEXT function (custom number formats, currency, dates)
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 3 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Number-to-text formatting with the TEXT function (custom number formats, currency, dates)
+Module: 002_002_text-date-and-time-functions
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+=TEXT(value, format_text)
+
+PRIMARY CONCEPT:
+Converting raw numbers, financial metrics, and serial dates into formatted string literals for dynamic reporting sentences
+
+TEACHER'S ADVICE:
+Whenever you concatenate a number or date with text using &, Excel strips all cell formatting and exposes raw floats. Always wrap your numbers in TEXT() to keep them beautiful.
+
+COMMON TRAPS TO AVOID:
+- Lost Numerical Calculation Capability: Applying TEXT() turns numbers into text strings; subsequent =SUM() on that column returns 0. -> Fix: Use Custom Number Formatting (Ctrl+1) for grid cells; reserve TEXT() only for text concatenation.
+- Unquoted Format Mask Syntax Error: Omitting double quotes around the format string (e.g. =TEXT(A2, 0.00)) returns #NAME? or syntax error. -> Fix: Always wrap format masks in double quotes: =TEXT(A2, "0.00").
+- Language/Locale Mask Incompatibility: Using localized tokens (e.g. 'jjjj' in German) fails in English Excel installations. -> Fix: Use universal English tokens (yyyy, mm, dd) in standardized corporate templates.
+================================================================================

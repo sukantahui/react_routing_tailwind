@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Python in Excel: Data Science & Machine Learning
 Topic 13: Assessment: Advanced Python in Excel Data Science Lab
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Assessment: Advanced Python in Excel Data Science Lab is an essential discipline in modern spreadsheet data science, applied machine learning, and advanced business analytics.
+It provides the core protocols required to run Python analytics natively inside Excel, manipulate pandas DataFrames, and deploy predictive AI models.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Python in Excel Data Science Lab Competency Assessment Deck
+
+3. CORE TECHNICAL MECHANICS
+1. Multi-Disciplinary Data Science Synthesis:
+   Evaluates candidate proficiency across cloud container mechanics, pandas data wrangling, statistical hypothesis testing, multiple regression, and machine learning.
+
+2. Production Rigor & Hygiene:
+   Enforces enterprise production standards: zero data leakage, proper missing value imputation, robust type handling, and publication-ready charting.
+
+3. Timed Real-World Business Challenges:
+   Tests analytical problem-solving speed under simulated corporate C-suite reporting deadlines.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Lead Academic Assessor, Barrackpore HQ):
+  Enterprise Python Data Science Certification Defense - Evaluates candidates on constructing end-to-end econometric models, A/B hypothesis tests, and machine learning pipelines in Excel.
+• Tuhina Mukherjee (Corporate Tax Trainer, Shyamnagar Plant):
+  Statistical Inference & Outlier Lab Assessment - Assesses student submissions on IQR outlier detection, ANOVA testing, and tax audit data cleansing.
+• Abhronila Das (Manufacturing Systems Evaluator, Ichapur Works):
+  Time-Series & Telemetry Modeling Defense - Evaluates time-series rolling averages, seasonal trend decomposition, and FFT signal processing.
+• Debangshu Roy (Supply Chain Analytics Assessor, Naihati Logistics):
+  Machine Learning & Clustering Capstone Defense - Tests candidate mastery of K-Means customer segmentation and Random Forest classification.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Breaking Top-to-Bottom Execution Order:
+  Root Cause: Placing variable definitions below consuming formula cells.
+  Diagnostic Fix: Maintain strict upper-left to bottom-right cell hierarchy.
+• Missing headers=True in xl() Calls:
+  Root Cause: Corrupting column names into data rows.
+  Diagnostic Fix: Always pass `headers=True` on tabular datasets.
+• Calling plt.show() in Cloud Cells:
+  Root Cause: Triggering container exceptions.
+  Diagnostic Fix: Return `fig` on the last line of visualization formulas.
+
+6. PRO TIPS & SHORTCUTS
+• Universal Python Formula Pattern (Import -> Ingest xl() -> Transform -> Return): The standard 4-step template for all Python cells.
+• Keyboard Fluency (Ctrl + Alt + Shift + P (Enter Python) | Ctrl + Alt + Shift + M (Toggle Mode)): 10x faster spreadsheet development.
+• End-to-End Mastery (Excel Grid + Python Engine = Superpower): The future of enterprise financial analytics.
+================================================================================

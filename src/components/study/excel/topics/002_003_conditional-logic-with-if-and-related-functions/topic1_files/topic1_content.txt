@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Conditional Logic with IF and Related Functions
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Conditional Logic with IF and Related Functions
 Topic 1: Single condition evaluation with the IF function
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Single condition evaluation with the IF function is an essential discipline in modern financial modeling and automated decision support.
+It provides the core formulas required to evaluate complex business rules and multi-tier criteria.
+
+2. SYNTAX & TOKEN STRUCTURE
+Formula Code: =IF(logical_test, [value_if_true], [value_if_false])
+
+3. CORE TECHNICAL MECHANICS
+1. 3-Argument Structure:
+   Argument 1 evaluates a Boolean test; Argument 2 returns the result if TRUE; Argument 3 returns the result if FALSE.
+
+2. Dynamic Mathematical Branching:
+   Branches can contain complex formulas rather than static values (e.g. `=IF(Sales>100000, Sales*0.1, Sales*0.02)`).
+
+3. Omitted False Argument Default:
+   Omitting the 3rd argument causes Excel to return the Boolean primitive `FALSE` when the condition is not met.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Treasury Manager, Barrackpore HQ):
+  Short-Term Cash Balance Borrowing Penalty - Calculates interest charges via =IF(ClosingBalance < 0, ClosingBalance * OverdraftRate, 0) on daily liquidity accounts.
+• Tuhina Mukherjee (Payroll Specialist, Shyamnagar Plant):
+  Statutory PF Employee Eligibility - Applies =IF(BasicSalary <= 15000, BasicSalary * 0.12, 1800) for statutory provident fund contributions.
+• Abhronila Das (Quality Assurance Lead, Ichapur Works):
+  Manufacturing Tolerance Acceptance - Labels batch specimens as =IF(Tolerance <= 0.05, "PASSED", "REJECTED") for ISO compliance.
+• Debangshu Roy (Logistics Billing Manager, Naihati Logistics):
+  Express Freight Surcharge Application - Adds emergency fuel surcharges using =IF(ExpressDelivery="YES", BaseRate * 1.25, BaseRate).
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Returning Literal String "FALSE":
+  Root Cause: Omitting the false argument or typing "FALSE" in quotes creates text strings rather than real Boolean values.
+  Diagnostic Fix: Provide an explicit fallback like "" (blank) or 0.
+• Nested Inversion Logic:
+  Root Cause: Reversing logical tests (e.g. using < instead of >=) can invert output branches and corrupt financial calculations.
+  Diagnostic Fix: Always trace condition truth tables with edge cases.
+• Comparing Number to String:
+  Root Cause: Writing =IF(A2>"100", ...) treats "100" as text, causing unexpected branch execution.
+  Diagnostic Fix: Never quote numbers in logical tests: =IF(A2>100, ...).
+
+6. PRO TIPS & SHORTCUTS
+• Return Clean Blank (=IF(Test, Value, "")): Returns a clean invisible empty string instead of cluttering 0s or FALSE.
+• Conditional Calculation (=IF(A2>0, A2*Rate, 0)): Prevents negative fee calculations in financial ledgers.
+• Evaluate Condition (F9 in Formula Bar): Highlight the logical_test and press F9 to preview TRUE/FALSE instantly.
+================================================================================

@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
-Topic 0: Introduction to Office Scripts: Modern cross-platform automation for Excel on the Web and Desktop
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 0 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Introduction to Office Scripts: Modern cross-platform automation for Excel on the Web and Desktop
+Module: 006_004_modern-office-scripts-typescript-and-power-automate
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Office Scripts Entry Point: function main(workbook: ExcelScript.Workbook) { const sheet = workbook.getActiveWorksheet(); sheet.getRange("A1").setValue("Automated"); }
+
+PRIMARY CONCEPT:
+Understanding Microsoft Office Scripts architecture: modern cloud-native automation for Excel on the Web, Desktop, and Mac using TypeScript, synchronous execution, and Power Automate integration
+
+TEACHER'S ADVICE:
+Welcome to the future of Excel automation: Office Scripts! It uses modern TypeScript, runs in the web browser on ANY device (Windows, Mac, iPad), and connects directly to Microsoft Power Automate in the cloud.
+
+COMMON TRAPS TO AVOID:
+- Expecting VBA Methods (e.g. MsgBox, Application.ScreenUpdating): Office Scripts runs in a sandboxed cloud browser environment where desktop VBA UI popups do not exist. -> Fix: Use `console.log()` for debugging and return status values to Power Automate.
+- Missing Microsoft 365 Commercial / Enterprise License: Office Scripts requires Microsoft 365 Business Standard, E3, or E5 license; not available on personal/family accounts. -> Fix: Ensure your corporate M365 account has Office Scripts enabled by IT tenant admin.
+- Attempting File System Access (C:\ Drive): Cloud scripts cannot access local C:\ drives directly. -> Fix: Store files in OneDrive or SharePoint and access via Power Automate.
+================================================================================

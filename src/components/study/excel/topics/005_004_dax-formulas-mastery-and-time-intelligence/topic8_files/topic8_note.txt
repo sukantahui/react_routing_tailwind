@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
-Topic 8: Time Intelligence setup: Requirements for standard date tables and continuous dates
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 8 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Time Intelligence setup: Requirements for standard date tables and continuous dates
+Module: 005_004_dax-formulas-mastery-and-time-intelligence
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Time Intelligence Prerequisites: 1. Contiguous Dates | 2. Full Years | 3. Mark as Date Table | 4. Link to Fact via 1:*
+
+PRIMARY CONCEPT:
+Understanding the strict structural prerequisites required for DAX Time Intelligence: continuous date spans, leap year handling, and eliminating common calculation traps
+
+TEACHER'S ADVICE:
+The #1 mistake beginners make with Time Intelligence: They pass `Sales[OrderDate]` into TOTALYTD! That will fail. Always pass `Calendar[Date]` from your dedicated, marked Date table. It works 100% of the time.
+
+COMMON TRAPS TO AVOID:
+- Using Fact Table Dates for Time Intelligence: Passing `Fact_Sales[OrderDate]` into `DATESYTD()` returns incorrect results because sales dates have gaps. -> Fix: Always pass the continuous date column from your dedicated Calendar table: `Dim_Calendar[Date]`.
+- DateTime Timestamps in Date Column: Time components (`12/04/2026 15:30:00`) break date equality matching. -> Fix: Convert column data type to pure Date (without time) in Power Query.
+- Calendar Ending Mid-Year: Calendar table ending on today's date causes full-year functions like `SAMEPERIODLASTYEAR()` to fail. -> Fix: Extend calendar to December 31st of the current or future year.
+================================================================================

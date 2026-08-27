@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Financial Functions in Excel (Basic to Professional)
 Topic 17: Assessment: Comprehensive Financial Valuation & Amortization Lab
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Assessment: Comprehensive Financial Valuation & Amortization Lab is a foundational pillar of corporate financial modeling, investment banking, and capital budgeting.
+It equips financial modelers with the exact mathematical tools to value assets, evaluate debt structures, and appraise investments.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Comprehensive Financial Valuation & Amortization Mastery Lab Deck
+
+3. CORE TECHNICAL MECHANICS
+1. End-to-End Financial Synthesis:
+   Evaluates candidate proficiency across loan structuring, capital budgeting appraisal, company valuation, and debt risk management.
+
+2. Institutional Defense & Audit Rigor:
+   Enforces production-grade Excel standards: zero hardcoded constants, flawless balance sheet reconciliations, and dynamic sensitivity tables.
+
+3. Timed Enterprise Case Challenges:
+   Tests speed and precision under strict simulated investment banking interview and corporate treasury modeling conditions.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Lead Academic Assessor, Barrackpore HQ):
+  Enterprise Financial Modeling Certification Evaluation - Evaluates candidates on constructing integrated 3-statement financial models, DCF valuations, and debt amortization schedules.
+• Tuhina Mukherjee (Corporate Valuation Trainer, Shyamnagar Plant):
+  M&A Investment Appraisal Challenge - Assesses student submissions on complex XNPV/XIRR irregular cash flow and sensitivity modeling.
+• Abhronila Das (Capital Projects Evaluator, Ichapur Works):
+  Industrial Plant Capex Defense - Evaluates project finance models and lease-vs-buy capital allocation business cases.
+• Debangshu Roy (Commercial Finance Assessor, Naihati Logistics):
+  Fleet Asset Valuation & Bond Pricing Lab - Tests candidate mastery of bond pricing, modified duration, and debt service coverage models.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Breaking Balance Sheet Linkages:
+  Root Cause: Hardcoding cash balances to force balance sheets to balance destroys model integrity.
+  Diagnostic Fix: Cash must flow strictly from the Cash Flow Statement ending balance.
+• Unbounded Terminal Perpetuity Formulas:
+  Root Cause: Writing terminal value formulas without bounding checks produces nonsensical negative valuations when WACC < g.
+  Diagnostic Fix: Ensure WACC > g and include validation flags.
+• Incomplete Sign Discipline Across Statements:
+  Root Cause: Mixing negative and positive signs inconsistently between Cash Flow and Balance Sheet statements.
+  Diagnostic Fix: Enforce strict accounting sign discipline across all financial statements.
+
+6. PRO TIPS & SHORTCUTS
+• Audit First, Present Second (Verify all reconciliation cells): Never present a model with an active balance sheet mismatch flag.
+• Modular Architecture (Separate Inputs, Calcs, and Outputs): Keep assumptions, calculation schedules, and presentation summaries on dedicated sheets.
+• F9 Formula Stepping (F9 inside Formula Bar): Step through complex nested financial formulas to verify interim calculations.
+================================================================================

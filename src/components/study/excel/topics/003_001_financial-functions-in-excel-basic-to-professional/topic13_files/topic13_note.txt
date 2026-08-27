@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
-Topic 13: Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 13 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value
+Module: 003_001_financial-functions-in-excel-basic-to-professional
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)
+
+PRIMARY CONCEPT:
+Constructing institutional 2D Data Tables to evaluate company valuation sensitivity across varying WACC discount rates (8%-14%) and Terminal Growth rates (1.5%-4.0%)
+
+TEACHER'S ADVICE:
+No investment committee ever accepts a single valuation number. Always present a 2D sensitivity table of WACC vs Terminal Growth. Hide the top-left anchor cell using the custom format `;;;` for a flawless look.
+
+COMMON TRAPS TO AVOID:
+- Reversing Row and Column Input Cells: Selecting WACC as Column Input and Growth Rate as Row Input produces an inverted, nonsensical sensitivity table. -> Fix: Verify: Horizontal top row values match 'Row Input Cell'; Vertical left column values match 'Column Input Cell'.
+- Data Table Automatic Recalculation Lag: Data tables iterate on every keystroke, freezing large financial workbooks. -> Fix: Set Calculation Options to: 'Automatic Except for Data Tables' (Alt + M + X + E).
+- Hardcoding Output Formulas Inside Table: Typing numbers or standard formulas inside the data table range breaks the `=TABLE()` array. -> Fix: Allow Excel to generate the {=TABLE(row, col)} array automatically via What-If Analysis.
+================================================================================

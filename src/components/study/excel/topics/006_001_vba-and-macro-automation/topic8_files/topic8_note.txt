@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: VBA & Macro Automation
-Topic 8: Looping constructs: For...Next, For Each...Next (Looping over sheets, cells, shapes), and Do While/Until
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 8 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Looping constructs: For...Next, For Each...Next (Looping over sheets, cells, shapes), and Do While/Until
+Module: 006_001_vba-and-macro-automation
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Looping Constructs: For i = 1 To lastRow ... Next i | For Each ws In ThisWorkbook.Worksheets ... Next ws | Do While Condition ... Loop
+
+PRIMARY CONCEPT:
+Mastering iteration and looping algorithms in VBA: For...Next counter loops, For Each...Next collection loops (sheets, cells, shapes), Do While/Until, and loop early-exit strategies (Exit For)
+
+TEACHER'S ADVICE:
+Remember this golden rule: If you are DELETING rows, always loop backwards! `For i = lastRow To 2 Step -1`. If you loop forward, deleting a row shifts everything up, and your macro will skip the next row.
+
+COMMON TRAPS TO AVOID:
+- Looping Forward When Deleting Rows (The Row Skipping Bug): Looping `For i = 2 To lastRow` and deleting row 5 shifts row 6 into row 5 position; the next loop evaluates row 6 (skipping the new row 5!). -> Fix: Always loop BACKWARDS when deleting rows: `For i = lastRow To 2 Step -1`.
+- Unbounded Do While Loop Freezing Excel: Writing `Do While x < 10` and forgetting to increment `x = x + 1` creates an infinite calculation loop. -> Fix: Include increment counters and test loops with F8 stepping.
+- Looping Individual Cells on 1-Million Row Grids (Slow): Iterating cell-by-cell `For Each c In Range("A1:A1000000")` is slow because it crosses the COM boundary 1 million times. -> Fix: Read the entire range into a Variant Array in 1 shot, process in RAM, and write back in 1 shot.
+================================================================================

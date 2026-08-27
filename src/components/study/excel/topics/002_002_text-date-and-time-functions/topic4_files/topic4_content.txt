@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Text, Date and Time Functions
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Text, Date and Time Functions
 Topic 4: Date serial numbering in Excel: DATE, DAY, MONTH, YEAR, and TODAY
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Date serial numbering in Excel: DATE, DAY, MONTH, YEAR, and TODAY is an essential discipline in corporate spreadsheet development and ETL workflows.
+It provides the core formulas required to sanitize, manipulate, and calculate text, dates, and times.
+
+2. SYNTAX & TOKEN STRUCTURE
+Formula Code: =DATE(year, month, day) | =DAY(serial_date) | =MONTH(serial_date) | =YEAR(serial_date) | =TODAY()
+
+3. CORE TECHNICAL MECHANICS
+1. The 1900 Date System:
+   Excel stores every date as a sequential integer representing the number of days elapsed since January 1, 1900 (e.g. Jan 1, 2026 = 46023).
+
+2. The DATE() Construction Engine:
+   DATE(yyyy, mm, dd) builds foolproof date serials, automatically handling month overflows (e.g. DATE(2026, 13, 1) = Jan 1, 2027).
+
+3. Dynamic Temporal Clock (TODAY):
+   TODAY() returns the volatile current date integer, recalculating automatically whenever the worksheet refreshes.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Treasury Lead, Barrackpore HQ):
+  Maturity Date Rollover Calculations - Calculates annual bond maturity dates via =DATE(YEAR(A2)+5, MONTH(A2), DAY(A2)) with automatic leap-year resolution.
+• Tuhina Mukherjee (Tax Auditor, Shyamnagar Plant):
+  Financial Year Fiscal Period Tagging - Extracts month and year components (=MONTH(A2), =YEAR(A2)) to classify corporate tax transactions into Q1-Q4 fiscal buckets.
+• Abhronila Das (Maintenance Supervisor, Ichapur Works):
+  Preventive Overhaul Due Dates - Projects 90-day equipment service schedules using =DATE(YEAR(B2), MONTH(B2)+3, DAY(B2)).
+• Debangshu Roy (Fleet Operations, Naihati Logistics):
+  Vehicle Insurance Expiry Alarms - Computes days remaining until policy expiration using =A2 - TODAY() to trigger renewal notices.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Text Date Entry Trap:
+  Root Cause: Entering dates as text strings ('27.08.2026') causes date math and sorting to fail.
+  Diagnostic Fix: Always construct dates using =DATE(year, month, day) or enter valid system date formats.
+• TODAY() Volatility Lag:
+  Root Cause: Overusing TODAY() in 100,000 cells forces continuous worksheet recalculation on every keystroke.
+  Diagnostic Fix: Use static timestamps (Ctrl + ;) where fixed transaction dates are required.
+• The 1900 Leap Year Bug:
+  Root Cause: Excel intentionally treats 1900 as a leap year for legacy Lotus 1-2-3 compatibility.
+  Diagnostic Fix: Avoid calculating historical dates prior to March 1, 1900.
+
+6. PRO TIPS & SHORTCUTS
+• Insert Today's Date (Ctrl + ;): Inserts static unformatted current date timestamp.
+• First Day of Current Month (=DATE(YEAR(A2), MONTH(A2), 1)): Instantly normalizes transactions to month start.
+• Last Day of Month (=DATE(YEAR(A2), MONTH(A2)+1, 0)): Using day 0 returns the exact last day of the target month.
+================================================================================

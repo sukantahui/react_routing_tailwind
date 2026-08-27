@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: VBA & Macro Automation
-Topic 2: Recording macros: Relative vs Absolute recording modes and examining generated code
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 2 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Recording macros: Relative vs Absolute recording modes and examining generated code
+Module: 006_001_vba-and-macro-automation
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Macro Recording: Developer > Record Macro (MacroName, Shortcut, Store in This Workbook) | Toggle: Use Relative References
+
+PRIMARY CONCEPT:
+Mastering the Macro Recorder: understanding Absolute vs Relative reference modes, examining generated code in VBE, and stripping recorded boilerplate bloat
+
+TEACHER'S ADVICE:
+Use the Macro Recorder like a dictionary! If you forget the VBA syntax for autofilter or pivot tables, turn on the recorder, do the action, copy the generated code, and delete the `.Select` statements.
+
+COMMON TRAPS TO AVOID:
+- Using Absolute Mode When Relative Mode is Needed: Recording a row formatting macro in Absolute mode causes it to repeatedly overwrite row 2 instead of moving down the table. -> Fix: Click 'Use Relative References' on Developer tab before recording row-by-row actions.
+- Recording Unnecessary Mouse Clicks & Scrolling: Every mouse scroll and accidental cell click gets recorded as a slow `.Select` line in VBA. -> Fix: Plan keystrokes carefully before recording, and delete extraneous lines in the editor.
+- Naming Macro with Illegal Characters or Spaces: Naming a macro `Monthly Sales Format` throws 'Invalid procedure name'. -> Fix: Use camelCase or underscores: `Monthly_Sales_Format` (no spaces allowed).
+================================================================================

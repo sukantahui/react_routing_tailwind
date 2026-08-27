@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Modern Office Scripts (TypeScript) & Power Automate
 Topic 6: Creating, modifying, and auto-sorting Excel Tables and Pivot Tables via script
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Creating, modifying, and auto-sorting Excel Tables and Pivot Tables via script is an essential discipline in cloud spreadsheet automation, serverless enterprise workflows, and TypeScript-driven business intelligence.
+It provides the core protocols required to author cross-platform scripts, connect Excel to Microsoft Power Automate, and construct 24/7 autonomous cloud pipelines.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Table Automation: const table = ws.addTable("A1:E100", true); table.setName("SalesTable"); table.getSort().apply([{key: 2, ascending: false}]);
+
+3. CORE TECHNICAL MECHANICS
+1. Programmatic Table Conversion (`addTable`):
+   Converts flat cell ranges into structured Excel Tables with built-in banding, filtering, and total row aggregations in 1 line.
+
+2. Multi-Column Sorting Engine:
+   `table.getSort().apply([{key: 0, ascending: true}, {key: 2, ascending: false}])`. Sorts large cloud datasets across multiple columns with zero UI lag.
+
+3. Dynamic Pivot Table Construction:
+   `workbook.addPivotTable(name, source, destination)` builds interactive summary pivot tables on dedicated reporting tabs.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Automated Monthly Sales Table & Auto-Sort - Converts raw monthly branch CSV data into structured `tblMonthlySales`, sorts descending by revenue, and turns on Total Row sum calculations.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Automated Tax Audit Pivot Table Generator - Generates an automated summary Pivot Table grouping purchase ledger records by HSN code and GST tax slab.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  Machine Downtime Pareto Table Creator - Converts daily machine fault logs into structured tables and sorts by total downtime duration.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Fleet Delivery Manifest Table Pipeline - Constructs delivery tables with automated route summaries.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Adding Table Over Existing Table (Name Collision):
+  Root Cause: Calling `addTable()` on a range that already contains an Excel Table throws runtime error.
+  Diagnostic Fix: Check if table exists first, or clear existing tables before adding.
+• 0-Based Column Key Confusion in Sorting:
+  Root Cause: Passing `{key: 1}` when intending to sort by Column A (Column A is `key: 0`).
+  Diagnostic Fix: Remember table column keys are 0-based (`key: 0` = first column).
+• Adding Pivot Table on Occupied Cell Range:
+  Root Cause: Creating a pivot table over existing cells causes collision errors.
+  Diagnostic Fix: Create pivot tables on dedicated clean summary worksheets.
+
+6. PRO TIPS & SHORTCUTS
+• Add Table in 1 Line (const table = ws.addTable("A1:D50", true);): Converts range to official Excel Table.
+• Enable Total Row (table.setShowTotals(true);): Calculates column totals automatically.
+• Multi-Key Sort (table.getSort().apply([{key: 0, ascending: true}]);): Applies sorting across table columns.
+================================================================================

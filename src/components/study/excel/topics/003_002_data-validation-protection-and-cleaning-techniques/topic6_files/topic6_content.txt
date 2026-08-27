@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Data Validation, Protection and Cleaning Techniques
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Data Validation, Protection and Cleaning Techniques
 Topic 6: Step-by-step formula evaluation using Evaluate Formula tool
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Step-by-step formula evaluation using Evaluate Formula tool is an essential discipline in corporate spreadsheet governance, data integrity, and template security.
+It provides the core protocols required to prevent data corruption, audit complex formulas, and encrypt sensitive corporate assets.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Formula Stepping: Formulas > Evaluate Formula (Alt + M + V) -> Step In / Step Out -> Evaluate (Space / Enter)
+
+3. CORE TECHNICAL MECHANICS
+1. Sub-Expression Underline Stepping:
+   Excel underlines the next sub-expression scheduled for evaluation in the formula box. Clicking 'Evaluate' resolves that specific part to its calculated value.
+
+2. Step In & Step Out:
+   Clicking 'Step In' navigates inside referenced precedent cells to inspect their internal formulas; 'Step Out' returns back to the master formula.
+
+3. Pinpointing #VALUE! and #N/A Root Causes:
+   Watch intermediate evaluation steps unfold live to identify exactly which nested function or text coercion triggers a fatal error.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Lead Financial Modeler, Barrackpore HQ):
+  Multi-Tier Tax Formula Bug Diagnosis - Steps through a 5-level nested IF formula with Alt + M + V to discover an unquoted text string triggering a #VALUE! error.
+• Tuhina Mukherjee (Chartered Tax Auditor, Shyamnagar Plant):
+  Complex INDEX-MATCH Lookup Diagnostics - Evaluates intermediate MATCH return vectors to resolve lookup row index mismatches across vendor registers.
+• Abhronila Das (Quality Data Lead, Ichapur Works):
+  Sensor Telemetry Math Verification - Debugs multi-parameter standard deviation variance formulas across industrial batch records.
+• Debangshu Roy (Logistics Analytics Specialist, Naihati Logistics):
+  Cascading Freight Rate Calculation Audit - Steps through dynamic freight tariff formulas to verify conditional fuel surcharge multipliers.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Evaluating Volatile Functions Repeatedly:
+  Root Cause: Stepping through formulas containing volatile functions (TODAY, NOW, RAND) causes values to update dynamically during evaluation.
+  Diagnostic Fix: Be aware that volatile timestamps refresh during evaluation.
+• Stepping into External Unopened Workbooks:
+  Root Cause: Stepping into formula links referencing closed external files causes dialog freezing.
+  Diagnostic Fix: Open all referenced external workbooks prior to launching Evaluate Formula.
+• Rushing Through Evaluation Steps:
+  Root Cause: Rapidly pressing Enter passes the buggy sub-expression without identifying the error source.
+  Diagnostic Fix: Carefully inspect the underlined token before each click.
+
+6. PRO TIPS & SHORTCUTS
+• Evaluate Formula Shortcut (Alt + M + V): Instantly launches the Evaluate Formula diagnostic modal on the active cell.
+• F9 Single Token Debug (Highlight text + Press F9): Evaluates highlighted formula snippet directly inside the formula bar.
+• Cancel F9 Edit (Press Esc (Escape)): Always press Esc after testing with F9 so you do not overwrite dynamic formula code.
+================================================================================

@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Excel Intermediate Skill Test
-Topic 2: Statistical Analysis & Multi-condition Summation Challenge
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 2 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Statistical Analysis & Multi-condition Summation Challenge
+Module: 008_002_excel-intermediate-skill-test
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Multi-Condition Aggregation: =SUMIFS(SumRng, CritRng1, Crit1, CritRng2, Crit2) | =COUNTIFS(...) | =AVERAGEIFS(...) | =MEDIAN(IF(...))
+
+PRIMARY CONCEPT:
+Testing advanced conditional aggregations across multi-criteria datasets: SUMIFS, COUNTIFS, AVERAGEIFS, dynamic wildcard filtering (*, ?), date window filtering, and quartile metrics
+
+TEACHER'S ADVICE:
+Forget about `SUMIF` and always use `SUMIFS`! In `SUMIFS`, the column you want to add up is always the VERY FIRST argument: `=SUMIFS(Revenue, Region, "East", Year, 2026)`. It is much easier to remember.
+
+COMMON TRAPS TO AVOID:
+- Confusing SUMIF vs SUMIFS Argument Order: In `SUMIF`, the sum range is LAST; in `SUMIFS`, the sum range is FIRST! Mixing them causes formula errors. -> Fix: Always use `SUMIFS` (sum range FIRST) even for single-condition queries for consistency.
+- Mismatched Range Dimensions in SUMIFS: Sum range `B2:B100` with criteria range `A2:A150` throws `#VALUE!` error. -> Fix: Ensure all range arguments have identical row and column dimensions.
+- Forgetting Ampersand in Dynamic Comparison Operators: Writing `">=A1"` searches for the literal text '>A1' instead of comparing against cell value. -> Fix: Concatenate operator with cell reference: `">=" & A1`.
+================================================================================

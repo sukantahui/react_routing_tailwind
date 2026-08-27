@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Data Validation, Protection and Cleaning Techniques
-Topic 1: Creating dynamic drop-down lists from named ranges and tables
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 1 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Creating dynamic drop-down lists from named ranges and tables
+Module: 003_002_data-validation-protection-and-cleaning-techniques
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Data Validation List: Source: =DepartmentList | Source: =OFFSET(Ref, 0, 0, COUNTA(Col), 1) | Source: =Table1[Category]
+
+PRIMARY CONCEPT:
+Creating self-expanding, dynamic in-cell drop-down selection menus powered by Excel Tables, Named Ranges, and dynamic array spill references (#)
+
+TEACHER'S ADVICE:
+To use an Excel Table in Data Validation, give it a Name in Name Manager (Ctrl + F3) first! Then use `=YourName` in the validation source box. It is the cleanest trick in Excel.
+
+COMMON TRAPS TO AVOID:
+- Direct Table Syntax Rejection Error: Typing `=DeptTable[Department]` directly into Data Validation Source throws a 'The list source must be a delimited list or a single row/column' error. -> Fix: Define a Named Range (Ctrl + F3) named `DeptList` pointing to `=DeptTable[Department]`, then set Source: `=DeptList`.
+- Blank Cells in List Range Showing in Dropdown: Selecting a whole column ($A:$A) as Source creates a dropdown with 1 million blank rows. -> Fix: Use an Excel Table or dynamic array formula `=SORT(TOCOL(Range, 1))` to strip blank cells.
+- Static Range Left Behind on Table Expansion: Referencing static range `$A$1:$A$10`; newly added 11th item fails to appear in drop-down menus. -> Fix: Convert source list to an official Excel Table (Ctrl + T).
+================================================================================

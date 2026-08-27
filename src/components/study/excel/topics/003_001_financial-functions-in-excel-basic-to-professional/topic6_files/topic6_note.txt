@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
-Topic 6: Internal Rate of Return (IRR) vs Modified Internal Rate of Return (MIRR)
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 6 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Internal Rate of Return (IRR) vs Modified Internal Rate of Return (MIRR)
+Module: 003_001_financial-functions-in-excel-basic-to-professional
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+=IRR(values, [guess]) | =MIRR(values, finance_rate, reinvest_rate)
+
+PRIMARY CONCEPT:
+Evaluating internal project return rates with IRR and resolving the flawed reinvestment rate assumption using Modified Internal Rate of Return (MIRR)
+
+TEACHER'S ADVICE:
+Academic finance textbooks love IRR, but real CFOs rely on MIRR and NPV. Standard IRR assumes you can reinvest interim cash flows at 40%+, which is fantasy. Always verify with MIRR.
+
+COMMON TRAPS TO AVOID:
+- Multiple Sign Changes (Multiple IRRs Problem): If cash flows change sign multiple times (+ to - to +), standard IRR algorithm can fail or return multiple conflicting rates. -> Fix: Use MIRR or XIRR to guarantee a single, mathematically unique return rate.
+- No Negative Initial Outflow (#NUM!): If all numbers in the values range are positive, IRR cannot converge and returns #NUM!. -> Fix: Ensure the initial investment outflow is entered as a negative number (-).
+- Blind Reliance on High IRR: A project with 50% IRR on ₹1 Lakh is often chosen over a project with 25% IRR on ₹100 Crores, destroying absolute firm value. -> Fix: Always prioritize Net Present Value (NPV) in dollars over IRR percentage.
+================================================================================

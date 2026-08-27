@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Conditional Logic with IF and Related Functions
-Topic 0: Boolean fundamentals in Excel: TRUE, FALSE, comparison operators, and ISBLANK/ISNUMBER
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 0 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Boolean fundamentals in Excel: TRUE, FALSE, comparison operators, and ISBLANK/ISNUMBER
+Module: 002_003_conditional-logic-with-if-and-related-functions
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+=A2 > B2 | =ISBLANK(cell) | =ISNUMBER(cell) | =ISTEXT(cell) | =ISLOGICAL(cell)
+
+PRIMARY CONCEPT:
+Understanding Excel's native Boolean data type (TRUE/FALSE), comparison operators (=, <>, <, <=, >, >=), and type interrogation functions (ISBLANK, ISNUMBER, ISTEXT)
+
+TEACHER'S ADVICE:
+Do not write =IF(A1>10, TRUE, FALSE)! Excel naturally evaluates =A1>10 to TRUE or FALSE. Embrace clean Boolean expressions to keep your spreadsheets lean and fast.
+
+COMMON TRAPS TO AVOID:
+- Empty String "" vs True Blank: ISBLANK() returns FALSE for cells containing formula empty strings (""), white spaces, or deleted text. -> Fix: Use `=(A2="")` or `=(LEN(A2)=0)` instead of ISBLANK() to catch formula blank outputs.
+- Text vs Number Comparison Trap: In Excel, text is mathematically considered greater than any number ("10" > 100 evaluates to TRUE). -> Fix: Coerce text numbers to floats using `--A2` before relational comparisons.
+- Unquoted Comparison with Text: Writing =A2=Completed instead of =A2="Completed" triggers a #NAME? error. -> Fix: Always wrap literal string comparisons in double quotation marks.
+================================================================================

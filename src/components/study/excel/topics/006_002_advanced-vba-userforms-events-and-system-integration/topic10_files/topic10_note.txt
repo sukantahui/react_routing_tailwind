@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Advanced VBA: UserForms, Events & System Integration
-Topic 10: Windows API declarations in VBA (64-bit PtrSafe calls, sleep timers, file dialogs)
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 10 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Windows API declarations in VBA (64-bit PtrSafe calls, sleep timers, file dialogs)
+Module: 006_002_advanced-vba-userforms-events-and-system-integration
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+64-Bit Windows API: #If VBA7 Then | Private Declare PtrSafe Function GetTickCount Lib "kernel32" () As LongLong | #Else | Declare Function ... | #EndIf
+
+PRIMARY CONCEPT:
+Harnessing the Windows Win32/Win64 Operating System API from VBA: declaring PtrSafe functions, conditional compilation (#If VBA7), high-resolution microsecond timers (GetTickCount / QueryPerformanceCounter), Sleep timers, and native file pickers
+
+TEACHER'S ADVICE:
+Whenever you use Windows API declarations (like `Sleep` or file dialogs), always include `PtrSafe`: `Declare PtrSafe Sub Sleep Lib "kernel32" (ByVal ms As Long)`. This ensures your code works flawlessly on modern 64-bit Excel.
+
+COMMON TRAPS TO AVOID:
+- Missing PtrSafe on 64-Bit Office (Compile Error): Declaring `Private Declare Function Sleep Lib "kernel32" ...` on 64-bit Office throws 'The code in this project must be updated for use on 64-bit systems'. -> Fix: Add `PtrSafe` keyword: `Private Declare PtrSafe Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)`.
+- Passing Wrong Integer Pointer Types (Fatal Memory Crash): Passing a 32-bit `Long` instead of `LongPtr` to a 64-bit memory address crashes Excel immediately with a blue screen or fatal memory fault. -> Fix: Always use `LongPtr` for memory pointers and window handles (`HWND`).
+- Freezing UI During Long Sleep Delays: Calling `Sleep(10000)` freezes Excel completely for 10 seconds with zero responsiveness to user input. -> Fix: Call `DoEvents` in smaller sleep increments.
+================================================================================

@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Basic Dashboards and Reporting
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Basic Dashboards and Reporting
 Topic 5: Advanced visualization types: Waterfall charts for variance and P&L walk-throughs
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Advanced visualization types: Waterfall charts for variance and P&L walk-throughs is an essential discipline in corporate business intelligence, executive reporting, and visual analytics.
+It provides the core protocols required to transform dense tabular data into intuitive, interactive, single-screen command centers.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Waterfall Chart: Insert > Waterfall | Format Data Point: Set as Total (Clear/Subtotal Pillars) | Connector Lines
+
+3. CORE TECHNICAL MECHANICS
+1. The Floating Bar Variance Engine:
+   Visualizes cumulative positive additions (Green) and negative deductions (Red) suspended between starting and ending baseline pillars.
+
+2. Setting Total Pillars ('Set as Total'):
+   Right-clicking key milestone bars (e.g. Gross Profit, Operating Income, Net Income) and selecting 'Set as Total' anchors them to the horizontal zero baseline.
+
+3. Connecting Flow Lines:
+   Connector lines visually trace the bridge trajectory from one cost component to the next, illustrating exactly where margins were gained or lost.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Financial Officer, Barrackpore HQ):
+  Boardroom Annual EBITDA Bridge Waterfall - Presents the annual P&L walk from Gross Revenue (₹120 Cr) to Net Profit (₹18.5 Cr), illustrating Raw Material Cost, Labor, SG&A, and Tax impacts.
+• Tuhina Mukherjee (Financial Planning Lead, Shyamnagar Plant):
+  Budget vs Actual Revenue Variance Waterfall - Decomposes ₹4.2 Crore budget shortfall into Volume Variance, Price Discounting, and FX Currency Headwinds.
+• Abhronila Das (Plant Operations Controller, Ichapur Works):
+  Manufacturing Cost Overrun Bridge - Illustrates component scrap, overtime labor premiums, and energy tariff spikes bridging planned vs actual factory costs.
+• Debangshu Roy (Logistics Finance Lead, Naihati Logistics):
+  Freight Cost per Ton Variance Waterfall - Decomposes shipping cost increases into fuel price surges, toll tariffs, and empty return miles.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Forgetting to 'Set as Total' on Ending Milestone Bars:
+  Root Cause: Leaving Net Income or Subtotals as floating variance bars causes them to stack on top of expenses rather than anchoring to the baseline.
+  Diagnostic Fix: Right-click the subtotal column > select 'Set as Total'.
+• Inconsistent Sign Input Convention:
+  Root Cause: Entering expense items as positive numbers causes the Waterfall chart to display cost additions as green increases rather than red subtractions.
+  Diagnostic Fix: Enter expenses as negative numbers (-) in the data table.
+• Selecting Unsupported Waterfall Chart Options:
+  Root Cause: Attempting to create a native PivotChart Waterfall (Excel does not support Waterfall charts directly on PivotTables).
+  Diagnostic Fix: Link a standard formula range to the PivotTable output and build the Waterfall chart from that range.
+
+6. PRO TIPS & SHORTCUTS
+• Set as Total Shortcut (Right-click data point > Set as Total): Anchors summary pillars (Gross Margin, Net Income) to the zero baseline.
+• Standard Corporate Colors (Green (Gains), Red (Losses), Navy (Totals)): The universal Wall Street financial presentation palette.
+• Data Label Positioning (Format Data Labels > Outside End): Ensures clear readability of numerical variance figures.
+================================================================================

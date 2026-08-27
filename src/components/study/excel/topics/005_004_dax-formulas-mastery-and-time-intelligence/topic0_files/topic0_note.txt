@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
-Topic 0: Introduction to DAX: Philosophy, Syntax, and Comparison with Excel formulas
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 0 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Introduction to DAX: Philosophy, Syntax, and Comparison with Excel formulas
+Module: 005_004_dax-formulas-mastery-and-time-intelligence
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+DAX Expression Syntax: MeasureName := CALCULATE(Expression, Filter1, Filter2, ...) | Table[Column] vs [MeasureName]
+
+PRIMARY CONCEPT:
+Understanding Data Analysis Expressions (DAX) philosophy: functional programming paradigms, tabular context engines, and distinguishing Excel cell-based formulas from DAX table/column-based expressions
+
+TEACHER'S ADVICE:
+DAX is not Excel formulas! Always remember: Tables and Columns represent your raw data, while Measures represent your business logic. Prefix columns with table names `Sales[Amount]`, and keep measures clean `[TotalSales]`.
+
+COMMON TRAPS TO AVOID:
+- Omitting Table Name in Column References: Writing `SUM([Revenue])` makes it impossible for another developer to know if `[Revenue]` is a raw column or an explicit measure. -> Fix: Always write `SUM(Sales[Revenue])` for columns and `[TotalRevenue]` for measures.
+- Expecting DAX to Support Cell Offsets (A1 + 1): Attempting to reference the 'previous row' by row number. -> Fix: Use Time Intelligence functions (`DATEADD`, `SAMEPERIODLASTYEAR`) or `EARLIER()` / variables to reference previous records.
+- Writing Iterative Calculations in Standard SUM: Trying to write `=SUM(Sales[Qty] * Sales[Price])` in standard SUM (which only accepts a single column). -> Fix: Use the iterator function `=SUMX(Sales, Sales[Qty] * Sales[Price])`.
+================================================================================

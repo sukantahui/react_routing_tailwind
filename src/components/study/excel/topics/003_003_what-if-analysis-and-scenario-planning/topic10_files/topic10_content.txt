@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: What-If Analysis and Scenario Planning
 Topic 10: Adding integer, binary (0/1), and range constraints in Solver
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Adding integer, binary (0/1), and range constraints in Solver is an essential discipline in corporate decision modeling, capital allocation, and risk management.
+It provides the core protocols required to stress-test financial projections, solve backwards for target goals, and mathematically optimize resource utilization.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Constraint Types: Cell <= RHS | Cell >= RHS | Cell = RHS | Cell = integer (int) | Cell = binary (bin) | Range = AllDifferent (dif)
+
+3. CORE TECHNICAL MECHANICS
+1. Integer Constraints (`int`):
+   Forces decision variables to be whole numbers (e.g. you cannot manufacture 4.7 airplanes or hire 2.3 employees).
+
+2. Binary Constraints (`bin`):
+   Restricts variables strictly to `0` (Reject / Do Not Build) or `1` (Accept / Build). Essential for Capital Budgeting and Project Selection under fixed budgets.
+
+3. AllDifferent Permutations (`dif`):
+   Forces an N-cell range to contain a unique permutation of integers 1 through N, essential for sequencing and scheduling problems.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Capital Allocation, Barrackpore HQ):
+  Multi-Project Capital Budgeting Selection (0/1 Knapsack) - Selects the optimal combination of 12 corporate expansion projects to maximize total NPV within a ₹50 Crore Capex budget using Binary (0/1) variables.
+• Tuhina Mukherjee (Audit Systems Lead, Shyamnagar Plant):
+  Integer Pallet Shipping Optimization - Enforces Integer (`int`) constraints on container shipment quantities to eliminate fractional pallet errors.
+• Abhronila Das (Plant Engineering Lead, Ichapur Works):
+  Heavy Machine Shift Staffing Allocation - Solves integer technician shift assignment schedules ensuring mandatory minimum staffing.
+• Debangshu Roy (Logistics Routing Lead, Naihati Logistics):
+  Vehicle Delivery Stop Sequencing - Uses `AllDifferent` constraint to determine the optimal delivery route sequence across 8 client locations.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Ignoring Integer Tolerance Setting:
+  Root Cause: By default, Excel Solver uses an 'Integer Optimality (%)' tolerance of 1% or 5%, stopping before finding the exact best integer combination.
+  Diagnostic Fix: Solver Options > Integer tab > Set 'Integer Optimality (%)' to 0% for exact mathematical precision.
+• Exponential Computation Time on 20+ Binary Variables:
+  Root Cause: Binary integer programming is NP-Hard; 30 binary variables require evaluating up to 2^30 (1 billion) combinations.
+  Diagnostic Fix: Set reasonable time limits (e.g. 60 seconds) or supply heuristic upper bounds.
+• Applying Binary Constraint to Output Cells:
+  Root Cause: Applying `bin` to calculated formula cells rather than decision variable cells.
+  Diagnostic Fix: Apply `bin` or `int` constraints ONLY to editable Decision Variable cells.
+
+6. PRO TIPS & SHORTCUTS
+• Zero Integer Tolerance (Solver Options > Integer Optimality: 0%): Guarantees Solver finds the absolute best 100% optimal integer solution.
+• Knapsack Project Selection (Variables = bin, SUMPRODUCT(Cost, Vars) <= Budget): The standard corporate formula for multi-project capital rationing.
+• Whole Unit Constraint (Add Constraint > Select 'int'): Prevents fractional answers in physical manufacturing models.
+================================================================================

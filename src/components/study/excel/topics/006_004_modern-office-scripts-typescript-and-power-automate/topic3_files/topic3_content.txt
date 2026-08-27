@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Modern Office Scripts (TypeScript) & Power Automate
 Topic 3: TypeScript fundamentals for Excel: Variables, Types, Arrays, Objects, and Async/Await
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+TypeScript fundamentals for Excel: Variables, Types, Arrays, Objects, and Async/Await is an essential discipline in cloud spreadsheet automation, serverless enterprise workflows, and TypeScript-driven business intelligence.
+It provides the core protocols required to author cross-platform scripts, connect Excel to Microsoft Power Automate, and construct 24/7 autonomous cloud pipelines.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: TypeScript Types: let count: number = 10; const name: string = "Swadeep"; let isActive: boolean = true; let rows: (string | number)[][] = [];
+
+3. CORE TECHNICAL MECHANICS
+1. Strict Type Safety in Spreadsheets:
+   Types (`number`, `string`, `boolean`, `Date`, `object`) prevent accidental type errors before code ever runs on corporate financial sheets.
+
+2. The 2D Array Grid Representation (`(string|number)[][]`):
+   Excel cell ranges are represented as 2D arrays in TypeScript: an array of rows, where each row is an array of cell values (`[["ID", "Amount"], [101, 5000]]`).
+
+3. Modern ES6+ Iteration Methods:
+   Processes rows with expressive functional methods: `.map()`, `.filter()`, `.reduce()`, and `.forEach()`.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Analytics, Barrackpore HQ):
+  Functional Revenue Array Processing - Uses TypeScript `.filter(row => row[2] > 1000000).map(row => [row[0], row[2] * 1.18])` to calculate GST surcharges in memory in 2 lines.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Typed Tax Invoice Interface Definition - Defines TypeScript `interface InvoiceItem { hsn: string; taxable: number; gstRate: number; }` for rock-solid type validation.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  2D Telemetry Matrix Transformation - Transforms raw 2D sensor arrays into timestamped summary matrices using arrow functions.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Dynamic Waybill Array Reducer - Calculates total freight tonnage across 10,000 shipment rows using `.reduce()`.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Confusing 1D Arrays with 2D Range Arrays:
+  Root Cause: Passing a 1D array `[1, 2, 3]` to `range.setValues()` throws runtime error 'Values must be a 2D array'.
+  Diagnostic Fix: Always wrap values in 2D array format: `[[1, 2, 3]]` (single row) or `[[1], [2], [3]]` (single column).
+• Using 'any' Everywhere (Losing Type Safety):
+  Root Cause: Typing all variables as `any` defeats TypeScript's error-prevention benefits.
+  Diagnostic Fix: Declare strict types: `let revenue: number`, `let customer: string`.
+• Using 'var' Instead of 'const' / 'let':
+  Root Cause: Using legacy `var` introduces variable hoisting bugs.
+  Diagnostic Fix: Always use `const` for immutable variables and `let` for reassignable variables.
+
+6. PRO TIPS & SHORTCUTS
+• 2D Array Syntax (const data: (string|number)[][] = [["A", 10], ["B", 20]];): The standard format for all Excel range reads and writes.
+• Use const by Default (const ws = workbook.getActiveWorksheet();): Best practice in modern TypeScript development.
+• Array.filter() (const filtered = rows.filter(r => r[1] > 100);): Fast, readable array filtering.
+================================================================================

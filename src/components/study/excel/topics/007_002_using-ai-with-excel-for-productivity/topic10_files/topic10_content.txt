@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Using AI with Excel for Productivity
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Using AI with Excel for Productivity
 Topic 10: Best practices for debugging and auditing AI-generated formulas and VBA code
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Best practices for debugging and auditing AI-generated formulas and VBA code is an essential discipline in AI-assisted spreadsheet engineering, generative business intelligence, and modern workplace productivity.
+It provides the core protocols required to leverage Microsoft Copilot, construct precision prompt workflows, integrate external LLM APIs, and build custom AI formulas.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Auditing Checklist: Formula Bar Inspection (Ctrl+Shift+U) -> Evaluate Formula Tool (Alt+M+V) -> Trace Precedents (Ctrl+[) -> Error Bounds Testing
+
+3. CORE TECHNICAL MECHANICS
+1. Formula Decomposition (Evaluate Formula `Alt + M + V`):
+   Steps through AI-generated nested formulas step-by-step to verify intermediate evaluation states and catch mathematical errors.
+
+2. Boundary & Edge-Case Stress Testing:
+   Injects extreme test values (0, negative numbers, blank cells, text strings, maximum dates) to verify formula resilience.
+
+3. Trace Precedents & Dependents (`Ctrl + [` / `Ctrl + ]`):
+   Audits cell relationships visually to ensure AI referenced the correct underlying input cells.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Financial Modeler, Barrackpore HQ):
+  Enterprise Financial Model Audit Defense - Audits 15 complex AI-generated M&A valuation formulas using Formula Evaluation and boundary stress tests before Board review.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Auditing AI-Generated VBA Tax Code - Performs line-by-line F8 stepping and error-handling reviews on AI-generated VBA tax automation macros.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  Boundary Testing on Machine Telemetry Formulas - Tests AI-generated sensor limit formulas with negative temperature inputs to verify fault tolerance.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Freight Tariff Rate Edge-Case Testing - Stress-tests AI formulas against zero-distance and maximum-tonnage shipping consignments.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Assuming Syntactically Valid Code is Mathematically Correct:
+  Root Cause: A formula can calculate without errors (`#VALUE!`) while producing completely incorrect business numbers due to flawed operator precedence.
+  Diagnostic Fix: Verify calculated results manually against known test cases.
+• Failing to Check Formula Absolute/Relative Locks ($A$1 vs A1):
+  Root Cause: AI omitting dollar signs on lookup tables, causing formulas to break when copied down the column.
+  Diagnostic Fix: Verify range locking: `$A$1:$D$100` on reference tables.
+• Accepting Hallucinated VBA Methods:
+  Root Cause: AI generating non-existent VBA methods like `Range("A1").SortAlphabetical()`.
+  Diagnostic Fix: Compile code in VBE (Debug > Compile VBAProject) to verify syntax.
+
+6. PRO TIPS & SHORTCUTS
+• Evaluate Formula Tool (Alt + M + V): Steps through formula evaluation step-by-step.
+• Trace Precedents (Ctrl + [): Jumps directly to underlying precedent input cells.
+• Compile VBA Project (Debug > Compile VBAProject (in VBE)): Catches hallucinated methods before running macros.
+================================================================================

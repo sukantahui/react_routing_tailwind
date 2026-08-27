@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Professional Capstone – Real Business Dashboard
-Topic 1: Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 1 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline
+Module: 008_004_professional-capstone-real-business-dashboard
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load
+
+PRIMARY CONCEPT:
+Building the production ETL data ingestion pipeline in Power Query: extracting from heterogeneous databases and CSV files, unpivoting historical matrices, standardizing schemas, and loading into the Excel Data Model
+
+TEACHER'S ADVICE:
+Phase 1 is where you build the engine. Connect your sources in Power Query, clean the columns, and load them to the Data Model. Once this is done, your dashboard updates with 1 click of 'Refresh All' forever!
+
+COMMON TRAPS TO AVOID:
+- Loading 1 Million Rows to Worksheet Tab (Memory Crash): Selecting 'Table' in Load To dialog crashes Excel sheet row limits. -> Fix: Select 'Only Create Connection' and check 'Add to Data Model'.
+- Hardcoding File Paths in Power Query: Hardcoded local C:\ paths breaking on colleague laptops. -> Fix: Use dynamic folder parameters or relative workbook paths.
+- Type Mismatch on Primary Key Columns: Customer ID as Integer in Fact table and Text in Dimension table. -> Fix: Explicitly set both join keys to identical data types (e.g. Text).
+================================================================================

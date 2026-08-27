@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Conditional Logic with IF and Related Functions
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Conditional Logic with IF and Related Functions
 Topic 10: Combining logical functions with SUM, AVERAGE, and LOOKUP functions
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Combining logical functions with SUM, AVERAGE, and LOOKUP functions is an essential discipline in modern financial modeling and automated decision support.
+It provides the core formulas required to evaluate complex business rules and multi-tier criteria.
+
+2. SYNTAX & TOKEN STRUCTURE
+Formula Code: =SUMIFS(sum_range, crit_range1, crit1, ...) | =AVERAGEIFS(...) | =XLOOKUP(1, (CritRange1=Crit1)*(CritRange2=Crit2), ReturnRange)
+
+3. CORE TECHNICAL MECHANICS
+1. Built-In Multi-Criteria Engine (IFS Functions):
+   SUMIFS, COUNTIFS, and AVERAGEIFS evaluate multiple criteria ranges simultaneously with native C++ speed.
+
+2. Wildcard Support (* and ?):
+   Criteria arguments support `*` (any characters) and `?` (single character) for pattern matching (e.g. `"BKP-*"`).
+
+3. Boolean Multi-Condition XLOOKUP:
+   Lookups with multiple criteria utilize `=XLOOKUP(1, (Range1=Crit1) * (Range2=Crit2), ReturnRange)` to find matching records.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Financial Controller, Barrackpore HQ):
+  Multi-Branch Divisional Revenue Aggregation - Aggregates revenue for specific branch locations and product lines using =SUMIFS(Revenue, Branch, "Barrackpore", Category, "Enterprise").
+• Tuhina Mukherjee (Tax Auditor, Shyamnagar Plant):
+  Tax Exemption Volume Auditing - Calculates average invoice value for exempt transactions using =AVERAGEIFS(InvoiceAmt, TaxStatus, "EXEMPT", Year, 2026).
+• Abhronila Das (Quality Assurance Lead, Ichapur Works):
+  Defective Batch Count Statistics - Counts inspection failures occurring on night shifts using =COUNTIFS(Shift, "Night", Status, "FAIL").
+• Debangshu Roy (Logistics Routing Lead, Naihati Logistics):
+  Multi-Criteria Carrier Rate Lookup - Retrieves specific freight contract rates matching destination city and vehicle type simultaneously via Boolean XLOOKUP.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• SUMIF vs SUMIFS Argument Order Inversion:
+  Root Cause: Legacy SUMIF puts sum_range LAST: SUMIF(crit_range, crit, sum_range). Modern SUMIFS puts sum_range FIRST: SUMIFS(sum_range, crit_range1, crit1).
+  Diagnostic Fix: Always use modern SUMIFS and place sum_range as the very first argument.
+• Quoting Comparison Operators in IFS:
+  Root Cause: Writing =SUMIFS(A2:A100, B2:B100, >100) triggers syntax errors because >100 must be a string.
+  Diagnostic Fix: Enclose operators in quotes: =SUMIFS(A2:A100, B2:B100, ">100").
+• Concatenating Cell References with Operators:
+  Root Cause: Writing ">B1" treats 'B1' as literal text rather than evaluating the value inside cell B1.
+  Diagnostic Fix: Concatenate cell references: `">" & B1`.
+
+6. PRO TIPS & SHORTCUTS
+• Multi-Condition XLOOKUP (=XLOOKUP(1, (A2:A100=F1)*(B2:B100=F2), C2:C100)): The cleanest way to perform multi-column lookups in modern Excel.
+• Dynamic Operator String (">=" & ThresholdCell): Enables interactive user-driven threshold adjustments.
+• Wildcard Branch Match ("BKP-*"): Matches all branch codes starting with the BKP prefix.
+================================================================================

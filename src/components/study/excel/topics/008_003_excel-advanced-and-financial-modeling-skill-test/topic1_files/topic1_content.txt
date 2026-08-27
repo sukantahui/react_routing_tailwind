@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Excel Advanced & Financial Modeling Skill Test
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Excel Advanced & Financial Modeling Skill Test
 Topic 1: Data Validation & Tamper-Proof Sheet Protection Test
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Data Validation & Tamper-Proof Sheet Protection Test is an essential evaluation milestone in spreadsheet mastery, data modeling rigor, and executive reporting.
+It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Protection & Validation: Data Validation > Custom Formula: =AND(ISNUMBER(B2), B2>0) | Protect Sheet: Password + Allow User to Edit Ranges
+
+3. CORE TECHNICAL MECHANICS
+1. Custom Formula Validation Gates:
+   Restricting input cells with custom Boolean formulas: `=AND(ISNUMBER(B2), B2>=1000, B2<=500000)`.
+
+2. Cascading Dependent Dropdown Menus:
+   Using `=INDIRECT(SubCategoryCell)` to populate dynamic secondary dropdown lists based on primary category selection.
+
+3. Tamper-Proof Sheet Protection Architecture:
+   Unlocking data entry cells (Format Cells > Protection > Uncheck Locked) while keeping master formula cells locked and protected with passwords.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Risk Officer, Barrackpore HQ):
+  Enterprise Financial Model Lockdown Test - Evaluates candidates on locking 500 formula cells, allowing data entry only in designated input cells, and establishing custom validation rules.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Tax Voucher Data Entry Validation Test - Tests candidate setup of 10-digit PAN validation and 15-character GSTIN input restrictions using custom formulas.
+• Abhronila Das (Plant Operations Superintendent, Ichapur Works):
+  Shopfloor Shift Entry Lockout - Configures protected touchscreen inspection sheets preventing operators from editing historical entries.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Driver Manifest Cascading Dropdown Lab - Constructs cascading State-to-City dependent dropdown menus using `INDIRECT`.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Protecting Sheet Without Unlocking Input Cells First:
+  Root Cause: Protecting sheet locks ALL cells by default, preventing users from typing anywhere.
+  Diagnostic Fix: Highlight input cells > Format Cells (Ctrl+1) > Protection > UNCHECK 'Locked' > Protect Sheet.
+• Spaces in Named Ranges for Cascading Dropdowns:
+  Root Cause: `INDIRECT("West Bengal")` fails because named ranges cannot contain spaces.
+  Diagnostic Fix: Use `SUBSTITUTE`: `=INDIRECT(SUBSTITUTE(A2, " ", "_"))`.
+• Allowing Users to Paste Over Validation Rules:
+  Root Cause: Standard copy-paste overwrites cell validation rules.
+  Diagnostic Fix: Protect sheet to disable formatting changes.
+
+6. PRO TIPS & SHORTCUTS
+• Unlock Input Cells First (Ctrl + 1 > Protection > Uncheck Locked): Essential step before protecting sheet.
+• Cascading Dropdown (=INDIRECT(SUBSTITUTE(A2, " ", "_"))): Creates dynamic secondary dropdown lists.
+• Custom Validation Formula (Data Validation > Allow: Custom): Enforces complex business rules on cell inputs.
+================================================================================

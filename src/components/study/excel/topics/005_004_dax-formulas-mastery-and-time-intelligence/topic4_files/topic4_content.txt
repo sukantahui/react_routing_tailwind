@@ -1,4 +1,53 @@
-EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: DAX Formulas Mastery and Time Intelligence
 Topic 4: Modifying filters with ALL, ALLEXCEPT, ALLSELECTED, and REMOVEFILTERS
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Modifying filters with ALL, ALLEXCEPT, ALLSELECTED, and REMOVEFILTERS is an essential discipline in enterprise business intelligence, quantitative finance, and advanced data modeling.
+It provides the core protocols required to construct complex multi-dimensional financial measures, calculate period-over-period growth, and evaluate dynamic rankings.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Filter Modifiers: ALL(Table/Col) | ALLEXCEPT(Table, Col) | ALLSELECTED(Table/Col) | REMOVEFILTERS(Table/Col)
+
+3. CORE TECHNICAL MECHANICS
+1. ALL (Total Filter Removal):
+   Ignores ALL filters on the specified table or column, returning the global grand total regardless of row headers or slicers.
+
+2. REMOVEFILTERS (Clear Intent Modifier):
+   Modern DAX alias for `ALL()` used inside `CALCULATE` to explicitly declare that filters are being stripped.
+
+3. ALLSELECTED (Visual Slicer Total):
+   Removes row/column grid filters but PRESERVES user slicer selections, essential for calculating accurate '% of Filtered Slicer Total'.
+
+4. ALLEXCEPT (Preserve Specific Dimension):
+   Removes all filters on a table EXCEPT for the specified column(s), perfect for computing '% of Department Total'.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Product % of Total Revenue Contribution - Computes `% of Total := DIVIDE([TotalSales], CALCULATE([TotalSales], ALL(Dim_Product)))` to measure product share.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Regional Tax Contribution % Metric - Calculates regional tax liability as percentage of national grand total using `REMOVEFILTERS(Dim_Branch)`.
+• Abhronila Das (Plant Operations Controller, Ichapur Works):
+  Departmental Scrap Share Ratio - Uses `ALLEXCEPT(Dim_Machinery, Dim_Machinery[Department])` to calculate each machine's % share of its department's scrap.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  % of Sliced Regional Freight Volume - Uses `ALLSELECTED(Dim_Routes)` so freight % shares dynamically sum to 100% when users select arbitrary route subsets.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Using ALL() When ALLSELECTED() is Required:
+  Root Cause: Using `ALL()` causes '% of Total' to divide by national sales even when the user explicitly filtered for 'Eastern Region', displaying 3.2% instead of 25.0%.
+  Diagnostic Fix: Use `ALLSELECTED()` so percentages sum to 100% of the active slicer selection.
+• Passing Table to ALL() Instead of Column:
+  Root Cause: Writing `ALL(Fact_Sales)` wipes filters across all dimensions, which is much slower than stripping a single column `ALL(Dim_Product[Category])`.
+  Diagnostic Fix: Target specific dimension columns: `ALL(Dim_Product[Category])`.
+• Division by Zero on Empty Categories:
+  Root Cause: Missing safe division wrap.
+  Diagnostic Fix: Always wrap in `=DIVIDE(Numerator, Denominator, 0)`.
+
+6. PRO TIPS & SHORTCUTS
+• % of Grand Total (DIVIDE([Sales], CALCULATE([Sales], ALL(Dim_Product)))): Standard formula for % of grand national total.
+• % of Sliced Total (DIVIDE([Sales], CALCULATE([Sales], ALLSELECTED(Dim_Product)))): Percentages always sum to 100% within active slicers.
+• % of Parent Category (DIVIDE([Sales], CALCULATE([Sales], ALLEXCEPT(Product, Product[Category])))): Subcategory % share within its parent category.
+================================================================================

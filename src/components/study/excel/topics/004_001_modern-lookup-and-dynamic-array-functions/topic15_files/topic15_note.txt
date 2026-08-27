@@ -1,0 +1,21 @@
+TOPIC 15 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Advanced #Spill Matrix Transformations: Combining LET, UNIQUE, FILTER, and Dynamic Range Reshaping
+Module: 004_001_modern-lookup-and-dynamic-array-functions
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Vectorized Spilling Matrix: =LET(data, FILTER(tblSales, tblSales[Sales]>100000), u, UNIQUE(CHOOSECOLS(data, 2, 3)), SORT(u, 2, -1))
+
+PRIMARY CONCEPT:
+Constructing multi-stage dynamic array pipelines: orchestrating LET, UNIQUE, FILTER, SORT, and dynamic grid reshaping functions into single, high-performance vectorized calculation pipelines
+
+TEACHER'S ADVICE:
+Congratulations on mastering the entire modern #Spill formula ecosystem! By combining LET, UNIQUE, FILTER, SORT, and GROUPBY, you can build executive dashboards that used to require 500 lines of VBA code in just ONE single formula.
+
+COMMON TRAPS TO AVOID:
+- Spill Range Reference Syntax Errors: Writing `=SUM(A2)` instead of `=SUM(A2#)` to aggregate spilled arrays. -> Fix: Always append `#` to reference full spilled ranges: `=SUM(A2#)`.
+- Unbounded Matrix Spilling Crashing Memory: Filtering 1 million rows without criteria into an unconstrained array. -> Fix: Apply specific filter predicates in LET blocks.
+- Circular Calculation in Self-Referencing Dynamic Names: Referencing target spill cell inside formula definition. -> Fix: Maintain strict unidirectional reference flow.
+================================================================================

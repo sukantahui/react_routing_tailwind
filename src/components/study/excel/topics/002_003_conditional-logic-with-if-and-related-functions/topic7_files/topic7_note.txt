@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Conditional Logic with IF and Related Functions
-Topic 7: Array-based conditional logic and Boolean arithmetic (0/1 multiplication)
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 7 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Array-based conditional logic and Boolean arithmetic (0/1 multiplication)
+Module: 002_003_conditional-logic-with-if-and-related-functions
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+=(Range1 = Crit1) * (Range2 = Crit2) * ValuesRange | =SUMPRODUCT((A2:A100="East") * (B2:B100>5000) * C2:C100)
+
+PRIMARY CONCEPT:
+High-performance array-based conditional calculations using Boolean arithmetic (multiplication for AND, addition for OR) without slow nested IF formulas
+
+TEACHER'S ADVICE:
+Boolean arithmetic is the secret language of Excel power users. Once you understand that TRUE=1 and FALSE=0, you can solve any multi-condition aggregation puzzle in a single line.
+
+COMMON TRAPS TO AVOID:
+- Unequal Array Dimension Error (#VALUE!): Multiplying arrays of different lengths (e.g. A2:A100 * B2:B50) triggers fatal #VALUE! mismatch. -> Fix: Ensure all range arguments span identical row and column dimensions.
+- Double-Counting in Boolean Addition (OR): Adding overlapping criteria `(A2:A100>10) + (B2:B100>5)` yields 2 when both are TRUE. -> Fix: Wrap addition in `=( (Cond1 + Cond2) > 0 ) * Values` to normalize to binary 1.
+- Accidental String Inclusion in Multiplication: Multiplying text headers inside SUMPRODUCT triggers a #VALUE! error. -> Fix: Use comma-separated syntax in SUMPRODUCT or ensure range excludes header rows.
+================================================================================

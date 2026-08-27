@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
-Topic 3: Designing a dynamic Loan Amortization Schedule with extra payment simulation
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 3 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Designing a dynamic Loan Amortization Schedule with extra payment simulation
+Module: 003_001_financial-functions-in-excel-basic-to-professional
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Dynamic Schedule Engine: Beginning Balance -> Scheduled PMT -> Extra Prepayment -> Interest -> Principal -> Ending Balance
+
+PRIMARY CONCEPT:
+Building a fully dynamic, production-grade Loan Amortization Schedule featuring variable lump-sum prepayments, tenure reduction, and interest savings simulator
+
+TEACHER'S ADVICE:
+A dynamic amortization schedule with prepayment simulation is the ultimate portfolio project. Always cap the principal at the beginning balance so the loan terminates cleanly at exactly ₹0.00.
+
+COMMON TRAPS TO AVOID:
+- Overpaying Beyond Zero Balance: Failing to cap principal repayment when loan balance is less than standard PMT creates negative loan balances. -> Fix: Use `=MIN(BeginningBalance, ScheduledPrincipal + ExtraPayment)`.
+- Circular Reference in Dynamic Balance Links: Linking beginning balance to ending balance without proper row offset creates fatal circular errors. -> Fix: Set Row n Beginning Balance strictly equal to Row n-1 Ending Balance.
+- Hardcoding Row Counts: Static 240-row tables showing #NUM! errors when loan term is changed to 60 months. -> Fix: Wrap all row formulas in `=IF(ROW()-HeaderRow <= TotalMonths, ..., "")`.
+================================================================================

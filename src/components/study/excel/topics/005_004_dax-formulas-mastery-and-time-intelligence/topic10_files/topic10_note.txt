@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
-Topic 10: Period-over-Period comparisons: SAMEPERIODLASTYEAR, DATEADD, and PARALLELPERIOD
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 10 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Period-over-Period comparisons: SAMEPERIODLASTYEAR, DATEADD, and PARALLELPERIOD
+Module: 005_004_dax-formulas-mastery-and-time-intelligence
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Period Comparisons: CALCULATE([TotalSales], SAMEPERIODLASTYEAR(Dim_Calendar[Date])) | YoY Growth: DIVIDE([Sales] - [SalesLY], [SalesLY])
+
+PRIMARY CONCEPT:
+Building comparative Period-over-Period analytics using SAMEPERIODLASTYEAR, DATEADD, and PARALLELPERIOD: calculating Prior Year Sales, YoY Growth %, and flexible N-period time shifting
+
+TEACHER'S ADVICE:
+To calculate YoY Growth in DAX: Step 1: `Sales_LY := CALCULATE([TotalSales], SAMEPERIODLASTYEAR(Dim_Calendar[Date]))`. Step 2: `YoY_Growth := DIVIDE([TotalSales] - [Sales_LY], [Sales_LY])`. It dynamically adapts to days, months, or years.
+
+COMMON TRAPS TO AVOID:
+- Comparing Incomplete Months (Apples-to-Oranges): Comparing 15 days of current month against full 30 days of prior year month. -> Fix: Ensure date range is synchronized to equivalent elapsed days using `DATESBETWEEN()`.
+- Division by Zero in YoY Growth Measure: Prior year sales being zero returns `#DIV/0!`. -> Fix: Always wrap in `DIVIDE([Sales] - [SalesLY], [SalesLY], 0)`.
+- Passing Inactive Date Column into DATEADD: Passing non-continuous fact table dates. -> Fix: Always pass the master `Dim_Calendar[Date]` column.
+================================================================================

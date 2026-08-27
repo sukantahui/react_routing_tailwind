@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Excel Intermediate Skill Test
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Excel Intermediate Skill Test
 Topic 4: Pivot Table & Slicer Interactive Summary Assessment
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Pivot Table & Slicer Interactive Summary Assessment is an essential evaluation milestone in spreadsheet mastery, data modeling rigor, and executive reporting.
+It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Pivot Architecture: Insert > PivotTable | Fields: Rows, Columns, Values, Filters | Value Field Settings: Sum, Average, % of Column Total | Slicers & Timelines
+
+3. CORE TECHNICAL MECHANICS
+1. Multidimensional Field Architecture:
+   Configuring Rows, Columns, Values, and Filters to summarize 100,000 transaction rows into compact executive matrices in seconds.
+
+2. Advanced Value Field Calculations:
+   Switching from 'Sum' to '% of Column Total', '% of Parent Row Total', or 'Running Total In' for advanced variance analysis.
+
+3. Connected Slicers & Timelines:
+   Connecting a single visual Slicer to multiple Pivot Tables simultaneously via Report Connections for synchronized dashboard filtering.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Enterprise Multi-Pivot Sales Dashboard Challenge - Evaluates candidates on building 3 interconnected Pivot Tables controlled by synchronized Region and Date Slicers in 5 minutes.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Tax Slab Contribution Pivot Assessment - Tests candidate calculation of '% of Grand Total' and quarterly date grouping on tax ledgers.
+• Abhronila Das (Plant Quality Superintendent, Ichapur Works):
+  Factory Defect Pareto Pivot Table - Evaluates calculated fields (`Defect Rate = Defects / Total Output`) inside Pivot Tables.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Carrier SLA Timeline Slicer Assessment - Tests dynamic Date Timeline Slicer configuration on logistics manifest pivots.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Pivot Table Slicers Not Filtering All Dashboard Tables:
+  Root Cause: Forgetting to configure Report Connections on the Slicer.
+  Diagnostic Fix: Right-click Slicer > Report Connections > check all Pivot Tables on dashboard.
+• Blank Rows in Source Data Causing '(blank)' Grouping:
+  Root Cause: Selecting empty rows below table when creating Pivot Table.
+  Diagnostic Fix: Create Pivot Table from an official structured Excel Table (`tblSales`).
+• Forgetting That Pivot Tables Do Not Auto-Refresh:
+  Root Cause: Editing source numbers and wondering why Pivot Table numbers did not update.
+  Diagnostic Fix: Right-click Pivot Table > Refresh (or press `Alt + F5`).
+
+6. PRO TIPS & SHORTCUTS
+• Report Connections (Right-click Slicer > Report Connections): Connects 1 Slicer to all Pivot Tables on sheet.
+• Date Grouping (Right-click date > Group > Years/Quarters/Months): Instantly aggregates raw dates into calendar hierarchies.
+• Show Values As % (Value Field Settings > Show Values As > % of Total): Generates instant percentage share metrics.
+================================================================================

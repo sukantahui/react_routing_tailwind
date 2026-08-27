@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
-Topic 7: Introduction to Microsoft Excel Solver add-in: When Goal Seek is not enough
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 7 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Introduction to Microsoft Excel Solver add-in: When Goal Seek is not enough
+Module: 003_003_what-if-analysis-and-scenario-planning
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Data > Analyze > Solver: Set Objective: TargetCell (Max/Min/Value of) | By Changing Variable Cells | Subject to Constraints
+
+PRIMARY CONCEPT:
+Understanding constrained mathematical optimization using the Excel Solver add-in: maximizing profits or minimizing costs subject to real-world operational and financial constraints
+
+TEACHER'S ADVICE:
+Solver is Excel's most powerful analytical tool. If you know how to formulate an objective cell, decision variables, and constraints, you can solve complex logistics and portfolio problems that seem impossible to ordinary users.
+
+COMMON TRAPS TO AVOID:
+- Solver Add-In Disabled by Default: Solver does not appear in Data ribbon until explicitly activated in Excel options. -> Fix: File > Options > Add-ins > Manage: Excel Add-ins > Go > Check 'Solver Add-in'.
+- Unbounded Problem ('Set Cell values do not converge'): Omitting constraints on production capacity allows Solver to propose producing infinite units for infinite profit. -> Fix: Always supply realistic upper bound constraints on all decision variables.
+- Linearity Violation in Simplex LP: Using non-linear formulas (like IF, VLOOKUP, MAX, MIN) in a model solved with Simplex LP triggers 'Linearly Conditions not satisfied'. -> Fix: Use pure linear math for Simplex LP, or switch solving method to GRG Nonlinear or Evolutionary.
+================================================================================

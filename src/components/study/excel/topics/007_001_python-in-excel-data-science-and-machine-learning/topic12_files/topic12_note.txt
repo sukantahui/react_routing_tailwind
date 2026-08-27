@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
-Topic 12: Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 12 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel
+Module: 007_001_python-in-excel-data-science-and-machine-learning
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap
+
+PRIMARY CONCEPT:
+Comprehensive end-to-end data science capstone project: engineering an automated Customer Churn Prediction and Retention Cohort Analysis pipeline synthesizing pandas wrangling, logistic regression, machine learning, and seaborn heatmaps
+
+TEACHER'S ADVICE:
+Congratulations on completing the Customer Churn Prediction Capstone! You have combined pandas data wrangling, machine learning models, and seaborn visualizations into a unified, commercial-grade predictive AI system right inside Excel.
+
+COMMON TRAPS TO AVOID:
+- Class Imbalance in Churn Datasets (95% Non-Churn vs 5% Churn): A naive model predicting 'No Churn' achieves 95% accuracy while failing to identify ANY actual churners. -> Fix: Set `class_weight='balanced'` in Random Forest or evaluate ROC-AUC rather than raw accuracy.
+- Including Post-Event Leakage Variables (Data Leakage): Including 'Cancellation Date' as an input feature to predict cancellation. -> Fix: Use strictly historical pre-churn behavior metrics (usage drops, support tickets).
+- Unchecked Outlier Distortions in Usage Metrics: Extreme customer usage spikes skewing linear logistic regression boundaries. -> Fix: Apply log transformation: `np.log1p(df['Usage'])`.
+================================================================================

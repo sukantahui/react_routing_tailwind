@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: What-If Analysis and Scenario Planning
 Topic 8: Formulating Linear Programming (LP) problems: Objective cell, Variable cells, and Constraints
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Formulating Linear Programming (LP) problems: Objective cell, Variable cells, and Constraints is an essential discipline in corporate decision modeling, capital allocation, and risk management.
+It provides the core protocols required to stress-test financial projections, solve backwards for target goals, and mathematically optimize resource utilization.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Linear Program Formulation: Maximize Z = c1*x1 + c2*x2 | Subject to: a1*x1 + a2*x2 <= ResourceLimit, x1,x2 >= 0
+
+3. CORE TECHNICAL MECHANICS
+1. Linearity Principle:
+   In Linear Programming, the objective function and all constraints must be linear: equations must consist solely of addition/subtraction of variables multiplied by constants (`y = ax + b`).
+
+2. The Feasible Region & Corner Point Theorem:
+   Constraints bound a multi-dimensional polygon (Feasible Region). The Fundamental Theorem of LP proves the optimal solution ALWAYS lies on an outer vertex (corner point).
+
+3. Matrix Dot-Product Layout in Excel:
+   Structured using `=SUMPRODUCT(UnitProfits, DecisionVariables)` for the objective, and `=SUMPRODUCT(ResourceUsageRow, DecisionVariables) <= AvailableResource` for each constraint.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Optimization, Barrackpore HQ):
+  Multi-Product Manufacturing Margin Maximization - Formulates an LP model allocating scarce steel billets and technician hours across 4 industrial product lines to maximize gross margin.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  R&D Tax Incentive Allocation LP - Optimizes capital expenditure allocations across qualifying R&D projects to maximize statutory tax deductions.
+• Abhronila Das (Industrial Engineering Lead, Ichapur Works):
+  Rolling Mill Machine Hour Allocation - Formulates constraint equations balancing furnace melting, rolling, and annealing machine capacity limits.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Multi-Hub Freight Transshipment LP - Formulates supply-demand constraint equations across regional transshipment logistics corridors.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Using Non-Linear Functions in LP (IF, MAX, MIN):
+  Root Cause: Embedding IF(), MAX(), or lookup functions inside constraint cells breaks mathematical linearity, causing Simplex LP to fail.
+  Diagnostic Fix: Reformulate logic into linear inequalities: replace `MAX(0, X-50)` with auxiliary slack variables.
+• Dimension Mismatch in SUMPRODUCT Constraint Rows:
+  Root Cause: Multiplying a 4-item decision variable range by a 3-item resource usage row returns `#VALUE!`.
+  Diagnostic Fix: Ensure resource consumption coefficients span identical dimensions to decision variables.
+• Infeasible Solution ('Solver could not find a feasible solution'):
+  Root Cause: Conflicting constraints that cannot be satisfied simultaneously (e.g. `X <= 10` and `X >= 50`).
+  Diagnostic Fix: Audit constraint boundaries to eliminate mutually exclusive requirements.
+
+6. PRO TIPS & SHORTCUTS
+• SUMPRODUCT LP Layout (=SUMPRODUCT(Coefficients, Variables)): Standard formula for objective functions and constraint LHS calculations.
+• Linearity Test (Check for multiplication of variables): Multiplying Variable A by Variable B is non-linear; multiplying Variable A by Constant is linear.
+• Feasible Region Audit (Compare LHS <= RHS): Verify that initial starting numbers satisfy all constraints.
+================================================================================

@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Excel Advanced & Financial Modeling Skill Test
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Excel Advanced & Financial Modeling Skill Test
 Topic 5: DAX Measure & Evaluation Context Exam
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+DAX Measure & Evaluation Context Exam is an essential evaluation milestone in spreadsheet mastery, data modeling rigor, and executive reporting.
+It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: DAX Formulas: Total Sales = SUMX(Sales, Sales[Qty] * RELATED(Product[Price])) | Sales YTD = CALCULATE([Total Sales], DATESYTD('Date'[Date])) | % Margin = DIVIDE([Profit], [Sales])
+
+3. CORE TECHNICAL MECHANICS
+1. The Master Function: CALCULATE():
+   The only function in DAX that modifies the active filter context: `=CALCULATE([Total Sales], Customer[Region]="East", ALL(Product[Category]))`.
+
+2. Row Context to Filter Context Transition:
+   Understanding how row context is transformed into filter context during iterator evaluation (`SUMX`) and calculated columns.
+
+3. Time Intelligence & Safe Division:
+   Executing Year-to-Date (`DATESYTD`), Period-over-Period (`SAMEPERIODLASTYEAR`), and safe division (`DIVIDE([Profit], [Revenue], 0)`).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Quantitative Officer, Barrackpore HQ):
+  Enterprise DAX Measure Suite Certification Defense - Evaluates candidates on constructing a 15-measure DAX suite calculating Gross Margin %, YTD Sales, SPLY Variance, and Moving Averages across a 5-table Star Schema.
+• Tuhina Mukherjee (Head of Corporate Audit, Shyamnagar Plant):
+  Statutory Tax DAX Measure Suite Lab - Tests candidate construction of `CALCULATE` measures isolating inter-state IGST liabilities with `ALL()` filter removers.
+• Abhronila Das (Director of Manufacturing, Ichapur Works):
+  Plant OEE DAX Calculation Suite - Constructs iterator `AVERAGEX` measures calculating overall equipment effectiveness across factory shifts.
+• Debangshu Roy (VP Supply Chain Logistics, Naihati Logistics Hub):
+  Logistics Carrier SLA DAX Scorecard - Builds time-intelligence period-over-period transit metrics in Power Pivot.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Using Division Slash (/) Instead of DIVIDE():
+  Root Cause: Dividing by zero returning ugly `#ERROR` across subtotal rows.
+  Diagnostic Fix: Always use `=DIVIDE(Numerator, Denominator, 0)` in DAX.
+• Confusing Calculated Columns with Explicit Measures:
+  Root Cause: Creating 50 calculated columns consuming gigabytes of RAM instead of lightweight explicit DAX measures.
+  Diagnostic Fix: Create explicit DAX Measures for all aggregations.
+• Time Intelligence on Non-Standard Date Table:
+  Root Cause: Calling `DATESYTD` on a date table with missing dates or duplicate timestamps producing invalid metrics.
+  Diagnostic Fix: Ensure continuous, contiguous Date table marked as official Date Table.
+
+6. PRO TIPS & SHORTCUTS
+• Always Use DIVIDE() (=DIVIDE([Profit], [Revenue], 0)): Safe division with built-in zero division protection.
+• CALCULATE is King (CALCULATE(Measure, Filter1, Filter2)): The core formula engine of all DAX analytics.
+• Mark as Date Table (Design > Mark as Date Table): Mandatory requirement for reliable Time Intelligence.
+================================================================================

@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Advanced VBA: UserForms, Events & System Integration
-Topic 7: Exporting worksheets to PDF and dynamic email distribution via Microsoft Outlook VBA integration
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 7 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Exporting worksheets to PDF and dynamic email distribution via Microsoft Outlook VBA integration
+Module: 006_002_advanced-vba-userforms-events-and-system-integration
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Export to PDF: ws.ExportAsFixedFormat Type:=xlTypePDF, Filename:=pdfPath, Quality:=xlQualityStandard | Outlook Automation: CreateObject("Outlook.Application")
+
+PRIMARY CONCEPT:
+Automating corporate report publishing and distribution: exporting worksheets to high-resolution vector PDF documents and dynamically generating/sending personalized Outlook emails with attachments
+
+TEACHER'S ADVICE:
+Connecting Excel to Outlook is the ultimate executive crowd-pleaser. You click one button, Excel generates 20 customized PDF reports, creates 20 personalized emails in Outlook, attaches the PDFs, and sends them out in 5 seconds.
+
+COMMON TRAPS TO AVOID:
+- Using .Send Instead of .Display During Development: Calling `.Send` immediately fires emails out to real corporate executives while testing buggy code! -> Fix: Always use `.Display` during development to preview emails safely on screen; switch to `.Send` only after final sign-off.
+- Exporting Multi-Page Split PDFs (Ugly Layout): Failing to configure Page Setup before PDF export causes orphan column splits. -> Fix: Configure `ws.PageSetup.FitToPagesWide = 1` and `FitToPagesTall = 1` prior to exporting.
+- Emailing Locked Attachment Files: Trying to attach a PDF while it is still being written or locked by Adobe Acrobat. -> Fix: Verify file exists and is unlocked before calling `.Attachments.Add`.
+================================================================================

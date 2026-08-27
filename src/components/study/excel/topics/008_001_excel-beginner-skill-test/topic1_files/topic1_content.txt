@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Excel Beginner Skill Test
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Excel Beginner Skill Test
 Topic 1: Tabular Data Entry & Professional Formatting Assignment
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Tabular Data Entry & Professional Formatting Assignment is an essential evaluation milestone in spreadsheet mastery, data modeling rigor, and executive reporting.
+It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Formatting Standard: Indian Rupee: [₹-en-IN] #,##0.00 | Date: dd-mmm-yyyy | Header: Fill #0f172a, Font #ffffff Bold | AutoFit: Alt+H+O+I
+
+3. CORE TECHNICAL MECHANICS
+1. Custom Number Formatting Tokens:
+   Configuring 4-section tokens (`#,##0.00;[Red](#,##0.00);"-";@`) and Indian currency symbols (`₹ #,##0.00`).
+
+2. Date & Text Standardization:
+   Enforcing unambiguous date formats (`DD-MMM-YYYY`) and Proper Case capitalization.
+
+3. Visual Hierarchy & Auto-Fitting:
+   Applying subtle header fills, thin gridlines, double accounting bottom underlines, and `Alt + H + O + I` auto-fitting.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  C-Suite Financial Report Makeover Test - Evaluates candidates on transforming an unformatted raw data dump into a boardroom-ready executive financial table in 3 minutes.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Accounting Format & Negative Red Styling - Tests formatting of tax liability ledgers with accounting underlines and red negative brackets.
+• Abhronila Das (Plant Operations Superintendent, Ichapur Works):
+  Factory Production Shift Log Layout - Tests standardized shift layout formatting with alternating zebra shading.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Waybill Rate Card Presentation Formatter - Evaluates clean formatting of regional freight transport rate sheets.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Truncated Cell Content (### Display Bug):
+  Root Cause: Narrow columns hiding numbers as `###`.
+  Diagnostic Fix: Press `Alt + H + O + I` to auto-fit all column widths.
+• Centering Numerical Data Columns:
+  Root Cause: Centering numbers impairs rapid visual decimal alignment for accountants.
+  Diagnostic Fix: Right-align numbers; left-align text; center dates and codes.
+• Using Bright Neon Background Fills:
+  Root Cause: Unprofessional eye-straining colors in business reports.
+  Diagnostic Fix: Use curated corporate palettes (Navy `#0f172a`, Slate `#1e293b`, subtle gray `#f8fafc`).
+
+6. PRO TIPS & SHORTCUTS
+• AutoFit Columns (Alt + H + O + I): Instantly sizes columns to fit contents.
+• Currency Format (Ctrl + Shift + $ (or custom ₹ format)): Applies clean standard currency formatting.
+• Accounting Underline (Top thin border + bottom double line): The universal accounting standard for totals.
+================================================================================

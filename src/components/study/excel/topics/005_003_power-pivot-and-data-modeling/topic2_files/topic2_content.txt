@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Power Pivot & Data Modeling
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Power Pivot and Data Modeling
 Topic 2: Dimensional Modeling principles: Fact Tables vs Dimension Tables (Star Schema vs Snowflake Schema)
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Dimensional Modeling principles: Fact Tables vs Dimension Tables (Star Schema vs Snowflake Schema) is an essential discipline in enterprise data architecture, business intelligence, and large-scale analytical modeling.
+It provides the core protocols required to shatter Excel's 1-million row limit, establish clean relational schemas, and build high-performance data models.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Schema Design: Star Schema (Central FactTable + Surrounding DimensionTables) | Snowflake Schema (Normalized Dimensions)
+
+3. CORE TECHNICAL MECHANICS
+1. Fact Tables (Numeric Metrics):
+   Contains quantitative business transactions (e.g. SalesAmount, Quantity, UnitCost, Margin) alongside foreign key IDs linking to dimensions. Tall and narrow.
+
+2. Dimension Tables (Qualitative Context):
+   Contains descriptive business entities (e.g. Customer Name, Product Category, Store Region, Date). Short and wide with unique primary keys.
+
+3. Star Schema Golden Rule:
+   The Star Schema (1 central Fact table directly linked to 1-level Dimension tables) is the proven optimal architecture for VertiPaq compression and lightning-fast DAX calculation.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Lead Enterprise Data Architect, Barrackpore HQ):
+  Corporate Commercial Star Schema Design - Builds a Star Schema centering on `Fact_Transactions` surrounded by `Dim_Customer`, `Dim_Product`, `Dim_Branch`, and `Dim_Calendar` tables.
+• Tuhina Mukherjee (Corporate Tax Systems Lead, Shyamnagar Plant):
+  Tax Compliance Multi-Fact Dimensional Model - Architects a multi-fact schema connecting `Fact_SalesInvoices` and `Fact_PurchaseOrders` to shared `Dim_Vendors` and `Dim_TaxRates`.
+• Abhronila Das (Manufacturing Systems Architect, Ichapur Works):
+  Factory Production Mix Star Schema - Connects `Fact_DailyProduction` to `Dim_Machinery`, `Dim_Technicians`, and `Dim_AlloySpecifications`.
+• Debangshu Roy (Logistics Optimization Architect, Naihati Logistics):
+  Fleet Transit Dimensional Model - Links `Fact_Shipments` to `Dim_Carrier`, `Dim_OriginHub`, `Dim_DestinationHub`, and `Dim_Vehicles`.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Building a Flat 'Mega-Table' (De-Normalized Anti-Pattern):
+  Root Cause: Merging all customer, product, and regional text attributes into a single 50-column fact table destroys memory compression.
+  Diagnostic Fix: Decompose flat tables into a normalized Star Schema: 1 Fact table + clean Dimension lookup tables.
+• Excessive Snowflake Normalization:
+  Root Cause: Splitting dimensions into 5 cascading tiers (Product -> Subcategory -> Category -> Department -> Group) slows down DAX filter traversal.
+  Diagnostic Fix: Collapse multi-tier dimensions back into a single clean Star Schema dimension table.
+• Putting Descriptive Attributes in the Fact Table:
+  Root Cause: Leaving customer addresses and telephone numbers in the 5-million row fact table wastes gigabytes of RAM.
+  Diagnostic Fix: Store descriptive attributes exclusively in Dimension tables.
+
+6. PRO TIPS & SHORTCUTS
+• Star Schema Over Snowflake (Keep dimensions 1 hop away from fact): Delivers maximum DAX calculation speed and simplest formula syntax.
+• Unique Primary Keys (Dimension key column must have 100% unique values): Mandatory foundation for 1-to-Many relational modeling.
+• Surrogate Key Optimization (Use compact integer keys (e.g. 101, 102)): Substantially faster than long alphanumeric strings.
+================================================================================

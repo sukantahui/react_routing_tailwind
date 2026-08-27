@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Advanced VBA: UserForms, Events & System Integration
-Topic 1: Worksheet events: `Worksheet_Change`, `Worksheet_SelectionChange`, `Worksheet_Calculate`
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 1 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Worksheet events: `Worksheet_Change`, `Worksheet_SelectionChange`, `Worksheet_Calculate`
+Module: 006_002_advanced-vba-userforms-events-and-system-integration
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Worksheet Events (Sheet Modules): Private Sub Worksheet_Change(ByVal Target As Range) | Worksheet_SelectionChange | Worksheet_Calculate
+
+PRIMARY CONCEPT:
+Trapping granular cell changes in real-time using Worksheet_Change: intercepting specific target columns (Intersect), auto-timestamping edits, audit trails, and cascading menu updates
+
+TEACHER'S ADVICE:
+The #1 rule of Worksheet_Change: ALWAYS turn off events before modifying a cell! `Application.EnableEvents = False`, write your timestamp, then `Application.EnableEvents = True`. If you forget this, Excel will get stuck in an infinite loop.
+
+COMMON TRAPS TO AVOID:
+- The Fatal Infinite Event Recurse Crash: Modifying a cell inside `Worksheet_Change` without `Application.EnableEvents = False` causes the macro to trigger itself endlessly until Excel crashes. -> Fix: Always wrap cell writes in `Application.EnableEvents = False ... Target.Offset(0,1).Value = Now ... Application.EnableEvents = True`.
+- Crashing on Multi-Cell Paste or Delete: Assuming `Target` is a single cell (`Target.Value`) crashes with 'Type Mismatch' when user pastes 50 cells at once. -> Fix: Check `If Target.CountLarge > 1 Then Exit Sub` or loop `For Each c In Target`.
+- Placing Code in Standard Module: Sheet events written in Module1 are completely ignored by Excel. -> Fix: Place code in the specific `Sheet1 (Code)` object.
+================================================================================

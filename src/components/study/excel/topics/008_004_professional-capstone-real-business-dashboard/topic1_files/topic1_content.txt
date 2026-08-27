@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Professional Capstone – Real Business Dashboard
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Professional Capstone – Real Business Dashboard
 Topic 1: Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline is an essential evaluation milestone in spreadsheet mastery, data modeling rigor, and executive reporting.
+It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load
+
+3. CORE TECHNICAL MECHANICS
+1. Heterogeneous Ingestion:
+   Connects Power Query to SQL database tables, monthly branch CSV folders, and web rate APIs in an automated unified pipeline.
+
+2. Advanced M-Code Data Hygiene:
+   Strips whitespace, imputes missing values, parses ISO dates, and unpivots wide budget matrices using `Table.UnpivotOtherColumns`.
+
+3. Headless Data Model Loading:
+   Loads all cleaned tables directly into the Power Pivot Data Model using 'Only Create Connection', bypassing sheet row limits.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Data Architect, Barrackpore HQ):
+  Consolidating 250,000 Multi-Branch Transaction Records - Builds a production Power Query M-Code pipeline ingesting 250,000 records from 4 regional databases in 8 seconds.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Multi-Source Tax Ledger Ingestion & Cleansing - Cleanses raw ERP voucher ledgers and external government portal data into verified staging tables.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  Factory Machine Telemetry ETL Pipeline - Ingests industrial PLC log files, transforming 500,000 sensor readings into normalized time-series tables.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Nationwide Freight Ingestion Pipeline - Extracts carrier dispatch records and unpivots fuel rate cards.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Loading 1 Million Rows to Worksheet Tab (Memory Crash):
+  Root Cause: Selecting 'Table' in Load To dialog crashes Excel sheet row limits.
+  Diagnostic Fix: Select 'Only Create Connection' and check 'Add to Data Model'.
+• Hardcoding File Paths in Power Query:
+  Root Cause: Hardcoded local C:\ paths breaking on colleague laptops.
+  Diagnostic Fix: Use dynamic folder parameters or relative workbook paths.
+• Type Mismatch on Primary Key Columns:
+  Root Cause: Customer ID as Integer in Fact table and Text in Dimension table.
+  Diagnostic Fix: Explicitly set both join keys to identical data types (e.g. Text).
+
+6. PRO TIPS & SHORTCUTS
+• Only Create Connection (Close & Load To > Only Create Connection): Stores data in high-speed compressed memory.
+• Folder Combine (Get Data > From File > From Folder): Automatically combines all files in a directory.
+• Standardize Types (Explicitly cast every column type): Guarantees flawless relational joins in Power Pivot.
+================================================================================

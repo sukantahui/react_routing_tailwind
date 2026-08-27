@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
-Topic 11: Sharing Python-powered workbooks with non-technical team members seamlessly
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 11 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Sharing Python-powered workbooks with non-technical team members seamlessly
+Module: 007_001_python-in-excel-data-science-and-machine-learning
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Sharing Best Practices: File > Save As > Standard .xlsx | Cloud Security: Azure container handles execution | Output: Excel Values for non-Python users
+
+PRIMARY CONCEPT:
+Sharing Python-powered Excel workbooks with non-technical stakeholders: understanding recipient license requirements, viewing calculated values without Python licenses, and workbook optimization
+
+TEACHER'S ADVICE:
+The best part about Python in Excel is that you can email your workbook to your boss as a standard `.xlsx` file. They don't need Python installed, they don't see scary macro warnings—they just see your beautiful charts and predictions!
+
+COMMON TRAPS TO AVOID:
+- Recipient Opening File in Legacy Desktop Excel 2016 / 2019: Legacy perpetual Office versions lack cloud Python runtime, displaying `#NAME?` error on `=PY()` cells. -> Fix: Advise recipients to open file in Excel for Web or upgrade to Microsoft 365.
+- Leaving 50 Unneeded Visualizations Rendering on Every Calc: Recalculating 50 complex seaborn plots simultaneously on every cell edit causes cloud latency. -> Fix: Convert static finalized plots to Excel Values or image snapshots.
+- Confusing Co-Authoring Lockups: Multiple users editing Python code cells simultaneously in live co-authoring sessions. -> Fix: Designate specific input assumption cells for collaborators while locking Python formula cells.
+================================================================================

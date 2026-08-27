@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Basic Dashboards and Reporting
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Basic Dashboards and Reporting
 Topic 1: Defining and calculating Key Performance Indicators (KPIs): Target vs Actual, YoY Growth, MoM Variance
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Defining and calculating Key Performance Indicators (KPIs): Target vs Actual, YoY Growth, MoM Variance is an essential discipline in corporate business intelligence, executive reporting, and visual analytics.
+It provides the core protocols required to transform dense tabular data into intuitive, interactive, single-screen command centers.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: YoY Growth: =(Current - PriorYear) / PriorYear | MoM Variance: =Current - PriorMonth | Target Achievement: =Actual / Target
+
+3. CORE TECHNICAL MECHANICS
+1. Normalized Variance vs Absolute Variance:
+   Absolute Variance (`Actual - Budget`) measures dollar impact; Percentage Variance (`(Actual - Budget) / Budget`) measures execution efficiency.
+
+2. Zero & Negative Denominator Defense:
+   Standard percentage growth formulas crash on negative prior year numbers. Solved via `=(Current - Prior) / ABS(Prior)`.
+
+3. Run-Rate & Pace Projection Math:
+   `Run Rate = (YTD Actual / Elapsed Days) * 365`. Projects full-year milestone landing based on current operational velocity.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Enterprise Revenue YoY Growth Tracking - Computes audited Year-over-Year growth rates across ₹120 Crore divisional business lines with negative denominator protection.
+• Tuhina Mukherjee (Corporate FP&A Lead, Shyamnagar Plant):
+  Monthly Budget Variance Analysis - Calculates MoM expense variances and budget achievement percentages across 18 manufacturing cost centers.
+• Abhronila Das (Plant Operations Lead, Ichapur Works):
+  Quarterly Production Run-Rate Projector - Projects annual steel tonnage delivery based on YTD 90-day manufacturing pace.
+• Debangshu Roy (Logistics SLA Manager, Naihati Logistics):
+  On-Time Delivery SLA Achievement Metric - Calculates monthly on-time consignment delivery percentage against 98.5% contractual target.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Division by Zero on New Business Units:
+  Root Cause: Calculating YoY growth when prior year revenue was ₹0 returns `#DIV/0!`.
+  Diagnostic Fix: Wrap in safe division formula: `=IFERROR((Current - Prior) / Prior, "N/A")`.
+• Negative Prior Year Mathematical Distortion:
+  Root Cause: If Prior Year Net Income was -₹10L and Current is +₹5L, standard `(5 - (-10)) / -10` returns -150% (indicating a decline when profits actually rebounded).
+  Diagnostic Fix: Always use absolute value in the denominator: `=(Current - Prior) / ABS(Prior)`.
+• Comparing Non-Equivalent Time Horizons:
+  Root Cause: Comparing YTD 5-month sales against full 12-month prior year budget.
+  Diagnostic Fix: Ensure comparisons use strictly annualized run rates or identical Year-to-Date periods.
+
+6. PRO TIPS & SHORTCUTS
+• Negative Base YoY Fix (=(Current - Prior) / ABS(Prior)): The mathematically correct formula for growth over negative base years.
+• Safe Variance % (=IFERROR((Actual - Target)/Target, 0)): Eliminates unsightly #DIV/0! errors across zero-target rows.
+• Annualized Run Rate (=(YTD / DaysElapsed) * 365): Projects year-end finish based on active operational pace.
+================================================================================

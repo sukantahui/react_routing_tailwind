@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: External Data Automation: ADODB SQL Connections & Web APIs
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: External Data Automation: ADODB SQL Connections & Web APIs
 Topic 2: Executing SQL Queries (SELECT, INSERT, UPDATE, DELETE) directly from Excel VBA
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Executing SQL Queries (SELECT, INSERT, UPDATE, DELETE) directly from Excel VBA is an essential discipline in enterprise database engineering, cloud systems integration, and full-stack financial automation.
+It provides the core protocols required to connect Excel directly to enterprise relational databases, query closed workbooks via SQL, and consume cloud REST APIs.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: SQL Execution: conn.Execute "INSERT INTO Table (Col1) VALUES ('Val1')" | conn.Execute "UPDATE Table SET Col1 = 'NewVal' WHERE ID = 101"
+
+3. CORE TECHNICAL MECHANICS
+1. The `conn.Execute` Command Pipeline:
+   Dispatches non-query SQL statements (INSERT, UPDATE, DELETE) directly to the database engine with zero recordset overhead.
+
+2. Tracking Affected Rows (`RecordsAffected`):
+   `conn.Execute sqlStr, recordsAffected`. Returns the exact count of rows inserted, updated, or deleted by the query.
+
+3. Atomic Batch Data Manipulation:
+   Allows updating 50,000 customer records on the database server with a single SQL statement in milliseconds without pulling rows to Excel.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Operations, Barrackpore HQ):
+  Two-Way Customer Credit Limit Update - Updates client credit ceilings directly in the corporate SQL database using `conn.Execute "UPDATE Customers SET CreditLimit = 5000000 WHERE CustomerID = 'C101'"`.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Automated Tax Audit Flag Insertion - Inserts audit approval stamps directly into MySQL ERP database tables.
+• Abhronila Das (Plant Operations Superintendent, Ichapur Works):
+  Machine Calibration Log Injection - Appends daily machine calibration records directly to the SQL telemetry database from shopfloor UserForms.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Waybill Transit Status Updates - Executes batch SQL updates setting shipment statuses to 'Dispatched'.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Unsanitized Single Quotes in String Values (Syntax Error):
+  Root Cause: Inserting a company name like `O'Reilly Steel` breaks SQL syntax (`'O'Reilly Steel'`), throwing runtime error.
+  Diagnostic Fix: Sanitize strings by escaping single quotes: `Replace(strName, "'", "''")`.
+• Accidental Table Wiping (Missing WHERE Clause):
+  Root Cause: Executing `UPDATE Customers SET Status = 'Inactive'` without a `WHERE` clause updates the ENTIRE database table!
+  Diagnostic Fix: Always double-check `WHERE` clauses before executing non-query SQL commands.
+• SQL Type Mismatch on Dates and Decimals:
+  Root Cause: Formatting dates with slashes (`12/04/2026`) instead of ISO standard format (`'2026-04-12'`).
+  Diagnostic Fix: Format SQL dates strictly in ISO standard: `Format(myDate, "yyyy-mm-dd")`.
+
+6. PRO TIPS & SHORTCUTS
+• Escape Single Quotes (Replace(str, "'", "''")): Mandatory sanitizer to prevent SQL syntax errors.
+• ISO Standard Date Format (Format(myDate, "yyyy-mm-dd")): Guarantees reliable date parsing across all database engines.
+• Records Affected Counter (conn.Execute sql, lngRows: MsgBox lngRows & " rows updated!"): Provides instant feedback on affected record counts.
+================================================================================

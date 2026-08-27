@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
-Topic 1: Understanding Evaluation Contexts: Row Context vs Filter Context (The core of DAX)
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 1 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Understanding Evaluation Contexts: Row Context vs Filter Context (The core of DAX)
+Module: 005_004_dax-formulas-mastery-and-time-intelligence
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Evaluation Contexts: Row Context (Active Record Iteration) | Filter Context (Active Slicers, Rows, Columns, Pages)
+
+PRIMARY CONCEPT:
+Mastering the two fundamental evaluation contexts of DAX: Row Context (iterating row-by-row through a table) and Filter Context (the set of active filters from pivot rows, columns, and slicers)
+
+TEACHER'S ADVICE:
+Row Context and Filter Context are the twin engines of DAX. Row context is your cursor moving down rows. Filter context is the active filters on your pivot table. Understand this, and DAX becomes second nature.
+
+COMMON TRAPS TO AVOID:
+- Expecting Row Context to Filter Related Tables: Thinking a calculated column in Table A automatically filters Table B during evaluation. -> Fix: Row Context does not propagate across relationships unless transformed via Context Transition (`CALCULATE`).
+- Confusing Filter Context with Row Coordinates: Writing a measure that expects to know 'what row number am I on'. -> Fix: Measures operate in Filter Context; use Iterator functions if row-by-row iteration is required.
+- Assuming Filter Context Modifies Physical Data: Thinking filtering changes underlying stored tables in RAM. -> Fix: Filter Context only restricts the temporary virtual view of data passed to the formula.
+================================================================================

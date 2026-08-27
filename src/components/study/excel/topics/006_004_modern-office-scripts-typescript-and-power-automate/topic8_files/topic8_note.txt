@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
-Topic 8: Integrating Office Scripts with Microsoft Power Automate (Cloud Flows)
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 8 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Integrating Office Scripts with Microsoft Power Automate (Cloud Flows)
+Module: 006_004_modern-office-scripts-typescript-and-power-automate
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Power Automate Connector: Excel Online (Business) > Action: 'Run script' > Select Location (SharePoint/OneDrive) > Select File > Select Script
+
+PRIMARY CONCEPT:
+Connecting Office Scripts to Microsoft Power Automate (Cloud Flows): building 24/7 autonomous cloud workflows, passing dynamic dynamic tokens, and orchestrating enterprise pipelines
+
+TEACHER'S ADVICE:
+Power Automate + Office Scripts is pure magic. You can schedule your flow to run every morning at 6:00 AM, process your data, and email the report before you even wake up in the morning.
+
+COMMON TRAPS TO AVOID:
+- Selecting Wrong SharePoint Site / File Location: Hardcoding a personal OneDrive path instead of shared corporate SharePoint Document Library. -> Fix: Store enterprise workbooks in dedicated SharePoint Team Sites for shared tenant access.
+- Concurrent Flow Execution Conflicts (File Lock): Triggering 10 flows simultaneously modifying the same Excel file concurrently. -> Fix: Configure Power Automate concurrency control (Settings > Concurrency = 1) to queue runs sequentially.
+- Script Execution Timeout on Massive Workbooks: Office Scripts has a default execution timeout of 120 seconds in Power Automate. -> Fix: Optimize script algorithms to complete in under 5 seconds using batch array processing.
+================================================================================

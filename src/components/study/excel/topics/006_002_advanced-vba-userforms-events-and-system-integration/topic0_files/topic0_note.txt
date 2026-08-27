@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Advanced VBA: UserForms, Events & System Integration
-Topic 0: Event-Driven Programming: Workbook events (`Workbook_Open`, `Workbook_BeforeSave`, `Workbook_BeforeClose`)
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 0 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Event-Driven Programming: Workbook events (`Workbook_Open`, `Workbook_BeforeSave`, `Workbook_BeforeClose`)
+Module: 006_002_advanced-vba-userforms-events-and-system-integration
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Workbook Events (ThisWorkbook Module): Private Sub Workbook_Open() | Workbook_BeforeSave(ByVal SaveAsUI As Boolean, Cancel As Boolean) | Workbook_BeforeClose
+
+PRIMARY CONCEPT:
+Engineering event-driven automation at the workbook lifecycle level: intercepting Workbook_Open for automatic data refreshes, Workbook_BeforeSave for mandatory compliance audits, and Workbook_BeforeClose
+
+TEACHER'S ADVICE:
+Workbook events are incredible for enterprise governance. You can make Excel say 'Welcome Swadeep!' on open, automatically refresh your SQL tables, and block the user from saving if they forgot to fill in cell A1.
+
+COMMON TRAPS TO AVOID:
+- Writing Workbook Events in Standard Modules (Fails): Placing `Private Sub Workbook_Open()` in Module1 causes it to be ignored completely. -> Fix: Double-click `ThisWorkbook` in Project Explorer and write event procedures there.
+- Infinite Loop Triggered Inside BeforeSave: Calling `ThisWorkbook.Save` inside `Workbook_BeforeSave` triggers an infinite recursive save loop. -> Fix: Do not call `.Save` inside BeforeSave; or wrap in `Application.EnableEvents = False`.
+- Trapping Users with Un-closable Workbooks: Setting `Cancel = True` unconditionally in `Workbook_BeforeClose` prevents anyone from ever closing the file. -> Fix: Ensure `Cancel = True` executes ONLY when explicit error conditions are met.
+================================================================================

@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: VBA & Macro Automation
-Topic 3: Exploring the Visual Basic Editor (VBE): Code Window, Project Explorer, and Properties Window
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 3 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Exploring the Visual Basic Editor (VBE): Code Window, Project Explorer, and Properties Window
+Module: 006_001_vba-and-macro-automation
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+VBE Architecture: Project Explorer (Ctrl+R) | Code Window (F7) | Properties Window (F4) | Immediate Window (Ctrl+G)
+
+PRIMARY CONCEPT:
+Navigating the Visual Basic Editor (VBE): Project Explorer, Code Window, Properties Window, Standard Modules vs Sheet Modules, and debugging with the Immediate Window
+
+TEACHER'S ADVICE:
+Master these three VBE shortcuts: Alt + F11 (open editor), F8 (step through code line-by-line), and Ctrl + G (Immediate Window). You will debug macros 10x faster than anyone else.
+
+COMMON TRAPS TO AVOID:
+- Writing General Macros Inside Sheet Objects Instead of Modules: Writing general Sub procedures inside `Sheet1 (Code)` prevents them from appearing in the standard Excel Macro Run dialog (Alt + F8). -> Fix: Always insert a Standard Module (`Insert > Module`) for general automation macros.
+- Closing Immediate Window & Losing Console: Accidentally closing the debug window and wondering where command output went. -> Fix: Press `Ctrl + G` or View > Immediate Window.
+- Forgetting Breakpoints Left in Code: Leaving red margin break points causes workbook to halt execution when other users run macros. -> Fix: Debug > Clear All Breakpoints (Ctrl + Shift + F9) before releasing workbooks.
+================================================================================

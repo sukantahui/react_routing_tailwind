@@ -1,247 +1,247 @@
-// topic9_questions.js - 30 Comprehensive Mastery Questions
+// topic9_files/topic9_questions.js - 30 Comprehensive Mastery Questions
 // Topic 9: Conditional formatting using custom logical formulas
 // Module: 002_003_conditional-logic-with-if-and-related-functions
 
 const questions = [
   {
-    "question": "Question 1 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Core Logical Evaluation Mechanics regarding short-circuit evaluation, truth table routing, and Boolean engine rules (Question 1)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Core Logical Evaluation Mechanics.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Core Logical Evaluation Mechanics is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how short-circuit evaluation, truth table routing, and Boolean engine rules affects formula evaluation and decision branching.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 2 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Data Types & Type Coercion regarding handling Boolean primitives, text numbers, empty strings, and 0/1 binary values (Question 2)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Data Types & Type Coercion.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Data Types & Type Coercion is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how handling Boolean primitives, text numbers, empty strings, and 0/1 binary values affects formula evaluation and decision branching.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 3 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Corporate Decision Modeling regarding structuring progressive tax brackets, sales commissions, and academic grading (Question 3)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Corporate Decision Modeling.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Corporate Decision Modeling is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how structuring progressive tax brackets, sales commissions, and academic grading affects formula evaluation and decision branching.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 4 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Formula Performance & Scalability regarding approximate lookup tables, array arithmetic, and avoiding deep nested IFs (Question 4)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Formula Performance & Scalability.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Formula Performance & Scalability is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how approximate lookup tables, array arithmetic, and avoiding deep nested IFs affects formula evaluation and decision branching.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 5 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Troubleshooting & Defensive Engineering regarding diagnosing #VALUE!, #N/A, reversed conditions, and missing defaults (Question 5)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Troubleshooting & Defensive Engineering.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Troubleshooting & Defensive Engineering is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how diagnosing #VALUE!, #N/A, reversed conditions, and missing defaults affects formula evaluation and decision branching.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 6 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Enterprise Best Practices regarding modular formula design, parameter configuration tables, and auditability (Question 6)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Enterprise Best Practices.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Enterprise Best Practices is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how modular formula design, parameter configuration tables, and auditability affects formula evaluation and decision branching.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 7 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Core Logical Evaluation Mechanics regarding short-circuit evaluation, truth table routing, and Boolean engine rules (Question 7)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Core Logical Evaluation Mechanics.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Core Logical Evaluation Mechanics is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how short-circuit evaluation, truth table routing, and Boolean engine rules affects formula evaluation and decision branching.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 8 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Data Types & Type Coercion regarding handling Boolean primitives, text numbers, empty strings, and 0/1 binary values (Question 8)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Data Types & Type Coercion.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Data Types & Type Coercion is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how handling Boolean primitives, text numbers, empty strings, and 0/1 binary values affects formula evaluation and decision branching.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 9 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Corporate Decision Modeling regarding structuring progressive tax brackets, sales commissions, and academic grading (Question 9)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Corporate Decision Modeling.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Corporate Decision Modeling is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how structuring progressive tax brackets, sales commissions, and academic grading affects formula evaluation and decision branching.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 10 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Formula Performance & Scalability regarding approximate lookup tables, array arithmetic, and avoiding deep nested IFs (Question 10)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Formula Performance & Scalability.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Formula Performance & Scalability is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how approximate lookup tables, array arithmetic, and avoiding deep nested IFs affects formula evaluation and decision branching.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 11 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Troubleshooting & Defensive Engineering regarding diagnosing #VALUE!, #N/A, reversed conditions, and missing defaults (Question 11)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Troubleshooting & Defensive Engineering.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Troubleshooting & Defensive Engineering is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how diagnosing #VALUE!, #N/A, reversed conditions, and missing defaults affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 12 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Enterprise Best Practices regarding modular formula design, parameter configuration tables, and auditability (Question 12)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Enterprise Best Practices.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Enterprise Best Practices is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how modular formula design, parameter configuration tables, and auditability affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 13 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Core Logical Evaluation Mechanics regarding short-circuit evaluation, truth table routing, and Boolean engine rules (Question 13)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Core Logical Evaluation Mechanics.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Core Logical Evaluation Mechanics is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how short-circuit evaluation, truth table routing, and Boolean engine rules affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 14 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Data Types & Type Coercion regarding handling Boolean primitives, text numbers, empty strings, and 0/1 binary values (Question 14)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Data Types & Type Coercion.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Data Types & Type Coercion is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how handling Boolean primitives, text numbers, empty strings, and 0/1 binary values affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 15 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Corporate Decision Modeling regarding structuring progressive tax brackets, sales commissions, and academic grading (Question 15)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Corporate Decision Modeling.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Corporate Decision Modeling is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how structuring progressive tax brackets, sales commissions, and academic grading affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 16 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Formula Performance & Scalability regarding approximate lookup tables, array arithmetic, and avoiding deep nested IFs (Question 16)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Formula Performance & Scalability.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Formula Performance & Scalability is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how approximate lookup tables, array arithmetic, and avoiding deep nested IFs affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 17 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Troubleshooting & Defensive Engineering regarding diagnosing #VALUE!, #N/A, reversed conditions, and missing defaults (Question 17)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Troubleshooting & Defensive Engineering.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Troubleshooting & Defensive Engineering is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how diagnosing #VALUE!, #N/A, reversed conditions, and missing defaults affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 18 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Enterprise Best Practices regarding modular formula design, parameter configuration tables, and auditability (Question 18)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Enterprise Best Practices.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Enterprise Best Practices is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how modular formula design, parameter configuration tables, and auditability affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 19 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Core Logical Evaluation Mechanics regarding short-circuit evaluation, truth table routing, and Boolean engine rules (Question 19)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Core Logical Evaluation Mechanics.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Core Logical Evaluation Mechanics is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how short-circuit evaluation, truth table routing, and Boolean engine rules affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 20 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Data Types & Type Coercion regarding handling Boolean primitives, text numbers, empty strings, and 0/1 binary values (Question 20)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Data Types & Type Coercion.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Data Types & Type Coercion is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how handling Boolean primitives, text numbers, empty strings, and 0/1 binary values affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 21 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Corporate Decision Modeling regarding structuring progressive tax brackets, sales commissions, and academic grading (Question 21)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Corporate Decision Modeling.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Corporate Decision Modeling is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how structuring progressive tax brackets, sales commissions, and academic grading affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 22 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Formula Performance & Scalability regarding approximate lookup tables, array arithmetic, and avoiding deep nested IFs (Question 22)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Formula Performance & Scalability.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Formula Performance & Scalability is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how approximate lookup tables, array arithmetic, and avoiding deep nested IFs affects formula evaluation and decision branching.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 23 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Troubleshooting & Defensive Engineering regarding diagnosing #VALUE!, #N/A, reversed conditions, and missing defaults (Question 23)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Troubleshooting & Defensive Engineering.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Troubleshooting & Defensive Engineering is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how diagnosing #VALUE!, #N/A, reversed conditions, and missing defaults affects formula evaluation and decision branching.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 24 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Enterprise Best Practices regarding modular formula design, parameter configuration tables, and auditability (Question 24)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Enterprise Best Practices.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Enterprise Best Practices is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how modular formula design, parameter configuration tables, and auditability affects formula evaluation and decision branching.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 25 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Core Logical Evaluation Mechanics regarding short-circuit evaluation, truth table routing, and Boolean engine rules (Question 25)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Core Logical Evaluation Mechanics.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Core Logical Evaluation Mechanics is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how short-circuit evaluation, truth table routing, and Boolean engine rules affects formula evaluation and decision branching.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 26 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Data Types & Type Coercion regarding handling Boolean primitives, text numbers, empty strings, and 0/1 binary values (Question 26)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Data Types & Type Coercion.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Data Types & Type Coercion is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how handling Boolean primitives, text numbers, empty strings, and 0/1 binary values affects formula evaluation and decision branching.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 27 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Corporate Decision Modeling regarding structuring progressive tax brackets, sales commissions, and academic grading (Question 27)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Corporate Decision Modeling.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Corporate Decision Modeling is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how structuring progressive tax brackets, sales commissions, and academic grading affects formula evaluation and decision branching.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 28 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Formula Performance & Scalability regarding approximate lookup tables, array arithmetic, and avoiding deep nested IFs (Question 28)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Formula Performance & Scalability.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Formula Performance & Scalability is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how approximate lookup tables, array arithmetic, and avoiding deep nested IFs affects formula evaluation and decision branching.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 29 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Troubleshooting & Defensive Engineering regarding diagnosing #VALUE!, #N/A, reversed conditions, and missing defaults (Question 29)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Troubleshooting & Defensive Engineering.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Troubleshooting & Defensive Engineering is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how diagnosing #VALUE!, #N/A, reversed conditions, and missing defaults affects formula evaluation and decision branching.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   },
   {
-    "question": "Question 30 on Conditional formatting using custom logical formulas: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 9.",
-    "explanation": "Mastering Conditional formatting using custom logical formulas ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Conditional formatting using custom logical formulas, how does Excel evaluate Enterprise Best Practices regarding modular formula design, parameter configuration tables, and auditability (Question 30)?",
+    "shortAnswer": "Excel applies deterministic logical evaluation rules to execute conditional branching while maintaining strict data integrity for Enterprise Best Practices.",
+    "explanation": "When working with Conditional formatting using custom logical formulas, mastering Enterprise Best Practices is critical for robust spreadsheet engineering. Excel processes logical formulas sequentially and optimizes Boolean operations, ensuring that downstream summaries, financial lookups, and visual formatting rules execute accurately without unexpected branch misdirection.",
+    "hint": "Think about how modular formula design, parameter configuration tables, and auditability affects formula evaluation and decision branching.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"
   }
 ];
 

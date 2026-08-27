@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
-Topic 10: Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 10 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive
+Module: 006_004_modern-office-scripts-typescript-and-power-automate
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table
+
+PRIMARY CONCEPT:
+Automating the extraction and ingestion of email attachments: intercepting incoming supplier CSV/Excel files from Outlook, saving them to SharePoint, and parsing records into master tables via Office Scripts
+
+TEACHER'S ADVICE:
+Imagine never having to download an email attachment again! Have your vendors email their CSV files to a dedicated address. Power Automate grabs the attachment, passes it to Office Scripts, and posts the data to your master spreadsheet automatically.
+
+COMMON TRAPS TO AVOID:
+- Base64 Encoding Confusion on File Content: Passing raw base64 binary strings instead of decoded text to CSV parsing scripts. -> Fix: Use `base64ToString()` expression in Power Automate before passing CSV string to script.
+- Processing Non-Target Attachments (Signatures / Logos): Looping through email signature `.png` logos and failing to parse as CSV. -> Fix: Add condition: `If attachment name ends with .csv`.
+- Corrupted CSV Due to Commas Inside Quoted Fields: Simple `row.split(",")` breaking on addresses like `"Flat 4B, Park Street"`. -> Fix: Use a robust regex or state-machine CSV parser inside the TypeScript script.
+================================================================================

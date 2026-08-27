@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Excel Advanced & Financial Modeling Skill Test
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Excel Advanced & Financial Modeling Skill Test
 Topic 0: Financial Amortization & Investment Valuation Lab (XNPV, XIRR)
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Financial Amortization & Investment Valuation Lab (XNPV, XIRR) is an essential evaluation milestone in spreadsheet mastery, data modeling rigor, and executive reporting.
+It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Investment Valuation: =XNPV(DiscountRate, CashFlows, Dates) | =XIRR(CashFlows, Dates) | Loan Amortization: =PMT(r, n, pv) | =PPMT(...) | =IPMT(...)
+
+3. CORE TECHNICAL MECHANICS
+1. Exact-Day Discounting (XNPV / XIRR):
+   Accounts for real-world irregular cash flow timing down to the exact day, eliminating standard NPV/IRR equal-interval distortion.
+
+2. Dynamic Debt Amortization Modeling:
+   Separates monthly loan repayments into interest expense (`IPMT`) and principal reduction (`PPMT`) across a 360-month loan schedule.
+
+3. WACC & Capital Hurdle Rate Benchmarking:
+   Evaluates project viability: Accept project if `XNPV > 0` and `XIRR > WACC` (Weighted Average Cost of Capital).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Financial Officer, Barrackpore HQ):
+  Enterprise ₹50 Crore M&A Project Valuation Lab - Evaluates candidates on constructing an institutional DCF model calculating exact-day XNPV and XIRR for a ₹50 Crore factory acquisition.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Machinery Lease vs Buy Financial Valuation - Tests candidate calculation of after-tax net present value comparing leasing vs bank loan equipment financing.
+• Abhronila Das (Plant Engineering Lead, Ichapur Works):
+  Solar Kiln Capital Payback Assessment - Evaluates financial payback period and discounted ROI on factory energy efficiency capital expenditure.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Fleet Vehicle Amortization Schedule Lab - Constructs a 60-month vehicle financing amortization table splitting principal and interest.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Using Standard NPV with Irregular Dates:
+  Root Cause: Standard `=NPV()` assumes all cash flows occur at strictly equal 1-year intervals, producing invalid valuations.
+  Diagnostic Fix: Always use `=XNPV(rate, cash_flows, dates)` for real-world projects.
+• Omitting Negative Sign on Initial Investment Outflow:
+  Root Cause: Passing positive number for Year 0 investment in XIRR causes `#NUM!` error.
+  Diagnostic Fix: Initial capital outflow MUST be negative: `-50000000`.
+• Annual vs Monthly Interest Rate Mismatch in PMT:
+  Root Cause: Passing 12% annual rate into monthly loan formula without dividing by 12.
+  Diagnostic Fix: Divide annual rate by 12 and multiply years by 12: `=PMT(Rate/12, Years*12, -LoanAmount)`.
+
+6. PRO TIPS & SHORTCUTS
+• Always Use XNPV / XIRR (=XNPV(Rate, CashFlows, Dates)): The institutional standard for corporate capital budgeting.
+• First Cash Flow Negative (Year 0 = -Investment): Mandatory requirement for XIRR calculation.
+• Principal + Interest = Total Payment (PPMT + IPMT = PMT): The mathematical identity of debt amortization.
+================================================================================

@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Basic Dashboards and Reporting
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Basic Dashboards and Reporting
 Topic 4: Dynamic named ranges using OFFSET, INDEX, and dynamic arrays for automated chart updates
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Dynamic named ranges using OFFSET, INDEX, and dynamic arrays for automated chart updates is an essential discipline in corporate business intelligence, executive reporting, and visual analytics.
+It provides the core protocols required to transform dense tabular data into intuitive, interactive, single-screen command centers.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Dynamic Chart Range: =OFFSET(Anchor, 0, 0, COUNTA(Col), 1) | Modern Spill Range: =Sheet1!$A$2#
+
+3. CORE TECHNICAL MECHANICS
+1. The Classic OFFSET Dynamic Range:
+   Defines a Named Range: `=OFFSET(Sheet1!$B$2, 0, 0, COUNTA(Sheet1!$B:$B)-1, 1)`. As new monthly rows are typed, the chart range expands automatically.
+
+2. The Modern Excel 365 Spill Reference (#):
+   Charts can link directly to dynamic spilled array formulas (`=Sheet1!$A$2#`), updating instantly as dynamic calculations filter or grow.
+
+3. Workbook Scope Syntax in Chart Series:
+   When assigning a Named Range to a chart series, you MUST prefix it with the workbook or sheet name: `=WorkbookName.xlsx!Chart_Revenue`.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Planning, Barrackpore HQ):
+  Automated Rolling 12-Month Sales Chart - Constructs dynamic chart series that automatically display the most recent 12 months of revenue without manual series resizing.
+• Tuhina Mukherjee (Statutory Auditor, Shyamnagar Plant):
+  Self-Expanding Monthly Purchase Register Chart - Automates monthly vendor procurement trendlines that expand seamlessly as new ledger rows are appended.
+• Abhronila Das (Plant Quality Controller, Ichapur Works):
+  Daily Scrap Variance Trendline - Links shopfloor quality charts to dynamic named ranges, updating daily as operators type morning production data.
+• Debangshu Roy (Logistics Analytics Specialist, Naihati Logistics):
+  Freight Corridor Volume Tracker - Automates shipment tonnage charts using dynamic array spill references.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Missing Workbook Name Prefix in Chart Series (Syntax Error):
+  Root Cause: Typing `=Chart_Revenue` into the chart series formula box causes Excel to reject the entry.
+  Diagnostic Fix: Always include the workbook name or sheet name prefix: `=Sheet1!Chart_Revenue` or `='Model.xlsx'!Chart_Revenue`.
+• Blank Cells Corrupting COUNTA in OFFSET:
+  Root Cause: Blank cells in the middle of a column cause `COUNTA()` to underestimate the total row count, truncating the chart series.
+  Diagnostic Fix: Ensure source columns contain contiguous data, or use `MATCH(9.99E+307, Col)` to find the true last row.
+• OFFSET Function Recalculation Lag:
+  Root Cause: OFFSET is volatile and can slow down massive workbooks containing hundreds of dynamic ranges.
+  Diagnostic Fix: Use non-volatile INDEX dynamic ranges: `=$B$2:INDEX($B:$B, COUNTA($B:$B))`.
+
+6. PRO TIPS & SHORTCUTS
+• Chart Series Link Syntax (=Sheet1!DynamicRangeName): Mandatory format when assigning custom named ranges to chart series.
+• Non-Volatile INDEX Range (=$B$2:INDEX($B:$B, COUNTA($B:$B))): Fast, non-volatile alternative to OFFSET for large enterprise workbooks.
+• Rolling Last N Months (=OFFSET(Anchor, COUNTA(Col)-12, 0, 12, 1)): Always displays exactly the last 12 months of historical data.
+================================================================================

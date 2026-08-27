@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Conditional Logic with IF and Related Functions
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Conditional Logic with IF and Related Functions
 Topic 0: Boolean fundamentals in Excel: TRUE, FALSE, comparison operators, and ISBLANK/ISNUMBER
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Boolean fundamentals in Excel: TRUE, FALSE, comparison operators, and ISBLANK/ISNUMBER is an essential discipline in modern financial modeling and automated decision support.
+It provides the core formulas required to evaluate complex business rules and multi-tier criteria.
+
+2. SYNTAX & TOKEN STRUCTURE
+Formula Code: =A2 > B2 | =ISBLANK(cell) | =ISNUMBER(cell) | =ISTEXT(cell) | =ISLOGICAL(cell)
+
+3. CORE TECHNICAL MECHANICS
+1. Native Boolean Primitive:
+   Excel evaluates relational comparisons directly into Boolean primitives (TRUE / FALSE) without requiring explicit IF() wrappers.
+
+2. Strict Type Interrogation (IS*):
+   ISNUMBER() returns TRUE only for numeric floats/integers; ISTEXT() identifies text strings; ISBLANK() verifies completely uninitialized empty cells.
+
+3. Boolean Arithmetic Coercion:
+   Mathematical operations coerce TRUE to 1 and FALSE to 0 (e.g. `=(A2>100) * 1` returns 1 or 0 directly).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Credit Risk Analyst, Barrackpore HQ):
+  Loan Collateral Ratio Validation - Evaluates corporate loan eligibility directly using =(CollateralValue >= LoanAmount * 1.5) to generate Boolean risk audit flags.
+• Tuhina Mukherjee (Tax Auditor, Shyamnagar Plant):
+  Missing Tax ID Detection - Flags missing vendor GST numbers using =ISBLANK(GSTIN_Cell) across 15,000 procurement ledger records.
+• Abhronila Das (Data Integrity Lead, Ichapur Works):
+  Numeric Quantity Type Verification - Audits warehouse inventory entries using =ISNUMBER(QtyCell) to isolate text-corrupted weight entries.
+• Debangshu Roy (Logistics Dispatcher, Naihati Logistics):
+  Freight Overload Safety Flag - Flags overloaded delivery trucks using =(AxleWeight > LegalMaxWeight) for driver gate clearance.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Empty String "" vs True Blank:
+  Root Cause: ISBLANK() returns FALSE for cells containing formula empty strings (""), white spaces, or deleted text.
+  Diagnostic Fix: Use `=(A2="")` or `=(LEN(A2)=0)` instead of ISBLANK() to catch formula blank outputs.
+• Text vs Number Comparison Trap:
+  Root Cause: In Excel, text is mathematically considered greater than any number ("10" > 100 evaluates to TRUE).
+  Diagnostic Fix: Coerce text numbers to floats using `--A2` before relational comparisons.
+• Unquoted Comparison with Text:
+  Root Cause: Writing =A2=Completed instead of =A2="Completed" triggers a #NAME? error.
+  Diagnostic Fix: Always wrap literal string comparisons in double quotation marks.
+
+6. PRO TIPS & SHORTCUTS
+• Direct Boolean Expression (=A2 >= 50000): Write clean comparison formulas without wrapping everything in an unnecessary IF(..., TRUE, FALSE).
+• Coerce to Binary 1/0 (=--(A2 > B2)): Double unary instantly transforms Boolean TRUE/FALSE into 1/0 for mathematical aggregation.
+• True Empty Check (=LEN(TRIM(A2))=0): Catches empty strings, spaces, and true blank cells in a single expression.
+================================================================================

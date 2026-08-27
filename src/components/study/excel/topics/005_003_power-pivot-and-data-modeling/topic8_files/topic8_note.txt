@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Power Pivot & Data Modeling
-Topic 8: Formatting measures, organizing display folders, and hiding technical keys from end-users
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 8 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Formatting measures, organizing display folders, and hiding technical keys from end-users
+Module: 005_003_power-pivot-and-data-modeling
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Power Pivot Property Grid: Formatting: Currency (₹) | Display Folder: Financials\Margins | Hidden: True (Hide Foreign Keys)
+
+PRIMARY CONCEPT:
+Organizing enterprise Data Models for seamless end-user experience: configuring Display Folders, locking standard currency/percentage formats, and hiding technical foreign keys
+
+TEACHER'S ADVICE:
+A professional data model should look clean and friendly. Group your measures into Display Folders (like `Revenue` and `Profit Margins`) and hide all foreign key columns. Your users will love your models.
+
+COMMON TRAPS TO AVOID:
+- The 'Infinite Scroll' Field List Nightmare: Leaving 80 unorganized measures scattered alphabetically in a flat table makes it impossible for users to locate specific KPIs. -> Fix: Organize measures into logical Display Folders.
+- Formatting Measures Locally in Each PivotTable: Spending 20 minutes re-formatting currency symbols in every single PivotTable manually. -> Fix: Format the measure ONCE in the Power Pivot window; it will format automatically everywhere.
+- Hiding Dimension Description Columns by Mistake: Accidentally hiding Customer Name instead of Customer ID Key. -> Fix: Audit hidden column statuses in Diagram View (hidden items appear grayed out).
+================================================================================

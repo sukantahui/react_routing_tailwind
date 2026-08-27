@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Data Validation, Protection and Cleaning Techniques
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Data Validation, Protection and Cleaning Techniques
 Topic 9: Cell protection: Locking formulas, unlocking input cells, and worksheet passwords
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Cell protection: Locking formulas, unlocking input cells, and worksheet passwords is an essential discipline in corporate spreadsheet governance, data integrity, and template security.
+It provides the core protocols required to prevent data corruption, audit complex formulas, and encrypt sensitive corporate assets.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Cell Protection Protocol: 1. Select Entire Sheet > Format Cells > Protection > Uncheck 'Locked' | 2. Select Formula Cells > Check 'Locked' & 'Hidden' | 3. Review > Protect Sheet (Password)
+
+3. CORE TECHNICAL MECHANICS
+1. The 2-Step Protection Paradigm:
+   By default, EVERY cell in Excel has the 'Locked' property enabled, but it has ZERO effect until 'Protect Sheet' is actively turned on in the Review ribbon.
+
+2. Unlocking Input Assumptions:
+   Select input/assumption cells > Format Cells (Ctrl + 1) > Protection tab > UNCHECK 'Locked' so users can edit values.
+
+3. Formula Cloaking ('Hidden'):
+   Checking 'Hidden' on formula cells prevents proprietary formulas from being displayed in the Formula Bar once sheet protection is active.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Financial Officer, Barrackpore HQ):
+  Enterprise Budget Collection Template Security - Deploys 200 departmental budget entry templates where only blue assumption cells are editable; all formulas and totals are locked and cloaked with password protection.
+• Tuhina Mukherjee (Payroll Security Lead, Shyamnagar Plant):
+  Confidential Executive Salary Calculator - Locks statutory tax withholding formulas and hides proprietary bonus algorithms from end users.
+• Abhronila Das (Plant Operations Controller, Ichapur Works):
+  ISO Shopfloor Quality Log Protection - Locks calibration equations and inspection pass/fail rules to prevent operator tampering.
+• Debangshu Roy (Commercial Contracts Lead, Naihati Logistics):
+  Third-Party Carrier Rate Card Formatter - Protects proprietary margin calculation formulas on client-facing rate quote templates.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Protecting Sheet Without Unlocking Input Cells First:
+  Root Cause: Clicking 'Protect Sheet' immediately locks the ENTIRE sheet, preventing users from typing anywhere.
+  Diagnostic Fix: Always unlock input cells FIRST (Ctrl + 1 > Protection > uncheck Locked) before protecting sheet.
+• Protect Sheet Does Not Secure Against Malicious Hackers:
+  Root Cause: Standard Excel worksheet passwords can be bypassed using simple VBA scripts or ZIP file XML editing.
+  Diagnostic Fix: Use worksheet protection for accidental error prevention; use File > Protect Workbook > Encrypt with Password for true cryptographic security.
+• Disabling AutoFilter & Sort During Protection:
+  Root Cause: Users complain they cannot sort tables or use filter dropdowns on protected sheets.
+  Diagnostic Fix: In the Protect Sheet dialog, explicitly CHECK the boxes: 'Sort', 'Use AutoFilter', and 'Format cells'.
+
+6. PRO TIPS & SHORTCUTS
+• Select All Formula Cells (F5 > Special > Formulas (Alt + H + F + D + S + F)): Instantly selects every formula cell across the worksheet in 1 second.
+• Protect Sheet Shortcut (Review > Protect Sheet (Alt + R + P + S)): Launches the worksheet encryption and permission modal.
+• Tab Navigation in Protected Sheet (Press Tab key): Pressing Tab on a protected sheet automatically jumps smoothly between unlocked input cells only.
+================================================================================

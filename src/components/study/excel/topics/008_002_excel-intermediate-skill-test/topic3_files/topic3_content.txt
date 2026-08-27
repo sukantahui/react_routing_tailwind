@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Excel Intermediate Skill Test
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Excel Intermediate Skill Test
 Topic 3: VLOOKUP, INDEX-MATCH & XLOOKUP Accuracy Test
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+VLOOKUP, INDEX-MATCH & XLOOKUP Accuracy Test is an essential evaluation milestone in spreadsheet mastery, data modeling rigor, and executive reporting.
+It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Lookup Matrix: =XLOOKUP(LookupVal, LookupArray, ReturnArray, "Not Found", MatchMode, SearchMode) | =INDEX(Array, MATCH(...))
+
+3. CORE TECHNICAL MECHANICS
+1. The Modern XLOOKUP Gold Standard:
+   Syntax: `=XLOOKUP(LookupVal, LookupArray, ReturnArray, [if_not_found], [match_mode], [search_mode])`. Looks left, looks right, never breaks on column insertions.
+
+2. INDEX-MATCH Two-Way Matrix Lookups:
+   `=INDEX(Table, MATCH(RowVal, RowHdr, 0), MATCH(ColVal, ColHdr, 0))`. Retrieves data intersecting dynamic row and column headers.
+
+3. VLOOKUP Column Index Fragility:
+   Testing candidate awareness of why hardcoded column indices (`4`) break when new columns are inserted into source tables.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Enterprise Price Card XLOOKUP & Left-Lookup Test - Evaluates candidates on retrieving product costs located to the left of SKU IDs using `XLOOKUP` with built-in 'Not Found' error handling.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Two-Way Tax Rate Matrix INDEX-MATCH Challenge - Tests candidate construction of 2-way matrix lookups matching HSN codes against state tax percentage tables.
+• Abhronila Das (Plant Quality Superintendent, Ichapur Works):
+  Machine Tolerance Lookup Test - Evaluates approximate matching lookups for temperature tolerance brackets.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Carrier Freight Tariff XLOOKUP Lab - Tests multi-condition and reverse search XLOOKUP formulas on shipment rate tables.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• VLOOKUP Column Insertion Breakage Bug:
+  Root Cause: Inserting a new column in source data breaks hardcoded `col_index_num = 3`.
+  Diagnostic Fix: Use `XLOOKUP` which references columns directly by range.
+• Omitting Exact Match Parameter (FALSE / 0) in VLOOKUP:
+  Root Cause: Defaulting to approximate match on unsorted tables returning random incorrect values.
+  Diagnostic Fix: Always pass `FALSE` in VLOOKUP: `=VLOOKUP(A2, Table, 3, FALSE)`.
+• Approximate Match on Unsorted Reference Tables:
+  Root Cause: Running approximate lookup (`match_mode = 1`) on unsorted data.
+  Diagnostic Fix: Ensure reference lookup table is sorted ascending when using approximate lookups.
+
+6. PRO TIPS & SHORTCUTS
+• Use XLOOKUP Exclusively (=XLOOKUP(LookupVal, LookupCol, ReturnCol)): The fastest, most robust lookup function in Excel.
+• Built-In If Not Found (XLOOKUP(..., "Not Found")): Eliminates need for outer IFERROR wrapping.
+• Two-Way XLOOKUP (=XLOOKUP(RowVal, RowCol, XLOOKUP(ColVal, ColHdr, Matrix))): Modern 2-way matrix lookup syntax.
+================================================================================

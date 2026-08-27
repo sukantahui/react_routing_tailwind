@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: What-If Analysis and Scenario Planning
 Topic 5: Scenario Manager: Creating, editing, and comparing Best Case, Base Case, and Worst Case scenarios
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Scenario Manager: Creating, editing, and comparing Best Case, Base Case, and Worst Case scenarios is an essential discipline in corporate decision modeling, capital allocation, and risk management.
+It provides the core protocols required to stress-test financial projections, solve backwards for target goals, and mathematically optimize resource utilization.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Data > What-If Analysis > Scenario Manager: Add Scenario -> Changing Cells: Assumptions -> Scenario Values
+
+3. CORE TECHNICAL MECHANICS
+1. Simultaneous Multi-Variable Switching:
+   Unlike Data Tables, Scenario Manager modifies up to 32 independent changing cells simultaneously across diverse sheets.
+
+2. Scenario Storage & State Memory:
+   Excel stores named sets of input values (e.g. 'Bull Case: Price=750, Vol=25000, Tax=22%') inside the workbook metadata.
+
+3. Instant In-Cell State Injection:
+   Clicking 'Show' in Scenario Manager instantly injects that scenario's assumption values into the worksheet cells, updating all downstream financial statements.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Director of Strategic Planning, Barrackpore HQ):
+  Boardroom 3-Case Operating Plan - Maintains 3 strategic scenarios for the Annual Operating Plan: Bull Case (+20% Rev, -5% Opex), Base Case, and Bear Case (-15% Rev, +10% Opex).
+• Tuhina Mukherjee (Corporate Risk Auditor, Shyamnagar Plant):
+  Statutory Tax Litigation Exposure Scenarios - Models Worst-Case vs Optimistic-Case tax liability outcomes across pending GST tribunal cases.
+• Abhronila Das (Capital Projects Lead, Ichapur Works):
+  Foundry Expansion Capex Scenarios - Compares Aggressive, Conservative, and Phased factory modernization capital outlays.
+• Debangshu Roy (Fleet Operations Director, Naihati Logistics):
+  Transport Fleet Expansion Scenarios - Models Rapid Fleet Expansion vs Organic Growth vs Fleet Consolidation commercial scenarios.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Unlabeled Changing Cell Addresses in Dialog:
+  Root Cause: Changing cells appear as cryptic `$B$4, $B$5, $B$6` in Scenario Manager if cells are not named.
+  Diagnostic Fix: Define descriptive Named Ranges (e.g. `SellingPrice`, `SalesVolume`) BEFORE creating scenarios.
+• Overwriting Base Case Without Saving First:
+  Root Cause: Switching to a scenario without saving original base numbers overwrites your starting assumptions permanently.
+  Diagnostic Fix: Always create and save 'Base Case' as Scenario #1 before adding Bull/Bear cases.
+• 32 Changing Cell Upper Limit:
+  Root Cause: Scenario Manager restricts each scenario to a maximum of 32 changing cells.
+  Diagnostic Fix: For massive models with 100+ changing cells, use dynamic XLOOKUP scenario tables with a master Case Switch cell.
+
+6. PRO TIPS & SHORTCUTS
+• Name Cells First (Ctrl + Shift + F3): Naming input cells makes Scenario Manager dialogs self-documenting and intuitive.
+• Save Base Case First (Scenario 1 = Current Values): Guarantees you can always return back to original model baseline.
+• Scenario Manager Shortcut (Alt + A + W + S): Opens Scenario Manager configuration modal.
+================================================================================

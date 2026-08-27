@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: External Data Automation: ADODB SQL Connections & Web APIs
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: External Data Automation: ADODB SQL Connections & Web APIs
 Topic 4: Parameterized SQL queries in VBA to prevent SQL injection and handle dynamic user inputs
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Parameterized SQL queries in VBA to prevent SQL injection and handle dynamic user inputs is an essential discipline in enterprise database engineering, cloud systems integration, and full-stack financial automation.
+It provides the core protocols required to connect Excel directly to enterprise relational databases, query closed workbooks via SQL, and consume cloud REST APIs.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Parameterized Query: Set cmd = CreateObject("ADODB.Command") | cmd.CommandText = "SELECT * FROM Sales WHERE Region = ? AND Year = ?" | cmd.Parameters.Append cmd.CreateParameter(..., adVarChar, adParamInput, 50, "East")
+
+3. CORE TECHNICAL MECHANICS
+1. The SQL Injection Vulnerability:
+   Concatenating user text directly into SQL strings (`"WHERE Customer = '" & txtName.Text & "'"`) allows attackers to inject malicious SQL (`' OR '1'='1'; DROP TABLE Customers;--`).
+
+2. The `ADODB.Command` Prepared Statement:
+   Separates SQL code logic from data literals. SQL statements use `?` placeholders; parameters are passed as strongly-typed binary data objects.
+
+3. Type-Safe Parameter Binding:
+   `cmd.CreateParameter(Name, Type, Direction, Size, Value)`. Enforces strict type boundaries (e.g. integer parameters cannot contain rogue SQL text).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Security & Risk Officer, Barrackpore HQ):
+  Enterprise Commercial Data Room Query Hardening - Hardens 30 financial search portals against SQL Injection by refactoring string concatenation into `ADODB.Command` parameterized queries.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Secure Multi-Criteria Tax Voucher Filter - Passes user-selected date windows and GSTIN numbers securely via typed ADO parameters.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  Shopfloor Machine Log Search Tool - Secures machine telemetry lookup queries against rogue operator inputs.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Waybill Search Parameterization - Parameterizes driver license lookups across central transport databases.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Concatenating User Input Directly into SQL (Fatal Security Vulnerability):
+  Root Cause: Writing `sql = "SELECT * FROM Users WHERE User='" & txtUser.Text & "'"` leaves systems 100% exposed to catastrophic SQL injection data deletion.
+  Diagnostic Fix: Always use `ADODB.Command` with `?` placeholders and parameters.
+• Parameter Data Type Mismatch (adInteger vs adVarChar):
+  Root Cause: Passing string text into an integer parameter causes ADO to reject the execution.
+  Diagnostic Fix: Match ADO parameter data types (`adVarChar`, `adInteger`, `adDate`, `adDouble`) to database column schema.
+• Missing Parameter Size on Variable Strings:
+  Root Cause: Omitting the size parameter on `adVarChar` throws runtime error.
+  Diagnostic Fix: Specify maximum string length: `cmd.CreateParameter(..., adVarChar, adParamInput, 100, strVal)`.
+
+6. PRO TIPS & SHORTCUTS
+• Use ? Placeholders (CommandText = "SELECT * FROM Table WHERE ID = ?"): Separates SQL logic from dynamic user inputs.
+• CreateParameter Syntax (cmd.CreateParameter("p1", adVarChar, adParamInput, 50, val)): Type-safe parameter constructor.
+• Execute to Recordset (Set rs = cmd.Execute()): Executes prepared statement and returns secure recordset.
+================================================================================

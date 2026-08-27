@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: External Data Automation: ADODB SQL Connections & Web APIs
-Topic 9: Managing database transactions in VBA (`BeginTrans`, `CommitTrans`, `RollbackTrans`)
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 9 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Managing database transactions in VBA (`BeginTrans`, `CommitTrans`, `RollbackTrans`)
+Module: 006_003_external-data-automation-adodb-sql-connections-and-web-apis
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Database Transactions: conn.BeginTrans | On Error GoTo TransError | conn.Execute sql1 | conn.Execute sql2 | conn.CommitTrans | TransError: conn.RollbackTrans
+
+PRIMARY CONCEPT:
+Implementing ACID database transactions in Excel VBA using BeginTrans, CommitTrans, and RollbackTrans: ensuring multi-step updates succeed atomically or roll back completely on failure
+
+TEACHER'S ADVICE:
+Transactions are the mark of a true software engineer. When you update a database, always wrap it: `conn.BeginTrans`. If everything works, `conn.CommitTrans`. If anything fails, `conn.RollbackTrans`. Your data will NEVER be corrupted.
+
+COMMON TRAPS TO AVOID:
+- Omitting RollbackTrans on Error (Database Lockup): Error occurs inside a transaction without calling `RollbackTrans`, leaving table rows locked on the database server. -> Fix: Always place `conn.RollbackTrans` inside the structured error handler block.
+- Long-Running Transactions Holding Locks: Pausing a transaction with a `MsgBox` while holding active database table locks blocks other corporate users. -> Fix: Perform all user confirmations BEFORE calling `conn.BeginTrans`; execute SQL in milliseconds and commit immediately.
+- Calling CommitTrans When BeginTrans Failed: Calling `CommitTrans` on an uninitialized transaction throws runtime error. -> Fix: Track transaction state with a Boolean flag (`inTransaction = True`).
+================================================================================

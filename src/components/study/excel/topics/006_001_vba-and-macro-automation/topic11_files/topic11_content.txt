@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: VBA & Macro Automation
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: VBA and Macro Automation
 Topic 11: Basic error handling: `On Error Resume Next`, `On Error GoTo ErrorHandler`
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Basic error handling: `On Error Resume Next`, `On Error GoTo ErrorHandler` is an essential discipline in corporate workflow automation, spreadsheet engineering, and high-speed data processing.
+It provides the core protocols required to eliminate manual repetitive tasks, manipulate Excel objects programmatically, and build enterprise-grade automation tools.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Structured Error Handling: On Error GoTo ErrorHandler | On Error Resume Next | Err.Number, Err.Description, Err.Clear | Exit Sub
+
+3. CORE TECHNICAL MECHANICS
+1. The Unhandled Error Disaster:
+   An unhandled error crashes the macro, exposes raw VBA code to end-users with an ugly 'Debug/End' dialog, and leaves Excel in an unstable state.
+
+2. Structured Error Handler Pattern:
+   Includes `Exit Sub` before the `ErrorHandler:` label so error handling code only runs when an actual error occurs.
+
+3. The `Err` Object Properties:
+   `Err.Number` (numeric error code e.g. 9, 1004), `Err.Description` (readable message), and `Err.Clear` (resets error state).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Enterprise Production Macro Fault-Tolerance - Wraps 40 mission-critical financial automation scripts in structured error handlers, logging errors gracefully to text files without user crashes.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Missing Sheet & Corrupted File Trapping - Gracefully traps 'File not found' and 'Sheet subscript out of range' errors when importing monthly vendor ledgers.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  Sensor File Lock Error Recovery - Handles locked external file errors by pausing and retrying file access before alerting operators.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Database Timeout Error Interception - Catches SQL connection timeouts and displays clear recovery guidance.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Omitting 'Exit Sub' Before Error Handler Label:
+  Root Cause: Leaving out `Exit Sub` causes the error handler code to run every single time the macro runs, even when there was NO error!
+  Diagnostic Fix: Always place `Exit Sub` immediately before the `ErrorHandler:` label.
+• Overusing 'On Error Resume Next' Everywhere:
+  Root Cause: Blinded by `Resume Next`, the macro silently ignores corrupted data, leading to catastrophic incorrect financial statements.
+  Diagnostic Fix: Use `On Error Resume Next` strictly for single targeted lines, followed immediately by `On Error GoTo 0`.
+• Leaving ScreenUpdating Disabled on Crash:
+  Root Cause: Crash occurs before error handler, leaving screen updating off.
+  Diagnostic Fix: Put UI reset code inside the ErrorHandler block.
+
+6. PRO TIPS & SHORTCUTS
+• Standard Error Handler Structure (On Error GoTo ErrHandler ... Exit Sub ... ErrHandler: ...): The bulletproof template for production VBA.
+• Reset Error Trapping (On Error GoTo 0): Disables error bypass and restores default runtime error handling.
+• Inspect Err.Description (MsgBox "Error: " & Err.Description, vbCritical): Displays polite, informative error messages to end-users.
+================================================================================

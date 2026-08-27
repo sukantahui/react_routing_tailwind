@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: External Data Automation: ADODB SQL Connections & Web APIs
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: External Data Automation: ADODB SQL Connections & Web APIs
 Topic 6: Consuming external REST APIs and JSON endpoints using `MSXML2.ServerXMLHTTP` in VBA
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Consuming external REST APIs and JSON endpoints using `MSXML2.ServerXMLHTTP` in VBA is an essential discipline in enterprise database engineering, cloud systems integration, and full-stack financial automation.
+It provides the core protocols required to connect Excel directly to enterprise relational databases, query closed workbooks via SQL, and consume cloud REST APIs.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: REST API Call: Set http = CreateObject("MSXML2.ServerXMLHTTP.6.0") | http.Open "GET", url, False | http.setRequestHeader "Authorization", "Bearer key" | http.Send | jsonResponse = http.responseText
+
+3. CORE TECHNICAL MECHANICS
+1. The ServerXMLHTTP Communication Engine:
+   Native Windows HTTP client executing high-performance, non-cached synchronous and asynchronous HTTPS requests directly to web endpoints.
+
+2. HTTP Request Headers & Authentication:
+   Passes authentication tokens: `http.setRequestHeader "Authorization", "Bearer " & API_KEY` and `http.setRequestHeader "Content-Type", "application/json"`.
+
+3. Status Code Validation:
+   Checks `http.Status = 200` (Success / OK), gracefully intercepting HTTP 401 (Unauthorized), 404 (Not Found), or 500 (Server Error).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Commercial Strategist, Barrackpore HQ):
+  Automated Live Currency & Forex Rate Ingestion - Fetches live daily USD/INR, EUR/INR, and GBP/INR exchange rates from open currency REST APIs using `ServerXMLHTTP` in 0.3 seconds.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Automated Government GST Portal API Validation - Queries government tax APIs to verify active GSTIN registration statuses directly from Excel.
+• Abhronila Das (Plant IoT Data Lead, Ichapur Works):
+  Cloud Weather & Humidity Telemetry Fetcher - Fetches regional barometric weather data from REST APIs to calibrate foundry furnace drying times.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Live GPS Fleet Vehicle Location Streamer - Fetches real-time truck GPS coordinates from telematics APIs.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Using MSXML2.XMLHTTP Instead of ServerXMLHTTP (Caching Bug):
+  Root Cause: `XMLHTTP` caches responses in Internet Explorer cache, returning stale exchange rates rather than fresh data.
+  Diagnostic Fix: Always use `MSXML2.ServerXMLHTTP.6.0` to guarantee fresh, non-cached server responses.
+• Freezing Excel on Slow / Timed-Out Web Servers:
+  Root Cause: Synchronous HTTP requests hanging indefinitely if external API server is down.
+  Diagnostic Fix: Configure explicit timeouts: `http.setTimeouts 5000, 5000, 10000, 10000` (Resolve, Connect, Send, Receive in milliseconds).
+• Exposing Production API Keys in Unlocked Workbooks:
+  Root Cause: Hardcoding proprietary API keys in exposed VBA modules.
+  Diagnostic Fix: Lock VBA Project with password protection.
+
+6. PRO TIPS & SHORTCUTS
+• Use ServerXMLHTTP.6.0 (Set http = CreateObject("MSXML2.ServerXMLHTTP.6.0")): Enterprise-grade HTTP client with zero caching issues.
+• Set Timeouts (http.setTimeouts 5000, 5000, 5000, 5000): Prevents Excel from freezing on broken web servers.
+• Check Status 200 (If http.Status = 200 Then ...): Verifies HTTP success before attempting to parse response.
+================================================================================

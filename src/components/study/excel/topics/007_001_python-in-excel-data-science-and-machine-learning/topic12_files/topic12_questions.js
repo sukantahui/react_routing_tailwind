@@ -1,247 +1,247 @@
-// topic12_questions.js - 30 Comprehensive Mastery Questions
+// topic12_files/topic12_questions.js - 30 Comprehensive Mastery Questions
 // Topic 12: Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel
 // Module: 007_001_python-in-excel-data-science-and-machine-learning
 
 const questions = [
   {
-    "question": "Question 1 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Python in Excel Architecture & Cloud Runtime regarding Azure container sandboxing, Anaconda stack, and zero local setup (Question 1)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute Python in Excel Architecture & Cloud Runtime natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Python in Excel Architecture & Cloud Runtime is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how Azure container sandboxing, Anaconda stack, and zero local setup operates within Python in Excel's cloud container architecture.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 2 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage =PY() Formula & xl() Reference Function regarding top-to-bottom calculation order, headers=True, and structured table ranges (Question 2)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute =PY() Formula & xl() Reference Function natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering =PY() Formula & xl() Reference Function is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how top-to-bottom calculation order, headers=True, and structured table ranges operates within Python in Excel's cloud container architecture.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 3 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Python Objects vs Spilled Excel Values regarding DataFrame card previews, Ctrl+Alt+Shift+M toggles, and memory encapsulation (Question 3)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute Python Objects vs Spilled Excel Values natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Python Objects vs Spilled Excel Values is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how DataFrame card previews, Ctrl+Alt+Shift+M toggles, and memory encapsulation operates within Python in Excel's cloud container architecture.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 4 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage pandas Data Wrangling & Statistical Profiling regarding filtering, GroupBy aggregations, relational merges, and describe() matrices (Question 4)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute pandas Data Wrangling & Statistical Profiling natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering pandas Data Wrangling & Statistical Profiling is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how filtering, GroupBy aggregations, relational merges, and describe() matrices operates within Python in Excel's cloud container architecture.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 5 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Visualizations & Time-Series Decomposition regarding matplotlib/seaborn figures in cells, rolling statistics, and seasonal trends (Question 5)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute Visualizations & Time-Series Decomposition natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Visualizations & Time-Series Decomposition is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how matplotlib/seaborn figures in cells, rolling statistics, and seasonal trends operates within Python in Excel's cloud container architecture.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 6 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Statistical Inference, Regressions & Machine Learning regarding scipy hypothesis tests, statsmodels OLS regressions, and scikit-learn models (Question 6)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute Statistical Inference, Regressions & Machine Learning natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Statistical Inference, Regressions & Machine Learning is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how scipy hypothesis tests, statsmodels OLS regressions, and scikit-learn models operates within Python in Excel's cloud container architecture.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 7 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Python in Excel Architecture & Cloud Runtime regarding Azure container sandboxing, Anaconda stack, and zero local setup (Question 7)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute Python in Excel Architecture & Cloud Runtime natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Python in Excel Architecture & Cloud Runtime is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how Azure container sandboxing, Anaconda stack, and zero local setup operates within Python in Excel's cloud container architecture.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 8 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage =PY() Formula & xl() Reference Function regarding top-to-bottom calculation order, headers=True, and structured table ranges (Question 8)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute =PY() Formula & xl() Reference Function natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering =PY() Formula & xl() Reference Function is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how top-to-bottom calculation order, headers=True, and structured table ranges operates within Python in Excel's cloud container architecture.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 9 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Python Objects vs Spilled Excel Values regarding DataFrame card previews, Ctrl+Alt+Shift+M toggles, and memory encapsulation (Question 9)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute Python Objects vs Spilled Excel Values natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Python Objects vs Spilled Excel Values is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how DataFrame card previews, Ctrl+Alt+Shift+M toggles, and memory encapsulation operates within Python in Excel's cloud container architecture.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 10 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage pandas Data Wrangling & Statistical Profiling regarding filtering, GroupBy aggregations, relational merges, and describe() matrices (Question 10)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute pandas Data Wrangling & Statistical Profiling natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering pandas Data Wrangling & Statistical Profiling is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how filtering, GroupBy aggregations, relational merges, and describe() matrices operates within Python in Excel's cloud container architecture.",
     "level": "basic",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 11 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Visualizations & Time-Series Decomposition regarding matplotlib/seaborn figures in cells, rolling statistics, and seasonal trends (Question 11)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute Visualizations & Time-Series Decomposition natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Visualizations & Time-Series Decomposition is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how matplotlib/seaborn figures in cells, rolling statistics, and seasonal trends operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 12 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Statistical Inference, Regressions & Machine Learning regarding scipy hypothesis tests, statsmodels OLS regressions, and scikit-learn models (Question 12)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute Statistical Inference, Regressions & Machine Learning natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Statistical Inference, Regressions & Machine Learning is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how scipy hypothesis tests, statsmodels OLS regressions, and scikit-learn models operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 13 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Python in Excel Architecture & Cloud Runtime regarding Azure container sandboxing, Anaconda stack, and zero local setup (Question 13)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute Python in Excel Architecture & Cloud Runtime natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Python in Excel Architecture & Cloud Runtime is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how Azure container sandboxing, Anaconda stack, and zero local setup operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 14 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage =PY() Formula & xl() Reference Function regarding top-to-bottom calculation order, headers=True, and structured table ranges (Question 14)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute =PY() Formula & xl() Reference Function natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering =PY() Formula & xl() Reference Function is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how top-to-bottom calculation order, headers=True, and structured table ranges operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 15 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Python Objects vs Spilled Excel Values regarding DataFrame card previews, Ctrl+Alt+Shift+M toggles, and memory encapsulation (Question 15)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute Python Objects vs Spilled Excel Values natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Python Objects vs Spilled Excel Values is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how DataFrame card previews, Ctrl+Alt+Shift+M toggles, and memory encapsulation operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 16 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage pandas Data Wrangling & Statistical Profiling regarding filtering, GroupBy aggregations, relational merges, and describe() matrices (Question 16)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute pandas Data Wrangling & Statistical Profiling natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering pandas Data Wrangling & Statistical Profiling is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how filtering, GroupBy aggregations, relational merges, and describe() matrices operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 17 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Visualizations & Time-Series Decomposition regarding matplotlib/seaborn figures in cells, rolling statistics, and seasonal trends (Question 17)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute Visualizations & Time-Series Decomposition natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Visualizations & Time-Series Decomposition is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how matplotlib/seaborn figures in cells, rolling statistics, and seasonal trends operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 18 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Statistical Inference, Regressions & Machine Learning regarding scipy hypothesis tests, statsmodels OLS regressions, and scikit-learn models (Question 18)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute Statistical Inference, Regressions & Machine Learning natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Statistical Inference, Regressions & Machine Learning is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how scipy hypothesis tests, statsmodels OLS regressions, and scikit-learn models operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 19 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Python in Excel Architecture & Cloud Runtime regarding Azure container sandboxing, Anaconda stack, and zero local setup (Question 19)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute Python in Excel Architecture & Cloud Runtime natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Python in Excel Architecture & Cloud Runtime is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how Azure container sandboxing, Anaconda stack, and zero local setup operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 20 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage =PY() Formula & xl() Reference Function regarding top-to-bottom calculation order, headers=True, and structured table ranges (Question 20)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute =PY() Formula & xl() Reference Function natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering =PY() Formula & xl() Reference Function is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how top-to-bottom calculation order, headers=True, and structured table ranges operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 21 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Python Objects vs Spilled Excel Values regarding DataFrame card previews, Ctrl+Alt+Shift+M toggles, and memory encapsulation (Question 21)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute Python Objects vs Spilled Excel Values natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Python Objects vs Spilled Excel Values is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how DataFrame card previews, Ctrl+Alt+Shift+M toggles, and memory encapsulation operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 22 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage pandas Data Wrangling & Statistical Profiling regarding filtering, GroupBy aggregations, relational merges, and describe() matrices (Question 22)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute pandas Data Wrangling & Statistical Profiling natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering pandas Data Wrangling & Statistical Profiling is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how filtering, GroupBy aggregations, relational merges, and describe() matrices operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 23 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Visualizations & Time-Series Decomposition regarding matplotlib/seaborn figures in cells, rolling statistics, and seasonal trends (Question 23)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute Visualizations & Time-Series Decomposition natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Visualizations & Time-Series Decomposition is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how matplotlib/seaborn figures in cells, rolling statistics, and seasonal trends operates within Python in Excel's cloud container architecture.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 24 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Statistical Inference, Regressions & Machine Learning regarding scipy hypothesis tests, statsmodels OLS regressions, and scikit-learn models (Question 24)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute Statistical Inference, Regressions & Machine Learning natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Statistical Inference, Regressions & Machine Learning is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how scipy hypothesis tests, statsmodels OLS regressions, and scikit-learn models operates within Python in Excel's cloud container architecture.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 25 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Python in Excel Architecture & Cloud Runtime regarding Azure container sandboxing, Anaconda stack, and zero local setup (Question 25)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute Python in Excel Architecture & Cloud Runtime natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Python in Excel Architecture & Cloud Runtime is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how Azure container sandboxing, Anaconda stack, and zero local setup operates within Python in Excel's cloud container architecture.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 26 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage =PY() Formula & xl() Reference Function regarding top-to-bottom calculation order, headers=True, and structured table ranges (Question 26)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute =PY() Formula & xl() Reference Function natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering =PY() Formula & xl() Reference Function is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how top-to-bottom calculation order, headers=True, and structured table ranges operates within Python in Excel's cloud container architecture.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 27 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Python Objects vs Spilled Excel Values regarding DataFrame card previews, Ctrl+Alt+Shift+M toggles, and memory encapsulation (Question 27)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute Python Objects vs Spilled Excel Values natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Python Objects vs Spilled Excel Values is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how DataFrame card previews, Ctrl+Alt+Shift+M toggles, and memory encapsulation operates within Python in Excel's cloud container architecture.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 28 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage pandas Data Wrangling & Statistical Profiling regarding filtering, GroupBy aggregations, relational merges, and describe() matrices (Question 28)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute pandas Data Wrangling & Statistical Profiling natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering pandas Data Wrangling & Statistical Profiling is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how filtering, GroupBy aggregations, relational merges, and describe() matrices operates within Python in Excel's cloud container architecture.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 29 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Visualizations & Time-Series Decomposition regarding matplotlib/seaborn figures in cells, rolling statistics, and seasonal trends (Question 29)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute Visualizations & Time-Series Decomposition natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Visualizations & Time-Series Decomposition is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how matplotlib/seaborn figures in cells, rolling statistics, and seasonal trends operates within Python in Excel's cloud container architecture.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   },
   {
-    "question": "Question 30 on Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel: What is the core production application and formula mechanics?",
-    "shortAnswer": "Executes precise enterprise spreadsheet modeling adhering to standard Excel rules for Topic 12.",
-    "explanation": "Mastering Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel ensures robust calculation modeling, relational data integrity, and executive reporting excellence.",
-    "hint": "Focus on clean formula syntax and boundary validation.",
+    "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Statistical Inference, Regressions & Machine Learning regarding scipy hypothesis tests, statsmodels OLS regressions, and scikit-learn models (Question 30)?",
+    "shortAnswer": "Python in Excel leverages Azure container sandboxing and the Anaconda data science stack to execute Statistical Inference, Regressions & Machine Learning natively within spreadsheet cells.",
+    "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Statistical Inference, Regressions & Machine Learning is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
+    "hint": "Think about how scipy hypothesis tests, statsmodels OLS regressions, and scikit-learn models operates within Python in Excel's cloud container architecture.",
     "level": "advanced",
-    "codeExample": "=PROPER(TRIM(A2)) // Standard Excel Architecture"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
   }
 ];
 

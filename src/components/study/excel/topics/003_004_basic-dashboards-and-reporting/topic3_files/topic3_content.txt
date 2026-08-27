@@ -1,4 +1,53 @@
-EXCEL MASTERCLASS: Basic Dashboards and Reporting
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Basic Dashboards and Reporting
 Topic 3: Interactive form controls: Drop-downs, Checkboxes, Option buttons, and Spinners
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Interactive form controls: Drop-downs, Checkboxes, Option buttons, and Spinners is an essential discipline in corporate business intelligence, executive reporting, and visual analytics.
+It provides the core protocols required to transform dense tabular data into intuitive, interactive, single-screen command centers.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Developer > Insert > Form Controls: Combo Box (Drop-down) | Option Button (Radio) | Check Box | Scroll Bar (Spinner)
+
+3. CORE TECHNICAL MECHANICS
+1. The Linked Cell Architecture:
+   Every Form Control writes an integer index (1, 2, 3...) or Boolean (TRUE/FALSE) into a hidden 'Linked Cell'. All dashboard formulas switch based on this cell.
+
+2. Combo Box (Dropdown Switch):
+   Allows selecting a scenario or region from a list, outputting the selected item's row position (1 to N) into the linked cell.
+
+3. Option Buttons & Group Boxes:
+   Radio buttons inside a Group Box allow mutually exclusive case switching (e.g. Option 1 = Revenue, Option 2 = Profit, Option 3 = Margin).
+
+4. Checkboxes (Toggle Layers):
+   Outputs TRUE/FALSE to toggle secondary chart series on/off (e.g. 'Show Budget Target Line').
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Executive Dashboard Architect, Barrackpore HQ):
+  Dynamic Division Selector Console - Builds a Form Control Combo Box allowing executive directors to switch the entire dashboard view between 6 corporate business units.
+• Tuhina Mukherjee (Tax Planning Lead, Shyamnagar Plant):
+  Tax Regime Option Button Switch - Uses Option Buttons (Radio) to toggle corporate tax calculations dynamically between Old vs New Tax Regimes.
+• Abhronila Das (Plant Engineering Lead, Ichapur Works):
+  Maintenance Alert Checkbox Overlay - Uses Checkboxes to toggle breakdown incident overlay trendlines on machine uptime charts.
+• Debangshu Roy (Logistics Analytics Specialist, Naihati Logistics):
+  Fleet Mileage Sensitivity Spinner - Uses a Scroll Bar spinner control allowing users to dial fleet fuel cost increases from 0% to 50% in real time.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Floating Form Controls Drifting on Window Resize:
+  Root Cause: Form Controls moving across the screen when users open the file on different resolution screens.
+  Diagnostic Fix: Right-click Form Control > Format Control > Properties > Select 'Don't move or size with cells'.
+• Uncontained Option Buttons Overriding Each Other:
+  Root Cause: Option buttons placed on the sheet without a Group Box operate as a single global group, preventing multiple independent radio switches.
+  Diagnostic Fix: Enclose each set of Option Buttons inside a dedicated Group Box.
+• Exposing Raw Linked Cell Numbers to Users:
+  Root Cause: Leaving raw numbers (1, 2, 3) visible on the presentation dashboard surface.
+  Diagnostic Fix: Hide linked cells behind the control or format them with custom number format `;;;`.
+
+6. PRO TIPS & SHORTCUTS
+• Format Control Shortcut (Right-click > Format Control (Ctrl + 1)): Configures Input Range and Linked Cell parameters.
+• Group Box Mandatory (Developer > Insert > Group Box): Isolates independent sets of Option Radio Buttons.
+• Dynamic Switch Formula (=CHOOSE(LinkedCell, Option1, Option2, Option3)): Switches calculations instantly based on Form Control selection.
+================================================================================

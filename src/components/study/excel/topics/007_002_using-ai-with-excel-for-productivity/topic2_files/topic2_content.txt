@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Using AI with Excel for Productivity
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Using AI with Excel for Productivity
 Topic 2: Prompt Engineering for Spreadsheets: Crafting precise instructions for formula generation and data manipulation
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Prompt Engineering for Spreadsheets: Crafting precise instructions for formula generation and data manipulation is an essential discipline in AI-assisted spreadsheet engineering, generative business intelligence, and modern workplace productivity.
+It provides the core protocols required to leverage Microsoft Copilot, construct precision prompt workflows, integrate external LLM APIs, and build custom AI formulas.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Prompt Engineering Framework: [Role] + [Context / Table Schema] + [Action / Formula Goal] + [Constraints & Edge Cases] + [Output Format]
+
+3. CORE TECHNICAL MECHANICS
+1. The 5-Part Prompt Architecture:
+   1. Role (Senior Financial Analyst); 2. Context (Table 'SalesTable'); 3. Goal (Calculate net commission); 4. Constraints (Tiers: 5% if >10L, 8% if >25L, else 2%); 5. Output (Single formula column).
+
+2. Schema Anchoring:
+   Always specify exact column header names in brackets (`[Revenue]`, `[Discount]`, `[Tax_Rate]`) to eliminate ambiguity.
+
+3. Constraint Specification:
+   Explicitly declare edge-case behaviors: 'If [Margin] is blank, return 0; wrap in IFERROR'.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Commercial Officer, Barrackpore HQ):
+  Prompting Multi-Tier Sales Incentive Logic - Prompts Copilot: 'In tblSales, add a column [Quarterly_Incentive] calculating 8% if [Revenue] >= 2000000 and [Margin] >= 0.15, otherwise 4%; wrap in IFERROR returning 0'.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Precision Tax Audit Prompt Construction - Crafts prompts specifying exact HSN code rules, CGST/SGST split logic, and rounding constraints.
+• Abhronila Das (Plant Quality Superintendent, Ichapur Works):
+  Scrap Tolerance Formula Prompt - Prompts AI for nested IF / IFS conditional quality grade classification.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Dynamic Freight Tariff Prompting - Constructs prompts for multi-zone shipping rate calculation formulas.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Using Generic Prompts ('Calculate profit'):
+  Root Cause: Produces generic formulas that fail to account for gross vs net, taxes, discounts, or column names.
+  Diagnostic Fix: Specify exact column names and mathematical formulas in prompt.
+• Forgetting to Specify Zero/Blank Handling:
+  Root Cause: Generated formula dividing by zero and returning `#DIV/0!` across blank rows.
+  Diagnostic Fix: Add prompt constraint: 'Handle zero denominators using IF or IFERROR'.
+• Mixing Up Multiple Unrelated Tasks in One Prompt:
+  Root Cause: Asking AI to clean text, sort table, format colors, and calculate metrics all in one massive prompt.
+  Diagnostic Fix: Decompose into sequential single-purpose prompts.
+
+6. PRO TIPS & SHORTCUTS
+• Use Bracketed Column Names (Reference [Column_Name] explicitly): Anchors AI directly to exact table fields.
+• Specify Error Handling (Add 'wrap in IFERROR returning 0'): Guarantees clean calculated columns with no error flags.
+• Iterative Refinement (Reply to AI: 'Adjust tier 2 to 6%'): Fine-tunes calculations conversationally.
+================================================================================

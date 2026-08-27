@@ -1,0 +1,21 @@
+TOPIC 22 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Grid Coordinate & Dimension Functions: Generating dynamic numbering, matrix dimensions, and zebra-striping using ROW(), ROWS(), COLUMN(), and COLUMNS()
+Module: 002_005_lookup-functions-vlookup-hlookup-index-match-and-xlookup
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Coordinate Functions: =ROW([cell]) | =ROWS(array) | =COLUMN([cell]) | =COLUMNS(array) | Dynamic Numbering: =ROW()-ROW($A$1) | Zebra: =ISODD(ROW())
+
+PRIMARY CONCEPT:
+Utilizing grid coordinate and dimension functions: generating dynamic self-healing numbering lists, extracting matrix dimensions, alternating row styling rules, and coordinate indexing
+
+TEACHER'S ADVICE:
+Never type 1, 2, 3 for your serial numbers! If someone deletes row 2, your serial numbers have a hole. Write `=ROW()-ROW($A$1)` instead—it fixes itself automatically every single time!
+
+COMMON TRAPS TO AVOID:
+- Hardcoded Serial Numbers Breaking on Row Deletion: Typing 1, 2, 3 manually and having gaps when row 2 is deleted. -> Fix: Use `=ROW()-ROW($A$1)` for self-healing serial numbers.
+- Confusing ROW() vs ROWS(): `ROW()` returns position of a cell (e.g. 5); `ROWS()` returns total count of rows in range (e.g. 10). -> Fix: Use `ROW()` for position; `ROWS()` for count.
+- Forgetting Absolute Lock on Header Cell in =ROW()-ROW($A$1): Omitting dollar signs causes anchor reference to shift when dragged down. -> Fix: Always lock anchor: `=ROW()-ROW($A$1)`.
+================================================================================

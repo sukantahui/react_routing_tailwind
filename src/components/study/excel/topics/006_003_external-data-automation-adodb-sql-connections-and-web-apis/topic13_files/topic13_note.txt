@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: External Data Automation: ADODB SQL Connections & Web APIs
-Topic 13: Assessment: Enterprise Database Automation & SQL Integration Lab
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 13 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Assessment: Enterprise Database Automation & SQL Integration Lab
+Module: 006_003_external-data-automation-adodb-sql-connections-and-web-apis
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Enterprise Database Automation & SQL Integration Lab Challenge Deck
+
+PRIMARY CONCEPT:
+Comprehensive capstone assessment testing mastery across ADODB database connections, CopyFromRecordset data pipelines, parameterized queries, closed Excel SQL querying, REST APIs, and transactions
+
+TEACHER'S ADVICE:
+Congratulations on achieving complete mastery of External Data Automation, SQL Connections, and Web APIs! You can now connect Microsoft Excel to ANY database, ANY server, and ANY cloud API in the world. You are a true enterprise data engineer.
+
+COMMON TRAPS TO AVOID:
+- Leaking Connection Handles: Leaving connection objects unclosed. -> Fix: Always close connections and set objects to Nothing.
+- Vulnerable Concatenated SQL: Failing to parameterize dynamic query inputs. -> Fix: Use `ADODB.Command` with parameters.
+- Unprotected Network Failures: Missing error handlers on HTTP web requests. -> Fix: Wrap all network calls in defensive error recovery blocks.
+================================================================================

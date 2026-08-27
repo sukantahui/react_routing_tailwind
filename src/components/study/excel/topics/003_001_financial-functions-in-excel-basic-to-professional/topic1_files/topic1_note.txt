@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
-Topic 1: Loan payment computation with PMT, PPMT (Principal), and IPMT (Interest)
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 1 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Loan payment computation with PMT, PPMT (Principal), and IPMT (Interest)
+Module: 003_001_financial-functions-in-excel-basic-to-professional
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+=PMT(rate, nper, pv, [fv], [type]) | =PPMT(rate, per, nper, pv) | =IPMT(rate, per, nper, pv)
+
+PRIMARY CONCEPT:
+Calculating periodic debt payments (PMT) and decomposing each installment into exact principal reduction (PPMT) and interest expense (IPMT)
+
+TEACHER'S ADVICE:
+In corporate banking, every loan schedule must verify: IPMT + PPMT = PMT. Master this decomposition to construct audited bank loan schedules effortlessly.
+
+COMMON TRAPS TO AVOID:
+- Period Index Out of Bounds (#NUM!): Passing a period argument (per) less than 1 or greater than nper to PPMT/IPMT returns #NUM!. -> Fix: Ensure 1 <= per <= nper in amortization row formulas.
+- Forgetting Rate Frequency Division: Passing annual interest rate directly without dividing by 12 inflates monthly PMT payments by 10x. -> Fix: Always pass `AnnualRate / 12` into monthly PMT formulas.
+- Summing IPMT + PPMT Discrepancy: Rounding errors occurring when individual payments are formatted as rounded integers. -> Fix: Verify that `=ROUND(PPMT + IPMT, 2)` exactly equals `=ROUND(PMT, 2)`.
+================================================================================

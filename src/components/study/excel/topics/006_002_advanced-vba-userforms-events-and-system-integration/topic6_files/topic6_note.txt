@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Advanced VBA: UserForms, Events & System Integration
-Topic 6: Batch processing all workbooks inside a directory automatically
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 6 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Batch processing all workbooks inside a directory automatically
+Module: 006_002_advanced-vba-userforms-events-and-system-integration
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Batch Processor: strFile = Dir(folderPath & "*.xlsx") | Do While strFile <> "" ... Workbooks.Open ... Process ... Close ... strFile = Dir() ... Loop
+
+PRIMARY CONCEPT:
+Engineering automated batch processing engines using the Dir() looping pattern: scanning directories, opening hundreds of client/branch workbooks sequentially, extracting data, and consolidating into master sheets
+
+TEACHER'S ADVICE:
+Batch processing is where you save real human hours. Write a `Dir()` loop, point it at a folder with 100 files, and let Excel open, copy data, and close every file in 10 seconds. Always skip files starting with `~$`!
+
+COMMON TRAPS TO AVOID:
+- The 'Infinite Same File' Loop Trap: Forgetting to write `strFile = Dir()` before the `Loop` statement causes the loop to re-open the first file forever. -> Fix: Always call `strFile = Dir()` at the bottom of the loop to advance to the next file.
+- Saving Changes to Source Files Accidentally: Calling `wbSource.Close SaveChanges:=True` modifies client source files. -> Fix: Always close extraction sources safely with `wbSource.Close SaveChanges:=False`.
+- Opening Temporary Lock Files (~$filename.xlsx): `Dir("*.xlsx")` picking up hidden Excel lock files (~$) created when a file is open. -> Fix: Filter out temporary files: `If Left(strFile, 2) <> "~$" Then ...`.
+================================================================================

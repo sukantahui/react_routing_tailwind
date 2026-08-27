@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Introduction to Pivot Tables and Pivot Charts
-Topic 2: Creating Pivot Tables: Fields list, Rows, Columns, Values, and Filters areas
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 2 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Creating Pivot Tables: Fields list, Rows, Columns, Values, and Filters areas
+Module: 002_006_introduction-to-pivot-tables-and-pivot-charts
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Pivot Quadrants: Filters (Page Slicers) | Columns (X-Axis) | Rows (Y-Axis) | Values (Aggregates)
+
+PRIMARY CONCEPT:
+Mastering the PivotTable Field List interface and orchestrating multi-level hierarchical groupings across Filters, Columns, Rows, and Values
+
+TEACHER'S ADVICE:
+Keep your Columns quadrant compact! Reserve Columns for categories with 2 to 5 items (like Quarters or Years). Put high-cardinality fields in Rows to keep your reports easy to read.
+
+COMMON TRAPS TO AVOID:
+- Unintended Count Instead of Sum: If a numeric column contains even a single blank cell or text value, Excel defaults to 'Count of Field' instead of 'Sum of Field'. -> Fix: Right-click value field > Summarize Values By > Sum, and clean source data.
+- Too Many Fields in Columns Quadrant: Placing high-cardinality fields (like Customer Name) in Columns creates an unusable 500-column horizontal spreadsheet. -> Fix: Keep Columns for low-cardinality attributes (e.g. Years, Quarters, Statuses).
+- Disappearing Field List Task Pane: Accidentally closing the PivotTable Field List pane leaves users unable to modify field layouts. -> Fix: Click inside PivotTable > PivotTable Analyze tab > Click 'Field List' button.
+================================================================================

@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: VBA & Macro Automation
-Topic 12: Working with MsgBox and InputBox for user interaction
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 12 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Working with MsgBox and InputBox for user interaction
+Module: 006_001_vba-and-macro-automation
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+User Interaction: MsgBox(Prompt, [Buttons], [Title]) | InputBox(Prompt, [Title], [Default]) | Application.InputBox(..., Type:=8 for Range)
+
+PRIMARY CONCEPT:
+Designing interactive user experiences in VBA: configuring MsgBox buttons (vbYesNo, vbCritical, vbInformation), capturing user decisions, and utilizing Application.InputBox for range selections
+
+TEACHER'S ADVICE:
+Use `Application.InputBox("Select your table:", Type:=8)` when you want the user to pick a range on their sheet. They can click and highlight cells with their mouse, and VBA gets the exact Range object.
+
+COMMON TRAPS TO AVOID:
+- Crashing on Application.InputBox Type:=8 Cancel: User clicking 'Cancel' on a Range InputBox throws runtime error 424 'Object required'. -> Fix: Wrap in `On Error Resume Next: Set rng = Application.InputBox(..., Type:=8): On Error GoTo 0: If rng Is Nothing Then Exit Sub`.
+- Setting vbDefaultButton to 'Yes' on Dangerous Actions: Defaulting to 'Yes' on a destructive delete action means an accidental press of Enter deletes all data. -> Fix: Set default button to No: `vbYesNo + vbDefaultButton2`.
+- Missing Parentheses When Capturing Return Value: Writing `res = MsgBox "Text"` without parentheses throws a compile error. -> Fix: When assigning to a variable, use parentheses: `res = MsgBox("Text", vbYesNo)`.
+================================================================================

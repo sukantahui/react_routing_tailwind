@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
 import sampleWorkbookUrl from "./excel_files/basic_dashboards_and_reporting_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
@@ -30,14 +31,14 @@ export default function Topic14() {
     if (!sampleWorkbookUrl) return;
     const link = document.createElement("a");
     link.href = sampleWorkbookUrl;
-    link.download = "003_004_basic-dashboards-and-reporting_practice.xlsx";
+    link.download = "basic_dashboards_and_reporting_practice.xlsx";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   return (
-    <div className="dark bg-slate-950 text-slate-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8 font-sans selection:bg-emerald-500/30 selection:text-emerald-200">
+    <div className="dark bg-slate-950 text-slate-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8 font-sans selection:bg-sky-500/30 selection:text-sky-200">
       <style>{`
         @keyframes fadeInSlide {
           from { transform: translateY(18px); }
@@ -56,39 +57,39 @@ export default function Topic14() {
           ref={(el) => (sectionsRef.current[0] = el)}
           className="reveal-section rounded-3xl p-6 sm:p-10 bg-gradient-to-b from-slate-900/90 via-slate-900/60 to-slate-950 border border-slate-800 shadow-2xl relative overflow-hidden"
         >
-          <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
-            <span className="px-3.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              ⚡ Topic 14
+            <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
+              {"🏆 Operations & Supply Chain Executive Portal Mastery"} · Topic 14
             </span>
-            <span className="px-3 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-semibold">
-              Basic Dashboards and Reporting
+            <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
+              {"Mastery Evaluation & Capstone"}
             </span>
-            <span className="px-3 py-1 rounded-full bg-teal-950/80 border border-teal-700/60 text-teal-300 text-xs font-semibold">
-              Bloom's Level 4: Analyze &amp; Synthesize
+            <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
+              {"Ultra-Expert · Bloom Level 6: Evaluate"}
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-300 bg-clip-text text-transparent leading-tight">
-            Assessment: Interactive Operations &amp; Supply Chain Executive KPI Portal
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+            {"Assessment: Interactive Operations & Supply Chain Executive KPI Portal"}
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Master the rigorous implementation and practical execution of <strong>Assessment: Interactive Operations &amp; Supply Chain Executive KPI Portal</strong> in modern Microsoft Excel workflows.
+            {"Comprehensive capstone assessment testing mastery across dashboard layout design, KPI engineering, interactive Form Controls, Waterfall charts, and synchronized slicers"}. Master the complete design system, KPI card engineering, interactive Form Controls, Waterfall variance bridges, and C-suite reporting standards.
           </p>
 
-          <div className="mt-8 pt-8 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
+          <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
             <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-emerald-400 text-base">✓</span>
+              <span className="text-sky-400 text-base">✓</span>
               <span><strong>Subject Code:</strong> EXCEL-PRO-901</span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-sky-400 text-base">✓</span>
-              <span><strong>Lab Focus:</strong> Enterprise spreadsheet modeling &amp; data integrity</span>
+              <span className="text-emerald-400 text-base">✓</span>
+              <span><strong>Module:</strong> Dashboards &amp; Visual Reporting</span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-teal-400 text-base">✓</span>
+              <span className="text-indigo-400 text-base">✓</span>
               <span><strong>Accreditation:</strong> Coder &amp; AccoTax Centre of Excellence</span>
             </div>
           </div>
@@ -99,22 +100,54 @@ export default function Topic14() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[1] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all duration-300 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-emerald-400">⚡</span> Formula Anatomy &amp; Execution Specification
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">⚡</span>
+              Dashboard Design Standard &amp; Syntax Anatomy
             </h2>
-            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-800">
-              Syntax Specification
+            <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
+              Design Anatomy
             </span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-950/90 border border-slate-800/80 font-mono text-xs sm:text-sm text-cyan-300 overflow-x-auto shadow-inner leading-relaxed space-y-2">
-            <div>
-              <span className="text-slate-500">// Core Practical Execution Pattern</span>
-              <br />
-              <span className="text-emerald-300 font-bold">=PROPER(TRIM(A2)) /* Standard Industrial Implementation */</span>
+          <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
+            {"Interactive Operations & Supply Chain Executive KPI Portal Challenge Deck"}
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm text-slate-300 border-collapse">
+              <thead>
+                <tr className="border-b border-slate-800 text-slate-400 font-semibold uppercase tracking-wider">
+                  <th className="py-3 px-4">Component / Layer</th>
+                  <th className="py-3 px-4">Role / Type</th>
+                  <th className="py-3 px-4">Requirement</th>
+                  <th className="py-3 px-4">Operational Description</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/50 font-mono">
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Visual Presentation Canvas</td>
+                  <td className="py-3 px-4 text-teal-400">UI / Executive HUD</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Required</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Single-screen containerized card grid with hidden sheet gridlines and locked dimensions.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Calculation &amp; Control Engine</td>
+                  <td className="py-3 px-4 text-teal-400">Dynamic Backend</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Contextual</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Dedicated calculation sheet hosting Form Control linked cells, pivot tables, and dynamic ranges.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="p-4 rounded-xl bg-sky-950/40 border border-sky-800/60 flex items-start gap-3">
+            <span className="text-sky-400 text-lg">💡</span>
+            <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <strong className="text-white">Core Principle: </strong>
+              Executive dashboards must communicate business health within 5 seconds. Separate data, calculations, and presentation canvas for clean, scalable architecture.
             </div>
           </div>
         </section>
@@ -124,35 +157,35 @@ export default function Topic14() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-teal-400">🔬</span> Conceptual Architecture &amp; Data Pipeline
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">🔬</span>
+              Visual Information Design &amp; Architecture Mechanics
             </h2>
-            <span className="text-xs font-mono text-teal-300 bg-teal-950/60 px-3 py-1 rounded-lg border border-teal-800">
-              Core Mechanics
+            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-800">
+              Under-The-Hood Architecture
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-300">
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 space-y-3">
-              <h3 className="font-bold text-emerald-300 text-base flex items-center gap-2">
-                <span>1.</span> Deterministic Functional Calculation
-              </h3>
-              <p className="leading-relaxed text-xs sm:text-sm text-slate-300">
-                Functional spreadsheet modeling ensures repeatable, error-free calculations across thousands of monthly business ledger transactions.
-              </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            
+            <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Comprehensive Visual Synthesis"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Evaluates candidate proficiency across information architecture, formula-driven visual alerts, dynamic named ranges, and Pareto statistical analysis."}</p>
             </div>
-
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 space-y-3">
-              <h3 className="font-bold text-sky-300 text-base flex items-center gap-2">
-                <span>2.</span> Relational Data Schema Hygiene
-              </h3>
-              <p className="leading-relaxed text-xs sm:text-sm text-slate-300">
-                Establishing strict schema typing and boundary checks eliminates runtime calculation failures and audit discrepancies.
-              </p>
+            
+            <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Production Rigor & Data Hygiene"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Enforces production-grade Excel standards: zero hardcoded constants, responsive 1-screen canvas fit, and error-free multi-pivot slicer meshes."}</p>
             </div>
+            
+            <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Timed Enterprise Case Challenges"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Tests speed and design execution under strict simulated C-suite presentation deadlines."}</p>
+            </div>
+            
           </div>
         </section>
 
@@ -161,35 +194,63 @@ export default function Topic14() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-emerald-400">📐</span> Execution Dataflow Architecture
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
+              Visual Dataflow: {"Complete Dashboard & Visual Reporting Competency Matrix"}
             </h2>
-            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-800">
-              Dataflow Map
+            <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
+              Dashboard Architecture
             </span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-950/90 border border-slate-800/80 flex flex-col items-center justify-center overflow-x-auto shadow-inner">
-            <svg
-              viewBox="0 0 800 200"
-              className="w-full max-w-3xl h-auto text-slate-200 select-none font-sans"
-            >
-              <rect x="40" y="70" width="200" height="60" rx="8" fill="#1e293b" stroke="#475569" strokeWidth="1.5" />
-              <text x="140" y="105" textAnchor="middle" fill="#94a3b8" fontSize="12" fontWeight="bold">Raw Input Data</text>
+          <div className="p-4 rounded-xl bg-slate-950/90 border border-slate-800/80 flex flex-col items-center justify-center overflow-x-auto shadow-inner">
+            <svg viewBox="0 0 820 220" className="w-full max-w-4xl h-auto text-slate-200 select-none font-sans">
+              <defs>
+                <linearGradient id="gradFlowMod10_14" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#0369a1" stopOpacity="0.8" />
+                </linearGradient>
+                <marker id="arrowMod10_14" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+                </marker>
+              </defs>
 
-              <line x1="240" y1="100" x2="310" y2="100" stroke="#059669" strokeWidth="2" />
+              {/* Node 1: Raw Data Layer */}
+              <g transform="translate(30, 45)">
+                <rect width="210" height="130" rx="12" fill="#0f172a" stroke="#334155" strokeWidth="2" />
+                <rect x="12" y="12" width="186" height="26" rx="6" fill="#1e293b" />
+                <text x="105" y="30" textAnchor="middle" fill="#94a3b8" fontSize="11" fontWeight="bold">Data Layer (Raw Tables)</text>
+                <text x="105" y="75" textAnchor="middle" fill="#38bdf8" fontSize="14" fontFamily="monospace" fontWeight="bold">Normalized Ledger</text>
+                <text x="105" y="100" textAnchor="middle" fill="#64748b" fontSize="10">Excel Tables (Ctrl+T)</text>
+                <text x="105" y="118" textAnchor="middle" fill="#64748b" fontSize="10">Master Source Layer</text>
+              </g>
 
-              <rect x="310" y="60" width="240" height="80" rx="10" fill="#065f46" stroke="#10b981" strokeWidth="2" />
-              <text x="430" y="95" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">Calculation Engine</text>
-              <text x="430" y="115" textAnchor="middle" fill="#a7f3d0" fontSize="11" fontFamily="monospace">Assessment: Interactive </text>
+              <path d="M 245 110 L 305 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod10_14)" fill="none" />
 
-              <line x1="550" y1="100" x2="620" y2="100" stroke="#059669" strokeWidth="2" />
+              {/* Node 2: Calculation Engine Layer */}
+              <g transform="translate(315, 30)">
+                <rect width="250" height="160" rx="14" fill="#0c4a6e" stroke="#0284c7" strokeWidth="2" />
+                <rect x="14" y="14" width="222" height="28" rx="6" fill="#0369a1" />
+                <text x="125" y="33" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">Calculation Engine Layer</text>
+                <text x="125" y="75" textAnchor="middle" fill="#7dd3fc" fontSize="13" fontFamily="monospace" fontWeight="bold">{"Mastery Evaluation & Capstone"}</text>
+                <text x="125" y="100" textAnchor="middle" fill="#bae6fd" fontSize="10">Pivot Caches &amp; Dynamic Formulas</text>
+                <text x="125" y="120" textAnchor="middle" fill="#bae6fd" fontSize="10">Form Control Linked Cells</text>
+                <text x="125" y="140" textAnchor="middle" fill="#38bdf8" fontSize="9" fontStyle="italic">Dedicated Calcs Sheet</text>
+              </g>
 
-              <rect x="620" y="70" width="140" height="60" rx="8" fill="#0284c7" stroke="#38bdf8" strokeWidth="1.5" />
-              <text x="690" y="105" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">Verified Output</text>
+              <path d="M 570 110 L 630 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod10_14)" fill="none" />
+
+              {/* Node 3: Executive Presentation Layer */}
+              <g transform="translate(640, 45)">
+                <rect width="150" height="130" rx="12" fill="#064e3b" stroke="#059669" strokeWidth="2" />
+                <rect x="10" y="12" width="130" height="26" rx="6" fill="#047857" />
+                <text x="75" y="30" textAnchor="middle" fill="#ffffff" fontSize="11" fontWeight="bold">Presentation Canvas</text>
+                <text x="75" y="75" textAnchor="middle" fill="#6ee7b7" fontSize="14" fontFamily="monospace" fontWeight="bold">Executive HUD</text>
+                <text x="75" y="105" textAnchor="middle" fill="#a7f3d0" fontSize="10">Boardroom Ready</text>
+              </g>
             </svg>
           </div>
         </section>
@@ -199,15 +260,16 @@ export default function Topic14() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[4] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
             <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-                <span className="text-emerald-400">📥</span> Interactive Spreadsheet &amp; Practice Workbook
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">📥</span>
+                Interactive Spreadsheet &amp; Practice Workbook
               </h2>
               <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                Explore the dataset below or download the workbook to practice in Microsoft Excel.
+                Explore the dataset below live in the browser or download the full module workbook to practice in Microsoft Excel.
               </p>
             </div>
             <button
@@ -218,14 +280,14 @@ export default function Topic14() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
-              <span>Download Practice Workbook (.xlsx)</span>
+              <span>Download Workbook (.xlsx)</span>
             </button>
           </div>
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic14_Assessment__Intera"
-            title="Assessment: Interactive Operations &amp; Supply Chain Executive KPI Portal - Practice Ledger"
+            title={"Assessment: Interactive Operations & Supply Chain Executive KPI Portal - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
           />
@@ -236,69 +298,56 @@ export default function Topic14() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[5] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-amber-400">🏢</span> Real-World Corporate Implementation Scenarios
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
+              Real-World Corporate Implementation Scenarios
             </h2>
             <span className="text-xs font-mono text-amber-300 bg-amber-950/60 px-3 py-1 rounded-lg border border-amber-800">
               Case Studies
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-emerald-500/40 transition-all duration-300 space-y-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            
+            <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">Scenario 1 · Enterprise Operations</span>
-                <span className="text-xs font-mono text-slate-400">Barrackpore HQ</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Lead Academic Assessor"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">
-                Swadeep Banerjee: Automated Contract Processing
-              </h3>
-              <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
-                Senior Lead <strong>Swadeep Banerjee</strong> applies advanced formula modeling across regional contract ledgers, eliminating data errors.
-              </p>
+              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Enterprise BI Dashboard Certification Evaluation"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Evaluates candidates on constructing integrated interactive executive dashboards with synchronized multi-chart slicers and dynamic KPI cards."}</p>
             </div>
-
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
+            
+            <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-sky-400">Scenario 2 · Financial Audit</span>
-                <span className="text-xs font-mono text-slate-400">Shyamnagar Plant</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Corporate FP&A Trainer"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">
-                Tuhina Mukherjee: Invoicing &amp; Compliance Audit
-              </h3>
-              <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
-                Audit Analyst <strong>Tuhina Mukherjee</strong> implements automated validation rules to ensure 100% compliance across billing streams.
-              </p>
+              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Waterfall & Variance Bridge Challenge"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Assesses student submissions on complex multi-step EBITDA bridge and P&L walk-through charts."}</p>
             </div>
-
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-teal-500/40 transition-all duration-300 space-y-3">
+            
+            <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-teal-400">Scenario 3 · Logistics Optimization</span>
-                <span className="text-xs font-mono text-slate-400">Ichapur Heavy Engg</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Manufacturing Operations Evaluator"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">
-                Abhronila Das: Inventory &amp; Dispatch Tracking
-              </h3>
-              <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
-                Inventory Specialist <strong>Abhronila Das</strong> optimizes component dispatch schedules using dynamic calculation formulas.
-              </p>
+              <h3 className="font-bold text-white text-base">{"Abhronila Das: Plant Production Control Console Audit"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Evaluates shopfloor Pareto defect analysis and in-cell Sparkline micro-chart implementations."}</p>
             </div>
-
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-purple-500/40 transition-all duration-300 space-y-3">
+            
+            <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-purple-400">Scenario 4 · Service Level Tracking</span>
-                <span className="text-xs font-mono text-slate-400">Naihati Logistics</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Supply Chain Analytics Assessor"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">
-                Debangshu Roy: Turnaround Time Optimization
-              </h3>
-              <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
-                Logistics Lead <strong>Debangshu Roy</strong> tracks operational turnaround times to maintain peak delivery efficiency.
-              </p>
+              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Freight SLA & Transit Portal Defense"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Tests candidate mastery of bullet target charts, dynamic array chart ranges, and print/PDF export layouts."}</p>
             </div>
+            
           </div>
         </section>
 
@@ -307,45 +356,56 @@ export default function Topic14() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[6] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-sky-400">🛠️</span> Step-by-Step Implementation Guide
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">🛠️</span>
+              Step-by-Step Implementation &amp; Execution Guide
             </h2>
             <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
-              Lab Guide
+              Execution Protocol
             </span>
           </div>
 
           <div className="space-y-4 text-xs sm:text-sm">
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <h3 className="font-bold text-emerald-300 text-sm sm:text-base flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-300 flex items-center justify-center text-xs">1</span>
-                Step 1: Sanitize Inputs &amp; Validate Data Schema
-              </h3>
+            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-emerald-300 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-300 flex items-center justify-center text-xs">1</span>
+                Step 1: Set Up Clean Presentation Canvas &amp; Hide Gridlines
+              </div>
               <p className="text-slate-300 leading-relaxed">
-                Confirm all input parameters are typed properly and eliminate blank or inconsistent rows.
+                Create a dedicated 'Dashboard' sheet, uncheck <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">View &gt; Gridlines</kbd>, and define the 4-quadrant layout bounds.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <h3 className="font-bold text-sky-300 text-sm sm:text-base flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-sky-950 border border-sky-700 text-sky-300 flex items-center justify-center text-xs">2</span>
-                Step 2: Construct &amp; Apply Formula Engine
-              </h3>
+            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-sky-300 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-sky-950 border border-sky-700 text-sky-300 flex items-center justify-center text-xs">2</span>
+                Step 2: Construct KPI Summary Cards &amp; Delta Formatting
+              </div>
               <p className="text-slate-300 leading-relaxed">
-                Enter the structured formula in the calculation column to transform input parameters dynamically.
+                Build top KPI summary cards and apply custom Unicode format masks <code className="text-cyan-300 font-mono font-bold">{"Interactive Operations & Supply Chain Executive KPI Portal Challenge Deck"}</code>.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <h3 className="font-bold text-teal-300 text-sm sm:text-base flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-teal-950 border border-teal-700 text-teal-300 flex items-center justify-center text-xs">3</span>
-                Step 3: Audit &amp; Validate Results
-              </h3>
+            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-teal-300 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-teal-950 border border-teal-700 text-teal-300 flex items-center justify-center text-xs">3</span>
+                Step 3: Insert Visual Charts &amp; Connect Slicer Panels
+              </div>
               <p className="text-slate-300 leading-relaxed">
-                Validate outputs against edge cases and configure conditional formatting rules to highlight anomalies.
+                Insert Waterfall, Treemap, or Combo charts, de-clutter field buttons, and attach multi-pivot Slicers with locked positions.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-indigo-300 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-indigo-950 border border-indigo-700 text-indigo-300 flex items-center justify-center text-xs">4</span>
+                Step 4: Configure Print Setup &amp; Export High-Res PDF
+              </div>
+              <p className="text-slate-300 leading-relaxed">
+                Set Print Area, lock Page Setup to 'Fit to 1 page wide by 1 page tall', and export crisp executive PDF briefing packs.
               </p>
             </div>
           </div>
@@ -356,14 +416,15 @@ export default function Topic14() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[7] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-rose-400">⚠️</span> Common Pitfalls &amp; Diagnostic Fixes
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-500/20 text-rose-400 text-base font-mono">⚠️</span>
+              Common Pitfalls &amp; Troubleshooting Matrix
             </h2>
             <span className="text-xs font-mono text-rose-300 bg-rose-950/60 px-3 py-1 rounded-lg border border-rose-800">
-              Troubleshooting Matrix
+              Diagnostic Fixes
             </span>
           </div>
 
@@ -371,84 +432,128 @@ export default function Topic14() {
             <table className="w-full text-left text-xs sm:text-sm border-collapse">
               <thead>
                 <tr className="border-b border-slate-800 text-slate-400 font-semibold bg-slate-950/50">
-                  <th className="py-3 px-4">Problem / Error</th>
+                  <th className="py-3 px-4">Problem / Error Signature</th>
                   <th className="py-3 px-4">Root Cause</th>
-                  <th className="py-3 px-4">Diagnostic Fix</th>
+                  <th className="py-3 px-4">Diagnostic Fix &amp; Prevention</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
-                <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Calculation Error</td>
-                  <td className="py-3 px-4">Invalid data types or unhandled blank boundary cells.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Validate data types and wrap in IFERROR.</td>
+                
+                <tr key="0" className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Unanchored Floating Objects"}</td>
+                  <td className="py-3 px-4">{"Leaving floating chart containers unlocked causes them to skew when stakeholders view on different resolutions."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Lock all visual elements to cell grids with 'Don't move or size with cells'."}</td>
                 </tr>
+                
+                <tr key="1" className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Missing Zero-Baseline on Bar Charts"}</td>
+                  <td className="py-3 px-4">{"Truncating the vertical axis on bar charts distorts visual comparisons and misleads executives."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Always start bar chart axes at zero."}</td>
+                </tr>
+                
+                <tr key="2" className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Over-Complicated Navigation"}</td>
+                  <td className="py-3 px-4">{"Requiring users to click through 10 menus to find basic summary numbers."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Keep core KPIs front-and-center on the landing screen."}</td>
+                </tr>
+                
               </tbody>
             </table>
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 9: PRO TIPS & HIGH-SPEED SHORTCUTS
+            SECTION 9: PRO TIPS & PRODUCTIVITY SHORTCUTS
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[8] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-emerald-400">💡</span> Pro Tips &amp; Keyboard Accelerators
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 text-base font-mono">💡</span>
+              Pro Tips &amp; High-Speed Accelerators
             </h2>
-            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-800">
-              Productivity Hacks
+            <span className="text-xs font-mono text-purple-300 bg-purple-950/60 px-3 py-1 rounded-lg border border-purple-800">
+              Productivity
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-emerald-300 flex items-center gap-2">
-                <span>⚡</span> Tip 1: Lock Coordinates via F4
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+            
+            <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+              <div className="font-bold text-purple-300 flex items-center gap-2">
+                <span>⚡</span> {"Clean Canvas First"}
               </div>
-              <p className="text-slate-300 leading-relaxed">
-                Always press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs">F4</kbd> when referencing fixed parameters to prevent floating reference errors.
-              </p>
+              <p className="text-slate-300 leading-relaxed">{"Always start dashboard design on a clean, grid-free worksheet canvas."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Hide Gridlines & Headers"}</kbd>
             </div>
-
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-sky-300 flex items-center gap-2">
-                <span>⚡</span> Tip 2: Evaluate Formulas via F9
+            
+            <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+              <div className="font-bold text-purple-300 flex items-center gap-2">
+                <span>⚡</span> {"Modular Card Reusability"}
               </div>
-              <p className="text-slate-300 leading-relaxed">
-                Highlight formula fragments in the formula bar and press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs">F9</kbd> to inspect evaluated results.
-              </p>
+              <p className="text-slate-300 leading-relaxed">{"Reuse standardized KPI card containers across multiple dashboard projects."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Copy proven KPI card blocks"}</kbd>
             </div>
+            
+            <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+              <div className="font-bold text-purple-300 flex items-center gap-2">
+                <span>⚡</span> {"Test on Multiple Monitors"}
+              </div>
+              <p className="text-slate-300 leading-relaxed">{"Guarantees flawless executive presentation across all devices."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Verify layout on laptop & external display"}</kbd>
+            </div>
+            
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 10: SOCRATIC ANALYTICAL HINTS ("THINK ABOUT...")
+            SECTION 10: SOCRATIC HINTS ("THINK ABOUT...")
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[9] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-teal-400">🤔</span> Socratic Analytical Hints ("Think About...")
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">🤔</span>
+              Socratic Analytical Hints ("Think About...")
             </h2>
             <span className="text-xs font-mono text-teal-300 bg-teal-950/60 px-3 py-1 rounded-lg border border-teal-800">
               Critical Thinking
             </span>
           </div>
 
-          <div className="space-y-4 text-xs sm:text-sm text-slate-300">
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
+          <div className="space-y-3 text-xs sm:text-sm text-slate-300">
+            
+            <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-emerald-400">💭</span> Question 1: How does automated calculation modeling prevent spreadsheet errors?
+                <span className="text-teal-400">💭</span> Question 1: {"Why must the vertical axis of bar and column charts always start at exactly zero?"}
               </h3>
-              <p className="leading-relaxed">
-                Why does structuring calculations with clean, deterministic formulas ensure audit-proof enterprise reporting?
+              <p className="text-slate-400 leading-relaxed">
+                Reflect on the cognitive ergonomics and executive decision science implications.
               </p>
             </div>
+            
+            <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
+              <h3 className="font-bold text-white flex items-center gap-2">
+                <span className="text-teal-400">💭</span> Question 2: {"How do synchronized multi-chart slicers empower non-technical executives to explore business data intuitively?"}
+              </h3>
+              <p className="text-slate-400 leading-relaxed">
+                Reflect on the cognitive ergonomics and executive decision science implications.
+              </p>
+            </div>
+            
+            <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
+              <h3 className="font-bold text-white flex items-center gap-2">
+                <span className="text-teal-400">💭</span> Question 3: {"What is the single most important design principle to remember when presenting data to C-level leadership?"}
+              </h3>
+              <p className="text-slate-400 leading-relaxed">
+                Reflect on the cognitive ergonomics and executive decision science implications.
+              </p>
+            </div>
+            
           </div>
         </section>
 
@@ -457,7 +562,7 @@ export default function Topic14() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Topic 14: Assessment: Interactive Operations &amp; Supply Chain Executive KPI Portal FAQ"
+            title={"Assessment: Interactive Operations & Supply Chain Executive KPI Portal - Frequently Asked Questions"}
             questions={questions}
           />
         </div>
@@ -467,9 +572,7 @@ export default function Topic14() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note={
-              "Mastering this topic is essential for building scalable, high-performance financial and analytical models. Always write clean, self-documenting formulas and maintain strict data validation across your workbooks."
-            }
+            note={"Congratulations on achieving complete mastery of Basic Dashboards and Reporting! You now command the full visual and analytical power of Microsoft Excel to transform complex corporate data into inspiring visual intelligence."}
           />
         </div>
       </div>

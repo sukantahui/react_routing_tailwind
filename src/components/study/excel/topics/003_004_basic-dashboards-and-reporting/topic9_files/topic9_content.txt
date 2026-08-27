@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Basic Dashboards and Reporting
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Basic Dashboards and Reporting
 Topic 9: In-cell data visualization: Micro-charts with Sparklines (Line, Column, Win/Loss)
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+In-cell data visualization: Micro-charts with Sparklines (Line, Column, Win/Loss) is an essential discipline in corporate business intelligence, executive reporting, and visual analytics.
+It provides the core protocols required to transform dense tabular data into intuitive, interactive, single-screen command centers.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Insert > Sparklines: Line (Trend) | Column (Volume) | Win/Loss (Binary) -> Format: High Point / Low Point Markers
+
+3. CORE TECHNICAL MECHANICS
+1. Word-Sized Micro-Graphics (Edward Tufte Concept):
+   Sparklines live directly inside standard spreadsheet cells, presenting 12-month historical trajectories alongside tabular summary numbers.
+
+2. Three Core Sparkline Typologies:
+   1. Line (Continuous trendlines); 2. Column (Discrete period volumes); 3. Win/Loss (Binary positive vs negative outcomes, ideal for trading or monthly profitability).
+
+3. Highlight Markers & High/Low Color Accents:
+   Enables highlighting High Point (Emerald Green), Low Point (Rose Red), Negative Points, and First/Last markers.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Analytics, Barrackpore HQ):
+  Branch 12-Month Sales Trajectory Column - Embeds 12-month Line sparklines with green High Point markers inside a 20-branch executive summary scorecard table.
+• Tuhina Mukherjee (Credit Risk Auditor, Shyamnagar Plant):
+  Client Monthly Payment Win/Loss Tracker - Uses Win/Loss sparklines to visualize 24-month on-time vs delayed payment records for credit underwriting.
+• Abhronila Das (Plant Maintenance Lead, Ichapur Works):
+  Machine Monthly Scrap Volume Sparklines - Embeds miniature Column sparklines in shopfloor equipment maintenance registers.
+• Debangshu Roy (Logistics Router, Naihati Logistics):
+  Corridor Fuel Burn Micro-Trends - Tracks monthly fuel consumption trends across 30 regional trucking routes.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Independent Axis Scaling Distorting Real Comparisons:
+  Root Cause: By default, each Sparkline scales independently; a flat line varying between $99 and $100 looks identical to a volatile swing between $10 and $1000.
+  Diagnostic Fix: Sparkline tab > Axis > Set 'Vertical Axis Minimum/Maximum Value' to 'Same for All Sparklines'.
+• Deleting Sparklines with Backspace/Delete Key:
+  Root Cause: Pressing Delete on a cell containing a Sparkline clears text but leaves the Sparkline drawing intact.
+  Diagnostic Fix: Sparkline tab > Click 'Clear' (or Clear Selected Sparklines).
+• Hidden Columns Disrupting Sparklines:
+  Root Cause: Hiding historical data columns causes Sparklines to become blank lines.
+  Diagnostic Fix: Sparkline tab > Edit Data > Hidden & Empty Cells > Check 'Show data in hidden rows and columns'.
+
+6. PRO TIPS & SHORTCUTS
+• Insert Sparklines Shortcut (Alt + N + S + L (Line) | Alt + N + S + C (Column)): Quickly insert in-cell sparklines on selected table rows.
+• Unify Vertical Axis Scale (Sparkline > Axis > Same for All Sparklines): Guarantees accurate relative visual comparisons across rows.
+• High/Low Point Markers (Check High Point & Low Point boxes): Instantly adds visual peak and valley markers.
+================================================================================

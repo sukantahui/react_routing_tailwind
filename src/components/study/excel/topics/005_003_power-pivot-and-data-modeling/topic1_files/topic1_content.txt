@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Power Pivot & Data Modeling
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Power Pivot and Data Modeling
 Topic 1: Overcoming Excel's 1-million row limit: Handling millions of rows with high compression
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Overcoming Excel's 1-million row limit: Handling millions of rows with high compression is an essential discipline in enterprise data architecture, business intelligence, and large-scale analytical modeling.
+It provides the core protocols required to shatter Excel's 1-million row limit, establish clean relational schemas, and build high-performance data models.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Data Import Protocol: Data > Get Data > Only Create Connection -> Check 'Add this data to the Data Model'
+
+3. CORE TECHNICAL MECHANICS
+1. Connection-Only Ingestion Paradigm:
+   Data is streamed from SQL/CSV directly into the VertiPaq xVelocity compressed memory engine without populating worksheet grid cells.
+
+2. Eliminating Workbook File Bloat:
+   A 5-million row CSV file of 600MB compresses to ~35MB inside the Excel `.xlsx` package.
+
+3. Direct PivotTable Direct Querying:
+   Excel PivotTables and PivotCharts query the Data Model directly via DAX (Data Analysis Expressions) queries generated automatically in background.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Analytics, Barrackpore HQ):
+  Banking Core Transaction Ingestion (8 Million Rows) - Streams 8,500,000 retail bank debit/credit transactions directly into the Data Model, enabling instant branch-level pivot reporting.
+• Tuhina Mukherjee (Statutory Tax Auditor, Shyamnagar Plant):
+  Enterprise GST E-Waybill Big Data Hub - Loads 3.2 million state tax e-waybills into Excel Data Model for automated cross-checking against GSTR-2B files.
+• Abhronila Das (Plant Quality Controller, Ichapur Works):
+  Multi-Machine Shopfloor Telemetry Ledger - Pulls 6 million sensor logs from SQL Server directly into Power Pivot with zero sheet slowdown.
+• Debangshu Roy (Supply Chain Financial Director, Naihati Logistics):
+  Consolidated Multi-Year Transit Manifests - Aggregates 4.8 million freight tracking milestones across 10 regional distribution centers.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Attempting to 'Load to Table' on Multi-Million Row Datasets:
+  Root Cause: Selecting 'Table' in Power Query on a 3-million row query throws 'Data could not be written because the worksheet is full'.
+  Diagnostic Fix: Always select 'Only Create Connection' and CHECK 'Add this data to the Data Model'.
+• Memory Exhaustion on 32-bit Excel:
+  Root Cause: 32-bit Excel is capped at 2GB virtual RAM; loading 10 million rows throws 'Out of Memory'.
+  Diagnostic Fix: Install 64-bit Microsoft Office to utilize full system RAM (16GB+).
+• Duplicate Source Query Refreshes:
+  Root Cause: Loading the same large table both to a worksheet grid and the Data Model doubles memory consumption.
+  Diagnostic Fix: Store large master facts exclusively in the Data Model.
+
+6. PRO TIPS & SHORTCUTS
+• Connection Only + Data Model (Check 'Add this data to the Data Model'): The golden setting to bypass Excel's 1-million row grid barrier.
+• 64-Bit Excel Mandatory (File > Account > About Excel): Unlocks unlimited memory addressing for multi-million row datasets.
+• Query Folding Before Model Load (Push filter operations to SQL server): Minimizes initial data transfer time by 80%.
+================================================================================

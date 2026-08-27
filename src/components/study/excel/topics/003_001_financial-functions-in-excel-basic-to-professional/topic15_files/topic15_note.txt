@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
-Topic 15: Real-world case study: Commercial real estate investment appraisal model
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 15 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Real-world case study: Commercial real estate investment appraisal model
+Module: 003_001_financial-functions-in-excel-basic-to-professional
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Real Estate Appraisal Engine: Net Operating Income (NOI) / Cap Rate -> DCF Levered Cash Flows -> IRR & Equity Multiple
+
+PRIMARY CONCEPT:
+Comprehensive commercial real estate investment appraisal: Net Operating Income (NOI), Capitalization Rate valuation, debt service coverage, and Levered IRR & Equity Multiple
+
+TEACHER'S ADVICE:
+Real estate private equity uses two key metrics: Levered IRR (the annualized speed of return) and Equity Multiple (the total amount of cash returned). Always calculate both for your investment committee.
+
+COMMON TRAPS TO AVOID:
+- Deducting Debt Service Before Calculating NOI: NOI must measure property operating profitability BEFORE financing costs; deducting debt service inside NOI distorts Cap Rate valuation. -> Fix: Keep NOI strictly unlevered: `NOI = Effective Revenue - Operating Expenses`.
+- Ignoring Capital Expenditure Reserves: Failing to budget for roof, HVAC, and structural replacement reserves inflates reported cash flows. -> Fix: Include Replacement Reserves below NOI to compute true Cash Flow Before Debt Service.
+- Assuming Zero Vacancy in Long-Term Projections: Modeling 100% occupancy for 10 consecutive years violates real estate underwriting standards. -> Fix: Underwrite a realistic structural vacancy allowance (typically 5% to 10%).
+================================================================================

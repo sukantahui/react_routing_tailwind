@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Excel Beginner Skill Test
-Topic 1: Tabular Data Entry & Professional Formatting Assignment
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 1 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Tabular Data Entry & Professional Formatting Assignment
+Module: 008_001_excel-beginner-skill-test
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Formatting Standard: Indian Rupee: [₹-en-IN] #,##0.00 | Date: dd-mmm-yyyy | Header: Fill #0f172a, Font #ffffff Bold | AutoFit: Alt+H+O+I
+
+PRIMARY CONCEPT:
+Evaluating proficiency in tabular data entry, professional custom number formatting, date standardization, border hierarchy, and auto-fitting column widths
+
+TEACHER'S ADVICE:
+Formatting is your first impression. Never leave columns showing `###`! Right-align your numbers, use `dd-mmm-yyyy` for dates, and put a double-underline under your total row. It makes you look like an elite professional.
+
+COMMON TRAPS TO AVOID:
+- Truncated Cell Content (### Display Bug): Narrow columns hiding numbers as `###`. -> Fix: Press `Alt + H + O + I` to auto-fit all column widths.
+- Centering Numerical Data Columns: Centering numbers impairs rapid visual decimal alignment for accountants. -> Fix: Right-align numbers; left-align text; center dates and codes.
+- Using Bright Neon Background Fills: Unprofessional eye-straining colors in business reports. -> Fix: Use curated corporate palettes (Navy `#0f172a`, Slate `#1e293b`, subtle gray `#f8fafc`).
+================================================================================

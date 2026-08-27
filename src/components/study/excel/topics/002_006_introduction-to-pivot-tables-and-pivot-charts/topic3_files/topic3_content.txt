@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Introduction to Pivot Tables and Pivot Charts
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Introduction to Pivot Tables and Pivot Charts
 Topic 3: Value field settings: Sum, Count, Average, Min, Max, and Distinct Count (Data Model)
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Value field settings: Sum, Count, Average, Min, Max, and Distinct Count (Data Model) is an essential discipline in corporate business intelligence and reporting.
+It provides the foundation for dynamic in-memory summarization, multi-dimensional slicing, and interactive dashboards.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Summarize Values By: SUM | COUNT | AVERAGE | MIN | MAX | DISTINCT COUNT (Data Model)
+
+3. CORE TECHNICAL MECHANICS
+1. Standard Aggregation Functions:
+   Summarize numeric fields using SUM (total), AVERAGE (arithmetic mean), MIN (lowest), MAX (highest), and COUNT (transaction volume).
+
+2. Number Formatting Inside Pivot Tables:
+   Always set formatting via `Value Field Settings > Number Format` rather than standard cell formatting (which gets wiped upon pivot refresh).
+
+3. The Distinct Count Aggregation:
+   Checking 'Add this data to the Data Model' during pivot creation unlocks 'Distinct Count' in Value Field Settings, counting unique customers without duplicates.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Banking, Barrackpore HQ):
+  Unique Active Customer Counting - Calculates total unique corporate borrowing clients (Distinct Count of AccountID) alongside total disbursed loan volume.
+• Tuhina Mukherjee (Audit Consultant, Shyamnagar Plant):
+  Average Unit Purchase Price Analysis - Configures Unit Cost as AVERAGE alongside Quantity as SUM to monitor procurement inflation trends.
+• Abhronila Das (Quality Assurance Lead, Ichapur Works):
+  Extreme Tolerance Range Monitoring - Displays MIN and MAX component thickness measurements side-by-side to track manufacturing variance.
+• Debangshu Roy (Logistics Analytics Lead, Naihati Logistics):
+  Daily Consignment Shipment Volume - Summarizes total waybills (COUNT) and total gross tonnage (SUM) across regional shipping hubs.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Formatting Cells Directly (The Refresh Wipe):
+  Root Cause: Applying number formatting via Home tab causes formatting to disappear when the PivotTable is refreshed or restructured.
+  Diagnostic Fix: Always apply formatting through: Right-click value cell > Value Field Settings > Number Format.
+• Missing Distinct Count Option:
+  Root Cause: Distinct Count does not appear in standard PivotTables created without the Data Model.
+  Diagnostic Fix: When inserting the PivotTable, check the box: 'Add this data to the Data Model'.
+• Averaging an Average (Statistical Distortion):
+  Root Cause: Averaging pre-aggregated percentage columns in PivotTables produces mathematically incorrect weighted averages.
+  Diagnostic Fix: Use Calculated Fields or DAX Measures to calculate true weighted averages: `=Sum(Margin) / Sum(Revenue)`.
+
+6. PRO TIPS & SHORTCUTS
+• Value Field Settings Shortcut (Right-click > Value Field Settings (Alt + H + G)): Quickly change aggregation type and currency formatting.
+• Unlock Distinct Count (Insert Pivot > Check 'Add to Data Model'): Enables counting unique items like Customer IDs without duplicates.
+• Rename Field Header (Type custom name in Value Field Settings): Add a trailing space (e.g. 'Revenue ') if Excel complains that the name already exists.
+================================================================================

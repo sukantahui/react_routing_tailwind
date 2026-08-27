@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
-Topic 8: Formulating Linear Programming (LP) problems: Objective cell, Variable cells, and Constraints
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 8 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Formulating Linear Programming (LP) problems: Objective cell, Variable cells, and Constraints
+Module: 003_003_what-if-analysis-and-scenario-planning
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Linear Program Formulation: Maximize Z = c1*x1 + c2*x2 | Subject to: a1*x1 + a2*x2 <= ResourceLimit, x1,x2 >= 0
+
+PRIMARY CONCEPT:
+Formulating business decision problems into mathematical Linear Programming models: defining the Objective function, Decision Variables, and structural constraint matrix
+
+TEACHER'S ADVICE:
+Always structure your LP models cleanly: Top block for Unit Profit coefficients, Middle block for Decision Variables, and Bottom block for Constraints using SUMPRODUCT. It makes Solver setup effortless.
+
+COMMON TRAPS TO AVOID:
+- Using Non-Linear Functions in LP (IF, MAX, MIN): Embedding IF(), MAX(), or lookup functions inside constraint cells breaks mathematical linearity, causing Simplex LP to fail. -> Fix: Reformulate logic into linear inequalities: replace `MAX(0, X-50)` with auxiliary slack variables.
+- Dimension Mismatch in SUMPRODUCT Constraint Rows: Multiplying a 4-item decision variable range by a 3-item resource usage row returns `#VALUE!`. -> Fix: Ensure resource consumption coefficients span identical dimensions to decision variables.
+- Infeasible Solution ('Solver could not find a feasible solution'): Conflicting constraints that cannot be satisfied simultaneously (e.g. `X <= 10` and `X >= 50`). -> Fix: Audit constraint boundaries to eliminate mutually exclusive requirements.
+================================================================================

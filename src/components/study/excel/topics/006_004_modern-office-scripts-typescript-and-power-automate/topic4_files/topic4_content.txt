@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Modern Office Scripts (TypeScript) & Power Automate
 Topic 4: The Office Scripts Object Model: `ExcelScript.Workbook`, `Worksheet`, `Range`, `Table`
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+The Office Scripts Object Model: `ExcelScript.Workbook`, `Worksheet`, `Range`, `Table` is an essential discipline in cloud spreadsheet automation, serverless enterprise workflows, and TypeScript-driven business intelligence.
+It provides the core protocols required to author cross-platform scripts, connect Excel to Microsoft Power Automate, and construct 24/7 autonomous cloud pipelines.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Object Model Hierarchy: workbook: ExcelScript.Workbook -> workbook.getWorksheets() -> worksheet.getRange("A1:B10") -> worksheet.getTables()
+
+3. CORE TECHNICAL MECHANICS
+1. Synchronous Object Encapsulation:
+   Methods in Office Scripts are synchronous getters and setters (`workbook.getWorksheet("Data")`, `range.getValue()`, `range.setValue()`).
+
+2. Collection Getters (`getTables()`, `getCharts()`):
+   Returns typed arrays of child objects that can be queried by name (`ws.getTable("SalesTable")`) or iterated via standard TypeScript loops.
+
+3. Separation of Content and Format:
+   Cell values are accessed via `range.getValues()`; cell styles are accessed via `range.getFormat().getFill()`, `getFont()`, `getBorders()`.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Operations, Barrackpore HQ):
+  Enterprise Multi-Sheet Object Model Navigation - Navigates workbook sheets, querying `const ws = workbook.getWorksheet("Consolidation")` and formatting KPI tables.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Tax Table Object Management - Accesses structured tables directly using `const table = ws.getTable("GST_Register")`.
+• Abhronila Das (Plant Systems Architect, Ichapur Works):
+  Telemetry Chart Object Formatting - Modifies chart titles and data series colors programmatically across cloud workbooks.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Fleet Pivot Table Filter Updates - Updates cloud pivot table filters via `pivotTable.getHierarchy()`.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Calling getWorksheet with Non-Existent Tab Name:
+  Root Cause: Calling `workbook.getWorksheet("Missing")` returns `undefined`, throwing error on next method call.
+  Diagnostic Fix: Verify worksheet exists: `const ws = workbook.getWorksheet("Data"); if (!ws) throw new Error("Sheet not found");`.
+• Confusing getValues() with getText():
+  Root Cause: `getValues()` returns typed numbers/strings; `getTexts()` returns formatted display text (e.g. "$ 10.00").
+  Diagnostic Fix: Use `getValues()` for calculations; use `getTexts()` for display string parsing.
+• Attempting to Call Non-Existent VBA Methods:
+  Root Cause: Calling `ws.Cells(1,1)` instead of `ws.getCell(0,0)` (Office Scripts uses 0-based coordinate indexing).
+  Diagnostic Fix: Use `ws.getCell(rowIndex, colIndex)` where (0,0) is cell A1.
+
+6. PRO TIPS & SHORTCUTS
+• 0-Based Cell Indexing (ws.getCell(0, 0) is cell A1): Office Scripts uses 0-based row and column indexing.
+• Get Structured Table (const table = ws.getTable("SalesTable");): Direct access to named Excel Tables.
+• Chain Format Calls (range.getFormat().getFont().setBold(true);): Clean hierarchical formatting syntax.
+================================================================================

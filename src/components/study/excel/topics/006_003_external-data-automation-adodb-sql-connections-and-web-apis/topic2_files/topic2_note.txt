@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: External Data Automation: ADODB SQL Connections & Web APIs
-Topic 2: Executing SQL Queries (SELECT, INSERT, UPDATE, DELETE) directly from Excel VBA
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 2 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Executing SQL Queries (SELECT, INSERT, UPDATE, DELETE) directly from Excel VBA
+Module: 006_003_external-data-automation-adodb-sql-connections-and-web-apis
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+SQL Execution: conn.Execute "INSERT INTO Table (Col1) VALUES ('Val1')" | conn.Execute "UPDATE Table SET Col1 = 'NewVal' WHERE ID = 101"
+
+PRIMARY CONCEPT:
+Executing full Create, Read, Update, and Delete (CRUD) SQL operations directly from Excel VBA using conn.Execute: INSERT, UPDATE, DELETE, and DDL commands
+
+TEACHER'S ADVICE:
+Always sanitize your text before building SQL strings! If a customer's name has an apostrophe (e.g. `McDonald's`), use `Replace(str, "'", "''")`. And NEVER run an UPDATE or DELETE without a WHERE clause!
+
+COMMON TRAPS TO AVOID:
+- Unsanitized Single Quotes in String Values (Syntax Error): Inserting a company name like `O'Reilly Steel` breaks SQL syntax (`'O'Reilly Steel'`), throwing runtime error. -> Fix: Sanitize strings by escaping single quotes: `Replace(strName, "'", "''")`.
+- Accidental Table Wiping (Missing WHERE Clause): Executing `UPDATE Customers SET Status = 'Inactive'` without a `WHERE` clause updates the ENTIRE database table! -> Fix: Always double-check `WHERE` clauses before executing non-query SQL commands.
+- SQL Type Mismatch on Dates and Decimals: Formatting dates with slashes (`12/04/2026`) instead of ISO standard format (`'2026-04-12'`). -> Fix: Format SQL dates strictly in ISO standard: `Format(myDate, "yyyy-mm-dd")`.
+================================================================================

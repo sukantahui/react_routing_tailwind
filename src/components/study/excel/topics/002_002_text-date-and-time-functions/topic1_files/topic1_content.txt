@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Text, Date and Time Functions
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Text, Date and Time Functions
 Topic 1: Substring extraction: LEFT, RIGHT, MID, LEN, and FIND vs SEARCH
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Substring extraction: LEFT, RIGHT, MID, LEN, and FIND vs SEARCH is an essential discipline in corporate spreadsheet development and ETL workflows.
+It provides the core formulas required to sanitize, manipulate, and calculate text, dates, and times.
+
+2. SYNTAX & TOKEN STRUCTURE
+Formula Code: =LEFT(text, num_chars) | =RIGHT(text, num_chars) | =MID(text, start_num, num_chars) | =FIND(find_text, within_text) | =SEARCH(find_text, within_text)
+
+3. CORE TECHNICAL MECHANICS
+1. Directional Slicers (LEFT, RIGHT):
+   LEFT() extracts characters from the start; RIGHT() extracts from the end based on exact character counts.
+
+2. Arbitrary Window Parsing (MID & LEN):
+   MID() extracts a specified substring window starting at any 1-indexed character position; LEN() calculates total character length.
+
+3. FIND (Case-Sensitive) vs SEARCH (Case-Insensitive):
+   FIND() performs exact case-sensitive byte search; SEARCH() ignores case and supports wildcards (? and *).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Senior Auditor, Barrackpore HQ):
+  Branch Code & Account Slicing - Extracts 4-digit branch codes from structured account numbers (e.g. 'BKP-98214-WB' -> =LEFT(A2, 3)) for divisional reporting.
+• Tuhina Mukherjee (Payroll Specialist, Shyamnagar Plant):
+  Domain Extraction from Corporate Emails - Extracts employee domains using =MID(A2, FIND("@", A2)+1, LEN(A2)) to verify contractor vs full-time staff status.
+• Abhronila Das (Materials Controller, Ichapur Heavy Works):
+  SKU Part-Number Decomposition - Parses middle thickness specifications from engineering codes ('STEEL-25MM-GRADEA' -> =MID(A2, 7, 4)).
+• Debangshu Roy (Logistics Manager, Naihati Logistics Hub):
+  Waybill Serial Token Extraction - Retrieves the rightmost 6-digit invoice sequence from tracking barcodes (=RIGHT(A2, 6)).
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Hardcoded Number of Characters:
+  Root Cause: Assuming all first names or tokens have the same length causes truncation (e.g. LEFT(A2, 5) truncates 'Abhronila').
+  Diagnostic Fix: Dynamically calculate length using =LEFT(A2, FIND(" ", A2)-1).
+• FIND() #VALUE! Failure on Missing Delimiter:
+  Root Cause: If the searched character does not exist in the string, FIND() returns a fatal #VALUE! error.
+  Diagnostic Fix: Wrap with IFERROR() or use SEARCH() with error trapping.
+• Extracted Digits Stored as Text:
+  Root Cause: LEFT/RIGHT/MID always return text strings, causing SUM() on extracted numbers to return 0.
+  Diagnostic Fix: Coerce extracted numeric strings to true numbers using double unary: =--RIGHT(A2, 4) or VALUE().
+
+6. PRO TIPS & SHORTCUTS
+• Dynamic First Word (=LEFT(A2, FIND(" ", A2 & " ") - 1)): Guarantees safe first-name extraction even if no space exists.
+• Coerce Text to Number (=--MID(A2, 5, 4)): Double unary (--) instantly converts text output into calculable numbers.
+• Case-Insensitive Search (=SEARCH("wb", A2)): Finds 'WB', 'wb', or 'Wb' without case mismatch errors.
+================================================================================

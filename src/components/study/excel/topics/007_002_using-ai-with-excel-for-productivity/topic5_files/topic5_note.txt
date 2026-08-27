@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: Using AI with Excel for Productivity
-Topic 5: Generating instant visualizations, pivot tables, and scenario summaries with AI prompts
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 5 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Generating instant visualizations, pivot tables, and scenario summaries with AI prompts
+Module: 007_002_using-ai-with-excel-for-productivity
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Visualization Prompts: 'Create a column chart comparing quarterly revenue by region' | 'Create a pivot table showing total profit by product category and year'
+
+PRIMARY CONCEPT:
+Generating instant charts, pivot tables, and scenario summary decks using AI prompts: automatic chart type selection (Column, Line, Pareto, Treemap), multi-dimensional pivot tables, and formatting
+
+TEACHER'S ADVICE:
+Building Pivot Tables and charts manually takes 10 minutes. With Copilot, just say: 'Create a bar chart comparing sales by region', click 'Add to a new sheet', and you have a boardroom-ready chart in 5 seconds!
+
+COMMON TRAPS TO AVOID:
+- AI Selecting Inappropriate Chart Type (e.g. Pie Chart for 50 Categories): Prompting 'Visualize this' on high-cardinality data resulting in unreadable pie charts. -> Fix: Specify chart type explicitly: 'Create a horizontal bar chart of the top 10 products'.
+- Missing Chart Title or Legend Labels: AI creating charts with generic titles like 'Chart 1'. -> Fix: Prompt AI: 'Add title: FY 2026 Regional Revenue Performance'.
+- Creating Charts Over Existing Data Cells: Pasting floating charts directly on top of table numbers. -> Fix: Select 'Add to a new sheet' option.
+================================================================================

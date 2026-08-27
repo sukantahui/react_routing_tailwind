@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Power Pivot & Data Modeling
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Power Pivot and Data Modeling
 Topic 13: Real-world project: Designing an Enterprise Retail Data Model with multi-table relationships
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Real-world project: Designing an Enterprise Retail Data Model with multi-table relationships is an essential discipline in enterprise data architecture, business intelligence, and large-scale analytical modeling.
+It provides the core protocols required to shatter Excel's 1-million row limit, establish clean relational schemas, and build high-performance data models.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Enterprise Retail Data Model: Fact_Sales + Fact_Inventory + Dim_Customer + Dim_Product + Dim_Store + Dim_Calendar + Explicit DAX Measure Suite
+
+3. CORE TECHNICAL MECHANICS
+1. Multi-Fact Dimensional Architecture:
+   Integrates two distinct business processes: `Fact_Sales` (Transactions) and `Fact_Inventory` (Daily Stock Snapshots) connected to shared conforming dimensions.
+
+2. Conformed Dimensions (Shared Context):
+   `Dim_Product`, `Dim_Store`, and `Dim_Calendar` act as conformed dimensions, enabling simultaneous cross-fact analysis of Sales vs Inventory levels.
+
+3. Comprehensive Explicit DAX Suite:
+   Implements core revenue measures, inventory stock-out ratios, gross margin % ratios, and Year-over-Year growth calculations.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Data Architect, Barrackpore HQ):
+  Enterprise Multi-Store Retail Model Deployment - Architects a complete corporate retail data model consolidating ₹500 Crore sales across 150 retail stores and 10,000 product SKUs.
+• Tuhina Mukherjee (Lead Commercial Controller, Shyamnagar Plant):
+  Retail Inventory Turnover & Margin Optimization - Builds explicit measures tracking Days Sales of Inventory (DSI) and gross margin return on investment (GMROI).
+• Abhronila Das (Supply Chain Operations Lead, Ichapur Works):
+  Warehouse Stock Replenishment Analytics - Connects store sales velocity measures to warehouse inventory replenishment schedules.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Regional Distribution Network Fulfillment Hub - Monitors cross-store inventory transfer efficiency and delivery turnaround times.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Connecting Two Fact Tables Directly:
+  Root Cause: Attempting to create a relationship between `Fact_Sales` and `Fact_Inventory` directly.
+  Diagnostic Fix: Connect both Fact tables independently to shared Conformed Dimension tables (`Dim_Product`, `Dim_Store`, `Dim_Calendar`).
+• Inconsistent Key Formatting Across Tables:
+  Root Cause: StoreKey formatted as Text in Dim_Store but Whole Number in Fact_Sales, breaking relationship creation.
+  Diagnostic Fix: Standardize key column data types across all tables in Power Query.
+• Hardcoding Calculations in Worksheet Grid:
+  Root Cause: Bypassing the Data Model and writing manual SUMIFS formulas on large datasets.
+  Diagnostic Fix: Perform all calculations using explicit DAX measures in the Data Model.
+
+6. PRO TIPS & SHORTCUTS
+• Conformed Dimensions (Share Dim tables across multiple Fact tables): Enables cross-process business intelligence in a single model.
+• Clean 3-Tier Layering (Dimensions Top -> Facts Bottom): Standard visual layout in Power Pivot Diagram View.
+• Full DAX Measure Suite (Organize measures into Display Folders): Delivers an institutional, production-grade business model.
+================================================================================

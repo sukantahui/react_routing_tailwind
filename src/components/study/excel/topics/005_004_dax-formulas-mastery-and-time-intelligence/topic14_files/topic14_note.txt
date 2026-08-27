@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
-Topic 14: Real-world capstone: Building an Enterprise Financial & Sales Performance DAX Measure Suite
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 14 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Real-world capstone: Building an Enterprise Financial & Sales Performance DAX Measure Suite
+Module: 005_004_dax-formulas-mastery-and-time-intelligence
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Enterprise Financial & Sales Performance DAX Measure Suite: Revenue, Margin, YTD, YoY Growth, TTM, Semi-Additive Balances & Top N
+
+PRIMARY CONCEPT:
+Comprehensive end-to-end master capstone project: engineering an institutional 30-measure enterprise DAX Measure Suite encompassing core financials, time intelligence, rolling moving averages, and ranking
+
+TEACHER'S ADVICE:
+Congratulations on achieving complete mastery of DAX and Time Intelligence! You now possess world-class financial engineering and data architecture skills. The DAX code you write in Excel is 100% identical to Microsoft Power BI. You are a true enterprise data master.
+
+COMMON TRAPS TO AVOID:
+- Measure Inconsistency Across Reports: Different analysts writing conflicting definitions for 'Gross Margin' across departmental spreadsheets. -> Fix: Centralize all core definitions in the master Power Pivot Data Model Measure Suite.
+- Hardcoding Tax Rates or Fixed Values in DAX: Typing `* 0.18` inside DAX formulas breaks when tax legislation changes. -> Fix: Store tax rates in Dimension tables and link dynamically via relationships.
+- Failing to Port to Power BI: Thinking DAX learned in Excel cannot be used in Power BI. -> Fix: Every single DAX measure written in Excel Power Pivot ports 100% identically into Microsoft Power BI.
+================================================================================

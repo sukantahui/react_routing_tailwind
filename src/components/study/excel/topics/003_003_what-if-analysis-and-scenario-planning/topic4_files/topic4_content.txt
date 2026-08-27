@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: What-If Analysis and Scenario Planning
 Topic 4: Optimizing performance: Setting calculation mode to automatic except for data tables
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Optimizing performance: Setting calculation mode to automatic except for data tables is an essential discipline in corporate decision modeling, capital allocation, and risk management.
+It provides the core protocols required to stress-test financial projections, solve backwards for target goals, and mathematically optimize resource utilization.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: File > Options > Formulas > Calculation Options: Automatic except for data tables (Alt + M + X + E)
+
+3. CORE TECHNICAL MECHANICS
+1. The Data Table Recalculation Overhead:
+   A 20x20 Data Table contains 400 iterations. In a 50-sheet model, every keystroke recalculates the entire workbook 400 times, causing severe lag.
+
+2. Automatic Except for Data Tables Mode:
+   Keeps standard worksheet formulas updating automatically in real time while pausing Data Table recalculation until the user explicitly presses F9.
+
+3. Targeted Calculation Refresh (Shift + F9):
+   Pressing Shift + F9 recalculates only the active worksheet; F9 recalculates all open workbooks.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Financial Modeler, Barrackpore HQ):
+  Enterprise LBO Model Optimization - Cures a 12-second workbook freezing lag in a 40-sheet leveraged buyout model by setting calculation mode to 'Automatic Except Data Tables'.
+• Tuhina Mukherjee (Senior Tax Auditor, Shyamnagar Plant):
+  Corporate Tax Scenario Sheet Speedup - Maintains responsive spreadsheet performance while embedding 5 large 2D tax sensitivity matrices.
+• Abhronila Das (Plant Systems Analyst, Ichapur Works):
+  Shopfloor Telemetry Model Acceleration - Optimizes multi-table production simulation models to run smoothly on laptop hardware.
+• Debangshu Roy (Logistics Analytics Specialist, Naihati Logistics):
+  Freight Route Matrix Calculation Optimization - Prevents calculation bottlenecks across 10 regional transport cost sensitivity tables.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Thinking Data Table is Broken When Numbers Don't Change:
+  Root Cause: In 'Automatic Except Data Tables' mode, changing an input does not update the table until F9 is pressed.
+  Diagnostic Fix: Press F9 (Calculate Now) to refresh all data tables across the workbook.
+• Accidentally Leaving Excel in Full Manual Calculation:
+  Root Cause: Setting mode to Manual stops ALL formulas from calculating, causing stale numbers across all sheets.
+  Diagnostic Fix: Use 'Automatic Except for Data Tables' rather than full 'Manual' mode.
+• Status Bar 'Calculate' Indicator Missed:
+  Root Cause: Ignoring the 'Calculate' indicator in the bottom status bar means displayed table numbers are out of sync.
+  Diagnostic Fix: Press F9 whenever 'Calculate' appears in the Excel status bar.
+
+6. PRO TIPS & SHORTCUTS
+• Set Mode Shortcut (Alt + M + X + E): Fastest ribbon shortcut to enable Automatic Except Data Tables.
+• Calculate Now (F9): Refreshes all open workbooks and data tables instantly.
+• Calculate Active Sheet Only (Shift + F9): Calculates only the current active worksheet for high-speed updates.
+================================================================================

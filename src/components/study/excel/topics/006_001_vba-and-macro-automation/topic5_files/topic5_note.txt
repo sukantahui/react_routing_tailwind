@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: VBA & Macro Automation
-Topic 5: The Excel Object Model hierarchy: Application > Workbooks > Worksheets > Range > Cells
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 5 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: The Excel Object Model hierarchy: Application > Workbooks > Worksheets > Range > Cells
+Module: 006_001_vba-and-macro-automation
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+Object Hierarchy: Application > Workbooks("Book1.xlsx") > Worksheets("Data") > Range("A1:B10") > Cells(Row, Col)
+
+PRIMARY CONCEPT:
+Mastering the Excel Object Model hierarchy: Application, Workbooks, Worksheets, Range, and Cells: fully qualified references, active vs explicit objects, and parent-child encapsulation
+
+TEACHER'S ADVICE:
+Never write naked `Range("A1")` in your code! If the user clicks on another tab while your macro is running, it will overwrite the wrong sheet. Always write `ws.Range("A1")` or use `With ws ... .Range("A1") ... End With`.
+
+COMMON TRAPS TO AVOID:
+- Unqualified ActiveSheet Overwrite Bug (Fatal Data Corruption): Running a macro that uses `Range("A1").ClearContents` while looking at the wrong worksheet clears critical master formulas. -> Fix: Never use naked Range references; always qualify with explicit worksheet: `wsTarget.Range("A1").ClearContents`.
+- Confusing ThisWorkbook with ActiveWorkbook: `ActiveWorkbook` is whichever file currently has user focus; `ThisWorkbook` is the workbook containing the running VBA code. -> Fix: Use `ThisWorkbook` when referencing the code's host file.
+- Hardcoding Sheet Tab Names That Users Might Rename: Using `Sheets("Sales Data")` crashes with 'Subscript out of range' if user renames the tab to 'Sales_Data'. -> Fix: Use Sheet CodeNames (e.g. `Sheet1.Range(...)`) which remain immutable even if the tab name changes.
+================================================================================

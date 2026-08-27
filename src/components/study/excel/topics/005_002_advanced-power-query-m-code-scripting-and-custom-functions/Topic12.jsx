@@ -616,7 +616,7 @@ export default function Topic12() {
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300 overflow-x-auto">
                 {`// Fact_ConsolidatedSales
-Clean_Fact = Table.SelectRows(#"Consolidated Staging", each [GrossTotal] > 0 and [Quantity] > 0 and [GSTIN] <> null)
+Clean_Fact = Table.SelectRows(#"Consolidated Staging", each [GrossTotal] &gt; 0 and [Quantity] &gt; 0 and [GSTIN] <> null)
 
 // Audit_QuarantineLog
 Quarantine_Log = Table.SelectRows(#"Consolidated Staging", each [GrossTotal] <= 0 or [Quantity] <= 0 or [GSTIN] = null)`}

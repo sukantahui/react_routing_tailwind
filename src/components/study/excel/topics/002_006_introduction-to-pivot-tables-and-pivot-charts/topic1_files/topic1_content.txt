@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Introduction to Pivot Tables and Pivot Charts
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Introduction to Pivot Tables and Pivot Charts
 Topic 1: Preparing source data for Pivot Tables: Flat tables vs Matrix layouts
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Preparing source data for Pivot Tables: Flat tables vs Matrix layouts is an essential discipline in corporate business intelligence and reporting.
+It provides the foundation for dynamic in-memory summarization, multi-dimensional slicing, and interactive dashboards.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Data Hygiene Standard: 1 Row = 1 Fact | 1 Col = 1 Attribute | No Blank Headers | No Merged Cells
+
+3. CORE TECHNICAL MECHANICS
+1. Normalized Flat Table Rules:
+   Every column must have a unique non-blank header; each row represents a single atomic transaction; no merged cells or summary total rows.
+
+2. The 2D Matrix Anti-Pattern:
+   Spreading months across column headers (Jan, Feb, Mar) violates database normalization, forcing multiple value fields rather than clean dimensional slicing.
+
+3. Excel Table Dynamic Source (Ctrl + T):
+   Converting source ranges to official Excel Tables ensures new rows and columns automatically expand into the PivotTable source upon refresh.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Data Architect, Barrackpore HQ):
+  Legacy Financial Matrix Unpivoting - Transforms wide 12-month spreadsheet matrices into tall normalized 4-column tables (Date, Branch, Category, Revenue) for executive BI analysis.
+• Tuhina Mukherjee (Statutory Auditor, Shyamnagar Plant):
+  Procurement Header Sanitization - Eliminates merged cells and blank column headers across legacy vendor ledgers to enable pivot ingestion.
+• Abhronila Das (Quality Control Lead, Ichapur Works):
+  Shift Machine Sensor Log Formatting - Normalizes machine telemetry logs into flat tabular records to analyze failure frequencies.
+• Debangshu Roy (Logistics Analyst, Naihati Logistics):
+  Waybill Manifest Range Conversion - Converts static dispatch lists into dynamic Excel Tables (Ctrl + T) to automate weekly shipment reporting.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Blank Header Field Error:
+  Root Cause: Creating a PivotTable on a range with an empty column header triggers the fatal 'The PivotTable field name is not valid' error.
+  Diagnostic Fix: Ensure every single column in the source table has a clear, unique header name.
+• Merged Cells Ingestion Failure:
+  Root Cause: Merged cells in source data corrupt row-by-row aggregation and cause fields to drop data.
+  Diagnostic Fix: Unmerge all cells and fill down header/category labels.
+• Including Total Rows in Source Range:
+  Root Cause: Selecting summary totals (e.g. Grand Total row) in the source range doubles all pivot aggregations.
+  Diagnostic Fix: Exclude total and subtotal rows from the PivotTable source data range.
+
+6. PRO TIPS & SHORTCUTS
+• Convert to Official Table (Ctrl + T): Always convert source data to an official Excel Table before creating PivotTables.
+• Unmerge All Cells (Alt + H + M + C): Strip all merged formatting from source tables before building pivot caches.
+• Fill Down Blanks (F5 > Special > Blanks -> =UpCell (Ctrl+Enter)): Quickly populate repeated categorical labels down a column.
+================================================================================

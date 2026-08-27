@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: DAX Formulas Mastery and Time Intelligence
 Topic 1: Understanding Evaluation Contexts: Row Context vs Filter Context (The core of DAX)
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Understanding Evaluation Contexts: Row Context vs Filter Context (The core of DAX) is an essential discipline in enterprise business intelligence, quantitative finance, and advanced data modeling.
+It provides the core protocols required to construct complex multi-dimensional financial measures, calculate period-over-period growth, and evaluate dynamic rankings.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Evaluation Contexts: Row Context (Active Record Iteration) | Filter Context (Active Slicers, Rows, Columns, Pages)
+
+3. CORE TECHNICAL MECHANICS
+1. Row Context (The Concept of 'Current Row'):
+   Exists automatically in Calculated Columns and inside Iterator functions (`SUMX`, `FILTER`). It knows the current row's values, but cannot see other rows or filter other tables.
+
+2. Filter Context (The 'Environment' of the Calculation):
+   The combined set of active filters applied by PivotTable Row headers, Column headers, Slicers, Report Filters, and DAX `CALCULATE()` statements.
+
+3. The Independence Principle:
+   A pure Row Context does NOT automatically filter other tables; a pure Filter Context does NOT have a concept of the 'current row'.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Data Architect, Barrackpore HQ):
+  Enterprise Executive Filter Context Debugging - Explains why a measure displays ₹12.5 Lakhs in Cell C4: the Filter Context combines Year=2026, Region='East', and Category='Electronics'.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Purchase Ledger Row Context Iteration - Uses Row Context inside a calculated column to compute line-level GST liabilities (`[BaseAmount] * [GSTRate]`).
+• Abhronila Das (Plant Operations Controller, Ichapur Works):
+  Shift Production Filter Context Isolation - Analyzes how shift and operator slicers restrict the Filter Context to evaluate true machine yield.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Route Cost Row-Level Computation - Calculates individual trip toll costs using row context inside `SUMX`.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Expecting Row Context to Filter Related Tables:
+  Root Cause: Thinking a calculated column in Table A automatically filters Table B during evaluation.
+  Diagnostic Fix: Row Context does not propagate across relationships unless transformed via Context Transition (`CALCULATE`).
+• Confusing Filter Context with Row Coordinates:
+  Root Cause: Writing a measure that expects to know 'what row number am I on'.
+  Diagnostic Fix: Measures operate in Filter Context; use Iterator functions if row-by-row iteration is required.
+• Assuming Filter Context Modifies Physical Data:
+  Root Cause: Thinking filtering changes underlying stored tables in RAM.
+  Diagnostic Fix: Filter Context only restricts the temporary virtual view of data passed to the formula.
+
+6. PRO TIPS & SHORTCUTS
+• Row Context = Loop (Iterates record by record): Native to calculated columns and X-iterator functions.
+• Filter Context = Sieve (Slices data based on active UI coordinates): Native to PivotTable cells and explicit measures.
+• Master Both Contexts (The secret to 100% DAX mastery): Every DAX behavior stems from the interaction between these two contexts.
+================================================================================

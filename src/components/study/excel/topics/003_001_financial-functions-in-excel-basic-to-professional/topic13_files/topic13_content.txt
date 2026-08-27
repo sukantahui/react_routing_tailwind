@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Financial Functions in Excel (Basic to Professional)
 Topic 13: Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Sensitivity tables for WACC (Weighted Average Cost of Capital) and Terminal Value is a foundational pillar of corporate financial modeling, investment banking, and capital budgeting.
+It equips financial modelers with the exact mathematical tools to value assets, evaluate debt structures, and appraise investments.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: 2D Sensitivity Table: Data > What-If Analysis > Data Table (Row Input: WACC, Col Input: Terminal Growth g)
+
+3. CORE TECHNICAL MECHANICS
+1. The TABLE() Array Function:
+   Excel's Data Table engine dynamically iterates through row and column input variables, recalculating the entire DCF model for each matrix intersection.
+
+2. Top-Left Valuation Anchor Cell:
+   The top-left cell of the 2D table grid must reference the target output cell (e.g. `=EnterpriseValue` or `=ImpliedSharePrice`).
+
+3. Visual Heatmap Color Formatting:
+   Applies 3-color conditional formatting (Green = High Valuation, Yellow = Base Case, Red = Low Valuation) to highlight valuation bands for executive boards.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Senior Partner M&A, Barrackpore HQ):
+  Boardroom M&A Valuation Sensitivity Deck - Presents a 5x5 sensitivity matrix mapping target share prices from ₹380 to ₹610 across WACC rates (9.0%-13.0%) and growth rates (2.0%-4.0%).
+• Tuhina Mukherjee (Valuation Auditor, Shyamnagar Plant):
+  Impairment Testing Sensitivity Matrix - Constructs annual goodwill impairment sensitivity tables required by International Financial Reporting Standards (IFRS / Ind AS 36).
+• Abhronila Das (Capital Risk Analyst, Ichapur Works):
+  Project Hurdle Rate Sensitivity Analysis - Models project NPV resilience under escalating interest rate and raw material inflation scenarios.
+• Debangshu Roy (Logistics Investment Lead, Naihati Logistics):
+  Warehouse Cap-Rate Sensitivity Matrix - Evaluates logistics terminal asset valuations across varying capitalization rates and occupancy levels.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Reversing Row and Column Input Cells:
+  Root Cause: Selecting WACC as Column Input and Growth Rate as Row Input produces an inverted, nonsensical sensitivity table.
+  Diagnostic Fix: Verify: Horizontal top row values match 'Row Input Cell'; Vertical left column values match 'Column Input Cell'.
+• Data Table Automatic Recalculation Lag:
+  Root Cause: Data tables iterate on every keystroke, freezing large financial workbooks.
+  Diagnostic Fix: Set Calculation Options to: 'Automatic Except for Data Tables' (Alt + M + X + E).
+• Hardcoding Output Formulas Inside Table:
+  Root Cause: Typing numbers or standard formulas inside the data table range breaks the `=TABLE()` array.
+  Diagnostic Fix: Allow Excel to generate the {=TABLE(row, col)} array automatically via What-If Analysis.
+
+6. PRO TIPS & SHORTCUTS
+• 2D Data Table Shortcut (Alt + A + W + T): Opens the Data Table dialog to configure row and column inputs.
+• Prevent Workbook Lag (Formulas > Calculation Options > Automatic Except Data Tables): Keeps your workbook ultra-fast while preserving dynamic sensitivity tables.
+• Top-Left Corner Masking (Custom Format ;;;): Applies custom number format `;;;` to hide the top-left formula anchor cell neatly.
+================================================================================

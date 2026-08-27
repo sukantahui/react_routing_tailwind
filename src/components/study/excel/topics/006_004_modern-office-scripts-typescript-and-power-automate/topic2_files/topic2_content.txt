@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Modern Office Scripts (TypeScript) & Power Automate
 Topic 2: The Office Scripts Code Editor and Action Recorder in Excel for Web
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+The Office Scripts Code Editor and Action Recorder in Excel for Web is an essential discipline in cloud spreadsheet automation, serverless enterprise workflows, and TypeScript-driven business intelligence.
+It provides the core protocols required to author cross-platform scripts, connect Excel to Microsoft Power Automate, and construct 24/7 autonomous cloud pipelines.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Action Recorder: Automate > Record Actions > Perform Clicks/Formatting > Stop Recording > Inspect TypeScript Code in Monaco Editor
+
+3. CORE TECHNICAL MECHANICS
+1. Web Action Recorder Engine:
+   Captures user mouse clicks, formatting changes, and formula entries directly in the web browser, translating them into clean, strongly-typed TypeScript.
+
+2. The Monaco Code Editor (VS Code in Excel):
+   Powered by the same Monaco editor as Visual Studio Code, featuring real-time syntax checking, auto-formatting, hover documentation, and dark mode.
+
+3. No Bloated `.Select` Statements:
+   Unlike VBA recorder, the Office Scripts recorder generates clean direct object calls (`range.getFormat().getFill().setColor("#0284c7")`).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Recording Executive KPI Formatting Script - Records conditional formatting, border outlines, and number formats in Excel for Web, refining the generated TypeScript in Monaco editor in 3 minutes.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Recording Tax Register Table Sorter - Records custom multi-level sorting and auto-fit columns on web ledger sheets.
+• Abhronila Das (Plant Operations Superintendent, Ichapur Works):
+  Shopfloor Summary Sheet Formatter - Uses Action Recorder to generate standardized formatting scripts for shift logs.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Rapid Syntax Discovery via Recorder - Discovers TypeScript syntax for complex pivot chart creation using the recorder.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Recording Hardcoded Absolute Cell Coordinates:
+  Root Cause: Recording a format on `A1:D10` hardcodes that specific range in TypeScript.
+  Diagnostic Fix: Edit the code in Monaco to use dynamic `range.getSurroundingRegion()` or `table.getRange()`.
+• Forgetting to Save Script in Monaco Editor:
+  Root Cause: Closing the editor pane before clicking 'Save Script' loses unsaved code modifications.
+  Diagnostic Fix: Always click 'Save script' button at top right.
+• Trying to Run Action Recorder on Unsupported Features:
+  Root Cause: Attempting to record features not yet supported in Excel for Web.
+  Diagnostic Fix: Write custom TypeScript code directly using the Office Scripts API documentation.
+
+6. PRO TIPS & SHORTCUTS
+• Record Actions (Automate > Record Actions): Captures web spreadsheet operations instantly.
+• Format Code (Right-click editor > Format Document): Prettifies TypeScript code with standard spacing.
+• IntelliSense (Ctrl + Space): Triggers full TypeScript method auto-complete.
+================================================================================

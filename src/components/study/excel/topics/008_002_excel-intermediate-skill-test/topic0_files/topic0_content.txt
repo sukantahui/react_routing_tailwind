@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Excel Intermediate Skill Test
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Excel Intermediate Skill Test
 Topic 0: Structured Tables & Advanced Multi-column Filter Challenge
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Structured Tables & Advanced Multi-column Filter Challenge is an essential evaluation milestone in spreadsheet mastery, data modeling rigor, and executive reporting.
+It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Structured Table: Ctrl + T | Structured Reference: =SUM(tblSales[Revenue]) | Multi-Column Filter: Slicers + Advanced Filter Criteria
+
+3. CORE TECHNICAL MECHANICS
+1. Self-Expanding Structured Referencing:
+   Formulas use readable column names (`=tblSales[@Qty]*tblSales[@Price]`) that auto-expand dynamically when new rows are added.
+
+2. Automated Total Row Aggregations:
+   Calculates Sum, Average, Count, and Subtotals with zero manual formula ranges.
+
+3. Interactive Visual Slicers:
+   Connects 1-click visual Slicer buttons filtering complex multi-column tables in real time.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (VP Commercial Strategy, Barrackpore HQ):
+  Enterprise Sales Table Slicer & Filter Challenge - Evaluates candidates on converting 10,000 raw sales rows into structured `tblSales`, adding Slicers for Region and Year, and calculating weighted margin totals.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  Tax Register Table Slicing Test - Tests candidate ability to filter multi-rate GST tables using structured column references.
+• Abhronila Das (Plant Operations Superintendent, Ichapur Works):
+  Machine Downtime Structured Log - Evaluates structured table creation for factory downtime logs with Total Row sums.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Carrier Manifest Multi-Filter Lab - Tests multi-condition table filters isolating delayed shipments across transport zones.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Using Hardcoded Cell Coordinates ($A$2:$A$100) Instead of Structured Names:
+  Root Cause: Writing legacy formulas that fail to auto-expand when new rows are pasted into the table.
+  Diagnostic Fix: Use structured table referencing: `tblSales[Revenue]`.
+• Adding Slicers to Unformatted Standard Ranges:
+  Root Cause: Slicers require official Excel Tables or Pivot Tables to function.
+  Diagnostic Fix: Press `Ctrl + T` to convert range to Table first.
+• Duplicate Column Header Names:
+  Root Cause: Excel appending numbers (e.g. `Sales2`) causing formula ambiguity.
+  Diagnostic Fix: Ensure every table column has a unique, descriptive header name.
+
+6. PRO TIPS & SHORTCUTS
+• Convert to Table (Ctrl + T): Converts range to official Excel Table.
+• Insert Slicer (Table Design > Insert Slicer): Adds interactive 1-click visual filter buttons.
+• Toggle Total Row (Ctrl + Shift + T): Toggles Table Total Row on and off.
+================================================================================

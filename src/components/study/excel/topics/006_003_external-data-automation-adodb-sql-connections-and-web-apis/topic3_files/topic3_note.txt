@@ -1,3 +1,21 @@
-EXCEL MASTERCLASS: External Data Automation: ADODB SQL Connections & Web APIs
-Topic 3: Fetching SQL recordsets into Excel ranges with high-speed `Range.CopyFromRecordset`
-Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+TOPIC 3 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Fetching SQL recordsets into Excel ranges with high-speed `Range.CopyFromRecordset`
+Module: 006_003_external-data-automation-adodb-sql-connections-and-web-apis
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+High-Speed Data Dump: ws.Range("A2").CopyFromRecordset rs | Headers Loop: For i = 0 To rs.Fields.Count - 1: ws.Cells(1, i + 1).Value = rs.Fields(i).Name: Next i
+
+PRIMARY CONCEPT:
+Streaming SQL recordsets into Excel worksheet ranges at ultra-high speed using Range.CopyFromRecordset: extracting 100,000 rows in 0.5 seconds and dynamically writing SQL column headers
+
+TEACHER'S ADVICE:
+`CopyFromRecordset` is the fastest method in the entire Excel universe. Never loop through database rows with `While Not rs.EOF`! Just write `Range("A2").CopyFromRecordset rs`, and 100,000 rows will appear on your sheet in half a second.
+
+COMMON TRAPS TO AVOID:
+- Forgetting That CopyFromRecordset Omits Column Headers: `CopyFromRecordset` dumps ONLY the data rows starting at cell A2, leaving row 1 blank without column headers. -> Fix: Always write field headers using the `rs.Fields(i).Name` loop before calling `CopyFromRecordset`.
+- Calling CopyFromRecordset on an Empty Recordset: Calling the method on a recordset with zero rows does not error, but leaves existing old data intact on the sheet. -> Fix: Clear the target sheet first (`ws.Cells.ClearContents`) and check `If Not rs.EOF Then ...`.
+- Reading Recordset After CopyFromRecordset Exhaused Stream: `CopyFromRecordset` advances the recordset cursor to EOF; attempting to read rows afterwards fails. -> Fix: If you need to process rows again, call `rs.MoveFirst`.
+================================================================================

@@ -1,4 +1,12 @@
-EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
-Topic 2: One-Variable Data Tables: Testing single parameter sensitivities (e.g., price vs revenue)
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+TECHNICAL SPECIFICATION: ONE-VARIABLE DATA TABLE SENSITIVITY ARCHITECTURE
+================================================================================
+1. EXECUTIVE OVERVIEW
+A One-Variable Data Table is a native What-If Analysis tool in Excel that evaluates how varying a single input parameter across a list of scenarios affects one or more dependent formula outputs.
+
+2. COLUMN-ORIENTED VS ROW-ORIENTED LAYOUT
+• Column-Oriented: Input scenario values run down a single column. Formulas sit in the header row one column to the right. Syntax: {=TABLE(, ColumnInputCell)}.
+• Row-Oriented: Input scenario values run across a single row. Formulas sit in the leading column one row below. Syntax: {=TABLE(RowInputCell, )}.
+
+3. PERFORMANCE OPTIMIZATION
+In large corporate spreadsheets with multiple Data Tables, switch calculation mode to 'Automatic Except for Data Tables' (Formulas > Calculation Options). This prevents lag on normal cell edits while enabling on-demand recalculation via F9.
+================================================================================

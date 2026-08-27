@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Financial Functions in Excel (Basic to Professional)
 Topic 3: Designing a dynamic Loan Amortization Schedule with extra payment simulation
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Designing a dynamic Loan Amortization Schedule with extra payment simulation is a foundational pillar of corporate financial modeling, investment banking, and capital budgeting.
+It equips financial modelers with the exact mathematical tools to value assets, evaluate debt structures, and appraise investments.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Dynamic Schedule Engine: Beginning Balance -> Scheduled PMT -> Extra Prepayment -> Interest -> Principal -> Ending Balance
+
+3. CORE TECHNICAL MECHANICS
+1. Self-Liquidating Schedule Logic:
+   Each row calculates: `Interest = BeginningBalance * MonthlyRate`; `ScheduledPrincipal = MIN(BeginningBalance, PPMT)`; `ExtraPayment = UserInput`; `EndingBalance = BeginningBalance - Principal - Extra`.
+
+2. Conditional Zero-Balance Termination:
+   Embeds logic `=IF(BeginningBalance <= 0, 0, ...)` to stop calculations cleanly once the loan balance reaches zero.
+
+3. Prepayment Interest Savings Analysis:
+   Simulates early tenure retirement and quantifies total interest saved by applying lump-sum prepayments against principal.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Head of Corporate Finance, Barrackpore HQ):
+  Enterprise Debt Restructuring Model - Builds a 15-year dynamic debt amortization schedule for ₹100 Crore bond facilities with annual excess cash sweep prepayments.
+• Tuhina Mukherjee (Retail Banking Advisor, Shyamnagar Plant):
+  Home Loan Prepayment Advisory Tool - Models client interest savings of ₹18.5 Lakhs by adding ₹10,000 extra monthly prepayments on 20-year mortgages.
+• Abhronila Das (Treasury Analyst, Ichapur Works):
+  Supplier Credit Amortization Model - Tracks machinery supplier vendor financing paydown schedules with seasonal lump-sum payments.
+• Debangshu Roy (Fleet Asset Manager, Naihati Logistics):
+  Logistics Fleet Accelerated Payoff - Simulates accelerated truck loan payoffs using peak season freight profits.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Overpaying Beyond Zero Balance:
+  Root Cause: Failing to cap principal repayment when loan balance is less than standard PMT creates negative loan balances.
+  Diagnostic Fix: Use `=MIN(BeginningBalance, ScheduledPrincipal + ExtraPayment)`.
+• Circular Reference in Dynamic Balance Links:
+  Root Cause: Linking beginning balance to ending balance without proper row offset creates fatal circular errors.
+  Diagnostic Fix: Set Row n Beginning Balance strictly equal to Row n-1 Ending Balance.
+• Hardcoding Row Counts:
+  Root Cause: Static 240-row tables showing #NUM! errors when loan term is changed to 60 months.
+  Diagnostic Fix: Wrap all row formulas in `=IF(ROW()-HeaderRow <= TotalMonths, ..., "")`.
+
+6. PRO TIPS & SHORTCUTS
+• Zero Balance Cap (=MIN(BegBalance, CalcPrincipal)): Guarantees principal payment never exceeds remaining debt balance.
+• Dynamic Row Suppression (=IF(BegBalance<=0, 0, Formula)): Cleanly zeroes out rows after the loan has been fully paid off.
+• Total Interest Saved Formula (=OriginalTotalInterest - NewTotalInterest): Executive KPI metric demonstrating ROI of prepayment strategies.
+================================================================================

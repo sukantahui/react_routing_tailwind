@@ -1,4 +1,53 @@
-EXCEL MASTERCLASS: Data Validation, Protection and Cleaning Techniques
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Data Validation, Protection and Cleaning Techniques
 Topic 4: Input messages, error alerts (Stop, Warning, Information), and circle invalid data
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Input messages, error alerts (Stop, Warning, Information), and circle invalid data is an essential discipline in corporate spreadsheet governance, data integrity, and template security.
+It provides the core protocols required to prevent data corruption, audit complex formulas, and encrypt sensitive corporate assets.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Validation Alerts: Style: Stop (Hard Lock) | Warning (User Override) | Information (Advisory Notice)
+
+3. CORE TECHNICAL MECHANICS
+1. Stop Alert (Hard Enforcement):
+   The only style that strictly prevents invalid data from entering the cell. Users can only Retry or Cancel.
+
+2. Warning Alert (User Override Permitted):
+   Displays a yellow exclamation prompt asking 'Continue? [Yes/No]'. Allows authorized managers to override soft boundaries.
+
+3. Information Alert (Advisory):
+   Displays a blue prompt with 'OK/Cancel'. Informs user but accepts the invalid entry by default.
+
+4. Input Message Tooltip:
+   Renders floating yellow guidance tooltips when a user selects a cell, explaining required formatting before typing begins.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Head of Treasury Operations, Barrackpore HQ):
+  Mandatory Regulatory Compliance Stop Alert - Applies Stop Alert on statutory wire transfer forms: 'CRITICAL: Account number must be exactly 16 numeric digits.'
+• Tuhina Mukherjee (Senior Credit Officer, Shyamnagar Plant):
+  Credit Limit Soft Warning Alert - Uses Warning Alert on corporate invoice limits: 'WARNING: Purchase order exceeds ₹10 Lakhs. Manager approval required.'
+• Abhronila Das (Quality Assurance Lead, Ichapur Works):
+  Shopfloor Machine Input Tooltips - Configures floating Input Messages on factory entry cells: 'Enter operating temperature between 180°C and 220°C.'
+• Debangshu Roy (Logistics Audit Lead, Naihati Logistics):
+  Auditing Legacy Waybill Database - Uses Data > Circle Invalid Data to highlight 350 non-compliant legacy phone numbers in red circles.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Using Warning Alert When Strict Enforcement is Needed:
+  Root Cause: Setting alert style to Warning allows careless users to click 'Yes' and inject invalid data into your master database.
+  Diagnostic Fix: Use Stop Alert whenever data integrity is mission-critical.
+• Cryptic Default Error Messages:
+  Root Cause: Leaving title and error message blank displays generic 'The value doesn't match the data validation restrictions'.
+  Diagnostic Fix: Always write clear, polite custom instructions explaining exact formatting requirements.
+• Annoying Input Message Clutter:
+  Root Cause: Adding verbose floating tooltips to every single cell on a large data grid creates visual fatigue.
+  Diagnostic Fix: Reserve Input Messages for complex, non-obvious entry columns only.
+
+6. PRO TIPS & SHORTCUTS
+• Stop Alert for Security (Style: Stop): The only alert style that guarantees 100% data integrity enforcement.
+• Helpful Error Text (Write clear recovery steps): Explain why input failed and show an example of a valid entry.
+• Circle Invalid Data (Data > Validation > Circle Invalid Data): Visual audit tool to instantly spot non-compliant records.
+================================================================================

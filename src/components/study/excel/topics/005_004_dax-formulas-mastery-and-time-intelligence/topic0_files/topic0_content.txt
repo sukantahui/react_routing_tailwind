@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: DAX Formulas Mastery and Time Intelligence
 Topic 0: Introduction to DAX: Philosophy, Syntax, and Comparison with Excel formulas
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Introduction to DAX: Philosophy, Syntax, and Comparison with Excel formulas is an essential discipline in enterprise business intelligence, quantitative finance, and advanced data modeling.
+It provides the core protocols required to construct complex multi-dimensional financial measures, calculate period-over-period growth, and evaluate dynamic rankings.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: DAX Expression Syntax: MeasureName := CALCULATE(Expression, Filter1, Filter2, ...) | Table[Column] vs [MeasureName]
+
+3. CORE TECHNICAL MECHANICS
+1. Column & Table References:
+   DAX never references individual cells (`A1`, `B4`). DAX operates exclusively on structured tables and columns (`Sales[Amount]`, `Customer[Region]`).
+
+2. Functional Language Architecture:
+   Every DAX formula is a single nested function execution that takes tables, columns, and scalar expressions as inputs and returns an aggregated scalar or temporary table.
+
+3. Universal Syntax Rule:
+   Always prefix Column references with Table Name (`Fact_Sales[Revenue]`). Never prefix Measure references with Table Name (`[TotalSales]`).
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Data Architect, Barrackpore HQ):
+  Corporate DAX Syntax Standardization - Establishes corporate DAX syntax standards across 40 financial modelers: mandatory table names for columns, naked brackets for measures.
+• Tuhina Mukherjee (Head of Financial Planning, Shyamnagar Plant):
+  Replacing Complex SUMIFS with DAX - Replaces 500 fragile multi-condition SUMIFS formulas with 3 clean, reusable explicit DAX measures.
+• Abhronila Das (Manufacturing Data Controller, Ichapur Works):
+  Shopfloor Yield Metric Library - Builds a functional DAX library calculating scrap rates, machine availability, and throughput.
+• Debangshu Roy (Supply Chain Financial Director, Naihati Logistics):
+  Nationwide Freight Margin Engine - Develops modular DAX measures computing dynamic ton-kilometer freight margins across 25 logistics corridors.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Omitting Table Name in Column References:
+  Root Cause: Writing `SUM([Revenue])` makes it impossible for another developer to know if `[Revenue]` is a raw column or an explicit measure.
+  Diagnostic Fix: Always write `SUM(Sales[Revenue])` for columns and `[TotalRevenue]` for measures.
+• Expecting DAX to Support Cell Offsets (A1 + 1):
+  Root Cause: Attempting to reference the 'previous row' by row number.
+  Diagnostic Fix: Use Time Intelligence functions (`DATEADD`, `SAMEPERIODLASTYEAR`) or `EARLIER()` / variables to reference previous records.
+• Writing Iterative Calculations in Standard SUM:
+  Root Cause: Trying to write `=SUM(Sales[Qty] * Sales[Price])` in standard SUM (which only accepts a single column).
+  Diagnostic Fix: Use the iterator function `=SUMX(Sales, Sales[Qty] * Sales[Price])`.
+
+6. PRO TIPS & SHORTCUTS
+• DAX Syntax Standard (Table[Column] for columns, [Measure] for measures): The universal golden formatting rule of DAX.
+• Shift + Enter for New Line (Shift + Enter): Formats complex multi-line DAX formulas cleanly in the formula bar.
+• Comment Code (-- comment or // comment): Documents business logic inside DAX formulas.
+================================================================================

@@ -1,4 +1,50 @@
-EXCEL MASTERCLASS: VBA & Macro Automation
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: VBA and Macro Automation
 Topic 7: Control structures: If...Then...Else, Select Case, and Boolean conditions
-Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
-Comprehensive operational training module.
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Control structures: If...Then...Else, Select Case, and Boolean conditions is an essential discipline in corporate workflow automation, spreadsheet engineering, and high-speed data processing.
+It provides the core protocols required to eliminate manual repetitive tasks, manipulate Excel objects programmatically, and build enterprise-grade automation tools.
+
+2. SYNTAX & TOKEN STRUCTURE
+Operational Architecture: Control Logic: If Condition Then ... ElseIf ... Else ... End If | Select Case TestExpression ... Case Val1 ... Case Else ... End Select
+
+3. CORE TECHNICAL MECHANICS
+1. If...Then...ElseIf Branching:
+   Evaluates Boolean conditions sequentially. As soon as a condition evaluates to TRUE, its code block executes and the structure exits.
+
+2. Select Case (Clean Multi-Way Branching):
+   Vastly cleaner and faster than 10 nested If statements when testing a single variable against multiple discrete values or ranges (`Case 1 To 10`, `Case Is > 100`, `Case "East", "West"`).
+
+3. Short-Circuit Logical Optimization:
+   Structure high-probability conditions at the top of If/Case chains to minimize CPU comparison cycles.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Chief Commercial Officer, Barrackpore HQ):
+  Multi-Tier Corporate Commission Tier Routing - Uses `Select Case dblRevenue: Case Is >= 10000000: dblComm = 0.08: Case Is >= 5000000: dblComm = 0.05: Case Else: dblComm = 0.02: End Select`.
+• Tuhina Mukherjee (Corporate Tax Auditor, Shyamnagar Plant):
+  GST Slab Classification Engine - Routes invoices into 0%, 5%, 12%, 18%, and 28% tax validation routines using Select Case.
+• Abhronila Das (Plant Quality Superintendent, Ichapur Works):
+  Shopfloor Defect Tolerance Gatekeeper - Applies multi-condition If statements flagging batches exceeding temperature and scrap limits.
+• Debangshu Roy (Logistics Optimization Lead, Naihati Logistics):
+  Regional Freight Surcharge Decision Matrix - Applies zonal transport rate multipliers based on shipping destination zones.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Over-Nesting 10 If Statements Instead of Select Case:
+  Root Cause: Writing spaghetti nested If-Else statements that are unreadable and error-prone.
+  Diagnostic Fix: Refactor multi-condition single-variable logic into clean `Select Case` blocks.
+• Reversed Inequality Ordering in Select Case:
+  Root Cause: Placing `Case Is >= 1000` before `Case Is >= 1000000` causes all large numbers to catch in the lower bucket first.
+  Diagnostic Fix: Order inequalities strictly from most restrictive (highest) to least restrictive.
+• Missing End If or End Select:
+  Root Cause: Syntax error 'Block If without End If' halting compilation.
+  Diagnostic Fix: Ensure every opening `If` block has a matching closing `End If`.
+
+6. PRO TIPS & SHORTCUTS
+• Select Case for Range Checking (Case 100 To 500 | Case Is > 1000): Sleek and intuitive multi-branch checking.
+• Case Else Mandatory (Case Else: ...): Catches unexpected edge cases and invalid inputs.
+• Single-Line If (If x > 10 Then y = 20 (No End If needed)): Compact syntax for simple single-action conditions.
+================================================================================
