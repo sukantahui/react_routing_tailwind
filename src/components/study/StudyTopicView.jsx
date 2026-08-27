@@ -251,6 +251,18 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
     }
   }, [index, moduleSlug, moduleData, segmentData, topicTitle, subjectKey, progressKey, lastTopicKey]);
 
+  // ----------------------------------------------------------------
+  // AUTO-SCROLL ACTIVE TOPIC INTO VIEW IN SIDEBAR
+  // ----------------------------------------------------------------
+  useEffect(() => {
+    if (activeTopicRef.current) {
+      activeTopicRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+      });
+    }
+  }, [index, showSidebar]);
+
   const isCurrentTopicDone = completedTopics.includes(index);
   const completedCount = completedTopics.length;
   const progressPercent = totalTopics > 0 ? Math.round((completedCount / totalTopics) * 100) : 0;
@@ -484,7 +496,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
       {/* TOP HEADER (ULTRA COMPACT SINGLE ROW) */}
       {/* ========================================================== */}
       {!focusMode && (
-        <header className="relative z-30 border-b border-slate-800 bg-slate-950/95 backdrop-blur-md flex-shrink-0">
+        <header className="sticky top-14 z-30 border-b border-slate-800 bg-slate-950/95 backdrop-blur-md flex-shrink-0">
           <div className="w-full px-2.5 sm:px-4 py-1.5 flex items-center justify-between gap-2 overflow-x-auto custom-scrollbar">
 
             {/* Left: Navigation & Context Breadcrumbs */}
@@ -686,10 +698,10 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
         <div ref={rowContainerRef} className="w-full flex min-h-[calc(100vh-48px)]">
 
           {/* ============================================================== */}
-          {/* LEFT TOPIC NAVIGATION SIDEBAR (Desktop) */}
+          {/* LEFT TOPIC NAVIGATION SIDEBAR (Desktop - Static / Fixed) */}
           {/* ============================================================== */}
           {showSidebar && !focusMode && (
-            <aside className="hidden lg:flex flex-col w-64 shrink-0 border-r border-slate-800 bg-slate-950/80 backdrop-blur-md pt-3 pb-4 px-3 h-full overflow-hidden">
+            <aside className="hidden lg:flex flex-col w-64 border-r border-slate-800 bg-slate-950/95 backdrop-blur-md pt-3 pb-4 px-3 fixed top-24 left-0 bottom-0 z-20 overflow-hidden shadow-lg">
 
               {/* Module Info & Progress Bar */}
               <div className="mb-2.5 rounded-lg border border-slate-800 bg-slate-900/80 p-2.5 text-xs">
@@ -827,7 +839,14 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
           {/* ============================================================== */}
           {/* MAIN TOPIC CONTENT READER (MAXIMUM VIEWABLE AREA) */}
           {/* ============================================================== */}
-          <main ref={mainContentRef} className="flex-1 px-2 sm:px-3 lg:px-4 py-3 overflow-y-auto h-full relative">
+          <main
+            ref={mainContentRef}
+            className="flex-1 px-2 sm:px-3 lg:px-4 py-3 min-w-0 transition-all duration-150 relative"
+            style={{
+              marginLeft: showSidebar && !focusMode ? "16rem" : "0px",
+              marginRight: showRightSidebar && !focusMode ? `${rightSidebarWidth}px` : "0px",
+            }}
+          >
             <div className="w-full space-y-4">
 
               {/* Dynamic Topic Content Page */}
@@ -941,7 +960,10 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
           {showRightSidebar && !focusMode && (
             <div
               ref={dividerRef}
-              className="flex-shrink-0 w-2.5 bg-slate-850 hover:bg-slate-700 cursor-col-resize relative group transition-colors z-20 flex items-center justify-center"
+              className="hidden lg:flex flex-shrink-0 w-2.5 bg-slate-850 hover:bg-slate-700 cursor-col-resize fixed top-24 bottom-0 z-25 items-center justify-center transition-colors"
+              style={{
+                right: `${rightSidebarWidth - 2}px`,
+              }}
               onMouseDown={startDrag}
             >
               <div className="p-0.5 rounded bg-slate-800 border border-slate-700 text-slate-500 group-hover:text-slate-300">
@@ -955,10 +977,9 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
           {/* ============================================================== */}
           {showRightSidebar && !focusMode && (
             <aside
-              className="hidden lg:flex flex-col border-l border-slate-800 bg-slate-950/90 backdrop-blur-md pt-4 pb-6 px-4 h-full overflow-hidden"
+              className="hidden lg:flex flex-col border-l border-slate-800 bg-slate-950/95 backdrop-blur-md pt-4 pb-6 px-4 fixed top-24 right-0 bottom-0 z-20 overflow-hidden shadow-lg"
               style={{
                 width: `${rightSidebarWidth}px`,
-                flexShrink: 0,
                 transition: isDragging ? 'none' : 'width 0.15s ease',
               }}
             >
