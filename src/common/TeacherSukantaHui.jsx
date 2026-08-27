@@ -1,3 +1,4 @@
+import React from "react";
 import teacherImage from "../assets/image/sukantahui.jpg";
 import { Github, GitBranch } from "lucide-react";
 
@@ -25,13 +26,14 @@ export default function TeacherSukantaHui({ note = "" }) {
     const experience = calculateExperience(workingFrom);
 
     return (
-        <div className="max-w-md mx-auto bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-6 text-center border border-gray-200 dark:border-gray-700 hover:shadow-xl transition duration-300">
+        <div className="dark max-w-lg mx-auto bg-slate-900/80 rounded-2xl shadow-xl p-6 text-center border border-slate-800 hover:border-slate-700 transition duration-300 text-slate-100">
 
             {/* Note */}
             {note && (
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-3 italic">
+                <div className="p-3.5 mb-4 rounded-xl bg-slate-950/80 border border-slate-800/80 text-xs sm:text-sm text-slate-300 leading-relaxed text-left font-sans">
+                    <span className="text-amber-400 font-bold mr-1">👨‍🏫 Instructor Note:</span>
                     {note}
-                </p>
+                </div>
             )}
 
             {/* Profile Image */}
@@ -39,45 +41,36 @@ export default function TeacherSukantaHui({ note = "" }) {
                 <img
                     src={teacherImage}
                     alt={name}
-                    className="w-24 h-24 rounded-full object-cover border-4 border-blue-500 shadow-md hover:scale-105 transition duration-300"
+                    className="w-24 h-24 rounded-full object-cover border-4 border-sky-500 shadow-lg hover:scale-105 transition duration-300"
                 />
             </div>
 
             {/* Name */}
-            <h1 className="text-2xl font-bold mt-4 text-gray-800 dark:text-white">
+            <h2 className="text-2xl font-bold mt-4 text-white">
                 {name}
-            </h1>
+            </h2>
 
             {/* GitHub Section */}
-            <div className="flex items-center justify-center gap-2 mt-3 text-gray-700 dark:text-gray-300">
-                <Github size={18} />
+            <div className="flex items-center justify-center gap-2 mt-2 text-xs sm:text-sm text-slate-300">
+                <Github size={16} className="text-sky-400" />
                 <a
                     href="https://github.com/sukantahui"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-blue-500 transition"
+                    className="hover:text-sky-400 transition underline font-mono"
                 >
                     github.com/sukantahui
                 </a>
             </div>
 
-            {/* Skills Icon Row */}
-            <div className="flex justify-center gap-4 mt-3 text-gray-600 dark:text-gray-400">
-                <GitBranch size={18} />
-                <Github size={18} />
+            {/* Experience */}
+            <div className="mt-3 inline-block px-3 py-1 rounded-full bg-sky-950 border border-sky-800 text-sky-300 text-xs font-semibold font-mono">
+                Corporate &amp; Academic Experience: {experience}+ Years
             </div>
 
-            {/* Experience */}
-            <h2 className="mt-4 text-lg font-semibold text-blue-600">
-                Experience: {experience}+ Years
-            </h2>
-
             {/* Description */}
-            <p className="mt-3 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                A dedicated Software Engineer with 27+ years of experience in building scalable and efficient applications.
-                Strong in Data Structures & Algorithms with excellent problem-solving skills.
-                Skilled in Python, C, C++, Java, VB.NET, JavaScript, Angular, React, Laravel, SQL,
-                Advanced Excel, Power BI, and Shell Scripting. Passionate about mentoring students.
+            <p className="mt-3 text-xs sm:text-sm text-slate-400 leading-relaxed max-w-md mx-auto">
+                Senior Lead Software Architect &amp; Corporate Instructor with 27+ years of industry experience across enterprise architecture, advanced analytics, financial modeling, and engineering systems.
             </p>
         </div>
     );

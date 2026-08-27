@@ -142,7 +142,7 @@ export default function Topic2() {
   };
 
   return (
-    <div className="dark bg-slate-950 text-slate-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8 font-sans selection:bg-sky-500/30 selection:text-sky-200">
+    <div className="text-slate-100 font-sans selection:bg-sky-500/30 selection:text-sky-200">
       <style>{`
         @keyframes fadeInSlide {
           from { transform: translateY(18px); }
@@ -153,48 +153,48 @@ export default function Topic2() {
         }
       `}</style>
 
-      <div className="max-w-5xl mx-auto space-y-10">
+      <div className="w-full space-y-4">
         {/* =========================================================================
-            SECTION 1: HERO HEADER & OVERVIEW
+            SECTION 1: HERO HEADER & OVERVIEW (COMPACT)
         ========================================================================= */}
         <header
           ref={(el) => (sectionsRef.current[0] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-10 bg-gradient-to-b from-slate-900/90 via-slate-900/60 to-slate-950 border border-slate-800 shadow-2xl relative overflow-hidden"
+          className="reveal-section rounded-xl p-4 sm:p-5 bg-gradient-to-b from-slate-900/90 via-slate-900/60 to-slate-950 border border-slate-800 shadow-md relative overflow-hidden"
         >
-          <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+          <div className="absolute top-0 right-0 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none -mr-16 -mt-16" />
 
-          <div className="flex flex-wrap items-center gap-2.5 mb-4">
-            <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
+          <div className="flex flex-wrap items-center gap-1.5 mb-2.5">
+            <span className="px-2 py-0.5 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-[10px] font-bold uppercase tracking-wider">
               📊 1-Variable Data Tables · Topic 2
             </span>
-            <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
+            <span className="px-2 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-[10px] font-semibold">
               What-If Sensitivity Modeling
             </span>
-            <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
+            <span className="px-2 py-0.5 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-[10px] font-semibold">
               Advanced · Bloom Level 4: Analyze
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
             One-Variable Data Tables: Testing Single Parameter Sensitivities
           </h1>
 
-          <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Master the complete mechanics of <code className="text-sky-300 font-mono font-bold">One-Variable Data Tables</code> in Microsoft Excel. Learn how to evaluate multiple financial outputs simultaneously (EMI, Net Margin, Project NPV, Break-Even Volume) across varying input scenarios, format professional custom number masks, and optimize calculation speeds for massive models.
+          <p className="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed max-w-5xl">
+            Master the mechanics of <code className="text-sky-300 font-mono font-bold">One-Variable Data Tables</code> in Microsoft Excel. Evaluate multiple financial outputs simultaneously (EMI, Net Margin, Project NPV, Break-Even Volume) across varying input scenarios, format professional custom number masks, and optimize calculation speeds.
           </p>
 
-          <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
-            <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-sky-400 text-base">✓</span>
-              <span><strong>Subject Code:</strong> EXCEL-PRO-901</span>
+          <div className="mt-3 pt-2.5 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+            <div className="flex items-center gap-2 text-slate-300">
+              <span className="text-sky-400 font-bold">✓</span>
+              <span><strong>Code:</strong> EXCEL-PRO-901</span>
             </div>
-            <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-emerald-400 text-base">✓</span>
-              <span><strong>Module:</strong> What-If Analysis &amp; Scenario Planning</span>
+            <div className="flex items-center gap-2 text-slate-300">
+              <span className="text-emerald-400 font-bold">✓</span>
+              <span><strong>Module:</strong> What-If Analysis</span>
             </div>
-            <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-indigo-400 text-base">✓</span>
-              <span><strong>Accreditation:</strong> Coder &amp; AccoTax Centre of Excellence</span>
+            <div className="flex items-center gap-2 text-slate-300">
+              <span className="text-indigo-400 font-bold">✓</span>
+              <span><strong>Center:</strong> Coder &amp; AccoTax</span>
             </div>
           </div>
         </header>
@@ -204,11 +204,11 @@ export default function Topic2() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[1] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all duration-300 space-y-6"
+          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all duration-200 space-y-4"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">⚡</span>
+            <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-7 h-7 rounded-lg text-sm bg-sky-500/20 text-sky-400 text-base font-mono">⚡</span>
               The One-Variable Data Table Architecture
             </h2>
             <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
@@ -217,7 +217,7 @@ export default function Topic2() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3">
+            <div className="p-4 rounded-lg bg-slate-950/80 border border-slate-800 space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold uppercase tracking-wider text-sky-400">Layout Option A</span>
                 <span className="text-xs font-mono text-slate-400">Standard Production Format</span>
@@ -233,7 +233,7 @@ export default function Topic2() {
               </ul>
             </div>
 
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3">
+            <div className="p-4 rounded-lg bg-slate-950/80 border border-slate-800 space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold uppercase tracking-wider text-teal-400">Layout Option B</span>
                 <span className="text-xs font-mono text-slate-400">Horizontal Timeline Format</span>
@@ -256,11 +256,11 @@ export default function Topic2() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
+            <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-7 h-7 rounded-lg text-sm bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
               Iterative Substitution &amp; Calculation Pipeline
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
@@ -325,11 +325,11 @@ export default function Topic2() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">📚</span>
+            <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-7 h-7 rounded-lg text-sm bg-emerald-500/20 text-emerald-400 text-base font-mono">📚</span>
               6 Real-World Business Applications &amp; Examples
             </h2>
             <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-800">
@@ -339,7 +339,7 @@ export default function Topic2() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Example 1 */}
-            <div className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-2.5">
+            <div className="p-4 rounded-lg bg-slate-950/70 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-2.5">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold uppercase tracking-wider text-sky-400">Example 1</span>
                 <span className="text-xs font-mono text-slate-400">Debt &amp; Banking</span>
@@ -355,7 +355,7 @@ export default function Topic2() {
             </div>
 
             {/* Example 2 */}
-            <div className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-2.5">
+            <div className="p-4 rounded-lg bg-slate-950/70 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-2.5">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold uppercase tracking-wider text-teal-400">Example 2</span>
                 <span className="text-xs font-mono text-slate-400">Pricing Strategy</span>
@@ -371,7 +371,7 @@ export default function Topic2() {
             </div>
 
             {/* Example 3 */}
-            <div className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-2.5">
+            <div className="p-4 rounded-lg bg-slate-950/70 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-2.5">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold uppercase tracking-wider text-indigo-400">Example 3</span>
                 <span className="text-xs font-mono text-slate-400">Cost Accounting</span>
@@ -387,7 +387,7 @@ export default function Topic2() {
             </div>
 
             {/* Example 4 */}
-            <div className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-2.5">
+            <div className="p-4 rounded-lg bg-slate-950/70 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-2.5">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Example 4</span>
                 <span className="text-xs font-mono text-slate-400">Corporate Finance</span>
@@ -403,7 +403,7 @@ export default function Topic2() {
             </div>
 
             {/* Example 5 */}
-            <div className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-2.5">
+            <div className="p-4 rounded-lg bg-slate-950/70 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-2.5">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">Example 5</span>
                 <span className="text-xs font-mono text-slate-400">Real Estate Assets</span>
@@ -419,7 +419,7 @@ export default function Topic2() {
             </div>
 
             {/* Example 6 */}
-            <div className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-2.5">
+            <div className="p-4 rounded-lg bg-slate-950/70 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-2.5">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold uppercase tracking-wider text-purple-400">Example 6</span>
                 <span className="text-xs font-mono text-slate-400">Global Treasury</span>
@@ -441,11 +441,11 @@ export default function Topic2() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[4] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">🛠️</span>
+            <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-7 h-7 rounded-lg text-sm bg-sky-500/20 text-sky-400 text-base font-mono">🛠️</span>
               Step-by-Step Construction Protocol &amp; Header Formatting
             </h2>
             <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
@@ -501,12 +501,12 @@ export default function Topic2() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[5] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
         >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
             <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">📥</span>
+              <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-7 h-7 rounded-lg text-sm bg-emerald-500/20 text-emerald-400 text-base font-mono">📥</span>
                 Interactive One-Variable Data Table Model
               </h2>
               <p className="text-xs sm:text-sm text-slate-400 mt-1">
@@ -539,12 +539,12 @@ export default function Topic2() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[6] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
+              <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-7 h-7 rounded-lg text-sm bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
                 Real-World Corporate Implementation Scenarios
               </h2>
               <p className="text-xs sm:text-sm text-slate-400 mt-1">
@@ -558,7 +558,7 @@ export default function Topic2() {
 
           <div className="space-y-6">
             {/* Case 1: Swadeep Banerjee */}
-            <div className="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-amber-500/50 transition-all duration-300 space-y-4">
+            <div className="p-4 sm:p-5 rounded-xl bg-slate-950/80 border border-slate-800 hover:border-amber-500/50 transition-all duration-300 space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-3">
                 <div className="flex items-center gap-2.5">
                   <span className="px-2.5 py-0.5 rounded-full bg-amber-950 border border-amber-700/60 text-amber-300 text-xs font-bold uppercase">
@@ -592,7 +592,7 @@ export default function Topic2() {
             </div>
 
             {/* Case 2: Tuhina Mukherjee */}
-            <div className="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-amber-500/50 transition-all duration-300 space-y-4">
+            <div className="p-4 sm:p-5 rounded-xl bg-slate-950/80 border border-slate-800 hover:border-amber-500/50 transition-all duration-300 space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-3">
                 <div className="flex items-center gap-2.5">
                   <span className="px-2.5 py-0.5 rounded-full bg-amber-950 border border-amber-700/60 text-amber-300 text-xs font-bold uppercase">
@@ -632,12 +632,12 @@ export default function Topic2() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[7] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
         >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-800">
             <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">🎯</span>
+              <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-7 h-7 rounded-lg text-sm bg-sky-500/20 text-sky-400 text-base font-mono">🎯</span>
                 10 Practical Hands-On Exercises for 1-Variable Data Tables
               </h2>
               <p className="text-xs sm:text-sm text-slate-400 mt-1">
@@ -748,11 +748,11 @@ export default function Topic2() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[8] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-500/20 text-rose-400 text-base font-mono">⚠️</span>
+            <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-7 h-7 rounded-lg text-sm bg-rose-500/20 text-rose-400 text-base font-mono">⚠️</span>
               Common Pitfalls &amp; Diagnostic Fixes
             </h2>
             <span className="text-xs font-mono text-rose-300 bg-rose-950/60 px-3 py-1 rounded-lg border border-rose-800">
@@ -800,11 +800,11 @@ export default function Topic2() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[9] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 text-base font-mono">💡</span>
+            <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-7 h-7 rounded-lg text-sm bg-purple-500/20 text-purple-400 text-base font-mono">💡</span>
               Pro Tips &amp; High-Speed Accelerators
             </h2>
             <span className="text-xs font-mono text-purple-300 bg-purple-950/60 px-3 py-1 rounded-lg border border-purple-800">
@@ -850,11 +850,11 @@ export default function Topic2() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[10] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">🤔</span>
+            <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-7 h-7 rounded-lg text-sm bg-teal-500/20 text-teal-400 text-base font-mono">🤔</span>
               Socratic Analytical Hints (&quot;Think About...&quot;)
             </h2>
             <span className="text-xs font-mono text-teal-300 bg-teal-950/60 px-3 py-1 rounded-lg border border-teal-800">
