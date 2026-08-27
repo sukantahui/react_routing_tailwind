@@ -45,9 +45,19 @@ import {
   Binary
 } from "lucide-react";
 
-import MathSymbolDictionary from "../../common/MathSymbolDictionary";
-import ScreenAnnotator from "../../common/ScreenAnnotator";
-import StudyWhiteboard from "../../common/StudyWhiteboard";
+// Lazy-loaded auxiliary study tools (canvas, annotator, dictionary)
+const MathSymbolDictionary = React.lazy(() => import("../../common/MathSymbolDictionary"));
+const ScreenAnnotator = React.lazy(() => import("../../common/ScreenAnnotator"));
+const StudyWhiteboard = React.lazy(() => import("../../common/StudyWhiteboard"));
+
+// Cache for dynamically loaded topic components to prevent recreation on re-render
+const topicComponentCache = new Map();
+function getLazyTopicComponent(importFn) {
+  if (!topicComponentCache.has(importFn)) {
+    topicComponentCache.set(importFn, React.lazy(importFn));
+  }
+  return topicComponentCache.get(importFn);
+}
 
 // ------------------------------------------------------------------------
 // DYNAMIC IMPORT FOR TOPIC FILES
@@ -74,64 +84,6 @@ export default function StudyTopicView({
       topicModules={externalTopicModules}
       topicBasePath={topicBasePath}
     />
-  );
-}
-
-// ========================================================================
-// SMOOTHING UTILITY – Adaptive Catmull‑Rom spline
-// ========================================================================
-function catmullRomSpline(points, baseSegments = 40) {
-  if (!points || points.length < 2) return points || [];
-  const result = [];
-  const pts = [points[0], ...points, points[points.length - 1]];
-  for (let i = 1; i < pts.length - 2; i++) {
-    const p0 = pts[i - 1];
-    const p1 = pts[i];
-    const p2 = pts[i + 1];
-    const p3 = pts[i + 2];
-    const dx = p2.x - p1.x;
-    const dy = p2.y - p1.y;
-    const dist = Math.sqrt(dx * dx + dy * dy);
-    const segments = Math.min(60, Math.max(baseSegments, Math.ceil(dist / 1.5)));
-    for (let t = 0; t < 1; t += 1 / segments) {
-      const t2 = t * t;
-      const t3 = t2 * t;
-      const x = 0.5 * (
-        (2 * p1.x) +
-        (-p0.x + p2.x) * t +
-        (2 * p0.x - 5 * p1.x + 4 * p2.x - p3.x) * t2 +
-        (-p0.x + 3 * p1.x - 3 * p2.x + p3.x) * t3
-      );
-      const y = 0.5 * (
-        (2 * p1.y) +
-        (-p0.y + p2.y) * t +
-        (2 * p0.y - 5 * p1.y + 4 * p2.y - p3.y) * t2 +
-        (-p0.y + 3 * p1.y - 3 * p2.y + p3.y) * t3
-      );
-      result.push({ x, y });
-    }
-  }
-  result.push(points[points.length - 1]);
-  return result;
-}
-
-// ========================================================================
-// TL DRAW WRAPPER
-// ========================================================================
-function TldrawWrapper({ onEditorReady, subjectKey }) {
-  const [editor, setEditor] = useState(null);
-  useEffect(() => {
-    if (editor && onEditorReady) onEditorReady(editor);
-  }, [editor, onEditorReady]);
-  return (
-    <div className="flex-1 relative bg-white">
-      <Tldraw
-        defaultStyles={{ size: 'xs', color: '#0284c7' }}
-        onMount={(e) => setEditor(e)}
-        autoFocus
-        persistenceKey={`${subjectKey}-tldraw-storage`}
-      />
-    </div>
   );
 }
 
@@ -205,7 +157,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
     }
   });
 
-  const [activeRightTab, setActiveRightTab] = useState('canvas'); // 'canvas' | 'tldraw' | 'scratchpad' | 'cheatsheet' | 'math'
+  const [activeRightTab, setActiveRightTab] = useState('canvas'); // 'canvas' | 'scratchpad' | 'cheatsheet' | 'math'
   const [focusMode, setFocusMode] = useState(false); // hides sidebars for reading focus
   const [drawAnywhere, setDrawAnywhere] = useState(false);
   const [showMathSymbols, setShowMathSymbols] = useState(false);
@@ -230,11 +182,6 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
   const rowContainerRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const dividerRef = useRef(null);
-
-  // tldraw editor ref
-  const tldrawEditorRef = useRef(null);
-  const [selectedShortcut, setSelectedShortcut] = useState(null);
-  const [copyFeedback, setCopyFeedback] = useState('');
 
   // ----------------------------------------------------------------
   // 3. PERSISTENCE & TOAST HELPERS
@@ -419,24 +366,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
 
 
 
-  // TLDraw Shortcuts helper
-  const handleShortcutClick = (key, toolName) => {
-    setSelectedShortcut(toolName);
-    setCopyFeedback(`Tool: ${toolName}`);
-    setTimeout(() => setCopyFeedback(''), 1500);
-    if (tldrawEditorRef.current) {
-      try {
-        const toolMap = {
-          'draw': 'draw', 'eraser': 'erase', 'rectangle': 'rect',
-          'circle': 'ellipse', 'line': 'line', 'text': 'text', 'select': 'select'
-        };
-        const toolId = toolMap[toolName] || 'select';
-        tldrawEditorRef.current.setCurrentTool(toolId);
-      } catch (e) {
-        console.warn('Failed to switch tool:', e);
-      }
-    }
-  };
+
 
   // ----------------------------------------------------------------
   // 6. MAIN CONTENT REF
@@ -475,9 +405,12 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
     );
   });
 
-  const TopicPage = topicKey
-    ? React.lazy(topicModules[topicKey])
-    : null;
+  const TopicPage = useMemo(() => {
+    if (!topicKey || !topicModules || typeof topicModules[topicKey] !== 'function') {
+      return null;
+    }
+    return getLazyTopicComponent(topicModules[topicKey]);
+  }, [topicKey, topicModules]);
 
   // ----------------------------------------------------------------
   // MODULE NOT FOUND CHECK
@@ -1004,12 +937,14 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
 
             {/* PROFESSIONAL DRAW ANYWHERE CANVAS OVERLAY */}
             {drawAnywhere && (
-              <ScreenAnnotator
-                containerRef={mainContentRef}
-                storageKey={`${subjectKey}-drawanywhere-${moduleSlug}-${topicIndex}`}
-                onClose={() => setDrawAnywhere(false)}
-                showToast={showToast}
-              />
+              <Suspense fallback={null}>
+                <ScreenAnnotator
+                  containerRef={mainContentRef}
+                  storageKey={`${subjectKey}-drawanywhere-${moduleSlug}-${topicIndex}`}
+                  onClose={() => setDrawAnywhere(false)}
+                  showToast={showToast}
+                />
+              </Suspense>
             )}
           </main>
 
@@ -1056,16 +991,6 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                     </button>
 
                     <button
-                      onClick={() => setActiveRightTab('tldraw')}
-                      className={`px-3 py-1.5 rounded-lg text-sm font-semibold transition ${activeRightTab === 'tldraw'
-                          ? "bg-slate-800 text-slate-100 shadow-sm"
-                          : "text-slate-400 hover:text-slate-200"
-                        }`}
-                    >
-                      TLDraw
-                    </button>
-
-                    <button
                       onClick={() => setActiveRightTab('scratchpad')}
                       className={`px-3 py-1.5 rounded-lg text-sm font-semibold transition ${activeRightTab === 'scratchpad'
                           ? "bg-slate-800 text-slate-100 shadow-sm"
@@ -1107,46 +1032,21 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
 
                 {/* TAB 1: CANVAS WHITEBOARD */}
                 {activeRightTab === 'canvas' && (
-                  <StudyWhiteboard
-                    storageKey={`${subjectKey}-whiteboard-${moduleSlug}-${topicIndex}`}
-                    topicTitle={topicTitle}
-                    showToast={showToast}
-                  />
-                )}
-
-                {/* TAB 2: TLDRAW CANVAS */}
-                {activeRightTab === 'tldraw' && (
-                  <div className="flex-1 flex flex-col border border-slate-800 rounded-2xl overflow-hidden bg-slate-900 min-h-0">
-                    <div className="flex items-center gap-2 px-3 py-2 bg-slate-850 border-b border-slate-800 text-xs text-slate-300 font-medium">
-                      <span>Tools:</span>
-                      {['d', 'draw', 'e', 'eraser', 'r', 'rectangle', 'o', 'circle', 'l', 'line', 't', 'text', 'v', 'select'].map((key, i, arr) => {
-                        if (i % 2 === 0) {
-                          const toolName = arr[i + 1];
-                          return (
-                            <button
-                              key={key}
-                              onClick={() => handleShortcutClick(key, toolName)}
-                              className={`px-2 py-0.5 rounded-md uppercase font-mono text-xs ${selectedShortcut === toolName ? "bg-slate-700 text-white font-bold" : "bg-slate-900 text-slate-400 hover:text-slate-200"
-                                }`}
-                            >
-                              {key}
-                            </button>
-                          );
-                        }
-                        return null;
-                      })}
-                      {copyFeedback && <span className="text-xs text-emerald-400 ml-auto font-medium">{copyFeedback}</span>}
+                  <Suspense fallback={
+                    <div className="flex-1 flex items-center justify-center text-slate-400 text-sm">
+                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-400 mr-3" />
+                      Loading Whiteboard Canvas...
                     </div>
-                    <TldrawWrapper
-                      subjectKey={subjectKey}
-                      onEditorReady={(editor) => {
-                        tldrawEditorRef.current = editor;
-                      }}
+                  }>
+                    <StudyWhiteboard
+                      storageKey={`${subjectKey}-whiteboard-${moduleSlug}-${topicIndex}`}
+                      topicTitle={topicTitle}
+                      showToast={showToast}
                     />
-                  </div>
+                  </Suspense>
                 )}
 
-                {/* TAB 3: NOTES & SCRATCHPAD */}
+                {/* TAB 2: NOTES & SCRATCHPAD */}
                 {activeRightTab === 'scratchpad' && (
                   <div className="flex-1 flex flex-col min-h-0 space-y-2.5">
                     <div className="flex items-center justify-between text-sm text-slate-400 font-medium">
@@ -1271,7 +1171,14 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                 {/* TAB 5: MATH SYMBOL & PRONUNCIATION DICTIONARY */}
                 {activeRightTab === 'math' && (
                   <div className="flex-1 overflow-y-auto pr-1">
-                    <MathSymbolDictionary className="p-3 sm:p-4 rounded-xl border border-slate-800 bg-slate-900/90 shadow-none" />
+                    <Suspense fallback={
+                      <div className="p-4 text-center text-slate-400 text-sm">
+                        <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-purple-400 mx-auto mb-2" />
+                        Loading Math Symbols Dictionary...
+                      </div>
+                    }>
+                      <MathSymbolDictionary className="p-3 sm:p-4 rounded-xl border border-slate-800 bg-slate-900/90 shadow-none" />
+                    </Suspense>
                   </div>
                 )}
 
@@ -1306,7 +1213,14 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
               </button>
             </div>
 
-            <MathSymbolDictionary />
+            <Suspense fallback={
+              <div className="py-12 text-center text-slate-400 text-sm">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-400 mx-auto mb-3" />
+                Loading Mathematical Dictionary...
+              </div>
+            }>
+              <MathSymbolDictionary />
+            </Suspense>
           </div>
         </div>
       )}

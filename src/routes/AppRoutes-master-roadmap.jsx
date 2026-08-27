@@ -1,18 +1,10 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 
 // --------------------------------------------------------------
-// 2. LAZY‑LOADED COMPONENTS (split by feature)
+// 1. LAZY‑LOADED CORE & PUBLIC COMPONENTS
 // --------------------------------------------------------------
-
-const StudentWithAdmission = lazy(() => import('../components/students/StudentWithAdmission'));
-
-const StudentFeeReceiptPart2 = lazy(() => import('../components/StudentFeeReceiptPart2'));
-const StudentFeeReceiptPart3 = lazy(() => import('../components/StudentFeeReceiptPart3'));
-const StudentFeeReceiptPart4 = lazy(() => import('../components/StudentFeeReceiptPart4'));
-
-// 2a. Public / general purpose
 const Home = lazy(() => import('./HomeComponent/Home'));
 const Login = lazy(() => import('../components/Login'));
 const NotFound = lazy(() => import('./NotFound'));
@@ -27,13 +19,13 @@ const TypingTest = lazy(() => import('../components/TypingTest'));
 const AudioExtractor = lazy(() => import('../components/AudioExtractor'));
 const TypingLearn = lazy(() => import('../components/typing-app/TypingLearn'));
 
-// 2b. Data structure visualizers
+// Data structure visualizers
 const LinkedListVisualizer = lazy(() => import('../common/LinkedListVisualizer'));
 const DoublyLinkedListVisualizer = lazy(() => import('../common/DoublyLinkedListVisualizer'));
 const BinaryTreeVisualizer = lazy(() => import('../common/BinaryTreeVisualizer'));
 const AvlTreeVisualizer = lazy(() => import('../common/AvlTreeVisualizer'));
 
-// 2c. Study – main entry and class‑specific
+// Study – class‑specific
 const Study = lazy(() => import('../components/study/Study'));
 const ClassEleven = lazy(() => import('../components/study/class_11/ClassEleven'));
 const ClassElevenWbb = lazy(() => import('../components/study/class_11/wbb/ClassElevenWbb'));
@@ -48,11 +40,11 @@ const DataStructureSemTwoComputerApplicationWbbEleven = lazy(() =>
 );
 const Bca = lazy(() => import('../components/study/bca/Bca'));
 
-// 2d. General subject components (Java, BCA Java)
+// General subject components (Java, BCA Java)
 const JavaChapters = lazy(() => import('../components/GeneralSubjects/java/JavaChapters'));
 const IntroductionToJava = lazy(() => import('../components/GeneralSubjects/java/IntroductionToJava'));
 
-// 2f. Admin / protected features
+// Admin / protected features
 const Admin = lazy(() => import('./Admin'));
 const Bijoya = lazy(() => import('./Bijoya'));
 const Dashboard = lazy(() => import('../components/Dashboard'));
@@ -63,9 +55,18 @@ const AddCourse = lazy(() => import('../components/AddCourse'));
 const AddResult = lazy(() => import('../components/AddResult'));
 const Subject = lazy(() => import('../components/Subject'));
 const StudentFeeReceipt = lazy(() => import('../components/StudentFeeReceipt'));
+const StudentFeeReceiptPart2 = lazy(() => import('../components/StudentFeeReceiptPart2'));
+const StudentFeeReceiptPart3 = lazy(() => import('../components/StudentFeeReceiptPart3'));
+const StudentFeeReceiptPart4 = lazy(() => import('../components/StudentFeeReceiptPart4'));
+const StudentWithAdmission = lazy(() => import('../components/students/StudentWithAdmission'));
+
+// Master Study View Engines
+const StudyRoadmap = lazy(() => import('../components/study/StudyRoadmap'));
+const StudyModuleView = lazy(() => import('../components/study/StudyModuleView'));
+const StudyTopicView = lazy(() => import('../components/study/StudyTopicView'));
 
 // --------------------------------------------------------------
-// 3. ROUTE PATH CONSTANTS (avoid typos, centralise updates)
+// 2. ROUTE PATH CONSTANTS
 // --------------------------------------------------------------
 const ROUTES = {
   HOME: '/',
@@ -203,202 +204,316 @@ const ROUTES = {
   MACHINE_LEARNING_TOPIC: '/machine-learning/topic/:moduleSlug/:topicIndex',
 };
 
-// ============================================================
-// MASTER STUDY COMPONENTS
-// ============================================================
-const StudyRoadmap = lazy(() =>
-  import("../components/study/StudyRoadmap")
-);
-
-const StudyModuleView = lazy(() =>
-  import("../components/study/StudyModuleView")
-);
-
-const StudyTopicView = lazy(() =>
-  import("../components/study/StudyTopicView")
-);
-
-//for Quantitative Analysis
-import quantitativeAnalysisRoadmap from "../components/study/quantitative-analysis/quantitative-analysis-roadmap.json";
-const quantitativeAnalysisTopicModules = import.meta.glob("../components/study/quantitative-analysis/topics/*/Topic*.jsx");
-
-// for python
-import pythonRoadmap from "../components/study/python/python-roadmap.json";
-const pythonTopicModules = import.meta.glob("../components/study/python/topics/*/Topic*.jsx");
-
-//for excel
-import excelRoadmap from "../components/study/excel/excel-basic-to-advanced.json";
-const excelTopicModules = import.meta.glob("../components/study/excel/topics/*/Topic*.jsx");
-
-import javascriptRoadmap from
-  "../components/study/javaScript/javascript-roadmap-enhanced.json";
-
-const javascriptTopicModules = import.meta.glob(
-  "../components/study/javaScript/topics/*/Topic*.jsx"
-);
-
-// C-Language
-import cRoadmap from
-  "../components/study/c-language/c-language-roadmap.json";
-
-const cTopicModules = import.meta.glob(
-  "../components/study/c-language/topics/*/Topic*.jsx"
-);
-
-//Tally
-import tallyRoadmap from "../components/study/tally/tally-prime-roadmap.json";
-const tallyTopicModules = import.meta.glob(
-  "../components/study/tally/topics/*/Topic*.jsx"
-);
-
-// Git
-import gitRoadmap from "../components/study/git/git-roadmap.json";
-const gitTopicModules = import.meta.glob(
-  "../components/study/git/topics/*/Topic*.jsx"
-);
-
-//ICSE Class IX
-import icse9JavaRoadmap from "../components/study/icse-java-9/icse-java-ix-roadmap.json";
-const icse9JavaTopicModules = import.meta.glob(
-  "../components/study/icse-java-9/topics/*/Topic*.jsx"
-);
-// console.log(
-//   "ICSE IX topic modules:",
-//   Object.keys(icse9JavaTopicModules)
-// );
-
-// ICSE Java X
-import icse10JavaRoadmap from
-  "../components/study/icse-java-x/icse-class-10-roadmap.json";
-
-const icse10JavaTopicModules = import.meta.glob(
-  "../components/study/icse-java-x/topics/*/Topic*.jsx"
-);
-
-// Core Java
-import javaRoadmap from "../components/study/java-core/java-core-roadmap.json";
-const javaTopicModules = import.meta.glob(
-  "../components/study/java-core/topics/*/Topic*.jsx"
-);
-
-//java web
-import javaWebRoadmap from
-  "../components/study/java-web/java-web-roadmap.json";
-
-const javaWebTopicModules = import.meta.glob(
-  "../components/study/java-web/topics/*/Topic*.jsx"
-);
-
-// RDBMS / MySQL
-import rdbmsMysqlRoadmap from
-  "../components/study/rdbms-mysql/rdbms-mysql-course-roadmap.json";
-const rdbmsMysqlTopicModules = import.meta.glob(
-  "../components/study/rdbms-mysql/topics/*/Topic*.jsx"
-);
-
-// React
-import reactRoadmap from
-  "../components/study/react/react19-roadmap.json";
-const reactTopicModules = import.meta.glob(
-  "../components/study/react/topics/*/Topic*.jsx"
-);
-
-// Modern CSS
-import modernCssRoadmap from
-  "../components/study/css/css-roadmap.json";
-const modernCssTopicModules = import.meta.glob(
-  "../components/study/css/topics/*/Topic*.jsx"
-);
-
-// ISC Class 11
-import isc11Roadmap from
-  "../components/study/isc-11/isc11-roadmap.json";
-
-const isc11TopicModules = import.meta.glob(
-  "../components/study/isc-11/topics/*/Topic*.jsx"
-);
-
-// ISC Class 12
-import isc12Roadmap from
-  "../components/study/isc-12/isc12-roadmap.json";
-
-const isc12TopicModules = import.meta.glob(
-  "../components/study/isc-12/topics/*/Topic*.jsx"
-);
-
-// Computer Architecture
-import computerArchitectureRoadmap from
-  "../components/study/computer-architecture/computer-architecture-roadmap.json";
-
-const computerArchitectureTopicModules = import.meta.glob(
-  "../components/study/computer-architecture/topics/*/Topic*.jsx"
-);
-
-// UNIX
-import unixRoadmap from
-  "../components/study/unix/unix-basic-to-ultra-expert-roadmap.json";
-
-const unixTopicModules = import.meta.glob(
-  "../components/study/unix/topics/*/Topic*.jsx"
-);
-
-// Computer Network
-import computerNetworkRoadmap from
-  "../components/study/network/network-roadmap.json";
-const computerNetworkTopicModules = import.meta.glob(
-  "../components/study/network/topics/*/Topic*.jsx"
-);
-
-// Cyber Security
-import cyberSecurityRoadmap from
-  "../components/study/cyber-security/cyber-securty-roadmap.json";
-
-const cyberSecurityTopicModules = import.meta.glob(
-  "../components/study/cyber-security/topics/*/Topic*.jsx"
-);
-
-// General
-import generalRoadmap from
-  "../components/study/general/general-roadmap.json";
-const generalTopicModules = import.meta.glob(
-  "../components/study/general/topics/*/Topic*.jsx"
-);
-
-// Node.js
-import nodeRoadmap from
-  "../components/study/node/node-roadmap.json";
-const nodeTopicModules = import.meta.glob(
-  "../components/study/node/topics/*/Topic*.jsx"
-);
-
-// Machine Learning
-import machineLearningRoadmap from
-  "../components/study/machine-learning/machine_learning_roadmap.json";
-const machineLearningTopicModules = import.meta.glob(
-  "../components/study/machine-learning/topics/*/Topic*.jsx"
-);
-
-//first
 // --------------------------------------------------------------
-// 4. HELPER: Protected route wrapper
+// 3. LAZY STUDY TRACK ROUTE WRAPPER
+// Dynamically loads the roadmap JSON & topic modules on demand
+// --------------------------------------------------------------
+const roadmapCache = new Map();
+
+function StudyTrackRoute({
+  loadRoadmap,
+  getTopics,
+  subjectKey,
+  topicBasePath,
+  view, // 'roadmap' | 'module' | 'topic'
+}) {
+  const [roadmapData, setRoadmapData] = useState(() => roadmapCache.get(subjectKey) || null);
+  const [topicModules, setTopicModules] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const fetchRoadmap = roadmapCache.has(subjectKey)
+      ? Promise.resolve(roadmapCache.get(subjectKey))
+      : loadRoadmap().then((module) => {
+          const data = module.default || module;
+          roadmapCache.set(subjectKey, data);
+          return data;
+        });
+
+    const fetchTopics = view === 'topic' && getTopics ? Promise.resolve(getTopics()) : Promise.resolve(null);
+
+    Promise.all([fetchRoadmap, fetchTopics])
+      .then(([data, topics]) => {
+        if (isMounted) {
+          setRoadmapData(data);
+          setTopicModules(topics);
+        }
+      })
+      .catch((err) => {
+        if (isMounted) {
+          console.error(`Failed to load ${subjectKey} study track:`, err);
+          setError(err);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [loadRoadmap, getTopics, subjectKey, view]);
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-950 text-white p-6">
+        <div className="text-center max-w-md p-6 bg-slate-900 border border-slate-800 rounded-2xl">
+          <p className="text-rose-400 font-semibold mb-2">Error loading course material</p>
+          <p className="text-sm text-slate-400">Please check your connection and refresh the page.</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!roadmapData) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-950 text-white">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-sky-400 mx-auto mb-4" />
+          <p className="text-gray-400">Loading course curriculum...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (view === 'roadmap') {
+    return <StudyRoadmap roadmapData={roadmapData} subjectKey={subjectKey} />;
+  }
+  if (view === 'module') {
+    return <StudyModuleView roadmapData={roadmapData} subjectKey={subjectKey} />;
+  }
+  return (
+    <StudyTopicView
+      roadmapData={roadmapData}
+      subjectKey={subjectKey}
+      topicModules={topicModules}
+      topicBasePath={topicBasePath}
+    />
+  );
+}
+
+// --------------------------------------------------------------
+// 4. STUDY TRACK REGISTRY (All 23 Tracks with Lazy Dynamic Loading)
+// --------------------------------------------------------------
+const STUDY_TRACKS = [
+  {
+    key: 'quantitative-analysis',
+    roadmapRoute: ROUTES.QUANTITATIVE_ANALYSIS_ROADMAP,
+    moduleRoute: ROUTES.QUANTITATIVE_ANALYSIS_MODULE,
+    topicRoute: ROUTES.QUANTITATIVE_ANALYSIS_TOPIC,
+    loadRoadmap: () => import('../components/study/quantitative-analysis/quantitative-analysis-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/quantitative-analysis/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/quantitative-analysis/topics',
+  },
+  {
+    key: 'python',
+    roadmapRoute: ROUTES.PYTHON_ROADMAP,
+    moduleRoute: ROUTES.PYTHON_MODULE,
+    topicRoute: ROUTES.PYTHON_TOPIC,
+    loadRoadmap: () => import('../components/study/python/python-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/python/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/python/topics',
+  },
+  {
+    key: 'excel',
+    roadmapRoute: ROUTES.EXCEL_ROADMAP,
+    moduleRoute: ROUTES.EXCEL_MODULE,
+    topicRoute: ROUTES.EXCEL_TOPIC,
+    loadRoadmap: () => import('../components/study/excel/excel-basic-to-advanced.json'),
+    getTopics: () => import.meta.glob('../components/study/excel/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/excel/topics',
+  },
+  {
+    key: 'javascript',
+    roadmapRoute: ROUTES.JAVASCRIPT_ROADMAP,
+    moduleRoute: ROUTES.JAVASCRIPT_MODULE,
+    topicRoute: ROUTES.JAVASCRIPT_TOPIC,
+    loadRoadmap: () => import('../components/study/javaScript/javascript-roadmap-enhanced.json'),
+    getTopics: () => import.meta.glob('../components/study/javaScript/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/javaScript/topics',
+  },
+  {
+    key: 'c-language',
+    roadmapRoute: ROUTES.C_ROADMAP,
+    moduleRoute: ROUTES.C_MODULE,
+    topicRoute: ROUTES.C_TOPIC,
+    loadRoadmap: () => import('../components/study/c-language/c-language-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/c-language/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/c-language/topics',
+  },
+  {
+    key: 'tally',
+    roadmapRoute: ROUTES.TALLY_ROADMAP,
+    moduleRoute: ROUTES.TALLY_MODULE,
+    topicRoute: ROUTES.TALLY_TOPIC,
+    loadRoadmap: () => import('../components/study/tally/tally-prime-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/tally/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/tally/topics',
+  },
+  {
+    key: 'git',
+    roadmapRoute: ROUTES.GIT_ROADMAP,
+    moduleRoute: ROUTES.GIT_MODULE,
+    topicRoute: ROUTES.GIT_TOPIC,
+    loadRoadmap: () => import('../components/study/git/git-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/git/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/git/topics',
+  },
+  {
+    key: 'icse-java-ix',
+    roadmapRoute: ROUTES.ICSE_IX_ROADMAP,
+    moduleRoute: ROUTES.ICSE_IX_MODULE,
+    topicRoute: ROUTES.ICSE_IX_TOPIC,
+    loadRoadmap: () => import('../components/study/icse-java-9/icse-java-ix-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/icse-java-9/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/icse-java-9/topics',
+  },
+  {
+    key: 'icse-java-x',
+    roadmapRoute: ROUTES.ICSE_X_ROADMAP,
+    moduleRoute: ROUTES.ICSE_X_MODULE,
+    topicRoute: ROUTES.ICSE_X_TOPIC,
+    loadRoadmap: () => import('../components/study/icse-java-x/icse-class-10-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/icse-java-x/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/icse-java-x/topics',
+  },
+  {
+    key: 'java-core',
+    roadmapRoute: ROUTES.JAVA_CORE_ROADMAP,
+    moduleRoute: ROUTES.JAVA_CORE_MODULE,
+    topicRoute: ROUTES.JAVA_CORE_TOPIC,
+    loadRoadmap: () => import('../components/study/java-core/java-core-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/java-core/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/java-core/topics',
+  },
+  {
+    key: 'java-web',
+    roadmapRoute: ROUTES.JAVA_WEB_ROADMAP,
+    moduleRoute: ROUTES.JAVA_WEB_MODULE,
+    topicRoute: ROUTES.JAVA_WEB_TOPIC,
+    loadRoadmap: () => import('../components/study/java-web/java-web-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/java-web/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/java-web/topics',
+  },
+  {
+    key: 'rdbms-mysql',
+    roadmapRoute: ROUTES.RDBMS_MYSQL_ROADMAP,
+    moduleRoute: ROUTES.RDBMS_MYSQL_MODULE,
+    topicRoute: ROUTES.RDBMS_MYSQL_TOPIC,
+    loadRoadmap: () => import('../components/study/rdbms-mysql/rdbms-mysql-course-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/rdbms-mysql/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/rdbms-mysql/topics',
+  },
+  {
+    key: 'react',
+    roadmapRoute: ROUTES.REACT_ROADMAP,
+    moduleRoute: ROUTES.REACT_MODULE,
+    topicRoute: ROUTES.REACT_TOPIC,
+    loadRoadmap: () => import('../components/study/react/react19-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/react/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/react/topics',
+  },
+  {
+    key: 'css',
+    roadmapRoute: ROUTES.CSS_ROADMAP,
+    moduleRoute: ROUTES.CSS_MODULE,
+    topicRoute: ROUTES.CSS_TOPIC,
+    loadRoadmap: () => import('../components/study/css/css-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/css/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/css/topics',
+  },
+  {
+    key: 'isc-11',
+    roadmapRoute: ROUTES.ISC_11_ROADMAP,
+    moduleRoute: ROUTES.ISC_11_MODULE,
+    topicRoute: ROUTES.ISC_11_TOPIC,
+    loadRoadmap: () => import('../components/study/isc-11/isc11-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/isc-11/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/isc-11/topics',
+  },
+  {
+    key: 'isc-12',
+    roadmapRoute: ROUTES.ISC_12_ROADMAP,
+    moduleRoute: ROUTES.ISC_12_MODULE,
+    topicRoute: ROUTES.ISC_12_TOPIC,
+    loadRoadmap: () => import('../components/study/isc-12/isc12-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/isc-12/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/isc-12/topics',
+  },
+  {
+    key: 'computer-architecture',
+    roadmapRoute: ROUTES.COMPUTER_ARCHITECTURE_ROADMAP,
+    moduleRoute: ROUTES.COMPUTER_ARCHITECTURE_MODULE,
+    topicRoute: ROUTES.COMPUTER_ARCHITECTURE_TOPIC,
+    loadRoadmap: () => import('../components/study/computer-architecture/computer-architecture-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/computer-architecture/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/computer-architecture/topics',
+  },
+  {
+    key: 'unix',
+    roadmapRoute: ROUTES.UNIX_ROADMAP,
+    moduleRoute: ROUTES.UNIX_MODULE,
+    topicRoute: ROUTES.UNIX_TOPIC,
+    loadRoadmap: () => import('../components/study/unix/unix-basic-to-ultra-expert-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/unix/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/unix/topics',
+  },
+  {
+    key: 'network',
+    roadmapRoute: ROUTES.NETWORK_ROADMAP,
+    moduleRoute: ROUTES.NETWORK_MODULE,
+    topicRoute: ROUTES.NETWORK_TOPIC,
+    loadRoadmap: () => import('../components/study/network/network-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/network/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/network/topics',
+  },
+  {
+    key: 'cyber-security',
+    roadmapRoute: ROUTES.CYBER_SECURITY_ROADMAP,
+    moduleRoute: ROUTES.CYBER_SECURITY_MODULE,
+    topicRoute: ROUTES.CYBER_SECURITY_TOPIC,
+    loadRoadmap: () => import('../components/study/cyber-security/cyber-securty-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/cyber-security/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/cyber-security/topics',
+  },
+  {
+    key: 'general',
+    roadmapRoute: ROUTES.GENERAL_ROADMAP,
+    moduleRoute: ROUTES.GENERAL_MODULE,
+    topicRoute: ROUTES.GENERAL_TOPIC,
+    loadRoadmap: () => import('../components/study/general/general-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/general/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/general/topics',
+  },
+  {
+    key: 'node',
+    roadmapRoute: ROUTES.NODE_ROADMAP,
+    moduleRoute: ROUTES.NODE_MODULE,
+    topicRoute: ROUTES.NODE_TOPIC,
+    loadRoadmap: () => import('../components/study/node/node-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/node/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/node/topics',
+  },
+  {
+    key: 'machine-learning',
+    roadmapRoute: ROUTES.MACHINE_LEARNING_ROADMAP,
+    moduleRoute: ROUTES.MACHINE_LEARNING_MODULE,
+    topicRoute: ROUTES.MACHINE_LEARNING_TOPIC,
+    loadRoadmap: () => import('../components/study/machine-learning/machine_learning_roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/machine-learning/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/machine-learning/topics',
+  },
+];
+
+// --------------------------------------------------------------
+// 5. HELPER: Protected route wrapper
 // --------------------------------------------------------------
 const ProtectedRouteWrapper = ({ children }) => (
   <ProtectedRoute>{children}</ProtectedRoute>
 );
 
 // --------------------------------------------------------------
-// 5. MAIN COMPONENT
+// 6. MAIN APP ROUTES COMPONENT
 // --------------------------------------------------------------
-
-/**
- * AppRoutes – defines all application routes with code splitting and protected access.
- *
- * Public routes (e.g., /, /login) are accessible to everyone.
- * Protected routes (e.g., /dashboard, /admin) require authentication.
- * All dynamic study paths are lazy‑loaded for better performance.
- *
- * @returns {JSX.Element} The routing configuration wrapped in Suspense.
- */
 export default function AppRoutes() {
   return (
     <Suspense
@@ -412,7 +527,7 @@ export default function AppRoutes() {
       }
     >
       <Routes>
-        {/* ---------- Public routes ---------- */}
+        {/* ---------- Public & Tool routes ---------- */}
         <Route path={ROUTES.HOME} element={<Home />} />
         <Route path={ROUTES.LOGIN} element={<Login />} />
         <Route path={ROUTES.CERTIFICATE_VIEW} element={<Certificate />} />
@@ -460,10 +575,7 @@ export default function AppRoutes() {
           }
         />
 
-        <Route
-          path={ROUTES.BIJOYA}
-          element={<Bijoya />}
-        />
+        <Route path={ROUTES.BIJOYA} element={<Bijoya />} />
 
         <Route
           path={ROUTES.CERTIFICATE_GENERATOR}
@@ -540,7 +652,7 @@ export default function AppRoutes() {
         <Route path={ROUTES.ADD_STUDENT} element={<AddStudent />} />
         <Route path={ROUTES.SUBJECTS} element={<Subject />} />
 
-        {/* ---------- Study routes ---------- */}
+        {/* ---------- Academic Study Routes ---------- */}
         <Route path={ROUTES.STUDY} element={<Study />} />
 
         {/* Class 11 & WB Board */}
@@ -557,765 +669,44 @@ export default function AppRoutes() {
         <Route path={ROUTES.BCA} element={<Bca />} />
         <Route path={ROUTES.BCA_JAVA} element={<JavaChapters />} />
         <Route path={ROUTES.BCA_JAVA_CH1} element={<IntroductionToJava />} />
-        <Route
-          path={ROUTES.C_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={cRoadmap}
-              subjectKey="c-language"
-            />
-          }
-        />
 
-        <Route
-          path={ROUTES.C_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={cRoadmap}
-              subjectKey="c-language"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.C_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={cRoadmap}
-              subjectKey="c-language"
-              topicModules={cTopicModules}
-              topicBasePath="../components/study/c-language/topics"
-            />
-          }
-        />
-        {/* -------------------------------------------------- */}
-
-        {/* Tally */}
-        <Route
-          path={ROUTES.TALLY_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={tallyRoadmap}
-              subjectKey="tally"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.TALLY_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={tallyRoadmap}
-              subjectKey="tally"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.TALLY_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={tallyRoadmap}
-              subjectKey="tally"
-              topicModules={tallyTopicModules}
-              topicBasePath="../components/study/tally/topics"
-            />
-          }
-        />
-        {/* ------------------------------------------ */}
-        <Route
-          path={ROUTES.GIT_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={gitRoadmap}
-              subjectKey="git"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.GIT_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={gitRoadmap}
-              subjectKey="git"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.GIT_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={gitRoadmap}
-              subjectKey="git"
-              topicModules={gitTopicModules}
-              topicBasePath="../components/study/git/topics"
-            />
-          }
-        />
-        {/* --------------------------------------------------- */}
-        {/* JavaScript - MASTER STUDY COMPONENTS */}
-        <Route
-          path={ROUTES.JAVASCRIPT_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={javascriptRoadmap}
-              subjectKey="javascript"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.JAVASCRIPT_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={javascriptRoadmap}
-              subjectKey="javascript"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.JAVASCRIPT_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={javascriptRoadmap}
-              subjectKey="javascript"
-              topicModules={javascriptTopicModules}
-              topicBasePath="../components/study/javaScript/topics"
-            />
-          }
-        />
-
-        {/* Python */}
-        <Route
-          path={ROUTES.PYTHON_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={pythonRoadmap}
-              subjectKey="python"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.PYTHON_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={pythonRoadmap}
-              subjectKey="python"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.PYTHON_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={pythonRoadmap}
-              subjectKey="python"
-              topicModules={pythonTopicModules}
-              topicBasePath="../components/study/python/topics"
-            />
-          }
-        />
-
-        {/* -------------------------------------- */}
-        <Route
-          path={ROUTES.ICSE_IX_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={icse9JavaRoadmap}
-              subjectKey="icse-java-ix"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.ICSE_IX_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={icse9JavaRoadmap}
-              subjectKey="icse-java-ix"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.ICSE_IX_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={icse9JavaRoadmap}
-              subjectKey="icse-java-ix"
-              topicModules={icse9JavaTopicModules}
-              topicBasePath="../components/study/icse-java-9/topics"
-            />
-          }
-        />
-
-        {/* ---------------------------------------------------------- */}
-        <Route
-          path={ROUTES.ICSE_X_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={icse10JavaRoadmap}
-              subjectKey="icse-java-x"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.ICSE_X_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={icse10JavaRoadmap}
-              subjectKey="icse-java-x"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.ICSE_X_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={icse10JavaRoadmap}
-              subjectKey="icse-java-x"
-              topicModules={icse10JavaTopicModules}
-              topicBasePath="../components/study/icse-java-x/topics"
-            />
-          }
-        />
-
-        {/* ----------------------------------------------------- */}
-
-        {/* Core Java - MASTER STUDY COMPONENTS */}
-
-        <Route
-          path={ROUTES.JAVA_CORE_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={javaRoadmap}
-              subjectKey="java-core"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.JAVA_CORE_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={javaRoadmap}
-              subjectKey="java-core"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.JAVA_CORE_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={javaRoadmap}
-              subjectKey="java-core"
-              topicModules={javaTopicModules}
-              topicBasePath="../components/study/java-core/topics"
-            />
-          }
-        />
-        {/* --------------------------------- */}
-        <Route
-          path={ROUTES.JAVA_WEB_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={javaWebRoadmap}
-              subjectKey="java-web"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.JAVA_WEB_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={javaWebRoadmap}
-              subjectKey="java-web"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.JAVA_WEB_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={javaWebRoadmap}
-              subjectKey="java-web"
-              topicModules={javaWebTopicModules}
-              topicBasePath="../components/study/java-web/topics"
-            />
-          }
-        />
-
-        {/* --------------------------- */}
-        {/* Modern CSS - MASTER STUDY COMPONENTS */}
-
-        <Route
-          path={ROUTES.CSS_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={modernCssRoadmap}
-              subjectKey="css"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.CSS_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={modernCssRoadmap}
-              subjectKey="css"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.CSS_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={modernCssRoadmap}
-              subjectKey="css"
-              topicModules={modernCssTopicModules}
-              topicBasePath="../components/study/css/topics"
-            />
-          }
-        />
-        {/* ----------------------------------- */}
-        {/* ISC Class 11 - MASTER STUDY COMPONENTS */}
-
-        <Route
-          path={ROUTES.ISC_11_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={isc11Roadmap}
-              subjectKey="isc-11"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.ISC_11_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={isc11Roadmap}
-              subjectKey="isc-11"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.ISC_11_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={isc11Roadmap}
-              subjectKey="isc-11"
-              topicModules={isc11TopicModules}
-              topicBasePath="../components/study/isc-11/topics"
-            />
-          }
-        />
-        {/* ------------------------------------------ */}
-        {/* ISC Class 12 - MASTER STUDY COMPONENTS */}
-
-        <Route
-          path={ROUTES.ISC_12_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={isc12Roadmap}
-              subjectKey="isc-12"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.ISC_12_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={isc12Roadmap}
-              subjectKey="isc-12"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.ISC_12_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={isc12Roadmap}
-              subjectKey="isc-12"
-              topicModules={isc12TopicModules}
-              topicBasePath="../components/study/isc-12/topics"
-            />
-          }
-        />
-
-        {/* ----------------------------------------------- */}
-        <Route
-          path={ROUTES.COMPUTER_ARCHITECTURE_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={computerArchitectureRoadmap}
-              subjectKey="computer-architecture"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.COMPUTER_ARCHITECTURE_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={computerArchitectureRoadmap}
-              subjectKey="computer-architecture"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.COMPUTER_ARCHITECTURE_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={computerArchitectureRoadmap}
-              subjectKey="computer-architecture"
-              topicModules={computerArchitectureTopicModules}
-              topicBasePath="../components/study/computer-architecture/topics"
-            />
-          }
-        />
-        {/* ---------------------------------------------------- */}
-        {/* UNIX - MASTER STUDY COMPONENTS */}
-
-        <Route
-          path={ROUTES.UNIX_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={unixRoadmap}
-              subjectKey="unix"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.UNIX_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={unixRoadmap}
-              subjectKey="unix"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.UNIX_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={unixRoadmap}
-              subjectKey="unix"
-              topicModules={unixTopicModules}
-              topicBasePath="../components/study/unix/topics"
-            />
-          }
-        />
-        {/* ---------------------------------------------------------- */}
-        {/* Computer Network - MASTER STUDY COMPONENTS */}
-
-        <Route
-          path={ROUTES.NETWORK_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={computerNetworkRoadmap}
-              subjectKey="computer-network"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.NETWORK_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={computerNetworkRoadmap}
-              subjectKey="computer-network"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.NETWORK_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={computerNetworkRoadmap}
-              subjectKey="computer-network"
-              topicModules={computerNetworkTopicModules}
-              topicBasePath="../components/study/computer-network/topics"
-            />
-          }
-        />
-        {/* ----------------------------------------------------------------- */}
-        <Route
-          path={ROUTES.CYBER_SECURITY_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={cyberSecurityRoadmap}
-              subjectKey="cyber-security"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.CYBER_SECURITY_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={cyberSecurityRoadmap}
-              subjectKey="cyber-security"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.CYBER_SECURITY_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={cyberSecurityRoadmap}
-              subjectKey="cyber-security"
-              topicModules={cyberSecurityTopicModules}
-              topicBasePath="../components/study/cyber-security/topics"
-            />
-          }
-        />
-        {/* ------------------------------------------------------ */}
-        <Route
-          path={ROUTES.GENERAL_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={generalRoadmap}
-              subjectKey="general"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.GENERAL_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={generalRoadmap}
-              subjectKey="general"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.GENERAL_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={generalRoadmap}
-              subjectKey="general"
-              topicModules={generalTopicModules}
-              topicBasePath="../components/study/general/topics"
-            />
-          }
-        />
-        {/* ---------------------------------------------------------- */}
-        <Route
-          path={ROUTES.NODE_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={nodeRoadmap}
-              subjectKey="node"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.NODE_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={nodeRoadmap}
-              subjectKey="node"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.NODE_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={nodeRoadmap}
-              subjectKey="node"
-              topicModules={nodeTopicModules}
-              topicBasePath="../components/study/node/topics"
-            />
-          }
-        />
-        {/* ------------------------------------------------------------------ */}
-        {/* Machine Learning */}
-        <Route
-          path={ROUTES.MACHINE_LEARNING_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={machineLearningRoadmap}
-              subjectKey="machine-learning"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.MACHINE_LEARNING_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={machineLearningRoadmap}
-              subjectKey="machine-learning"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.MACHINE_LEARNING_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={machineLearningRoadmap}
-              subjectKey="machine-learning"
-              topicModules={machineLearningTopicModules}
-              topicBasePath="../components/study/machine-learning/topics"
-            />
-          }
-        />
-        {/* ------------------------------------------------------------------ */}
-        {/* Excel */}
-        <Route
-          path={ROUTES.EXCEL_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={excelRoadmap}
-              subjectKey="excel"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.EXCEL_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={excelRoadmap}
-              subjectKey="excel"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.EXCEL_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={excelRoadmap}
-              subjectKey="excel"
-              topicModules={excelTopicModules}
-              topicBasePath="../components/study/excel/topics"
-            />
-          }
-        />
-        <Route
-          path={ROUTES.RDBMS_MYSQL_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={rdbmsMysqlRoadmap}
-              subjectKey="rdbms-mysql"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.RDBMS_MYSQL_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={rdbmsMysqlRoadmap}
-              subjectKey="rdbms-mysql"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.RDBMS_MYSQL_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={rdbmsMysqlRoadmap}
-              subjectKey="rdbms-mysql"
-              topicModules={rdbmsMysqlTopicModules}
-              topicBasePath="../components/study/rdbms-mysql/topics"
-            />
-          }
-        />
-        {/* --------------------------------------------- */}
-        <Route
-          path={ROUTES.REACT_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={reactRoadmap}
-              subjectKey="react"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.REACT_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={reactRoadmap}
-              subjectKey="react"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.REACT_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={reactRoadmap}
-              subjectKey="react"
-              topicModules={reactTopicModules}
-              topicBasePath="../components/study/react/topics"
-            />
-          }
-        />
-
-        {/* Quantitative Analysis */}
-        <Route
-          path={ROUTES.QUANTITATIVE_ANALYSIS_ROADMAP}
-          element={
-            <StudyRoadmap
-              roadmapData={quantitativeAnalysisRoadmap}
-              subjectKey="quantitative-analysis"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.QUANTITATIVE_ANALYSIS_MODULE}
-          element={
-            <StudyModuleView
-              roadmapData={quantitativeAnalysisRoadmap}
-              subjectKey="quantitative-analysis"
-            />
-          }
-        />
-
-        <Route
-          path={ROUTES.QUANTITATIVE_ANALYSIS_TOPIC}
-          element={
-            <StudyTopicView
-              roadmapData={quantitativeAnalysisRoadmap}
-              subjectKey="quantitative-analysis"
-              topicModules={quantitativeAnalysisTopicModules}
-              topicBasePath="../components/study/quantitative-analysis/topics"
-            />
-          }
-        />
+        {/* ---------- Master Study Tracks (Dynamic Lazy Loaded) ---------- */}
+        {STUDY_TRACKS.map((track) => (
+          <React.Fragment key={track.key}>
+            <Route
+              path={track.roadmapRoute}
+              element={
+                <StudyTrackRoute
+                  loadRoadmap={track.loadRoadmap}
+                  subjectKey={track.key}
+                  view="roadmap"
+                />
+              }
+            />
+            <Route
+              path={track.moduleRoute}
+              element={
+                <StudyTrackRoute
+                  loadRoadmap={track.loadRoadmap}
+                  subjectKey={track.key}
+                  view="module"
+                />
+              }
+            />
+            <Route
+              path={track.topicRoute}
+              element={
+                <StudyTrackRoute
+                  loadRoadmap={track.loadRoadmap}
+                  getTopics={track.getTopics}
+                  subjectKey={track.key}
+                  topicBasePath={track.topicBasePath}
+                  view="topic"
+                />
+              }
+            />
+          </React.Fragment>
+        ))}
 
         {/* Catch-all 404 */}
         <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />

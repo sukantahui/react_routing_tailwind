@@ -17,11 +17,11 @@ export default defineConfig({
   },
   build: {
     chunkSizeWarningLimit: 2500,
+    reportCompressedSize: false,
     rollupOptions: {
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            if (id.includes('@tldraw')) return 'vendor-tldraw';
             if (id.includes('@excalidraw')) return 'vendor-excalidraw';
             if (id.includes('mermaid')) return 'vendor-mermaid';
             if (id.includes('cytoscape') || id.includes('dagre') || id.includes('d3')) return 'vendor-diagrams';
