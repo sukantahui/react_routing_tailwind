@@ -1,93 +1,92 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/what_if_analysis_and_scenario_planning_master.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/data_table_one_variable_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic2_files/topic2_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 
 const practiceChallenges = [
   {
-    title: "Loan Interest Rate Sensitivity Table",
+    title: "Commercial Loan Interest Rate Sensitivity Table",
     difficulty: "Beginner",
     category: "Column-Oriented Table",
-    scenario: "Given a baseline loan model with Principal in B2, Interest Rate in B3, and Tenure in B4, construct a One-Variable Data Table testing interest rates from 7.0% to 11.0% in 0.5% steps to evaluate Monthly EMI in cell B6.",
-    grid: "Inputs in D6:D14 | Output Formula in E5 (=B6) | Column Input Cell = $B$3",
-    formula: "Range selected: D5:E14 > Data > What-If Analysis > Data Table > Column Input Cell: B3 > {=TABLE(, B3)}",
-    explanation: "Because the scenario rates run down Column D, the table is column-oriented. The formula =B6 must sit in E5 (top row of output column). Column Input Cell is set to B3.",
-    sheetRef: "Topic2_One_Variable_Data_"
+    scenario: "Given a baseline loan model with Principal in B5 (₹50L), Interest Rate in B6 (8.5%), and Tenure in B7 (20 Yrs), construct a One-Variable Data Table testing interest rates from 7.0% to 12.0% in 0.5% steps to evaluate Monthly EMI in cell B9.",
+    grid: "Inputs in E6:E16 | Output Formula in F5 (=B9) | Column Input Cell = $B$6",
+    formula: "Range selected: E5:F16 > Data > What-If Analysis > Data Table > Column Input Cell: B6 > {=TABLE(, B6)}",
+    explanation: "Because the scenario rates run down Column E, the table is column-oriented. The formula =B9 must sit in F5 (top row of output column). Column Input Cell is set to B6.",
+    sheetRef: "Ex1_Loan_Interest_EMI"
   },
   {
     title: "Row-Oriented Product Price Sensitivity Table",
     difficulty: "Beginner",
     category: "Row-Oriented Table",
-    scenario: "In a pricing model where Unit Price is stored in cell B2 and Net Profit is calculated in B8, create a row-oriented sensitivity table testing prices of ₹800, ₹1,000, ₹1,200, ₹1,400 across cells E4:H4.",
-    grid: "Inputs in E4:H4 (horizontal) | Output Formula in D5 (=B8) | Row Input Cell = $B$2",
-    formula: "Range selected: D4:H5 > Data > What-If Analysis > Data Table > Row Input Cell: B2 > {=TABLE(B2, )}",
-    explanation: "Because input price steps run horizontally across Row 4, the table is row-oriented. The output formula =B8 must sit in D5 (leading column). Row Input Cell is set to B2.",
-    sheetRef: "Topic2_One_Variable_Data_"
+    scenario: "In a pricing model where Unit Price is stored in cell B5 and Net Profit is calculated in B12, create a row-oriented sensitivity table testing prices of ₹800, ₹1,000, ₹1,200, ₹1,400, ₹1,600 across cells E4:I4.",
+    grid: "Inputs in E4:I4 (horizontal) | Output Formula in D5 (=B12) | Row Input Cell = $B$5",
+    formula: "Range selected: D4:I5 > Data > What-If Analysis > Data Table > Row Input Cell: B5 > {=TABLE(B5, )}",
+    explanation: "Because input price steps run horizontally across Row 4, the table is row-oriented. The output formula =B12 must sit in D5 (leading column). Row Input Cell is set to B5.",
+    sheetRef: "Ex7_Row_Oriented_Table"
   },
   {
     title: "Multi-Output Sensitivity Evaluation (EMI, Total Outflow, Interest)",
     difficulty: "Intermediate",
     category: "Multi-Output Table",
-    scenario: "Build a single One-Variable Data Table that simultaneously evaluates 3 outputs: Monthly EMI (=B6), Total Outflow (=B7), and Total Interest Paid (=B8) across 10 interest rate scenarios.",
-    grid: "Inputs in D6:D15 | Header Formulas in E5 (=B6), F5 (=B7), G5 (=B8) | Column Input = B3",
-    formula: "Select D5:G15 > Data > What-If Analysis > Data Table > Column Input Cell: B3 > {=TABLE(, B3)}",
-    explanation: "One-Variable Data Tables support unlimited output columns! Simply place each desired formula in adjacent header cells (E5, F5, G5) in the top row.",
-    sheetRef: "Topic2_One_Variable_Data_"
+    scenario: "Build a single One-Variable Data Table that simultaneously evaluates 3 outputs: Monthly EMI (=B9), Total Outflow (=B10), and Total Interest Paid (=B11) across 10 interest rate scenarios.",
+    grid: "Inputs in E6:E16 | Header Formulas in F5 (=B9), G5 (=B10), H5 (=B11) | Column Input = B6",
+    formula: "Select E5:H16 > Data > What-If Analysis > Data Table > Column Input Cell: B6 > {=TABLE(, B6)}",
+    explanation: "One-Variable Data Tables support unlimited output columns! Simply place each desired formula in adjacent header cells (F5, G5, H5) in the top row.",
+    sheetRef: "Ex1_Loan_Interest_EMI"
   },
   {
     title: "Custom Number Masking for Professional Headers",
     difficulty: "Intermediate",
     category: "Executive Formatting",
-    scenario: "In cell E5, the formula =B6 displays the raw number ₹43,391.13 in the table header. Apply a custom format mask so the cell visually displays 'Monthly EMI' without breaking the formula link.",
-    grid: "Cell E5 contains formula =B6 | Target Display: 'Monthly EMI'",
-    formula: "Right-click E5 > Format Cells > Number > Custom > Type: ;;;'Monthly EMI'",
+    scenario: "In cell F5, the formula =B9 displays the raw number ₹43,391.13 in the table header. Apply a custom format mask so the cell visually displays 'Monthly EMI' without breaking the formula link.",
+    grid: "Cell F5 contains formula =B9 | Target Display: 'Monthly EMI'",
+    formula: "Right-click F5 > Format Cells > Number > Custom > Type: ;;;'Monthly EMI'",
     explanation: "The three semicolons (;;;) suppress the display of positive, negative, and zero numbers, replacing them with the custom text string while keeping the active formula reference intact.",
-    sheetRef: "Topic2_One_Variable_Data_"
+    sheetRef: "Ex1_Loan_Interest_EMI"
   },
   {
     title: "Discount Rate (WACC) Sensitivity on Project NPV",
     difficulty: "Intermediate",
     category: "Capital Budgeting",
-    scenario: "A capital expenditure model evaluates a ₹1 Crore factory investment yielding 5 years of cash flows. In cell B10, Project NPV is calculated using =NPV(B5, C7:G7) + C6. Construct a data table testing discount rates from 8% to 18% to find the zero-NPV hurdle rate.",
-    grid: "Inputs in D6:D16 (8% to 18%) | Output Formula in E5 (=B10) | Column Input = $B$5",
-    formula: "Select D5:E16 > Data > What-If Analysis > Data Table > Column Input: B5 > {=TABLE(, B5)}",
-    explanation: "As discount rates rise, NPV declines. The table reveals the exact discount rate where NPV transitions from positive to negative (the internal rate of return).",
-    sheetRef: "Topic2_One_Variable_Data_"
+    scenario: "A capital expenditure model evaluates a ₹1 Crore factory investment yielding 5 years of cash flows. In cell B13, Project NPV is calculated using =NPV(B12, B6:B10) + B5. Construct a data table testing discount rates from 8% to 22% to find the zero-NPV hurdle rate (IRR = 21.4%).",
+    grid: "Inputs in E6:E14 (8% to 22%) | Output Formula in F5 (=B13) | Column Input = $B$12",
+    formula: "Select E5:F14 > Data > What-If Analysis > Data Table > Column Input: B12 > {=TABLE(, B12)}",
+    explanation: "As discount rates rise, NPV declines. The table reveals the exact discount rate (21.4%) where NPV transitions to zero (the internal rate of return).",
+    sheetRef: "Ex4_Capex_WACC_NPV"
   },
   {
     title: "Break-Even Sales Volume Sensitivity on EBIT",
     difficulty: "Intermediate",
     category: "Cost Accounting",
-    scenario: "Evaluate operating leverage by testing sales volume steps from 5,000 units to 25,000 units (in steps of 2,500) against Net EBIT in cell B9.",
-    grid: "Inputs in D6:D14 (5,000 to 25,000) | Output in E5 (=B9) | Column Input = $B$2 (Units Sold)",
-    formula: "Select D5:E14 > Data > What-If Analysis > Data Table > Column Input: B2 > {=TABLE(, B2)}",
-    explanation: "Tests the impact of fixed overhead absorption across production volumes, clearly marking the zero-EBIT break-even production volume.",
-    sheetRef: "Topic2_One_Variable_Data_"
+    scenario: "Evaluate operating leverage by testing manufacturing volume steps from 5,000 units to 25,000 units against Net Operating EBIT in cell B11.",
+    grid: "Inputs in E6:E14 (5,000 to 25,000) | Output in F5 (=B11) | Column Input = $B$8 (Units Produced)",
+    formula: "Select E5:F14 > Data > What-If Analysis > Data Table > Column Input: B8 > {=TABLE(, B8)}",
+    explanation: "Tests the impact of fixed overhead absorption across production volumes, clearly identifying the 15,000 unit zero-EBIT break-even milestone.",
+    sheetRef: "Ex3_BreakEven_Production"
   },
   {
     title: "Commercial Real Estate Occupancy Rate vs Net Rental Yield",
     difficulty: "Advanced",
     category: "Real Estate Financials",
-    scenario: "A commercial business park generates revenue based on occupancy % in cell B4. Build a data table testing occupancy from 60% to 100% (in 5% increments) against Gross Rental Income (=B7) and Net Operating Income (=B10).",
-    grid: "Inputs in D6:D14 | Formulas in E5 (=B7) and F5 (=B10) | Column Input = $B$4",
-    formula: "Select D5:F14 > Data > What-If Analysis > Data Table > Column Input: B4 > {=TABLE(, B4)}",
-    explanation: "Allows asset managers to assess debt service coverage ratio (DSCR) safety margins under economic downturn and vacancy stress scenarios.",
-    sheetRef: "Topic2_One_Variable_Data_"
+    scenario: "A commercial business park generates revenue based on occupancy % in cell B7. Build a data table testing occupancy from 60% to 100% against Gross Rental Income (=B9), Net Operating Income (=B11), and DSCR Ratio (=B13).",
+    grid: "Inputs in E6:E14 | Formulas in F5 (=B9), G5 (=B11), H5 (=B13) | Column Input = $B$7",
+    formula: "Select E5:H14 > Data > What-If Analysis > Data Table > Column Input: B7 > {=TABLE(, B7)}",
+    explanation: "Allows asset managers to assess debt service coverage ratio (DSCR) safety buffers under economic downturn and tenant vacancy stress scenarios.",
+    sheetRef: "Ex5_RealEstate_Occupancy"
   },
   {
     title: "Forex Exchange Rate Sensitivity Matrix (USD/INR)",
     difficulty: "Advanced",
     category: "Treasury & Forex",
-    scenario: "An export-import firm models net margin based on USD/INR exchange rate in cell B3. Construct a sensitivity table testing exchange rates from ₹80.00 to ₹90.00 in ₹1.00 increments against Net Margin in INR (=B12).",
-    grid: "Inputs in D6:D16 (80 to 90) | Formula in E5 (=B12) | Column Input = $B$3",
-    formula: "Select D5:E16 > Data > What-If Analysis > Data Table > Column Input: B3 > {=TABLE(, B3)}",
+    scenario: "An export-import firm models net margin based on USD/INR exchange rate in cell B8. Construct a sensitivity table testing exchange rates from ₹80.00 to ₹90.00 in ₹1.00 increments driving Landed Cost (=B9), Export Revenue (=B10), and Net Forex Margin (=B11).",
+    grid: "Inputs in E6:E15 (80 to 90) | Formulas in F5 (=B9), G5 (=B10), H5 (=B11) | Column Input = $B$8",
+    formula: "Select E5:H15 > Data > What-If Analysis > Data Table > Column Input: B8 > {=TABLE(, B8)}",
     explanation: "Identifies the foreign exchange risk threshold where rupee appreciation or depreciation flips export contracts into operating losses.",
-    sheetRef: "Topic2_One_Variable_Data_"
+    sheetRef: "Ex6_Multi_Output_FX"
   },
   {
     title: "Optimizing Performance: Automatic Except Data Tables",
@@ -97,23 +96,43 @@ const practiceChallenges = [
     grid: "Excel Ribbon: Formulas > Calculation Options > Automatic Except for Data Tables",
     formula: "Formulas Tab > Calculation Options > Select 'Automatic Except for Data Tables' > Press F9 to refresh tables",
     explanation: "Stops Excel from recalculating heavy iterative Data Table matrix loops during routine data entry, running sensitivity passes only when F9 is manually pressed.",
-    sheetRef: "Topic2_One_Variable_Data_"
+    sheetRef: "Ex8_Performance_Tuning"
   },
   {
     title: "Auditing & Deleting an Immutable Data Table Array",
     difficulty: "Advanced",
     category: "Array Troubleshooting",
-    scenario: "You need to modify the layout of an existing One-Variable Data Table occupying D5:G16, but pressing Delete on cell E7 triggers 'Cannot change part of a data table'. Execute the correct procedure to clear the array.",
-    grid: "Table bounds = D5:G16 | Result cells = E6:G16",
-    formula: "Select the entire result block E6:G16 (or full table D5:G16) > Press Delete",
+    scenario: "You need to modify the layout of an existing One-Variable Data Table occupying E5:H16, but pressing Delete on cell F7 triggers 'Cannot change part of a data table'. Execute the correct procedure to clear the array.",
+    grid: "Table bounds = E5:H16 | Result cells = F6:H16",
+    formula: "Select the entire result block F6:H16 (or full table E5:H16) > Press Delete",
     explanation: "Because {=TABLE()} is an indivisible multi-cell array formula, individual cells cannot be edited or cleared in isolation. The entire result range must be selected simultaneously.",
-    sheetRef: "Topic2_One_Variable_Data_"
+    sheetRef: "Ex1_Loan_Interest_EMI"
   }
 ];
+
+// Interactive Sandbox Calculator Helper
+function calcEmi(principal, annualRate, years) {
+  const r = annualRate / 12;
+  const n = years * 12;
+  if (r === 0) return principal / n;
+  const pvif = Math.pow(1 + r, n);
+  return (r * principal * pvif) / (pvif - 1);
+}
 
 export default function Topic2() {
   const sectionsRef = useRef([]);
   const [openPracticeIdx, setOpenPracticeIdx] = useState(0);
+
+  // Live Interactive Simulator State
+  const [simPrincipal, setSimPrincipal] = useState(5000000);
+  const [simTenureYears, setSimTenureYears] = useState(20);
+  const [simActiveRate, setSimActiveRate] = useState(0.085);
+
+  const scenarioRates = [0.070, 0.075, 0.080, 0.085, 0.090, 0.095, 0.100, 0.105, 0.110, 0.115, 0.120];
+
+  const currentEmi = calcEmi(simPrincipal, simActiveRate, simTenureYears);
+  const currentTotalPayment = currentEmi * simTenureYears * 12;
+  const currentTotalInterest = currentTotalPayment - simPrincipal;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -135,27 +154,27 @@ export default function Topic2() {
     if (!sampleWorkbookUrl) return;
     const link = document.createElement("a");
     link.href = sampleWorkbookUrl;
-    link.download = "what_if_analysis_and_scenario_planning_master.xlsx";
+    link.download = "data_table_one_variable_master.xlsx";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   return (
-    <div className="text-slate-100 font-sans selection:bg-sky-500/30 selection:text-sky-200">
+    <div className="dark text-slate-100 font-sans selection:bg-sky-500/30 selection:text-sky-200">
       <style>{`
         @keyframes fadeInSlide {
-          from { transform: translateY(18px); }
+          from { transform: translateY(14px); }
           to { transform: translateY(0); }
         }
         .reveal-section {
-          animation: fadeInSlide 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: fadeInSlide 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
       `}</style>
 
-      <div className="w-full space-y-4">
+      <div className="w-full space-y-4 sm:space-y-5">
         {/* =========================================================================
-            SECTION 1: HERO HEADER & OVERVIEW (COMPACT)
+            SECTION 1: HERO HEADER & OVERVIEW
         ========================================================================= */}
         <header
           ref={(el) => (sectionsRef.current[0] = el)}
@@ -176,11 +195,11 @@ export default function Topic2() {
           </div>
 
           <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
-            One-Variable Data Tables: Testing Single Parameter Sensitivities
+            Single Dimension (One-Variable) Data Tables: Step-by-Step Project Masterclass
           </h1>
 
           <p className="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed max-w-5xl">
-            Master the mechanics of <code className="text-sky-300 font-mono font-bold">One-Variable Data Tables</code> in Microsoft Excel. Evaluate multiple financial outputs simultaneously (EMI, Net Margin, Project NPV, Break-Even Volume) across varying input scenarios, format professional custom number masks, and optimize calculation speeds.
+            Never struggle with Single Dimension Data Tables again. This masterclass breaks down the exact mechanics of <code className="text-sky-300 font-mono font-bold">One-Variable Data Tables</code> in Microsoft Excel through a real-world enterprise project, complete visual geometry rules, interactive browser simulators, and downloadable corporate workbooks.
           </p>
 
           <div className="mt-3 pt-2.5 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
@@ -190,7 +209,7 @@ export default function Topic2() {
             </div>
             <div className="flex items-center gap-2 text-slate-300">
               <span className="text-emerald-400 font-bold">✓</span>
-              <span><strong>Module:</strong> What-If Analysis</span>
+              <span><strong>Module:</strong> What-If Analysis &amp; Optimization</span>
             </div>
             <div className="flex items-center gap-2 text-slate-300">
               <span className="text-indigo-400 font-bold">✓</span>
@@ -200,456 +219,462 @@ export default function Topic2() {
         </header>
 
         {/* =========================================================================
-            SECTION 2: DATA TABLE ARCHITECTURE CARD
+            SECTION 2: WHY STUDENTS GET CONFUSED & THE "SHADOW SANDBOX" CONCEPT
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[1] = el)}
           className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all duration-200 space-y-4"
         >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-7 h-7 rounded-lg text-sm bg-sky-500/20 text-sky-400 text-base font-mono">⚡</span>
-              The One-Variable Data Table Architecture
-            </h2>
-            <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
-              Syntax Geometry
+          <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-sky-500/20 text-sky-400 text-sm font-mono">🧠</span>
+                How a Single Dimension Data Table Actually Works (Plain English)
+              </h2>
+              <p className="text-xs text-slate-400 mt-0.5">
+                The intuitive "Shadow Sandbox" concept that makes the Excel Data Table engine crystal clear.
+              </p>
+            </div>
+            <span className="text-[11px] font-mono text-sky-300 bg-sky-950/60 px-2.5 py-0.5 rounded-lg border border-sky-800 shrink-0">
+              Core Mental Model
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-4 rounded-lg bg-slate-950/80 border border-slate-800 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-sky-400">Layout Option A</span>
-                <span className="text-xs font-mono text-slate-400">Standard Production Format</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+            <div className="p-4 rounded-lg bg-slate-950/80 border border-slate-800 space-y-2.5">
+              <div className="flex items-center gap-2 text-rose-400 font-bold">
+                <span>❌</span> Why Traditional Methods Fail in Excel Projects:
               </div>
-              <h3 className="font-bold text-white text-base">Column-Oriented Data Table</h3>
-              <div className="p-2.5 rounded-lg bg-slate-900 font-mono text-xs text-sky-300 border border-slate-800">
-                {"{=TABLE(, ColumnInputCell)}"}
-              </div>
-              <ul className="text-xs sm:text-sm text-slate-300 space-y-1.5 leading-relaxed">
-                <li>• <strong>Scenario Values:</strong> Listed vertically down a single column (e.g. D6:D16).</li>
-                <li>• <strong>Output Formulas:</strong> Placed in the top row (E5, F5, G5) to the right.</li>
-                <li>• <strong>Dialog Setting:</strong> Leave Row Input Cell blank; set Column Input Cell.</li>
+              <p className="text-slate-300 leading-relaxed text-xs">
+                When a manager asks: <em>"What will our loan EMI and total interest be if the bank rate changes to 7%, 8%, 9%, 10%, or 11%?"</em>, novice students either:
+              </p>
+              <ul className="text-xs text-slate-400 space-y-1.5 list-disc pl-4">
+                <li>Manually retype each rate into cell B6, write down the answer on paper, and repeat 10 times.</li>
+                <li>Copy-paste the entire calculation model 10 times into 10 duplicate columns or worksheets, creating model bloat and broken formula links.</li>
               </ul>
             </div>
 
-            <div className="p-4 rounded-lg bg-slate-950/80 border border-slate-800 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-teal-400">Layout Option B</span>
-                <span className="text-xs font-mono text-slate-400">Horizontal Timeline Format</span>
+            <div className="p-4 rounded-lg bg-slate-950/80 border border-slate-800 space-y-2.5">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold">
+                <span>✅</span> The "Shadow Sandbox" Engine:
               </div>
-              <h3 className="font-bold text-white text-base">Row-Oriented Data Table</h3>
-              <div className="p-2.5 rounded-lg bg-slate-900 font-mono text-xs text-teal-300 border border-slate-800">
-                {"{=TABLE(RowInputCell, )}"}
-              </div>
-              <ul className="text-xs sm:text-sm text-slate-300 space-y-1.5 leading-relaxed">
-                <li>• <strong>Scenario Values:</strong> Listed horizontally across a single row (e.g. E4:H4).</li>
-                <li>• <strong>Output Formulas:</strong> Placed in the leading column (D5, D6, D7) below.</li>
-                <li>• <strong>Dialog Setting:</strong> Set Row Input Cell; leave Column Input Cell blank.</li>
+              <p className="text-slate-300 leading-relaxed text-xs">
+                A <strong>Single Dimension Data Table</strong> is an automated loop engine. You give Excel:
+              </p>
+              <ul className="text-xs text-slate-300 space-y-1.5 list-disc pl-4">
+                <li><strong>1 Target Input Cell:</strong> (e.g. Cell <code className="text-sky-300 font-mono font-bold">$B$6</code>: Interest Rate).</li>
+                <li><strong>1 List of Scenario Values:</strong> (e.g. 7.0%, 7.5%, 8.0%, 8.5%...).</li>
+                <li><strong>1 or More Output Formulas:</strong> (e.g. EMI in <code className="text-emerald-300 font-mono font-bold">=B9</code>).</li>
               </ul>
+              <p className="text-[11px] text-sky-300 bg-sky-950/40 p-2 rounded border border-sky-900/60 leading-relaxed">
+                Excel takes each rate from your list, temporarily injects it into cell $B$6 in shadow memory, recalculates the formula, writes the result in your table, and leaves your base cell $B$6 completely untouched!
+              </p>
             </div>
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 3: INTERACTIVE SVG DATAFLOW PIPELINE
+            SECTION 3: THE 4 GOLDEN RULES OF DATA TABLE GEOMETRY
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
-          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
+          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all duration-200 space-y-4"
         >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-7 h-7 rounded-lg text-sm bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Iterative Substitution &amp; Calculation Pipeline
-            </h2>
-            <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
-              Calculation Engine
+          <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-amber-500/20 text-amber-400 text-sm font-mono">📐</span>
+                The 4 Golden Rules of Single Dimension Table Geometry
+              </h2>
+              <p className="text-xs text-slate-400 mt-0.5">
+                Follow these 4 spatial rules every time. Violating any rule causes 100% of student mistakes.
+              </p>
+            </div>
+            <span className="text-[11px] font-mono text-amber-300 bg-amber-950/60 px-2.5 py-0.5 rounded-lg border border-amber-800 shrink-0">
+              Anatomy Rules
             </span>
           </div>
 
-          <div className="p-4 rounded-xl bg-slate-950/90 border border-slate-800/80 flex flex-col items-center justify-center overflow-x-auto shadow-inner">
-            <svg viewBox="0 0 840 230" className="w-full max-w-4xl h-auto text-slate-200 select-none font-sans">
-              <defs>
-                <marker id="arrowDataTbl" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
-                </marker>
-              </defs>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+            <div className="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-sky-300 flex items-center gap-1.5">
+                <span className="w-4 h-4 rounded-full bg-sky-950 border border-sky-700 text-sky-300 flex items-center justify-center text-[10px]">1</span>
+                Rule 1: List Inputs in 1 Column
+              </div>
+              <p className="text-slate-300 leading-relaxed text-[11px]">
+                Place your scenario numbers (e.g. 7.0%, 7.5%, 8.0%) vertically down a single column (e.g. <code>E6:E16</code>). Leave the top-left cell <code>E5</code> empty or as a text label.
+              </p>
+            </div>
 
-              {/* Step 1: Scenario Input List */}
-              <g transform="translate(20, 35)">
-                <rect width="180" height="160" rx="12" fill="#0f172a" stroke="#334155" strokeWidth="2" />
-                <rect x="12" y="12" width="156" height="26" rx="6" fill="#1e293b" />
-                <text x="90" y="30" textAnchor="middle" fill="#94a3b8" fontSize="11" fontWeight="bold">1. Scenario Inputs (Col D)</text>
-                <text x="90" y="70" textAnchor="middle" fill="#38bdf8" fontSize="13" fontFamily="monospace">7.00%</text>
-                <text x="90" y="95" textAnchor="middle" fill="#38bdf8" fontSize="13" fontFamily="monospace">8.50% (Base)</text>
-                <text x="90" y="120" textAnchor="middle" fill="#38bdf8" fontSize="13" fontFamily="monospace">10.00%</text>
-                <text x="90" y="145" textAnchor="middle" fill="#38bdf8" fontSize="13" fontFamily="monospace">11.50%</text>
-              </g>
+            <div className="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-emerald-300 flex items-center gap-1.5">
+                <span className="w-4 h-4 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-300 flex items-center justify-center text-[10px]">2</span>
+                Rule 2: Link Formulas in Top Row
+              </div>
+              <p className="text-slate-300 leading-relaxed text-[11px]">
+                In the row directly above the first result cell (Row 5), write formula links: <code>F5: =B9</code> (Monthly EMI), <code>G5: =B10</code> (Total Outflow). <strong>Never type static numbers here!</strong>
+              </p>
+            </div>
 
-              {/* Injection Arrow */}
-              <path d="M 205 115 L 285 115" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowDataTbl)" fill="none" />
-              <text x="245" y="100" textAnchor="middle" fill="#7dd3fc" fontSize="10" fontFamily="monospace">Inject Input</text>
+            <div className="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-teal-300 flex items-center gap-1.5">
+                <span className="w-4 h-4 rounded-full bg-teal-950 border border-teal-700 text-teal-300 flex items-center justify-center text-[10px]">3</span>
+                Rule 3: Select Full Rectangle
+              </div>
+              <p className="text-slate-300 leading-relaxed text-[11px]">
+                Highlight the entire rectangular block from the top header row down to the last scenario row (e.g. <code>E5:G16</code>). Both inputs and formulas must be in the selection.
+              </p>
+            </div>
 
-              {/* Step 2: Base Financial Model */}
-              <g transform="translate(295, 25)">
-                <rect width="250" height="180" rx="14" fill="#0c4a6e" stroke="#0284c7" strokeWidth="2" />
-                <rect x="14" y="14" width="222" height="28" rx="6" fill="#0369a1" />
-                <text x="125" y="33" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">2. Base Financial Model</text>
-                <text x="125" y="75" textAnchor="middle" fill="#bae6fd" fontSize="11">Input Cell: $B$3 (Interest Rate)</text>
-                <text x="125" y="105" textAnchor="middle" fill="#7dd3fc" fontSize="12" fontFamily="monospace" fontWeight="bold">=PMT(B3/12, B5, -B2)</text>
-                <text x="125" y="135" textAnchor="middle" fill="#bae6fd" fontSize="10">Iterative Shadow Calculation</text>
-                <text x="125" y="155" textAnchor="middle" fill="#38bdf8" fontSize="9" fontStyle="italic">Preserves original B3 value</text>
-              </g>
-
-              {/* Output Arrow */}
-              <path d="M 550 115 L 620 115" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowDataTbl)" fill="none" />
-              <text x="585" y="100" textAnchor="middle" fill="#7dd3fc" fontSize="10" fontFamily="monospace">Emit Output</text>
-
-              {/* Step 3: Result Matrix */}
-              <g transform="translate(630, 35)">
-                <rect width="190" height="160" rx="12" fill="#064e3b" stroke="#059669" strokeWidth="2" />
-                <rect x="10" y="12" width="170" height="26" rx="6" fill="#047857" />
-                <text x="95" y="30" textAnchor="middle" fill="#ffffff" fontSize="11" fontWeight="bold">3. Data Table Output Grid</text>
-                <text x="95" y="70" textAnchor="middle" fill="#6ee7b7" fontSize="13" fontFamily="monospace">₹38,764.91</text>
-                <text x="95" y="95" textAnchor="middle" fill="#6ee7b7" fontSize="13" fontFamily="monospace">₹43,391.13</text>
-                <text x="95" y="120" textAnchor="middle" fill="#6ee7b7" fontSize="13" fontFamily="monospace">₹48,251.05</text>
-                <text x="95" y="145" textAnchor="middle" fill="#6ee7b7" fontSize="13" fontFamily="monospace">₹53,319.14</text>
-              </g>
-            </svg>
+            <div className="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-purple-300 flex items-center gap-1.5">
+                <span className="w-4 h-4 rounded-full bg-purple-950 border border-purple-700 text-purple-300 flex items-center justify-center text-[10px]">4</span>
+                Rule 4: Dialog Assignment
+              </div>
+              <p className="text-slate-300 leading-relaxed text-[11px]">
+                For a vertical list of inputs: Leave <strong>Row input cell BLANK</strong>. In <strong>Column input cell</strong>, select the original variable cell (<code>$B$6</code>).
+              </p>
+            </div>
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 4: 6 COMPREHENSIVE REAL-WORLD BUSINESS EXAMPLES
+            SECTION 4: INTERACTIVE LIVE SINGLE DIMENSION DATA TABLE SIMULATOR
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
-          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
+          className="reveal-section rounded-xl p-4 sm:p-5 bg-gradient-to-r from-slate-900/90 via-indigo-950/40 to-slate-900/90 border border-slate-800 space-y-4 shadow-lg"
         >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-7 h-7 rounded-lg text-sm bg-emerald-500/20 text-emerald-400 text-base font-mono">📚</span>
-              6 Real-World Business Applications &amp; Examples
-            </h2>
-            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-800">
-              Practical Masterclass
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-indigo-500/20 text-indigo-400 text-sm font-mono">⚡</span>
+                Interactive Sandbox: Live Single Dimension Sensitivity Simulator
+              </h2>
+              <p className="text-xs text-slate-300 mt-0.5">
+                Adjust the base loan parameters below to watch the entire sensitivity matrix recalculate live in real time!
+              </p>
+            </div>
+            <span className="text-[11px] font-mono text-indigo-300 bg-indigo-950/80 px-2.5 py-0.5 rounded-lg border border-indigo-700 shrink-0">
+              Live Engine
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* Example 1 */}
-            <div className="p-4 rounded-lg bg-slate-950/70 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-2.5">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-sky-400">Example 1</span>
-                <span className="text-xs font-mono text-slate-400">Debt &amp; Banking</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 text-xs">
+            {/* Base Model Controller (4 Cols) */}
+            <div className="lg:col-span-4 p-4 rounded-xl bg-slate-950/90 border border-slate-800 space-y-3.5">
+              <div className="font-bold text-sky-300 text-xs uppercase tracking-wider border-b border-slate-800 pb-1.5 flex items-center justify-between">
+                <span>Base Model Parameters</span>
+                <span className="text-[10px] text-slate-500 font-mono">Inputs (Col B)</span>
               </div>
-              <h3 className="font-bold text-white text-base">Commercial Loan Interest Rate Sensitivity</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Tests 10 interest rate increments (7.0% to 12.0%) on a ₹50 Lakh term loan to calculate Monthly EMI, Total Outflow, and Lifetime Interest.
-              </p>
-              <div className="p-2.5 rounded-lg bg-slate-900 font-mono text-xs text-sky-300 border border-slate-800">
-                {"{=TABLE(, B3)} // Column Input = Interest Rate"}
+
+              <div className="space-y-1">
+                <label className="text-slate-300 text-[11px] font-medium flex justify-between">
+                  <span>Loan Principal (₹):</span>
+                  <span className="font-mono text-sky-400 font-bold">₹{simPrincipal.toLocaleString()}</span>
+                </label>
+                <input
+                  type="range"
+                  min={1000000}
+                  max={20000000}
+                  step={500000}
+                  value={simPrincipal}
+                  onChange={(e) => setSimPrincipal(Number(e.target.value))}
+                  className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-sky-400"
+                />
               </div>
-              <p className="text-xs text-slate-400">Key Benefit: Instantly shows the budget impact of every 50 bps RBI repo rate hike.</p>
+
+              <div className="space-y-1">
+                <label className="text-slate-300 text-[11px] font-medium flex justify-between">
+                  <span>Base Interest Rate (%):</span>
+                  <span className="font-mono text-emerald-400 font-bold">{(simActiveRate * 100).toFixed(2)}%</span>
+                </label>
+                <input
+                  type="range"
+                  min={0.06}
+                  max={0.15}
+                  step={0.0025}
+                  value={simActiveRate}
+                  onChange={(e) => setSimActiveRate(Number(e.target.value))}
+                  className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-400"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-slate-300 text-[11px] font-medium flex justify-between">
+                  <span>Loan Tenure (Years):</span>
+                  <span className="font-mono text-indigo-400 font-bold">{simTenureYears} Years ({simTenureYears * 12} Mths)</span>
+                </label>
+                <input
+                  type="range"
+                  min={5}
+                  max={30}
+                  step={1}
+                  value={simTenureYears}
+                  onChange={(e) => setSimTenureYears(Number(e.target.value))}
+                  className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-400"
+                />
+              </div>
+
+              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800/80 space-y-1.5 text-[11px]">
+                <div className="text-slate-400 font-bold uppercase text-[10px]">Base Output Metrics:</div>
+                <div className="flex justify-between">
+                  <span className="text-slate-300">Monthly EMI (B9):</span>
+                  <span className="font-mono text-sky-300 font-bold">₹{Math.round(currentEmi).toLocaleString()}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-300">Total Outflow (B10):</span>
+                  <span className="font-mono text-emerald-300 font-bold">₹{Math.round(currentTotalPayment).toLocaleString()}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-300">Total Interest (B11):</span>
+                  <span className="font-mono text-amber-300 font-bold">₹{Math.round(currentTotalInterest).toLocaleString()}</span>
+                </div>
+              </div>
             </div>
 
-            {/* Example 2 */}
-            <div className="p-4 rounded-lg bg-slate-950/70 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-2.5">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-teal-400">Example 2</span>
-                <span className="text-xs font-mono text-slate-400">Pricing Strategy</span>
+            {/* Generated Data Table Grid (8 Cols) */}
+            <div className="lg:col-span-8 p-4 rounded-xl bg-slate-950/90 border border-slate-800 space-y-3">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-1.5">
+                <div className="font-bold text-white text-xs uppercase tracking-wider flex items-center gap-2">
+                  <span>Generated Data Table Array:</span>
+                  <code className="text-teal-300 font-mono text-[11px] bg-slate-900 px-2 py-0.5 rounded border border-slate-800">
+                    {"{=TABLE(, B6)}"}
+                  </code>
+                </div>
+                <span className="text-[10px] text-slate-400">11 Iterative Scenario Passes</span>
               </div>
-              <h3 className="font-bold text-white text-base">Product Unit Price vs Gross Profit Margin</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Evaluates selling price steps (₹900 to ₹1,500) to measure dynamic changes in Gross Revenue, Variable COGS, and Net Operating Margin.
-              </p>
-              <div className="p-2.5 rounded-lg bg-slate-900 font-mono text-xs text-teal-300 border border-slate-800">
-                {"{=TABLE(, B2)} // Column Input = Unit Selling Price"}
-              </div>
-              <p className="text-xs text-slate-400">Key Benefit: Pinpoints the optimal price elasticity threshold for maximum profit.</p>
-            </div>
 
-            {/* Example 3 */}
-            <div className="p-4 rounded-lg bg-slate-950/70 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-2.5">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-indigo-400">Example 3</span>
-                <span className="text-xs font-mono text-slate-400">Cost Accounting</span>
-              </div>
-              <h3 className="font-bold text-white text-base">Production Volume Break-Even Sensitivity</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Tests manufacturing unit volume (5,000 to 25,000 units) to identify fixed overhead absorption and the zero-profit break-even point.
-              </p>
-              <div className="p-2.5 rounded-lg bg-slate-900 font-mono text-xs text-indigo-300 border border-slate-800">
-                {"{=TABLE(, B4)} // Column Input = Units Manufactured"}
-              </div>
-              <p className="text-xs text-slate-400">Key Benefit: Informs plant managers of minimum operating capacity requirements.</p>
-            </div>
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs border-collapse font-mono">
+                  <thead>
+                    <tr className="bg-slate-900/90 text-slate-300 border-b border-slate-800">
+                      <th className="py-2 px-3 text-slate-400">Rate Scenario (Col E)</th>
+                      <th className="py-2 px-3 text-sky-400">
+                        =B9 <span className="text-[10px] text-slate-500 block font-sans">Monthly EMI</span>
+                      </th>
+                      <th className="py-2 px-3 text-emerald-400">
+                        =B10 <span className="text-[10px] text-slate-500 block font-sans">Total Payment</span>
+                      </th>
+                      <th className="py-2 px-3 text-amber-400">
+                        =B11 <span className="text-[10px] text-slate-500 block font-sans">Lifetime Interest</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/60">
+                    {scenarioRates.map((r, i) => {
+                      const eVal = calcEmi(simPrincipal, r, simTenureYears);
+                      const totVal = eVal * simTenureYears * 12;
+                      const intVal = totVal - simPrincipal;
+                      const isBase = Math.abs(r - simActiveRate) < 0.002;
 
-            {/* Example 4 */}
-            <div className="p-4 rounded-lg bg-slate-950/70 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-2.5">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Example 4</span>
-                <span className="text-xs font-mono text-slate-400">Corporate Finance</span>
+                      return (
+                        <tr
+                          key={i}
+                          className={`transition-colors ${
+                            isBase
+                              ? "bg-sky-950/60 font-bold text-white border-l-2 border-sky-400"
+                              : "hover:bg-slate-900/50 text-slate-300"
+                          }`}
+                        >
+                          <td className="py-1.5 px-3">
+                            {(r * 100).toFixed(2)}% {isBase && <span className="text-[10px] text-sky-400 font-sans ml-1">(Active Base)</span>}
+                          </td>
+                          <td className="py-1.5 px-3 text-sky-300">₹{Math.round(eVal).toLocaleString()}</td>
+                          <td className="py-1.5 px-3 text-emerald-300">₹{Math.round(totVal).toLocaleString()}</td>
+                          <td className="py-1.5 px-3 text-amber-300">₹{Math.round(intVal).toLocaleString()}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
               </div>
-              <h3 className="font-bold text-white text-base">Cost of Capital (WACC) on Project NPV</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Evaluates a ₹1 Crore factory expansion across discount rates from 8% to 18% to determine project hurdle rate resilience.
-              </p>
-              <div className="p-2.5 rounded-lg bg-slate-900 font-mono text-xs text-amber-300 border border-slate-800">
-                {"{=TABLE(, B5)} // Column Input = Discount Rate WACC"}
-              </div>
-              <p className="text-xs text-slate-400">Key Benefit: Highlights the exact discount rate where project Net Present Value hits zero (IRR).</p>
-            </div>
-
-            {/* Example 5 */}
-            <div className="p-4 rounded-lg bg-slate-950/70 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-2.5">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">Example 5</span>
-                <span className="text-xs font-mono text-slate-400">Real Estate Assets</span>
-              </div>
-              <h3 className="font-bold text-white text-base">Commercial Real Estate Occupancy Yield</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Assesses commercial building occupancy rates (60% to 100%) against Gross Rental Yield and Net Operating Income (NOI).
-              </p>
-              <div className="p-2.5 rounded-lg bg-slate-900 font-mono text-xs text-emerald-300 border border-slate-800">
-                {"{=TABLE(, B4)} // Column Input = Occupancy %"}
-              </div>
-              <p className="text-xs text-slate-400">Key Benefit: Tests debt service coverage ratio (DSCR) safety buffers during market downturns.</p>
-            </div>
-
-            {/* Example 6 */}
-            <div className="p-4 rounded-lg bg-slate-950/70 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-2.5">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-purple-400">Example 6</span>
-                <span className="text-xs font-mono text-slate-400">Global Treasury</span>
-              </div>
-              <h3 className="font-bold text-white text-base">Multi-Output USD/INR Forex Sensitivity</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Varies exchange rates (₹80.00 to ₹90.00) driving 3 parallel outputs: Landed Material Cost, Export Realization, and Net Forex Gain/Loss.
-              </p>
-              <div className="p-2.5 rounded-lg bg-slate-900 font-mono text-xs text-purple-300 border border-slate-800">
-                {"{=TABLE(, B3)} // Single input driving 3 header output formulas"}
-              </div>
-              <p className="text-xs text-slate-400">Key Benefit: Establishes currency hedging triggers for foreign trade exposures.</p>
             </div>
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 5: STEP-BY-STEP SETUP PROTOCOL & CUSTOM NUMBER MASKS
+            SECTION 5: COMPLETE END-TO-END PROJECT WALKTHROUGH
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[4] = el)}
           className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
         >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-7 h-7 rounded-lg text-sm bg-sky-500/20 text-sky-400 text-base font-mono">🛠️</span>
-              Step-by-Step Construction Protocol &amp; Header Formatting
-            </h2>
-            <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
-              Protocol
+          <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 text-sm font-mono">💼</span>
+                End-to-End Project Walkthrough: Commercial EV Fleet Debt Model
+              </h2>
+              <p className="text-xs text-slate-400 mt-0.5">
+                Follow this exact step-by-step corporate workflow to construct your Single Dimension Data Table from scratch.
+              </p>
+            </div>
+            <span className="text-[11px] font-mono text-emerald-300 bg-emerald-950/60 px-2.5 py-0.5 rounded-lg border border-emerald-800 shrink-0">
+              Project Workflow
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+          <div className="space-y-4 text-xs sm:text-sm">
+            {/* Step 1 */}
             <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-sky-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-sky-950 border border-sky-700 text-sky-300 flex items-center justify-center text-xs">1</span>
-                Step 1: Set Up Base Model &amp; Table Grid
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-sky-300 flex items-center gap-2 text-sm">
+                  <span className="w-5 h-5 rounded-full bg-sky-950 border border-sky-600 text-sky-300 flex items-center justify-center text-xs">1</span>
+                  Step 1: Lay Out the Base Model in Cells A4:C11
+                </span>
+                <span className="text-[11px] font-mono text-slate-400">Base Model Setup</span>
               </div>
-              <p className="text-slate-300 leading-relaxed">
-                List scenario inputs in a column (e.g. D6:D16). In the header row (E5, F5, G5), link directly to base model calculation cells (e.g. <code className="text-sky-300 font-mono">=B6</code>, <code className="text-sky-300 font-mono">=B7</code>).
+              <p className="text-slate-300 leading-relaxed text-xs">
+                In Excel, set up your base financial variables in Column B and calculations using live formulas:
+              </p>
+              <div className="p-3 rounded-lg bg-slate-900 font-mono text-xs text-slate-300 border border-slate-800 space-y-1">
+                <div>• Cell <strong>B5</strong>: <code className="text-sky-300 font-bold">5000000</code> (Loan Principal)</div>
+                <div>• Cell <strong>B6</strong>: <code className="text-sky-300 font-bold">8.50%</code> (Annual Interest Rate - <em>THIS IS YOUR SCENARIO TARGET CELL</em>)</div>
+                <div>• Cell <strong>B7</strong>: <code className="text-sky-300 font-bold">20</code> (Loan Tenure in Years)</div>
+                <div>• Cell <strong>B8</strong>: <code className="text-emerald-300 font-bold">=B7*12</code> (Tenure in Months = 240)</div>
+                <div>• Cell <strong>B9</strong>: <code className="text-emerald-300 font-bold">=PMT(B6/12, B8, -B5)</code> (Monthly EMI = ₹43,391.13)</div>
+                <div>• Cell <strong>B10</strong>: <code className="text-emerald-300 font-bold">=B9*B8</code> (Total Outflow = ₹1,04,13,871.20)</div>
+                <div>• Cell <strong>B11</strong>: <code className="text-emerald-300 font-bold">=B10-B5</code> (Total Interest Paid = ₹54,13,871.20)</div>
+              </div>
+            </div>
+
+            {/* Step 2 */}
+            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-emerald-300 flex items-center gap-2 text-sm">
+                  <span className="w-5 h-5 rounded-full bg-emerald-950 border border-emerald-600 text-emerald-300 flex items-center justify-center text-xs">2</span>
+                  Step 2: Build the Sensitivity Table Shell in Columns E:H
+                </span>
+                <span className="text-[11px] font-mono text-slate-400">Grid Shell Setup</span>
+              </div>
+              <p className="text-slate-300 leading-relaxed text-xs">
+                In Column E, list your test rates down rows 6 through 16: <code className="text-sky-300">7.0%, 7.5%, 8.0%, 8.5%, 9.0%, 9.5%, 10.0%, 10.5%, 11.0%, 11.5%, 12.0%</code>.
+              </p>
+              <p className="text-slate-300 leading-relaxed text-xs">
+                In the top header row (Row 5), write the formula links:
+              </p>
+              <div className="p-3 rounded-lg bg-slate-900 font-mono text-xs text-slate-300 border border-slate-800 space-y-1">
+                <div>• Cell <strong>F5</strong>: <code className="text-emerald-300 font-bold">=B9</code> (Links to Monthly EMI)</div>
+                <div>• Cell <strong>G5</strong>: <code className="text-emerald-300 font-bold">=B10</code> (Links to Total Outflow)</div>
+                <div>• Cell <strong>H5</strong>: <code className="text-emerald-300 font-bold">=B11</code> (Links to Total Interest)</div>
+              </div>
+            </div>
+
+            {/* Step 3 & 4 */}
+            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-amber-300 flex items-center gap-2 text-sm">
+                  <span className="w-5 h-5 rounded-full bg-amber-950 border border-amber-600 text-amber-300 flex items-center justify-center text-xs">3</span>
+                  Step 3 &amp; 4: Select Range &amp; Launch Data Table Dialog
+                </span>
+                <span className="text-[11px] font-mono text-slate-400">Execution</span>
+              </div>
+              <p className="text-slate-300 leading-relaxed text-xs">
+                1. Select the entire rectangular block: <code className="text-amber-300 font-mono font-bold">E5:H16</code>.
+              </p>
+              <p className="text-slate-300 leading-relaxed text-xs">
+                2. On the Ribbon, click <strong>Data Tab &gt; Forecast Group &gt; What-If Analysis &gt; Data Table...</strong> (or press shortcut <kbd className="px-1.5 py-0.5 bg-slate-800 rounded text-cyan-300 font-mono text-[10px]">Alt + A + W + T</kbd>).
+              </p>
+              <p className="text-slate-300 leading-relaxed text-xs">
+                3. In the popup dialog:
+              </p>
+              <div className="p-3 rounded-lg bg-slate-900 font-mono text-xs text-slate-300 border border-slate-800 space-y-1">
+                <div>• <strong>Row input cell:</strong> <span className="text-rose-400 font-bold">(LEAVE COMPLETELY BLANK!)</span></div>
+                <div>• <strong>Column input cell:</strong> Click on cell <code className="text-cyan-300 font-bold">$B$6</code> (the baseline Annual Interest Rate)</div>
+                <div>• Click <strong>OK</strong>.</div>
+              </div>
+              <p className="text-xs text-emerald-300">
+                ✨ Excel instantly fills cells F6:H16 with dynamic calculation array <code className="font-mono">{"{=TABLE(, B6)}"}</code>!
               </p>
             </div>
 
+            {/* Step 5 */}
             <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-emerald-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-300 flex items-center justify-center text-xs">2</span>
-                Step 2: Select Full Table &amp; Launch Dialog
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-purple-300 flex items-center gap-2 text-sm">
+                  <span className="w-5 h-5 rounded-full bg-purple-950 border border-purple-600 text-purple-300 flex items-center justify-center text-xs">5</span>
+                  Step 5: Apply Executive Custom Format Masking
+                </span>
+                <span className="text-[11px] font-mono text-slate-400">Formatting Polish</span>
               </div>
-              <p className="text-slate-300 leading-relaxed">
-                Select range <code className="text-emerald-300 font-mono">D5:G16</code>. Navigate to <strong>Data &gt; What-If Analysis &gt; Data Table</strong> (or press shortcut <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-cyan-300">Alt + A + W + T</kbd>).
+              <p className="text-slate-300 leading-relaxed text-xs">
+                Currently, cell F5 shows the number ₹43,391.13 in your header. To make your table look clean and executive without breaking the formula:
               </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-teal-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-teal-950 border border-teal-700 text-teal-300 flex items-center justify-center text-xs">3</span>
-                Step 3: Assign Column Input Cell &amp; Run
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Leave Row Input Cell blank. In <strong>Column Input Cell</strong>, click baseline input cell <code className="text-teal-300 font-mono">$B$3</code>. Click OK. Excel applies <code className="text-teal-300 font-mono">{"{=TABLE(, B3)}"}</code>.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-purple-950 border border-purple-700 text-purple-300 flex items-center justify-center text-xs">4</span>
-                Step 4: Hide Raw Formulas with Custom Format
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Right-click cell E5 &gt; Format Cells &gt; Custom &gt; Type: <code className="text-purple-300 font-mono">;;;&quot;Monthly EMI&quot;</code>. This masks the raw formula output with professional header text.
+              <ul className="text-xs text-slate-300 space-y-1 list-disc pl-4">
+                <li>Select cell <strong>F5</strong> &gt; Press <kbd className="px-1 py-0.5 bg-slate-800 rounded text-cyan-300 font-mono text-[10px]">Ctrl + 1</kbd> &gt; Click <strong>Custom</strong>.</li>
+                <li>In the <strong>Type</strong> box, enter: <code className="text-purple-300 font-mono font-bold">;;;&quot;Monthly EMI&quot;</code>.</li>
+                <li>Format cell <strong>G5</strong> as: <code className="text-purple-300 font-mono font-bold">;;;&quot;Total Outflow&quot;</code>.</li>
+                <li>Format cell <strong>H5</strong> as: <code className="text-purple-300 font-mono font-bold">;;;&quot;Lifetime Interest&quot;</code>.</li>
+              </ul>
+              <p className="text-[11px] text-slate-400">
+                💡 The three semicolons (<code>;;;</code>) hide positive, negative, and zero values, displaying only your custom text while keeping the formula connection 100% active!
               </p>
             </div>
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 6: INTERACTIVE PRACTICE WORKBOOK & DIRECT DOWNLOAD
+            SECTION 6: DEDICATED DEMONSTRATION WORKBOOK & DIRECT DOWNLOAD
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[5] = el)}
           className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
         >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
             <div>
-              <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-3">
-                <span className="flex items-center justify-center w-7 h-7 rounded-lg text-sm bg-emerald-500/20 text-emerald-400 text-base font-mono">📥</span>
-                Interactive One-Variable Data Table Model
+              <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 text-sm font-mono">📥</span>
+                Dedicated One-Variable Data Table Practice Workbook
               </h2>
-              <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                Explore the live sensitivity matrix model below, or download the full master workbook to practice in desktop Excel.
+              <p className="text-xs text-slate-400 mt-0.5">
+                Explore all 7 interactive sheets below or download the dedicated <code className="text-emerald-300 font-mono">data_table_one_variable_master.xlsx</code> file to practice in desktop Excel.
               </p>
             </div>
             <button
               onClick={handleDownload}
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all duration-200 shadow-lg shadow-emerald-950/40 hover:scale-[1.02] active:scale-[0.98] shrink-0"
-              title="Download the dedicated What-If Analysis master workbook (.xlsx)"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-all duration-200 shadow-md shadow-emerald-950/40 hover:scale-[1.02] active:scale-[0.98] shrink-0"
+              title="Download the dedicated 10-sheet Data Table practice workbook (.xlsx)"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
-              <span>Download Master Workbook (.xlsx)</span>
+              <span>Download 7-Sheet Workbook (.xlsx)</span>
             </button>
           </div>
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic2_One_Variable_Data_"
-            title="One-Variable Data Table Loan Sensitivity Master"
-            rowsPerPage={12}
+            sheetName="Ex1_Loan_Interest_EMI"
+            title="1-Variable Data Table Demonstration Master"
+            rowsPerPage={14}
             showSheetSelector={true}
           />
         </section>
 
         {/* =========================================================================
-            SECTION 7: REAL-WORLD CORPORATE IMPLEMENTATION SCENARIOS
+            SECTION 7: 10 INTERACTIVE HANDS-ON PRACTICE CHALLENGES
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[6] = el)}
           className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
         >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-800">
             <div>
-              <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-3">
-                <span className="flex items-center justify-center w-7 h-7 rounded-lg text-sm bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
-                Real-World Corporate Implementation Scenarios
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                How enterprise financial modelers and operational heads deploy One-Variable Data Tables to drive strategic decisions.
-              </p>
-            </div>
-            <span className="text-xs font-mono text-amber-300 bg-amber-950/60 px-3 py-1 rounded-lg border border-amber-800 shrink-0">
-              Case Studies
-            </span>
-          </div>
-
-          <div className="space-y-6">
-            {/* Case 1: Swadeep Banerjee */}
-            <div className="p-4 sm:p-5 rounded-xl bg-slate-950/80 border border-slate-800 hover:border-amber-500/50 transition-all duration-300 space-y-4">
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-3">
-                <div className="flex items-center gap-2.5">
-                  <span className="px-2.5 py-0.5 rounded-full bg-amber-950 border border-amber-700/60 text-amber-300 text-xs font-bold uppercase">
-                    Case 1 · Commercial Strategy
-                  </span>
-                  <h3 className="font-bold text-white text-base sm:text-lg">
-                    Swadeep Banerjee: Multi-Branch Expansion Loan Stress Testing
-                  </h3>
-                </div>
-                <span className="text-xs font-mono text-slate-400 bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800">
-                  Barrackpore HQ · Retail Expansion
-                </span>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
-                <div className="p-3.5 rounded-xl bg-slate-900/50 border border-slate-800/60 space-y-1">
-                  <span className="text-amber-400 font-bold uppercase tracking-wider text-[11px]">The Operational Challenge:</span>
-                  <p className="text-slate-300 leading-relaxed">
-                    Planning a ₹5 Crore debt-financed retail expansion. The board requires an interest rate sensitivity table evaluating EMI across 10 possible interest rate scenarios (7.5% to 12.0%) to ensure cash flow covers debt servicing at 1.5x DSCR.
-                  </p>
-                </div>
-                <div className="p-3.5 rounded-xl bg-slate-900/50 border border-slate-800/60 space-y-1">
-                  <span className="text-emerald-400 font-bold uppercase tracking-wider text-[11px]">Exact Solution Architecture:</span>
-                  <p className="text-slate-300 leading-relaxed font-mono">
-                    • Column D: Rates 7.5% to 12.0% (0.5% steps)<br />
-                    • Cell E5: =B6 (EMI) | Cell F5: =B8 (DSCR Ratio)<br />
-                    • Table Config: Column Input Cell = $B$3<br />
-                    • Output: {"{=TABLE(, B3)}"}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Case 2: Tuhina Mukherjee */}
-            <div className="p-4 sm:p-5 rounded-xl bg-slate-950/80 border border-slate-800 hover:border-amber-500/50 transition-all duration-300 space-y-4">
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-3">
-                <div className="flex items-center gap-2.5">
-                  <span className="px-2.5 py-0.5 rounded-full bg-amber-950 border border-amber-700/60 text-amber-300 text-xs font-bold uppercase">
-                    Case 2 · Cost &amp; Management Accounting
-                  </span>
-                  <h3 className="font-bold text-white text-base sm:text-lg">
-                    Tuhina Mukherjee: Raw Material Inflation Sensitivity on Batch Margins
-                  </h3>
-                </div>
-                <span className="text-xs font-mono text-slate-400 bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800">
-                  Shyamnagar Plant · Manufacturing Division
-                </span>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
-                <div className="p-3.5 rounded-xl bg-slate-900/50 border border-slate-800/60 space-y-1">
-                  <span className="text-amber-400 font-bold uppercase tracking-wider text-[11px]">The Operational Challenge:</span>
-                  <p className="text-slate-300 leading-relaxed">
-                    Alloy steel manufacturing margins are exposed to fluctuating nickel and chrome prices. Tuhina builds a One-Variable Data Table varying raw material cost per metric ton (₹1.2L to ₹2.0L) against Batch Contribution Margin and Net EBITDA.
-                  </p>
-                </div>
-                <div className="p-3.5 rounded-xl bg-slate-900/50 border border-slate-800/60 space-y-1">
-                  <span className="text-emerald-400 font-bold uppercase tracking-wider text-[11px]">Exact Solution Architecture:</span>
-                  <p className="text-slate-300 leading-relaxed font-mono">
-                    • Column D: Material Cost per MT (Steps of ₹10,000)<br />
-                    • Cell E5: =B10 (Batch Margin) | Cell F5: =B12 (EBITDA %)<br />
-                    • Table Config: Column Input Cell = $B$4<br />
-                    • Output: {"{=TABLE(, B4)}"}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 8: 10 INTERACTIVE HANDS-ON PRACTICE CHALLENGES
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[7] = el)}
-          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-800">
-            <div>
-              <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-3">
-                <span className="flex items-center justify-center w-7 h-7 rounded-lg text-sm bg-sky-500/20 text-sky-400 text-base font-mono">🎯</span>
+              <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-sky-500/20 text-sky-400 text-sm font-mono">🎯</span>
                 10 Practical Hands-On Exercises for 1-Variable Data Tables
               </h2>
-              <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                Test your modeling skills across these 10 exercises. Click to reveal the exact table ranges, input assignments, and formula syntax.
+              <p className="text-xs text-slate-400 mt-0.5">
+                Test your modeling skills across these 10 exercises. Click to reveal exact table ranges, input assignments, and formula syntax.
               </p>
             </div>
-            <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800 shrink-0">
+            <span className="text-[11px] font-mono text-sky-300 bg-sky-950/60 px-2.5 py-0.5 rounded-lg border border-sky-800 shrink-0">
               10 Practice Exercises
             </span>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3">
             {practiceChallenges.map((item, idx) => {
               const isExpanded = openPracticeIdx === idx;
               return (
@@ -660,15 +685,15 @@ export default function Topic2() {
                   <button
                     type="button"
                     onClick={() => setOpenPracticeIdx(isExpanded ? null : idx)}
-                    className="w-full p-4 sm:p-5 flex items-start sm:items-center justify-between gap-4 text-left hover:bg-slate-900/40 transition-colors"
+                    className="w-full p-3.5 sm:p-4 flex items-start sm:items-center justify-between gap-3 text-left hover:bg-slate-900/40 transition-colors"
                   >
-                    <div className="space-y-1">
+                    <div className="space-y-0.5">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="px-2 py-0.5 rounded text-[11px] font-bold font-mono bg-sky-950 border border-sky-800/80 text-sky-300">
+                        <span className="px-1.5 py-0.5 rounded text-[10px] font-bold font-mono bg-sky-950 border border-sky-800/80 text-sky-300">
                           Exercise {idx + 1}
                         </span>
                         <span
-                          className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ${
+                          className={`px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider ${
                             item.difficulty === "Beginner"
                               ? "bg-emerald-950/80 text-emerald-300 border border-emerald-800/60"
                               : item.difficulty === "Intermediate"
@@ -678,29 +703,29 @@ export default function Topic2() {
                         >
                           {item.difficulty}
                         </span>
-                        <span className="text-xs text-slate-400 font-medium">
+                        <span className="text-[11px] text-slate-400 font-medium">
                           {item.category}
                         </span>
                       </div>
-                      <h3 className="font-bold text-white text-sm sm:text-base">
+                      <h3 className="font-bold text-white text-xs sm:text-sm">
                         {item.title}
                       </h3>
                     </div>
 
                     <div className="shrink-0 flex items-center gap-2">
-                      <span className="text-xs font-semibold text-sky-400 hidden sm:inline-block">
+                      <span className="text-[11px] font-semibold text-sky-400 hidden sm:inline-block">
                         {isExpanded ? "Hide Solution" : "Reveal Solution"}
                       </span>
-                      <div className="w-7 h-7 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400">
+                      <div className="w-6 h-6 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 text-xs">
                         {isExpanded ? "▲" : "▼"}
                       </div>
                     </div>
                   </button>
 
                   {isExpanded && (
-                    <div className="p-4 sm:p-6 border-t border-slate-800/80 bg-slate-900/30 space-y-4 text-xs sm:text-sm">
-                      <div className="space-y-1.5">
-                        <strong className="text-amber-400 uppercase tracking-wider text-[11px] block">
+                    <div className="p-3.5 sm:p-5 border-t border-slate-800/80 bg-slate-900/30 space-y-3 text-xs">
+                      <div className="space-y-1">
+                        <strong className="text-amber-400 uppercase tracking-wider text-[10px] block">
                           Problem Scenario:
                         </strong>
                         <p className="text-slate-300 leading-relaxed">
@@ -708,22 +733,22 @@ export default function Topic2() {
                         </p>
                       </div>
 
-                      <div className="p-3 rounded-lg bg-slate-950/60 border border-slate-800 font-mono text-xs text-slate-300">
+                      <div className="p-2.5 rounded-lg bg-slate-950/60 border border-slate-800 font-mono text-[11px] text-slate-300">
                         <span className="text-slate-400">Grid Setup: </span>
                         {item.grid}
                       </div>
 
-                      <div className="space-y-1.5">
-                        <strong className="text-emerald-400 uppercase tracking-wider text-[11px] block">
+                      <div className="space-y-1">
+                        <strong className="text-emerald-400 uppercase tracking-wider text-[10px] block">
                           Exact Execution Command &amp; Formula:
                         </strong>
-                        <div className="p-3.5 rounded-xl bg-slate-950 font-mono text-xs sm:text-sm text-emerald-300 border border-slate-800 overflow-x-auto shadow-inner">
+                        <div className="p-3 rounded-lg bg-slate-950 font-mono text-xs text-emerald-300 border border-slate-800 overflow-x-auto shadow-inner">
                           {item.formula}
                         </div>
                       </div>
 
-                      <div className="space-y-1.5">
-                        <strong className="text-sky-300 uppercase tracking-wider text-[11px] block">
+                      <div className="space-y-1">
+                        <strong className="text-sky-300 uppercase tracking-wider text-[10px] block">
                           Technical Walkthrough &amp; Explanation:
                         </strong>
                         <p className="text-slate-300 leading-relaxed">
@@ -731,7 +756,7 @@ export default function Topic2() {
                         </p>
                       </div>
 
-                      <div className="pt-2 border-t border-slate-800/60 flex items-center justify-between text-slate-400 text-xs font-mono">
+                      <div className="pt-2 border-t border-slate-800/60 flex items-center justify-between text-slate-400 text-[11px] font-mono">
                         <span>Workbook Reference Sheet:</span>
                         <span className="text-cyan-300 font-bold">{item.sheetRef}</span>
                       </div>
@@ -744,51 +769,51 @@ export default function Topic2() {
         </section>
 
         {/* =========================================================================
-            SECTION 9: COMMON PITFALLS & DIAGNOSTIC FIXES
+            SECTION 8: COMMON MISTAKES & STUDENT DIAGNOSTIC MATRIX
         ========================================================================= */}
         <section
-          ref={(el) => (sectionsRef.current[8] = el)}
+          ref={(el) => (sectionsRef.current[7] = el)}
           className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
         >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-7 h-7 rounded-lg text-sm bg-rose-500/20 text-rose-400 text-base font-mono">⚠️</span>
-              Common Pitfalls &amp; Diagnostic Fixes
+          <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+            <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+              <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-rose-500/20 text-rose-400 text-sm font-mono">⚠️</span>
+              Why Single Dimension Data Tables Fail: Student Diagnostic Matrix
             </h2>
-            <span className="text-xs font-mono text-rose-300 bg-rose-950/60 px-3 py-1 rounded-lg border border-rose-800">
-              Troubleshooting
+            <span className="text-[11px] font-mono text-rose-300 bg-rose-950/60 px-2.5 py-0.5 rounded-lg border border-rose-800">
+              Diagnostic Guide
             </span>
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
+            <table className="w-full text-left text-xs border-collapse">
               <thead>
                 <tr className="border-b border-slate-800 text-slate-400 font-semibold bg-slate-950/50">
-                  <th className="py-3 px-4">Error Signature / Symptom</th>
-                  <th className="py-3 px-4">Root Cause</th>
-                  <th className="py-3 px-4">Diagnostic Fix &amp; Prevention</th>
+                  <th className="py-2.5 px-3">Symptom / Error Encountered</th>
+                  <th className="py-2.5 px-3">What the Student Did Wrong</th>
+                  <th className="py-2.5 px-3">The Exact 5-Second Fix</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">All results return identical values</td>
-                  <td className="py-3 px-4">Row Input Cell and Column Input Cell were swapped in the dialog.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">For vertical value lists, leave Row Input blank and select Column Input.</td>
+                  <td className="py-2.5 px-3 font-mono font-bold text-rose-300">All rows show identical numbers</td>
+                  <td className="py-2.5 px-3">Placed the cell reference into 'Row input cell' instead of 'Column input cell'.</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300">Leave Row Input BLANK; select Column Input ($B$6).</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Cannot change part of a data table</td>
-                  <td className="py-3 px-4">Attempted to edit or delete a single result cell in the array.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Select the entire data table range and press Delete to clear.</td>
+                  <td className="py-2.5 px-3 font-mono font-bold text-rose-300">"Cannot change part of a data table"</td>
+                  <td className="py-2.5 px-3">Tried to edit, delete, or re-type a single cell inside the table array.</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300">Select the entire result block (F6:H16) and press Delete.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Table results show 0 or blank</td>
-                  <td className="py-3 px-4">Output formula was placed in a data row instead of the top header row.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Ensure output formulas sit in the top row (E5, F5) of output columns.</td>
+                  <td className="py-2.5 px-3 font-mono font-bold text-rose-300">Results show 0 or blank</td>
+                  <td className="py-2.5 px-3">Put formula =B9 inside cell F6 instead of top header cell F5.</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300">Move formula link to Row 5 directly above the result list.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Severe Excel Calculation Lag</td>
-                  <td className="py-3 px-4">Multiple Data Tables recalculating on every background keystroke.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Set Calculation Mode to &quot;Automatic Except for Data Tables&quot; (F9 to refresh).</td>
+                  <td className="py-2.5 px-3 font-mono font-bold text-rose-300">Top header shows ugly number</td>
+                  <td className="py-2.5 px-3">Left raw formula output visible without custom format masking.</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300">Format cell as Custom: ;;;"Monthly EMI".</td>
                 </tr>
               </tbody>
             </table>
@@ -796,109 +821,21 @@ export default function Topic2() {
         </section>
 
         {/* =========================================================================
-            SECTION 10: PRO TIPS & ACCELERATORS
+            SECTION 9: FREQUENTLY ASKED QUESTIONS (30 QUESTIONS)
         ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[9] = el)}
-          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-7 h-7 rounded-lg text-sm bg-purple-500/20 text-purple-400 text-base font-mono">💡</span>
-              Pro Tips &amp; High-Speed Accelerators
-            </h2>
-            <span className="text-xs font-mono text-purple-300 bg-purple-950/60 px-3 py-1 rounded-lg border border-purple-800">
-              Productivity
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Keyboard Accelerator
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Open the Data Table configuration dialog instantly from anywhere on the sheet:
-              </p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">Alt + A + W + T</kbd>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Custom Header Mask
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Mask raw output formula headers with professional executive text strings:
-              </p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">;;;&quot;Header Name&quot;</kbd>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Manual Calculation
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Recalculate Data Tables on-demand under &quot;Automatic Except Data Tables&quot; mode:
-              </p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">F9 / Shift + F9</kbd>
-            </div>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 11: SOCRATIC ANALYTICAL HINTS
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[10] = el)}
-          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-7 h-7 rounded-lg text-sm bg-teal-500/20 text-teal-400 text-base font-mono">🤔</span>
-              Socratic Analytical Hints (&quot;Think About...&quot;)
-            </h2>
-            <span className="text-xs font-mono text-teal-300 bg-teal-950/60 px-3 py-1 rounded-lg border border-teal-800">
-              Critical Thinking
-            </span>
-          </div>
-
-          <div className="space-y-3 text-xs sm:text-sm text-slate-300">
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: How does Excel perform sensitivity calculations without overwriting the base model cell?
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                Consider how the calculation engine runs shadow iterations in memory before depositing the output matrix.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: Why can a One-Variable Data Table support multiple outputs, while a Two-Variable Data Table only supports one?
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                Reflect on geometric grid dimensions: 1D tables use the remaining dimension for extra output columns, whereas 2D tables consume both X and Y axes for inputs.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 12: FREQUENTLY ASKED QUESTIONS (30 QUESTIONS)
-        ========================================================================= */}
-        <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
+        <div ref={(el) => (sectionsRef.current[8] = el)} className="reveal-section">
           <FAQTemplate
-            title="One-Variable Data Tables - Comprehensive Mastery Q&amp;A"
+            title="Single Dimension Data Tables - Comprehensive Mastery Q&amp;A"
             questions={questions}
           />
         </div>
 
         {/* =========================================================================
-            SECTION 13: TEACHER'S NOTE & WISDOM
+            SECTION 10: TEACHER'S NOTE & WISDOM
         ========================================================================= */}
-        <div ref={(el) => (sectionsRef.current[12] = el)} className="reveal-section">
+        <div ref={(el) => (sectionsRef.current[9] = el)} className="reveal-section">
           <Teacher
-            note="One-Variable Data Tables are the secret weapon of corporate financial analysts! Always remember to use custom number formatting (;;;&quot;Label&quot;) to keep your headers looking executive and pristine, and switch to 'Automatic Except Data Tables' if your workbook begins to feel sluggish."
+            note="Single Dimension Data Tables are the cornerstone of executive sensitivity modeling! Remember the Golden Rule: If your scenario inputs run vertically down a column, leave Row Input Cell BLANK, point Column Input Cell to your original model variable ($B$6), and mask your header formulas with ;;;'Header Name' for a clean, executive presentation."
           />
         </div>
       </div>
