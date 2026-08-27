@@ -43,6 +43,17 @@ import {
   ListOrdered
 } from "lucide-react";
 
+// Base year for calculating dynamic teaching experience
+const TEACHING_BASE_YEAR = 1998;
+const getTeachingExpYears = () => new Date().getFullYear() - TEACHING_BASE_YEAR;
+
+// Helper to format teacher bio dynamically based on base year 1998
+const formatTeacherBio = (bio) => {
+  if (!bio) return "";
+  const expYears = getTeachingExpYears();
+  return bio.replace(/\b(\d{2}\+?)\s*years\b/gi, `${expYears}+ years`);
+};
+
 // Default instructor data fallback if not in JSON
 const defaultTeacher = {
   name: "Sukanta Hui",
@@ -50,7 +61,7 @@ const defaultTeacher = {
   organization: "Founder, Coder & AccoTax",
   location: "Barrackpore, West Bengal, India",
   photo: "/teachers/sukantahui.jpg",
-  bio: "Designing rigorous, practical curricula that bridge theory with real-world applications and job-ready skills.",
+  bio: `Over ${getTeachingExpYears()}+ years of practical training expertise in Enterprise Software Development, Financial Accounting, Advanced Excel Analytics, Database Systems, and Automated Business Systems.`,
   social: {
     linkedin: "https://www.linkedin.com/in/sukantahui/",
     twitter: "https://twitter.com/sukantahui",
@@ -123,6 +134,102 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
   const BOOKMARKED_KEY_PREFIX = `${storageSubject}-module-bookmarked::`;
   const LAST_VISITED_KEY = `${storageSubject}-last-visited-module`;
 
+  // Helper to determine the active segment ID from lastVisited or storage
+  const resolveActiveSegmentId = useCallback((visitedData) => {
+    if (visitedData?.segmentId) {
+      const exists = (roadmapData?.segments || []).some(s => s.segmentId === visitedData.segmentId);
+      if (exists) return visitedData.segmentId;
+    }
+    if (visitedData?.slug || visitedData?.moduleId) {
+      for (const seg of roadmapData?.segments || []) {
+        if (seg.modules?.some(m => m.slug === visitedData.slug || m.moduleId === visitedData.moduleId)) {
+          return seg.segmentId;
+        }
+      }
+    }
+    return roadmapData?.segments?.[0]?.segmentId || null;
+  }, [roadmapData]);
+
+  // Initial active segment (defaults to last visited or first segment)
+  const [activeSegmentId, setActiveSegmentId] = useState(() => {
+    try {
+      const stored = localStorage.getItem(LAST_VISITED_KEY);
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        return resolveActiveSegmentId(parsed);
+      }
+    } catch {
+      // ignore
+    }
+    return roadmapData?.segments?.[0]?.segmentId || null;
+  });
+
+  // Track expanded state per segment: only current/last visited is open initially; others minimized
+  const [expandedSegments, setExpandedSegments] = useState(() => {
+    let initId = null;
+    try {
+      const stored = localStorage.getItem(LAST_VISITED_KEY);
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        initId = resolveActiveSegmentId(parsed);
+      }
+    } catch {
+      // ignore
+    }
+    if (!initId) {
+      initId = roadmapData?.segments?.[0]?.segmentId;
+    }
+    const map = {};
+    (roadmapData?.segments || []).forEach(seg => {
+      map[seg.segmentId] = seg.segmentId === initId;
+    });
+    return map;
+  });
+
+  // Segment accordion controls (expanding one minimizes all others)
+  const toggleSegment = (segmentId) => {
+    setExpandedSegments(prev => {
+      const isCurrentlyExpanded = !!prev[segmentId];
+      if (isCurrentlyExpanded) {
+        return { ...prev, [segmentId]: false };
+      } else {
+        setActiveSegmentId(segmentId);
+        const map = {};
+        (roadmapData?.segments || []).forEach(seg => {
+          map[seg.segmentId] = seg.segmentId === segmentId;
+        });
+        return map;
+      }
+    });
+  };
+
+  const expandOnlySegment = (segmentId) => {
+    setActiveSegmentId(segmentId);
+    setExpandedSegments(() => {
+      const map = {};
+      (roadmapData?.segments || []).forEach(seg => {
+        map[seg.segmentId] = seg.segmentId === segmentId;
+      });
+      return map;
+    });
+  };
+
+  const expandAllSegments = () => {
+    const map = {};
+    (roadmapData?.segments || []).forEach(seg => {
+      map[seg.segmentId] = true;
+    });
+    setExpandedSegments(map);
+  };
+
+  const collapseAllSegments = () => {
+    const map = {};
+    (roadmapData?.segments || []).forEach(seg => {
+      map[seg.segmentId] = false;
+    });
+    setExpandedSegments(map);
+  };
+
   if (!roadmapData) {
     return (
       <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center p-6">
@@ -138,16 +245,38 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
   // Auth & Storage Listeners
   // ==========================================================
   useEffect(() => {
-    const handleAuthChange = () => setAuthVersion(v => v + 1);
+    const handleAuthChange = () => {
+      setAuthVersion(v => v + 1);
+      try {
+        const stored = localStorage.getItem(LAST_VISITED_KEY);
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          setLastVisited(parsed);
+          const resolvedId = resolveActiveSegmentId(parsed);
+          if (resolvedId) {
+            setActiveSegmentId(resolvedId);
+          }
+        }
+      } catch {
+        // ignore
+      }
+    };
     window.addEventListener("storage", handleAuthChange);
     window.addEventListener("authChange", handleAuthChange);
     document.addEventListener("visibilitychange", handleAuthChange);
 
-    // Retrieve last visited
+    // Retrieve last visited on mount and auto-open active segment
     try {
       const stored = localStorage.getItem(LAST_VISITED_KEY);
       if (stored) {
-        setLastVisited(JSON.parse(stored));
+        const parsed = JSON.parse(stored);
+        setLastVisited(parsed);
+        const resolvedId = resolveActiveSegmentId(parsed);
+        if (resolvedId) {
+          setActiveSegmentId(resolvedId);
+          // Keep only current segment open, minimize others
+          setExpandedSegments({ [resolvedId]: true });
+        }
       }
     } catch {
       // ignore
@@ -158,7 +287,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
       window.removeEventListener("authChange", handleAuthChange);
       document.removeEventListener("visibilitychange", handleAuthChange);
     };
-  }, [roadmapData, LAST_VISITED_KEY]);
+  }, [roadmapData, LAST_VISITED_KEY, resolveActiveSegmentId]);
 
   const isLoggedIn = useCallback(() => {
     const token = localStorage.getItem("token");
@@ -200,18 +329,22 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
     showToast(nextVal ? `Bookmarked "${title}"` : `Removed bookmark from "${title}"`);
   };
 
-  // Record last visited module
-  const recordVisit = (module, segmentTitle) => {
+  // Record last visited module & segment
+  const recordVisit = (module, segmentId, segmentTitle) => {
     const data = {
       slug: module.slug,
       title: module.title,
       moduleId: module.moduleId,
-      segmentTitle,
+      segmentId: segmentId || "",
+      segmentTitle: segmentTitle || "",
       timestamp: new Date().toISOString()
     };
     try {
       localStorage.setItem(LAST_VISITED_KEY, JSON.stringify(data));
       setLastVisited(data);
+      if (segmentId) {
+        setActiveSegmentId(segmentId);
+      }
     } catch {
       // ignore
     }
@@ -226,12 +359,16 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
     setTimeout(() => setCopiedSlug(null), 2000);
   };
 
-  // Toggle topic list expansion
+  // Toggle topic list expansion (expanding one minimizes others)
   const toggleTopicExpand = (moduleId) => {
-    setExpandedTopics(prev => ({
-      ...prev,
-      [moduleId]: !prev[moduleId]
-    }));
+    setExpandedTopics(prev => {
+      const isCurrentlyExpanded = !!prev[moduleId];
+      if (isCurrentlyExpanded) {
+        return { ...prev, [moduleId]: false };
+      } else {
+        return { [moduleId]: true };
+      }
+    });
   };
 
   // Module Visibility Check
@@ -780,14 +917,16 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
             </span>
 
             <button
-              onClick={() => setSelectedSegment("all")}
+              onClick={() => {
+                setSelectedSegment("all");
+              }}
               className={`px-3 py-1 rounded-lg text-xs font-medium transition ${
                 selectedSegment === "all"
                   ? "bg-slate-200 text-slate-950 font-semibold"
                   : "bg-slate-900 border border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
               }`}
             >
-              All Segments ({stats.total})
+              All Segments ({roadmapData.segments?.length || 0})
             </button>
 
             {roadmapData.segments?.map((seg, idx) => {
@@ -798,7 +937,14 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
               return (
                 <button
                   key={seg.segmentId}
-                  onClick={() => setSelectedSegment(isSelected ? "all" : seg.segmentId)}
+                  onClick={() => {
+                    if (isSelected) {
+                      setSelectedSegment("all");
+                    } else {
+                      setSelectedSegment(seg.segmentId);
+                      expandOnlySegment(seg.segmentId);
+                    }
+                  }}
                   className={`px-3 py-1 rounded-lg text-xs font-medium transition flex items-center gap-1.5 ${
                     isSelected
                       ? "bg-slate-800 border border-slate-600 text-slate-100 font-semibold"
@@ -933,125 +1079,276 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
         {/* Segmented Curriculum Modules View */}
         {/* ========================================================== */}
         {filteredSegments.length > 0 ? (
-          <div className="space-y-10">
+          <div className="space-y-6">
+            {/* Toolbar for quick expand/collapse */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-1 pb-1">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+                  <Layers size={13} className="text-sky-400" />
+                  Curriculum Segments
+                </span>
+                <span className="text-xs text-slate-500 font-mono">
+                  ({filteredSegments.length} total)
+                </span>
+              </div>
+
+              <div className="flex items-center gap-1.5 text-xs">
+                <button
+                  type="button"
+                  onClick={expandAllSegments}
+                  className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-850 text-slate-400 hover:text-slate-200 border border-slate-800 transition flex items-center gap-1"
+                  title="Expand all segments"
+                >
+                  <ChevronDown size={13} />
+                  <span>Expand All</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => activeSegmentId && expandOnlySegment(activeSegmentId)}
+                  className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-850 text-slate-400 hover:text-sky-300 border border-slate-800 transition flex items-center gap-1"
+                  title="Minimize others and keep only the active segment open"
+                >
+                  <Sparkles size={12} className="text-sky-400" />
+                  <span>Focus Current</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={collapseAllSegments}
+                  className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-850 text-slate-400 hover:text-slate-200 border border-slate-800 transition flex items-center gap-1"
+                  title="Minimize all segments"
+                >
+                  <ChevronUp size={13} />
+                  <span>Collapse All</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Segment Sections */}
             {filteredSegments.map((segment) => {
               const theme = segment.theme;
               const segmentPercent = segment.totalModulesInSegment > 0
                 ? Math.round((segment.completedInSegment / segment.totalModulesInSegment) * 100)
                 : 0;
+              const isExpanded = expandedSegments[segment.segmentId] === true;
+              const isCurrent = activeSegmentId === segment.segmentId;
 
               return (
                 <section
                   key={segment.segmentId}
-                  className="rounded-2xl bg-slate-900/60 border border-slate-800 p-5 sm:p-6 md:p-7 backdrop-blur-sm shadow-sm transition-all"
+                  id={`segment-${segment.segmentId}`}
+                  className={`rounded-2xl border transition-all duration-200 backdrop-blur-sm shadow-sm ${
+                    isExpanded
+                      ? isCurrent
+                        ? "border-sky-500/40 bg-slate-900/80 shadow-sky-950/20 p-5 sm:p-6 md:p-7"
+                        : "border-slate-800 bg-slate-900/70 p-5 sm:p-6 md:p-7"
+                      : isCurrent
+                      ? "border-sky-800/40 bg-sky-950/15 hover:bg-sky-950/25 hover:border-sky-700/50 p-4 sm:p-5 md:py-4 md:px-6"
+                      : "border-slate-850/80 bg-slate-950/45 hover:bg-slate-900/40 hover:border-slate-750/70 p-4 sm:p-5 md:py-4 md:px-6"
+                  }`}
                 >
-                  {/* Segment Header */}
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 mb-5 border-b border-slate-800/80">
+                  {/* Segment Header (Clickable Accordion) */}
+                  <div
+                    onClick={() => toggleSegment(segment.segmentId)}
+                    className={`cursor-pointer group flex flex-col md:flex-row md:items-center justify-between gap-3.5 select-none ${
+                      isExpanded ? "pb-2" : "pb-0"
+                    }`}
+                  >
                     <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-slate-900 text-slate-300 border border-slate-800">
+                      <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                        <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-medium border ${
+                          isExpanded
+                            ? "bg-slate-900 text-slate-300 border-slate-800"
+                            : "bg-slate-950/80 text-slate-400 border-slate-850"
+                        }`}>
                           {segment.level || "Core Segment"}
                         </span>
                         <span className="text-xs text-slate-400 flex items-center gap-1">
                           <Clock size={11} className="text-slate-400" />
                           {segment.allocatedHours} Hours
                         </span>
+                        <span className="text-xs text-slate-400 flex items-center gap-1">
+                          <Layers size={11} className="text-slate-400" />
+                          {segment.totalModulesInSegment} Modules
+                        </span>
+                        {isCurrent && (
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-sky-950/90 text-sky-300 border border-sky-600/70 flex items-center gap-1 shadow-sm">
+                            <Sparkles size={10} className="text-sky-400" /> Current Segment
+                          </span>
+                        )}
                       </div>
-                      <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white flex items-center gap-2">
-                        <Layers className={`w-5 h-5 ${theme.accent}`} />
+
+                      <h2 className={`font-bold transition-colors flex items-center gap-2 ${
+                        isExpanded
+                          ? "text-lg sm:text-xl md:text-2xl text-white group-hover:text-sky-300"
+                          : "text-base sm:text-lg text-slate-200 group-hover:text-sky-300"
+                      }`}>
+                        <Layers className={`w-4 h-4 sm:w-5 sm:h-5 ${theme.accent}`} />
                         <span>{segment.title}</span>
                       </h2>
+
                       {segment.summary && (
-                        <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl leading-relaxed">
+                        <p className={`text-slate-400 mt-1 max-w-3xl leading-relaxed ${
+                          isExpanded
+                            ? "text-xs sm:text-sm line-clamp-2"
+                            : "text-xs line-clamp-1 text-slate-500 group-hover:text-slate-400"
+                        }`}>
                           {segment.summary}
                         </p>
                       )}
                     </div>
 
-                    {/* Segment Completion Badge */}
-                    <div className="flex items-center gap-3 self-start md:self-auto bg-slate-950/80 px-3.5 py-2 rounded-xl border border-slate-800">
-                      <div className="text-right">
-                        <div className="text-[10px] uppercase tracking-wider text-slate-400 font-medium">Segment Progress</div>
-                        <div className="text-xs font-semibold text-slate-300">
-                          {segment.completedInSegment} / {segment.totalModulesInSegment} Completed
+                    {/* Right side: Progress Badge + Minimize/Expand Button */}
+                    <div className="flex items-center gap-2.5 self-start md:self-auto shrink-0">
+                      <div className={`flex items-center gap-2.5 rounded-xl border ${
+                        isExpanded
+                          ? "bg-slate-950/80 px-3.5 py-2 border-slate-800"
+                          : "bg-slate-950/50 px-3 py-1.5 border-slate-850"
+                      }`}>
+                        <div className="text-right">
+                          <div className="text-[10px] uppercase tracking-wider text-slate-400 font-medium">Progress</div>
+                          <div className="text-xs font-semibold text-slate-300">
+                            {segment.completedInSegment} / {segment.totalModulesInSegment} Done
+                          </div>
+                        </div>
+                        <div className={`rounded-full border flex items-center justify-center font-semibold text-slate-300 ${
+                          isExpanded
+                            ? "w-8 h-8 bg-slate-900 border-slate-700 text-xs"
+                            : "w-7 h-7 bg-slate-900/80 border-slate-800 text-[11px]"
+                        }`}>
+                          {segmentPercent}%
                         </div>
                       </div>
-                      <div className="w-8 h-8 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center text-xs font-semibold text-slate-300">
-                        {segmentPercent}%
-                      </div>
+
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toggleSegment(segment.segmentId);
+                        }}
+                        className={`rounded-xl border text-xs font-medium transition flex items-center gap-1.5 ${
+                          isExpanded
+                            ? "p-2 bg-slate-800 text-slate-200 border-slate-700 hover:bg-slate-750"
+                            : "py-1.5 px-2.5 bg-slate-900/80 text-sky-400 border-slate-800 hover:bg-slate-850 hover:border-slate-700"
+                        }`}
+                        title={isExpanded ? "Minimize this segment" : "Expand this segment"}
+                      >
+                        {isExpanded ? (
+                          <>
+                            <span className="hidden sm:inline text-[11px]">Minimize</span>
+                            <ChevronUp size={14} />
+                          </>
+                        ) : (
+                          <>
+                            <span className="hidden sm:inline text-[11px] font-semibold">Expand</span>
+                            <ChevronDown size={14} />
+                          </>
+                        )}
+                      </button>
                     </div>
                   </div>
 
-                  {/* Modules Display (Grid vs Timeline) */}
-                  {viewMode === "grid" ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {segment.filteredModules.map((module) => (
-                        <ModuleCard
-                          key={module.moduleId}
-                          module={module}
-                          theme={theme}
-                          isCompleted={isCompleted(module.moduleId)}
-                          isBookmarked={isBookmarked(module.moduleId)}
-                          isExpanded={!!expandedTopics[module.moduleId]}
-                          isLocked={!isModuleVisible(module)}
-                          copiedSlug={copiedSlug}
-                          onToggleComplete={() => toggleCompleted(module.moduleId, module.title)}
-                          onToggleBookmark={() => toggleBookmark(module.moduleId, module.title)}
-                          onToggleExpand={() => toggleTopicExpand(module.moduleId)}
-                          onCopyLink={() => copyDirectLink(module.slug, module.title)}
-                          onRecordVisit={() => recordVisit(module, segment.title)}
-                          roadmapFolder={roadmapData.folder}
-                        />
-                      ))}
+                  {/* Minimized Hint Bar */}
+                  {!isExpanded && (
+                    <div
+                      onClick={() => toggleSegment(segment.segmentId)}
+                      className="mt-2.5 py-1.5 px-3 rounded-xl bg-slate-950/40 hover:bg-slate-950/80 border border-slate-850/60 hover:border-slate-750 text-xs text-slate-400 hover:text-slate-200 flex items-center justify-between cursor-pointer transition select-none"
+                    >
+                      <span className="flex items-center gap-2">
+                        <span className={`w-1.5 h-1.5 rounded-full ${theme.dot}`} />
+                        <span className="text-[11px] text-slate-400">{segment.filteredModules.length} modules hidden</span>
+                      </span>
+                      <span className="text-[11px] font-medium text-sky-400/90 flex items-center gap-1 group-hover:text-sky-300">
+                        View Modules <ChevronDown size={12} />
+                      </span>
                     </div>
-                  ) : (
-                    /* Timeline View */
-                    <div className="relative pl-6 sm:pl-7 border-l border-slate-800 space-y-5">
-                      {segment.filteredModules.map((module) => (
-                        <div key={module.moduleId} className="relative">
-                          {/* Timeline Dot */}
-                          <div
-                            className={`absolute -left-[30px] sm:-left-[35px] top-4 w-4 h-4 rounded-full border flex items-center justify-center ${
-                              isCompleted(module.moduleId)
-                                ? "bg-emerald-600 border-emerald-400 text-slate-950"
-                                : "bg-slate-900 border-slate-700 text-slate-500"
-                            }`}
-                          >
-                            {isCompleted(module.moduleId) ? <Check size={10} /> : <div className="w-1 h-1 rounded-full bg-slate-500" />}
-                          </div>
+                  )}
 
-                          <ModuleCard
-                            module={module}
-                            theme={theme}
-                            isCompleted={isCompleted(module.moduleId)}
-                            isBookmarked={isBookmarked(module.moduleId)}
-                            isExpanded={!!expandedTopics[module.moduleId]}
-                            isLocked={!isModuleVisible(module)}
-                            copiedSlug={copiedSlug}
-                            onToggleComplete={() => toggleCompleted(module.moduleId, module.title)}
-                            onToggleBookmark={() => toggleBookmark(module.moduleId, module.title)}
-                            onToggleExpand={() => toggleTopicExpand(module.moduleId)}
-                            onCopyLink={() => copyDirectLink(module.slug, module.title)}
-                            onRecordVisit={() => recordVisit(module, segment.title)}
-                            roadmapFolder={roadmapData.folder}
-                          />
+                  {/* Modules Display (Expanded Body with Smooth Animation) */}
+                  <AnimatePresence initial={false}>
+                    {isExpanded && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.22, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pt-5 mt-3 border-t border-slate-800/80">
+                          {viewMode === "grid" ? (
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                              {segment.filteredModules.map((module) => (
+                                <ModuleCard
+                                  key={module.moduleId}
+                                  module={module}
+                                  theme={theme}
+                                  isCompleted={isCompleted(module.moduleId)}
+                                  isBookmarked={isBookmarked(module.moduleId)}
+                                  isExpanded={!!expandedTopics[module.moduleId]}
+                                  isLocked={!isModuleVisible(module)}
+                                  copiedSlug={copiedSlug}
+                                  onToggleComplete={() => toggleCompleted(module.moduleId, module.title)}
+                                  onToggleBookmark={() => toggleBookmark(module.moduleId, module.title)}
+                                  onToggleExpand={() => toggleTopicExpand(module.moduleId)}
+                                  onCopyLink={() => copyDirectLink(module.slug, module.title)}
+                                  onRecordVisit={() => recordVisit(module, segment.segmentId, segment.title)}
+                                  roadmapFolder={roadmapData.folder}
+                                />
+                              ))}
+                            </div>
+                          ) : (
+                            /* Timeline View */
+                            <div className="relative pl-6 sm:pl-7 border-l border-slate-800 space-y-5">
+                              {segment.filteredModules.map((module) => (
+                                <div key={module.moduleId} className="relative">
+                                  {/* Timeline Dot */}
+                                  <div
+                                    className={`absolute -left-[30px] sm:-left-[35px] top-4 w-4 h-4 rounded-full border flex items-center justify-center ${
+                                      isCompleted(module.moduleId)
+                                        ? "bg-emerald-600 border-emerald-400 text-slate-950"
+                                        : "bg-slate-900 border-slate-700 text-slate-500"
+                                    }`}
+                                  >
+                                    {isCompleted(module.moduleId) ? <Check size={10} /> : <div className="w-1 h-1 rounded-full bg-slate-500" />}
+                                  </div>
+
+                                  <ModuleCard
+                                    module={module}
+                                    theme={theme}
+                                    isCompleted={isCompleted(module.moduleId)}
+                                    isBookmarked={isBookmarked(module.moduleId)}
+                                    isExpanded={!!expandedTopics[module.moduleId]}
+                                    isLocked={!isModuleVisible(module)}
+                                    copiedSlug={copiedSlug}
+                                    onToggleComplete={() => toggleCompleted(module.moduleId, module.title)}
+                                    onToggleBookmark={() => toggleBookmark(module.moduleId, module.title)}
+                                    onToggleExpand={() => toggleTopicExpand(module.moduleId)}
+                                    onCopyLink={() => copyDirectLink(module.slug, module.title)}
+                                    onRecordVisit={() => recordVisit(module, segment.segmentId, segment.title)}
+                                    roadmapFolder={roadmapData.folder}
+                                  />
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
+                          {/* Logged in prompt for locked modules */}
+                          {!isLoggedIn() && segment.modules.some(m => m.visibility === "loggedIn") && (
+                            <div className="mt-4 p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                              <div className="flex items-center gap-2">
+                                <Lock size={13} className="text-slate-400" />
+                                <span>Additional case studies and practice tests require login.</span>
+                              </div>
+                              <Link to="/login" className="font-semibold text-slate-200 hover:underline">
+                                Sign In →
+                              </Link>
+                            </div>
+                          )}
                         </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Logged in prompt for locked modules */}
-                  {!isLoggedIn() && segment.modules.some(m => m.visibility === "loggedIn") && (
-                    <div className="mt-4 p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between text-xs text-slate-400">
-                      <div className="flex items-center gap-2">
-                        <Lock size={13} className="text-slate-400" />
-                        <span>Additional case studies and practice tests require login.</span>
-                      </div>
-                      <Link to="/login" className="font-semibold text-slate-200 hover:underline">
-                        Sign In →
-                      </Link>
-                    </div>
-                  )}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </section>
               );
             })}
@@ -1081,12 +1378,13 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
         {/* ========================================================== */}
         {/* Teacher / Instructor Profile & Institutional Card */}
         {/* ========================================================== */}
-        <section className="mt-14 mb-10 max-w-4xl mx-auto rounded-2xl bg-slate-900/70 border border-slate-800 p-5 sm:p-7 shadow-sm relative">
+        <section className="mt-14 mb-10 max-w-4xl mx-auto rounded-2xl bg-slate-900/40 border border-slate-800/80 p-5 sm:p-6 backdrop-blur-sm relative">
+          
           <div className="flex flex-col md:flex-row items-center md:items-start gap-5 sm:gap-6">
             
             {/* Teacher Avatar */}
             <div className="shrink-0 relative">
-              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border border-slate-700 p-1 bg-slate-950 shadow">
+              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border border-slate-800/80 p-0.5 bg-slate-950 shadow-md">
                 <img
                   src={teacher.photo || "/teachers/sukantahui.jpg"}
                   alt={teacher.name}
@@ -1097,110 +1395,147 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                   className="w-full h-full rounded-xl object-cover"
                 />
               </div>
+              <div className="mt-2 text-center">
+                <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-emerald-400">
+                  <CheckCircle2 size={11} /> Verified Lead
+                </span>
+              </div>
             </div>
 
             {/* Teacher Info */}
-            <div className="flex-1 text-center md:text-left">
+            <div className="flex-1 text-center md:text-left min-w-0">
+              
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 mb-1.5">
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-white">
-                    {teacher.name}
+                  <h3 className="text-lg sm:text-xl font-bold text-white flex items-center justify-center md:justify-start gap-1.5">
+                    <span>{teacher.name}</span>
+                    <ShieldCheck size={16} className="text-sky-400" />
                   </h3>
-                  <p className="text-xs font-medium text-slate-400">
+                  <p className="text-xs text-slate-400 mt-0.5">
                     {teacher.designation}
                   </p>
                 </div>
-                <span className="text-[11px] text-slate-400 font-medium px-2.5 py-0.5 rounded-lg bg-slate-950 border border-slate-800 self-center sm:self-auto">
+                
+                <span className="text-[11px] text-slate-400 font-medium px-2.5 py-0.5 rounded-lg bg-slate-950/60 border border-slate-800/60 self-center sm:self-auto shrink-0">
                   {teacher.organization} · {teacher.location}
                 </span>
               </div>
 
-              <p className="text-xs text-slate-400 leading-relaxed mt-2 max-w-2xl">
-                {teacher.bio}
+              {/* 4 Trust Highlights (Integrated Inline Row) */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 my-3">
+                <div className="py-1.5 px-2.5 rounded-lg bg-slate-950/40 border border-slate-800/60 text-center">
+                  <div className="text-xs font-bold text-sky-400">{getTeachingExpYears()}+ Years</div>
+                  <div className="text-[10px] text-slate-400">Teaching Experience</div>
+                </div>
+                <div className="py-1.5 px-2.5 rounded-lg bg-slate-950/40 border border-slate-800/60 text-center">
+                  <div className="text-xs font-bold text-emerald-400">6,000+</div>
+                  <div className="text-[10px] text-slate-400">Alumni & Learners</div>
+                </div>
+                <div className="py-1.5 px-2.5 rounded-lg bg-slate-950/40 border border-slate-800/60 text-center">
+                  <div className="text-xs font-bold text-indigo-300">100%</div>
+                  <div className="text-[10px] text-slate-400">Hands-on Practice</div>
+                </div>
+                <div className="py-1.5 px-2.5 rounded-lg bg-slate-950/40 border border-slate-800/60 text-center">
+                  <div className="text-xs font-bold text-amber-400">Direct</div>
+                  <div className="text-[10px] text-slate-400">Doubt Support</div>
+                </div>
+              </div>
+
+              {/* Bio */}
+              <p className="text-xs text-slate-400 leading-relaxed max-w-2xl">
+                {formatTeacherBio(teacher.bio)}
               </p>
 
-              {/* Social Channels */}
+              {/* Direct Action Hub & Social Channels */}
               {teacher.social && (
-                <div className="mt-4 flex flex-wrap items-center justify-center md:justify-start gap-2">
-                  {teacher.social.linkedin && (
-                    <a
-                      href={teacher.social.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
-                      title="LinkedIn Profile"
-                    >
-                      <Linkedin size={15} />
-                    </a>
-                  )}
+                <div className="mt-3.5 pt-3 border-t border-slate-800/60 flex flex-wrap items-center justify-center md:justify-between gap-2.5">
+                  
+                  {/* Primary Direct Query Action */}
+                  <div className="flex items-center gap-2">
+                    {teacher.social.whatsapp && (
+                      <a
+                        href={`https://wa.me/${teacher.social.whatsapp.replace(/\D/g, "")}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600/90 hover:bg-emerald-600 text-white text-xs font-semibold transition"
+                      >
+                        <MessageSquare size={13} className="text-white" />
+                        <span>WhatsApp Query</span>
+                      </a>
+                    )}
 
-                  {teacher.social.twitter && (
-                    <a
-                      href={teacher.social.twitter}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
-                      title="Twitter / X"
-                    >
-                      <Twitter size={15} />
-                    </a>
-                  )}
+                    {teacher.social.email && (
+                      <a
+                        href={`mailto:${teacher.social.email}`}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-950/60 hover:bg-slate-900 border border-slate-800/60 text-slate-300 text-xs font-medium hover:text-white transition"
+                      >
+                        <Mail size={13} className="text-slate-400" />
+                        <span>Email</span>
+                      </a>
+                    )}
+                  </div>
 
-                  {teacher.social.website && (
-                    <a
-                      href={teacher.social.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
-                      title="Official Website"
-                    >
-                      <Globe size={15} />
-                    </a>
-                  )}
+                  {/* Social links */}
+                  <div className="flex items-center gap-1">
+                    {teacher.social.linkedin && (
+                      <a
+                        href={teacher.social.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1.5 rounded-lg bg-slate-950/60 border border-slate-800/60 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
+                        title="LinkedIn Profile"
+                      >
+                        <Linkedin size={14} />
+                      </a>
+                    )}
 
-                  {teacher.social.github && (
-                    <a
-                      href={teacher.social.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
-                      title="GitHub Repository"
-                    >
-                      <Github size={15} />
-                    </a>
-                  )}
+                    {teacher.social.github && (
+                      <a
+                        href={teacher.social.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1.5 rounded-lg bg-slate-950/60 border border-slate-800/60 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
+                        title="GitHub Repository"
+                      >
+                        <Github size={14} />
+                      </a>
+                    )}
 
-                  {teacher.social.email && (
-                    <a
-                      href={`mailto:${teacher.social.email}`}
-                      className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
-                      title="Email Contact"
-                    >
-                      <Mail size={15} />
-                    </a>
-                  )}
+                    {teacher.social.website && (
+                      <a
+                        href={teacher.social.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1.5 rounded-lg bg-slate-950/60 border border-slate-800/60 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
+                        title="Official Website"
+                      >
+                        <Globe size={14} />
+                      </a>
+                    )}
 
-                  {teacher.social.phone && (
-                    <a
-                      href={`tel:${teacher.social.phone}`}
-                      className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
-                      title="Direct Phone"
-                    >
-                      <Phone size={15} />
-                    </a>
-                  )}
+                    {teacher.social.twitter && (
+                      <a
+                        href={teacher.social.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1.5 rounded-lg bg-slate-950/60 border border-slate-800/60 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
+                        title="Twitter / X"
+                      >
+                        <Twitter size={14} />
+                      </a>
+                    )}
 
-                  {teacher.social.whatsapp && (
-                    <a
-                      href={`https://wa.me/${teacher.social.whatsapp.replace(/\D/g, "")}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-300 text-xs font-medium hover:border-slate-700 hover:text-white transition"
-                    >
-                      <MessageSquare size={13} className="text-emerald-400" />
-                      WhatsApp Query
-                    </a>
-                  )}
+                    {teacher.social.phone && (
+                      <a
+                        href={`tel:${teacher.social.phone}`}
+                        className="p-1.5 rounded-lg bg-slate-950/60 border border-slate-800/60 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
+                        title="Direct Phone"
+                      >
+                        <Phone size={14} />
+                      </a>
+                    )}
+                  </div>
+
                 </div>
               )}
             </div>

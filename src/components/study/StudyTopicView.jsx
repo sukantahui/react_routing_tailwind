@@ -225,6 +225,19 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
       }
       setCompletedTopics(parsed);
       localStorage.setItem(lastTopicKey, String(index));
+
+      // Record last visited module & segment
+      const visitedData = {
+        slug: moduleSlug,
+        title: moduleData.title,
+        moduleId: moduleData.moduleId || moduleSlug,
+        segmentId: segmentData?.segmentId || "",
+        segmentTitle: segmentData?.title || "",
+        topicIndex: index,
+        topicTitle: topicTitle || "",
+        timestamp: new Date().toISOString()
+      };
+      localStorage.setItem(`${subjectKey}-last-visited-module`, JSON.stringify(visitedData));
     } catch (e) {
       void e;
     }
@@ -236,7 +249,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
     } catch (e) {
       void e;
     }
-  }, [index, moduleSlug, moduleData, progressKey, lastTopicKey]);
+  }, [index, moduleSlug, moduleData, segmentData, topicTitle, subjectKey, progressKey, lastTopicKey]);
 
   const isCurrentTopicDone = completedTopics.includes(index);
   const completedCount = completedTopics.length;
