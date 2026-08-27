@@ -2,7 +2,7 @@ const ExcelJS = require('e:/react_routing_tailwind/node_modules/exceljs');
 const fs = require('fs');
 const path = require('path');
 
-const moduleDir = path.resolve('src/components/study/excel/topics/001_005_custom-number-formatting-and-styling');
+const moduleDir = __dirname;
 const excelFilesDir = path.join(moduleDir, 'excel_files');
 if (!fs.existsSync(excelFilesDir)) fs.mkdirSync(excelFilesDir, { recursive: true });
 
