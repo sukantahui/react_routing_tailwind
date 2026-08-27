@@ -572,7 +572,7 @@ export default function Topic10() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="The #1 beginner mistake in Excel is typing 'KG' or 'Pieces' into cells. Teach your team to use 0 "KG" so formulas work seamlessly forever."
+            note="The #1 beginner mistake in Excel is typing 'KG' or 'Pieces' into cells. Teach your team to use 0 'KG' so formulas work seamlessly forever."
           />
         </div>
       </div>

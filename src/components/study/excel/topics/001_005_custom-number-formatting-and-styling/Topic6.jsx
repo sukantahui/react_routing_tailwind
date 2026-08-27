@@ -76,7 +76,7 @@ export default function Topic6() {
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Square-bracket condition criteria ([>1000], [<=500]) and color tokens ([Red], [Green], [ColorN]). Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
+            Square-bracket condition criteria ([&gt;1000], [&lt;=500]) and color tokens ([Red], [Green], [ColorN]). Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,7 +113,7 @@ export default function Topic6() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            [>1000][Green]#,##0;[<0][Red](#,##0);[Color10]#,##0
+            [&gt;1000][Green]#,##0;[&lt;0][Red](#,##0);[Color10]#,##0
           </div>
 
           <div className="overflow-x-auto">
@@ -327,7 +327,7 @@ export default function Topic6() {
                 <span className="text-xs font-mono text-slate-400">Shyamnagar Plant</span>
               </div>
               <h3 className="font-bold text-white text-base">Tuhina Mukherjee: Target Quota Attainment Dashboard</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Colors sales target variances with [>=100%][Green]0.0%;[<100%][Red]0.0% to provide instant performance feedback.</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Colors sales target variances with [&gt;=100%][Green]0.0%;[&lt;100%][Red]0.0% to provide instant performance feedback.</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
@@ -336,7 +336,7 @@ export default function Topic6() {
                 <span className="text-xs font-mono text-slate-400">Ichapur Works</span>
               </div>
               <h3 className="font-bold text-white text-base">Abhronila Das: Temperature & Pressure Safety Alerts</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Applies [>200][Red]0.0 "°C";[<50][Cyan]0.0 "°C";[Green]0.0 "°C" for real-time boiler monitoring.</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Applies [&gt;200][Red]0.0 "°C";[&lt;50][Cyan]0.0 "°C";[Green]0.0 "°C" for real-time boiler monitoring.</p>
             </div>
             
             <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
@@ -395,7 +395,7 @@ export default function Topic6() {
                 Step 3: Enter Format String &amp; Confirm
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">[>1000][Green]#,##0;[<0][Red](#,##0);[Color10]#,##0</code> and click OK.
+                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">[&gt;1000][Green]#,##0;[&lt;0][Red](#,##0);[Color10]#,##0</code> and click OK.
               </p>
             </div>
 
@@ -502,7 +502,7 @@ export default function Topic6() {
                 <span>⚡</span> Comparison Operators
               </div>
               <p className="text-slate-300 leading-relaxed">Replace standard Pos/Neg rules with custom mathematical comparison thresholds.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">[>0], [<=100], [<>0]</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">[&gt;0], [&lt;=100], [&lt;&gt;0]</kbd>
             </div>
             
           </div>

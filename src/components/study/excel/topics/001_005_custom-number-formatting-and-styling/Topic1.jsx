@@ -113,7 +113,7 @@ export default function Topic1() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            <POSITIVE> ; <NEGATIVE> ; <ZERO> ; <TEXT>
+            &lt;POSITIVE&gt; ; &lt;NEGATIVE&gt; ; &lt;ZERO&gt; ; &lt;TEXT&gt;
           </div>
 
           <div className="overflow-x-auto">
@@ -395,7 +395,7 @@ export default function Topic1() {
                 Step 3: Enter Format String &amp; Confirm
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold"><POSITIVE> ; <NEGATIVE> ; <ZERO> ; <TEXT></code> and click OK.
+                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">&lt;POSITIVE&gt; ; &lt;NEGATIVE&gt; ; &lt;ZERO&gt; ; &lt;TEXT&gt;</code> and click OK.
               </p>
             </div>
 

@@ -538,7 +538,7 @@ export default function Topic13() {
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: How would you format a column so numbers >= 1,000,000 show in Millions and < 1,000,000 show in Thousands?
+                <span className="text-teal-400">💭</span> Question 2: How would you format a column so numbers &gt;= 1,000,000 show in Millions and &lt; 1,000,000 show in Thousands?
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.

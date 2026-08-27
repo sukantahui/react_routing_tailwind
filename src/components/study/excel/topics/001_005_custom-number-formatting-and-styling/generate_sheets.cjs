@@ -1,4 +1,4 @@
-const ExcelJS = require('e:/react_routing_tailwind/node_modules/exceljs');
+const ExcelJS = require('exceljs');
 const fs = require('fs');
 const path = require('path');
 
