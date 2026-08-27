@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/getting_started.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/getting_started_with_excel_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic0_files/topic0_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -280,7 +280,7 @@ export default function Topic0() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Excel_Overview"
+            sheetName="Topic0_What_Excel_is_and_"
             title="Module 1.1 - What Excel Is and Where It Is Used in Study and Work"
             rowsPerPage={25}
             showSheetSelector={true}

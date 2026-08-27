@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/basic_formulas.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/basic_formulas_and_functions_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic2_files/topic2_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -275,7 +275,7 @@ export default function Topic2() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic2_Aggregation"
+            sheetName="Topic2_Mathematical_opera"
             title="Module 1.3 - Foundational Aggregation Functions: SUM, AVERAGE, COUNT, COUNTA and COUNTBLANK Mechanics"
             rowsPerPage={25}
             showSheetSelector={true}

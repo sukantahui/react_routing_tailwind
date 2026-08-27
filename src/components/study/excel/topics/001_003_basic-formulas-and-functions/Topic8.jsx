@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/basic_formulas.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/basic_formulas_and_functions_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic8_files/topic8_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -275,7 +275,7 @@ export default function Topic8() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_BODMAS_Order"
+            sheetName="Topic8_Test_Your_Skill"
             title="Module 1.3 - Quick Check Quiz: Core Mathematical Functions, BODMAS &amp; Aggregation Foundations"
             rowsPerPage={25}
             showSheetSelector={true}

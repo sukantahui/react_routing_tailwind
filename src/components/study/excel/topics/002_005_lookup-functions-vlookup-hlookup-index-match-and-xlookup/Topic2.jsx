@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/lookup_functions.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/lookup_functions_vlookup_hlookup_index_match_and_xlookup_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic2_files/topic2_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -275,7 +275,7 @@ export default function Topic2() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic2_VLOOKUP_Syntax"
+            sheetName="Topic2_VLOOKUP_Syntax_and"
             title="Module 2.5 - VLOOKUP Syntax, Arguments and Column Index Mechanics"
             rowsPerPage={25}
             showSheetSelector={true}

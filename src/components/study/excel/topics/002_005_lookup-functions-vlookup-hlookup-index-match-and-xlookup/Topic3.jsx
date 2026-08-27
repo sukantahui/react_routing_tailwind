@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/lookup_functions.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/lookup_functions_vlookup_hlookup_index_match_and_xlookup_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic3_files/topic3_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -275,7 +275,7 @@ export default function Topic3() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic3_Approximate_Match"
+            sheetName="Topic3_Exact_Match_vs_App"
             title="Module 2.5 - Exact Match (FALSE / 0) vs Approximate Match (TRUE / 1) Lookup Architecture"
             rowsPerPage={25}
             showSheetSelector={true}

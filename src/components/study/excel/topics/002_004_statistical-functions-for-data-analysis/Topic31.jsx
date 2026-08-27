@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/statistical_functions.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/statistical_functions_for_data_analysis_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic31_files/topic31_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -271,7 +271,7 @@ export default function Topic31() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Basic_Aggregation"
+            sheetName="Topic31_TREND_Function__Tr"
             title="Module 2.4 - TREND Function (Trend Analysis with Multiple Values)"
             rowsPerPage={25}
             showSheetSelector={true}

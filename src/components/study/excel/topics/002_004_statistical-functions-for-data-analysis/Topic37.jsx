@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/statistical_functions.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/statistical_functions_for_data_analysis_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic37_files/topic37_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -271,7 +271,7 @@ export default function Topic37() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Basic_Aggregation"
+            sheetName="Topic37_Practice__Real_Dat"
             title="Module 2.4 - Practice: Real Dataset Interpretation"
             rowsPerPage={25}
             showSheetSelector={true}

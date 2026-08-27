@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/lookup_functions.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/lookup_functions_vlookup_hlookup_index_match_and_xlookup_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic6_files/topic6_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -275,7 +275,7 @@ export default function Topic6() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Reference_Tables"
+            sheetName="Topic6_HLOOKUP_for_Horizo"
             title="Module 2.5 - HLOOKUP for Horizontal Datasets and Row Index Navigation"
             rowsPerPage={25}
             showSheetSelector={true}

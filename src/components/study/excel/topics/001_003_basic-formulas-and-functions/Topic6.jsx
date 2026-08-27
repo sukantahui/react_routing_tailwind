@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/basic_formulas.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/basic_formulas_and_functions_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic6_files/topic6_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -275,7 +275,7 @@ export default function Topic6() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic2_Aggregation"
+            sheetName="Topic6_Handling_common_er"
             title="Module 1.3 - Comprehensive Laboratory Practice Session: Basic Formulas, Functions and Calculation Auditing"
             rowsPerPage={25}
             showSheetSelector={true}

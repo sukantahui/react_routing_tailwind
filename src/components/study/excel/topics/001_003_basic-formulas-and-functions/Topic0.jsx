@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/basic_formulas.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/basic_formulas_and_functions_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic0_files/topic0_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -281,7 +281,7 @@ export default function Topic0() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_BODMAS_Order"
+            sheetName="Topic0_Understanding_form"
             title="Module 1.3 - Anatomy of a Formula: Equal Sign (=), Operators, Operands and BODMAS Order of Precedence"
             rowsPerPage={25}
             showSheetSelector={true}

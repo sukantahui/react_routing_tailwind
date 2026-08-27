@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/statistical_functions.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/statistical_functions_for_data_analysis_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic38_files/topic38_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -315,7 +315,7 @@ export default function Topic38() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic37_Interpretation"
+            sheetName="Topic38_Test_Your_Skill"
             title="Statistical Model Evaluation Sheet (Record ID, Location, Units, Revenue, Z-Score, Outlier Flag, Forecast)"
             rowsPerPage={10}
             showSheetSelector={true}

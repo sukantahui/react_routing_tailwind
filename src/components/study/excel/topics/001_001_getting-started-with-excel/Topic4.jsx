@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/getting_started.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/getting_started_with_excel_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic4_files/topic4_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -280,7 +280,7 @@ export default function Topic4() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic4_File_Management"
+            sheetName="Topic4_Creating__saving_a"
             title="Module 1.1 - Creating, Saving, AutoRecover, and File Formats: .xlsx, .xlsm, .xlsb, and .csv Architecture"
             rowsPerPage={25}
             showSheetSelector={true}

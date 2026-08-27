@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/statistical_functions.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/statistical_functions_for_data_analysis_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic17_files/topic17_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -271,7 +271,7 @@ export default function Topic17() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic15_Dispersion_Variance"
+            sheetName="Topic17_VAR_S_Function__Sa"
             title="Module 2.4 - VAR.S Function (Sample Variance)"
             rowsPerPage={25}
             showSheetSelector={true}

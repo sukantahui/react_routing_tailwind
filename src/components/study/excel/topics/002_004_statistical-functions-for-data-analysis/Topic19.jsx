@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/statistical_functions.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/statistical_functions_for_data_analysis_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic19_files/topic19_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -271,7 +271,7 @@ export default function Topic19() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Basic_Aggregation"
+            sheetName="Topic19_LARGE_Function__To"
             title="Module 2.4 - LARGE Function (Top N Value Extraction)"
             rowsPerPage={25}
             showSheetSelector={true}

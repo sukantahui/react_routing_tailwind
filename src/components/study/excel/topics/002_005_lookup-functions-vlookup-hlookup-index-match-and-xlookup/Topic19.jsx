@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/lookup_functions.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/lookup_functions_vlookup_hlookup_index_match_and_xlookup_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic19_files/topic19_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -318,7 +318,7 @@ export default function Topic19() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic19_Lookup_Practice"
+            sheetName="Topic19_Practice_These_Top"
             title="Commercial Pricing Lookup Hub (Pricing Ref, Product Family, Service Tier, Region, Base Tariff, Surge Multiplier, Effective Price)"
             rowsPerPage={10}
             showSheetSelector={true}

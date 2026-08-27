@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/basic_formulas.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/basic_formulas_and_functions_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic3_files/topic3_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -281,7 +281,7 @@ export default function Topic3() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic3_Min_Max_Rank"
+            sheetName="Topic3_Basic_functions__S"
             title="Module 1.3 - Extreme Value and Positional Ranking Functions: MIN, MAX, LARGE and SMALL Analysis"
             rowsPerPage={25}
             showSheetSelector={true}

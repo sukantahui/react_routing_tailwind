@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/getting_started.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/getting_started_with_excel_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic3_files/topic3_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -280,7 +280,7 @@ export default function Topic3() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic3_Workbook_Grid"
+            sheetName="Topic3_Understanding_work"
             title="Module 1.1 - Understanding Workbooks, Worksheets, Rows, Columns and Grid Coordinate Limits"
             rowsPerPage={25}
             showSheetSelector={true}

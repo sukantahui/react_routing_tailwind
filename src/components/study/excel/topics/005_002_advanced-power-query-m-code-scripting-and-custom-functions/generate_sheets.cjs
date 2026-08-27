@@ -287,7 +287,7 @@ async function buildMasterWorkbook() {
       ]
     },
     {
-      name: 'Topic11_ETL_Query_Architecture',
+      name: 'Topic11_Query_Organize_Docs',
       cols: [
         { header: 'Query_Group', key: 'grp', width: 24 },
         { header: 'Query_Name', key: 'name', width: 28 },
@@ -302,7 +302,7 @@ async function buildMasterWorkbook() {
       ]
     },
     {
-      name: 'Topic12_Consolidation_Project',
+      name: 'Topic12_Sales_Pipeline',
       cols: [
         { header: 'Transaction_ID', key: 'id', width: 18 },
         { header: 'Branch_Code', key: 'br', width: 18 },
@@ -321,7 +321,7 @@ async function buildMasterWorkbook() {
       ]
     },
     {
-      name: 'Topic13_M_Scripting_Challenge',
+      name: 'Topic13_ETL_Assessment',
       cols: [
         { header: 'Candidate_ID', key: 'id', width: 16 },
         { header: 'Candidate_Name', key: 'name', width: 22 },

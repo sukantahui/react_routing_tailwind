@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/lookup_functions.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/lookup_functions_vlookup_hlookup_index_match_and_xlookup_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic20_files/topic20_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -303,7 +303,7 @@ export default function Topic20() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic20_Lookup_Assessment"
+            sheetName="Topic20_Test_Your_Skill"
             title="Module 2.5 Assessment Candidate Scorecard (Candidate ID, Candidate Name, Exam Branch, VLOOKUP Score, INDEX-MATCH Score, XLOOKUP Score, Total Score, Qualification)"
             rowsPerPage={10}
             showSheetSelector={true}

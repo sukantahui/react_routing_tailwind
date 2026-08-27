@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/getting_started.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/getting_started_with_excel_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic7_files/topic7_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -280,7 +280,7 @@ export default function Topic7() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic7_Practice_Lab"
+            sheetName="Topic7_Practice_Session"
             title="Module 1.1 - Comprehensive Laboratory Practice Session: Basic Navigation, Interface Ergonomics and Grid Mechanics"
             rowsPerPage={25}
             showSheetSelector={true}

@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/getting_started.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/getting_started_with_excel_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic6_files/topic6_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -280,7 +280,7 @@ export default function Topic6() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic6_Cell_References"
+            sheetName="Topic6_Understanding_cell"
             title="Module 1.1 - Cell Referencing Fundamentals: Relative, Absolute ($), Mixed ($A1 vs A$1) and 3D Sheet References"
             rowsPerPage={25}
             showSheetSelector={true}
