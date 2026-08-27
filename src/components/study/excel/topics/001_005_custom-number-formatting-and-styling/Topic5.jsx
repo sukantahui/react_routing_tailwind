@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import clsx from "clsx";
+import React, { useState, useEffect, useRef } from "react";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
 import sampleWorkbookUrl from "./excel_files/custom_number_formatting_and_styling_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
@@ -31,548 +30,589 @@ export default function Topic5() {
     if (!sampleWorkbookUrl) return;
     const link = document.createElement("a");
     link.href = sampleWorkbookUrl;
-    link.download = "custom_number_formatting_and_styling_practice.xlsx";
+    link.download = "custom_number_formatting_and_styling_master.xlsx";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   return (
-    <div className="dark bg-slate-950 text-slate-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8 font-sans selection:bg-sky-500/30 selection:text-sky-200">
+    <div className="dark text-slate-100 font-sans selection:bg-sky-500/30 selection:text-sky-200">
       <style>{`
         @keyframes fadeInSlide {
-          from { transform: translateY(18px); }
+          from { transform: translateY(14px); }
           to { transform: translateY(0); }
         }
         .reveal-section {
-          animation: fadeInSlide 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: fadeInSlide 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
       `}</style>
 
-      <div className="max-w-5xl mx-auto space-y-10">
+      <div className="w-full space-y-4 sm:space-y-5">
         {/* =========================================================================
             SECTION 1: HERO HEADER & OVERVIEW
         ========================================================================= */}
         <header
           ref={(el) => (sectionsRef.current[0] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-10 bg-gradient-to-b from-slate-900/90 via-slate-900/60 to-slate-950 border border-slate-800 shadow-2xl relative overflow-hidden"
+          className="reveal-section rounded-xl p-4 sm:p-5 bg-gradient-to-b from-slate-900/90 via-slate-900/60 to-slate-950 border border-slate-800 shadow-md relative overflow-hidden"
         >
-          <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+          <div className="absolute top-0 right-0 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none -mr-16 -mt-16" />
 
-          <div className="flex flex-wrap items-center gap-2.5 mb-4">
-            <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              {"📈 Scaling to Thousands & Millions"} · Topic 5
+          <div className="flex flex-wrap items-center gap-1.5 mb-2.5">
+            <span className="px-2 py-0.5 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-[10px] font-bold uppercase tracking-wider">
+              🎨 Metric Scaling · Topic 5
             </span>
-            <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              {"Financial Scaling"}
+            <span className="px-2 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-[10px] font-semibold">
+              Format Engineering
             </span>
-            <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              {"Intermediate · Bloom Level 3: Apply"}
+            <span className="px-2 py-0.5 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-[10px] font-semibold">
+              Advanced · Bloom Level 4: Analyze
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            {"Scaling large numbers into Thousands (K), Millions (M), and Billions (B)"}
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
+            Scaling Large Numbers into Thousands (K), Millions (M), and Billions (B)
           </h1>
 
-          <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            {"Trailing comma scaling: Divide by 1,000 per comma (K, M, B) without altering underlying math"}. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
+          <p className="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed max-w-5xl">
+            Compressing multi-million dollar balances into compact executive board-ready visual metrics. Master the underlying Excel format syntax, avoid common financial presentation traps, and build executive-ready spreadsheets.
           </p>
 
-          <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
-            <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-sky-400 text-base">✓</span>
-              <span><strong>Subject Code:</strong> EXCEL-PRO-901</span>
+          <div className="mt-3 pt-2.5 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+            <div className="flex items-center gap-2 text-slate-300">
+              <span className="text-sky-400 font-bold">✓</span>
+              <span><strong>Code:</strong> EXCEL-PRO-901</span>
             </div>
-            <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-emerald-400 text-base">✓</span>
-              <span><strong>Lab Focus:</strong> Financial Modeling &amp; Presentation</span>
+            <div className="flex items-center gap-2 text-slate-300">
+              <span className="text-emerald-400 font-bold">✓</span>
+              <span><strong>Module:</strong> Custom Formatting &amp; Presentation</span>
             </div>
-            <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-indigo-400 text-base">✓</span>
-              <span><strong>Accreditation:</strong> Coder &amp; AccoTax Centre of Excellence</span>
+            <div className="flex items-center gap-2 text-slate-300">
+              <span className="text-indigo-400 font-bold">✓</span>
+              <span><strong>Center:</strong> Coder &amp; AccoTax</span>
             </div>
           </div>
         </header>
 
+        
+
+        
+
+        
         {/* =========================================================================
-            SECTION 2: FORMULA & SYNTAX ANATOMY CARD
+            SECTION: 20 COMPREHENSIVE REAL-WORLD EXAMPLES & EXPLANATIONS
         ========================================================================= */}
         <section
-          ref={(el) => (sectionsRef.current[1] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all duration-300 space-y-6"
+          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4 shadow-xl"
         >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">⚡</span>
-              Format String Syntax &amp; Token Anatomy
-            </h2>
-            <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
-              Token Specification
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-teal-500/20 text-teal-400 text-sm font-mono font-bold">📊</span>
+                20 Comprehensive Real-World Examples with Explanations
+              </h2>
+              <p className="text-xs text-slate-400 mt-0.5">
+                Comparing raw stored float data vs custom format masks, visual cell displays, formula bar reality, and underlying business logic.
+              </p>
+            </div>
+            <span className="text-[10px] font-mono text-emerald-300 bg-emerald-950/80 px-2.5 py-1 rounded-full border border-emerald-800 shrink-0 font-bold">
+              20 Scenarios
             </span>
-          </div>
-
-          <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"#,##0.0, \"K\" /* Thousands */ | #,##0.0,, \"M\" /* Millions */ | #,##0.0,,, \"B\" /* Billions */"}
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm text-slate-300 border-collapse">
+            <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="border-b border-slate-800 text-slate-400 font-semibold uppercase tracking-wider">
-                  <th className="py-3 px-4">Syntax Element</th>
-                  <th className="py-3 px-4">Role / Type</th>
-                  <th className="py-3 px-4">Requirement</th>
-                  <th className="py-3 px-4">Operational Description</th>
+                <tr className="border-b border-slate-800 text-slate-400 font-semibold bg-slate-950/70">
+                  <th className="py-2.5 px-3">#</th>
+                  <th className="py-2.5 px-3">Code &amp; Category</th>
+                  <th className="py-2.5 px-3">Raw Stored Value</th>
+                  <th className="py-2.5 px-3">Applied Format Mask</th>
+                  <th className="py-2.5 px-3">Visual Formatted Cell</th>
+                  <th className="py-2.5 px-3">Formula Bar Reality</th>
+                  <th className="py-2.5 px-3 min-w-[280px]">Business Logic &amp; Why It Matters</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/50 font-mono">
-                <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Primary Format Mask</td>
-                  <td className="py-3 px-4 text-teal-400">Rendering Rule</td>
-                  <td className="py-3 px-4 text-amber-400 font-sans">Required</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Specifies how numerical values are rendered without altering underlying float precision.</td>
+              <tbody className="divide-y divide-slate-800/60 text-slate-300">
+                
+                <tr key="0" className="hover:bg-slate-800/40 transition-colors">
+                  <td className="py-2.5 px-3 font-mono text-slate-500">1</td>
+                  <td className="py-2.5 px-3 font-semibold text-sky-300">
+                    <div className="font-mono text-[11px] text-slate-400">ACC-101</div>
+                    <div>Forex Trade Settlement</div>
+                  </td>
+                  <td className="py-2.5 px-3 font-mono text-amber-300">125438.8765</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">₹#,##0.00</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">₹125,438.88</td>
+                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">125438.8765</td>
+                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Rounds visually to 2 decimal paise; downstream arbitrage ledger formulas use exact 4-decimal precision.</td>
                 </tr>
-                <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Delimiter / Token</td>
-                  <td className="py-3 px-4 text-teal-400">Structural Separator</td>
-                  <td className="py-3 px-4 text-amber-400 font-sans">Contextual</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Partitions Positive, Negative, Zero, and Text branches deterministically.</td>
+                
+
+                <tr key="1" className="hover:bg-slate-800/40 transition-colors">
+                  <td className="py-2.5 px-3 font-mono text-slate-500">2</td>
+                  <td className="py-2.5 px-3 font-semibold text-sky-300">
+                    <div className="font-mono text-[11px] text-slate-400">ACC-102</div>
+                    <div>Mortgage Lending APR</div>
+                  </td>
+                  <td className="py-2.5 px-3 font-mono text-amber-300">0.08375</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">0.00%</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">8.38%</td>
+                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">0.08375</td>
+                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Displays percentage visually; prevents user from multiplying by 100 which would break PMT() calculations.</td>
                 </tr>
+                
+
+                <tr key="2" className="hover:bg-slate-800/40 transition-colors">
+                  <td className="py-2.5 px-3 font-mono text-slate-500">3</td>
+                  <td className="py-2.5 px-3 font-semibold text-sky-300">
+                    <div className="font-mono text-[11px] text-slate-400">ACC-103</div>
+                    <div>Fixed Deposit Yield</div>
+                  </td>
+                  <td className="py-2.5 px-3 font-mono text-amber-300">0.07125</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">0.000%</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">7.125%</td>
+                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">0.07125</td>
+                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Forces 3 decimal places to display banking basis points while calculations use exact floating-point interest rate.</td>
+                </tr>
+                
+
+                <tr key="3" className="hover:bg-slate-800/40 transition-colors">
+                  <td className="py-2.5 px-3 font-mono text-slate-500">4</td>
+                  <td className="py-2.5 px-3 font-semibold text-sky-300">
+                    <div className="font-mono text-[11px] text-slate-400">ACC-104</div>
+                    <div>US Treasury Bond Quote</div>
+                  </td>
+                  <td className="py-2.5 px-3 font-mono text-amber-300">98.4375</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2"># ??/??</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">98 7/16</td>
+                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">98.4375</td>
+                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Displays traditional Wall Street fractional bond pricing (7/16) without losing decimal accuracy in yield formulas.</td>
+                </tr>
+                
+
+                <tr key="4" className="hover:bg-slate-800/40 transition-colors">
+                  <td className="py-2.5 px-3 font-mono text-slate-500">5</td>
+                  <td className="py-2.5 px-3 font-semibold text-sky-300">
+                    <div className="font-mono text-[11px] text-slate-400">ACC-105</div>
+                    <div>Contract Effective Date</div>
+                  </td>
+                  <td className="py-2.5 px-3 font-mono text-amber-300">45678</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">dddd, mmmm dd, yyyy</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">Tuesday, January 21, 2025</td>
+                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">45678</td>
+                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Stored as integer day count elapsed since Jan 1, 1900; enables direct date arithmetic (=B2-B1).</td>
+                </tr>
+                
+
+                <tr key="5" className="hover:bg-slate-800/40 transition-colors">
+                  <td className="py-2.5 px-3 font-mono text-slate-500">6</td>
+                  <td className="py-2.5 px-3 font-semibold text-sky-300">
+                    <div className="font-mono text-[11px] text-slate-400">ACC-106</div>
+                    <div>Shift Punch In Time</div>
+                  </td>
+                  <td className="py-2.5 px-3 font-mono text-amber-300">45678.375</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">hh:mm AM/PM</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">09:00 AM</td>
+                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">45678.375</td>
+                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">0.375 represents fraction of day (9/24 hrs); direct timestamp subtraction yields exact worked shift hours.</td>
+                </tr>
+                
+
+                <tr key="6" className="hover:bg-slate-800/40 transition-colors">
+                  <td className="py-2.5 px-3 font-mono text-slate-500">7</td>
+                  <td className="py-2.5 px-3 font-semibold text-sky-300">
+                    <div className="font-mono text-[11px] text-slate-400">ACC-107</div>
+                    <div>Corporate Cash Reserve</div>
+                  </td>
+                  <td className="py-2.5 px-3 font-mono text-amber-300">14500000</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">₹#,##0.0,,&quot; Cr&quot;</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">₹14.5 Cr</td>
+                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">14500000</td>
+                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">2 trailing commas divide visually by 1,000,000 for C-suite dashboards without altering raw ₹1.45 Crore balance.</td>
+                </tr>
+                
+
+                <tr key="7" className="hover:bg-slate-800/40 transition-colors">
+                  <td className="py-2.5 px-3 font-mono text-slate-500">8</td>
+                  <td className="py-2.5 px-3 font-semibold text-sky-300">
+                    <div className="font-mono text-[11px] text-slate-400">ACC-108</div>
+                    <div>Warehouse Steel Inventory</div>
+                  </td>
+                  <td className="py-2.5 px-3 font-mono text-amber-300">8450.625</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">0.00&quot; KG&quot;</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">8,450.63 KG</td>
+                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">8450.625</td>
+                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Attaches engineering unit label without converting cell to text, allowing =SUM() to calculate total tonnage.</td>
+                </tr>
+                
+
+                <tr key="8" className="hover:bg-slate-800/40 transition-colors">
+                  <td className="py-2.5 px-3 font-mono text-slate-500">9</td>
+                  <td className="py-2.5 px-3 font-semibold text-sky-300">
+                    <div className="font-mono text-[11px] text-slate-400">ACC-109</div>
+                    <div>Zero Balance Clearing</div>
+                  </td>
+                  <td className="py-2.5 px-3 font-mono text-amber-300">0</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">₹#,##0.00;(₹#,##0.00);&quot;-&quot;</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">-</td>
+                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">0</td>
+                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Section 3 replaces zero with clean accounting hyphen (-), reducing visual clutter in financial statements.</td>
+                </tr>
+                
+
+                <tr key="9" className="hover:bg-slate-800/40 transition-colors">
+                  <td className="py-2.5 px-3 font-mono text-slate-500">10</td>
+                  <td className="py-2.5 px-3 font-semibold text-sky-300">
+                    <div className="font-mono text-[11px] text-slate-400">ACC-110</div>
+                    <div>Operating Segment Loss</div>
+                  </td>
+                  <td className="py-2.5 px-3 font-mono text-amber-300">-450000</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">₹#,##0.00;(₹#,##0.00)</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">(₹450,000.00)</td>
+                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">-450000</td>
+                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Section 2 applies Wall Street accounting parenthesis mask to indicate negative deficit without minus sign.</td>
+                </tr>
+                
+
+                <tr key="10" className="hover:bg-slate-800/40 transition-colors">
+                  <td className="py-2.5 px-3 font-mono text-slate-500">11</td>
+                  <td className="py-2.5 px-3 font-semibold text-sky-300">
+                    <div className="font-mono text-[11px] text-slate-400">ACC-111</div>
+                    <div>Employee ID Code</div>
+                  </td>
+                  <td className="py-2.5 px-3 font-mono text-amber-300">45</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">&quot;EMP-&quot;00000</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">EMP-00045</td>
+                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">45</td>
+                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">0 token forces 5-digit zero padding with &#39;EMP-&#39; prefix while cell remains pure numeric integer 45.</td>
+                </tr>
+                
+
+                <tr key="11" className="hover:bg-slate-800/40 transition-colors">
+                  <td className="py-2.5 px-3 font-mono text-slate-500">12</td>
+                  <td className="py-2.5 px-3 font-semibold text-sky-300">
+                    <div className="font-mono text-[11px] text-slate-400">ACC-112</div>
+                    <div>Tax Registration Number</div>
+                  </td>
+                  <td className="py-2.5 px-3 font-mono text-amber-300">1987654321</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">00-00000-000</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">19-87654-321</td>
+                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">1987654321</td>
+                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Formats numeric tax ID into standard 2-5-3 hyphenated pattern for statutory compliance.</td>
+                </tr>
+                
+
+                <tr key="12" className="hover:bg-slate-800/40 transition-colors">
+                  <td className="py-2.5 px-3 font-mono text-slate-500">13</td>
+                  <td className="py-2.5 px-3 font-semibold text-sky-300">
+                    <div className="font-mono text-[11px] text-slate-400">ACC-113</div>
+                    <div>Commercial Floor Area</div>
+                  </td>
+                  <td className="py-2.5 px-3 font-mono text-amber-300">12500</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">#,##0&quot; Sq.Ft.&quot;</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">12,500 Sq.Ft.</td>
+                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">12500</td>
+                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Preserves numeric area value so multiplying by Rent/Sq.Ft. computes total rental revenue seamlessly.</td>
+                </tr>
+                
+
+                <tr key="13" className="hover:bg-slate-800/40 transition-colors">
+                  <td className="py-2.5 px-3 font-mono text-slate-500">14</td>
+                  <td className="py-2.5 px-3 font-semibold text-sky-300">
+                    <div className="font-mono text-[11px] text-slate-400">ACC-114</div>
+                    <div>Customer Support Helpline</div>
+                  </td>
+                  <td className="py-2.5 px-3 font-mono text-amber-300">9876543210</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">+91 00000 00000</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">+91 98765 43210</td>
+                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">9876543210</td>
+                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Formats 10-digit mobile number into international telecom standard with country code.</td>
+                </tr>
+                
+
+                <tr key="14" className="hover:bg-slate-800/40 transition-colors">
+                  <td className="py-2.5 px-3 font-mono text-slate-500">15</td>
+                  <td className="py-2.5 px-3 font-semibold text-sky-300">
+                    <div className="font-mono text-[11px] text-slate-400">ACC-115</div>
+                    <div>Machine Run-Time Log</div>
+                  </td>
+                  <td className="py-2.5 px-3 font-mono text-amber-300">1.75</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">[h]:mm:ss</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">42:00:00</td>
+                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">1.75</td>
+                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Square brackets [h] prevent 24-hour clock rollover, displaying cumulative 42 elapsed hours.</td>
+                </tr>
+                
+
+                <tr key="15" className="hover:bg-slate-800/40 transition-colors">
+                  <td className="py-2.5 px-3 font-mono text-slate-500">16</td>
+                  <td className="py-2.5 px-3 font-semibold text-sky-300">
+                    <div className="font-mono text-[11px] text-slate-400">ACC-116</div>
+                    <div>Confidential Salary Base</div>
+                  </td>
+                  <td className="py-2.5 px-3 font-mono text-amber-300">2500000</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">;;;</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">(Blank / Hidden)</td>
+                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">2500000</td>
+                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Triple semicolon hides value on sheet grid while formulas and executive charts still read ₹25 Lakhs.</td>
+                </tr>
+                
+
+                <tr key="16" className="hover:bg-slate-800/40 transition-colors">
+                  <td className="py-2.5 px-3 font-mono text-slate-500">17</td>
+                  <td className="py-2.5 px-3 font-semibold text-sky-300">
+                    <div className="font-mono text-[11px] text-slate-400">ACC-117</div>
+                    <div>Quarterly Profit Growth</div>
+                  </td>
+                  <td className="py-2.5 px-3 font-mono text-amber-300">0.142</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">[Green]+0.0% ▲;[Red]-0.0% ▼;&quot;-&quot;</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">+14.2% ▲</td>
+                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">0.142</td>
+                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Embeds color tag and Unicode delta arrow directly into number format layer without slow conditional formatting.</td>
+                </tr>
+                
+
+                <tr key="17" className="hover:bg-slate-800/40 transition-colors">
+                  <td className="py-2.5 px-3 font-mono text-slate-500">18</td>
+                  <td className="py-2.5 px-3 font-semibold text-sky-300">
+                    <div className="font-mono text-[11px] text-slate-400">ACC-118</div>
+                    <div>Audit Status Annotation</div>
+                  </td>
+                  <td className="py-2.5 px-3 font-mono text-amber-300">&quot;Awaiting Signoff&quot;</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">#,##0;-#,##0;0;&quot;NOTE: &quot;@</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">NOTE: Awaiting Signoff</td>
+                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">Awaiting Signoff</td>
+                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">@ token prefixes custom label to user-typed text string while preserving raw text data.</td>
+                </tr>
+                
+
+                <tr key="18" className="hover:bg-slate-800/40 transition-colors">
+                  <td className="py-2.5 px-3 font-mono text-slate-500">19</td>
+                  <td className="py-2.5 px-3 font-semibold text-sky-300">
+                    <div className="font-mono text-[11px] text-slate-400">ACC-119</div>
+                    <div>Executive Balance Fill</div>
+                  </td>
+                  <td className="py-2.5 px-3 font-mono text-amber-300">1250000</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">₹* #,##0.00</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">₹   1,250,000.00</td>
+                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">1250000</td>
+                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Asterisk (*) fills cell width with spaces, pushing ₹ to far left and number to far right edge.</td>
+                </tr>
+                
+
+                <tr key="19" className="hover:bg-slate-800/40 transition-colors">
+                  <td className="py-2.5 px-3 font-mono text-slate-500">20</td>
+                  <td className="py-2.5 px-3 font-semibold text-sky-300">
+                    <div className="font-mono text-[11px] text-slate-400">ACC-120</div>
+                    <div>Precision Manufacturing</div>
+                  </td>
+                  <td className="py-2.5 px-3 font-mono text-amber-300">0.00045</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">0.00000&quot; mm&quot;</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">0.00045 mm</td>
+                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">0.00045</td>
+                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Forces 5 decimal places to display critical precision tolerances for aerospace engineering parts.</td>
+                </tr>
+                
               </tbody>
             </table>
           </div>
+        </section>
+  
 
-          <div className="p-4 rounded-xl bg-sky-950/40 border border-sky-800/60 flex items-start gap-3">
-            <span className="text-sky-400 text-lg">💡</span>
-            <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              <strong className="text-white">Format Engine Rule: </strong>
-              Custom number format strings execute in the GPU presentation pipeline and never alter underlying arithmetic precision in formulas.
+        {/* =========================================================================
+            SECTION 2: ARCHITECTURAL DEEP-DIVE
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[1] = el)}
+          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all duration-200 space-y-3.5"
+        >
+          <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-sky-500/20 text-sky-400 text-sm font-mono">⚡</span>
+                The Trailing Comma (,) Scaling Engine
+              </h2>
+              <p className="text-xs text-slate-400 mt-0.5">
+                Core mechanics and internal parser rules governing this formatting dimension.
+              </p>
             </div>
+            <span className="text-[11px] font-mono text-sky-300 bg-sky-950/60 px-2.5 py-0.5 rounded-lg border border-sky-800 shrink-0">
+              Architecture
+            </span>
+          </div>
+
+          <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+            In executive dashboards, showing raw values like ₹15,450,000 causes clutter. In Excel custom formatting, each trailing comma (,) placed after the digit placeholders divides the displayed value by 1,000 without altering the underlying number. One comma scales to Thousands (125 K), two commas scale to Millions (12.5 M), and three commas scale to Billions (1.5 B).
+          </p>
+
+          <div className="p-3 rounded-lg bg-slate-950/90 border border-slate-800 font-mono text-xs text-sky-300 overflow-x-auto shadow-inner">
+            <div className="text-[10px] text-slate-500 uppercase font-bold mb-1 font-sans">Token Syntax Blueprint:</div>
+            <div>Thousands: #,##0,&quot; K&quot;  |  Millions: #,##0.0,,&quot; M&quot;  |  Billions: #,##0.00,,,&quot; B&quot;</div>
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 3: DEEP CONCEPTUAL & THEORETICAL MECHANICS
+            SECTION 3: STEP-BY-STEP EXCEL PROTOCOL
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
         >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">🔬</span>
-              Format Engine Architecture &amp; Execution Pipeline
+          <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+            <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+              <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 text-sm font-mono">🛠️</span>
+              Step-by-Step Construction Protocol in Microsoft Excel
             </h2>
-            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-800">
-              Under-The-Hood Mechanics
+            <span className="text-[11px] font-mono text-emerald-300 bg-emerald-950/60 px-2.5 py-0.5 rounded-lg border border-emerald-800">
+              Protocol
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            
-            <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Trailing Comma Divisor Rule"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Each comma placed after digit placeholders divides the displayed value by 1,000 without altering the cell's underlying numerical value."}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+            <div className="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-sky-300 flex items-center gap-1.5">
+                <span className="w-4 h-4 rounded-full bg-sky-950 border border-sky-700 text-sky-300 flex items-center justify-center text-[10px]">1</span>
+                Step 1: Select Target Range
+              </div>
+              <p className="text-slate-300 leading-relaxed text-[11px]">
+                Highlight the numbers or financial ledger cells you wish to format.
+              </p>
             </div>
-            
-            <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Unit Suffix Labeling"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Appends literal string suffixes like 'K', 'M', or 'B' after the scaling commas to produce clean executive metrics."}</p>
+
+            <div className="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-emerald-300 flex items-center gap-1.5">
+                <span className="w-4 h-4 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-300 flex items-center justify-center text-[10px]">2</span>
+                Step 2: Launch Format Dialog
+              </div>
+              <p className="text-slate-300 leading-relaxed text-[11px]">
+                Press keyboard accelerator <kbd className="px-1.5 py-0.5 bg-slate-900 border border-slate-700 rounded text-cyan-300 font-mono text-[10px]">Ctrl + 1</kbd> (or Cmd + 1).
+              </p>
             </div>
-            
-            <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Formula Math Preservation"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Downstream calculations continue computing against full raw values (e.g. 45,890,000) rather than scaled display floats (45.9)."}</p>
+
+            <div className="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-teal-300 flex items-center gap-1.5">
+                <span className="w-4 h-4 rounded-full bg-teal-950 border border-teal-700 text-teal-300 flex items-center justify-center text-[10px]">3</span>
+                Step 3: Select Custom Category
+              </div>
+              <p className="text-slate-300 leading-relaxed text-[11px]">
+                Click <strong>Custom</strong> at the bottom of the Category list on the left.
+              </p>
             </div>
-            
+
+            <div className="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-purple-300 flex items-center gap-1.5">
+                <span className="w-4 h-4 rounded-full bg-purple-950 border border-purple-700 text-purple-300 flex items-center justify-center text-[10px]">4</span>
+                Step 4: Enter String &amp; OK
+              </div>
+              <p className="text-slate-300 leading-relaxed text-[11px]">
+                Type the format code in the <strong>Type:</strong> input box and press Enter.
+              </p>
+            </div>
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 4: INTERACTIVE SEMANTIC SVG DIAGRAM
+            SECTION 4: DEDICATED MASTER WORKBOOK VIEWER & DOWNLOAD
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
         >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Trailing Comma Number Scaling Engine (K, M, B)"}
-            </h2>
-            <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
-              SVG Architecture
-            </span>
-          </div>
-
-          <div className="p-4 rounded-xl bg-slate-950/90 border border-slate-800/80 flex flex-col items-center justify-center overflow-x-auto shadow-inner">
-            <svg viewBox="0 0 820 220" className="w-full max-w-4xl h-auto text-slate-200 select-none font-sans">
-              <defs>
-                <linearGradient id="gradFlow5" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#0369a1" stopOpacity="0.8" />
-                </linearGradient>
-                <marker id="arrow5" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
-                </marker>
-              </defs>
-
-              {/* Node 1: Raw Underlying Data */}
-              <g transform="translate(30, 45)">
-                <rect width="210" height="130" rx="12" fill="#0f172a" stroke="#334155" strokeWidth="2" />
-                <rect x="12" y="12" width="186" height="26" rx="6" fill="#1e293b" />
-                <text x="105" y="30" textAnchor="middle" fill="#94a3b8" fontSize="11" fontWeight="bold">Raw Stored Value (Memory)</text>
-                <text x="105" y="70" textAnchor="middle" fill="#38bdf8" fontSize="16" fontFamily="monospace" fontWeight="bold">1254500.789</text>
-                <text x="105" y="95" textAnchor="middle" fill="#64748b" fontSize="10">IEEE 754 Floating Point</text>
-                <text x="105" y="115" textAnchor="middle" fill="#64748b" fontSize="10">Ground Truth for Math</text>
-              </g>
-
-              <path d="M 245 110 L 305 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrow5)" fill="none" />
-
-              {/* Node 2: Custom Number Format Engine */}
-              <g transform="translate(315, 30)">
-                <rect width="250" height="160" rx="14" fill="#0c4a6e" stroke="#0284c7" strokeWidth="2" />
-                <rect x="14" y="14" width="222" height="28" rx="6" fill="#0369a1" />
-                <text x="125" y="33" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">Format Masking Engine</text>
-                <text x="125" y="75" textAnchor="middle" fill="#7dd3fc" fontSize="13" fontFamily="monospace" fontWeight="bold">₹##,##,##0.00</text>
-                <text x="125" y="100" textAnchor="middle" fill="#bae6fd" fontSize="10">Token Parsing &amp; Decimals</text>
-                <text x="125" y="120" textAnchor="middle" fill="#bae6fd" fontSize="10">Zero Overhead Rasterizer</text>
-                <text x="125" y="140" textAnchor="middle" fill="#38bdf8" fontSize="9" fontStyle="italic">Non-Destructive Presentation</text>
-              </g>
-
-              <path d="M 570 110 L 630 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrow5)" fill="none" />
-
-              {/* Node 3: Rendered Screen Output */}
-              <g transform="translate(640, 45)">
-                <rect width="150" height="130" rx="12" fill="#064e3b" stroke="#059669" strokeWidth="2" />
-                <rect x="10" y="12" width="130" height="26" rx="6" fill="#047857" />
-                <text x="75" y="30" textAnchor="middle" fill="#ffffff" fontSize="11" fontWeight="bold">Rendered Grid View</text>
-                <text x="75" y="75" textAnchor="middle" fill="#6ee7b7" fontSize="15" fontFamily="monospace" fontWeight="bold">₹12,54,500.79</text>
-                <text x="75" y="105" textAnchor="middle" fill="#a7f3d0" fontSize="10">Boardroom Ready</text>
-              </g>
-            </svg>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 5: INTERACTIVE SPREADSHEET & DIRECT DOWNLOAD PORTAL
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[4] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
             <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">📥</span>
-                Interactive Spreadsheet &amp; Practice Workbook
+              <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 text-sm font-mono">📥</span>
+                Live Demonstration Sheet: Topic5_Scaling_Thousands_M
               </h2>
-              <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                Explore the practice dataset below live in the browser or download the full module workbook to practice in Microsoft Excel.
+              <p className="text-xs text-slate-400 mt-0.5">
+                Inspect the live spreadsheet below or download the master workbook to practice in desktop Excel.
               </p>
             </div>
             <button
               onClick={handleDownload}
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all duration-200 shadow-lg shadow-emerald-950/40 hover:scale-[1.02] active:scale-[0.98] shrink-0"
-              title="Download the full .xlsx practice workbook for this module"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-all duration-200 shadow-md shadow-emerald-950/40 hover:scale-[1.02] active:scale-[0.98] shrink-0"
+              title="Download the master practice workbook (.xlsx)"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
-              <span>Download Workbook (.xlsx)</span>
+              <span>Download Master Workbook (.xlsx)</span>
             </button>
           </div>
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic5_Scaling_Thousands_M"
-            title={"Scaling large numbers into Thousands (K), Millions (M), and Billions (B) - Interactive Practice Grid"}
-            rowsPerPage={10}
+            title="Custom Number Formatting & Presentation Suite"
+            rowsPerPage={12}
             showSheetSelector={true}
           />
         </section>
 
         {/* =========================================================================
-            SECTION 6: REAL-WORLD BUSINESS SCENARIOS
+            SECTION 5: COMMON MISTAKES & DIAGNOSTIC MATRIX
         ========================================================================= */}
         <section
-          ref={(el) => (sectionsRef.current[5] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+          ref={(el) => (sectionsRef.current[4] = el)}
+          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
         >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
-              Real-World Corporate Implementation Scenarios
+          <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+            <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+              <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-rose-500/20 text-rose-400 text-sm font-mono">⚠️</span>
+              Common Formatting Pitfalls &amp; Diagnostic Fixes
             </h2>
-            <span className="text-xs font-mono text-amber-300 bg-amber-950/60 px-3 py-1 rounded-lg border border-amber-800">
-              Case Studies
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            
-            <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · VP Strategy"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Executive KPI Revenue Scorecard"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Scales ₹45,890,000 into ₹45.9M on executive dashboards while maintaining underlying precision for margin formulas."}</p>
-            </div>
-            
-            <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Portfolio Manager"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Assets Under Management Report"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Formats billion-dollar asset allocations as $1.25B using triple trailing commas (#,##0.00,,, \"B\")."}</p>
-            </div>
-            
-            <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Budget Officer"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Abhronila Das: Annual Departmental Capex"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Condenses factory equipment expenditure into thousands (₹#,##0, \"K\") for concise presentation."}</p>
-            </div>
-            
-            <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Fleet Director"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Annual Kilometer Mileage Tracking"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Formats total enterprise fleet mileage in millions (0.0,, \"M km\") for annual sustainability disclosures."}</p>
-            </div>
-            
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 7: STEP-BY-STEP PRACTICAL CALCULATION WALKTHROUGH
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[6] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">🛠️</span>
-              Step-by-Step Implementation &amp; Execution Guide
-            </h2>
-            <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
-              Execution Protocol
-            </span>
-          </div>
-
-          <div className="space-y-4 text-xs sm:text-sm">
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-emerald-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-300 flex items-center justify-center text-xs">1</span>
-                Step 1: Select Target Range &amp; Launch Format Dialog
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Highlight the numeric data range in your worksheet and press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Ctrl + 1</kbd> to open Format Cells.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-sky-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-sky-950 border border-sky-700 text-sky-300 flex items-center justify-center text-xs">2</span>
-                Step 2: Navigate to Custom Category
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                In the Number tab, select <strong>Custom</strong> from the Category sidebar list on the left.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-teal-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-teal-950 border border-teal-700 text-teal-300 flex items-center justify-center text-xs">3</span>
-                Step 3: Enter Format String &amp; Confirm
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">{"#,##0.0, \"K\" /* Thousands */ | #,##0.0,, \"M\" /* Millions */ | #,##0.0,,, \"B\" /* Billions */"}</code> and click OK.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-indigo-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-indigo-950 border border-indigo-700 text-indigo-300 flex items-center justify-center text-xs">4</span>
-                Step 4: Audit Downstream Arithmetic Integrity
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Verify that =SUM(), =AVERAGE(), and financial formulas reference the formatted range without calculation error or precision loss.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 8: COMMON PITFALLS & TROUBLESHOOTING MATRIX
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[7] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-500/20 text-rose-400 text-base font-mono">⚠️</span>
-              Common Pitfalls &amp; Troubleshooting Matrix
-            </h2>
-            <span className="text-xs font-mono text-rose-300 bg-rose-950/60 px-3 py-1 rounded-lg border border-rose-800">
-              Diagnostic Fixes
+            <span className="text-[11px] font-mono text-rose-300 bg-rose-950/60 px-2.5 py-0.5 rounded-lg border border-rose-800">
+              Troubleshooting
             </span>
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
+            <table className="w-full text-left text-xs border-collapse">
               <thead>
                 <tr className="border-b border-slate-800 text-slate-400 font-semibold bg-slate-950/50">
-                  <th className="py-3 px-4">Problem / Error Signature</th>
-                  <th className="py-3 px-4">Root Cause</th>
-                  <th className="py-3 px-4">Diagnostic Fix &amp; Prevention</th>
+                  <th className="py-2.5 px-3">Symptom / Error Encountered</th>
+                  <th className="py-2.5 px-3">Root Cause</th>
+                  <th className="py-2.5 px-3">The Exact 5-Second Fix</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
-                
-                <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Accidental Formula Division"}</td>
-                  <td className="py-3 px-4">{"Dividing by 1,000,000 in formulas (/10^6) modifies underlying values and breaks dependent totals."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use trailing commas in custom number format instead of formula division."}</td>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 font-mono font-bold text-rose-300">SUM() returns wrong total</td>
+                  <td className="py-2.5 px-3">Cell format rounds numbers visually, but SUM uses exact unrounded floats.</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300">Use ROUND() formula if mathematical truncation is required.</td>
                 </tr>
-                
-                <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Comma Placement Errors"}</td>
-                  <td className="py-3 px-4">{"Placing spaces between commas cancels the 1,000 divisor effect."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Keep trailing commas adjacent to digits before literal unit strings (e.g. #,##0.0,, \"M\")."}</td>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 font-mono font-bold text-rose-300">#VALUE! calculation error</td>
+                  <td className="py-2.5 px-3">User typed text units (e.g. &quot;50 KG&quot;) into the cell instead of using format masks.</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300">Type raw number 50 and apply format mask 0&quot; KG&quot;.</td>
                 </tr>
-                
-                <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Over-Rounding Visuals"}</td>
-                  <td className="py-3 px-4">{"Scaling small values (e.g. ₹45,000) with M scaling shows '₹0.0M'."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Choose appropriate scale (K vs M) based on magnitude of data range."}</td>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 font-mono font-bold text-rose-300">Invalid Number Format error</td>
+                  <td className="py-2.5 px-3">Mismatched brackets or unquoted literal text in the custom format string.</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300">Enclose all literal words in quotes: #,##0&quot; Units&quot;.</td>
                 </tr>
-                
               </tbody>
             </table>
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 9: PRO TIPS & PRODUCTIVITY SHORTCUTS
+            SECTION 6: FREQUENTLY ASKED QUESTIONS (30 QUESTIONS)
         ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[8] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 text-base font-mono">💡</span>
-              Pro Tips &amp; High-Speed Accelerators
-            </h2>
-            <span className="text-xs font-mono text-purple-300 bg-purple-950/60 px-3 py-1 rounded-lg border border-purple-800">
-              Productivity
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
-            
-            <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Thousands Scale (K)"}
-              </div>
-              <p className="text-slate-300 leading-relaxed">{"One trailing comma divides displayed value by 1,000."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"#,##0, \"K\""}</kbd>
-            </div>
-            
-            <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Millions Scale (M)"}
-              </div>
-              <p className="text-slate-300 leading-relaxed">{"Two trailing commas divide displayed value by 1,000,000."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"#,##0.0,, \"M\""}</kbd>
-            </div>
-            
-            <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Billions Scale (B)"}
-              </div>
-              <p className="text-slate-300 leading-relaxed">{"Three trailing commas divide displayed value by 1,000,000,000."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"#,##0.0,,, \"B\""}</kbd>
-            </div>
-            
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 10: SOCRATIC HINTS ("THINK ABOUT...")
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[9] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">🤔</span>
-              Socratic Analytical Hints ("Think About...")
-            </h2>
-            <span className="text-xs font-mono text-teal-300 bg-teal-950/60 px-3 py-1 rounded-lg border border-teal-800">
-              Critical Thinking
-            </span>
-          </div>
-
-          <div className="space-y-3 text-xs sm:text-sm text-slate-300">
-            
-            <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: {"Why is custom format scaling superior to dividing cells by 1,000,000 in formula math?"}
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                Reflect on the mathematical and computational implications in enterprise financial modeling.
-              </p>
-            </div>
-            
-            <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: {"How do trailing commas interact with decimal places in the format string?"}
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                Reflect on the mathematical and computational implications in enterprise financial modeling.
-              </p>
-            </div>
-            
-            <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: {"Can you combine 4-section syntax with millions scaling?"}
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                Reflect on the mathematical and computational implications in enterprise financial modeling.
-              </p>
-            </div>
-            
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 11: FREQUENTLY ASKED QUESTIONS (30 QUESTIONS)
-        ========================================================================= */}
-        <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
+        <div ref={(el) => (sectionsRef.current[5] = el)} className="reveal-section">
           <FAQTemplate
-            title={"Scaling large numbers into Thousands (K), Millions (M), and Billions (B) - Frequently Asked Questions"}
+            title="Scaling Large Numbers into Thousands (K), Millions (M), and Billions (B) - Mastery Q&amp;A"
             questions={questions}
           />
         </div>
 
         {/* =========================================================================
-            SECTION 12: TEACHER'S NOTE & WISDOM
+            SECTION 7: TEACHER'S NOTE & WISDOM
         ========================================================================= */}
-        <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
+        <div ref={(el) => (sectionsRef.current[6] = el)} className="reveal-section">
           <Teacher
-            note={"Never divide your financial models by 1,000,000 with formulas! Use custom format scaling to keep pure raw data while presenting clean K, M, and B figures."}
+            note="Trailing commas are the secret weapon of corporate dashboard designers. You get ultra-clean &#39;14.2 M&#39; board presentation while =SUM() and downstream formulas compute with exact penny precision!"
           />
         </div>
       </div>
