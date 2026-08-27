@@ -79,6 +79,7 @@
       "mappedModules": [
         "excel-intro",
         "excel-data-entry-formatting",
+        "excel-custom-formatting",
         "excel-basic-formulas",
         "excel-basic-charts"
       ]
@@ -187,14 +188,14 @@
     }
   ],
   "recommendedLearningOrder": [
-    "Phase 1: Spreadsheet Architecture & Functional Foundations (Modules 1–4)",
-    "Phase 2: Data Manipulation, Intermediate Functions & Statistical Modeling (Modules 5–10)",
-    "Phase 3: Financial Engineering, What-If Analysis & Executive Dashboards (Modules 11–14)",
-    "Phase 4: Modern Dynamic Arrays, Array Reshaping & LAMBDA Calculus (Modules 15–18)",
-    "Phase 5: Enterprise Power Query ETL & Power Pivot DAX Data Modeling (Modules 19–22)",
-    "Phase 6: VBA Automation, Object Architecture & TypeScript Office Scripts (Modules 23–26)",
-    "Phase 7: Python in Excel & AI Copilot Productivity Workflows (Modules 27–28)",
-    "Phase 8: Comprehensive Skill Tests, Industrial Capstone & Final Certification (Modules 29–33)"
+    "Phase 1: Spreadsheet Architecture & Functional Foundations (Modules 1–5)",
+    "Phase 2: Data Manipulation, Intermediate Functions & Statistical Modeling (Modules 6–11)",
+    "Phase 3: Financial Engineering, What-If Analysis & Executive Dashboards (Modules 12–15)",
+    "Phase 4: Modern Dynamic Arrays, Array Reshaping & LAMBDA Calculus (Modules 16–19)",
+    "Phase 5: Enterprise Power Query ETL & Power Pivot DAX Data Modeling (Modules 20–23)",
+    "Phase 6: VBA Automation, Object Architecture & TypeScript Office Scripts (Modules 24–27)",
+    "Phase 7: Python in Excel & AI Copilot Productivity Workflows (Modules 28–29)",
+    "Phase 8: Comprehensive Skill Tests, Industrial Capstone & Final Certification (Modules 30–34)"
   ],
   "textBooks": [
     "Excel 365 Bible – Michael Alexander & Dick Kusleika (Wiley)",
@@ -380,8 +381,93 @@
             "Getting Started with Excel module"
           ],
           "previousModule": "excel-intro",
-          "nextModule": "excel-basic-formulas",
+          "nextModule": "excel-custom-formatting",
           "badge": "Data Styling Hero Badge"
+        },
+        {
+          "moduleId": "excel-custom-formatting",
+          "slug": "001_005_custom-number-formatting-and-styling",
+          "title": "Custom Number Formatting & Financial Data Presentation",
+          "level": "Beginner",
+          "estimatedHours": 5,
+          "tags": [
+            "custom-formatting",
+            "number-formats",
+            "4-section-syntax",
+            "scaling-k-m-b",
+            "financial-modeling",
+            "accounting-format",
+            "date-time-tokens",
+            "stealth-cloaking"
+          ],
+          "topics": [
+            "Introduction to Excel's format engine: Display values vs underlying stored values",
+            "The 4-Section Syntax architecture: Positive ; Negative ; Zero ; Text",
+            "Digit placeholders deep-dive: forced zero (0), optional digits (#), and decimal alignment (?)",
+            "Currency and international formats: $, ₹, €, £, and Indian numbering (##,##,##0)",
+            "Financial statement presentation: Wall Street accounting alignment using _) and *",
+            "Scaling large numbers into Thousands (K), Millions (M), and Billions (B)",
+            "Embedded conditional criteria ([>1000]) and color formatting ([Red], [Green], [ColorN])",
+            "Custom date serial formatting (dddd, mmmm dd, yyyy) and 12h/24h time formatting",
+            "Elapsed duration tracking exceeding 24 hours with [h]:mm:ss for timesheets",
+            "Phone numbers, Tax IDs (PAN/GSTIN/SSN), and credit card masking patterns",
+            "Text placeholder tokens (@), literals, and unit suffixes (KG, Units, Hrs) without breaking math",
+            "The stealth cloaking operator (;;;) for hiding cell contents and dashboard security",
+            "Real-world project: Building an Executive Financial Income Statement with dynamic scaling and color alerts",
+            "Practice Lab: 15 MCQs and 10 custom formatting practical workbook challenges"
+          ],
+          "learningOutcomes": [
+            "Master the 4-part number formatting syntax (Positive;Negative;Zero;Text) and digit tokens (0, #, ?)",
+            "Scale financial metrics dynamically into Thousands (K), Millions (M), and Billions (B) with comma operators",
+            "Format elapsed times exceeding 24 hours ([h]:mm), apply bracket conditions ([>1000]), and hide values with ;;;",
+            "Design boardroom-ready financial statements adhering to institutional accounting standards"
+          ],
+          "prerequisites": [
+            "excel-data-entry-formatting"
+          ],
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 2,
+          "summary": "Master the complete custom number formatting engine: the 4-section syntax, K/M/B scaling, accounting alignment, elapsed duration tokens, and financial presentation standards.",
+          "miniProjects": [
+            "Mini Project: Build an Executive Financial Statement & KPI Dashboard with automated scale formatting (K/M) and color-coded variance indicators"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Practical Custom Formatting Assignment",
+            "passScore": 75
+          },
+          "useCases": [
+            "Financial statements, P&L reports, balance sheets, and budget variance modeling",
+            "Executive KPI scorecards requiring scaled numbers (e.g. $4.5M) and clean decimal alignments",
+            "Project timesheets tracking cumulative hours over 24 hours and cloaked configuration cells"
+          ],
+          "careerSkills": [
+            "Building institutional-grade financial models and boardroom-ready executive spreadsheets",
+            "Maintaining underlying numerical precision for formulas while presenting customized visual labels"
+          ],
+          "commonMistakes": [
+            "Typing text units manually into numbers (e.g. '500 KG') which converts numeric cells into text and destroys formulas",
+            "Using regular h:mm instead of [h]:mm for timesheets, causing hours to reset back to zero every 24 hours"
+          ],
+          "references": [
+            "Microsoft Support: Review Guidelines for Custom Number Formats",
+            "Financial Modeling in Excel For Dummies - Chapter 3: Formatting Financial Models",
+            "Excel 365 Bible - Chapter 4: Custom Number Formats"
+          ],
+          "teachingTips": [
+            "Demonstrate typing '1500 KG' (breaks SUM) vs. entering 1500 with format 0\" KG\" (SUM works flawlessly).",
+            "Show the power of ;;; to hide cells vs. white font (which is exposed in dark themes)."
+          ],
+          "preReading": [
+            "Data Entry, Editing and Formatting module"
+          ],
+          "previousModule": "excel-data-entry-formatting",
+          "nextModule": "excel-basic-formulas",
+          "badge": "Formatting Artisan Badge"
         },
         {
           "moduleId": "excel-basic-formulas",
@@ -413,7 +499,7 @@
             "Utilize core summary functions (SUM, AVERAGE, MIN, MAX, COUNT, COUNTA) and diagnose calculation errors"
           ],
           "prerequisites": [
-            "excel-data-entry-formatting"
+            "excel-custom-formatting"
           ],
           "difficulty": "Easy-Medium",
           "difficultyIndex": 3,
@@ -451,9 +537,9 @@
             "Have students predict formula results before pressing Enter."
           ],
           "preReading": [
-            "Data Entry, Editing and Formatting module"
+            "Custom Number Formatting & Financial Data Presentation module"
           ],
-          "previousModule": "excel-data-entry-formatting",
+          "previousModule": "excel-custom-formatting",
           "nextModule": "excel-basic-charts",
           "badge": "Formula Wizard Badge"
         },
