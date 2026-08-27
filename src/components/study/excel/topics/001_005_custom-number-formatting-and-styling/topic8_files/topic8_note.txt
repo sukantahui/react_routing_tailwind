@@ -1,0 +1,21 @@
+TOPIC 8 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Elapsed duration tracking exceeding 24 hours with [h]:mm:ss for timesheets
+Module: 001_005_custom-number-formatting-and-styling
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+[h]:mm:ss | [m]:ss | [s]
+
+PRIMARY CONCEPT:
+Square bracket elapsed duration tokens ([h], [m], [s]) preventing 24-hour clock rollover
+
+TEACHER'S ADVICE:
+The [h]:mm format is essential for timesheets, payroll, and maintenance. If your overtime hours look suspiciously small, check if square brackets are missing!
+
+COMMON TRAPS TO AVOID:
+- 24-Hour Clock Rollover: Using regular 'hh:mm' causes 25 hours to display as '01:00' because regular time loops modulo 24. -> Fix: Enclose the hour token in square brackets: [h]:mm to display cumulative elapsed hours.
+- Time as Text Addition Failure: Typing '25:30' as text causes =SUM() to return 0. -> Fix: Enter time as true fraction serial numbers and format as [h]:mm.
+- Negative Time Display (#VALUE!): Subtracting later time from earlier time in 1900 date system displays ######. -> Fix: Use IF() checks or absolute formulas to prevent negative time serial numbers.
+================================================================================

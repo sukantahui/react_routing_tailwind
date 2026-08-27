@@ -1,0 +1,21 @@
+TOPIC 1 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: The 4-Section Syntax architecture: Positive ; Negative ; Zero ; Text
+Module: 001_005_custom-number-formatting-and-styling
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+<POSITIVE> ; <NEGATIVE> ; <ZERO> ; <TEXT>
+
+PRIMARY CONCEPT:
+Semicolon-delimited 4-section syntax: Positive ; Negative ; Zero ; Text
+
+TEACHER'S ADVICE:
+The 4-section architecture is Excel's secret weapon for high-speed conditional styling. It renders instantly with zero calculation overhead.
+
+COMMON TRAPS TO AVOID:
+- Missing Semicolon Fallback: Omitting the 3rd semicolon causes zero values to adopt positive formatting rules. -> Fix: Include all 3 semicolons (Pos;Neg;Zero;Text) to establish clean four-way branching.
+- Unquoted Text Strings: Typing raw literal words without double quotes triggers parsing syntax errors. -> Fix: Enclose arbitrary words in double quotes (e.g. "Nil", "Paid").
+- Missing Text Placeholder: Omitting @ in section 4 suppresses entered text strings entirely. -> Fix: Always include @ or literal text in the 4th section.
+================================================================================

@@ -1,0 +1,50 @@
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Custom Number Formatting & Financial Data Presentation
+Topic 0: Introduction to Excel's format engine: Display values vs underlying stored values
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Introduction to Excel's format engine: Display values vs underlying stored values is an essential discipline in modern spreadsheet data engineering. 
+It establishes the separation between raw data storage and visual UI representation.
+
+2. SYNTAX & TOKEN STRUCTURE
+Format Code: #,##0.00 /* Visual Masking Layer */
+
+3. CORE TECHNICAL MECHANICS
+1. Visual Presentation Layer Decoupling:
+   Excel separates raw underlying data (IEEE 754 float/serial int) from rendered visual glyphs. Formatting only changes cell rasterization, never truncating mathematical values.
+
+2. Precision Preservation in Math:
+   When 12.3456 is formatted as '12.35', formulas referencing that cell continue calculating with 12.3456, preventing cumulative rounding drift in financial ledgers.
+
+3. Formula Bar vs Cell Grid Truth:
+   The Formula Bar always reveals the unformatted ground truth value, whereas the grid displays the customized visual mask specified in Number Format settings.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Treasury Lead, Barrackpore HQ):
+  Compounding Interest Yield Precision - Formats raw 8-decimal interest yields as ₹#,##0.00 for board presentation while calculating ₹4.5 Crore treasury balances with unrounded precision.
+• Tuhina Mukherjee (Tax Auditor, Shyamnagar Plant):
+  Unit Cost Reconciliation - Applies 2-decimal masks on invoice line items while reconciling total purchase ledgers against exact unrounded item prices.
+• Abhronila Das (Manufacturing Controller, Ichapur Heavy Works):
+  Component Scrap Rate Monitoring - Masks scrap ratios as 0.00% on operator dashboards while preserving micro-variance rates in standard costing models.
+• Debangshu Roy (Freight Manager, Naihati Logistics Hub):
+  Axle Load Weight Ledger - Displays gross freight in metric tons (0.0 "Tons") while retaining exact kilogram weights for vehicle transport regulations.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Visual Rounding Discrepancy:
+  Root Cause: Cells display rounded numbers (e.g. 10.4 + 10.4 displayed as 10 + 10 = 21).
+  Diagnostic Fix: Use ROUND() explicitly if regulatory compliance mandates calculating rounded decimals.
+• Accidental Text Typing:
+  Root Cause: Typing unit names ('1500 KG') directly into cells converts data to static text.
+  Diagnostic Fix: Apply custom number format 0" KG" to keep pure numerical data type.
+• Column Overflow (###):
+  Root Cause: Formatted string exceeds column pixel width.
+  Diagnostic Fix: Double-click column header boundary (Alt + H + O + I) to AutoFit.
+
+6. PRO TIPS & SHORTCUTS
+• Launch Format Dialog (Ctrl + 1): Directly open Format Cells modal on active selection.
+• Reset to General (Ctrl + Shift + ~): Strip all format codes and restore default General representation.
+• Quick Currency (Ctrl + Shift + $): Apply standard currency formatting with two decimals.
+================================================================================

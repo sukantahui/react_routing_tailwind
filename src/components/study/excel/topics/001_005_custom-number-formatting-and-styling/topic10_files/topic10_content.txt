@@ -1,0 +1,50 @@
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Custom Number Formatting & Financial Data Presentation
+Topic 10: Text placeholder tokens (@), literals, and unit suffixes (KG, Units, Hrs) without breaking math
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Text placeholder tokens (@), literals, and unit suffixes (KG, Units, Hrs) without breaking math is an essential discipline in modern spreadsheet data engineering. 
+It establishes the separation between raw data storage and visual UI representation.
+
+2. SYNTAX & TOKEN STRUCTURE
+Format Code: 0.00 "KG" | 0 "Units" | 0.0 "Hrs" | "Prefix: " @ " Suffix"
+
+3. CORE TECHNICAL MECHANICS
+1. Quoted String Literal Insertion:
+   Enclosing text like `" KG"` or `" Hrs"` inside double quotes instructs Excel to append unit strings after the number during rendering.
+
+2. Pure Numeric Data Integrity:
+   Because the underlying cell stores only the number (e.g. 500), `=SUM(A1:A100)` and other math functions calculate seamlessly.
+
+3. Text Prefix and Suffix Wrapping:
+   Surrounding the `@` token with quotes allows prepending and appending custom text labels around typed strings.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Procurement Head, Barrackpore HQ):
+  Raw Material Weight Procurement - Formats steel billet quantities as 0.00 "MT" (Metric Tons) allowing procurement managers to execute =SUM() directly on the weight column.
+• Tuhina Mukherjee (Inventory Lead, Shyamnagar Plant):
+  Packaged Inventory Stock Units - Applies #,##0 "Boxes" across warehouse inventory registers, ensuring stock counts calculate dynamically.
+• Abhronila Das (Energy Auditor, Ichapur Works):
+  Factory Power Consumption Ledger - Formats kilowatt-hour meter readings as #,##0.0 "kWh" while calculating monthly energy cost formulas.
+• Debangshu Roy (Fleet Controller, Naihati Logistics):
+  Diesel Fuel Tanker Capacity - Formats fuel fill volumes as #,##0 "Litres" with automatic calculation of total fuel consumption.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Typing Units in Cell Data:
+  Root Cause: Typing '500 KG' makes the cell a text string, causing =SUM() to return 0 or #VALUE!.
+  Diagnostic Fix: Type only 500 and apply the custom format 0 "KG".
+• Missing Escape Quotes:
+  Root Cause: Typing unit letters like 'm' or 'h' without quotes triggers date/time token substitution.
+  Diagnostic Fix: Always enclose arbitrary unit strings in double quotes (e.g. "m", "hrs").
+• Unit Confusion in Conversions:
+  Root Cause: Displaying 'KG' on a column calculated in Grams produces 1000x reporting errors.
+  Diagnostic Fix: Ensure raw numbers match the scale of the custom unit label.
+
+6. PRO TIPS & SHORTCUTS
+• Physical Unit Mask (0.00 "KG"): Renders units visually while keeping underlying data 100% numerical for formulas.
+• Text Prefix/Suffix ("Customer: " @): Prepends or appends static labels around typed text strings.
+• Single-Letter Escape (\$ or \%): Use backslash (\) to escape a single character without quotes.
+================================================================================

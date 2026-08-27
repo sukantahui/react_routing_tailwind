@@ -1,0 +1,21 @@
+TOPIC 3 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Currency and international formats: $, ₹, €, £, and Indian numbering (##,##,##0)
+Module: 001_005_custom-number-formatting-and-styling
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+[$₹-402] ##,##,##0.00 /* Indian Lakhs & Crores */ | [$$-409] #,##0.00 /* USD */
+
+PRIMARY CONCEPT:
+Global currency symbols ($, ₹, €, £) and Indian numbering system (Lakhs & Crores: ##,##,##0)
+
+TEACHER'S ADVICE:
+In corporate India, reporting in Lakhs and Crores is mandatory for statutory compliance. Master [$-402] ##,##,##0.00 to build authentic Indian financial reports.
+
+COMMON TRAPS TO AVOID:
+- Western vs Indian Grouping: Default #,##0.00 groups in thousands (1,250,000) instead of Indian lakhs (12,50,000). -> Fix: Use explicit Indian locale code [$-402] ##,##,##0.00 or custom group format.
+- Currency Symbol Math Lock: Typing 'Rs. 5000' converts cell to text, breaking arithmetic formulas. -> Fix: Always apply currency format masks to raw numbers.
+- Locale Code Syntax Drift: Using outdated country codes can cause unexpected currency symbols across Office versions. -> Fix: Use explicit LCID format codes like [$₹-hi-IN] or [$₹-402].
+================================================================================

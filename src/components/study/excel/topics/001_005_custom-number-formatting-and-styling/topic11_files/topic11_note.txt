@@ -1,0 +1,21 @@
+TOPIC 11 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: The stealth cloaking operator (;;;) for hiding cell contents and dashboard security
+Module: 001_005_custom-number-formatting-and-styling
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+;;; /* Triple Semicolon Stealth Cloaking */ | 0.00;-0.00;"" /* Hide Zeros */
+
+PRIMARY CONCEPT:
+The triple semicolon (;;;) cloaking operator for hiding cell contents from grid view and dashboard security
+
+TEACHER'S ADVICE:
+Never use white font to hide cells! In modern dark mode Excel, white text glows like a beacon. Use ;;; for professional, theme-independent cell cloaking.
+
+COMMON TRAPS TO AVOID:
+- Formula Bar Exposure: ;;; hides cell text from the grid, but clicking the cell reveals the value in the Formula Bar. -> Fix: Protect the worksheet and check 'Hidden' in Format Cells > Protection to cloak the Formula Bar.
+- White Font Trap: Using white font color to hide data fails completely when dark mode themes or cell fills change. -> Fix: Always use ;;; custom format instead of font color hacks.
+- Accidental Deletion Risk: Users may overwrite seemingly 'empty' cloaked cells that hold critical calculation formulas. -> Fix: Lock and protect cloaked configuration cells.
+================================================================================

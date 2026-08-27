@@ -1,0 +1,21 @@
+TOPIC 0 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Introduction to Excel's format engine: Display values vs underlying stored values
+Module: 001_005_custom-number-formatting-and-styling
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
+#,##0.00 /* Visual Masking Layer */
+
+PRIMARY CONCEPT:
+Visual display formatting layer vs underlying stored IEEE 754 float values
+
+TEACHER'S ADVICE:
+Always remember: Formatting is visual clothing for numbers. Never modify underlying data to achieve a visual layout; let the Custom Number Format engine handle aesthetics while preserving pure numerical precision.
+
+COMMON TRAPS TO AVOID:
+- Visual Rounding Discrepancy: Cells display rounded numbers (e.g. 10.4 + 10.4 displayed as 10 + 10 = 21). -> Fix: Use ROUND() explicitly if regulatory compliance mandates calculating rounded decimals.
+- Accidental Text Typing: Typing unit names ('1500 KG') directly into cells converts data to static text. -> Fix: Apply custom number format 0" KG" to keep pure numerical data type.
+- Column Overflow (###): Formatted string exceeds column pixel width. -> Fix: Double-click column header boundary (Alt + H + O + I) to AutoFit.
+================================================================================

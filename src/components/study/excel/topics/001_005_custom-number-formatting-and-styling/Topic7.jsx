@@ -1,0 +1,581 @@
+"use client";
+
+import React, { useEffect, useRef } from "react";
+import clsx from "clsx";
+import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
+import sampleWorkbookUrl from "./excel_files/custom_number_formatting_and_styling_master.xlsx?url";
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import questions from "./topic7_files/topic7_questions";
+import Teacher from "../../../../../common/TeacherSukantaHui";
+
+export default function Topic7() {
+  const sectionsRef = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+    );
+    sectionsRef.current.forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  const handleDownload = () => {
+    if (!sampleWorkbookUrl) return;
+    const link = document.createElement("a");
+    link.href = sampleWorkbookUrl;
+    link.download = "custom_number_formatting_and_styling_practice.xlsx";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  return (
+    <div className="dark bg-slate-950 text-slate-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8 font-sans selection:bg-sky-500/30 selection:text-sky-200">
+      <style>{`
+        @keyframes fadeInSlide {
+          from { transform: translateY(18px); }
+          to { transform: translateY(0); }
+        }
+        .reveal-section {
+          animation: fadeInSlide 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+      `}</style>
+
+      <div className="max-w-5xl mx-auto space-y-10">
+        {/* =========================================================================
+            SECTION 1: HERO HEADER & OVERVIEW
+        ========================================================================= */}
+        <header
+          ref={(el) => (sectionsRef.current[0] = el)}
+          className="reveal-section rounded-3xl p-6 sm:p-10 bg-gradient-to-b from-slate-900/90 via-slate-900/60 to-slate-950 border border-slate-800 shadow-2xl relative overflow-hidden"
+        >
+          <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+
+          <div className="flex flex-wrap items-center gap-2.5 mb-4">
+            <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
+              📅 Date & Time Formatting Tokens · Topic 7
+            </span>
+            <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
+              Temporal Formatting
+            </span>
+            <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
+              Beginner-Intermediate · Bloom Level 3: Apply
+            </span>
+          </div>
+
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+            Custom date serial formatting (dddd, mmmm dd, yyyy) and 12h/24h time formatting
+          </h1>
+
+          <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
+            Date tokens (d, dd, ddd, dddd, m, mm, mmm, mmmm, yy, yyyy) and time tokens (h, hh, m, mm, s, ss, AM/PM). Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
+          </p>
+
+          <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
+            <div className="flex items-center gap-2.5 text-slate-300">
+              <span className="text-sky-400 text-base">✓</span>
+              <span><strong>Subject Code:</strong> EXCEL-PRO-901</span>
+            </div>
+            <div className="flex items-center gap-2.5 text-slate-300">
+              <span className="text-emerald-400 text-base">✓</span>
+              <span><strong>Lab Focus:</strong> Financial Modeling &amp; Presentation</span>
+            </div>
+            <div className="flex items-center gap-2.5 text-slate-300">
+              <span className="text-indigo-400 text-base">✓</span>
+              <span><strong>Accreditation:</strong> Coder &amp; AccoTax Centre of Excellence</span>
+            </div>
+          </div>
+        </header>
+
+        {/* =========================================================================
+            SECTION 2: FORMULA & SYNTAX ANATOMY CARD
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[1] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all duration-300 space-y-6"
+        >
+          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">⚡</span>
+              Format String Syntax &amp; Token Anatomy
+            </h2>
+            <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
+              Token Specification
+            </span>
+          </div>
+
+          <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
+            dddd, mmmm dd, yyyy | hh:mm:ss AM/PM | [$-402]dd-mmm-yyyy
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm text-slate-300 border-collapse">
+              <thead>
+                <tr className="border-b border-slate-800 text-slate-400 font-semibold uppercase tracking-wider">
+                  <th className="py-3 px-4">Syntax Element</th>
+                  <th className="py-3 px-4">Role / Type</th>
+                  <th className="py-3 px-4">Requirement</th>
+                  <th className="py-3 px-4">Operational Description</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/50 font-mono">
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Primary Format Mask</td>
+                  <td className="py-3 px-4 text-teal-400">Rendering Rule</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Required</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Specifies how numerical values are rendered without altering underlying float precision.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Delimiter / Token</td>
+                  <td className="py-3 px-4 text-teal-400">Structural Separator</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Contextual</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Partitions Positive, Negative, Zero, and Text branches deterministically.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="p-4 rounded-xl bg-sky-950/40 border border-sky-800/60 flex items-start gap-3">
+            <span className="text-sky-400 text-lg">💡</span>
+            <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <strong className="text-white">Format Engine Rule: </strong>
+              Custom number format strings execute in the GPU presentation pipeline and never alter underlying arithmetic precision in formulas.
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 3: DEEP CONCEPTUAL & THEORETICAL MECHANICS
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[2] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">🔬</span>
+              Format Engine Architecture &amp; Execution Pipeline
+            </h2>
+            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-800">
+              Under-The-Hood Mechanics
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            
+            <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">1. Serial Integer to Date Mapping</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Excel stores dates as integer count of days elapsed since January 1, 1900. Custom date tokens format that underlying integer into day, month, and year strings.</p>
+            </div>
+            
+            <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">2. Fractional Serial to Time Mapping</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Decimal fractions represent time (e.g. 0.5 = 12:00 PM). Time tokens (h, m, s, AM/PM) format decimal fractions into clock hours and minutes.</p>
+            </div>
+            
+            <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">3. Contextual Disambiguation of 'm'</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">The token 'm' renders Month when isolated, but switches to Minute when immediately preceded by 'h'/'hh' or followed by 's'/'ss'.</p>
+            </div>
+            
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 4: INTERACTIVE SEMANTIC SVG DIAGRAM
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[3] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
+              Visual Dataflow: Date & Time Token Mapping: From Integer Serial to Formatted String
+            </h2>
+            <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
+              SVG Architecture
+            </span>
+          </div>
+
+          <div className="p-4 rounded-xl bg-slate-950/90 border border-slate-800/80 flex flex-col items-center justify-center overflow-x-auto shadow-inner">
+            <svg viewBox="0 0 820 220" className="w-full max-w-4xl h-auto text-slate-200 select-none font-sans">
+              <defs>
+                <linearGradient id="gradFlow7" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#0369a1" stopOpacity="0.8" />
+                </linearGradient>
+                <marker id="arrow7" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+                </marker>
+              </defs>
+
+              {/* Node 1: Raw Underlying Data */}
+              <g transform="translate(30, 45)">
+                <rect width="210" height="130" rx="12" fill="#0f172a" stroke="#334155" strokeWidth="2" />
+                <rect x="12" y="12" width="186" height="26" rx="6" fill="#1e293b" />
+                <text x="105" y="30" textAnchor="middle" fill="#94a3b8" fontSize="11" fontWeight="bold">Raw Stored Value (Memory)</text>
+                <text x="105" y="70" textAnchor="middle" fill="#38bdf8" fontSize="16" fontFamily="monospace" fontWeight="bold">1254500.789</text>
+                <text x="105" y="95" textAnchor="middle" fill="#64748b" fontSize="10">IEEE 754 Floating Point</text>
+                <text x="105" y="115" textAnchor="middle" fill="#64748b" fontSize="10">Ground Truth for Math</text>
+              </g>
+
+              <path d="M 245 110 L 305 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrow7)" fill="none" />
+
+              {/* Node 2: Custom Number Format Engine */}
+              <g transform="translate(315, 30)">
+                <rect width="250" height="160" rx="14" fill="#0c4a6e" stroke="#0284c7" strokeWidth="2" />
+                <rect x="14" y="14" width="222" height="28" rx="6" fill="#0369a1" />
+                <text x="125" y="33" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">Format Masking Engine</text>
+                <text x="125" y="75" textAnchor="middle" fill="#7dd3fc" fontSize="13" fontFamily="monospace" fontWeight="bold">₹##,##,##0.00</text>
+                <text x="125" y="100" textAnchor="middle" fill="#bae6fd" fontSize="10">Token Parsing &amp; Decimals</text>
+                <text x="125" y="120" textAnchor="middle" fill="#bae6fd" fontSize="10">Zero Overhead Rasterizer</text>
+                <text x="125" y="140" textAnchor="middle" fill="#38bdf8" fontSize="9" fontStyle="italic">Non-Destructive Presentation</text>
+              </g>
+
+              <path d="M 570 110 L 630 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrow7)" fill="none" />
+
+              {/* Node 3: Rendered Screen Output */}
+              <g transform="translate(640, 45)">
+                <rect width="150" height="130" rx="12" fill="#064e3b" stroke="#059669" strokeWidth="2" />
+                <rect x="10" y="12" width="130" height="26" rx="6" fill="#047857" />
+                <text x="75" y="30" textAnchor="middle" fill="#ffffff" fontSize="11" fontWeight="bold">Rendered Grid View</text>
+                <text x="75" y="75" textAnchor="middle" fill="#6ee7b7" fontSize="15" fontFamily="monospace" fontWeight="bold">₹12,54,500.79</text>
+                <text x="75" y="105" textAnchor="middle" fill="#a7f3d0" fontSize="10">Boardroom Ready</text>
+              </g>
+            </svg>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 5: INTERACTIVE SPREADSHEET & DIRECT DOWNLOAD PORTAL
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[4] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">📥</span>
+                Interactive Spreadsheet &amp; Practice Workbook
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                Explore the practice dataset below live in the browser or download the full module workbook to practice in Microsoft Excel.
+              </p>
+            </div>
+            <button
+              onClick={handleDownload}
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all duration-200 shadow-lg shadow-emerald-950/40 hover:scale-[1.02] active:scale-[0.98] shrink-0"
+              title="Download the full .xlsx practice workbook for this module"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              <span>Download Workbook (.xlsx)</span>
+            </button>
+          </div>
+
+          <ExcelFileLoader
+            fileModule={sampleWorkbookUrl}
+            sheetName="Topic7_Custom_Dates_Times"
+            title="Custom date serial formatting (dddd, mmmm dd, yyyy) and 12h/24h time formatting - Interactive Practice Grid"
+            rowsPerPage={10}
+            showSheetSelector={true}
+          />
+        </section>
+
+        {/* =========================================================================
+            SECTION 6: REAL-WORLD BUSINESS SCENARIOS
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[5] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
+              Real-World Corporate Implementation Scenarios
+            </h2>
+            <span className="text-xs font-mono text-amber-300 bg-amber-950/60 px-3 py-1 rounded-lg border border-amber-800">
+              Case Studies
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            
+            <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 1 · Executive Assistant</span>
+                <span className="text-xs font-mono text-slate-400">Barrackpore HQ</span>
+              </div>
+              <h3 className="font-bold text-white text-base">Swadeep Banerjee: Board Meeting Calendar Invites</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Formats meeting dates as 'dddd, mmmm dd, yyyy' (e.g. Thursday, August 27, 2026) for formal corporate notices.</p>
+            </div>
+            
+            <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 2 · HR Compliance Officer</span>
+                <span className="text-xs font-mono text-slate-400">Shyamnagar Plant</span>
+              </div>
+              <h3 className="font-bold text-white text-base">Tuhina Mukherjee: Employee Joining Formalities</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Applies 'dd-mmm-yyyy' (e.g. 15-Aug-2026) to eliminate ambiguity between US (MM/DD) and UK/Indian (DD/MM) date standards.</p>
+            </div>
+            
+            <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 3 · Shift Supervisor</span>
+                <span className="text-xs font-mono text-slate-400">Ichapur Works</span>
+              </div>
+              <h3 className="font-bold text-white text-base">Abhronila Das: Production Batch Timestamps</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Formats manufacturing timestamps as 'yyyy-mm-dd hh:mm:ss' to conform to ISO 8601 audit standards.</p>
+            </div>
+            
+            <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 4 · Logistics Coordinator</span>
+                <span className="text-xs font-mono text-slate-400">Naihati Logistics</span>
+              </div>
+              <h3 className="font-bold text-white text-base">Debangshu Roy: Shipment Departure Schedule</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Displays delivery windows as 'ddd, dd-mmm hh:mm AM/PM' for driver trip manifests.</p>
+            </div>
+            
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 7: STEP-BY-STEP PRACTICAL CALCULATION WALKTHROUGH
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[6] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">🛠️</span>
+              Step-by-Step Implementation &amp; Execution Guide
+            </h2>
+            <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
+              Execution Protocol
+            </span>
+          </div>
+
+          <div className="space-y-4 text-xs sm:text-sm">
+            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-emerald-300 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-300 flex items-center justify-center text-xs">1</span>
+                Step 1: Select Target Range &amp; Launch Format Dialog
+              </div>
+              <p className="text-slate-300 leading-relaxed">
+                Highlight the numeric data range in your worksheet and press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Ctrl + 1</kbd> to open Format Cells.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-sky-300 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-sky-950 border border-sky-700 text-sky-300 flex items-center justify-center text-xs">2</span>
+                Step 2: Navigate to Custom Category
+              </div>
+              <p className="text-slate-300 leading-relaxed">
+                In the Number tab, select <strong>Custom</strong> from the Category sidebar list on the left.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-teal-300 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-teal-950 border border-teal-700 text-teal-300 flex items-center justify-center text-xs">3</span>
+                Step 3: Enter Format String &amp; Confirm
+              </div>
+              <p className="text-slate-300 leading-relaxed">
+                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">dddd, mmmm dd, yyyy | hh:mm:ss AM/PM | [$-402]dd-mmm-yyyy</code> and click OK.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="font-bold text-indigo-300 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-indigo-950 border border-indigo-700 text-indigo-300 flex items-center justify-center text-xs">4</span>
+                Step 4: Audit Downstream Arithmetic Integrity
+              </div>
+              <p className="text-slate-300 leading-relaxed">
+                Verify that =SUM(), =AVERAGE(), and financial formulas reference the formatted range without calculation error or precision loss.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 8: COMMON PITFALLS & TROUBLESHOOTING MATRIX
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[7] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-500/20 text-rose-400 text-base font-mono">⚠️</span>
+              Common Pitfalls &amp; Troubleshooting Matrix
+            </h2>
+            <span className="text-xs font-mono text-rose-300 bg-rose-950/60 px-3 py-1 rounded-lg border border-rose-800">
+              Diagnostic Fixes
+            </span>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-slate-800 text-slate-400 font-semibold bg-slate-950/50">
+                  <th className="py-3 px-4">Problem / Error Signature</th>
+                  <th className="py-3 px-4">Root Cause</th>
+                  <th className="py-3 px-4">Diagnostic Fix &amp; Prevention</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/60 text-slate-300">
+                
+                <tr key="0" className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Month vs Minute Collision (m)</td>
+                  <td className="py-3 px-4">The token 'm' represents Month when alone, but Minute when immediately following 'h' or 'hh'.</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">Always place minutes directly after hours (hh:mm) or use 's' after minutes (mm:ss).</td>
+                </tr>
+                
+                <tr key="1" className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">US vs UK Date Ambiguity</td>
+                  <td className="py-3 px-4">Using 08/09/2026 causes confusion whether it is August 9th or September 8th.</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">Use 3-letter month tokens (dd-mmm-yyyy) for foolproof international clarity.</td>
+                </tr>
+                
+                <tr key="2" className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Date Stored as Text</td>
+                  <td className="py-3 px-4">Typing '27th August 2026' as text prevents date math, filtering, and sorting.</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">Enter true date serials and format visually with custom tokens.</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 9: PRO TIPS & PRODUCTIVITY SHORTCUTS
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[8] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 text-base font-mono">💡</span>
+              Pro Tips &amp; High-Speed Accelerators
+            </h2>
+            <span className="text-xs font-mono text-purple-300 bg-purple-950/60 px-3 py-1 rounded-lg border border-purple-800">
+              Productivity
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+            
+            <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+              <div className="font-bold text-purple-300 flex items-center gap-2">
+                <span>⚡</span> Full Day Name
+              </div>
+              <p className="text-slate-300 leading-relaxed">Renders full day of week (e.g. 'Thursday').</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">dddd</kbd>
+            </div>
+            
+            <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+              <div className="font-bold text-purple-300 flex items-center gap-2">
+                <span>⚡</span> Full Month Name
+              </div>
+              <p className="text-slate-300 leading-relaxed">Renders full month name (e.g. 'August').</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">mmmm</kbd>
+            </div>
+            
+            <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+              <div className="font-bold text-purple-300 flex items-center gap-2">
+                <span>⚡</span> Standard Audit Date
+              </div>
+              <p className="text-slate-300 leading-relaxed">The gold standard for unambiguous corporate date presentation.</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">dd-mmm-yyyy</kbd>
+            </div>
+            
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 10: SOCRATIC HINTS ("THINK ABOUT...")
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[9] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">🤔</span>
+              Socratic Analytical Hints ("Think About...")
+            </h2>
+            <span className="text-xs font-mono text-teal-300 bg-teal-950/60 px-3 py-1 rounded-lg border border-teal-800">
+              Critical Thinking
+            </span>
+          </div>
+
+          <div className="space-y-3 text-xs sm:text-sm text-slate-300">
+            
+            <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
+              <h3 className="font-bold text-white flex items-center gap-2">
+                <span className="text-teal-400">💭</span> Question 1: How does Excel know whether 'mm' means month or minute?
+              </h3>
+              <p className="text-slate-400 leading-relaxed">
+                Reflect on the mathematical and computational implications in enterprise financial modeling.
+              </p>
+            </div>
+            
+            <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
+              <h3 className="font-bold text-white flex items-center gap-2">
+                <span className="text-teal-400">💭</span> Question 2: Why is 'dd-mmm-yyyy' preferred in financial audits over 'dd/mm/yyyy'?
+              </h3>
+              <p className="text-slate-400 leading-relaxed">
+                Reflect on the mathematical and computational implications in enterprise financial modeling.
+              </p>
+            </div>
+            
+            <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
+              <h3 className="font-bold text-white flex items-center gap-2">
+                <span className="text-teal-400">💭</span> Question 3: What underlying integer serial number represents the current date in Excel?
+              </h3>
+              <p className="text-slate-400 leading-relaxed">
+                Reflect on the mathematical and computational implications in enterprise financial modeling.
+              </p>
+            </div>
+            
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 11: FREQUENTLY ASKED QUESTIONS (30 QUESTIONS)
+        ========================================================================= */}
+        <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
+          <FAQTemplate
+            title="Custom date serial formatting (dddd, mmmm dd, yyyy) and 12h/24h time formatting - Frequently Asked Questions"
+            questions={questions}
+          />
+        </div>
+
+        {/* =========================================================================
+            SECTION 12: TEACHER'S NOTE & WISDOM
+        ========================================================================= */}
+        <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
+          <Teacher
+            note="Never allow ambiguous date formats on financial reports. Always format dates with 3-letter months (dd-mmm-yyyy) to prevent multi-million rupee audit errors."
+          />
+        </div>
+      </div>
+    </div>
+  );
+}

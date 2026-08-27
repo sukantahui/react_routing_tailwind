@@ -1,0 +1,21 @@
+TOPIC 9 QUICK SUMMARY & INSTRUCTOR REFERENCE
+================================================================================
+Topic: Phone numbers, Tax IDs (PAN/GSTIN/SSN), and credit card masking patterns
+Module: 001_005_custom-number-formatting-and-styling
+Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
+Instructor: Sukanta Hui (Coder & AccoTax)
+
+KEY FORMULA / SYNTAX:
++91 ##### ##### | @@@@@0000@ (PAN) | 0000-0000-0000 (Aadhaar) | 0000-****-****-0000
+
+PRIMARY CONCEPT:
+Specialized masks for phone numbers (+91), Tax IDs (PAN, GSTIN), and sensitive credit card masking
+
+TEACHER'S ADVICE:
+Formatting identity numbers cleanly prevents costly data-entry mistakes. For regulatory compliance, ensure sensitive credentials are both formatted and access-controlled.
+
+COMMON TRAPS TO AVOID:
+- Dropping Leading Country Zeros: Entering phone numbers as raw numbers drops leading zeros or country codes. -> Fix: Use custom format '+91 ##### #####' or enter as text.
+- Alphanumeric Text Token Errors: Using numeric 0 placeholders on alphanumeric PAN cards fails because PAN contains letters. -> Fix: Use @ text placeholders or UPPER() functions for mixed alphanumeric codes.
+- Formatting vs True Security: Formatting hides digits on screen, but the raw number remains in cell memory and formula bar. -> Fix: For true security, hash or truncate values using formulas (=RIGHT(A1,4)).
+================================================================================
