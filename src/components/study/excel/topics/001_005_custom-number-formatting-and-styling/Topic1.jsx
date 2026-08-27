@@ -61,22 +61,22 @@ export default function Topic1() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              ⚡ 4-Part Syntax Engine · Topic 1
+              {"⚡ 4-Part Syntax Engine"} · Topic 1
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              4-Section Architecture
+              {"4-Section Architecture"}
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              Beginner-Intermediate · Bloom Level 3: Apply
+              {"Beginner-Intermediate · Bloom Level 3: Apply"}
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            The 4-Section Syntax architecture: Positive ; Negative ; Zero ; Text
+            {"The 4-Section Syntax architecture: Positive ; Negative ; Zero ; Text"}
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Semicolon-delimited 4-section syntax: Positive ; Negative ; Zero ; Text. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
+            {"Semicolon-delimited 4-section syntax: Positive ; Negative ; Zero ; Text"}. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,7 +113,7 @@ export default function Topic1() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            <POSITIVE> ; <NEGATIVE> ; <ZERO> ; <TEXT>
+            {"<POSITIVE> ; <NEGATIVE> ; <ZERO> ; <TEXT>"}
           </div>
 
           <div className="overflow-x-auto">
@@ -172,18 +172,18 @@ export default function Topic1() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">1. Semicolon Partitioning Rules</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Format strings contain up to 4 sections separated by semicolons: `Pos;Neg;Zero;Text`. If fewer sections are provided, Excel applies cascading fallback rules.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Semicolon Partitioning Rules"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Format strings contain up to 4 sections separated by semicolons: `Pos;Neg;Zero;Text`. If fewer sections are provided, Excel applies cascading fallback rules."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">2. Section Fallback Cascade</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">1 section applies to all numbers. 2 sections apply to Positive/Zero ; Negative. 3 sections apply to Positive ; Negative ; Zero. 4 sections handle all 4 data types.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Section Fallback Cascade"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"1 section applies to all numbers. 2 sections apply to Positive/Zero ; Negative. 3 sections apply to Positive ; Negative ; Zero. 4 sections handle all 4 data types."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">3. The @ Text Catch-All Operator</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">The fourth section specifies text handling. The `@` character is the placeholder for whatever text string is entered into the cell.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. The @ Text Catch-All Operator"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"The fourth section specifies text handling. The `@` character is the placeholder for whatever text string is entered into the cell."}</p>
             </div>
             
           </div>
@@ -199,7 +199,7 @@ export default function Topic1() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: The 4-Section Custom Number Format Parsing Engine
+              Visual Dataflow: {"The 4-Section Custom Number Format Parsing Engine"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               SVG Architecture
@@ -287,7 +287,7 @@ export default function Topic1() {
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic1_Four_Section_Syntax"
-            title="The 4-Section Syntax architecture: Positive ; Negative ; Zero ; Text - Interactive Practice Grid"
+            title={"The 4-Section Syntax architecture: Positive ; Negative ; Zero ; Text - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
           />
@@ -314,38 +314,38 @@ export default function Topic1() {
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 1 · P&L Controller</span>
-                <span className="text-xs font-mono text-slate-400">Barrackpore HQ</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · P&L Controller"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Swadeep Banerjee: Institutional P&L Variance Formatting</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Implements ₹#,##0.00 ; [Red](₹#,##0.00) ; "-" ; @ to highlight deficits in red parentheses and render nil balances as dashes.</p>
+              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Institutional P&L Variance Formatting"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Implements ₹#,##0.00 ; [Red](₹#,##0.00) ; \"-\" ; @ to highlight deficits in red parentheses and render nil balances as dashes."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 2 · Audit Consultant</span>
-                <span className="text-xs font-mono text-slate-400">Shyamnagar Plant</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Audit Consultant"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Tuhina Mukherjee: Quarterly Budget Variance Reporting</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Formats quarterly cost variances with green surpluses, red deficits, and neutral zero placeholders.</p>
+              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Quarterly Budget Variance Reporting"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Formats quarterly cost variances with green surpluses, red deficits, and neutral zero placeholders."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 3 · Store Manager</span>
-                <span className="text-xs font-mono text-slate-400">Ichapur Works</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Store Manager"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Abhronila Das: Stock Replenishment Indicator</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Applies +0 Units ; -0 Units ; "Nil Stock" ; [Blue]@ to streamline warehouse stock movement alerts.</p>
+              <h3 className="font-bold text-white text-base">{"Abhronila Das: Stock Replenishment Indicator"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Applies +0 Units ; -0 Units ; \"Nil Stock\" ; [Blue]@ to streamline warehouse stock movement alerts."}</p>
             </div>
             
             <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 4 · Accounts Receivable</span>
-                <span className="text-xs font-mono text-slate-400">Naihati Logistics</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Accounts Receivable"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Debangshu Roy: Customer Ledger Balance Matrix</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Configures customer balance ledgers so zero-balance invoices automatically display 'SETTLED' without conditional formatting.</p>
+              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Customer Ledger Balance Matrix"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Configures customer balance ledgers so zero-balance invoices automatically display 'SETTLED' without conditional formatting."}</p>
             </div>
             
           </div>
@@ -395,7 +395,7 @@ export default function Topic1() {
                 Step 3: Enter Format String &amp; Confirm
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold"><POSITIVE> ; <NEGATIVE> ; <ZERO> ; <TEXT></code> and click OK.
+                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">{"<POSITIVE> ; <NEGATIVE> ; <ZERO> ; <TEXT>"}</code> and click OK.
               </p>
             </div>
 
@@ -440,21 +440,21 @@ export default function Topic1() {
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Missing Semicolon Fallback</td>
-                  <td className="py-3 px-4">Omitting the 3rd semicolon causes zero values to adopt positive formatting rules.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Include all 3 semicolons (Pos;Neg;Zero;Text) to establish clean four-way branching.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Missing Semicolon Fallback"}</td>
+                  <td className="py-3 px-4">{"Omitting the 3rd semicolon causes zero values to adopt positive formatting rules."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Include all 3 semicolons (Pos;Neg;Zero;Text) to establish clean four-way branching."}</td>
                 </tr>
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Unquoted Text Strings</td>
-                  <td className="py-3 px-4">Typing raw literal words without double quotes triggers parsing syntax errors.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Enclose arbitrary words in double quotes (e.g. "Nil", "Paid").</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Unquoted Text Strings"}</td>
+                  <td className="py-3 px-4">{"Typing raw literal words without double quotes triggers parsing syntax errors."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Enclose arbitrary words in double quotes (e.g. \"Nil\", \"Paid\")."}</td>
                 </tr>
                 
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Missing Text Placeholder</td>
-                  <td className="py-3 px-4">Omitting @ in section 4 suppresses entered text strings entirely.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Always include @ or literal text in the 4th section.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Missing Text Placeholder"}</td>
+                  <td className="py-3 px-4">{"Omitting @ in section 4 suppresses entered text strings entirely."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Always include @ or literal text in the 4th section."}</td>
                 </tr>
                 
               </tbody>
@@ -483,26 +483,26 @@ export default function Topic1() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Dash for Zero
+                <span>⚡</span> {"Dash for Zero"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Use a clean hyphen "-" in Section 3 to replace distracting 0.00s in financial statements.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">Section 3: "-"</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Use a clean hyphen \"-\" in Section 3 to replace distracting 0.00s in financial statements."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Section 3: \"-\""}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Parentheses for Negatives
+                <span>⚡</span> {"Parentheses for Negatives"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Use parentheses in Section 2 to adhere to Wall Street accounting standards.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">Section 2: (0.00)</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Use parentheses in Section 2 to adhere to Wall Street accounting standards."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Section 2: (0.00)"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Built-In Color Tags
+                <span>⚡</span> {"Built-In Color Tags"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Apply color tags inside section headers without heavy conditional formatting.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">[Red], [Green], [Blue]</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Apply color tags inside section headers without heavy conditional formatting."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"[Red], [Green], [Blue]"}</kbd>
             </div>
             
           </div>
@@ -529,7 +529,7 @@ export default function Topic1() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: What happens if you provide only two sections in a custom format string?
+                <span className="text-teal-400">💭</span> Question 1: {"What happens if you provide only two sections in a custom format string?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -538,7 +538,7 @@ export default function Topic1() {
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: How can Section 4 be used to prepend 'Customer: ' to all text inputs automatically?
+                <span className="text-teal-400">💭</span> Question 2: {"How can Section 4 be used to prepend 'Customer: ' to all text inputs automatically?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -547,7 +547,7 @@ export default function Topic1() {
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: Why is custom number formatting faster than conditional formatting rules?
+                <span className="text-teal-400">💭</span> Question 3: {"Why is custom number formatting faster than conditional formatting rules?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -562,7 +562,7 @@ export default function Topic1() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="The 4-Section Syntax architecture: Positive ; Negative ; Zero ; Text - Frequently Asked Questions"
+            title={"The 4-Section Syntax architecture: Positive ; Negative ; Zero ; Text - Frequently Asked Questions"}
             questions={questions}
           />
         </div>
@@ -572,7 +572,7 @@ export default function Topic1() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="The 4-section architecture is Excel's secret weapon for high-speed conditional styling. It renders instantly with zero calculation overhead."
+            note={"The 4-section architecture is Excel's secret weapon for high-speed conditional styling. It renders instantly with zero calculation overhead."}
           />
         </div>
       </div>

@@ -61,22 +61,22 @@ export default function Topic9() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              🔒 Phone, PAN, GSTIN & Masking · Topic 9
+              {"🔒 Phone, PAN, GSTIN & Masking"} · Topic 9
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              Identity & Security Masking
+              {"Identity & Security Masking"}
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              Intermediate · Bloom Level 3: Apply
+              {"Intermediate · Bloom Level 3: Apply"}
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            Phone numbers, Tax IDs (PAN/GSTIN/SSN), and credit card masking patterns
+            {"Phone numbers, Tax IDs (PAN/GSTIN/SSN), and credit card masking patterns"}
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Specialized masks for phone numbers (+91), Tax IDs (PAN, GSTIN), and sensitive credit card masking. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
+            {"Specialized masks for phone numbers (+91), Tax IDs (PAN, GSTIN), and sensitive credit card masking"}. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,7 +113,7 @@ export default function Topic9() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            +91 ##### ##### | @@@@@0000@ (PAN) | 0000-0000-0000 (Aadhaar) | 0000-****-****-0000
+            {"+91 ##### ##### | @@@@@0000@ (PAN) | 0000-0000-0000 (Aadhaar) | 0000-****-****-0000"}
           </div>
 
           <div className="overflow-x-auto">
@@ -172,18 +172,18 @@ export default function Topic9() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">1. Fixed Digit Block Partitioning</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Formats raw 10-digit mobile numbers into clean structured blocks (e.g. `+91 ##### #####`) without modifying numeric inputs.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Fixed Digit Block Partitioning"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Formats raw 10-digit mobile numbers into clean structured blocks (e.g. `+91 ##### #####`) without modifying numeric inputs."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">2. Alphanumeric Text Token Masking (@)</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Uses the `@` placeholder to format structured alphanumeric codes like Indian Income Tax PANs and GSTIN tax identifiers.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Alphanumeric Text Token Masking (@)"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Uses the `@` placeholder to format structured alphanumeric codes like Indian Income Tax PANs and GSTIN tax identifiers."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">3. Visual Privacy Masking</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Renders credit card digits with asterisk masks (`0000-****-****-0000`) for secure client displays.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Visual Privacy Masking"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Renders credit card digits with asterisk masks (`0000-****-****-0000`) for secure client displays."}</p>
             </div>
             
           </div>
@@ -199,7 +199,7 @@ export default function Topic9() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: Identity Key & Telephone Formatting Mask Architecture
+              Visual Dataflow: {"Identity Key & Telephone Formatting Mask Architecture"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               SVG Architecture
@@ -287,7 +287,7 @@ export default function Topic9() {
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic9_Tax_Phone_Masking"
-            title="Phone numbers, Tax IDs (PAN/GSTIN/SSN), and credit card masking patterns - Interactive Practice Grid"
+            title={"Phone numbers, Tax IDs (PAN/GSTIN/SSN), and credit card masking patterns - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
           />
@@ -314,38 +314,38 @@ export default function Topic9() {
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 1 · Compliance Officer</span>
-                <span className="text-xs font-mono text-slate-400">Barrackpore HQ</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Compliance Officer"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Swadeep Banerjee: Indian Income Tax PAN Repository</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Formats alphanumeric 10-character PAN identifiers with standard uppercase masks for statutory TDS reporting.</p>
+              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Indian Income Tax PAN Repository"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Formats alphanumeric 10-character PAN identifiers with standard uppercase masks for statutory TDS reporting."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 2 · GST Tax Consultant</span>
-                <span className="text-xs font-mono text-slate-400">Shyamnagar Plant</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · GST Tax Consultant"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Tuhina Mukherjee: 15-Digit GSTIN Vendor Registry</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Applies structured state-code GSTIN masking (00-@@@@@0000@-0-@-@) across supplier compliance ledgers.</p>
+              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: 15-Digit GSTIN Vendor Registry"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Applies structured state-code GSTIN masking (00-@@@@@0000@-0-@-@) across supplier compliance ledgers."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 3 · HR Records Manager</span>
-                <span className="text-xs font-mono text-slate-400">Ichapur Works</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · HR Records Manager"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Abhronila Das: Employee Phone & Aadhaar Registry</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Formats Indian mobile numbers as '+91 ##### #####' and Aadhaar numbers as '0000 0000 0000' for clean onboarding records.</p>
+              <h3 className="font-bold text-white text-base">{"Abhronila Das: Employee Phone & Aadhaar Registry"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Formats Indian mobile numbers as '+91 ##### #####' and Aadhaar numbers as '0000 0000 0000' for clean onboarding records."}</p>
             </div>
             
             <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 4 · Treasury Security</span>
-                <span className="text-xs font-mono text-slate-400">Naihati Logistics</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Treasury Security"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Debangshu Roy: Corporate Credit Card Masking</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Masks corporate expense cards to show only the last 4 digits (****-****-****-0000) for internal audit security.</p>
+              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Corporate Credit Card Masking"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Masks corporate expense cards to show only the last 4 digits (****-****-****-0000) for internal audit security."}</p>
             </div>
             
           </div>
@@ -395,7 +395,7 @@ export default function Topic9() {
                 Step 3: Enter Format String &amp; Confirm
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">+91 ##### ##### | @@@@@0000@ (PAN) | 0000-0000-0000 (Aadhaar) | 0000-****-****-0000</code> and click OK.
+                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">{"+91 ##### ##### | @@@@@0000@ (PAN) | 0000-0000-0000 (Aadhaar) | 0000-****-****-0000"}</code> and click OK.
               </p>
             </div>
 
@@ -440,21 +440,21 @@ export default function Topic9() {
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Dropping Leading Country Zeros</td>
-                  <td className="py-3 px-4">Entering phone numbers as raw numbers drops leading zeros or country codes.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Use custom format '+91 ##### #####' or enter as text.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Dropping Leading Country Zeros"}</td>
+                  <td className="py-3 px-4">{"Entering phone numbers as raw numbers drops leading zeros or country codes."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use custom format '+91 ##### #####' or enter as text."}</td>
                 </tr>
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Alphanumeric Text Token Errors</td>
-                  <td className="py-3 px-4">Using numeric 0 placeholders on alphanumeric PAN cards fails because PAN contains letters.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Use @ text placeholders or UPPER() functions for mixed alphanumeric codes.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Alphanumeric Text Token Errors"}</td>
+                  <td className="py-3 px-4">{"Using numeric 0 placeholders on alphanumeric PAN cards fails because PAN contains letters."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use @ text placeholders or UPPER() functions for mixed alphanumeric codes."}</td>
                 </tr>
                 
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Formatting vs True Security</td>
-                  <td className="py-3 px-4">Formatting hides digits on screen, but the raw number remains in cell memory and formula bar.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">For true security, hash or truncate values using formulas (=RIGHT(A1,4)).</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Formatting vs True Security"}</td>
+                  <td className="py-3 px-4">{"Formatting hides digits on screen, but the raw number remains in cell memory and formula bar."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"For true security, hash or truncate values using formulas (=RIGHT(A1,4))."}</td>
                 </tr>
                 
               </tbody>
@@ -483,26 +483,26 @@ export default function Topic9() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Indian Mobile Format
+                <span>⚡</span> {"Indian Mobile Format"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Clean 10-digit mobile layout with +91 country prefix.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">+91 ##### #####</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Clean 10-digit mobile layout with +91 country prefix."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"+91 ##### #####"}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Standard 4-Digit Groups
+                <span>⚡</span> {"Standard 4-Digit Groups"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Formats 12-digit Aadhaar / identity keys into 3 readable blocks.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">0000 0000 0000</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Formats 12-digit Aadhaar / identity keys into 3 readable blocks."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"0000 0000 0000"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> US Phone Format
+                <span>⚡</span> {"US Phone Format"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Standard 10-digit North American telephone layout.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">(###) ###-####</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Standard 10-digit North American telephone layout."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"(###) ###-####"}</kbd>
             </div>
             
           </div>
@@ -529,7 +529,7 @@ export default function Topic9() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: What is the difference between visual security masking and cryptographic data protection?
+                <span className="text-teal-400">💭</span> Question 1: {"What is the difference between visual security masking and cryptographic data protection?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -538,7 +538,7 @@ export default function Topic9() {
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: Why must PAN cards use text format rather than pure numeric 0 placeholders?
+                <span className="text-teal-400">💭</span> Question 2: {"Why must PAN cards use text format rather than pure numeric 0 placeholders?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -547,7 +547,7 @@ export default function Topic9() {
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: How do you preserve + signs in international phone numbers without formula errors?
+                <span className="text-teal-400">💭</span> Question 3: {"How do you preserve + signs in international phone numbers without formula errors?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -562,7 +562,7 @@ export default function Topic9() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Phone numbers, Tax IDs (PAN/GSTIN/SSN), and credit card masking patterns - Frequently Asked Questions"
+            title={"Phone numbers, Tax IDs (PAN/GSTIN/SSN), and credit card masking patterns - Frequently Asked Questions"}
             questions={questions}
           />
         </div>
@@ -572,7 +572,7 @@ export default function Topic9() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="Formatting identity numbers cleanly prevents costly data-entry mistakes. For regulatory compliance, ensure sensitive credentials are both formatted and access-controlled."
+            note={"Formatting identity numbers cleanly prevents costly data-entry mistakes. For regulatory compliance, ensure sensitive credentials are both formatted and access-controlled."}
           />
         </div>
       </div>

@@ -61,22 +61,22 @@ export default function Topic11() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              🕵️ Stealth Cloaking Operator (;;;) · Topic 11
+              {"🕵️ Stealth Cloaking Operator (;;;)"} · Topic 11
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              Security & UI Cloaking
+              {"Security & UI Cloaking"}
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              Intermediate-Advanced · Bloom Level 4: Analyze
+              {"Intermediate-Advanced · Bloom Level 4: Analyze"}
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            The stealth cloaking operator (;;;) for hiding cell contents and dashboard security
+            {"The stealth cloaking operator (;;;) for hiding cell contents and dashboard security"}
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            The triple semicolon (;;;) cloaking operator for hiding cell contents from grid view and dashboard security. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
+            {"The triple semicolon (;;;) cloaking operator for hiding cell contents from grid view and dashboard security"}. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,7 +113,7 @@ export default function Topic11() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            ;;; /* Triple Semicolon Stealth Cloaking */ | 0.00;-0.00;"" /* Hide Zeros */
+            {";;; /* Triple Semicolon Stealth Cloaking */ | 0.00;-0.00;\"\" /* Hide Zeros */"}
           </div>
 
           <div className="overflow-x-auto">
@@ -172,18 +172,18 @@ export default function Topic11() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">1. The 4-Section Empty Cloak Rule</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Supplying three semicolons with no format strings `;;;` instructs Excel to render nothing for Positives, Negatives, Zeros, or Text.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. The 4-Section Empty Cloak Rule"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Supplying three semicolons with no format strings `;;;` instructs Excel to render nothing for Positives, Negatives, Zeros, or Text."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">2. Underlying Calculation Preservation</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">The cell remains fully accessible to formulas (e.g. `=A1*2`), lookup functions, and VBA macros while appearing completely blank on screen.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Underlying Calculation Preservation"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"The cell remains fully accessible to formulas (e.g. `=A1*2`), lookup functions, and VBA macros while appearing completely blank on screen."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">3. Selective Zero Cloaking</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Using `#,##0;(#,##0);""` suppresses only zero values while keeping active non-zero numbers fully visible.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Selective Zero Cloaking"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Using `#,##0;(#,##0);\"\"` suppresses only zero values while keeping active non-zero numbers fully visible."}</p>
             </div>
             
           </div>
@@ -199,7 +199,7 @@ export default function Topic11() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: Triple Semicolon (;;;) Stealth Cloaking Security Architecture
+              Visual Dataflow: {"Triple Semicolon (;;;) Stealth Cloaking Security Architecture"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               SVG Architecture
@@ -287,7 +287,7 @@ export default function Topic11() {
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic11_Stealth_Cloaking"
-            title="The stealth cloaking operator (;;;) for hiding cell contents and dashboard security - Interactive Practice Grid"
+            title={"The stealth cloaking operator (;;;) for hiding cell contents and dashboard security - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
           />
@@ -314,38 +314,38 @@ export default function Topic11() {
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 1 · Dashboard Architect</span>
-                <span className="text-xs font-mono text-slate-400">Barrackpore HQ</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Dashboard Architect"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Swadeep Banerjee: Executive KPI Security Config Cells</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Applies ;;; to hide background lookup coordinate parameters and token keys on executive dashboards without hiding columns.</p>
+              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Executive KPI Security Config Cells"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Applies ;;; to hide background lookup coordinate parameters and token keys on executive dashboards without hiding columns."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 2 · Financial Auditor</span>
-                <span className="text-xs font-mono text-slate-400">Shyamnagar Plant</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Financial Auditor"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Tuhina Mukherjee: Zero Balance Suppression in Balance Sheets</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Uses $#,##0.00;($#,##0.00);"" to make inactive zero-balance accounts completely invisible for clean executive reporting.</p>
+              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Zero Balance Suppression in Balance Sheets"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Uses $#,##0.00;($#,##0.00);\"\" to make inactive zero-balance accounts completely invisible for clean executive reporting."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 3 · Template Developer</span>
-                <span className="text-xs font-mono text-slate-400">Ichapur Works</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Template Developer"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Abhronila Das: Dynamic Interactive Button Cells</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Hides formula return values behind interactive shape overlay cards using ;;; stealth formatting.</p>
+              <h3 className="font-bold text-white text-base">{"Abhronila Das: Dynamic Interactive Button Cells"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Hides formula return values behind interactive shape overlay cards using ;;; stealth formatting."}</p>
             </div>
             
             <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 4 · Database Admin</span>
-                <span className="text-xs font-mono text-slate-400">Naihati Logistics</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Database Admin"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Debangshu Roy: Confidential Cost Multiplier Columns</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Cloaks internal unit markup multipliers from operator view while allowing price calculations to evaluate.</p>
+              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Confidential Cost Multiplier Columns"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Cloaks internal unit markup multipliers from operator view while allowing price calculations to evaluate."}</p>
             </div>
             
           </div>
@@ -395,7 +395,7 @@ export default function Topic11() {
                 Step 3: Enter Format String &amp; Confirm
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">;;; /* Triple Semicolon Stealth Cloaking */ | 0.00;-0.00;"" /* Hide Zeros */</code> and click OK.
+                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">{";;; /* Triple Semicolon Stealth Cloaking */ | 0.00;-0.00;\"\" /* Hide Zeros */"}</code> and click OK.
               </p>
             </div>
 
@@ -440,21 +440,21 @@ export default function Topic11() {
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Formula Bar Exposure</td>
-                  <td className="py-3 px-4">;;; hides cell text from the grid, but clicking the cell reveals the value in the Formula Bar.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Protect the worksheet and check 'Hidden' in Format Cells > Protection to cloak the Formula Bar.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Formula Bar Exposure"}</td>
+                  <td className="py-3 px-4">{";;; hides cell text from the grid, but clicking the cell reveals the value in the Formula Bar."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Protect the worksheet and check 'Hidden' in Format Cells > Protection to cloak the Formula Bar."}</td>
                 </tr>
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">White Font Trap</td>
-                  <td className="py-3 px-4">Using white font color to hide data fails completely when dark mode themes or cell fills change.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Always use ;;; custom format instead of font color hacks.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"White Font Trap"}</td>
+                  <td className="py-3 px-4">{"Using white font color to hide data fails completely when dark mode themes or cell fills change."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Always use ;;; custom format instead of font color hacks."}</td>
                 </tr>
                 
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Accidental Deletion Risk</td>
-                  <td className="py-3 px-4">Users may overwrite seemingly 'empty' cloaked cells that hold critical calculation formulas.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Lock and protect cloaked configuration cells.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Accidental Deletion Risk"}</td>
+                  <td className="py-3 px-4">{"Users may overwrite seemingly 'empty' cloaked cells that hold critical calculation formulas."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Lock and protect cloaked configuration cells."}</td>
                 </tr>
                 
               </tbody>
@@ -483,26 +483,26 @@ export default function Topic11() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Full Stealth Cloak
+                <span>⚡</span> {"Full Stealth Cloak"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Completely hides all positive, negative, zero, and text content from the grid.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">;;; (Triple Semicolon)</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Completely hides all positive, negative, zero, and text content from the grid."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{";;; (Triple Semicolon)"}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Suppress Zeros Only
+                <span>⚡</span> {"Suppress Zeros Only"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Leaves zero cells visually blank while keeping numbers visible.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">#,##0;(#,##0);""</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Leaves zero cells visually blank while keeping numbers visible."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"#,##0;(#,##0);\"\""}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Formula Bar Protection
+                <span>⚡</span> {"Formula Bar Protection"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Hides formula text from the formula bar when sheet is protected.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">Format Cells > Protection > Hidden</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Hides formula text from the formula bar when sheet is protected."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Format Cells -> Protection -> Hidden"}</kbd>
             </div>
             
           </div>
@@ -529,7 +529,7 @@ export default function Topic11() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: Why is ;;; vastly superior to setting font color to white?
+                <span className="text-teal-400">💭</span> Question 1: {"Why is ;;; vastly superior to setting font color to white?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -538,7 +538,7 @@ export default function Topic11() {
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: How does the 4-section architecture interpret three consecutive semicolons (;;;)?
+                <span className="text-teal-400">💭</span> Question 2: {"How does the 4-section architecture interpret three consecutive semicolons (;;;)?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -547,7 +547,7 @@ export default function Topic11() {
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: How do you un-cloak a cell that has been formatted with ;;;?
+                <span className="text-teal-400">💭</span> Question 3: {"How do you un-cloak a cell that has been formatted with ;;;?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -562,7 +562,7 @@ export default function Topic11() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="The stealth cloaking operator (;;;) for hiding cell contents and dashboard security - Frequently Asked Questions"
+            title={"The stealth cloaking operator (;;;) for hiding cell contents and dashboard security - Frequently Asked Questions"}
             questions={questions}
           />
         </div>
@@ -572,7 +572,7 @@ export default function Topic11() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="Never use white font to hide cells! In modern dark mode Excel, white text glows like a beacon. Use ;;; for professional, theme-independent cell cloaking."
+            note={"Never use white font to hide cells! In modern dark mode Excel, white text glows like a beacon. Use ;;; for professional, theme-independent cell cloaking."}
           />
         </div>
       </div>

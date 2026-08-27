@@ -61,22 +61,22 @@ export default function Topic6() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              🎯 Embedded Conditions & Colors · Topic 6
+              {"🎯 Embedded Conditions & Colors"} · Topic 6
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              Conditional Logic in Formats
+              {"Conditional Logic in Formats"}
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              Intermediate · Bloom Level 3: Apply
+              {"Intermediate · Bloom Level 3: Apply"}
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            Embedded conditional criteria ([>1000]) and color formatting ([Red], [Green], [ColorN])
+            {"Embedded conditional criteria ([>1000]) and color formatting ([Red], [Green], [ColorN])"}
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Square-bracket condition criteria ([>1000], [<=500]) and color tokens ([Red], [Green], [ColorN]). Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
+            {"Square-bracket condition criteria ([>1000], [<=500]) and color tokens ([Red], [Green], [ColorN])"}. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,7 +113,7 @@ export default function Topic6() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            [>1000][Green]#,##0;[<0][Red](#,##0);[Color10]#,##0
+            {"[>1000][Green]#,##0;[<0][Red](#,##0);[Color10]#,##0"}
           </div>
 
           <div className="overflow-x-auto">
@@ -172,18 +172,18 @@ export default function Topic6() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">1. Bracketed Relational Operators</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Prefixing a format section with `[>1000]` overrides default Pos/Neg routing with custom mathematical threshold criteria.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Bracketed Relational Operators"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Prefixing a format section with `[>1000]` overrides default Pos/Neg routing with custom mathematical threshold criteria."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">2. Hardware-Accelerated Color Tags</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Color tokens `[Red]`, `[Green]`, `[ColorN]` instruct Excel's rendering engine to apply colors directly without creating conditional formatting rules.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Hardware-Accelerated Color Tags"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Color tokens `[Red]`, `[Green]`, `[ColorN]` instruct Excel's rendering engine to apply colors directly without creating conditional formatting rules."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">3. Two-Condition Boundary & Fallback</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Format strings support up to 2 custom condition brackets, followed by a final fallback rule for all remaining values.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Two-Condition Boundary & Fallback"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Format strings support up to 2 custom condition brackets, followed by a final fallback rule for all remaining values."}</p>
             </div>
             
           </div>
@@ -199,7 +199,7 @@ export default function Topic6() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: Embedded Conditional Rules & Palette Color Tag Routing
+              Visual Dataflow: {"Embedded Conditional Rules & Palette Color Tag Routing"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               SVG Architecture
@@ -287,7 +287,7 @@ export default function Topic6() {
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic6_Conditional_Colors"
-            title="Embedded conditional criteria ([>1000]) and color formatting ([Red], [Green], [ColorN]) - Interactive Practice Grid"
+            title={"Embedded conditional criteria ([>1000]) and color formatting ([Red], [Green], [ColorN]) - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
           />
@@ -314,38 +314,38 @@ export default function Topic6() {
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 1 · Risk Analyst</span>
-                <span className="text-xs font-mono text-slate-400">Barrackpore HQ</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Risk Analyst"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Swadeep Banerjee: Credit Default Variance Alarms</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Implements [>500000][Red]₹#,##0;[>100000][Blue]₹#,##0;[Color10]₹#,##0 to color-code risk thresholds without conditional formatting rules.</p>
+              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Credit Default Variance Alarms"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Implements [>500000][Red]₹#,##0;[>100000][Blue]₹#,##0;[Color10]₹#,##0 to color-code risk thresholds without conditional formatting rules."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 2 · Sales Auditor</span>
-                <span className="text-xs font-mono text-slate-400">Shyamnagar Plant</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Sales Auditor"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Tuhina Mukherjee: Target Quota Attainment Dashboard</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Colors sales target variances with [>=100%][Green]0.0%;[<100%][Red]0.0% to provide instant performance feedback.</p>
+              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Target Quota Attainment Dashboard"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Colors sales target variances with [>=100%][Green]0.0%;[<100%][Red]0.0% to provide instant performance feedback."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 3 · Plant Supervisor</span>
-                <span className="text-xs font-mono text-slate-400">Ichapur Works</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Plant Supervisor"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Abhronila Das: Temperature & Pressure Safety Alerts</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Applies [>200][Red]0.0 "°C";[<50][Cyan]0.0 "°C";[Green]0.0 "°C" for real-time boiler monitoring.</p>
+              <h3 className="font-bold text-white text-base">{"Abhronila Das: Temperature & Pressure Safety Alerts"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Applies [>200][Red]0.0 \"°C\";[<50][Cyan]0.0 \"°C\";[Green]0.0 \"°C\" for real-time boiler monitoring."}</p>
             </div>
             
             <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 4 · Delivery Dispatcher</span>
-                <span className="text-xs font-mono text-slate-400">Naihati Logistics</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Delivery Dispatcher"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Debangshu Roy: SLA Turnaround Time Thresholds</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Highlights delivery turnaround times exceeding 48 hours in bold red font directly via format string.</p>
+              <h3 className="font-bold text-white text-base">{"Debangshu Roy: SLA Turnaround Time Thresholds"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Highlights delivery turnaround times exceeding 48 hours in bold red font directly via format string."}</p>
             </div>
             
           </div>
@@ -395,7 +395,7 @@ export default function Topic6() {
                 Step 3: Enter Format String &amp; Confirm
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">[>1000][Green]#,##0;[<0][Red](#,##0);[Color10]#,##0</code> and click OK.
+                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">{"[>1000][Green]#,##0;[<0][Red](#,##0);[Color10]#,##0"}</code> and click OK.
               </p>
             </div>
 
@@ -440,21 +440,21 @@ export default function Topic6() {
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Two-Condition Maximum Limit</td>
-                  <td className="py-3 px-4">Excel custom format supports at most 2 explicit bracket conditions plus 1 default fallback.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">If 4 or more conditions are required, use Excel's Conditional Formatting rule manager.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Two-Condition Maximum Limit"}</td>
+                  <td className="py-3 px-4">{"Excel custom format supports at most 2 explicit bracket conditions plus 1 default fallback."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"If 4 or more conditions are required, use Excel's Conditional Formatting rule manager."}</td>
                 </tr>
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Unsupported Color Names</td>
-                  <td className="py-3 px-4">Using custom names like [Orange] or [Purple] triggers syntax errors.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Use standard color names ([Black],[White],[Red],[Green],[Blue],[Yellow],[Magenta],[Cyan]) or [Color1] to [Color56].</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Unsupported Color Names"}</td>
+                  <td className="py-3 px-4">{"Using custom names like [Orange] or [Purple] triggers syntax errors."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use standard color names ([Black],[White],[Red],[Green],[Blue],[Yellow],[Magenta],[Cyan]) or [Color1] to [Color56]."}</td>
                 </tr>
                 
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Condition Order Misconfiguration</td>
-                  <td className="py-3 px-4">Placing [>100] before [>500] catches values >500 in the first condition.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Always arrange conditional thresholds in descending (or mutually exclusive) order.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Condition Order Misconfiguration"}</td>
+                  <td className="py-3 px-4">{"Placing [>100] before [>500] catches values >500 in the first condition."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Always arrange conditional thresholds in descending (or mutually exclusive) order."}</td>
                 </tr>
                 
               </tbody>
@@ -483,26 +483,26 @@ export default function Topic6() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Standard 8 Colors
+                <span>⚡</span> {"Standard 8 Colors"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Use core color names inside square brackets at the start of any section.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">[Red], [Green], [Blue]...</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Use core color names inside square brackets at the start of any section."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"[Red], [Green], [Blue]..."}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Indexed Colors (1-56)
+                <span>⚡</span> {"Indexed Colors (1-56)"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Access Excel's full 56-color palette via [ColorN] tokens.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">[Color10], [Color25]</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Access Excel's full 56-color palette via [ColorN] tokens."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"[Color10], [Color25]"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Comparison Operators
+                <span>⚡</span> {"Comparison Operators"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Replace standard Pos/Neg rules with custom mathematical comparison thresholds.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">[>0], [<=100], [<>0]</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Replace standard Pos/Neg rules with custom mathematical comparison thresholds."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"[>0], [<=100], [<>0]"}</kbd>
             </div>
             
           </div>
@@ -529,7 +529,7 @@ export default function Topic6() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: Why is custom format coloring faster for large datasets than conditional formatting?
+                <span className="text-teal-400">💭</span> Question 1: {"Why is custom format coloring faster for large datasets than conditional formatting?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -538,7 +538,7 @@ export default function Topic6() {
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: How many custom conditional rules can you embed in a single format string?
+                <span className="text-teal-400">💭</span> Question 2: {"How many custom conditional rules can you embed in a single format string?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -547,7 +547,7 @@ export default function Topic6() {
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: What palette does [Color10] refer to in Excel's legacy color index?
+                <span className="text-teal-400">💭</span> Question 3: {"What palette does [Color10] refer to in Excel's legacy color index?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -562,7 +562,7 @@ export default function Topic6() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Embedded conditional criteria ([>1000]) and color formatting ([Red], [Green], [ColorN]) - Frequently Asked Questions"
+            title={"Embedded conditional criteria ([>1000]) and color formatting ([Red], [Green], [ColorN]) - Frequently Asked Questions"}
             questions={questions}
           />
         </div>
@@ -572,7 +572,7 @@ export default function Topic6() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="Embedded conditional format strings execute at native C++ GPU speed with zero recalculation lag. Use them for high-volume operational dashboards."
+            note={"Embedded conditional format strings execute at native C++ GPU speed with zero recalculation lag. Use them for high-volume operational dashboards."}
           />
         </div>
       </div>

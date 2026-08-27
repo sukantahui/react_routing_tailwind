@@ -61,22 +61,22 @@ export default function Topic12() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              📊 Executive P&L Financial Model · Topic 12
+              {"📊 Executive P&L Financial Model"} · Topic 12
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              Executive Financial Modeling
+              {"Executive Financial Modeling"}
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              Advanced · Bloom Level 5: Synthesize
+              {"Advanced · Bloom Level 5: Synthesize"}
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            Real-world project: Building an Executive Financial Income Statement with dynamic scaling and color alerts
+            {"Real-world project: Building an Executive Financial Income Statement with dynamic scaling and color alerts"}
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Complete Boardroom Income Statement financial model with dynamic scaling, accounting margins, and color alerts. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
+            {"Complete Boardroom Income Statement financial model with dynamic scaling, accounting margins, and color alerts"}. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,7 +113,7 @@ export default function Topic12() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            _($* #,##0_);_($* (#,##0);_($* "-"_);_(@_) /* P&L Statement Model */
+            {"_($* #,##0_);_($* (#,##0);_($* \"-\"_);_(@_) /* P&L Statement Model */"}
           </div>
 
           <div className="overflow-x-auto">
@@ -172,18 +172,18 @@ export default function Topic12() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">1. Institutional Typography Hierarchy</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Aligns Revenue, Gross Margin, Operating Expenses, EBIT, and Net Income into clear statutory reporting tiers.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Institutional Typography Hierarchy"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Aligns Revenue, Gross Margin, Operating Expenses, EBIT, and Net Income into clear statutory reporting tiers."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">2. Consistent Subtotal Borders</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Applies accounting standard borders: single top border for subtotals, double bottom border for Net Income line items.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Consistent Subtotal Borders"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Applies accounting standard borders: single top border for subtotals, double bottom border for Net Income line items."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">3. Dynamic Scaling and Percentage Ratios</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Formats monetary items in thousands/millions with accounting asterisks while formatting margins as `0.0%`.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Dynamic Scaling and Percentage Ratios"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Formats monetary items in thousands/millions with accounting asterisks while formatting margins as `0.0%`."}</p>
             </div>
             
           </div>
@@ -199,7 +199,7 @@ export default function Topic12() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: Institutional Boardroom Income Statement (P&L) Architecture
+              Visual Dataflow: {"Institutional Boardroom Income Statement (P&L) Architecture"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               SVG Architecture
@@ -287,7 +287,7 @@ export default function Topic12() {
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic12_Financial_Statement"
-            title="Real-world project: Building an Executive Financial Income Statement with dynamic scaling and color alerts - Interactive Practice Grid"
+            title={"Real-world project: Building an Executive Financial Income Statement with dynamic scaling and color alerts - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
           />
@@ -314,38 +314,38 @@ export default function Topic12() {
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 1 · Chief Financial Officer</span>
-                <span className="text-xs font-mono text-slate-400">Barrackpore HQ</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Chief Financial Officer"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Swadeep Banerjee: Coder & AccoTax Annual P&L Statement</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Builds a complete multi-division corporate Income Statement with scaled thousands, accounting parentheses, and EBIT margin variance indicators.</p>
+              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Coder & AccoTax Annual P&L Statement"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Builds a complete multi-division corporate Income Statement with scaled thousands, accounting parentheses, and EBIT margin variance indicators."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 2 · Senior Financial Analyst</span>
-                <span className="text-xs font-mono text-slate-400">Shyamnagar Plant</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Senior Financial Analyst"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Tuhina Mukherjee: Cost of Goods Sold (COGS) Breakdown</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Structures multi-tiered manufacturing expense schedules adhering to institutional accounting layout rules.</p>
+              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Cost of Goods Sold (COGS) Breakdown"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Structures multi-tiered manufacturing expense schedules adhering to institutional accounting layout rules."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 3 · Budget Controller</span>
-                <span className="text-xs font-mono text-slate-400">Ichapur Works</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Budget Controller"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Abhronila Das: Capital Expenditure Variance Model</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Develops executive Capex budget comparisons with automated surplus/deficit color formatting.</p>
+              <h3 className="font-bold text-white text-base">{"Abhronila Das: Capital Expenditure Variance Model"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Develops executive Capex budget comparisons with automated surplus/deficit color formatting."}</p>
             </div>
             
             <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 4 · Operations Analyst</span>
-                <span className="text-xs font-mono text-slate-400">Naihati Logistics</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Operations Analyst"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Debangshu Roy: Regional Freight Revenue Contribution</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Designs divisional revenue contribution models with dynamic K/M scaling for executive steering committee reviews.</p>
+              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Regional Freight Revenue Contribution"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Designs divisional revenue contribution models with dynamic K/M scaling for executive steering committee reviews."}</p>
             </div>
             
           </div>
@@ -395,7 +395,7 @@ export default function Topic12() {
                 Step 3: Enter Format String &amp; Confirm
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">_($* #,##0_);_($* (#,##0);_($* "-"_);_(@_) /* P&L Statement Model */</code> and click OK.
+                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">{"_($* #,##0_);_($* (#,##0);_($* \"-\"_);_(@_) /* P&L Statement Model */"}</code> and click OK.
               </p>
             </div>
 
@@ -440,21 +440,21 @@ export default function Topic12() {
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Inconsistent Decimal Precision</td>
-                  <td className="py-3 px-4">Showing 2 decimals on some rows and 0 decimals on others makes statements look amateurish.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Enforce consistent 0-decimal or 2-decimal standards across all financial statement lines.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Inconsistent Decimal Precision"}</td>
+                  <td className="py-3 px-4">{"Showing 2 decimals on some rows and 0 decimals on others makes statements look amateurish."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Enforce consistent 0-decimal or 2-decimal standards across all financial statement lines."}</td>
                 </tr>
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Unaligned Totals Underlines</td>
-                  <td className="py-3 px-4">Using cell bottom borders that do not match accounting single/double underline conventions.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Use standard Accounting Underline settings (Single for subtotals, Double for Net Income).</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Unaligned Totals Underlines"}</td>
+                  <td className="py-3 px-4">{"Using cell bottom borders that do not match accounting single/double underline conventions."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use standard Accounting Underline settings (Single for subtotals, Double for Net Income)."}</td>
                 </tr>
                 
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Missing Zero-Dashes</td>
-                  <td className="py-3 px-4">Leaving raw 0 values creates visual clutter across sparse matrix financial models.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Enforce "-" for zero balances across all statement schedules.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Missing Zero-Dashes"}</td>
+                  <td className="py-3 px-4">{"Leaving raw 0 values creates visual clutter across sparse matrix financial models."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Enforce \"-\" for zero balances across all statement schedules."}</td>
                 </tr>
                 
               </tbody>
@@ -483,26 +483,26 @@ export default function Topic12() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Top/Bottom Border Convention
+                <span>⚡</span> {"Top/Bottom Border Convention"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Universal institutional accounting standard for Net Income line items.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">Single Top, Double Bottom</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Universal institutional accounting standard for Net Income line items."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Single Top, Double Bottom"}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Statement Header Block
+                <span>⚡</span> {"Statement Header Block"}
               </div>
-              <p className="text-slate-300 leading-relaxed">3-line header: Organization Name, Statement Title, Period Ending Date.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">Company / Statement / Period</kbd>
+              <p className="text-slate-300 leading-relaxed">{"3-line header: Organization Name, Statement Title, Period Ending Date."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Company / Statement / Period"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Percentage Precision
+                <span>⚡</span> {"Percentage Precision"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Format margins (Gross Margin, Operating Margin) with exactly 1 decimal place.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">0.0%</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Format margins (Gross Margin, Operating Margin) with exactly 1 decimal place."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"0.0%"}</kbd>
             </div>
             
           </div>
@@ -529,7 +529,7 @@ export default function Topic12() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: What is the institutional accounting rule for placing currency symbols on an Income Statement?
+                <span className="text-teal-400">💭</span> Question 1: {"What is the institutional accounting rule for placing currency symbols on an Income Statement?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -538,7 +538,7 @@ export default function Topic12() {
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: Why are negative margins enclosed in parentheses rather than preceded by a minus sign?
+                <span className="text-teal-400">💭</span> Question 2: {"Why are negative margins enclosed in parentheses rather than preceded by a minus sign?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -547,7 +547,7 @@ export default function Topic12() {
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: How do single and double underlines signal financial hierarchy on a balance sheet?
+                <span className="text-teal-400">💭</span> Question 3: {"How do single and double underlines signal financial hierarchy on a balance sheet?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -562,7 +562,7 @@ export default function Topic12() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Real-world project: Building an Executive Financial Income Statement with dynamic scaling and color alerts - Frequently Asked Questions"
+            title={"Real-world project: Building an Executive Financial Income Statement with dynamic scaling and color alerts - Frequently Asked Questions"}
             questions={questions}
           />
         </div>
@@ -572,7 +572,7 @@ export default function Topic12() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="An executive financial statement is a work of art. Clean typography, consistent accounting alignment, and disciplined decimal rules command immediate respect in the boardroom."
+            note={"An executive financial statement is a work of art. Clean typography, consistent accounting alignment, and disciplined decimal rules command immediate respect in the boardroom."}
           />
         </div>
       </div>

@@ -61,22 +61,22 @@ export default function Topic7() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              📅 Date & Time Formatting Tokens · Topic 7
+              {"📅 Date & Time Formatting Tokens"} · Topic 7
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              Temporal Formatting
+              {"Temporal Formatting"}
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              Beginner-Intermediate · Bloom Level 3: Apply
+              {"Beginner-Intermediate · Bloom Level 3: Apply"}
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            Custom date serial formatting (dddd, mmmm dd, yyyy) and 12h/24h time formatting
+            {"Custom date serial formatting (dddd, mmmm dd, yyyy) and 12h/24h time formatting"}
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Date tokens (d, dd, ddd, dddd, m, mm, mmm, mmmm, yy, yyyy) and time tokens (h, hh, m, mm, s, ss, AM/PM). Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
+            {"Date tokens (d, dd, ddd, dddd, m, mm, mmm, mmmm, yy, yyyy) and time tokens (h, hh, m, mm, s, ss, AM/PM)"}. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,7 +113,7 @@ export default function Topic7() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            dddd, mmmm dd, yyyy | hh:mm:ss AM/PM | [$-402]dd-mmm-yyyy
+            {"dddd, mmmm dd, yyyy | hh:mm:ss AM/PM | [$-402]dd-mmm-yyyy"}
           </div>
 
           <div className="overflow-x-auto">
@@ -172,18 +172,18 @@ export default function Topic7() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">1. Serial Integer to Date Mapping</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Excel stores dates as integer count of days elapsed since January 1, 1900. Custom date tokens format that underlying integer into day, month, and year strings.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Serial Integer to Date Mapping"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Excel stores dates as integer count of days elapsed since January 1, 1900. Custom date tokens format that underlying integer into day, month, and year strings."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">2. Fractional Serial to Time Mapping</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Decimal fractions represent time (e.g. 0.5 = 12:00 PM). Time tokens (h, m, s, AM/PM) format decimal fractions into clock hours and minutes.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Fractional Serial to Time Mapping"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Decimal fractions represent time (e.g. 0.5 = 12:00 PM). Time tokens (h, m, s, AM/PM) format decimal fractions into clock hours and minutes."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">3. Contextual Disambiguation of 'm'</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">The token 'm' renders Month when isolated, but switches to Minute when immediately preceded by 'h'/'hh' or followed by 's'/'ss'.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Contextual Disambiguation of 'm'"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"The token 'm' renders Month when isolated, but switches to Minute when immediately preceded by 'h'/'hh' or followed by 's'/'ss'."}</p>
             </div>
             
           </div>
@@ -199,7 +199,7 @@ export default function Topic7() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: Date & Time Token Mapping: From Integer Serial to Formatted String
+              Visual Dataflow: {"Date & Time Token Mapping: From Integer Serial to Formatted String"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               SVG Architecture
@@ -287,7 +287,7 @@ export default function Topic7() {
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic7_Custom_Dates_Times"
-            title="Custom date serial formatting (dddd, mmmm dd, yyyy) and 12h/24h time formatting - Interactive Practice Grid"
+            title={"Custom date serial formatting (dddd, mmmm dd, yyyy) and 12h/24h time formatting - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
           />
@@ -314,38 +314,38 @@ export default function Topic7() {
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 1 · Executive Assistant</span>
-                <span className="text-xs font-mono text-slate-400">Barrackpore HQ</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Executive Assistant"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Swadeep Banerjee: Board Meeting Calendar Invites</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Formats meeting dates as 'dddd, mmmm dd, yyyy' (e.g. Thursday, August 27, 2026) for formal corporate notices.</p>
+              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Board Meeting Calendar Invites"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Formats meeting dates as 'dddd, mmmm dd, yyyy' (e.g. Thursday, August 27, 2026) for formal corporate notices."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 2 · HR Compliance Officer</span>
-                <span className="text-xs font-mono text-slate-400">Shyamnagar Plant</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · HR Compliance Officer"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Tuhina Mukherjee: Employee Joining Formalities</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Applies 'dd-mmm-yyyy' (e.g. 15-Aug-2026) to eliminate ambiguity between US (MM/DD) and UK/Indian (DD/MM) date standards.</p>
+              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Employee Joining Formalities"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Applies 'dd-mmm-yyyy' (e.g. 15-Aug-2026) to eliminate ambiguity between US (MM/DD) and UK/Indian (DD/MM) date standards."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 3 · Shift Supervisor</span>
-                <span className="text-xs font-mono text-slate-400">Ichapur Works</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Shift Supervisor"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Abhronila Das: Production Batch Timestamps</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Formats manufacturing timestamps as 'yyyy-mm-dd hh:mm:ss' to conform to ISO 8601 audit standards.</p>
+              <h3 className="font-bold text-white text-base">{"Abhronila Das: Production Batch Timestamps"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Formats manufacturing timestamps as 'yyyy-mm-dd hh:mm:ss' to conform to ISO 8601 audit standards."}</p>
             </div>
             
             <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 4 · Logistics Coordinator</span>
-                <span className="text-xs font-mono text-slate-400">Naihati Logistics</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Logistics Coordinator"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Debangshu Roy: Shipment Departure Schedule</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Displays delivery windows as 'ddd, dd-mmm hh:mm AM/PM' for driver trip manifests.</p>
+              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Shipment Departure Schedule"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Displays delivery windows as 'ddd, dd-mmm hh:mm AM/PM' for driver trip manifests."}</p>
             </div>
             
           </div>
@@ -395,7 +395,7 @@ export default function Topic7() {
                 Step 3: Enter Format String &amp; Confirm
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">dddd, mmmm dd, yyyy | hh:mm:ss AM/PM | [$-402]dd-mmm-yyyy</code> and click OK.
+                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">{"dddd, mmmm dd, yyyy | hh:mm:ss AM/PM | [$-402]dd-mmm-yyyy"}</code> and click OK.
               </p>
             </div>
 
@@ -440,21 +440,21 @@ export default function Topic7() {
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Month vs Minute Collision (m)</td>
-                  <td className="py-3 px-4">The token 'm' represents Month when alone, but Minute when immediately following 'h' or 'hh'.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Always place minutes directly after hours (hh:mm) or use 's' after minutes (mm:ss).</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Month vs Minute Collision (m)"}</td>
+                  <td className="py-3 px-4">{"The token 'm' represents Month when alone, but Minute when immediately following 'h' or 'hh'."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Always place minutes directly after hours (hh:mm) or use 's' after minutes (mm:ss)."}</td>
                 </tr>
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">US vs UK Date Ambiguity</td>
-                  <td className="py-3 px-4">Using 08/09/2026 causes confusion whether it is August 9th or September 8th.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Use 3-letter month tokens (dd-mmm-yyyy) for foolproof international clarity.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"US vs UK Date Ambiguity"}</td>
+                  <td className="py-3 px-4">{"Using 08/09/2026 causes confusion whether it is August 9th or September 8th."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use 3-letter month tokens (dd-mmm-yyyy) for foolproof international clarity."}</td>
                 </tr>
                 
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Date Stored as Text</td>
-                  <td className="py-3 px-4">Typing '27th August 2026' as text prevents date math, filtering, and sorting.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Enter true date serials and format visually with custom tokens.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Date Stored as Text"}</td>
+                  <td className="py-3 px-4">{"Typing '27th August 2026' as text prevents date math, filtering, and sorting."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Enter true date serials and format visually with custom tokens."}</td>
                 </tr>
                 
               </tbody>
@@ -483,26 +483,26 @@ export default function Topic7() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Full Day Name
+                <span>⚡</span> {"Full Day Name"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Renders full day of week (e.g. 'Thursday').</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">dddd</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Renders full day of week (e.g. 'Thursday')."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"dddd"}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Full Month Name
+                <span>⚡</span> {"Full Month Name"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Renders full month name (e.g. 'August').</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">mmmm</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Renders full month name (e.g. 'August')."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"mmmm"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Standard Audit Date
+                <span>⚡</span> {"Standard Audit Date"}
               </div>
-              <p className="text-slate-300 leading-relaxed">The gold standard for unambiguous corporate date presentation.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">dd-mmm-yyyy</kbd>
+              <p className="text-slate-300 leading-relaxed">{"The gold standard for unambiguous corporate date presentation."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"dd-mmm-yyyy"}</kbd>
             </div>
             
           </div>
@@ -529,7 +529,7 @@ export default function Topic7() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: How does Excel know whether 'mm' means month or minute?
+                <span className="text-teal-400">💭</span> Question 1: {"How does Excel know whether 'mm' means month or minute?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -538,7 +538,7 @@ export default function Topic7() {
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: Why is 'dd-mmm-yyyy' preferred in financial audits over 'dd/mm/yyyy'?
+                <span className="text-teal-400">💭</span> Question 2: {"Why is 'dd-mmm-yyyy' preferred in financial audits over 'dd/mm/yyyy'?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -547,7 +547,7 @@ export default function Topic7() {
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: What underlying integer serial number represents the current date in Excel?
+                <span className="text-teal-400">💭</span> Question 3: {"What underlying integer serial number represents the current date in Excel?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -562,7 +562,7 @@ export default function Topic7() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Custom date serial formatting (dddd, mmmm dd, yyyy) and 12h/24h time formatting - Frequently Asked Questions"
+            title={"Custom date serial formatting (dddd, mmmm dd, yyyy) and 12h/24h time formatting - Frequently Asked Questions"}
             questions={questions}
           />
         </div>
@@ -572,7 +572,7 @@ export default function Topic7() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="Never allow ambiguous date formats on financial reports. Always format dates with 3-letter months (dd-mmm-yyyy) to prevent multi-million rupee audit errors."
+            note={"Never allow ambiguous date formats on financial reports. Always format dates with 3-letter months (dd-mmm-yyyy) to prevent multi-million rupee audit errors."}
           />
         </div>
       </div>

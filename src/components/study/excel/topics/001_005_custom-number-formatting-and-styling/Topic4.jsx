@@ -61,22 +61,22 @@ export default function Topic4() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              🏛️ Wall Street Accounting Layout · Topic 4
+              {"🏛️ Wall Street Accounting Layout"} · Topic 4
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              Institutional Accounting
+              {"Institutional Accounting"}
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              Intermediate · Bloom Level 4: Analyze
+              {"Intermediate · Bloom Level 4: Analyze"}
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            Financial statement presentation: Wall Street accounting alignment using _) and *
+            {"Financial statement presentation: Wall Street accounting alignment using _) and *"}
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Wall Street accounting layout with parenthesis alignment (_)) and repeat padding (* ). Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
+            {"Wall Street accounting layout with parenthesis alignment (_)) and repeat padding (* )"}. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,7 +113,7 @@ export default function Topic4() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            _($* #,##0.00_);_($* (#,##0.00);_($* "-"_);_(@_)
+            {"_($* #,##0.00_);_($* (#,##0.00);_($* \"-\"_);_(@_)"}
           </div>
 
           <div className="overflow-x-auto">
@@ -172,18 +172,18 @@ export default function Topic4() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">1. Parenthesis Space Reservation (_))</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">The underscore token `_)` creates an invisible spacer matching the width of a closing parenthesis, ensuring positive numbers align with negative brackets.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Parenthesis Space Reservation (_))"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"The underscore token `_)` creates an invisible spacer matching the width of a closing parenthesis, ensuring positive numbers align with negative brackets."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">2. Asterisk Padding (* )</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">The asterisk `* ` repeats the subsequent character (space) to fill the entire column width, anchoring currency symbols to the far left.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Asterisk Padding (* )"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"The asterisk `* ` repeats the subsequent character (space) to fill the entire column width, anchoring currency symbols to the far left."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">3. Zero Balance Dash Centering</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Renders zero balances as centered dashes with equal padding margins on both sides.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Zero Balance Dash Centering"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Renders zero balances as centered dashes with equal padding margins on both sides."}</p>
             </div>
             
           </div>
@@ -199,7 +199,7 @@ export default function Topic4() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: Wall Street Accounting Alignment & Margin Space Engineering
+              Visual Dataflow: {"Wall Street Accounting Alignment & Margin Space Engineering"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               SVG Architecture
@@ -287,7 +287,7 @@ export default function Topic4() {
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic4_Accounting_Alignment"
-            title="Financial statement presentation: Wall Street accounting alignment using _) and * - Interactive Practice Grid"
+            title={"Financial statement presentation: Wall Street accounting alignment using _) and * - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
           />
@@ -314,38 +314,38 @@ export default function Topic4() {
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 1 · Chief Financial Officer</span>
-                <span className="text-xs font-mono text-slate-400">Barrackpore HQ</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Chief Financial Officer"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Swadeep Banerjee: Boardroom Balance Sheet Presentation</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Implements institutional accounting formatting with left-aligned currency symbols, right-aligned decimals, and reserved parenthesis space.</p>
+              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Boardroom Balance Sheet Presentation"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Implements institutional accounting formatting with left-aligned currency symbols, right-aligned decimals, and reserved parenthesis space."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 2 · Senior Auditor</span>
-                <span className="text-xs font-mono text-slate-400">Shyamnagar Plant</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Senior Auditor"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Tuhina Mukherjee: Statutory Financial Audit Pack</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Applies Wall Street alignment to ensure positive numbers leave room for closing brackets, aligning flawlessly with negative rows.</p>
+              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Statutory Financial Audit Pack"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Applies Wall Street alignment to ensure positive numbers leave room for closing brackets, aligning flawlessly with negative rows."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 3 · M&A Analyst</span>
-                <span className="text-xs font-mono text-slate-400">Ichapur Works</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · M&A Analyst"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Abhronila Das: Due Diligence Financial Models</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Formats multi-year EBITDA projections with asterisk spacing to create executive financial tables.</p>
+              <h3 className="font-bold text-white text-base">{"Abhronila Das: Due Diligence Financial Models"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Formats multi-year EBITDA projections with asterisk spacing to create executive financial tables."}</p>
             </div>
             
             <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 4 · Credit Controller</span>
-                <span className="text-xs font-mono text-slate-400">Naihati Logistics</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Credit Controller"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Debangshu Roy: Corporate Credit Exposure Ledger</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Aligns loan schedules so nil balances display as centered dashes with equal column margins.</p>
+              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Corporate Credit Exposure Ledger"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Aligns loan schedules so nil balances display as centered dashes with equal column margins."}</p>
             </div>
             
           </div>
@@ -395,7 +395,7 @@ export default function Topic4() {
                 Step 3: Enter Format String &amp; Confirm
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">_($* #,##0.00_);_($* (#,##0.00);_($* "-"_);_(@_)</code> and click OK.
+                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">{"_($* #,##0.00_);_($* (#,##0.00);_($* \"-\"_);_(@_)"}</code> and click OK.
               </p>
             </div>
 
@@ -440,21 +440,21 @@ export default function Topic4() {
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Misaligned Positive/Negative Rows</td>
-                  <td className="py-3 px-4">Negative numbers with parentheses stick out further right than positive numbers without padding.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Add _) to positive and zero formats to reserve space equal to a closing parenthesis.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Misaligned Positive/Negative Rows"}</td>
+                  <td className="py-3 px-4">{"Negative numbers with parentheses stick out further right than positive numbers without padding."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Add _) to positive and zero formats to reserve space equal to a closing parenthesis."}</td>
                 </tr>
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Missing Currency Symbol Gap</td>
-                  <td className="py-3 px-4">Not using the * character causes currency symbols to hug numbers rather than left-align.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Include $* in the format to push the currency symbol to the far left of the cell.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Missing Currency Symbol Gap"}</td>
+                  <td className="py-3 px-4">{"Not using the * character causes currency symbols to hug numbers rather than left-align."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Include $* in the format to push the currency symbol to the far left of the cell."}</td>
                 </tr>
                 
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Ragged Right Margins</td>
-                  <td className="py-3 px-4">Failing to add _) to text entries causes text to cling to the right border.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Append _) to the 4th text section for uniform margin alignment.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Ragged Right Margins"}</td>
+                  <td className="py-3 px-4">{"Failing to add _) to text entries causes text to cling to the right border."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Append _) to the 4th text section for uniform margin alignment."}</td>
                 </tr>
                 
               </tbody>
@@ -483,26 +483,26 @@ export default function Topic4() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Invisible Character Width
+                <span>⚡</span> {"Invisible Character Width"}
               </div>
-              <p className="text-slate-300 leading-relaxed">The underscore token inserts invisible space matching the character following it.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">_) (Underscore)</kbd>
+              <p className="text-slate-300 leading-relaxed">{"The underscore token inserts invisible space matching the character following it."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"_) (Underscore)"}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Repeat Fill Space
+                <span>⚡</span> {"Repeat Fill Space"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Repeats the next character to fill all remaining cell column width.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">* (Asterisk + Space)</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Repeats the next character to fill all remaining cell column width."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"* (Asterisk + Space)"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Accounting Shortcut
+                <span>⚡</span> {"Accounting Shortcut"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Applies Comma style with built-in accounting alignment padding.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">Alt + H + K</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Applies Comma style with built-in accounting alignment padding."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Alt + H + K"}</kbd>
             </div>
             
           </div>
@@ -529,7 +529,7 @@ export default function Topic4() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: How does the underscore (_) token reserve exact character widths in Excel?
+                <span className="text-teal-400">💭</span> Question 1: {"How does the underscore (_) token reserve exact character widths in Excel?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -538,7 +538,7 @@ export default function Topic4() {
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: Why do investment banks insist on currency symbols anchored to the left cell border?
+                <span className="text-teal-400">💭</span> Question 2: {"Why do investment banks insist on currency symbols anchored to the left cell border?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -547,7 +547,7 @@ export default function Topic4() {
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: What is the mathematical purpose of asterisk (*) in custom number formatting?
+                <span className="text-teal-400">💭</span> Question 3: {"What is the mathematical purpose of asterisk (*) in custom number formatting?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -562,7 +562,7 @@ export default function Topic4() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Financial statement presentation: Wall Street accounting alignment using _) and * - Frequently Asked Questions"
+            title={"Financial statement presentation: Wall Street accounting alignment using _) and * - Frequently Asked Questions"}
             questions={questions}
           />
         </div>
@@ -572,7 +572,7 @@ export default function Topic4() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="The mark of a seasoned financial modeler is perfect column alignment. Using _) and * creates boardroom-grade balance sheets that impress executive stakeholders."
+            note={"The mark of a seasoned financial modeler is perfect column alignment. Using _) and * creates boardroom-grade balance sheets that impress executive stakeholders."}
           />
         </div>
       </div>

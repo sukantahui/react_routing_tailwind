@@ -61,22 +61,22 @@ export default function Topic0() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              🎨 Visual Layer vs Data · Topic 0
+              {"🎨 Visual Layer vs Data"} · Topic 0
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              Format Engine Architecture
+              {"Format Engine Architecture"}
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              Beginner · Bloom Level 2: Understand
+              {"Beginner · Bloom Level 2: Understand"}
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            Introduction to Excel's format engine: Display values vs underlying stored values
+            {"Introduction to Excel's format engine: Display values vs underlying stored values"}
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Visual display formatting layer vs underlying stored IEEE 754 float values. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
+            {"Visual display formatting layer vs underlying stored IEEE 754 float values"}. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,7 +113,7 @@ export default function Topic0() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            #,##0.00 /* Visual Masking Layer */
+            {"#,##0.00 /* Visual Masking Layer */"}
           </div>
 
           <div className="overflow-x-auto">
@@ -172,18 +172,18 @@ export default function Topic0() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">1. Visual Presentation Layer Decoupling</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Excel separates raw underlying data (IEEE 754 float/serial int) from rendered visual glyphs. Formatting only changes cell rasterization, never truncating mathematical values.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Visual Presentation Layer Decoupling"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Excel separates raw underlying data (IEEE 754 float/serial int) from rendered visual glyphs. Formatting only changes cell rasterization, never truncating mathematical values."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">2. Precision Preservation in Math</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">When 12.3456 is formatted as '12.35', formulas referencing that cell continue calculating with 12.3456, preventing cumulative rounding drift in financial ledgers.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Precision Preservation in Math"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"When 12.3456 is formatted as '12.35', formulas referencing that cell continue calculating with 12.3456, preventing cumulative rounding drift in financial ledgers."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">3. Formula Bar vs Cell Grid Truth</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">The Formula Bar always reveals the unformatted ground truth value, whereas the grid displays the customized visual mask specified in Number Format settings.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Formula Bar vs Cell Grid Truth"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"The Formula Bar always reveals the unformatted ground truth value, whereas the grid displays the customized visual mask specified in Number Format settings."}</p>
             </div>
             
           </div>
@@ -199,7 +199,7 @@ export default function Topic0() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: Visual Formatting vs Underlying Data Storage Pipeline
+              Visual Dataflow: {"Visual Formatting vs Underlying Data Storage Pipeline"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               SVG Architecture
@@ -287,7 +287,7 @@ export default function Topic0() {
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic0_Format_Engine_Overview"
-            title="Introduction to Excel's format engine: Display values vs underlying stored values - Interactive Practice Grid"
+            title={"Introduction to Excel's format engine: Display values vs underlying stored values - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
           />
@@ -314,38 +314,38 @@ export default function Topic0() {
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 1 · Treasury Lead</span>
-                <span className="text-xs font-mono text-slate-400">Barrackpore HQ</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Treasury Lead"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Swadeep Banerjee: Compounding Interest Yield Precision</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Formats raw 8-decimal interest yields as ₹#,##0.00 for board presentation while calculating ₹4.5 Crore treasury balances with unrounded precision.</p>
+              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Compounding Interest Yield Precision"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Formats raw 8-decimal interest yields as ₹#,##0.00 for board presentation while calculating ₹4.5 Crore treasury balances with unrounded precision."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 2 · Tax Auditor</span>
-                <span className="text-xs font-mono text-slate-400">Shyamnagar Plant</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Tax Auditor"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Tuhina Mukherjee: Unit Cost Reconciliation</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Applies 2-decimal masks on invoice line items while reconciling total purchase ledgers against exact unrounded item prices.</p>
+              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Unit Cost Reconciliation"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Applies 2-decimal masks on invoice line items while reconciling total purchase ledgers against exact unrounded item prices."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 3 · Manufacturing Controller</span>
-                <span className="text-xs font-mono text-slate-400">Ichapur Heavy Works</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Manufacturing Controller"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Ichapur Heavy Works"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Abhronila Das: Component Scrap Rate Monitoring</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Masks scrap ratios as 0.00% on operator dashboards while preserving micro-variance rates in standard costing models.</p>
+              <h3 className="font-bold text-white text-base">{"Abhronila Das: Component Scrap Rate Monitoring"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Masks scrap ratios as 0.00% on operator dashboards while preserving micro-variance rates in standard costing models."}</p>
             </div>
             
             <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 4 · Freight Manager</span>
-                <span className="text-xs font-mono text-slate-400">Naihati Logistics Hub</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Freight Manager"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics Hub"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Debangshu Roy: Axle Load Weight Ledger</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Displays gross freight in metric tons (0.0 "Tons") while retaining exact kilogram weights for vehicle transport regulations.</p>
+              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Axle Load Weight Ledger"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Displays gross freight in metric tons (0.0 \"Tons\") while retaining exact kilogram weights for vehicle transport regulations."}</p>
             </div>
             
           </div>
@@ -395,7 +395,7 @@ export default function Topic0() {
                 Step 3: Enter Format String &amp; Confirm
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">#,##0.00 /* Visual Masking Layer */</code> and click OK.
+                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">{"#,##0.00 /* Visual Masking Layer */"}</code> and click OK.
               </p>
             </div>
 
@@ -440,21 +440,21 @@ export default function Topic0() {
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Visual Rounding Discrepancy</td>
-                  <td className="py-3 px-4">Cells display rounded numbers (e.g. 10.4 + 10.4 displayed as 10 + 10 = 21).</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Use ROUND() explicitly if regulatory compliance mandates calculating rounded decimals.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Visual Rounding Discrepancy"}</td>
+                  <td className="py-3 px-4">{"Cells display rounded numbers (e.g. 10.4 + 10.4 displayed as 10 + 10 = 21)."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use ROUND() explicitly if regulatory compliance mandates calculating rounded decimals."}</td>
                 </tr>
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Accidental Text Typing</td>
-                  <td className="py-3 px-4">Typing unit names ('1500 KG') directly into cells converts data to static text.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Apply custom number format 0" KG" to keep pure numerical data type.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Accidental Text Typing"}</td>
+                  <td className="py-3 px-4">{"Typing unit names ('1500 KG') directly into cells converts data to static text."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Apply custom number format 0\" KG\" to keep pure numerical data type."}</td>
                 </tr>
                 
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Column Overflow (###)</td>
-                  <td className="py-3 px-4">Formatted string exceeds column pixel width.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Double-click column header boundary (Alt + H + O + I) to AutoFit.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Column Overflow (###)"}</td>
+                  <td className="py-3 px-4">{"Formatted string exceeds column pixel width."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Double-click column header boundary (Alt + H + O + I) to AutoFit."}</td>
                 </tr>
                 
               </tbody>
@@ -483,26 +483,26 @@ export default function Topic0() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Launch Format Dialog
+                <span>⚡</span> {"Launch Format Dialog"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Directly open Format Cells modal on active selection.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">Ctrl + 1</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Directly open Format Cells modal on active selection."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Ctrl + 1"}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Reset to General
+                <span>⚡</span> {"Reset to General"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Strip all format codes and restore default General representation.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">Ctrl + Shift + ~</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Strip all format codes and restore default General representation."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Ctrl + Shift + ~"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Quick Currency
+                <span>⚡</span> {"Quick Currency"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Apply standard currency formatting with two decimals.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">Ctrl + Shift + $</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Apply standard currency formatting with two decimals."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Ctrl + Shift + $"}</kbd>
             </div>
             
           </div>
@@ -529,7 +529,7 @@ export default function Topic0() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: Why does a sum of displayed rounded numbers sometimes differ from visible values?
+                <span className="text-teal-400">💭</span> Question 1: {"Why does a sum of displayed rounded numbers sometimes differ from visible values?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -538,7 +538,7 @@ export default function Topic0() {
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: How does Excel determine whether a cell is text or a formatted number?
+                <span className="text-teal-400">💭</span> Question 2: {"How does Excel determine whether a cell is text or a formatted number?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -547,7 +547,7 @@ export default function Topic0() {
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: What happens to lookup functions when number formatting is updated?
+                <span className="text-teal-400">💭</span> Question 3: {"What happens to lookup functions when number formatting is updated?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -562,7 +562,7 @@ export default function Topic0() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Introduction to Excel's format engine: Display values vs underlying stored values - Frequently Asked Questions"
+            title={"Introduction to Excel's format engine: Display values vs underlying stored values - Frequently Asked Questions"}
             questions={questions}
           />
         </div>
@@ -572,7 +572,7 @@ export default function Topic0() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="Always remember: Formatting is visual clothing for numbers. Never modify underlying data to achieve a visual layout; let the Custom Number Format engine handle aesthetics while preserving pure numerical precision."
+            note={"Always remember: Formatting is visual clothing for numbers. Never modify underlying data to achieve a visual layout; let the Custom Number Format engine handle aesthetics while preserving pure numerical precision."}
           />
         </div>
       </div>

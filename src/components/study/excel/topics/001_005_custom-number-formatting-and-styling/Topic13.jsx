@@ -61,22 +61,22 @@ export default function Topic13() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              🏆 Custom Formatting Mastery Lab · Topic 13
+              {"🏆 Custom Formatting Mastery Lab"} · Topic 13
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              Mastery Lab & Practical Challenges
+              {"Mastery Lab & Practical Challenges"}
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              Advanced-Mastery · Bloom Level 6: Evaluate
+              {"Advanced-Mastery · Bloom Level 6: Evaluate"}
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            Practice Lab: 15 MCQs and 10 custom formatting practical workbook challenges
+            {"Practice Lab: 15 MCQs and 10 custom formatting practical workbook challenges"}
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Comprehensive practical lab covering the entire custom number formatting taxonomy and industrial challenges. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
+            {"Comprehensive practical lab covering the entire custom number formatting taxonomy and industrial challenges"}. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,7 +113,7 @@ export default function Topic13() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            10 Advanced Custom Formatting Mastery Scenarios & 15 Assessment MCQs
+            {"10 Advanced Custom Formatting Mastery Scenarios & 15 Assessment MCQs"}
           </div>
 
           <div className="overflow-x-auto">
@@ -172,18 +172,18 @@ export default function Topic13() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">1. End-to-End Synthesis</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Integrates 4-section syntax, K/M scaling, accounting alignment, elapsed time tokens, and cloaking into a unified production workflow.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. End-to-End Synthesis"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Integrates 4-section syntax, K/M scaling, accounting alignment, elapsed time tokens, and cloaking into a unified production workflow."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">2. Speed & Accuracy Assessment</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Tests ability to construct bespoke format strings under 60-second real-world financial modeling constraints.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Speed & Accuracy Assessment"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Tests ability to construct bespoke format strings under 60-second real-world financial modeling constraints."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">3. Zero-VBA Audit Standards</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Delivers maximum UI polish, conditional coloring, and data masking without resorting to fragile VBA macro scripts.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Zero-VBA Audit Standards"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Delivers maximum UI polish, conditional coloring, and data masking without resorting to fragile VBA macro scripts."}</p>
             </div>
             
           </div>
@@ -199,7 +199,7 @@ export default function Topic13() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: Full Custom Formatting Taxonomy: From Basic Tokens to Enterprise P&L
+              Visual Dataflow: {"Full Custom Formatting Taxonomy: From Basic Tokens to Enterprise P&L"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               SVG Architecture
@@ -287,7 +287,7 @@ export default function Topic13() {
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic13_Formatting_Lab"
-            title="Practice Lab: 15 MCQs and 10 custom formatting practical workbook challenges - Interactive Practice Grid"
+            title={"Practice Lab: 15 MCQs and 10 custom formatting practical workbook challenges - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
           />
@@ -314,38 +314,38 @@ export default function Topic13() {
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 1 · Lead Academic Mentor</span>
-                <span className="text-xs font-mono text-slate-400">Barrackpore HQ</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Lead Academic Mentor"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Swadeep Banerjee: Enterprise Number Formatting Speed Test</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Evaluates candidates on constructing complex 4-section format strings under 60-second time constraints.</p>
+              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Enterprise Number Formatting Speed Test"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Evaluates candidates on constructing complex 4-section format strings under 60-second time constraints."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 2 · Senior Mentor</span>
-                <span className="text-xs font-mono text-slate-400">Shyamnagar Plant</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Senior Mentor"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Tuhina Mukherjee: Financial Statement Styling Challenge</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Assesses student workbooks for Wall Street accounting alignment, Lakhs/Crores grouping, and K/M scaling.</p>
+              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Financial Statement Styling Challenge"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Assesses student workbooks for Wall Street accounting alignment, Lakhs/Crores grouping, and K/M scaling."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 3 · Quality Assessor</span>
-                <span className="text-xs font-mono text-slate-400">Ichapur Works</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Quality Assessor"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Abhronila Das: Industrial Unit Masking Audit</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Audits engineering spreadsheets to ensure physical unit labels do not compromise underlying formula arithmetic.</p>
+              <h3 className="font-bold text-white text-base">{"Abhronila Das: Industrial Unit Masking Audit"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Audits engineering spreadsheets to ensure physical unit labels do not compromise underlying formula arithmetic."}</p>
             </div>
             
             <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 4 · Certification Evaluator</span>
-                <span className="text-xs font-mono text-slate-400">Naihati Logistics</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Certification Evaluator"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Debangshu Roy: Timesheet & Security Cloaking Exam</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Tests candidate mastery of [h]:mm elapsed timesheet tracking and ;;; stealth security configurations.</p>
+              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Timesheet & Security Cloaking Exam"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Tests candidate mastery of [h]:mm elapsed timesheet tracking and ;;; stealth security configurations."}</p>
             </div>
             
           </div>
@@ -395,7 +395,7 @@ export default function Topic13() {
                 Step 3: Enter Format String &amp; Confirm
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">10 Advanced Custom Formatting Mastery Scenarios & 15 Assessment MCQs</code> and click OK.
+                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">{"10 Advanced Custom Formatting Mastery Scenarios & 15 Assessment MCQs"}</code> and click OK.
               </p>
             </div>
 
@@ -440,21 +440,21 @@ export default function Topic13() {
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Mixing Up Semicolon Positions</td>
-                  <td className="py-3 px-4">Placing color tags or conditions in the wrong section causes syntax errors.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Memorize: [Condition][Color]Format;[Condition][Color]Format;ZeroFormat;TextFormat.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Mixing Up Semicolon Positions"}</td>
+                  <td className="py-3 px-4">{"Placing color tags or conditions in the wrong section causes syntax errors."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Memorize: [Condition][Color]Format;[Condition][Color]Format;ZeroFormat;TextFormat."}</td>
                 </tr>
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Over-Complicated Format Strings</td>
-                  <td className="py-3 px-4">Creating overly complex format strings when conditional formatting or helper columns are cleaner.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Use custom format for layout and light conditions; use Power Query or DAX for multi-table ETL.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Over-Complicated Format Strings"}</td>
+                  <td className="py-3 px-4">{"Creating overly complex format strings when conditional formatting or helper columns are cleaner."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use custom format for layout and light conditions; use Power Query or DAX for multi-table ETL."}</td>
                 </tr>
                 
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Forgetting to Test Edge Cases</td>
-                  <td className="py-3 px-4">Testing only positive numbers and failing to test zero, negative, and text input behavior.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Always test format strings with +100, -100, 0, and 'N/A' text.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Forgetting to Test Edge Cases"}</td>
+                  <td className="py-3 px-4">{"Testing only positive numbers and failing to test zero, negative, and text input behavior."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Always test format strings with +100, -100, 0, and 'N/A' text."}</td>
                 </tr>
                 
               </tbody>
@@ -483,26 +483,26 @@ export default function Topic13() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Formula-Preserving Rule
+                <span>⚡</span> {"Formula-Preserving Rule"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Always confirm formulas like =SUM() and =AVERAGE() work on your formatted cells.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">Format != Data</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Always confirm formulas like =SUM() and =AVERAGE() work on your formatted cells."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Format != Data"}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Copy Format Easily
+                <span>⚡</span> {"Copy Format Easily"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Quickly replicate complex custom number formats across columns.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">Format Painter (Ctrl+Shift+C / Ctrl+Shift+V)</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Quickly replicate complex custom number formats across columns."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Format Painter (Ctrl+Shift+C / Ctrl+Shift+V)"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Template Persistence
+                <span>⚡</span> {"Template Persistence"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Save custom format palettes in Excel templates for company-wide reusability.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">Save as .xltx</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Save custom format palettes in Excel templates for company-wide reusability."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Save as .xltx"}</kbd>
             </div>
             
           </div>
@@ -529,7 +529,7 @@ export default function Topic13() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: Can you write a format string that shows positive numbers in green, negative numbers in red, zero as 'NIL', and prefixes text with 'NOTE: '?
+                <span className="text-teal-400">💭</span> Question 1: {"Can you write a format string that shows positive numbers in green, negative numbers in red, zero as 'NIL', and prefixes text with 'NOTE: '?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -538,7 +538,7 @@ export default function Topic13() {
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: How would you format a column so numbers >= 1,000,000 show in Millions and < 1,000,000 show in Thousands?
+                <span className="text-teal-400">💭</span> Question 2: {"How would you format a column so numbers >= 1,000,000 show in Millions and < 1,000,000 show in Thousands?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -547,7 +547,7 @@ export default function Topic13() {
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: What is the single most important rule to remember when formatting numbers for corporate auditability?
+                <span className="text-teal-400">💭</span> Question 3: {"What is the single most important rule to remember when formatting numbers for corporate auditability?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -562,7 +562,7 @@ export default function Topic13() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Practice Lab: 15 MCQs and 10 custom formatting practical workbook challenges - Frequently Asked Questions"
+            title={"Practice Lab: 15 MCQs and 10 custom formatting practical workbook challenges - Frequently Asked Questions"}
             questions={questions}
           />
         </div>
@@ -572,7 +572,7 @@ export default function Topic13() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="Congratulations on mastering Custom Number Formatting! You now possess the rare skill of making complex financial data both visually stunning and mathematically rigorous."
+            note={"Congratulations on mastering Custom Number Formatting! You now possess the rare skill of making complex financial data both visually stunning and mathematically rigorous."}
           />
         </div>
       </div>

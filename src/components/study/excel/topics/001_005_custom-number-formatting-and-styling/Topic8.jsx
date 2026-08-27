@@ -61,22 +61,22 @@ export default function Topic8() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              ⏱️ Cumulative Timesheets & [h]:mm · Topic 8
+              {"⏱️ Cumulative Timesheets & [h]:mm"} · Topic 8
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              Duration Engineering
+              {"Duration Engineering"}
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              Intermediate · Bloom Level 4: Analyze
+              {"Intermediate · Bloom Level 4: Analyze"}
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            Elapsed duration tracking exceeding 24 hours with [h]:mm:ss for timesheets
+            {"Elapsed duration tracking exceeding 24 hours with [h]:mm:ss for timesheets"}
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Square bracket elapsed duration tokens ([h], [m], [s]) preventing 24-hour clock rollover. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
+            {"Square bracket elapsed duration tokens ([h], [m], [s]) preventing 24-hour clock rollover"}. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,7 +113,7 @@ export default function Topic8() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            [h]:mm:ss | [m]:ss | [s]
+            {"[h]:mm:ss | [m]:ss | [s]"}
           </div>
 
           <div className="overflow-x-auto">
@@ -172,18 +172,18 @@ export default function Topic8() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">1. The 24-Hour Modulo Reset Issue</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Standard time formatting `hh:mm` operates modulo 24, resetting to 00:00 every 24 hours (e.g. 26.5 hours displays as 02:30).</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. The 24-Hour Modulo Reset Issue"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Standard time formatting `hh:mm` operates modulo 24, resetting to 00:00 every 24 hours (e.g. 26.5 hours displays as 02:30)."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">2. Square Bracket Duration Token [h]</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Enclosing 'h' in brackets `[h]:mm` instructs Excel to display total cumulative elapsed hours without rolling over at 24 hours.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Square Bracket Duration Token [h]"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Enclosing 'h' in brackets `[h]:mm` instructs Excel to display total cumulative elapsed hours without rolling over at 24 hours."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">3. Converting Time Serials to Pay Rates</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Because 1 hour equals 1/24 in serial math, multiply time cells by 24 before multiplying by hourly wage rates.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Converting Time Serials to Pay Rates"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Because 1 hour equals 1/24 in serial math, multiply time cells by 24 before multiplying by hourly wage rates."}</p>
             </div>
             
           </div>
@@ -199,7 +199,7 @@ export default function Topic8() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: Cumulative Elapsed Duration ([h]:mm) vs 24-Hour Clock Rollover
+              Visual Dataflow: {"Cumulative Elapsed Duration ([h]:mm) vs 24-Hour Clock Rollover"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               SVG Architecture
@@ -287,7 +287,7 @@ export default function Topic8() {
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic8_Elapsed_Time_Log"
-            title="Elapsed duration tracking exceeding 24 hours with [h]:mm:ss for timesheets - Interactive Practice Grid"
+            title={"Elapsed duration tracking exceeding 24 hours with [h]:mm:ss for timesheets - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
           />
@@ -314,38 +314,38 @@ export default function Topic8() {
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 1 · Project Director</span>
-                <span className="text-xs font-mono text-slate-400">Barrackpore HQ</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Project Director"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Swadeep Banerjee: Software Project Billable Hours</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Formats total project sprint duration as [h]:mm to display '145:30' billable hours instead of resetting to 1:30 every 24 hours.</p>
+              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Software Project Billable Hours"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Formats total project sprint duration as [h]:mm to display '145:30' billable hours instead of resetting to 1:30 every 24 hours."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 2 · Payroll Manager</span>
-                <span className="text-xs font-mono text-slate-400">Shyamnagar Plant</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Payroll Manager"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Tuhina Mukherjee: Monthly Overtime Payroll Calculations</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Calculates total factory overtime across 500 workers using [h]:mm to compute accurate statutory wage disbursements.</p>
+              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Monthly Overtime Payroll Calculations"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Calculates total factory overtime across 500 workers using [h]:mm to compute accurate statutory wage disbursements."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 3 · Maintenance Engineer</span>
-                <span className="text-xs font-mono text-slate-400">Ichapur Works</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Maintenance Engineer"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Abhronila Das: Turbine Cumulative Runtime Hours</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Tracks machinery operational hours exceeding 1,000 hours ([h]:mm:ss) for preventive maintenance scheduling.</p>
+              <h3 className="font-bold text-white text-base">{"Abhronila Das: Turbine Cumulative Runtime Hours"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Tracks machinery operational hours exceeding 1,000 hours ([h]:mm:ss) for preventive maintenance scheduling."}</p>
             </div>
             
             <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 4 · Fleet Operations</span>
-                <span className="text-xs font-mono text-slate-400">Naihati Logistics</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Fleet Operations"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Debangshu Roy: Long-Haul Driver Cumulative Hours</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Monitors cumulative monthly driver hours to ensure compliance with transport safety rest regulations.</p>
+              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Long-Haul Driver Cumulative Hours"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Monitors cumulative monthly driver hours to ensure compliance with transport safety rest regulations."}</p>
             </div>
             
           </div>
@@ -395,7 +395,7 @@ export default function Topic8() {
                 Step 3: Enter Format String &amp; Confirm
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">[h]:mm:ss | [m]:ss | [s]</code> and click OK.
+                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">{"[h]:mm:ss | [m]:ss | [s]"}</code> and click OK.
               </p>
             </div>
 
@@ -440,21 +440,21 @@ export default function Topic8() {
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">24-Hour Clock Rollover</td>
-                  <td className="py-3 px-4">Using regular 'hh:mm' causes 25 hours to display as '01:00' because regular time loops modulo 24.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Enclose the hour token in square brackets: [h]:mm to display cumulative elapsed hours.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"24-Hour Clock Rollover"}</td>
+                  <td className="py-3 px-4">{"Using regular 'hh:mm' causes 25 hours to display as '01:00' because regular time loops modulo 24."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Enclose the hour token in square brackets: [h]:mm to display cumulative elapsed hours."}</td>
                 </tr>
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Time as Text Addition Failure</td>
-                  <td className="py-3 px-4">Typing '25:30' as text causes =SUM() to return 0.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Enter time as true fraction serial numbers and format as [h]:mm.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Time as Text Addition Failure"}</td>
+                  <td className="py-3 px-4">{"Typing '25:30' as text causes =SUM() to return 0."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Enter time as true fraction serial numbers and format as [h]:mm."}</td>
                 </tr>
                 
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Negative Time Display (#VALUE!)</td>
-                  <td className="py-3 px-4">Subtracting later time from earlier time in 1900 date system displays ######.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Use IF() checks or absolute formulas to prevent negative time serial numbers.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Negative Time Display (#VALUE!)"}</td>
+                  <td className="py-3 px-4">{"Subtracting later time from earlier time in 1900 date system displays ######."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use IF() checks or absolute formulas to prevent negative time serial numbers."}</td>
                 </tr>
                 
               </tbody>
@@ -483,26 +483,26 @@ export default function Topic8() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Elapsed Hours
+                <span>⚡</span> {"Elapsed Hours"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Displays cumulative hours without 24-hour rollover cap.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">[h]:mm</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Displays cumulative hours without 24-hour rollover cap."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"[h]:mm"}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Elapsed Minutes
+                <span>⚡</span> {"Elapsed Minutes"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Displays cumulative minutes for call center and race tracking.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">[m]:ss</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Displays cumulative minutes for call center and race tracking."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"[m]:ss"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Fraction Math
+                <span>⚡</span> {"Fraction Math"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Multiply time serial by 24 to convert to standard decimal hours for billing.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">=Time * 24</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Multiply time serial by 24 to convert to standard decimal hours for billing."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"=Time * 24"}</kbd>
             </div>
             
           </div>
@@ -529,7 +529,7 @@ export default function Topic8() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: Why does standard 'hh:mm' reset back to zero after 24 hours?
+                <span className="text-teal-400">💭</span> Question 1: {"Why does standard 'hh:mm' reset back to zero after 24 hours?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -538,7 +538,7 @@ export default function Topic8() {
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: What mathematical number represents 1 hour in Excel's serial time system (1/24)?
+                <span className="text-teal-400">💭</span> Question 2: {"What mathematical number represents 1 hour in Excel's serial time system (1/24)?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -547,7 +547,7 @@ export default function Topic8() {
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: How do you multiply an [h]:mm cell by an hourly rate to calculate billing amounts?
+                <span className="text-teal-400">💭</span> Question 3: {"How do you multiply an [h]:mm cell by an hourly rate to calculate billing amounts?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -562,7 +562,7 @@ export default function Topic8() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Elapsed duration tracking exceeding 24 hours with [h]:mm:ss for timesheets - Frequently Asked Questions"
+            title={"Elapsed duration tracking exceeding 24 hours with [h]:mm:ss for timesheets - Frequently Asked Questions"}
             questions={questions}
           />
         </div>
@@ -572,7 +572,7 @@ export default function Topic8() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="The [h]:mm format is essential for timesheets, payroll, and maintenance. If your overtime hours look suspiciously small, check if square brackets are missing!"
+            note={"The [h]:mm format is essential for timesheets, payroll, and maintenance. If your overtime hours look suspiciously small, check if square brackets are missing!"}
           />
         </div>
       </div>

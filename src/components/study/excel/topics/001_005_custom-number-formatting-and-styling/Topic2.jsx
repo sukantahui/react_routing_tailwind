@@ -61,22 +61,22 @@ export default function Topic2() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              🔢 Digit Tokens (0, #, ?) · Topic 2
+              {"🔢 Digit Tokens (0, #, ?)"} · Topic 2
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              Placeholder Engineering
+              {"Placeholder Engineering"}
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              Beginner-Intermediate · Bloom Level 3: Apply
+              {"Beginner-Intermediate · Bloom Level 3: Apply"}
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            Digit placeholders deep-dive: forced zero (0), optional digits (#), and decimal alignment (?)
+            {"Digit placeholders deep-dive: forced zero (0), optional digits (#), and decimal alignment (?)"}
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Precision control with forced zero (0), optional digit (#), and decimal alignment (?) tokens. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
+            {"Precision control with forced zero (0), optional digit (#), and decimal alignment (?) tokens"}. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,7 +113,7 @@ export default function Topic2() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            0 (Forced Zero) | # (Optional Digit) | ? (Fraction/Space Align)
+            {"0 (Forced Zero) | # (Optional Digit) | ? (Fraction/Space Align)"}
           </div>
 
           <div className="overflow-x-auto">
@@ -172,18 +172,18 @@ export default function Topic2() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">1. Forced Zero (0)</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Always displays a digit; if the input has fewer digits than zeroes in the format, Excel pads leading or trailing zeroes.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Forced Zero (0)"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Always displays a digit; if the input has fewer digits than zeroes in the format, Excel pads leading or trailing zeroes."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">2. Optional Hash (#)</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Displays significant digits only; suppresses non-significant leading and trailing zeroes to keep display minimal.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Optional Hash (#)"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Displays significant digits only; suppresses non-significant leading and trailing zeroes to keep display minimal."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">3. Question Mark Alignment (?)</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Leaves an invisible non-breaking space for missing digits, guaranteeing perfect vertical decimal point alignment.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Question Mark Alignment (?)"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Leaves an invisible non-breaking space for missing digits, guaranteeing perfect vertical decimal point alignment."}</p>
             </div>
             
           </div>
@@ -199,7 +199,7 @@ export default function Topic2() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: Digit Placeholders: 0 vs # vs ? Alignment Dynamics
+              Visual Dataflow: {"Digit Placeholders: 0 vs # vs ? Alignment Dynamics"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               SVG Architecture
@@ -287,7 +287,7 @@ export default function Topic2() {
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic2_Digit_Placeholders"
-            title="Digit placeholders deep-dive: forced zero (0), optional digits (#), and decimal alignment (?) - Interactive Practice Grid"
+            title={"Digit placeholders deep-dive: forced zero (0), optional digits (#), and decimal alignment (?) - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
           />
@@ -314,38 +314,38 @@ export default function Topic2() {
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 1 · Financial Modeler</span>
-                <span className="text-xs font-mono text-slate-400">Barrackpore HQ</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Financial Modeler"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Swadeep Banerjee: Decimal Alignment in Pitch Decks</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Applies #,##0.?? to align numbers with variable decimal lengths cleanly along decimal points in boardroom presentations.</p>
+              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Decimal Alignment in Pitch Decks"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Applies #,##0.?? to align numbers with variable decimal lengths cleanly along decimal points in boardroom presentations."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 2 · Payroll Analyst</span>
-                <span className="text-xs font-mono text-slate-400">Shyamnagar Plant</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Payroll Analyst"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Tuhina Mukherjee: Fixed Employee ID Formatting</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Uses 00000 to ensure 5-digit employee codes (e.g. 00142) display leading zeros without storing data as text.</p>
+              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Fixed Employee ID Formatting"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Uses 00000 to ensure 5-digit employee codes (e.g. 00142) display leading zeros without storing data as text."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 3 · Quality Engineer</span>
-                <span className="text-xs font-mono text-slate-400">Ichapur Works</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Quality Engineer"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Abhronila Das: Fractional Tolerance Measurements</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Formats engineering tolerances as # ??/?? to render measurements as clean mixed fractions (e.g. 5 1/4 inches).</p>
+              <h3 className="font-bold text-white text-base">{"Abhronila Das: Fractional Tolerance Measurements"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Formats engineering tolerances as # ??/?? to render measurements as clean mixed fractions (e.g. 5 1/4 inches)."}</p>
             </div>
             
             <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 4 · Dispatch Officer</span>
-                <span className="text-xs font-mono text-slate-400">Naihati Hub</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Dispatch Officer"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Naihati Hub"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Debangshu Roy: Purchase Order Serial Codes</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Formats order numbers as PO-00000 to enforce standardized 5-digit zero-padded order IDs.</p>
+              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Purchase Order Serial Codes"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Formats order numbers as PO-00000 to enforce standardized 5-digit zero-padded order IDs."}</p>
             </div>
             
           </div>
@@ -395,7 +395,7 @@ export default function Topic2() {
                 Step 3: Enter Format String &amp; Confirm
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">0 (Forced Zero) | # (Optional Digit) | ? (Fraction/Space Align)</code> and click OK.
+                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">{"0 (Forced Zero) | # (Optional Digit) | ? (Fraction/Space Align)"}</code> and click OK.
               </p>
             </div>
 
@@ -440,21 +440,21 @@ export default function Topic2() {
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Lost Leading Zeros in CSV</td>
-                  <td className="py-3 px-4">Using 00000 formatting visually shows leading zeros, but CSV export may drop them.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Be aware of export formats; for CSV data transfer, prepend text codes or export as text.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Lost Leading Zeros in CSV"}</td>
+                  <td className="py-3 px-4">{"Using 00000 formatting visually shows leading zeros, but CSV export may drop them."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Be aware of export formats; for CSV data transfer, prepend text codes or export as text."}</td>
                 </tr>
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Misaligned Decimal Columns</td>
-                  <td className="py-3 px-4">Mixing # and 0 tokens causes jagged column decimal points when values have varying lengths.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Use ? placeholders to reserve invisible spaces for missing digits.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Misaligned Decimal Columns"}</td>
+                  <td className="py-3 px-4">{"Mixing # and 0 tokens causes jagged column decimal points when values have varying lengths."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use ? placeholders to reserve invisible spaces for missing digits."}</td>
                 </tr>
                 
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Unintended Trailing Zeros</td>
-                  <td className="py-3 px-4">Using 0.00 on whole numbers forces '15.00' when '15' is desired.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Use 0.## when trailing zeros are optional.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Unintended Trailing Zeros"}</td>
+                  <td className="py-3 px-4">{"Using 0.00 on whole numbers forces '15.00' when '15' is desired."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use 0.## when trailing zeros are optional."}</td>
                 </tr>
                 
               </tbody>
@@ -483,26 +483,26 @@ export default function Topic2() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Forced Leading Zero
+                <span>⚡</span> {"Forced Leading Zero"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Enforce a fixed number of digits with leading zero padding.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">0000</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Enforce a fixed number of digits with leading zero padding."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"0000"}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Decimal Alignment
+                <span>⚡</span> {"Decimal Alignment"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Use question marks to keep decimal points perfectly vertical.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">0.???</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Use question marks to keep decimal points perfectly vertical."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"0.???"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Fraction Display
+                <span>⚡</span> {"Fraction Display"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Convert floating point values into real mechanical fractions.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1"># ??/??</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Convert floating point values into real mechanical fractions."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"# ??/??"}</kbd>
             </div>
             
           </div>
@@ -529,7 +529,7 @@ export default function Topic2() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: What is the visual difference between format #.## and 0.00 when formatting the number 5?
+                <span className="text-teal-400">💭</span> Question 1: {"What is the visual difference between format #.## and 0.00 when formatting the number 5?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -538,7 +538,7 @@ export default function Topic2() {
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: How does the ? token preserve alignment across columns of numbers?
+                <span className="text-teal-400">💭</span> Question 2: {"How does the ? token preserve alignment across columns of numbers?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -547,7 +547,7 @@ export default function Topic2() {
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: When should you use forced zeros versus optional hashes?
+                <span className="text-teal-400">💭</span> Question 3: {"When should you use forced zeros versus optional hashes?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -562,7 +562,7 @@ export default function Topic2() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Digit placeholders deep-dive: forced zero (0), optional digits (#), and decimal alignment (?) - Frequently Asked Questions"
+            title={"Digit placeholders deep-dive: forced zero (0), optional digits (#), and decimal alignment (?) - Frequently Asked Questions"}
             questions={questions}
           />
         </div>
@@ -572,7 +572,7 @@ export default function Topic2() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="Mastering 0, #, and ? transforms messy grids into publication-grade financial statements. Never align decimals with manual spacebars!"
+            note={"Mastering 0, #, and ? transforms messy grids into publication-grade financial statements. Never align decimals with manual spacebars!"}
           />
         </div>
       </div>

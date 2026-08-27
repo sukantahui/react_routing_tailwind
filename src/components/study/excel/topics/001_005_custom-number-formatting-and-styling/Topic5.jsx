@@ -61,22 +61,22 @@ export default function Topic5() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              📈 Scaling to Thousands & Millions · Topic 5
+              {"📈 Scaling to Thousands & Millions"} · Topic 5
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              Financial Scaling
+              {"Financial Scaling"}
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              Intermediate · Bloom Level 3: Apply
+              {"Intermediate · Bloom Level 3: Apply"}
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            Scaling large numbers into Thousands (K), Millions (M), and Billions (B)
+            {"Scaling large numbers into Thousands (K), Millions (M), and Billions (B)"}
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Trailing comma scaling: Divide by 1,000 per comma (K, M, B) without altering underlying math. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
+            {"Trailing comma scaling: Divide by 1,000 per comma (K, M, B) without altering underlying math"}. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,7 +113,7 @@ export default function Topic5() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            #,##0.0, "K" /* Thousands */ | #,##0.0,, "M" /* Millions */ | #,##0.0,,, "B" /* Billions */
+            {"#,##0.0, \"K\" /* Thousands */ | #,##0.0,, \"M\" /* Millions */ | #,##0.0,,, \"B\" /* Billions */"}
           </div>
 
           <div className="overflow-x-auto">
@@ -172,18 +172,18 @@ export default function Topic5() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">1. Trailing Comma Divisor Rule</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Each comma placed after digit placeholders divides the displayed value by 1,000 without altering the cell's underlying numerical value.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Trailing Comma Divisor Rule"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Each comma placed after digit placeholders divides the displayed value by 1,000 without altering the cell's underlying numerical value."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">2. Unit Suffix Labeling</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Appends literal string suffixes like 'K', 'M', or 'B' after the scaling commas to produce clean executive metrics.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Unit Suffix Labeling"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Appends literal string suffixes like 'K', 'M', or 'B' after the scaling commas to produce clean executive metrics."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">3. Formula Math Preservation</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Downstream calculations continue computing against full raw values (e.g. 45,890,000) rather than scaled display floats (45.9).</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Formula Math Preservation"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Downstream calculations continue computing against full raw values (e.g. 45,890,000) rather than scaled display floats (45.9)."}</p>
             </div>
             
           </div>
@@ -199,7 +199,7 @@ export default function Topic5() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: Trailing Comma Number Scaling Engine (K, M, B)
+              Visual Dataflow: {"Trailing Comma Number Scaling Engine (K, M, B)"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               SVG Architecture
@@ -287,7 +287,7 @@ export default function Topic5() {
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic5_Scaling_Thousands_M"
-            title="Scaling large numbers into Thousands (K), Millions (M), and Billions (B) - Interactive Practice Grid"
+            title={"Scaling large numbers into Thousands (K), Millions (M), and Billions (B) - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
           />
@@ -314,38 +314,38 @@ export default function Topic5() {
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 1 · VP Strategy</span>
-                <span className="text-xs font-mono text-slate-400">Barrackpore HQ</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · VP Strategy"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Swadeep Banerjee: Executive KPI Revenue Scorecard</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Scales ₹45,890,000 into ₹45.9M on executive dashboards while maintaining underlying precision for margin formulas.</p>
+              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Executive KPI Revenue Scorecard"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Scales ₹45,890,000 into ₹45.9M on executive dashboards while maintaining underlying precision for margin formulas."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 2 · Portfolio Manager</span>
-                <span className="text-xs font-mono text-slate-400">Shyamnagar Plant</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Portfolio Manager"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Tuhina Mukherjee: Assets Under Management Report</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Formats billion-dollar asset allocations as $1.25B using triple trailing commas (#,##0.00,,, "B").</p>
+              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Assets Under Management Report"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Formats billion-dollar asset allocations as $1.25B using triple trailing commas (#,##0.00,,, \"B\")."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 3 · Budget Officer</span>
-                <span className="text-xs font-mono text-slate-400">Ichapur Works</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Budget Officer"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Abhronila Das: Annual Departmental Capex</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Condenses factory equipment expenditure into thousands (₹#,##0, "K") for concise presentation.</p>
+              <h3 className="font-bold text-white text-base">{"Abhronila Das: Annual Departmental Capex"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Condenses factory equipment expenditure into thousands (₹#,##0, \"K\") for concise presentation."}</p>
             </div>
             
             <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 4 · Fleet Director</span>
-                <span className="text-xs font-mono text-slate-400">Naihati Logistics</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Fleet Director"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Debangshu Roy: Annual Kilometer Mileage Tracking</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Formats total enterprise fleet mileage in millions (0.0,, "M km") for annual sustainability disclosures.</p>
+              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Annual Kilometer Mileage Tracking"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Formats total enterprise fleet mileage in millions (0.0,, \"M km\") for annual sustainability disclosures."}</p>
             </div>
             
           </div>
@@ -395,7 +395,7 @@ export default function Topic5() {
                 Step 3: Enter Format String &amp; Confirm
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">#,##0.0, "K" /* Thousands */ | #,##0.0,, "M" /* Millions */ | #,##0.0,,, "B" /* Billions */</code> and click OK.
+                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">{"#,##0.0, \"K\" /* Thousands */ | #,##0.0,, \"M\" /* Millions */ | #,##0.0,,, \"B\" /* Billions */"}</code> and click OK.
               </p>
             </div>
 
@@ -440,21 +440,21 @@ export default function Topic5() {
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Accidental Formula Division</td>
-                  <td className="py-3 px-4">Dividing by 1,000,000 in formulas (/10^6) modifies underlying values and breaks dependent totals.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Use trailing commas in custom number format instead of formula division.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Accidental Formula Division"}</td>
+                  <td className="py-3 px-4">{"Dividing by 1,000,000 in formulas (/10^6) modifies underlying values and breaks dependent totals."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use trailing commas in custom number format instead of formula division."}</td>
                 </tr>
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Comma Placement Errors</td>
-                  <td className="py-3 px-4">Placing spaces between commas cancels the 1,000 divisor effect.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Keep trailing commas adjacent to digits before literal unit strings (e.g. #,##0.0,, "M").</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Comma Placement Errors"}</td>
+                  <td className="py-3 px-4">{"Placing spaces between commas cancels the 1,000 divisor effect."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Keep trailing commas adjacent to digits before literal unit strings (e.g. #,##0.0,, \"M\")."}</td>
                 </tr>
                 
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Over-Rounding Visuals</td>
-                  <td className="py-3 px-4">Scaling small values (e.g. ₹45,000) with M scaling shows '₹0.0M'.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Choose appropriate scale (K vs M) based on magnitude of data range.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Over-Rounding Visuals"}</td>
+                  <td className="py-3 px-4">{"Scaling small values (e.g. ₹45,000) with M scaling shows '₹0.0M'."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Choose appropriate scale (K vs M) based on magnitude of data range."}</td>
                 </tr>
                 
               </tbody>
@@ -483,26 +483,26 @@ export default function Topic5() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Thousands Scale (K)
+                <span>⚡</span> {"Thousands Scale (K)"}
               </div>
-              <p className="text-slate-300 leading-relaxed">One trailing comma divides displayed value by 1,000.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">#,##0, "K"</kbd>
+              <p className="text-slate-300 leading-relaxed">{"One trailing comma divides displayed value by 1,000."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"#,##0, \"K\""}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Millions Scale (M)
+                <span>⚡</span> {"Millions Scale (M)"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Two trailing commas divide displayed value by 1,000,000.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">#,##0.0,, "M"</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Two trailing commas divide displayed value by 1,000,000."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"#,##0.0,, \"M\""}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Billions Scale (B)
+                <span>⚡</span> {"Billions Scale (B)"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Three trailing commas divide displayed value by 1,000,000,000.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">#,##0.0,,, "B"</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Three trailing commas divide displayed value by 1,000,000,000."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"#,##0.0,,, \"B\""}</kbd>
             </div>
             
           </div>
@@ -529,7 +529,7 @@ export default function Topic5() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: Why is custom format scaling superior to dividing cells by 1,000,000 in formula math?
+                <span className="text-teal-400">💭</span> Question 1: {"Why is custom format scaling superior to dividing cells by 1,000,000 in formula math?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -538,7 +538,7 @@ export default function Topic5() {
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: How do trailing commas interact with decimal places in the format string?
+                <span className="text-teal-400">💭</span> Question 2: {"How do trailing commas interact with decimal places in the format string?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -547,7 +547,7 @@ export default function Topic5() {
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: Can you combine 4-section syntax with millions scaling?
+                <span className="text-teal-400">💭</span> Question 3: {"Can you combine 4-section syntax with millions scaling?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -562,7 +562,7 @@ export default function Topic5() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Scaling large numbers into Thousands (K), Millions (M), and Billions (B) - Frequently Asked Questions"
+            title={"Scaling large numbers into Thousands (K), Millions (M), and Billions (B) - Frequently Asked Questions"}
             questions={questions}
           />
         </div>
@@ -572,7 +572,7 @@ export default function Topic5() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="Never divide your financial models by 1,000,000 with formulas! Use custom format scaling to keep pure raw data while presenting clean K, M, and B figures."
+            note={"Never divide your financial models by 1,000,000 with formulas! Use custom format scaling to keep pure raw data while presenting clean K, M, and B figures."}
           />
         </div>
       </div>

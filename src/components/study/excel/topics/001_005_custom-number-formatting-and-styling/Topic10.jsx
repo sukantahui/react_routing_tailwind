@@ -61,22 +61,22 @@ export default function Topic10() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              🏷️ Unit Suffixes Without Breaking Math · Topic 10
+              {"🏷️ Unit Suffixes Without Breaking Math"} · Topic 10
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              Unit Engineering
+              {"Unit Engineering"}
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              Beginner-Intermediate · Bloom Level 3: Apply
+              {"Beginner-Intermediate · Bloom Level 3: Apply"}
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            Text placeholder tokens (@), literals, and unit suffixes (KG, Units, Hrs) without breaking math
+            {"Text placeholder tokens (@), literals, and unit suffixes (KG, Units, Hrs) without breaking math"}
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Appending physical unit suffixes ("KG", "MT", "Units", "Hrs") while keeping cells purely numeric for SUM(). Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
+            {"Appending physical unit suffixes (\"KG\", \"MT\", \"Units\", \"Hrs\") while keeping cells purely numeric for SUM()"}. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,7 +113,7 @@ export default function Topic10() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            0.00 "KG" | 0 "Units" | 0.0 "Hrs" | "Prefix: " @ " Suffix"
+            {"0.00 \"KG\" | 0 \"Units\" | 0.0 \"Hrs\" | \"Prefix: \" @ \" Suffix\""}
           </div>
 
           <div className="overflow-x-auto">
@@ -172,18 +172,18 @@ export default function Topic10() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">1. Quoted String Literal Insertion</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Enclosing text like `" KG"` or `" Hrs"` inside double quotes instructs Excel to append unit strings after the number during rendering.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Quoted String Literal Insertion"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Enclosing text like `\" KG\"` or `\" Hrs\"` inside double quotes instructs Excel to append unit strings after the number during rendering."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">2. Pure Numeric Data Integrity</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Because the underlying cell stores only the number (e.g. 500), `=SUM(A1:A100)` and other math functions calculate seamlessly.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Pure Numeric Data Integrity"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Because the underlying cell stores only the number (e.g. 500), `=SUM(A1:A100)` and other math functions calculate seamlessly."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">3. Text Prefix and Suffix Wrapping</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Surrounding the `@` token with quotes allows prepending and appending custom text labels around typed strings.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Text Prefix and Suffix Wrapping"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Surrounding the `@` token with quotes allows prepending and appending custom text labels around typed strings."}</p>
             </div>
             
           </div>
@@ -199,7 +199,7 @@ export default function Topic10() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: Unit Suffix Masking: Preserving Mathematical Calculation Capability
+              Visual Dataflow: {"Unit Suffix Masking: Preserving Mathematical Calculation Capability"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               SVG Architecture
@@ -287,7 +287,7 @@ export default function Topic10() {
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic10_Text_Unit_Suffixes"
-            title="Text placeholder tokens (@), literals, and unit suffixes (KG, Units, Hrs) without breaking math - Interactive Practice Grid"
+            title={"Text placeholder tokens (@), literals, and unit suffixes (KG, Units, Hrs) without breaking math - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
           />
@@ -314,38 +314,38 @@ export default function Topic10() {
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 1 · Procurement Head</span>
-                <span className="text-xs font-mono text-slate-400">Barrackpore HQ</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Procurement Head"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Swadeep Banerjee: Raw Material Weight Procurement</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Formats steel billet quantities as 0.00 "MT" (Metric Tons) allowing procurement managers to execute =SUM() directly on the weight column.</p>
+              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Raw Material Weight Procurement"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Formats steel billet quantities as 0.00 \"MT\" (Metric Tons) allowing procurement managers to execute =SUM() directly on the weight column."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 2 · Inventory Lead</span>
-                <span className="text-xs font-mono text-slate-400">Shyamnagar Plant</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Inventory Lead"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Tuhina Mukherjee: Packaged Inventory Stock Units</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Applies #,##0 "Boxes" across warehouse inventory registers, ensuring stock counts calculate dynamically.</p>
+              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Packaged Inventory Stock Units"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Applies #,##0 \"Boxes\" across warehouse inventory registers, ensuring stock counts calculate dynamically."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 3 · Energy Auditor</span>
-                <span className="text-xs font-mono text-slate-400">Ichapur Works</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Energy Auditor"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Abhronila Das: Factory Power Consumption Ledger</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Formats kilowatt-hour meter readings as #,##0.0 "kWh" while calculating monthly energy cost formulas.</p>
+              <h3 className="font-bold text-white text-base">{"Abhronila Das: Factory Power Consumption Ledger"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Formats kilowatt-hour meter readings as #,##0.0 \"kWh\" while calculating monthly energy cost formulas."}</p>
             </div>
             
             <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 4 · Fleet Controller</span>
-                <span className="text-xs font-mono text-slate-400">Naihati Logistics</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Fleet Controller"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Debangshu Roy: Diesel Fuel Tanker Capacity</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Formats fuel fill volumes as #,##0 "Litres" with automatic calculation of total fuel consumption.</p>
+              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Diesel Fuel Tanker Capacity"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Formats fuel fill volumes as #,##0 \"Litres\" with automatic calculation of total fuel consumption."}</p>
             </div>
             
           </div>
@@ -395,7 +395,7 @@ export default function Topic10() {
                 Step 3: Enter Format String &amp; Confirm
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">0.00 "KG" | 0 "Units" | 0.0 "Hrs" | "Prefix: " @ " Suffix"</code> and click OK.
+                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">{"0.00 \"KG\" | 0 \"Units\" | 0.0 \"Hrs\" | \"Prefix: \" @ \" Suffix\""}</code> and click OK.
               </p>
             </div>
 
@@ -440,21 +440,21 @@ export default function Topic10() {
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Typing Units in Cell Data</td>
-                  <td className="py-3 px-4">Typing '500 KG' makes the cell a text string, causing =SUM() to return 0 or #VALUE!.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Type only 500 and apply the custom format 0 "KG".</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Typing Units in Cell Data"}</td>
+                  <td className="py-3 px-4">{"Typing '500 KG' makes the cell a text string, causing =SUM() to return 0 or #VALUE!."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Type only 500 and apply the custom format 0 \"KG\"."}</td>
                 </tr>
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Missing Escape Quotes</td>
-                  <td className="py-3 px-4">Typing unit letters like 'm' or 'h' without quotes triggers date/time token substitution.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Always enclose arbitrary unit strings in double quotes (e.g. "m", "hrs").</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Missing Escape Quotes"}</td>
+                  <td className="py-3 px-4">{"Typing unit letters like 'm' or 'h' without quotes triggers date/time token substitution."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Always enclose arbitrary unit strings in double quotes (e.g. \"m\", \"hrs\")."}</td>
                 </tr>
                 
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Unit Confusion in Conversions</td>
-                  <td className="py-3 px-4">Displaying 'KG' on a column calculated in Grams produces 1000x reporting errors.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Ensure raw numbers match the scale of the custom unit label.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Unit Confusion in Conversions"}</td>
+                  <td className="py-3 px-4">{"Displaying 'KG' on a column calculated in Grams produces 1000x reporting errors."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Ensure raw numbers match the scale of the custom unit label."}</td>
                 </tr>
                 
               </tbody>
@@ -483,26 +483,26 @@ export default function Topic10() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Physical Unit Mask
+                <span>⚡</span> {"Physical Unit Mask"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Renders units visually while keeping underlying data 100% numerical for formulas.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">0.00 "KG"</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Renders units visually while keeping underlying data 100% numerical for formulas."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"0.00 \"KG\""}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Text Prefix/Suffix
+                <span>⚡</span> {"Text Prefix/Suffix"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Prepends or appends static labels around typed text strings.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">"Customer: " @</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Prepends or appends static labels around typed text strings."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"\"Customer: \" @"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Single-Letter Escape
+                <span>⚡</span> {"Single-Letter Escape"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Use backslash (\) to escape a single character without quotes.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">\$ or \%</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Use backslash (\\) to escape a single character without quotes."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"\\$ or \\%"}</kbd>
             </div>
             
           </div>
@@ -529,7 +529,7 @@ export default function Topic10() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: Why does typing '500 KG' break =SUM() while formatting as 0 "KG" works perfectly?
+                <span className="text-teal-400">💭</span> Question 1: {"Why does typing '500 KG' break =SUM() while formatting as 0 \"KG\" works perfectly?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -538,7 +538,7 @@ export default function Topic10() {
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: What happens if you type a custom unit format without enclosing letters in double quotes?
+                <span className="text-teal-400">💭</span> Question 2: {"What happens if you type a custom unit format without enclosing letters in double quotes?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -547,7 +547,7 @@ export default function Topic10() {
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: How does the backslash (\) escape token differ from double quotes in custom format strings?
+                <span className="text-teal-400">💭</span> Question 3: {"How does the backslash (\\) escape token differ from double quotes in custom format strings?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -562,7 +562,7 @@ export default function Topic10() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Text placeholder tokens (@), literals, and unit suffixes (KG, Units, Hrs) without breaking math - Frequently Asked Questions"
+            title={"Text placeholder tokens (@), literals, and unit suffixes (KG, Units, Hrs) without breaking math - Frequently Asked Questions"}
             questions={questions}
           />
         </div>
@@ -572,7 +572,7 @@ export default function Topic10() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="The #1 beginner mistake in Excel is typing 'KG' or 'Pieces' into cells. Teach your team to use 0 "KG" so formulas work seamlessly forever."
+            note={"The #1 beginner mistake in Excel is typing 'KG' or 'Pieces' into cells. Teach your team to use 0 \"KG\" so formulas work seamlessly forever."}
           />
         </div>
       </div>

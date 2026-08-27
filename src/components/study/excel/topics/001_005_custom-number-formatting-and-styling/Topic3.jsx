@@ -61,22 +61,22 @@ export default function Topic3() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              🌍 International Currency & Lakhs · Topic 3
+              {"🌍 International Currency & Lakhs"} · Topic 3
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              Currency & Locales
+              {"Currency & Locales"}
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              Intermediate · Bloom Level 3: Apply
+              {"Intermediate · Bloom Level 3: Apply"}
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            Currency and international formats: $, ₹, €, £, and Indian numbering (##,##,##0)
+            {"Currency and international formats: $, ₹, €, £, and Indian numbering (##,##,##0)"}
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Global currency symbols ($, ₹, €, £) and Indian numbering system (Lakhs & Crores: ##,##,##0). Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
+            {"Global currency symbols ($, ₹, €, £) and Indian numbering system (Lakhs & Crores: ##,##,##0)"}. Master the complete syntax, practical applications, and common pitfalls in enterprise spreadsheet design.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,7 +113,7 @@ export default function Topic3() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            [$₹-402] ##,##,##0.00 /* Indian Lakhs & Crores */ | [$$-409] #,##0.00 /* USD */
+            {"[$₹-402] ##,##,##0.00 /* Indian Lakhs & Crores */ | [$$-409] #,##0.00 /* USD */"}
           </div>
 
           <div className="overflow-x-auto">
@@ -172,18 +172,18 @@ export default function Topic3() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">1. Indian Numbering System (Lakhs & Crores)</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Indian statutory standards group the first 3 digits from the right, followed by 2-digit groups: `[$-402] ##,##,##0.00`.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Indian Numbering System (Lakhs & Crores)"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Indian statutory standards group the first 3 digits from the right, followed by 2-digit groups: `[$-402] ##,##,##0.00`."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">2. LCID Locale Enforcement</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">The `[$Symbol-LocaleID]` syntax locks currency rendering so sheets opened on foreign OS language packs maintain correct currency symbols.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. LCID Locale Enforcement"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"The `[$Symbol-LocaleID]` syntax locks currency rendering so sheets opened on foreign OS language packs maintain correct currency symbols."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">3. Zero & Negative Handling with Currency</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Combines currency symbols with accounting parentheses: `[$₹-402] ##,##,##0.00;([$₹-402] ##,##,##0.00);"-"`.</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Zero & Negative Handling with Currency"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Combines currency symbols with accounting parentheses: `[$₹-402] ##,##,##0.00;([$₹-402] ##,##,##0.00);\"-\"`."}</p>
             </div>
             
           </div>
@@ -199,7 +199,7 @@ export default function Topic3() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: International Currency Locales & Indian Lakhs Numbering
+              Visual Dataflow: {"International Currency Locales & Indian Lakhs Numbering"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               SVG Architecture
@@ -287,7 +287,7 @@ export default function Topic3() {
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic3_Currency_International"
-            title="Currency and international formats: $, ₹, €, £, and Indian numbering (##,##,##0) - Interactive Practice Grid"
+            title={"Currency and international formats: $, ₹, €, £, and Indian numbering (##,##,##0) - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
           />
@@ -314,38 +314,38 @@ export default function Topic3() {
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 1 · Corporate Treasurer</span>
-                <span className="text-xs font-mono text-slate-400">Barrackpore HQ</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Corporate Treasurer"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Swadeep Banerjee: Indian Corporate Tax Valuation</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Formats balance sheet assets with Indian grouping [$₹-402] ##,##,##0.00 to show ₹12,50,000.00 (12.5 Lakhs) naturally.</p>
+              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Indian Corporate Tax Valuation"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Formats balance sheet assets with Indian grouping [$₹-402] ##,##,##0.00 to show ₹12,50,000.00 (12.5 Lakhs) naturally."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 2 · Export Billing Specialist</span>
-                <span className="text-xs font-mono text-slate-400">Shyamnagar Plant</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Export Billing Specialist"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Tuhina Mukherjee: Multi-Currency Global Invoicing</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Configures columns with US Dollar ([$$-en-US]#,##0.00), Euro ([$€-de-DE]#,##0.00), and British Pound ([$£-en-GB]#,##0.00).</p>
+              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Multi-Currency Global Invoicing"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Configures columns with US Dollar ([$$-en-US]#,##0.00), Euro ([$€-de-DE]#,##0.00), and British Pound ([$£-en-GB]#,##0.00)."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 3 · Foreign Exchange Analyst</span>
-                <span className="text-xs font-mono text-slate-400">Ichapur Works</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Foreign Exchange Analyst"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Abhronila Das: Forex Hedging Exposure Ledger</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Applies dual-currency custom formatting to cross-border capital expenditure forecasts.</p>
+              <h3 className="font-bold text-white text-base">{"Abhronila Das: Forex Hedging Exposure Ledger"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Applies dual-currency custom formatting to cross-border capital expenditure forecasts."}</p>
             </div>
             
             <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 4 · Customs Broker</span>
-                <span className="text-xs font-mono text-slate-400">Naihati Logistics</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Customs Broker"}</span>
+                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">Debangshu Roy: Port Import Duty Calculations</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Formats CIF import valuations in dual INR and USD notations for customs declaration filings.</p>
+              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Port Import Duty Calculations"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Formats CIF import valuations in dual INR and USD notations for customs declaration filings."}</p>
             </div>
             
           </div>
@@ -395,7 +395,7 @@ export default function Topic3() {
                 Step 3: Enter Format String &amp; Confirm
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">[$₹-402] ##,##,##0.00 /* Indian Lakhs & Crores */ | [$$-409] #,##0.00 /* USD */</code> and click OK.
+                In the <strong>Type:</strong> input box, enter the custom format string <code className="text-cyan-300 font-mono font-bold">{"[$₹-402] ##,##,##0.00 /* Indian Lakhs & Crores */ | [$$-409] #,##0.00 /* USD */"}</code> and click OK.
               </p>
             </div>
 
@@ -440,21 +440,21 @@ export default function Topic3() {
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Western vs Indian Grouping</td>
-                  <td className="py-3 px-4">Default #,##0.00 groups in thousands (1,250,000) instead of Indian lakhs (12,50,000).</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Use explicit Indian locale code [$-402] ##,##,##0.00 or custom group format.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Western vs Indian Grouping"}</td>
+                  <td className="py-3 px-4">{"Default #,##0.00 groups in thousands (1,250,000) instead of Indian lakhs (12,50,000)."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use explicit Indian locale code [$-402] ##,##,##0.00 or custom group format."}</td>
                 </tr>
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Currency Symbol Math Lock</td>
-                  <td className="py-3 px-4">Typing 'Rs. 5000' converts cell to text, breaking arithmetic formulas.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Always apply currency format masks to raw numbers.</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Currency Symbol Math Lock"}</td>
+                  <td className="py-3 px-4">{"Typing 'Rs. 5000' converts cell to text, breaking arithmetic formulas."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Always apply currency format masks to raw numbers."}</td>
                 </tr>
                 
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Locale Code Syntax Drift</td>
-                  <td className="py-3 px-4">Using outdated country codes can cause unexpected currency symbols across Office versions.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Use explicit LCID format codes like [$₹-hi-IN] or [$₹-402].</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Locale Code Syntax Drift"}</td>
+                  <td className="py-3 px-4">{"Using outdated country codes can cause unexpected currency symbols across Office versions."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use explicit LCID format codes like [$₹-hi-IN] or [$₹-402]."}</td>
                 </tr>
                 
               </tbody>
@@ -483,26 +483,26 @@ export default function Topic3() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Indian Rupee Symbol
+                <span>⚡</span> {"Indian Rupee Symbol"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Quickly insert the official ₹ rupee currency symbol.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">Ctrl + Alt + 4</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Quickly insert the official ₹ rupee currency symbol."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Ctrl + Alt + 4"}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Indian Lakhs Grouping
+                <span>⚡</span> {"Indian Lakhs Grouping"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Enforce 2-digit grouping after hundreds place (Lakhs and Crores).</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">[$-402] ##,##,##0</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Enforce 2-digit grouping after hundreds place (Lakhs and Crores)."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"[$-402] ##,##,##0"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Global Locale Tags
+                <span>⚡</span> {"Global Locale Tags"}
               </div>
-              <p className="text-slate-300 leading-relaxed">Lock currency symbols regardless of client OS regional settings.</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">[$$-409], [$€-407]</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Lock currency symbols regardless of client OS regional settings."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"[$$-409], [$€-407]"}</kbd>
             </div>
             
           </div>
@@ -529,7 +529,7 @@ export default function Topic3() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: Why does Indian accounting use 2-digit comma grouping after the first 3 digits?
+                <span className="text-teal-400">💭</span> Question 1: {"Why does Indian accounting use 2-digit comma grouping after the first 3 digits?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -538,7 +538,7 @@ export default function Topic3() {
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: How do LCID tags prevent currency symbols from changing when opened abroad?
+                <span className="text-teal-400">💭</span> Question 2: {"How do LCID tags prevent currency symbols from changing when opened abroad?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -547,7 +547,7 @@ export default function Topic3() {
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: What is the difference between Currency and Accounting number formats in Excel?
+                <span className="text-teal-400">💭</span> Question 3: {"What is the difference between Currency and Accounting number formats in Excel?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the mathematical and computational implications in enterprise financial modeling.
@@ -562,7 +562,7 @@ export default function Topic3() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Currency and international formats: $, ₹, €, £, and Indian numbering (##,##,##0) - Frequently Asked Questions"
+            title={"Currency and international formats: $, ₹, €, £, and Indian numbering (##,##,##0) - Frequently Asked Questions"}
             questions={questions}
           />
         </div>
@@ -572,7 +572,7 @@ export default function Topic3() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="In corporate India, reporting in Lakhs and Crores is mandatory for statutory compliance. Master [$-402] ##,##,##0.00 to build authentic Indian financial reports."
+            note={"In corporate India, reporting in Lakhs and Crores is mandatory for statutory compliance. Master [$-402] ##,##,##0.00 to build authentic Indian financial reports."}
           />
         </div>
       </div>
