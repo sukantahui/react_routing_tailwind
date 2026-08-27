@@ -22,7 +22,7 @@ export default function Topic8() {
           </span>
         </div>
         <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-          Engine Throughput Benchmarking: <code className="text-emerald-400 font-mono">>100,000 Orders/Sec</code> (Capstone)
+          Engine Throughput Benchmarking: <code className="text-emerald-400 font-mono">&gt;100,000 Orders/Sec</code> (Capstone)
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
           Performance validation: measuring matching engine throughput, P99 latency percentiles, and proving sub-millisecond execution speeds under heavy load.

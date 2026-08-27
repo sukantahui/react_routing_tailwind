@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Basic Dashboards and Reporting
+Topic 9: In-cell data visualization: Micro-charts with Sparklines (Line, Column, Win/Loss)
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

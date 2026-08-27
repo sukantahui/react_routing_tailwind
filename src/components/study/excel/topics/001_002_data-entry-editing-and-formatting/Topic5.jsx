@@ -197,7 +197,7 @@ export default function Topic5() {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Formatting Flow: 1900 Date Serial Timeline & 24-Hour Decimal Clock Mechanics
+            Visual Formatting Flow: 1900 Date Serial Timeline &amp; 24-Hour Decimal Clock Mechanics
           </h2>
 
           <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
@@ -322,7 +322,7 @@ export default function Topic5() {
             <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">02</span>
-                <h3 className="text-base font-bold text-white">Kolkata Freight Logistics Delivery SLA & Transit Time</h3>
+                <h3 className="text-base font-bold text-white">Kolkata Freight Logistics Delivery SLA &amp; Transit Time</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Calculating dispatch to delivery turnaround time across multi-day highway transits.</p>
               
@@ -337,7 +337,7 @@ export default function Topic5() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Formula: =INT(B2-A2) & " Days " & TEXT(MOD(B2-A2,1), "hh:mm")</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Formula: =INT(B2-A2) &amp; " Days " &amp; TEXT(MOD(B2-A2,1), "hh:mm")</div>
                 <div className="text-emerald-400 font-semibold">Result: Precise multi-day elapsed transit time verified.</div>
                 <div className="text-slate-400 text-[11px]">Subtracting datetime serials gives exact day integers and fractional hours.</div>
               </div>

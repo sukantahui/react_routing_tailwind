@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Advanced VBA: UserForms, Events & System Integration
+Topic 0: Event-Driven Programming: Workbook events (`Workbook_Open`, `Workbook_BeforeSave`, `Workbook_BeforeClose`)
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

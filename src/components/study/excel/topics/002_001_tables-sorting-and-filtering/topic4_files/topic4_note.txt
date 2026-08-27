@@ -1,0 +1,10 @@
+TOPIC 4: ADVANCED FILTER: CRITERIA RANGES, COMPLEX MULTI-COLUMN AND/OR BOOLEAN LOGIC AND UNIQUE RECORDS
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Advanced Filter evaluates boolean logic based on criteria grid geometry: Criteria placed on the SAME ROW evaluate with `AND` logic; criteria placed on SEPARATE ROWS evaluate with `OR` logic.
+- Computed criteria formulas (e.g. `=D2>AVERAGE($D$2:$D$50)`) can be used by leaving the criteria header blank or using a non-matching header label.
+- The 'Unique records only' checkbox deduplicates records across all columns in linear time during extraction.
+
+Teacher Note:
+Pro tip for Advanced Filter: If you want to copy filtered records to a brand new worksheet, you MUST navigate to the destination sheet FIRST before clicking Data -> Advanced! Point back to your data sheet for List Range, and Excel will export the records cleanly!

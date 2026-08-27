@@ -1,0 +1,19 @@
+================================================================================
+EXCEL MASTERCLASS: Advanced Power Query M Code Scripting & Custom Functions
+TOPIC 13: Assessment: Advanced M Scripting & Enterprise ETL Engineering Challenge
+Lead Academic Mentor: Sukanta Hui | Coder & AccoTax (Barrackpore, Kolkata)
+================================================================================
+
+ASSESSMENT MATRIX & SCORING RUBRIC:
+1. Core Competency Domains:
+   - Domain 1: M Engine Fundamentals & AST Lazy Evaluation (15 pts)
+   - Domain 2: Recursive & Iterative M Scripting (List.Generate, List.Accumulate) (20 pts)
+   - Domain 3: Dynamic OAuth2 & API Pagination Pipelines (20 pts)
+   - Domain 4: Fault Tolerance & Dual-Stream Quarantine Routing (15 pts)
+   - Domain 5: Query Folding Pushdown & SQL Server Performance (15 pts)
+   - Domain 6: Enterprise Query Grouping & Governance (15 pts)
+
+2. Assessment Benchmark:
+   - Total Points: 100
+   - Distinction Standard: >= 85 points (Enterprise Data Architect Certified)
+   - Passing Standard: >= 60 points (Power Query M Specialist)

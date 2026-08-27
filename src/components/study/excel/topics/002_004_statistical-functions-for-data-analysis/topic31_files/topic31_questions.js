@@ -1,213 +1,243 @@
 const questions = [
   {
-    question: "What does the TREND function do?",
-    shortAnswer: "Returns predicted y‑values along a linear trend line, for one or more new x values.",
-    explanation: "It fits a straight line (least squares) to known data and can output an array of fitted or forecasted values.",
-    level: "basic",
-    codeExample: "=TREND(B2:B11, A2:A11, C2:C4)"
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Sample vs population standard deviation mathematical distinction (Question 1)?",
+    "shortAnswer": "Sample vs population standard deviation mathematical distinction is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Sample vs population standard deviation mathematical distinction plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Sample vs population standard deviation mathematical distinction impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B21)"
   },
   {
-    question: "How is TREND different from FORECAST.LINEAR?",
-    shortAnswer: "FORECAST.LINEAR predicts a single y; TREND can predict multiple y's at once (as an array).",
-    explanation: "TREND is the array version of linear forecasting.",
-    level: "basic",
-    codeExample: "TREND can handle a range of new_x's in one formula."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Bessel's correction (n-1 degrees of freedom) in STDEV.S (Question 2)?",
+    "shortAnswer": "Bessel's correction (n-1 degrees of freedom) in STDEV.S is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Bessel's correction (n-1 degrees of freedom) in STDEV.S plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Bessel's correction (n-1 degrees of freedom) in STDEV.S impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What are the required arguments of TREND?",
-    shortAnswer: "Only known_y's is mandatory; known_x's is optional (if omitted, Excel uses {1,2,3,...}).",
-    explanation: "For simple x, you can leave known_x's blank.",
-    level: "basic",
-    codeExample: "=TREND(B2:B11) assumes x = 1,2,3,..."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS (Question 3)?",
+    "shortAnswer": "Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What does the `new_x's` parameter do?",
-    shortAnswer: "It specifies the x-values for which you want predicted y-values.",
-    explanation: "If omitted, TREND returns the fitted values for the original known_x's.",
-    level: "basic",
-    codeExample: "=TREND(y, x, new_x)"
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Why SUMIFS places sum_range FIRST while SUMIF places it LAST (Question 4)?",
+    "shortAnswer": "Why SUMIFS places sum_range FIRST while SUMIF places it LAST is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Why SUMIFS places sum_range FIRST while SUMIF places it LAST plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Why SUMIFS places sum_range FIRST while SUMIF places it LAST impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B24)"
   },
   {
-    question: "What does the `const` argument control?",
-    shortAnswer: "If TRUE (default), the line uses the calculated intercept; if FALSE, forces the line through the origin (intercept = 0).",
-    explanation: "Use FALSE when you know the relationship passes through (0,0).",
-    level: "intermediate",
-    codeExample: "=TREND(y, x, new_x, FALSE)"
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Wildcard support (*, ?) in COUNTIF and SUMIFS criteria (Question 5)?",
+    "shortAnswer": "Wildcard support (*, ?) in COUNTIF and SUMIFS criteria is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Wildcard support (*, ?) in COUNTIF and SUMIFS criteria plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Wildcard support (*, ?) in COUNTIF and SUMIFS criteria impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Does TREND work in Excel 2016 (non‑365) as a dynamic array?",
-    shortAnswer: "No, in older Excel, TREND is an array formula that must be entered with Ctrl+Shift+Enter.",
-    explanation: "You must select enough cells and press Ctrl+Shift+Enter to see all results.",
-    level: "intermediate",
-    codeExample: "Select multiple cells, type formula, press Ctrl+Shift+Enter."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Case-insensitivity of text comparisons in IFS functions (Question 6)?",
+    "shortAnswer": "Case-insensitivity of text comparisons in IFS functions is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Case-insensitivity of text comparisons in IFS functions plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Case-insensitivity of text comparisons in IFS functions impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What happens if the new_x's range is larger than the number of selected output cells in array formula?",
-    shortAnswer: "Results are truncated; only the number of selected cells are filled.",
-    explanation: "Always select enough cells to hold the entire TREND output.",
-    level: "intermediate",
-    codeExample: "If you select 3 cells but TREND returns 5 values, you see only the first 3."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) (Question 7)?",
+    "shortAnswer": "Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B27)"
   },
   {
-    question: "Can TREND be used with dates?",
-    shortAnswer: "Yes, dates are serial numbers, so TREND works with dates as x-values.",
-    explanation: "Forecast for future dates works, but careful with formatting.",
-    level: "intermediate",
-    codeExample: "=TREND(sales, dates, DATE(2025,12,31))"
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Median resistance to extreme outlier skewing compared to Mean (Question 8)?",
+    "shortAnswer": "Median resistance to extreme outlier skewing compared to Mean is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Median resistance to extreme outlier skewing compared to Mean plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Median resistance to extreme outlier skewing compared to Mean impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Does TREND ignore text and blanks?",
-    shortAnswer: "Yes, pairwise deletion: rows with non‑numeric in known_y's or known_x's are ignored.",
-    explanation: "Only complete rows are used to calculate the trend line.",
-    level: "basic",
-    codeExample: "Headers are safe to include."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate MODE.SNGL single value return vs MODE.MULT dynamic array spilling (Question 9)?",
+    "shortAnswer": "MODE.SNGL single value return vs MODE.MULT dynamic array spilling is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, MODE.SNGL single value return vs MODE.MULT dynamic array spilling plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how MODE.SNGL single value return vs MODE.MULT dynamic array spilling impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What is the difference between TREND and GROWTH?",
-    shortAnswer: "TREND fits a linear line (y = a + bx); GROWTH fits an exponential curve (y = b * m^x).",
-    explanation: "Use GROWTH for exponential growth data (compound interest, population).",
-    level: "advanced",
-    codeExample: "=GROWTH(y, x, new_x) for exponential."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) (Question 10)?",
+    "shortAnswer": "QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B30)"
   },
   {
-    question: "How to get the intercept and slope from TREND?",
-    shortAnswer: "TREND does not directly output slope or intercept; use SLOPE and INTERCEPT or LINEST instead.",
-    explanation: "LINEST returns multiple statistics including slope and intercept.",
-    level: "advanced",
-    codeExample: "=LINEST(known_y's, known_x's) gives slope, intercept."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate PERCENTILE.INC fractional rank interpolation algorithms (Question 11)?",
+    "shortAnswer": "PERCENTILE.INC fractional rank interpolation algorithms is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, PERCENTILE.INC fractional rank interpolation algorithms plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how PERCENTILE.INC fractional rank interpolation algorithms impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What does TREND return if new_x's has the same shape as known_x's?",
-    shortAnswer: "It returns the fitted y-values for each original x (i.e., the points on the regression line).",
-    explanation: "Useful for adding a trendline to a scatter plot.",
-    level: "basic",
-    codeExample: "=TREND(y, x) returns the fitted values."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking (Question 12)?",
+    "shortAnswer": "RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Is TREND a volatile function?",
-    shortAnswer: "No, it recalculates only when input data changes.",
-    explanation: "Non‑volatile, safe for large workbooks.",
-    level: "basic",
-    codeExample: "Safe."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 (Question 13)?",
+    "shortAnswer": "Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B33)"
   },
   {
-    question: "Can TREND be used with multiple independent variables (multiple regression)?",
-    shortAnswer: "Yes, known_x's can be a multi‑column range for multiple regression.",
-    explanation: "TREND can handle multiple x variables (linear regression).",
-    level: "expert",
-    codeExample: "=TREND(y, {x1, x2}, new_x_range)"
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Linear regression forecasting with FORECAST.LINEAR (y = a + bx) (Question 14)?",
+    "shortAnswer": "Linear regression forecasting with FORECAST.LINEAR (y = a + bx) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Linear regression forecasting with FORECAST.LINEAR (y = a + bx) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Linear regression forecasting with FORECAST.LINEAR (y = a + bx) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the shape of the result from TREND when new_x's is a row vector?",
-    shortAnswer: "TREND returns a row vector (horizontal spill) if known_x's was horizontal and new_x's is also horizontal.",
-    explanation: "The shape matches the input new_x's orientation.",
-    level: "advanced",
-    codeExample: "Use TRANSPOSE if needed."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate TREND function dynamic multi-period projection array spilling (Question 15)?",
+    "shortAnswer": "TREND function dynamic multi-period projection array spilling is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, TREND function dynamic multi-period projection array spilling plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how TREND function dynamic multi-period projection array spilling impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What error does TREND return if there are insufficient data points?",
-    shortAnswer: "#N/A (needs at least two distinct points to define a line).",
-    explanation: "A line requires at least two non‑identical x-values.",
-    level: "basic",
-    codeExample: "=TREND({5,6}, {1,1}) → #N/A"
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Z-score statistical outlier detection: (x - Mean) / STDEV (Question 16)?",
+    "shortAnswer": "Z-score statistical outlier detection: (x - Mean) / STDEV is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Z-score statistical outlier detection: (x - Mean) / STDEV plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Z-score statistical outlier detection: (x - Mean) / STDEV impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B36)"
   },
   {
-    question: "How to forecast multiple future periods (e.g., months 7-12) with TREND?",
-    shortAnswer: "Supply an array of new x's: =TREND(y, x, SEQUENCE(6,1,7,1)).",
-    explanation: "SEQUENCE in 365 generates the future months; in older Excel, use ROW(1:6)+6.",
-    level: "advanced",
-    codeExample: "=TREND(B2:B7, A2:A7, ROW(7:12)) as array formula."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules (Question 17)?",
+    "shortAnswer": "Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How does TREND handle non‑numeric values in new_x's?",
-    shortAnswer: "It ignores them and returns #N/A for those positions.",
-    explanation: "Ensure all new_x values are numeric.",
-    level: "intermediate",
-    codeExample: "Clean data before forecasting."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate How statistical functions skip text strings vs include literal zeroes (Question 18)?",
+    "shortAnswer": "How statistical functions skip text strings vs include literal zeroes is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, How statistical functions skip text strings vs include literal zeroes plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how How statistical functions skip text strings vs include literal zeroes impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Can TREND return a different number of results than the number of new_x's?",
-    shortAnswer: "No, the output size always matches the number of values in new_x's (or known_x's if new_x's omitted).",
-    explanation: "One prediction per new x-value.",
-    level: "basic",
-    codeExample: "If new_x's has 5 rows, TREND returns 5 values."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Preventing #DIV/0! errors when counting zero matching criteria records (Question 19)?",
+    "shortAnswer": "Preventing #DIV/0! errors when counting zero matching criteria records is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Preventing #DIV/0! errors when counting zero matching criteria records plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Preventing #DIV/0! errors when counting zero matching criteria records impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B39)"
   },
   {
-    question: "What is the relationship between TREND and LINEST?",
-    shortAnswer: "TREND = LINEST (for prediction) is essentially: =INTERCEPT + SLOPE * new_x.",
-    explanation: "LINEST provides more detailed regression statistics.",
-    level: "advanced",
-    codeExample: "=LINEST(known_y's, known_x's, const, TRUE) returns array of stats."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Combining statistical IFS functions with Boolean logical masks (Question 20)?",
+    "shortAnswer": "Combining statistical IFS functions with Boolean logical masks is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Combining statistical IFS functions with Boolean logical masks plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Combining statistical IFS functions with Boolean logical masks impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Can TREND be used in conditional formatting to highlight deviations from trend?",
-    shortAnswer: "Yes, compute residuals by subtracting TREND values from actual values, then highlight large residuals.",
-    explanation: "=ABS(actual - TREND(...)) > threshold.",
-    level: "expert",
-    codeExample: "Use in helper column."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 (Question 21)?",
+    "shortAnswer": "Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Does TREND require that known_x's and known_y's are ranges of the same size?",
-    shortAnswer: "Yes, they must have the same number of rows (or columns) after ignoring non‑numeric cells.",
-    explanation: "Mismatched sizes cause #REF! or #N/A.",
-    level: "basic",
-    codeExample: "Always keep them aligned."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Structured Table referencing in statistical formulas: tblData[Amount] (Question 22)?",
+    "shortAnswer": "Structured Table referencing in statistical formulas: tblData[Amount] is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Structured Table referencing in statistical formulas: tblData[Amount] plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Structured Table referencing in statistical formulas: tblData[Amount] impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B42)"
   },
   {
-    question: "How can you get the R² value from a TREND forecast?",
-    shortAnswer: "Use RSQ(known_y's, fitted_y's) where fitted_y's = TREND(known_y's, known_x's).",
-    explanation: "R² measures how well the line fits the data.",
-    level: "advanced",
-    codeExample: "=RSQ(B2:B11, TREND(B2:B11, A2:A11))"
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Performance optimization across 100,000 rows with SUMIFS vs PivotTables (Question 23)?",
+    "shortAnswer": "Performance optimization across 100,000 rows with SUMIFS vs PivotTables is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Performance optimization across 100,000 rows with SUMIFS vs PivotTables plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Performance optimization across 100,000 rows with SUMIFS vs PivotTables impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the advantage of using TREND over FORECAST.LINEAR for multiple predictions?",
-    shortAnswer: "TREND uses one formula, making the sheet cleaner and reducing errors.",
-    explanation: "You also avoid copying formulas.",
-    level: "intermediate",
-    codeExample: "Less manual work."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Double unary operator (--) in boolean array statistical aggregations (Question 24)?",
+    "shortAnswer": "Double unary operator (--) in boolean array statistical aggregations is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Double unary operator (--) in boolean array statistical aggregations plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Double unary operator (--) in boolean array statistical aggregations impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Can TREND forecast only future values, or also interpolate missing past values?",
-    shortAnswer: "Both. If you supply missing x's that fall within the original range, TREND interpolates.",
-    explanation: "Interpolation is just forecasting within the existing range.",
-    level: "intermediate",
-    codeExample: "=TREND(y,x, {2.5, 4.5}) gives interpolated values."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Weighted average calculations using SUMPRODUCT / SUM (Question 25)?",
+    "shortAnswer": "Weighted average calculations using SUMPRODUCT / SUM is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Weighted average calculations using SUMPRODUCT / SUM plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Weighted average calculations using SUMPRODUCT / SUM impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=STDEV.S(B2:B45)"
   },
   {
-    question: "What does `const = FALSE` do if the data naturally has a non‑zero intercept?",
-    shortAnswer: "It forces the line through zero, which can produce biased forecasts.",
-    explanation: "Use only when domain knowledge tells you the intercept must be zero.",
-    level: "advanced",
-    codeExample: "Example: cost = variable cost * units (fixed cost zero)."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V (Question 26)?",
+    "shortAnswer": "Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Why might TREND return #DIV/0! even with valid data?",
-    shortAnswer: "If known_x's has no variance (all same value), the slope is undefined.",
-    explanation: "Check that x-values are not constant.",
-    level: "basic",
-    codeExample: "Use distinct x-values."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Handling missing data and empty cells in correlation matrices (Question 27)?",
+    "shortAnswer": "Handling missing data and empty cells in correlation matrices is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Handling missing data and empty cells in correlation matrices plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Handling missing data and empty cells in correlation matrices impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "How can you use TREND to forecast based on time periods that are not equally spaced?",
-    shortAnswer: "TREND works with any numeric x-values; spacing does not matter.",
-    explanation: "It uses the actual x numbers, not their order.",
-    level: "intermediate",
-    codeExample: "x = {1.3, 2.7, 5.0, 8.2} works fine."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards (Question 28)?",
+    "shortAnswer": "3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=STDEV.S(B2:B48)"
   },
   {
-    question: "Is there an alternative to TREND in Excel 365 that also provides confidence intervals?",
-    shortAnswer: "FORECAST.ETS.CONFINT works with seasonal data; for linear, you need custom formulas with LINEST.",
-    explanation: "TREND itself does not give confidence bands.",
-    level: "expert",
-    codeExample: "Use LINEST to obtain standard errors."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Normality test verification and bell curve distribution benchmarks (Question 29)?",
+    "shortAnswer": "Normality test verification and bell curve distribution benchmarks is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Normality test verification and bell curve distribution benchmarks plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Normality test verification and bell curve distribution benchmarks impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Can TREND be used to smooth data (i.e., replace actuals with fitted values)?",
-    shortAnswer: "Yes, =TREND(known_y's, known_x's) returns the fitted values, which can be used as smoothed trend.",
-    explanation: "This removes some noise and highlights the underlying linear trend.",
-    level: "intermediate",
-    codeExample: "Useful for dashboards."
+    "question": "In the context of TREND Function (Trend Analysis with Multiple Values), how does Excel compute and evaluate Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR (Question 30)?",
+    "shortAnswer": "Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   }
 ];
 

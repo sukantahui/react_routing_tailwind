@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Using AI with Excel for Productivity
+Topic 8: Creating custom AI functions in Excel (`=ASK_AI()`, `=SUMMARIZE_TEXT()`, `=TRANSLATE()`)
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

@@ -1,0 +1,10 @@
+TOPIC 10: ADVANTAGES OF INDEX-MATCH OVER VLOOKUP: LEFT LOOKUP, COLUMN INSERTION IMMUNITY & SPEED
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- In Microsoft Excel, Advantages of INDEX-MATCH over VLOOKUP: Left Lookup, Column Insertion Immunity & Speed provides industrial-grade relational data extraction capabilities across enterprise workbooks.
+- Understanding memory pointer traversal, binary search vs linear search, and dynamic array returns is vital for elite financial modeling.
+- Always design lookup tables with clean, normalized data types to eliminate #N/A type mismatch exceptions.
+
+Teacher Note:
+Master Advantages of INDEX-MATCH over VLOOKUP: Left Lookup, Column Insertion Immunity & Speed! Pay meticulous attention to coordinate anchoring with F4, verify key uniqueness, and leverage INDEX-MATCH or XLOOKUP for immune, boardroom-ready spreadsheet models!

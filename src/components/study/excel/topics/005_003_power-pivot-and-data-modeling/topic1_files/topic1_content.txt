@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Power Pivot & Data Modeling
+Topic 1: Overcoming Excel's 1-million row limit: Handling millions of rows with high compression
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

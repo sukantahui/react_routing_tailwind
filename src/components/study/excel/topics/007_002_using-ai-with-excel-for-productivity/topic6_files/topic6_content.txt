@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Using AI with Excel for Productivity
+Topic 6: AI-assisted data cleaning: Extracting entities, standardizing messy text, and pattern recognition
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

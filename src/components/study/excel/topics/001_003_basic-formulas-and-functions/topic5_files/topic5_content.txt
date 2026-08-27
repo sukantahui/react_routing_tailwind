@@ -1,0 +1,31 @@
+MODULE 1.3 - TOPIC 5
+Title: High-Speed AutoSum Mastery: Multi-Directional Summing and Keyboard Shortcuts
+Level: Beginner | Bloom's Level 2 & 3: Understand & Apply
+
+Overview:
+Master the fastest calculation shortcut in Microsoft Excel: Alt + = (AutoSum). Learn how AutoSum scans boundaries, inserts simultaneous row and column totals across 2D matrices in one single keystroke, and integrates with Table Total rows.
+
+Technical Anatomy:
+Signature: Alt + = (AutoSum Keytip)
+Return Type: Instant Summation Formula Array
+
+Real-World Business Scenarios:
+[Barrackpore Academy 4-Quarter Departmental Matrix Sum in 1 Keystroke]
+Context: Summing 5 department rows and 4 quarterly columns simultaneously.
+Applied: Select Range B2:F4 &rarr; Press Alt + =
+Result: All 5 row totals, 4 column totals, and grand total populated in 0.1 seconds.
+
+[Kolkata Retail Daily Multi-Counter Settlement]
+Context: Inserting sub-totals under 10 cash counter registers instantly.
+Applied: Multi-Selection (Ctrl + Click) &rarr; Alt + =
+Result: 10 column sums inserted simultaneously.
+
+[Shyamnagar Regional Wholesale Table Total Row (Ctrl+Shift+T)]
+Context: Enabling dynamic subtotal aggregation on a structured customer ledger table.
+Applied: Ctrl + Shift + T (Table Total Row)
+Result: Interactive total row with Average, Count, and Sum drop-downs.
+
+[Ichapur Production Shift Total Output Check]
+Context: Auditing daily factory shift production totals.
+Applied: Alt + = AutoSum
+Result: Line totals and grand factory output reconciled.

@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Advanced VBA: UserForms, Events & System Integration
+Topic 13: Real-world project: Developing a full-fledged Corporate Inventory Management & Billing System with UserForms
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

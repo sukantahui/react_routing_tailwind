@@ -72,7 +72,7 @@ export default function Topic2() {
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            Exploring the Interface: Ribbon, Tabs, Formula Bar, Quick Access Toolbar & Status Bar Ergonomics
+            Exploring the Interface: Ribbon, Tabs, Formula Bar, Quick Access Toolbar &amp; Status Bar Ergonomics
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
@@ -197,7 +197,7 @@ export default function Topic2() {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Calculation Flow: Excel Desktop Interface Anatomy & Keytip Ergonomics
+            Visual Calculation Flow: Excel Desktop Interface Anatomy &amp; Keytip Ergonomics
           </h2>
 
           <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
@@ -281,7 +281,7 @@ export default function Topic2() {
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic2_Ribbon_Interface"
-            title="Module 1.1 - Exploring the Interface: Ribbon, Tabs, Formula Bar, Quick Access Toolbar & Status Bar Ergonomics"
+            title="Module 1.1 - Exploring the Interface: Ribbon, Tabs, Formula Bar, Quick Access Toolbar &amp; Status Bar Ergonomics"
             rowsPerPage={25}
             showSheetSelector={true}
           />
@@ -322,7 +322,7 @@ export default function Topic2() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Selection of range C2:C5 -> Status Bar Readout</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Selection of range C2:C5 &amp;rarr; Status Bar Readout</div>
                 <div className="text-emerald-400 font-semibold">Result: Average: 13,975 | Count: 4 | Sum: 55,900 displayed in footer.</div>
                 <div className="text-slate-400 text-[11px]">The Status Bar provides instant verification during fast inventory audits without modifying the sheet.</div>
               </div>
@@ -381,7 +381,7 @@ export default function Topic2() {
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">04</span>
                 <h3 className="text-base font-bold text-white">Ichapur Branch Ledger Audit with Precedent Tracing</h3>
               </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">An auditor traces calculation origin cells using the Formulas -> Formula Auditing ribbon group.</p>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">An auditor traces calculation origin cells using the Formulas &amp;rarr; Formula Auditing ribbon group.</p>
               
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
@@ -394,7 +394,7 @@ export default function Topic2() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Formulas Tab -> Trace Precedents</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Formulas Tab &amp;rarr; Trace Precedents</div>
                 <div className="text-emerald-400 font-semibold">Result: Blue indicator arrows confirm zero missed cell coordinates.</div>
                 <div className="text-slate-400 text-[11px]">Ribbon auditing tools visually diagram spreadsheet mathematical logic.</div>
               </div>
@@ -579,7 +579,7 @@ export default function Topic2() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Exploring the Interface: Ribbon, Tabs, Formula Bar, Quick Access Toolbar & Status Bar Ergonomics - Frequently Asked Questions"
+            title="Exploring the Interface: Ribbon, Tabs, Formula Bar, Quick Access Toolbar &amp; Status Bar Ergonomics - Frequently Asked Questions"
             questions={questions}
           />
         </div>

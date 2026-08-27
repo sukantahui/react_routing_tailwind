@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Data Validation, Protection and Cleaning Techniques
+Topic 7: Watch Window: Monitoring key KPI cells across multiple worksheets and workbooks
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

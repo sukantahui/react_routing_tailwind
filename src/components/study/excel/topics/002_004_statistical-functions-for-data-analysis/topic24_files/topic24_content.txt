@@ -1,0 +1,9 @@
+MODULE 2.4 - TOPIC 24
+Title: QUARTILE.EXC Function (Exclusive Quartiles)
+Level: Intermediate / Advanced
+
+Overview:
+Master QUARTILE.EXC Function (Exclusive Quartiles) for advanced business intelligence, statistical modeling, and data science in Microsoft Excel.
+
+Signature:
+=QUARTILE.EXC(array, quart)

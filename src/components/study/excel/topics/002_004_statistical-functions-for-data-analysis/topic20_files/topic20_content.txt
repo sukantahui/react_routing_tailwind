@@ -1,0 +1,9 @@
+MODULE 2.4 - TOPIC 20
+Title: SMALL Function (Bottom N Value Extraction)
+Level: Intermediate / Advanced
+
+Overview:
+Master SMALL Function (Bottom N Value Extraction) for advanced business intelligence, statistical modeling, and data science in Microsoft Excel.
+
+Signature:
+=SMALL(A1:A100, k)

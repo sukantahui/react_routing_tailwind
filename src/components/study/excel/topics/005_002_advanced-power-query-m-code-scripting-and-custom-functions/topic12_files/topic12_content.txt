@@ -1,0 +1,54 @@
+================================================================================
+EXCEL MASTERCLASS: Advanced Power Query M Code Scripting & Custom Functions
+TOPIC 12: Real-World Project: Building an Automated Multi-Branch Daily Sales Pipeline
+Subject Code: EXCEL-PRO-502 | Target: React 19 + Tailwind CSS + Power Query M Engine
+================================================================================
+
+1. COMPLETE END-TO-END M CODE SCRIPT FOR fxIngestBranchSheet
+let
+    fxIngestBranchSheet = (fileBinary as binary, fileName as text) as table =>
+    let
+        // Step 1: Buffer the file binary to optimize RAM I/O
+        BufferedBinary = Binary.Buffer(fileBinary),
+        
+        // Step 2: Open Excel Workbook
+        Workbook = Excel.Workbook(BufferedBinary, true),
+        
+        // Step 3: Extract Sheet 'SalesData' or first available sheet
+        SelectedSheet = if Table.Contains(Workbook, [Item="SalesData"]) 
+                        then Workbook{[Item="SalesData", Kind="Sheet"]}[Data]
+                        else Workbook{0}[Data],
+        
+        // Step 4: Promote Headers
+        Promoted = Table.PromoteHeaders(SelectedSheet, [PromoteAllScalars=true]),
+        
+        // Step 5: Schema Standardization with MissingField.UseNull
+        StandardizedCols = Table.SelectColumns(
+            Promoted, 
+            {"InvoiceNo", "CustomerCode", "ItemSKU", "Quantity", "UnitPrice", "GrossTotal", "GSTIN", "PaymentMode"}, 
+            MissingField.UseNull
+        ),
+        
+        // Step 6: Extract Branch Code & Date from File Name
+        BranchName = Text.BetweenDelimiters(fileName, "Sales_", "_"),
+        TxDate = try Date.FromText(Text.BetweenDelimiters(fileName, "_", ".xlsx")) otherwise DateTime.Date(DateTime.LocalNow()),
+        
+        // Step 7: Inject Lineage Metadata Columns
+        WithBranch = Table.AddColumn(StandardizedCols, "BranchCode", each BranchName, type text),
+        WithDate = Table.AddColumn(WithBranch, "InvoiceDate", each TxDate, type date),
+        
+        // Step 8: Apply Column Data Types
+        TypedTable = Table.TransformColumnTypes(WithDate, {
+            {"InvoiceNo", type text},
+            {"CustomerCode", type text},
+            {"ItemSKU", type text},
+            {"Quantity", Int64.Type},
+            {"UnitPrice", type number},
+            {"GrossTotal", type number},
+            {"GSTIN", type text},
+            {"PaymentMode", type text}
+        })
+    in
+        TypedTable
+in
+    fxIngestBranchSheet

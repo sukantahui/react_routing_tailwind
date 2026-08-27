@@ -1,0 +1,9 @@
+MODULE 2.4 - TOPIC 16
+Title: STDEV.P Function (Population Standard Deviation)
+Level: Intermediate / Advanced
+
+Overview:
+Master STDEV.P Function (Population Standard Deviation) for advanced business intelligence, statistical modeling, and data science in Microsoft Excel.
+
+Signature:
+=STDEV.P(A1:A100)

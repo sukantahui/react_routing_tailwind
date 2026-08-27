@@ -149,7 +149,7 @@ export default function Topic7() {
             <span className="text-sky-400 text-lg">💡</span>
             <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
               <strong className="text-white">Presentation Evaluation: </strong>
-              Returns an optimized <span className="text-sky-300 font-semibold">Audited & Standardized Production Table</span> while keeping underlying memory values 100% intact.
+              Returns an optimized <span className="text-sky-300 font-semibold">Audited &amp; Standardized Production Table</span> while keeping underlying memory values 100% intact.
             </div>
           </div>
         </section>
@@ -381,8 +381,8 @@ export default function Topic7() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Machine_No</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Operating_Temp_C</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Status_Format_Mask</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Display_Alert</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MCH-01</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">68</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">[Green][<75]"NORMAL: "0°C;[Red]"OVERHEAT: "0°C</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">NORMAL: 68°C (Green)</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MCH-02</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">88</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">[Green][<75]"NORMAL: "0°C;[Red]"OVERHEAT: "0°C</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">OVERHEAT: 88°C (Red)</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MCH-01</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">68</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">[Green][&lt;75]"NORMAL: "0°C;[Red]"OVERHEAT: "0°C</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">NORMAL: 68°C (Green)</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MCH-02</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">88</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">[Green][&lt;75]"NORMAL: "0°C;[Red]"OVERHEAT: "0°C</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">OVERHEAT: 88°C (Red)</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -390,7 +390,7 @@ export default function Topic7() {
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
                 <div className="text-sky-300 font-mono font-semibold">Applied: Custom Conditional Masking</div>
                 <div className="text-emerald-400 font-semibold">Result: Instant visual hazard warning without slow conditional formatting rules.</div>
-                <div className="text-slate-400 text-[11px]">Custom format conditions ([<75], [>=75]) embed logic directly in number masks.</div>
+                <div className="text-slate-400 text-[11px]">Custom format conditions ([&lt;75], [&gt;=75]) embed logic directly in number masks.</div>
               </div>
             </div>
           </div>
@@ -563,7 +563,7 @@ export default function Topic7() {
             </div>
             <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
               <span className="text-teal-400 text-base">❓</span>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">How do custom format conditions like [Red][>1000] operate without creating Conditional Formatting rules?</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">How do custom format conditions like [Red][&gt;1000] operate without creating Conditional Formatting rules?</p>
             </div>
           </div>
         </section>

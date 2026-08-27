@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: VBA & Macro Automation
+Topic 13: Real-world project: Building an automated one-click workbook report generator and formatter
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

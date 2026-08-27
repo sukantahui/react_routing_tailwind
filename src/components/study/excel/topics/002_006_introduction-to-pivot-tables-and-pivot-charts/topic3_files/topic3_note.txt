@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: Introduction to Pivot Tables and Pivot Charts
+Topic 3: Value field settings: Sum, Count, Average, Min, Max, and Distinct Count (Data Model)
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

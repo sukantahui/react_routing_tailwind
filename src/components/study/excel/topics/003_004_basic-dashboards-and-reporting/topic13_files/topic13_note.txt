@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: Basic Dashboards and Reporting
+Topic 13: Real-world capstone: Building an Executive C-Suite Sales & Profitability Dashboard from scratch
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

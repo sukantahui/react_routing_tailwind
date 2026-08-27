@@ -1,0 +1,15 @@
+================================================================================
+EXCEL MASTERCLASS: Module 2.5 - Lookup Functions: VLOOKUP, HLOOKUP, INDEX-MATCH & XLOOKUP
+TOPIC 20: Test Your Skill: Lookup Functions (VLOOKUP, HLOOKUP, INDEX-MATCH & XLOOKUP)
+Lead Academic Mentor: Sukanta Hui | Coder & AccoTax (Barrackpore, Kolkata)
+================================================================================
+
+ASSESSMENT MATRIX & COMPETENCIES:
+1. Legacy Lookup Mechanics (25 pts):
+   - VLOOKUP syntax, FALSE exact match enforcement, HLOOKUP horizontal retrieval, and column index limits.
+2. Two-Way Matrix & Coordinate Lookups (25 pts):
+   - INDEX function, MATCH coordinates, 2D matrix resolution, and left-lookups.
+3. Next-Gen Modern XLOOKUP (25 pts):
+   - Exact defaults, omnidirectional lookup, built-in [if_not_found], and multi-column horizontal spilling.
+4. Advanced Relational Logic & Data Hygiene (25 pts):
+   - Boolean array multi-criteria lookups, TRIM/CLEAN sanitation, binary search (mode 2), and data validation binding.

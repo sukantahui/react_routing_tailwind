@@ -72,7 +72,7 @@ export default function Topic9() {
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            Quick Check Quiz: Number Formatting, Data Hygiene & Grid Editing Fundamentals
+            Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
@@ -197,7 +197,7 @@ export default function Topic9() {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Formatting Flow: Module 1.2 Graduation & Pathway to Advanced Formulas
+            Visual Formatting Flow: Module 1.2 Graduation &amp; Pathway to Advanced Formulas
           </h2>
 
           <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
@@ -276,7 +276,7 @@ export default function Topic9() {
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic0_Data_Types"
-            title="Module 1.2 - Quick Check Quiz: Number Formatting, Data Hygiene & Grid Editing Fundamentals"
+            title="Module 1.2 - Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals"
             rowsPerPage={25}
             showSheetSelector={true}
           />
@@ -301,7 +301,7 @@ export default function Topic9() {
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
                 <h3 className="text-base font-bold text-white">Graduation Assessment: Advancing from Module 1.2 to Module 1.3</h3>
               </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Coder & AccoTax students transition from data entry & formatting to writing mathematical formulas.</p>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Coder &amp; AccoTax students transition from data entry &amp; formatting to writing mathematical formulas.</p>
               
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
@@ -309,8 +309,8 @@ export default function Topic9() {
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Module_1_2_Skill_Mastered</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Foundation_Benefit</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Module_1_3_Target_Formula</td></tr>
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Data Type Hygiene</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Zero #VALUE! text errors</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">SUM, AVERAGE, PRODUCT</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Custom Number Masks</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Clear currency & percentage displays</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">BODMAS Mathematical Hierarchy</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Date & Time Serials</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Accurate integer calendar math</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">NETWORKDAYS, DATEDIF, EDATE</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Custom Number Masks</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Clear currency &amp; percentage displays</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">BODMAS Mathematical Hierarchy</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Date &amp; Time Serials</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Accurate integer calendar math</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">NETWORKDAYS, DATEDIF, EDATE</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -381,7 +381,7 @@ export default function Topic9() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">QC_Step</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Verification_Method</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Status</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Number Type Validation</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">F5 -> Special -> Constants -> Numbers</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100% Numeric Verified</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Number Type Validation</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">F5 &amp;rarr; Special &amp;rarr; Constants &amp;rarr; Numbers</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100% Numeric Verified</td></tr>
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Date Validity Check</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=ISNUMBER(Date_Column)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100% Valid Date Serials</td></tr>
                   </tbody>
                 </table>
@@ -489,7 +489,7 @@ export default function Topic9() {
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 text-rose-300 font-mono font-bold">Relying on Merged Cells</td>
-                  <td className="py-3 px-4 text-slate-300">Using Merge & Center out of old habit.</td>
+                  <td className="py-3 px-4 text-slate-300">Using Merge &amp; Center out of old habit.</td>
                   <td className="py-3 px-4 text-amber-300">Column sorting breaks.</td>
                   <td className="py-3 px-4 text-emerald-400 font-medium">Always use 'Center Across Selection'.</td>
                 </tr>
@@ -573,7 +573,7 @@ export default function Topic9() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Quick Check Quiz: Number Formatting, Data Hygiene & Grid Editing Fundamentals - Frequently Asked Questions"
+            title="Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals - Frequently Asked Questions"
             questions={questions}
           />
         </div>

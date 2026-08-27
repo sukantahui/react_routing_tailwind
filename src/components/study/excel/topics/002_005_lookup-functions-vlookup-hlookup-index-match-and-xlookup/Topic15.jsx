@@ -1,15 +1,15 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import FAQTemplate from "../../../../../common/FAQTemplate";
-import Teacher from "../../../../../common/TeacherSukantaHui";
-import questions from "./topic15_files/topic15_questions";
+import React, { useEffect, useRef } from "react";
+import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleDataUrl from "./excel_files/lookup_functions.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/lookup_functions.xlsx?url";
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import questions from "./topic15_files/topic15_questions";
+import Teacher from "../../../../../common/TeacherSukantaHui";
 
 export default function Topic15() {
   const sectionsRef = useRef([]);
-  const [excelError, setExcelError] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -21,234 +21,567 @@ export default function Topic15() {
           }
         });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -30px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
     );
     sectionsRef.current.forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
   const handleDownload = () => {
-    if (!sampleDataUrl) return;
+    if (!sampleWorkbookUrl) return;
     const link = document.createElement("a");
-    link.href = sampleDataUrl;
-    link.download = "lookup_functions.xlsx";
+    link.href = sampleWorkbookUrl;
+    link.download = "lookup_functions_practice.xlsx";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
-  // Static fallback examples for cross‑sheet references
-  const StaticCrossSheetExamples = () => (
-    <div className="space-y-4">
-      <div className="bg-gray-800/50 p-3 rounded border-l-4 border-emerald-500">
-        <p className="font-mono text-sm">=VLOOKUP(A2, 'Sheet2'!$A$2:$B$100, 2, FALSE)</p>
-        <p className="text-xs text-gray-400">Looks up value from A2 in Sheet2, columns A–B.</p>
-      </div>
-      <div className="bg-gray-800/50 p-3 rounded border-l-4 border-emerald-500">
-        <p className="font-mono text-sm">=VLOOKUP(A2, '[Data.xlsx]Sheet1'!$A$2:$B$100, 2, FALSE)</p>
-        <p className="text-xs text-gray-400">Looks up value from A2 in another workbook (Data.xlsx).</p>
-      </div>
-      <div className="bg-yellow-950/40 p-3 rounded border-l-4 border-yellow-500">
-        <p className="text-sm">⚠️ Cross‑workbook lookups break if the source file is moved, renamed, or closed. Use Power Query or consolidate data when possible.</p>
-      </div>
-    </div>
-  );
-
   return (
-    <div className="dark bg-gray-900 text-gray-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto space-y-10">
-        {/* Header */}
-        <header ref={(el) => (sectionsRef.current[0] = el)} className="reveal-section">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-emerald-400 to-green-500 bg-clip-text text-transparent">
-            Cross‑Sheet and Cross‑Workbook Lookups
-          </h1>
-          <p className="text-lg text-gray-300 mt-3 leading-relaxed">
-            Reference data from other worksheets or even external Excel files – powerful but fragile.
-          </p>
-        </header>
-
-        {/* Cross‑Sheet Lookups */}
-        <section ref={(el) => (sectionsRef.current[1] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-emerald-500/50 transition-all">
-          <h2 className="text-2xl font-semibold flex items-center gap-2">
-            <span className="text-emerald-400">📄</span> Cross‑Sheet Lookups (Same Workbook)
-          </h2>
-          <p className="mt-2 text-gray-200">Referencing another sheet within the same workbook is straightforward: include the sheet name followed by an exclamation mark before the range.</p>
-          <div className="mt-3 bg-gray-900 p-3 rounded">
-            <p className="font-mono text-sm">=VLOOKUP(A2, 'Sheet2'!$A$2:$B$100, 2, FALSE)</p>
-            <p className="font-mono text-sm mt-1">=INDEX('Product Data'!B:B, MATCH(E2, 'Product Data'!A:A, 0))</p>
-            <p className="text-xs text-gray-400 mt-1">Single quotes are required if the sheet name contains spaces or special characters.</p>
-          </div>
-          <div className="mt-2 text-sm text-gray-300">
-            ✅ <strong>Best practice:</strong> Use named ranges or Excel Tables for cross‑sheet references to make formulas more readable.
-          </div>
-        </section>
-
-        {/* Cross‑Workbook Lookups */}
-        <section ref={(el) => (sectionsRef.current[2] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
-          <h2 className="text-2xl font-semibold flex items-center gap-2">
-            <span className="text-emerald-400">🌐</span> Cross‑Workbook Lookups (External Files)
-          </h2>
-          <p className="mt-2 text-gray-200">You can reference data from another Excel file. The syntax includes the file name in square brackets, sheet name, and range.</p>
-          <div className="mt-3 bg-gray-900 p-3 rounded">
-            <p className="font-mono text-sm">=VLOOKUP(A2, '[SalesData.xlsx]Sheet1'!$A$2:$B$100, 2, FALSE)</p>
-            <p className="text-xs text-gray-400 mt-1">If the source file is closed, Excel will still return the last saved value but will not update until the source is opened.</p>
-          </div>
-          <div className="mt-3 bg-red-900/30 p-3 rounded border-l-4 border-red-500">
-            <p className="font-semibold text-red-300">⚠️ Major Risks:</p>
-            <ul className="list-disc list-inside text-sm mt-1">
-              <li>If the source file is moved, renamed, or deleted, links break → #REF!.</li>
-              <li>Slow performance if many external links.</li>
-              <li>Users see security warnings about external links.</li>
-            </ul>
-          </div>
-        </section>
-
-        {/* Real‑world Use Cases */}
-        <section ref={(el) => (sectionsRef.current[3] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
-          <h2 className="text-2xl font-semibold">📊 Real‑World Use Cases</h2>
-          <div className="mt-4 space-y-4">
-            <div className="bg-gray-900 p-3 rounded">
-              <p className="font-medium text-emerald-300">Case 1: Monthly Report from Master Data Sheet</p>
-              <p className="text-sm">In Barrackpore, a school maintains a master student list on Sheet "Master". The grade report on another sheet pulls student names and marks using cross‑sheet VLOOKUP.</p>
-              <code className="block text-sm text-green-300 mt-1">=VLOOKUP(A2, 'Master'!$A$2:$C$500, 3, FALSE)</code>
-            </div>
-            <div className="bg-gray-900 p-3 rounded">
-              <p className="font-medium text-emerald-300">Case 2: Consolidating Data from Department Budgets</p>
-              <p className="text-sm">A finance team in Shyamnagar uses cross‑workbook lookups to pull department budgets from separate files into a master summary.</p>
-              <code className="block text-sm text-green-300 mt-1">=VLOOKUP(A2, '[HR_Budget.xlsx]Sheet1'!$A$2:$B$50, 2, FALSE)</code>
-            </div>
-          </div>
-        </section>
-
-        {/* Interactive Excel Demo */}
-        <section ref={(el) => (sectionsRef.current[4] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
-          <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
-            <h2 className="text-2xl font-semibold">📁 Interactive: Cross‑Sheet Lookup Practice</h2>
-            {sampleDataUrl && (
-              <button onClick={handleDownload} className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-4 py-2 rounded-lg transition-all flex items-center gap-2">
-                ⬇️ Download Excel File
-              </button>
-            )}
-          </div>
-          <p className="text-gray-300 mb-3">
-            Sheet <strong>“cross_sheet_data”</strong> contains a master product list. In another sheet (e.g., "Orders"), you'll practice referencing the master sheet using cross‑sheet VLOOKUP.
-          </p>
-          {sampleDataUrl && !excelError ? (
-            <ExcelFileLoader
-              fileModule={sampleDataUrl}
-              sheetName="cross_sheet_data"
-              title="Cross‑Sheet Lookups – Master Data"
-              rowsPerPage={20}
-              showSheetSelector={true}
-              onError={() => setExcelError(true)}
-            />
-          ) : (
-            <>
-              <div className="bg-yellow-950/40 border border-yellow-700 rounded-lg p-3 mb-3 text-sm">
-                ⚠️ Excel file or sheet “cross_sheet_data” not available. Showing static examples.
-              </div>
-              <StaticCrossSheetExamples />
-            </>
-          )}
-          <p className="text-xs text-gray-400 mt-3">
-            💡 <strong>Try this:</strong> In a new sheet, write =VLOOKUP(A2, cross_sheet_data!$A$2:$B$10, 2, FALSE) to pull product names from the "cross_sheet_data" sheet.
-          </p>
-        </section>
-
-        {/* How to Create a Cross‑Sheet Reference */}
-        <section className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
-          <h3 className="text-xl font-semibold">🖱️ How to Create a Cross‑Sheet Reference (No Typing!)</h3>
-          <ol className="list-decimal list-inside mt-3 space-y-2 text-gray-200">
-            <li>Type <span className="font-mono">=VLOOKUP(</span> and select the lookup value.</li>
-            <li>Type a comma, then click on the sheet tab you want to reference.</li>
-            <li>Select the range on that sheet – Excel automatically adds the sheet name and exclamation.</li>
-            <li>Continue typing the rest of the formula (col_index, FALSE).</li>
-            <li>Press Enter – Excel will keep the cross‑sheet reference.</li>
-          </ol>
-        </section>
-
-        {/* Common Pitfalls */}
-        <section className="reveal-section bg-red-900/20 border border-red-800 rounded-2xl p-5">
-          <h3 className="text-xl font-semibold text-red-300">⚠️ Common Pitfalls</h3>
-          <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
-            <li><strong>Breaking links:</strong> Renaming or moving the source file breaks cross‑workbook references.</li>
-            <li><strong>Security warnings:</strong> External links trigger prompts; users may disable them.</li>
-            <li><strong>Performance:</strong> Many external links slow down opening and calculation.</li>
-            <li><strong>Sheet name changes:</strong> If you rename a sheet, existing formulas that referenced the old name will break (#REF!).</li>
-            <li><strong>Missing single quotes:</strong> Sheet names with spaces require quotes: <span className="font-mono">'My Sheet'!A1</span>.</li>
-          </ul>
-        </section>
-
-        {/* Best Practices */}
-        <section className="reveal-section bg-green-900/20 border border-green-800 rounded-2xl p-5">
-          <h3 className="text-xl font-semibold text-green-300">✅ Best Practices</h3>
-          <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
-            <li>Prefer cross‑sheet references within the same workbook over cross‑workbook.</li>
-            <li>Use Excel Tables with structured references – they are easier to read and maintain.</li>
-            <li>For cross‑workbook lookups, consider consolidating data into a single workbook using Power Query.</li>
-            <li>Document all external links in a dedicated sheet or comment.</li>
-            <li>Use named ranges for cross‑sheet ranges to make formulas clearer.</li>
-          </ul>
-        </section>
-
-        {/* Hint Section */}
-        <section className="reveal-section bg-yellow-900/20 border-l-8 border-yellow-500 rounded-r-2xl p-5">
-          <h3 className="text-xl font-semibold text-yellow-300">💭 Think about…</h3>
-          <p className="mt-2 text-gray-200">
-            “You send a report to your manager that contains VLOOKUPs to a file on your local C: drive. When your manager opens it, all lookups show #REF! Why? 
-            Observe carefully: The manager does not have the same file path. Always use relative paths or store linked files in shared locations.”
-          </p>
-        </section>
-
-        {/* Professional Tips */}
-        <section className="reveal-section bg-purple-900/20 border border-purple-800 rounded-2xl p-5">
-          <h3 className="text-xl font-semibold text-purple-300">💡 Professional Tips</h3>
-          <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
-            <li>Use <strong>INDIRECT</strong> to create dynamic sheet references: =VLOOKUP(A2, INDIRECT("'"&B2&"'!A:B"), 2, FALSE) where B2 contains sheet name.</li>
-            <li>For cross‑workbook, use Power Query (Get & Transform) to import data instead of formulas – it's more robust.</li>
-            <li>Use <strong>Data &rarr; Edit Links</strong> to manage, update, or break external links.</li>
-            <li>Store linked workbooks in the same folder and use relative paths (don't include drive letters).</li>
-          </ul>
-        </section>
-
-        {/* Mini Checklist */}
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-600 reveal-section">
-          <h3 className="font-bold text-lg">📋 Quick Revision Checklist</h3>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 mt-2 list-disc list-inside text-gray-200">
-            <li>✅ Cross‑sheet: =VLOOKUP(A2, 'Sheet2'!A:B, 2, FALSE)</li>
-            <li>✅ Cross‑workbook: =VLOOKUP(A2, '[File.xlsx]Sheet1'!A:B, 2, FALSE)</li>
-            <li>✅ Use single quotes for sheet names with spaces.</li>
-            <li>✅ Cross‑workbook links break if source file is moved.</li>
-            <li>✅ Prefer Power Query over external links for critical data.</li>
-            <li>✅ Use Data {`>`} Edit Links to manage connections.</li>
-          </ul>
-        </div>
-
-        {/* FAQ */}
-        <FAQTemplate title="Cross‑Sheet & Cross‑Workbook Lookups – FAQs" questions={questions} />
-
-        {/* Teacher's Note */}
-        <Teacher
-          note={
-            "Demonstrate by creating two sheets in the same workbook: 'Master' with product IDs and names, and 'Orders' with just IDs. Show how to write =VLOOKUP(A2, Master!$A$2:$B$10, 2, FALSE). Then rename the 'Master' sheet – the formula breaks with #REF!. This teaches the fragility of sheet name changes. " +
-            "For cross‑workbook, create a second workbook with a simple table, then reference it. Then close the source workbook – the formula still shows the last value but warns. Move the source file – it breaks. " +
-            "Emphasise that while cross‑workbook lookups are possible, they are not recommended for critical, shared workbooks. Power Query is the professional solution for consolidating external data."
-          }
-        />
-      </div>
-
+    <div className="dark bg-slate-950 text-slate-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8 font-sans selection:bg-sky-500/30 selection:text-sky-200">
       <style>{`
+        @keyframes fadeInSlide {
+          from { transform: translateY(18px); }
+          to { transform: translateY(0); }
+        }
         .reveal-section {
-          transform: translateY(24px) scale(0.98);
-          transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-        }
-        .reveal-section.revealed {
-          transform: translateY(0) scale(1);
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .reveal-section { transform: none; transition: none; }
+          animation: fadeInSlide 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
       `}</style>
+
+      <div className="max-w-5xl mx-auto space-y-10">
+        {/* =========================================================================
+            SECTION 1: HERO HEADER & OVERVIEW
+        ========================================================================= */}
+        <header
+          ref={(el) => (sectionsRef.current[0] = el)}
+          className="reveal-section rounded-3xl p-6 sm:p-10 bg-gradient-to-b from-slate-900/90 via-slate-900/60 to-slate-950 border border-slate-800 shadow-2xl relative overflow-hidden"
+        >
+          <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+          
+          <div className="flex flex-wrap items-center gap-2.5 mb-4">
+            <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
+              🔍 Lookup & Relational Retrieval · Topic 15
+            </span>
+            <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
+              Advanced
+            </span>
+            <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
+              Bloom's Level 4 & 5: Analyze & Evaluate
+            </span>
+          </div>
+
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+            Cross-Sheet and Cross-Workbook Lookup Architecture
+          </h1>
+
+          <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
+            Master Cross-Sheet and Cross-Workbook Lookup Architecture: In-depth theoretical mechanics, formula syntax, corporate execution best practices, and enterprise troubleshooting workflows.
+          </p>
+
+          <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
+            <div className="flex items-center gap-2.5 text-slate-300">
+              <span className="text-sky-400 text-base">✓</span>
+              <span><strong>Coordinate Precision:</strong> Exact Key Resolution</span>
+            </div>
+            <div className="flex items-center gap-2.5 text-slate-300">
+              <span className="text-emerald-400 text-base">✓</span>
+              <span><strong>Resilient Architecture:</strong> Immune to Insertions</span>
+            </div>
+            <div className="flex items-center gap-2.5 text-slate-300">
+              <span className="text-indigo-400 text-base">✓</span>
+              <span><strong>Modern Standards:</strong> XLOOKUP & INDEX-MATCH</span>
+            </div>
+          </div>
+        </header>
+
+        {/* =========================================================================
+            SECTION 2: FORMULA & SYNTAX ANATOMY CARD
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[1] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all duration-300 space-y-6"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">⚡</span>
+            Formula Syntax & Argument Anatomy
+          </h2>
+
+          <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
+            =VLOOKUP(A2, '[Quarterly_Ledger.xlsx]Master'!$A$2:$D$500, 3, FALSE)
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm text-slate-300 border-collapse">
+              <thead>
+                <tr className="border-b border-slate-800 text-slate-400 font-semibold uppercase tracking-wider">
+                  <th className="py-3 px-4">Component</th>
+                  <th className="py-3 px-4">Type</th>
+                  <th className="py-3 px-4">Requirement</th>
+                  <th className="py-3 px-4">Description</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/50 font-mono">
+                
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Lookup Expression</td>
+                  <td className="py-3 px-4 text-teal-400">Core Function Call</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Mandatory</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Evaluates Cross-Sheet and Cross-Workbook Lookup Architecture against target reference ranges.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Return Parameter</td>
+                  <td className="py-3 px-4 text-teal-400">Vector / Scalar</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Extraction</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Delivers corresponding attribute with exact coordinate precision.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Error Handler</td>
+                  <td className="py-3 px-4 text-teal-400">Resilience Wrapper</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Robustness</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Handles missing keys or out-of-bounds index requests gracefully.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="p-4 rounded-xl bg-sky-950/40 border border-sky-800/60 flex items-start gap-3">
+            <span className="text-sky-400 text-lg">💡</span>
+            <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <strong className="text-white">Return Evaluation: </strong>
+              Returns a <span className="text-sky-300 font-semibold">Relational Scalar / Array Vector</span> dynamically extracted from the matching table record.
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 3: DEEP CONCEPTUAL & THEORETICAL MECHANICS
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[2] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">🔬</span>
+            Computational Mechanics & Search Algorithms
+          </h2>
+
+          <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+            <p>In Microsoft Excel, Cross-Sheet and Cross-Workbook Lookup Architecture provides industrial-grade relational data extraction capabilities across enterprise workbooks.</p>
+            <p>Understanding memory pointer traversal, binary search vs linear search, and dynamic array returns is vital for elite financial modeling.</p>
+            <p>Always design lookup tables with clean, normalized data types to eliminate #N/A type mismatch exceptions.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+            <div className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">Memory Pointer Traversal</h3>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                Excel scans indices in memory to locate exact key matching coordinates, returning values from connected data vectors.
+              </p>
+            </div>
+            <div className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
+              <h3 className="text-sm font-bold text-sky-300 uppercase tracking-wider">Column Insertion Immunity</h3>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                Modern INDEX-MATCH and XLOOKUP bind directly to return column vectors, rendering formulas immune to inserted or deleted columns.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 4: INTERACTIVE SEMANTIC SVG DIAGRAM
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[3] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
+            Visual Engine: Cross-Sheet and Cross-Workbook Lookup Architecture Architecture &amp; Evaluation Mechanics
+          </h2>
+
+          <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
+            <svg viewBox="0 0 800 260" className="w-full max-w-3xl h-auto" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="m6_key" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#0369a1" stopOpacity="0.4" />
+                </linearGradient>
+                <linearGradient id="m6_scan" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#059669" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#047857" stopOpacity="0.4" />
+                </linearGradient>
+                <linearGradient id="m6_val" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#6d28d9" stopOpacity="0.4" />
+                </linearGradient>
+              </defs>
+
+              <rect x="30" y="50" width="200" height="150" rx="12" fill="url(#m6_key)" stroke="#38bdf8" strokeWidth="2" />
+              <text x="130" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">1. Lookup Value</text>
+              <text x="130" y="115" textAnchor="middle" fill="#e0f2fe" fontSize="11">Search Key: "EMP-1005"</text>
+              <text x="130" y="135" textAnchor="middle" fill="#e0f2fe" fontSize="11">Unique Surrogate ID</text>
+              <text x="130" y="165" textAnchor="middle" fill="#bae6fd" fontSize="11" fontWeight="bold">Search Query</text>
+
+              <path d="M 235 125 L 295 125" stroke="#38bdf8" strokeWidth="3" strokeDasharray="6,4" />
+              <polygon points="295,120 305,125 295,130" fill="#38bdf8" />
+
+              <rect x="310" y="50" width="200" height="150" rx="12" fill="url(#m6_scan)" stroke="#34d399" strokeWidth="2" />
+              <text x="410" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">2. Vector Matching</text>
+              <text x="410" y="115" textAnchor="middle" fill="#d1fae5" fontSize="11">Exact Match (0)</text>
+              <text x="410" y="135" textAnchor="middle" fill="#d1fae5" fontSize="11">Row Coordinate: 6</text>
+              <text x="410" y="165" textAnchor="middle" fill="#a7f3d0" fontSize="11" fontWeight="bold">MATCH Index Found</text>
+
+              <path d="M 515 125 L 575 125" stroke="#34d399" strokeWidth="3" strokeDasharray="6,4" />
+              <polygon points="575,120 585,125 575,130" fill="#34d399" />
+
+              <rect x="590" y="50" width="180" height="150" rx="12" fill="url(#m6_val)" stroke="#a78bfa" strokeWidth="2" />
+              <text x="680" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">3. Attribute Return</text>
+              <text x="680" y="115" textAnchor="middle" fill="#ede9fe" fontSize="11">₹ 85,000.00 (Salary)</text>
+              <text x="680" y="135" textAnchor="middle" fill="#ede9fe" fontSize="11">Zero Column Drift</text>
+              <text x="680" y="165" textAnchor="middle" fill="#ddd6fe" fontSize="11" fontWeight="bold">Target Extracted</text>
+            </svg>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 5: LIVE EXCEL PRACTICE GRID & DOWNLOAD PORTAL
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[4] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">📥</span>
+                Interactive Spreadsheet & Practice Workbook
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                Interact with the dataset live below or download the master chapter workbook to practice locally in desktop Excel.
+              </p>
+            </div>
+            <button
+              onClick={handleDownload}
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all duration-200 shadow-lg shadow-emerald-950/40 hover:scale-[1.02] active:scale-[0.98] shrink-0"
+              title="Download full .xlsx master workbook for Module 2.5"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              <span>Download Practice Workbook (.xlsx)</span>
+            </button>
+          </div>
+
+          <ExcelFileLoader
+            fileModule={sampleWorkbookUrl}
+            sheetName="Topic0_Reference_Tables"
+            title="Module 2.5 - Cross-Sheet and Cross-Workbook Lookup Architecture"
+            rowsPerPage={25}
+            showSheetSelector={true}
+          />
+        </section>
+
+        {/* =========================================================================
+            SECTION 6: REAL-WORLD BUSINESS SCENARIOS (4+ CASES)
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[5] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
+            Real-World Business Scenarios (Bengal & Corporate Applications)
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
+                <h3 className="text-base font-bold text-white">Kolkata Corporate Cross-Sheet and Cross-Workbook Implementation</h3>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Enterprise deployment of Cross-Sheet and Cross-Workbook Lookup Architecture across 500 corporate branch records.</p>
+              
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
+                  <tbody className="divide-y divide-slate-800">
+                    
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Operation</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formula_Applied</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Audited_Outcome</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Relational Retrieval</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=VLOOKUP(A2, '[Quarterly_Ledger.xlsx]Master'!$A$2:$D$500, 3, FALSE)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100% Exact verified match</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
+                <div className="text-sky-300 font-mono font-semibold">Applied: =VLOOKUP(A2, '[Quarterly_Ledger.xlsx]Master'!$A$2:$D$500, 3, FALSE)</div>
+                <div className="text-emerald-400 font-semibold">Result: Flawless automated data retrieval.</div>
+                <div className="text-slate-400 text-[11px]">Industrial lookup formulas streamline enterprise operations.</div>
+              </div>
+            </div>
+            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">02</span>
+                <h3 className="text-base font-bold text-white">Barrackpore Academy Academic Records Matching</h3>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Cross-referencing student exam results with fee payment status.</p>
+              
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
+                  <tbody className="divide-y divide-slate-800">
+                    
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Student_Key</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Lookup_Formula</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Payment_Status</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">STD-1002</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=VLOOKUP(A2, '[Quarterly_Ledger.xlsx]Master'!$A$2:$D$500, 3, FALSE)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">PAID / CLEARED</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
+                <div className="text-sky-300 font-mono font-semibold">Applied: =VLOOKUP(A2, '[Quarterly_Ledger.xlsx]Master'!$A$2:$D$500, 3, FALSE)</div>
+                <div className="text-emerald-400 font-semibold">Result: Instant administrative verification.</div>
+                <div className="text-slate-400 text-[11px]">Lookups eliminate duplicate student records.</div>
+              </div>
+            </div>
+            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">03</span>
+                <h3 className="text-base font-bold text-white">Shyamnagar Wholesale Inventory SKU Audit</h3>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Matching warehouse physical counts against ERP system records.</p>
+              
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
+                  <tbody className="divide-y divide-slate-800">
+                    
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">SKU_Code</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formula</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Variance</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">SKU-902</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=VLOOKUP(A2, '[Quarterly_Ledger.xlsx]Master'!$A$2:$D$500, 3, FALSE)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">0 Variance (Reconciled)</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
+                <div className="text-sky-300 font-mono font-semibold">Applied: =VLOOKUP(A2, '[Quarterly_Ledger.xlsx]Master'!$A$2:$D$500, 3, FALSE)</div>
+                <div className="text-emerald-400 font-semibold">Result: 100% stock reconciliation.</div>
+                <div className="text-slate-400 text-[11px]">Automated lookups audit inventory variance rapidly.</div>
+              </div>
+            </div>
+            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">04</span>
+                <h3 className="text-base font-bold text-white">Ichapur Plant Machine Quality Compliance Verification</h3>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Extracting ISO calibration expiry dates by Machine serial number.</p>
+              
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
+                  <tbody className="divide-y divide-slate-800">
+                    
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Machine_ID</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Lookup_Applied</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">ISO_Status</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MCH-50</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=VLOOKUP(A2, '[Quarterly_Ledger.xlsx]Master'!$A$2:$D$500, 3, FALSE)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">VALID (Calibrated)</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
+                <div className="text-sky-300 font-mono font-semibold">Applied: =VLOOKUP(A2, '[Quarterly_Ledger.xlsx]Master'!$A$2:$D$500, 3, FALSE)</div>
+                <div className="text-emerald-400 font-semibold">Result: Audit compliance certified.</div>
+                <div className="text-slate-400 text-[11px]">Quality records extracted with coordinate precision.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 7: STEP-BY-STEP CALCULATION WALKTHROUGH
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[6] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">🪜</span>
+            Step-by-Step Practical Implementation Guide
+          </h2>
+
+          <div className="space-y-4">
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-4">
+              <span className="w-7 h-7 rounded-lg bg-sky-500/20 text-sky-300 text-xs font-bold flex items-center justify-center shrink-0">1</span>
+              <div>
+                <h3 className="text-sm font-bold text-white">Identify Search Key & Master Range</h3>
+                <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                  Ensure the lookup value coordinate is specified and the master table is locked (<kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">F4</kbd>) or formatted as an Excel Table.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-4">
+              <span className="w-7 h-7 rounded-lg bg-teal-500/20 text-teal-300 text-xs font-bold flex items-center justify-center shrink-0">2</span>
+              <div>
+                <h3 className="text-sm font-bold text-white">Construct Resilient Lookup Formula</h3>
+                <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                  Enter formula syntax (e.g. <code className="text-amber-300 font-mono">=VLOOKUP(A2, '[Quarterly_Ledger.xlsx]Master'!$A$2:$D$500, 3, FALSE)</code>).
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-4">
+              <span className="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-300 text-xs font-bold flex items-center justify-center shrink-0">3</span>
+              <div>
+                <h3 className="text-sm font-bold text-white">Embed Error Handling Wrapper</h3>
+                <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                  Wrap in <code className="text-sky-300 font-mono">=IFERROR(formula, "Not Found")</code> to prevent unsightly <code className="text-rose-300 font-mono">#N/A</code> errors.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-4">
+              <span className="w-7 h-7 rounded-lg bg-indigo-500/20 text-indigo-300 text-xs font-bold flex items-center justify-center shrink-0">4</span>
+              <div>
+                <h3 className="text-sm font-bold text-white">Audit Formula Evaluation (F9)</h3>
+                <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                  Highlight the MATCH segment inside formula bar and press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">F9</kbd> to inspect the evaluated row index number.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 8: COMMON PITFALLS & TROUBLESHOOTING MATRIX
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[7] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-500/20 text-rose-400 text-base font-mono">⚠️</span>
+            Common Pitfalls & Diagnostic Troubleshooting
+          </h2>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm text-slate-300 border-collapse">
+              <thead>
+                <tr className="border-b border-slate-800 text-slate-400 font-semibold uppercase tracking-wider">
+                  <th className="py-3 px-4">Error / Symptom</th>
+                  <th className="py-3 px-4">Root Cause</th>
+                  <th className="py-3 px-4">Diagnostic Check</th>
+                  <th className="py-3 px-4">Foolproof Fix</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/50">
+                
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-rose-300 font-mono font-bold">#N/A Error (Value Not Available)</td>
+                  <td className="py-3 px-4 text-slate-300">Search key does not exist in the reference table.</td>
+                  <td className="py-3 px-4 text-amber-300">Lookup key missing or misspelled.</td>
+                  <td className="py-3 px-4 text-emerald-400 font-medium">Verify key spelling or wrap formula in =IFERROR(..., "Not Found").</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-rose-300 font-mono font-bold">#REF! Error on Column Deletion</td>
+                  <td className="py-3 px-4 text-slate-300">Deleting a column within a hardcoded VLOOKUP index range.</td>
+                  <td className="py-3 px-4 text-amber-300">Column index exceeds table width.</td>
+                  <td className="py-3 px-4 text-emerald-400 font-medium">Switch to resilient INDEX-MATCH or XLOOKUP.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-rose-300 font-mono font-bold">#VALUE! Data Type Mismatch</td>
+                  <td className="py-3 px-4 text-slate-300">Formula exceeds character limits or corrupt array dimensions.</td>
+                  <td className="py-3 px-4 text-amber-300">Calculation engine throws syntax error.</td>
+                  <td className="py-3 px-4 text-emerald-400 font-medium">Check argument count and syntax.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 9: PRO TIPS & PRODUCTIVITY SHORTCUTS
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[8] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 text-base font-mono">💡</span>
+            Classroom Pro Tips & High-Speed Shortcuts
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
+              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                F4
+              </kbd>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Lock coordinate range ($A$2:$F$100).</p>
+            </div>
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
+              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                Alt + M + V
+              </kbd>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Open Step-by-Step Evaluate Formula dialog.</p>
+            </div>
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
+              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                Ctrl + `
+              </kbd>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Toggle Formula Auditing view.</p>
+            </div>
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
+              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                Ctrl + Shift + Enter
+              </kbd>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Legacy CSE array entry (if applicable in pre-365 Excel).</p>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 10: SOCRATIC ANALYTICAL HINTS ("THINK ABOUT...")
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[9] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">🤔</span>
+            Socratic Analytical Hints ("Think About...")
+          </h2>
+
+          <div className="space-y-3">
+            
+            <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
+              <span className="text-teal-400 text-base">❓</span>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Why is Cross-Sheet and Cross-Workbook Lookup Architecture preferred in modern financial modeling over legacy hardcoded cell references?</p>
+            </div>
+            <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
+              <span className="text-teal-400 text-base">❓</span>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">How does Excel's calculation engine manage memory pointers during massive multi-row lookups?</p>
+            </div>
+            <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
+              <span className="text-teal-400 text-base">❓</span>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">What is the mathematical difference between linear O(n) table scanning and O(log n) binary search?</p>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 11: COMPREHENSIVE FAQ SECTION (30 QUESTIONS)
+        ========================================================================= */}
+        <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
+          <FAQTemplate
+            title="Cross-Sheet and Cross-Workbook Lookup Architecture - Frequently Asked Questions"
+            questions={questions}
+          />
+        </div>
+
+        {/* =========================================================================
+            SECTION 12: TEACHER'S NOTE & EXAM WISDOM
+        ========================================================================= */}
+        <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
+          <Teacher
+            note="Master Cross-Sheet and Cross-Workbook Lookup Architecture! Pay meticulous attention to coordinate anchoring with F4, verify key uniqueness, and leverage INDEX-MATCH or XLOOKUP for immune, boardroom-ready spreadsheet models!"
+          />
+        </div>
+      </div>
     </div>
   );
 }

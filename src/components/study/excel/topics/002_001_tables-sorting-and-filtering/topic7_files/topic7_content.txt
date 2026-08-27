@@ -1,0 +1,20 @@
+================================================================================
+EXCEL MASTERCLASS: Module 2.1 - Structured Tables, Sorting, Filtering & Slicers
+TOPIC 7: Practice Session: Building a Dynamic Multi-Level Sort & Filter Dashboard
+Subject Code: EXCEL-PRO-901 | Competency: CO2 (Data Wrangling & Interactive Filtering)
+================================================================================
+
+1. ENTERPRISE TABLE DASHBOARD ARCHITECTURE
+A production table dashboard combines:
+- Relational Data Hygiene: Zero blank rows, standardized primary keys, and explicit typing.
+- Structured Syntax Engine: Self-documenting `[@Column]` calculations.
+- Multi-Tier Categorical Sorting: Hierarchical ordering by region, department, and revenue.
+- Visual Slicer Control: One-click interactive button panels for instantaneous executive filtering.
+- Dynamic Subtotal Aggregations: `SUBTOTAL(109, ...)` dynamically summing only visible rows.
+
+2. LAB EXERCISE INSTRUCTIONS
+- Task 1: Convert raw range to table `tbl_Commercial`
+- Task 2: Add calculated columns for GST and Net Amount
+- Task 3: Apply 3-level sort hierarchy
+- Task 4: Insert and format horizontal Slicers for Branch and Product Segment
+- Task 5: Activate Total Row and verify dynamic recalculation during slicer interactions.

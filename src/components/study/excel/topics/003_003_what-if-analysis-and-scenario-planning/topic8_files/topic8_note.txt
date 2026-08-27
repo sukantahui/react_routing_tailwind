@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
+Topic 8: Formulating Linear Programming (LP) problems: Objective cell, Variable cells, and Constraints
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

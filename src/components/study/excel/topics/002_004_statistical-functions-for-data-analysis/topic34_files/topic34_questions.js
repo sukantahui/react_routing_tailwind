@@ -1,213 +1,243 @@
 const questions = [
   {
-    question: "What is an outlier?",
-    shortAnswer: "A data point that differs significantly from other observations.",
-    explanation: "Outliers can arise from measurement error, data entry mistakes, or genuine extreme events.",
-    level: "basic",
-    codeExample: "In {10,12,13,14,100}, 100 is an outlier."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Sample vs population standard deviation mathematical distinction (Question 1)?",
+    "shortAnswer": "Sample vs population standard deviation mathematical distinction is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Sample vs population standard deviation mathematical distinction plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Sample vs population standard deviation mathematical distinction impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B21)"
   },
   {
-    question: "What is the IQR method for outlier detection?",
-    shortAnswer: "Flags values below Q1 − 1.5*IQR or above Q3 + 1.5*IQR.",
-    explanation: "IQR = Q3 − Q1. This method is robust to non‑normal distributions.",
-    level: "intermediate",
-    codeExample: "Upper fence = QUARTILE.INC(data,3) + 1.5*(QUARTILE.INC(data,3)-QUARTILE.INC(data,1))"
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Bessel's correction (n-1 degrees of freedom) in STDEV.S (Question 2)?",
+    "shortAnswer": "Bessel's correction (n-1 degrees of freedom) in STDEV.S is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Bessel's correction (n-1 degrees of freedom) in STDEV.S plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Bessel's correction (n-1 degrees of freedom) in STDEV.S impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the Z‑score method for outlier detection?",
-    shortAnswer: "Flags values where (x − mean)/standard deviation exceeds a threshold (often 2 or 3).",
-    explanation: "Assumes data is approximately normal. A threshold of 3 indicates values more than 3 standard deviations from the mean.",
-    level: "intermediate",
-    codeExample: "=ABS((A1-AVERAGE(A:A))/STDEV.P(A:A)) > 2"
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS (Question 3)?",
+    "shortAnswer": "Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Which outlier detection method is more robust to skewness?",
-    shortAnswer: "The IQR method (based on quartiles) is more robust than the Z‑score method, which assumes normality.",
-    explanation: "IQR uses percentiles and is not affected by extreme values as much as mean and stdev.",
-    level: "advanced",
-    codeExample: "Use IQR for income data, Z‑score for symmetric data."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Why SUMIFS places sum_range FIRST while SUMIF places it LAST (Question 4)?",
+    "shortAnswer": "Why SUMIFS places sum_range FIRST while SUMIF places it LAST is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Why SUMIFS places sum_range FIRST while SUMIF places it LAST plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Why SUMIFS places sum_range FIRST while SUMIF places it LAST impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B24)"
   },
   {
-    question: "What is the typical multiplier for IQR fences?",
-    shortAnswer: "1.5 for mild outliers, 3 for extreme outliers.",
-    explanation: "The 1.5*IQR rule is common in box plots. For very conservative outlier detection, use 3*IQR.",
-    level: "basic",
-    codeExample: "Upper fence = Q3 + 1.5*IQR."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Wildcard support (*, ?) in COUNTIF and SUMIFS criteria (Question 5)?",
+    "shortAnswer": "Wildcard support (*, ?) in COUNTIF and SUMIFS criteria is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Wildcard support (*, ?) in COUNTIF and SUMIFS criteria plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Wildcard support (*, ?) in COUNTIF and SUMIFS criteria impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How can you highlight outliers in Excel using conditional formatting?",
-    shortAnswer: "Use a formula rule that compares each cell to pre‑calculated fences. Example: =A1 > $F$1 (where F1 holds upper fence).",
-    explanation: "Relative references vs absolute references matter.",
-    level: "intermediate",
-    codeExample: "Apply to range $A$2:$A$100, formula =A2 > $D$1."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Case-insensitivity of text comparisons in IFS functions (Question 6)?",
+    "shortAnswer": "Case-insensitivity of text comparisons in IFS functions is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Case-insensitivity of text comparisons in IFS functions plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Case-insensitivity of text comparisons in IFS functions impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What is a box plot, and how does it show outliers?",
-    shortAnswer: "A box plot shows median, Q1, Q3, and 'whiskers'. Points beyond 1.5*IQR from the box are plotted as individual points (outliers).",
-    explanation: "Excel’s built‑in box plot (since 2016) automatically uses the IQR rule.",
-    level: "basic",
-    codeExample: "Insert > Statistical > Box and Whisker."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) (Question 7)?",
+    "shortAnswer": "Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B27)"
   },
   {
-    question: "Why should you not automatically remove outliers?",
-    shortAnswer: "Because outliers may be genuine, important information (e.g., rare disease, fraud).",
-    explanation: "Only remove after investigation or if they are clearly errors.",
-    level: "intermediate",
-    codeExample: "Always document data cleaning steps."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Median resistance to extreme outlier skewing compared to Mean (Question 8)?",
+    "shortAnswer": "Median resistance to extreme outlier skewing compared to Mean is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Median resistance to extreme outlier skewing compared to Mean plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Median resistance to extreme outlier skewing compared to Mean impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How can you compute outlier fences without helper cells?",
-    shortAnswer: "Use a single formula: =OR(A1 < (QUARTILE.INC(A:A,1)-1.5*(QUARTILE.INC(A:A,3)-QUARTILE.INC(A:A,1))), A1 > (QUARTILE.INC(A:A,3)+1.5*(QUARTILE.INC(A:A,3)-QUARTILE.INC(A:A,1))))",
-    explanation: "This flags TRUE for outliers, but recomputes quartiles for each cell (slow).",
-    level: "advanced",
-    codeExample: "Better to use helper cells for performance."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate MODE.SNGL single value return vs MODE.MULT dynamic array spilling (Question 9)?",
+    "shortAnswer": "MODE.SNGL single value return vs MODE.MULT dynamic array spilling is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, MODE.SNGL single value return vs MODE.MULT dynamic array spilling plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how MODE.SNGL single value return vs MODE.MULT dynamic array spilling impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Does the standard deviation method work well for small datasets?",
-    shortAnswer: "No, with small n (e.g., n < 10) the standard deviation is unstable and outliers may not be detected reliably.",
-    explanation: "IQR is often better for small datasets as well.",
-    level: "advanced",
-    codeExample: "Use at least 15‑20 points for Z‑score."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) (Question 10)?",
+    "shortAnswer": "QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B30)"
   },
   {
-    question: "What does the 1.5*IQR rule assume about the data distribution?",
-    shortAnswer: "It does not assume normality, but it works well for unimodal symmetric distributions. For skewed data, asymmetric fences (using percentiles) may be better.",
-    explanation: "It is a heuristic, not a statistical test.",
-    level: "expert",
-    codeExample: "Use adjusted fences for highly skewed data."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate PERCENTILE.INC fractional rank interpolation algorithms (Question 11)?",
+    "shortAnswer": "PERCENTILE.INC fractional rank interpolation algorithms is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, PERCENTILE.INC fractional rank interpolation algorithms plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how PERCENTILE.INC fractional rank interpolation algorithms impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How do you calculate the lower fence for outliers in Excel?",
-    shortAnswer: "=QUARTILE.INC(range,1) - 1.5*(QUARTILE.INC(range,3)-QUARTILE.INC(range,1))",
-    explanation: "Q1 = first quartile. This gives the lower boundary.",
-    level: "basic",
-    codeExample: "Any value below this fence is an outlier."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking (Question 12)?",
+    "shortAnswer": "RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Can you use TRIMMEAN to ignore outliers?",
-    shortAnswer: "Yes, TRIMMEAN calculates the mean after excluding a percentage of extreme values from both ends.",
-    explanation: "It does not require you to identify outliers explicitly.",
-    level: "intermediate",
-    codeExample: "=TRIMMEAN(A2:A100, 0.1) excludes 10% of data (5% from each end)."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 (Question 13)?",
+    "shortAnswer": "Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B33)"
   },
   {
-    question: "How to automatically replace outliers with the median or a capped value?",
-    shortAnswer: "Use IF with the fence formulas: =IF(OR(value < lower_fence, value > upper_fence), MEDIAN(range), value).",
-    explanation: "This is winsorization (capping).",
-    level: "advanced",
-    codeExample: "Create helper column with this formula."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Linear regression forecasting with FORECAST.LINEAR (y = a + bx) (Question 14)?",
+    "shortAnswer": "Linear regression forecasting with FORECAST.LINEAR (y = a + bx) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Linear regression forecasting with FORECAST.LINEAR (y = a + bx) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Linear regression forecasting with FORECAST.LINEAR (y = a + bx) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the difference between univariate and multivariate outlier detection?",
-    shortAnswer: "Univariate considers one variable at a time (e.g., IQR of scores). Multivariate considers interactions (e.g., a combination of age and income that is unusual).",
-    explanation: "Multivariate detection is more complex; Excel alone cannot do it easily.",
-    level: "expert",
-    codeExample: "Use scatter plots for two variables."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate TREND function dynamic multi-period projection array spilling (Question 15)?",
+    "shortAnswer": "TREND function dynamic multi-period projection array spilling is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, TREND function dynamic multi-period projection array spilling plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how TREND function dynamic multi-period projection array spilling impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "How can you detect outliers in a time series (trended data)?",
-    shortAnswer: "Fit a trend line (e.g., using FORECAST.LINEAR) and compute residuals; flag residuals with large absolute Z‑score.",
-    explanation: "Outliers are large deviations from the trend.",
-    level: "expert",
-    codeExample: "Use LINEST to get residuals."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Z-score statistical outlier detection: (x - Mean) / STDEV (Question 16)?",
+    "shortAnswer": "Z-score statistical outlier detection: (x - Mean) / STDEV is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Z-score statistical outlier detection: (x - Mean) / STDEV plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Z-score statistical outlier detection: (x - Mean) / STDEV impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B36)"
   },
   {
-    question: "What is the effect of outliers on correlation (CORREL)?",
-    shortAnswer: "A single outlier can dramatically increase or decrease the correlation coefficient.",
-    explanation: "Always check scatter plots and consider robust correlation (e.g., Spearman).",
-    level: "intermediate",
-    codeExample: "Remove outlier and see how r changes."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules (Question 17)?",
+    "shortAnswer": "Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How do you calculate the upper fence for outliers using QUARTILE.EXC?",
-    shortAnswer: "=QUARTILE.EXC(range,3) + 1.5*(QUARTILE.EXC(range,3)-QUARTILE.EXC(range,1))",
-    explanation: "QUARTILE.EXC may give different Q1 and Q3 than QUARTILE.INC.",
-    level: "advanced",
-    codeExample: "Be consistent in choosing method."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate How statistical functions skip text strings vs include literal zeroes (Question 18)?",
+    "shortAnswer": "How statistical functions skip text strings vs include literal zeroes is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, How statistical functions skip text strings vs include literal zeroes plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how How statistical functions skip text strings vs include literal zeroes impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Why does the IQR method often use 1.5 and not another number?",
-    shortAnswer: "It is an empirical convention introduced by John Tukey for box plots. It works well for normal data, where it flags about 0.7% of observations.",
-    explanation: "For normal data, 1.5*IQR corresponds roughly to 2.7*σ.",
-    level: "expert",
-    codeExample: "You can adjust the multiplier based on your data."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Preventing #DIV/0! errors when counting zero matching criteria records (Question 19)?",
+    "shortAnswer": "Preventing #DIV/0! errors when counting zero matching criteria records is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Preventing #DIV/0! errors when counting zero matching criteria records plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Preventing #DIV/0! errors when counting zero matching criteria records impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B39)"
   },
   {
-    question: "How can you count the number of outliers in a range?",
-    shortAnswer: "Use =COUNTIFS(range, \"<\"&lower_fence, range, \">\"&upper_fence) but careful: need to handle both ends. Better: =COUNTIF(range, \"<\"&lower_fence) + COUNTIF(range, \">\"&upper_fence).",
-    explanation: "Pre‑compute fences in cells.",
-    level: "intermediate",
-    codeExample: "=COUNTIF(A2:A100, \"<\"&D1)+COUNTIF(A2:A100, \">\"&D2)"
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Combining statistical IFS functions with Boolean logical masks (Question 20)?",
+    "shortAnswer": "Combining statistical IFS functions with Boolean logical masks is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Combining statistical IFS functions with Boolean logical masks plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Combining statistical IFS functions with Boolean logical masks impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the relationship between the Z‑score threshold and the IQR multiplier for a normal distribution?",
-    shortAnswer: "For normal data, 1.5*IQR ≈ 2.7σ, which corresponds to a Z‑score threshold of about 2.7. A Z‑score threshold of 2 (flagging ~5%) is more sensitive.",
-    explanation: "Different thresholds detect different percentages.",
-    level: "expert",
-    codeExample: "Adjust based on your false positive tolerance."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 (Question 21)?",
+    "shortAnswer": "Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What is the result of =QUARTILE.INC(A2:A100,1) if the data has no outliers?",
-    shortAnswer: "The first quartile (25th percentile) value, which can be a number not present in the data.",
-    explanation: "It's a statistical summary, not an outlier indicator.",
-    level: "basic",
-    codeExample: "Use it to compute fences."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Structured Table referencing in statistical formulas: tblData[Amount] (Question 22)?",
+    "shortAnswer": "Structured Table referencing in statistical formulas: tblData[Amount] is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Structured Table referencing in statistical formulas: tblData[Amount] plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Structured Table referencing in statistical formulas: tblData[Amount] impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B42)"
   },
   {
-    question: "How do you treat outliers in a dataset that you plan to use for forecasting?",
-    shortAnswer: "Investigate the cause. If they are one‑time errors, remove or winsorize them. If they are genuine rare events, keep them or use robust forecasting methods (e.g., FORECAST.ETS with outlier handling options).",
-    explanation: "Outliers can distort trend lines.",
-    level: "advanced",
-    codeExample: "Consider using median instead of mean."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Performance optimization across 100,000 rows with SUMIFS vs PivotTables (Question 23)?",
+    "shortAnswer": "Performance optimization across 100,000 rows with SUMIFS vs PivotTables is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Performance optimization across 100,000 rows with SUMIFS vs PivotTables plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Performance optimization across 100,000 rows with SUMIFS vs PivotTables impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Can conditional formatting highlight outliers using the IQR rule directly?",
-    shortAnswer: "Yes, using a formula: =A1 < (QUARTILE.INC($A$1:$A$100,1)-1.5*(QUARTILE.INC($A$1:$A$100,3)-QUARTILE.INC($A$1:$A$100,1)))",
-    explanation: "Use absolute references for the range, relative for the cell.",
-    level: "advanced",
-    codeExample: "Apply to $A$1:$A$100."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Double unary operator (--) in boolean array statistical aggregations (Question 24)?",
+    "shortAnswer": "Double unary operator (--) in boolean array statistical aggregations is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Double unary operator (--) in boolean array statistical aggregations plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Double unary operator (--) in boolean array statistical aggregations impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What is the difference between an outlier and an inlier?",
-    shortAnswer: "An outlier is an extreme point. An inlier is a point that lies inside the overall cluster but may still be anomalous. Inlier detection is less common.",
-    explanation: "Inliers can be problematic for clustering algorithms.",
-    level: "expert",
-    codeExample: "Not covered by basic functions."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Weighted average calculations using SUMPRODUCT / SUM (Question 25)?",
+    "shortAnswer": "Weighted average calculations using SUMPRODUCT / SUM is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Weighted average calculations using SUMPRODUCT / SUM plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Weighted average calculations using SUMPRODUCT / SUM impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=STDEV.S(B2:B45)"
   },
   {
-    question: "What visual tool in Excel is best for spotting outliers?",
-    shortAnswer: "A scatter plot (for two variables) or a box plot (for one variable) are excellent.",
-    explanation: "Visual inspection often reveals outliers before any formula.",
-    level: "basic",
-    codeExample: "Insert Scatter with markers."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V (Question 26)?",
+    "shortAnswer": "Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How can the IQR method fail if the data is bimodal?",
-    shortAnswer: "Bimodal data has two peaks; points between the peaks may be flagged as outliers even though they belong to a cluster.",
-    explanation: "Check the distribution with histograms before applying outlier rules.",
-    level: "expert",
-    codeExample: "Use clustering algorithms instead."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Handling missing data and empty cells in correlation matrices (Question 27)?",
+    "shortAnswer": "Handling missing data and empty cells in correlation matrices is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Handling missing data and empty cells in correlation matrices plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Handling missing data and empty cells in correlation matrices impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What is the effect of outliers on the MEDIAN function?",
-    shortAnswer: "Very little – median is robust to outliers (resistant).",
-    explanation: "That's why median is often preferred for skewed data.",
-    level: "basic",
-    codeExample: "MEDIAN of {1,2,3,4,100} = 3, unchanged by outlier."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards (Question 28)?",
+    "shortAnswer": "3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=STDEV.S(B2:B48)"
   },
   {
-    question: "How do you exclude outliers from an AVERAGE calculation?",
-    shortAnswer: "Use an array formula: =AVERAGE(IF((range>lower_fence)*(range<upper_fence), range))",
-    explanation: "In 365, =AVERAGE(FILTER(range, (range>lower_fence)*(range<upper_fence)))",
-    level: "advanced",
-    codeExample: "Requires understanding of dynamic arrays."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Normality test verification and bell curve distribution benchmarks (Question 29)?",
+    "shortAnswer": "Normality test verification and bell curve distribution benchmarks is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Normality test verification and bell curve distribution benchmarks plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Normality test verification and bell curve distribution benchmarks impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Is it always necessary to report outliers in a summary?",
-    shortAnswer: "Yes, in statistical reports, you should mention the presence of outliers and how they were handled.",
-    explanation: "Transparency helps others interpret your results correctly.",
-    level: "intermediate",
-    codeExample: "Add a footnote in dashboards."
+    "question": "In the context of Outlier Detection using Statistical Functions, how does Excel compute and evaluate Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR (Question 30)?",
+    "shortAnswer": "Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   }
 ];
 

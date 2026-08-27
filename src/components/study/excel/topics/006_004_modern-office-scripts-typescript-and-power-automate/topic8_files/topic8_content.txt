@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
+Topic 8: Integrating Office Scripts with Microsoft Power Automate (Cloud Flows)
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

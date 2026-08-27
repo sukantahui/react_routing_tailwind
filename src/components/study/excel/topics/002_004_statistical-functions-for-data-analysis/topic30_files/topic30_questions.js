@@ -1,213 +1,243 @@
 const questions = [
   {
-    question: "What does FORECAST.LINEAR do?",
-    shortAnswer: "Predicts a future y‑value using linear regression (least squares).",
-    explanation: "It fits a straight line to existing data and returns the predicted y for a given x.",
-    level: "basic",
-    codeExample: "=FORECAST.LINEAR(12, B2:B10, A2:A10)"
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Sample vs population standard deviation mathematical distinction (Question 1)?",
+    "shortAnswer": "Sample vs population standard deviation mathematical distinction is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Sample vs population standard deviation mathematical distinction plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Sample vs population standard deviation mathematical distinction impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B21)"
   },
   {
-    question: "What is the difference between FORECAST.LINEAR and the older FORECAST function?",
-    shortAnswer: "They are identical; FORECAST.LINEAR was introduced to be explicit about the linear method.",
-    explanation: "The old FORECAST still works, but FORECAST.LINEAR is recommended for clarity.",
-    level: "basic",
-    codeExample: "=FORECAST(...) = FORECAST.LINEAR(...)"
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Bessel's correction (n-1 degrees of freedom) in STDEV.S (Question 2)?",
+    "shortAnswer": "Bessel's correction (n-1 degrees of freedom) in STDEV.S is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Bessel's correction (n-1 degrees of freedom) in STDEV.S plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Bessel's correction (n-1 degrees of freedom) in STDEV.S impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What happens if the known data is not linear?",
-    shortAnswer: "The forecast will still be a straight line and may be inaccurate.",
-    explanation: "Always check linearity with a scatter plot before relying on FORECAST.LINEAR.",
-    level: "intermediate",
-    codeExample: "Consider using FORECAST.ETS for seasonal data."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS (Question 3)?",
+    "shortAnswer": "Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Can FORECAST.LINEAR be used with dates?",
-    shortAnswer: "Yes, dates are serial numbers; you can predict a y-value for a future date.",
-    explanation: "The function will work correctly, and you can format the result as needed.",
-    level: "intermediate",
-    codeExample: "=FORECAST.LINEAR(DATE(2025,12,31), sales_range, date_range)"
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Why SUMIFS places sum_range FIRST while SUMIF places it LAST (Question 4)?",
+    "shortAnswer": "Why SUMIFS places sum_range FIRST while SUMIF places it LAST is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Why SUMIFS places sum_range FIRST while SUMIF places it LAST plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Why SUMIFS places sum_range FIRST while SUMIF places it LAST impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B24)"
   },
   {
-    question: "What does FORECAST.LINEAR return if known_x's has zero variance (all same value)?",
-    shortAnswer: "#DIV/0! because slope cannot be calculated.",
-    explanation: "You cannot fit a line when the independent variable is constant.",
-    level: "basic",
-    codeExample: "The function will error."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Wildcard support (*, ?) in COUNTIF and SUMIFS criteria (Question 5)?",
+    "shortAnswer": "Wildcard support (*, ?) in COUNTIF and SUMIFS criteria is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Wildcard support (*, ?) in COUNTIF and SUMIFS criteria plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Wildcard support (*, ?) in COUNTIF and SUMIFS criteria impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Is FORECAST.LINEAR the same as using SLOPE and INTERCEPT manually?",
-    shortAnswer: "Yes, FORECAST.LINEAR(x, y, x) = INTERCEPT(y,x) + SLOPE(y,x)*x.",
-    explanation: "It's a convenient wrapper.",
-    level: "intermediate",
-    codeExample: "=INTERCEPT(B2:B10, A2:A10) + SLOPE(B2:B10, A2:A10)*12"
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Case-insensitivity of text comparisons in IFS functions (Question 6)?",
+    "shortAnswer": "Case-insensitivity of text comparisons in IFS functions is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Case-insensitivity of text comparisons in IFS functions plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Case-insensitivity of text comparisons in IFS functions impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What is the maximum number of arguments FORECAST.LINEAR accepts?",
-    shortAnswer: "Three: x, known_y's, known_x's.",
-    explanation: "Exactly three arguments.",
-    level: "basic",
-    codeExample: "Always three arguments."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) (Question 7)?",
+    "shortAnswer": "Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B27)"
   },
   {
-    question: "How does FORECAST.LINEAR treat text or blanks?",
-    shortAnswer: "It ignores rows where either known_y's or known_x's contain non‑numeric values (pairwise deletion).",
-    explanation: "Text and blanks are skipped; only complete pairs are used.",
-    level: "basic",
-    codeExample: "Safe to use with headers."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Median resistance to extreme outlier skewing compared to Mean (Question 8)?",
+    "shortAnswer": "Median resistance to extreme outlier skewing compared to Mean is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Median resistance to extreme outlier skewing compared to Mean plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Median resistance to extreme outlier skewing compared to Mean impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What does extrapolation mean in forecasting?",
-    shortAnswer: "Predicting a y-value for an x outside the range of known_x's.",
-    explanation: "Extrapolation is risky because the linear trend may not continue outside the observed data.",
-    level: "intermediate",
-    codeExample: "Forecasting sales for a spend of 100 when known data is only 0-50."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate MODE.SNGL single value return vs MODE.MULT dynamic array spilling (Question 9)?",
+    "shortAnswer": "MODE.SNGL single value return vs MODE.MULT dynamic array spilling is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, MODE.SNGL single value return vs MODE.MULT dynamic array spilling plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how MODE.SNGL single value return vs MODE.MULT dynamic array spilling impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Can FORECAST.LINEAR be used for time series with more than one predictor?",
-    shortAnswer: "No, it only handles one independent variable (simple linear regression). Use LINEST for multiple regression.",
-    explanation: "Multiple regression requires array formulas or the Data Analysis Toolpak.",
-    level: "advanced",
-    codeExample: "Multiple predictors: use LINEST."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) (Question 10)?",
+    "shortAnswer": "QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B30)"
   },
   {
-    question: "Why might the forecast for a date far in the future be unreliable?",
-    shortAnswer: "Because the linear trend may change, and uncertainty grows with distance.",
-    explanation: "Small changes in slope produce large differences in long‑term forecasts.",
-    level: "intermediate",
-    codeExample: "Use with caution."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate PERCENTILE.INC fractional rank interpolation algorithms (Question 11)?",
+    "shortAnswer": "PERCENTILE.INC fractional rank interpolation algorithms is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, PERCENTILE.INC fractional rank interpolation algorithms plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how PERCENTILE.INC fractional rank interpolation algorithms impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How can you display the linear forecast equation on a chart?",
-    shortAnswer: "Insert a scatter plot, add a trendline, and check 'Display Equation on chart'.",
-    explanation: "The equation shows slope and intercept, same as used by FORECAST.LINEAR.",
-    level: "basic",
-    codeExample: "Right‑click trendline → Format Trendline → Display Equation."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking (Question 12)?",
+    "shortAnswer": "RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What is the difference between FORECAST.LINEAR and TREND?",
-    shortAnswer: "FORECAST.LINEAR predicts a single y for a given x; TREND can predict multiple y's for multiple x's simultaneously.",
-    explanation: "TREND is an array function that returns predicted values for a range of x's.",
-    level: "advanced",
-    codeExample: "=TREND(known_y's, known_x's, new_x's)"
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 (Question 13)?",
+    "shortAnswer": "Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B33)"
   },
   {
-    question: "Can FORECAST.LINEAR be used to predict the x given a y (inverse prediction)?",
-    shortAnswer: "Not directly. You would need to reverse the roles of x and y or use GOAL SEEK.",
-    explanation: "For inverse prediction, swap the arrays in FORECAST.LINEAR, but that's not symmetric.",
-    level: "expert",
-    codeExample: "=FORECAST.LINEAR(y_target, known_x's, known_y's) gives x, but assumes linearity in the other direction."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Linear regression forecasting with FORECAST.LINEAR (y = a + bx) (Question 14)?",
+    "shortAnswer": "Linear regression forecasting with FORECAST.LINEAR (y = a + bx) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Linear regression forecasting with FORECAST.LINEAR (y = a + bx) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Linear regression forecasting with FORECAST.LINEAR (y = a + bx) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What does FORECAST.LINEAR return if there are fewer than two valid data points?",
-    shortAnswer: "#N/A (need at least two points to define a line).",
-    explanation: "A line requires at least two distinct points.",
-    level: "basic",
-    codeExample: "Check COUNT of valid pairs."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate TREND function dynamic multi-period projection array spilling (Question 15)?",
+    "shortAnswer": "TREND function dynamic multi-period projection array spilling is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, TREND function dynamic multi-period projection array spilling plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how TREND function dynamic multi-period projection array spilling impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "How to forecast multiple future periods using FORECAST.LINEAR?",
-    shortAnswer: "Enter the x values in a column and copy the FORECAST.LINEAR formula down, using relative references.",
-    explanation: "Each cell will predict for its corresponding x.",
-    level: "intermediate",
-    codeExample: "=FORECAST.LINEAR(A10, $B$2:$B$8, $A$2:$A$8) copied down."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Z-score statistical outlier detection: (x - Mean) / STDEV (Question 16)?",
+    "shortAnswer": "Z-score statistical outlier detection: (x - Mean) / STDEV is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Z-score statistical outlier detection: (x - Mean) / STDEV plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Z-score statistical outlier detection: (x - Mean) / STDEV impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B36)"
   },
   {
-    question: "What is the statistical assumption behind FORECAST.LINEAR?",
-    shortAnswer: "That the relationship is linear, errors are normally distributed, homoscedastic, and independent.",
-    explanation: "Violating these assumptions may affect forecast quality.",
-    level: "expert",
-    codeExample: "Check residuals for patterns."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules (Question 17)?",
+    "shortAnswer": "Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Is FORECAST.LINEAR a volatile function?",
-    shortAnswer: "No, it recalculates only when input data changes.",
-    explanation: "Non‑volatile, safe for large workbooks.",
-    level: "basic",
-    codeExample: "Safe."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate How statistical functions skip text strings vs include literal zeroes (Question 18)?",
+    "shortAnswer": "How statistical functions skip text strings vs include literal zeroes is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, How statistical functions skip text strings vs include literal zeroes plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how How statistical functions skip text strings vs include literal zeroes impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Can FORECAST.LINEAR be used with array constants?",
-    shortAnswer: "Yes, e.g., =FORECAST.LINEAR(5, {10,20,30}, {1,2,3}).",
-    explanation: "Array constants can be used as known arrays.",
-    level: "intermediate",
-    codeExample: "=FORECAST.LINEAR(4, {2,4,6}, {1,2,3}) → 8"
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Preventing #DIV/0! errors when counting zero matching criteria records (Question 19)?",
+    "shortAnswer": "Preventing #DIV/0! errors when counting zero matching criteria records is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Preventing #DIV/0! errors when counting zero matching criteria records plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Preventing #DIV/0! errors when counting zero matching criteria records impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B39)"
   },
   {
-    question: "What is the output of =FORECAST.LINEAR(3, {2,3,5}, {1,2,4})?",
-    shortAnswer: "It predicts the y when x=3 based on line through (1,2), (2,3), (4,5). Calculation: slope≈1, intercept≈1, predicted=4.",
-    explanation: "The line roughly y = x+1, so at x=3, y=4.",
-    level: "advanced",
-    codeExample: "Manual check."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Combining statistical IFS functions with Boolean logical masks (Question 20)?",
+    "shortAnswer": "Combining statistical IFS functions with Boolean logical masks is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Combining statistical IFS functions with Boolean logical masks plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Combining statistical IFS functions with Boolean logical masks impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How to handle outliers that affect the forecast?",
-    shortAnswer: "Identify and potentially remove them, or use a robust regression method. Outliers can skew the regression line significantly.",
-    explanation: "Check scatter plot for influential points.",
-    level: "intermediate",
-    codeExample: "Consider if the outlier is a data entry error."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 (Question 21)?",
+    "shortAnswer": "Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Can FORECAST.LINEAR be used with a 3D reference across sheets?",
-    shortAnswer: "Not directly; you would need to combine ranges using VSTACK in 365 or use multiple formulas.",
-    explanation: "Example: =FORECAST.LINEAR(x, VSTACK(Sheet1!B:B, Sheet2!B:B), VSTACK(Sheet1!A:A, Sheet2!A:A)).",
-    level: "expert",
-    codeExample: "Only in 365."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Structured Table referencing in statistical formulas: tblData[Amount] (Question 22)?",
+    "shortAnswer": "Structured Table referencing in statistical formulas: tblData[Amount] is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Structured Table referencing in statistical formulas: tblData[Amount] plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Structured Table referencing in statistical formulas: tblData[Amount] impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B42)"
   },
   {
-    question: "What is the difference between FORECAST.LINEAR and FORECAST.ETS?",
-    shortAnswer: "FORECAST.LINEAR assumes a linear trend; FORECAST.ETS can handle seasonality and non‑linear trends (exponential smoothing).",
-    explanation: "Use ETS for seasonal data like monthly sales with peaks.",
-    level: "advanced",
-    codeExample: "FORECAST.ETS is more advanced."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Performance optimization across 100,000 rows with SUMIFS vs PivotTables (Question 23)?",
+    "shortAnswer": "Performance optimization across 100,000 rows with SUMIFS vs PivotTables is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Performance optimization across 100,000 rows with SUMIFS vs PivotTables plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Performance optimization across 100,000 rows with SUMIFS vs PivotTables impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How does FORECAST.LINEAR treat paired missing data?",
-    shortAnswer: "It uses pairwise deletion: rows where either y or x is non‑numeric are ignored.",
-    explanation: "Only complete pairs contribute to the regression.",
-    level: "basic",
-    codeExample: "Ensure you have enough complete pairs."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Double unary operator (--) in boolean array statistical aggregations (Question 24)?",
+    "shortAnswer": "Double unary operator (--) in boolean array statistical aggregations is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Double unary operator (--) in boolean array statistical aggregations plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Double unary operator (--) in boolean array statistical aggregations impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What is the coefficient of determination (R²) for a forecast?",
-    shortAnswer: "R² = CORREL(known_y's, known_x's)^2; it measures how well the line fits the data.",
-    explanation: "High R² indicates that most variation in y is explained by x.",
-    level: "intermediate",
-    codeExample: "=RSQ(known_y's, known_x's) gives R²."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Weighted average calculations using SUMPRODUCT / SUM (Question 25)?",
+    "shortAnswer": "Weighted average calculations using SUMPRODUCT / SUM is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Weighted average calculations using SUMPRODUCT / SUM plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Weighted average calculations using SUMPRODUCT / SUM impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=STDEV.S(B2:B45)"
   },
   {
-    question: "Can FORECAST.LINEAR be used in conjunction with scenario analysis?",
-    shortAnswer: "Yes, create different x inputs (e.g., optimistic, pessimistic) and see how the forecast changes.",
-    explanation: "Use a data table to perform sensitivity analysis.",
-    level: "advanced",
-    codeExample: "=FORECAST.LINEAR(B2, sales, ads) with B2 varying."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V (Question 26)?",
+    "shortAnswer": "Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What happens if known_x's and known_y's have different lengths?",
-    shortAnswer: "Excel uses only the overlapping part after removing non‑numeric cells, but if the lengths differ substantially you may get #N/A.",
-    explanation: "Better to use ranges of equal size before filtering.",
-    level: "intermediate",
-    codeExample: "Ensure same number of rows."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Handling missing data and empty cells in correlation matrices (Question 27)?",
+    "shortAnswer": "Handling missing data and empty cells in correlation matrices is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Handling missing data and empty cells in correlation matrices plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Handling missing data and empty cells in correlation matrices impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "How to forecast values when the independent variable is time?",
-    shortAnswer: "Use dates or sequential numbers as x. FORECAST.LINEAR will treat time as a numeric series.",
-    explanation: "Works well for regular time intervals without seasonality.",
-    level: "basic",
-    codeExample: "=FORECAST.LINEAR(7, sales, {1,2,3,4,5,6})"
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards (Question 28)?",
+    "shortAnswer": "3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=STDEV.S(B2:B48)"
   },
   {
-    question: "Can FORECAST.LINEAR be used to predict beyond the maximum x in the data?",
-    shortAnswer: "Yes, that's extrapolation, but it's not recommended if the new x is far outside the range.",
-    explanation: "Extrapolation risks large errors.",
-    level: "intermediate",
-    codeExample: "Use with caution."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Normality test verification and bell curve distribution benchmarks (Question 29)?",
+    "shortAnswer": "Normality test verification and bell curve distribution benchmarks is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Normality test verification and bell curve distribution benchmarks plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Normality test verification and bell curve distribution benchmarks impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the difference between FORECAST.LINEAR and GROWTH?",
-    shortAnswer: "FORECAST.LINEAR assumes linear relationship; GROWTH assumes exponential relationship.",
-    explanation: "GROWTH fits a curve y = b * m^x.",
-    level: "advanced",
-    codeExample: "Use GROWTH for exponential trends."
+    "question": "In the context of FORECAST.LINEAR Function (Linear Forecasting), how does Excel compute and evaluate Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR (Question 30)?",
+    "shortAnswer": "Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   }
 ];
 

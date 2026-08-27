@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Text, Date and Time Functions
+Topic 1: Substring extraction: LEFT, RIGHT, MID, LEN, and FIND vs SEARCH
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

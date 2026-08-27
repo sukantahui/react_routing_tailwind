@@ -305,7 +305,7 @@ export default function Topic4() {
             <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
-                <h3 className="text-base font-bold text-white">Kolkata Corporate Indian Lakhs & Crores Boardroom Formatting</h3>
+                <h3 className="text-base font-bold text-white">Kolkata Corporate Indian Lakhs &amp; Crores Boardroom Formatting</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Formatting large balance sheet assets in Crores (₹ 1.45 Cr) and Lakhs (₹ 7.5 L) without altering raw numbers.</p>
               
@@ -485,7 +485,7 @@ export default function Topic4() {
                   <td className="py-3 px-4 text-rose-300 font-mono font-bold">Number Treated as Text After Hardcoding Currency Symbols</td>
                   <td className="py-3 px-4 text-slate-300">Typing 'Rs. 5000' or '₹ 5000' directly into the cell instead of applying Number Formatting.</td>
                   <td className="py-3 px-4 text-amber-300">Cell left-aligns; =SUM() ignores the cell and returns 0.</td>
-                  <td className="py-3 px-4 text-emerald-400 font-medium">Enter pure number 5000, then press Ctrl+1 -> Custom -> type ₹ #,##0.00.</td>
+                  <td className="py-3 px-4 text-emerald-400 font-medium">Enter pure number 5000, then press Ctrl+1 &amp;rarr; Custom &amp;rarr; type ₹ #,##0.00.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 text-rose-300 font-mono font-bold">Negative Numbers Vanishing</td>
@@ -589,7 +589,7 @@ export default function Topic4() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="Master the 4-section custom format: Positive; Negative; Zero; Text! In corporate finance, never divide your numbers by 10 Lakhs in formulas just to make reports look pretty. Use ₹ 0.0,, " Cr" so your underlying numbers remain 100% mathematically exact!"
+            note="Master the 4-section custom format: Positive; Negative; Zero; Text! In corporate finance, never divide your numbers by 10 Lakhs in formulas just to make reports look pretty. Use ₹ 0.0,, ' Cr' so your underlying numbers remain 100% mathematically exact!"
           />
         </div>
       </div>

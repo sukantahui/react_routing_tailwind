@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Power Pivot & Data Modeling
+Topic 9: Creating Hierarchies (Year > Quarter > Month > Day, Category > Subcategory > Product)
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

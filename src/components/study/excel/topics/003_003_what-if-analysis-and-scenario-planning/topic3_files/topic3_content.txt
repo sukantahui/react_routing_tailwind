@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
+Topic 3: Two-Variable Data Tables: Cross-matrix sensitivity analysis (e.g., price vs volume vs profit)
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

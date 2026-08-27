@@ -76,7 +76,7 @@ export default function Topic6() {
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Master executive spreadsheet formatting: Text Wrapping (Alt+H+W), Vertical/Horizontal Alignment, Text Orientation, Indentation for financial hierarchy, why 'Center Across Selection' is 10x superior to dangerous 'Merge & Center', and corporate Cell Styles.
+            Master executive spreadsheet formatting: Text Wrapping (Alt+H+W), Vertical/Horizontal Alignment, Text Orientation, Indentation for financial hierarchy, why 'Center Across Selection' is 10x superior to dangerous 'Merge &amp; Center', and corporate Cell Styles.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -149,7 +149,7 @@ export default function Topic6() {
             <span className="text-sky-400 text-lg">💡</span>
             <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
               <strong className="text-white">Presentation Evaluation: </strong>
-              Returns an optimized <span className="text-sky-300 font-semibold">Visual Layout & Structural Alignment</span> while keeping underlying memory values 100% intact.
+              Returns an optimized <span className="text-sky-300 font-semibold">Visual Layout &amp; Structural Alignment</span> while keeping underlying memory values 100% intact.
             </div>
           </div>
         </section>
@@ -167,9 +167,9 @@ export default function Topic6() {
           </h2>
 
           <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-            <p>Merge & Center physically fuses multiple cells into a single address (top-left cell), destroying all other cell addresses in that block.</p>
+            <p>Merge &amp; Center physically fuses multiple cells into a single address (top-left cell), destroying all other cell addresses in that block.</p>
             <p>Merged cells break VBA automation, disable column sorting, break array formulas, and prevent single-column selection (Ctrl+Space).</p>
-            <p>'Center Across Selection' (Format Cells -> Alignment -> Horizontal: Center Across Selection) visually achieves the exact same title centering while keeping every column 100% intact!</p>
+            <p>'Center Across Selection' (Format Cells &amp;rarr; Alignment &amp;rarr; Horizontal: Center Across Selection) visually achieves the exact same title centering while keeping every column 100% intact!</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
@@ -197,7 +197,7 @@ export default function Topic6() {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Formatting Flow: Merge & Center (Destructive) vs Center Across Selection (Safe Architecture)
+            Visual Formatting Flow: Merge &amp; Center (Destructive) vs Center Across Selection (Safe Architecture)
           </h2>
 
           <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
@@ -301,21 +301,21 @@ export default function Topic6() {
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
                 <h3 className="text-base font-bold text-white">Kolkata Corporate Financial Balance Sheet Title Centering</h3>
               </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Centering 'CODER & ACCOTAX ANNUAL BALANCE SHEET' across columns A to G without breaking column sorting.</p>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Centering 'CODER &amp; ACCOTAX ANNUAL BALANCE SHEET' across columns A to G without breaking column sorting.</p>
               
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Method_Used</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Visual_Appearance</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Column_Sorting_Viable?</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">VBA_Macro_Safe?</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Merge & Center (A1:G1)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Centered Title</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">NO (Sorting blocked with error)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">NO (Throws runtime error)</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Merge &amp; Center (A1:G1)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Centered Title</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">NO (Sorting blocked with error)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">NO (Throws runtime error)</td></tr>
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Center Across Selection</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Centered Title</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">YES (100% Sortable)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">YES (100% Macro Safe)</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Format Cells (Ctrl+1) -> Alignment -> Horizontal: Center Across Selection</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Format Cells (Ctrl+1) &amp;rarr; Alignment &amp;rarr; Horizontal: Center Across Selection</div>
                 <div className="text-emerald-400 font-semibold">Result: Executive centered banner with zero structural grid damage.</div>
                 <div className="text-slate-400 text-[11px]">Center Across Selection is the universal standard in elite financial modeling.</div>
               </div>
@@ -340,7 +340,7 @@ export default function Topic6() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Home Tab -> Increase Indent (Alt + H + 6)</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Home Tab &amp;rarr; Increase Indent (Alt + H + 6)</div>
                 <div className="text-emerald-400 font-semibold">Result: Clean audited financial statement hierarchy without messy leading spaces.</div>
                 <div className="text-slate-400 text-[11px]">Cell indentation maintains clean numerical searchability while creating clear visual structure.</div>
               </div>
@@ -386,7 +386,7 @@ export default function Topic6() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Format Cells -> Alignment -> Orientation: 45 Degrees</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Format Cells &amp;rarr; Alignment &amp;rarr; Orientation: 45 Degrees</div>
                 <div className="text-emerald-400 font-semibold">Result: Compact engineering quality matrix fitting perfectly on A4 printable width.</div>
                 <div className="text-slate-400 text-[11px]">Header orientation angles maximize printable table density.</div>
               </div>
@@ -475,7 +475,7 @@ export default function Topic6() {
                 
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 text-rose-300 font-mono font-bold">Cannot Sort Table Due to Merged Cells</td>
-                  <td className="py-3 px-4 text-slate-300">Applying Merge & Center on header rows or data cells inside a table.</td>
+                  <td className="py-3 px-4 text-slate-300">Applying Merge &amp; Center on header rows or data cells inside a table.</td>
                   <td className="py-3 px-4 text-amber-300">Excel displays error: 'This operation requires the merged cells to be identically sized'.</td>
                   <td className="py-3 px-4 text-emerald-400 font-medium">Unmerge all cells, and apply 'Center Across Selection' for headers.</td>
                 </tr>
@@ -530,7 +530,7 @@ export default function Topic6() {
             </div>
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                Ctrl + 1 -> Alignment -> Center Across Selection
+                Ctrl + 1 &amp;rarr; Alignment &amp;rarr; Center Across Selection
               </kbd>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Safely center titles across columns without merging.</p>
             </div>
@@ -553,7 +553,7 @@ export default function Topic6() {
             
             <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
               <span className="text-teal-400 text-base">❓</span>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Why do Wall Street investment banks and corporate auditing firms strictly forbid the use of Merge & Center?</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Why do Wall Street investment banks and corporate auditing firms strictly forbid the use of Merge &amp; Center?</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
               <span className="text-teal-400 text-base">❓</span>

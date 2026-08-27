@@ -1,5 +1,5 @@
 MODULE 1.1 - TOPIC 9
-Title: Quick Check Quiz: Interface Ergonomics, Grid Mechanics & Spreadsheet Fundamentals
+Title: Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals
 Level: Beginner | Bloom's Level 1 & 2: Remember & Understand
 
 Overview:

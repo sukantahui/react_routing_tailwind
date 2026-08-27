@@ -25,7 +25,9 @@ import {
   FileText,
   HelpCircle,
   Calculator,
-  Compass
+  Compass,
+  LayoutGrid,
+  List
 } from "lucide-react";
 
 export default function StudyModuleView({
@@ -107,6 +109,22 @@ export default function StudyModuleView({
   const [copiedLink, setCopiedLink] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [toastMessage, setToastMessage] = useState(null);
+  const [topicViewMode, setTopicViewMode] = useState(() => {
+    try {
+      return localStorage.getItem("study-module-view-mode") || "list";
+    } catch {
+      return "list";
+    }
+  });
+
+  const handleViewModeChange = (mode) => {
+    setTopicViewMode(mode);
+    try {
+      localStorage.setItem("study-module-view-mode", mode);
+    } catch {
+      // ignore
+    }
+  };
 
   // Show quick toast notification
   const showToast = useCallback((msg) => {
@@ -159,6 +177,7 @@ export default function StudyModuleView({
         slug: moduleData.slug,
         title: moduleData.title,
         moduleId: moduleData.moduleId,
+        segmentId: segmentData?.segmentId || "",
         segmentTitle: segmentData?.title || "",
         timestamp: new Date().toISOString()
       };
@@ -401,61 +420,61 @@ export default function StudyModuleView({
         </div>
       </header>
 
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
+      <main className="max-w-5xl mx-auto px-3.5 sm:px-6 py-5 sm:py-6 space-y-5">
 
         {/* ========================================================== */}
-        {/* Module Hero Overview Card */}
+        {/* Module Overview Card (Compact & Soothing) */}
         {/* ========================================================== */}
-        <section className="rounded-2xl bg-slate-900/70 border border-slate-800 p-6 sm:p-8 shadow-sm">
+        <section className="rounded-2xl bg-slate-900/60 border border-slate-800 p-4 sm:p-6 backdrop-blur-sm shadow-sm">
           
           {/* Metadata Badges */}
-          <div className="flex flex-wrap items-center gap-2.5 mb-4">
-            <span className="px-3 py-1 rounded-lg text-xs sm:text-sm font-mono font-bold bg-slate-950 text-slate-300 border border-slate-800">
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <span className="px-2.5 py-0.5 rounded-lg text-xs font-mono font-bold bg-slate-950 text-slate-300 border border-slate-800">
               #{moduleData.moduleIndexInSegment} · {moduleData.moduleId}
             </span>
 
-            <span className="px-3 py-1 rounded-lg text-xs sm:text-sm font-semibold bg-slate-950 text-slate-300 border border-slate-800 flex items-center gap-1.5">
-              <Layers size={14} className="text-slate-400" />
+            <span className="px-2.5 py-0.5 rounded-lg text-xs font-semibold bg-slate-950 text-slate-300 border border-slate-800 flex items-center gap-1.5">
+              <Layers size={13} className="text-slate-400" />
               {segmentData?.title?.split("–")[0]?.trim() || "Core Segment"}
             </span>
 
-            <span className="px-3 py-1 rounded-lg text-xs sm:text-sm font-semibold bg-slate-950 text-slate-300 border border-slate-800 flex items-center gap-1.5">
-              <Clock size={14} className="text-slate-400" />
-              {moduleData.estimatedHours} Estimated Hours
+            <span className="px-2.5 py-0.5 rounded-lg text-xs font-semibold bg-slate-950 text-slate-300 border border-slate-800 flex items-center gap-1.5">
+              <Clock size={13} className="text-slate-400" />
+              {moduleData.estimatedHours} Hours
             </span>
 
-            <span className="px-3 py-1 rounded-lg text-xs sm:text-sm font-semibold bg-slate-950 text-slate-300 border border-slate-800 flex items-center gap-1.5">
-              <ShieldCheck size={14} className="text-slate-400" />
+            <span className="px-2.5 py-0.5 rounded-lg text-xs font-semibold bg-slate-950 text-slate-300 border border-slate-800 flex items-center gap-1.5">
+              <ShieldCheck size={13} className="text-slate-400" />
               {moduleData.difficulty || "Standard"}
             </span>
           </div>
 
           {/* Module Title */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-3">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white mb-2">
             {moduleData.title}
           </h2>
 
           {/* Module Summary */}
           {moduleData.summary && (
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-5">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-4xl mb-4">
               {moduleData.summary}
             </p>
           )}
 
           {/* Learning Outcomes Checklist if available */}
           {Array.isArray(moduleData.learningOutcomes) && moduleData.learningOutcomes.length > 0 && (
-            <div className="mt-5 pt-5 border-t border-slate-800">
-              <h3 className="text-sm font-bold uppercase tracking-wider text-slate-300 mb-3 flex items-center gap-2">
-                <Compass size={16} className="text-sky-400" />
+            <div className="mt-3 pt-3 border-t border-slate-800/80">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2 flex items-center gap-1.5">
+                <Compass size={14} className="text-sky-400" />
                 Key Learning Outcomes
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {moduleData.learningOutcomes.map((outcome, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-950/60 border border-slate-850 text-sm text-slate-200 leading-normal"
+                    className="flex items-start gap-2 p-2 rounded-lg bg-slate-950/50 border border-slate-850 text-xs text-slate-300 leading-normal"
                   >
-                    <CheckCircle2 size={16} className="text-emerald-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 size={14} className="text-emerald-400 shrink-0 mt-0.5" />
                     <span>{outcome}</span>
                   </div>
                 ))}
@@ -464,13 +483,13 @@ export default function StudyModuleView({
           )}
 
           {/* Interactive Progress Bar */}
-          <div className="mt-6 pt-5 border-t border-slate-800 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+          <div className="mt-4 pt-3.5 border-t border-slate-800/80 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
             <div className="flex-1">
-              <div className="flex items-center justify-between text-sm text-slate-300 mb-2 font-medium">
+              <div className="flex items-center justify-between text-xs text-slate-300 mb-1.5 font-medium">
                 <span>Module Completion</span>
                 <span className="font-bold text-slate-100">{progressPercent}%</span>
               </div>
-              <div className="h-2.5 w-full bg-slate-800 rounded-full overflow-hidden">
+              <div className="h-2 w-full bg-slate-800 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-sky-500 transition-all duration-300 rounded-full"
                   style={{ width: `${progressPercent}%` }}
@@ -478,12 +497,12 @@ export default function StudyModuleView({
               </div>
             </div>
 
-            <div className="flex items-center gap-2.5 self-end sm:self-auto shrink-0">
+            <div className="flex items-center gap-2 self-end sm:self-auto shrink-0">
               <button
                 onClick={() => handleMarkAllTopics(completedCount < totalTopics)}
-                className="px-4 py-2 rounded-xl bg-slate-950 hover:bg-slate-850 border border-slate-800 text-sm font-semibold text-slate-200 hover:text-white transition flex items-center gap-2"
+                className="px-3 py-1.5 rounded-lg bg-slate-950 hover:bg-slate-850 border border-slate-800 text-xs font-semibold text-slate-300 hover:text-white transition flex items-center gap-1.5"
               >
-                <CheckCheck size={16} className="text-slate-400" />
+                <CheckCheck size={14} className="text-slate-400" />
                 <span>{completedCount < totalTopics ? "Mark All Done" : "Clear All"}</span>
               </button>
 
@@ -491,9 +510,9 @@ export default function StudyModuleView({
                 <button
                   onClick={() => handleMarkAllTopics(false)}
                   title="Reset topic progress"
-                  className="p-2 rounded-xl bg-slate-950 hover:bg-slate-850 border border-slate-800 text-slate-400 hover:text-slate-200 transition"
+                  className="p-1.5 rounded-lg bg-slate-950 hover:bg-slate-850 border border-slate-800 text-slate-400 hover:text-slate-200 transition"
                 >
-                  <RotateCcw size={16} />
+                  <RotateCcw size={14} />
                 </button>
               )}
             </div>
@@ -502,55 +521,55 @@ export default function StudyModuleView({
         </section>
 
         {/* ========================================================== */}
-        {/* Topics List & Search Bar Section */}
+        {/* Topics List & Search Bar Section (Soothing Compact Rows) */}
         {/* ========================================================== */}
-        <section className="rounded-2xl bg-slate-900/70 border border-slate-800 p-6 sm:p-8 shadow-sm">
+        <section className="rounded-2xl bg-slate-900/60 border border-slate-800 p-4 sm:p-5 backdrop-blur-sm shadow-sm">
           
           {/* Header & Topic Counters */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 mb-3.5">
             <div>
-              <h3 className="text-lg sm:text-xl font-extrabold text-white flex items-center gap-2.5">
-                <ListOrdered size={22} className="text-sky-400" />
-                <span>Topics & Problem Sets</span>
+              <h3 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+                <ListOrdered size={18} className="text-sky-400" />
+                <span>Topics & Curriculum Sequence</span>
               </h3>
-              <p className="text-sm text-slate-400 mt-1">
-                Step-by-step syllabus sequence, theoretical concepts, and worked numericals.
+              <p className="text-xs text-slate-400 mt-0.5">
+                Structured concept tutorials, step-by-step examples, and numerical exercises.
               </p>
             </div>
 
-            <span className="text-sm font-semibold text-slate-300 self-start sm:self-auto bg-slate-950 px-3.5 py-1.5 rounded-xl border border-slate-800">
-              Showing {filteredTopics.length} of {totalTopics}
+            <span className="text-xs font-semibold text-slate-300 self-start sm:self-auto bg-slate-950 px-3 py-1 rounded-lg border border-slate-800">
+              Showing {filteredTopics.length} of {totalTopics} topics
             </span>
           </div>
 
-          {/* Search & Topic Filters Row */}
-          <div className="flex flex-col sm:flex-row gap-3 mb-5">
+          {/* Search Input & View Controls */}
+          <div className="flex flex-col sm:flex-row gap-2.5 mb-3">
             
             {/* Search Input */}
             <div className="relative flex-1">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-500" />
               <input
                 type="text"
                 placeholder="Search topics (e.g. decision variables, worked example, slack, dual)..."
                 value={searchTopic}
                 onChange={(e) => setSearchTopic(e.target.value)}
-                className="w-full pl-10 pr-9 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-200 placeholder:text-slate-500 text-sm sm:text-base focus:outline-none focus:border-slate-600 transition"
+                className="w-full pl-8 pr-8 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-200 placeholder:text-slate-500 text-xs focus:outline-none focus:border-slate-600 transition"
               />
               {searchTopic && (
                 <button
                   onClick={() => setSearchTopic("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
                 >
-                  <X size={16} />
+                  <X size={13} />
                 </button>
               )}
             </div>
 
             {/* Filter Mode Chips */}
-            <div className="flex items-center gap-1.5 bg-slate-950 p-1 rounded-xl border border-slate-800 self-start sm:self-auto">
+            <div className="flex items-center gap-1 bg-slate-950 p-0.5 rounded-lg border border-slate-800 self-start sm:self-auto">
               <button
                 onClick={() => setFilterMode("all")}
-                className={`px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition ${
+                className={`px-2.5 py-1 rounded-md text-xs font-semibold transition ${
                   filterMode === "all"
                     ? "bg-slate-800 text-white shadow-sm"
                     : "text-slate-400 hover:text-slate-200"
@@ -561,7 +580,7 @@ export default function StudyModuleView({
 
               <button
                 onClick={() => setFilterMode("incomplete")}
-                className={`px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition ${
+                className={`px-2.5 py-1 rounded-md text-xs font-semibold transition ${
                   filterMode === "incomplete"
                     ? "bg-slate-800 text-white shadow-sm"
                     : "text-slate-400 hover:text-slate-200"
@@ -572,7 +591,7 @@ export default function StudyModuleView({
 
               <button
                 onClick={() => setFilterMode("completed")}
-                className={`px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition ${
+                className={`px-2.5 py-1 rounded-md text-xs font-semibold transition ${
                   filterMode === "completed"
                     ? "bg-slate-800 text-white shadow-sm"
                     : "text-slate-400 hover:text-slate-200"
@@ -582,120 +601,243 @@ export default function StudyModuleView({
               </button>
             </div>
 
+            {/* View Mode Switcher: List vs Grid */}
+            <div className="flex items-center gap-1 bg-slate-950 p-0.5 rounded-lg border border-slate-800 self-start sm:self-auto">
+              <button
+                type="button"
+                onClick={() => handleViewModeChange("list")}
+                className={`p-1.5 rounded-md transition ${
+                  topicViewMode === "list"
+                    ? "bg-slate-800 text-slate-200 shadow-sm"
+                    : "text-slate-500 hover:text-slate-300"
+                }`}
+                title="Compact List View"
+              >
+                <List size={14} />
+              </button>
+              <button
+                type="button"
+                onClick={() => handleViewModeChange("grid")}
+                className={`p-1.5 rounded-md transition ${
+                  topicViewMode === "grid"
+                    ? "bg-slate-800 text-slate-200 shadow-sm"
+                    : "text-slate-500 hover:text-slate-300"
+                }`}
+                title="Grid View"
+              >
+                <LayoutGrid size={14} />
+              </button>
+            </div>
+
           </div>
 
-          {/* Topics List Items */}
-          <div className="space-y-2.5">
-            {filteredTopics.map(({ topic, idx }) => {
-              const isDone = completedTopics.includes(idx);
-              const isLastVisited = lastTopicIndex === idx;
-              const badgeInfo = getTopicTypeBadge(topic);
+          {/* Topics Items */}
+          {topicViewMode === "list" ? (
+            /* ====================================================== */
+            /* Compact Soothing List Mode */
+            /* ====================================================== */
+            <div className="space-y-1.5">
+              {filteredTopics.map(({ topic, idx }) => {
+                const isDone = completedTopics.includes(idx);
+                const isLastVisited = lastTopicIndex === idx;
+                const badgeInfo = getTopicTypeBadge(topic);
 
-              return (
-                <div
-                  key={idx}
-                  className={`group flex items-center justify-between gap-4 p-3.5 sm:p-4 rounded-xl border transition-all ${
-                    isDone
-                      ? "bg-slate-950/40 border-slate-800/80 text-slate-300"
-                      : "bg-slate-950/80 border-slate-800 hover:border-slate-700 text-slate-200 shadow-sm"
-                  }`}
-                >
-                  {/* Left: Completion Checkbox & Topic Title */}
-                  <div className="flex items-center gap-3.5 min-w-0 flex-1">
-                    <button
-                      type="button"
-                      onClick={() => toggleTopicComplete(idx)}
-                      title={isDone ? "Mark incomplete" : "Mark completed"}
-                      className="shrink-0 p-0.5 text-slate-500 hover:text-slate-300 transition"
-                    >
-                      {isDone ? (
-                        <CheckCircle2 size={20} className="text-emerald-400" />
-                      ) : (
-                        <Circle size={20} className="text-slate-600 group-hover:text-slate-400" />
-                      )}
-                    </button>
+                return (
+                  <div
+                    key={idx}
+                    className={`group flex items-center justify-between gap-3 px-3 py-2 sm:py-2.5 rounded-xl border transition-all duration-150 ${
+                      isDone
+                        ? "bg-slate-950/40 border-slate-850/60 hover:bg-slate-900/40 hover:border-slate-800"
+                        : isLastVisited
+                        ? "bg-sky-950/25 border-sky-800/40 hover:border-sky-700/60 shadow-sm"
+                        : "bg-slate-950/70 border-slate-850/80 hover:bg-slate-900/80 hover:border-slate-750"
+                    }`}
+                  >
+                    {/* Left: Checkbox + Number + Title + Badges */}
+                    <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
+                      {/* Checkbox Toggle */}
+                      <button
+                        type="button"
+                        onClick={() => toggleTopicComplete(idx)}
+                        title={isDone ? "Mark incomplete" : "Mark completed"}
+                        className="shrink-0 p-0.5 text-slate-500 hover:text-slate-300 transition"
+                      >
+                        {isDone ? (
+                          <CheckCircle2 size={17} className="text-emerald-400" />
+                        ) : (
+                          <Circle size={17} className="text-slate-600 group-hover:text-slate-400" />
+                        )}
+                      </button>
 
-                    <Link
-                      to={`/${roadmapData.folder}/topic/${moduleData.slug}/${idx}`}
-                      onClick={() => handleTopicClick(idx)}
-                      className="min-w-0 flex-1 block"
-                    >
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-xs sm:text-sm font-mono font-bold text-slate-500 shrink-0">
-                          {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}.
-                        </span>
-                        
-                        <span className={`text-sm sm:text-base font-semibold group-hover:text-sky-300 transition-colors truncate ${isDone ? "text-slate-400" : "text-slate-100"}`}>
+                      {/* Numbering */}
+                      <span className="text-xs font-mono font-bold text-slate-500 w-5 text-right shrink-0">
+                        {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
+                      </span>
+
+                      {/* Topic Title */}
+                      <Link
+                        to={`/${roadmapData.folder}/topic/${moduleData.slug}/${idx}`}
+                        onClick={() => handleTopicClick(idx)}
+                        className="min-w-0 flex-1 flex items-center gap-2"
+                      >
+                        <span className={`text-xs sm:text-sm font-medium group-hover:text-sky-300 transition-colors truncate ${
+                          isDone ? "text-slate-300" : "text-slate-100"
+                        }`}>
                           {topic}
                         </span>
 
                         {badgeInfo && (
-                          <span className={`px-2 py-0.5 rounded-md text-xs font-semibold border ${badgeInfo.badge} hidden md:inline-flex items-center gap-1`}>
+                          <span className={`px-1.5 py-0.5 rounded text-[10px] font-medium border ${badgeInfo.badge} hidden sm:inline-flex items-center gap-1 shrink-0`}>
                             {badgeInfo.text}
                           </span>
                         )}
 
                         {isLastVisited && (
-                          <span className="px-2 py-0.5 rounded-md text-xs font-bold bg-slate-800 text-sky-300 border border-slate-700">
+                          <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-sky-950 text-sky-300 border border-sky-700/80 shrink-0">
                             Last Viewed
                           </span>
                         )}
-                      </div>
+                      </Link>
+                    </div>
+
+                    {/* Right: Compact Open / Study Action */}
+                    <Link
+                      to={`/${roadmapData.folder}/topic/${moduleData.slug}/${idx}`}
+                      onClick={() => handleTopicClick(idx)}
+                      className={`shrink-0 px-2.5 py-1 rounded-lg border text-xs font-semibold flex items-center gap-1 transition ${
+                        isDone
+                          ? "bg-slate-900/60 text-slate-400 border-slate-800 hover:text-slate-200 hover:bg-slate-850"
+                          : isLastVisited
+                          ? "bg-sky-900/50 text-sky-200 border-sky-700/80 hover:bg-sky-850"
+                          : "bg-slate-900 text-slate-300 border-slate-800 group-hover:border-slate-700 group-hover:text-white hover:bg-slate-800"
+                      }`}
+                    >
+                      <span className="text-[11px]">{isDone ? "Review" : "Study"}</span>
+                      <ChevronRight size={13} className="text-slate-400 group-hover:translate-x-0.5 transition-transform" />
                     </Link>
                   </div>
+                );
+              })}
+            </div>
+          ) : (
+            /* ====================================================== */
+            /* Grid View Mode */
+            /* ====================================================== */
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              {filteredTopics.map(({ topic, idx }) => {
+                const isDone = completedTopics.includes(idx);
+                const isLastVisited = lastTopicIndex === idx;
+                const badgeInfo = getTopicTypeBadge(topic);
 
-                  {/* Right: Open Topic Action */}
-                  <Link
-                    to={`/${roadmapData.folder}/topic/${moduleData.slug}/${idx}`}
-                    onClick={() => handleTopicClick(idx)}
-                    className="shrink-0 px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 group-hover:text-white border border-slate-800 group-hover:border-slate-700 text-xs sm:text-sm font-bold flex items-center gap-1.5 transition"
+                return (
+                  <div
+                    key={idx}
+                    className={`group p-3 rounded-xl border transition-all flex flex-col justify-between ${
+                      isDone
+                        ? "bg-slate-950/40 border-slate-850/60 text-slate-400"
+                        : isLastVisited
+                        ? "bg-sky-950/25 border-sky-800/40 shadow-sm"
+                        : "bg-slate-950/70 border-slate-850/80 hover:bg-slate-900/80 hover:border-slate-750"
+                    }`}
                   >
-                    <span>{isDone ? "Review" : "Study"}</span>
-                    <ChevronRight size={14} className="text-slate-400 group-hover:translate-x-0.5 transition-transform" />
-                  </Link>
-                </div>
-              );
-            })}
+                    <div className="flex items-start gap-2.5 mb-2">
+                      <button
+                        type="button"
+                        onClick={() => toggleTopicComplete(idx)}
+                        title={isDone ? "Mark incomplete" : "Mark completed"}
+                        className="shrink-0 pt-0.5 text-slate-500 hover:text-slate-300 transition"
+                      >
+                        {isDone ? (
+                          <CheckCircle2 size={16} className="text-emerald-400" />
+                        ) : (
+                          <Circle size={16} className="text-slate-600 group-hover:text-slate-400" />
+                        )}
+                      </button>
 
-            {/* Empty State */}
-            {filteredTopics.length === 0 && (
-              <div className="text-center py-10 px-4 rounded-2xl bg-slate-950 border border-slate-800 text-slate-400">
-                <Search size={28} className="text-slate-600 mx-auto mb-2" />
-                <p className="text-sm">No topics matched your search filters.</p>
-                <button
-                  onClick={() => {
-                    setSearchTopic("");
-                    setFilterMode("all");
-                  }}
-                  className="mt-2 text-sm text-sky-400 hover:underline font-semibold"
-                >
-                  Clear search
-                </button>
-              </div>
-            )}
-          </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-1.5 mb-1">
+                          <span className="text-[10px] font-mono font-bold text-slate-500">
+                            #{idx + 1}
+                          </span>
+                          {badgeInfo && (
+                            <span className={`px-1.5 py-0.2 rounded text-[9px] font-medium border ${badgeInfo.badge}`}>
+                              {badgeInfo.text}
+                            </span>
+                          )}
+                          {isLastVisited && (
+                            <span className="px-1.5 py-0.2 rounded text-[9px] font-bold bg-sky-950 text-sky-300 border border-sky-700/80">
+                              Last Viewed
+                            </span>
+                          )}
+                        </div>
+                        <Link
+                          to={`/${roadmapData.folder}/topic/${moduleData.slug}/${idx}`}
+                          onClick={() => handleTopicClick(idx)}
+                          className="block"
+                        >
+                          <h4 className={`text-xs sm:text-sm font-medium group-hover:text-sky-300 transition-colors line-clamp-2 ${
+                            isDone ? "text-slate-400" : "text-slate-200"
+                          }`}>
+                            {topic}
+                          </h4>
+                        </Link>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center justify-end pt-2 border-t border-slate-850/60">
+                      <Link
+                        to={`/${roadmapData.folder}/topic/${moduleData.slug}/${idx}`}
+                        onClick={() => handleTopicClick(idx)}
+                        className="text-[11px] font-semibold text-sky-400 hover:text-sky-300 flex items-center gap-1 transition"
+                      >
+                        <span>{isDone ? "Review" : "Study"}</span>
+                        <ChevronRight size={12} />
+                      </Link>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
+          {/* Empty State */}
+          {filteredTopics.length === 0 && (
+            <div className="text-center py-8 px-4 rounded-xl bg-slate-950 border border-slate-850 text-slate-400">
+              <Search size={22} className="text-slate-600 mx-auto mb-1.5" />
+              <p className="text-xs">No topics matched your search filters.</p>
+              <button
+                onClick={() => {
+                  setSearchTopic("");
+                  setFilterMode("all");
+                }}
+                className="mt-1.5 text-xs text-sky-400 hover:underline font-semibold"
+              >
+                Clear filters
+              </button>
+            </div>
+          )}
 
         </section>
 
         {/* ========================================================== */}
         {/* Module Navigation Footer (Prev / Next) */}
         {/* ========================================================== */}
-        <nav className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+        <nav className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
           {prevModule ? (
             <Link
               to={`/${roadmapData.folder}/module/${prevModule.slug}`}
-              className="group p-5 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 hover:bg-slate-900 transition flex items-center gap-3.5"
+              className="group p-4 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 hover:bg-slate-900 transition flex items-center gap-3"
             >
-              <ArrowLeft size={20} className="text-slate-400 group-hover:-translate-x-0.5 transition-transform shrink-0" />
+              <ArrowLeft size={18} className="text-slate-400 group-hover:-translate-x-0.5 transition-transform shrink-0" />
               <div className="min-w-0">
-                <div className="text-xs uppercase font-bold text-slate-500">Previous Module</div>
-                <div className="text-sm sm:text-base font-bold text-slate-200 truncate group-hover:text-white transition-colors">
+                <div className="text-[11px] uppercase font-bold text-slate-500">Previous Module</div>
+                <div className="text-xs sm:text-sm font-bold text-slate-200 truncate group-hover:text-white transition-colors">
                   {prevModule.title}
                 </div>
               </div>
             </Link>
           ) : (
-            <div className="p-5 rounded-2xl bg-slate-950/40 border border-slate-850 text-slate-500 text-sm flex items-center">
+            <div className="p-4 rounded-xl bg-slate-950/40 border border-slate-850 text-slate-500 text-xs flex items-center">
               Beginning of course curriculum
             </div>
           )}
@@ -703,25 +845,25 @@ export default function StudyModuleView({
           {nextModule ? (
             <Link
               to={`/${roadmapData.folder}/module/${nextModule.slug}`}
-              className="group p-5 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 hover:bg-slate-900 transition flex items-center justify-between text-right gap-3.5"
+              className="group p-4 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 hover:bg-slate-900 transition flex items-center justify-between text-right gap-3"
             >
               <div className="min-w-0 flex-1">
-                <div className="text-xs uppercase font-bold text-slate-500">Next Module</div>
-                <div className="text-sm sm:text-base font-bold text-slate-200 truncate group-hover:text-white transition-colors">
+                <div className="text-[11px] uppercase font-bold text-slate-500">Next Module</div>
+                <div className="text-xs sm:text-sm font-bold text-slate-200 truncate group-hover:text-white transition-colors">
                   {nextModule.title}
                 </div>
               </div>
-              <ArrowRight size={20} className="text-slate-400 group-hover:translate-x-0.5 transition-transform shrink-0" />
+              <ArrowRight size={18} className="text-slate-400 group-hover:translate-x-0.5 transition-transform shrink-0" />
             </Link>
           ) : (
-            <div className="p-5 rounded-2xl bg-slate-950/40 border border-slate-850 text-slate-500 text-sm flex items-center justify-end">
+            <div className="p-4 rounded-xl bg-slate-950/40 border border-slate-850 text-slate-500 text-xs flex items-center justify-end">
               Course completed 🎉
             </div>
           )}
         </nav>
 
         {/* Footer */}
-        <footer className="text-center pt-8 pb-10 text-xs sm:text-sm text-slate-500 space-y-1">
+        <footer className="text-center pt-6 pb-8 text-xs text-slate-500 space-y-1">
           <p>
             © {new Date().getFullYear()} {roadmapData.institute?.name || "Coder & AccoTax"} · {roadmapData.trackTitle}
           </p>

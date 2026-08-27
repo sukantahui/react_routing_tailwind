@@ -1,0 +1,18 @@
+================================================================================
+EXCEL MASTERCLASS: Module 2.5 - Lookup Functions: VLOOKUP, HLOOKUP, INDEX-MATCH & XLOOKUP
+TOPIC 19: Practice These Topics: Multi-Criteria Two-Way Dynamic Lookup Hub
+Subject Code: EXCEL-PRO-901 | Competency: CO2 (Advanced Relational Retrieval)
+================================================================================
+
+1. ENTERPRISE LOOKUP HUB ARCHITECTURE
+In modern financial modeling and ERP integrations, dynamic lookup hubs connect disparate transactional tables to centralized master dimensions:
+- Primary Key Integrity: Enforcing 100% uniqueness to prevent ambiguous multi-match returns.
+- Left-Lookup & Two-Way Matrix Resolution: Retrieving data seamlessly regardless of grid orientation.
+- Multi-Condition Querying: Filtering by composite keys (e.g. Region + Segment + Fiscal Period).
+- Performance Scalability: Avoiding whole-column references and leveraging structured tables.
+
+2. LAB EXERCISE INSTRUCTIONS
+- Task 1: Build a Two-Way Matrix Lookup for Product Tariff based on SKU and Service Tier.
+- Task 2: Implement a Multi-Criteria XLOOKUP returning Effective Price.
+- Task 3: Add input data validation dropdowns linked to dynamic structured table columns.
+- Task 4: Stress-test against missing keys and verify that robust default values are returned.

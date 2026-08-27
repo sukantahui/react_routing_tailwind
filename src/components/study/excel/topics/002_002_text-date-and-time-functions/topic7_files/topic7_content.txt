@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Text, Date and Time Functions
+Topic 7: Time calculations: TIME, HOUR, MINUTE, SECOND, NOW, and handling elapsed hours (>24h)
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

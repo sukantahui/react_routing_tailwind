@@ -1,0 +1,31 @@
+MODULE 2.1 - TOPIC 0
+Title: Excel Tables (ListObjects): Creating, Styling and Structured Referencing Syntax ([@Column])
+Level: Intermediate | Bloom's Level 2 & 3: Understand & Apply
+
+Overview:
+Master Excel Table Objects (ListObjects): Convert static ranges with Ctrl + T, structured reference syntax ([@ColumnName], Table[#Headers], Table[#Totals], Table[#All]), table nomenclature, and dynamic auto-expanding range references.
+
+Technical Anatomy:
+Signature: =Table1[@UnitPrice] * Table1[@Quantity]
+Return Type: Dynamic Structured Reference Vector
+
+Real-World Business Scenarios:
+[Barrackpore Student Fee Ledger Structured Formula Conversion]
+Context: Replacing fragile cell references with structured table column references.
+Applied: Excel Table Object (Ctrl + T) + Structured Syntax
+Result: Flawless self-expanding student enrollment ledger.
+
+[Kolkata Corporate Inventory Reorder Automated Extension]
+Context: Typing a new product SKU into row 51 of an existing 50-row inventory table.
+Applied: Automatic Table Expansion
+Result: Zero manual formula dragging required for new entries.
+
+[Shyamnagar Regional Sales Multi-Table Referencing]
+Context: Referencing columns from `tblBranchSales` in an external summary KPI card.
+Applied: =SUM(tblBranchSales[ColumnName])
+Result: External formulas update dynamically with zero broken coordinates.
+
+[Ichapur Plant Quality Inspection Table Header Freeze]
+Context: Scrolling down 500 rows while keeping column headers visible in the sheet margin.
+Applied: Native Excel Table Header Replacement
+Result: Headers remain permanently visible during vertical scrolling.

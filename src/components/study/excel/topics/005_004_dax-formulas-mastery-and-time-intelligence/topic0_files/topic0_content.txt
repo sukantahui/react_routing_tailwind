@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
+Topic 0: Introduction to DAX: Philosophy, Syntax, and Comparison with Excel formulas
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

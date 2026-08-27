@@ -1,0 +1,31 @@
+MODULE 1.4 - TOPIC 6
+Title: Comprehensive Laboratory Practice Session: Chart Creation, Customization and Executive Dashboard Construction
+Level: Beginner | Bloom's Level 3 & 4: Apply & Analyze
+
+Overview:
+Hands-on capstone laboratory practice for Module 1.4: Build an end-to-end multi-widget executive sales dashboard combining Top KPI metric cards, Clustered Target vs Actual column chart, 12-Month Revenue &amp; Margin dual-axis combo line chart, and a 4-Slice Doughnut cost allocation chart.
+
+Technical Anatomy:
+Signature: =BUILD_EXECUTIVE_DASHBOARD(Dataset, KPIs, Charts)
+Return Type: Complete Integrated Visual Dashboard
+
+Real-World Business Scenarios:
+[Kolkata Enterprise 50-Row Multi-Branch Executive Dashboard]
+Context: Students build a complete single-page interactive dashboard for corporate executives.
+Applied: Complete Module 1.4 Visualization Stack
+Result: Boardroom-ready interactive dashboard delivered in 10 minutes.
+
+[Barrackpore Academy Academic Performance Dashboard]
+Context: Visualizing subject score distributions, cohort pass rates, and subject rankings.
+Applied: Academic Visual Dashboard
+Result: Clear visual insights for faculty and student mentoring.
+
+[Shyamnagar Regional Retail Slicer-Driven Interactive Filter]
+Context: Connecting a PivotChart to Slicers for 1-click regional filtering.
+Applied: Slicer-Connected PivotCharts
+Result: Interactive filtering without writing macros or VBA.
+
+[Ichapur Plant ISO 9001 Quality Audit Executive Presentation]
+Context: Packaging manufacturing quality metrics into an audited compliance dashboard.
+Applied: Quality Assurance Compliance Dashboard
+Result: ISO 9001 certification renewal approved without audit observations.

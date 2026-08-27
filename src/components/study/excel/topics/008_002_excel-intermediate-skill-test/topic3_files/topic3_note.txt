@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: Excel Intermediate Skill Test
+Topic 3: VLOOKUP, INDEX-MATCH & XLOOKUP Accuracy Test
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

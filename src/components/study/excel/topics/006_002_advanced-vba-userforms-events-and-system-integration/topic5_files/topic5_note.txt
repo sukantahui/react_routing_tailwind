@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: Advanced VBA: UserForms, Events & System Integration
+Topic 5: File System Automation using `Scripting.FileSystemObject` (FSO): Creating, moving, reading, and deleting files/folders
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

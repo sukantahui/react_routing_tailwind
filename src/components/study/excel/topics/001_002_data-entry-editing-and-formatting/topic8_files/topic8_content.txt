@@ -1,5 +1,5 @@
 MODULE 1.2 - TOPIC 8
-Title: Practice Multiple Choice Questions (MCQ): Data Entry, Editing & Custom Number Formatting Mastery
+Title: Practice Multiple Choice Questions (MCQ): Data Entry, Editing &amp; Custom Number Formatting Mastery
 Level: Beginner | Bloom's Level 1 & 2: Remember & Understand
 
 Overview:

@@ -72,7 +72,7 @@ export default function Topic9() {
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            Quick Check Quiz: Interface Ergonomics, Grid Mechanics & Spreadsheet Fundamentals
+            Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
@@ -197,7 +197,7 @@ export default function Topic9() {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Calculation Flow: Module 1.1 Graduation & Knowledge Hierarchy
+            Visual Calculation Flow: Module 1.1 Graduation &amp; Knowledge Hierarchy
           </h2>
 
           <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
@@ -281,7 +281,7 @@ export default function Topic9() {
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic0_Excel_Overview"
-            title="Module 1.1 - Quick Check Quiz: Interface Ergonomics, Grid Mechanics & Spreadsheet Fundamentals"
+            title="Module 1.1 - Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals"
             rowsPerPage={25}
             showSheetSelector={true}
           />
@@ -306,16 +306,16 @@ export default function Topic9() {
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
                 <h3 className="text-base font-bold text-white">Graduation Assessment from Module 1.1 to Module 1.2</h3>
               </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Coder & AccoTax students complete Module 1.1 and prepare for Data Entry & Custom Formatting in Module 1.2.</p>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Coder &amp; AccoTax students complete Module 1.1 and prepare for Data Entry &amp; Custom Formatting in Module 1.2.</p>
               
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Competency_Area</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Module_1_1_Status</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Module_1_2_Upcoming_Skill</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Grid Navigation</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Mastered (Ctrl+Arrows, F5, Name Box)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Flash Fill & AutoFill Sequences</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Referencing</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Mastered (A1, $A$1, $A1, A$1)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Cross-Sheet Linking & 3D Calculations</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">File Storage</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Mastered (.xlsx, .xlsm, .xlsb, .csv)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Data Hygiene & Custom Date Formats</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Grid Navigation</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Mastered (Ctrl+Arrows, F5, Name Box)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Flash Fill &amp; AutoFill Sequences</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Referencing</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Mastered (A1, $A$1, $A1, A$1)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Cross-Sheet Linking &amp; 3D Calculations</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">File Storage</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Mastered (.xlsx, .xlsm, .xlsb, .csv)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Data Hygiene &amp; Custom Date Formats</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -363,8 +363,8 @@ export default function Topic9() {
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Sheet_Tab</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Purpose</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formatting_Standard</td></tr>
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Inputs_Raw</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Daily voucher transactions</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Blue font for editable constants</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Calc_Engine</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Amortization & tax calculations</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Black font for dynamic formulas</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">KPI_Dashboard</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Executive summary & charts</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Clean borders, frozen panes, high contrast</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Calc_Engine</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Amortization &amp; tax calculations</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Black font for dynamic formulas</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">KPI_Dashboard</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Executive summary &amp; charts</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Clean borders, frozen panes, high contrast</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -387,8 +387,8 @@ export default function Topic9() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">QA_Check</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Diagnostic_Tool</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Status</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Circular References</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Status Bar / Formulas -> Error Checking</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">0 Circular References Found</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formula Syntax Errors</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">F5 -> Special -> Formulas -> Errors</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">0 #VALUE! or #REF! Errors Found</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Circular References</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Status Bar / Formulas &amp;rarr; Error Checking</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">0 Circular References Found</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formula Syntax Errors</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">F5 &amp;rarr; Special &amp;rarr; Formulas &amp;rarr; Errors</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">0 #VALUE! or #REF! Errors Found</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -579,7 +579,7 @@ export default function Topic9() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Quick Check Quiz: Interface Ergonomics, Grid Mechanics & Spreadsheet Fundamentals - Frequently Asked Questions"
+            title="Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals - Frequently Asked Questions"
             questions={questions}
           />
         </div>

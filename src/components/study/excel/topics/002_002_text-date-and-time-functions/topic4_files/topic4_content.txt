@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Text, Date and Time Functions
+Topic 4: Date serial numbering in Excel: DATE, DAY, MONTH, YEAR, and TODAY
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

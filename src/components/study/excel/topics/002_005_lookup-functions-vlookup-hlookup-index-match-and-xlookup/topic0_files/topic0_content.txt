@@ -1,0 +1,31 @@
+MODULE 2.5 - TOPIC 0
+Title: Understanding Lookup Functions and Relational Reference Tables
+Level: Intermediate | Bloom's Level 2 & 3: Understand & Apply
+
+Overview:
+Understand the foundational architecture of reference tables in spreadsheet databases: Key-value mapping, primary keys, relational data extraction, and why lookups replace repetitive manual data entry.
+
+Technical Anatomy:
+Signature: =VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])
+Return Type: Matched Attribute Scalar
+
+Real-World Business Scenarios:
+[Barrackpore Student Enrollment Master Lookup]
+Context: Retrieving student department and course fee using Student ID key (e.g. STD-1005).
+Applied: =VLOOKUP(key, tblStudents, 4, FALSE)
+Result: Student department retrieved with zero manual searching.
+
+[Kolkata Customer Identification Ledger Extraction]
+Context: Pulling customer GSTIN numbers from a 1,000-client reference directory.
+Applied: =VLOOKUP(A2, master_range, 3, FALSE)
+Result: Exact statutory GSTIN extracted for billing.
+
+[Shyamnagar Regional Retail Unit Price Automation]
+Context: Extracting wholesale unit prices when scanning barcode SKU numbers.
+Applied: =VLOOKUP(A2, tblPriceMaster, 2, FALSE)
+Result: Automated cash register price population.
+
+[Ichapur Plant Machine Maintenance Master Roster]
+Context: Looking up assigned service engineer by Machine ID.
+Applied: =VLOOKUP(A2, tblMachines, 3, FALSE)
+Result: Service lead identified instantly.

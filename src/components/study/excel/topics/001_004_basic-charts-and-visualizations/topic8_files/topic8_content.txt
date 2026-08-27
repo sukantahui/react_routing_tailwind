@@ -1,0 +1,16 @@
+================================================================================
+EXCEL MASTERCLASS: Module 1.4 - Basic Charts & Visual Storytelling
+TOPIC 8: Quick Check Quiz & Module Assessment: Basic Charts & Visualizations
+Subject Code: EXCEL-PRO-901 | Competency: CO1 (Visual Storytelling Mastery)
+================================================================================
+
+1. MODULE 1.4 CAPSTONE ASSESSMENT OVERVIEW
+This evaluation assesses candidate proficiency across chart design, formatting, and executive communication:
+- Section A: 10 Conceptual Multiple-Choice Questions (Theory, Keyboard Shortcuts, Typology)
+- Section B: 4 Practical Case Scenarios (Diagnosing Distorted Visuals, Fixing Flawed Dual Axes)
+- Section C: 1 Complete Dashboard Architecture Challenge
+
+2. GRADING CRITERIA
+Score &gt;= 85%: Visual Storytelling &amp; Chart Architecture Specialist (Distinction)
+Score &gt;= 70%: Certified Excel Visual Analyst (Pass)
+Score &lt; 70%: Remedial Visual Design Workshop Required

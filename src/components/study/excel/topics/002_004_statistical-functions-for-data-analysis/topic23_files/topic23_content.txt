@@ -1,0 +1,9 @@
+MODULE 2.4 - TOPIC 23
+Title: QUARTILE.INC Function (Inclusive Quartiles)
+Level: Intermediate / Advanced
+
+Overview:
+Master QUARTILE.INC Function (Inclusive Quartiles) for advanced business intelligence, statistical modeling, and data science in Microsoft Excel.
+
+Signature:
+=QUARTILE.INC(array, quart)

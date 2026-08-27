@@ -1,220 +1,243 @@
 const questions = [
   {
-    question: "How does AVERAGE treat blank cells?",
-    shortAnswer: "It ignores them completely (does not count them in the denominator).",
-    explanation: "AVERAGE only uses numbers; blanks are not considered, so the average is of the non‑blank values.",
-    level: "basic",
-    codeExample: "AVERAGE(10, , 20) returns 15 (average of 10 and 20)."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Sample vs population standard deviation mathematical distinction (Question 1)?",
+    "shortAnswer": "Sample vs population standard deviation mathematical distinction is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Sample vs population standard deviation mathematical distinction plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Sample vs population standard deviation mathematical distinction impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B21)"
   },
   {
-    question: "How does SUM treat blank cells?",
-    shortAnswer: "It ignores blank cells.",
-    explanation: "SUM skips non‑numeric cells, including blanks.",
-    level: "basic",
-    codeExample: "SUM(10, , 20) returns 30."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Bessel's correction (n-1 degrees of freedom) in STDEV.S (Question 2)?",
+    "shortAnswer": "Bessel's correction (n-1 degrees of freedom) in STDEV.S is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Bessel's correction (n-1 degrees of freedom) in STDEV.S plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Bessel's correction (n-1 degrees of freedom) in STDEV.S impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the difference between COUNT and COUNTA regarding blanks?",
-    shortAnswer: "COUNT ignores blanks; COUNTA counts them as non‑blank? Actually COUNTA counts blanks as non‑blank? No: COUNTA counts anything not completely empty. Blanks are empty, so they are NOT counted. COUNTA counts cells that contain any value (including text, numbers, errors, logicals). Blank cells are skipped.",
-    explanation: "Both COUNT and COUNTA ignore truly blank cells, but COUNTA includes text, logicals, and errors.",
-    level: "basic",
-    codeExample: "For {1, \"a\", blank}, COUNT=1, COUNTA=2."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS (Question 3)?",
+    "shortAnswer": "Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Which function counts only blank cells?",
-    shortAnswer: "COUNTBLANK",
-    explanation: "COUNTBLANK(range) returns the number of empty cells (including cells that contain a formula that returns \"\").",
-    level: "basic",
-    codeExample: "=COUNTBLANK(A1:A10)"
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Why SUMIFS places sum_range FIRST while SUMIF places it LAST (Question 4)?",
+    "shortAnswer": "Why SUMIFS places sum_range FIRST while SUMIF places it LAST is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Why SUMIFS places sum_range FIRST while SUMIF places it LAST plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Why SUMIFS places sum_range FIRST while SUMIF places it LAST impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B24)"
   },
   {
-    question: "Why does AVERAGE of a range with blanks sometimes give a different result than (SUM of range)/(COUNTA of range)?",
-    shortAnswer: "Because AVERAGE uses COUNT (numeric cells) as denominator, while COUNTA counts all non‑blank cells including text. If there is text, the denominators differ.",
-    explanation: "Use COUNT (or directly AVERAGE) for numeric average; COUNTA is for different purpose.",
-    level: "intermediate",
-    codeExample: "Range {5, \"a\"} → AVERAGE=5, SUM/COUNTA=5/2=2.5."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Wildcard support (*, ?) in COUNTIF and SUMIFS criteria (Question 5)?",
+    "shortAnswer": "Wildcard support (*, ?) in COUNTIF and SUMIFS criteria is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Wildcard support (*, ?) in COUNTIF and SUMIFS criteria plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Wildcard support (*, ?) in COUNTIF and SUMIFS criteria impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the result of =AVERAGE(0, , 10) vs =AVERAGE( , 10)?",
-    shortAnswer: "First returns 5 (average of 0 and 10), second returns 10 (average of 10).",
-    explanation: "0 is a number, so it is included and affects the average; a blank is ignored.",
-    level: "basic",
-    codeExample: "Zero matters."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Case-insensitivity of text comparisons in IFS functions (Question 6)?",
+    "shortAnswer": "Case-insensitivity of text comparisons in IFS functions is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Case-insensitivity of text comparisons in IFS functions plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Case-insensitivity of text comparisons in IFS functions impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "How can you replace blanks with zeros without a helper column?",
-    shortAnswer: "Use an array formula: =AVERAGE(IF(ISBLANK(A1:A10), 0, A1:A10)).",
-    explanation: "In Excel 365, this works normally; in older versions, press Ctrl+Shift+Enter.",
-    level: "advanced",
-    codeExample: "Similarly for SUM, STDEV, etc."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) (Question 7)?",
+    "shortAnswer": "Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B27)"
   },
   {
-    question: "Does STDEV.S ignore blanks?",
-    shortAnswer: "Yes, it ignores blank cells and text; only numeric values are used.",
-    explanation: "Blanks do not count toward n, but zeros do.",
-    level: "basic",
-    codeExample: "STDEV.S(10, , 20) = STDEV.S(10,20)."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Median resistance to extreme outlier skewing compared to Mean (Question 8)?",
+    "shortAnswer": "Median resistance to extreme outlier skewing compared to Mean is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Median resistance to extreme outlier skewing compared to Mean plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Median resistance to extreme outlier skewing compared to Mean impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the best way to count missing (blank) entries as a percentage?",
-    shortAnswer: "=COUNTBLANK(range)/COUNTA(range) if you want proportion of blanks relative to non‑blank entries, or /ROWS(range) for proportion of all rows in the range.",
-    explanation: "Use the denominator that matches your definition.",
-    level: "intermediate",
-    codeExample: "=COUNTBLANK(A2:A100)/COUNTA(A2:A100)"
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate MODE.SNGL single value return vs MODE.MULT dynamic array spilling (Question 9)?",
+    "shortAnswer": "MODE.SNGL single value return vs MODE.MULT dynamic array spilling is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, MODE.SNGL single value return vs MODE.MULT dynamic array spilling plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how MODE.SNGL single value return vs MODE.MULT dynamic array spilling impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Does the status bar ‘Count’ count blanks?",
-    shortAnswer: "No, the status bar’s Count (when you select numeric cells) counts only numbers. The status bar also shows Count (non‑numeric count?) Actually, right‑click the status bar you can choose ‘Count’ which is COUNTA (counts non‑empty cells). By default, it shows Count (numbers) and Count (non‑blanks) as different entries.",
-    explanation: "Customizable; the default numeric count counts only numbers.",
-    level: "intermediate",
-    codeExample: "Right‑click to add more aggregates."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) (Question 10)?",
+    "shortAnswer": "QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B30)"
   },
   {
-    question: "Why might AVERAGE of a range with blanks produce a result that seems too low?",
-    shortAnswer: "Because zeros in the range (if any) bring the average down, not blanks. Blanks are ignored.",
-    explanation: "Check if zeros are present and if they are valid.",
-    level: "basic",
-    codeExample: "Average of {0, 100, blank} = 50."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate PERCENTILE.INC fractional rank interpolation algorithms (Question 11)?",
+    "shortAnswer": "PERCENTILE.INC fractional rank interpolation algorithms is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, PERCENTILE.INC fractional rank interpolation algorithms plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how PERCENTILE.INC fractional rank interpolation algorithms impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How to count only cells that contain numeric values (including zero) but ignore blanks and text?",
-    shortAnswer: "Use COUNT(range).",
-    explanation: "COUNT counts numbers (including zero) and ignores text, blanks, logicals, errors.",
-    level: "basic",
-    codeExample: "=COUNT(A1:A100)"
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking (Question 12)?",
+    "shortAnswer": "RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What is the difference between a blank cell and a cell containing an empty string (='')?",
-    shortAnswer: "A blank cell is truly empty. A cell with ='' returns an empty string. COUNTBLANK counts both as blank. COUNTA counts the ='' cell as non‑blank? Actually COUNTA counts ='' as non‑blank because it contains a formula (the result is empty string but it's still a value). COUNT ignores it.",
-    explanation: "This nuance can cause confusion in data cleaning.",
-    level: "advanced",
-    codeExample: "Use LEN(TRIM(cell))=0 to test for both."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 (Question 13)?",
+    "shortAnswer": "Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B33)"
   },
   {
-    question: "Can conditional formatting be used to highlight blank cells?",
-    shortAnswer: "Yes, use 'Format only cells that contain' → Blanks.",
-    explanation: "Or use formula =ISBLANK(A1).",
-    level: "basic",
-    codeExample: "Quickly identify missing data."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Linear regression forecasting with FORECAST.LINEAR (y = a + bx) (Question 14)?",
+    "shortAnswer": "Linear regression forecasting with FORECAST.LINEAR (y = a + bx) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Linear regression forecasting with FORECAST.LINEAR (y = a + bx) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Linear regression forecasting with FORECAST.LINEAR (y = a + bx) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How to fill blanks with the value from the cell above (fill down)?",
-    shortAnswer: "Select range → F5 → Special → Blanks → type =↑ (up arrow) → Ctrl+Enter.",
-    explanation: "This fills each blank with the value from the cell directly above.",
-    level: "advanced",
-    codeExample: "Common in data preparation."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate TREND function dynamic multi-period projection array spilling (Question 15)?",
+    "shortAnswer": "TREND function dynamic multi-period projection array spilling is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, TREND function dynamic multi-period projection array spilling plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how TREND function dynamic multi-period projection array spilling impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What does COUNTA count in a range that contains only blanks and a formula that returns ?",
-    shortAnswer: "It counts the cell with the formula; even though it appears blank, it is considered non‑blank because it contains a formula.",
-    explanation: "Use COUNTBLANK to count both truly blanks and formula‑blanks.",
-    level: "intermediate",
-    codeExample: "COUNTA will be > COUNT."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Z-score statistical outlier detection: (x - Mean) / STDEV (Question 16)?",
+    "shortAnswer": "Z-score statistical outlier detection: (x - Mean) / STDEV is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Z-score statistical outlier detection: (x - Mean) / STDEV plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Z-score statistical outlier detection: (x - Mean) / STDEV impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B36)"
   },
   {
-    question: "How can you compute the average while treating blanks as zero without an array formula?",
-    shortAnswer: "Create a helper column: =IF(ISBLANK(A2), 0, A2), then average the helper column.",
-    explanation: "Helper columns make formulas simpler and faster.",
-    level: "basic",
-    codeExample: "=AVERAGE(B2:B100) where B has the cleaned data."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules (Question 17)?",
+    "shortAnswer": "Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Does the QUARTILE function ignore blanks?",
-    shortAnswer: "Yes, QUARTILE.INC and QUARTILE.EXC ignore non‑numeric values, including blanks.",
-    explanation: "Only numbers are used in computing quartiles.",
-    level: "basic",
-    codeExample: "Blanks do not affect the result."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate How statistical functions skip text strings vs include literal zeroes (Question 18)?",
+    "shortAnswer": "How statistical functions skip text strings vs include literal zeroes is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, How statistical functions skip text strings vs include literal zeroes plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how How statistical functions skip text strings vs include literal zeroes impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Why might SUM of a column with blanks be lower than expected?",
-    shortAnswer: "If there are zeros, they would lower the sum. Blanks do nothing. The cause could be negative numbers or zeros, not blanks.",
-    explanation: "Check for zeros inadvertently present.",
-    level: "basic",
-    codeExample: "Use SUMIF to sum positive values only."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Preventing #DIV/0! errors when counting zero matching criteria records (Question 19)?",
+    "shortAnswer": "Preventing #DIV/0! errors when counting zero matching criteria records is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Preventing #DIV/0! errors when counting zero matching criteria records plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Preventing #DIV/0! errors when counting zero matching criteria records impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B39)"
   },
   {
-    question: "What is the result of =A1+A2 if A1=5 and A2 is blank?",
-    shortAnswer: "#VALUE! error, because addition with a blank cell returns an error.",
-    explanation: "The + operator does not ignore blanks; it treats them as text/null, causing an error.",
-    level: "intermediate",
-    codeExample: "Use SUM(A1,A2) to avoid error."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Combining statistical IFS functions with Boolean logical masks (Question 20)?",
+    "shortAnswer": "Combining statistical IFS functions with Boolean logical masks is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Combining statistical IFS functions with Boolean logical masks plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Combining statistical IFS functions with Boolean logical masks impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Does the SUBTOTAL function (e.g., SUBTOTAL(9,range)) ignore blanks?",
-    shortAnswer: "Yes, SUBTOTAL with function 9 (SUM) ignores blanks, but it respects filters.",
-    explanation: "It uses the same logic as SUM for blanks.",
-    level: "basic",
-    codeExample: "=SUBTOTAL(9, A2:A100)"
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 (Question 21)?",
+    "shortAnswer": "Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "How can you find the percentage of blank cells in a column?",
-    shortAnswer: "=COUNTBLANK(A2:A100)/ROWS(A2:A100)",
-    explanation: "ROWS gives total number of cells in the range.",
-    level: "basic",
-    codeExample: "Format as percentage."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Structured Table referencing in statistical formulas: tblData[Amount] (Question 22)?",
+    "shortAnswer": "Structured Table referencing in statistical formulas: tblData[Amount] is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Structured Table referencing in statistical formulas: tblData[Amount] plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Structured Table referencing in statistical formulas: tblData[Amount] impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B42)"
   },
   {
-    question: "What is a quick way to see if a cell is blank without using a formula?",
-    shortAnswer: "Press F2 – if the cursor starts at the beginning and there is no character, it's blank. Or use ISBLANK in a formula.",
-    explanation: "Also, the status bar will show 'Count' only for numeric cells, so if a cell has no count but looks empty, it may be blank.",
-    level: "basic",
-    codeExample: "Use Go To Special → Blanks to select all blank cells."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Performance optimization across 100,000 rows with SUMIFS vs PivotTables (Question 23)?",
+    "shortAnswer": "Performance optimization across 100,000 rows with SUMIFS vs PivotTables is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Performance optimization across 100,000 rows with SUMIFS vs PivotTables plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Performance optimization across 100,000 rows with SUMIFS vs PivotTables impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Can you use AVERAGEIF to ignore blanks that are not numeric?",
-    shortAnswer: "AVERAGEIF already ignores blanks. To ignore them only when they meet a condition, you can use AVERAGEIF(range, \"<>\"\").",
-    explanation: "But blanks are already ignored; this would be redundant.",
-    level: "advanced",
-    codeExample: "Unnecessary."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Double unary operator (--) in boolean array statistical aggregations (Question 24)?",
+    "shortAnswer": "Double unary operator (--) in boolean array statistical aggregations is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Double unary operator (--) in boolean array statistical aggregations plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Double unary operator (--) in boolean array statistical aggregations impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "How does the TREND function deal with blanks?",
-    shortAnswer: "TREND ignores rows where either known_y's or known_x's contain non‑numeric values (including blanks).",
-    explanation: "Only complete pairs are used to compute the regression.",
-    level: "intermediate",
-    codeExample: "Missing data points reduce sample size."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Weighted average calculations using SUMPRODUCT / SUM (Question 25)?",
+    "shortAnswer": "Weighted average calculations using SUMPRODUCT / SUM is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Weighted average calculations using SUMPRODUCT / SUM plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Weighted average calculations using SUMPRODUCT / SUM impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=STDEV.S(B2:B45)"
   },
   {
-    question: "What is the most robust way to replace blanks with zeros in a large dataset?",
-    shortAnswer: "Select the range → F5 → Special → Blanks → type 0 → Ctrl+Enter. This is fast and permanent.",
-    explanation: "For a non‑destructive approach, use a helper column with IF(ISBLANK(...),0,...).",
-    level: "basic",
-    codeExample: "Works well."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V (Question 26)?",
+    "shortAnswer": "Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What does the function =COUNTIF(range, \"\") count?",
-    shortAnswer: "It counts blank cells (including those with empty string formulas) if you use \"\" as criteria.",
-    explanation: "COUNTIF(range, \"\") is equivalent to COUNTBLANK(range).",
-    level: "intermediate",
-    codeExample: "=COUNTIF(A1:A10, \"\") counts blank cells."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Handling missing data and empty cells in correlation matrices (Question 27)?",
+    "shortAnswer": "Handling missing data and empty cells in correlation matrices is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Handling missing data and empty cells in correlation matrices plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Handling missing data and empty cells in correlation matrices impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Can a cell be blank but not empty?",
-    shortAnswer: "No – blank means empty. However, a cell can appear blank but contain a formula that returns \"\" (empty string). That is not truly blank; it contains a formula.",
-    explanation: "ISBLANK(cell) returns FALSE for such cells.",
-    level: "intermediate",
-    codeExample: "Use =LEN(TRIM(cell))=0 to detect cell that 'looks' empty."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards (Question 28)?",
+    "shortAnswer": "3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=STDEV.S(B2:B48)"
   },
   {
-    question: "How to compute the average of a range while excluding both blanks and zeros?",
-    shortAnswer: "Use array formula: =AVERAGE(IF((A1:A10<>0)*(A1:A10<>\"\"), A1:A10)).",
-    explanation: "In 365, =AVERAGE(FILTER(A1:A10, (A1:A10<>0)*(A1:A10<>\"\"))).",
-    level: "advanced",
-    codeExample: "Excludes zeros and blanks."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Normality test verification and bell curve distribution benchmarks (Question 29)?",
+    "shortAnswer": "Normality test verification and bell curve distribution benchmarks is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Normality test verification and bell curve distribution benchmarks plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Normality test verification and bell curve distribution benchmarks impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "When should you replace blanks with zeros before statistical analysis?",
-    shortAnswer: "When the blank truly represents a recorded zero (e.g., 'no sale' means zero revenue; 'absent' means zero marks). Otherwise, leave as blank.",
-    explanation: "Document the decision.",
-    level: "intermediate",
-    codeExample: "Context matters."
-  },
-  {
-    question: "What is the quickest way to see a summary of blank vs non‑blank cells without formulas?",
-    shortAnswer: "Select the column → look at the status bar: Count (numbers) and Count (non‑blanks). The difference gives an idea of blanks.",
-    explanation: "Right‑click the status bar to customise what aggregates appear.",
-    level: "basic",
-    codeExample: "Not precise but quick."
+    "question": "In the context of Handling Missing Data and Blanks in Analysis, how does Excel compute and evaluate Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR (Question 30)?",
+    "shortAnswer": "Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   }
 ];
 

@@ -197,7 +197,7 @@ export default function Topic3() {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Calculation Flow: Excel 2D Cartesian Coordinate Grid & Boundary Limits
+            Visual Calculation Flow: Excel 2D Cartesian Coordinate Grid &amp; Boundary Limits
           </h2>
 
           <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
@@ -329,7 +329,7 @@ export default function Topic3() {
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">02</span>
                 <h3 className="text-base font-bold text-white">Barrackpore Academic Institute Semester-Wise Sheet Tab Organization</h3>
               </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Coder & AccoTax structures a workbook with dedicated sheets for Sem1, Sem2, Sem3, and Summary.</p>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Coder &amp; AccoTax structures a workbook with dedicated sheets for Sem1, Sem2, Sem3, and Summary.</p>
               
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
@@ -367,7 +367,7 @@ export default function Topic3() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Delete rows 506 to 1048576 -> Save Workbook</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Delete rows 506 to 1048576 &amp;rarr; Save Workbook</div>
                 <div className="text-emerald-400 font-semibold">Result: Workbook opens instantly with zero memory lag.</div>
                 <div className="text-slate-400 text-[11px]">Resetting the used range eliminates phantom cells and speeds up workbook load times.</div>
               </div>

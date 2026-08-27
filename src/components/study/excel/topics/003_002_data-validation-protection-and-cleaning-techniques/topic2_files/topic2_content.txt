@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Data Validation, Protection and Cleaning Techniques
+Topic 2: Dependent (Cascading) drop-down lists using INDIRECT and dynamic arrays
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
+Topic 1: Loan payment computation with PMT, PPMT (Principal), and IPMT (Interest)
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

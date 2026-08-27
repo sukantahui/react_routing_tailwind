@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: Professional Capstone – Real Business Dashboard
+Topic 1: Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

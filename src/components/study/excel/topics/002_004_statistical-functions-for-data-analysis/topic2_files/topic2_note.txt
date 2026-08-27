@@ -1,0 +1,10 @@
+TOPIC 2: REVISION: MIN FUNCTION
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Master rigorous statistical computation in Microsoft Excel.
+- Differentiate sample metrics (.S) from population parameters (.P).
+- Leverage multi-condition IFS functions for targeted data analysis.
+
+Teacher Note:
+Statistical integrity is paramount in corporate decision-making! Always examine the shape of your distribution before picking your summary metrics. If data is skewed by extreme outliers, report the MEDIAN rather than the MEAN!

@@ -1,0 +1,10 @@
+TOPIC 0: EXCEL TABLES (LISTOBJECTS): CREATING, STYLING AND STRUCTURED REFERENCING SYNTAX ([@COLUMN])
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Excel Tables transform dumb coordinate ranges (A1:F50) into intelligent relational database entities with named column headers and self-healing references.
+- Structured references make formulas human-readable (e.g. `=[@Rate]*[@Qty]` instead of `=C2*D2`), eliminating coordinate confusion in complex models.
+- When new rows are typed directly beneath an Excel Table, the table boundary expands dynamically, auto-extending formulas, formatting, and dependent PivotTables.
+
+Teacher Note:
+Golden rule of modern Excel: Convert all raw data grids to Excel Tables (Ctrl + T) immediately! Tables give you structured referencing (=[@Price]*[@Qty]), auto-expanding ranges for PivotTables, and calculated columns that populate automatically without dragging!

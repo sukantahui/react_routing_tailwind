@@ -1,0 +1,30 @@
+================================================================================
+EXCEL MASTERCLASS: Advanced Power Query M Code Scripting & Custom Functions
+TOPIC 9: Query Folding: Understanding How Power Query Pushes ETL to SQL Servers
+Subject Code: EXCEL-PRO-502 | Target: React 19 + Tailwind CSS + Power Query Engine
+================================================================================
+
+1. QUERY FOLDING RELATIONAL TRANSLATION MATRIX
+M Step Expression                                 --> Translated Native SQL Construct
+--------------------------------------------------------------------------------------
+Table.SelectRows(Source, each [Region]="East")    --> WHERE ([Region] = 'East')
+Table.SelectColumns(Source, {"ID", "Amount"})     --> SELECT [ID], [Amount] FROM ...
+Table.RenameColumns(Source, {{"Amt", "Revenue"}}) --> SELECT [Amt] AS [Revenue]
+Table.Sort(Source, {{"OrderDate", Order.Asc}})    --> ORDER BY [OrderDate] ASC
+Table.Group(Source, {"Dept"}, {{"Tot", List.Sum}})--> GROUP BY [Dept], SUM([Tot])
+Table.NestedJoin(Fact, {"ID"}, Dim, {"ID"})       --> INNER JOIN / LEFT OUTER JOIN
+Table.FirstN(Source, 100)                         --> SELECT TOP (100) ...
+
+2. OPERATIONS THAT BREAK QUERY FOLDING
+- Adding Index Columns (`Table.AddIndexColumn`).
+- Capitalization functions without direct SQL mappings (`Text.Proper`).
+- Local memory buffering (`Table.Buffer`).
+- Merging with non-relational sources (e.g. SQL Fact merged with local Excel/CSV).
+- Custom recursive M functions and `try...otherwise` scalar expressions.
+
+3. OPTIMIZATION STRATEGY
+Step 1: Ingest SQL table (`Sql.Database`).
+Step 2: Apply all relational filters (`Table.SelectRows`) - [Folded into WHERE].
+Step 3: Keep only necessary columns (`Table.SelectColumns`) - [Folded into SELECT].
+Step 4: Perform relational joins on same database - [Folded into JOIN].
+Step 5: Apply client-side custom formatting and un-foldable functions at the very end.

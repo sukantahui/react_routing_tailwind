@@ -1,0 +1,9 @@
+MODULE 2.4 - TOPIC 37
+Title: Practice: Real Dataset Interpretation
+Level: Intermediate / Advanced
+
+Overview:
+Master Practice: Real Dataset Interpretation for advanced business intelligence, statistical modeling, and data science in Microsoft Excel.
+
+Signature:
+=CORREL(tblMarketing[Spend], tblMarketing[Revenue])

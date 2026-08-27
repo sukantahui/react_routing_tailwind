@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Conditional Logic with IF and Related Functions
+Topic 8: Dynamic threshold scoring and tier classification systems
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

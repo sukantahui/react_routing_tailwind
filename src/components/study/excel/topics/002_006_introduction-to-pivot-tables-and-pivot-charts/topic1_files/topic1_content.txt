@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Introduction to Pivot Tables and Pivot Charts
+Topic 1: Preparing source data for Pivot Tables: Flat tables vs Matrix layouts
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

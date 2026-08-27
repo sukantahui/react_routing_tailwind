@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
+Topic 2: The Office Scripts Code Editor and Action Recorder in Excel for Web
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

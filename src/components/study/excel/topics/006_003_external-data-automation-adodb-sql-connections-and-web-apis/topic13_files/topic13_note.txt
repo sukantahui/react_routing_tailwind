@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: External Data Automation: ADODB SQL Connections & Web APIs
+Topic 13: Assessment: Enterprise Database Automation & SQL Integration Lab
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

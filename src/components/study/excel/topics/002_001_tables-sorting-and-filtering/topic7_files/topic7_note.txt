@@ -1,0 +1,19 @@
+================================================================================
+EXCEL MASTERCLASS: Module 2.1 - Structured Tables, Sorting, Filtering & Slicers
+TOPIC 7: Practice Session: Building a Dynamic Multi-Level Sort & Filter Dashboard
+Lead Academic Mentor: Sukanta Hui | Coder & AccoTax (Barrackpore, Kolkata)
+================================================================================
+
+PRACTICAL LAB WORKFLOW:
+1. Converting Raw Data to Structured Table:
+   - Command: Ctrl + T &rarr; Name table `tbl_CommercialOperations`
+   - Structured formula columns: `[@Total_Payable] = [@Tuition_Fee] * 1.18`
+
+2. Multi-Level Sort Configuration:
+   - Primary Level: Branch Location (Custom List: Barrackpore, Shyamnagar, Ichapur, Naihati)
+   - Secondary Level: Department (A-Z)
+   - Tertiary Level: Realized Revenue (Largest to Smallest)
+
+3. Slicer Ribbon & Dynamic Subtotals:
+   - Insert Slicers for Branch and Department &rarr; 4-column horizontal header ribbon
+   - Enable Total Row &rarr; SUBTOTAL(109, [Realized_Revenue])

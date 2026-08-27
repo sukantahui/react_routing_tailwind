@@ -1,0 +1,9 @@
+MODULE 2.4 - TOPIC 32
+Title: Handling Errors with IFERROR in Statistical Formulas
+Level: Intermediate / Advanced
+
+Overview:
+Master Handling Errors with IFERROR in Statistical Formulas for advanced business intelligence, statistical modeling, and data science in Microsoft Excel.
+
+Signature:
+=IFERROR(AVERAGE(A1:A10), 0)

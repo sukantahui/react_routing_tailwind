@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Power Pivot & Data Modeling
+Topic 8: Formatting measures, organizing display folders, and hiding technical keys from end-users
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

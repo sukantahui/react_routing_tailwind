@@ -7,7 +7,7 @@ Hands-on capstone laboratory practice for Module 1.2: Clean dirty multi-branch s
 
 Technical Anatomy:
 Signature: =CLEAN_AND_FORMAT(Raw_Table)
-Return Type: Audited & Standardized Production Table
+Return Type: Audited &amp; Standardized Production Table
 
 Real-World Business Scenarios:
 [Kolkata Distribution Master 50-Row Dirty Data Cleaning]

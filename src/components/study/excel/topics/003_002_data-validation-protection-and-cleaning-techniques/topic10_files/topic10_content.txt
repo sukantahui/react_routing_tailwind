@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Data Validation, Protection and Cleaning Techniques
+Topic 10: Workbook-level protection: Structure protection, encryption, and read-only recommendation
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

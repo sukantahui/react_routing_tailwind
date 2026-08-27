@@ -1,0 +1,10 @@
+TOPIC 3: AUTOFILTER MASTERY: TEXT, NUMBER, DATE FILTERS, WILDCARD SEARCHES (*, ?) AND TOP 10 FILTERS
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- AutoFilter hides rows that do not match criteria without deleting them from the worksheet.
+- The AutoFilter search box supports boolean tokens and wildcards for rapid multi-keyword filtering.
+- Date filters automatically recognize date serial integers, providing hierarchical year/month/day drill-down check-boxes and dynamic relative time filters (e.g. 'Last Month', 'Next Quarter').
+
+Teacher Note:
+Master the AutoFilter shortcut: Ctrl + Shift + L! When copying filtered data, always press Alt + ; (Select Visible Cells Only) before pressing Ctrl + C. This guarantees you copy ONLY the visible rows and never paste over hidden records!

@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: Excel Advanced & Financial Modeling Skill Test
+Topic 4: Power Query M Transformation & Unpivoting Practical
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

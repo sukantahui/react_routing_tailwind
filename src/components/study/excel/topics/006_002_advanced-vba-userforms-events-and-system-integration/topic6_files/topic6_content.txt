@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Advanced VBA: UserForms, Events & System Integration
+Topic 6: Batch processing all workbooks inside a directory automatically
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

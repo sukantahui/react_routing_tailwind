@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
+Topic 11: Sharing Python-powered workbooks with non-technical team members seamlessly
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

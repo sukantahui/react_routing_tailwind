@@ -1,0 +1,31 @@
+MODULE 2.1 - TOPIC 1
+Title: Table Advanced Features: Total Row, Dynamic Calculated Columns and Auto-Expansion
+Level: Intermediate | Bloom's Level 2 & 3: Understand & Apply
+
+Overview:
+Master advanced Table features: The Total Row (Ctrl+Shift+T) with built-in aggregate functions (Sum, Average, Count, Min, Max), automatic column formula propagation, dynamic formula expansion, and integrating Tables with charts and PivotTables.
+
+Technical Anatomy:
+Signature: =SUBTOTAL(109, [Invoice_Amount])
+Return Type: Filter-Aware Aggregate Total Row
+
+Real-World Business Scenarios:
+[Kolkata Retail Filtered Category Subtotal Auditing]
+Context: Auditing total sales for 'Consumer Electronics' when table contains 10 categories.
+Applied: Table Total Row (Ctrl + Shift + T)
+Result: Total updates dynamically when filters are clicked.
+
+[Barrackpore Staff Payroll Calculated Column Addition]
+Context: Adding a 'Dearness Allowance (DA 12%)' column to an existing 100-employee table.
+Applied: Dynamic Calculated Column
+Result: 100 employee DA calculations generated instantly.
+
+[Shyamnagar Regional Wholesale PivotTable Source Hygiene]
+Context: Connecting a PivotTable to `tblWholesale` instead of `$A$1:$H$500`.
+Applied: Table Object as PivotTable Source
+Result: Zero maintenance PivotTable pipeline.
+
+[Ichapur Plant Defect Rate Metric Drop-Down Selection]
+Context: Switching Total Row metric from SUM to AVERAGE for defect tracking.
+Applied: Total Row Dropdown Menu
+Result: Instant aggregate function switching without typing formulas.

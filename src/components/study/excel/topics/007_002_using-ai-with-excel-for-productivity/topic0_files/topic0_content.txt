@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Using AI with Excel for Productivity
+Topic 0: Introduction to AI in Excel: Microsoft Copilot, GPT-4, and LLM-assisted spreadsheet productivity
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

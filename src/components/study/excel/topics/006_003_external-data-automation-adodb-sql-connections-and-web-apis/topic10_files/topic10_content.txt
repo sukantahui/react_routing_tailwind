@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: External Data Automation: ADODB SQL Connections & Web APIs
+Topic 10: Security best practices: Managing database credentials securely in VBA
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

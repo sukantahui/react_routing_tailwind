@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Text, Date and Time Functions
+Topic 10: Converting text strings to numeric values: VALUE, NUMBERVALUE, and DATEVALUE
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

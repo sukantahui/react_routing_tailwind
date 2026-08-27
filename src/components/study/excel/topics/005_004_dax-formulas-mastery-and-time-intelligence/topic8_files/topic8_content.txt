@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
+Topic 8: Time Intelligence setup: Requirements for standard date tables and continuous dates
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

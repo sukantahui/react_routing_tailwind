@@ -229,7 +229,7 @@ export default function Topic7() {
             <p className="text-sm text-slate-300 leading-relaxed">
               Incorporate Indian and UK fiscal calendars dynamically with M conditional date logic:
               <br />
-              <code className="text-teal-300 font-mono">{'each if Date.Month([Date]) >= 4 then "FY" & Text.End(Text.From(Date.Year([Date])+1), 2) else "FY" & Text.End(Text.From(Date.Year([Date])), 2)'}</code>.
+              <code className="text-teal-300 font-mono">{'each if Date.Month([Date]) &gt;= 4 then "FY" & Text.End(Text.From(Date.Year([Date])+1), 2) else "FY" & Text.End(Text.From(Date.Year([Date])), 2)'}</code>.
             </p>
           </div>
         </section>

@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: Text, Date and Time Functions
+Topic 10: Converting text strings to numeric values: VALUE, NUMBERVALUE, and DATEVALUE
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

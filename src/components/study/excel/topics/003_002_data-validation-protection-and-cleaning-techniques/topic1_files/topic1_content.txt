@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Data Validation, Protection and Cleaning Techniques
+Topic 1: Creating dynamic drop-down lists from named ranges and tables
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

@@ -1,0 +1,10 @@
+TOPIC 5: COMMON VLOOKUP ERRORS (#N/A, #REF!, #VALUE!) AND TROUBLESHOOTING MATRIX
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- In Microsoft Excel, Common VLOOKUP Errors (#N/A, #REF!, #VALUE!) and Troubleshooting Matrix provides industrial-grade relational data extraction capabilities across enterprise workbooks.
+- Understanding memory pointer traversal, binary search vs linear search, and dynamic array returns is vital for elite financial modeling.
+- Always design lookup tables with clean, normalized data types to eliminate #N/A type mismatch exceptions.
+
+Teacher Note:
+Master Common VLOOKUP Errors (#N/A, #REF!, #VALUE!) and Troubleshooting Matrix! Pay meticulous attention to coordinate anchoring with F4, verify key uniqueness, and leverage INDEX-MATCH or XLOOKUP for immune, boardroom-ready spreadsheet models!

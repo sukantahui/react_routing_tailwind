@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Using AI with Excel for Productivity
+Topic 3: Using Copilot to generate complex nested formulas, dynamic arrays, and regular expressions
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

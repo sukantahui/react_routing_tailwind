@@ -72,7 +72,7 @@ export default function Topic8() {
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            Practice Multiple Choice Questions (MCQ): Data Entry, Editing & Custom Number Formatting Mastery
+            Practice Multiple Choice Questions (MCQ): Data Entry, Editing &amp; Custom Number Formatting Mastery
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
@@ -169,7 +169,7 @@ export default function Topic8() {
           <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
             <p>Testing your knowledge of formatting tokens (#, 0, ?, @, [h], [Red]) prepares you for corporate financial modeling standards.</p>
             <p>Review the question explanations below to master edge cases in date arithmetic, time fractions, and text coercion.</p>
-            <p>Achieve 90%+ on this assessment before moving forward to Basic Formulas & Functions in Module 1.3.</p>
+            <p>Achieve 90%+ on this assessment before moving forward to Basic Formulas &amp; Functions in Module 1.3.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
@@ -197,7 +197,7 @@ export default function Topic8() {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Formatting Flow: Module 1.2 Assessment & Core Competency Evaluation
+            Visual Formatting Flow: Module 1.2 Assessment &amp; Core Competency Evaluation
           </h2>
 
           <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
@@ -276,7 +276,7 @@ export default function Topic8() {
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic0_Data_Types"
-            title="Module 1.2 - Practice Multiple Choice Questions (MCQ): Data Entry, Editing & Custom Number Formatting Mastery"
+            title="Module 1.2 - Practice Multiple Choice Questions (MCQ): Data Entry, Editing &amp; Custom Number Formatting Mastery"
             rowsPerPage={25}
             showSheetSelector={true}
           />
@@ -299,7 +299,7 @@ export default function Topic8() {
             <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
-                <h3 className="text-base font-bold text-white">MOS Specialist & Corporate Interview Preparation Scenario</h3>
+                <h3 className="text-base font-bold text-white">MOS Specialist &amp; Corporate Interview Preparation Scenario</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">A candidate prepares for advanced data formatting questions in corporate technical screenings.</p>
               
@@ -569,7 +569,7 @@ export default function Topic8() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Practice Multiple Choice Questions (MCQ): Data Entry, Editing & Custom Number Formatting Mastery - Frequently Asked Questions"
+            title="Practice Multiple Choice Questions (MCQ): Data Entry, Editing &amp; Custom Number Formatting Mastery - Frequently Asked Questions"
             questions={questions}
           />
         </div>

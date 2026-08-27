@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Power Pivot & Data Modeling
+Topic 5: Designing a dedicated Calendar / Date Dimension table (Standard and Fiscal calendars)
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

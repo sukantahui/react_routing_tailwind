@@ -1,0 +1,31 @@
+MODULE 1.3 - TOPIC 6
+Title: Comprehensive Laboratory Practice Session: Basic Formulas, Functions and Calculation Auditing
+Level: Beginner | Bloom's Level 3 & 4: Apply & Analyze
+
+Overview:
+Hands-on capstone laboratory practice for Module 1.3: Build an end-to-end 50-row commercial sales, payroll, and inventory ledger integrating BODMAS math, SUM, AVERAGE, COUNT, COUNTA, MIN, MAX, LARGE, SMALL, ROUND, and 2D AutoSum matrix calculations.
+
+Technical Anatomy:
+Signature: =SUM(D2:D50) + AVERAGE(E2:E50)
+Return Type: Integrated Mathematical Model
+
+Real-World Business Scenarios:
+[Kolkata Enterprise 50-Row Commercial Invoicing & Payroll Model]
+Context: Students build a complete multi-column ledger calculating gross earnings, tax deductions, net payout, and ranking top performers.
+Applied: Integrated Module 1.3 Function Stack
+Result: Complete audited corporate model constructed in 5 minutes.
+
+[Barrackpore Academy Cohort Grade and Merit List Generation]
+Context: Calculating total marks across 3 subjects, ranking top 3 merit awardees, and counting missing submissions.
+Applied: SUM + AVERAGE + ROUND + LARGE
+Result: Automated student report cards and rank distribution.
+
+[Shyamnagar Regional Retail Cross-Footing Audit]
+Context: Verifying that sum of counter totals equals sum of product totals across 12 months.
+Applied: Cross-Footing Verification
+Result: BALANCED (OK) verified across all 12 accounting periods.
+
+[Ichapur Engineering Plant Machine Runtime & Maintenance Ranking]
+Context: Finding the 3 most overworked machines using LARGE() to schedule emergency servicing.
+Applied: =MAX(), =LARGE()
+Result: Maintenance priority list generated dynamically.

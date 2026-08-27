@@ -78,7 +78,7 @@ const WhyChooseUs = () => {
             Key Advantages & Google Reviews
           </h2>
           <p className="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">
-            Over 25+ years of teaching excellence in Barrackpore. Verified feedback from students and alumni
+            Over {new Date().getFullYear() - 1998}+ years of teaching excellence in Barrackpore. Verified feedback from students and alumni
             who are now professors, software developers, and tax professionals.
           </p>
         </div>

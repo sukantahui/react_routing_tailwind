@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Advanced VBA: UserForms, Events & System Integration
+Topic 5: File System Automation using `Scripting.FileSystemObject` (FSO): Creating, moving, reading, and deleting files/folders
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

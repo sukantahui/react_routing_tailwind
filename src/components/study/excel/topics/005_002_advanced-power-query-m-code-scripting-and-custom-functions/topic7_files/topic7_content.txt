@@ -1,0 +1,48 @@
+================================================================================
+EXCEL MASTERCLASS: Advanced Power Query M Code Scripting & Custom Functions
+TOPIC 7: Handling API Pagination, Authentication Tokens, and Rate Limits in M
+Subject Code: EXCEL-PRO-502 | Target: React 19 + Tailwind CSS + Excel 365 / Power BI
+================================================================================
+
+1. THE PAGINATION PROBLEM IN FUNCTIONAL LANGUAGES
+In imperative programming (Python, JavaScript, C#), paginating over an API is achieved using a `while` loop with mutable variables (`page += 1`).
+Power Query M is a declarative, immutable functional language. Variable re-assignment (`x = x + 1`) is illegal.
+Therefore, all iteration is solved mathematically using:
+- `List.Generate`: Evaluates a state transition tuple `(State) -> NextState` until `Predicate(State)` returns `false`.
+- Recursive Custom Functions: A function calling itself with `NextCursor` and concatenating results with `Table.Combine`.
+
+2. LIST.GENERATE 4-PARAMETER SIGNATURE
+List.Generate(
+    initial as function,      // () => [Page = 1, Content = fxGet(1), HasNext = true]
+    condition as function,    // (state) => state[HasNext] = true
+    next as function,         // (state) => [Page = state[Page] + 1, Content = fxGet(state[Page] + 1), HasNext = ...]
+    selector as function      // (state) => state[Content]
+)
+
+3. OAUTH2 TOKEN AUTHENTICATION IN M
+Step 1: Request Access Token via HTTP POST:
+let
+    TokenBody = "grant_type=client_credentials&client_id=" & ClientID & "&client_secret=" & ClientSecret,
+    TokenResponse = Web.Contents("https://auth.enterprise.com", [
+        RelativePath = "oauth/v2/token",
+        Headers = [#"Content-Type" = "application/x-www-form-urlencoded"],
+        Content = Text.ToBinary(TokenBody)
+    ]),
+    TokenJson = Json.Document(TokenResponse),
+    AccessToken = TokenJson[access_token]
+in
+    AccessToken
+
+Step 2: Authenticate Subsequent API Calls:
+    Web.Contents("https://api.enterprise.com", [
+        RelativePath = "v1/orders",
+        Headers = [#"Authorization" = "Bearer " & AccessToken],
+        Query = [page = "1", limit = "100"]
+    ])
+
+4. POWER BI SERVICE DYNAMIC DATA SOURCE SAFETY
+Hardcoding string concatenation inside the first argument of `Web.Contents` (e.g. `Web.Contents("https://api.com/page=" & Text.From(p))`) breaks Scheduled Refresh in Power BI Service because the cloud engine statically parses data source URLs.
+Correct Architecture:
+- Base URL must be static: `"https://api.com"`
+- Dynamic parts must use `RelativePath` and `Query` records:
+  `Web.Contents("https://api.com", [RelativePath = "v1/data", Query = [page = Text.From(p)]])`

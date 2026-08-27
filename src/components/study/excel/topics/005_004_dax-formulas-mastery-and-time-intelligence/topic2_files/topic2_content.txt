@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
+Topic 2: Context Transition: Transforming Row Context into Filter Context with CALCULATE
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

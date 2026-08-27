@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
+Topic 1: Comparing VBA vs Office Scripts: TypeScript/JavaScript vs Visual Basic, Cloud vs Desktop
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

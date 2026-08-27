@@ -136,7 +136,7 @@ export default function Topic1() {
                   <td className="py-3 px-4 text-slate-300 font-sans">Multi-threaded native desktop C++ execution vs browser-based JavaScript virtual machine.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">ETL & Modeling</td>
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">ETL &amp; Modeling</td>
                   <td className="py-3 px-4 text-teal-400">Power Pivot / Query</td>
                   <td className="py-3 px-4 text-amber-400 font-sans">Mandatory</td>
                   <td className="py-3 px-4 text-slate-300 font-sans">Built-in Power Query (M) and Power Pivot (DAX) star schema dimensional modeling.</td>
@@ -331,7 +331,7 @@ export default function Topic1() {
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">02</span>
                 <h3 className="text-base font-bold text-white">Barrackpore Training Institute Real-Time Group Assignment Submission</h3>
               </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Coder & AccoTax students collaborate simultaneously on a shared group homework schedule.</p>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Coder &amp; AccoTax students collaborate simultaneously on a shared group homework schedule.</p>
               
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">

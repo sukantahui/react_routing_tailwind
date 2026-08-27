@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Advanced VBA: UserForms, Events & System Integration
+Topic 9: Robust enterprise error handling, call stack tracing, and debug logging to text files
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

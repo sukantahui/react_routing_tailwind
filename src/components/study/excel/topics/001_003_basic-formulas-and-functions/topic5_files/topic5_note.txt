@@ -1,0 +1,10 @@
+TOPIC 5: HIGH-SPEED AUTOSUM MASTERY: MULTI-DIRECTIONAL SUMMING AND KEYBOARD SHORTCUTS
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- When Alt + = is pressed, Excel's lexical scanner inspects the cells immediately above the active cell. If numbers are found, it generates =SUM(Top:Bottom); otherwise, it scans to the left.
+- If an entire rectangular matrix including blank perimeter total cells is pre-selected, pressing Alt + = injects row sums, column sums, and the grand cross-foot total simultaneously.
+- Inside Excel Tables (Ctrl+T), AutoSum automatically generates =SUBTOTAL(109, [ColumnName]) which dynamically excludes filtered hidden rows.
+
+Teacher Note:
+Master the 2D Matrix AutoSum! Highlight your entire table PLUS one extra blank column on the right and one extra blank row at the bottom. Tap Alt + = and watch Excel populate all row totals, column totals, and the grand cross-foot total simultaneously in half a second!

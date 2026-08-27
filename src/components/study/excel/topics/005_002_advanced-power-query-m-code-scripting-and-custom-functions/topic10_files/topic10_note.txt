@@ -1,0 +1,21 @@
+================================================================================
+EXCEL MASTERCLASS: Advanced Power Query M Code Scripting & Custom Functions
+TOPIC 10: Optimizing Power Query Performance: Buffering Tables & Reducing Memory
+Lead Academic Mentor: Sukanta Hui | Coder & AccoTax (Barrackpore, Kolkata)
+================================================================================
+
+CORE CONCEPTS & INSTRUCTOR REFERENCE:
+1. Lazy Evaluation vs Memory Buffering:
+   - Power Query uses lazy streaming evaluation; each reference to a table in a loop/join can trigger repeated source recalculation.
+   - `Table.Buffer(table)` takes an immediate immutable snapshot of a table in RAM.
+   - Converts repeated disk/network scans in `Table.AddColumn` row-by-row lookups from O(N*M) to O(N).
+
+2. Memory Footprint Reduction Strategies:
+   - Early Column Pruning: Eliminate wide, unused text/JSON columns at Step 1 via `Table.SelectColumns`.
+   - Compact Data Types: Convert `type any` to explicit `Int64.Type` and `Currency.Type`.
+   - `List.Buffer`: Buffer 1D lists/keys instead of full tables whenever possible.
+   - Order Retention: `Table.Buffer(Table.Sort(...))` forces sort persistence before `Table.Group`.
+
+3. Buffering Pitfalls:
+   - Never buffer multi-million-row Fact tables (causes RAM pressure and destroys Query Folding).
+   - Never call `Table.Buffer` inside a row-by-row custom function loop (declares 100k buffers).

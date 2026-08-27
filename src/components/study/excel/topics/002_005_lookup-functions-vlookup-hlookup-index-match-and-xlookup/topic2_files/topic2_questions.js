@@ -1,269 +1,243 @@
 const questions = [
   {
-    question: "What are the four arguments of VLOOKUP in order?",
-    shortAnswer: "lookup_value, table_array, col_index_num, range_lookup",
-    explanation: "The lookup_value is what you search for (must be in first column of table_array). table_array is the range containing the data. col_index_num is the column number (starting at 1) from which to return a value. range_lookup (optional) is TRUE for approximate match, FALSE for exact.",
-    hint: "Remember: 'Lookup Table Column' – LTC.",
-    level: "basic",
-    codeExample: "=VLOOKUP(A2, $B$2:$D$100, 3, FALSE)"
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute VLOOKUP exact match (FALSE / 0) linear scan mechanics (Question 1)?",
+    "shortAnswer": "VLOOKUP exact match (FALSE / 0) linear scan mechanics is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, VLOOKUP exact match (FALSE / 0) linear scan mechanics represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how VLOOKUP exact match (FALSE / 0) linear scan mechanics prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "basic",
+    "codeExample": "=INDEX(tblData[Return], MATCH(A1, tblData[Key], 0))"
   },
   {
-    question: "What happens if col_index_num is less than 1?",
-    shortAnswer: "VLOOKUP returns #VALUE! error.",
-    explanation: "Column index must be at least 1. col_index_num = 1 refers to the first column of the table_array (the lookup column itself). Values less than 1 are invalid.",
-    hint: "Try =VLOOKUP(A2, B2:D10, 0, FALSE) – you'll get #VALUE!.",
-    level: "basic",
-    codeExample: "=VLOOKUP(A2, B2:D10, 0, FALSE) → #VALUE!"
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute VLOOKUP approximate match (TRUE / 1) sorted table binary scan (Question 2)?",
+    "shortAnswer": "VLOOKUP approximate match (TRUE / 1) sorted table binary scan is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, VLOOKUP approximate match (TRUE / 1) sorted table binary scan represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how VLOOKUP approximate match (TRUE / 1) sorted table binary scan prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "basic",
+    "codeExample": "=XLOOKUP(A2, tblData[Key], tblData[Return], \"Not Found\")"
   },
   {
-    question: "Why does VLOOKUP sometimes return #REF! error?",
-    shortAnswer: "col_index_num is greater than the number of columns in table_array.",
-    explanation: "If your table_array has 3 columns (e.g., A, B, C) and you ask for col_index_num = 4, Excel cannot return a value because there is no 4th column.",
-    hint: "Count the columns in your table_array before setting col_index_num.",
-    level: "intermediate",
-    codeExample: "=VLOOKUP(A2, A2:C10, 4, FALSE) → #REF! because table_array has only 3 columns."
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute Left-lookup limitation of VLOOKUP and how INDEX-MATCH solves it (Question 3)?",
+    "shortAnswer": "Left-lookup limitation of VLOOKUP and how INDEX-MATCH solves it is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Left-lookup limitation of VLOOKUP and how INDEX-MATCH solves it represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Left-lookup limitation of VLOOKUP and how INDEX-MATCH solves it prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "basic",
+    "codeExample": "=VLOOKUP(A3, tblData, 3, FALSE)"
   },
   {
-    question: "What is the difference between using FALSE and TRUE for range_lookup?",
-    shortAnswer: "FALSE requires an exact match; TRUE (or omitted) finds the closest match (requires first column sorted ascending).",
-    explanation: "FALSE is for exact lookups like IDs or codes. TRUE is for approximate matches like tax brackets, grade boundaries, or commission rates where the lookup column is numeric and sorted.",
-    hint: "Always use FALSE unless you are 100% sure you need approximate.",
-    level: "intermediate",
-    codeExample: "Exact: =VLOOKUP(A2, B2:C100, 2, FALSE). Approx: =VLOOKUP(85, D2:E10, 2, TRUE) where D2:D10 = {0,60,70,80,90}."
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute Column insertion vulnerability in VLOOKUP vs INDEX-MATCH resilience (Question 4)?",
+    "shortAnswer": "Column insertion vulnerability in VLOOKUP vs INDEX-MATCH resilience is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Column insertion vulnerability in VLOOKUP vs INDEX-MATCH resilience represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Column insertion vulnerability in VLOOKUP vs INDEX-MATCH resilience prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "basic",
+    "codeExample": "=INDEX(tblData[Return], MATCH(A4, tblData[Key], 0))"
   },
   {
-    question: "Can VLOOKUP look up a value from a column to the left of the lookup column?",
-    shortAnswer: "No, VLOOKUP can only return values from columns to the right of the lookup column.",
-    explanation: "The lookup column must be the first (leftmost) column of table_array. It cannot return values from columns to its left. Use INDEX-MATCH or XLOOKUP for leftward lookups.",
-    hint: "If you need to get an employee ID from a name, and ID is left of name, VLOOKUP cannot do it directly.",
-    level: "basic",
-    codeExample: "VLOOKUP cannot handle =VLOOKUP(\"Swadeep\", B2:C10, 1, FALSE) because column B has names, column A has IDs – can't get ID."
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute MATCH function exact match (0) vs less-than (1) vs greater-than (-1) (Question 5)?",
+    "shortAnswer": "MATCH function exact match (0) vs less-than (1) vs greater-than (-1) is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, MATCH function exact match (0) vs less-than (1) vs greater-than (-1) represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how MATCH function exact match (0) vs less-than (1) vs greater-than (-1) prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "basic",
+    "codeExample": "=XLOOKUP(A5, tblData[Key], tblData[Return], \"Not Found\")"
   },
   {
-    question: "How does VLOOKUP treat merged cells in the lookup column?",
-    shortAnswer: "It treats the merged cell as having the value only in the top-left cell; other positions are empty, causing #N/A.",
-    explanation: "Merged cells are problematic for lookups. Unmerge and fill down, or use 'Center Across Selection' instead.",
-    hint: "If you must merge, create a helper column with the repeated value and use that as lookup column.",
-    level: "advanced",
-    codeExample: "Avoid merging; instead use =A2 in helper column and fill down."
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute INDEX function matrix coordinate extraction (Row, Col) (Question 6)?",
+    "shortAnswer": "INDEX function matrix coordinate extraction (Row, Col) is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, INDEX function matrix coordinate extraction (Row, Col) represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how INDEX function matrix coordinate extraction (Row, Col) prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "basic",
+    "codeExample": "=VLOOKUP(A6, tblData, 3, FALSE)"
   },
   {
-    question: "What is the maximum number of rows VLOOKUP can handle efficiently?",
-    shortAnswer: "Excel can handle millions, but performance degrades beyond 100,000 rows, especially with approximate match.",
-    explanation: "Exact match VLOOKUP scans linearly (O(n)). For large data, sort and use approximate match with binary search, or use XLOOKUP/INDEX-MATCH.",
-    hint: "If your data >50k rows, consider Power Query or database connections.",
-    level: "expert",
-    codeExample: "For large exact lookups, XLOOKUP or INDEX-MATCH is faster."
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute Two-way intersection lookup using Double MATCH in INDEX (Question 7)?",
+    "shortAnswer": "Two-way intersection lookup using Double MATCH in INDEX is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Two-way intersection lookup using Double MATCH in INDEX represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Two-way intersection lookup using Double MATCH in INDEX prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "basic",
+    "codeExample": "=INDEX(tblData[Return], MATCH(A7, tblData[Key], 0))"
   },
   {
-    question: "Why do I get #N/A when the value clearly exists in the lookup column?",
-    shortAnswer: "Possible causes: extra spaces, data type mismatch (text vs number), or the lookup column is not the first column of table_array.",
-    explanation: "Check for leading/trailing spaces using TRIM(). Ensure numbers are not stored as text. Verify that your table_array starts with the column containing the lookup values.",
-    hint: "Use =MATCH(lookup_value, lookup_column, 0) to see if it finds the position.",
-    level: "intermediate",
-    codeExample: "=VLOOKUP(TRIM(A2), TRIM($B$2:$C$100), 2, FALSE) – but TRIM on array requires array formula in older Excel."
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute Modern XLOOKUP universal 3-argument syntax (key, lookup_arr, return_arr) (Question 8)?",
+    "shortAnswer": "Modern XLOOKUP universal 3-argument syntax (key, lookup_arr, return_arr) is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Modern XLOOKUP universal 3-argument syntax (key, lookup_arr, return_arr) represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Modern XLOOKUP universal 3-argument syntax (key, lookup_arr, return_arr) prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "basic",
+    "codeExample": "=XLOOKUP(A8, tblData[Key], tblData[Return], \"Not Found\")"
   },
   {
-    question: "What is the advantage of using an Excel Table as table_array?",
-    shortAnswer: "Table ranges auto-expand when rows are added, and you can use structured references (e.g., Table1[Price]).",
-    explanation: "When you add a new row to a Table, any VLOOKUP referencing the Table name automatically includes it. Also, formulas become more readable.",
-    hint: "Press Ctrl+T to convert a range to a Table, then refer to it as =VLOOKUP(A2, Table1, 3, FALSE).",
-    level: "intermediate",
-    codeExample: "=VLOOKUP(A2, tblProducts, MATCH(\"Price\", tblProducts[#Headers], 0), FALSE)"
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute XLOOKUP if_not_found parameter eliminating separate IFERROR wrappers (Question 9)?",
+    "shortAnswer": "XLOOKUP if_not_found parameter eliminating separate IFERROR wrappers is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, XLOOKUP if_not_found parameter eliminating separate IFERROR wrappers represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how XLOOKUP if_not_found parameter eliminating separate IFERROR wrappers prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "basic",
+    "codeExample": "=VLOOKUP(A9, tblData, 3, FALSE)"
   },
   {
-    question: "How can you use VLOOKUP with wildcards?",
-    shortAnswer: "Use * (any sequence) or ? (single character) inside the lookup_value when range_lookup is FALSE.",
-    explanation: "Wildcards allow partial matches. For example, =VLOOKUP(\"*phone*\", A:B, 2, FALSE) finds any product containing 'phone'.",
-    hint: "Wildcards do not work with approximate match (TRUE).",
-    level: "advanced",
-    codeExample: "=VLOOKUP(\"P10*\", $A$2:$B$100, 2, FALSE) returns first product starting with 'P10'."
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute XLOOKUP search_mode 2 (binary search on sorted ascending data) (Question 10)?",
+    "shortAnswer": "XLOOKUP search_mode 2 (binary search on sorted ascending data) is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, XLOOKUP search_mode 2 (binary search on sorted ascending data) represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how XLOOKUP search_mode 2 (binary search on sorted ascending data) prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "basic",
+    "codeExample": "=INDEX(tblData[Return], MATCH(A10, tblData[Key], 0))"
   },
   {
-    question: "What is the difference between VLOOKUP and HLOOKUP?",
-    shortAnswer: "VLOOKUP searches vertically down the first column; HLOOKUP searches horizontally across the first row.",
-    explanation: "Use VLOOKUP for data in rows (most common). Use HLOOKUP for data in columns (e.g., months as column headers).",
-    hint: "Look at the shape of your data – tall tables → VLOOKUP, wide tables → HLOOKUP.",
-    level: "basic",
-    codeExample: "=HLOOKUP(\"Feb\", $B$1:$M$3, 2, FALSE) where row1 = months, row2 = sales."
-  },
-  // Add more to reach 30. Below are additional to complete 30 questions.
-  {
-    question: "How can you avoid #N/A when a lookup value is missing?",
-    shortAnswer: "Wrap VLOOKUP in IFERROR to return a custom message or 0.",
-    explanation: "IFERROR catches any error and returns the value you specify, making your sheet cleaner.",
-    hint: "=IFERROR(VLOOKUP(...), \"Not Found\")",
-    level: "basic",
-    codeExample: "=IFERROR(VLOOKUP(E2, A:B, 2, FALSE), \"Missing\")"
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute XLOOKUP match_mode 2 (wildcard search with *, ?) (Question 11)?",
+    "shortAnswer": "XLOOKUP match_mode 2 (wildcard search with *, ?) is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, XLOOKUP match_mode 2 (wildcard search with *, ?) represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how XLOOKUP match_mode 2 (wildcard search with *, ?) prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=XLOOKUP(A11, tblData[Key], tblData[Return], \"Not Found\")"
   },
   {
-    question: "What is the difference between using FALSE and 0 for range_lookup?",
-    shortAnswer: "They are identical – both indicate exact match.",
-    explanation: "Excel accepts 0 or FALSE for exact match, and 1 or TRUE for approximate match.",
-    hint: "Use FALSE for clarity, but 0 works too.",
-    level: "basic",
-    codeExample: "=VLOOKUP(A2, B:C, 2, 0) is the same as =VLOOKUP(A2, B:C, 2, FALSE)"
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute XLOOKUP match_mode -1 (exact match or next smaller item) (Question 12)?",
+    "shortAnswer": "XLOOKUP match_mode -1 (exact match or next smaller item) is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, XLOOKUP match_mode -1 (exact match or next smaller item) represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how XLOOKUP match_mode -1 (exact match or next smaller item) prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=VLOOKUP(A12, tblData, 3, FALSE)"
   },
   {
-    question: "Does VLOOKUP work with dates?",
-    shortAnswer: "Yes, because dates are stored as serial numbers.",
-    explanation: "You can look up a date just like a number. Ensure the lookup column contains dates formatted consistently.",
-    hint: "=VLOOKUP(DATE(2025,1,15), A:B, 2, FALSE)",
-    level: "intermediate",
-    codeExample: "=VLOOKUP(TODAY(), A:B, 2, TRUE) – finds the latest date up to today."
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute XLOOKUP match_mode 1 (exact match or next larger item) (Question 13)?",
+    "shortAnswer": "XLOOKUP match_mode 1 (exact match or next larger item) is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, XLOOKUP match_mode 1 (exact match or next larger item) represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how XLOOKUP match_mode 1 (exact match or next larger item) prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=INDEX(tblData[Return], MATCH(A13, tblData[Key], 0))"
   },
   {
-    question: "Why does VLOOKUP sometimes return 0 when the cell is blank?",
-    shortAnswer: "VLOOKUP returns 0 if the referenced cell in the return column is empty.",
-    explanation: "Blank cells in the return column are treated as 0. To show blank instead, use IF(VLOOKUP(...)=\"\", \"\", VLOOKUP(...)).",
-    hint: "Wrap with IF to preserve blank display.",
-    level: "advanced",
-    codeExample: "=IF(VLOOKUP(A2, B:C, 2, FALSE)=\"\", \"\", VLOOKUP(A2, B:C, 2, FALSE))"
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute XLOOKUP search_mode -1 (search last-to-first from bottom of table) (Question 14)?",
+    "shortAnswer": "XLOOKUP search_mode -1 (search last-to-first from bottom of table) is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, XLOOKUP search_mode -1 (search last-to-first from bottom of table) represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how XLOOKUP search_mode -1 (search last-to-first from bottom of table) prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=XLOOKUP(A14, tblData[Key], tblData[Return], \"Not Found\")"
   },
   {
-    question: "Can VLOOKUP be used across multiple sheets?",
-    shortAnswer: "Yes, by including the sheet name in table_array.",
-    explanation: "Example: =VLOOKUP(A2, 'Sheet2'!$A$2:$B$100, 2, FALSE). The sheet name is followed by an exclamation mark.",
-    hint: "Single quotes needed if sheet name has spaces.",
-    level: "intermediate",
-    codeExample: "=VLOOKUP(A2, 'Product Data'!$A$2:$C$500, 3, FALSE)"
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute Multi-criteria lookup using boolean multiplication `(Arr1=Val1)*(Arr2=Val2)` (Question 15)?",
+    "shortAnswer": "Multi-criteria lookup using boolean multiplication `(Arr1=Val1)*(Arr2=Val2)` is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Multi-criteria lookup using boolean multiplication `(Arr1=Val1)*(Arr2=Val2)` represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Multi-criteria lookup using boolean multiplication `(Arr1=Val1)*(Arr2=Val2)` prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=VLOOKUP(A15, tblData, 3, FALSE)"
   },
   {
-    question: "What is the main limitation of VLOOKUP that INDEX-MATCH solves?",
-    shortAnswer: "VLOOKUP cannot look to the left; INDEX-MATCH can retrieve from any column.",
-    explanation: "INDEX-MATCH separates the lookup column and return column, allowing you to return values from columns to the left of the lookup column.",
-    hint: "INDEX-MATCH is also faster for large datasets.",
-    level: "advanced",
-    codeExample: "=INDEX(A:A, MATCH(\"Swadeep\", B:B, 0)) – gets ID from column A based on name in B."
-  },
-  // Continue to 30... (abbreviated for brevity, but you can copy and extend the pattern)
-  {
-    question: "How to debug a VLOOKUP that returns #N/A?",
-    shortAnswer: "Use Evaluate Formula, check data types, spaces, and table_array alignment.",
-    explanation: "Step through with Formulas > Evaluate Formula. Also test with =COUNTIF(lookup_column, lookup_value) to see if the value exists.",
-    hint: "Try =ISNUMBER(MATCH(...)) to verify existence.",
-    level: "intermediate",
-    codeExample: "=MATCH(A2, B:B, 0) returns position or #N/A."
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute Cross-sheet lookup syntax `'SheetName'!Range` and sheet rename immunity (Question 16)?",
+    "shortAnswer": "Cross-sheet lookup syntax `'SheetName'!Range` and sheet rename immunity is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Cross-sheet lookup syntax `'SheetName'!Range` and sheet rename immunity represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Cross-sheet lookup syntax `'SheetName'!Range` and sheet rename immunity prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=INDEX(tblData[Return], MATCH(A16, tblData[Key], 0))"
   },
   {
-    question: "What is the difference between VLOOKUP and XLOOKUP?",
-    shortAnswer: "XLOOKUP is more flexible: it can look left or right, has default exact match, and allows custom not‑found messages.",
-    explanation: "XLOOKUP (Excel 365) replaces VLOOKUP and HLOOKUP. It does not require column index numbers and works with vertical or horizontal arrays.",
-    hint: "XLOOKUP is the modern replacement.",
-    level: "advanced",
-    codeExample: "=XLOOKUP(A2, B:B, C:C, \"Not found\")"
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute Cross-workbook lookup syntax `'[Workbook.xlsx]Sheet'!Range` and closed file caching (Question 17)?",
+    "shortAnswer": "Cross-workbook lookup syntax `'[Workbook.xlsx]Sheet'!Range` and closed file caching is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Cross-workbook lookup syntax `'[Workbook.xlsx]Sheet'!Range` and closed file caching represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Cross-workbook lookup syntax `'[Workbook.xlsx]Sheet'!Range` and closed file caching prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=XLOOKUP(A17, tblData[Key], tblData[Return], \"Not Found\")"
   },
   {
-    question: "Why should you avoid using whole column references (e.g., A:A) in VLOOKUP?",
-    shortAnswer: "It slows down calculation because Excel examines over a million cells.",
-    explanation: "Use a specific range or Excel Table. Whole column references are convenient but inefficient.",
-    hint: "Use $A$2:$A$1000 instead of A:A.",
-    level: "advanced",
-    codeExample: "=VLOOKUP(A2, $B$2:$D$10000, 3, FALSE) is much faster than B:D."
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute Dynamic dependent drop-down data validation using INDIRECT() (Question 18)?",
+    "shortAnswer": "Dynamic dependent drop-down data validation using INDIRECT() is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Dynamic dependent drop-down data validation using INDIRECT() represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Dynamic dependent drop-down data validation using INDIRECT() prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=VLOOKUP(A18, tblData, 3, FALSE)"
   },
   {
-    question: "Can VLOOKUP return multiple columns at once?",
-    shortAnswer: "No, a single VLOOKUP returns only one column. Use multiple VLOOKUP calls or an array formula (Ctrl+Shift+Enter) in older Excel.",
-    explanation: "In Excel 365, you can use =VLOOKUP(...) and spill, but it still returns one column per formula.",
-    hint: "For multiple columns, use XLOOKUP with a range for return_array.",
-    level: "advanced",
-    codeExample: "In Excel 365: =XLOOKUP(A2, B:B, C:E) returns three columns."
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute Coercing text numbers to pure numbers with double unary (--) in lookups (Question 19)?",
+    "shortAnswer": "Coercing text numbers to pure numbers with double unary (--) in lookups is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Coercing text numbers to pure numbers with double unary (--) in lookups represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Coercing text numbers to pure numbers with double unary (--) in lookups prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=INDEX(tblData[Return], MATCH(A19, tblData[Key], 0))"
   },
   {
-    question: "What is the default behavior if range_lookup is omitted?",
-    shortAnswer: "It defaults to TRUE (approximate match).",
-    explanation: "This is a common source of errors because users often forget to specify FALSE. Always include FALSE for exact matches.",
-    hint: "Never omit the fourth argument unless you really want approximate match.",
-    level: "basic",
-    codeExample: "=VLOOKUP(A2, B:C, 2) is the same as =VLOOKUP(A2, B:C, 2, TRUE)"
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute Cleaning trailing spaces in lookup keys with =TRIM(A1) (Question 20)?",
+    "shortAnswer": "Cleaning trailing spaces in lookup keys with =TRIM(A1) is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Cleaning trailing spaces in lookup keys with =TRIM(A1) represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Cleaning trailing spaces in lookup keys with =TRIM(A1) prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=XLOOKUP(A20, tblData[Key], tblData[Return], \"Not Found\")"
   },
   {
-    question: "How does VLOOKUP treat duplicate lookup values?",
-    shortAnswer: "It returns the first matching row and ignores subsequent duplicates.",
-    explanation: "If two rows have the same lookup value, only the first is considered. This can lead to incorrect data if duplicates exist.",
-    hint: "Ensure your lookup column has unique values.",
-    level: "intermediate",
-    codeExample: "VLOOKUP(101, A:B, 2, FALSE) returns the value from the first row with 101."
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute Primary key uniqueness and the danger of first-match silent termination (Question 21)?",
+    "shortAnswer": "Primary key uniqueness and the danger of first-match silent termination is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Primary key uniqueness and the danger of first-match silent termination represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Primary key uniqueness and the danger of first-match silent termination prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=VLOOKUP(A21, tblData, 3, FALSE)"
   },
   {
-    question: "Can VLOOKUP be used with a named range that is dynamic (e.g., using OFFSET)?",
-    shortAnswer: "Yes, but complex dynamic ranges can slow performance. Excel Tables are a better solution.",
-    explanation: "You can define a named range with OFFSET and COUNTA, but it's volatile and recalculates often. Use Tables for automatic expansion.",
-    hint: "Press Ctrl+T to create a Table, then refer to its name.",
-    level: "expert",
-    codeExample: "=VLOOKUP(A2, DynamicRange, 2, FALSE) where DynamicRange = OFFSET(Sheet1!$A$1,0,0,COUNTA(Sheet1!$A:$A),4)"
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute Surrogate key architecture (EMP-1001) vs ambiguous natural names (Question 22)?",
+    "shortAnswer": "Surrogate key architecture (EMP-1001) vs ambiguous natural names is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Surrogate key architecture (EMP-1001) vs ambiguous natural names represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Surrogate key architecture (EMP-1001) vs ambiguous natural names prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=INDEX(tblData[Return], MATCH(A22, tblData[Key], 0))"
   },
   {
-    question: "Why might VLOOKUP return a wrong value when using approximate match on unsorted data?",
-    shortAnswer: "Approximate match assumes the first column is sorted ascending; if not, the result is unpredictable and can be wrong without error.",
-    explanation: "Excel uses binary search for approximate match. If the column is not sorted, it may stop early and return an incorrect value.",
-    hint: "Always sort the lookup column ascending when using TRUE.",
-    level: "advanced",
-    codeExample: "Sort your tax bracket table by lower bound before using =VLOOKUP(income, brackets, 2, TRUE)."
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute Composite multi-column keys constructed with concatenation (&) (Question 23)?",
+    "shortAnswer": "Composite multi-column keys constructed with concatenation (&) is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Composite multi-column keys constructed with concatenation (&) represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Composite multi-column keys constructed with concatenation (&) prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "advanced",
+    "codeExample": "=XLOOKUP(A23, tblData[Key], tblData[Return], \"Not Found\")"
   },
   {
-    question: "How to perform a case‑sensitive VLOOKUP?",
-    shortAnswer: "Use an array formula with EXACT and MATCH, or XLOOKUP with a case‑sensitive option.",
-    explanation: "VLOOKUP itself is not case‑sensitive. In legacy Excel, use =INDEX(return_range, MATCH(TRUE, EXACT(lookup_value, lookup_range), 0)).",
-    hint: "Press Ctrl+Shift+Enter for array formula.",
-    level: "expert",
-    codeExample: "=INDEX(C:C, MATCH(TRUE, EXACT(\"Swadeep\", A:A), 0))"
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute Handling missing keys gracefully with IFERROR and IFNA (Question 24)?",
+    "shortAnswer": "Handling missing keys gracefully with IFERROR and IFNA is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Handling missing keys gracefully with IFERROR and IFNA represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Handling missing keys gracefully with IFERROR and IFNA prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "advanced",
+    "codeExample": "=VLOOKUP(A24, tblData, 3, FALSE)"
   },
   {
-    question: "Can VLOOKUP handle errors inside the lookup column?",
-    shortAnswer: "If any cell in the lookup column contains an error (e.g., #DIV/0!), VLOOKUP may also return an error.",
-    explanation: "Errors propagate. Clean your data using IFERROR before performing lookups.",
-    hint: "Use IFERROR on the lookup column to replace errors with blank or a default.",
-    level: "advanced",
-    codeExample: "Create a helper column =IFERROR(original_column, \"\") and use that as lookup column."
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute Performance optimization: Binary search O(log n) vs Linear search O(n) (Question 25)?",
+    "shortAnswer": "Performance optimization: Binary search O(log n) vs Linear search O(n) is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Performance optimization: Binary search O(log n) vs Linear search O(n) represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Performance optimization: Binary search O(log n) vs Linear search O(n) prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "advanced",
+    "codeExample": "=INDEX(tblData[Return], MATCH(A25, tblData[Key], 0))"
   },
   {
-    question: "What is the difference between VLOOKUP and LOOKUP?",
-    shortAnswer: "LOOKUP is an older function that always uses approximate match; VLOOKUP offers exact match and is more flexible.",
-    explanation: "LOOKUP has a different syntax (vector or array) and is rarely used today. VLOOKUP is preferred for exact lookups.",
-    hint: "Avoid LOOKUP – use VLOOKUP, XLOOKUP, or INDEX-MATCH.",
-    level: "advanced",
-    codeExample: "=LOOKUP(A2, B:B, C:C) – approximate only."
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute Impact of massive full-column lookups (VLOOKUP(A1, A:Z, 5, 0)) on calculation speed (Question 26)?",
+    "shortAnswer": "Impact of massive full-column lookups (VLOOKUP(A1, A:Z, 5, 0)) on calculation speed is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Impact of massive full-column lookups (VLOOKUP(A1, A:Z, 5, 0)) on calculation speed represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Impact of massive full-column lookups (VLOOKUP(A1, A:Z, 5, 0)) on calculation speed prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "advanced",
+    "codeExample": "=XLOOKUP(A26, tblData[Key], tblData[Return], \"Not Found\")"
   },
   {
-    question: "How to use VLOOKUP to find the last occurrence of a value?",
-    shortAnswer: "VLOOKUP cannot directly find the last occurrence; it returns the first. Use XLOOKUP with search mode -1 or use an array formula with MAX.",
-    explanation: "In Excel 365, =XLOOKUP(value, lookup_column, return_column, , , -1) finds from last to first.",
-    hint: "For older Excel, use =LOOKUP(2,1/(lookup_column=value), return_column).",
-    level: "expert",
-    codeExample: "=LOOKUP(2,1/(A2:A100=\"Swadeep\"), B2:B100) returns last match."
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute Structured table referencing in lookups: `tblSales[ColName]` (Question 27)?",
+    "shortAnswer": "Structured table referencing in lookups: `tblSales[ColName]` is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Structured table referencing in lookups: `tblSales[ColName]` represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Structured table referencing in lookups: `tblSales[ColName]` prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "advanced",
+    "codeExample": "=VLOOKUP(A27, tblData, 3, FALSE)"
   },
   {
-    question: "Why is VLOOKUP considered a volatile function?",
-    shortAnswer: "It is not volatile (unlike OFFSET, INDIRECT). But it recalculates when any cell in its referenced range changes.",
-    explanation: "VLOOKUP recalculates when the source data changes, but it does not force unnecessary recalculations like truly volatile functions.",
-    hint: "Use VLOOKUP with ranges, not entire columns, to improve performance.",
-    level: "advanced",
-    codeExample: "No special note – VLOOKUP is non‑volatile but still processor‑intensive on huge data."
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute Formula auditing with F9 sub-expression evaluation and Alt+M+V (Question 28)?",
+    "shortAnswer": "Formula auditing with F9 sub-expression evaluation and Alt+M+V is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Formula auditing with F9 sub-expression evaluation and Alt+M+V represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Formula auditing with F9 sub-expression evaluation and Alt+M+V prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "advanced",
+    "codeExample": "=INDEX(tblData[Return], MATCH(A28, tblData[Key], 0))"
   },
   {
-    question: "How to use VLOOKUP with data validation dropdown?",
-    shortAnswer: "Create a dropdown using Data Validation with a list of lookup values. Then write a VLOOKUP that references the dropdown cell.",
-    explanation: "This creates an interactive report where selecting an item from the dropdown automatically shows related data.",
-    hint: "Set Data Validation > List with source = $A$2:$A$100. Then =VLOOKUP(D2, A:B, 2, FALSE).",
-    level: "intermediate",
-    codeExample: "Dropdown in D2, VLOOKUP in E2: =VLOOKUP(D2, $A$2:$B$100, 2, FALSE)"
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute Two-dimensional matrix retrieval from financial budget matrices (Question 29)?",
+    "shortAnswer": "Two-dimensional matrix retrieval from financial budget matrices is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Two-dimensional matrix retrieval from financial budget matrices represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Two-dimensional matrix retrieval from financial budget matrices prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "advanced",
+    "codeExample": "=XLOOKUP(A29, tblData[Key], tblData[Return], \"Not Found\")"
   },
   {
-    question: "What is the difference between VLOOKUP and HLOOKUP in terms of performance?",
-    shortAnswer: "They are similar in performance; the choice depends on data orientation (vertical vs horizontal).",
-    explanation: "Both use linear search for exact match. HLOOKUP is less common because data is usually stored in rows, not columns.",
-    hint: "Use VLOOKUP for 99% of cases.",
-    level: "basic",
-    codeExample: "HLOOKUP is used for data like months across columns."
-  },
-  {
-    question: "How can you use VLOOKUP to return a value from a dynamic column based on a header?",
-    shortAnswer: "Combine VLOOKUP with MATCH to find the column index number dynamically.",
-    explanation: "=VLOOKUP(A2, table_range, MATCH(\"Price\", header_row, 0), FALSE). This survives column insertions.",
-    hint: "This is a pro technique for robust dashboards.",
-    level: "advanced",
-    codeExample: "=VLOOKUP(A2, $A$2:$E$100, MATCH(F1, $A$1:$E$1, 0), FALSE) where F1 contains the header name."
+    "question": "In the context of VLOOKUP Syntax, Arguments and Column Index Mechanics, how does Excel evaluate and execute 3-tier financial model architecture: Data, Logic, and Presentation (Question 30)?",
+    "shortAnswer": "3-tier financial model architecture: Data, Logic, and Presentation is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, 3-tier financial model architecture: Data, Logic, and Presentation represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how 3-tier financial model architecture: Data, Logic, and Presentation prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "advanced",
+    "codeExample": "=VLOOKUP(A30, tblData, 3, FALSE)"
   }
 ];
 

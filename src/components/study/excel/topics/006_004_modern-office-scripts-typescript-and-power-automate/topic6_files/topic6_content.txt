@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
+Topic 6: Creating, modifying, and auto-sorting Excel Tables and Pivot Tables via script
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

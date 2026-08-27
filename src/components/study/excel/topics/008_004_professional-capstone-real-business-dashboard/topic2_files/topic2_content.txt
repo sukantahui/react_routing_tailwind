@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Professional Capstone – Real Business Dashboard
+Topic 2: Phase 2: Star Schema Data Modeling, Dimensional Relationships & Advanced DAX Analytics
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

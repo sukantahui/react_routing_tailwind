@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Text, Date and Time Functions
+Topic 3: Number-to-text formatting with the TEXT function (custom number formats, currency, dates)
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

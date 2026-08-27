@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: Advanced VBA: UserForms, Events & System Integration
+Topic 3: UserForm validation, initialization events (`UserForm_Initialize`), and data write-back to worksheets
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

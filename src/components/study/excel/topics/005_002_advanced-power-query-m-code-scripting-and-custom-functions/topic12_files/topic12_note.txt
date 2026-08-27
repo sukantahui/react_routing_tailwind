@@ -1,0 +1,24 @@
+================================================================================
+EXCEL MASTERCLASS: Advanced Power Query M Code Scripting & Custom Functions
+TOPIC 12: Real-World Project: Building an Automated Multi-Branch Daily Sales Pipeline
+Lead Academic Mentor: Sukanta Hui | Coder & AccoTax (Barrackpore, Kolkata)
+================================================================================
+
+PROJECT SPECIFICATION & ARCHITECTURAL BLUEPRINT:
+1. Business Context:
+   - Organization: Coder & AccoTax Corporate Retail Division.
+   - Operating Branches: Barrackpore (HQ), Shyamnagar, Ichapur, Naihati, Titagarh.
+   - Volume: 50,000+ daily retail transactions across 5 branches in diverse Excel formats.
+
+2. Pipeline Architecture (6-Tier Dimensional DAG):
+   - 01_Parameters: `pSalesDropPath`, `pFiscalCutoffDate`, `pBaseCurrency` ("INR").
+   - 02_Functions: `fxIngestBranchSheet`, `fxCleanGSTIN`, `fxCalculateTaxes`.
+   - 03_Staging: `stg_FileInventory`, `stg_Barrackpore`, `stg_Shyamnagar`, `stg_Ichapur`, `stg_Naihati`.
+   - 04_Dimensions: `Dim_Branches`, `Dim_ProductCatalog`, `Dim_TaxRates`.
+   - 05_Facts: `Fact_ConsolidatedSales` (100% clean, loaded into VertiPaq).
+   - 06_Audits: `Audit_QuarantineLog`, `Audit_MissingBranchAlert`, `Audit_ReconciliationSummary`.
+
+3. Resilience & Fault Tolerance:
+   - Schema drift tolerance via `MissingField.UseNull`.
+   - File corruption isolation via `try...otherwise`.
+   - In-memory buffering (`Table.Buffer`, `Binary.Buffer`) for sub-5-second refresh runtime.

@@ -1,0 +1,9 @@
+MODULE 2.4 - TOPIC 17
+Title: VAR.S Function (Sample Variance)
+Level: Intermediate / Advanced
+
+Overview:
+Master VAR.S Function (Sample Variance) for advanced business intelligence, statistical modeling, and data science in Microsoft Excel.
+
+Signature:
+=VAR.S(A1:A100)

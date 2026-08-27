@@ -1,5 +1,5 @@
 MODULE 1.1 - TOPIC 5
-Title: High-Speed Navigation: Keyboard Shortcuts, Range Selection, Name Box Teleportation & Go To Special
+Title: High-Speed Navigation: Keyboard Shortcuts, Range Selection, Name Box Teleportation &amp; Go To Special
 Level: Beginner | Bloom's Level 2 & 3: Understand & Apply
 
 Overview:
@@ -17,7 +17,7 @@ Result: Cursor lands on row 50,000 instantly.
 
 [Barrackpore Student Attendance Batch Blank Filling]
 Context: Filling 'Absent' into 200 blank cells across a 1,000-row student roll sheet.
-Applied: F5 -> Alt + S -> K -> Enter -> Type 'Absent' -> Ctrl + Enter
+Applied: F5 &rarr; Alt + S &rarr; K &rarr; Enter &rarr; Type 'Absent' &rarr; Ctrl + Enter
 Result: 200 blank cells filled in 3 seconds without loop programming.
 
 [Shyamnagar Factory Filtered Copy (Visible Cells Only)]

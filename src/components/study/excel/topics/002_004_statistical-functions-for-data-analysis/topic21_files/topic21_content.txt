@@ -1,0 +1,9 @@
+MODULE 2.4 - TOPIC 21
+Title: RANK.EQ Function (Standard Ranking)
+Level: Intermediate / Advanced
+
+Overview:
+Master RANK.EQ Function (Standard Ranking) for advanced business intelligence, statistical modeling, and data science in Microsoft Excel.
+
+Signature:
+=RANK.EQ(number, ref, [order])

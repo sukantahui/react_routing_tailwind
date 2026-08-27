@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Basic Dashboards and Reporting
+Topic 4: Dynamic named ranges using OFFSET, INDEX, and dynamic arrays for automated chart updates
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
+Topic 11: Sharing Python-powered workbooks with non-technical team members seamlessly
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

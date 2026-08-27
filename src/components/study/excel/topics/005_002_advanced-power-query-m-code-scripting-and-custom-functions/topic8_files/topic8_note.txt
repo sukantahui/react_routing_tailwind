@@ -1,0 +1,25 @@
+================================================================================
+EXCEL MASTERCLASS: Advanced Power Query M Code Scripting & Custom Functions
+TOPIC 8: Error Handling in M: try...otherwise Constructs & Step-Level Validation
+Lead Academic Mentor: Sukanta Hui | Coder & AccoTax (Barrackpore, Kolkata)
+================================================================================
+
+CORE CONCEPTS & INSTRUCTOR REFERENCE:
+1. Error Architecture in M:
+   - Exceptions are values, not unhandled crash states.
+   - `try <expr>` evaluates into a record `[HasError = logical, Value = any, Error = record]`.
+   - `try <expr> otherwise <default>` provides a compact scalar fallback.
+
+2. Error Record Inspection:
+   - `Error[Reason]`: Category string (e.g. 'DataFormat.Error', 'Expression.Error').
+   - `Error[Message]`: Human-readable diagnostics.
+   - `Error[Detail]`: Contextual offending payload.
+
+3. Table-Level Defenses:
+   - `Table.ReplaceErrorValues(table, {{"Col", fallback}})`: In-place remediation.
+   - `Table.SelectRowsWithErrors(table, {"Col"})`: Audit quarantine query.
+   - `Table.RemoveRowsWithErrors(table, {"Col"})`: Clean sanitization.
+
+4. Sukanta Hui's Auditing Principle:
+   - Never use `otherwise null` to mask bad data in accounting ledgers.
+   - Build dual-pipeline routing: Clean Data &rarr; Fact Table; Error Data &rarr; Quarantine Audit Table.

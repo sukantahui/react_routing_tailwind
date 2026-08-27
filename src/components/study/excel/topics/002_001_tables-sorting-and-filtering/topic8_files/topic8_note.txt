@@ -1,0 +1,15 @@
+================================================================================
+EXCEL MASTERCLASS: Module 2.1 - Structured Tables, Sorting, Filtering & Slicers
+TOPIC 8: Test Your Skill: Structured Tables, Sorting, Filtering & Slicers
+Lead Academic Mentor: Sukanta Hui | Coder & AccoTax (Barrackpore, Kolkata)
+================================================================================
+
+ASSESSMENT MATRIX & COMPETENCIES:
+1. Structured Table Mechanics (25 pts):
+   - Table conversion (Ctrl+T), naming conventions, auto-expansion, and [@Column] syntax.
+2. Sorting & Filtering Hierarchies (25 pts):
+   - Multi-level sort (Alt+D+S), custom lists, wildcard searches, and Top N filtering.
+3. Advanced Filter & Boolean Logic (25 pts):
+   - Multi-row criteria ranges, AND/OR logic, and distinct record extraction.
+4. Visual Slicers & Dynamic Subtotals (25 pts):
+   - Slicer ribbon layout, settings, and SUBTOTAL(109) visible aggregations.

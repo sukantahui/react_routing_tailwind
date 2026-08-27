@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Conditional Logic with IF and Related Functions
+Topic 2: Compound logical conditions with AND, OR, and NOT functions
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

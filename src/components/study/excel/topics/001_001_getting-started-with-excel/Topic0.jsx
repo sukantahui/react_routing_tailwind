@@ -197,7 +197,7 @@ export default function Topic0() {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Calculation Flow: Spreadsheet Computation & Grid Memory Architecture
+            Visual Calculation Flow: Spreadsheet Computation &amp; Grid Memory Architecture
           </h2>
 
           <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
@@ -304,7 +304,7 @@ export default function Topic0() {
             <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
-                <h3 className="text-base font-bold text-white">Coder & AccoTax Barrackpore Academic Cohort Registry</h3>
+                <h3 className="text-base font-bold text-white">Coder &amp; AccoTax Barrackpore Academic Cohort Registry</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Instructor Sukanta Hui tracks diploma student performance and attendance across 35 enrolled students.</p>
               
@@ -313,10 +313,10 @@ export default function Topic0() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Student_ID</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Student_Name</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Department</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Attendance_%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Score</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Status</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">STD-1001</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Swadeep</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Software Engg</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">92%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">88</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IF(E2>=75,"Passed","Review")</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">STD-1002</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Tuhina</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Corporate Accounts</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">96%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">94</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IF(E3>=75,"Passed","Review")</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">STD-1003</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Abhronila</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Taxation & GST</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">88%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">91</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IF(E4>=75,"Passed","Review")</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">STD-1004</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Susmita</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Data Analytics</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">94%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">86</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IF(E5>=75,"Passed","Review")</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">STD-1001</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Swadeep</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Software Engg</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">92%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">88</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IF(E2&gt;=75,"Passed","Review")</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">STD-1002</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Tuhina</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Corporate Accounts</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">96%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">94</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IF(E3&gt;=75,"Passed","Review")</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">STD-1003</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Abhronila</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Taxation &amp; GST</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">88%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">91</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IF(E4&gt;=75,"Passed","Review")</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">STD-1004</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Susmita</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Data Analytics</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">94%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">86</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IF(E5&gt;=75,"Passed","Review")</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -355,7 +355,7 @@ export default function Topic0() {
             <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">03</span>
-                <h3 className="text-base font-bold text-white">Ichapur Engineering Works Machine Maintenance & Oil Replacement Log</h3>
+                <h3 className="text-base font-bold text-white">Ichapur Engineering Works Machine Maintenance &amp; Oil Replacement Log</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">A factory in Ichapur logs CNC lathe running hours to trigger preventive servicing.</p>
               
@@ -364,9 +364,9 @@ export default function Topic0() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Machine_ID</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Machine_Type</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Operating_Hours</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Threshold_Hours</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Maintenance_Alert</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MCH-101</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">CNC Lathe</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">480</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">500</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IF(C2>=D2,"DUE","OK")</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MCH-102</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Hydraulic Press</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">520</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">500</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IF(C3>=D3,"DUE","OK")</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MCH-103</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Milling Unit</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">505</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">500</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IF(C4>=D4,"DUE","OK")</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MCH-101</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">CNC Lathe</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">480</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">500</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IF(C2&gt;=D2,"DUE","OK")</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MCH-102</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Hydraulic Press</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">520</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">500</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IF(C3&gt;=D3,"DUE","OK")</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MCH-103</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Milling Unit</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">505</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">500</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IF(C4&gt;=D4,"DUE","OK")</td></tr>
                   </tbody>
                 </table>
               </div>

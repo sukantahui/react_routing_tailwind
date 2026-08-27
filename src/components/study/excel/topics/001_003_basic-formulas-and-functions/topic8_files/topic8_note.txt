@@ -1,0 +1,10 @@
+TOPIC 8: QUICK CHECK QUIZ: CORE MATHEMATICAL FUNCTIONS, BODMAS & AGGREGATION FOUNDATIONS
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Formulas are the computational engine of Microsoft Excel. With a rock-solid foundation in BODMAS, absolute referencing, aggregation, and rounding, you are now equipped to build professional financial models.
+- The next step is visual communication: transforming raw numbers into compelling, executive-ready charts and visual dashboards in Module 1.4.
+- Review the comprehensive FAQ and Teacher's Note below to finalize your Module 1.3 certification milestone.
+
+Teacher Note:
+Bravo! You have mastered Module 1.3: Basic Formulas and Functions. You now possess the computational foundation of a professional financial modeler: BODMAS mastery, aggregation fluency, ranking intelligence, and mathematical precision control. Let us advance to Module 1.4: Basic Charts and Visualizations!

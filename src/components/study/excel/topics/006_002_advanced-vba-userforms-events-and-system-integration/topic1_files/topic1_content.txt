@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Advanced VBA: UserForms, Events & System Integration
+Topic 1: Worksheet events: `Worksheet_Change`, `Worksheet_SelectionChange`, `Worksheet_Calculate`
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

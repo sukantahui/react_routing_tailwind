@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: External Data Automation: ADODB SQL Connections & Web APIs
+Topic 4: Parameterized SQL queries in VBA to prevent SQL injection and handle dynamic user inputs
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

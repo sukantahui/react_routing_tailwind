@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
+Topic 5: Advanced data visualization in Excel cells with matplotlib and seaborn (Heatmaps, Pair plots, Violin plots)
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

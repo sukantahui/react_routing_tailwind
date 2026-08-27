@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Power Pivot & Data Modeling
+Topic 2: Dimensional Modeling principles: Fact Tables vs Dimension Tables (Star Schema vs Snowflake Schema)
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

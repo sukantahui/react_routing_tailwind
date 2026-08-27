@@ -1,0 +1,10 @@
+TOPIC 6: COMPREHENSIVE LABORATORY PRACTICE SESSION: BASIC FORMULAS, FUNCTIONS AND CALCULATION AUDITING
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Building robust calculation models requires disciplined formula authoring: Always verify coordinate references with F2, check intermediate values with F9, and cross-foot grand totals.
+- Avoid nested hardcoded constants inside formulas. Always place tax rates, commission percentages, and discount rates in dedicated parameter cells and reference them absolutely ($B$1).
+- Use descriptive function names rather than raw chained arithmetic operators (e.g. use =SUM(A1:A10) instead of =A1+A2+A3+A4+A5+A6+A7+A8+A9+A10).
+
+Teacher Note:
+Outstanding work on completing the Basic Formulas Lab! You have mastered the computational heartbeat of Microsoft Excel. Always audit your spreadsheets with cross-footing and formula view (Ctrl+`) before sharing with clients or management.

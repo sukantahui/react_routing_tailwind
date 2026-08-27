@@ -1,0 +1,31 @@
+MODULE 2.1 - TOPIC 4
+Title: Advanced Filter: Criteria Ranges, Complex Multi-Column AND/OR Boolean Logic and Unique Records
+Level: Intermediate | Bloom's Level 3 & 4: Apply & Analyze
+
+Overview:
+Master Excel's Advanced Filter: Setting up external Criteria Ranges, multi-column AND logic (same row), multi-row OR logic (different rows), extracting unique distinct records, and exporting filtered results directly to a separate destination range.
+
+Technical Anatomy:
+Signature: Data -&gt; Advanced (CriteriaRange, CopyToRange, UniqueRecordsOnly)
+Return Type: Extracted Target Dataset / In-Place Boolean Filter
+
+Real-World Business Scenarios:
+[Kolkata Corporate Multi-Condition Customer Extraction (AND + OR)]
+Context: Extracting customers who are either (Branch = 'Kolkata' AND Sales > ₹ 5 Lakhs) OR (Branch = 'Barrackpore' AND Sales > ₹ 8 Lakhs).
+Applied: Data -> Advanced Filter -> Criteria Range: $I$1:$J$3
+Result: Complex multi-branch multi-threshold dataset extracted to Sheet 2.
+
+[Barrackpore Master Roster Deduplication (Unique Records Only)]
+Context: Extracting a unique list of 200 distinct corporate client companies from 5,000 invoice lines.
+Applied: Advanced Filter -> Unique Records Only -> Copy to Another Location
+Result: Clean deduplicated customer directory generated in 1 second.
+
+[Shyamnagar Regional Inventory Computed Formula Criteria]
+Context: Filtering items where Stock Quantity is less than 50% of the Maximum Reorder Level.
+Applied: Advanced Filter with Computed Formula Criteria
+Result: Dynamic mathematical threshold filtering across relative columns.
+
+[Ichapur Plant Multi-Parameter ISO Audit Extraction]
+Context: Extracting machine failure logs for specific shift supervisors and specific failure codes.
+Applied: Multi-Row Criteria Range Extraction
+Result: Audited machine incident report generated for ISO compliance.

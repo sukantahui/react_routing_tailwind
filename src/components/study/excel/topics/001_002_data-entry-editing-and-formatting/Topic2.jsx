@@ -197,7 +197,7 @@ export default function Topic2() {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Formatting Flow: Flash Fill Inductive Pattern Synthesis & Series Drag Mechanics
+            Visual Formatting Flow: Flash Fill Inductive Pattern Synthesis &amp; Series Drag Mechanics
           </h2>
 
           <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
@@ -299,7 +299,7 @@ export default function Topic2() {
             <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
-                <h3 className="text-base font-bold text-white">Kolkata Corporate Full Name Splitting into First & Last Names</h3>
+                <h3 className="text-base font-bold text-white">Kolkata Corporate Full Name Splitting into First &amp; Last Names</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Splitting 500 employee full names (e.g. 'Swadeep Mukherjee') into First and Last Name columns.</p>
               
@@ -316,7 +316,7 @@ export default function Topic2() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Type 'Swadeep' -> Press Ctrl + E</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Type 'Swadeep' &amp;rarr; Press Ctrl + E</div>
                 <div className="text-emerald-400 font-semibold">Result: All 500 first and last names extracted in 1 second with zero formulas.</div>
                 <div className="text-slate-400 text-[11px]">Flash Fill recognizes the delimiter space and extracts sub-strings automatically.</div>
               </div>
@@ -339,7 +339,7 @@ export default function Topic2() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Type '+91 98301-23456' in B2 -> Press Ctrl + E</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Type '+91 98301-23456' in B2 &amp;rarr; Press Ctrl + E</div>
                 <div className="text-emerald-400 font-semibold">Result: 500 phone numbers formatted with international prefixes instantly.</div>
                 <div className="text-slate-400 text-[11px]">Flash Fill applies string injection templates across massive datasets effortlessly.</div>
               </div>
@@ -362,7 +362,7 @@ export default function Topic2() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: File -> Options -> Advanced -> Edit Custom Lists</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: File &amp;rarr; Options &amp;rarr; Advanced &amp;rarr; Edit Custom Lists</div>
                 <div className="text-emerald-400 font-semibold">Result: Instant local geography cycling in all future workbooks.</div>
                 <div className="text-slate-400 text-[11px]">Custom lists speed up recurring regional reporting.</div>
               </div>
@@ -372,7 +372,7 @@ export default function Topic2() {
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">04</span>
                 <h3 className="text-base font-bold text-white">Shyamnagar Industrial PAN Card and GSTIN Deconstruction</h3>
               </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Extracting 10-character PAN cards from 15-character GSTIN numbers (e.g. 19ABCDE1234F1Z5 -> ABCDE1234F).</p>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Extracting 10-character PAN cards from 15-character GSTIN numbers (e.g. 19ABCDE1234F1Z5 &amp;rarr; ABCDE1234F).</p>
               
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
@@ -386,7 +386,7 @@ export default function Topic2() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Type 'ABCDE1234F' in B2 -> Press Ctrl + E</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Type 'ABCDE1234F' in B2 &amp;rarr; Press Ctrl + E</div>
                 <div className="text-emerald-400 font-semibold">Result: All PAN cards extracted from state-coded GSTIN numbers.</div>
                 <div className="text-slate-400 text-[11px]">Flash Fill extracts fixed-position substring patterns without MID() formulas.</div>
               </div>

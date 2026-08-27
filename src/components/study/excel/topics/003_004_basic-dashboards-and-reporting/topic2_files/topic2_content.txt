@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Basic Dashboards and Reporting
+Topic 2: Building KPI Summary Cards with dynamic change indicators (▲ / ▼) and conditional styling
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

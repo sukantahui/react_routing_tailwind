@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: VBA & Macro Automation
+Topic 12: Working with MsgBox and InputBox for user interaction
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

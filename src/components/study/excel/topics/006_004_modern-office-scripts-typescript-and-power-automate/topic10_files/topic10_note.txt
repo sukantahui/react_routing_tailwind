@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
+Topic 10: Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

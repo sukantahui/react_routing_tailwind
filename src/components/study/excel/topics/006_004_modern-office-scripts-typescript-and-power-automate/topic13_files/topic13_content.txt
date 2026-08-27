@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
+Topic 13: Real-world project: Building an automated cloud expense approval and ledger posting pipeline
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

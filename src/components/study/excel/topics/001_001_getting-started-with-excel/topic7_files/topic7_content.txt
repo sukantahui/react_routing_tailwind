@@ -21,11 +21,11 @@ Applied: Cross-Footing: =SUM(F2:F3) must equal =SUM(B4:E4)
 Result: INR 1,464,000 verified from both vertical and horizontal summation axes.
 
 [Shyamnagar Regional Supermarket Missing Entry Auto-Audit]
-Context: Using F5 Go To Special -> Blanks to find unbilled items in a 500-line daily register.
+Context: Using F5 Go To Special &rarr; Blanks to find unbilled items in a 500-line daily register.
 Applied: Go To Special Blanks Audit
 Result: 14 unbilled records flagged and corrected prior to day-end settlement.
 
 [Kolkata Branch Final Model Freezing & Presentation Packaging]
 Context: Freezing top 3 header rows and locking column A so employee names remain visible during horizontal scrolling.
-Applied: View Tab -> Freeze Panes with cursor at B4
+Applied: View Tab &rarr; Freeze Panes with cursor at B4
 Result: Professional executive spreadsheet ready for board review.

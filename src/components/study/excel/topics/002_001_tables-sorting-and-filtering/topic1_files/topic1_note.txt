@@ -1,0 +1,10 @@
+TOPIC 1: TABLE ADVANCED FEATURES: TOTAL ROW, DYNAMIC CALCULATED COLUMNS AND AUTO-EXPANSION
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- The Table Total Row uses =SUBTOTAL(109, [ColumnName]) which automatically recalculates when rows are filtered out, displaying only visible row totals.
+- Calculated columns eliminate formula inconsistency: every cell in the column is guaranteed to use the exact same logic.
+- Dynamic tables eliminate manual range adjustments in downstream PivotTables and charts, as they automatically source `tblName` instead of static ranges.
+
+Teacher Note:
+Always enable the Table Total Row with Ctrl + Shift + T! It uses SUBTOTAL(109) so when you filter your table by branch or department, the total dynamically recalculates to show only the visible records. Press Tab in the last cell to add new rows smoothly!

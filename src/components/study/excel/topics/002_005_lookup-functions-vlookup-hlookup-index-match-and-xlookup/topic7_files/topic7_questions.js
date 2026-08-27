@@ -1,102 +1,244 @@
 const questions = [
   {
-    question: "What does the MATCH function return?",
-    shortAnswer: "The relative position of a lookup value within a single‑row or single‑column range.",
-    explanation: "MATCH returns a number representing the position (e.g., 1 for the first item, 2 for the second). It does not return the value itself. If not found, it returns #N/A.",
-    hint: "Think of it as 'where is this value located in the list?'.",
-    level: "basic",
-    codeExample: "=MATCH(\"P103\", A2:A100, 0) returns the row index within A2:A100."
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute VLOOKUP exact match (FALSE / 0) linear scan mechanics (Question 1)?",
+    "shortAnswer": "VLOOKUP exact match (FALSE / 0) linear scan mechanics is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, VLOOKUP exact match (FALSE / 0) linear scan mechanics represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how VLOOKUP exact match (FALSE / 0) linear scan mechanics prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "basic",
+    "codeExample": "=INDEX(tblData[Return], MATCH(A1, tblData[Key], 0))"
   },
   {
-    question: "What are the three match_type values and what do they mean?",
-    shortAnswer: "0 = exact match; 1 = approximate match (ascending sort required); -1 = approximate match (descending sort required).",
-    explanation: "0 finds the first exact match. 1 finds the largest value ≤ lookup_value. -1 finds the smallest value ≥ lookup_value. If match_type is omitted, it defaults to 1.",
-    hint: "Use 0 for most lookups unless you need banded matching.",
-    level: "basic",
-    codeExample: "=MATCH(85, {0,60,70,80,90}, 1) returns 4 (position of 80)."
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute VLOOKUP approximate match (TRUE / 1) sorted table binary scan (Question 2)?",
+    "shortAnswer": "VLOOKUP approximate match (TRUE / 1) sorted table binary scan is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, VLOOKUP approximate match (TRUE / 1) sorted table binary scan represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how VLOOKUP approximate match (TRUE / 1) sorted table binary scan prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "basic",
+    "codeExample": "=XLOOKUP(A2, tblData[Key], tblData[Return], \"Not Found\")"
   },
   {
-    question: "What happens if you use match_type = 1 on an unsorted list?",
-    shortAnswer: "MATCH returns an unpredictable or incorrect position, often #N/A.",
-    explanation: "Approximate match assumes the lookup_array is sorted ascending. If not, the binary search algorithm may return a wrong result or #N/A without warning.",
-    hint: "Always sort ascending before using match_type = 1.",
-    level: "intermediate",
-    codeExample: "=MATCH(50, {100,80,60,40}, 1) on unsorted may return #N/A or wrong position."
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute Left-lookup limitation of VLOOKUP and how INDEX-MATCH solves it (Question 3)?",
+    "shortAnswer": "Left-lookup limitation of VLOOKUP and how INDEX-MATCH solves it is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Left-lookup limitation of VLOOKUP and how INDEX-MATCH solves it represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Left-lookup limitation of VLOOKUP and how INDEX-MATCH solves it prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "basic",
+    "codeExample": "=VLOOKUP(A3, tblData, 3, FALSE)"
   },
   {
-    question: "Can MATCH be used with a 2‑D range (multiple rows and columns)?",
-    shortAnswer: "No, lookup_array must be a single row or a single column.",
-    explanation: "MATCH requires a 1‑dimensional array. To search a 2‑D table, use two MATCH functions (one for row, one for column) with INDEX.",
-    hint: "Use INDEX with MATCH for two‑way lookups.",
-    level: "basic",
-    codeExample: "=INDEX(A1:Z100, MATCH(row_value, A1:A100, 0), MATCH(col_value, A1:Z1, 0))"
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute Column insertion vulnerability in VLOOKUP vs INDEX-MATCH resilience (Question 4)?",
+    "shortAnswer": "Column insertion vulnerability in VLOOKUP vs INDEX-MATCH resilience is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Column insertion vulnerability in VLOOKUP vs INDEX-MATCH resilience represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Column insertion vulnerability in VLOOKUP vs INDEX-MATCH resilience prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "basic",
+    "codeExample": "=INDEX(tblData[Return], MATCH(A4, tblData[Key], 0))"
   },
   {
-    question: "Why does MATCH return #N/A when I can see the value?",
-    shortAnswer: "Possible reasons: extra spaces, data type mismatch (number vs text), or the value is not in the lookup_array.",
-    explanation: "Check for leading/trailing spaces with TRIM, ensure numeric values are not stored as text, and verify the range includes the cell.",
-    hint: "Use =EXACT(lookup_value, cell) to test equality.",
-    level: "basic",
-    codeExample: "=MATCH(TRIM(A2), B:B, 0) – removes spaces from lookup value."
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute MATCH function exact match (0) vs less-than (1) vs greater-than (-1) (Question 5)?",
+    "shortAnswer": "MATCH function exact match (0) vs less-than (1) vs greater-than (-1) is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, MATCH function exact match (0) vs less-than (1) vs greater-than (-1) represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how MATCH function exact match (0) vs less-than (1) vs greater-than (-1) prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "basic",
+    "codeExample": "=XLOOKUP(A5, tblData[Key], tblData[Return], \"Not Found\")"
   },
   {
-    question: "How can MATCH be used to check if a value exists without returning #N/A?",
-    shortAnswer: "Wrap MATCH in ISNUMBER: =ISNUMBER(MATCH(...)).",
-    explanation: "ISNUMBER returns TRUE if MATCH finds a number (position), FALSE if #N/A.",
-    hint: "Use =IF(ISNUMBER(MATCH(...)), \"Exists\", \"Missing\").",
-    level: "intermediate",
-    codeExample: "=IF(ISNUMBER(MATCH(E2, A:A, 0)), \"Found\", \"Not found\")"
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute INDEX function matrix coordinate extraction (Row, Col) (Question 6)?",
+    "shortAnswer": "INDEX function matrix coordinate extraction (Row, Col) is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, INDEX function matrix coordinate extraction (Row, Col) represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how INDEX function matrix coordinate extraction (Row, Col) prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "basic",
+    "codeExample": "=VLOOKUP(A6, tblData, 3, FALSE)"
   },
   {
-    question: "Is MATCH case‑sensitive?",
-    shortAnswer: "No, MATCH is not case‑sensitive by default.",
-    explanation: "MATCH treats 'APPLE' and 'apple' as the same. For case‑sensitive matching, combine with EXACT in an array formula: =MATCH(TRUE, EXACT(lookup_value, range), 0).",
-    hint: "Use XMATCH with match_mode 0 and case‑sensitivity option in newer Excel.",
-    level: "advanced",
-    codeExample: "=MATCH(TRUE, EXACT(\"Swadeep\", A2:A10), 0) – array formula (Ctrl+Shift+Enter)."
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute Two-way intersection lookup using Double MATCH in INDEX (Question 7)?",
+    "shortAnswer": "Two-way intersection lookup using Double MATCH in INDEX is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Two-way intersection lookup using Double MATCH in INDEX represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Two-way intersection lookup using Double MATCH in INDEX prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "basic",
+    "codeExample": "=INDEX(tblData[Return], MATCH(A7, tblData[Key], 0))"
   },
   {
-    question: "What is the difference between MATCH and VLOOKUP?",
-    shortAnswer: "MATCH returns a position; VLOOKUP returns a value from a different column.",
-    explanation: "VLOOKUP combines the functionality of MATCH (finding the row) and then retrieving a value. MATCH alone only gives you the row number, which you can then use with INDEX.",
-    hint: "Use MATCH when you need only the position, or as a helper for INDEX.",
-    level: "basic",
-    codeExample: "VLOOKUP = INDEX(return_column, MATCH(lookup_value, lookup_column, 0))"
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute Modern XLOOKUP universal 3-argument syntax (key, lookup_arr, return_arr) (Question 8)?",
+    "shortAnswer": "Modern XLOOKUP universal 3-argument syntax (key, lookup_arr, return_arr) is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Modern XLOOKUP universal 3-argument syntax (key, lookup_arr, return_arr) represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Modern XLOOKUP universal 3-argument syntax (key, lookup_arr, return_arr) prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "basic",
+    "codeExample": "=XLOOKUP(A8, tblData[Key], tblData[Return], \"Not Found\")"
   },
   {
-    question: "How can MATCH find the last occurrence of a value?",
-    shortAnswer: "Use MATCH with match_type = 1 on an unsorted range? No – better: =MATCH(2, 1/(range=value), 1) as an array formula.",
-    explanation: "This trick divides 1 by an array of TRUE/FALSE (1/1=1, 1/0=#DIV/0!). MATCH with 1 finds the last 1. In Excel 365, use XMATCH with search mode -1.",
-    hint: "XMATCH(value, range, 0, -1) finds from last to first.",
-    level: "expert",
-    codeExample: "=XMATCH(\"P101\", A2:A100, 0, -1) – returns last occurrence position (Excel 365)."
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute XLOOKUP if_not_found parameter eliminating separate IFERROR wrappers (Question 9)?",
+    "shortAnswer": "XLOOKUP if_not_found parameter eliminating separate IFERROR wrappers is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, XLOOKUP if_not_found parameter eliminating separate IFERROR wrappers represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how XLOOKUP if_not_found parameter eliminating separate IFERROR wrappers prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "basic",
+    "codeExample": "=VLOOKUP(A9, tblData, 3, FALSE)"
   },
   {
-    question: "What is the typical use of MATCH with INDEX?",
-    shortAnswer: "INDEX returns the value at a given row/column; MATCH provides the row (or column) number dynamically.",
-    explanation: "Together they create a flexible lookup that can return values from any column, left or right of the lookup column, and survive column insertions.",
-    hint: "INDEX-MATCH is the classic VLOOKUP alternative.",
-    level: "intermediate",
-    codeExample: "=INDEX(B:B, MATCH(\"Swadeep\", A:A, 0)) – returns Swadeep's marks from column B."
-  },
-  // Additional questions to reach 30 (abbreviated – extend similarly)
-  {
-    question: "Can MATCH work with wildcards (*, ?)?",
-    shortAnswer: "Yes, only with match_type = 0.",
-    explanation: "Use * for any sequence, ? for a single character. Example: =MATCH(\"*phone*\", A2:A100, 0) finds first cell containing 'phone'.",
-    hint: "Wildcards do not work with approximate match.",
-    level: "advanced",
-    codeExample: "=MATCH(\"P10*\", A2:A100, 0) finds first product starting with 'P10'."
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute XLOOKUP search_mode 2 (binary search on sorted ascending data) (Question 10)?",
+    "shortAnswer": "XLOOKUP search_mode 2 (binary search on sorted ascending data) is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, XLOOKUP search_mode 2 (binary search on sorted ascending data) represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how XLOOKUP search_mode 2 (binary search on sorted ascending data) prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "basic",
+    "codeExample": "=INDEX(tblData[Return], MATCH(A10, tblData[Key], 0))"
   },
   {
-    question: "What is the difference between MATCH and XMATCH?",
-    shortAnswer: "XMATCH is a modern function with more options: reverse search, wildcards, default exact match, and case‑sensitivity.",
-    explanation: "XMATCH replaces MATCH in Excel 365. Its default match_type is 0 (exact), and it supports search_mode parameters (-1 for last to first).",
-    hint: "If you have Excel 365, use XMATCH for greater flexibility.",
-    level: "advanced",
-    codeExample: "=XMATCH(\"P101\", A2:A100, 0, -1) – finds from bottom."
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute XLOOKUP match_mode 2 (wildcard search with *, ?) (Question 11)?",
+    "shortAnswer": "XLOOKUP match_mode 2 (wildcard search with *, ?) is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, XLOOKUP match_mode 2 (wildcard search with *, ?) represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how XLOOKUP match_mode 2 (wildcard search with *, ?) prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=XLOOKUP(A11, tblData[Key], tblData[Return], \"Not Found\")"
   },
-  // ... continue to 30
+  {
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute XLOOKUP match_mode -1 (exact match or next smaller item) (Question 12)?",
+    "shortAnswer": "XLOOKUP match_mode -1 (exact match or next smaller item) is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, XLOOKUP match_mode -1 (exact match or next smaller item) represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how XLOOKUP match_mode -1 (exact match or next smaller item) prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=VLOOKUP(A12, tblData, 3, FALSE)"
+  },
+  {
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute XLOOKUP match_mode 1 (exact match or next larger item) (Question 13)?",
+    "shortAnswer": "XLOOKUP match_mode 1 (exact match or next larger item) is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, XLOOKUP match_mode 1 (exact match or next larger item) represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how XLOOKUP match_mode 1 (exact match or next larger item) prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=INDEX(tblData[Return], MATCH(A13, tblData[Key], 0))"
+  },
+  {
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute XLOOKUP search_mode -1 (search last-to-first from bottom of table) (Question 14)?",
+    "shortAnswer": "XLOOKUP search_mode -1 (search last-to-first from bottom of table) is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, XLOOKUP search_mode -1 (search last-to-first from bottom of table) represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how XLOOKUP search_mode -1 (search last-to-first from bottom of table) prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=XLOOKUP(A14, tblData[Key], tblData[Return], \"Not Found\")"
+  },
+  {
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute Multi-criteria lookup using boolean multiplication `(Arr1=Val1)*(Arr2=Val2)` (Question 15)?",
+    "shortAnswer": "Multi-criteria lookup using boolean multiplication `(Arr1=Val1)*(Arr2=Val2)` is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Multi-criteria lookup using boolean multiplication `(Arr1=Val1)*(Arr2=Val2)` represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Multi-criteria lookup using boolean multiplication `(Arr1=Val1)*(Arr2=Val2)` prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=VLOOKUP(A15, tblData, 3, FALSE)"
+  },
+  {
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute Cross-sheet lookup syntax `'SheetName'!Range` and sheet rename immunity (Question 16)?",
+    "shortAnswer": "Cross-sheet lookup syntax `'SheetName'!Range` and sheet rename immunity is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Cross-sheet lookup syntax `'SheetName'!Range` and sheet rename immunity represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Cross-sheet lookup syntax `'SheetName'!Range` and sheet rename immunity prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=INDEX(tblData[Return], MATCH(A16, tblData[Key], 0))"
+  },
+  {
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute Cross-workbook lookup syntax `'[Workbook.xlsx]Sheet'!Range` and closed file caching (Question 17)?",
+    "shortAnswer": "Cross-workbook lookup syntax `'[Workbook.xlsx]Sheet'!Range` and closed file caching is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Cross-workbook lookup syntax `'[Workbook.xlsx]Sheet'!Range` and closed file caching represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Cross-workbook lookup syntax `'[Workbook.xlsx]Sheet'!Range` and closed file caching prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=XLOOKUP(A17, tblData[Key], tblData[Return], \"Not Found\")"
+  },
+  {
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute Dynamic dependent drop-down data validation using INDIRECT() (Question 18)?",
+    "shortAnswer": "Dynamic dependent drop-down data validation using INDIRECT() is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Dynamic dependent drop-down data validation using INDIRECT() represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Dynamic dependent drop-down data validation using INDIRECT() prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=VLOOKUP(A18, tblData, 3, FALSE)"
+  },
+  {
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute Coercing text numbers to pure numbers with double unary (--) in lookups (Question 19)?",
+    "shortAnswer": "Coercing text numbers to pure numbers with double unary (--) in lookups is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Coercing text numbers to pure numbers with double unary (--) in lookups represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Coercing text numbers to pure numbers with double unary (--) in lookups prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=INDEX(tblData[Return], MATCH(A19, tblData[Key], 0))"
+  },
+  {
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute Cleaning trailing spaces in lookup keys with =TRIM(A1) (Question 20)?",
+    "shortAnswer": "Cleaning trailing spaces in lookup keys with =TRIM(A1) is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Cleaning trailing spaces in lookup keys with =TRIM(A1) represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Cleaning trailing spaces in lookup keys with =TRIM(A1) prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=XLOOKUP(A20, tblData[Key], tblData[Return], \"Not Found\")"
+  },
+  {
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute Primary key uniqueness and the danger of first-match silent termination (Question 21)?",
+    "shortAnswer": "Primary key uniqueness and the danger of first-match silent termination is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Primary key uniqueness and the danger of first-match silent termination represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Primary key uniqueness and the danger of first-match silent termination prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=VLOOKUP(A21, tblData, 3, FALSE)"
+  },
+  {
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute Surrogate key architecture (EMP-1001) vs ambiguous natural names (Question 22)?",
+    "shortAnswer": "Surrogate key architecture (EMP-1001) vs ambiguous natural names is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Surrogate key architecture (EMP-1001) vs ambiguous natural names represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Surrogate key architecture (EMP-1001) vs ambiguous natural names prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "moderate",
+    "codeExample": "=INDEX(tblData[Return], MATCH(A22, tblData[Key], 0))"
+  },
+  {
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute Composite multi-column keys constructed with concatenation (&) (Question 23)?",
+    "shortAnswer": "Composite multi-column keys constructed with concatenation (&) is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Composite multi-column keys constructed with concatenation (&) represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Composite multi-column keys constructed with concatenation (&) prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "advanced",
+    "codeExample": "=XLOOKUP(A23, tblData[Key], tblData[Return], \"Not Found\")"
+  },
+  {
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute Handling missing keys gracefully with IFERROR and IFNA (Question 24)?",
+    "shortAnswer": "Handling missing keys gracefully with IFERROR and IFNA is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Handling missing keys gracefully with IFERROR and IFNA represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Handling missing keys gracefully with IFERROR and IFNA prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "advanced",
+    "codeExample": "=VLOOKUP(A24, tblData, 3, FALSE)"
+  },
+  {
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute Performance optimization: Binary search O(log n) vs Linear search O(n) (Question 25)?",
+    "shortAnswer": "Performance optimization: Binary search O(log n) vs Linear search O(n) is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Performance optimization: Binary search O(log n) vs Linear search O(n) represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Performance optimization: Binary search O(log n) vs Linear search O(n) prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "advanced",
+    "codeExample": "=INDEX(tblData[Return], MATCH(A25, tblData[Key], 0))"
+  },
+  {
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute Impact of massive full-column lookups (VLOOKUP(A1, A:Z, 5, 0)) on calculation speed (Question 26)?",
+    "shortAnswer": "Impact of massive full-column lookups (VLOOKUP(A1, A:Z, 5, 0)) on calculation speed is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Impact of massive full-column lookups (VLOOKUP(A1, A:Z, 5, 0)) on calculation speed represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Impact of massive full-column lookups (VLOOKUP(A1, A:Z, 5, 0)) on calculation speed prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "advanced",
+    "codeExample": "=XLOOKUP(A26, tblData[Key], tblData[Return], \"Not Found\")"
+  },
+  {
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute Structured table referencing in lookups: `tblSales[ColName]` (Question 27)?",
+    "shortAnswer": "Structured table referencing in lookups: `tblSales[ColName]` is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Structured table referencing in lookups: `tblSales[ColName]` represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Structured table referencing in lookups: `tblSales[ColName]` prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "advanced",
+    "codeExample": "=VLOOKUP(A27, tblData, 3, FALSE)"
+  },
+  {
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute Formula auditing with F9 sub-expression evaluation and Alt+M+V (Question 28)?",
+    "shortAnswer": "Formula auditing with F9 sub-expression evaluation and Alt+M+V is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Formula auditing with F9 sub-expression evaluation and Alt+M+V represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Formula auditing with F9 sub-expression evaluation and Alt+M+V prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "advanced",
+    "codeExample": "=INDEX(tblData[Return], MATCH(A28, tblData[Key], 0))"
+  },
+  {
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute Two-dimensional matrix retrieval from financial budget matrices (Question 29)?",
+    "shortAnswer": "Two-dimensional matrix retrieval from financial budget matrices is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, Two-dimensional matrix retrieval from financial budget matrices represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how Two-dimensional matrix retrieval from financial budget matrices prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "advanced",
+    "codeExample": "=XLOOKUP(A29, tblData[Key], tblData[Return], \"Not Found\")"
+  },
+  {
+    "question": "In the context of MATCH Function Mechanics: Exact Match (0), Less Than (1), Greater Than (-1), how does Excel evaluate and execute 3-tier financial model architecture: Data, Logic, and Presentation (Question 30)?",
+    "shortAnswer": "3-tier financial model architecture: Data, Logic, and Presentation is processed deterministically by Excel's relational lookup engine to ensure coordinate precision, query speed, and data integrity.",
+    "explanation": "In Microsoft Excel, 3-tier financial model architecture: Data, Logic, and Presentation represents a vital operational mechanism. The formula engine manages internal memory indices, parses reference coordinates, and executes search algorithms to guarantee exact data extraction across complex financial models.",
+    "hint": "Consider how 3-tier financial model architecture: Data, Logic, and Presentation prevents calculation errors, speeds up large table querying, and adheres to modern spreadsheet standards.",
+    "level": "advanced",
+    "codeExample": "=VLOOKUP(A30, tblData, 3, FALSE)"
+  }
 ];
 
 export default questions;

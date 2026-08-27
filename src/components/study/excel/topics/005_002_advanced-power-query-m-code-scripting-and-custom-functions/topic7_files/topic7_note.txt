@@ -1,0 +1,21 @@
+================================================================================
+EXCEL MASTERCLASS: Advanced Power Query M Code Scripting & Custom Functions
+TOPIC 7: Handling API Pagination, Authentication Tokens, and Rate Limits in M
+Lead Academic Mentor: Sukanta Hui | Coder & AccoTax (Barrackpore, Kolkata)
+================================================================================
+
+CORE CONCEPTS & ARCHITECTURAL SUMMARY:
+1. Pure Functional Looping in M:
+   - Power Query M is purely functional without mutable state (`for`, `while`).
+   - Iteration across REST API pages requires `List.Generate(initial, condition, next, selector)`.
+   - The generator maintains state records `[Page = 1, Data = fxFetch(1), HasMore = true]`.
+
+2. Dynamic Authentication & Token Lifecycle:
+   - Automated OAuth2 Client Credentials handshake via `Web.Contents` POST.
+   - Dynamic injection of `Bearer <token>` headers inside `[Headers = [Authorization = "Bearer " & token]]`.
+   - Compliance with Power BI Service scheduled refresh rules (Static Base URL + `RelativePath` & `Query`).
+
+3. Rate Limit Management & Safe Termination:
+   - Handling HTTP 429 Too Many Requests and exponential backoff mechanisms.
+   - Safe condition predicates checking `not List.IsEmpty([Data])` and `[Cursor] <> null` to prevent runaway infinite loops.
+   - Table consolidation via `Table.Combine` on memory-buffered page streams.

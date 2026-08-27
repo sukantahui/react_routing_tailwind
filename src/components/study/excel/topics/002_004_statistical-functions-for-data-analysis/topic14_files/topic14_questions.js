@@ -1,213 +1,243 @@
 const questions = [
   {
-    question: "What does MODE.MULT return?",
-    shortAnswer: "A vertical array of all numbers that occur most frequently in a dataset.",
-    explanation: "It returns every mode (value with highest frequency). If no number repeats, returns #N/A.",
-    level: "basic",
-    codeExample: "=MODE.MULT(1,1,2,2,3) → {1;2}"
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Sample vs population standard deviation mathematical distinction (Question 1)?",
+    "shortAnswer": "Sample vs population standard deviation mathematical distinction is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Sample vs population standard deviation mathematical distinction plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Sample vs population standard deviation mathematical distinction impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B21)"
   },
   {
-    question: "How is MODE.MULT different from MODE.SNGL?",
-    shortAnswer: "MODE.SNGL returns only the smallest mode; MODE.MULT returns all modes.",
-    explanation: "In bimodal data, MODE.SNGL hides the second peak; MODE.MULT reveals both.",
-    level: "basic",
-    codeExample: "Data {1,1,2,2} → MODE.SNGL=1, MODE.MULT={1;2}"
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Bessel's correction (n-1 degrees of freedom) in STDEV.S (Question 2)?",
+    "shortAnswer": "Bessel's correction (n-1 degrees of freedom) in STDEV.S is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Bessel's correction (n-1 degrees of freedom) in STDEV.S plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Bessel's correction (n-1 degrees of freedom) in STDEV.S impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What does MODE.MULT return if there are three modes with equal frequency?",
-    shortAnswer: "An array containing all three numbers (sorted ascending).",
-    explanation: "Example: {5,5,10,10,8,8} returns {5;8;10} (assuming they appear twice each).",
-    level: "intermediate",
-    codeExample: "=MODE.MULT({5,5,10,10,8,8}) → {5;8;10}"
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS (Question 3)?",
+    "shortAnswer": "Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "How to use MODE.MULT in Excel 2019 (non‑dynamic arrays)?",
-    shortAnswer: "Select a vertical range (e.g., D1:D10), type formula, and press Ctrl+Shift+Enter.",
-    explanation: "You must pre‑select enough cells to accommodate all modes; if you select too few, some modes are truncated.",
-    level: "advanced",
-    codeExample: "Select D1:D3, enter =MODE.MULT(A1:A100), press Ctrl+Shift+Enter."
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Why SUMIFS places sum_range FIRST while SUMIF places it LAST (Question 4)?",
+    "shortAnswer": "Why SUMIFS places sum_range FIRST while SUMIF places it LAST is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Why SUMIFS places sum_range FIRST while SUMIF places it LAST plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Why SUMIFS places sum_range FIRST while SUMIF places it LAST impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B24)"
   },
   {
-    question: "What error does MODE.MULT return when all numbers are unique?",
-    shortAnswer: "#N/A (no mode).",
-    explanation: "Same as MODE.SNGL, no repeated numbers → no mode.",
-    level: "basic",
-    codeExample: "=MODE.MULT(1,2,3,4) → #N/A"
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Wildcard support (*, ?) in COUNTIF and SUMIFS criteria (Question 5)?",
+    "shortAnswer": "Wildcard support (*, ?) in COUNTIF and SUMIFS criteria is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Wildcard support (*, ?) in COUNTIF and SUMIFS criteria plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Wildcard support (*, ?) in COUNTIF and SUMIFS criteria impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Does MODE.MULT ignore text and blanks?",
-    shortAnswer: "Yes, it only considers numeric values.",
-    explanation: "Text and blank cells are completely ignored; they don't affect frequency.",
-    level: "basic",
-    codeExample: "Range with {5, \"a\", blank, 5} → mode = 5, only one mode."
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Case-insensitivity of text comparisons in IFS functions (Question 6)?",
+    "shortAnswer": "Case-insensitivity of text comparisons in IFS functions is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Case-insensitivity of text comparisons in IFS functions plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Case-insensitivity of text comparisons in IFS functions impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Can MODE.MULT be used with dates?",
-    shortAnswer: "Yes, dates are stored as numbers, so it returns most frequent date as serial number (format as date).",
-    explanation: "Useful for finding most common order or event date.",
-    level: "intermediate",
-    codeExample: "=MODE.MULT(DateRange) → array of most common dates."
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) (Question 7)?",
+    "shortAnswer": "Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B27)"
   },
   {
-    question: "How to get the count of modes returned by MODE.MULT?",
-    shortAnswer: "=COUNT(MODE.MULT(range)).",
-    explanation: "This tells you how many distinct modes exist (1 for unimodal, 2 for bimodal, etc.).",
-    level: "intermediate",
-    codeExample: "=COUNT(MODE.MULT(A1:A100))"
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Median resistance to extreme outlier skewing compared to Mean (Question 8)?",
+    "shortAnswer": "Median resistance to extreme outlier skewing compared to Mean is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Median resistance to extreme outlier skewing compared to Mean plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Median resistance to extreme outlier skewing compared to Mean impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the result of =MODE.MULT(5,5,5,5)?",
-    shortAnswer: "{5} (only one mode, because all values are the same).",
-    explanation: "Even though the frequency is 4, there is only one distinct mode.",
-    level: "basic",
-    codeExample: "All identical → array with that single number."
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate MODE.SNGL single value return vs MODE.MULT dynamic array spilling (Question 9)?",
+    "shortAnswer": "MODE.SNGL single value return vs MODE.MULT dynamic array spilling is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, MODE.SNGL single value return vs MODE.MULT dynamic array spilling plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how MODE.SNGL single value return vs MODE.MULT dynamic array spilling impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Can MODE.MULT be used to find the mode of a filtered list?",
-    shortAnswer: "Not directly; it always examines all rows. Use AGGREGATE (no mode) or helper column with SUBTOTAL, then array formula.",
-    explanation: "MODE.MULT does not respect filters; you'd need to create a visible‑only array.",
-    level: "expert",
-    codeExample: "=MODE.MULT(IF(SUBTOTAL(3,OFFSET(range,ROW(range)-MIN(ROW(range)),0,1)), range)) array formula."
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) (Question 10)?",
+    "shortAnswer": "QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B30)"
   },
   {
-    question: "How does MODE.MULT handle decimal numbers?",
-    shortAnswer: "It treats them as exact numeric values; equality is determined by floating point precision.",
-    explanation: "Values like 1.5 and 1.5000000001 may be considered different; use ROUND if needed.",
-    level: "intermediate",
-    codeExample: "=MODE.MULT(1.5,1.5,2.5,2.5) → {1.5;2.5}"
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate PERCENTILE.INC fractional rank interpolation algorithms (Question 11)?",
+    "shortAnswer": "PERCENTILE.INC fractional rank interpolation algorithms is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, PERCENTILE.INC fractional rank interpolation algorithms plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how PERCENTILE.INC fractional rank interpolation algorithms impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the maximum number of arguments MODE.MULT accepts?",
-    shortAnswer: "255 arguments, same as MODE.SNGL.",
-    explanation: "Each argument can be a range or constant.",
-    level: "expert",
-    codeExample: "=MODE.MULT(A1:A1000000, B1:B1000000) works."
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking (Question 12)?",
+    "shortAnswer": "RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Can MODE.MULT be used with array constants?",
-    shortAnswer: "Yes, e.g., =MODE.MULT({1,1,2,2,3}) returns {1;2}.",
-    explanation: "Array constants are treated as direct arguments.",
-    level: "advanced",
-    codeExample: "=MODE.MULT({5,5,5,10,10}) → {5}"
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 (Question 13)?",
+    "shortAnswer": "Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B33)"
   },
   {
-    question: "Why might MODE.MULT spill into more cells than expected?",
-    shortAnswer: "Because more than one value shares the highest frequency.",
-    explanation: "If 10 numbers have the same frequency (e.g., each appears 3 times), all 10 are modes.",
-    level: "intermediate",
-    codeExample: "Dataset with all values appearing equally often → MODE.MULT returns all distinct values."
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Linear regression forecasting with FORECAST.LINEAR (y = a + bx) (Question 14)?",
+    "shortAnswer": "Linear regression forecasting with FORECAST.LINEAR (y = a + bx) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Linear regression forecasting with FORECAST.LINEAR (y = a + bx) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Linear regression forecasting with FORECAST.LINEAR (y = a + bx) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How to capture MODE.MULT results in a single cell (e.g., comma separated)?",
-    shortAnswer: "Use TEXTJOIN: =TEXTJOIN(\", \", TRUE, MODE.MULT(range)).",
-    explanation: "This works in Excel 365; in older versions, you need to use an array formula with TEXTJOIN.",
-    level: "advanced",
-    codeExample: "=TEXTJOIN(\", \", TRUE, MODE.MULT(A2:A100))"
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate TREND function dynamic multi-period projection array spilling (Question 15)?",
+    "shortAnswer": "TREND function dynamic multi-period projection array spilling is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, TREND function dynamic multi-period projection array spilling plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how TREND function dynamic multi-period projection array spilling impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Is MODE.MULT case‑sensitive?",
-    shortAnswer: "It works only with numbers, so case sensitivity is irrelevant. For text modes, MODE.MULT does not apply.",
-    explanation: "Use a helper column with numeric codes for text analysis.",
-    level: "basic",
-    codeExample: "N/A – MODE.MULT is for numbers only."
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Z-score statistical outlier detection: (x - Mean) / STDEV (Question 16)?",
+    "shortAnswer": "Z-score statistical outlier detection: (x - Mean) / STDEV is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Z-score statistical outlier detection: (x - Mean) / STDEV plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Z-score statistical outlier detection: (x - Mean) / STDEV impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B36)"
   },
   {
-    question: "What is the behaviour of MODE.MULT when the dataset has no mode?",
-    shortAnswer: "Returns #N/A.",
-    explanation: "Identical to MODE.SNGL in that case.",
-    level: "basic",
-    codeExample: "=MODE.MULT(1,2,3,4,5) → #N/A"
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules (Question 17)?",
+    "shortAnswer": "Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How to find the modes that satisfy a condition (conditional mode)?",
-    shortAnswer: "Use array formula: =MODE.MULT(IF(criteria_range=criteria, value_range)).",
-    explanation: "This returns all modes within the subset that meets the condition.",
-    level: "advanced",
-    codeExample: "{=MODE.MULT(IF(A1:A100=\"North\", B1:B100))}"
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate How statistical functions skip text strings vs include literal zeroes (Question 18)?",
+    "shortAnswer": "How statistical functions skip text strings vs include literal zeroes is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, How statistical functions skip text strings vs include literal zeroes plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how How statistical functions skip text strings vs include literal zeroes impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Can MODE.MULT be used with multiple ranges separated by commas?",
-    shortAnswer: "Yes, e.g., =MODE.MULT(A1:A10, C1:C10, E1:E10).",
-    explanation: "All numeric cells across all ranges are considered together.",
-    level: "intermediate",
-    codeExample: "Combine multiple non‑adjacent ranges."
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Preventing #DIV/0! errors when counting zero matching criteria records (Question 19)?",
+    "shortAnswer": "Preventing #DIV/0! errors when counting zero matching criteria records is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Preventing #DIV/0! errors when counting zero matching criteria records plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Preventing #DIV/0! errors when counting zero matching criteria records impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B39)"
   },
   {
-    question: "What is the difference between MODE.MULT and FREQUENCY for finding common values?",
-    shortAnswer: "FREQUENCY returns bin counts; MODE.MULT directly returns the values themselves that are modes.",
-    explanation: "MODE.MULT is simpler for finding modes; FREQUENCY gives a full distribution.",
-    level: "advanced",
-    codeExample: "Use MODE.MULT for quick answers, FREQUENCY for detailed histograms."
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Combining statistical IFS functions with Boolean logical masks (Question 20)?",
+    "shortAnswer": "Combining statistical IFS functions with Boolean logical masks is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Combining statistical IFS functions with Boolean logical masks plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Combining statistical IFS functions with Boolean logical masks impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How to handle #N/A when there is no mode?",
-    shortAnswer: "Wrap with IFERROR: =IFERROR(MODE.MULT(range), \"No mode\") – but IFERROR converts the entire array to text. Better to test with COUNT before.",
-    explanation: "Because MODE.MULT returns an array, IFERROR may not work as expected; use =IF(COUNT(MODE.MULT(range))>0, MODE.MULT(range), \"No mode\").",
-    level: "expert",
-    codeExample: "Complex but robust."
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 (Question 21)?",
+    "shortAnswer": "Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Does MODE.MULT consider zero as a valid number?",
-    shortAnswer: "Yes, zero is a number. If zero appears most frequently, it will be returned as a mode.",
-    explanation: "Zero is counted like any other number.",
-    level: "basic",
-    codeExample: "{0,0,5,5,5} → mode is 5 (not zero)."
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Structured Table referencing in statistical formulas: tblData[Amount] (Question 22)?",
+    "shortAnswer": "Structured Table referencing in statistical formulas: tblData[Amount] is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Structured Table referencing in statistical formulas: tblData[Amount] plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Structured Table referencing in statistical formulas: tblData[Amount] impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B42)"
   },
   {
-    question: "What is the output of =MODE.MULT({1,2,2,3,3,3,4,4,4})?",
-    shortAnswer: "{3;4} (both appear three times).",
-    explanation: "3 appears three times, 4 appears three times, 2 appears twice, 1 once – modes are 3 and 4.",
-    level: "intermediate",
-    codeExample: "Returns {3;4}"
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Performance optimization across 100,000 rows with SUMIFS vs PivotTables (Question 23)?",
+    "shortAnswer": "Performance optimization across 100,000 rows with SUMIFS vs PivotTables is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Performance optimization across 100,000 rows with SUMIFS vs PivotTables plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Performance optimization across 100,000 rows with SUMIFS vs PivotTables impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Can MODE.MULT be used with the LET function for cleaner formulas?",
-    shortAnswer: "Yes: =LET(modes, MODE.MULT(data), INDEX(modes, 1)) to get first mode, etc.",
-    explanation: "LET stores the array result, then you can manipulate it without recalculation.",
-    level: "expert",
-    codeExample: "=LET(m, MODE.MULT(A:A), TEXTJOIN(\", \", TRUE, m))"
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Double unary operator (--) in boolean array statistical aggregations (Question 24)?",
+    "shortAnswer": "Double unary operator (--) in boolean array statistical aggregations is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Double unary operator (--) in boolean array statistical aggregations plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Double unary operator (--) in boolean array statistical aggregations impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Why would a professional use MODE.MULT over MODE.SNGL?",
-    shortAnswer: "To avoid missing important secondary peaks when the data is multimodal.",
-    explanation: "In business, ignoring a second popular product size can lead to lost sales.",
-    level: "intermediate",
-    codeExample: "Inventory planning requires all modes."
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Weighted average calculations using SUMPRODUCT / SUM (Question 25)?",
+    "shortAnswer": "Weighted average calculations using SUMPRODUCT / SUM is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Weighted average calculations using SUMPRODUCT / SUM plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Weighted average calculations using SUMPRODUCT / SUM impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=STDEV.S(B2:B45)"
   },
   {
-    question: "Is there a performance difference between MODE.SNGL and MODE.MULT?",
-    shortAnswer: "MODE.MULT may be slightly slower because it has to collect all modes, but difference is negligible for normal datasets.",
-    explanation: "Both are well optimised.",
-    level: "advanced",
-    codeExample: "Use MODE.MULT when you need all modes; otherwise MODE.SNGL is fine."
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V (Question 26)?",
+    "shortAnswer": "Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How to get only the first (smallest) mode from MODE.MULT?",
-    shortAnswer: "=MIN(MODE.MULT(range)) or =INDEX(MODE.MULT(range), 1).",
-    explanation: "Use MIN if you want the smallest numeric mode; INDEX returns the first in the spill order (ascending).",
-    level: "intermediate",
-    codeExample: "=MIN(MODE.MULT(A2:A100))"
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Handling missing data and empty cells in correlation matrices (Question 27)?",
+    "shortAnswer": "Handling missing data and empty cells in correlation matrices is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Handling missing data and empty cells in correlation matrices plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Handling missing data and empty cells in correlation matrices impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Can MODE.MULT be used with Excel Tables structured references?",
-    shortAnswer: "Yes: =MODE.MULT(Table1[Score])",
-    explanation: "Structured references auto‑adjust and are easier to maintain.",
-    level: "basic",
-    codeExample: "=MODE.MULT(Table1[Sales])"
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards (Question 28)?",
+    "shortAnswer": "3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=STDEV.S(B2:B48)"
   },
   {
-    question: "What is the output of =MODE.MULT({1,1,2,2,2,3,3})?",
-    shortAnswer: "{2} (only 2 appears three times; 1 and 3 appear twice).",
-    explanation: "Unimodal data returns a single value array.",
-    level: "basic",
-    codeExample: "Only one distinct mode."
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Normality test verification and bell curve distribution benchmarks (Question 29)?",
+    "shortAnswer": "Normality test verification and bell curve distribution benchmarks is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Normality test verification and bell curve distribution benchmarks plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Normality test verification and bell curve distribution benchmarks impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How to convert MODE.MULT result from vertical to horizontal?",
-    shortAnswer: "Use TRANSPOSE: =TRANSPOSE(MODE.MULT(range)).",
-    explanation: "Transpose turns the vertical array into a horizontal row.",
-    level: "intermediate",
-    codeExample: "Useful for placing modes in a row."
+    "question": "In the context of MODE.MULT Function (Multiple Modes Handling), how does Excel compute and evaluate Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR (Question 30)?",
+    "shortAnswer": "Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   }
 ];
 

@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
+Topic 8: Linear and multiple regression modeling with statsmodels in Excel
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

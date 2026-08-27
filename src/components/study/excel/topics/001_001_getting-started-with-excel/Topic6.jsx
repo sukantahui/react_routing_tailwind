@@ -169,7 +169,7 @@ export default function Topic6() {
           <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
             <p>Under the hood, Excel stores relative references as vector offsets (e.g. 'same row, 2 columns to the left') rather than hardcoded coordinate strings.</p>
             <p>The dollar sign ($) is an anchor token that instructs the formula compiler to treat that specific coordinate dimension as an absolute index rather than a relative offset.</p>
-            <p>The F4 shortcut key cycles through all 4 reference states: A1 -> $A$1 -> A$1 -> $A1 -> A1 in sequence.</p>
+            <p>The F4 shortcut key cycles through all 4 reference states: A1 &amp;rarr; $A$1 &amp;rarr; A$1 &amp;rarr; $A1 &amp;rarr; A1 in sequence.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
@@ -304,7 +304,7 @@ export default function Topic6() {
             <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
-                <h3 className="text-base font-bold text-white">Coder & AccoTax Barrackpore Staff Payroll Model with Fixed GST Rate</h3>
+                <h3 className="text-base font-bold text-white">Coder &amp; AccoTax Barrackpore Staff Payroll Model with Fixed GST Rate</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Calculating 18% GST and 40% HRA on employee salaries referencing fixed parameter cells.</p>
               
@@ -520,7 +520,7 @@ export default function Topic6() {
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
                 F4
               </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Cycle active cell reference through: A1 -> $A$1 -> A$1 -> $A1 -> A1.</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Cycle active cell reference through: A1 &amp;rarr; $A$1 &amp;rarr; A$1 &amp;rarr; $A1 &amp;rarr; A1.</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">

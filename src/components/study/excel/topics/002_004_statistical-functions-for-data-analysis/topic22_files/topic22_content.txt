@@ -1,0 +1,9 @@
+MODULE 2.4 - TOPIC 22
+Title: RANK.AVG Function (Average Ranking for Ties)
+Level: Intermediate / Advanced
+
+Overview:
+Master RANK.AVG Function (Average Ranking for Ties) for advanced business intelligence, statistical modeling, and data science in Microsoft Excel.
+
+Signature:
+=RANK.AVG(number, ref, [order])

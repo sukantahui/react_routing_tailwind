@@ -72,7 +72,7 @@ export default function Topic8() {
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            Practice Multiple Choice Questions (MCQ): Comprehensive Interface & Navigation Mastery
+            Practice Multiple Choice Questions (MCQ): Comprehensive Interface &amp; Navigation Mastery
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
@@ -197,7 +197,7 @@ export default function Topic8() {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Calculation Flow: Diagnostic Assessment & Skill Competency Matrix
+            Visual Calculation Flow: Diagnostic Assessment &amp; Skill Competency Matrix
           </h2>
 
           <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
@@ -281,7 +281,7 @@ export default function Topic8() {
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic0_Excel_Overview"
-            title="Module 1.1 - Practice Multiple Choice Questions (MCQ): Comprehensive Interface & Navigation Mastery"
+            title="Module 1.1 - Practice Multiple Choice Questions (MCQ): Comprehensive Interface &amp; Navigation Mastery"
             rowsPerPage={25}
             showSheetSelector={true}
           />
@@ -313,9 +313,9 @@ export default function Topic8() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Domain_Area</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Topic_Coverage</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Target_Score</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Readiness_Check</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Manage Worksheets & Workbooks</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Creating, Saving (.xlsx/.xlsb), Tab Naming</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Mastered</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Navigate Cells & Ranges</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Ctrl+Arrows, Name Box, Go To Special</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Mastered</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formulas & Referencing</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Relative, Absolute ($), Mixed ($A1/A$1)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Mastered</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Manage Worksheets &amp; Workbooks</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Creating, Saving (.xlsx/.xlsb), Tab Naming</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Mastered</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Navigate Cells &amp; Ranges</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Ctrl+Arrows, Name Box, Go To Special</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Mastered</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formulas &amp; Referencing</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Relative, Absolute ($), Mixed ($A1/A$1)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Mastered</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -363,7 +363,7 @@ export default function Topic8() {
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Audit_Task</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Shortcut_Applied</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Time_Taken</td></tr>
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Show all formulas</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Ctrl + `</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">1 second</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Find uncalculated constants in formula columns</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">F5 -> Special -> Constants</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">2 seconds</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Find uncalculated constants in formula columns</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">F5 &amp;rarr; Special &amp;rarr; Constants</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">2 seconds</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -495,7 +495,7 @@ export default function Topic8() {
                   <td className="py-3 px-4 text-rose-300 font-mono font-bold">Thinking Ctrl+C Copies Formulas as Constants</td>
                   <td className="py-3 px-4 text-slate-300">Expecting regular paste to fix calculated values.</td>
                   <td className="py-3 px-4 text-amber-300">Pasted formulas recalculate based on new relative coordinates.</td>
-                  <td className="py-3 px-4 text-emerald-400 font-medium">Use Paste Special -> Values (Alt + E + S + V) to freeze numbers as static constants.</td>
+                  <td className="py-3 px-4 text-emerald-400 font-medium">Use Paste Special &amp;rarr; Values (Alt + E + S + V) to freeze numbers as static constants.</td>
                 </tr>
               </tbody>
             </table>
@@ -577,7 +577,7 @@ export default function Topic8() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Practice Multiple Choice Questions (MCQ): Comprehensive Interface & Navigation Mastery - Frequently Asked Questions"
+            title="Practice Multiple Choice Questions (MCQ): Comprehensive Interface &amp; Navigation Mastery - Frequently Asked Questions"
             questions={questions}
           />
         </div>

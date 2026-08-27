@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Using AI with Excel for Productivity
+Topic 2: Prompt Engineering for Spreadsheets: Crafting precise instructions for formula generation and data manipulation
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

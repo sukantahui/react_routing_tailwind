@@ -1,0 +1,9 @@
+MODULE 2.4 - TOPIC 34
+Title: Outlier Detection using Statistical Functions
+Level: Intermediate / Advanced
+
+Overview:
+Master Outlier Detection using Statistical Functions for advanced business intelligence, statistical modeling, and data science in Microsoft Excel.
+
+Signature:
+=IF(ABS(A1-AVERAGE(A:A))>2*STDEV.S(A:A), "OUTLIER", "NORMAL")

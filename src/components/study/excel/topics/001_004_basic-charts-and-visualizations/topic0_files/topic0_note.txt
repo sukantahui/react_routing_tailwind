@@ -1,0 +1,10 @@
+TOPIC 0: CHART SELECTION GUIDE: MATCHING BUSINESS DATA STORIES TO OPTIMAL CHART TYPES
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Visual perception research shows humans perceive lengths along a common axis (Bar/Column charts) with far greater precision than angles or areas (Pie charts).
+- Edward Tufte's Data-to-Ink Ratio principle states that non-essential ink (clutter, 3D shadows, heavy gridlines) must be stripped to maximize data clarity.
+- Never use 3D charts in business reports. Perspective distortion skews front slices, causing smaller values to appear visually larger than bigger values in the background.
+
+Teacher Note:
+Golden rule of data visualization: If you cannot read the insight in 3 seconds, the chart has failed! Never use 3D charts in corporate finance. Choose 2D Column or Bar charts for comparisons, Line charts for time-series trends, and keep Pie/Doughnut charts under 5 slices!

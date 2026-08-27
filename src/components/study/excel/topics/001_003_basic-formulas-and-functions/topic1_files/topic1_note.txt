@@ -1,0 +1,10 @@
+TOPIC 1: CORE ARITHMETIC OPERATIONS: ADDITION (+), SUBTRACTION (-), MULTIPLICATION (*), DIVISION (/) AND POWERS (^)
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Arithmetic operators in Excel operate directly on numeric data types stored in 8-byte floating-point registers.
+- Division by zero is mathematically undefined and returns the `#DIV/0!` error token.
+- Percentage calculations in Excel do not require multiplying by 100 in formulas; formatting the cell as Percentage (Ctrl+Shift+%) automatically scales the decimal by 100.
+
+Teacher Note:
+Never allow raw #DIV/0! errors to appear on executive dashboards! Always wrap division formulas in =IFERROR(A1/B1, 0) or =IF(B1>0, A1/B1, 0) to ensure your models remain clean and professional.

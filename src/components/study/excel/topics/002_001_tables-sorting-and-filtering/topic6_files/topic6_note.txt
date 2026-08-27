@@ -1,0 +1,10 @@
+TOPIC 6: COMPREHENSIVE LABORATORY PRACTICE SESSION: STRUCTURED TABLES, MULTI-LEVEL SORTING, FILTERING & SLICERS
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Data wrangling is the foundational discipline of data engineering. Mastering structured tables, sorting, and multi-tier filtering prepares you for advanced lookup functions and statistical modeling in later modules.
+- Combining Tables with Slicers creates a zero-VBA interactive data exploration application that non-technical business stakeholders can use effortlessly.
+- Always verify that your table headers are unique, non-blank, and self-documenting to maintain structured formula clarity.
+
+Teacher Note:
+Bravo! You have mastered Module 2.1: Structured Tables, Sorting, Filtering & Slicers. You now possess the data wrangling fluency of an advanced spreadsheet architect. You can structure dynamic relational tables, configure multi-tier sorting hierarchies, extract complex boolean subsets, and build interactive slicer dashboards. Let us advance to advanced formulas in Module 2.2 and beyond!

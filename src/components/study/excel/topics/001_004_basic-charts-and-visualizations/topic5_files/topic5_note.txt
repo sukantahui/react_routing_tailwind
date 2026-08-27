@@ -1,0 +1,10 @@
+TOPIC 5: FORMATTING AND VISUAL POLISH: CORPORATE COLOR PALETTES, CALLOUT CARDS AND MODERN DASHBOARD AESTHETICS
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Color should be used for cognition, not decoration. Every color in an executive dashboard must represent a specific meaning (e.g. Green = Target Achieved, Red = Deficit, Blue = Current Year).
+- Executive dashboards combine 3 visual tiers: 1. Top KPI Metric Summary Cards (Big Numbers), 2. Middle Visual Trend/Comparison Charts, 3. Bottom Granular Detail Table.
+- Never use default garish Excel rainbow colors. Use cohesive, calibrated HSL palette tokens that feel modern, elegant, and credible.
+
+Teacher Note:
+Aesthetics are everything in executive presentations! Never show amateur default charts with random rainbow colors. Use our Coder & AccoTax dark aesthetic: clean Slate-950 panels, vibrant Sky Blue for your main series, Emerald for targets, and mute background context with Slate Grey. Hold Alt while resizing charts to snap them perfectly to the cell grid!

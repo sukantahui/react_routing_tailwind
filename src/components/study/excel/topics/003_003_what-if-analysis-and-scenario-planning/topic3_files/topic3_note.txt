@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
+Topic 3: Two-Variable Data Tables: Cross-matrix sensitivity analysis (e.g., price vs volume vs profit)
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

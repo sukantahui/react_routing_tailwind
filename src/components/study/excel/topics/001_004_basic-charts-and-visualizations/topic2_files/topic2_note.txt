@@ -1,0 +1,10 @@
+TOPIC 2: LINE AND AREA CHARTS: VISUALIZING CHRONOLOGICAL TRENDS, SEASONALITY AND CUMULATIVE TRAJECTORIES
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Line charts encode data via the slope of line segments, enabling rapid detection of rate of change (acceleration vs deceleration).
+- Unlike column charts, line chart Y-axes do NOT always need to start at 0 if the objective is to highlight subtle fluctuations (e.g. stock prices or body temperature).
+- When formatting line charts with multiple series, use distinct colors and line styles (solid vs dashed) to ensure black-and-white print readability.
+
+Teacher Note:
+Never connect unrelated categories with a line! A line chart implies time and progression. Use line charts for dates, months, and years. When plotting multiple lines, make your main company series bold Sky Blue and fade competitor lines to subtle Slate Grey!

@@ -1,0 +1,15 @@
+================================================================================
+EXCEL MASTERCLASS: Module 2.4 - Statistical Functions For Data Analysis
+TOPIC 38: Test Your Skill: Statistical Functions For Data Analysis
+Lead Academic Mentor: Sukanta Hui | Coder & AccoTax (Barrackpore, Kolkata)
+================================================================================
+
+ASSESSMENT MATRIX & COMPETENCIES:
+1. Central Tendency & Dispersion (25 pts):
+   - Mean (AVERAGE), Median (MEDIAN), Mode (MODE.SNGL, MODE.MULT), Standard Deviation (STDEV.S, STDEV.P), Variance (VAR.S).
+2. Rank, Order & Distribution Position (25 pts):
+   - LARGE, SMALL, RANK.EQ, RANK.AVG, QUARTILE.INC/EXC, PERCENTILE.INC/EXC.
+3. Association & Trend Modeling (25 pts):
+   - CORREL (Pearson correlation), FORECAST.LINEAR, TREND (Least-Squares linear regression).
+4. Data Cleaning & Anomaly Detection (25 pts):
+   - Tukey Outlier Detection (1.5*IQR), Z-Score Standardization (STANDARDIZE), IFERROR handling.

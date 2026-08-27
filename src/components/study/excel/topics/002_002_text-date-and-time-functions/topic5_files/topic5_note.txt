@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: Text, Date and Time Functions
+Topic 5: Working day calculations: WORKDAY, WORKDAY.INTL, NETWORKDAYS, and NETWORKDAYS.INTL
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

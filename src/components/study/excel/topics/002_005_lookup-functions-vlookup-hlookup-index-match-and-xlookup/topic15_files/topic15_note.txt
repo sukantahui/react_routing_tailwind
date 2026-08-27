@@ -1,0 +1,10 @@
+TOPIC 15: CROSS-SHEET AND CROSS-WORKBOOK LOOKUP ARCHITECTURE
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- In Microsoft Excel, Cross-Sheet and Cross-Workbook Lookup Architecture provides industrial-grade relational data extraction capabilities across enterprise workbooks.
+- Understanding memory pointer traversal, binary search vs linear search, and dynamic array returns is vital for elite financial modeling.
+- Always design lookup tables with clean, normalized data types to eliminate #N/A type mismatch exceptions.
+
+Teacher Note:
+Master Cross-Sheet and Cross-Workbook Lookup Architecture! Pay meticulous attention to coordinate anchoring with F4, verify key uniqueness, and leverage INDEX-MATCH or XLOOKUP for immune, boardroom-ready spreadsheet models!

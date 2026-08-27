@@ -1,0 +1,10 @@
+TOPIC 2: FOUNDATIONAL AGGREGATION FUNCTIONS: SUM, AVERAGE, COUNT, COUNTA AND COUNTBLANK MECHANICS
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- SUM and AVERAGE skip cells containing text strings or blank cells automatically when passed as range references (e.g. A1:A50).
+- Crucial distinction: AVERAGE includes cells containing literal 0, but excludes truly blank cells. Entering 0 lowers the average, whereas leaving the cell blank does not.
+- COUNTBLANK identifies empty cells or cells containing the empty text string formula `""`.
+
+Teacher Note:
+Beware the difference between Zero and Blank in =AVERAGE()! A blank cell is completely ignored in the divisor, but a 0 is actively included and will drag your average down. Know your data before calculating averages!

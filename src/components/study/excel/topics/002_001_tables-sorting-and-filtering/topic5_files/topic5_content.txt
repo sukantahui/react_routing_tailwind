@@ -1,0 +1,31 @@
+MODULE 2.1 - TOPIC 5
+Title: Slicers for Excel Tables: Visual 1-Click Interactive Filtering and Dashboard Integration
+Level: Intermediate | Bloom's Level 3: Apply
+
+Overview:
+Master Slicers for Excel Tables: Inserting visual filter buttons (Alt+J+T+S), multi-column button layout, Slicer styling to match Coder &amp; AccoTax dark aesthetics, connecting multiple slicers, and building interactive no-code dashboards.
+
+Technical Anatomy:
+Signature: =SLICER_INTERACTION(SelectedButtons, ActiveTable)
+Return Type: Visual 1-Click UI Filter State
+
+Real-World Business Scenarios:
+[Coder & AccoTax Multi-Branch Interactive Student Dashboard]
+Context: Building 1-click Branch and Department slicers for academic counselors.
+Applied: Table Slicers (Insert -> Slicer)
+Result: Interactive app-like filtering interface without writing VBA.
+
+[Kolkata Corporate Executive Sales Region Slicer Panel]
+Context: Creating a horizontal 5-button Region Slicer bar above the main sales summary table.
+Applied: Horizontal Multi-Column Slicer Bar
+Result: Compact, modern dashboard navigation header.
+
+[Shyamnagar Regional Inventory Stock Status Slicer]
+Context: Filtering inventory by status: 'In Stock', 'Reorder Required', 'Discontinued'.
+Applied: Single-Click Status Slicer
+Result: Warehouse managers execute reorder audits in 1 second.
+
+[Ichapur Plant Machine Line Multi-Select Slicer Audit]
+Context: Holding Ctrl to select Line 1 and Line 3 simultaneously while excluding Line 2.
+Applied: Multi-Selection (Ctrl + Click)
+Result: Flexible custom subset aggregation on demand.

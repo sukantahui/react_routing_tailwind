@@ -1,251 +1,243 @@
 const questions = [
   {
-    question: "What does the MIN function return?",
-    shortAnswer: "The smallest numeric value in its arguments.",
-    explanation: "MIN returns the minimum numeric value. It ignores text, blanks, and logical values in cell references.",
-    hint: "Think 'lowest number'.",
-    level: "basic",
-    codeExample: "=MIN(10, 5, 8) → 5"
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Sample vs population standard deviation mathematical distinction (Question 1)?",
+    "shortAnswer": "Sample vs population standard deviation mathematical distinction is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Sample vs population standard deviation mathematical distinction plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Sample vs population standard deviation mathematical distinction impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B21)"
   },
   {
-    question: "What is the result of =MIN(A1:A3) if A1=5, A2=text, A3=2?",
-    shortAnswer: "2",
-    explanation: "Text in A2 is ignored, so MIN considers 5 and 2, returns 2.",
-    hint: "Text cells are skipped.",
-    level: "basic",
-    codeExample: "MIN(5, \"hello\", 2) in cells → 2."
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Bessel's correction (n-1 degrees of freedom) in STDEV.S (Question 2)?",
+    "shortAnswer": "Bessel's correction (n-1 degrees of freedom) in STDEV.S is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Bessel's correction (n-1 degrees of freedom) in STDEV.S plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Bessel's correction (n-1 degrees of freedom) in STDEV.S impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How does MIN treat a blank cell?",
-    shortAnswer: "Ignores it (blank cell is skipped).",
-    explanation: "Blank cells do not affect the minimum calculation, unlike zeros which are considered.",
-    hint: "Blank is not zero.",
-    level: "basic",
-    codeExample: "=MIN(10, , 5) → 5 (blank ignored)."
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS (Question 3)?",
+    "shortAnswer": "Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What does MIN return if no numbers are found in the range?",
-    shortAnswer: "0",
-    explanation: "Unlike AVERAGE which returns #DIV/0!, MIN returns 0 when there are no numeric values.",
-    hint: "Test with =MIN(A1:A10) where all cells are text or blank.",
-    level: "intermediate",
-    codeExample: "=MIN(A1:A10) with all text → 0."
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Why SUMIFS places sum_range FIRST while SUMIF places it LAST (Question 4)?",
+    "shortAnswer": "Why SUMIFS places sum_range FIRST while SUMIF places it LAST is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Why SUMIFS places sum_range FIRST while SUMIF places it LAST plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Why SUMIFS places sum_range FIRST while SUMIF places it LAST impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B24)"
   },
   {
-    question: "Can MIN be used with dates?",
-    shortAnswer: "Yes, returns the earliest date (since dates are stored as serial numbers).",
-    explanation: "Excel stores dates as numbers, so MIN gives the smallest (oldest) date.",
-    hint: "Use MIN to find the earliest event date.",
-    level: "intermediate",
-    codeExample: "=MIN(A1:A10) where A1:A10 are dates → earliest date."
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Wildcard support (*, ?) in COUNTIF and SUMIFS criteria (Question 5)?",
+    "shortAnswer": "Wildcard support (*, ?) in COUNTIF and SUMIFS criteria is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Wildcard support (*, ?) in COUNTIF and SUMIFS criteria plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Wildcard support (*, ?) in COUNTIF and SUMIFS criteria impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the difference between MIN and MINA?",
-    shortAnswer: "MINA treats text as 0, TRUE as 1, FALSE as 0; MIN ignores them.",
-    explanation: "MINA evaluates all cells, converting non‑numeric to numbers. Rarely used.",
-    hint: "A stands for 'all values', similar to AVERAGEA.",
-    level: "advanced",
-    codeExample: "=MINA(\"hello\", 5) → 0 (text becomes 0)."
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Case-insensitivity of text comparisons in IFS functions (Question 6)?",
+    "shortAnswer": "Case-insensitivity of text comparisons in IFS functions is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Case-insensitivity of text comparisons in IFS functions plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Case-insensitivity of text comparisons in IFS functions impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "If a range contains a zero, MIN returns 0 even if there are blanks. Is that correct?",
-    shortAnswer: "Yes, zero is the smallest number, so it is returned.",
-    explanation: "Zero is a valid numeric value. If you want the minimum positive number, use array formula =MIN(IF(range>0, range)).",
-    hint: "Consider if zero should be excluded.",
-    level: "intermediate",
-    codeExample: "=MIN(IF(A1:A10>0, A1:A10)) array formula."
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) (Question 7)?",
+    "shortAnswer": "Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B27)"
   },
   {
-    question: "How to find the minimum value that is greater than zero?",
-    shortAnswer: "Use MINIFS(range, range, \">0\") or array formula =MIN(IF(range>0, range)).",
-    explanation: "MINIFS is simpler in newer Excel versions.",
-    hint: "Criteria \">0\" excludes zeros and negatives.",
-    level: "advanced",
-    codeExample: "=MINIFS(A1:A10, A1:A10, \">0\")"
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Median resistance to extreme outlier skewing compared to Mean (Question 8)?",
+    "shortAnswer": "Median resistance to extreme outlier skewing compared to Mean is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Median resistance to extreme outlier skewing compared to Mean plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Median resistance to extreme outlier skewing compared to Mean impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the keyboard shortcut to insert MIN?",
-    shortAnswer: "No direct shortcut. Use AutoSum dropdown and select Min, or type manually.",
-    explanation: "The AutoSum button (Σ) has a dropdown with Min option.",
-    hint: "Click the arrow next to Σ to see other functions.",
-    level: "basic",
-    codeExample: null
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate MODE.SNGL single value return vs MODE.MULT dynamic array spilling (Question 9)?",
+    "shortAnswer": "MODE.SNGL single value return vs MODE.MULT dynamic array spilling is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, MODE.SNGL single value return vs MODE.MULT dynamic array spilling plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how MODE.SNGL single value return vs MODE.MULT dynamic array spilling impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Does MIN treat TRUE as 1 when directly typed?",
-    shortAnswer: "Yes, =MIN(TRUE, 5) returns 1 because TRUE converts to 1.",
-    explanation: "Direct logical arguments are coerced to numbers; cell references are ignored.",
-    hint: "Be careful: TRUE as direct argument vs cell reference behave differently.",
-    level: "advanced",
-    codeExample: "=MIN(TRUE, 10) → 1; =MIN(A1,10) where A1=TRUE → 10 (ignored)."
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) (Question 10)?",
+    "shortAnswer": "QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B30)"
   },
   {
-    question: "What happens if you use MIN on an entire column (e.g., =MIN(A:A))?",
-    shortAnswer: "It returns the minimum number in that column, ignoring text and blanks.",
-    explanation: "Works, but may be slow on very large datasets. Useful for quick checks.",
-    hint: "Avoid whole column references in heavy workbooks.",
-    level: "intermediate",
-    codeExample: "=MIN(A:A) finds the smallest number anywhere in column A."
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate PERCENTILE.INC fractional rank interpolation algorithms (Question 11)?",
+    "shortAnswer": "PERCENTILE.INC fractional rank interpolation algorithms is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, PERCENTILE.INC fractional rank interpolation algorithms plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how PERCENTILE.INC fractional rank interpolation algorithms impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How to find the smallest value in alternating rows?",
-    shortAnswer: "Use array formula like =MIN(IF(MOD(ROW(range)-ROW(first),2)=0, range)).",
-    explanation: "Combines MIN with MOD to filter rows.",
-    hint: "This is an expert technique; usually helper column is simpler.",
-    level: "expert",
-    codeExample: "{=MIN(IF(MOD(ROW(A1:A100)-ROW(A1),2)=0, A1:A100))}"
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking (Question 12)?",
+    "shortAnswer": "RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What is the result of =MIN(0, \"\", 5)?",
-    shortAnswer: "0",
-    explanation: "Blank is ignored; numbers are 0 and 5, minimum is 0.",
-    hint: "Zero is smaller than positive numbers.",
-    level: "basic",
-    codeExample: "MIN(0, ,5) → 0."
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 (Question 13)?",
+    "shortAnswer": "Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B33)"
   },
   {
-    question: "Can MIN be combined with IF to get conditional minimum?",
-    shortAnswer: "Yes, e.g., =MIN(IF(A1:A10=\"Yes\", B1:B10)).",
-    explanation: "This array formula returns the minimum in B where A = \"Yes\".",
-    hint: "Remember to enter as array (Ctrl+Shift+Enter) in older Excel.",
-    level: "advanced",
-    codeExample: "{=MIN(IF(A1:A10=\"Yes\", B1:B10))}"
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Linear regression forecasting with FORECAST.LINEAR (y = a + bx) (Question 14)?",
+    "shortAnswer": "Linear regression forecasting with FORECAST.LINEAR (y = a + bx) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Linear regression forecasting with FORECAST.LINEAR (y = a + bx) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Linear regression forecasting with FORECAST.LINEAR (y = a + bx) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the difference between MIN and SMALL(range,1)?",
-    shortAnswer: "SMALL(range, 1) also returns the smallest value, but SMALL can return the 2nd smallest, 3rd, etc.",
-    explanation: "MIN is simpler for the single smallest; SMALL is more general.",
-    hint: "SMALL(range, k) where k=1 gives same as MIN.",
-    level: "intermediate",
-    codeExample: "=SMALL(A1:A10, 1) equals =MIN(A1:A10)."
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate TREND function dynamic multi-period projection array spilling (Question 15)?",
+    "shortAnswer": "TREND function dynamic multi-period projection array spilling is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, TREND function dynamic multi-period projection array spilling plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how TREND function dynamic multi-period projection array spilling impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "How to find the minimum value excluding zeros without using MINIFS?",
-    shortAnswer: "Array formula: =MIN(IF(range<>0, range)).",
-    explanation: "IF filter excludes zeros, then MIN works on the filtered array.",
-    hint: "This is the classic pre-MINIFS method.",
-    level: "advanced",
-    codeExample: "{=MIN(IF(A1:A10<>0, A1:A10))}"
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Z-score statistical outlier detection: (x - Mean) / STDEV (Question 16)?",
+    "shortAnswer": "Z-score statistical outlier detection: (x - Mean) / STDEV is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Z-score statistical outlier detection: (x - Mean) / STDEV plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Z-score statistical outlier detection: (x - Mean) / STDEV impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B36)"
   },
   {
-    question: "What does MIN return for an empty range?",
-    shortAnswer: "0",
-    explanation: "If a range has no numeric values, MIN returns 0 (not an error).",
-    hint: "Different from AVERAGE which gives #DIV/0!.",
-    level: "intermediate",
-    codeExample: "=MIN(A1:A10) where A1:A10 all blank → 0."
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules (Question 17)?",
+    "shortAnswer": "Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Can MIN be used with 3D references across sheets?",
-    shortAnswer: "Yes, =MIN(Sheet1:Sheet3!A1) finds minimum of cell A1 across all sheets.",
-    explanation: "Works like SUM with 3D references: all sheets between Sheet1 and Sheet3 inclusive.",
-    hint: "Sheet names must be contiguous in the workbook.",
-    level: "advanced",
-    codeExample: "=MIN(Jan:Dec!B5) minimum B5 across all sheets."
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate How statistical functions skip text strings vs include literal zeroes (Question 18)?",
+    "shortAnswer": "How statistical functions skip text strings vs include literal zeroes is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, How statistical functions skip text strings vs include literal zeroes plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how How statistical functions skip text strings vs include literal zeroes impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What is the maximum number of arguments MIN can accept?",
-    shortAnswer: "255 arguments, like SUM and AVERAGE.",
-    explanation: "Each argument can be a cell, range, or constant.",
-    hint: "Ranges can contain many cells.",
-    level: "expert",
-    codeExample: "=MIN(A1:A1000000, B1:B1000000) works."
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Preventing #DIV/0! errors when counting zero matching criteria records (Question 19)?",
+    "shortAnswer": "Preventing #DIV/0! errors when counting zero matching criteria records is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Preventing #DIV/0! errors when counting zero matching criteria records plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Preventing #DIV/0! errors when counting zero matching criteria records impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B39)"
   },
   {
-    question: "How to find the minimum value among non-adjacent cells?",
-    shortAnswer: "=MIN(A1, C5, G10, ...) list them as separate arguments.",
-    explanation: "Separate cells with commas inside MIN.",
-    hint: "Up to 255 arguments allowed.",
-    level: "basic",
-    codeExample: "=MIN(B2, D5, F8, H10)"
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Combining statistical IFS functions with Boolean logical masks (Question 20)?",
+    "shortAnswer": "Combining statistical IFS functions with Boolean logical masks is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Combining statistical IFS functions with Boolean logical masks plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Combining statistical IFS functions with Boolean logical masks impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Does MIN treat error values in the range as errors?",
-    shortAnswer: "Yes, any error (#N/A, #VALUE!, etc.) causes MIN to return that error.",
-    explanation: "Like SUM and AVERAGE, errors propagate.",
-    hint: "Clean your data before using MIN.",
-    level: "intermediate",
-    codeExample: "If A1 = #N/A, =MIN(A1:A10) returns #N/A."
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 (Question 21)?",
+    "shortAnswer": "Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What is the result of =MIN(10, FALSE) when FALSE is a direct argument?",
-    shortAnswer: "0 (FALSE converts to 0).",
-    explanation: "Direct logicals are coerced to numbers: FALSE=0, TRUE=1.",
-    hint: "Be careful: typing FALSE directly is not the same as referencing a cell with FALSE.",
-    level: "advanced",
-    codeExample: "=MIN(10, FALSE) → 0."
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Structured Table referencing in statistical formulas: tblData[Amount] (Question 22)?",
+    "shortAnswer": "Structured Table referencing in statistical formulas: tblData[Amount] is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Structured Table referencing in statistical formulas: tblData[Amount] plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Structured Table referencing in statistical formulas: tblData[Amount] impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B42)"
   },
   {
-    question: "How to find the minimum value in a range that is above a certain threshold?",
-    shortAnswer: "Use MINIFS: =MINIFS(range, range, \">=threshold\")",
-    explanation: "Example: =MINIFS(B2:B100, B2:B100, \">=60\") finds the lowest mark that is still a pass (>=60).",
-    hint: "Threshold can be a cell reference too.",
-    level: "intermediate",
-    codeExample: "=MINIFS(C2:C20, C2:C20, \">=50\")"
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Performance optimization across 100,000 rows with SUMIFS vs PivotTables (Question 23)?",
+    "shortAnswer": "Performance optimization across 100,000 rows with SUMIFS vs PivotTables is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Performance optimization across 100,000 rows with SUMIFS vs PivotTables plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Performance optimization across 100,000 rows with SUMIFS vs PivotTables impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Why does MIN return 0 when I expect the lowest positive number?",
-    shortAnswer: "Because there is a zero in the range, or all values are text/blank (MIN returns 0).",
-    explanation: "Zero is a number and smaller than any positive number. Exclude zeros using MINIFS with \">0\".",
-    hint: "Check if zeros exist unintendedly.",
-    level: "basic",
-    codeExample: "=MINIFS(A1:A10, A1:A10, \">0\")"
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Double unary operator (--) in boolean array statistical aggregations (Question 24)?",
+    "shortAnswer": "Double unary operator (--) in boolean array statistical aggregations is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Double unary operator (--) in boolean array statistical aggregations plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Double unary operator (--) in boolean array statistical aggregations impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Can MIN be used inside other functions like IF?",
-    shortAnswer: "Yes, e.g., =IF(MIN(B2:B10)>80, \"Good\", \"Needs improvement\")",
-    explanation: "Any function returning a number can be nested.",
-    hint: "Useful for pass/fail thresholds based on minimum.",
-    level: "intermediate",
-    codeExample: "=IF(MIN(marks)>=40, \"All passed\", \"Some failed\")"
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Weighted average calculations using SUMPRODUCT / SUM (Question 25)?",
+    "shortAnswer": "Weighted average calculations using SUMPRODUCT / SUM is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Weighted average calculations using SUMPRODUCT / SUM plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Weighted average calculations using SUMPRODUCT / SUM impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=STDEV.S(B2:B45)"
   },
   {
-    question: "What is the difference between MIN and SUBTOTAL(5, range)?",
-    shortAnswer: "SUBTOTAL(5) returns the minimum of visible rows after filtering; MIN includes hidden rows.",
-    explanation: "Use SUBTOTAL when you need to respect manual filters.",
-    hint: "SUBTOTAL uses function number 5 for MIN.",
-    level: "advanced",
-    codeExample: "=SUBTOTAL(5, A1:A100) ignores filtered‑out rows."
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V (Question 26)?",
+    "shortAnswer": "Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How to find the minimum value in a column but only for rows where another column equals specific text?",
-    shortAnswer: "Use MINIFS: =MINIFS(min_range, criteria_range, criteria).",
-    explanation: "Example: =MINIFS(B2:B100, A2:A100, \"North\")",
-    hint: "Available in Excel 2016+.",
-    level: "intermediate",
-    codeExample: "=MINIFS(D2:D50, C2:C50, \"Passed\")"
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Handling missing data and empty cells in correlation matrices (Question 27)?",
+    "shortAnswer": "Handling missing data and empty cells in correlation matrices is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Handling missing data and empty cells in correlation matrices plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Handling missing data and empty cells in correlation matrices impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What is the output of =MIN(10, \"20\", 30) if \"20\" is typed directly?",
-    shortAnswer: "10 (text string \"20\" is not convertible, causes #VALUE! error).",
-    explanation: "Wait, correction: =MIN(10, \"20\", 30) returns #VALUE! because \"20\" as a direct literal is not a number and cannot be coerced. But =MIN(10, 20, 30) works. So the answer is #VALUE!.",
-    hint: "Never use text literals inside MIN.",
-    level: "advanced",
-    codeExample: "=MIN(10, \"20\", 30) → #VALUE!"
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards (Question 28)?",
+    "shortAnswer": "3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=STDEV.S(B2:B48)"
   },
   {
-    question: "How can you find the earliest date using MIN?",
-    shortAnswer: "=MIN(date_range) returns the smallest serial number = earliest date.",
-    explanation: "Because dates are numbers, MIN works directly.",
-    hint: "Format the result cell as Date.",
-    level: "basic",
-    codeExample: "=MIN(A1:A10) where A1:A10 contain dates."
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Normality test verification and bell curve distribution benchmarks (Question 29)?",
+    "shortAnswer": "Normality test verification and bell curve distribution benchmarks is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Normality test verification and bell curve distribution benchmarks plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Normality test verification and bell curve distribution benchmarks impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Does MIN ignore cells formatted as text that contain numbers?",
-    shortAnswer: "Yes, it ignores them because they are text, not numbers.",
-    explanation: "Even if the cell appears to be a number, if it's stored as text, MIN skips it.",
-    hint: "Use =VALUE() or multiply by 1 to convert.",
-    level: "intermediate",
-    codeExample: "If A1=\"5\" as text, =MIN(A1, 10) → 10."
-  },
-  {
-    question: "What is an efficient way to find the minimum of two separate ranges?",
-    shortAnswer: "=MIN(MAX(range1), MAX(range2))? No. =MIN(MIN(range1), MIN(range2)) or simply =MIN(range1, range2).",
-    explanation: "You can pass two ranges directly: =MIN(A1:A10, C1:C10).",
-    hint: "No need to calculate intermediate mins.",
-    level: "basic",
-    codeExample: "=MIN(B2:B20, D2:D20)"
+    "question": "In the context of Revision: MIN Function, how does Excel compute and evaluate Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR (Question 30)?",
+    "shortAnswer": "Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   }
 ];
 

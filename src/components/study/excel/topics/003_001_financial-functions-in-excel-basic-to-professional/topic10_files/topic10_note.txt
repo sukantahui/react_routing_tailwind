@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
+Topic 10: Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

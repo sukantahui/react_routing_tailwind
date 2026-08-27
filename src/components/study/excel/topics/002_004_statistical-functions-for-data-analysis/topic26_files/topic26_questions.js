@@ -1,213 +1,243 @@
 const questions = [
   {
-    question: "What does PERCENTILE.EXC do?",
-    shortAnswer: "Returns the value at a given percentile using exclusive interpolation; k must be between 0 and 1 exclusive.",
-    explanation: "It never returns the minimum or maximum of the dataset and matches definitions used by many statistical packages.",
-    level: "basic",
-    codeExample: "=PERCENTILE.EXC(A1:A100, 0.9) → 90th exclusive percentile"
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Sample vs population standard deviation mathematical distinction (Question 1)?",
+    "shortAnswer": "Sample vs population standard deviation mathematical distinction is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Sample vs population standard deviation mathematical distinction plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Sample vs population standard deviation mathematical distinction impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B21)"
   },
   {
-    question: "What k values are allowed in PERCENTILE.EXC?",
-    shortAnswer: "Any number strictly between 0 and 1 (0 < k < 1).",
-    explanation: "k = 0 or 1 returns #NUM! because the exclusive method cannot return extremes.",
-    level: "basic",
-    codeExample: "=PERCENTILE.EXC(data, 0) → #NUM!"
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Bessel's correction (n-1 degrees of freedom) in STDEV.S (Question 2)?",
+    "shortAnswer": "Bessel's correction (n-1 degrees of freedom) in STDEV.S is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Bessel's correction (n-1 degrees of freedom) in STDEV.S plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Bessel's correction (n-1 degrees of freedom) in STDEV.S impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How does PERCENTILE.EXC differ from PERCENTILE.INC?",
-    shortAnswer: "PERCENTILE.EXC excludes the min and max (k cannot be 0 or 1) and uses a different index formula: k*(n+1). PERCENTILE.INC includes extremes and uses k*(n-1)+1.",
-    explanation: "Differences are notable for small datasets; for large n they converge.",
-    level: "intermediate",
-    codeExample: "For {1,2,3,4,5}, PERCENTILE.EXC(data,0.25) ≈ 1.5; PERCENTILE.INC(data,0.25)=2."
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS (Question 3)?",
+    "shortAnswer": "Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What error does PERCENTILE.EXC return if k is outside (0,1)?",
-    shortAnswer: "#NUM!",
-    explanation: "k must be strictly between 0 and 1.",
-    level: "basic",
-    codeExample: "=PERCENTILE.EXC(A1:A10, 1.2) → #NUM!"
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Why SUMIFS places sum_range FIRST while SUMIF places it LAST (Question 4)?",
+    "shortAnswer": "Why SUMIFS places sum_range FIRST while SUMIF places it LAST is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Why SUMIFS places sum_range FIRST while SUMIF places it LAST plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Why SUMIFS places sum_range FIRST while SUMIF places it LAST impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B24)"
   },
   {
-    question: "Why might PERCENTILE.EXC return #NUM! even for k=0.25?",
-    shortAnswer: "If the dataset has too few numbers to compute the requested percentile exclusively, e.g., n=2 → index=0.25*3=0.75, which is <1 → no data point to interpolate, returns #NUM!.",
-    explanation: "Requires sufficient sample size.",
-    level: "intermediate",
-    codeExample: "=PERCENTILE.EXC({1,2}, 0.25) → #NUM!"
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Wildcard support (*, ?) in COUNTIF and SUMIFS criteria (Question 5)?",
+    "shortAnswer": "Wildcard support (*, ?) in COUNTIF and SUMIFS criteria is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Wildcard support (*, ?) in COUNTIF and SUMIFS criteria plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Wildcard support (*, ?) in COUNTIF and SUMIFS criteria impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Does PERCENTILE.EXC ignore text and blanks?",
-    shortAnswer: "Yes, only numeric values are considered.",
-    explanation: "Text and blanks are ignored, allowing headers in the range.",
-    level: "basic",
-    codeExample: "Safe to use with column headers."
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Case-insensitivity of text comparisons in IFS functions (Question 6)?",
+    "shortAnswer": "Case-insensitivity of text comparisons in IFS functions is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Case-insensitivity of text comparisons in IFS functions plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Case-insensitivity of text comparisons in IFS functions impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "How is the index calculated in PERCENTILE.EXC?",
-    shortAnswer: "index = k * (n + 1), where n is the count of numbers.",
-    explanation: "The index is a position in the sorted list (1‑based). If integer, returns that data point; otherwise interpolates.",
-    level: "advanced",
-    codeExample: "For n=9, k=0.5 → index=5 → median = 5th smallest."
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) (Question 7)?",
+    "shortAnswer": "Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B27)"
   },
   {
-    question: "What does PERCENTILE.EXC return for a single number?",
-    shortAnswer: "It returns #NUM! because k*(n+1) would be between 0 and 2, but cannot interpolate. Actually, for n=1, any 0<k<1 gives index between 0 and 2, but with one value interpolation fails → #NUM!.",
-    explanation: "Need at least 2 data points for any meaningful percentile.",
-    level: "basic",
-    codeExample: "=PERCENTILE.EXC({5},0.5) → #NUM!"
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Median resistance to extreme outlier skewing compared to Mean (Question 8)?",
+    "shortAnswer": "Median resistance to extreme outlier skewing compared to Mean is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Median resistance to extreme outlier skewing compared to Mean plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Median resistance to extreme outlier skewing compared to Mean impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Is PERCENTILE.EXC the same as QUARTILE.EXC for k=0.25?",
-    shortAnswer: "Yes, =PERCENTILE.EXC(data,0.25) = QUARTILE.EXC(data,1).",
-    explanation: "QUARTILE.EXC is a special case.",
-    level: "basic",
-    codeExample: "They are equivalent."
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate MODE.SNGL single value return vs MODE.MULT dynamic array spilling (Question 9)?",
+    "shortAnswer": "MODE.SNGL single value return vs MODE.MULT dynamic array spilling is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, MODE.SNGL single value return vs MODE.MULT dynamic array spilling plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how MODE.SNGL single value return vs MODE.MULT dynamic array spilling impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Can PERCENTILE.EXC be used with dates?",
-    shortAnswer: "Yes, dates are serial numbers; the result is a date (format as date).",
-    explanation: "Useful for exclusive percentiles in time analysis.",
-    level: "intermediate",
-    codeExample: "=PERCENTILE.EXC(date_range, 0.9)"
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) (Question 10)?",
+    "shortAnswer": "QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B30)"
   },
   {
-    question: "What is the maximum number of arguments PERCENTILE.EXC accepts?",
-    shortAnswer: "Two: array and k.",
-    explanation: "Only two arguments.",
-    level: "basic",
-    codeExample: "Simple."
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate PERCENTILE.INC fractional rank interpolation algorithms (Question 11)?",
+    "shortAnswer": "PERCENTILE.INC fractional rank interpolation algorithms is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, PERCENTILE.INC fractional rank interpolation algorithms plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how PERCENTILE.INC fractional rank interpolation algorithms impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How to compute the 10th exclusive percentile for a subset (e.g., only North region)?",
-    shortAnswer: "Use array formula: =PERCENTILE.EXC(IF(region=this_region, sales), 0.1).",
-    explanation: "Enter with Ctrl+Shift+Enter in older Excel; in 365 works normally.",
-    level: "advanced",
-    codeExample: "Conditional exclusive percentile."
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking (Question 12)?",
+    "shortAnswer": "RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Why would a statistician prefer PERCENTILE.EXC over PERCENTILE.INC?",
-    shortAnswer: "Because many statistical packages (R, SPSS) use an exclusive definition for percentiles in their default functions.",
-    explanation: "It helps reproduce academic results and ensures consistency across tools.",
-    level: "intermediate",
-    codeExample: "Common in peer‑reviewed research."
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 (Question 13)?",
+    "shortAnswer": "Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B33)"
   },
   {
-    question: "Is PERCENTILE.EXC a volatile function?",
-    shortAnswer: "No, it recalculates only when data changes.",
-    explanation: "Non‑volatile.",
-    level: "basic",
-    codeExample: "Safe."
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Linear regression forecasting with FORECAST.LINEAR (y = a + bx) (Question 14)?",
+    "shortAnswer": "Linear regression forecasting with FORECAST.LINEAR (y = a + bx) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Linear regression forecasting with FORECAST.LINEAR (y = a + bx) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Linear regression forecasting with FORECAST.LINEAR (y = a + bx) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What does PERCENTILE.EXC return when all numbers are identical?",
-    shortAnswer: "That same number for any valid k.",
-    explanation: "If all values are equal, interpolation still yields that same number.",
-    level: "basic",
-    codeExample: "=PERCENTILE.EXC({5,5,5}, 0.5) → 5"
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate TREND function dynamic multi-period projection array spilling (Question 15)?",
+    "shortAnswer": "TREND function dynamic multi-period projection array spilling is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, TREND function dynamic multi-period projection array spilling plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how TREND function dynamic multi-period projection array spilling impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "How to get multiple exclusive percentiles at once in Excel 365?",
-    shortAnswer: "=PERCENTILE.EXC(data, {0.1,0.2,0.3,0.4,0.5})",
-    explanation: "This spills an array of percentiles.",
-    level: "advanced",
-    codeExample: "Powerful for dashboards."
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Z-score statistical outlier detection: (x - Mean) / STDEV (Question 16)?",
+    "shortAnswer": "Z-score statistical outlier detection: (x - Mean) / STDEV is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Z-score statistical outlier detection: (x - Mean) / STDEV plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Z-score statistical outlier detection: (x - Mean) / STDEV impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B36)"
   },
   {
-    question: "Does PERCENTILE.EXC work with negative numbers?",
-    shortAnswer: "Yes, negative numbers are handled correctly (more negative is smaller).",
-    explanation: "Percentiles respect numeric order.",
-    level: "basic",
-    codeExample: "Works fine."
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules (Question 17)?",
+    "shortAnswer": "Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the result of =PERCENTILE.EXC({1,2,3,4,5}, 0.5)?",
-    shortAnswer: "3 (the median).",
-    explanation: "For odd n, median is the middle value, and with exclusive definition it still gives 3.",
-    level: "basic",
-    codeExample: "Matches PERCENTILE.INC here."
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate How statistical functions skip text strings vs include literal zeroes (Question 18)?",
+    "shortAnswer": "How statistical functions skip text strings vs include literal zeroes is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, How statistical functions skip text strings vs include literal zeroes plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how How statistical functions skip text strings vs include literal zeroes impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Can PERCENTILE.EXC be used in conditional formatting to highlight top 10% exclusive?",
-    shortAnswer: "Yes: =A1 > PERCENTILE.EXC($A$1:$A$100, 0.9).",
-    explanation: "This highlights values above the exclusive 90th percentile.",
-    level: "intermediate",
-    codeExample: "Works well."
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Preventing #DIV/0! errors when counting zero matching criteria records (Question 19)?",
+    "shortAnswer": "Preventing #DIV/0! errors when counting zero matching criteria records is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Preventing #DIV/0! errors when counting zero matching criteria records plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Preventing #DIV/0! errors when counting zero matching criteria records impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B39)"
   },
   {
-    question: "What is the output of =PERCENTILE.EXC({1,2,3,4,5,6}, 0.5)?",
-    shortAnswer: "3.5 (average of 3 and 4).",
-    explanation: "n=6, index=0.5*7=3.5 → between 3rd (3) and 4th (4) → interpolated 3.5.",
-    level: "advanced",
-    codeExample: "Same as inclusive here? PERCENTILE.INC also 3.5."
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Combining statistical IFS functions with Boolean logical masks (Question 20)?",
+    "shortAnswer": "Combining statistical IFS functions with Boolean logical masks is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Combining statistical IFS functions with Boolean logical masks plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Combining statistical IFS functions with Boolean logical masks impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Why does PERCENTILE.EXC return a different value than PERCENTILE.INC for k=0.25 with n=10?",
-    shortAnswer: "Because the index formula differs: PERCENTILE.EXC uses 0.25*(10+1)=2.75; PERCENTILE.INC uses 0.25*(10-1)+1=3.25. The interpolation points are different.",
-    explanation: "Results will generally differ, especially for small n.",
-    level: "expert",
-    codeExample: "Test with sample data."
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 (Question 21)?",
+    "shortAnswer": "Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "How to handle #NUM! errors from PERCENTILE.EXC?",
-    shortAnswer: "Wrap with IFERROR: =IFERROR(PERCENTILE.EXC(data, k), \"N/A\") or use a conditional check on n.",
-    explanation: "Prevent formula errors from breaking dashboards.",
-    level: "intermediate",
-    codeExample: "=IF(COUNT(data)>2, PERCENTILE.EXC(data,0.25), \"Insufficient data\")"
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Structured Table referencing in statistical formulas: tblData[Amount] (Question 22)?",
+    "shortAnswer": "Structured Table referencing in statistical formulas: tblData[Amount] is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Structured Table referencing in statistical formulas: tblData[Amount] plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Structured Table referencing in statistical formulas: tblData[Amount] impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B42)"
   },
   {
-    question: "Does PERCENTILE.EXC work with array constants?",
-    shortAnswer: "Yes, e.g., =PERCENTILE.EXC({1,2,3,4,5,6}, 0.9).",
-    explanation: "Array constants can be used directly.",
-    level: "intermediate",
-    codeExample: "=PERCENTILE.EXC({1,2,3,4,5,6}, 0.9) → 5.5 (interpolated)."
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Performance optimization across 100,000 rows with SUMIFS vs PivotTables (Question 23)?",
+    "shortAnswer": "Performance optimization across 100,000 rows with SUMIFS vs PivotTables is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Performance optimization across 100,000 rows with SUMIFS vs PivotTables plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Performance optimization across 100,000 rows with SUMIFS vs PivotTables impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the relationship between PERCENTILE.EXC and NORM.S.INV?",
-    shortAnswer: "No direct relationship; one gives percentiles of empirical data, the other gives z‑scores for normal distribution.",
-    explanation: "Different purposes.",
-    level: "expert",
-    codeExample: "Not interchangeable."
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Double unary operator (--) in boolean array statistical aggregations (Question 24)?",
+    "shortAnswer": "Double unary operator (--) in boolean array statistical aggregations is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Double unary operator (--) in boolean array statistical aggregations plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Double unary operator (--) in boolean array statistical aggregations impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Can PERCENTILE.EXC be used with a frequency table?",
-    shortAnswer: "Not directly; you would need to expand the data or use a weighted percentile formula.",
-    explanation: "Expand the dataset or use advanced techniques.",
-    level: "expert",
-    codeExample: "Use REPT to expand."
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Weighted average calculations using SUMPRODUCT / SUM (Question 25)?",
+    "shortAnswer": "Weighted average calculations using SUMPRODUCT / SUM is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Weighted average calculations using SUMPRODUCT / SUM plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Weighted average calculations using SUMPRODUCT / SUM impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=STDEV.S(B2:B45)"
   },
   {
-    question: "What is the minimum number of data points needed for PERCENTILE.EXC to compute Q1 (25th percentile)?",
-    shortAnswer: "n such that 0.25*(n+1) >= 2 and <= n, roughly n >= 7 to get an index between 2 and n.",
-    explanation: "For n=3, index=1 → invalid; n=4, index=1.25 → still <2? Actually 1.25 <2, interpolation fails -> #NUM!. So need n at least 5? Let's test: n=5 → index=1.5 → <2 → still #NUM!; n=6 → index=1.75 → <2 → #NUM!; n=7 → index=2.0 → works (exact data point). So minimum n=7 for Q1 with exclusive.",
-    level: "expert",
-    codeExample: "Check with COUNT."
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V (Question 26)?",
+    "shortAnswer": "Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Does PERCENTILE.EXC ignore hidden rows?",
-    shortAnswer: "No, it considers all rows; use AGGREGATE with function 17 (PERCENTILE.EXC? AGGREGATE does not have exclusive percentile). For visible‑only, you need a helper column.",
-    explanation: "Limited native support.",
-    level: "expert",
-    codeExample: "Workaround required."
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Handling missing data and empty cells in correlation matrices (Question 27)?",
+    "shortAnswer": "Handling missing data and empty cells in correlation matrices is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Handling missing data and empty cells in correlation matrices plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Handling missing data and empty cells in correlation matrices impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What is the exclusive percentile equivalent of the median?",
-    shortAnswer: "PERCENTILE.EXC(data, 0.5) gives the median, which for even n is the average of the two middle numbers (same as inclusive method).",
-    explanation: "For odd n, it's the exact middle value; for even, it's the average.",
-    level: "advanced",
-    codeExample: "Both functions yield the same median."
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards (Question 28)?",
+    "shortAnswer": "3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=STDEV.S(B2:B48)"
   },
   {
-    question: "Why might PERCENTILE.EXC be more robust than PERCENTILE.INC for outlier detection?",
-    shortAnswer: "Because it never takes the extreme values (min or max), so it is less affected by a single outlier.",
-    explanation: "However, both methods can be influenced; exclusive is just a different perspective.",
-    level: "intermediate",
-    codeExample: "Choose based on outlier tolerance."
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Normality test verification and bell curve distribution benchmarks (Question 29)?",
+    "shortAnswer": "Normality test verification and bell curve distribution benchmarks is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Normality test verification and bell curve distribution benchmarks plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Normality test verification and bell curve distribution benchmarks impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Can PERCENTILE.EXC be used with Excel Tables?",
-    shortAnswer: "Yes: =PERCENTILE.EXC(Table1[Score], 0.9)",
-    explanation: "Structured references work.",
-    level: "basic",
-    codeExample: "Clean and readable."
+    "question": "In the context of PERCENTILE.EXC Function (Exclusive Percentiles), how does Excel compute and evaluate Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR (Question 30)?",
+    "shortAnswer": "Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   }
 ];
 

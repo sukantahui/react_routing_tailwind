@@ -1,0 +1,10 @@
+TOPIC 4: ABSOLUTE REFERENCES ($) IN LOOKUP TABLES AND COORDINATE LOCKING
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- In Microsoft Excel, Absolute References ($) in Lookup Tables and Coordinate Locking provides industrial-grade relational data extraction capabilities across enterprise workbooks.
+- Understanding memory pointer traversal, binary search vs linear search, and dynamic array returns is vital for elite financial modeling.
+- Always design lookup tables with clean, normalized data types to eliminate #N/A type mismatch exceptions.
+
+Teacher Note:
+Master Absolute References ($) in Lookup Tables and Coordinate Locking! Pay meticulous attention to coordinate anchoring with F4, verify key uniqueness, and leverage INDEX-MATCH or XLOOKUP for immune, boardroom-ready spreadsheet models!

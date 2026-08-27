@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Data Validation, Protection and Cleaning Techniques
+Topic 0: Data validation fundamentals: Whole numbers, Decimals, Dates, and Text Length
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

@@ -1,0 +1,10 @@
+TOPIC 4: MATHEMATICAL ROUNDING FUNCTIONS: ROUND, ROUNDUP, ROUNDDOWN, INT AND TRUNC PRECISION CONTROL
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Crucial concept: Number formatting (Ctrl+1) changes ONLY the visual display on screen, while ROUND() permanently changes the underlying mathematical value in memory.
+- In financial invoicing and GST calculations, unrounded floating-point fractions accumulate penny rounding discrepancies across large tables unless explicitly standardized with =ROUND(val, 2).
+- Negative decimal arguments in ROUND() round to powers of 10: `ROUND(1452, -2)` rounds to the nearest hundred (1500); `ROUND(1452, -3)` rounds to the nearest thousand (1000).
+
+Teacher Note:
+Golden rule of accounting models: Formatting is NOT rounding! If you format 45.456 as 2 decimals, it displays as 45.46, but Excel still uses 45.456 in memory. Always wrap your financial formulas in =ROUND(formula, 2) to prevent penny rounding errors in audited balance sheets!

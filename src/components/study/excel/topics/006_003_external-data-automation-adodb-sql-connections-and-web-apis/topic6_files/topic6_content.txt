@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: External Data Automation: ADODB SQL Connections & Web APIs
+Topic 6: Consuming external REST APIs and JSON endpoints using `MSXML2.ServerXMLHTTP` in VBA
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

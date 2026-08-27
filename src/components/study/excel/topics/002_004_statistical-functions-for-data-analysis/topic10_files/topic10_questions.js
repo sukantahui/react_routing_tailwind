@@ -1,213 +1,243 @@
 const questions = [
   {
-    question: "What is the syntax of AVERAGEIF?",
-    shortAnswer: "AVERAGEIF(range, criteria, [average_range])",
-    explanation: "range is evaluated against criteria; average_range (optional) specifies which cells to average. If omitted, range itself is averaged.",
-    level: "basic",
-    codeExample: "=AVERAGEIF(A1:A10, \">80\")"
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Sample vs population standard deviation mathematical distinction (Question 1)?",
+    "shortAnswer": "Sample vs population standard deviation mathematical distinction is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Sample vs population standard deviation mathematical distinction plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Sample vs population standard deviation mathematical distinction impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B21)"
   },
   {
-    question: "What does AVERAGEIF return if no cells meet the criteria?",
-    shortAnswer: "#DIV/0! error",
-    explanation: "Unlike SUMIF which returns 0, AVERAGEIF returns division by zero because there are no values to average.",
-    level: "basic",
-    codeExample: "=AVERAGEIF(A:A, \"Zebra\", B:B) → #DIV/0!"
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Bessel's correction (n-1 degrees of freedom) in STDEV.S (Question 2)?",
+    "shortAnswer": "Bessel's correction (n-1 degrees of freedom) in STDEV.S is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Bessel's correction (n-1 degrees of freedom) in STDEV.S plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Bessel's correction (n-1 degrees of freedom) in STDEV.S impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How to average values in column B where column A equals \"Rice\"?",
-    shortAnswer: "=AVERAGEIF(A:A, \"Rice\", B:B)",
-    explanation: "A:A is the criteria range, \"Rice\" is the condition, B:B is the average range.",
-    level: "basic",
-    codeExample: "=AVERAGEIF(Product, \"Rice\", Sales)"
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS (Question 3)?",
+    "shortAnswer": "Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Can AVERAGEIF be used with numeric operators like greater than?",
-    shortAnswer: "Yes, e.g., =AVERAGEIF(A:A, \">100\", B:B)",
-    explanation: "Operators must be inside double quotes: \">100\". For cell references: \">\"&amp;C1.",
-    level: "intermediate",
-    codeExample: "=AVERAGEIF(Sales, \">\"&D1, Profit)"
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Why SUMIFS places sum_range FIRST while SUMIF places it LAST (Question 4)?",
+    "shortAnswer": "Why SUMIFS places sum_range FIRST while SUMIF places it LAST is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Why SUMIFS places sum_range FIRST while SUMIF places it LAST plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Why SUMIFS places sum_range FIRST while SUMIF places it LAST impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B24)"
   },
   {
-    question: "What happens if you omit average_range in AVERAGEIF?",
-    shortAnswer: "Excel averages the range itself (the same range used for criteria).",
-    explanation: "So =AVERAGEIF(A:A, \">50\") averages numbers greater than 50 in column A.",
-    level: "basic",
-    codeExample: "Useful for simple conditions on the same column."
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Wildcard support (*, ?) in COUNTIF and SUMIFS criteria (Question 5)?",
+    "shortAnswer": "Wildcard support (*, ?) in COUNTIF and SUMIFS criteria is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Wildcard support (*, ?) in COUNTIF and SUMIFS criteria plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Wildcard support (*, ?) in COUNTIF and SUMIFS criteria impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Is AVERAGEIF case-sensitive?",
-    shortAnswer: "No, it treats \"Apple\", \"apple\", \"APPLE\" the same.",
-    explanation: "For case‑sensitive, use array formula with EXACT inside AVERAGE.",
-    level: "intermediate",
-    codeExample: "=AVERAGE(IF(EXACT(A1:A10,\"Apple\"), B1:B10))"
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Case-insensitivity of text comparisons in IFS functions (Question 6)?",
+    "shortAnswer": "Case-insensitivity of text comparisons in IFS functions is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Case-insensitivity of text comparisons in IFS functions plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Case-insensitivity of text comparisons in IFS functions impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "How to average cells that contain any text (not numbers) in the criteria range?",
-    shortAnswer: "=AVERAGEIF(range, \"*\", average_range) averages where range contains any text (including numbers stored as text).",
-    explanation: "The * wildcard matches any text. It does not match pure numbers.",
-    level: "advanced",
-    codeExample: "=AVERAGEIF(Product, \"*\", Sales) averages sales for all products (non‑blank text)."
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) (Question 7)?",
+    "shortAnswer": "Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B27)"
   },
   {
-    question: "What error does AVERAGEIF return if average_range contains no numbers?",
-    shortAnswer: "#DIV/0! because there are no numbers to average (even if criteria are satisfied, if average_range has only text/blanks, result is #DIV/0!).",
-    explanation: "AVERAGEIF ignores text/blanks in average_range, so if all cells in the filtered set are non‑numeric, it returns the error.",
-    level: "advanced",
-    codeExample: "Check that average_range contains numbers."
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Median resistance to extreme outlier skewing compared to Mean (Question 8)?",
+    "shortAnswer": "Median resistance to extreme outlier skewing compared to Mean is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Median resistance to extreme outlier skewing compared to Mean plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Median resistance to extreme outlier skewing compared to Mean impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Can you use AVERAGEIF with dates?",
-    shortAnswer: "Yes, dates are numbers. Example: =AVERAGEIF(DateRange, \">\"&DATE(2025,1,1), Sales)",
-    explanation: "Use operators with date serial numbers or DATE function.",
-    level: "intermediate",
-    codeExample: "Average sales after Jan 1, 2025."
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate MODE.SNGL single value return vs MODE.MULT dynamic array spilling (Question 9)?",
+    "shortAnswer": "MODE.SNGL single value return vs MODE.MULT dynamic array spilling is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, MODE.SNGL single value return vs MODE.MULT dynamic array spilling plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how MODE.SNGL single value return vs MODE.MULT dynamic array spilling impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "How to average numbers greater than the value in cell E1?",
-    shortAnswer: "=AVERAGEIF(range, \">\"&E1, average_range)",
-    explanation: "Concatenate the operator with the cell reference using &.",
-    level: "intermediate",
-    codeExample: "=AVERAGEIF(A:A, \">\"&B1, C:C)"
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) (Question 10)?",
+    "shortAnswer": "QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B30)"
   },
   {
-    question: "What is the difference between AVERAGEIF and AVERAGE?",
-    shortAnswer: "AVERAGE averages all numbers; AVERAGEIF averages only numbers that meet a condition.",
-    explanation: "AVERAGEIF is conditional, AVERAGE is unconditional.",
-    level: "basic",
-    codeExample: "AVERAGE(A:A) vs AVERAGEIF(A:A,\">0\")"
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate PERCENTILE.INC fractional rank interpolation algorithms (Question 11)?",
+    "shortAnswer": "PERCENTILE.INC fractional rank interpolation algorithms is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, PERCENTILE.INC fractional rank interpolation algorithms plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how PERCENTILE.INC fractional rank interpolation algorithms impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Does AVERAGEIF treat blank cells in average_range as zero?",
-    shortAnswer: "No, blank cells are ignored (not included in the count).",
-    explanation: "Zeros are averaged, blanks are skipped. This can be confusing.",
-    level: "intermediate",
-    codeExample: "If average_range has blank and 100, average is 100 (not 50)."
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking (Question 12)?",
+    "shortAnswer": "RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "How to average values except those that are zero?",
-    shortAnswer: "=AVERAGEIF(range, \"<>0\", average_range)",
-    explanation: "\"<>0\" excludes zeros but includes positive and negative numbers.",
-    level: "intermediate",
-    codeExample: "=AVERAGEIF(Sales, \"<>0\")"
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 (Question 13)?",
+    "shortAnswer": "Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B33)"
   },
   {
-    question: "Can AVERAGEIF be used across multiple sheets?",
-    shortAnswer: "Not directly; you would need to add multiple AVERAGEIFs: =AVERAGEIF(Sheet1!A:A,\"x\",Sheet1!B:B) – only one sheet at a time.",
-    explanation: "To average across sheets, combine with AVERAGE or SUM/COUNT.",
-    level: "advanced",
-    codeExample: "Doable but manual."
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Linear regression forecasting with FORECAST.LINEAR (y = a + bx) (Question 14)?",
+    "shortAnswer": "Linear regression forecasting with FORECAST.LINEAR (y = a + bx) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Linear regression forecasting with FORECAST.LINEAR (y = a + bx) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Linear regression forecasting with FORECAST.LINEAR (y = a + bx) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What wildcards work in AVERAGEIF criteria?",
-    shortAnswer: "* (any characters) and ? (single character).",
-    explanation: "Useful for partial text matches: \"*North*\" matches any cell containing \"North\".",
-    level: "advanced",
-    codeExample: "=AVERAGEIF(Product, \"*Phone*\", Sales)"
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate TREND function dynamic multi-period projection array spilling (Question 15)?",
+    "shortAnswer": "TREND function dynamic multi-period projection array spilling is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, TREND function dynamic multi-period projection array spilling plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how TREND function dynamic multi-period projection array spilling impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Why does AVERAGEIF sometimes return a wrong average?",
-    shortAnswer: "Possible reasons: numbers stored as text in average_range (ignored), criteria incorrectly typed, wrong range sizes, or hidden rows affecting visual expectation.",
-    explanation: "Check data types and criteria syntax.",
-    level: "advanced",
-    codeExample: "Use COUNTIF to verify how many cells meet criteria."
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Z-score statistical outlier detection: (x - Mean) / STDEV (Question 16)?",
+    "shortAnswer": "Z-score statistical outlier detection: (x - Mean) / STDEV is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Z-score statistical outlier detection: (x - Mean) / STDEV plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Z-score statistical outlier detection: (x - Mean) / STDEV impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B36)"
   },
   {
-    question: "How to average only visible rows after filtering using AVERAGEIF?",
-    shortAnswer: "AVERAGEIF cannot; use SUBTOTAL(101, range) or AGGREGATE.",
-    explanation: "SUBTOTAL with function number 101 (AVERAGE) works on visible rows only.",
-    level: "advanced",
-    codeExample: "=SUBTOTAL(101, B2:B100)"
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules (Question 17)?",
+    "shortAnswer": "Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the maximum number of arguments AVERAGEIF can accept?",
-    shortAnswer: "Three arguments: range, criteria, average_range (optional).",
-    explanation: "For multiple conditions, use AVERAGEIFS.",
-    level: "basic",
-    codeExample: "Always exactly 2 or 3 arguments."
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate How statistical functions skip text strings vs include literal zeroes (Question 18)?",
+    "shortAnswer": "How statistical functions skip text strings vs include literal zeroes is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, How statistical functions skip text strings vs include literal zeroes plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how How statistical functions skip text strings vs include literal zeroes impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Can AVERAGEIF be nested inside other functions?",
-    shortAnswer: "Yes, e.g., =IF(AVERAGEIF(A:A,\"Rice\",B:B)>500, \"High\", \"Low\")",
-    explanation: "Useful for conditional formatting or decision making.",
-    level: "intermediate",
-    codeExample: "Any function that expects a number."
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Preventing #DIV/0! errors when counting zero matching criteria records (Question 19)?",
+    "shortAnswer": "Preventing #DIV/0! errors when counting zero matching criteria records is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Preventing #DIV/0! errors when counting zero matching criteria records plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Preventing #DIV/0! errors when counting zero matching criteria records impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B39)"
   },
   {
-    question: "What is the result of =AVERAGEIF(A1:A5, \"=0\", B1:B5) if no cell equals 0?",
-    shortAnswer: "#DIV/0! because nothing meets the criteria.",
-    explanation: "No match leads to division by zero.",
-    level: "basic",
-    codeExample: "Always test with COUNTIF first."
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Combining statistical IFS functions with Boolean logical masks (Question 20)?",
+    "shortAnswer": "Combining statistical IFS functions with Boolean logical masks is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Combining statistical IFS functions with Boolean logical masks plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Combining statistical IFS functions with Boolean logical masks impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How to average values based on partial text match (e.g., \"Phone\" anywhere in product name)?",
-    shortAnswer: "=AVERAGEIF(Product, \"*Phone*\", Sales)",
-    explanation: "Wildcards * before and after the substring.",
-    level: "intermediate",
-    codeExample: "Works for case‑insensitive match."
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 (Question 21)?",
+    "shortAnswer": "Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Does AVERAGEIF ignore text in the average_range?",
-    shortAnswer: "Yes, text cells in average_range are ignored (not converted to 0).",
-    explanation: "Only numeric values are considered in the average calculation.",
-    level: "basic",
-    codeExample: "Safe to use with mixed data types."
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Structured Table referencing in statistical formulas: tblData[Amount] (Question 22)?",
+    "shortAnswer": "Structured Table referencing in statistical formulas: tblData[Amount] is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Structured Table referencing in statistical formulas: tblData[Amount] plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Structured Table referencing in statistical formulas: tblData[Amount] impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B42)"
   },
   {
-    question: "How to average values in column B where column A is blank?",
-    shortAnswer: "=AVERAGEIF(A:A, \"\", B:B)",
-    explanation: "Criteria \"\" (empty string) matches blank cells in the criteria range.",
-    level: "intermediate",
-    codeExample: "Useful for incomplete data analysis."
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Performance optimization across 100,000 rows with SUMIFS vs PivotTables (Question 23)?",
+    "shortAnswer": "Performance optimization across 100,000 rows with SUMIFS vs PivotTables is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Performance optimization across 100,000 rows with SUMIFS vs PivotTables plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Performance optimization across 100,000 rows with SUMIFS vs PivotTables impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the difference between AVERAGEIF and AVERAGEIFS?",
-    shortAnswer: "AVERAGEIF handles one condition; AVERAGEIFS handles multiple (AND logic) and has different argument order.",
-    explanation: "AVERAGEIFS: =AVERAGEIFS(average_range, criteria_range1, criteria1, ...).",
-    level: "basic",
-    codeExample: "Use AVERAGEIFS when you need multiple conditions."
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Double unary operator (--) in boolean array statistical aggregations (Question 24)?",
+    "shortAnswer": "Double unary operator (--) in boolean array statistical aggregations is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Double unary operator (--) in boolean array statistical aggregations plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Double unary operator (--) in boolean array statistical aggregations impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Can AVERAGEIF be used with an array constant as criteria?",
-    shortAnswer: "Not directly, but you can embed inside AVERAGE: =AVERAGE(AVERAGEIF(range,{\"A\",\"B\"},avg_range)).",
-    explanation: "This averages the two conditional averages, not what you might want.",
-    level: "expert",
-    codeExample: "Use SUMIF/COUNTIF combination instead."
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Weighted average calculations using SUMPRODUCT / SUM (Question 25)?",
+    "shortAnswer": "Weighted average calculations using SUMPRODUCT / SUM is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Weighted average calculations using SUMPRODUCT / SUM plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Weighted average calculations using SUMPRODUCT / SUM impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=STDEV.S(B2:B45)"
   },
   {
-    question: "How to average numbers that are between 10 and 20 using AVERAGEIF?",
-    shortAnswer: "You cannot directly; use two criteria with AVERAGEIFS or =AVERAGE(IF((range>=10)*(range<=20), range)) array formula.",
-    explanation: "AVERAGEIF only supports one condition. For range conditions, use AVERAGEIFS.",
-    level: "advanced",
-    codeExample: "=AVERAGEIFS(A:A, A:A, \">=10\", A:A, \"<=20\")"
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V (Question 26)?",
+    "shortAnswer": "Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What happens if criteria_range and average_range have different sizes?",
-    shortAnswer: "Excel uses only the first cell of the smaller range and may produce incorrect results. Best to keep them the same size.",
-    explanation: "It does not error, but results are unpredictable.",
-    level: "expert",
-    codeExample: "Always match dimensions."
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Handling missing data and empty cells in correlation matrices (Question 27)?",
+    "shortAnswer": "Handling missing data and empty cells in correlation matrices is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Handling missing data and empty cells in correlation matrices plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Handling missing data and empty cells in correlation matrices impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Does AVERAGEIF count logical values (TRUE/FALSE) in average_range?",
-    shortAnswer: "No, they are ignored (they are considered non‑numeric).",
-    explanation: "Only numbers are averaged; TRUE/FALSE are not coerced to 1/0 in average_range (unlike in SUMIF).",
-    level: "advanced",
-    codeExample: "Use --(range) to convert if needed."
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards (Question 28)?",
+    "shortAnswer": "3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=STDEV.S(B2:B48)"
   },
   {
-    question: "How to average the top 3 values meeting a condition?",
-    shortAnswer: "Use array formula: =AVERAGE(LARGE(IF(criteria_range=condition, average_range), {1,2,3}))",
-    explanation: "Requires array entry (Ctrl+Shift+Enter in older Excel).",
-    level: "expert",
-    codeExample: "Advanced but powerful."
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Normality test verification and bell curve distribution benchmarks (Question 29)?",
+    "shortAnswer": "Normality test verification and bell curve distribution benchmarks is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Normality test verification and bell curve distribution benchmarks plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Normality test verification and bell curve distribution benchmarks impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is a quick way to avoid #DIV/0! with AVERAGEIF?",
-    shortAnswer: "Wrap in IFERROR: =IFERROR(AVERAGEIF(...), 0) or =IFERROR(AVERAGEIF(...), \"No data\").",
-    explanation: "Prevents error propagation and keeps sheets clean.",
-    level: "basic",
-    codeExample: "=IFERROR(AVERAGEIF(A:A, \"Rice\", B:B), 0)"
+    "question": "In the context of AVERAGEIF Function (Conditional Average), how does Excel compute and evaluate Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR (Question 30)?",
+    "shortAnswer": "Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   }
 ];
 

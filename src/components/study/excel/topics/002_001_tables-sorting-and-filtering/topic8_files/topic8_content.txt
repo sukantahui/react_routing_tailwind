@@ -1,0 +1,16 @@
+================================================================================
+EXCEL MASTERCLASS: Module 2.1 - Structured Tables, Sorting, Filtering & Slicers
+TOPIC 8: Test Your Skill: Structured Tables, Sorting, Filtering & Slicers
+Subject Code: EXCEL-PRO-901 | Competency: CO2 (Data Wrangling & Tabular Architecture)
+================================================================================
+
+1. MODULE 2.1 CAPSTONE ASSESSMENT SPECIFICATION
+Comprehensive assessment evaluating data manipulation, structured referencing, and interactive dashboard engineering:
+- Part A: 10 Multiple-Choice Conceptual & Keyboard Speed Questions
+- Part B: 4 Practical Table Transformation Scenarios (Fixing Broken References, Setting Slicers)
+- Part C: 1 End-to-End Dynamic Multi-Branch Commercial Table Challenge
+
+2. CERTIFICATION BENCHMARK
+- Distinction (&gt;= 85%): Certified Data Wrangling &amp; Table Architecture Specialist
+- Pass (&gt;= 70%): Certified Excel Table Developer
+- Remediation (&lt; 70%): Re-take Structured Table Practice Labs

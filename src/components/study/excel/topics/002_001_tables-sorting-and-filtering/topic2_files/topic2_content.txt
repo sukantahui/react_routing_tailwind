@@ -1,0 +1,31 @@
+MODULE 2.1 - TOPIC 2
+Title: Sorting Data: Single-Column, Multi-Level Hierarchy and Custom List Sorting
+Level: Intermediate | Bloom's Level 2 & 3: Understand & Apply
+
+Overview:
+Master data sorting in Excel: Single-column A-Z / Z-A sorting, Multi-Level sorting hierarchies (Sort by Region, then Department, then Salary Descending), Custom List sorting (e.g. High, Medium, Low / Jan to Dec), Case-Sensitive sorting, and Left-to-Right column sorting.
+
+Technical Anatomy:
+Signature: =SORT(tblEmployees, {3, 4, 5}, {1, 1, -1})
+Return Type: Ordered Multi-Key Array / In-Place Sorted Table
+
+Real-World Business Scenarios:
+[Kolkata Corporate Multi-Tier Compensation Sort]
+Context: Sorting 500 corporate employees: 1. Branch A-Z, 2. Department A-Z, 3. Salary Descending.
+Applied: Data -> Sort (Alt + D + S) Multi-Level Dialog
+Result: Clean 3-tier organized compensation audit register.
+
+[Barrackpore Priority Incident Ticket Custom List Sorting]
+Context: Sorting customer support tickets by priority: 'Critical' -> 'High' -> 'Medium' -> 'Low' (non-alphabetical).
+Applied: Sort -> Order -> Custom List -> {Critical, High, Medium, Low}
+Result: Tickets sorted by true operational urgency.
+
+[Shyamnagar Regional Retail Shift Schedule Left-to-Right Sort]
+Context: Sorting a horizontal 12-month budget table chronologically from April to March (Indian Financial Year).
+Applied: Sort Left to Right (Horizontal Sort)
+Result: Horizontal columns sorted chronologically across worksheet.
+
+[Ichapur Plant Machine Maintenance Case-Sensitive Tag Sort]
+Context: Separating uppercase production codes (MCH-A) from lowercase test codes (mch-a).
+Applied: Case-Sensitive Sorting
+Result: Strict differentiation of production vs experimental equipment.

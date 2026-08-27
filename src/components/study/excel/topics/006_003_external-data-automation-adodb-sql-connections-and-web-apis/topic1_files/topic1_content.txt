@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: External Data Automation: ADODB SQL Connections & Web APIs
+Topic 1: Establishing connection strings for MySQL, PostgreSQL, SQL Server, and Microsoft Access
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

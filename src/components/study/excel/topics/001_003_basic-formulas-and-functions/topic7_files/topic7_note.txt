@@ -1,0 +1,10 @@
+TOPIC 7: PRACTICE MULTIPLE CHOICE QUESTIONS (MCQ): BASIC FORMULAS, BODMAS & FOUNDATIONAL MATH FUNCTIONS
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Testing your knowledge of operator precedence, rounding mechanics, and aggregation edge cases prepares you for technical spreadsheet certification exams.
+- Review the question explanations below to understand subtle differences between AVERAGE vs AVERAGEA, INT vs TRUNC, and COUNT vs COUNTA.
+- Aim for 28/30 or higher before advancing to Module 1.4 (Basic Charts and Visualizations).
+
+Teacher Note:
+Test yourself thoroughly with the 30 FAQ questions below! Review every single explanation carefully. If you score above 27/30, you have mastered Module 1.3 with distinction!

@@ -1,0 +1,10 @@
+TOPIC 0: UNDERSTANDING LOOKUP FUNCTIONS AND RELATIONAL REFERENCE TABLES
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Lookup functions simulate relational database SQL SELECT queries within Excel: `SELECT return_column FROM table WHERE key_column = lookup_value`.
+- Reference tables must have unique, non-duplicated keys in their leftmost column to guarantee deterministic match retrieval.
+- Exact match lookups perform linear O(n) scan from top to bottom, returning the first occurrence of the matching key.
+
+Teacher Note:
+Master the 4 golden arguments of VLOOKUP: What are you looking for? Where is the table? Which column do you want back? And ALWAYS end with FALSE or 0 for exact match! Never leave the 4th argument blank in accounting or payroll!

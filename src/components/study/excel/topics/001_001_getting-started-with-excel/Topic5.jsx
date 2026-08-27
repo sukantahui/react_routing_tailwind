@@ -72,7 +72,7 @@ export default function Topic5() {
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            High-Speed Navigation: Keyboard Shortcuts, Range Selection, Name Box Teleportation & Go To Special
+            High-Speed Navigation: Keyboard Shortcuts, Range Selection, Name Box Teleportation &amp; Go To Special
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
@@ -169,7 +169,7 @@ export default function Topic5() {
           <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
             <p>Ctrl + Arrow keys scan the underlying memory array and jump past contiguous populated cells until an empty cell boundary is reached.</p>
             <p>The Name Box (top-left of the formula bar) allows direct coordinate input (e.g. typing 'B5000' and pressing Enter teleports the cursor immediately).</p>
-            <p>Go To Special (F5 -> Alt+S) performs array filtering directly in the DOM, allowing batch operations such as filling all blank cells in a 10,000-row column simultaneously.</p>
+            <p>Go To Special (F5 &amp;rarr; Alt+S) performs array filtering directly in the DOM, allowing batch operations such as filling all blank cells in a 10,000-row column simultaneously.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
@@ -197,7 +197,7 @@ export default function Topic5() {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Calculation Flow: Keyboard Vector Traversal & Boundary Jump Mechanics
+            Visual Calculation Flow: Keyboard Vector Traversal &amp; Boundary Jump Mechanics
           </h2>
 
           <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
@@ -281,7 +281,7 @@ export default function Topic5() {
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="Topic5_Navigation_Shortcuts"
-            title="Module 1.1 - High-Speed Navigation: Keyboard Shortcuts, Range Selection, Name Box Teleportation & Go To Special"
+            title="Module 1.1 - High-Speed Navigation: Keyboard Shortcuts, Range Selection, Name Box Teleportation &amp; Go To Special"
             rowsPerPage={25}
             showSheetSelector={true}
           />
@@ -337,14 +337,14 @@ export default function Topic5() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Step</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Action_Sequence</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Execution_Time</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Result</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">1</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Highlight Range -> Press F5 -> Special -> Blanks</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">2 seconds</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">All 200 blank cells highlighted</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">2</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Type 'Absent' -> Press Ctrl + Enter</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">1 second</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">All 200 blank cells populated simultaneously</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">1</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Highlight Range &amp;rarr; Press F5 &amp;rarr; Special &amp;rarr; Blanks</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">2 seconds</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">All 200 blank cells highlighted</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">2</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Type 'Absent' &amp;rarr; Press Ctrl + Enter</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">1 second</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">All 200 blank cells populated simultaneously</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: F5 -> Alt + S -> K -> Enter -> Type 'Absent' -> Ctrl + Enter</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: F5 &amp;rarr; Alt + S &amp;rarr; K &amp;rarr; Enter &amp;rarr; Type 'Absent' &amp;rarr; Ctrl + Enter</div>
                 <div className="text-emerald-400 font-semibold">Result: 200 blank cells filled in 3 seconds without loop programming.</div>
                 <div className="text-slate-400 text-[11px]">Ctrl + Enter broadcasts an input value across all currently selected disjoint cells.</div>
               </div>
@@ -384,7 +384,7 @@ export default function Topic5() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Named_Range</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Target_Coordinates</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Navigation_Method</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Speed</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Material_Rates</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Sheet3!AA500:AD750</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Type 'Material_Rates' in Name Box -> Enter</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Instant viewport switch & selection</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Material_Rates</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Sheet3!AA500:AD750</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Type 'Material_Rates' in Name Box &amp;rarr; Enter</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Instant viewport switch &amp; selection</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -528,7 +528,7 @@ export default function Topic5() {
             </div>
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                F5 -> Alt + S
+                F5 &amp;rarr; Alt + S
               </kbd>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Open Go To Special dialog for precision cell filtering (Blanks, Formulas, etc.).</p>
             </div>
@@ -565,7 +565,7 @@ export default function Topic5() {
             </div>
             <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
               <span className="text-teal-400 text-base">❓</span>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">What is the mathematical principle behind Go To Special -> Differences (Row/Column differences) in formula auditing?</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">What is the mathematical principle behind Go To Special &amp;rarr; Differences (Row/Column differences) in formula auditing?</p>
             </div>
           </div>
         </section>
@@ -575,7 +575,7 @@ export default function Topic5() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="High-Speed Navigation: Keyboard Shortcuts, Range Selection, Name Box Teleportation & Go To Special - Frequently Asked Questions"
+            title="High-Speed Navigation: Keyboard Shortcuts, Range Selection, Name Box Teleportation &amp; Go To Special - Frequently Asked Questions"
             questions={questions}
           />
         </div>
@@ -585,7 +585,7 @@ export default function Topic5() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="Throw away the mouse for navigation! Master Ctrl+Arrows and Ctrl+Shift+Arrows. When cleaning messy client data, F5 -> Special -> Blanks combined with Ctrl+Enter is the single most powerful productivity technique in spreadsheet engineering."
+            note="Throw away the mouse for navigation! Master Ctrl+Arrows and Ctrl+Shift+Arrows. When cleaning messy client data, F5 &rarr; Special &rarr; Blanks combined with Ctrl+Enter is the single most powerful productivity technique in spreadsheet engineering."
           />
         </div>
       </div>

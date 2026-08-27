@@ -1,0 +1,31 @@
+MODULE 1.4 - TOPIC 0
+Title: Chart Selection Guide: Matching Business Data Stories to Optimal Chart Types
+Level: Beginner | Bloom's Level 2 & 3: Understand & Apply
+
+Overview:
+Master the art and science of data visualization: Select the perfect chart type based on your analytical story (Comparison, Time-Series Trend, Part-to-Whole Composition, or Distribution). Avoid chart junk, 3D distortions, and misleading dual-axes.
+
+Technical Anatomy:
+Signature: =CHART_RECOMMENDATION(DataType, AnalyticalGoal)
+Return Type: Optimized Visual Encoding Specification
+
+Real-World Business Scenarios:
+[Barrackpore Multi-Branch Sales Comparison Selection]
+Context: Choosing between a 3D Pie chart vs Horizontal Bar chart for 8 regional branches.
+Applied: Horizontal Bar Chart sorted descending by sales
+Result: Instant visual ranking across all 8 branches.
+
+[Kolkata Corporate 3-Year Monthly Revenue Trend Visualization]
+Context: Displaying 36 consecutive months of revenue to highlight seasonal spikes.
+Applied: 2D Line Chart with Highlighted Markers
+Result: Executive team identifies Q3 seasonal revenue acceleration.
+
+[Shyamnagar Factory Operating Expense Budget Breakdown]
+Context: Showing 4 cost components (Raw Materials 55%, Labor 25%, Power 12%, Overhead 8%).
+Applied: Doughnut Chart (4 slices total)
+Result: Clean board-ready budget composition visual.
+
+[Ichapur Plant Tensile Strength Quality Distribution]
+Context: Analyzing product variation across 500 manufactured steel batches.
+Applied: Statistical Histogram Chart
+Result: Normal distribution bell curve verified for ISO audit.

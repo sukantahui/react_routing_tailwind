@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
+Topic 0: Introduction to Python in Excel: Running secure Python analytics natively in Microsoft Cloud containers
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

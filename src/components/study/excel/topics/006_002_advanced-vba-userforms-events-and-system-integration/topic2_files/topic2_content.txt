@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Advanced VBA: UserForms, Events & System Integration
+Topic 2: Designing professional GUI UserForms: TextBoxes, ComboBoxes, ListBoxes, CheckBoxes, and CommandButtons
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

@@ -1,0 +1,9 @@
+MODULE 2.4 - TOPIC 31
+Title: TREND Function (Trend Analysis with Multiple Values)
+Level: Intermediate / Advanced
+
+Overview:
+Master TREND Function (Trend Analysis with Multiple Values) for advanced business intelligence, statistical modeling, and data science in Microsoft Excel.
+
+Signature:
+=TREND(known_y's, [known_x's], [new_x's])

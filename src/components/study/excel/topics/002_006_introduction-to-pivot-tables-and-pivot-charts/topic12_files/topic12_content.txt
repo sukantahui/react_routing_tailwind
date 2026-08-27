@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Introduction to Pivot Tables and Pivot Charts
+Topic 12: Refreshing data, updating data sources, and dynamic table references
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

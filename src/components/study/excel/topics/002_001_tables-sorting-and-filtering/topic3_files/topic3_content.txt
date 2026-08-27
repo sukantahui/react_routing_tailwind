@@ -1,0 +1,31 @@
+MODULE 2.1 - TOPIC 3
+Title: AutoFilter Mastery: Text, Number, Date Filters, Wildcard Searches (*, ?) and Top 10 Filters
+Level: Intermediate | Bloom's Level 2 & 3: Understand & Apply
+
+Overview:
+Master Excel AutoFilter (Ctrl + Shift + L): Search box filtering, Wildcard operators (* for any characters, ? for single character), Number Filters (Between, Above Average, Top 10 Items/10%), Date Filters (This Quarter, Last Month, Year to Date), and Filter by Color.
+
+Technical Anatomy:
+Signature: =FILTER(Table1, (Table1[Region]="Kolkata") * (Table1[Sales]&gt;100000))
+Return Type: Filtered View Subset / Dynamic Filter Array
+
+Real-World Business Scenarios:
+[Kolkata Wholesale Top 10% Revenue Customer Isolation]
+Context: Filtering the top 10% highest-spending corporate clients from a 1,000-customer database.
+Applied: Number Filters -> Top 10 Percent
+Result: High-value accounts isolated in 2 clicks for VIP marketing.
+
+[Barrackpore Student Wildcard Roll Number Search]
+Context: Finding all students enrolled in 2026 computer batches with ID format 'STD-26-CS-###'.
+Applied: AutoFilter Search Box with Wildcard (*)
+Result: Target cohort isolated instantly without writing complex string formulas.
+
+[Shyamnagar Regional Retail Overdue Invoice Aging Filter]
+Context: Filtering all invoices with due dates in 'Last Month' and 'This Month'.
+Applied: Date Filters -> Relative Period (Last Month)
+Result: Accounts payable audit completed in seconds.
+
+[Ichapur Plant Defect Outlier Isolation (Above Average)]
+Context: Filtering production batches where defect count exceeds the factory average.
+Applied: Number Filters -> Above Average
+Result: Sub-par batches flagged without manual average calculation.

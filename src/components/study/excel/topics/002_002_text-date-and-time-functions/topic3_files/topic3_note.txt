@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: Text, Date and Time Functions
+Topic 3: Number-to-text formatting with the TEXT function (custom number formats, currency, dates)
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

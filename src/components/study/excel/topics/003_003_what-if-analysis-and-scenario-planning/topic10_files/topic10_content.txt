@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: What-If Analysis and Scenario Planning
+Topic 10: Adding integer, binary (0/1), and range constraints in Solver
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

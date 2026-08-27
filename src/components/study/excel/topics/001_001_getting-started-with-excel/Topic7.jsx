@@ -197,7 +197,7 @@ export default function Topic7() {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Calculation Flow: Comprehensive Practical Lab Architecture & Workflow
+            Visual Calculation Flow: Comprehensive Practical Lab Architecture &amp; Workflow
           </h2>
 
           <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
@@ -339,7 +339,7 @@ export default function Topic7() {
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Department</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Q1_Sales</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Q2_Sales</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Q3_Sales</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Q4_Sales</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Total_Dept</td></tr>
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Software Engg</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">145,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">168,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">152,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">189,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=SUM(B2:E2)</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Taxation & Accounts</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">180,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">195,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">210,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">225,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=SUM(B3:E3)</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Taxation &amp; Accounts</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">180,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">195,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">210,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">225,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=SUM(B3:E3)</td></tr>
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Total_Quarter</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=SUM(B2:B3)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=SUM(C2:C3)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=SUM(D2:D3)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=SUM(E2:E3)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=SUM(F2:F3)</td></tr>
                   </tbody>
                 </table>
@@ -356,14 +356,14 @@ export default function Topic7() {
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">03</span>
                 <h3 className="text-base font-bold text-white">Shyamnagar Regional Supermarket Missing Entry Auto-Audit</h3>
               </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Using F5 Go To Special -> Blanks to find unbilled items in a 500-line daily register.</p>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Using F5 Go To Special &amp;rarr; Blanks to find unbilled items in a 500-line daily register.</p>
               
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Auditing_Action</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Keystrokes_Used</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Detected_Anomalies</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Resolution</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Scan for Blanks</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">F5 -> Alt + S -> K -> Enter</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">14 missing price tags highlighted</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Filled with default wholesale MRP</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Scan for Blanks</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">F5 &amp;rarr; Alt + S &amp;rarr; K &amp;rarr; Enter</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">14 missing price tags highlighted</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Filled with default wholesale MRP</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -377,7 +377,7 @@ export default function Topic7() {
             <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">04</span>
-                <h3 className="text-base font-bold text-white">Kolkata Branch Final Model Freezing & Presentation Packaging</h3>
+                <h3 className="text-base font-bold text-white">Kolkata Branch Final Model Freezing &amp; Presentation Packaging</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Freezing top 3 header rows and locking column A so employee names remain visible during horizontal scrolling.</p>
               
@@ -392,7 +392,7 @@ export default function Topic7() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: View Tab -> Freeze Panes with cursor at B4</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: View Tab &amp;rarr; Freeze Panes with cursor at B4</div>
                 <div className="text-emerald-400 font-semibold">Result: Professional executive spreadsheet ready for board review.</div>
                 <div className="text-slate-400 text-[11px]">Proper pane freezing enables effortless review of wide 50-column corporate financial models.</div>
               </div>
@@ -495,7 +495,7 @@ export default function Topic7() {
                   <td className="py-3 px-4 text-rose-300 font-mono font-bold">Hardcoded Overwrites in Formula Columns</td>
                   <td className="py-3 px-4 text-slate-300">A user typed a raw number over a formula in row 15, breaking the calculation chain.</td>
                   <td className="py-3 px-4 text-amber-300">Row 15 does not update when input quantities change.</td>
-                  <td className="py-3 px-4 text-emerald-400 font-medium">Highlight formula column, press F5 -> Special -> Constants to spot rogue hardcoded numbers!</td>
+                  <td className="py-3 px-4 text-emerald-400 font-medium">Highlight formula column, press F5 &amp;rarr; Special &amp;rarr; Constants to spot rogue hardcoded numbers!</td>
                 </tr>
               </tbody>
             </table>
@@ -524,13 +524,13 @@ export default function Topic7() {
             </div>
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                F5 -> Special -> Formulas
+                F5 &amp;rarr; Special &amp;rarr; Formulas
               </kbd>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Highlight all formula cells across the sheet to audit calculation coverage.</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                F5 -> Special -> Constants
+                F5 &amp;rarr; Special &amp;rarr; Constants
               </kbd>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Highlight all hardcoded literal cells to verify no formulas were accidentally overwritten.</p>
             </div>
@@ -563,7 +563,7 @@ export default function Topic7() {
             </div>
             <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
               <span className="text-teal-400 text-base">❓</span>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">How does using F5 -> Special -> Formulas vs Constants protect against rogue hardcoding?</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">How does using F5 &amp;rarr; Special &amp;rarr; Formulas vs Constants protect against rogue hardcoding?</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
               <span className="text-teal-400 text-base">❓</span>

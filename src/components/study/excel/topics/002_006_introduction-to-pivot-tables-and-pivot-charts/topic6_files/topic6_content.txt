@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Introduction to Pivot Tables and Pivot Charts
+Topic 6: Calculated Fields and Calculated Items: Adding custom business logic
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

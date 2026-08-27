@@ -1,213 +1,243 @@
 const questions = [
   {
-    question: "What does the MEDIAN function do?",
-    shortAnswer: "Returns the middle value after sorting numbers.",
-    explanation: "For an odd count, it's the centre number; for even count, it averages the two middle numbers.",
-    level: "basic",
-    codeExample: "=MEDIAN(1,2,3) → 2; =MEDIAN(1,2,3,4) → 2.5"
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Sample vs population standard deviation mathematical distinction (Question 1)?",
+    "shortAnswer": "Sample vs population standard deviation mathematical distinction is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Sample vs population standard deviation mathematical distinction plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Sample vs population standard deviation mathematical distinction impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B21)"
   },
   {
-    question: "How does MEDIAN differ from AVERAGE?",
-    shortAnswer: "AVERAGE is influenced by outliers; MEDIAN is robust and gives the central value.",
-    explanation: "In skewed data, median is often a better representation of 'typical' than mean.",
-    level: "basic",
-    codeExample: "Data {1,2,3,100}: AVERAGE=26.5, MEDIAN=2.5"
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Bessel's correction (n-1 degrees of freedom) in STDEV.S (Question 2)?",
+    "shortAnswer": "Bessel's correction (n-1 degrees of freedom) in STDEV.S is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Bessel's correction (n-1 degrees of freedom) in STDEV.S plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Bessel's correction (n-1 degrees of freedom) in STDEV.S impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What does MEDIAN return for an even number of values?",
-    shortAnswer: "The average of the two middle numbers after sorting.",
-    explanation: "Example: {10,20,30,40} sorted → middle numbers 20 and 30, average = 25.",
-    level: "basic",
-    codeExample: "=MEDIAN(10,20,30,40) → 25"
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS (Question 3)?",
+    "shortAnswer": "Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Does MEDIAN ignore blank cells and text?",
-    shortAnswer: "Yes, both are ignored completely (not treated as zero).",
-    explanation: "Only numbers are considered; blanks and text do not affect the count or the median value.",
-    level: "intermediate",
-    codeExample: "Range A1:A5 containing {5, , \"a\", 10, 15} → MEDIAN(5,10,15) = 10"
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Why SUMIFS places sum_range FIRST while SUMIF places it LAST (Question 4)?",
+    "shortAnswer": "Why SUMIFS places sum_range FIRST while SUMIF places it LAST is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Why SUMIFS places sum_range FIRST while SUMIF places it LAST plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Why SUMIFS places sum_range FIRST while SUMIF places it LAST impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B24)"
   },
   {
-    question: "What error does MEDIAN return if there are no numbers?",
-    shortAnswer: "#NUM! error",
-    explanation: "Because there is no numeric data to compute a median.",
-    level: "basic",
-    codeExample: "=MEDIAN(A1:A10) where all are text → #NUM!"
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Wildcard support (*, ?) in COUNTIF and SUMIFS criteria (Question 5)?",
+    "shortAnswer": "Wildcard support (*, ?) in COUNTIF and SUMIFS criteria is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Wildcard support (*, ?) in COUNTIF and SUMIFS criteria plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Wildcard support (*, ?) in COUNTIF and SUMIFS criteria impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Can MEDIAN be used with dates?",
-    shortAnswer: "Yes, dates are serial numbers, so MEDIAN returns the middle date.",
-    explanation: "Format the result cell as a date to see the date value.",
-    level: "intermediate",
-    codeExample: "=MEDIAN(A1:A10) where A1:A10 contain dates → middle date."
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Case-insensitivity of text comparisons in IFS functions (Question 6)?",
+    "shortAnswer": "Case-insensitivity of text comparisons in IFS functions is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Case-insensitivity of text comparisons in IFS functions plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Case-insensitivity of text comparisons in IFS functions impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "How to compute the conditional median (median of numbers that meet a condition)?",
-    shortAnswer: "Use an array formula: =MEDIAN(IF(range=criteria, median_range)).",
-    explanation: "Enter with Ctrl+Shift+Enter in older Excel; in 365, it works normally.",
-    level: "advanced",
-    codeExample: "{=MEDIAN(IF(A1:A100=\"Rice\", B1:B100))}"
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) (Question 7)?",
+    "shortAnswer": "Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B27)"
   },
   {
-    question: "Is MEDIAN case‑sensitive in conditional arrays?",
-    shortAnswer: "No, the condition using = is case‑insensitive. Use EXACT for case‑sensitive.",
-    explanation: "Combine with EXACT inside IF.",
-    level: "advanced",
-    codeExample: "{=MEDIAN(IF(EXACT(A1:A100,\"Rice\"), B1:B100))}"
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Median resistance to extreme outlier skewing compared to Mean (Question 8)?",
+    "shortAnswer": "Median resistance to extreme outlier skewing compared to Mean is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Median resistance to extreme outlier skewing compared to Mean plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Median resistance to extreme outlier skewing compared to Mean impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the median of {5,5,5,5}?",
-    shortAnswer: "5",
-    explanation: "Even count: middle numbers are both 5, average = 5.",
-    level: "basic",
-    codeExample: "All numbers same → median = that number."
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate MODE.SNGL single value return vs MODE.MULT dynamic array spilling (Question 9)?",
+    "shortAnswer": "MODE.SNGL single value return vs MODE.MULT dynamic array spilling is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, MODE.SNGL single value return vs MODE.MULT dynamic array spilling plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how MODE.SNGL single value return vs MODE.MULT dynamic array spilling impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Does MEDIAN treat logical values (TRUE/FALSE) differently when they are in cell references vs direct arguments?",
-    shortAnswer: "In cell references, they are ignored; as direct arguments, TRUE=1, FALSE=0.",
-    explanation: "Direct arguments coerce; cell references do not.",
-    level: "advanced",
-    codeExample: "=MEDIAN(TRUE, FALSE, 5) → (0+1+5)/3 = 2? Actually median of {0,1,5} = 1. But =MEDIAN(A1:A3) with TRUE in A1 gives 5 (ignores TRUE)."
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) (Question 10)?",
+    "shortAnswer": "QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B30)"
   },
   {
-    question: "How to get the median while ignoring zeros?",
-    shortAnswer: "Use array formula: =MEDIAN(IF(range<>0, range))",
-    explanation: "This excludes zeros from the set before calculating median.",
-    level: "advanced",
-    codeExample: "{=MEDIAN(IF(A1:A100<>0, A1:A100))}"
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate PERCENTILE.INC fractional rank interpolation algorithms (Question 11)?",
+    "shortAnswer": "PERCENTILE.INC fractional rank interpolation algorithms is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, PERCENTILE.INC fractional rank interpolation algorithms plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how PERCENTILE.INC fractional rank interpolation algorithms impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the maximum number of arguments MEDIAN accepts?",
-    shortAnswer: "255 arguments, like most aggregation functions.",
-    explanation: "Each argument can be a cell, range, or constant.",
-    level: "expert",
-    codeExample: "=MEDIAN(A1:A1000000, B1:B1000000) works."
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking (Question 12)?",
+    "shortAnswer": "RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Can MEDIAN be used with 3D references?",
-    shortAnswer: "Yes, e.g., =MEDIAN(Sheet1:Sheet3!A1) gives median of A1 across those sheets.",
-    explanation: "All sheets between Sheet1 and Sheet3 inclusive.",
-    level: "advanced",
-    codeExample: "=MEDIAN(Jan:Dec!B5)"
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 (Question 13)?",
+    "shortAnswer": "Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B33)"
   },
   {
-    question: "Why might MEDIAN return a decimal even when all inputs are integers?",
-    shortAnswer: "Because the two middle numbers average may be a fraction (e.g., (5+6)/2 = 5.5).",
-    explanation: "That's mathematically correct.",
-    level: "basic",
-    codeExample: "=MEDIAN(1,2,3,4) → 2.5"
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Linear regression forecasting with FORECAST.LINEAR (y = a + bx) (Question 14)?",
+    "shortAnswer": "Linear regression forecasting with FORECAST.LINEAR (y = a + bx) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Linear regression forecasting with FORECAST.LINEAR (y = a + bx) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Linear regression forecasting with FORECAST.LINEAR (y = a + bx) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the difference between MEDIAN and MODE?",
-    shortAnswer: "MEDIAN is the middle value; MODE is the most frequent value.",
-    explanation: "They are different measures of central tendency.",
-    level: "basic",
-    codeExample: "{1,2,2,3} → MEDIAN=2, MODE=2 (coincidence), but generally different."
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate TREND function dynamic multi-period projection array spilling (Question 15)?",
+    "shortAnswer": "TREND function dynamic multi-period projection array spilling is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, TREND function dynamic multi-period projection array spilling plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how TREND function dynamic multi-period projection array spilling impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "How to compute median for a grouped dataset (e.g., salary by department)?",
-    shortAnswer: "Use pivot table (Add to Data Model? Not directly) or helper columns. In Excel, you can use array formula with IF per department.",
-    explanation: "Pivot tables do not offer median directly; use Power Pivot or array formulas.",
-    level: "expert",
-    codeExample: "{=MEDIAN(IF(DeptRange=\"IT\", SalaryRange))}"
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Z-score statistical outlier detection: (x - Mean) / STDEV (Question 16)?",
+    "shortAnswer": "Z-score statistical outlier detection: (x - Mean) / STDEV is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Z-score statistical outlier detection: (x - Mean) / STDEV plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Z-score statistical outlier detection: (x - Mean) / STDEV impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B36)"
   },
   {
-    question: "Can MEDIAN be used across filtered rows only?",
-    shortAnswer: "Not directly; MEDIAN includes all rows. Use SUBTOTAL with function 12? SUBTOTAL does not have median. Use AGGREGATE(12,5,range) to ignore hidden rows.",
-    explanation: "AGGREGATE function offers median while respecting filters and hidden rows.",
-    level: "advanced",
-    codeExample: "=AGGREGATE(12,5, A2:A100)"
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules (Question 17)?",
+    "shortAnswer": "Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the median of an empty range?",
-    shortAnswer: "#NUM! error.",
-    explanation: "No numbers to evaluate.",
-    level: "basic",
-    codeExample: "=MEDIAN(A1:A10) all blank → #NUM!"
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate How statistical functions skip text strings vs include literal zeroes (Question 18)?",
+    "shortAnswer": "How statistical functions skip text strings vs include literal zeroes is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, How statistical functions skip text strings vs include literal zeroes plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how How statistical functions skip text strings vs include literal zeroes impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "How to quickly compare mean vs median in a dataset?",
-    shortAnswer: "Calculate both; if they differ significantly, the data is skewed.",
-    explanation: "Use conditional formatting to highlight large differences.",
-    level: "intermediate",
-    codeExample: "=IF(ABS(AVERAGE(data)-MEDIAN(data)) > threshold, \"Skewed\", \"Symmetric\")"
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Preventing #DIV/0! errors when counting zero matching criteria records (Question 19)?",
+    "shortAnswer": "Preventing #DIV/0! errors when counting zero matching criteria records is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Preventing #DIV/0! errors when counting zero matching criteria records plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Preventing #DIV/0! errors when counting zero matching criteria records impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B39)"
   },
   {
-    question: "Does MEDIAN treat numbers stored as text (e.g., '5') as numbers?",
-    shortAnswer: "No, they are ignored because they are text, not numbers.",
-    explanation: "Convert using VALUE() or multiply by 1.",
-    level: "intermediate",
-    codeExample: "If A1='5' as text, =MEDIAN(A1,10) → 10 (ignores '5')."
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Combining statistical IFS functions with Boolean logical masks (Question 20)?",
+    "shortAnswer": "Combining statistical IFS functions with Boolean logical masks is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Combining statistical IFS functions with Boolean logical masks plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Combining statistical IFS functions with Boolean logical masks impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Can MEDIAN be used with dynamic arrays in Excel 365?",
-    shortAnswer: "Yes, you can pass a dynamic array to MEDIAN directly.",
-    explanation: "Example: =MEDIAN(FILTER(A2:A100, B2:B100=\"Yes\")) works without Ctrl+Shift+Enter.",
-    level: "advanced",
-    codeExample: "=MEDIAN(FILTER(Salary, Dept=\"Sales\"))"
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 (Question 21)?",
+    "shortAnswer": "Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What is the median of {1,2,2,3,4}?",
-    shortAnswer: "2 (the third value in sorted order: 1,2,2,3,4 → middle = 2).",
-    explanation: "Even with duplicates, the position defines the median.",
-    level: "basic",
-    codeExample: "=MEDIAN(1,2,2,3,4) → 2"
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Structured Table referencing in statistical formulas: tblData[Amount] (Question 22)?",
+    "shortAnswer": "Structured Table referencing in statistical formulas: tblData[Amount] is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Structured Table referencing in statistical formulas: tblData[Amount] plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Structured Table referencing in statistical formulas: tblData[Amount] impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B42)"
   },
   {
-    question: "Why do some analysts prefer median over average for income data?",
-    shortAnswer: "Income data is often right‑skewed (high incomes pull the average up), so median better reflects 'typical' earner.",
-    explanation: "The median is not distorted by extreme values.",
-    level: "intermediate",
-    codeExample: "Median household income is reported more often than mean."
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Performance optimization across 100,000 rows with SUMIFS vs PivotTables (Question 23)?",
+    "shortAnswer": "Performance optimization across 100,000 rows with SUMIFS vs PivotTables is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Performance optimization across 100,000 rows with SUMIFS vs PivotTables plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Performance optimization across 100,000 rows with SUMIFS vs PivotTables impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How to calculate median while ignoring errors in the range?",
-    shortAnswer: "Use AGGREGATE(12,6,range). The second argument 6 tells it to ignore errors.",
-    explanation: "AGGREGATE is a robust function that can skip errors, hidden rows, etc.",
-    level: "expert",
-    codeExample: "=AGGREGATE(12,6, A2:A100)"
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Double unary operator (--) in boolean array statistical aggregations (Question 24)?",
+    "shortAnswer": "Double unary operator (--) in boolean array statistical aggregations is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Double unary operator (--) in boolean array statistical aggregations plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Double unary operator (--) in boolean array statistical aggregations impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Does MEDIAN work with decimal numbers?",
-    shortAnswer: "Yes, any numeric value, including decimals, is handled correctly.",
-    explanation: "It uses standard numeric sorting.",
-    level: "basic",
-    codeExample: "=MEDIAN(1.5, 2.7, 3.2) → 2.7"
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Weighted average calculations using SUMPRODUCT / SUM (Question 25)?",
+    "shortAnswer": "Weighted average calculations using SUMPRODUCT / SUM is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Weighted average calculations using SUMPRODUCT / SUM plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Weighted average calculations using SUMPRODUCT / SUM impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=STDEV.S(B2:B45)"
   },
   {
-    question: "What is the median of a single number?",
-    shortAnswer: "That number itself.",
-    explanation: "With one value, it's both the minimum, median, and maximum.",
-    level: "basic",
-    codeExample: "=MEDIAN(42) → 42"
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V (Question 26)?",
+    "shortAnswer": "Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How can you find the median of the top 5 values in a range?",
-    shortAnswer: "Use =MEDIAN(LARGE(range, {1,2,3,4,5})).",
-    explanation: "LARGE returns an array of the top 5 values; MEDIAN then finds their median.",
-    level: "advanced",
-    codeExample: "=MEDIAN(LARGE(A1:A100, {1,2,3,4,5}))"
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Handling missing data and empty cells in correlation matrices (Question 27)?",
+    "shortAnswer": "Handling missing data and empty cells in correlation matrices is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Handling missing data and empty cells in correlation matrices plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Handling missing data and empty cells in correlation matrices impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Is there a performance penalty for using MEDIAN on a whole column (e.g., A:A)?",
-    shortAnswer: "It must examine all 1M+ rows, so it can be slow. Prefer a defined range or Table.",
-    explanation: "Works, but not recommended for large datasets.",
-    level: "intermediate",
-    codeExample: "Better =MEDIAN(A2:A10000) than =MEDIAN(A:A)."
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards (Question 28)?",
+    "shortAnswer": "3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=STDEV.S(B2:B48)"
   },
   {
-    question: "Can MEDIAN be used in conditional formatting to highlight values above the median?",
-    shortAnswer: "Yes, use formula rule: =A1>MEDIAN($A$1:$A$100)",
-    explanation: "Conditional formatting can refer to the MEDIAN function, but absolute range is needed.",
-    level: "advanced",
-    codeExample: "Highlights cells above median."
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Normality test verification and bell curve distribution benchmarks (Question 29)?",
+    "shortAnswer": "Normality test verification and bell curve distribution benchmarks is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Normality test verification and bell curve distribution benchmarks plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Normality test verification and bell curve distribution benchmarks impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the median of {1,2,3,4,5}?",
-    shortAnswer: "3",
-    explanation: "Odd count, centre value.",
-    level: "basic",
-    codeExample: "Sorted: 1,2,3,4,5 → middle = 3."
+    "question": "In the context of MEDIAN Function (Central Value Analysis), how does Excel compute and evaluate Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR (Question 30)?",
+    "shortAnswer": "Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   }
 ];
 

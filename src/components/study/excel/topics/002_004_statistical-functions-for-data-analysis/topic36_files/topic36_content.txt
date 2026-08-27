@@ -1,0 +1,9 @@
+MODULE 2.4 - TOPIC 36
+Title: Practice: Multi-Condition Statistical Analysis
+Level: Intermediate / Advanced
+
+Overview:
+Master Practice: Multi-Condition Statistical Analysis for advanced business intelligence, statistical modeling, and data science in Microsoft Excel.
+
+Signature:
+=SUMIFS(tblSales[Amount], tblSales[Region], "Barrackpore", tblSales[Dept], "IT")

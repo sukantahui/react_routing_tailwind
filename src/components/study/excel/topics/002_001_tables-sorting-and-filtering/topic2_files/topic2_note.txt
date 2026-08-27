@@ -1,0 +1,10 @@
+TOPIC 2: SORTING DATA: SINGLE-COLUMN, MULTI-LEVEL HIERARCHY AND CUSTOM LIST SORTING
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Multi-level sorting applies a lexicographical sorting algorithm: records are first sorted by Rule 1; any ties are resolved by Rule 2, and subsequent ties by Rule 3.
+- Custom List sorting allows non-alphabetical ordering (e.g. 'Founder, Director, Manager, Senior Analyst, Intern' or 'High, Medium, Low').
+- Sorting must always be performed on contiguous tabular blocks with headers; sorting a single highlighted column without expanding selection destroys data integrity by scrambling rows.
+
+Teacher Note:
+Never highlight a single column to sort! If you ignore Excel's warning to expand selection, your customer names will attach to the wrong bank balances, corrupting your entire database! Always click ONE single cell inside the column and press Alt+A+S+A, or use an Excel Table!

@@ -1,0 +1,10 @@
+TOPIC 4: MASTERING CHART ELEMENTS: TITLES, LEGENDS, DATA LABELS, DUAL-AXES AND GRIDLINE DECLUTTERING
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- A great chart title is an executive summary headline, not a passive description (e.g. 'FY26 Revenue Grew +24% YoY Driven by Cloud' instead of 'Sales Chart').
+- Dynamic titles linked to cells (=A1) update automatically whenever underlying data or filters change.
+- Dual-Axis Combo charts allow visualizing metrics of vastly different magnitudes (e.g. Revenue in Crores on Primary Axis + Profit Margin % on Secondary Axis).
+
+Teacher Note:
+Power tip: Never type static text in your chart titles! Write a dynamic summary formula in a cell like ="Total Sales: ₹ " & TEXT(SUM(B2:B10), "#,##0") then click your chart title, type '=' in the formula bar, and click that cell. Now your title updates live automatically!

@@ -1,0 +1,31 @@
+MODULE 1.4 - TOPIC 1
+Title: Column and Bar Charts: Comparing Discrete Categories, Ranking and Variance Analysis
+Level: Beginner | Bloom's Level 2 & 3: Understand & Apply
+
+Overview:
+Master Column (Vertical) and Bar (Horizontal) charts: Clustered columns for target vs actual comparisons, Stacked columns for cumulative totals, 100% Stacked for proportional mix, sorting bars for instant ranking, and gap width optimization.
+
+Technical Anatomy:
+Signature: =COLUMN_CHART(Categories, Values, TargetSeries)
+Return Type: Categorical Length Encoding Matrix
+
+Real-World Business Scenarios:
+[Barrackpore Retail Target vs Actual Clustered Column Analysis]
+Context: Comparing sales targets against actual revenue achieved across 8 regional branches.
+Applied: Clustered Column Chart (Target Series + Actual Series)
+Result: Instant visual identification of surplus vs deficit branches.
+
+[Kolkata Top 10 Product SKUs Horizontal Ranked Bar Chart]
+Context: Ranking top 10 best-selling electronics with long product names.
+Applied: Sorted Horizontal Bar Chart
+Result: Product rankings legible without rotated or truncated text labels.
+
+[Shyamnagar Multi-Quarter Stacked Column Revenue Mix]
+Context: Visualizing quarterly total revenue split by Product, Service, and AMC streams.
+Applied: Stacked Column Chart
+Result: Simultaneous visualization of category mix and overall quarterly total.
+
+[Ichapur Plant Defect Pareto Chart (80/20 Rule)]
+Context: Plotting defect counts in descending bars combined with a cumulative percentage line.
+Applied: Pareto Chart (Combo Column + Line)
+Result: 80% of quality issues traced to top 2 defect causes.

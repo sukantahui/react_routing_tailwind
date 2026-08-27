@@ -1,0 +1,31 @@
+MODULE 2.5 - TOPIC 1
+Title: Importance of Unique IDs, Primary Keys and Key Column Hygiene
+Level: Intermediate | Bloom's Level 2 & 3: Understand & Apply
+
+Overview:
+Master primary key hygiene: Natural keys vs surrogate IDs, duplicate key detection, composite multi-column keys, leading zeros preservation, and why duplicate keys cause silent lookup corruption.
+
+Technical Anatomy:
+Signature: =COUNTIF(Key_Range, Key_Value) = 1
+Return Type: Primary Key Integrity Verification
+
+Real-World Business Scenarios:
+[Kolkata Corporate Employee Payroll Duplicate Name Hazard]
+Context: Company has two employees named 'Amit Roy' in different branches.
+Applied: Surrogate Employee ID Primary Key
+Result: Zero payroll misallocation across 5,000 employees.
+
+[Barrackpore Student Composite Key Construction]
+Context: Creating a unique key by combining Branch and Class Roll Number.
+Applied: =A2 & "_" & B2
+Result: Unique composite keys constructed without duplicate collisions.
+
+[Shyamnagar Wholesale Automated Duplicate Key Flagging]
+Context: Applying conditional formatting to highlight duplicate invoice numbers.
+Applied: Data Validation & Conditional Formatting
+Result: Zero duplicate voucher creation in accounts payable.
+
+[Ichapur Plant Machine Sensor ID Leading Zero Preservation]
+Context: Preventing numeric conversion from stripping leading zeros in sensor codes (e.g. '00452').
+Applied: Text Data Type Enforcement
+Result: Sensor lookup keys match ERP master tables exactly.

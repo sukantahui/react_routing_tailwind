@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: Modern Office Scripts (TypeScript) & Power Automate
+Topic 3: TypeScript fundamentals for Excel: Variables, Types, Arrays, Objects, and Async/Await
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

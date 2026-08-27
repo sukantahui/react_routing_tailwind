@@ -1,0 +1,10 @@
+TOPIC 3: EXTREME VALUE AND POSITIONAL RANKING FUNCTIONS: MIN, MAX, LARGE AND SMALL ANALYSIS
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- MIN and MAX scan the array in O(n) linear time to return the absolute mathematical boundary extrema.
+- LARGE and SMALL perform partial array sorting or quick-select algorithms in memory to extract the k-th ordered positional value.
+- LARGE(range, 1) is mathematically identical to MAX(range); SMALL(range, 1) is identical to MIN(range).
+
+Teacher Note:
+Pro tip for dynamic leaderboards: Write =LARGE($A$1:$A$100, ROW(A1)) and drag it down! ROW(A1) evaluates to 1, in the next row it becomes ROW(A2)=2, then ROW(A3)=3, generating an instant top-10 leaderboard without hardcoding numbers!

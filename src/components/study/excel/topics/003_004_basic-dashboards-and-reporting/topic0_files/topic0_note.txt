@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: Basic Dashboards and Reporting
+Topic 0: Anatomy of an Executive Dashboard: Grid system, visual hierarchy, and color palettes
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

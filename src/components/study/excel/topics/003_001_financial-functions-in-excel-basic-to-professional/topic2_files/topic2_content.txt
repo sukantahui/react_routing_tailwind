@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Financial Functions in Excel (Basic to Professional)
+Topic 2: Cumulative loan interest and principal: CUMIPMT and CUMPRINC
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

@@ -1,0 +1,9 @@
+MODULE 2.4 - TOPIC 0
+Title: Revision: SUM Function
+Level: Intermediate / Advanced
+
+Overview:
+Master Revision: SUM Function for advanced business intelligence, statistical modeling, and data science in Microsoft Excel.
+
+Signature:
+=SUM(A1:A100)

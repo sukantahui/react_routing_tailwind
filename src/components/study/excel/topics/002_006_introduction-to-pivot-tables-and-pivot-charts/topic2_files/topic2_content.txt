@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Introduction to Pivot Tables and Pivot Charts
+Topic 2: Creating Pivot Tables: Fields list, Rows, Columns, Values, and Filters areas
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

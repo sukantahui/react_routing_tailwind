@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: External Data Automation: ADODB SQL Connections & Web APIs
+Topic 12: Real-world project: Automated daily exchange rate and stock price fetcher via web API
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

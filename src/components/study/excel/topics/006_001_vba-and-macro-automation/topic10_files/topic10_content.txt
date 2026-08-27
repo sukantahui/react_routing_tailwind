@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: VBA & Macro Automation
+Topic 10: Speed optimization techniques: `Application.ScreenUpdating = False`, `Application.Calculation = xlCalculationManual`
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

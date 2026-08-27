@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: VBA & Macro Automation
+Topic 2: Recording macros: Relative vs Absolute recording modes and examining generated code
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

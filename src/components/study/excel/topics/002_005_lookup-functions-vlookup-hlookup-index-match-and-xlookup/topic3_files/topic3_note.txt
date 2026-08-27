@@ -1,0 +1,10 @@
+TOPIC 3: EXACT MATCH (FALSE / 0) VS APPROXIMATE MATCH (TRUE / 1) LOOKUP ARCHITECTURE
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- In Microsoft Excel, Exact Match (FALSE / 0) vs Approximate Match (TRUE / 1) Lookup Architecture provides industrial-grade relational data extraction capabilities across enterprise workbooks.
+- Understanding memory pointer traversal, binary search vs linear search, and dynamic array returns is vital for elite financial modeling.
+- Always design lookup tables with clean, normalized data types to eliminate #N/A type mismatch exceptions.
+
+Teacher Note:
+Master Exact Match (FALSE / 0) vs Approximate Match (TRUE / 1) Lookup Architecture! Pay meticulous attention to coordinate anchoring with F4, verify key uniqueness, and leverage INDEX-MATCH or XLOOKUP for immune, boardroom-ready spreadsheet models!

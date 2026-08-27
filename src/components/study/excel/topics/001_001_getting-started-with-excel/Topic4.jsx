@@ -169,7 +169,7 @@ export default function Topic4() {
           <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
             <p>The default .xlsx format is an ISO/IEC 29500 OpenXML ZIP archive containing separate XML files for workbook structure, sheets, shared strings, and formatting styles.</p>
             <p>The .xlsb (Binary) format stores cell records in direct binary tokens rather than human-readable XML. This drastically reduces parsing overhead, making it ideal for 50MB+ financial workbooks.</p>
-            <p>AutoRecover saves shadow backup files every 10 minutes (configurable in Options -> Save). AutoSave enables real-time sub-second cloud synchronization when saving to OneDrive/SharePoint.</p>
+            <p>AutoRecover saves shadow backup files every 10 minutes (configurable in Options &amp;rarr; Save). AutoSave enables real-time sub-second cloud synchronization when saving to OneDrive/SharePoint.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
@@ -197,7 +197,7 @@ export default function Topic4() {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Calculation Flow: Excel File Format Ecosystem & Compression Architecture
+            Visual Calculation Flow: Excel File Format Ecosystem &amp; Compression Architecture
           </h2>
 
           <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
@@ -320,7 +320,7 @@ export default function Topic4() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Save As -> Excel Binary Workbook (*.xlsb)</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Save As &amp;rarr; Excel Binary Workbook (*.xlsb)</div>
                 <div className="text-emerald-400 font-semibold">Result: File size reduced by 58%, opening time reduced from 42s to 11s.</div>
                 <div className="text-slate-400 text-[11px]">Binary serialization bypasses XML parsing, accelerating high-volume corporate models.</div>
               </div>
@@ -330,7 +330,7 @@ export default function Topic4() {
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">02</span>
                 <h3 className="text-base font-bold text-white">Barrackpore Payroll AutoRecover Emergency Restoration</h3>
               </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Sudden power failure occurred while preparing monthly salary registers at Coder & AccoTax.</p>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Sudden power failure occurred while preparing monthly salary registers at Coder &amp; AccoTax.</p>
               
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
@@ -343,7 +343,7 @@ export default function Topic4() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: File -> Info -> Manage Workbook -> Recover Unsaved Workbooks</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: File &amp;rarr; Info &amp;rarr; Manage Workbook &amp;rarr; Recover Unsaved Workbooks</div>
                 <div className="text-emerald-400 font-semibold">Result: Restored full payroll sheet without re-entering data.</div>
                 <div className="text-slate-400 text-[11px]">Configuring AutoRecover to 3 minutes prevents catastrophic data loss during unexpected system shutdowns.</div>
               </div>
@@ -366,7 +366,7 @@ export default function Topic4() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Save As -> CSV (Comma delimited) (*.csv)</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Save As &amp;rarr; CSV (Comma delimited) (*.csv)</div>
                 <div className="text-emerald-400 font-semibold">Result: Clean flat file ingested into MySQL database with zero formatting errors.</div>
                 <div className="text-slate-400 text-[11px]">CSV provides universal cross-platform compatibility for database ETL pipelines.</div>
               </div>
@@ -389,7 +389,7 @@ export default function Topic4() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Save As -> Excel Macro-Enabled Workbook (*.xlsm)</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Save As &amp;rarr; Excel Macro-Enabled Workbook (*.xlsm)</div>
                 <div className="text-emerald-400 font-semibold">Result: VBA billing automation functions without macro stripping.</div>
                 <div className="text-slate-400 text-[11px]">Saving VBA code in .xlsx permanently deletes all macros; .xlsm is mandatory for VBA models.</div>
               </div>
@@ -584,7 +584,7 @@ export default function Topic4() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="Never save VBA workbooks as .xlsx! Always use .xlsm for macros and .xlsb for heavy 100,000+ row data models. Configure your Excel AutoRecover interval to 3 minutes in Options -> Save for complete peace of mind."
+            note="Never save VBA workbooks as .xlsx! Always use .xlsm for macros and .xlsb for heavy 100,000+ row data models. Configure your Excel AutoRecover interval to 3 minutes in Options &rarr; Save for complete peace of mind."
           />
         </div>
       </div>

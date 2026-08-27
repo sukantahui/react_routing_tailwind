@@ -1,0 +1,16 @@
+================================================================================
+EXCEL MASTERCLASS: Module 2.5 - Lookup Functions: VLOOKUP, HLOOKUP, INDEX-MATCH & XLOOKUP
+TOPIC 19: Practice These Topics: Multi-Criteria Two-Way Dynamic Lookup Hub
+Lead Academic Mentor: Sukanta Hui | Coder & AccoTax (Barrackpore, Kolkata)
+================================================================================
+
+PRACTICAL LAB WORKFLOW:
+1. Dynamic Two-Way Lookup Hub Architecture:
+   - Command: `=INDEX(PriceMatrix, MATCH(ProductCode, CodeRange, 0), MATCH(ServiceTier, TierHeaders, 0))`
+   - XLOOKUP Modern Equivalent: `=XLOOKUP(ProductCode, CodeRange, XLOOKUP(ServiceTier, TierHeaders, MatrixRange))`
+
+2. Multi-Criteria Boolean Lookup:
+   - `=XLOOKUP(1, (tbl_Pricing[Region]=SelectedRegion) * (tbl_Pricing[Tier]=SelectedTier), tbl_Pricing[Tariff], "Not Found")`
+
+3. Error Resilient Sanitation:
+   - Wrapping keys in `TRIM(CLEAN(...))` and configuring explicit fallback defaults (`if_not_found`).

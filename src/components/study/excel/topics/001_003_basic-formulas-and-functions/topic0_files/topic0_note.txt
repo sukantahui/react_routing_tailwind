@@ -1,0 +1,10 @@
+TOPIC 0: ANATOMY OF A FORMULA: EQUAL SIGN (=), OPERATORS, OPERANDS AND BODMAS ORDER OF PRECEDENCE
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Excel evaluates mathematical expressions using standard mathematical precedence: Parentheses &rarr; Exponents &rarr; Multiplication and Division &rarr; Addition and Subtraction.
+- Comparison operators (=, <>, >, <, >=, <=) have lower precedence than arithmetic operators, and text concatenation (&) evaluates after arithmetic but before comparisons.
+- The formula calculation engine maintains an internal expression parse tree. If parentheses are omitted, Excel executes 10 + 5 * 2 as 20 (not 30) because multiplication takes priority.
+
+Teacher Note:
+Always remember: Brackets are free! When in doubt, wrap your sub-calculations in parentheses =(A1+B1)*(C1-D1). Use the F9 key inside the formula bar to evaluate and test individual pieces of your math before pressing Enter!

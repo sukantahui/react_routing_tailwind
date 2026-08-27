@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: Conditional Logic with IF and Related Functions
+Topic 5: Value branching and condition mapping with the SWITCH function
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

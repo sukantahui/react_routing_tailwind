@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
+Topic 1: The `=PY()` formula: Syntax, cell referencing (`xl("A1:D100", headers=True)`), and execution flow
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

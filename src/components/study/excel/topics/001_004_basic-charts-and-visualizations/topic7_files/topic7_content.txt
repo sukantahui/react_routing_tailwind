@@ -1,0 +1,19 @@
+================================================================================
+EXCEL MASTERCLASS: Module 1.4 - Basic Charts & Visual Storytelling
+TOPIC 7: Practice Session: Creating a Business Performance Chart Pack
+Subject Code: EXCEL-PRO-901 | Competency: CO1 (Visual Storytelling)
+================================================================================
+
+1. EXECUTIVE CHART PACK ARCHITECTURE
+An executive chart pack combines four primary analytical perspectives:
+- Categorical Variance (Column / Bar): Answers "Who are the top/bottom performers?"
+- Temporal Trajectory (Line / Area): Answers "Where is the business heading over time?"
+- Structural Composition (Doughnut / Treemap): Answers "How is the pie sliced?"
+- Granular Micro-Trends (Sparklines): Answers "What is the intra-year momentum?"
+
+2. STEP-BY-STEP WORKSHOP PROTOCOL
+Step 1: Data Preparation & Hygiene (Clean Table, No Blanks, Explicit Headers)
+Step 2: Chart Creation & Series Selection (Alt+F1, Select Range)
+Step 3: Axis & Legend Configuration (Zero Baseline, Secondary Axis, Remove Redundant Keys)
+Step 4: Color Styling & Decluttering (Monochrome Base, Alert Color Accents, Direct Labels)
+Step 5: Layout Assembly & Slicer Integration (Snap to Grid with Alt, Grouping Objects)

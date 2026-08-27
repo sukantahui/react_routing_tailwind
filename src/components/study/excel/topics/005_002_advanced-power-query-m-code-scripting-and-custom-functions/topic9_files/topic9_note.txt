@@ -1,0 +1,22 @@
+================================================================================
+EXCEL MASTERCLASS: Advanced Power Query M Code Scripting & Custom Functions
+TOPIC 9: Query Folding: Understanding How Power Query Pushes ETL to SQL Servers
+Lead Academic Mentor: Sukanta Hui | Coder & AccoTax (Barrackpore, Kolkata)
+================================================================================
+
+CORE CONCEPTS & INSTRUCTOR REFERENCE:
+1. Query Folding Definition:
+   - The capability of the Power Query mashup engine to translate M operations into native SQL (T-SQL, PL/SQL, etc.) pushed directly to backend servers.
+   - Drastically accelerates ETL by leveraging indexed SQL server execution and eliminating high-bandwidth network transfers.
+
+2. Diagnostic Verification:
+   - 'View Native Query' context menu inspection.
+   - Power BI Desktop Query Diagnostics session trace tables.
+   - SQL Server Profiler / Extended Events.
+
+3. Golden Architectural Rule:
+   - Fold Early: Perform all row filtering (`Table.SelectRows`), column selections (`Table.SelectColumns`), and table joins (`Table.Join`) at the beginning of the query.
+   - Transform Late: Defer client-side M functions (`Text.Proper`, `Table.Buffer`, custom regex) to the very final steps.
+
+4. Incremental Refresh Dependency:
+   - Incremental Refresh in Power BI Service REQUIRES 100% query folding on RangeStart and RangeEnd parameters.

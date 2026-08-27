@@ -1,0 +1,31 @@
+MODULE 1.3 - TOPIC 4
+Title: Mathematical Rounding Functions: ROUND, ROUNDUP, ROUNDDOWN, INT and TRUNC Precision Control
+Level: Beginner | Bloom's Level 2 & 3: Understand & Apply
+
+Overview:
+Master mathematical precision control in Excel: ROUND (standard 5/4 rounding), ROUNDUP (round away from zero / ceiling), ROUNDDOWN (round toward zero / floor), INT (greatest integer less than or equal to number), and TRUNC (truncate decimals without rounding).
+
+Technical Anatomy:
+Signature: =ROUND(A1, 2), =INT(A1), =TRUNC(A1, 0)
+Return Type: Mathematically Rounded Float / Integer
+
+Real-World Business Scenarios:
+[Kolkata GST Invoice 2-Decimal Statutory Rounding]
+Context: Calculating 18% GST on an invoice of ₹ 1,452.375 and preventing 3-decimal penny drift.
+Applied: =ROUND(A2 * 0.18, 2)
+Result: ₹ 261.43 statutory 2-decimal tax calculated.
+
+[Barrackpore Retail Nearest Rupee Cash Checkout Rounding]
+Context: Rounding retail bill totals to the nearest whole rupee (0 decimals) for physical cash collection.
+Applied: =ROUND(B2, 0)
+Result: Clean whole rupee amounts for cash counter settlement.
+
+[Shyamnagar Logistics Freight Minimum Carton Packaging (ROUNDUP)]
+Context: Calculating required shipping cartons where each carton holds 12 units (e.g. 50 units require 5 full cartons).
+Applied: =ROUNDUP(A2/B2, 0)
+Result: 5 cartons allocated (prevents leaving 2 units unpacked).
+
+[Ichapur Engineering Age in Completed Years from Date of Birth]
+Context: Extracting completed full years of age without fractional decimals.
+Applied: =INT((B2 - A2) / 365.25)
+Result: 31 completed years of age extracted.

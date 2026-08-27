@@ -1,0 +1,25 @@
+================================================================================
+EXCEL MASTERCLASS: Advanced Power Query M Code Scripting & Custom Functions
+TOPIC 10: Optimizing Power Query Performance: Buffering Tables & Reducing Memory
+Subject Code: EXCEL-PRO-502 | Target: React 19 + Tailwind CSS + Power Query M Engine
+================================================================================
+
+1. BUFFERING TAXONOMY IN M
+Function Name      Target In-Memory Object      Primary Architectural Application
+--------------------------------------------------------------------------------------
+Table.Buffer       2D Table (Rows x Cols)       Small-to-medium dimension lookup tables, sorting locks
+List.Buffer        1D List (Vector of values)   Key membership tests (List.Contains), deduplicated ID lists
+Binary.Buffer      Raw Binary Byte Stream       Repeated file parsing, multi-sheet Excel extraction
+Table.StopFolding  Table Stream                 Decouples query folding without eager memory loading
+
+2. TIME COMPLEXITY OPTIMIZATION EXAMPLE
+Scenario: Joining 100,000 Fact rows with 5,000 Dimension rows via row-level Table.SelectRows:
+- Unbuffered: 100,000 x 5,000 = 500,000,000 record evaluations (Minutes to Hours)
+- Buffered: 1 initial load + 100,000 RAM lookups = ~105,000 evaluations (Sub-second)
+
+3. STEP ORDER OPTIMIZATION PROTOCOL
+Step 1: Ingest source (`Sql.Database`, `Folder.Files`).
+Step 2: Immediate column pruning (`Table.SelectColumns`) -> Discard 80% of unused byte width.
+Step 3: Immediate row filtering (`Table.SelectRows`) -> Maximize early stream reduction.
+Step 4: Buffer static lookup dimension in outer scope: `BufferedDim = Table.Buffer(DimCustomer)`.
+Step 5: Perform in-memory transformation or merge against `BufferedDim`.

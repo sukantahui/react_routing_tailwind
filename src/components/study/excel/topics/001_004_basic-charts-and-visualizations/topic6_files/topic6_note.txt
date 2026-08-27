@@ -1,0 +1,10 @@
+TOPIC 6: COMPREHENSIVE LABORATORY PRACTICE SESSION: CHART CREATION, CUSTOMIZATION AND EXECUTIVE DASHBOARD CONSTRUCTION
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- An executive dashboard synthesizes complex multidimensional data into an intuitive, single-page visual command center.
+- The layout must flow logically: 1. Strategic Summary (Top KPIs), 2. Operational Comparison (Middle Charts), 3. Diagnostic Breakdown (Bottom Detail).
+- Always hide worksheet gridlines (View &rarr; uncheck Gridlines) when presenting executive dashboards for a clean app-like interface.
+
+Teacher Note:
+Congratulations on completing Module 1.4: Basic Charts and Visualizations! You have mastered the complete visualization pipeline: selecting the right chart, building clustered columns, dual-axis trends, clean doughnuts, and packaging them into stunning executive dashboards with Coder & AccoTax dark styling. You have now completed all 4 foundational modules of Segment 1!

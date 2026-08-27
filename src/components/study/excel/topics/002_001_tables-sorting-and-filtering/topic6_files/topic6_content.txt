@@ -1,0 +1,31 @@
+MODULE 2.1 - TOPIC 6
+Title: Comprehensive Laboratory Practice Session: Structured Tables, Multi-Level Sorting, Filtering &amp; Slicers
+Level: Intermediate | Bloom's Level 3 & 4: Apply & Analyze
+
+Overview:
+Hands-on capstone laboratory practice for Module 2.1: Transform a 50-row multi-branch commercial ledger into an Excel Table (Ctrl+T), implement structured formulas, add a dynamic Total Row, configure 3-tier multi-level sorting, apply wildcard AutoFilters, extract records with Advanced Filter, and build interactive Slicers.
+
+Technical Anatomy:
+Signature: =TABLE_WRANGLING_LAB(Raw_Dataset)
+Return Type: Audited Structured Table Application
+
+Real-World Business Scenarios:
+[Kolkata Enterprise 50-Row Commercial Invoicing & Payroll Table]
+Context: Students transform raw transaction logs into an automated, interactive corporate billing database.
+Applied: Complete Module 2.1 Tool Stack
+Result: Production-ready interactive database asset constructed in 8 minutes.
+
+[Barrackpore Academy Student Merit & Fee Compliance Audit]
+Context: Multi-level sorting students by Branch, Department, and Total Marks Descending to award scholarships.
+Applied: Multi-Level Sort (Alt + D + S)
+Result: Instant branch-wise scholarship merit rankings.
+
+[Shyamnagar Regional Wholesale High-Risk Account Extraction]
+Context: Using Advanced Filter to extract accounts with Outstanding Balance > ₹ 10 Lakhs and Overdue Days > 60.
+Applied: Advanced Filter -> Copy to Separate Worksheet
+Result: Isolated high-risk debtor list for legal audit.
+
+[Ichapur Plant Machine Throughput Slicer Control]
+Context: Connecting 3 Slicers (Shift, Supervisor, Machine Status) to an operational manufacturing table.
+Applied: Multi-Slicer Interactive Control
+Result: Plant managers analyze shift efficiency with 3 mouse clicks.

@@ -3,12 +3,12 @@
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleMinDataUrl from "./excel_files/statistical_functions.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/statistical_functions.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
-import questions from "./topic0_files/topic0_questions";
+import questions from "./topic2_files/topic2_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 
-export default function Topic0() {
+export default function Topic2() {
   const sectionsRef = useRef([]);
 
   useEffect(() => {
@@ -21,312 +21,500 @@ export default function Topic0() {
           }
         });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -30px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
     );
     sectionsRef.current.forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
   const handleDownload = () => {
-    if (!sampleMinDataUrl) return;
+    if (!sampleWorkbookUrl) return;
     const link = document.createElement("a");
-    link.href = sampleMinDataUrl;
-    link.download = "lookup_functions.xlsx";
+    link.href = sampleWorkbookUrl;
+    link.download = "statistical_functions_practice.xlsx";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
-  const lookupSteps = [
-    "Identify the lookup value (unique ID or key)",
-    "Define the reference table range (where data is stored)",
-    "Specify the column number to return the matching data",
-    "Choose match type (exact or approximate)",
-    "Retrieve result based on matching key"
-  ];
-
   return (
-    <div className="dark bg-gray-900 text-gray-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto space-y-10">
-        {/* Header */}
-        <header
-          ref={(el) => (sectionsRef.current[0] = el)}
-          className="reveal-section transition-all duration-700 ease-out"
-        >
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">
-            Understanding Lookup Functions & Reference Tables
-          </h1>
-          <p className="text-lg text-gray-300 mt-3 leading-relaxed">
-            Master how to retrieve data intelligently from structured tables — the backbone of data analysis.
-          </p>
-        </header>
-
-        {/* Conceptual Explanation */}
-        <div className="grid md:grid-cols-2 gap-6">
-          <section
-            ref={(el) => (sectionsRef.current[1] = el)}
-            className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-blue-500/50 transition-all duration-300"
-          >
-            <h2 className="text-2xl font-semibold flex items-center gap-2">
-              <span className="text-blue-400">🔍</span> What are Lookup Functions?
-            </h2>
-            <p className="mt-3 text-gray-200 leading-relaxed">
-              A <strong className="text-blue-400">lookup function</strong> searches for a specific value inside a reference table
-              and returns a corresponding result from another column. Think of it like a smart dictionary:
-              you give it a word (lookup value), and it finds the definition (result).
-            </p>
-            <div className="mt-4 bg-gray-900 rounded-lg p-3 border-l-4 border-blue-500">
-              <span className="font-mono text-sm">📌 Prototype (generic):</span>
-              <code className="block mt-1 font-mono text-sm">
-                LOOKUP( lookup_value , table_array , return_column_index )
-              </code>
-              <p className="text-sm mt-2"><strong>Return type:</strong> Any data type (number, text, date, etc.)</p>
-              <p className="text-sm"><strong>Purpose:</strong> Retrieve data without manual searching — automates cross-referencing.</p>
-              <p className="text-sm"><strong>When & Why:</strong> Used in gradebooks, inventory systems, billing, employee records — anytime you need to match IDs to details.</p>
-            </div>
-          </section>
-
-          <section
-            ref={(el) => (sectionsRef.current[2] = el)}
-            className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-green-500/50 transition-all duration-300"
-          >
-            <h2 className="text-2xl font-semibold flex items-center gap-2">
-              <span className="text-green-400">📊</span> Reference Tables Explained
-            </h2>
-            <p className="mt-3 text-gray-200 leading-relaxed">
-              A <strong className="text-green-400">reference table</strong> is a structured dataset where each row represents a unique record,
-              and the first column (or key column) contains unique identifiers. Examples: student ID → name, product code → price, employee ID → department.
-            </p>
-            <div className="mt-4 bg-gray-900 rounded-lg p-3 border-l-4 border-green-500">
-              <p className="font-semibold">✨ Key properties:</p>
-              <ul className="list-disc pl-5 mt-1 space-y-1 text-sm text-gray-200">
-                <li>First column = lookup column (must contain unique/searchable values)</li>
-                <li>Other columns = related attributes</li>
-                <li>Static or dynamic range (often named as Excel Table)</li>
-              </ul>
-            </div>
-          </section>
-        </div>
-
-        {/* SVG Animated Lookup Flow */}
-        <section
-          ref={(el) => (sectionsRef.current[3] = el)}
-          className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        >
-          <h3 className="text-xl font-semibold text-center mb-6">🔄 How a Lookup Navigates a Reference Table</h3>
-          <div className="flex justify-center">
-            <svg width="500" height="200" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg" className="max-w-full h-auto">
-              <rect x="20" y="60" width="120" height="70" rx="8" fill="#3b82f6" fillOpacity="0.15" stroke="#3b82f6" strokeWidth="1.5" />
-              <text x="80" y="90" textAnchor="middle" fill="#3b82f6" fontSize="13" fontWeight="bold">Lookup Value</text>
-              <text x="80" y="110" textAnchor="middle" fill="#e5e7eb" fontSize="12">"STU-101"</text>
-              
-              <line x1="140" y1="95" x2="200" y2="95" stroke="#f97316" strokeWidth="2" strokeDasharray="5,5">
-                <animate attributeName="stroke-dashoffset" from="10" to="0" dur="0.8s" repeatCount="indefinite" />
-              </line>
-              <polygon points="200,90 215,95 200,100" fill="#f97316" />
-
-              <rect x="220" y="40" width="240" height="110" rx="10" fill="#10b981" fillOpacity="0.1" stroke="#10b981" strokeWidth="1.5" />
-              <text x="340" y="62" textAnchor="middle" fill="#10b981" fontSize="13" fontWeight="bold">Reference Table</text>
-              <line x1="235" y1="72" x2="445" y2="72" stroke="#10b981" strokeWidth="0.8" strokeDasharray="2" />
-              <text x="270" y="90" fill="#e5e7eb" fontSize="11">STU-101 → Swadeep</text>
-              <text x="270" y="108" fill="#e5e7eb" fontSize="11">STU-102 → Tuhina</text>
-              <text x="270" y="126" fill="#e5e7eb" fontSize="11">STU-103 → Abhronila</text>
-              
-              <line x1="460" y1="95" x2="480" y2="95" stroke="#f97316" strokeWidth="2">
-                <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite" />
-              </line>
-              <text x="485" y="90" fill="#f97316" fontSize="11" fontWeight="bold">Result</text>
-              <rect x="462" y="110" width="30" height="20" rx="4" fill="#f97316" fillOpacity="0.2" stroke="#f97316" />
-              <text x="477" y="124" textAnchor="middle" fill="#f97316" fontSize="10">Swadeep</text>
-            </svg>
-          </div>
-          <p className="text-center text-sm text-gray-400 mt-2">The lookup value acts as a key to locate the matching row in the reference table</p>
-        </section>
-
-        {/* Steps with staggered hover cards */}
-        <section
-          ref={(el) => (sectionsRef.current[4] = el)}
-          className="reveal-section"
-        >
-          <h2 className="text-2xl font-bold mb-6 text-center">🧠 The Lookup Workflow</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {lookupSteps.map((step, idx) => (
-              <div
-                key={idx}
-                className="bg-gray-800/50 p-4 rounded-xl border border-gray-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-blue-500/50"
-              >
-                <div className="text-2xl font-bold text-blue-400 mb-2">0{idx + 1}</div>
-                <p className="font-medium text-gray-200">{step}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Real-world usage & tips - two cards side by side */}
-        <div className="grid md:grid-cols-2 gap-6">
-          <section
-            ref={(el) => (sectionsRef.current[5] = el)}
-            className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-blue-500/50 transition-all"
-          >
-            <h3 className="text-xl font-semibold text-blue-300">🏫 Real‑world Scenarios</h3>
-            <ul className="mt-3 space-y-2 list-disc pl-5 text-gray-200">
-              <li><strong>School gradebook:</strong> Lookup student name (Swadeep, Tuhina) using roll numbers from master table.</li>
-              <li><strong>Barrackpore inventory:</strong> Product ID → Price & stock status.</li>
-              <li><strong>Employee directory:</strong> Email → Department, manager name.</li>
-              <li><strong>Sales report:</strong> Order ID → Customer city (Ichapur, Shyamnagar, Naihati).</li>
-            </ul>
-            <div className="mt-4 text-sm bg-blue-950/30 p-3 rounded border border-blue-800">
-              💡 <span className="font-semibold">Pro tip:</span> Always convert your reference table into an Excel Table (Ctrl+T) — ranges auto-expand.
-            </div>
-          </section>
-
-          <section
-            ref={(el) => (sectionsRef.current[6] = el)}
-            className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-green-500/50 transition-all"
-          >
-            <h3 className="text-xl font-semibold text-green-300">🧰 Professional Tips & Tricks</h3>
-            <ul className="mt-3 space-y-2 list-disc pl-5 text-gray-200">
-              <li><strong>Name your table:</strong> Use descriptive names like “tblStudents” to avoid cell range chaos.</li>
-              <li><strong>Absolute references:</strong> Lock table array with <code className="bg-gray-900 px-1 rounded">$A$2:$D$100</code> before dragging formulas.</li>
-              <li><strong>Sorted data?</strong> For approximate match (grades, tax brackets) keep lookup column ascending.</li>
-              <li><strong>Error handling:</strong> Wrap lookups in <code className="bg-gray-900 px-1 rounded">IFERROR</code> to show custom messages.</li>
-            </ul>
-          </section>
-        </div>
-
-        {/* Common Pitfalls & Best Practices */}
-        <div className="grid md:grid-cols-2 gap-6">
-          <section
-            ref={(el) => (sectionsRef.current[7] = el)}
-            className="reveal-section bg-red-900/20 border border-red-800 rounded-2xl p-5 hover:border-red-500 transition-all"
-          >
-            <h3 className="text-xl font-semibold text-red-300">⚠️ Common Pitfalls</h3>
-            <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
-              <li><strong>Moving target:</strong> Inserting/deleting columns breaks column index numbers.</li>
-              <li><strong>Unsorted approximate match:</strong> Returns wrong or #N/A error.</li>
-              <li><strong>Extra spaces:</strong> Lookup value “STU-101” vs “STU-101 ” — use TRIM().</li>
-              <li><strong>Wrong data type:</strong> Numbers stored as text → mismatch → #N/A.</li>
-              <li><strong>Forgetting $ signs:</strong> Dragging formula shifts table array → errors.</li>
-            </ul>
-          </section>
-
-          <section
-            ref={(el) => (sectionsRef.current[8] = el)}
-            className="reveal-section bg-green-900/20 border border-green-800 rounded-2xl p-5 hover:border-green-500 transition-all"
-          >
-            <h3 className="text-xl font-semibold text-green-300">✅ Best Practices Checklist</h3>
-            <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
-              <li>✅ Use structured references (Excel Tables) instead of A1 ranges.</li>
-              <li>✅ Always define match type explicitly (0/FALSE for exact match).</li>
-              <li>✅ Store reference tables on a separate worksheet.</li>
-              <li>✅ Document the lookup column and return column in comments.</li>
-              <li>✅ For large datasets, prefer INDEX-MATCH or XLOOKUP (upcoming topics).</li>
-            </ul>
-          </section>
-        </div>
-
-        {/* Hint Section */}
-        <section
-          ref={(el) => (sectionsRef.current[9] = el)}
-          className="reveal-section bg-yellow-900/20 border-l-8 border-yellow-500 rounded-r-2xl p-5"
-        >
-          <h3 className="text-xl font-semibold text-yellow-300">💭 Think about…</h3>
-          <p className="mt-2 text-gray-200">
-            “What happens if the lookup value appears twice in the reference table? (Hint: Most lookup functions return the first match only — data uniqueness matters!)<br />
-            Observe carefully: Try changing the reference table order – does VLOOKUP still find the correct data?”
-          </p>
-        </section>
-
-        {/* Interactive Excel Demo with Download Button */}
-        <section
-          ref={(el) => (sectionsRef.current[10] = el)}
-          className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        >
-          <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
-            <h2 className="text-2xl font-semibold">📁 Interactive Example: Lookup in Action</h2>
-            {sampleMinDataUrl && (
-              <button
-                onClick={handleDownload}
-                className="bg-blue-600 hover:bg-blue-500 text-white font-medium px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-2 shadow-md hover:shadow-blue-500/20"
-              >
-                ⬇️ Download Sample Excel File
-              </button>
-            )}
-          </div>
-          <p className="text-gray-300 mb-4">
-            The worksheet below is loaded from <code className="bg-gray-900 px-1 rounded">lookup_functions.xlsx</code> – sheet: <strong>lookup_reference_data</strong>.
-            {!sampleMinDataUrl && <span className="text-yellow-300"> (File not found – please create it)</span>}
-          </p>
-          {sampleMinDataUrl ? (
-            <ExcelFileLoader
-              fileModule={sampleMinDataUrl}   // ✅ direct URL string
-              sheetName="lookup_reference_data"
-              title="Reference Table: Products & Prices"
-              rowsPerPage={25}
-              showSheetSelector={true}
-            />
-          ) : (
-            <div className="bg-red-900/30 border border-red-700 rounded-lg p-4 text-center">
-              <p className="text-red-200">⚠️ Excel file not found.</p>
-              <p className="text-gray-300 text-sm mt-2">
-                To practice, create a file named <code className="bg-gray-800 px-1 rounded">lookup_functions.xlsx</code> in the folder:
-                <br /><code className="bg-gray-800 px-1 rounded">src/components/topics/Topic0/excel_files/</code>
-                <br /><br />
-                <strong>Required sheet name:</strong> <code className="bg-gray-800 px-1 rounded">lookup_reference_data</code><br />
-                <strong>Example content:</strong><br />
-                Columns: Product ID, Product Name, Category, Price<br />
-                Row1: P101, Laptop, Electronics, 85000<br />
-                Row2: P102, Mouse, Electronics, 1200<br />
-                Then try =VLOOKUP("P102", table, 4, FALSE) → should return 1200.
-              </p>
-            </div>
-          )}
-          <p className="text-xs text-gray-400 mt-3">
-            Tip: The first column (Product ID) acts as the <strong>lookup key</strong>. A lookup function searches this column for a value like "P103" and returns the corresponding Price.
-          </p>
-        </section>
-
-        {/* FAQ Section */}
-        <FAQTemplate title="Lookup Functions – Frequently Asked Questions" questions={questions} />
-
-        {/* Teacher's Note */}
-        <Teacher
-          note={
-            "Lookup functions are the first step toward dynamic dashboards. Emphasize that the reference table is like a map: without a unique key (lookup column), retrieval becomes ambiguous. " +
-            "Encourage students to practice with real lists (e.g., class attendance, library books). Remind them that learning lookup logic is 70% about understanding table structures, not just formulas. " +
-            "For the Excel file, ask students to find the price of a product using VLOOKUP, then change the product ID and observe the result."
-          }
-        />
-
-        {/* Mini Checklist */}
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-600 reveal-section transition-all duration-700 ease-out">
-          <h3 className="font-bold text-lg">📋 Quick Recap – Must Remember</h3>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 mt-2 list-disc list-inside text-gray-200">
-            <li>✓ Lookup value is the search key (unique identifier).</li>
-            <li>✓ Reference table organizes data in rows and columns.</li>
-            <li>✓ The lookup column should contain unique values for best results.</li>
-            <li>✓ Always lock table array when copying formulas ($ signs).</li>
-            <li>✓ Be consistent with data types (text vs number).</li>
-          </ul>
-        </div>
-      </div>
-
-      {/* Animation styles (same as working Topic2) */}
+    <div className="dark bg-slate-950 text-slate-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8 font-sans selection:bg-sky-500/30 selection:text-sky-200">
       <style>{`
+        @keyframes fadeInSlide {
+          from { transform: translateY(18px); }
+          to { transform: translateY(0); }
+        }
         .reveal-section {
-          transform: translateY(24px) scale(0.98);
-          transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-        }
-        .reveal-section.revealed {
-          transform: translateY(0) scale(1);
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .reveal-section {
-            transform: none;
-            transition: none;
-          }
+          animation: fadeInSlide 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
       `}</style>
+
+      <div className="max-w-5xl mx-auto space-y-10">
+        {/* =========================================================================
+            SECTION 1: HERO HEADER & OVERVIEW
+        ========================================================================= */}
+        <header
+          ref={(el) => (sectionsRef.current[0] = el)}
+          className="reveal-section rounded-3xl p-6 sm:p-10 bg-gradient-to-b from-slate-900/90 via-slate-900/60 to-slate-950 border border-slate-800 shadow-2xl relative overflow-hidden"
+        >
+          <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+          
+          <div className="flex flex-wrap items-center gap-2.5 mb-4">
+            <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
+              📈 Statistical Modeling · Topic 2
+            </span>
+            <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
+              Advanced Analytics
+            </span>
+            <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
+              Bloom's Level 3 & 4: Apply & Analyze
+            </span>
+          </div>
+
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+            Revision: MIN Function
+          </h1>
+
+          <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
+            Master Revision: MIN Function for rigorous business analytics, empirical hypothesis testing, and executive data science modeling in Microsoft Excel.
+          </p>
+
+          <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
+            <div className="flex items-center gap-2.5 text-slate-300">
+              <span className="text-sky-400 text-base">✓</span>
+              <span><strong>Empirical Rigor:</strong> Mathematical Proofs</span>
+            </div>
+            <div className="flex items-center gap-2.5 text-slate-300">
+              <span className="text-emerald-400 text-base">✓</span>
+              <span><strong>Sample vs Population:</strong> Bessel's Correction</span>
+            </div>
+            <div className="flex items-center gap-2.5 text-slate-300">
+              <span className="text-indigo-400 text-base">✓</span>
+              <span><strong>Multi-Condition:</strong> High-Speed IFS Engine</span>
+            </div>
+          </div>
+        </header>
+
+        {/* =========================================================================
+            SECTION 2: FORMULA & SYNTAX ANATOMY CARD
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[1] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all duration-300 space-y-6"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">⚡</span>
+            Formula Syntax & Statistical Signature
+          </h2>
+
+          <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
+            =MIN(A1:A100)
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm text-slate-300 border-collapse">
+              <thead>
+                <tr className="border-b border-slate-800 text-slate-400 font-semibold uppercase tracking-wider">
+                  <th className="py-3 px-4">Component</th>
+                  <th className="py-3 px-4">Type</th>
+                  <th className="py-3 px-4">Requirement</th>
+                  <th className="py-3 px-4">Description</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/50 font-mono">
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Statistical Range</td>
+                  <td className="py-3 px-4 text-teal-400">Array Vector</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Mandatory</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Numeric dataset coordinates or structured table column.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Criteria Parameters</td>
+                  <td className="py-3 px-4 text-teal-400">Comparison Mask</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Optional / Conditional</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Logical thresholds and category matching expressions.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="p-4 rounded-xl bg-sky-950/40 border border-sky-800/60 flex items-start gap-3">
+            <span className="text-sky-400 text-lg">💡</span>
+            <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <strong className="text-white">Statistical Return: </strong>
+              Evaluates to an exact numerical metric reflecting sample central tendency, dispersion, or correlation.
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 3: DEEP CONCEPTUAL & THEORETICAL MECHANICS
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[2] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">🔬</span>
+            Computational Mechanics & Mathematical Foundations
+          </h2>
+
+          <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+            <p>
+              In Microsoft Excel, <strong>Revision: MIN Function</strong> operates on IEEE 754 floating-point data streams. The calculation engine processes ranges in linear or vectorized memory sweeps.
+            </p>
+            <p>
+              When evaluating conditional formulas like SUMIFS and COUNTIFS, criteria ranges are scanned in parallel using short-circuit boolean logic. Sample functions (.S) divide by degrees of freedom (n - 1) to eliminate downward bias in sample variance estimation.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+            <div className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">Bessel's Correction (n - 1)</h3>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                Sample functions calculate unbiased variance by dividing the sum of squared deviations by n - 1 rather than N.
+              </p>
+            </div>
+            <div className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
+              <h3 className="text-sm font-bold text-sky-300 uppercase tracking-wider">Multi-Criteria Vector Filtering</h3>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                Parallel array intersection tests all criteria simultaneously before evaluating the target calculation vector.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 4: INTERACTIVE SEMANTIC SVG DIAGRAM
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[3] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
+            Visual Architecture: Statistical Computation & Filter Hierarchy
+          </h2>
+
+          <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
+            <svg viewBox="0 0 800 260" className="w-full max-w-3xl h-auto" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="m7_raw" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#0369a1" stopOpacity="0.4" />
+                </linearGradient>
+                <linearGradient id="m7_stat" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#059669" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#047857" stopOpacity="0.4" />
+                </linearGradient>
+                <linearGradient id="m7_res" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#6d28d9" stopOpacity="0.4" />
+                </linearGradient>
+              </defs>
+
+              <rect x="30" y="50" width="200" height="150" rx="12" fill="url(#m7_raw)" stroke="#38bdf8" strokeWidth="2" />
+              <text x="130" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">1. Data Ingestion</text>
+              <text x="130" y="115" textAnchor="middle" fill="#e0f2fe" fontSize="11">Numeric Distribution</text>
+              <text x="130" y="135" textAnchor="middle" fill="#e0f2fe" fontSize="11">n Observations</text>
+              <text x="130" y="165" textAnchor="middle" fill="#bae6fd" fontSize="11" fontWeight="bold">Normalized Array</text>
+
+              <path d="M 235 125 L 295 125" stroke="#38bdf8" strokeWidth="3" strokeDasharray="6,4" />
+              <polygon points="295,120 305,125 295,130" fill="#38bdf8" />
+
+              <rect x="310" y="50" width="200" height="150" rx="12" fill="url(#m7_stat)" stroke="#34d399" strokeWidth="2" />
+              <text x="410" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">2. Statistical Math</text>
+              <text x="410" y="115" textAnchor="middle" fill="#d1fae5" fontSize="11">Mean / Variance</text>
+              <text x="410" y="135" textAnchor="middle" fill="#d1fae5" fontSize="11">Degrees of Freedom (n-1)</text>
+              <text x="410" y="165" textAnchor="middle" fill="#a7f3d0" fontSize="11" fontWeight="bold">Rigorous Algorithm</text>
+
+              <path d="M 515 125 L 575 125" stroke="#34d399" strokeWidth="3" strokeDasharray="6,4" />
+              <polygon points="575,120 585,125 575,130" fill="#34d399" />
+
+              <rect x="590" y="50" width="180" height="150" rx="12" fill="url(#m7_res)" stroke="#a78bfa" strokeWidth="2" />
+              <text x="680" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">3. Business KPI</text>
+              <text x="680" y="115" textAnchor="middle" fill="#ede9fe" fontSize="11">Audited Output</text>
+              <text x="680" y="135" textAnchor="middle" fill="#ede9fe" fontSize="11">Z-Score / Outliers</text>
+              <text x="680" y="165" textAnchor="middle" fill="#ddd6fe" fontSize="11" fontWeight="bold">Executive Metric</text>
+            </svg>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 5: LIVE EXCEL PRACTICE GRID & DOWNLOAD PORTAL
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[4] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">📥</span>
+                Interactive Spreadsheet & Practice Workbook
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                Interact with the dataset live below or download the master chapter workbook to practice locally in desktop Excel.
+              </p>
+            </div>
+            <button
+              onClick={handleDownload}
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all duration-200 shadow-lg shadow-emerald-950/40 hover:scale-[1.02] active:scale-[0.98] shrink-0"
+              title="Download full .xlsx master workbook for Module 2.4"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              <span>Download Practice Workbook (.xlsx)</span>
+            </button>
+          </div>
+
+          <ExcelFileLoader
+            fileModule={sampleWorkbookUrl}
+            sheetName="Topic0_Basic_Aggregation"
+            title="Module 2.4 - Revision: MIN Function"
+            rowsPerPage={25}
+            showSheetSelector={true}
+          />
+        </section>
+
+        {/* =========================================================================
+            SECTION 6: REAL-WORLD BUSINESS SCENARIOS (4+ CASES)
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[5] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
+            Real-World Business Scenarios (Bengal & Corporate Applications)
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
+                <h3 className="text-base font-bold text-white">Kolkata Corporate Multi-Criteria Performance Audit</h3>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                Evaluating regional branch sales metrics meeting strict quarterly target thresholds.
+              </p>
+              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
+                <div className="text-sky-300 font-mono font-semibold">Applied: =MIN(A1:A100)</div>
+                <div className="text-emerald-400 font-semibold">Result: 100% Audited Calculation Verified</div>
+              </div>
+            </div>
+
+            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">02</span>
+                <h3 className="text-base font-bold text-white">Barrackpore Academic Cohort Statistical Evaluation</h3>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                Computing subject variance and standard deviation across diploma candidates.
+              </p>
+              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
+                <div className="text-sky-300 font-mono font-semibold">Applied: =MIN(A1:A100)</div>
+                <div className="text-emerald-400 font-semibold">Result: Statistical Distribution Modeled</div>
+              </div>
+            </div>
+
+            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">03</span>
+                <h3 className="text-base font-bold text-white">Shyamnagar Wholesale Inventory Outlier Detection</h3>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                Isolating abnormal high-cost inventory purchase vouchers using Z-score statistics.
+              </p>
+              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
+                <div className="text-sky-300 font-mono font-semibold">Applied: =MIN(A1:A100)</div>
+                <div className="text-emerald-400 font-semibold">Result: Outliers Flagged for Management</div>
+              </div>
+            </div>
+
+            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">04</span>
+                <h3 className="text-base font-bold text-white">Ichapur Plant Quality Assurance 6-Sigma Testing</h3>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                Validating machinery precision tolerances for ISO 9001 certification.
+              </p>
+              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
+                <div className="text-sky-300 font-mono font-semibold">Applied: =MIN(A1:A100)</div>
+                <div className="text-emerald-400 font-semibold">Result: Quality Compliance Certified</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 7: STEP-BY-STEP CALCULATION WALKTHROUGH
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[6] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">🪜</span>
+            Step-by-Step Practical Implementation Guide
+          </h2>
+
+          <div className="space-y-4">
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-4">
+              <span className="w-7 h-7 rounded-lg bg-sky-500/20 text-sky-300 text-xs font-bold flex items-center justify-center shrink-0">1</span>
+              <div>
+                <h3 className="text-sm font-bold text-white">Select Destination Cell & Trigger Function</h3>
+                <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                  Click destination cell and input formula syntax: <code className="text-sky-300 font-mono">=MIN(A1:A100)</code>.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-4">
+              <span className="w-7 h-7 rounded-lg bg-teal-500/20 text-teal-300 text-xs font-bold flex items-center justify-center shrink-0">2</span>
+              <div>
+                <h3 className="text-sm font-bold text-white">Lock Reference Coordinates (F4)</h3>
+                <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                  Ensure parameter and data ranges are anchored with <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">F4</kbd> absolute references.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-4">
+              <span className="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-300 text-xs font-bold flex items-center justify-center shrink-0">3</span>
+              <div>
+                <h3 className="text-sm font-bold text-white">Embed Error Handling Wrapper</h3>
+                <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                  Wrap in <code className="text-sky-300 font-mono">=IFERROR(formula, 0)</code> to guard against <code className="text-rose-300 font-mono">#DIV/0!</code> exceptions.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-4">
+              <span className="w-7 h-7 rounded-lg bg-indigo-500/20 text-indigo-300 text-xs font-bold flex items-center justify-center shrink-0">4</span>
+              <div>
+                <h3 className="text-sm font-bold text-white">Audit Formula Evaluation (F9)</h3>
+                <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                  Highlight sub-expressions in formula bar and press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">F9</kbd> to inspect evaluated intermediate values.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 8: COMMON PITFALLS & TROUBLESHOOTING MATRIX
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[7] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-500/20 text-rose-400 text-base font-mono">⚠️</span>
+            Common Pitfalls & Diagnostic Troubleshooting
+          </h2>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm text-slate-300 border-collapse">
+              <thead>
+                <tr className="border-b border-slate-800 text-slate-400 font-semibold uppercase tracking-wider">
+                  <th className="py-3 px-4">Error / Symptom</th>
+                  <th className="py-3 px-4">Root Cause</th>
+                  <th className="py-3 px-4">Diagnostic Check</th>
+                  <th className="py-3 px-4">Foolproof Fix</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/50">
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-rose-300 font-mono font-bold">#DIV/0! Error</td>
+                  <td className="py-3 px-4 text-slate-300">No records match criteria range.</td>
+                  <td className="py-3 px-4 text-amber-300">Divisor count is zero.</td>
+                  <td className="py-3 px-4 text-emerald-400 font-medium">Wrap in =IFERROR(..., 0).</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-rose-300 font-mono font-bold">#VALUE! Error</td>
+                  <td className="py-3 px-4 text-slate-300">Unequal criteria range dimensions in SUMIFS.</td>
+                  <td className="py-3 px-4 text-amber-300">Range lengths do not match.</td>
+                  <td className="py-3 px-4 text-emerald-400 font-medium">Ensure all ranges span identical row heights.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 9: PRO TIPS & PRODUCTIVITY SHORTCUTS
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[8] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 text-base font-mono">💡</span>
+            Classroom Pro Tips & High-Speed Shortcuts
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
+              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                F4
+              </kbd>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Lock statistical reference coordinates.</p>
+            </div>
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
+              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                F9
+              </kbd>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Evaluate highlighted statistical sub-expressions.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 10: SOCRATIC ANALYTICAL HINTS ("THINK ABOUT...")
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[9] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">🤔</span>
+            Socratic Analytical Hints ("Think About...")
+          </h2>
+
+          <div className="space-y-3">
+            <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
+              <span className="text-teal-400 text-base">❓</span>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Why is reporting the MEDIAN preferred over the MEAN when executive compensation or housing price datasets are heavily skewed?</p>
+            </div>
+            <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
+              <span className="text-teal-400 text-base">❓</span>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">How does Bessel's correction (n - 1) mathematically prevent underestimating true population variance in sample datasets?</p>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 11: COMPREHENSIVE FAQ SECTION (30 QUESTIONS)
+        ========================================================================= */}
+        <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
+          <FAQTemplate
+            title="Revision: MIN Function - Frequently Asked Questions"
+            questions={questions}
+          />
+        </div>
+
+        {/* =========================================================================
+            SECTION 12: TEACHER'S NOTE & EXAM WISDOM
+        ========================================================================= */}
+        <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
+          <Teacher
+            note="Statistical integrity is paramount in corporate decision-making! Always examine the shape of your distribution before picking summary metrics. If data is skewed by extreme outliers, report the MEDIAN rather than the MEAN!"
+          />
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,9 @@
+MODULE 2.4 - TOPIC 3
+Title: Revision: MAX Function
+Level: Intermediate / Advanced
+
+Overview:
+Master Revision: MAX Function for advanced business intelligence, statistical modeling, and data science in Microsoft Excel.
+
+Signature:
+=MAX(A1:A100)

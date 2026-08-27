@@ -1,0 +1,29 @@
+================================================================================
+EXCEL MASTERCLASS: Advanced Power Query M Code Scripting & Custom Functions
+TOPIC 8: Error Handling in M: try...otherwise Constructs & Step-Level Validation
+Subject Code: EXCEL-PRO-502 | Target: React 19 + Tailwind CSS + Power Query M Engine
+================================================================================
+
+1. THE ERROR OBJECT MODEL IN POWER QUERY
+Errors in Power Query M are structured records produced when:
+- Type conversion fails (e.g. `Number.FromText("ABC")`).
+- Arithmetic domain violations occur (e.g. division by zero).
+- Column references do not exist in the referenced table step.
+- External resources (files, databases, REST APIs) are unreachable.
+
+2. TRY...OTHERWISE VS TRY RECORD PATTERN
+Pattern A: Compact Fallback
+    CleanSalary = try Number.FromText([RawText]) otherwise 0.00
+
+Pattern B: Full Structured Diagnostic Triage
+    AttemptRecord = try Number.FromText([RawText]),
+    Status = if AttemptRecord[HasError] then "REJECTED" else "ACCEPTED",
+    Value = if AttemptRecord[HasError] then 0.00 else AttemptRecord[Value],
+    ErrorMsg = if AttemptRecord[HasError] then AttemptRecord[Error][Message] else null
+
+3. DUAL-STREAM ETL PIPELINE ARCHITECTURE (QUARANTINE PATTERN)
+Step 1: Ingest raw branch data.
+Step 2: Split pipeline into two queries:
+    - Query A (Production Data Model): `Table.RemoveRowsWithErrors(RawSource, {"Amount", "TaxID"})`
+    - Query B (Audit Quarantine Report): `Table.SelectRowsWithErrors(RawSource, {"Amount", "TaxID"})`
+Step 3: Alert management when `Table.RowCount(Query_B) > 0`.

@@ -1,0 +1,31 @@
+MODULE 1.3 - TOPIC 2
+Title: Foundational Aggregation Functions: SUM, AVERAGE, COUNT, COUNTA and COUNTBLANK Mechanics
+Level: Beginner | Bloom's Level 2 & 3: Understand & Apply
+
+Overview:
+Master Excel's 5 core aggregation functions: SUM (total summation), AVERAGE (arithmetic mean), COUNT (count numbers only), COUNTA (count non-empty cells including text), and COUNTBLANK (count empty cells). Learn how they handle text, zeroes, and empty cells.
+
+Technical Anatomy:
+Signature: =SUM(A1:A100), =AVERAGE(B1:B100), =COUNTA(C1:C100)
+Return Type: Statistical Aggregate Scalar
+
+Real-World Business Scenarios:
+[Coder & AccoTax Barrackpore Student Semester Aggregate Analysis]
+Context: Calculating total marks, average score, and number of attended exam papers.
+Applied: SUM, AVERAGE, and COUNT across student marks
+Result: Accurate student totals and subject averages derived.
+
+[Kolkata Corporate Inventory Active SKU vs Inactive Auditing]
+Context: Auditing 1,000 catalog items for missing descriptions and price tags.
+Applied: =COUNTA() vs =COUNT() vs =COUNTBLANK()
+Result: 35 unpriced inventory items isolated for management review.
+
+[Shyamnagar Regional Retail Daily Cash Register Totals]
+Context: Summing 500 daily sales vouchers and counting credit transactions.
+Applied: =SUM(), =COUNT(), =AVERAGE()
+Result: Key executive KPIs calculated in 3 cells.
+
+[Ichapur Plant Quality Inspection Batch Defect Rate]
+Context: Calculating average defect parts per 1,000 manufactured units.
+Applied: =AVERAGE(C2:C26)
+Result: 5.68 average defects per batch tracked.

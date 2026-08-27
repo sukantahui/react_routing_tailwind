@@ -1,0 +1,20 @@
+================================================================================
+EXCEL MASTERCLASS: Advanced Power Query M Code Scripting & Custom Functions
+TOPIC 13: Assessment: Advanced M Scripting & Enterprise ETL Engineering Challenge
+Subject Code: EXCEL-PRO-502 | Target: React 19 + Tailwind CSS + Power Query M Engine
+================================================================================
+
+1. ENTERPRISE ETL ENGINEERING CHALLENGE SPECIFICATION
+Challenge: 100-Point Comprehensive Assessment
+Sections:
+- Part A: 10 Multiple-Choice Theoretical & AST Translation Questions
+- Part B: 4 Complex M Code Debugging Scenarios (Fixing Broken Folding, Memory Leaks)
+- Part C: 1 Full Pipeline Architecture & Schema Normalization Challenge
+
+2. GRADING MATRIX
+Score Range     Certification Level                 Academic Honor
+---------------------------------------------------------------------------------
+90 - 100        Principal Enterprise BI Architect   Gold Medal of Technical Excellence
+75 - 89         Senior Power Query Engineer         Distinction Certification
+60 - 74         Certified ETL Developer             Standard Module Completion
+< 60            Remediation Required                Re-take Advanced Practice Labs

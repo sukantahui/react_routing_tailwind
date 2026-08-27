@@ -1,0 +1,31 @@
+MODULE 1.4 - TOPIC 2
+Title: Line and Area Charts: Visualizing Chronological Trends, Seasonality and Cumulative Trajectories
+Level: Beginner | Bloom's Level 2 & 3: Understand & Apply
+
+Overview:
+Master Line and Area charts for continuous time-series data: Multi-line comparisons, trendlines, markers, smoothing, Area charts for volume accumulation, and date-axis vs text-axis configurations.
+
+Technical Anatomy:
+Signature: =LINE_CHART(DateSeries, MetricValues, BaselineSeries)
+Return Type: Continuous Trajectory &amp; Slope Encoding
+
+Real-World Business Scenarios:
+[Kolkata HQ 3-Year Monthly Revenue & Expense Trajectory]
+Context: Comparing monthly revenue against operating expenses across 36 consecutive months.
+Applied: Multi-Series 2D Line Chart with Highlighted Peak Markers
+Result: Operating margin expansion clearly visible to stakeholders.
+
+[Barrackpore Solar Plant Daily Energy Generation Trendline]
+Context: Adding a polynomial trendline to visualize seasonal solar radiation curves.
+Applied: Line Chart + Polynomial Trendline with R² Equation
+Result: Peak summer generation and winter dip mathematically modeled.
+
+[Shyamnagar Regional Retail 4-Branch Cumulative Revenue (Area Chart)]
+Context: Visualizing total regional sales volume accumulation over 12 months.
+Applied: Stacked Area Chart with Semi-Transparent Shading
+Result: Clear visualization of both regional volume and individual branch growth.
+
+[Ichapur Factory CNC Machine Spindle Vibration Frequency]
+Context: High-frequency vibration monitoring across 100 operating hours.
+Applied: Line Chart with Static Benchmark Threshold
+Result: Emergency maintenance flagged at Hour 84 when vibration exceeded 4.0 mm/s.

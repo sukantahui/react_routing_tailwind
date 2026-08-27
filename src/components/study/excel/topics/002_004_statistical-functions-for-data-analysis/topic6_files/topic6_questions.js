@@ -1,213 +1,243 @@
 const questions = [
   {
-    question: "What is the basic syntax of SUMIF?",
-    shortAnswer: "SUMIF(range, criteria, [sum_range])",
-    explanation: "Range is the cells to test against criteria; criteria defines the condition; sum_range (optional) is the cells to sum.",
-    level: "basic",
-    codeExample: "=SUMIF(A1:A10, \"Yes\", B1:B10)"
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Sample vs population standard deviation mathematical distinction (Question 1)?",
+    "shortAnswer": "Sample vs population standard deviation mathematical distinction is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Sample vs population standard deviation mathematical distinction plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Sample vs population standard deviation mathematical distinction impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B21)"
   },
   {
-    question: "What happens if you omit sum_range in SUMIF?",
-    shortAnswer: "Excel sums the cells in range that meet the criteria.",
-    explanation: "When sum_range is omitted, the range is used both for criteria testing and summing.",
-    level: "basic",
-    codeExample: "=SUMIF(A1:A10, \">10\") adds numbers greater than 10 in A1:A10."
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Bessel's correction (n-1 degrees of freedom) in STDEV.S (Question 2)?",
+    "shortAnswer": "Bessel's correction (n-1 degrees of freedom) in STDEV.S is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Bessel's correction (n-1 degrees of freedom) in STDEV.S plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Bessel's correction (n-1 degrees of freedom) in STDEV.S impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Can you use a cell reference for the criteria?",
-    shortAnswer: "Yes, but you need to concatenate operators if used.",
-    explanation: "For numeric operators: =SUMIF(range, \">\"&E1, sum_range). For equal to: =SUMIF(range, E1, sum_range).",
-    level: "intermediate",
-    codeExample: "=SUMIF(A2:A100, \">\"&B2, C2:C100)"
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS (Question 3)?",
+    "shortAnswer": "Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Single-condition vs multi-condition syntax ordering in SUMIF vs SUMIFS impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "How would you sum values in column B where column A equals \"Apples\"?",
-    shortAnswer: "=SUMIF(A:A, \"Apples\", B:B)",
-    explanation: "A:A is the criteria range, \"Apples\" is the text condition, B:B is the sum range.",
-    level: "basic",
-    codeExample: "=SUMIF(Products, \"Apples\", Sales)"
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Why SUMIFS places sum_range FIRST while SUMIF places it LAST (Question 4)?",
+    "shortAnswer": "Why SUMIFS places sum_range FIRST while SUMIF places it LAST is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Why SUMIFS places sum_range FIRST while SUMIF places it LAST plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Why SUMIFS places sum_range FIRST while SUMIF places it LAST impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B24)"
   },
   {
-    question: "Is SUMIF case-sensitive?",
-    shortAnswer: "No, SUMIF treats \"apple\", \"Apple\", \"APPLE\" the same.",
-    explanation: "For case‑sensitive sum, use SUMPRODUCT with EXACT.",
-    level: "intermediate",
-    codeExample: "=SUMPRODUCT(--EXACT(A1:A10,\"Apple\"), B1:B10)"
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Wildcard support (*, ?) in COUNTIF and SUMIFS criteria (Question 5)?",
+    "shortAnswer": "Wildcard support (*, ?) in COUNTIF and SUMIFS criteria is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Wildcard support (*, ?) in COUNTIF and SUMIFS criteria plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Wildcard support (*, ?) in COUNTIF and SUMIFS criteria impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What wildcards can be used in SUMIF?",
-    shortAnswer: "Asterisk (*) for any sequence, question mark (?) for a single character.",
-    explanation: "Examples: \"A*\" starts with A; \"???\" exactly three characters.",
-    level: "advanced",
-    codeExample: "=SUMIF(A:A, \"*North*\", B:B) sums where text contains \"North\"."
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Case-insensitivity of text comparisons in IFS functions (Question 6)?",
+    "shortAnswer": "Case-insensitivity of text comparisons in IFS functions is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Case-insensitivity of text comparisons in IFS functions plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Case-insensitivity of text comparisons in IFS functions impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What does =SUMIF(A1:A10, \"<>0\") do?",
-    shortAnswer: "Sums all non‑zero numbers in A1:A10.",
-    explanation: "\"<>0\" means not equal to zero. It includes positive and negative numbers, excludes zero.",
-    level: "intermediate",
-    codeExample: "Works with text? No, criteria only applies to numbers; text is ignored in sum."
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) (Question 7)?",
+    "shortAnswer": "Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Evaluating comparison operator strings in criteria (\">1000\", \"<=\"&B1) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B27)"
   },
   {
-    question: "Can SUMIF handle dates as criteria?",
-    shortAnswer: "Yes, dates are numbers; use date serial or DATE function.",
-    explanation: "=SUMIF(A1:A100, \">\"&DATE(2025,1,1), B1:B100).",
-    level: "advanced",
-    codeExample: "=SUMIF(OrderDates, \">=\"&TODAY(), Amounts)"
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Median resistance to extreme outlier skewing compared to Mean (Question 8)?",
+    "shortAnswer": "Median resistance to extreme outlier skewing compared to Mean is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Median resistance to extreme outlier skewing compared to Mean plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Median resistance to extreme outlier skewing compared to Mean impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What error occurs if range and sum_range have different sizes?",
-    shortAnswer: "No error; SUMIF uses only the first cell of sum_range and assumes the same shape.",
-    explanation: "For example, range A1:A10 and sum_range B1:B5 – SUMIF sums B1:B5 but aligns incorrectly. Best to use same size.",
-    level: "expert",
-    codeExample: "Always ensure sum_range has same number of rows/cols as range."
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate MODE.SNGL single value return vs MODE.MULT dynamic array spilling (Question 9)?",
+    "shortAnswer": "MODE.SNGL single value return vs MODE.MULT dynamic array spilling is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, MODE.SNGL single value return vs MODE.MULT dynamic array spilling plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how MODE.SNGL single value return vs MODE.MULT dynamic array spilling impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "How to sum values where the criteria range is blank?",
-    shortAnswer: "=SUMIF(range, \"\", sum_range)",
-    explanation: "Criteria \"\" (empty string) matches blank cells. Note: cells with formula returning \"\" are considered blank by SUMIF.",
-    level: "advanced",
-    codeExample: "=SUMIF(A1:A10, \"\", B1:B10) sums B where A is blank."
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) (Question 10)?",
+    "shortAnswer": "QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how QUARTILE.INC (0 to 4 inclusive) vs QUARTILE.EXC (1 to 3 exclusive) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "basic",
+    "codeExample": "=STDEV.S(B2:B30)"
   },
   {
-    question: "What is the result of =SUMIF(A1:A5, \">5\", B1:B5) if some B cells are text?",
-    shortAnswer: "Text in sum_range is ignored; only numbers are summed.",
-    explanation: "SUMIF behaves like SUM in the sum_range – it skips non‑numeric values.",
-    level: "intermediate",
-    codeExample: "No error, just ignores text."
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate PERCENTILE.INC fractional rank interpolation algorithms (Question 11)?",
+    "shortAnswer": "PERCENTILE.INC fractional rank interpolation algorithms is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, PERCENTILE.INC fractional rank interpolation algorithms plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how PERCENTILE.INC fractional rank interpolation algorithms impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Can you use SUMIF across multiple sheets?",
-    shortAnswer: "Not directly; you would need to use SUM over multiple SUMIFs or 3D references with limitations.",
-    explanation: "=SUMIF(Sheet1!A:A,\"x\",Sheet1!B:B)+SUMIF(Sheet2!A:A,\"x\",Sheet2!B:B).",
-    level: "advanced",
-    codeExample: "Sum across sheets manually."
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking (Question 12)?",
+    "shortAnswer": "RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how RANK.EQ standard ranking vs RANK.AVG fractional average tie breaking impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "How to sum values based on partial text match in the criteria column?",
-    shortAnswer: "Use wildcards: =SUMIF(range, \"*partial*\", sum_range)",
-    explanation: "The asterisk matches any characters before and after \"partial\".",
-    level: "intermediate",
-    codeExample: "=SUMIF(A:A, \"*Rice*\", B:B) finds any cell containing \"Rice\"."
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 (Question 13)?",
+    "shortAnswer": "Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Pearson Correlation Coefficient (CORREL) between -1.0 and +1.0 impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B33)"
   },
   {
-    question: "What is the maximum number of arguments SUMIF can accept?",
-    shortAnswer: "Three: range, criteria, sum_range (optional).",
-    explanation: "Unlike SUMIFS, SUMIF cannot accept multiple condition pairs.",
-    level: "basic",
-    codeExample: "Always exactly 2 or 3 arguments."
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Linear regression forecasting with FORECAST.LINEAR (y = a + bx) (Question 14)?",
+    "shortAnswer": "Linear regression forecasting with FORECAST.LINEAR (y = a + bx) is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Linear regression forecasting with FORECAST.LINEAR (y = a + bx) plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Linear regression forecasting with FORECAST.LINEAR (y = a + bx) impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How would you sum values where the criteria range contains a number greater than the value in cell E5?",
-    shortAnswer: "=SUMIF(range, \">\"&E5, sum_range)",
-    explanation: "Concatenate the operator with the cell reference inside quotes.",
-    level: "intermediate",
-    codeExample: "=SUMIF(A2:A100, \">\"&E5, B2:B100)"
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate TREND function dynamic multi-period projection array spilling (Question 15)?",
+    "shortAnswer": "TREND function dynamic multi-period projection array spilling is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, TREND function dynamic multi-period projection array spilling plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how TREND function dynamic multi-period projection array spilling impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What does SUMIF return if no cells meet the criteria?",
-    shortAnswer: "0 (zero)",
-    explanation: "No error; it simply returns 0.",
-    level: "basic",
-    codeExample: "=SUMIF(A:A, \"=Zebra\", B:B) → 0 if no Zebra."
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Z-score statistical outlier detection: (x - Mean) / STDEV (Question 16)?",
+    "shortAnswer": "Z-score statistical outlier detection: (x - Mean) / STDEV is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Z-score statistical outlier detection: (x - Mean) / STDEV plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Z-score statistical outlier detection: (x - Mean) / STDEV impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B36)"
   },
   {
-    question: "Can SUMIF be used with OR logic?",
-    shortAnswer: "Not directly; use multiple SUMIFs added together: =SUMIF(range,\"A\",sum)+SUMIF(range,\"B\",sum).",
-    explanation: "SUMIFS is for AND logic, not OR. For OR, sum multiple SUMIFs.",
-    level: "advanced",
-    codeExample: "=SUMIF(A:A,\"Red\",B:B)+SUMIF(A:A,\"Blue\",B:B)"
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules (Question 17)?",
+    "shortAnswer": "Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Interquartile Range (IQR = Q3 - Q1) box-plot outlier fence rules impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Why does =SUMIF(A1:A10, \">5\") sometimes include text?",
-    shortAnswer: "It doesn't; text is ignored. The >5 operator only compares numbers; text is excluded from summation.",
-    explanation: "The condition \" >5\" fails for text, so text is not counted.",
-    level: "basic",
-    codeExample: "Safe to use with mixed data."
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate How statistical functions skip text strings vs include literal zeroes (Question 18)?",
+    "shortAnswer": "How statistical functions skip text strings vs include literal zeroes is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, How statistical functions skip text strings vs include literal zeroes plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how How statistical functions skip text strings vs include literal zeroes impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "How can you sum values where the criteria range is not empty?",
-    shortAnswer: "=SUMIF(range, \"<>\", sum_range)",
-    explanation: "\"<>\" means not blank. It includes any cell with any content (text, number, error, logical).",
-    level: "intermediate",
-    codeExample: "Useful for summing only rows with complete data."
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Preventing #DIV/0! errors when counting zero matching criteria records (Question 19)?",
+    "shortAnswer": "Preventing #DIV/0! errors when counting zero matching criteria records is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Preventing #DIV/0! errors when counting zero matching criteria records plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Preventing #DIV/0! errors when counting zero matching criteria records impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B39)"
   },
   {
-    question: "Does SUMIF support array criteria?",
-    shortAnswer: "Not directly; you would need to use SUM over SUMIF with an array constant or use SUMPRODUCT.",
-    explanation: "Older Excel versions may require array formulas.",
-    level: "expert",
-    codeExample: "{=SUM(SUMIF(range,{\"A\",\"B\"},sum_range))}"
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Combining statistical IFS functions with Boolean logical masks (Question 20)?",
+    "shortAnswer": "Combining statistical IFS functions with Boolean logical masks is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Combining statistical IFS functions with Boolean logical masks plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Combining statistical IFS functions with Boolean logical masks impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "What is the difference between SUMIF and SUMIFS?",
-    shortAnswer: "SUMIF handles one condition; SUMIFS handles multiple conditions and has a different argument order (sum_range first).",
-    explanation: "SUMIFS: =SUMIFS(sum_range, criteria_range1, criteria1, ...).",
-    level: "intermediate",
-    codeExample: "For one condition, either works; for multiple, use SUMIFS."
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 (Question 21)?",
+    "shortAnswer": "Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Using dynamic cell references in comparison criteria: \">=\" & TODAY()-30 impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "Can we use SUMIF with the TODAY() function in criteria?",
-    shortAnswer: "Yes, but must concatenate: =SUMIF(DateRange, \">=\"&TODAY(), AmountRange)",
-    explanation: "TODAY() returns a serial number; concatenation creates a string like \">=45678\".",
-    level: "advanced",
-    codeExample: "Sums amounts for dates today or later."
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Structured Table referencing in statistical formulas: tblData[Amount] (Question 22)?",
+    "shortAnswer": "Structured Table referencing in statistical formulas: tblData[Amount] is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Structured Table referencing in statistical formulas: tblData[Amount] plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Structured Table referencing in statistical formulas: tblData[Amount] impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "moderate",
+    "codeExample": "=STDEV.S(B2:B42)"
   },
   {
-    question: "What is the output of =SUMIF(A1:A5, \"=0\", B1:B5) when all A1:A5 are non‑zero numbers?",
-    shortAnswer: "0 (since no cell equals 0).",
-    explanation: "If criteria not met, SUMIF returns 0.",
-    level: "basic",
-    codeExample: "No match → 0."
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Performance optimization across 100,000 rows with SUMIFS vs PivotTables (Question 23)?",
+    "shortAnswer": "Performance optimization across 100,000 rows with SUMIFS vs PivotTables is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Performance optimization across 100,000 rows with SUMIFS vs PivotTables plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Performance optimization across 100,000 rows with SUMIFS vs PivotTables impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How to sum values in column B where column A contains any text (i.e., is not numeric)?",
-    shortAnswer: "=SUMIF(A:A, \"*\", B:B) – the * matches any text. But it also matches numbers stored as text.",
-    explanation: "Better to use =SUMPRODUCT(--ISTEXT(A:A), B:B) for true text only.",
-    level: "expert",
-    codeExample: "Wildcard * counts everything non‑blank? Actually * matches any text, not numbers. So numbers are excluded. Good."
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Double unary operator (--) in boolean array statistical aggregations (Question 24)?",
+    "shortAnswer": "Double unary operator (--) in boolean array statistical aggregations is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Double unary operator (--) in boolean array statistical aggregations plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Double unary operator (--) in boolean array statistical aggregations impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "If range contains errors, does SUMIF work?",
-    shortAnswer: "No, any error in the criteria range causes SUMIF to return an error.",
-    explanation: "Errors in the criteria range are not ignored; they propagate.",
-    level: "intermediate",
-    codeExample: "Clean errors before using SUMIF."
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Weighted average calculations using SUMPRODUCT / SUM (Question 25)?",
+    "shortAnswer": "Weighted average calculations using SUMPRODUCT / SUM is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Weighted average calculations using SUMPRODUCT / SUM plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Weighted average calculations using SUMPRODUCT / SUM impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=STDEV.S(B2:B45)"
   },
   {
-    question: "Can you use a named range in SUMIF?",
-    shortAnswer: "Yes, absolutely. =SUMIF(Products, \"Apples\", Sales)",
-    explanation: "Named ranges improve readability and are absolute by default.",
-    level: "basic",
-    codeExample: "Define names via Formulas → Name Manager."
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V (Question 26)?",
+    "shortAnswer": "Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Evaluating statistical sub-formulas step-by-step with F9 and Alt+M+V impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "How would you sum values for all items except \"Apples\"?",
-    shortAnswer: "=SUMIF(Items, \"<>Apples\", Values)",
-    explanation: "\"<>Apples\" means not equal to Apples. Works for text.",
-    level: "intermediate",
-    codeExample: "Excludes one category."
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Handling missing data and empty cells in correlation matrices (Question 27)?",
+    "shortAnswer": "Handling missing data and empty cells in correlation matrices is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Handling missing data and empty cells in correlation matrices plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Handling missing data and empty cells in correlation matrices impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   },
   {
-    question: "What does =SUMIF(A1:A10, \">5\", B1:B10) do if sum_range has fewer rows?",
-    shortAnswer: "Excel tries to align, but results are unpredictable. Always use same‑size ranges.",
-    explanation: "It sums only the overlapping cells. Best to avoid.",
-    level: "expert",
-    codeExample: "Potential for wrong totals."
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards (Question 28)?",
+    "shortAnswer": "3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how 3-tier statistical architecture: Raw Data, Analytical Logic, Visual Dashboards impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=STDEV.S(B2:B48)"
   },
   {
-    question: "Is there a performance difference between SUMIF and SUMPRODUCT for conditional sums?",
-    shortAnswer: "Yes, SUMIF is faster for large datasets because it is optimised for single‑condition aggregation.",
-    explanation: "SUMPRODUCT evaluates every cell individually, which can be slower.",
-    level: "advanced",
-    codeExample: "Use SUMIF when possible."
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Normality test verification and bell curve distribution benchmarks (Question 29)?",
+    "shortAnswer": "Normality test verification and bell curve distribution benchmarks is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Normality test verification and bell curve distribution benchmarks plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Normality test verification and bell curve distribution benchmarks impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=CORREL(tblData[Spend], tblData[Revenue])"
   },
   {
-    question: "Can you use SUMIF on a table with structured references?",
-    shortAnswer: "Yes, e.g., =SUMIF(Table1[Product], \"Rice\", Table1[Sales])",
-    explanation: "Structured references auto‑adjust when table grows.",
-    level: "intermediate",
-    codeExample: "Preferences over A1 style for tables."
+    "question": "In the context of SUMIF Function (Single Condition Summation), how does Excel compute and evaluate Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR (Question 30)?",
+    "shortAnswer": "Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR is evaluated deterministically by Excel's statistical calculation engine to guarantee analytical rigor and mathematical precision.",
+    "explanation": "In Microsoft Excel, Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR plays a pivotal role in empirical data analysis. The mathematical engine executes rigorous statistical algorithms, manages sample degrees of freedom, and processes multi-condition criteria to deliver audited statistical insights.",
+    "hint": "Consider how Executive reporting of statistical KPIs: Mean, Median, StdDev, IQR impacts hypothesis testing, outlier detection, and corporate data storytelling.",
+    "level": "advanced",
+    "codeExample": "=SUMIFS(tblSales[Amount], tblSales[Region], \"Kolkata\")"
   }
 ];
 

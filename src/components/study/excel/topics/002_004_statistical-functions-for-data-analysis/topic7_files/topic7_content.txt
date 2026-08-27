@@ -1,0 +1,9 @@
+MODULE 2.4 - TOPIC 7
+Title: SUMIFS Function (Multiple Condition Summation)
+Level: Intermediate / Advanced
+
+Overview:
+Master SUMIFS Function (Multiple Condition Summation) for advanced business intelligence, statistical modeling, and data science in Microsoft Excel.
+
+Signature:
+=SUMIFS(sum_range, criteria_range1, criteria1, ...)

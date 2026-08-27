@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: VBA & Macro Automation
+Topic 8: Looping constructs: For...Next, For Each...Next (Looping over sheets, cells, shapes), and Do While/Until
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

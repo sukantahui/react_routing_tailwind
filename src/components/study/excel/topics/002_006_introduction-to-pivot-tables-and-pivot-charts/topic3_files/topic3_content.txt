@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Introduction to Pivot Tables and Pivot Charts
+Topic 3: Value field settings: Sum, Count, Average, Min, Max, and Distinct Count (Data Model)
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

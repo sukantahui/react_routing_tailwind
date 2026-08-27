@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
+Topic 9: Predictive modeling and machine learning with scikit-learn (Classification, Clustering, Decision Trees)
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

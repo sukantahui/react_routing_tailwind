@@ -1,0 +1,31 @@
+MODULE 1.3 - TOPIC 7
+Title: Practice Multiple Choice Questions (MCQ): Basic Formulas, BODMAS &amp; Foundational Math Functions
+Level: Beginner | Bloom's Level 1 & 2: Remember & Understand
+
+Overview:
+Test your theoretical and practical mastery of Module 1.3: BODMAS order of precedence, arithmetic operators, SUM, AVERAGE, COUNT, COUNTA, MIN, MAX, LARGE, SMALL, ROUND, INT, TRUNC, and AutoSum shortcuts.
+
+Technical Anatomy:
+Signature: =MCQ_EVALUATION(Module_1_3)
+Return Type: Self-Assessment Knowledge Score
+
+Real-World Business Scenarios:
+[MOS Associate & Corporate Technical Screening Preparation]
+Context: A candidate prepares for advanced formula precedence and math function questions.
+Applied: Complete 30 Structured FAQ Questions below
+Result: 100% readiness for corporate financial modeling assessments.
+
+[Auditing Firm Trainee Formula Verification]
+Context: Validating that trainee analysts understand how AVERAGE treats empty cells vs zeroes.
+Applied: Conceptual Accuracy Verification
+Result: Zero calculation misunderstandings in corporate reports.
+
+[Taxation Specialist 2-Decimal Statutory Rounding Check]
+Context: Ensuring all tax calculations apply =ROUND() to eliminate floating-point penny drift.
+Applied: =ROUND(..., 2)
+Result: Zero tax reconciliation discrepancies.
+
+[Retail Manager Automated Leaderboard Generation]
+Context: Extracting top 3 sales representatives using LARGE() and INDEX().
+Applied: =LARGE(range, k)
+Result: Automated real-time sales leaderboard.

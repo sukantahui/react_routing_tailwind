@@ -12,20 +12,20 @@ Return Type: Pattern-Extracted Array / Clean Text
 Real-World Business Scenarios:
 [Kolkata Corporate Full Name Splitting into First & Last Names]
 Context: Splitting 500 employee full names (e.g. 'Swadeep Mukherjee') into First and Last Name columns.
-Applied: Type 'Swadeep' -> Press Ctrl + E
+Applied: Type 'Swadeep' &rarr; Press Ctrl + E
 Result: All 500 first and last names extracted in 1 second with zero formulas.
 
 [Barrackpore Mobile Number International Formatting Masking]
 Context: Reformatting raw 10-digit mobile numbers (9830123456) into +91 98301-23456 format.
-Applied: Type '+91 98301-23456' in B2 -> Press Ctrl + E
+Applied: Type '+91 98301-23456' in B2 &rarr; Press Ctrl + E
 Result: 500 phone numbers formatted with international prefixes instantly.
 
 [North 24 Parganas Custom Branch Office AutoFill List]
 Context: Creating a custom list for Barrackpore, Shyamnagar, Ichapur, Naihati, Titagarh.
-Applied: File -> Options -> Advanced -> Edit Custom Lists
+Applied: File &rarr; Options &rarr; Advanced &rarr; Edit Custom Lists
 Result: Instant local geography cycling in all future workbooks.
 
 [Shyamnagar Industrial PAN Card and GSTIN Deconstruction]
-Context: Extracting 10-character PAN cards from 15-character GSTIN numbers (e.g. 19ABCDE1234F1Z5 -> ABCDE1234F).
-Applied: Type 'ABCDE1234F' in B2 -> Press Ctrl + E
+Context: Extracting 10-character PAN cards from 15-character GSTIN numbers (e.g. 19ABCDE1234F1Z5 &rarr; ABCDE1234F).
+Applied: Type 'ABCDE1234F' in B2 &rarr; Press Ctrl + E
 Result: All PAN cards extracted from state-coded GSTIN numbers.

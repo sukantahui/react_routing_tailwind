@@ -1,0 +1,10 @@
+TOPIC 1: IMPORTANCE OF UNIQUE IDS, PRIMARY KEYS AND KEY COLUMN HYGIENE
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Because VLOOKUP stops scanning at the very first match it encounters, duplicate keys cause all subsequent matching rows to become completely invisible to the lookup engine.
+- Never use customer names or employee names as lookup keys because duplicate names (e.g. two 'Rahul Ghosh') will silently return the wrong person's salary or invoice.
+- Surrogate keys (e.g. EMP-1001, STD-2026-01) guarantee permanent, unchanging uniqueness across enterprise lifecycles.
+
+Teacher Note:
+Never, ever lookup by person name in professional accounting! People share identical names. Always assign unique surrogate IDs (EMP-001, CUST-101) and verify key uniqueness before writing your lookup formulas!

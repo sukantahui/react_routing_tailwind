@@ -1,0 +1,9 @@
+MODULE 2.4 - TOPIC 30
+Title: FORECAST.LINEAR Function (Linear Forecasting)
+Level: Intermediate / Advanced
+
+Overview:
+Master FORECAST.LINEAR Function (Linear Forecasting) for advanced business intelligence, statistical modeling, and data science in Microsoft Excel.
+
+Signature:
+=FORECAST.LINEAR(x, known_y's, known_x's)

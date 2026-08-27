@@ -1,5 +1,5 @@
 MODULE 1.1 - TOPIC 8
-Title: Practice Multiple Choice Questions (MCQ): Comprehensive Interface & Navigation Mastery
+Title: Practice Multiple Choice Questions (MCQ): Comprehensive Interface &amp; Navigation Mastery
 Level: Beginner | Bloom's Level 1 & 2: Remember & Understand
 
 Overview:

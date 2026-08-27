@@ -1,0 +1,34 @@
+================================================================================
+EXCEL MASTERCLASS: Advanced Power Query M Code Scripting & Custom Functions
+TOPIC 11: Documenting and Organizing Complex Enterprise ETL Query Groups
+Subject Code: EXCEL-PRO-502 | Target: React 19 + Tailwind CSS + Power Query M Engine
+================================================================================
+
+1. ENTERPRISE QUERY GROUP TAXONOMY
+Folder Path                Query Prefix     Enable Load   Description & Purpose
+-------------------------------------------------------------------------------------------------
+01_Parameters/             p_               FALSE         Centralized environment variables & dates
+02_Custom_Functions/       fx_              FALSE         Reusable typed business calculation lambdas
+03_Staging/ERP_Raw/        stg_             FALSE         Raw ingestion & schema standardization
+04_Dimension_Tables/       Dim_             TRUE          Curated master dimensional lookup entities
+05_Fact_Tables/            Fact_            TRUE          High-volume consolidated transactional marts
+06_Audit_Quarantine/       Audit_           TRUE / FALSE  Anomaly logs, bad records, and data drift
+
+2. FUNCTION METADATA DOCUMENTATION PATTERN
+Value.ReplaceType(
+    (amt as number, taxRate as number) as number => amt * (1 + taxRate),
+    type function (
+        amt as (type number meta [
+            Documentation.FieldCaption = "Base Taxable Value (INR)",
+            Documentation.SampleValues = {10000}
+        ]),
+        taxRate as (type number meta [
+            Documentation.FieldCaption = "GST Rate Percentage (e.g. 0.18)",
+            Documentation.SampleValues = {0.18}
+        ])
+    ) as number meta [
+        Documentation.Name = "fxCalculateGSTGross",
+        Documentation.Description = "Calculates total invoice amount inclusive of statutory GST.",
+        Documentation.Author = "Sukanta Hui | Coder & AccoTax"
+    ]
+)

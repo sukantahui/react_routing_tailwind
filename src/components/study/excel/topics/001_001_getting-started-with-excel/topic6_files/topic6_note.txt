@@ -4,7 +4,7 @@ Instructor: Sukanta Hui | Coder & AccoTax
 Key Takeaways:
 - Under the hood, Excel stores relative references as vector offsets (e.g. 'same row, 2 columns to the left') rather than hardcoded coordinate strings.
 - The dollar sign ($) is an anchor token that instructs the formula compiler to treat that specific coordinate dimension as an absolute index rather than a relative offset.
-- The F4 shortcut key cycles through all 4 reference states: A1 -> $A$1 -> A$1 -> $A1 -> A1 in sequence.
+- The F4 shortcut key cycles through all 4 reference states: A1 &rarr; $A$1 &rarr; A$1 &rarr; $A1 &rarr; A1 in sequence.
 
 Teacher Note:
 The F4 key is your best friend in financial modeling! Never type dollar signs manually. Position your cursor on the cell reference and tap F4 until you reach the exact reference mode you need. Always test your formulas by dragging 2 rows down and checking the formula bar!

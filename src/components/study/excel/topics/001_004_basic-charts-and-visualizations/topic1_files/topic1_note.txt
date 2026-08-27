@@ -1,0 +1,10 @@
+TOPIC 1: COLUMN AND BAR CHARTS: COMPARING DISCRETE CATEGORIES, RANKING AND VARIANCE ANALYSIS
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Column charts map numerical values to bar heights starting strictly from baseline 0, allowing instant relative magnitude assessment.
+- Sorting categorical data in descending order before plotting creates an instant visual Pareto ranking hierarchy.
+- Clustered Column charts should be limited to 2 or 3 series max; more series become visually noisy and difficult to decode.
+
+Teacher Note:
+Pro styling tip: Never leave Excel's default 219% Gap Width! Always right-click your columns, go to Format Data Series, and set Gap Width to 60% - 80%. Your bars will look thick, solid, and executive-ready!

@@ -1,0 +1,23 @@
+================================================================================
+EXCEL MASTERCLASS: Advanced Power Query M Code Scripting & Custom Functions
+TOPIC 11: Documenting and Organizing Complex Enterprise ETL Query Groups
+Lead Academic Mentor: Sukanta Hui | Coder & AccoTax (Barrackpore, Kolkata)
+================================================================================
+
+CORE CONCEPTS & INSTRUCTOR REFERENCE:
+1. Architectural Folder Hierarchy:
+   - 01_Parameters: Environment variables (pServer, pDatabase, pFiscalYear).
+   - 02_Custom_Functions: Reusable typed lambda blocks (fxFormatGSTIN, fxFiscalPeriod).
+   - 03_Staging_Queries: Intermediate ETL extraction/cleaning pipelines (Enable Load = FALSE).
+   - 04_Dimension_Tables: Cleaned entity dimensions (Dim_Customer, Dim_Branch).
+   - 05_Fact_Tables: Core transactional models loaded into VertiPaq (Fact_Sales, Fact_Ledger).
+   - 06_Utility_Audits: Data quality quarantine logs and validation flags.
+
+2. In-Code Documentation:
+   - Standardized top-level header comment blocks (Author, Version, Business Owner, SLA).
+   - Step-level properties descriptions in the Applied Steps list.
+   - Rich UI Documentation metadata on functions via `Value.ReplaceType` and `meta [Documentation.*]`.
+
+3. Lineage & Governance:
+   - Query Dependency View (DAG graph) inspection.
+   - Reference vs Duplicate patterns.

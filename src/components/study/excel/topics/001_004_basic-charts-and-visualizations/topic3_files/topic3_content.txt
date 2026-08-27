@@ -1,0 +1,31 @@
+MODULE 1.4 - TOPIC 3
+Title: Pie and Doughnut Charts: Part-to-Whole Proportions, Slice Limits and Modern Best Practices
+Level: Beginner | Bloom's Level 2 & 3: Understand & Apply
+
+Overview:
+Master Pie and Doughnut charts: Visualizing part-to-whole relationships, the strict 5-slice limit, slice rotation for optimal reading angle, slice explosion for emphasis, Doughnut hole sizing, and when to replace pie charts with 100% stacked bar charts.
+
+Technical Anatomy:
+Signature: =PIE_CHART(Slices_Max_5, PercentageValues)
+Return Type: Proportional Angular Composition
+
+Real-World Business Scenarios:
+[Barrackpore Academy Revenue Stream Composition]
+Context: Displaying revenue breakdown across 4 training disciplines (Software 45%, Taxation 30%, Data Analytics 15%, Hardware 10%).
+Applied: Doughnut Chart with Center Total (₹ 1.25 Cr)
+Result: Clean 4-slice executive proportion chart.
+
+[Kolkata Corporate Budget Expense Allocation (Exploded Slice)]
+Context: Highlighting that R&D receives the largest budget allocation (52%).
+Applied: Exploded Doughnut Slice (10% offset)
+Result: R&D category instantly commands audience attention.
+
+[Shyamnagar Regional Retail Payment Method Split]
+Context: Analyzing customer checkout payment methods (UPI 68%, Credit Card 20%, Cash 12%).
+Applied: 2D Pie Chart rotated with UPI starting at 12 o'clock
+Result: Digital dominance instantly recognized by retail management.
+
+[Ichapur Plant Defect Source Grouping (Top 4 + Other)]
+Context: Consolidating 20 tiny defect sources into 4 major categories plus 'Other Minor'.
+Applied: Consolidated 5-Slice Doughnut Chart
+Result: Clean readable chart eliminating 16 cluttered slivers.

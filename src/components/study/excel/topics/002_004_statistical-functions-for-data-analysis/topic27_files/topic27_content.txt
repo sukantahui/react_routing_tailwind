@@ -1,0 +1,9 @@
+MODULE 2.4 - TOPIC 27
+Title: PERCENTRANK.INC Function (Relative Ranking Percentage)
+Level: Intermediate / Advanced
+
+Overview:
+Master PERCENTRANK.INC Function (Relative Ranking Percentage) for advanced business intelligence, statistical modeling, and data science in Microsoft Excel.
+
+Signature:
+=PERCENTRANK.INC(array, x, [significance])

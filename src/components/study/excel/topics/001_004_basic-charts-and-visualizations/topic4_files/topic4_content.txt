@@ -1,0 +1,31 @@
+MODULE 1.4 - TOPIC 4
+Title: Mastering Chart Elements: Titles, Legends, Data Labels, Dual-Axes and Gridline Decluttering
+Level: Beginner | Bloom's Level 2 & 3: Understand & Apply
+
+Overview:
+Master chart components and structural anatomy: Dynamic formula-linked chart titles, smart data label placement, legend optimization, primary vs secondary dual-axes (Combo charts), and decluttering gridlines for maximum visual punch.
+
+Technical Anatomy:
+Signature: =CHART_ELEMENTS(Title, DataLabels, PrimaryAxis, SecondaryAxis)
+Return Type: Fully Annotated Executive Chart Architecture
+
+Real-World Business Scenarios:
+[Kolkata Corporate Dual-Axis Combo Chart (Revenue & Margin %)]
+Context: Plotting monthly revenue (₹ 10 to 50 Lakhs) as Columns and Margin % (15% to 35%) as a Line on a secondary axis.
+Applied: Insert Combo Chart &rarr; Clustered Column + Line on Secondary Axis
+Result: Boardroom-ready chart displaying volume and profitability simultaneously.
+
+[Barrackpore Dynamic Formula-Linked Chart Headline]
+Context: Linking chart title to cell E1 containing ="FY26 Total Revenue: ₹ " & TEXT(SUM(D2:D50), "#,##,##0")
+Applied: Select Title &rarr; Type '=' in Formula Bar &rarr; Click E1 &rarr; Press Enter
+Result: Live self-updating executive title headline.
+
+[Shyamnagar Clean Minimalist Chart (Direct Data Labels)]
+Context: Removing distracting Y-axis and heavy gridlines by placing direct data labels on bars.
+Applied: Direct Data Labeling + Element Deletion
+Result: High-impact modern visual with zero distracting clutter.
+
+[Ichapur Plant Quality Incident Error Bars & Trendline]
+Context: Adding standard error bars to monthly manufacturing defect metrics.
+Applied: Add Chart Element &rarr; Error Bars
+Result: Statistical confidence interval displayed for plant engineers.

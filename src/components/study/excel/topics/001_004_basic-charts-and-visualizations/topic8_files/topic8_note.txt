@@ -1,0 +1,15 @@
+================================================================================
+EXCEL MASTERCLASS: Module 1.4 - Basic Charts & Visual Storytelling
+TOPIC 8: Quick Check Quiz & Module Assessment: Basic Charts & Visualizations
+Lead Academic Mentor: Sukanta Hui | Coder & AccoTax (Barrackpore, Kolkata)
+================================================================================
+
+ASSESSMENT RUBRIC & DOMAINS:
+1. Chart Typology & Selection (25 pts):
+   - Choosing between Column, Bar, Line, Area, Pie, Doughnut, and Scatter.
+2. Dual-Scale & Combo Charting (25 pts):
+   - Secondary vertical axis assignment, scale harmonization, and zero baselines.
+3. In-Cell Micro Visualization (20 pts):
+   - Sparklines (Line, Column, Win/Loss), high/low markers, and tabular integration.
+4. Information Design & Decluttering (30 pts):
+   - Maximizing data-ink ratio, eliminating 3D distortion, direct data labeling, and accessibility.

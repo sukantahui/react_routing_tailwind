@@ -4,7 +4,7 @@ Instructor: Sukanta Hui | Coder & AccoTax
 Key Takeaways:
 - The default .xlsx format is an ISO/IEC 29500 OpenXML ZIP archive containing separate XML files for workbook structure, sheets, shared strings, and formatting styles.
 - The .xlsb (Binary) format stores cell records in direct binary tokens rather than human-readable XML. This drastically reduces parsing overhead, making it ideal for 50MB+ financial workbooks.
-- AutoRecover saves shadow backup files every 10 minutes (configurable in Options -> Save). AutoSave enables real-time sub-second cloud synchronization when saving to OneDrive/SharePoint.
+- AutoRecover saves shadow backup files every 10 minutes (configurable in Options &rarr; Save). AutoSave enables real-time sub-second cloud synchronization when saving to OneDrive/SharePoint.
 
 Teacher Note:
-Never save VBA workbooks as .xlsx! Always use .xlsm for macros and .xlsb for heavy 100,000+ row data models. Configure your Excel AutoRecover interval to 3 minutes in Options -> Save for complete peace of mind.
+Never save VBA workbooks as .xlsx! Always use .xlsm for macros and .xlsb for heavy 100,000+ row data models. Configure your Excel AutoRecover interval to 3 minutes in Options &rarr; Save for complete peace of mind.

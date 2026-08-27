@@ -1,0 +1,14 @@
+================================================================================
+EXCEL MASTERCLASS: Module 8.5 - Excel Final Certification Exam & Practical Evaluation
+TOPIC 0: Comprehensive Master Level Practical Exam & Certification Assessment
+Lead Academic Mentor: Sukanta Hui | Coder & AccoTax (Barrackpore, Kolkata)
+================================================================================
+
+CERTIFICATION EXAM SYLLABUS:
+1. Core Spreadsheet Architecture & Custom Number Formatting (15%)
+2. Structured Tables, Slicers & Multi-Level Filtering (15%)
+3. Relational Lookups (XLOOKUP, INDEX-MATCH, Two-Way Matrices) (20%)
+4. Statistical Analysis, Dispersion & Linear Forecasting (15%)
+5. Dynamic Arrays, LAMBDA Calculus & Modern Reshaping (15%)
+6. Power Query Automated ETL & M Code Scripting (10%)
+7. Executive Dashboard Storytelling & Visual Integrity (10%)

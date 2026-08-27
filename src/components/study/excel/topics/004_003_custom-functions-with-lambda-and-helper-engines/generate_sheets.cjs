@@ -60,11 +60,17 @@ async function createMasterWorkbook() {
   });
 
   overviewSheet.columns = [
-    { width: 5 },
+    { width: 8 },
     { width: 28 },
     { width: 45 },
-    { width: 30 }
+    { width: 32 }
   ];
+
+  const logoPath = path.resolve(__dirname, '../../assets/cnat.png');
+  if (fs.existsSync(logoPath)) {
+    const logoId = workbook.addImage({ filename: logoPath, extension: 'png' });
+    overviewSheet.addImage(logoId, { tl: { col: 0.2, row: 0.2 }, ext: { width: 100, height: 100 }, editAs: 'oneCell' });
+  }
 
   overviewSheet.mergeCells('B2:D2');
   const titleCell = overviewSheet.getCell('B2');

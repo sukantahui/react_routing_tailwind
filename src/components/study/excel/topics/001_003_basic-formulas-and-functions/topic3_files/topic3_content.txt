@@ -1,0 +1,31 @@
+MODULE 1.3 - TOPIC 3
+Title: Extreme Value and Positional Ranking Functions: MIN, MAX, LARGE and SMALL Analysis
+Level: Beginner | Bloom's Level 2 & 3: Understand & Apply
+
+Overview:
+Master statistical extreme value functions in Excel: MIN (minimum value), MAX (maximum value), LARGE(array, k) (k-th largest value, e.g. 1st, 2nd, 3rd highest sales), and SMALL(array, k) (k-th smallest value) for ranking and outlier detection.
+
+Technical Anatomy:
+Signature: =LARGE(A1:A100, 1), =SMALL(A1:A100, 2)
+Return Type: Extreme / K-th Positional Scalar
+
+Real-World Business Scenarios:
+[Coder & AccoTax Barrackpore Top 3 Academic Rank Awardees]
+Context: Extracting the 1st, 2nd, and 3rd highest exam scores across 50 diploma candidates.
+Applied: =LARGE(D2:D51, 1), =LARGE(D2:D51, 2), =LARGE(D2:D51, 3)
+Result: Top 3 merit scores extracted dynamically without manual sorting.
+
+[Kolkata Logistics Fastest vs Slowest Delivery Route Identification]
+Context: Finding the minimum and maximum transit hours across 200 delivery routes.
+Applied: =MIN(), =MAX(), =SMALL(range, 2)
+Result: Operational route boundaries benchmarked for logistics management.
+
+[Shyamnagar Supermarket Top 5 Best-Selling Products]
+Context: Extracting the top 5 highest sales revenues from a 1,000-SKU catalog.
+Applied: =LARGE($E$2:$E$1001, ROW(A1)) copied down
+Result: Top 5 sales revenues extracted in automated descending order.
+
+[Ichapur Plant Machinery Minimum Operating Temperature Alert]
+Context: Monitoring sensor readings to flag coldest machine operating temperature.
+Applied: =MIN(B2:B51)
+Result: Minimum temperature 42°C verified safe.

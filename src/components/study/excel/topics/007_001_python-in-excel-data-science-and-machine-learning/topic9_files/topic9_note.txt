@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: Python in Excel: Data Science & Machine Learning
+Topic 9: Predictive modeling and machine learning with scikit-learn (Classification, Clustering, Decision Trees)
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

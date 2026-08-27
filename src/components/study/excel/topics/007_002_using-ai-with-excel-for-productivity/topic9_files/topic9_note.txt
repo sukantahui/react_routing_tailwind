@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: Using AI with Excel for Productivity
+Topic 9: Ethical AI usage, data privacy in enterprise spreadsheets, and verifying AI-generated calculations
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

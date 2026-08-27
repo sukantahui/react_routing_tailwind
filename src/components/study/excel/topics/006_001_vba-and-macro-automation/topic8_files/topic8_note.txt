@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: VBA & Macro Automation
+Topic 8: Looping constructs: For...Next, For Each...Next (Looping over sheets, cells, shapes), and Do While/Until
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

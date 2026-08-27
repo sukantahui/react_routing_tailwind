@@ -1,0 +1,3 @@
+EXCEL MASTERCLASS: DAX (Data Analysis Expressions) Mastery & Time Intelligence
+Topic 13: Advanced ranking and top-performer DAX: RANKX and TOPN
+Mentor: Sukanta Hui (Coder & AccoTax, Barrackpore)

@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Professional Capstone – Real Business Dashboard
+Topic 1: Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.

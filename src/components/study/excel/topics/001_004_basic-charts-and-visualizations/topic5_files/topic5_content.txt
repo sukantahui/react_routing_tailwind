@@ -1,0 +1,31 @@
+MODULE 1.4 - TOPIC 5
+Title: Formatting and Visual Polish: Corporate Color Palettes, Callout Cards and Modern Dashboard Aesthetics
+Level: Beginner | Bloom's Level 3 & 4: Apply & Analyze
+
+Overview:
+Elevate your charts from amateur to elite corporate standard: Coder &amp; AccoTax dark theme palettes (Slate-950, Sky-400, Emerald-400), intentional accent coloring, KPI metric callout cards, border radius card containers, and visual hierarchy.
+
+Technical Anatomy:
+Signature: =DASHBOARD_STYLING(Palette_Dark_Theme, Contrast_Ratio, Micro_Cards)
+Return Type: Boardroom-Ready Visual Dashboard Asset
+
+Real-World Business Scenarios:
+[Coder & AccoTax Executive Dark Dashboard Theme Implementation]
+Context: Styling an annual financial report with sleek dark aesthetics for high-impact executive presentation.
+Applied: Executive Dark Theme Palette
+Result: Stunning modern visual presentation wows corporate leadership.
+
+[Barrackpore Retail Top KPI Metric Summary Cards]
+Context: Building 3 summary metric cards above charts: Total Revenue, Active Customers, and Net Profit Margin.
+Applied: 3-Tier Dashboard Grid Layout
+Result: C-suite executives absorb top-level performance in 2 seconds.
+
+[Shyamnagar Regional Sales Intentional Accent Coloring]
+Context: Coloring all 7 average branches in subtle Slate Grey and highlighting the #1 performing branch in vibrant Sky Blue.
+Applied: Intentional Single-Series Accent Coloring
+Result: Audience attention focused instantly on top performer without distraction.
+
+[Ichapur Plant Clean Typography & Font Hierarchy]
+Context: Standardizing dashboard typography with Segoe UI / Inter font families.
+Applied: Typography Scale Standard
+Result: Clean readable typographic hierarchy across all dashboard widgets.

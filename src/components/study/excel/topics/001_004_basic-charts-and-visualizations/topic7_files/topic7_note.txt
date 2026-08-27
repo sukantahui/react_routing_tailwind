@@ -1,0 +1,17 @@
+================================================================================
+EXCEL MASTERCLASS: Module 1.4 - Basic Charts & Visual Storytelling
+TOPIC 7: Practice Session: Creating a Business Performance Chart Pack
+Lead Academic Mentor: Sukanta Hui | Coder & AccoTax (Barrackpore, Kolkata)
+================================================================================
+
+PRACTICAL LAB GOALS:
+1. Construct a 4-Visual Executive Business Chart Pack:
+   - Visual 1: Multi-Branch Target vs Actual Performance (Clustered Column Chart)
+   - Visual 2: 12-Month Revenue & Margin Trajectory (Combo Line & Column Chart)
+   - Visual 3: Cost Center Budget Allocation (Doughnut Chart with Max 5 Slices)
+   - Visual 4: In-Cell Quarterly Micro-Trends (Line Sparklines)
+
+2. Alignment & Design Standards:
+   - Palette: Primary Dark Navy (#0F172A), Accent Cyan (#0284C7), Highlight Emerald (#10B981)
+   - Zero Chart Junk: No 3D tilts, no gray plot backgrounds, direct data labeling
+   - Layout: Uniform card sizing, magnetic grid alignment, dynamic linked chart titles

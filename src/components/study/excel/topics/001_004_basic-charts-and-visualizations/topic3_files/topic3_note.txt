@@ -1,0 +1,10 @@
+TOPIC 3: PIE AND DOUGHNUT CHARTS: PART-TO-WHOLE PROPORTIONS, SLICE LIMITS AND MODERN BEST PRACTICES
+Instructor: Sukanta Hui | Coder & AccoTax
+
+Key Takeaways:
+- Pie charts map percentage values to 360-degree angles. Because human eyes struggle to compare subtle angle differences, pie charts should only be used when differences are dramatic.
+- Doughnut charts are visually superior to solid pie charts because the hollow center eliminates heavy colored ink and provides space to display the Grand Total KPI inside the ring.
+- Data labels on pie/doughnut charts should always display both the Category Name and the Percentage value directly on the slice, eliminating the need for a separate legend.
+
+Teacher Note:
+Strict rule for pie charts: 5 slices maximum! If you have more than 5 categories, group the rest into 'Other' or use a horizontal bar chart. Always use Doughnut charts, display direct percentages on the slices, and delete the distracting legend!

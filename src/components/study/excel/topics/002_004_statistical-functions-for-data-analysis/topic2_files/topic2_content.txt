@@ -1,0 +1,9 @@
+MODULE 2.4 - TOPIC 2
+Title: Revision: MIN Function
+Level: Intermediate / Advanced
+
+Overview:
+Master Revision: MIN Function for advanced business intelligence, statistical modeling, and data science in Microsoft Excel.
+
+Signature:
+=MIN(A1:A100)

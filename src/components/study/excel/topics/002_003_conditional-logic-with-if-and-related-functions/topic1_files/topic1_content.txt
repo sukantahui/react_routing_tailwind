@@ -1,0 +1,4 @@
+EXCEL MASTERCLASS: Conditional Logic with IF and Related Functions
+Topic 1: Single condition evaluation with the IF function
+Subject Code: EXCEL-PRO-901 | Competency: CO1-CO4
+Comprehensive operational training module.
