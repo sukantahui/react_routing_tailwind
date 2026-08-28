@@ -1,116 +1,116 @@
-// ============================================================================
-// CODER & ACCOTAX - JAVASCRIPT MASTERCLASS
-// Module: 001_001_getting-started-with-javascript
-// Topic: JavaScript Lexical Grammar, Comments, Whitespace & ASI (Automatic Semicolon Insertion)
-// Classroom Lab: Ichapur Training Room
-// Mentors: Sukanta Hui | Students: Debangshu, Swadeep
-// ============================================================================
+/**
+ * Topic 7 Demo: JavaScript Lexical Grammar, Comments, Whitespace & ASI
+ * Module: 001_001_getting-started-with-javascript
+ * Educator: Sukanta Hui | Coder & AccoTax
+ */
 
-console.log("=== [1] FUNDAMENTAL CONCEPT & INITIALIZATION ===");
-console.log("Demonstrating foundational mechanics for: JavaScript Lexical Grammar, Comments, Whitespace & ASI (Automatic Semicolon Insertion)");
+console.log("==================================================");
+console.log("TOPIC 7: LEXICAL GRAMMAR, COMMENTS & ASI");
+console.log("==================================================");
+
+// ─── 1. AUTOMATIC SEMICOLON INSERTION (ASI) RETURN TRAP ──────────
 console.log("");
+console.log("1. The Classic ASI 'return' Statement Hazard:");
 
-// Example 1: Basic declaration and setup
-const courseConfig = {
-  subject: "JavaScript Master Pro",
-  module: "Getting Started with JavaScript",
-  center: "Ichapur Training Room",
-  student: "Debangshu",
-  score: 95.5,
-  isActive: true
-};
-
-console.log("Configured student profile:");
-console.log(courseConfig);
-console.log("Student Name:", courseConfig.student);
-console.log("Status Active:", courseConfig.isActive);
-console.log("");
-
-console.log("=== [2] CORE DATA PROCESSING & FUNCTION PIPELINE ===");
-// Example 2: Practical data manipulation
-function processTopicData(items) {
-  return items.map((item, index) => {
-    return {
-      index: index + 1,
-      name: item,
-      processedAt: new Date().toISOString(),
-      verifiedBy: "Swadeep"
-    };
-  });
+// Broken Function: Newline immediately following 'return'
+function calculateTuitionBroken(baseFee) {
+  return
+  {
+    course: "JS-PRO-101",
+    total: baseFee * 1.18
+  };
 }
 
-const sampleList = ["Foundational Syntax", "Execution Mechanics", "Optimization Rules"];
-const processedResults = processTopicData(sampleList);
-console.log("Processed pipeline data:");
-console.table(processedResults);
-console.log("");
-
-console.log("=== [3] ALGORITHMIC LOGIC & CONTROL FLOW ===");
-// Example 3: Branching and transformation logic
-function evaluateProficiency(score) {
-  if (score >= 90) return { grade: "Distinction", level: "Ultra Expert" };
-  if (score >= 75) return { grade: "First Class", level: "Advanced" };
-  if (score >= 50) return { grade: "Pass", level: "Intermediate" };
-  return { grade: "Needs Review", level: "Beginner" };
+// Correct Function: Opening brace on same physical line
+function calculateTuitionCorrect(baseFee) {
+  return {
+    course: "JS-PRO-101",
+    total: baseFee * 1.18
+  };
 }
 
-const evaluation = evaluateProficiency(courseConfig.score);
-console.log("Evaluation Result for " + courseConfig.student + ":", evaluation);
-console.log("");
+console.log("Broken Return Result (ASI inserted ';' after return):", calculateTuitionBroken(5000));
+console.log("Correct Return Result:", calculateTuitionCorrect(5000));
 
-console.log("=== [4] ERROR RESILIENCE & SAFE GUARDS ===");
-// Example 4: Defensive programming and validation
-function safeRunner(action, fallbackValue) {
+// ─── 2. IIFE & ARRAY ACCESS ASI COLLISION TRAP ───────────────────
+console.log("");
+console.log("2. Leading Parenthesis / Bracket Collision with ASI:");
+
+// When a line begins with '(' or '[', ASI does NOT insert a semicolon on preceding line!
+// It treats it as a function invocation: previousLine(arg)
+const sampleValue = 42;
+// In un-semicoloned code:
+// const a = 42
+// (function() { ... })() -> Evaluates as: 42(function() { ... }) -> Throws TypeError: 42 is not a function!
+
+function simulateParenthesisCollision() {
   try {
-    return action();
+    const fn = 100;
+    // Simulating: 100()
+    return eval("const x = 50; const y = x; (function() { return 'Safe'; })();");
   } catch (err) {
-    console.warn("Recovered from operational failure:", err.message);
-    return fallbackValue;
+    return `Collision Caught: ${err.message}`;
   }
 }
 
-const safeOutcome = safeRunner(() => {
-  const data = JSON.parse('{"status": "success", "metric": 99.9}');
-  return data.status + " -> Metric: " + data.metric;
-}, "default_fallback");
+console.log("Parenthesis / Bracket Guard Status:", simulateParenthesisCollision());
 
-console.log("Safe Execution Output:", safeOutcome);
+// ─── 3. UNICODE IDENTIFIERS & VARIABLE NAMING RULES ──────────────
 console.log("");
+console.log("3. Lexical Identifiers & Unicode Property Support:");
 
-console.log("=== [5] SENIOR ARCHITECTURE PATTERN & BEST PRACTICE ===");
-// Example 5: Modular encapsulation & clean API design
-const LabController = (function() {
-  const registry = new Map();
-  
+// JavaScript permits Unicode identifiers, $ (dollar), and _ (underscore)
+const π = Math.PI;
+const $studentCount = 45;
+const _labLocation = "Barrackpore Lab";
+const বাংলা_কোর্স = "JavaScript Complete Masterclass";
+
+console.table([
+  { identifier: "π", value: π, valid: "✓ Valid ECMAScript Identifier" },
+  { identifier: "$studentCount", value: $studentCount, valid: "✓ Valid ($ allowed)" },
+  { identifier: "_labLocation", value: _labLocation, valid: "✓ Valid (_ allowed)" },
+  { identifier: "বাংলা_কোর্স", value: বাংলা_কোর্স, valid: "✓ Valid Unicode Identifier" }
+]);
+
+// ─── 4. JSDOC DOCUMENTATION COMMENT SPECIFICATION ────────────────
+console.log("");
+console.log("4. Professional JSDoc Documentation Annotations:");
+
+/**
+ * Calculates final student grade and lab verification certificate.
+ * @param {string} studentName - The full name of the student.
+ * @param {number} rawScore - Marks scored between 0 and 100.
+ * @param {string} labCenter - The training center location.
+ * @returns {object} Verification payload with grade and honors status.
+ */
+function evaluateStudentCertification(studentName, rawScore, labCenter) {
+  const isHonors = rawScore >= 90;
   return {
-    register(id, handler) {
-      registry.set(id, handler);
-      console.log("Registered handler for key: [" + id + "]");
-    },
-    dispatch(id, payload) {
-      if (!registry.has(id)) {
-        console.error("No handler registered for: " + id);
-        return null;
-      }
-      return registry.get(id)(payload);
-    },
-    getRegistrySize() {
-      return registry.size;
-    }
+    candidate: studentName,
+    center: labCenter,
+    score: rawScore,
+    grade: rawScore >= 80 ? "A+" : "A",
+    honors: isHonors ? "🌟 DISTINCTION HONORS" : "STANDARD PASS",
+    issuedBy: "Coder & AccoTax (Sukanta Hui)"
   };
-})();
+}
 
-LabController.register("INIT_TOPIC", (payload) => {
-  return "Lab initialized with payload: " + JSON.stringify(payload);
-});
+const report = evaluateStudentCertification("Swadeep", 96, "Barrackpore Lab");
+console.log("Generated Certified Report:");
+console.table([report]);
 
-const dispatchResult = LabController.dispatch("INIT_TOPIC", {
-  topic: "JavaScript Lexical Grammar, Comments, Whitespace & ASI (Automatic Semicolon Insertion)",
-  student: "Debangshu",
-  mentor: "Sukanta Hui"
-});
-
-console.log("Dispatch Output:", dispatchResult);
-console.log("Total Registered Handlers:", LabController.getRegistrySize());
+// ─── 5. GRAMMAR TOKENIZER & RESERVED KEYWORDS MATRIX ──────────────
 console.log("");
-console.log("=== JavaScript Lab Execution Completed Successfully ===");
+console.log("5. ECMAScript Reserved Keyword Classification Matrix:");
+
+const keywordRegistry = [
+  { keyword: "let, const, var", category: "Variable Declarations", contextAllowed: "Strict & Sloppy" },
+  { keyword: "await, yield", category: "Async / Generator Flow", contextAllowed: "Contextual Keywords" },
+  { keyword: "implements, interface, package", category: "Strict Mode Future Reserved", contextAllowed: "Disallowed in Strict Mode" },
+  { keyword: "class, extends, super", category: "Object-Oriented Syntax", contextAllowed: "Strict & Sloppy" }
+];
+
+console.table(keywordRegistry);
+
+console.log("");
+console.log("✓ All 5 Topic 7 practical examples executed successfully.");

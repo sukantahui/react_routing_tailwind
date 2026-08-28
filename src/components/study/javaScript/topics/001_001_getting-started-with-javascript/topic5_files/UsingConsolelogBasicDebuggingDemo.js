@@ -1,116 +1,100 @@
-// ============================================================================
-// CODER & ACCOTAX - JAVASCRIPT MASTERCLASS
-// Module: 001_001_getting-started-with-javascript
-// Topic: Using console.log & Basic Debugging
-// Classroom Lab: Naihati Computer Center
-// Mentors: Sukanta Hui | Students: Tuhina, Abhronila
-// ============================================================================
+/**
+ * Topic 5 Demo: Using console.log & Basic Debugging
+ * Module: 001_001_getting-started-with-javascript
+ * Educator: Sukanta Hui | Coder & AccoTax
+ */
 
-console.log("=== [1] FUNDAMENTAL CONCEPT & INITIALIZATION ===");
-console.log("Demonstrating foundational mechanics for: Using console.log & Basic Debugging");
+console.log("==================================================");
+console.log("TOPIC 5: CONSOLE API & ADVANCED DEBUGGING");
+console.log("==================================================");
+
+// ─── 1. COMPLETE CONSOLE API METHODS SHOWCASE ────────────────────
 console.log("");
+console.log("1. Full Console API Method Suite:");
 
-// Example 1: Basic declaration and setup
-const courseConfig = {
-  subject: "JavaScript Master Pro",
-  module: "Getting Started with JavaScript",
-  center: "Naihati Computer Center",
-  student: "Tuhina",
-  score: 95.5,
-  isActive: true
-};
+console.log("Standard output: Student Swadeep enrolled in JS-PRO-101");
+console.info("Informational message: V8 Ignition interpreter initialized");
+console.warn("Warning alert: Local storage quota nearing 80% threshold");
+console.error("Error notification: Simulated network timeout (Code 504)");
 
-console.log("Configured student profile:");
-console.log(courseConfig);
-console.log("Student Name:", courseConfig.student);
-console.log("Status Active:", courseConfig.isActive);
+// ─── 2. TABULAR PROFILING WITH CONSOLE.TABLE ─────────────────────
 console.log("");
+console.log("2. Tabular Data Visualization (console.table):");
 
-console.log("=== [2] CORE DATA PROCESSING & FUNCTION PIPELINE ===");
-// Example 2: Practical data manipulation
-function processTopicData(items) {
-  return items.map((item, index) => {
-    return {
-      index: index + 1,
-      name: item,
-      processedAt: new Date().toISOString(),
-      verifiedBy: "Abhronila"
-    };
-  });
-}
+const labStudents = [
+  { roll: 101, name: "Swadeep", center: "Barrackpore", grade: "A+", points: 980 },
+  { roll: 102, name: "Tuhina", center: "Naihati", grade: "A+", points: 995 },
+  { roll: 103, name: "Abhronila", center: "Ichapur", grade: "A", points: 940 },
+  { roll: 104, name: "Debangshu", center: "Shyamnagar", grade: "A+", points: 990 }
+];
 
-const sampleList = ["Foundational Syntax", "Execution Mechanics", "Optimization Rules"];
-const processedResults = processTopicData(sampleList);
-console.log("Processed pipeline data:");
-console.table(processedResults);
+console.table(labStudents, ["roll", "name", "center", "grade"]);
+
+// ─── 3. LOGGING ACCURACY: LIVE REFERENCE VS SERIALIZED SNAPSHOT ──
 console.log("");
+console.log("3. The Live Object Mutation Trap vs Serialized Snapshot:");
 
-console.log("=== [3] ALGORITHMIC LOGIC & CONTROL FLOW ===");
-// Example 3: Branching and transformation logic
-function evaluateProficiency(score) {
-  if (score >= 90) return { grade: "Distinction", level: "Ultra Expert" };
-  if (score >= 75) return { grade: "First Class", level: "Advanced" };
-  if (score >= 50) return { grade: "Pass", level: "Intermediate" };
-  return { grade: "Needs Review", level: "Beginner" };
-}
+const stateRecord = { user: "Tuhina", status: "PENDING", tasksCompleted: 0 };
 
-const evaluation = evaluateProficiency(courseConfig.score);
-console.log("Evaluation Result for " + courseConfig.student + ":", evaluation);
+// In browser DevTools, logging live object may show mutated state when expanded!
+console.log("Direct Live Object Reference:", stateRecord);
+
+// Senior Pattern: Clone or serialize to freeze exact snapshot at log time
+console.log("Frozen Snapshot at Log Time:", JSON.parse(JSON.stringify(stateRecord)));
+
+// Mutate object afterwards
+stateRecord.status = "VERIFIED_COMPLETED";
+stateRecord.tasksCompleted = 5;
+
+console.log("State after subsequent mutation:", stateRecord);
+
+// ─── 4. PERFORMANCE BENCHMARKING (CONSOLE.TIME / TIMEEND) ────────
 console.log("");
+console.log("4. Algorithmic Execution Benchmarking (console.time):");
 
-console.log("=== [4] ERROR RESILIENCE & SAFE GUARDS ===");
-// Example 4: Defensive programming and validation
-function safeRunner(action, fallbackValue) {
-  try {
-    return action();
-  } catch (err) {
-    console.warn("Recovered from operational failure:", err.message);
-    return fallbackValue;
-  }
-}
-
-const safeOutcome = safeRunner(() => {
-  const data = JSON.parse('{"status": "success", "metric": 99.9}');
-  return data.status + " -> Metric: " + data.metric;
-}, "default_fallback");
-
-console.log("Safe Execution Output:", safeOutcome);
-console.log("");
-
-console.log("=== [5] SENIOR ARCHITECTURE PATTERN & BEST PRACTICE ===");
-// Example 5: Modular encapsulation & clean API design
-const LabController = (function() {
-  const registry = new Map();
+function benchmarkArrayOperations(count) {
+  console.time("Array Creation & Map Benchmark");
   
-  return {
-    register(id, handler) {
-      registry.set(id, handler);
-      console.log("Registered handler for key: [" + id + "]");
-    },
-    dispatch(id, payload) {
-      if (!registry.has(id)) {
-        console.error("No handler registered for: " + id);
-        return null;
-      }
-      return registry.get(id)(payload);
-    },
-    getRegistrySize() {
-      return registry.size;
-    }
-  };
-})();
+  const arr = new Array(count);
+  for (let i = 0; i < count; i++) {
+    arr[i] = i * 2;
+  }
+  const filtered = arr.filter(x => x % 4 === 0);
+  
+  console.timeEnd("Array Creation & Map Benchmark");
+  return filtered.length;
+}
 
-LabController.register("INIT_TOPIC", (payload) => {
-  return "Lab initialized with payload: " + JSON.stringify(payload);
-});
+const matchingCount = benchmarkArrayOperations(100000);
+console.log("Matching items count:", matchingCount);
 
-const dispatchResult = LabController.dispatch("INIT_TOPIC", {
-  topic: "Using console.log & Basic Debugging",
-  student: "Tuhina",
-  mentor: "Sukanta Hui"
-});
-
-console.log("Dispatch Output:", dispatchResult);
-console.log("Total Registered Handlers:", LabController.getRegistrySize());
+// ─── 5. STRUCTURED LOG GROUPING & CALL STACK TRACING ─────────────
 console.log("");
-console.log("=== JavaScript Lab Execution Completed Successfully ===");
+console.log("5. Hierarchical Log Groups & Call Stack Tracing:");
+
+function executeNestedRoutineA() {
+  executeNestedRoutineB();
+}
+
+function executeNestedRoutineB() {
+  executeNestedRoutineC();
+}
+
+function executeNestedRoutineC() {
+  console.log("Inspecting Call Stack via console.trace():");
+  console.trace("Execution Trace from executeNestedRoutineC");
+}
+
+console.group("🚀 Outer Initialization Group");
+console.log("Step 1: Parsing configurations");
+console.group("🔧 Sub-routine: Database Bridge");
+console.log("Step 1.1: Establishing socket");
+console.log("Step 1.2: Socket verified");
+console.groupEnd();
+console.log("Step 2: Startup complete");
+console.groupEnd();
+
+executeNestedRoutineA();
+
+console.log("");
+console.log("✓ All 5 Topic 5 practical examples executed successfully.");

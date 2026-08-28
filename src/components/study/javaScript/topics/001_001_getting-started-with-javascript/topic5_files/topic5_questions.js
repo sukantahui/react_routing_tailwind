@@ -1,227 +1,203 @@
 const questions = [
   {
-    "question": "What is the primary role of Using console.log & Basic Debugging in modern JavaScript development?",
-    "shortAnswer": "Using console.log & Basic Debugging provides the essential runtime rules and architectural patterns required to build predictable, performant, and maintainable JavaScript applications.",
-    "explanation": "In modern ECMAScript standards (ES6+), mastering Using console.log & Basic Debugging allows engineers to avoid runtime pitfalls, leverage engine optimizations in V8, and ensure full cross-browser compatibility.",
-    "hint": "Focus on how Using console.log & Basic Debugging operates during compilation and runtime execution.",
-    "level": "basic",
-    "codeExample": "console.log(\"Core principle of Using console.log & Basic Debugging\");\nconst isVerified = true;\nconsole.log({ isVerified });"
+    question: "What is the primary purpose of console.log() in JavaScript?",
+    shortAnswer: "To output variables, objects, and diagnostic messages to the host environment console for debugging.",
+    explanation: "console.log prints evaluated expressions to browser DevTools or Node.js terminal, allowing developers to inspect runtime state and trace code execution.",
+    hint: "Standard output function for diagnostic logging.",
+    level: "basic",
+    codeExample: "const student = 'Swadeep';\nconsole.log('Enrolled student:', student);"
   },
   {
-    "question": "How does the JavaScript engine interpret and execute Using console.log & Basic Debugging?",
-    "shortAnswer": "The V8 engine parses code into an Abstract Syntax Tree (AST), generates bytecode via Ignition, and uses TurboFan for JIT optimization during execution.",
-    "explanation": "Understanding this lifecycle ensures that variables, function scopes, and memory allocations are handled cleanly without triggering de-optimizations.",
-    "hint": "Think: Parser → Ignition Bytecode → Feedback Vector → TurboFan Machine Code.",
-    "level": "intermediate",
-    "codeExample": "function traceExecution() {\n  console.log(\"Tracing execution pipeline for Using console.log & Basic Debugging\");\n}\ntraceExecution();"
+    question: "How does console.table() improve structured data inspection?",
+    shortAnswer: "It renders arrays of objects or 2D arrays as clean, sortable tabular grids in DevTools.",
+    explanation: "Instead of clicking nested object trees, console.table formats data with row indices and column headers, making complex collections instant to read.",
+    hint: "Tabular grid formatting for arrays and objects.",
+    level: "basic",
+    codeExample: "console.table([{ name: 'Swadeep', roll: 101 }, { name: 'Tuhina', roll: 102 }]);"
   },
   {
-    "question": "What is the most common beginner mistake when dealing with Using console.log & Basic Debugging?",
-    "shortAnswer": "Failing to account for implicit type coercion, variable hoisting scopes (temporal dead zone), or unhandled edge cases in asynchronous execution.",
-    "explanation": "Beginners often assume immediate synchronous execution or overlook strict equality checks, leading to subtle logic bugs.",
-    "hint": "Always use strict equality (===) and declare variables with const/let.",
-    "level": "advanced",
-    "codeExample": "// Avoid implicit coercion:\nconst val = \"42\";\nconsole.log(Number(val) === 42); // true (explicit and safe)"
+    question: "What is the 'Live Object Mutation Trap' in browser DevTools logging?",
+    shortAnswer: "Logging an object outputs a reference pointer; expanding it later shows mutated values rather than values at log time.",
+    explanation: "Because console.log does not create an immutable snapshot, expanding the logged object in DevTools reads live memory. Fix: console.log(JSON.parse(JSON.stringify(obj))).",
+    hint: "Objects are logged by reference, showing future mutations when expanded.",
+    level: "intermediate",
+    codeExample: "const user = { name: 'Swadeep' };\nconsole.log('Snapshot:', JSON.parse(JSON.stringify(user)));\nuser.name = 'Tuhina';"
   },
   {
-    "question": "How do senior developers optimize memory and CPU cycles when applying Using console.log & Basic Debugging?",
-    "shortAnswer": "By avoiding accidental global closures, reusing object shapes for inline caching (IC), and keeping functional pipelines immutable without unnecessary allocations.",
-    "explanation": "V8 optimizes functions when object property shapes stay monomorphic. Creating dynamic, changing shapes triggers megamorphic de-optimizations.",
-    "hint": "Keep object properties initialized in the exact same order in constructors.",
-    "level": "expert",
-    "codeExample": "class OptimizedItem {\n  constructor(id, label) {\n    this.id = id;\n    this.label = label;\n  }\n}"
+    question: "How do console.time() and console.timeEnd() benchmark execution duration?",
+    shortAnswer: "They calculate and log the exact elapsed time in milliseconds between matching label calls.",
+    explanation: "console.time('label') starts a high-precision timer; console.timeEnd('label') stops the timer and prints the elapsed milliseconds.",
+    hint: "Precision performance benchmarking with matching label strings.",
+    level: "intermediate",
+    codeExample: "console.time('Loop');\nfor(let i=0; i<1e6; i++) {}\nconsole.timeEnd('Loop'); // Loop: 1.8ms"
   },
   {
-    "question": "What is the difference between synchronous and asynchronous behavior in the context of Using console.log & Basic Debugging?",
-    "shortAnswer": "Synchronous code blocks the single-threaded Call Stack, while asynchronous operations delegate tasks to Web APIs / libuv and resolve via the Microtask/Macrotask queues.",
-    "explanation": "Promises and queueMicrotask() execute immediately after current synchronous execution completes, before timers or UI rendering.",
-    "hint": "Microtasks (Promises) always take precedence over Macrotasks (setTimeout).",
-    "level": "basic",
-    "codeExample": "console.log(\"1. Sync\");\nPromise.resolve().then(() => console.log(\"2. Microtask\"));\nsetTimeout(() => console.log(\"3. Macrotask\"), 0);"
+    question: "What is the purpose of the 'debugger' statement in JavaScript?",
+    shortAnswer: "A programmatic breakpoint that pauses execution and opens the Sources tab if DevTools is active.",
+    explanation: "When the JavaScript engine hits 'debugger' with DevTools open, execution halts immediately, allowing line-by-line stepping and scope variable inspection.",
+    hint: "Programmatic breakpoint in code.",
+    level: "basic",
+    codeExample: "function calculate(val) {\n  // debugger; // Execution pauses here\n  return val * 10;\n}"
   },
   {
-    "question": "Question 6: How does Using console.log & Basic Debugging handle edge case scenario #6?",
-    "shortAnswer": "Under scenario #6, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #6 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "intermediate",
-    "codeExample": "// Test case for Question 6\nfunction testCase6(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 6:\", sanitized);\n  return sanitized;\n}\ntestCase6();"
+    question: "How does console.assert() work and when does it log?",
+    shortAnswer: "It writes an error message to the console ONLY if the first argument evaluates to false.",
+    explanation: "If the assertion condition is true, nothing happens. If false, an error message is printed with a stack trace, without halting execution.",
+    hint: "Logs an error only when the condition is false.",
+    level: "intermediate",
+    codeExample: "const age = 12;\nconsole.assert(age >= 18, 'User must be an adult!'); // Logs error"
   },
   {
-    "question": "Question 7: How does Using console.log & Basic Debugging handle edge case scenario #7?",
-    "shortAnswer": "Under scenario #7, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #7 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "advanced",
-    "codeExample": "// Test case for Question 7\nfunction testCase7(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 7:\", sanitized);\n  return sanitized;\n}\ntestCase7();"
+    question: "What is console.trace() used for?",
+    shortAnswer: "It prints an interactive stack trace showing the exact function call hierarchy leading to that point.",
+    explanation: "Essential for debugging deep nested functions or finding where an unexpected function call originated in large codebases.",
+    hint: "Outputs the complete Call Stack trace.",
+    level: "intermediate",
+    codeExample: "function a() { b(); }\nfunction b() { console.trace('Where was I called?'); }\na();"
   },
   {
-    "question": "Question 8: How does Using console.log & Basic Debugging handle edge case scenario #8?",
-    "shortAnswer": "Under scenario #8, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #8 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "expert",
-    "codeExample": "// Test case for Question 8\nfunction testCase8(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 8:\", sanitized);\n  return sanitized;\n}\ntestCase8();"
+    question: "How do console.group() and console.groupEnd() organize console outputs?",
+    shortAnswer: "They group related log statements inside collapsible, indented hierarchy blocks in DevTools.",
+    explanation: "Using console.group('Title') and console.groupEnd() keeps complex multi-step routines cleanly organized and readable in the console.",
+    hint: "Collapsible indented log groups.",
+    level: "basic",
+    codeExample: "console.group('Auth Flow');\nconsole.log('Validating user');\nconsole.log('Generating token');\nconsole.groupEnd();"
   },
   {
-    "question": "Question 9: How does Using console.log & Basic Debugging handle edge case scenario #9?",
-    "shortAnswer": "Under scenario #9, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #9 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "basic",
-    "codeExample": "// Test case for Question 9\nfunction testCase9(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 9:\", sanitized);\n  return sanitized;\n}\ntestCase9();"
+    question: "How does the %c format specifier style console messages?",
+    shortAnswer: "It applies CSS rules passed in subsequent arguments to format text color, background, and fonts.",
+    explanation: "Developers use %c to print branded badges, distinct warnings, and colorful developer logs in DevTools.",
+    hint: "%c applies CSS styling strings to console output.",
+    level: "intermediate",
+    codeExample: "console.log('%c SUCCESS ', 'background: #10b981; color: white; font-weight: bold;');"
   },
   {
-    "question": "Question 10: How does Using console.log & Basic Debugging handle edge case scenario #10?",
-    "shortAnswer": "Under scenario #10, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #10 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "intermediate",
-    "codeExample": "// Test case for Question 10\nfunction testCase10(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 10:\", sanitized);\n  return sanitized;\n}\ntestCase10();"
+    question: "What is console.count() and console.countReset()?",
+    shortAnswer: "Maintains an automatic counter tracking how many times it was called with a specific label.",
+    explanation: "Useful for tracking component re-renders, loop iterations, or event listener firing counts without declaring manual counter variables.",
+    hint: "Automatic call counter for a given label.",
+    level: "basic",
+    codeExample: "console.count('Render'); // Render: 1\nconsole.count('Render'); // Render: 2\nconsole.countReset('Render');"
   },
   {
-    "question": "Question 11: How does Using console.log & Basic Debugging handle edge case scenario #11?",
-    "shortAnswer": "Under scenario #11, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #11 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "advanced",
-    "codeExample": "// Test case for Question 11\nfunction testCase11(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 11:\", sanitized);\n  return sanitized;\n}\ntestCase11();"
+    question: "What is the difference between console.dir() and console.log() on DOM elements?",
+    shortAnswer: "console.log prints the HTML DOM tree representation; console.dir prints an interactive JSON-like property list.",
+    explanation: "console.dir(element) allows inspecting all JavaScript object properties, methods, dataset attributes, and prototype links of a DOM node.",
+    hint: "console.log = HTML markup; console.dir = JavaScript object properties.",
+    level: "intermediate",
+    codeExample: "const btn = document.createElement('button');\nconsole.dir(btn); // Shows all JS properties"
   },
   {
-    "question": "Question 12: How does Using console.log & Basic Debugging handle edge case scenario #12?",
-    "shortAnswer": "Under scenario #12, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #12 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "expert",
-    "codeExample": "// Test case for Question 12\nfunction testCase12(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 12:\", sanitized);\n  return sanitized;\n}\ntestCase12();"
+    question: "Why should excessive console.log calls be stripped from production bundles?",
+    shortAnswer: "They degrade runtime performance and can cause memory leaks by retaining object references.",
+    explanation: "Logging objects in hot loops creates garbage collection pressure. Build tools like Vite use plugins or terser (drop_console: true) to strip them.",
+    hint: "Prevents memory leaks and optimizes production runtime performance.",
+    level: "advanced",
+    codeExample: "// Vite build config: esbuild: { drop: ['console', 'debugger'] }"
   },
   {
-    "question": "Question 13: How does Using console.log & Basic Debugging handle edge case scenario #13?",
-    "shortAnswer": "Under scenario #13, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #13 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "basic",
-    "codeExample": "// Test case for Question 13\nfunction testCase13(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 13:\", sanitized);\n  return sanitized;\n}\ntestCase13();"
+    question: "What are Conditional Breakpoints in Chrome DevTools?",
+    shortAnswer: "Breakpoints that only pause execution when a specified JavaScript boolean expression evaluates to true.",
+    explanation: "Right-clicking a line in Sources tab and adding a condition (e.g. user.id === 42) avoids manually stepping through thousands of loop iterations.",
+    hint: "Pauses execution only when condition === true.",
+    level: "advanced",
+    codeExample: "// Condition: item.price > 1000"
   },
   {
-    "question": "Question 14: How does Using console.log & Basic Debugging handle edge case scenario #14?",
-    "shortAnswer": "Under scenario #14, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #14 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "intermediate",
-    "codeExample": "// Test case for Question 14\nfunction testCase14(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 14:\", sanitized);\n  return sanitized;\n}\ntestCase14();"
+    question: "What is a DOM Mutation Breakpoint in DevTools?",
+    shortAnswer: "A breakpoint that pauses JavaScript execution the moment a DOM element is modified, removed, or has its attributes changed.",
+    explanation: "Right-click any DOM node in Elements tab -> 'Break on' -> Subtree modifications, Attribute modifications, or Node removal.",
+    hint: "Pauses JS when a specific DOM node is mutated.",
+    level: "advanced",
+    codeExample: "// Pauses execution exactly on the line of JS modifying the element"
   },
   {
-    "question": "Question 15: How does Using console.log & Basic Debugging handle edge case scenario #15?",
-    "shortAnswer": "Under scenario #15, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #15 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "advanced",
-    "codeExample": "// Test case for Question 15\nfunction testCase15(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 15:\", sanitized);\n  return sanitized;\n}\ntestCase15();"
+    question: "What is an XHR / Fetch Breakpoint in DevTools?",
+    shortAnswer: "A breakpoint that pauses execution whenever a network request matching a specific URL pattern is sent.",
+    explanation: "Configured in Sources tab under 'XHR/fetch Breakpoints', it lets developers inspect code right before an API request leaves the browser.",
+    hint: "Pauses execution right before a matching fetch() URL is dispatched.",
+    level: "advanced",
+    codeExample: "// Add URL filter: '/api/v1/auth'"
   },
   {
-    "question": "Question 16: How does Using console.log & Basic Debugging handle edge case scenario #16?",
-    "shortAnswer": "Under scenario #16, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #16 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "expert",
-    "codeExample": "// Test case for Question 16\nfunction testCase16(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 16:\", sanitized);\n  return sanitized;\n}\ntestCase16();"
+    question: "What is the Call Stack panel in DevTools debugger?",
+    shortAnswer: "A pane listing all active execution frames in LIFO order showing how the engine reached the current breakpoint.",
+    explanation: "Clicking any frame in the Call Stack pane navigates back in time, letting you inspect local scope variables at that exact parent call site.",
+    hint: "LIFO list of active function execution frames.",
+    level: "intermediate",
+    codeExample: "// Frame 1: handleClick -> Frame 2: processForm -> Frame 3: validate"
   },
   {
-    "question": "Question 17: How does Using console.log & Basic Debugging handle edge case scenario #17?",
-    "shortAnswer": "Under scenario #17, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #17 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "basic",
-    "codeExample": "// Test case for Question 17\nfunction testCase17(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 17:\", sanitized);\n  return sanitized;\n}\ntestCase17();"
+    question: "What is the Scope pane in DevTools debugger?",
+    shortAnswer: "A panel displaying all variables accessible in the current Local, Closure, Script, and Global scopes.",
+    explanation: "While paused at a breakpoint, the Scope pane displays live values of all variables in scope, allowing on-the-fly value modifications.",
+    hint: "Inspects Local, Closure, Script, and Global variables.",
+    level: "intermediate",
+    codeExample: "// Inspects variables trapped in closures and local stack frames"
   },
   {
-    "question": "Question 18: How does Using console.log & Basic Debugging handle edge case scenario #18?",
-    "shortAnswer": "Under scenario #18, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #18 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "intermediate",
-    "codeExample": "// Test case for Question 18\nfunction testCase18(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 18:\", sanitized);\n  return sanitized;\n}\ntestCase18();"
+    question: "What is the Watch pane in DevTools debugger?",
+    shortAnswer: "A panel where developers add custom JavaScript expressions to evaluate automatically at every breakpoint step.",
+    explanation: "Adding expressions like state.user.name or items.length continuously evaluates their values as you step through code execution.",
+    hint: "Continuously evaluates custom expressions during debugging.",
+    level: "basic",
+    codeExample: "// Watch: user !== null"
   },
   {
-    "question": "Question 19: How does Using console.log & Basic Debugging handle edge case scenario #19?",
-    "shortAnswer": "Under scenario #19, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #19 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "advanced",
-    "codeExample": "// Test case for Question 19\nfunction testCase19(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 19:\", sanitized);\n  return sanitized;\n}\ntestCase19();"
+    question: "What is the difference between 'Step Over' (F10) and 'Step Into' (F11) in DevTools?",
+    shortAnswer: "Step Over executes the current line without entering function calls; Step Into steps inside the called function body.",
+    explanation: "Use Step Over (F10) for lines with external libraries; use Step Into (F11) when you need to inspect the inner logic of your custom function.",
+    hint: "F10 = Skip entering function; F11 = Enter inside function.",
+    level: "basic",
+    codeExample: "// F10 moves to next line; F11 dives into the function"
   },
   {
-    "question": "Question 20: How does Using console.log & Basic Debugging handle edge case scenario #20?",
-    "shortAnswer": "Under scenario #20, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #20 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "expert",
-    "codeExample": "// Test case for Question 20\nfunction testCase20(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 20:\", sanitized);\n  return sanitized;\n}\ntestCase20();"
+    question: "What is 'Step Out' (Shift + F11) in DevTools debugger?",
+    shortAnswer: "Executes the remainder of the current function and pauses immediately in the parent calling frame.",
+    explanation: "Useful when you have stepped into a large utility function and want to return back to your main routine immediately.",
+    hint: "Shift + F11 exits the current function back to caller.",
+    level: "basic",
+    codeExample: "// Finishes current function and returns to parent caller"
   },
   {
-    "question": "Question 21: How does Using console.log & Basic Debugging handle edge case scenario #21?",
-    "shortAnswer": "Under scenario #21, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #21 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "basic",
-    "codeExample": "// Test case for Question 21\nfunction testCase21(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 21:\", sanitized);\n  return sanitized;\n}\ntestCase21();"
+    question: "What is the Memory tab in DevTools used for?",
+    shortAnswer: "Taking Heap Snapshots and recording allocation timelines to diagnose and fix memory leaks.",
+    explanation: "Developers compare two heap snapshots before and after an action to identify retained objects (detached DOM nodes, uncleared closures) that cause memory growth.",
+    hint: "Heap snapshots and memory leak profiling.",
+    level: "expert",
+    codeExample: "// Compare Snapshot 1 vs Snapshot 2 to find leaked objects"
   },
   {
-    "question": "Question 22: How does Using console.log & Basic Debugging handle edge case scenario #22?",
-    "shortAnswer": "Under scenario #22, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #22 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "intermediate",
-    "codeExample": "// Test case for Question 22\nfunction testCase22(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 22:\", sanitized);\n  return sanitized;\n}\ntestCase22();"
+    question: "What is the Performance tab in DevTools used for?",
+    shortAnswer: "Recording CPU activity, frame rates (FPS), layout calculations, and JavaScript execution bottlenecks.",
+    explanation: "Identifies long tasks (tasks taking > 50ms that block the main thread), layout thrashing, and slow rendering functions.",
+    hint: "Profiles CPU flame charts, frame drops, and Long Tasks.",
+    level: "expert",
+    codeExample: "// Highlights Long Tasks (red flag on flame chart)"
   },
   {
-    "question": "Question 23: How does Using console.log & Basic Debugging handle edge case scenario #23?",
-    "shortAnswer": "Under scenario #23, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #23 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "advanced",
-    "codeExample": "// Test case for Question 23\nfunction testCase23(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 23:\", sanitized);\n  return sanitized;\n}\ntestCase23();"
+    question: "What is console.clear() and what keyboard shortcut triggers it?",
+    shortAnswer: "Clears all console messages; shortcut is Ctrl + L on Windows or Cmd + K on macOS.",
+    explanation: "Clearing the console removes accumulated clutter and logs an empty slate message: 'Console was cleared'.",
+    hint: "Ctrl + L or Cmd + K clears the console.",
+    level: "basic",
+    codeExample: "console.clear();"
   },
   {
-    "question": "Question 24: How does Using console.log & Basic Debugging handle edge case scenario #24?",
-    "shortAnswer": "Under scenario #24, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #24 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "expert",
-    "codeExample": "// Test case for Question 24\nfunction testCase24(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 24:\", sanitized);\n  return sanitized;\n}\ntestCase24();"
+    question: "What is console.info() vs console.debug()?",
+    shortAnswer: "console.info prints informational messages; console.debug prints verbose logs visible only when 'Verbose' filter is enabled.",
+    explanation: "By default, browsers hide console.debug() messages unless the user changes the DevTools log level dropdown from 'Info' to 'Verbose'.",
+    hint: "console.debug requires 'Verbose' filter in DevTools log levels.",
+    level: "intermediate",
+    codeExample: "console.debug('Low-level V8 bytecode trace');"
   },
   {
-    "question": "Question 25: How does Using console.log & Basic Debugging handle edge case scenario #25?",
-    "shortAnswer": "Under scenario #25, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #25 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "basic",
-    "codeExample": "// Test case for Question 25\nfunction testCase25(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 25:\", sanitized);\n  return sanitized;\n}\ntestCase25();"
-  },
-  {
-    "question": "Question 26: How does Using console.log & Basic Debugging handle edge case scenario #26?",
-    "shortAnswer": "Under scenario #26, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #26 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "intermediate",
-    "codeExample": "// Test case for Question 26\nfunction testCase26(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 26:\", sanitized);\n  return sanitized;\n}\ntestCase26();"
-  },
-  {
-    "question": "Question 27: How does Using console.log & Basic Debugging handle edge case scenario #27?",
-    "shortAnswer": "Under scenario #27, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #27 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "advanced",
-    "codeExample": "// Test case for Question 27\nfunction testCase27(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 27:\", sanitized);\n  return sanitized;\n}\ntestCase27();"
-  },
-  {
-    "question": "Question 28: How does Using console.log & Basic Debugging handle edge case scenario #28?",
-    "shortAnswer": "Under scenario #28, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Using console.log & Basic Debugging in edge condition #28 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "expert",
-    "codeExample": "// Test case for Question 28\nfunction testCase28(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 28:\", sanitized);\n  return sanitized;\n}\ntestCase28();"
+    question: "How do you log multi-argument expressions with console.log()?",
+    shortAnswer: "Pass multiple arguments separated by commas; the console joins them with spaces automatically.",
+    explanation: "Passing multiple arguments avoids string concatenation bugs and allows objects to remain interactive references in DevTools.",
+    hint: "console.log('User:', user, 'Status:', status);",
+    level: "basic",
+    codeExample: "console.log('Student:', 'Swadeep', 'Roll:', 101, { active: true });"
   }
 ];
 

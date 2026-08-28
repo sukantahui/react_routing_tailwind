@@ -706,12 +706,12 @@
       ]
     },
     {
-      "segmentId": "intermediate",
-      "title": "Segment 2 – Practical JavaScript & DOM Interactivity (Intermediate)",
+      "segmentId": "functions-mastery",
+      "title": "Segment 2 – Functions, Scopes & Functional Programming Mastery (Intermediate)",
       "level": "Intermediate",
-      "summary": "Master modular functions, scope closures, array transformations, object-oriented concepts, dynamic DOM manipulation, and interactive user events.",
-      "estimatedHours": 50,
-      "badge": "Full-Stack Interactivity Specialist",
+      "summary": "Deep dive into JavaScript first-class functions: execution contexts, lexical scoping, closures, higher-order functions, currying, recursion, trampolines, and functional programming paradigms.",
+      "estimatedHours": 28,
+      "badge": "Function Master & Scope Architect",
       "segmentColor": "sky",
       "modules": [
         {
@@ -719,421 +719,198 @@
           "slug": "002_001_functions-basics",
           "title": "Functions, Scopes & Reusable Logic",
           "level": "Intermediate",
-          "estimatedHours": 6,
-          "tags": [
-            "functions",
-            "arrow-functions",
-            "parameters",
-            "return-values",
-            "scope",
-            "closures-intro",
-            "pure-functions"
-          ],
-          "topics": [
-            "Function Declarations vs Function Expressions",
-            "Parameters, Arguments & Default Values",
-            "Return Values & Early Returns",
-            "Function Scope: Local vs Global",
-            "Arrow Functions",
-            "Pure Functions vs Side Effects",
-            "Callback functions (introductory concept)",
-            "Functions, Scopes & Reusable Logic – Practical Projects & Question Lab",
-            "Function.prototype Methods: call(), apply(), and bind() with Custom Contexts",
-            "IIFE (Immediately Invoked Function Expressions) & Closure Scopes",
-            "Pure Functions, Side Effects & Immutability Paradigms",
-            "Function Currying, Partial Application & Function Composition",
-            "new.target Meta-Property & Constructor Guards"
-          ],
-          "learningOutcomes": [
-            "Author clean, reusable function declarations, expressions, and concise ES6 arrow functions",
-            "Understand variable scope resolution, lexical shadowing, and parameter default values",
-            "Pass callback functions as first-class citizens to build flexible, composable code"
-          ],
-          "prerequisites": [
-            "001_005_loops-and-iteration"
-          ],
-          "difficulty": "Medium",
-          "difficultyIndex": 4,
-          "summary": "Master function declarations, arrow functions, parameter handling, return values, variable scope, and callbacks.",
-          "miniProjects": [
-            "Universal Currency & Unit Conversion Suite: Build a modular library of conversion functions with customizable rate callbacks"
-          ],
-          "exercises": {
-            "mcq": 20,
-            "coding": 12,
-            "projects": 1
-          },
-          "assessment": {
-            "type": "Quiz + Functional Coding Tasks",
-            "passScore": 70
-          },
-          "useCases": [
-            "Encapsulating business calculations into reusable pure functions",
-            "Creating event handler and data processing callbacks"
-          ],
-          "careerSkills": [
-            "Writing modular, DRY (Don't Repeat Yourself) clean code",
-            "Understanding functional programming fundamentals in JavaScript"
-          ],
-          "commonMistakes": [
-            "Assuming arrow functions and regular functions bind the `this` keyword identically",
-            "Forgetting explicit `return` statements when using curly braces in arrow functions"
-          ],
-          "references": [
-            "MDN Web Docs – Functions",
-            "javascript.info – Functions and Arrow Functions"
-          ],
-          "teachingTips": [
-            "Demonstrate how functions are first-class values in JS by storing functions in variables and passing them into other functions.",
-            "Compare verbose multi-line function declarations with clean one-liner arrow functions."
-          ],
-          "preReading": [
-            "Mathematical function mapping (Input -> Process -> Output)"
-          ],
-          "previousModule": "001_005_loops-and-iteration",
-          "nextModule": "002_002_arrays-and-methods",
+          "estimatedHours": 14,
           "badge": "Function Engineer Badge",
-          "hiddenGems": [
-            {
-              "title": "new.target Meta-Property for Constructor Guarding",
-              "description": "Detect whether a function was invoked with the `new` operator or as a regular function call.",
-              "codeSnippet": "function User(name) {\n  if (!new.target) return new User(name); // Auto-instantiates if new is omitted\n  this.name = name;\n}"
-            },
-            {
-              "title": "Function.length vs Arguments Length & Rest Parameters",
-              "description": "`fn.length` indicates the number of formal parameters defined before the first default parameter, whereas `arguments.length` is actual runtime args.",
-              "codeSnippet": "const calculate = (a, b, c = 0, ...rest) => {};\nconsole.log(calculate.length); // 2 (counts only a and b!)"
-            },
-            {
-              "title": "Immediate Parameter Destructuring with Default Object Fallback",
-              "description": "Safely destructure parameters while supporting zero-argument calls without throwing 'cannot destructure property of undefined'.",
-              "codeSnippet": "const createUser = ({ name = 'Guest', role = 'viewer' } = {}) => {\n  return { name, role };\n};\ncreateUser(); // Works cleanly without error!"
-            }
+          "summary": "Master function declarations, expressions, arrow functions, parameter handling, return values, variable scope, closures, and higher-order functions.",
+          "topics": [
+            "Function Declarations vs Function Expressions: Hoisting & Syntax Invariants",
+            "Parameters, Arguments Object, Default Values & Rest Parameters (...args)",
+            "Return Values, Early Returns & Guard Clauses in Production Logic",
+            "Lexical Scope, Function Scope & Block Scope Chains",
+            "Arrow Functions: Syntax, Lexical this Binding & Implicit Returns",
+            "Pure Functions, Side Effects & Immutability Paradigms",
+            "First-Class Functions, Callbacks & Higher-Order Functions (HOFs)",
+            "IIFE (Immediately Invoked Function Expressions) & Private Scope Encapsulation",
+            "Function.prototype Methods: call(), apply(), and bind() with Custom Contexts",
+            "Closures in Depth: Lexical Environment Records & Memory Lifecycle",
+            "Function Currying & Partial Application Patterns",
+            "Function Composition & Pipe Architecture (compose, pipe)",
+            "Recursion Fundamentals, Base Cases & Call Stack Overflow Invariants",
+            "Tail Call Optimization (TCO), Trampolines & Stack-Safe Recursion",
+            "new.target Meta-Property & Constructor Function Guards",
+            "Functions, Scopes & Reusable Logic – Practical Projects & Question Lab"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "segmentId": "arrays-mastery",
+      "title": "Segment 3 – Arrays, Iterables & High-Performance Data Processing (Intermediate to Advanced)",
+      "level": "Intermediate to Advanced",
+      "summary": "Master JavaScript Arrays, immutable transformations, aggregation pipelines with reduce, multi-dimensional matrices, TypedArrays, memory layout, and advanced object collection processing.",
+      "estimatedHours": 30,
+      "badge": "Data Processing & Array Pipeline Architect",
+      "segmentColor": "emerald",
+      "modules": [
         {
           "moduleId": "arrays-core",
           "slug": "002_002_arrays-and-methods",
           "title": "Arrays & Essential Array Methods",
           "level": "Intermediate",
-          "estimatedHours": 6,
-          "tags": [
-            "arrays",
-            "push-pop",
-            "splice-slice",
-            "map-filter-reduce",
-            "forEach",
-            "immutability"
-          ],
+          "estimatedHours": 15,
+          "badge": "Array Operations Master",
+          "summary": "Comprehensive mastery of Array manipulation, mutating vs non-mutating methods, searching, sorting comparator algorithms, iteration protocols, and modern immutable methods.",
           "topics": [
-            "Creating Arrays, Indexing & Length Property",
-            "Mutating Methods — push(), pop(), shift(), unshift(), splice()",
-            "Non-Mutating Methods — slice() & concat()",
-            "Searching in Arrays — indexOf(), includes(), find(), findIndex()",
-            "Iterating Arrays — for, for...of & forEach()",
-            "Higher-Order Methods — map(), filter(), flatMap()",
-            "Accumulating Values with reduce() & reduceRight()",
-            "Sorting Arrays — sort() Comparator Algorithms",
+            "Creating Arrays, Array Literals, Array.from(), Array.of() & Length Mechanics",
+            "Dense vs Sparse Arrays & Memory Allocation in the V8 Engine",
+            "Mutating Stack & Queue Methods — push(), pop(), shift(), unshift()",
+            "Powerful Slicing & Splicing — slice(), splice(), copyWithin(), fill()",
+            "Non-Mutating Array Combinations — concat(), join(), Spread Operator",
+            "Searching & Inspection — indexOf(), lastIndexOf(), includes(), find(), findIndex(), findLast(), findLastIndex()",
+            "Iterating Arrays — for, for...of, forEach(), entries(), keys(), values()",
+            "Transformation Pipelines — map(), flatMap(), flat() with Depth Control",
+            "Filtering & Multi-Condition Filtering with filter()",
+            "Accumulating Values with reduce() & reduceRight() (From Sums to Complex State Engines)",
+            "Sorting Arrays — sort() Algorithm, Comparator Math & Unicode Sort Traps",
+            "Modern Immutable Array Methods (toSorted, toReversed, toSpliced, with)",
+            "ArrayBuffer, TypedArrays (Uint8Array, Float64Array) & DataView Architecture",
+            "Multidimensional Arrays, Nested Matrices & Coordinate Systems",
             "Arrays & Essential Array Methods – 20 Practical Projects Part 1",
-            "Advanced Array Transformations – 20 Practical Projects Part 2",
-            "New Immutable Array Methods (toSorted, toReversed, toSpliced, with)",
-            "ArrayBuffer, TypedArrays (Uint8Array, Float64Array) & DataView Basics",
-            "Array Flattening & Mapping (flat, flatMap) with Depth Control",
-            "Array Searching Algorithms (findLast, findLastIndex, indexOf, includes)"
-          ],
-          "learningOutcomes": [
-            "Manipulate array elements using both mutating (`splice`, `push`) and immutable (`slice`, `concat`) methods",
-            "Transform, filter, and accumulate array datasets using functional higher-order methods (`map`, `filter`, `reduce`)",
-            "Sort numerical and alphabetical datasets safely using custom comparator callbacks"
-          ],
-          "prerequisites": [
-            "002_001_functions-basics"
-          ],
-          "difficulty": "Medium",
-          "difficultyIndex": 4,
-          "summary": "Master JavaScript arrays, indexing, element mutations, searches, and modern functional methods like map, filter, and reduce.",
-          "miniProjects": [
-            "Classroom Marks & Analytics Engine: Compute class averages, highest scores, grade distributions, and pass/fail rosters from raw student scores"
-          ],
-          "exercises": {
-            "mcq": 22,
-            "coding": 14,
-            "projects": 1
-          },
-          "assessment": {
-            "type": "Quiz + Array Transformation Challenges",
-            "passScore": 70
-          },
-          "useCases": [
-            "Filtering and transforming API dataset arrays for UI rendering",
-            "Computing aggregate financial and statistical metrics with `reduce`"
-          ],
-          "careerSkills": [
-            "Mastery of modern immutable array transformation techniques used in React and Redux",
-            "Writing high-performance search and sorting algorithms"
-          ],
-          "commonMistakes": [
-            "Calling `[10, 5, 20].sort()` without a comparator function, which sorts alphabetically into `[10, 20, 5]`",
-            "Mutating an original array unintentionally when a clone or pure transformation was intended"
-          ],
-          "references": [
-            "MDN Web Docs – Array",
-            "javascript.info – Array Methods"
-          ],
-          "teachingTips": [
-            "Walk through `reduce()` accumulator step-by-step with a live visual diagram on the whiteboard.",
-            "Emphasize the difference between `find()` (returns single item) and `filter()` (returns array)."
-          ],
-          "preReading": [
-            "Basic list data structures and index numbering"
-          ],
-          "previousModule": "002_001_functions-basics",
-          "nextModule": "002_003_objects-and-basic-oop",
-          "badge": "Array Maestro Badge",
-          "hiddenGems": [
-            {
-              "title": "Immutable Array Methods: toSorted(), toReversed(), toSpliced() & with()",
-              "description": "Modern ECMAScript (ES2023) methods that return brand-new transformed arrays without mutating the original array.",
-              "codeSnippet": "const scores = [40, 10, 80, 20];\nconst sorted = scores.toSorted((a, b) => a - b);\nconst modified = scores.with(1, 99); // Replaces index 1 with 99\nconsole.log(scores); // [40, 10, 80, 20] (Original is completely untouched!)"
-            },
-            {
-              "title": "In-Place Array Clearing via arr.length = 0",
-              "description": "Instantly empty an array while preserving all memory references across multiple files and functions.",
-              "codeSnippet": "const sharedList = [1, 2, 3, 4];\nconst alias = sharedList;\nsharedList.length = 0;\nconsole.log(alias); // [] (Both references are instantly cleared!)"
-            },
-            {
-              "title": "Array.from({ length: N }) Sequence Generator",
-              "description": "Generate numerical sequences and initialized arrays in a single line without using loops.",
-              "codeSnippet": "const range = Array.from({ length: 10 }, (_, i) => i + 1); // [1, 2, 3, ... 10]"
-            }
+            "Advanced Array Transformations – 20 Practical Projects Part 2"
           ]
         },
         {
-          "moduleId": "objects-core",
-          "slug": "002_003_objects-and-basic-oop",
-          "title": "Objects, Methods & Object-Oriented JavaScript",
-          "level": "Intermediate",
-          "estimatedHours": 8,
-          "tags": [
-            "objects",
-            "methods",
-            "this-keyword",
-            "destructuring",
-            "classes",
-            "prototypes",
-            "object-methods"
-          ],
-          "topics": [
-            "Object Literals — Keys, Values & Methods",
-            "Dot Notation vs Bracket Notation",
-            "Adding, Updating and Deleting Properties",
-            "Checking Properties: in Operator vs Object.hasOwn()",
-            "Nested Objects & Deep Property Navigation",
-            "Understanding the this Keyword in Objects",
-            "Arrow Functions vs Standard Functions: this Mechanics",
-            "Iterating Objects: for...in vs Object Static Iterators",
-            "Object Static Reflection: keys(), values(), entries(), fromEntries()",
-            "Objects as Reference Types & Memory Allocation",
-            "Shallow Copying: Object.assign() vs Spread Operator",
-            "Deep Copying: structuredClone() vs JSON Serialization",
-            "Shorthand Property Names & Computed Property Keys",
-            "Object Destructuring & Nested Aliasing",
-            "Rest and Spread Operators for Objects",
-            "Property Getters and Setters (Accessors)",
-            "Property Descriptors: Object.defineProperty()",
-            "Object Immutability: freeze(), seal(), preventExtensions()",
-            "Constructor Functions & the 'new' Keyword",
-            "The Prototype Chain & Inheritance Engine",
-            "Adding Shared Methods via Prototypes",
-            "ES6 Classes: Syntax, Constructors & Instance Methods",
-            "Class Static Methods & Static Initialization Blocks",
-            "Class Inheritance with extends & super()",
-            "Private Class Fields (#) & Private Methods",
-            "Method Overriding & Polymorphism in JavaScript",
-            "The instanceof Operator & Symbol.hasInstance",
-            "JSON Serialization: JSON.stringify() & JSON.parse()",
-            "Deep Object Equality & Comparison Algorithms",
-            "Merging Objects with Deep Recursion",
-            "LocalStorage & Web Storage Serialization",
-            "Object-Oriented Design: Composition vs Inheritance",
-            "The Factory Function Pattern & Object Creation",
-            "Method Chaining & The Fluent Interface Pattern",
-            "Symbols as Unique Object Keys & Well-Known Symbols",
-            "Proxies & Reflection: Metaprogramming in JavaScript",
-            "Objects, Methods & Object-Oriented JavaScript – 40 Practical Projects",
-            "Object.hasOwn() vs hasOwnProperty() & Safe Prototype Invariants",
-            "structuredClone() vs JSON.parse/stringify for Deep Cloning",
-            "Object Property Descriptors: Object.defineProperty, getOwnPropertyDescriptor",
-            "Object Immutability Levels: Object.freeze(), Object.seal(), Object.preventExtensions()",
-            "ES6+ Classes: Private Fields (#field), Static Blocks & Getters/Setters"
-          ],
-          "learningOutcomes": [
-            "Model complex real-world entities using object literals, methods, and nested data structures",
-            "Inspect and iterate over object keys/values using `Object.keys`, `Object.values`, and `Object.entries`",
-            "Build modern ES6 classes with inheritance (`extends`, `super`), private fields (`#`), getters, and setters"
-          ],
-          "prerequisites": [
-            "002_002_arrays-and-methods"
-          ],
-          "difficulty": "Medium",
-          "difficultyIndex": 5,
-          "summary": "Master JavaScript objects, property manipulation, `this` context, ES6 classes, inheritance, and object utility methods.",
-          "miniProjects": [
-            "Bank Account & Transaction Management System: Design an OOP banking class hierarchy with deposits, withdrawals, private balances, and audit logs"
-          ],
-          "exercises": {
-            "mcq": 25,
-            "coding": 15,
-            "projects": 1
-          },
-          "assessment": {
-            "type": "Quiz + OOP Class Design Tasks",
-            "passScore": 70
-          },
-          "useCases": [
-            "Structuring complex domain models and API request/response payloads",
-            "Encapsulating state and business logic in reusable OOP classes"
-          ],
-          "careerSkills": [
-            "Proficiency with modern ES6+ Object-Oriented Architecture",
-            "Deep understanding of reference types and shallow vs deep cloning"
-          ],
-          "commonMistakes": [
-            "Losing the `this` binding when passing object methods as standalone callback functions",
-            "Assuming `{ ...obj }` performs a deep clone on nested sub-objects"
-          ],
-          "references": [
-            "MDN Web Docs – Working with Objects",
-            "javascript.info – Objects: the basics & Classes"
-          ],
-          "teachingTips": [
-            "Draw memory pointer diagrams on the whiteboard showing how two variables can point to the same memory object.",
-            "Compare classic prototype constructor functions with modern ES6 `class` syntax to show syntactic sugar."
-          ],
-          "preReading": [
-            "Key-value pair dictionaries and OOP concepts (encapsulation, inheritance)"
-          ],
-          "previousModule": "002_002_arrays-and-methods",
-          "nextModule": "002_004_arrays-with-objects-advanced",
-          "badge": "Object Architect Badge",
-          "hiddenGems": [
-            {
-              "title": "Object.hasOwn() vs obj.hasOwnProperty()",
-              "description": "Safe, static method introduced in ES2022 that works even on `Object.create(null)` objects where `.hasOwnProperty` is undefined.",
-              "codeSnippet": "const nullObj = Object.create(null);\nnullObj.role = 'admin';\n// nullObj.hasOwnProperty('role') -> Uncaught TypeError!\nObject.hasOwn(nullObj, 'role'); // true (100% safe!)"
-            },
-            {
-              "title": "Native structuredClone() for Deep Cloning",
-              "description": "Modern browser & Node.js global function for true deep cloning, supporting circular references, Dates, Sets, Maps, and TypedArrays.",
-              "codeSnippet": "const deepCopy = structuredClone(originalData);"
-            },
-            {
-              "title": "Symbol.toPrimitive for Custom Type Coercion",
-              "description": "Control exactly what an object evaluates to when coerced to a number, string, or default context.",
-              "codeSnippet": "const wallet = {\n  balance: 5000,\n  [Symbol.toPrimitive](hint) {\n    return hint === 'number' ? this.balance : `₹${this.balance}`;\n  }\n};\nconsole.log(+wallet);     // 5000\nconsole.log(`${wallet}`); // ₹5000"
-            }
-          ]
-        },
-        {
-          "moduleId": "arrays-advanced-objects",
+          "moduleId": "arrays-objects-pipelines",
           "slug": "002_004_arrays-with-objects-advanced",
           "title": "Advanced Array Pipelines & Object Data Processing",
-          "level": "Intermediate",
-          "estimatedHours": 6,
-          "tags": [
-            "arrays-of-objects",
-            "complex-filter",
-            "reduce-grouping",
-            "chaining",
-            "sorting-objects",
-            "pagination"
-          ],
+          "level": "Advanced",
+          "estimatedHours": 15,
+          "badge": "Enterprise Data Pipeline Engineer",
+          "summary": "Architect complex data transformation pipelines for arrays of objects: grouping, relational joins, normalization, indexing, frequency distributions, and pagination.",
           "topics": [
-            "What is an Array of Objects? Relational & Schema Architecture",
-            "Transforming Object Arrays with map() & Destructuring",
-            "Filtering Object Arrays with Multi-Criteria Predicates",
-            "Aggregating & Summarizing Object Collections with reduce()",
+            "What is an Array of Objects? Relational Schema Architecture & Data Modeling",
+            "Transforming Object Arrays with map() & Object Destructuring",
+            "Filtering Object Collections with Multi-Criteria Dynamic Predicates",
+            "Aggregating & Summarizing Object Datasets with reduce()",
             "Searching Object Arrays with find(), findIndex() & findLast()",
-            "Condition Checking on Object Arrays with some() & every()",
-            "Counting and Frequency Distributions across Object Arrays",
-            "The Full Processing Pipeline: Filter -> Sort -> Map Transformations",
-            "Working with Deeply Nested Object Arrays & FlatMapping",
-            "Complex Data Analysis: Ranking, Merit Lists & Percentiles",
-            "Pagination & Slicing Object Datasets for Modern UI Grids",
-            "Deep Cloning & Immutability in Object Collections",
-            "Indexing, Normalization & Key-Value Lookups (Normalized State)",
-            "Advanced Array Pipelines & Object Data Processing – 30 Practical Projects",
-            "Native Object.groupBy() and Map.groupBy() for Relational Pipelines",
-            "Map and Set vs WeakMap and WeakSet: Garbage Collection Semantics",
-            "Complex Multi-Key Indexing & In-Memory Relational Data Lookup"
-          ],
-          "learningOutcomes": [
-            "Construct multi-stage data processing pipelines combining `filter()`, `map()`, and `reduce()`",
-            "Group, categorize, and aggregate complex collections of objects using `Object.groupBy()` and custom reducers",
-            "Execute immutable CRUD operations on tabular dataset arrays (insert, update, delete, slice for pagination)"
-          ],
-          "prerequisites": [
-            "002_003_objects-and-basic-oop"
-          ],
-          "difficulty": "Medium",
-          "difficultyIndex": 5,
-          "summary": "Master advanced array-of-object pipelines, data reshaping, multi-condition filtering, grouping, and immutable CRUD operations.",
-          "miniProjects": [
-            "Corporate Employee Payroll & Department Analytics Pipeline: Ingest employee records, calculate tax deductions, group by department, and rank top earners"
-          ],
-          "exercises": {
-            "mcq": 20,
-            "coding": 15,
-            "projects": 1
-          },
-          "assessment": {
-            "type": "Quiz + Data Pipeline Challenges",
-            "passScore": 70
-          },
-          "useCases": [
-            "Processing backend REST API JSON datasets before feeding into frontend charts and data tables",
-            "Implementing in-memory search, multi-filter dropdowns, and client-side pagination"
-          ],
-          "careerSkills": [
-            "Fluency with enterprise-grade data transformation patterns",
-            "Direct preparation for frontend state management workflows (Redux, Zustand, React Query)"
-          ],
-          "commonMistakes": [
-            "Mutating an object inside `map()` instead of returning a new updated object clone",
-            "Using multiple sequential loops when a single `reduce()` or chained pipeline is significantly cleaner"
-          ],
-          "references": [
-            "MDN Web Docs – Array.prototype.flatMap()",
-            "MDN Web Docs – Object.groupBy()"
-          ],
-          "teachingTips": [
-            "Provide students with realistic JSON data (e.g. 50 eCommerce products) and have them solve 5 business queries.",
-            "Demonstrate how method chaining reads like natural English pipeline logic."
-          ],
-          "preReading": [
-            "Relational database queries (SELECT, WHERE, GROUP BY, ORDER BY analogy)"
-          ],
-          "previousModule": "002_003_objects-and-basic-oop",
-          "nextModule": "002_005_dom-basics",
-          "badge": "Data Pipeline Specialist Badge",
-          "hiddenGems": [
-            {
-              "title": "Native Object.groupBy() & Map.groupBy() (ES2024)",
-              "description": "Categorize arrays of objects in a single clean call without writing verbose reduce accumulator logic.",
-              "codeSnippet": "const employees = [\n  { name: 'Swadeep', dept: 'IT' },\n  { name: 'Tuhina', dept: 'Finance' },\n  { name: 'Abhronila', dept: 'IT' },\n];\nconst byDept = Object.groupBy(employees, emp => emp.dept);\n// { IT: [Swadeep, Abhronila], Finance: [Tuhina] }"
-            },
-            {
-              "title": "Single-Pass Map + Filter with flatMap()",
-              "description": "Transform and prune elements simultaneously in a single iteration pass by returning an empty array `[]` for discarded items.",
-              "codeSnippet": "const activeUserEmails = users.flatMap(u => u.isActive ? [u.email] : []);"
-            },
-            {
-              "title": "Locale-Aware Multi-Key Sorting with Intl.Collator",
-              "description": "Sort strings with natural number ordering and international accent support.",
-              "codeSnippet": "const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });\nfiles.sort((a, b) => collator.compare(a.name, b.name));"
-            }
+            "Boolean Validation on Object Arrays with some() & every()",
+            "Frequency Counting, Histograms & Statistical Distributions across Object Arrays",
+            "The Full Pipeline: Filter -> Sort -> Map Transformations in Production",
+            "Deeply Nested Object Arrays, Relational Joins & FlatMapping",
+            "Complex Data Analysis: Ranking, Merit Lists, Percentiles & Sorting by Multiple Fields",
+            "Dataset Pagination, Chunking, Slicing & Windowing for Large UI Grids",
+            "Deep Cloning & Immutability in Object Collections (structuredClone)",
+            "Indexing, Normalization & Key-Value Lookup Maps (Normalized State)",
+            "Native Object.groupBy() and Map.groupBy() for Relational Grouping",
+            "Set and Map vs WeakSet and WeakMap: Garbage Collection & Key References",
+            "Complex Multi-Key Indexing & In-Memory Relational Data Lookup",
+            "Advanced Array Pipelines & Object Data Processing – 30 Practical Projects"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "segmentId": "oop-mastery",
+      "title": "Segment 4 – Object-Oriented Programming (OOP), Prototypes & Class Architecture (Intermediate to Advanced)",
+      "level": "Intermediate to Advanced",
+      "summary": "Master Object-Oriented JavaScript: prototypes, prototype chain inheritance, ES6+ Classes, private fields, encapsulation, polymorphism, composition, descriptors, and design patterns.",
+      "estimatedHours": 32,
+      "badge": "OOP & Prototypal Architecture Specialist",
+      "segmentColor": "purple",
+      "modules": [
+        {
+          "moduleId": "objects-oop-core",
+          "slug": "002_003_objects-and-basic-oop",
+          "title": "Objects, Methods & Object-Oriented JavaScript",
+          "level": "Intermediate to Advanced",
+          "estimatedHours": 32,
+          "badge": "Object & Class Architect",
+          "summary": "In-depth coverage of JavaScript Objects, property descriptors, prototypes, inheritance, ES6 Classes, private fields, and OOP design patterns.",
+          "topics": [
+            "Object Literals — Key-Value Pairs, Methods & Memory Allocation in the Heap",
+            "Property Access: Dot Notation vs Bracket Notation & Dynamic Computed Keys",
+            "Adding, Modifying, Deleting Properties & The delete Operator Mechanics",
+            "Property Existence: in Operator vs Object.hasOwn() vs hasOwnProperty()",
+            "Deeply Nested Objects, Optional Chaining (?.) & Nullish Coalescing (??)",
+            "The this Keyword in Objects: Default, Implicit, Explicit & Arrow Binding",
+            "Iterating Objects: for...in vs Object.keys(), values(), entries(), fromEntries()",
+            "Shallow Copying (Object.assign, Spread) vs Deep Copying (structuredClone)",
+            "Object Destructuring, Rest Properties & Parameter Unpacking",
+            "Property Descriptors & Metaprogramming: Object.defineProperty(), getOwnPropertyDescriptor()",
+            "Object Immutability Levels: Object.freeze(), Object.seal(), Object.preventExtensions()",
+            "Property Getters and Setters (Accessors) for Data Validation & Encapsulation",
+            "Constructor Functions & the new Keyword Execution Lifecycle",
+            "The Prototype Chain: prototype, __proto__, Object.prototype & Prototype Lookup",
+            "Prototypal Inheritance: Adding Shared Methods & Memory Efficiency",
+            "ES6 Classes: Syntax, Constructors, Instance Methods & Class Expressions",
+            "Class Static Methods, Static Properties & Static Initialization Blocks",
+            "Class Inheritance: extends, super(), & Subclass Constructor Rules",
+            "Private Class Fields (#field), Private Methods & Private Accessors",
+            "Method Overriding, Polymorphism & Dynamic Method Dispatch in JavaScript",
+            "The instanceof Operator, Symbol.hasInstance & Prototype Verification",
+            "Object-Oriented Design Principles: Encapsulation, Abstraction, Inheritance & Polymorphism",
+            "Composition over Inheritance & Object Mixins Pattern",
+            "Factory Functions vs Classes: Performance, Closures & Flexibility",
+            "The Fluent Interface & Method Chaining Pattern (Builder Pattern)",
+            "Symbols as Unique Object Keys & Well-Known Symbols (Symbol.iterator, Symbol.toPrimitive)",
+            "Metaprogramming with Proxy & Reflect: Intercepting Get, Set, Apply & Construct",
+            "Deep Object Comparison & Equality Verification Algorithms",
+            "Deep Object Merging & Recursive Object Patching",
+            "JSON Serialization: JSON.stringify() with Replacers & JSON.parse() with Revivers",
+            "LocalStorage & Web Storage Serialization Wrappers",
+            "Objects, Methods & Object-Oriented JavaScript – 40 Practical Projects"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "tricky-functions-special",
+      "title": "Segment 5 – Special Segment: Tricky JavaScript Programs, Function Combinations & Algorithmic Puzzles (Advanced)",
+      "level": "Advanced",
+      "summary": "A dedicated masterclass tackling the most tricky, intricate, and mind-bending JavaScript programs. Combines higher-order functions, closures, currying, trampolines, transducers, async pipelines, and polyfills with over 15+ extensive deep-dive demonstrations.",
+      "estimatedHours": 35,
+      "badge": "JavaScript Puzzle Master & Guru",
+      "segmentColor": "rose",
+      "modules": [
+        {
+          "moduleId": "tricky-functions-puzzles",
+          "slug": "002_009_tricky-programs-and-function-combinations",
+          "title": "Tricky JavaScript Programs, Function Combinations & Puzzles",
+          "level": "Advanced",
+          "estimatedHours": 35,
+          "badge": "Tricky Function Grandmaster",
+          "summary": "Master complex algorithmic puzzles, asynchronous loop traps, infinite currying, function composition engines, debounce/throttle with flush, trampolines, transducers, and custom polyfills.",
+          "topics": [
+            "The Classic Asynchronous Loop & Variable Scope Trap (var vs let in setTimeout & 5 Polyfill Solutions)",
+            "Infinite Currying with Custom Value Serialization: add(1)(2)(3)...(n) & sum(1)(2)(3)()",
+            "Variadic Function Composition & Async Pipeline Engine (pipe(), compose(), pipeAsync())",
+            "Production Debounce & Throttle from Scratch with Leading/Trailing Flags, Cancel & Flush",
+            "High-Performance Memoization Engine with Custom Cache Resolvers & LRU Cache Eviction",
+            "Recursive Function Trampolining: Executing Deep Recursion Without Call Stack Overflow",
+            "Fluent Method Chaining & Lazy Evaluation Query Pipeline (LINQ / Stream Pattern in JS)",
+            "Function Overloading Simulation in JavaScript via Arity, Type Signatures & Dispatch Tables",
+            "Transducers in JavaScript: High-Performance Composable Transformations without Intermediate Arrays",
+            "Custom EventEmitter & Async Pub/Sub Broker with Wildcards, Once Handlers & Error Bubbling",
+            "Tricky this Binding Traps: Nested Arrow Functions, Method Detachment, Explicit Binds & Constructor Hijacking",
+            "Polyfilling Core JavaScript Methods from Scratch (map, filter, reduce, flat, bind, Promise.allSettled)",
+            "Partial Application with Placeholder Arguments (partial(fn, _, \"arg2\", _))",
+            "Higher-Order Concurrency Controller & Async Task Pool Limiter (Executing N Async Tasks Concurrently)",
+            "Deep Object Flattening & Dynamic String Path Resolver (get(obj, \"a.b[0].c\") & set(obj, \"x.y.z\", val))",
+            "Deep Object Clone & Circular Reference Graph Resolver with WeakMap",
+            "Interceptor & Middleware Chain Pattern (Express / Koa Onion Architecture from Scratch)"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "dom-events",
+      "title": "Segment 6 – DOM Tree Architecture, Events & UI Interactivity (Intermediate to Advanced)",
+      "level": "Intermediate",
+      "summary": "Build dynamic, accessible web interfaces: DOM tree manipulation, event bubbling/capturing, delegation, custom events, observers (Intersection/Resize/Mutation), and dynamic element generation.",
+      "estimatedHours": 30,
+      "badge": "DOM & UI Interaction Specialist",
+      "segmentColor": "cyan",
+      "modules": [
         {
           "moduleId": "dom-basics",
           "slug": "002_005_dom-basics",
@@ -1324,6 +1101,109 @@
           ]
         },
         {
+          "moduleId": "dom-special",
+          "slug": "004_003_dom-special-creating-manipulating-elements",
+          "title": "DOM Special: Creating, Inserting & Manipulating Elements",
+          "level": "Ultra Expert",
+          "estimatedHours": 8,
+          "tags": [
+            "dom-special",
+            "createElement",
+            "documentFragment",
+            "virtual-dom-concept",
+            "dom-performance",
+            "custom-components"
+          ],
+          "topics": [
+            "Why Create Elements Using JavaScript? Dynamic UI Generation",
+            "The DOM Tree & Node Creation Pipeline (createElement, createTextNode)",
+            "Inserting Elements: append, prepend, before, after, replaceWith",
+            "Dynamic UI Card Generation & Schema Mapping",
+            "Base HTML Templates, <template> Tags & DocumentFragments",
+            "Component Factory Functions in Vanilla JavaScript",
+            "Event Delegation in Dynamically Injected Elements",
+            "Building Reusable DOM Helper Utility Libraries",
+            "Batch DOM Creation: Rendering Lists & Data Grids Efficiently",
+            "HTML Template String Functions & Safe Interpolation",
+            "cloneNode(): Deep vs Shallow Node Duplication & Edge Cases",
+            "Architecture of a Dynamic List & Todo Manager Component",
+            "Architecture of Dynamic Card Grids with Filter & Sort Controls",
+            "Building a Production Toast Notification Dispatch Center",
+            "The dataset API: Custom Data Attributes & DOM State Binding",
+            "DOM Geometry, Offsets & Viewport Screen Positioning",
+            "Web Components: Custom Elements (customElements.define) & Autonomous Elements",
+            "Shadow DOM: Encapsulated Styles, Closed vs Open Mode & Slots",
+            "Virtual DOM from Scratch: Diffing & Reconciliation Algorithm in Vanilla JS"
+          ],
+          "learningOutcomes": [
+            "Construct complex dynamic DOM components from scratch without relying on external frontend frameworks",
+            "Optimize batch DOM operations using `DocumentFragment` and `<template>` tags to eliminate layout thrashing",
+            "Build 10+ production-grade reusable UI components (Toasts, Modals, Autocomplete, Data Tables, Drag & Drop)"
+          ],
+          "prerequisites": [
+            "002_005_dom-basics",
+            "002_006_events-and-user-interaction"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 7,
+          "summary": "Master comprehensive dynamic DOM creation, high-performance DocumentFragment batch rendering, HTML template cloning, and build 10+ production UI components.",
+          "miniProjects": [
+            "Vanilla JS Dynamic UI Component Suite: Build a standalone library of Toast Notifications, Modal Dialogs, Autocomplete Search, and Sortable Data Tables"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "coding": 18,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Practical Component Library Evaluation",
+            "passScore": 75
+          },
+          "useCases": [
+            "Building lightweight, ultra-fast web widgets that embed seamlessly into any website without framework overhead",
+            "Constructing custom web components and framework-level rendering engines"
+          ],
+          "careerSkills": [
+            "Deep mastery of vanilla DOM manipulation — the foundation of React, Vue, and Svelte",
+            "Building accessible, performant UI components from scratch"
+          ],
+          "commonMistakes": [
+            "Appending elements one-by-one inside a loop causing hundreds of expensive browser reflows",
+            "Leaving lingering event listeners attached to removed DOM nodes creating memory leaks"
+          ],
+          "references": [
+            "MDN Web Docs – Document.createDocumentFragment()",
+            "MDN Web Docs – The Content Template Element (<template>)"
+          ],
+          "teachingTips": [
+            "Benchmark 10,000 DOM insertions: show the massive speed difference between `appendChild` in a loop vs `DocumentFragment` batch insertion.",
+            "Encourage students to build UI components without looking at third-party UI libraries."
+          ],
+          "preReading": [
+            "Review of DOM manipulation and event delegation fundamentals"
+          ],
+          "previousModule": "004_002_patterns-and-architecture",
+          "nextModule": "004_004_tooling-and-build-systems",
+          "badge": "DOM Component Master Badge",
+          "hiddenGems": [
+            {
+              "title": "DocumentFragment Batch Insertions (Zero Reflow Overhead)",
+              "description": "Append 10,000 DOM elements in a single lightweight memory fragment to trigger only ONE layout reflow.",
+              "codeSnippet": "const fragment = document.createDocumentFragment();\nitems.forEach(item => {\n  const li = document.createElement('li');\n  li.textContent = item.name;\n  fragment.appendChild(li);\n});\nul.appendChild(fragment); // Single browser reflow!"
+            },
+            {
+              "title": "IntersectionObserver for Zero-CPU Viewport Visibility",
+              "description": "Detect when elements enter or exit the user viewport without listening to heavy scroll events.",
+              "codeSnippet": "const observer = new IntersectionObserver((entries) => {\n  entries.forEach(e => { if (e.isIntersecting) loadContent(e.target); });\n});\nobserver.observe(targetElement);"
+            },
+            {
+              "title": "HTML <template> Cloning for High-Speed Widget Instantiation",
+              "description": "Clone pre-parsed HTML templates via `template.content.cloneNode(true)` for 5x faster UI instantiation.",
+              "codeSnippet": "const template = document.getElementById('card-template');\nconst clone = template.content.cloneNode(true);\ncontainer.appendChild(clone);"
+            }
+          ]
+        },
+        {
           "moduleId": "segment2-test-and-projects",
           "slug": "002_007_segment2-test-and-projects",
           "title": "Practical JavaScript Mid-Curriculum Capstone Projects",
@@ -1479,12 +1359,12 @@
       ]
     },
     {
-      "segmentId": "advanced",
-      "title": "Segment 3 – Modern ES6+, Asynchronous Programming & Web APIs (Advanced)",
+      "segmentId": "modern-async-web",
+      "title": "Segment 7 – Modern ES6+, Asynchronous JavaScript & Web APIs (Advanced)",
       "level": "Advanced",
-      "summary": "Master modern ECMAScript standards, asynchronous architecture (Callbacks, Promises, Async/Await), REST API communication with Fetch, browser storage, and error resilience.",
-      "estimatedHours": 45,
-      "badge": "Async Systems Architect",
+      "summary": "Architect non-blocking asynchronous workflows: ES6–ES2026+ features, Promises, async/await, REST APIs, JSON streams, error resilience, WebSockets, and browser storage systems.",
+      "estimatedHours": 35,
+      "badge": "Asynchronous Architecture Master",
       "segmentColor": "indigo",
       "modules": [
         {
@@ -1968,13 +1848,13 @@
       ]
     },
     {
-      "segmentId": "ultra-expert",
-      "title": "Segment 4 – Ultra Expert JavaScript, Engine Internals & Ecosystem (Ultra Expert)",
+      "segmentId": "internals-architecture",
+      "title": "Segment 8 – JavaScript Engine Internals, V8 Architecture & Performance Optimization (Ultra Expert)",
       "level": "Ultra Expert",
-      "summary": "Deep-dive into V8 engine architecture (Ignition, TurboFan, AST), memory heap management, closures & execution contexts, enterprise design patterns, dynamic DOM element mastery, tooling, and industrial capstones.",
+      "summary": "Master the V8 engine compiler pipeline (Ignition bytecode, TurboFan JIT, Hidden Classes, Inline Caching), microtask queues, design patterns, build toolchains, and memory leak profiling.",
       "estimatedHours": 40,
-      "badge": "Ultra Expert JavaScript Architect",
-      "segmentColor": "emerald",
+      "badge": "V8 Engine & Systems Architect",
+      "segmentColor": "pink",
       "modules": [
         {
           "moduleId": "deep-js-internals",
@@ -2157,109 +2037,6 @@
               "title": "Middleware Composition Pattern (Koa / Redux Style)",
               "description": "Compose an array of async middleware functions into an execution pipeline using Onion Architecture.",
               "codeSnippet": "const compose = (middlewares) => (context) => {\n  const dispatch = (i) => {\n    const fn = middlewares[i];\n    if (!fn) return Promise.resolve();\n    return Promise.resolve(fn(context, () => dispatch(i + 1)));\n  };\n  return dispatch(0);\n};"
-            }
-          ]
-        },
-        {
-          "moduleId": "dom-special",
-          "slug": "004_003_dom-special-creating-manipulating-elements",
-          "title": "DOM Special: Creating, Inserting & Manipulating Elements",
-          "level": "Ultra Expert",
-          "estimatedHours": 8,
-          "tags": [
-            "dom-special",
-            "createElement",
-            "documentFragment",
-            "virtual-dom-concept",
-            "dom-performance",
-            "custom-components"
-          ],
-          "topics": [
-            "Why Create Elements Using JavaScript? Dynamic UI Generation",
-            "The DOM Tree & Node Creation Pipeline (createElement, createTextNode)",
-            "Inserting Elements: append, prepend, before, after, replaceWith",
-            "Dynamic UI Card Generation & Schema Mapping",
-            "Base HTML Templates, <template> Tags & DocumentFragments",
-            "Component Factory Functions in Vanilla JavaScript",
-            "Event Delegation in Dynamically Injected Elements",
-            "Building Reusable DOM Helper Utility Libraries",
-            "Batch DOM Creation: Rendering Lists & Data Grids Efficiently",
-            "HTML Template String Functions & Safe Interpolation",
-            "cloneNode(): Deep vs Shallow Node Duplication & Edge Cases",
-            "Architecture of a Dynamic List & Todo Manager Component",
-            "Architecture of Dynamic Card Grids with Filter & Sort Controls",
-            "Building a Production Toast Notification Dispatch Center",
-            "The dataset API: Custom Data Attributes & DOM State Binding",
-            "DOM Geometry, Offsets & Viewport Screen Positioning",
-            "Web Components: Custom Elements (customElements.define) & Autonomous Elements",
-            "Shadow DOM: Encapsulated Styles, Closed vs Open Mode & Slots",
-            "Virtual DOM from Scratch: Diffing & Reconciliation Algorithm in Vanilla JS"
-          ],
-          "learningOutcomes": [
-            "Construct complex dynamic DOM components from scratch without relying on external frontend frameworks",
-            "Optimize batch DOM operations using `DocumentFragment` and `<template>` tags to eliminate layout thrashing",
-            "Build 10+ production-grade reusable UI components (Toasts, Modals, Autocomplete, Data Tables, Drag & Drop)"
-          ],
-          "prerequisites": [
-            "002_005_dom-basics",
-            "002_006_events-and-user-interaction"
-          ],
-          "difficulty": "Hard",
-          "difficultyIndex": 7,
-          "summary": "Master comprehensive dynamic DOM creation, high-performance DocumentFragment batch rendering, HTML template cloning, and build 10+ production UI components.",
-          "miniProjects": [
-            "Vanilla JS Dynamic UI Component Suite: Build a standalone library of Toast Notifications, Modal Dialogs, Autocomplete Search, and Sortable Data Tables"
-          ],
-          "exercises": {
-            "mcq": 25,
-            "coding": 18,
-            "projects": 2
-          },
-          "assessment": {
-            "type": "Practical Component Library Evaluation",
-            "passScore": 75
-          },
-          "useCases": [
-            "Building lightweight, ultra-fast web widgets that embed seamlessly into any website without framework overhead",
-            "Constructing custom web components and framework-level rendering engines"
-          ],
-          "careerSkills": [
-            "Deep mastery of vanilla DOM manipulation — the foundation of React, Vue, and Svelte",
-            "Building accessible, performant UI components from scratch"
-          ],
-          "commonMistakes": [
-            "Appending elements one-by-one inside a loop causing hundreds of expensive browser reflows",
-            "Leaving lingering event listeners attached to removed DOM nodes creating memory leaks"
-          ],
-          "references": [
-            "MDN Web Docs – Document.createDocumentFragment()",
-            "MDN Web Docs – The Content Template Element (<template>)"
-          ],
-          "teachingTips": [
-            "Benchmark 10,000 DOM insertions: show the massive speed difference between `appendChild` in a loop vs `DocumentFragment` batch insertion.",
-            "Encourage students to build UI components without looking at third-party UI libraries."
-          ],
-          "preReading": [
-            "Review of DOM manipulation and event delegation fundamentals"
-          ],
-          "previousModule": "004_002_patterns-and-architecture",
-          "nextModule": "004_004_tooling-and-build-systems",
-          "badge": "DOM Component Master Badge",
-          "hiddenGems": [
-            {
-              "title": "DocumentFragment Batch Insertions (Zero Reflow Overhead)",
-              "description": "Append 10,000 DOM elements in a single lightweight memory fragment to trigger only ONE layout reflow.",
-              "codeSnippet": "const fragment = document.createDocumentFragment();\nitems.forEach(item => {\n  const li = document.createElement('li');\n  li.textContent = item.name;\n  fragment.appendChild(li);\n});\nul.appendChild(fragment); // Single browser reflow!"
-            },
-            {
-              "title": "IntersectionObserver for Zero-CPU Viewport Visibility",
-              "description": "Detect when elements enter or exit the user viewport without listening to heavy scroll events.",
-              "codeSnippet": "const observer = new IntersectionObserver((entries) => {\n  entries.forEach(e => { if (e.isIntersecting) loadContent(e.target); });\n});\nobserver.observe(targetElement);"
-            },
-            {
-              "title": "HTML <template> Cloning for High-Speed Widget Instantiation",
-              "description": "Clone pre-parsed HTML templates via `template.content.cloneNode(true)` for 5x faster UI instantiation.",
-              "codeSnippet": "const template = document.getElementById('card-template');\nconst clone = template.content.cloneNode(true);\ncontainer.appendChild(clone);"
             }
           ]
         },
@@ -2538,8 +2315,12 @@
     },
     {
       "segmentId": "fullstack-enterprise",
-      "title": "Segment 5 – Next-Gen Full-Stack JavaScript, Node.js Runtime & Microservices (Enterprise Track)",
-      "description": "Deep-dive into enterprise backend JavaScript: Node.js V8 runtime internals, Libuv concurrency, high-performance REST/GraphQL/gRPC APIs, PostgreSQL & MongoDB database pipelines, OAuth2/Passkeys security, and distributed microservice message queues with Docker.",
+      "title": "Segment 9 – Next-Gen Full-Stack JavaScript, Node.js Runtime & Microservices (Enterprise Track)",
+      "level": "Enterprise Track",
+      "summary": "Build high-throughput distributed backend architectures with Node.js, Libuv, Fastify, GraphQL, PostgreSQL, Redis, Docker, and microservice message streaming.",
+      "estimatedHours": 45,
+      "badge": "Enterprise Full-Stack Architect",
+      "segmentColor": "teal",
       "modules": [
         {
           "moduleId": "nodejs-internals",
@@ -2712,8 +2493,12 @@
     },
     {
       "segmentId": "web-cutting-edge",
-      "title": "Segment 6 – Modern Web Standards, WebAssembly, WebGPU, AI & Cutting-Edge Browser Systems (Special Advanced Technologies)",
-      "description": "Explore the bleeding edge of browser engineering: WebAssembly with C/Rust, WebGPU compute pipelines, in-browser AI & local LLMs with Transformers.js, WebRTC peer-to-peer media, and offline-first PWAs with CRDT data synchronization.",
+      "title": "Segment 10 – Modern Web Standards, WebAssembly, WebGPU, AI & Cutting-Edge Browser Systems (Special Advanced Technologies)",
+      "level": "Special Advanced Technologies",
+      "summary": "Push the frontiers of browser capabilities: WebAssembly (C/Rust), WebGPU compute shaders, client-side AI neural networks, WebRTC real-time media, and offline-first PWAs with CRDTs.",
+      "estimatedHours": 45,
+      "badge": "Cutting-Edge Browser Systems Pioneer",
+      "segmentColor": "violet",
       "modules": [
         {
           "moduleId": "wasm-c-rust",

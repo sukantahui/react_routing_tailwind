@@ -1,227 +1,203 @@
 const questions = [
   {
-    "question": "What is the primary role of Role of JavaScript in Modern Web Development in modern JavaScript development?",
-    "shortAnswer": "Role of JavaScript in Modern Web Development provides the essential runtime rules and architectural patterns required to build predictable, performant, and maintainable JavaScript applications.",
-    "explanation": "In modern ECMAScript standards (ES6+), mastering Role of JavaScript in Modern Web Development allows engineers to avoid runtime pitfalls, leverage engine optimizations in V8, and ensure full cross-browser compatibility.",
-    "hint": "Focus on how Role of JavaScript in Modern Web Development operates during compilation and runtime execution.",
-    "level": "basic",
-    "codeExample": "console.log(\"Core principle of Role of JavaScript in Modern Web Development\");\nconst isVerified = true;\nconsole.log({ isVerified });"
+    question: "What is the primary role of JavaScript in the frontend web triad?",
+    shortAnswer: "JavaScript provides behavior, dynamic interactivity, and logic, while HTML gives structure and CSS gives presentation.",
+    explanation: "HTML creates the semantic DOM hierarchy, CSS styles visual layouts, and JavaScript handles user events, state mutations, asynchronous API requests, and dynamic DOM updates.",
+    hint: "Structure (HTML) + Style (CSS) + Behavior (JS).",
+    level: "basic",
+    codeExample: "// HTML: <button id='btn'>Click</button>\ndocument.getElementById('btn').onclick = () => alert('Clicked!');"
   },
   {
-    "question": "How does the JavaScript engine interpret and execute Role of JavaScript in Modern Web Development?",
-    "shortAnswer": "The V8 engine parses code into an Abstract Syntax Tree (AST), generates bytecode via Ignition, and uses TurboFan for JIT optimization during execution.",
-    "explanation": "Understanding this lifecycle ensures that variables, function scopes, and memory allocations are handled cleanly without triggering de-optimizations.",
-    "hint": "Think: Parser → Ignition Bytecode → Feedback Vector → TurboFan Machine Code.",
-    "level": "intermediate",
-    "codeExample": "function traceExecution() {\n  console.log(\"Tracing execution pipeline for Role of JavaScript in Modern Web Development\");\n}\ntraceExecution();"
+    question: "What is a Single Page Application (SPA)?",
+    shortAnswer: "A web application that loads a single HTML page and dynamically updates content without full-page reloads.",
+    explanation: "SPAs intercept link clicks, use client-side routing (History API) to change the view, and fetch lightweight JSON data via AJAX/Fetch, resulting in desktop-like fluidity.",
+    hint: "Single initial HTML load + client-side routing and DOM updates.",
+    level: "basic",
+    codeExample: "window.history.pushState({}, '', '/dashboard');\n// Render dashboard component dynamically"
   },
   {
-    "question": "What is the most common beginner mistake when dealing with Role of JavaScript in Modern Web Development?",
-    "shortAnswer": "Failing to account for implicit type coercion, variable hoisting scopes (temporal dead zone), or unhandled edge cases in asynchronous execution.",
-    "explanation": "Beginners often assume immediate synchronous execution or overlook strict equality checks, leading to subtle logic bugs.",
-    "hint": "Always use strict equality (===) and declare variables with const/let.",
-    "level": "advanced",
-    "codeExample": "// Avoid implicit coercion:\nconst val = \"42\";\nconsole.log(Number(val) === 42); // true (explicit and safe)"
+    question: "How did AJAX transform web user experience in the early 2000s?",
+    shortAnswer: "It allowed browsers to exchange data with servers in the background without reloading the webpage.",
+    explanation: "Introduced via XMLHttpRequest (and now modern Fetch API), AJAX enabled instant search suggestions, real-time feeds, and interactive maps without white-screen page refreshes.",
+    hint: "Asynchronous JavaScript and XML = background data loading.",
+    level: "basic",
+    codeExample: "fetch('/api/data').then(res => res.json()).then(data => console.log(data));"
   },
   {
-    "question": "How do senior developers optimize memory and CPU cycles when applying Role of JavaScript in Modern Web Development?",
-    "shortAnswer": "By avoiding accidental global closures, reusing object shapes for inline caching (IC), and keeping functional pipelines immutable without unnecessary allocations.",
-    "explanation": "V8 optimizes functions when object property shapes stay monomorphic. Creating dynamic, changing shapes triggers megamorphic de-optimizations.",
-    "hint": "Keep object properties initialized in the exact same order in constructors.",
-    "level": "expert",
-    "codeExample": "class OptimizedItem {\n  constructor(id, label) {\n    this.id = id;\n    this.label = label;\n  }\n}"
+    question: "What is the difference between client-side rendering (CSR) and server-side rendering (SSR)?",
+    shortAnswer: "CSR generates HTML in the browser using JS; SSR renders HTML on the server and delivers ready content to the browser.",
+    explanation: "CSR sends an empty HTML shell and large JS bundle, rendering UI on client device. SSR generates full HTML on the server for faster First Contentful Paint (FCP) and optimal SEO.",
+    hint: "CSR = browser builds DOM; SSR = server sends pre-built HTML.",
+    level: "intermediate",
+    codeExample: "// Next.js SSR executes server-side, returning fully rendered HTML markup"
   },
   {
-    "question": "What is the difference between synchronous and asynchronous behavior in the context of Role of JavaScript in Modern Web Development?",
-    "shortAnswer": "Synchronous code blocks the single-threaded Call Stack, while asynchronous operations delegate tasks to Web APIs / libuv and resolve via the Microtask/Macrotask queues.",
-    "explanation": "Promises and queueMicrotask() execute immediately after current synchronous execution completes, before timers or UI rendering.",
-    "hint": "Microtasks (Promises) always take precedence over Macrotasks (setTimeout).",
-    "level": "basic",
-    "codeExample": "console.log(\"1. Sync\");\nPromise.resolve().then(() => console.log(\"2. Microtask\"));\nsetTimeout(() => console.log(\"3. Macrotask\"), 0);"
+    question: "What is DOM Hydration in modern full-stack frameworks?",
+    shortAnswer: "Hydration is the process of attaching JavaScript event listeners and reactive state to pre-rendered server HTML.",
+    explanation: "When server-rendered HTML arrives, it is static. Hydration runs client-side JS to bind event handlers, initialize virtual DOM trees, and activate interactive state.",
+    hint: "Making static server HTML interactive with client JS.",
+    level: "intermediate",
+    codeExample: "// React: hydrateRoot(document.getElementById('root'), <App />);"
   },
   {
-    "question": "Question 6: How does Role of JavaScript in Modern Web Development handle edge case scenario #6?",
-    "shortAnswer": "Under scenario #6, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #6 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "intermediate",
-    "codeExample": "// Test case for Question 6\nfunction testCase6(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 6:\", sanitized);\n  return sanitized;\n}\ntestCase6();"
+    question: "What is Progressive Web App (PWA) architecture?",
+    shortAnswer: "PWAs use Service Workers, Web App Manifests, and caching to provide offline-capable, app-like web experiences.",
+    explanation: "PWAs can be installed on home screens, work without internet connectivity via Cache Storage API, and receive background push notifications.",
+    hint: "Web app + Service Worker caching + Installable manifest.",
+    level: "intermediate",
+    codeExample: "navigator.serviceWorker.register('/sw.js').then(() => console.log('PWA active'));"
   },
   {
-    "question": "Question 7: How does Role of JavaScript in Modern Web Development handle edge case scenario #7?",
-    "shortAnswer": "Under scenario #7, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #7 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "advanced",
-    "codeExample": "// Test case for Question 7\nfunction testCase7(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 7:\", sanitized);\n  return sanitized;\n}\ntestCase7();"
+    question: "Why should sensitive credentials never be placed in client-side JavaScript?",
+    shortAnswer: "Because client JS executes on user machines and can be inspected, extracted, or tampered with in DevTools.",
+    explanation: "All code, variables, and network calls delivered to browsers are fully readable in DevTools Sources and Network tabs. Private keys must remain secure on backend servers.",
+    hint: "Client code is public; private secrets must stay on the server.",
+    level: "basic",
+    codeExample: "// ❌ NEVER DO THIS:\nconst STRIPE_SECRET_KEY = 'sk_live_12345'; // Exposed to all users!"
   },
   {
-    "question": "Question 8: How does Role of JavaScript in Modern Web Development handle edge case scenario #8?",
-    "shortAnswer": "Under scenario #8, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #8 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "expert",
-    "codeExample": "// Test case for Question 8\nfunction testCase8(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 8:\", sanitized);\n  return sanitized;\n}\ntestCase8();"
+    question: "How does JavaScript manage state in complex enterprise web applications?",
+    shortAnswer: "Through centralized stores (Redux, Zustand, Signals) enforcing unidirectional data flow and reactive re-renders.",
+    explanation: "Unidirectional data flow ensures UI is a pure projection of state. Actions dispatch state updates, and subscribed components re-render predictably.",
+    hint: "Action -> State Mutation -> Reactive UI Re-render.",
+    level: "advanced",
+    codeExample: "const store = { state: { count: 0 }, set(fn) { this.state = fn(this.state); } };"
   },
   {
-    "question": "Question 9: How does Role of JavaScript in Modern Web Development handle edge case scenario #9?",
-    "shortAnswer": "Under scenario #9, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #9 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "basic",
-    "codeExample": "// Test case for Question 9\nfunction testCase9(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 9:\", sanitized);\n  return sanitized;\n}\ntestCase9();"
+    question: "What is Cross-Site Scripting (XSS) and how does modern JS mitigate it?",
+    shortAnswer: "XSS is code injection where attackers execute malicious scripts in victims' browsers; mitigated by sanitizing inputs and using textContent.",
+    explanation: "Directly setting element.innerHTML with untrusted user input can execute attacker scripts. Using textContent, DOMPurify, and Content Security Policy (CSP) prevents XSS.",
+    hint: "Use textContent instead of innerHTML for untrusted strings.",
+    level: "advanced",
+    codeExample: "const el = document.createElement('div');\nel.textContent = userInput; // 100% safe against XSS injection"
   },
   {
-    "question": "Question 10: How does Role of JavaScript in Modern Web Development handle edge case scenario #10?",
-    "shortAnswer": "Under scenario #10, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #10 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "intermediate",
-    "codeExample": "// Test case for Question 10\nfunction testCase10(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 10:\", sanitized);\n  return sanitized;\n}\ntestCase10();"
+    question: "What is WebAssembly (WASM) and how does it collaborate with JavaScript?",
+    shortAnswer: "WASM is a binary instruction format allowing C++/Rust code to run in browsers alongside JavaScript at near-native speed.",
+    explanation: "JavaScript orchestrates the DOM and UI, while WASM handles compute-heavy workloads like 3D gaming, video transcoding, physics simulations, and client-side AI.",
+    hint: "JS manages UI/DOM; WASM accelerates heavy math/computation.",
+    level: "expert",
+    codeExample: "WebAssembly.instantiateStreaming(fetch('module.wasm')).then(obj => obj.instance.exports.fastMath());"
   },
   {
-    "question": "Question 11: How does Role of JavaScript in Modern Web Development handle edge case scenario #11?",
-    "shortAnswer": "Under scenario #11, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #11 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "advanced",
-    "codeExample": "// Test case for Question 11\nfunction testCase11(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 11:\", sanitized);\n  return sanitized;\n}\ntestCase11();"
+    question: "What is the purpose of the Shadow DOM in Web Components?",
+    shortAnswer: "Shadow DOM provides encapsulated DOM trees and scoped CSS styles isolated from the main document.",
+    explanation: "It prevents global CSS rules and querySelectors from leaking into or altering custom component internals, creating reusable, bulletproof widgets.",
+    hint: "Scoped styles + isolated DOM tree inside custom elements.",
+    level: "advanced",
+    codeExample: "const shadow = customElement.attachShadow({ mode: 'closed' });\nshadow.innerHTML = '<style>p{color:red}</style><p>Scoped</p>';"
   },
   {
-    "question": "Question 12: How does Role of JavaScript in Modern Web Development handle edge case scenario #12?",
-    "shortAnswer": "Under scenario #12, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #12 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "expert",
-    "codeExample": "// Test case for Question 12\nfunction testCase12(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 12:\", sanitized);\n  return sanitized;\n}\ntestCase12();"
+    question: "What is WebSockets and how does it differ from traditional HTTP in JS?",
+    shortAnswer: "WebSockets provide persistent, full-duplex, bidirectional communication channels over a single TCP connection.",
+    explanation: "HTTP requires client request-response cycles. WebSockets allow servers to push real-time updates (chat, stock tickers, collaborative whiteboards) instantly to clients.",
+    hint: "HTTP = request/response; WebSocket = continuous two-way stream.",
+    level: "intermediate",
+    codeExample: "const socket = new WebSocket('wss://api.coder.com/stream');\nsocket.onmessage = (e) => console.log('Live data:', e.data);"
   },
   {
-    "question": "Question 13: How does Role of JavaScript in Modern Web Development handle edge case scenario #13?",
-    "shortAnswer": "Under scenario #13, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #13 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "basic",
-    "codeExample": "// Test case for Question 13\nfunction testCase13(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 13:\", sanitized);\n  return sanitized;\n}\ntestCase13();"
+    question: "What is the 'Same-Origin Policy' (SOP) in browser JavaScript?",
+    shortAnswer: "A core security mechanism that restricts scripts on one origin from accessing data on another origin.",
+    explanation: "Origin is defined as protocol + domain + port. SOP prevents a malicious site on evil.com from reading banking cookies or fetching private data from mybank.com.",
+    hint: "Same Protocol + Same Host + Same Port.",
+    level: "intermediate",
+    codeExample: "// Fetching cross-origin requires CORS headers from the remote server"
   },
   {
-    "question": "Question 14: How does Role of JavaScript in Modern Web Development handle edge case scenario #14?",
-    "shortAnswer": "Under scenario #14, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #14 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "intermediate",
-    "codeExample": "// Test case for Question 14\nfunction testCase14(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 14:\", sanitized);\n  return sanitized;\n}\ntestCase14();"
+    question: "What is CORS (Cross-Origin Resource Sharing)?",
+    shortAnswer: "An HTTP-header-based mechanism allowing servers to specify which external origins can access their resources.",
+    explanation: "When a browser makes a cross-origin fetch, the server responds with Access-Control-Allow-Origin headers. If permitted, browser JS receives the response.",
+    hint: "Access-Control-Allow-Origin header configures cross-origin access.",
+    level: "intermediate",
+    codeExample: "// Server header: Access-Control-Allow-Origin: *"
   },
   {
-    "question": "Question 15: How does Role of JavaScript in Modern Web Development handle edge case scenario #15?",
-    "shortAnswer": "Under scenario #15, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #15 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "advanced",
-    "codeExample": "// Test case for Question 15\nfunction testCase15(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 15:\", sanitized);\n  return sanitized;\n}\ntestCase15();"
+    question: "What is the Critical Rendering Path (CRP) in web browsers?",
+    shortAnswer: "The sequence of steps browsers take to convert HTML, CSS, and JS into visible screen pixels.",
+    explanation: "CRP involves parsing HTML to DOM, CSS to CSSOM, combining into Render Tree, calculating Layout coordinates (Reflow), and Painting pixels.",
+    hint: "DOM + CSSOM -> Render Tree -> Layout -> Paint -> Composite.",
+    level: "advanced",
+    codeExample: "// Minimizing DOM mutations reduces reflows and improves 60fps frame rate"
   },
   {
-    "question": "Question 16: How does Role of JavaScript in Modern Web Development handle edge case scenario #16?",
-    "shortAnswer": "Under scenario #16, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #16 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "expert",
-    "codeExample": "// Test case for Question 16\nfunction testCase16(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 16:\", sanitized);\n  return sanitized;\n}\ntestCase16();"
+    question: "How do Web Workers prevent CPU-intensive JavaScript from freezing UI animations?",
+    shortAnswer: "Web Workers run scripts on background OS threads completely separate from the main browser UI thread.",
+    explanation: "Because the main thread handles user clicks and 60fps paints, running heavy loops on a Web Worker ensures the user interface remains silky smooth.",
+    hint: "Main thread = UI/DOM; Worker thread = Heavy background computation.",
+    level: "advanced",
+    codeExample: "const worker = new Worker('heavy-calc.js');\nworker.postMessage({ data: [1, 2, 3] });\nworker.onmessage = (e) => console.log('Result:', e.data);"
   },
   {
-    "question": "Question 17: How does Role of JavaScript in Modern Web Development handle edge case scenario #17?",
-    "shortAnswer": "Under scenario #17, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #17 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "basic",
-    "codeExample": "// Test case for Question 17\nfunction testCase17(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 17:\", sanitized);\n  return sanitized;\n}\ntestCase17();"
+    question: "What is Tree-Shaking in modern JavaScript bundlers (Vite/Rollup)?",
+    shortAnswer: "Dead code elimination that removes unused exports from the final production bundle.",
+    explanation: "By relying on static ES Module syntax (import/export), bundlers analyze the dependency graph and discard unreferenced functions, shrinking bundle size.",
+    hint: "Eliminates unused code during production build.",
+    level: "advanced",
+    codeExample: "import { usedFunction } from './utils'; // unusedFunction in utils.js is tree-shaken away"
   },
   {
-    "question": "Question 18: How does Role of JavaScript in Modern Web Development handle edge case scenario #18?",
-    "shortAnswer": "Under scenario #18, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #18 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "intermediate",
-    "codeExample": "// Test case for Question 18\nfunction testCase18(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 18:\", sanitized);\n  return sanitized;\n}\ntestCase18();"
+    question: "What is the Virtual DOM and why do libraries like React use it?",
+    shortAnswer: "An in-memory lightweight representation of the real DOM used to batch and minimize costly browser reflows.",
+    explanation: "Mutating the real DOM triggers layout recalculations. Virtual DOM diffing (Reconciliation) computes minimal patch sets and applies updates in batches.",
+    hint: "Lightweight in-memory DOM tree -> Diffing -> Batched real DOM patch.",
+    level: "intermediate",
+    codeExample: "const vNode = { type: 'h1', props: { className: 'title' }, children: 'Hello' };"
   },
   {
-    "question": "Question 19: How does Role of JavaScript in Modern Web Development handle edge case scenario #19?",
-    "shortAnswer": "Under scenario #19, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #19 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "advanced",
-    "codeExample": "// Test case for Question 19\nfunction testCase19(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 19:\", sanitized);\n  return sanitized;\n}\ntestCase19();"
+    question: "What is Client-Side Routing and how does HTML5 History API enable it?",
+    shortAnswer: "Navigating between views by updating URL via history.pushState() without triggering full server page reloads.",
+    explanation: "history.pushState() and window.onpopstate allow JavaScript to change the browser URL and history stack, rendering corresponding UI components instantaneously.",
+    hint: "history.pushState() changes URL; JS renders matching route view.",
+    level: "intermediate",
+    codeExample: "window.history.pushState({ page: 2 }, 'Page 2', '/page2');"
   },
   {
-    "question": "Question 20: How does Role of JavaScript in Modern Web Development handle edge case scenario #20?",
-    "shortAnswer": "Under scenario #20, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #20 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "expert",
-    "codeExample": "// Test case for Question 20\nfunction testCase20(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 20:\", sanitized);\n  return sanitized;\n}\ntestCase20();"
+    question: "What is Micro-Frontend architecture in enterprise JavaScript?",
+    shortAnswer: "An architectural style where independently deliverable frontend apps are composed into a unified host shell.",
+    explanation: "Similar to backend microservices, large frontend codebases are split across domain teams (e.g. Cart, Checkout, Profile), using Module Federation to load dynamically.",
+    hint: "Independent frontend apps loaded into one unified web platform.",
+    level: "expert",
+    codeExample: "// Webpack / Vite Module Federation enables dynamic remote module imports"
   },
   {
-    "question": "Question 21: How does Role of JavaScript in Modern Web Development handle edge case scenario #21?",
-    "shortAnswer": "Under scenario #21, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #21 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "basic",
-    "codeExample": "// Test case for Question 21\nfunction testCase21(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 21:\", sanitized);\n  return sanitized;\n}\ntestCase21();"
+    question: "What are Server-Sent Events (SSE) and when are they preferred over WebSockets?",
+    shortAnswer: "A unidirectional persistent HTTP connection where servers push real-time text events to clients with auto-reconnect.",
+    explanation: "SSE is simpler than WebSockets for one-way streams (stock feeds, AI LLM token streaming, notifications) because it uses standard HTTP with native EventSource API.",
+    hint: "SSE = Server-to-Client stream over standard HTTP.",
+    level: "advanced",
+    codeExample: "const sse = new EventSource('/stream');\nsse.onmessage = (e) => console.log('Token:', e.data);"
   },
   {
-    "question": "Question 22: How does Role of JavaScript in Modern Web Development handle edge case scenario #22?",
-    "shortAnswer": "Under scenario #22, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #22 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "intermediate",
-    "codeExample": "// Test case for Question 22\nfunction testCase22(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 22:\", sanitized);\n  return sanitized;\n}\ntestCase22();"
+    question: "What is the role of JavaScript in Mobile App development via React Native?",
+    shortAnswer: "JS drives application logic and state, communicating across a bridge/JSI to invoke native iOS and Android UI widgets.",
+    explanation: "Instead of running in a webview, React Native uses the JavaScript engine (Hermes) to control native platform views (UIView on iOS, android.view.View on Android).",
+    hint: "JS logic controls 100% native platform mobile UI components.",
+    level: "intermediate",
+    codeExample: "// React Native JSX renders real native platform UI widgets"
   },
   {
-    "question": "Question 23: How does Role of JavaScript in Modern Web Development handle edge case scenario #23?",
-    "shortAnswer": "Under scenario #23, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #23 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "advanced",
-    "codeExample": "// Test case for Question 23\nfunction testCase23(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 23:\", sanitized);\n  return sanitized;\n}\ntestCase23();"
+    question: "What is Desktop Application development with JavaScript (Electron / Tauri)?",
+    shortAnswer: "Packaging web technologies (HTML, CSS, JS) with desktop runtime bindings to create cross-platform desktop software.",
+    explanation: "Electron bundles Chromium and Node.js (used by VS Code, Slack, Discord). Tauri pairs webview frontends with lightweight Rust backends for minimal memory footprint.",
+    hint: "Web technologies + Native OS windowing wrapper = Desktop App.",
+    level: "intermediate",
+    codeExample: "// VS Code is built entirely with TypeScript, JavaScript, and Electron!"
   },
   {
-    "question": "Question 24: How does Role of JavaScript in Modern Web Development handle edge case scenario #24?",
-    "shortAnswer": "Under scenario #24, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #24 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "expert",
-    "codeExample": "// Test case for Question 24\nfunction testCase24(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 24:\", sanitized);\n  return sanitized;\n}\ntestCase24();"
+    question: "What is Cross-Site Request Forgery (CSRF) and how is it prevented in modern web apps?",
+    shortAnswer: "An attack that tricks authenticated users into submitting unwanted commands; mitigated by SameSite cookies and CSRF tokens.",
+    explanation: "Using SameSite=Lax/Strict cookie attributes prevents browsers from automatically attaching session cookies to cross-origin requests, blocking CSRF attempts.",
+    hint: "SameSite cookies + Anti-CSRF tokens in custom headers.",
+    level: "advanced",
+    codeExample: "// Set-Cookie: session=123; SameSite=Strict; Secure; HttpOnly"
   },
   {
-    "question": "Question 25: How does Role of JavaScript in Modern Web Development handle edge case scenario #25?",
-    "shortAnswer": "Under scenario #25, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #25 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "basic",
-    "codeExample": "// Test case for Question 25\nfunction testCase25(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 25:\", sanitized);\n  return sanitized;\n}\ntestCase25();"
-  },
-  {
-    "question": "Question 26: How does Role of JavaScript in Modern Web Development handle edge case scenario #26?",
-    "shortAnswer": "Under scenario #26, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #26 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "intermediate",
-    "codeExample": "// Test case for Question 26\nfunction testCase26(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 26:\", sanitized);\n  return sanitized;\n}\ntestCase26();"
-  },
-  {
-    "question": "Question 27: How does Role of JavaScript in Modern Web Development handle edge case scenario #27?",
-    "shortAnswer": "Under scenario #27, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #27 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "advanced",
-    "codeExample": "// Test case for Question 27\nfunction testCase27(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 27:\", sanitized);\n  return sanitized;\n}\ntestCase27();"
-  },
-  {
-    "question": "Question 28: How does Role of JavaScript in Modern Web Development handle edge case scenario #28?",
-    "shortAnswer": "Under scenario #28, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Role of JavaScript in Modern Web Development in edge condition #28 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "expert",
-    "codeExample": "// Test case for Question 28\nfunction testCase28(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 28:\", sanitized);\n  return sanitized;\n}\ntestCase28();"
+    question: "How does JavaScript enable real-time collaborative applications like Google Docs or Figma?",
+    shortAnswer: "Using WebSockets/WebRTC combined with CRDTs (Conflict-Free Replicated Data Types) or Operational Transformation (OT).",
+    explanation: "Clients broadcast keystroke operations via WebSockets; OT algorithms or CRDT data structures resolve concurrent multi-user edits deterministically without conflicts.",
+    hint: "WebSockets + CRDT / Operational Transformation algorithms.",
+    level: "expert",
+    codeExample: "// Collaborative state syncs automatically across remote clients"
   }
 ];
 

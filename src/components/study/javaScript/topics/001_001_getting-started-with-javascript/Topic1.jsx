@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
-import clsx from "clsx";
+import React, { useEffect, useRef } from "react";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
@@ -8,13 +7,6 @@ import questions from "./topic1_files/topic1_questions";
 import noteText from "./topic1_files/topic1_note.txt?raw";
 import demoCode from "./topic1_files/RoleOfJavascriptInModernWebDevelopmentDemo.js?raw";
 
-/**
- * Topic1 – Role of JavaScript in Modern Web Development
- * Module: 001_001_getting-started-with-javascript
- *
- * @component
- * @returns {JSX.Element} Full 11-section interactive JavaScript tutorial component.
- */
 export default function Topic1() {
   const sectionRefs = useRef([]);
 
@@ -67,16 +59,16 @@ export default function Topic1() {
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-sky-300 tracking-tight leading-tight">
-            {"Role of JavaScript in Modern Web Development"}
+            Role of JavaScript in Modern Web Development
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Master the core mechanics, V8 execution rules, and practical enterprise workflows of <strong className="text-amber-300">{"Role of JavaScript in Modern Web Development"}</strong> in modern JavaScript.
+            Understand how JavaScript powers modern Single Page Applications (SPAs), reactive state rendering, asynchronous cloud communications, and universal multi-platform architectures.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-slate-400 pt-2">
             <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-amber-400">Course Code: JS-PRO-101</span>
-            <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-sky-400">Center: Coder &amp; AccoTax (Naihati Computer Center)</span>
+            <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-sky-400">Center: Coder &amp; AccoTax (Barrackpore Lab)</span>
             <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-emerald-400">Mentor: Sukanta Hui</span>
           </div>
         </header>
@@ -85,13 +77,25 @@ export default function Topic1() {
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
           <div className="bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg hover:border-slate-700 transition-all">
             <h2 className="text-xl sm:text-2xl font-bold text-amber-400 mb-4 flex items-center gap-2">
-              <span>💡</span> Conceptual Overview &amp; Mental Models
+              <span>💡</span> Detailed Discussion &amp; Architectural Role
             </h2>
+            
             <p className="text-slate-300 leading-relaxed mb-4">
-              In JavaScript, understanding <strong className="text-amber-300">{"Role of JavaScript in Modern Web Development"}</strong> is critical for writing robust and bug-free code. When building enterprise web applications, code must be predictable, resilient to unexpected user inputs, and optimized for high-performance browser execution.
+              In modern web engineering, JavaScript is the dynamic behavioral engine that brings static HTML documents and CSS stylesheets to life. Rather than merely validating form fields as it did in the 1990s, JavaScript today orchestrates the entire application lifecycle: client-side routing, optimistic UI updates, real-time bidirectional WebSocket messaging, progressive caching, and offline synchronization.
             </p>
-            <div className="p-4 rounded-xl bg-slate-900/90 border border-amber-900/40 text-sm text-slate-300 leading-relaxed">
-              <span className="text-amber-400 font-bold">🏫 Classroom Scenario (Naihati Computer Center):</span> During a hands-on lab exercise, <strong>Tuhina</strong> encountered unexpected runtime behavior while testing an interactive component. Mentor <strong>Sukanta Hui</strong> demonstrated how tracing the execution flow of <em>{"Role of JavaScript in Modern Web Development"}</em> eliminates guesswork, ensuring smooth and deterministic UI state transitions.
+
+            <p className="text-slate-300 leading-relaxed mb-4">
+              With the rise of <strong className="text-sky-300">Single Page Applications (SPAs)</strong> and hybrid Server-Side Rendering (SSR) frameworks like Next.js, JavaScript executes ubiquitously on both client browsers and cloud edge servers. The application state lives in memory, allowing users to interact with enterprise dashboards, maps, and real-time feeds without the jarring white-screen flickers of traditional multi-page reloads.
+            </p>
+
+            <div className="p-5 rounded-xl bg-slate-900/90 border border-amber-900/40 text-sm text-slate-300 leading-relaxed space-y-2">
+              <div className="flex items-center gap-2 text-amber-400 font-bold">
+                <span>🏫</span>
+                <span>Classroom Scenario (Naihati Lab):</span>
+              </div>
+              <p>
+                Student <strong>Tuhina</strong> asked why modern websites feel as smooth and snappy as native desktop software like VS Code. Mentor <strong>Sukanta Hui</strong> demonstrated how JavaScript intercepts user navigation via the <code>HTML5 History API</code>, fetches lightweight JSON payloads over <code>fetch()</code> in the background, and dynamically patches only the modified sections of the DOM without re-downloading entire HTML pages.
+              </p>
             </div>
           </div>
         </section>
@@ -100,54 +104,58 @@ export default function Topic1() {
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl">
             <h2 className="text-lg sm:text-xl font-bold text-sky-400 mb-4 flex items-center gap-2">
-              <span>📊</span> Runtime Architecture &amp; Execution Diagram
+              <span>📊</span> Traditional MPA vs Modern JavaScript SPA Architecture
             </h2>
             <div className="w-full overflow-x-auto">
-              <svg viewBox="0 0 800 240" className="w-full h-auto" role="img" aria-label="JavaScript Memory Layout &amp; Data Pipeline">
-  <defs>
-    <linearGradient id="memGrad_1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.8" />
-      <stop offset="100%" stopColor="#b45309" stopOpacity="0.2" />
-    </linearGradient>
-    <linearGradient id="heapGrad_1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.8" />
-      <stop offset="100%" stopColor="#5b21b6" stopOpacity="0.2" />
-    </linearGradient>
-  </defs>
-  <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-  <text x="400" y="34" fill="#f8fafc" fontSize="16" fontWeight="bold" textAnchor="middle">Role of JavaScript in Modern Web Development · Architecture &amp; Execution Pipeline</text>
+              <svg viewBox="0 0 850 260" className="w-full h-auto" role="img" aria-label="MPA vs SPA Architecture">
+                <defs>
+                  <linearGradient id="spaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#0369a1" stopOpacity="0.2" />
+                  </linearGradient>
+                  <linearGradient id="mpaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#f43f5e" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#881337" stopOpacity="0.2" />
+                  </linearGradient>
+                </defs>
+                <rect width="850" height="260" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
+                <text x="425" y="30" fill="#f8fafc" fontSize="15" fontWeight="bold" textAnchor="middle">Evolution: Multi-Page Web vs Modern Dynamic JavaScript Architecture</text>
 
-  <g transform="translate(60, 65)">
-    <rect width="280" height="145" rx="12" fill="#1e293b" stroke="#f59e0b" strokeWidth="1.5" />
-    <text x="140" y="28" fill="#fbbf24" fontSize="13" fontWeight="bold" textAnchor="middle">Execution Call Stack (Primitives)</text>
-    <rect x="20" y="42" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
-    <text x="30" y="59" fill="#94a3b8" fontSize="11">let student = "Swadeep"</text>
-    <text x="210" y="59" fill="#38bdf8" fontSize="11" fontWeight="bold">String (Value)</text>
+                {/* Legacy MPA Box */}
+                <g transform="translate(30, 50)">
+                  <rect width="375" height="190" rx="12" fill="#1e293b" stroke="#f43f5e" strokeWidth="1.5" />
+                  <text x="187" y="24" fill="#fb7185" fontSize="12" fontWeight="bold" textAnchor="middle">Traditional MPA (Server Round-Trip)</text>
+                  
+                  <rect x="20" y="42" width="335" height="35" rx="6" fill="#0f172a" stroke="#e11d48" />
+                  <text x="30" y="64" fill="#fda4af" fontSize="11">1. User Clicks Link → Full HTTP Request to Server</text>
 
-    <rect x="20" y="74" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
-    <text x="30" y="91" fill="#94a3b8" fontSize="11">let marks = 98.5</text>
-    <text x="210" y="91" fill="#38bdf8" fontSize="11" fontWeight="bold">Number (Value)</text>
+                  <rect x="20" y="85" width="335" height="35" rx="6" fill="#0f172a" stroke="#e11d48" />
+                  <text x="30" y="107" fill="#fda4af" fontSize="11">2. Full Page HTML/CSS Re-parsed (White Screen Flash)</text>
 
-    <rect x="20" y="106" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
-    <text x="30" y="123" fill="#94a3b8" fontSize="11">let refObj = 0x8849F</text>
-    <text x="195" y="123" fill="#ec4899" fontSize="11" fontWeight="bold">Heap Pointer →</text>
-  </g>
+                  <rect x="20" y="128" width="335" height="42" rx="6" fill="#0f172a" stroke="#e11d48" />
+                  <text x="30" y="146" fill="#f43f5e" fontSize="10" fontWeight="bold">❌ Consequence: High latency, lost client state &amp; heavy load</text>
+                  <text x="30" y="161" fill="#94a3b8" fontSize="9">Entire DOM discarded and rebuilt on every click</text>
+                </g>
 
-  <g transform="translate(460, 65)">
-    <rect width="280" height="145" rx="12" fill="url(#heapGrad_1)" stroke="#a855f7" strokeWidth="1.5" />
-    <text x="140" y="28" fill="#e9d5ff" fontSize="13" fontWeight="bold" textAnchor="middle">Memory Heap (Objects / Arrays / Closures)</text>
-    <rect x="20" y="45" width="240" height="85" rx="8" fill="#0f172a" stroke="#6366f1" />
-    <text x="30" y="68" fill="#38bdf8" fontSize="11" fontWeight="bold">Address: 0x8849F</text>
-    <text x="30" y="88" fill="#e2e8f0" fontSize="11">&#123; course: "JS-PRO-101", city: "Barrackpore" &#125;</text>
-    <text x="30" y="108" fill="#a5b4fc" fontSize="10">Managed by V8 Garbage Collector (Mark &amp; Sweep)</text>
-  </g>
+                {/* Modern SPA Box */}
+                <g transform="translate(445, 50)">
+                  <rect width="375" height="190" rx="12" fill="#1e293b" stroke="#38bdf8" strokeWidth="1.5" />
+                  <text x="187" y="24" fill="#38bdf8" fontSize="12" fontWeight="bold" textAnchor="middle">Modern SPA (Client-Side JS State Engine)</text>
+                  
+                  <rect x="20" y="42" width="335" height="35" rx="6" fill="#0f172a" stroke="#0284c7" />
+                  <text x="30" y="64" fill="#7dd3fc" fontSize="11">1. User Clicks Link → Intercepted by JS Router</text>
 
-  <path d="M 340 185 C 390 185, 410 135, 460 135" fill="none" stroke="#ec4899" strokeWidth="2.5" strokeDasharray="6 3" />
-  <circle cx="460" cy="135" r="4" fill="#ec4899" />
-</svg>
+                  <rect x="20" y="85" width="335" height="35" rx="6" fill="#0f172a" stroke="#0284c7" />
+                  <text x="30" y="107" fill="#7dd3fc" fontSize="11">2. Asynchronous JSON Fetch + Targeted DOM Mutation</text>
+
+                  <rect x="20" y="128" width="335" height="42" rx="6" fill="url(#spaGrad)" stroke="#0369a1" />
+                  <text x="30" y="146" fill="#f0f9ff" fontSize="10" fontWeight="bold">✓ Benefit: Instant navigation, zero flicker &amp; cached state</text>
+                  <text x="30" y="161" fill="#bae6fd" fontSize="9">Maintains 60fps buttery smooth desktop app experience</text>
+                </g>
+              </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 1.2: Contrast between server-side page cycling and modern JavaScript reactive state management.
             </p>
           </div>
         </section>
@@ -156,44 +164,62 @@ export default function Topic1() {
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
           <div className="bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg">
             <h2 className="text-xl sm:text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2">
-              <span>🔬</span> Deep Technical Breakdown &amp; Execution Rules
+              <span>🔬</span> Core Ecosystem Roles &amp; Production Technical Stack
             </h2>
             
             <p className="text-slate-300 leading-relaxed mb-6">
-              The ECMAScript specification defines formal execution invariants for <strong className="text-amber-300">{"Role of JavaScript in Modern Web Development"}</strong>. When a script runs, the JavaScript runtime establishes an execution context consisting of variable environments, lexical scopes, and binding environments.
+              JavaScript serves as the unifying language across all architectural tiers of the modern web stack. By mastering the core runtime primitives, engineers can architect solutions spanning micro-frontends, serverless backends, and offline-first mobile apps.
             </p>
 
             <div className="overflow-x-auto mb-6">
               <table className="w-full text-left text-sm text-slate-300 border-collapse border border-slate-800">
                 <thead className="bg-slate-900/90 text-amber-300 uppercase text-xs">
                   <tr>
-                    <th className="p-3 border border-slate-800">Execution Phase</th>
-                    <th className="p-3 border border-slate-800">Engine Behavior</th>
-                    <th className="p-3 border border-slate-800">Developer Invariant</th>
-                    <th className="p-3 border border-slate-800">Optimization Goal</th>
+                    <th className="p-3 border border-slate-800">Domain / Tier</th>
+                    <th className="p-3 border border-slate-800">Primary Role of JavaScript</th>
+                    <th className="p-3 border border-slate-800">Industry Technologies</th>
+                    <th className="p-3 border border-slate-800">Key Engineering Metric</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800">
+                <tbody className="divide-y divide-slate-800 font-mono text-xs">
                   <tr className="hover:bg-slate-800/30">
-                    <td className="p-3 font-mono text-sky-400">1. Parse / Tokenize</td>
-                    <td className="p-3">Lexer converts source code into AST tokens</td>
-                    <td className="p-3">Zero syntax errors &amp; clean lexical grammar</td>
-                    <td className="p-3 text-emerald-400">Fast AST building</td>
+                    <td className="p-3 text-sky-400 font-bold">1. Frontend UI / SPA</td>
+                    <td className="p-3 text-slate-300 font-sans">Reactive state management, Virtual DOM diffing &amp; component orchestration</td>
+                    <td className="p-3 text-amber-300 font-sans">React 19, Vite, Tailwind CSS, Vue, Svelte</td>
+                    <td className="p-3 text-emerald-400 font-sans">Time To Interactive (TTI) &lt; 1.5s</td>
                   </tr>
                   <tr className="hover:bg-slate-800/30">
-                    <td className="p-3 font-mono text-sky-400">2. Ignition Bytecode</td>
-                    <td className="p-3">Generates bytecodes and initializes type feedback</td>
-                    <td className="p-3">Avoid dynamic property shape mutations</td>
-                    <td className="p-3 text-emerald-400">Instant startup time</td>
+                    <td className="p-3 text-sky-400 font-bold">2. Server-Side / APIs</td>
+                    <td className="p-3 text-slate-300 font-sans">High-throughput REST/GraphQL microservices &amp; SSR rendering</td>
+                    <td className="p-3 text-amber-300 font-sans">Node.js, Fastify, Express, Next.js, Bun</td>
+                    <td className="p-3 text-emerald-400 font-sans">High concurrent I/O throughput</td>
                   </tr>
                   <tr className="hover:bg-slate-800/30">
-                    <td className="p-3 font-mono text-sky-400">3. TurboFan JIT</td>
-                    <td className="p-3">Hot code paths compiled to optimized machine code</td>
-                    <td className="p-3">Maintain monomorphic function call sites</td>
-                    <td className="p-3 text-emerald-400">Near C++ performance</td>
+                    <td className="p-3 text-sky-400 font-bold">3. Mobile &amp; Desktop</td>
+                    <td className="p-3 text-slate-300 font-sans">Single codebase driving native iOS/Android views &amp; desktop windows</td>
+                    <td className="p-3 text-amber-300 font-sans">React Native, Electron, Tauri, Capacitor</td>
+                    <td className="p-3 text-emerald-400 font-sans">90%+ cross-platform code reuse</td>
+                  </tr>
+                  <tr className="hover:bg-slate-800/30">
+                    <td className="p-3 text-sky-400 font-bold">4. Real-Time Streaming</td>
+                    <td className="p-3 text-slate-300 font-sans">Bidirectional peer-to-peer data channels &amp; binary media streams</td>
+                    <td className="p-3 text-amber-300 font-sans">WebSockets, WebRTC, Server-Sent Events (SSE)</td>
+                    <td className="p-3 text-emerald-400 font-sans">Sub-50ms latency synchronization</td>
                   </tr>
                 </tbody>
               </table>
+            </div>
+
+            {/* Exceptions & Quirks Subsection */}
+            <div className="mt-6 p-5 rounded-xl bg-slate-900/80 border border-rose-900/40 space-y-3">
+              <h3 className="text-base font-bold text-rose-400 flex items-center gap-2">
+                <span>⚠️</span> Critical Security &amp; Architectural Caveats
+              </h3>
+              <ul className="list-disc list-inside space-y-2 text-sm text-slate-300 leading-relaxed">
+                <li><strong className="text-rose-300">Client Secrets Exposure:</strong> Never bundle private database connection strings or secret API keys in client JavaScript.</li>
+                <li><strong className="text-amber-300">XSS Vulnerabilities:</strong> Using <code>innerHTML</code> with unescaped user data allows malicious script injection. Always prefer <code>textContent</code> or DOM sanitizers.</li>
+                <li><strong className="text-sky-300">Over-Hydration Overhead:</strong> Sending massive JavaScript bundles for simple static content degrades mobile performance. Use selective hydration or static site generation where appropriate.</li>
+              </ul>
             </div>
           </div>
         </section>
@@ -202,7 +228,7 @@ export default function Topic1() {
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-xl sm:text-2xl font-bold text-amber-400 flex items-center gap-2">
-              <span>💻</span> Interactive Monaco Playground: 5+ Working Examples
+              <span>💻</span> Interactive Monaco Playground: 5+ Practical Working Examples
             </h2>
             <span className="text-xs font-mono px-3 py-1 rounded bg-amber-950/60 border border-amber-800 text-amber-300">
               Live In-Browser Execution
@@ -224,49 +250,43 @@ export default function Topic1() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Incorrect */}
-            <div className="bg-rose-950/20 border border-rose-800/40 rounded-2xl p-6 shadow-lg">
-              <div className="flex items-center gap-2 text-rose-400 font-bold mb-3">
+            <div className="bg-rose-950/20 border border-rose-800/40 rounded-2xl p-6 shadow-lg space-y-3">
+              <div className="flex items-center gap-2 text-rose-400 font-bold">
                 <span>❌</span>
-                <span>Anti-Pattern / Common Bug</span>
+                <span>Anti-Pattern: Synchronous Blocking Data Processing</span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-300 mb-4 leading-relaxed">
-                Relying on implicit coercion, uninitialized variable hoisting, or neglecting boundary state checks.
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Executing heavy array calculations on the main UI thread causes frame drops and makes input buttons completely unresponsive.
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-rose-900/50 text-xs font-mono text-rose-300 overflow-x-auto">
-{`// ❌ AVOID: Loose comparisons and unhandled TDZ
-function checkStatus(val) {
-  if (val == null) { // Unclear intent
-    return "default";
+{`// ❌ AVOID: Freezes the UI on large datasets
+function processTransactions(items) {
+  for (let i = 0; i < 5000000; i++) {
+    // Heavy CPU calculation on main thread!
   }
-  return val.toUpperCase(); // May throw TypeError!
 }`}
               </pre>
             </div>
 
-            {/* Correct */}
-            <div className="bg-emerald-950/20 border border-emerald-800/40 rounded-2xl p-6 shadow-lg">
-              <div className="flex items-center gap-2 text-emerald-400 font-bold mb-3">
+            <div className="bg-emerald-950/20 border border-emerald-800/40 rounded-2xl p-6 shadow-lg space-y-3">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold">
                 <span>✓</span>
-                <span>Senior Pro Best Practice</span>
+                <span>Senior Pro: Chunked / Worker Asynchronous Task</span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-300 mb-4 leading-relaxed">
-                Explicit type validation, strict equality, optional chaining, and nullish coalescing operators.
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Offload heavy computation to dedicated Web Workers or chunk tasks using <code>requestIdleCallback</code> to preserve 60fps UI responsiveness.
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-emerald-900/50 text-xs font-mono text-emerald-300 overflow-x-auto">
-{`// ✓ RECOMMENDED: Safe, explicit and defensive
-function checkStatus(val) {
-  if (typeof val !== "string") {
-    return "default";
-  }
-  return val.toUpperCase();
-}`}
+{`// ✓ RECOMMENDED: Non-blocking worker offloading
+const worker = new Worker("worker.js");
+worker.postMessage({ items: dataset });
+worker.onmessage = (e) => updateUI(e.data); // Smooth!`}
               </pre>
             </div>
           </div>
         </section>
 
-        {/* ─── 7. 💎 JAVASCRIPT HIDDEN GEMS & SENIOR PRO TRICKS ────────── */}
+        {/* ─── 7. 💎 JAVASCRIPT HIDDEN GEMS & PRO TRICKS ──────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <div className="bg-gradient-to-br from-amber-950/30 via-slate-900 to-purple-950/20 border border-amber-500/30 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden">
             <div className="flex items-center gap-3 mb-4">
@@ -278,32 +298,36 @@ function checkStatus(val) {
                   JavaScript Hidden Gem &amp; Senior Pro Secret
                 </span>
                 <h3 className="text-lg sm:text-xl font-bold text-white">
-                  {"$0 in DevTools Console"}
+                  AbortSignal.timeout() for Resilient API Resilience
                 </h3>
               </div>
             </div>
 
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-              {"In Chrome DevTools, selecting any element in the Elements tab automatically assigns it to $0 in the Console for instant live DOM testing."}
+              Standardized in modern JavaScript, <code>AbortSignal.timeout(ms)</code> allows you to automatically cancel hanging network requests and teardown event listeners without cumbersome <code>setTimeout</code> cleanup boilerplate.
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"$0.style.border = '2px solid red';\nconsole.dir($0);"}</pre>
+              <pre>{`// 💎 SENIOR PRO SECRET: Instant 3-Second Timeout with Native AbortSignal
+async function fetchWithDeadline(url) {
+  const res = await fetch(url, { signal: AbortSignal.timeout(3000) });
+  return await res.json();
+}`}</pre>
             </div>
           </div>
         </section>
 
-        {/* ─── 8. THINKING & HINTS ("Think About This...") ─────────────── */}
+        {/* ─── 8. THINKING & ARCHITECTURAL CHALLENGE ─────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <div className="bg-indigo-950/20 border border-indigo-800/40 rounded-2xl p-6 md:p-8 shadow-lg">
             <h2 className="text-lg sm:text-xl font-bold text-indigo-300 mb-3 flex items-center gap-2">
               <span>🤔</span> Architectural Mental Challenge: Think About This...
             </h2>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-4">
-              If an application triggers thousands of operations per second using <strong className="text-amber-300">{"Role of JavaScript in Modern Web Development"}</strong>, how does the V8 engine manage memory allocation and Garbage Collection pressure without causing UI frame drops (jank)?
+              Why do enterprise web architectures (like Netflix or Airbnb) increasingly choose Server-Side Rendering (SSR) or Static Site Generation (SSG) over pure Client-Side Rendering (CSR) for initial page loads?
             </p>
             <div className="p-4 rounded-xl bg-slate-900 border border-indigo-900/50 text-xs sm:text-sm text-indigo-300 font-mono">
-              💡 Hint: Focus on object pool recycling, avoiding closure leaks in long-lived event listeners, and minimizing temporary object allocations in hot loops.
+              💡 Hint: Focus on Core Web Vitals (Largest Contentful Paint - LCP), search engine web crawler indexing, and mobile cellular data bandwidth savings!
             </div>
           </div>
         </section>
@@ -311,8 +335,8 @@ function checkStatus(val) {
         {/* ─── 9. COMPREHENSIVE FAQ SECTION ───────────────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <FAQTemplate
-            title={"Frequently Asked Questions · Role of JavaScript in Modern Web Development"}
-            subtitle="Explore 25+ comprehensive questions from basic to senior architecture levels"
+            title="Frequently Asked Questions · Role of JavaScript in Modern Web Development"
+            subtitle="Explore 25+ comprehensive questions on SPAs, SSR, security, and full-stack architectures"
             questions={questions}
           />
         </section>
@@ -321,7 +345,7 @@ function checkStatus(val) {
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <PlainTextPrint
             content={noteText}
-            title={"JavaScript Master Note · Role of JavaScript in Modern Web Development"}
+            title="JavaScript Master Note · Role of JavaScript in Modern Web Development"
             downloadFileName="001_001_getting-started-with-javascript-topic1-note.txt"
           />
         </section>
@@ -329,7 +353,7 @@ function checkStatus(val) {
         {/* ─── 11. TEACHER'S NOTE & MENTORSHIP ────────────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <Teacher
-            note={"In my 27+ years of mentoring engineers at Coder & AccoTax in Barrackpore, I have seen that mastering Role of JavaScript in Modern Web Development is the exact turning point between amateur scripting and professional software engineering. Practice each example in the Monaco editor until you can explain the execution flow without hesitation."}
+            note="In my 27+ years of mentoring engineers at Coder & AccoTax in Barrackpore, I emphasize that learning JavaScript is not just learning syntax — it is mastering the universal runtime that connects user interfaces to databases, cloud functions, and mobile devices. Understand the client-server boundary deeply."
           />
         </section>
 

@@ -1,53 +1,130 @@
 ================================================================================
 CODER & ACCOTAX - JAVASCRIPT COMPLETE ROADMAP
 MODULE [001_001_getting-started-with-javascript]: Getting Started with JavaScript
-TOPIC [7]: JavaScript Lexical Grammar, Comments, Whitespace & ASI (Automatic Semicolon Insertion)
+TOPIC [7]: JavaScript Lexical Grammar, Comments, Whitespace & ASI
 Educator: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. CORE CONCEPTS & RULES
+1. TOPIC OVERVIEW & DETAILED CONCEPT DISCUSSION
 --------------------------------------------------------------------------------
-- JavaScript Lexical Grammar, Comments, Whitespace & ASI (Automatic Semicolon Insertion) is a foundational pillar of modern JavaScript application architecture.
-- Execution is governed by ECMAScript specification rules and V8 engine JIT compilation.
-- Follows the single-threaded event loop concurrency model with microtask priority.
-- Adheres to lexical scoping, strict mode ('use strict') standards, and defensive coding.
+- What is Lexical Grammar?
+  Lexical grammar defines the basic set of rules that the JavaScript engine's Lexer / Scanner 
+  uses to transform raw source characters into meaningful tokens (Identifiers, Keywords, 
+  Literals, Punctuators, and Comments).
+- Key Lexical Elements:
+  1. Identifiers: Must start with a Unicode letter, '$', or '_', followed by letters, digits, 
+     '$', or '_'. Cannot be reserved keywords (e.g. class, return, const).
+  2. Whitespace: Spaces, tabs, and newlines separate tokens and are mostly ignored by the parser 
+     (except where Automatic Semicolon Insertion applies).
+  3. Comments: Single-line (//) and Multi-line (/* ... */) comments ignored at runtime.
+  4. JSDoc: Standardized block comments (/** ... */) providing TypeScript-like type checking 
+     and rich editor IntelliSense.
 
-2. SYNTAX & JAVASCRIPT CODE SNIPPETS
+2. IN-DEPTH TECHNICAL KNOW-HOW & ENGINE RUNTIME MECHANICS
 --------------------------------------------------------------------------------
-// Standard ES6+ JavaScript implementation
-const executeTopicRoutine = (payload = {}) => {
-  const timestamp = new Date().toISOString();
-  console.log("[JS-PRO-101] Executing topic: JavaScript Lexical Grammar, Comments, Whitespace & ASI (Automatic Semicolon Insertion)");
+- Automatic Semicolon Insertion (ASI) Rules:
+  JavaScript automatically inserts semicolons at specific line endings during parsing when:
+  1. The next token is an unexpected token or closing brace (}).
+  2. The parser encounters a Restricted Production where a newline is forbidden:
+     - return [no LineTerminator] Expression;
+     - throw [no LineTerminator] Expression;
+     - break [no LineTerminator] Label;
+     - continue [no LineTerminator] Label;
+     - yield [no LineTerminator] Expression;
+     - Postfix ++ and -- operators.
+- When ASI FAILS (The Leading Token Trap):
+  If a line begins with (, [, +, -, /, or template literals, the engine does NOT insert a semicolon 
+  before it. It assumes the previous line was a function call or property lookup!
+
+3. EXCEPTIONS, CORNER CASES, COERCIONS & QUIRKS
+--------------------------------------------------------------------------------
+[!] The Return Object Trap:
+    return
+    { id: 101 };
+    -> Parsed as 'return;' followed by an isolated block. Returns undefined!
+    Fix: Place opening brace on same line: return { id: 101 };
+[!] Leading Parenthesis TypeError:
+    const a = 1
+    (function() {})()
+    -> Parsed as: const a = 1(function() {})(); -> Throws TypeError: 1 is not a function!
+[!] Regex Division Ambiguity: A slash '/' can represent division or a RegExp literal. 
+    Whitespace and semicolons resolve ambiguity.
+
+4. 💎 SPECIAL LANGUAGE FEATURES & SENIOR PRO SECRETS
+--------------------------------------------------------------------------------
+- Leading Semicolon Defensive Pattern: When authoring standalone IIFEs in un-semicoloned 
+  codebases, prefix with a defensive semicolon: ;(function() { ... })(); to prevent collisions.
+- JSDoc @typedef and @type Annotations: Gain complete TypeScript type-checking, code completions, 
+  and parameter safety in pure vanilla .js files without needing a TypeScript compiler build step!
+- Numeric Separators (ES2021): Use underscores in numbers for readability: const fee = 1_000_000;.
+
+5. PRACTICAL ENTERPRISE USE-CASES & CODE EXAMPLES
+--------------------------------------------------------------------------------
+Example 1: Safe Object Return Syntax
+// ✓ ALWAYS keep opening brace on the same line as return
+function createStudent(name, roll) {
   return {
-    success: true,
-    topic: "JavaScript Lexical Grammar, Comments, Whitespace & ASI (Automatic Semicolon Insertion)",
-    timestamp,
-    ...payload
+    name,
+    roll,
+    verified: true
   };
+}
+
+Example 2: Defensive Semicolon with IIFE
+// Leading semicolon prevents collision with previous statement
+;(function() {
+  const localAppSecret = "Barrackpore_Key";
+  console.log("Safe IIFE executed");
+})();
+
+Example 3: Rich JSDoc Type Annotations
+/**
+ * @typedef {Object} CourseConfig
+ * @property {string} title
+ * @property {number} price
+ */
+
+/** @type {CourseConfig} */
+const jsCourse = {
+  title: "JavaScript Professional Masterclass",
+  price: 4999
 };
 
-const result = executeTopicRoutine({ student: "Swadeep", center: "Barrackpore" });
-console.log("Routine Result:", result);
+Example 4: Unicode Identifiers in Modern JS
+const ₹_price = 1500;
+const π = Math.PI;
 
-3. 💎 HIDDEN GEMS & PRO SECRETS
---------------------------------------------------------------------------------
-- V8 Hidden Classes & Inline Caching: Always instantiate object fields in consistent order.
-- Microtask queue prioritization: queueMicrotask() executes before next rendering frame.
-- Strict Equality vs Object.is(): Object.is(NaN, NaN) is true, and Object.is(+0, -0) is false.
-- Structured Clone: native window.structuredClone() handles circular object graphs safely.
+Example 5: Numeric Separator Readability
+const ONE_LAKH_RUPEES = 1_00_000;
+const MAX_BUFFER_SIZE = 16_777_216; // 16 MB
 
-4. CRITICAL PITFALLS TO AVOID
+6. COMPARATIVE SPECIFICATION CHEAT-SHEET
 --------------------------------------------------------------------------------
-[!] Watch out for Temporal Dead Zone (TDZ) when referencing let/const before declaration.
-[!] Never rely on loose equality (==) which triggers complex implicit type coercion rules.
-[!] Beware of unhandled Promise rejections and uncleaned event listeners causing memory leaks.
-[!] Do not mutate array parameters directly in functions; use immutable utilities.
++----------------------+--------------------+---------------------+--------------------+
+| Statement Structure  | Newline Following  | ASI Applied?        | Resulting Output   |
++----------------------+--------------------+---------------------+--------------------+
+| return               | { object: true }   | YES (after return)  | returns undefined! |
+| return { obj: true } | (same line)        | NO                  | returns object     |
+| const x = 5          | (function() {})()  | NO (Treated as 5()) | TypeError: 5 is not|
+| break                | myLabel            | YES (after break)   | breaks loop only   |
+| throw                | new Error()        | YES (after throw)   | SyntaxError        |
++----------------------+--------------------+---------------------+--------------------+
 
-5. ESSENTIAL CHECKLIST
+7. INTERVIEW & VIVA QUICK-FIRE KNOWLEDGE POINTS
 --------------------------------------------------------------------------------
-[✓] Core concept and syntax patterns thoroughly mastered.
-[✓] Interactive Monaco playground code executed with zero runtime exceptions.
-[✓] Understood memory stack vs heap allocation behavior.
-[✓] Completed all 25+ comprehensive domain FAQ questions.
-[✓] Ready for senior software engineer technical interview assessments.
+Q1: What is Automatic Semicolon Insertion (ASI)?
+A1: ASI is a parser mechanism in JavaScript that automatically inserts virtual semicolons 
+    at certain line boundaries when omitting them would cause syntax errors.
+
+Q2: Why does placing a newline after 'return' return undefined?
+A2: 'return' is a Restricted Production in ECMAScript. The parser forbids a newline after it 
+    and automatically inserts a semicolon, making it 'return;' which yields undefined.
+
+Q3: When does omitting semicolons cause runtime errors in JavaScript?
+A3: When a subsequent line starts with '(', '[', '+', '-', or '/', causing the parser to treat 
+    it as a function call, array index, or operator continuing the previous line.
+
+Q4: What is JSDoc and why is it valuable in JavaScript development?
+A4: JSDoc provides structured documentation comments that enable IDE IntelliSense, parameter hints, 
+    and type checking in vanilla JavaScript without TypeScript transpilation.
 ================================================================================

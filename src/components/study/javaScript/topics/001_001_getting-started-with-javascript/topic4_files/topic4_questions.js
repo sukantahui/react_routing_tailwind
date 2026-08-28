@@ -1,227 +1,203 @@
 const questions = [
   {
-    "question": "What is the primary role of Running JavaScript in Browser Console & Script Files in modern JavaScript development?",
-    "shortAnswer": "Running JavaScript in Browser Console & Script Files provides the essential runtime rules and architectural patterns required to build predictable, performant, and maintainable JavaScript applications.",
-    "explanation": "In modern ECMAScript standards (ES6+), mastering Running JavaScript in Browser Console & Script Files allows engineers to avoid runtime pitfalls, leverage engine optimizations in V8, and ensure full cross-browser compatibility.",
-    "hint": "Focus on how Running JavaScript in Browser Console & Script Files operates during compilation and runtime execution.",
-    "level": "basic",
-    "codeExample": "console.log(\"Core principle of Running JavaScript in Browser Console & Script Files\");\nconst isVerified = true;\nconsole.log({ isVerified });"
+    question: "What are the four primary ways to execute JavaScript?",
+    shortAnswer: "1. DevTools Console, 2. Inline <script>, 3. External .js file, 4. ES Modules (<script type='module'>).",
+    explanation: "DevTools is used for testing; inline scripts embed code in HTML; external scripts provide caching and maintainability; ES Modules offer scoped imports/exports.",
+    hint: "Console, inline tags, external files, and ES module scripts.",
+    level: "basic",
+    codeExample: "<script src='app.js'></script>\n<script type='module' src='main.js'></script>"
   },
   {
-    "question": "How does the JavaScript engine interpret and execute Running JavaScript in Browser Console & Script Files?",
-    "shortAnswer": "The V8 engine parses code into an Abstract Syntax Tree (AST), generates bytecode via Ignition, and uses TurboFan for JIT optimization during execution.",
-    "explanation": "Understanding this lifecycle ensures that variables, function scopes, and memory allocations are handled cleanly without triggering de-optimizations.",
-    "hint": "Think: Parser → Ignition Bytecode → Feedback Vector → TurboFan Machine Code.",
-    "level": "intermediate",
-    "codeExample": "function traceExecution() {\n  console.log(\"Tracing execution pipeline for Running JavaScript in Browser Console & Script Files\");\n}\ntraceExecution();"
+    question: "Why are external JavaScript files preferred over inline scripts?",
+    shortAnswer: "They allow browser caching, clean separation of concerns, and reuse across multiple pages.",
+    explanation: "External scripts can be minified, bundled, and cached by browsers and CDNs, reducing bandwidth and boosting page load speeds across multiple page visits.",
+    hint: "Browser caching, cleaner HTML, and cross-page reusability.",
+    level: "basic",
+    codeExample: "<script src='bundle.js' defer></script>"
   },
   {
-    "question": "What is the most common beginner mistake when dealing with Running JavaScript in Browser Console & Script Files?",
-    "shortAnswer": "Failing to account for implicit type coercion, variable hoisting scopes (temporal dead zone), or unhandled edge cases in asynchronous execution.",
-    "explanation": "Beginners often assume immediate synchronous execution or overlook strict equality checks, leading to subtle logic bugs.",
-    "hint": "Always use strict equality (===) and declare variables with const/let.",
-    "level": "advanced",
-    "codeExample": "// Avoid implicit coercion:\nconst val = \"42\";\nconsole.log(Number(val) === 42); // true (explicit and safe)"
+    question: "How does <script type='module'> differ from a standard <script> tag?",
+    shortAnswer: "Modules have their own lexical scope, use strict mode by default, support import/export, and defer automatically.",
+    explanation: "Unlike classic scripts that leak variables to window, top-level variables in an ES module are private to that module. They are also deferred by default.",
+    hint: "Scoped variables, strict mode by default, and automatic defer.",
+    level: "intermediate",
+    codeExample: "<script type='module'>\n  import { init } from './app.js';\n  init();\n</script>"
   },
   {
-    "question": "How do senior developers optimize memory and CPU cycles when applying Running JavaScript in Browser Console & Script Files?",
-    "shortAnswer": "By avoiding accidental global closures, reusing object shapes for inline caching (IC), and keeping functional pipelines immutable without unnecessary allocations.",
-    "explanation": "V8 optimizes functions when object property shapes stay monomorphic. Creating dynamic, changing shapes triggers megamorphic de-optimizations.",
-    "hint": "Keep object properties initialized in the exact same order in constructors.",
-    "level": "expert",
-    "codeExample": "class OptimizedItem {\n  constructor(id, label) {\n    this.id = id;\n    this.label = label;\n  }\n}"
+    question: "What does the browser DevTools Console REPL stand for?",
+    shortAnswer: "Read-Eval-Print-Loop: Reads input, evaluates code, prints output, loops for next command.",
+    explanation: "The Console REPL executes single or multi-line JavaScript statements within the active page's execution context, allowing instant testing.",
+    hint: "Read -> Eval -> Print -> Loop.",
+    level: "basic",
+    codeExample: "// Type in DevTools console: 10 + 20 -> Outputs 30"
   },
   {
-    "question": "What is the difference between synchronous and asynchronous behavior in the context of Running JavaScript in Browser Console & Script Files?",
-    "shortAnswer": "Synchronous code blocks the single-threaded Call Stack, while asynchronous operations delegate tasks to Web APIs / libuv and resolve via the Microtask/Macrotask queues.",
-    "explanation": "Promises and queueMicrotask() execute immediately after current synchronous execution completes, before timers or UI rendering.",
-    "hint": "Microtasks (Promises) always take precedence over Macrotasks (setTimeout).",
-    "level": "basic",
-    "codeExample": "console.log(\"1. Sync\");\nPromise.resolve().then(() => console.log(\"2. Microtask\"));\nsetTimeout(() => console.log(\"3. Macrotask\"), 0);"
+    question: "What is the 'nomodule' attribute used for on script tags?",
+    shortAnswer: "It serves as a fallback script for legacy browsers that do not support modern ES modules.",
+    explanation: "Modern browsers ignore scripts with nomodule and execute type='module'. Older browsers ignore type='module' and execute the nomodule fallback.",
+    hint: "Fallback mechanism for legacy browsers without ES module support.",
+    level: "intermediate",
+    codeExample: "<script type='module' src='modern.js'></script>\n<script nomodule src='legacy-fallback.js'></script>"
   },
   {
-    "question": "Question 6: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #6?",
-    "shortAnswer": "Under scenario #6, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #6 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "intermediate",
-    "codeExample": "// Test case for Question 6\nfunction testCase6(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 6:\", sanitized);\n  return sanitized;\n}\ntestCase6();"
+    question: "What is dynamic import() and when should you use it?",
+    shortAnswer: "An asynchronous function that loads JavaScript modules on demand at runtime returning a Promise.",
+    explanation: "Dynamic imports allow code-splitting, lazy-loading heavy components or charts only when a user clicks a button or navigates to a specific route.",
+    hint: "Lazy-loading modules at runtime via Promise-based import().",
+    level: "advanced",
+    codeExample: "const module = await import('./heavyChart.js');\nmodule.renderChart();"
   },
   {
-    "question": "Question 7: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #7?",
-    "shortAnswer": "Under scenario #7, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #7 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "advanced",
-    "codeExample": "// Test case for Question 7\nfunction testCase7(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 7:\", sanitized);\n  return sanitized;\n}\ntestCase7();"
+    question: "What is the global scope pollution problem with classic scripts?",
+    shortAnswer: "Variables declared with 'var' or function declarations attach directly to window, causing naming collisions.",
+    explanation: "If two independent third-party scripts declare var config = {}, the second script overwrites the first. ES Modules and closures solve this problem.",
+    hint: "Global window property collisions caused by var and top-level functions.",
+    level: "intermediate",
+    codeExample: "// Classic script:\nvar username = 'Swadeep';\nconsole.log(window.username); // 'Swadeep' (Pollutes global window!)"
   },
   {
-    "question": "Question 8: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #8?",
-    "shortAnswer": "Under scenario #8, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #8 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "expert",
-    "codeExample": "// Test case for Question 8\nfunction testCase8(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 8:\", sanitized);\n  return sanitized;\n}\ntestCase8();"
+    question: "What is the purpose of the 'crossorigin' attribute on script tags?",
+    shortAnswer: "Configures CORS credentials when loading external scripts from third-party CDNs.",
+    explanation: "Adding crossorigin='anonymous' allows error logging in window.onerror with complete stack traces instead of generic 'Script error'.",
+    hint: "Enables detailed error traces for third-party CDN scripts.",
+    level: "advanced",
+    codeExample: "<script src='https://cdn.example.com/lib.js' crossorigin='anonymous'></script>"
   },
   {
-    "question": "Question 9: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #9?",
-    "shortAnswer": "Under scenario #9, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #9 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "basic",
-    "codeExample": "// Test case for Question 9\nfunction testCase9(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 9:\", sanitized);\n  return sanitized;\n}\ntestCase9();"
+    question: "What is Subresource Integrity (SRI) in script tags?",
+    shortAnswer: "A security feature that verifies the cryptographic hash of a CDN script before executing it.",
+    explanation: "SRI uses the integrity attribute (e.g. integrity='sha384-...') to ensure that if a CDN is compromised, modified malicious code is blocked from running.",
+    hint: "Cryptographic hash verification for external CDN scripts.",
+    level: "advanced",
+    codeExample: "<script src='lib.js' integrity='sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC' crossorigin='anonymous'></script>"
   },
   {
-    "question": "Question 10: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #10?",
-    "shortAnswer": "Under scenario #10, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #10 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "intermediate",
-    "codeExample": "// Test case for Question 10\nfunction testCase10(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 10:\", sanitized);\n  return sanitized;\n}\ntestCase10();"
+    question: "How does the browser evaluate multi-line code in DevTools Console?",
+    shortAnswer: "Press Shift + Enter to create a new line without executing; press Enter on the final line to execute.",
+    explanation: "Shift + Enter inserts a physical newline character, allowing developers to write complete multi-line functions, loops, and object literals.",
+    hint: "Shift + Enter for newlines; Enter to execute.",
+    level: "basic",
+    codeExample: "// Shift + Enter creates clean multi-line code blocks in DevTools Console"
   },
   {
-    "question": "Question 11: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #11?",
-    "shortAnswer": "Under scenario #11, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #11 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "advanced",
-    "codeExample": "// Test case for Question 11\nfunction testCase11(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 11:\", sanitized);\n  return sanitized;\n}\ntestCase11();"
+    question: "What is the difference between synchronous script execution and asynchronous script execution?",
+    shortAnswer: "Synchronous halts HTML parsing until script completes; asynchronous downloads in background without pausing parsing.",
+    explanation: "Synchronous scripts block the UI thread during download and execution. Asynchronous scripts (defer/async) permit continuous rendering.",
+    hint: "Sync blocks HTML parser; async downloads in parallel.",
+    level: "basic",
+    codeExample: "<script src='app.js'></script> <!-- Sync -->\n<script src='app.js' defer></script> <!-- Async download -->"
   },
   {
-    "question": "Question 12: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #12?",
-    "shortAnswer": "Under scenario #12, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #12 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "expert",
-    "codeExample": "// Test case for Question 12\nfunction testCase12(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 12:\", sanitized);\n  return sanitized;\n}\ntestCase12();"
+    question: "How can JavaScript inject another script dynamically at runtime?",
+    shortAnswer: "By creating a <script> DOM element, setting its src, and appending it to document.head.",
+    explanation: "Dynamic script injection is used by analytics tools, ad networks, and polyfills to load resources conditionally on the fly.",
+    hint: "document.createElement('script') -> appendChild(head).",
+    level: "intermediate",
+    codeExample: "const s = document.createElement('script');\ns.src = 'widget.js';\ndocument.head.appendChild(s);"
   },
   {
-    "question": "Question 13: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #13?",
-    "shortAnswer": "Under scenario #13, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #13 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "basic",
-    "codeExample": "// Test case for Question 13\nfunction testCase13(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 13:\", sanitized);\n  return sanitized;\n}\ntestCase13();"
+    question: "What is the $_ variable in Chrome DevTools Console?",
+    shortAnswer: "A magic variable that returns the evaluated result of the previous console expression.",
+    explanation: "If you run 25 * 4 (output 100), running $_ + 50 in the next console line yields 150 without re-typing.",
+    hint: "$_ evaluates to the last returned console result.",
+    level: "intermediate",
+    codeExample: "> 25 * 4\n< 100\n> $_ + 50\n< 150"
   },
   {
-    "question": "Question 14: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #14?",
-    "shortAnswer": "Under scenario #14, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #14 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "intermediate",
-    "codeExample": "// Test case for Question 14\nfunction testCase14(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 14:\", sanitized);\n  return sanitized;\n}\ntestCase14();"
+    question: "What is the $0 variable in Chrome DevTools Console?",
+    shortAnswer: "A magic variable referencing the currently selected DOM node in the Elements panel.",
+    explanation: "Clicking an element in the Elements tab and typing $0.style.color = 'red' in the Console mutates that specific element immediately.",
+    hint: "$0 points to the currently inspected DOM element.",
+    level: "basic",
+    codeExample: "> $0.textContent = 'Updated via $0';"
   },
   {
-    "question": "Question 15: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #15?",
-    "shortAnswer": "Under scenario #15, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #15 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "advanced",
-    "codeExample": "// Test case for Question 15\nfunction testCase15(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 15:\", sanitized);\n  return sanitized;\n}\ntestCase15();"
+    question: "What is the 'clear()' command in DevTools Console?",
+    shortAnswer: "A utility function that clears all accumulated logs and outputs from the console panel.",
+    explanation: "Typing clear() or pressing Ctrl + L (Windows) / Cmd + K (Mac) clears the console screen.",
+    hint: "clear() or Ctrl + L clears the console.",
+    level: "basic",
+    codeExample: "> clear(); // Clears all console messages"
   },
   {
-    "question": "Question 16: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #16?",
-    "shortAnswer": "Under scenario #16, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #16 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "expert",
-    "codeExample": "// Test case for Question 16\nfunction testCase16(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 16:\", sanitized);\n  return sanitized;\n}\ntestCase16();"
+    question: "What happens if an external script tag has a syntax error?",
+    shortAnswer: "The engine fails to compile that specific script, throws a SyntaxError, and continues parsing the rest of HTML.",
+    explanation: "Syntax errors prevent that single script file from executing. Other independent scripts loaded separately will still attempt execution.",
+    hint: "Compilation fails for that file; SyntaxError is logged.",
+    level: "intermediate",
+    codeExample: "// SyntaxError in file1.js does not prevent file2.js from executing"
   },
   {
-    "question": "Question 17: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #17?",
-    "shortAnswer": "Under scenario #17, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #17 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "basic",
-    "codeExample": "// Test case for Question 17\nfunction testCase17(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 17:\", sanitized);\n  return sanitized;\n}\ntestCase17();"
+    question: "How do you detect if a script is running inside a Web Worker or main thread?",
+    shortAnswer: "Check if typeof window === 'undefined' and typeof importScripts === 'function'.",
+    explanation: "Web Workers do not have access to the window object or DOM, but they do have self and WorkerGlobalScope.",
+    hint: "Web Workers lack window and document objects.",
+    level: "advanced",
+    codeExample: "const isWorker = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;"
   },
   {
-    "question": "Question 18: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #18?",
-    "shortAnswer": "Under scenario #18, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #18 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "intermediate",
-    "codeExample": "// Test case for Question 18\nfunction testCase18(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 18:\", sanitized);\n  return sanitized;\n}\ntestCase18();"
+    question: "What is the purpose of document.currentScript?",
+    shortAnswer: "Returns the <script> element whose script is currently being processed by the browser.",
+    explanation: "Useful for scripts that need to inspect their own data attributes (e.g. data-api-key) or identify their host CDN URL dynamically.",
+    hint: "References the currently executing <script> tag.",
+    level: "advanced",
+    codeExample: "const apiKey = document.currentScript.getAttribute('data-api-key');"
   },
   {
-    "question": "Question 19: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #19?",
-    "shortAnswer": "Under scenario #19, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #19 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "advanced",
-    "codeExample": "// Test case for Question 19\nfunction testCase19(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 19:\", sanitized);\n  return sanitized;\n}\ntestCase19();"
+    question: "What is the difference between IIFE and ES Modules for code privacy?",
+    shortAnswer: "IIFE uses function closures to hide variables; ES Modules have native file-level lexical scope isolation.",
+    explanation: "Before ES6, IIFE was the only way to avoid global scope pollution. ES Modules provide cleaner, standardized file-level encapsulation natively.",
+    hint: "IIFE = function closure scope; ES Module = native file scope.",
+    level: "intermediate",
+    codeExample: "(function() { var secret = 1; })(); // IIFE\n// vs ES Module: const secret = 1; (Private to file)"
   },
   {
-    "question": "Question 20: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #20?",
-    "shortAnswer": "Under scenario #20, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #20 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "expert",
-    "codeExample": "// Test case for Question 20\nfunction testCase20(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 20:\", sanitized);\n  return sanitized;\n}\ntestCase20();"
+    question: "What is Content Security Policy (CSP) and how does it restrict script execution?",
+    shortAnswer: "An HTTP header that restricts which script sources, CDNs, and inline scripts are permitted to run in the browser.",
+    explanation: "CSP mitigates XSS by blocking unauthorized inline <script> tags and disallowing eval() unless explicit nonces or hashes are provided.",
+    hint: "HTTP header defining whitelisted script execution domains.",
+    level: "expert",
+    codeExample: "// Header: Content-Security-Policy: script-src 'self' https://trusted-cdn.com"
   },
   {
-    "question": "Question 21: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #21?",
-    "shortAnswer": "Under scenario #21, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #21 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "basic",
-    "codeExample": "// Test case for Question 21\nfunction testCase21(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 21:\", sanitized);\n  return sanitized;\n}\ntestCase21();"
+    question: "What is code minification and how does it impact script loading performance?",
+    shortAnswer: "Removing whitespace, comments, and shortening variable names to reduce file download size over the network.",
+    explanation: "Minified files (e.g. app.min.js) are up to 70% smaller, resulting in faster download times and reduced mobile cellular data consumption.",
+    hint: "Shrinks file size by stripping whitespace and mangling identifiers.",
+    level: "basic",
+    codeExample: "// function add(a,b){return a+b} (Minified)"
   },
   {
-    "question": "Question 22: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #22?",
-    "shortAnswer": "Under scenario #22, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #22 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "intermediate",
-    "codeExample": "// Test case for Question 22\nfunction testCase22(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 22:\", sanitized);\n  return sanitized;\n}\ntestCase22();"
+    question: "What is Gzip / Brotli compression for JavaScript assets?",
+    shortAnswer: "HTTP server-level byte compression algorithms that shrink script transfers by up to 80%.",
+    explanation: "The web server compresses .js files into Brotli (.br) or Gzip (.gz), and the browser decompresses them automatically upon receipt.",
+    hint: "Server-to-client HTTP byte compression.",
+    level: "intermediate",
+    codeExample: "// Content-Encoding: br (Brotli compression)"
   },
   {
-    "question": "Question 23: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #23?",
-    "shortAnswer": "Under scenario #23, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #23 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "advanced",
-    "codeExample": "// Test case for Question 23\nfunction testCase23(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 23:\", sanitized);\n  return sanitized;\n}\ntestCase23();"
+    question: "How do modern build tools like Vite bundle JavaScript scripts for production?",
+    shortAnswer: "They tree-shake unused code, transpile modern syntax, bundle modules, and inject content-hashed filenames.",
+    explanation: "Vite outputs production assets with content hashes (e.g. app-8f3a1.js) to enable immutable long-term browser cache headers.",
+    hint: "Tree-shaking + bundling + content-hashed cache busting.",
+    level: "advanced",
+    codeExample: "<!-- Built asset: <script src='/assets/app-9a7b2.js'></script> -->"
   },
   {
-    "question": "Question 24: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #24?",
-    "shortAnswer": "Under scenario #24, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #24 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "expert",
-    "codeExample": "// Test case for Question 24\nfunction testCase24(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 24:\", sanitized);\n  return sanitized;\n}\ntestCase24();"
+    question: "What happens when you pass a function to window.onerror?",
+    shortAnswer: "It registers a global exception handler that catches uncaught runtime errors across the entire webpage.",
+    explanation: "window.onerror receives the error message, source URL, line number, column number, and error object, allowing automated error tracking.",
+    hint: "Global error logging hook in browser.",
+    level: "advanced",
+    codeExample: "window.onerror = (msg, url, line) => console.log('Global Error:', msg, line);"
   },
   {
-    "question": "Question 25: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #25?",
-    "shortAnswer": "Under scenario #25, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #25 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "basic",
-    "codeExample": "// Test case for Question 25\nfunction testCase25(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 25:\", sanitized);\n  return sanitized;\n}\ntestCase25();"
-  },
-  {
-    "question": "Question 26: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #26?",
-    "shortAnswer": "Under scenario #26, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #26 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "intermediate",
-    "codeExample": "// Test case for Question 26\nfunction testCase26(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 26:\", sanitized);\n  return sanitized;\n}\ntestCase26();"
-  },
-  {
-    "question": "Question 27: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #27?",
-    "shortAnswer": "Under scenario #27, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #27 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "advanced",
-    "codeExample": "// Test case for Question 27\nfunction testCase27(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 27:\", sanitized);\n  return sanitized;\n}\ntestCase27();"
-  },
-  {
-    "question": "Question 28: How does Running JavaScript in Browser Console & Script Files handle edge case scenario #28?",
-    "shortAnswer": "Under scenario #28, JavaScript strictly validates operands according to the ECMAScript standard specification, falling back to predictable defaults.",
-    "explanation": "In standard ECMAScript execution, evaluating Running JavaScript in Browser Console & Script Files in edge condition #28 guarantees reference safety and deterministic behavior across V8, SpiderMonkey, and JavaScriptCore engines.",
-    "hint": "Think about boundary values, empty collections, null/undefined inputs, and async rejection handlers.",
-    "level": "expert",
-    "codeExample": "// Test case for Question 28\nfunction testCase28(input = null) {\n  const sanitized = input ?? \"DEFAULT_SAFE_VALUE\";\n  console.log(\"Handled scenario 28:\", sanitized);\n  return sanitized;\n}\ntestCase28();"
+    question: "What is the unhandledrejection event in browser JavaScript?",
+    shortAnswer: "An event fired when a JavaScript Promise is rejected without an attached .catch() handler.",
+    explanation: "Listening for unhandledrejection prevents silent async failures and allows developers to log unhandled Promise errors to monitoring servers.",
+    hint: "Catches unhandled Promise rejections globally.",
+    level: "advanced",
+    codeExample: "window.addEventListener('unhandledrejection', (e) => console.error('Unhandled Promise:', e.reason));"
   }
 ];
 

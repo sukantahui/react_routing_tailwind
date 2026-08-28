@@ -1,116 +1,120 @@
-// ============================================================================
-// CODER & ACCOTAX - JAVASCRIPT MASTERCLASS
-// Module: 001_001_getting-started-with-javascript
-// Topic: Running JavaScript in Browser Console & Script Files
-// Classroom Lab: Barrackpore Lab
-// Mentors: Sukanta Hui | Students: Swadeep, Tuhina
-// ============================================================================
+/**
+ * Topic 4 Demo: Running JavaScript in Browser Console & Script Files
+ * Module: 001_001_getting-started-with-javascript
+ * Educator: Sukanta Hui | Coder & AccoTax
+ */
 
-console.log("=== [1] FUNDAMENTAL CONCEPT & INITIALIZATION ===");
-console.log("Demonstrating foundational mechanics for: Running JavaScript in Browser Console & Script Files");
+console.log("==================================================");
+console.log("TOPIC 4: RUNNING JS IN CONSOLE & SCRIPT FILES");
+console.log("==================================================");
+
+// ─── 1. SCRIPT EXECUTION CONTEXT LIFECYCLE TRACKER ───────────────
 console.log("");
+console.log("1. Script Lifecycle & Execution Order Tracker:");
 
-// Example 1: Basic declaration and setup
-const courseConfig = {
-  subject: "JavaScript Master Pro",
-  module: "Getting Started with JavaScript",
-  center: "Barrackpore Lab",
-  student: "Swadeep",
-  score: 95.5,
-  isActive: true
-};
+const executionLog = [];
 
-console.log("Configured student profile:");
-console.log(courseConfig);
-console.log("Student Name:", courseConfig.student);
-console.log("Status Active:", courseConfig.isActive);
-console.log("");
-
-console.log("=== [2] CORE DATA PROCESSING & FUNCTION PIPELINE ===");
-// Example 2: Practical data manipulation
-function processTopicData(items) {
-  return items.map((item, index) => {
-    return {
-      index: index + 1,
-      name: item,
-      processedAt: new Date().toISOString(),
-      verifiedBy: "Tuhina"
-    };
-  });
+function recordExecutionPhase(phaseName, description) {
+  const entry = {
+    timestamp: new Date().toISOString().split("T")[1].replace("Z", ""),
+    phase: phaseName,
+    detail: description,
+    context: typeof window !== "undefined" ? "Browser Window" : "Node.js Environment"
+  };
+  executionLog.push(entry);
+  console.log(`[${entry.timestamp}] ${phaseName}: ${description}`);
 }
 
-const sampleList = ["Foundational Syntax", "Execution Mechanics", "Optimization Rules"];
-const processedResults = processTopicData(sampleList);
-console.log("Processed pipeline data:");
-console.table(processedResults);
+recordExecutionPhase("PARSING", "Initial HTML parser encounters <script> tag");
+recordExecutionPhase("COMPILING", "V8 engine tokenizes and compiles script to bytecode");
+recordExecutionPhase("EXECUTING", "Top-level synchronous JavaScript statements execute");
+
+// ─── 2. ES MODULE SCOPE VS GLOBAL SCOPE ENCAPSULATION ────────────
 console.log("");
+console.log("2. Scope Encapsulation: Classic Script vs ES Module:");
 
-console.log("=== [3] ALGORITHMIC LOGIC & CONTROL FLOW ===");
-// Example 3: Branching and transformation logic
-function evaluateProficiency(score) {
-  if (score >= 90) return { grade: "Distinction", level: "Ultra Expert" };
-  if (score >= 75) return { grade: "First Class", level: "Advanced" };
-  if (score >= 50) return { grade: "Pass", level: "Intermediate" };
-  return { grade: "Needs Review", level: "Beginner" };
-}
+// Classic script attaches to global window (Global Pollution)
+// In ES Module (type="module"), top-level variables remain module-scoped!
+const ModuleScopeSimulator = (function() {
+  const privateModuleSecret = "BarrackporeLab_Encrypted_Key_2026";
+  const publicApi = {
+    courseName: "JS-PRO-101",
+    getPublicGreeting: (name) => `Welcome ${name} to Module Scope Sandbox!`
+  };
 
-const evaluation = evaluateProficiency(courseConfig.score);
-console.log("Evaluation Result for " + courseConfig.student + ":", evaluation);
-console.log("");
-
-console.log("=== [4] ERROR RESILIENCE & SAFE GUARDS ===");
-// Example 4: Defensive programming and validation
-function safeRunner(action, fallbackValue) {
-  try {
-    return action();
-  } catch (err) {
-    console.warn("Recovered from operational failure:", err.message);
-    return fallbackValue;
-  }
-}
-
-const safeOutcome = safeRunner(() => {
-  const data = JSON.parse('{"status": "success", "metric": 99.9}');
-  return data.status + " -> Metric: " + data.metric;
-}, "default_fallback");
-
-console.log("Safe Execution Output:", safeOutcome);
-console.log("");
-
-console.log("=== [5] SENIOR ARCHITECTURE PATTERN & BEST PRACTICE ===");
-// Example 5: Modular encapsulation & clean API design
-const LabController = (function() {
-  const registry = new Map();
-  
   return {
-    register(id, handler) {
-      registry.set(id, handler);
-      console.log("Registered handler for key: [" + id + "]");
-    },
-    dispatch(id, payload) {
-      if (!registry.has(id)) {
-        console.error("No handler registered for: " + id);
-        return null;
-      }
-      return registry.get(id)(payload);
-    },
-    getRegistrySize() {
-      return registry.size;
-    }
+    publicApi,
+    isPrivateAccessible: typeof privateModuleSecret !== "undefined"
   };
 })();
 
-LabController.register("INIT_TOPIC", (payload) => {
-  return "Lab initialized with payload: " + JSON.stringify(payload);
-});
+console.log("Exported Public API:", ModuleScopeSimulator.publicApi);
+console.log("Can outer scope access privateModuleSecret directly?:", typeof privateModuleSecret === "undefined" ? "NO (Protected by Lexical Closure)" : "YES");
 
-const dispatchResult = LabController.dispatch("INIT_TOPIC", {
-  topic: "Running JavaScript in Browser Console & Script Files",
-  student: "Swadeep",
-  mentor: "Sukanta Hui"
-});
-
-console.log("Dispatch Output:", dispatchResult);
-console.log("Total Registered Handlers:", LabController.getRegistrySize());
+// ─── 3. PROMISE-BASED DYNAMIC SCRIPT INJECTION LOADER ────────────
 console.log("");
-console.log("=== JavaScript Lab Execution Completed Successfully ===");
+console.log("3. Dynamic Script Injection Pipeline Simulation:");
+
+function simulateDynamicScriptLoader(scriptUrl, timeoutMs = 1000) {
+  console.log(`Requesting dynamic script injection for: '${scriptUrl}'`);
+  
+  return new Promise((resolve, reject) => {
+    const isMockSuccess = !scriptUrl.includes("broken-cdn");
+    setTimeout(() => {
+      if (isMockSuccess) {
+        resolve({
+          url: scriptUrl,
+          status: "LOADED_AND_EVALUATED",
+          executionDurationMs: 42,
+          exports: { plugin: "ChartJS_Mock", version: "4.4.0" }
+        });
+      } else {
+        reject(new Error(`Network error 404 loading script: ${scriptUrl}`));
+      }
+    }, 60);
+  });
+}
+
+simulateDynamicScriptLoader("https://cdn.coder.com/libs/chart.js")
+  .then(res => {
+    console.log("Dynamic Script Load Success:");
+    console.table([res]);
+  })
+  .catch(err => console.error("Script Load Failed:", err.message));
+
+// ─── 4. DEVTOOLS CONSOLE REPL EXPRESSION EVALUATOR ───────────────
+console.log("");
+console.log("4. Console REPL Expression Evaluator Simulation:");
+
+function evaluateConsoleExpression(exprString) {
+  console.log(`Evaluating in Console REPL: > ${exprString}`);
+  try {
+    // Simulating safe evaluation of pure expressions
+    const result = new Function(`return (${exprString});`)();
+    return { expression: exprString, output: result, type: typeof result };
+  } catch (err) {
+    return { expression: exprString, error: err.message, status: "Evaluation Error" };
+  }
+}
+
+const repl1 = evaluateConsoleExpression("2 + 2 * 10");
+const repl2 = evaluateConsoleExpression("[1, 2, 3].map(x => x ** 2)");
+const repl3 = evaluateConsoleExpression("({ student: 'Swadeep', roll: 101 })");
+
+console.table([repl1, repl2, repl3]);
+
+// ─── 5. SCRIPT STRATEGY BENCHMARK & COMPARISON ───────────────────
+console.log("");
+console.log("5. Script Loading Strategy Feature Matrix:");
+
+const strategyMatrix = [
+  { method: "DevTools Console", idealFor: "Ad-hoc debugging & quick testing", persistence: "Temporary (Lost on reload)" },
+  { method: "Inline <script>", idealFor: "Critical bootstrapping scripts", persistence: "Embedded in HTML" },
+  { method: "External .js file", idealFor: "Clean separation & browser caching", persistence: "Cached HTTP resource" },
+  { method: "Module <script type=module>", idealFor: "Modern modular architecture (ESM)", persistence: "Scoped & Deferred by default" }
+];
+
+console.table(strategyMatrix);
+
+console.log("");
+console.log("✓ All 5 Topic 4 practical examples executed successfully.");

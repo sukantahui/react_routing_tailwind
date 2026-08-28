@@ -1,116 +1,114 @@
-// ============================================================================
-// CODER & ACCOTAX - JAVASCRIPT MASTERCLASS
-// Module: 001_001_getting-started-with-javascript
-// Topic: Strict Mode ('use strict') Mechanics & Global Scope Leak Prevention
-// Classroom Lab: Shyamnagar Tech Lab
-// Mentors: Sukanta Hui | Students: Abhronila, Debangshu
-// ============================================================================
+/**
+ * Topic 6 Demo: Strict Mode ('use strict') Mechanics & Global Scope Leak Prevention
+ * Module: 001_001_getting-started-with-javascript
+ * Educator: Sukanta Hui | Coder & AccoTax
+ */
 
-console.log("=== [1] FUNDAMENTAL CONCEPT & INITIALIZATION ===");
-console.log("Demonstrating foundational mechanics for: Strict Mode ('use strict') Mechanics & Global Scope Leak Prevention");
+console.log("==================================================");
+console.log("TOPIC 6: STRICT MODE & SCOPE LEAK GUARDS");
+console.log("==================================================");
+
+// ─── 1. ACCIDENTAL GLOBAL LEAK PREVENTION ────────────────────────
 console.log("");
+console.log("1. Accidental Global Variable Leak Guard:");
 
-// Example 1: Basic declaration and setup
-const courseConfig = {
-  subject: "JavaScript Master Pro",
-  module: "Getting Started with JavaScript",
-  center: "Shyamnagar Tech Lab",
-  student: "Abhronila",
-  score: 95.5,
-  isActive: true
-};
-
-console.log("Configured student profile:");
-console.log(courseConfig);
-console.log("Student Name:", courseConfig.student);
-console.log("Status Active:", courseConfig.isActive);
-console.log("");
-
-console.log("=== [2] CORE DATA PROCESSING & FUNCTION PIPELINE ===");
-// Example 2: Practical data manipulation
-function processTopicData(items) {
-  return items.map((item, index) => {
-    return {
-      index: index + 1,
-      name: item,
-      processedAt: new Date().toISOString(),
-      verifiedBy: "Debangshu"
-    };
-  });
-}
-
-const sampleList = ["Foundational Syntax", "Execution Mechanics", "Optimization Rules"];
-const processedResults = processTopicData(sampleList);
-console.log("Processed pipeline data:");
-console.table(processedResults);
-console.log("");
-
-console.log("=== [3] ALGORITHMIC LOGIC & CONTROL FLOW ===");
-// Example 3: Branching and transformation logic
-function evaluateProficiency(score) {
-  if (score >= 90) return { grade: "Distinction", level: "Ultra Expert" };
-  if (score >= 75) return { grade: "First Class", level: "Advanced" };
-  if (score >= 50) return { grade: "Pass", level: "Intermediate" };
-  return { grade: "Needs Review", level: "Beginner" };
-}
-
-const evaluation = evaluateProficiency(courseConfig.score);
-console.log("Evaluation Result for " + courseConfig.student + ":", evaluation);
-console.log("");
-
-console.log("=== [4] ERROR RESILIENCE & SAFE GUARDS ===");
-// Example 4: Defensive programming and validation
-function safeRunner(action, fallbackValue) {
+function testAccidentalGlobalLeak() {
+  "use strict";
   try {
-    return action();
+    // In sloppy mode, assigning to undeclared identifier creates a global variable!
+    // In strict mode, it throws ReferenceError.
+    // Simulating: undeclaredVar = 42;
+    eval("undeclaredStudent = 'Swadeep';");
+    return "Leak created successfully (Sloppy Mode)";
   } catch (err) {
-    console.warn("Recovered from operational failure:", err.message);
-    return fallbackValue;
+    return `Strict Mode Protected: ${err.name} - ${err.message}`;
   }
 }
 
-const safeOutcome = safeRunner(() => {
-  const data = JSON.parse('{"status": "success", "metric": 99.9}');
-  return data.status + " -> Metric: " + data.metric;
-}, "default_fallback");
+console.log("Outcome:", testAccidentalGlobalLeak());
 
-console.log("Safe Execution Output:", safeOutcome);
+// ─── 2. SILENT MUTATION FAILURES TURNED INTO TYPEERROR ───────────
 console.log("");
+console.log("2. Read-Only / Non-Writable Property Mutation Protection:");
 
-console.log("=== [5] SENIOR ARCHITECTURE PATTERN & BEST PRACTICE ===");
-// Example 5: Modular encapsulation & clean API design
-const LabController = (function() {
-  const registry = new Map();
+const frozenConfig = Object.freeze({
+  center: "Barrackpore Lab",
+  courseCode: "JS-PRO-101"
+});
+
+function attemptFrozenMutation() {
+  "use strict";
+  try {
+    frozenConfig.center = "Naihati Lab"; // Throws TypeError in strict mode!
+    return "Mutation Succeeded (Sloppy Mode Silent Failure)";
+  } catch (err) {
+    return `Strict Mode Protected: ${err.name} - ${err.message}`;
+  }
+}
+
+console.log("Outcome:", attemptFrozenMutation());
+
+// ─── 3. FUNCTION THIS CONTEXT BEHAVIOR (WINDOW VS UNDEFINED) ─────
+console.log("");
+console.log("3. Function this Binding: Sloppy Mode (Window) vs Strict Mode (undefined):");
+
+function sloppyFunctionThis() {
+  return this; // In sloppy mode, returns window/global
+}
+
+function strictFunctionThis() {
+  "use strict";
+  return this; // In strict mode, remains undefined!
+}
+
+console.log("Sloppy Mode 'this':", typeof sloppyFunctionThis() !== "undefined" ? "Global Object (Window/Global)" : "undefined");
+console.log("Strict Mode 'this':", strictFunctionThis() === undefined ? "✓ undefined (Secured)" : "Global");
+
+// ─── 4. DUPLICATE PARAMETER & OCTAL LITERAL SYNTAX GUARDS ────────
+console.log("");
+console.log("4. Syntax Invariant Verification (Duplicate Params & Octals):");
+
+function testDuplicateParameters() {
+  try {
+    // In sloppy mode: function foo(a, a, b) {} is allowed
+    // In strict mode: SyntaxError: Duplicate parameter name not allowed
+    new Function("'use strict'; function test(a, a) { return a; }");
+    return "Allowed";
+  } catch (err) {
+    return `Strict Mode SyntaxError: ${err.message}`;
+  }
+}
+
+function testOctalLiterals() {
+  try {
+    // In strict mode: legacy octals like 010 are forbidden (use 0o10 instead)
+    new Function("'use strict'; var oct = 010;");
+    return "Allowed";
+  } catch (err) {
+    return `Strict Mode Octal SyntaxError: ${err.message}`;
+  }
+}
+
+console.log("Duplicate Params Check:", testDuplicateParameters());
+console.log("Legacy Octal Check:", testOctalLiterals());
+
+// ─── 5. EVAL SCOPE ISOLATION TEST ────────────────────────────────
+console.log("");
+console.log("5. Eval Scope Isolation in Strict Mode:");
+
+function testEvalScopeIsolation() {
+  "use strict";
+  eval("var privateEvalVariable = 'Encapsulated Inside Eval';");
   
+  const isLeaked = typeof privateEvalVariable !== "undefined";
   return {
-    register(id, handler) {
-      registry.set(id, handler);
-      console.log("Registered handler for key: [" + id + "]");
-    },
-    dispatch(id, payload) {
-      if (!registry.has(id)) {
-        console.error("No handler registered for: " + id);
-        return null;
-      }
-      return registry.get(id)(payload);
-    },
-    getRegistrySize() {
-      return registry.size;
-    }
+    evalCodeExecuted: true,
+    isVariableLeakedToOuterScope: isLeaked,
+    securityStatus: !isLeaked ? "✓ Isolated (Strict Mode Sandbox)" : "❌ Leaked to Outer Scope"
   };
-})();
+}
 
-LabController.register("INIT_TOPIC", (payload) => {
-  return "Lab initialized with payload: " + JSON.stringify(payload);
-});
+console.log("Eval Sandbox Result:", testEvalScopeIsolation());
 
-const dispatchResult = LabController.dispatch("INIT_TOPIC", {
-  topic: "Strict Mode ('use strict') Mechanics & Global Scope Leak Prevention",
-  student: "Abhronila",
-  mentor: "Sukanta Hui"
-});
-
-console.log("Dispatch Output:", dispatchResult);
-console.log("Total Registered Handlers:", LabController.getRegistrySize());
 console.log("");
-console.log("=== JavaScript Lab Execution Completed Successfully ===");
+console.log("✓ All 5 Topic 6 practical examples executed successfully.");
