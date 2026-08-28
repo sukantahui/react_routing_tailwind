@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel/Slider</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        button, input, textarea { margin: 5px; padding: 8px; }
+        .error { color: red; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Carousel/Slider</h1>
+        <div id="app">
+            <!-- Dynamic content will appear here -->
+        </div>
+    </div>
+    <script>
+        // Project: Carousel/Slider
+        // Write your code here
+        
+// Simple image carousel
+const images = [
+    'https://via.placeholder.com/300x200?text=Image+1',
+    'https://via.placeholder.com/300x200?text=Image+2',
+    'https://via.placeholder.com/300x200?text=Image+3'
+];
+let idx = 0;
+const app = document.getElementById('app');
+app.innerHTML = `
+    <img id="carouselImg" src="${images[0]}" style="width:300px; height:200px;">
+    <br>
+    <button id="prev">Prev</button>
+    <button id="next">Next</button>
+`;
+const img = document.getElementById('carouselImg');
+document.getElementById('prev').addEventListener('click', () => {
+    idx = (idx - 1 + images.length) % images.length;
+    img.src = images[idx];
+});
+document.getElementById('next').addEventListener('click', () => {
+    idx = (idx + 1) % images.length;
+    img.src = images[idx];
+});
+
+    </script>
+</body>
+</html>

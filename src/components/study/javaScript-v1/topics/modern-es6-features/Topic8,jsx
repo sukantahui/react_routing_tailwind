@@ -1,0 +1,218 @@
+import React, { Component } from "react";
+import CodeBlock from "../../../../../common/CodeBlock";
+
+export default class Topic8 extends Component {
+  render() {
+    return (
+      <div className="space-y-6">
+
+        {/* --------------------------------------------------------
+            TITLE
+        -------------------------------------------------------- */}
+        <h2 className="text-xl font-semibold text-sky-300">
+          Spread Operator (...values)
+        </h2>
+
+        <p className="text-slate-300 text-sm leading-relaxed">
+          The Spread Operator (<code>...</code>) expands arrays, objects, or iterables.
+          It is one of the most widely used ES6 features. At <strong>Coder & AccoTax,
+          Barrackpore</strong>, students regularly use it while working with arrays,
+          forms, objects, and API responses.
+        </p>
+
+
+        {/* --------------------------------------------------------
+            1. SPREAD WITH ARRAYS (EXPANDING ARRAYS)
+        -------------------------------------------------------- */}
+        <h3 className="text-lg font-semibold text-slate-200">
+          1. Spread with Arrays (Expanding)
+        </h3>
+
+        <CodeBlock
+          language="javascript"
+          code={`const groupA = ["Ritaja", "Mounita"];
+const groupB = ["Kaustav", "Susmita"];
+
+const combined = [...groupA, ...groupB];
+
+console.log(combined);
+/*
+["Ritaja", "Mounita", "Kaustav", "Susmita"]
+*/`}
+        />
+
+
+        {/* --------------------------------------------------------
+            2. CLONING ARRAYS
+        -------------------------------------------------------- */}
+        <h3 className="text-lg font-semibold text-slate-200 mt-8">
+          2. Cloning Arrays (Shallow Copy)
+        </h3>
+
+        <CodeBlock
+          language="javascript"
+          code={`const original = ["Devangshu", "Pranjali"];
+const copy = [...original];
+
+copy.push("Swadeep");
+
+console.log(original); // ["Devangshu", "Pranjali"]
+console.log(copy);     // ["Devangshu", "Pranjali", "Swadeep"]`}
+        />
+
+        <p className="text-slate-400 text-sm">
+          Spread is the safest way to copy arrays without affecting the original.
+        </p>
+
+
+        {/* --------------------------------------------------------
+            3. SPREAD WITH STRINGS
+        -------------------------------------------------------- */}
+        <h3 className="text-lg font-semibold text-slate-200 mt-8">
+          3. Spread with Strings
+        </h3>
+
+        <CodeBlock
+          language="javascript"
+          code={`const name = "Sukanta";
+const letters = [...name];
+
+console.log(letters);
+// ["S", "u", "k", "a", "n", "t", "a"]`}
+        />
+
+
+        {/* --------------------------------------------------------
+            4. SPREAD WITH OBJECTS
+        -------------------------------------------------------- */}
+        <h3 className="text-lg font-semibold text-slate-200 mt-10">
+          4. Spread with Objects (Copy & Merge)
+        </h3>
+
+        <CodeBlock
+          language="javascript"
+          code={`const teacherInfo = {
+  name: "Chandan Das",
+  centre: "Coder & AccoTax"
+};
+
+const extraDetails = {
+  city: "Barrackpore",
+  experience: "5 Years"
+};
+
+const teacherProfile = {
+  ...teacherInfo,
+  ...extraDetails,
+  subject: "Advanced JavaScript"
+};
+
+console.log(teacherProfile);`}
+        />
+
+        <p className="text-slate-400 text-sm">
+          Perfect for merging configuration or API objects.
+        </p>
+
+
+        {/* --------------------------------------------------------
+            5. UPDATING NESTED OBJECT FIELDS
+        -------------------------------------------------------- */}
+        <h3 className="text-lg font-semibold text-slate-200 mt-8">
+          5. Updating Nested Object Fields (Immutable Pattern)
+        </h3>
+
+        <CodeBlock
+          language="javascript"
+          code={`const student = {
+  name: "Ritaja",
+  details: {
+    batch: "JS-2025",
+    city: "Barrackpore"
+  }
+};
+
+const updated = {
+  ...student,
+  details: {
+    ...student.details,
+    city: "Kolkata"
+  }
+};
+
+console.log(updated);`}
+        />
+
+        <p className="text-slate-400 text-sm">
+          Very important for React state updates & large applications.
+        </p>
+
+
+        {/* --------------------------------------------------------
+            6. SPREAD WITH FUNCTION ARGUMENTS
+        -------------------------------------------------------- */}
+        <h3 className="text-lg font-semibold text-slate-200 mt-10">
+          6. Using Spread with Function Arguments
+        </h3>
+
+        <CodeBlock
+          language="javascript"
+          code={`function total(a, b, c) {
+  return a + b + c;
+}
+
+const numbers = [10, 20, 30];
+
+console.log(total(...numbers));  // 60`}
+        />
+
+        <p className="text-slate-400 text-sm">
+          Spread replaces older techniques like <code>apply()</code>.
+        </p>
+
+
+        {/* --------------------------------------------------------
+            7. REAL-WORLD EXAMPLE — CLASSROOM MERGE
+        -------------------------------------------------------- */}
+        <h3 className="text-lg font-semibold text-slate-200 mt-10">
+          7. Real-World Classroom Example — Merge Attendance Lists
+        </h3>
+
+        <CodeBlock
+          language="javascript"
+          code={`const morningBatch = ["Mounita", "Susmita"];
+const eveningBatch = ["Devangshu", "Kaustav", "Pranjali"];
+
+const fullAttendance = [...morningBatch, ...eveningBatch];
+
+console.log(fullAttendance);`}
+        />
+
+        <p className="text-slate-400 text-sm">
+          Spread is perfect for batch merging, reports, and attendance sheets.
+        </p>
+
+
+        {/* --------------------------------------------------------
+            SUMMARY
+        -------------------------------------------------------- */}
+        <section className="p-4 bg-slate-900/40 border border-slate-800 rounded-2xl mt-10">
+          <h3 className="text-lg font-semibold text-slate-100">Summary</h3>
+
+          <ul className="list-disc ml-5 mt-3 text-slate-300 text-sm space-y-1">
+            <li>Spread expands arrays, objects, strings, etc.</li>
+            <li>Perfect for copying and merging structures</li>
+            <li>Commonly used in React for state immutability</li>
+            <li>Enhances readability and reduces boilerplate code</li>
+            <li>Safer alternative to manual copying loops</li>
+          </ul>
+
+          <p className="text-slate-400 text-xs mt-3">
+            Spread operator makes JavaScript concise, modern, and efficient.
+          </p>
+        </section>
+
+      </div>
+    );
+  }
+}

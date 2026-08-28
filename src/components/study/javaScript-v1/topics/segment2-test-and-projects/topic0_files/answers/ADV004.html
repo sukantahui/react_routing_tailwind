@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch and Display Data (Simulated API)</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        button, input, textarea { margin: 5px; padding: 8px; }
+        .error { color: red; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fetch and Display Data (Simulated API)</h1>
+        <div id="app">
+            <!-- Dynamic content will appear here -->
+        </div>
+    </div>
+    <script>
+        // Project: Fetch and Display Data (Simulated API)
+        // Write your code here
+        
+// Simulated API fetch
+async function fetchUsers() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve([
+                { id: 1, name: 'Alice' },
+                { id: 2, name: 'Bob' }
+            ]);
+        }, 1000);
+    });
+}
+const app = document.getElementById('app');
+app.innerHTML = '<p>Loading users...</p>';
+fetchUsers().then(users => {
+    app.innerHTML = '<ul>' + users.map(u => `<li>${u.name}</li>`).join('') + '</ul>';
+});
+
+    </script>
+</body>
+</html>

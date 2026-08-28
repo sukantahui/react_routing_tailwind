@@ -1,0 +1,105 @@
+{
+  "paperId": "JS-BASICS-SET-01",
+  "title": "JavaScript Fundamentals Question Paper",
+  "duration": "45 Minutes",
+  "totalMarks": 20,
+  "sections": [
+    {
+      "section": "A",
+      "type": "Very Short Answer (1 Mark Each)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "What is JavaScript?",
+          "marks": 1,
+          "answer": "JavaScript is a programming language used to create dynamic and interactive content on web pages."
+        },
+        {
+          "q": "Where can JavaScript run?",
+          "marks": 1,
+          "answer": "JavaScript runs in browsers, servers (Node.js), and tools like VS Code."
+        },
+        {
+          "q": "What does console.log() do?",
+          "marks": 1,
+          "answer": "console.log() prints output or messages to the browser console for debugging."
+        },
+        {
+          "q": "What is the difference between let and const?",
+          "marks": 1,
+          "answer": "let allows reassignment, while const does not allow reassignment after initialization."
+        },
+        {
+          "q": "What is typeof operator?",
+          "marks": 1,
+          "answer": "typeof is used to check the data type of a variable."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Short Answer (2 Marks Each)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "Explain how HTML, CSS, and JavaScript work together.",
+          "marks": 2,
+          "answer": "HTML provides structure, CSS provides styling, and JavaScript adds interactivity to web pages."
+        },
+        {
+          "q": "What are primitive data types in JavaScript?",
+          "marks": 2,
+          "answer": "Primitive data types include number, string, boolean, null, undefined, symbol, and bigint."
+        },
+        {
+          "q": "Differentiate between == and === operators.",
+          "marks": 2,
+          "answer": "== compares values with type conversion, while === compares both value and type strictly."
+        },
+        {
+          "q": "What are logical operators?",
+          "marks": 2,
+          "answer": "Logical operators (&&, ||, !) are used to combine or invert boolean conditions."
+        },
+        {
+          "q": "What are truthy and falsy values?",
+          "marks": 2,
+          "answer": "Truthy values evaluate to true, while falsy values (false, 0, '', null, undefined, NaN) evaluate to false."
+        }
+      ]
+    },
+    {
+      "section": "C",
+      "type": "Medium Answer (5 Marks Each)",
+      "marksPerQuestion": 5,
+      "totalQuestions": 2,
+      "questions": [
+        {
+          "q": "Write a JavaScript program demonstrating variables, data types, operators, and type conversion.",
+          "marks": 5,
+          "answer": "```javascript\nlet a = 10;\nlet b = '20';\n\n// Type conversion\nlet c = Number(b);\n\n// Operators\nlet sum = a + c;\nlet isEqual = (a === c);\n\nconsole.log('Sum:', sum);\nconsole.log('Strict Equal:', isEqual);\n```"
+        },
+        {
+          "q": "Write a program using if-else and switch to display grade based on marks.",
+          "marks": 5,
+          "answer": "```javascript\nlet marks = 85;\nlet grade;\n\nif(marks >= 90) grade = 'A';\nelse if(marks >= 80) grade = 'B';\nelse grade = 'C';\n\nswitch(grade) {\n    case 'A': console.log('Excellent'); break;\n    case 'B': console.log('Good'); break;\n    default: console.log('Needs Improvement');\n}\n```"
+        }
+      ]
+    },
+    {
+      "section": "D",
+      "type": "Long Answer (5 Marks)",
+      "marksPerQuestion": 5,
+      "totalQuestions": 1,
+      "questions": [
+        {
+          "q": "Write a JavaScript program using loops and functions to:\n1. Calculate factorial of a number\n2. Print multiplication table\n3. Use a function to return result",
+          "marks": 5,
+          "answer": "```javascript\nfunction factorial(n) {\n    let fact = 1;\n    for(let i = 1; i <= n; i++) {\n        fact *= i;\n    }\n    return fact;\n}\n\nfunction table(num) {\n    for(let i = 1; i <= 10; i++) {\n        console.log(num + ' x ' + i + ' = ' + (num * i));\n    }\n}\n\nconsole.log('Factorial:', factorial(5));\ntable(5);\n```"
+        }
+      ]
+    }
+  ]
+}

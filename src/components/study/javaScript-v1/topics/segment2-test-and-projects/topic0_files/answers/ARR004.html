@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reduce() – Shopping Cart Total</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        button, input, textarea { margin: 5px; padding: 8px; }
+        .error { color: red; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>reduce() – Shopping Cart Total</h1>
+        <div id="app">
+            <!-- Dynamic content will appear here -->
+        </div>
+    </div>
+    <script>
+        // Project: reduce() – Shopping Cart Total
+        // Write your code here
+        
+const cart = [
+    { name: 'Apple', price: 0.5, qty: 4 },
+    { name: 'Banana', price: 0.3, qty: 6 },
+    { name: 'Orange', price: 0.8, qty: 3 }
+];
+const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+console.log('Total cost:', total);
+
+    </script>
+</body>
+</html>

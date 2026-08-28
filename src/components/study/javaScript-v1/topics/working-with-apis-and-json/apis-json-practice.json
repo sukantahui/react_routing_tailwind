@@ -1,0 +1,400 @@
+{
+  "title": "APIs & JSON Practice Set — Beginner to Expert",
+  "author": "Sukanta Hui · Coder & AccoTax Barrackpore",
+  "sections": [
+    {
+      "type": "mcq",
+      "title": "MCQ — APIs & JSON Fundamentals",
+      "questions": [
+        {
+          "q": "JSON stands for:",
+          "options": ["Java Syntax Object Notation", "JavaScript Object Notation", "Joined Source Object Node", "JavaScript Oriented Network"],
+          "answer": "JavaScript Object Notation",
+          "explanation": "JSON means JavaScript Object Notation; a lightweight data format."
+        },
+        {
+          "q": "In JSON, keys must be:",
+          "options": ["Single quoted", "Double quoted", "Without quotes", "Quoted only if string"],
+          "answer": "Double quoted",
+          "explanation": "JSON keys must always be double-quoted strings."
+        },
+        {
+          "q": "Which method converts JSON string into JavaScript object?",
+          "options": ["JSON.parse()", "JSON.stringify()", "JSON.decode()", "JSON.objectify()"],
+          "answer": "JSON.parse()",
+          "explanation": "JSON.parse() converts JSON string → JS object."
+        },
+        {
+          "q": "Which method converts object into JSON string?",
+          "options": ["JSON.toString()", "JSON.stringify()", "JSON.format()", "JSON.compile()"],
+          "answer": "JSON.stringify()",
+          "explanation": "JSON.stringify() serializes objects as JSON text."
+        },
+        {
+          "q": "Which of the following data types is NOT supported in JSON?",
+          "options": ["string", "number", "array", "function"],
+          "answer": "function",
+          "explanation": "JSON cannot store functions."
+        },
+        {
+          "q": "Which HTTP method is used to fetch data?",
+          "options": ["GET", "POST", "PUT", "DELETE"],
+          "answer": "GET",
+          "explanation": "GET retrieves data, while POST sends data."
+        },
+        {
+          "q": "HTTP status code 200 means:",
+          "options": ["Client Error", "Server Error", "Success", "Authentication Required"],
+          "answer": "Success",
+          "explanation": "200 OK = successful response."
+        },
+        {
+          "q": "Which status code represents 'Resource Not Found'?",
+          "options": ["200", "301", "404", "500"],
+          "answer": "404",
+          "explanation": "404 is returned when the requested resource doesn't exist."
+        },
+        {
+          "q": "fetch() returns:",
+          "options": ["A callback", "A JSON string", "A Promise", "An XML object"],
+          "answer": "A Promise",
+          "explanation": "fetch() is promise-based."
+        },
+        {
+          "q": "Which method is used to read response JSON?",
+          "options": ["res.json()", "res.JSON()", "res.toJSON()", "res.convert()"],
+          "answer": "res.json()",
+          "explanation": "res.json() returns another promise resolving into data."
+        },
+
+        {
+          "q": "Which header is required when sending JSON using fetch?",
+          "options": [
+            "'Content-Type: text/html'",
+            "'Content-Type: application/xml'",
+            "'Content-Type: application/json'",
+            "'Content-Type: javascript/text'"
+          ],
+          "answer": "'Content-Type: application/json'",
+          "explanation": "JSON POST requires proper content-type."
+        },
+        {
+          "q": "JSON arrays must contain:",
+          "options": ["Only strings", "Only numbers", "Any valid JSON values", "Only objects"],
+          "answer": "Any valid JSON values",
+          "explanation": "Arrays support strings, numbers, objects, booleans, etc."
+        },
+        {
+          "q": "Which is NOT valid JSON?",
+          "options": [
+            "{\"name\":\"Ritaja\"}",
+            "{\"age\":20}",
+            "{name:\"Kaustav\"}",
+            "{\"status\":true}"
+          ],
+          "answer": "{name:\"Kaustav\"}",
+          "explanation": "JSON keys must be double-quoted."
+        },
+        {
+          "q": "fetch('url').then(...) is an example of:",
+          "options": ["callback", "promise chaining", "blocking code", "XML flow"],
+          "answer": "promise chaining",
+          "explanation": "then() attaches a promise handler."
+        },
+        {
+          "q": "Which HTTP status means server error?",
+          "options": ["1xx", "2xx", "4xx", "5xx"],
+          "answer": "5xx",
+          "explanation": "5xx = internal server errors."
+        },
+
+        {
+          "q": "Which request is typically used to create a new user?",
+          "options": ["GET", "POST", "PATCH", "OPTIONS"],
+          "answer": "POST",
+          "explanation": "POST is used for creating new records."
+        },
+        {
+          "q": "Which is a correct JSON response?",
+          "options": [
+            "{name:Ritaja}",
+            "{'name':'Mounita'}",
+            "{\"name\":\"Swadeep\"}",
+            "name:\"Devangshu\""
+          ],
+          "answer": "{\"name\":\"Swadeep\"}",
+          "explanation": "Correct JSON requires double-quoted key + string."
+        },
+        {
+          "q": "What will happen if JSON.parse receives invalid JSON?",
+          "options": ["Returns null", "Returns {}", "Throws error", "Ignores the error"],
+          "answer": "Throws error",
+          "explanation": "Invalid JSON causes SyntaxError."
+        },
+        {
+          "q": "Which fetch pattern handles errors?",
+          "options": [
+            "fetch().retry()",
+            "fetch().catch()",
+            "fetch().exit()",
+            "fetch().error()"
+          ],
+          "answer": "fetch().catch()",
+          "explanation": "catch() handles promise rejections."
+        },
+        {
+          "q": "Which tool can validate JSON?",
+          "options": [
+            "JSON Validator",
+            "CSS Checker",
+            "Java Compiler",
+            "DNS Server"
+          ],
+          "answer": "JSON Validator",
+          "explanation": "Used for verifying JSON syntax."
+        },
+
+        {
+          "q": "Which method sends JSON in POST request?",
+          "options": ["body: obj", "body: JSON.stringify(obj)", "body: toJSON(obj)", "body: convert(obj)"],
+          "answer": "body: JSON.stringify(obj)",
+          "explanation": "POST requires serialized string."
+        },
+        {
+          "q": "fetch is available in:",
+          "options": ["Browser only", "Node only", "Browser + modern Node", "None"],
+          "answer": "Browser + modern Node",
+          "explanation": "Node 18+ includes fetch by default."
+        },
+        {
+          "q": "JSON is mainly used for:",
+          "options": ["Formatting CSS", "Styling HTML", "Data interchange", "Server routing"],
+          "answer": "Data interchange",
+          "explanation": "JSON transports structured data."
+        },
+        {
+          "q": "HTTP status 201 means:",
+          "options": ["Created", "Unauthorized", "Internal Error", "Redirect"],
+          "answer": "Created",
+          "explanation": "201 is returned after successful resource creation."
+        },
+        {
+          "q": "Which array method is often used with fetch?",
+          "options": ["filter", "map", "forEach", "All of the above"],
+          "answer": "All of the above",
+          "explanation": "Response arrays can be processed with all three."
+        },
+
+        {
+          "q": "Which header is needed for JSON POST?",
+          "options": [
+            "Accept-Encoding",
+            "Content-Type: application/json",
+            "Cache-Control",
+            "Content-HTML"
+          ],
+          "answer": "Content-Type: application/json",
+          "explanation": "Specifies JSON payload."
+        },
+        {
+          "q": "What does response.ok indicate?",
+          "options": ["URL is valid", "Status code between 200-299", "JSON is valid", "Header exists"],
+          "answer": "Status code between 200-299",
+          "explanation": "ok is true for successful fetch."
+        },
+        {
+          "q": "Which object does fetch return first?",
+          "options": ["JSON object", "Response object", "Headers object", "HTML"],
+          "answer": "Response object",
+          "explanation": "Response must be converted using res.json()."
+        },
+        {
+          "q": "Which HTTP method updates partially?",
+          "options": ["PUT", "PATCH", "GET", "TRACE"],
+          "answer": "PATCH",
+          "explanation": "PATCH modifies selective fields."
+        },
+        {
+          "q": "Which HTTP status means unauthorized?",
+          "options": ["403", "401", "404", "500"],
+          "answer": "401",
+          "explanation": "401 requires login credentials."
+        },
+
+        {
+          "q": "JSON.stringify({x:undefined}) results in:",
+          "options": ["{\"x\":undefined}", "{}", "{\"x\":null}", "error"],
+          "answer": "{}",
+          "explanation": "undefined values are removed from JSON."
+        },
+        {
+          "q": "fetch('/data').then(res => res.json()) returns:",
+          "options": ["HTML", "Text", "Promise resolving JSON", "Callback"],
+          "answer": "Promise resolving JSON",
+          "explanation": "res.json() returns another promise."
+        },
+        {
+          "q": "Which keyword is used to handle async errors?",
+          "options": ["catch", "error", "reject", "block"],
+          "answer": "catch",
+          "explanation": "catch handles rejected promises."
+        },
+        {
+          "q": "Which is valid JSON array?",
+          "options": [
+            "[1,2,3]",
+            "(1,2,3)",
+            "{1,2,3}",
+            "<1,2,3>"
+          ],
+          "answer": "[1,2,3]",
+          "explanation": "JSON array uses square brackets."
+        },
+        {
+          "q": "Which fetch option is needed for sending POST data?",
+          "options": ["method", "body", "headers", "All of these"],
+          "answer": "All of these",
+          "explanation": "POST requires all three properties."
+        }
+      ]
+    },
+
+    {
+      "type": "output",
+      "title": "Output-Based Questions",
+      "questions": [
+        {
+          "q": "console.log(JSON.parse('{\"x\":10}').x)",
+          "answer": "10",
+          "explanation": "JSON.parse converts string to object."
+        },
+        {
+          "q": "console.log(JSON.stringify({name:\"Ritaja\"}))",
+          "answer": "{\"name\":\"Ritaja\"}",
+          "explanation": "Object becomes JSON string."
+        },
+        {
+          "q": "fetch('https://dummyjson.com/products/1').then(res => console.log('OK'))",
+          "answer": "OK",
+          "explanation": "No JSON is accessed; only logs after promise resolves."
+        },
+        {
+          "q": "console.log(JSON.stringify([1,undefined,3]))",
+          "answer": "[1,null,3]",
+          "explanation": "undefined becomes null in arrays."
+        },
+        {
+          "q": "console.log(JSON.parse('{\"a\":true}').a)",
+          "answer": "true",
+          "explanation": "Boolean parsed correctly."
+        },
+        {
+          "q": "console.log(JSON.stringify({x:null}))",
+          "answer": "{\"x\":null}",
+          "explanation": "null is valid JSON."
+        },
+        {
+          "q": "console.log(JSON.parse('{\"name\":\"Kaustav\",\"age\":22}').age)",
+          "answer": "22",
+          "explanation": "Extracts numeric value."
+        },
+        {
+          "q": "JSON.parse('{\"x\":10,\"y\":20}')['z']",
+          "answer": "undefined",
+          "explanation": "z does not exist."
+        },
+        {
+          "q": "typeof JSON.stringify({})",
+          "answer": "string",
+          "explanation": "stringify returns a string."
+        },
+        {
+          "q": "console.log(JSON.stringify({name:\"Mounita\", score: undefined}))",
+          "answer": "{\"name\":\"Mounita\"}",
+          "explanation": "undefined is removed entirely in objects."
+        }
+      ]
+    },
+
+    {
+      "type": "coding",
+      "title": "Coding Exercises",
+      "questions": [
+        {
+          "q": "Write code to parse JSON stored in a variable str and print the property 'city'.",
+          "solution": "const obj = JSON.parse(str); console.log(obj.city);"
+        },
+        {
+          "q": "Fetch users from dummyjson.com/users and print their first names.",
+          "solution": "fetch('https://dummyjson.com/users').then(res=>res.json()).then(data=>console.log(data.users.map(u=>u.firstName)));"
+        },
+        {
+          "q": "Use JSON.stringify to convert an object {name:'Devangshu', marks:90} into JSON.",
+          "solution": "JSON.stringify({name:'Devangshu', marks:90});"
+        },
+        {
+          "q": "Write fetch code to load a product and print the title.",
+          "solution": "fetch('https://dummyjson.com/products/1').then(r=>r.json()).then(d=>console.log(d.title));"
+        },
+        {
+          "q": "Parse a JSON array of student names and print each name.",
+          "solution": "JSON.parse(json).forEach(n=>console.log(n));"
+        }
+      ]
+    },
+
+    {
+      "type": "coding-advanced",
+      "title": "Advanced Coding",
+      "questions": [
+        {
+          "q": "Write fetch POST request sending JSON {name:'Ritaja', city:'Barrackpore'}.",
+          "solution": "fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:'Ritaja',city:'Barrackpore'})});"
+        },
+        {
+          "q": "Using async/await, fetch data from dummyjson and return product titles.",
+          "solution": "async function load(){const r=await fetch('https://dummyjson.com/products');const d=await r.json();return d.products.map(p=>p.title);}"
+        },
+        {
+          "q": "Combine two JSON arrays using spread.",
+          "solution": "const merged=[...JSON.parse(a),...JSON.parse(b)];"
+        },
+        {
+          "q": "Write a function that receives JSON string of marks and returns total marks.",
+          "solution": "function totalMarks(j){const o=JSON.parse(j);return o.m1+o.m2+o.m3;}"
+        },
+        {
+          "q": "Fetch teacher list and extract only names (use map).",
+          "solution": "fetch(url).then(r=>r.json()).then(d=>d.teachers.map(t=>t.name));"
+        }
+      ]
+    },
+
+    {
+      "type": "mini-projects",
+      "title": "Mini Projects (JSON + fetch)",
+      "projects": [
+        {
+          "title": "Student Marks Dashboard",
+          "description": "Using dummyjson API, show marks of students like Ritaja, Mounita, Susmita, Kaustav in a table with fetch()."
+        },
+        {
+          "title": "Teacher Directory",
+          "description": "Fetch a list of teachers (Sukanta Hui, Tanusree Hui, Chandan Das, Ritaja Ghosh) using fake JSON API and display profile cards."
+        },
+        {
+          "title": "Product Browser",
+          "description": "Use fetch() to load products from DummyJSON and allow searching by title."
+        },
+        {
+          "title": "User Search App",
+          "description": "Build a search box that fetches user list and filters users (e.g., Devangshu, Pranjali) in real time."
+        },
+        {
+          "title": "Live Weather Fetch",
+          "description": "Use a free weather API and display JSON output in formatted UI."
+        }
+      ]
+    }
+  ]
+}

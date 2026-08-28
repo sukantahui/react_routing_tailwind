@@ -1,0 +1,115 @@
+{
+  "paperId": "JS-BEGINNER-SET-01",
+  "title": "JavaScript Programming - Beginner Level Question Paper",
+  "duration": "1.5 Hours",
+  "totalMarks": 50,
+  "sections": [
+    {
+      "section": "A",
+      "type": "Very Short Answer (One Mark Each)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "What is the correct way to declare a variable in JavaScript that cannot be reassigned?",
+          "marks": 1,
+          "answer": "Using 'const' keyword. Example: const PI = 3.14;"
+        },
+        {
+          "q": "What will be the output of: console.log(typeof null); ?",
+          "marks": 1,
+          "answer": "\"object\" (This is a known bug in JavaScript that has been kept for backward compatibility)"
+        },
+        {
+          "q": "What is the difference between '==' and '===' operators?",
+          "marks": 1,
+          "answer": "'==' compares values after type conversion (loose equality), while '===' compares both value and type without conversion (strict equality)."
+        },
+        {
+          "q": "What does the 'break' statement do in a loop?",
+          "marks": 1,
+          "answer": "The 'break' statement terminates the loop immediately and transfers control to the next statement after the loop."
+        },
+        {
+          "q": "Which method is used to write output to the browser console?",
+          "marks": 1,
+          "answer": "console.log() is used to write output to the browser's developer console."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Short Answer (2 Marks Each)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "Explain the difference between var, let, and const with examples.",
+          "marks": 2,
+          "answer": "var is function-scoped and can be redeclared; let is block-scoped and cannot be redeclared; const is block-scoped and cannot be reassigned.\n\nExample:\n```javascript\nvar x = 10; // function-scoped\nlet y = 20; // block-scoped\nconst z = 30; // block-scoped, cannot be reassigned\n\nif (true) {\n    var a = 1; // accessible outside\n    let b = 2; // not accessible outside\n    const c = 3; // not accessible outside\n}\nconsole.log(a); // 1\n// console.log(b); // ReferenceError\n```"
+        },
+        {
+          "q": "What is the difference between while loop and do-while loop? Give examples.",
+          "marks": 2,
+          "answer": "While loop checks condition before executing the loop body, so it may execute zero times. Do-while loop executes the body once before checking condition, so it always executes at least once.\n\nExample:\n```javascript\n// while loop\nlet i = 5;\nwhile(i < 5) {\n    console.log(\"Executed\"); // Won't execute\n}\n\n// do-while loop\nlet j = 5;\ndo {\n    console.log(\"Executed\"); // Executes once\n} while(j < 5);\n```"
+        },
+        {
+          "q": "What is an array? Write code to create an array of 5 fruits and access the third element.",
+          "marks": 2,
+          "answer": "An array is a collection of elements stored in a single variable. Arrays are zero-indexed.\n\n```javascript\n// Creating an array\nconst fruits = [\"Apple\", \"Banana\", \"Orange\", \"Mango\", \"Grapes\"];\n\n// Accessing the third element (index 2)\nconsole.log(fruits[2]); // Output: Orange\n```"
+        },
+        {
+          "q": "Explain the concept of template literals with an example.",
+          "marks": 2,
+          "answer": "Template literals are string literals that allow embedded expressions and multi-line strings using backticks (`).\n\n```javascript\nconst name = \"John\";\nconst age = 25;\n\n// Using template literals\nconst message = `Hello ${name}, you are ${age} years old.`;\nconsole.log(message); // Output: Hello John, you are 25 years old.\n\n// Multi-line string\nconst multiline = `This is\nmulti-line\nstring`;\n```"
+        },
+        {
+          "q": "How do you find the sum of all elements in an array? Write code.",
+          "marks": 2,
+          "answer": "```javascript\n// Method 1: Using for loop\nfunction sumArray(arr) {\n    let sum = 0;\n    for(let i = 0; i < arr.length; i++) {\n        sum += arr[i];\n    }\n    return sum;\n}\n\n// Method 2: Using reduce() method\nfunction sumArrayReduce(arr) {\n    return arr.reduce((acc, curr) => acc + curr, 0);\n}\n\nconst numbers = [10, 20, 30, 40, 50];\nconsole.log(sumArray(numbers)); // Output: 150\nconsole.log(sumArrayReduce(numbers)); // Output: 150\n```"
+        }
+      ]
+    },
+    {
+      "section": "C",
+      "type": "Medium Answer (5 Marks Each)",
+      "marksPerQuestion": 5,
+      "totalQuestions": 4,
+      "questions": [
+        {
+          "q": "Write a program to generate the Fibonacci series up to n terms using recursion in JavaScript.",
+          "marks": 5,
+          "answer": "```javascript\n// Recursive function to find nth Fibonacci number\nfunction fibonacci(n) {\n    if(n <= 1) return n;\n    return fibonacci(n - 1) + fibonacci(n - 2);\n}\n\n// Function to print Fibonacci series\nfunction printFibonacciSeries(n) {\n    if(n <= 0) {\n        console.log(\"Please enter a positive number\");\n        return;\n    }\n    \n    console.log(`Fibonacci Series up to ${n} terms:`);\n    for(let i = 0; i < n; i++) {\n        console.log(fibonacci(i));\n    }\n}\n\n// Alternative iterative approach\nfunction fibonacciIterative(n) {\n    if(n <= 1) return n;\n    let a = 0, b = 1, c;\n    for(let i = 2; i <= n; i++) {\n        c = a + b;\n        a = b;\n        b = c;\n    }\n    return b;\n}\n\n// Test the program\nprintFibonacciSeries(10);\nconsole.log(\"10th Fibonacci number (iterative):\", fibonacciIterative(10));\n```"
+        },
+        {
+          "q": "Write a program to find the largest, smallest, and second largest element in an array.",
+          "marks": 5,
+          "answer": "```javascript\nfunction findElements(arr) {\n    if(arr.length < 2) {\n        console.log(\"Array should have at least 2 elements\");\n        return;\n    }\n    \n    let largest = -Infinity;\n    let secondLargest = -Infinity;\n    let smallest = Infinity;\n    \n    for(let i = 0; i < arr.length; i++) {\n        // Find largest and second largest\n        if(arr[i] > largest) {\n            secondLargest = largest;\n            largest = arr[i];\n        } else if(arr[i] > secondLargest && arr[i] !== largest) {\n            secondLargest = arr[i];\n        }\n        \n        // Find smallest\n        if(arr[i] < smallest) {\n            smallest = arr[i];\n        }\n    }\n    \n    console.log(`Array: [${arr}]`);\n    console.log(`Largest element: ${largest}`);\n    console.log(`Second largest element: ${secondLargest}`);\n    console.log(`Smallest element: ${smallest}`);\n}\n\n// Test the function\nconst numbers = [64, 25, 12, 22, 11, 35, 89, 42];\nfindElements(numbers);\n```"
+        },
+        {
+          "q": "Write a program to calculate the sum of all even numbers and product of all odd numbers in an array.",
+          "marks": 5,
+          "answer": "```javascript\nfunction calculateEvenSumAndOddProduct(arr) {\n    let evenSum = 0;\n    let oddProduct = 1;\n    let hasOdd = false;\n    \n    for(let i = 0; i < arr.length; i++) {\n        if(arr[i] % 2 === 0) {\n            // Even number\n            evenSum += arr[i];\n        } else {\n            // Odd number\n            oddProduct *= arr[i];\n            hasOdd = true;\n        }\n    }\n    \n    console.log(`Array: [${arr}]`);\n    console.log(`Sum of even numbers: ${evenSum}`);\n    if(hasOdd) {\n        console.log(`Product of odd numbers: ${oddProduct}`);\n    } else {\n        console.log(`Product of odd numbers: No odd numbers found`);\n    }\n}\n\n// Test the function\nconst numbers = [2, 5, 8, 3, 10, 7, 4, 9];\ncalculateEvenSumAndOddProduct(numbers);\n\n// Another test with no odd numbers\nconst evenNumbers = [2, 4, 6, 8, 10];\ncalculateEvenSumAndOddProduct(evenNumbers);\n```"
+        },
+        {
+          "q": "Write a program to reverse a string and check if it is a palindrome (reads the same forwards and backwards).",
+          "marks": 5,
+          "answer": "```javascript\n// Function to reverse a string\nfunction reverseString(str) {\n    return str.split('').reverse().join('');\n}\n\n// Function to check if string is palindrome\nfunction isPalindrome(str) {\n    // Convert to lowercase and remove non-alphanumeric characters\n    const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');\n    const reversed = cleanStr.split('').reverse().join('');\n    return cleanStr === reversed;\n}\n\n// Alternative manual palindrome check\nfunction isPalindromeManual(str) {\n    const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');\n    for(let i = 0; i < cleanStr.length / 2; i++) {\n        if(cleanStr[i] !== cleanStr[cleanStr.length - 1 - i]) {\n            return false;\n        }\n    }\n    return true;\n}\n\n// Test the functions\nconst testStrings = [\"racecar\", \"hello\", \"A man a plan a canal Panama\", \"madam\"];\n\ntestStrings.forEach(str => {\n    console.log(`\\nOriginal string: \"${str}\"`);\n    console.log(`Reversed string: \"${reverseString(str)}\"`);\n    console.log(`Is palindrome? ${isPalindrome(str)}`);\n    console.log(`Is palindrome (manual)? ${isPalindromeManual(str)}`);\n});\n```"
+        }
+      ]
+    },
+    {
+      "section": "D",
+      "type": "Long Answer (10 Marks Each)",
+      "marksPerQuestion": 10,
+      "totalQuestions": 1,
+      "questions": [
+        {
+          "q": "Create a Student Management System using JavaScript objects and arrays. The system should:\n1. Store student information (roll number, name, marks in 3 subjects)\n2. Add new student records\n3. Display all student records\n4. Calculate and display average marks for each student\n5. Find and display the topper (highest average)\n6. Sort students by roll number\nUse arrays of objects to store up to 100 students.",
+          "marks": 10,
+          "answer": "```javascript\n// Student Management System\nclass StudentManagementSystem {\n    constructor() {\n        this.students = [];\n        this.maxStudents = 100;\n    }\n    \n    // Add new student\n    addStudent(roll, name, marks) {\n        // Check if maximum limit reached\n        if(this.students.length >= this.maxStudents) {\n            console.log(\"Maximum students limit reached!\");\n            return false;\n        }\n        \n        // Check for duplicate roll number\n        if(this.students.some(s => s.roll === roll)) {\n            console.log(`Student with roll number ${roll} already exists!`);\n            return false;\n        }\n        \n        // Calculate average\n        const average = marks.reduce((sum, mark) => sum + mark, 0) / marks.length;\n        \n        // Add student\n        this.students.push({\n            roll: roll,\n            name: name,\n            marks: marks,\n            average: average\n        });\n        \n        console.log(`Student ${name} added successfully!`);\n        return true;\n    }\n    \n    // Display all students\n    displayAllStudents() {\n        if(this.students.length === 0) {\n            console.log(\"No students found!\");\n            return;\n        }\n        \n        console.log(\"\\n\" + \"-\".repeat(70));\n        console.log(`${'Roll No'.padEnd(10)} ${'Name'.padEnd(20)} ${'Sub1'.padEnd(8)} ${'Sub2'.padEnd(8)} ${'Sub3'.padEnd(8)} ${'Average'.padEnd(8)}`);\n        console.log(\"-\".repeat(70));\n        \n        this.students.forEach(student => {\n            console.log(\n                `${student.roll.toString().padEnd(10)} ${student.name.padEnd(20)} ` +\n                `${student.marks[0].toString().padEnd(8)} ${student.marks[1].toString().padEnd(8)} ` +\n                `${student.marks[2].toString().padEnd(8)} ${student.average.toFixed(2).padEnd(8)}`\n            );\n        });\n        console.log(\"-\".repeat(70));\n    }\n    \n    // Display student averages\n    displayStudentAverages() {\n        if(this.students.length === 0) {\n            console.log(\"No students found!\");\n            return;\n        }\n        \n        console.log(\"\\n\" + \"-\".repeat(40));\n        console.log(`${'Roll No'.padEnd(10)} ${'Name'.padEnd(20)} ${'Average'.padEnd(8)}`);\n        console.log(\"-\".repeat(40));\n        \n        this.students.forEach(student => {\n            console.log(\n                `${student.roll.toString().padEnd(10)} ${student.name.padEnd(20)} ${student.average.toFixed(2).padEnd(8)}`\n            );\n        });\n        console.log(\"-\".repeat(40));\n    }\n    \n    // Find topper\n    findTopper() {\n        if(this.students.length === 0) {\n            console.log(\"No students found!\");\n            return;\n        }\n        \n        const topper = this.students.reduce((max, student) => \n            student.average > max.average ? student : max\n        );\n        \n        console.log(\"\\n\" + \"=\".repeat(30));\n        console.log(\"********** TOPPER **********\");\n        console.log(`Roll Number: ${topper.roll}`);\n        console.log(`Name: ${topper.name}`);\n        console.log(`Average Marks: ${topper.average.toFixed(2)}`);\n        console.log(\"=\".repeat(30));\n    }\n    \n    // Sort students by roll number\n    sortByRollNumber() {\n        if(this.students.length <= 1) return;\n        \n        this.students.sort((a, b) => a.roll - b.roll);\n        console.log(\"Students sorted by roll number!\");\n        this.displayAllStudents();\n    }\n    \n    // Get student by roll number\n    getStudentByRoll(roll) {\n        const student = this.students.find(s => s.roll === roll);\n        if(student) {\n            console.log(`\\nStudent found:`);\n            console.log(`Roll: ${student.roll}`);\n            console.log(`Name: ${student.name}`);\n            console.log(`Marks: ${student.marks.join(\", \")}`);\n            console.log(`Average: ${student.average.toFixed(2)}`);\n        } else {\n            console.log(`Student with roll number ${roll} not found!`);\n        }\n        return student;\n    }\n    \n    // Remove student by roll number\n    removeStudent(roll) {\n        const index = this.students.findIndex(s => s.roll === roll);\n        if(index !== -1) {\n            const removed = this.students.splice(index, 1)[0];\n            console.log(`Student ${removed.name} removed successfully!`);\n        } else {\n            console.log(`Student with roll number ${roll} not found!`);\n        }\n    }\n    \n    // Get statistics\n    getStatistics() {\n        if(this.students.length === 0) {\n            console.log(\"No students found!\");\n            return;\n        }\n        \n        const averages = this.students.map(s => s.average);\n        const highest = Math.max(...averages);\n        const lowest = Math.min(...averages);\n        const classAverage = averages.reduce((sum, avg) => sum + avg, 0) / averages.length;\n        \n        console.log(\"\\n\" + \"=\".repeat(40));\n        console.log(\"CLASS STATISTICS\");\n        console.log(\"=\".repeat(40));\n        console.log(`Total Students: ${this.students.length}`);\n        console.log(`Highest Average: ${highest.toFixed(2)}`);\n        console.log(`Lowest Average: ${lowest.toFixed(2)}`);\n        console.log(`Class Average: ${classAverage.toFixed(2)}`);\n        console.log(\"=\".repeat(40));\n    }\n}\n\n// ========== DEMONSTRATION ==========\n\nconst sms = new StudentManagementSystem();\n\n// Adding students\nsms.addStudent(101, \"John Doe\", [85, 90, 88]);\nsms.addStudent(103, \"Jane Smith\", [92, 89, 94]);\nsms.addStudent(102, \"Bob Johnson\", [78, 82, 80]);\nsms.addStudent(105, \"Alice Brown\", [95, 96, 98]);\nsms.addStudent(104, \"Charlie Wilson\", [70, 75, 72]);\n\n// Display all students\nsms.displayAllStudents();\n\n// Display student averages\nsms.displayStudentAverages();\n\n// Find topper\nsms.findTopper();\n\n// Sort by roll number\nconsole.log(\"\\n--- Sorting by Roll Number ---\");\nsms.sortByRollNumber();\n\n// Get statistics\nsms.getStatistics();\n\n// Search for a student\nconsole.log(\"\\n--- Searching for student ---\");\nsms.getStudentByRoll(103);\n\n// Remove a student\nconsole.log(\"\\n--- Removing a student ---\");\nsms.removeStudent(104);\n\n// Display updated list\nsms.displayAllStudents();\n```"
+        }
+      ]
+    }
+  ]
+}

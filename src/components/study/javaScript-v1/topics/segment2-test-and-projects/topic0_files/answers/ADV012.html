@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortable List with Drag and Drop</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        button, input, textarea { margin: 5px; padding: 8px; }
+        .error { color: red; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sortable List with Drag and Drop</h1>
+        <div id="app">
+            <!-- Dynamic content will appear here -->
+        </div>
+    </div>
+    <script>
+        // Project: Sortable List with Drag and Drop
+        // Write your code here
+        
+// Sortable list with drag and drop (simple)
+const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
+const app = document.getElementById('app');
+function render() {
+    app.innerHTML = `<ul id="sortableList">${items.map((item, i) => `<li draggable="true" data-idx="${i}">${item}</li>`).join('')}</ul>`;
+    const list = document.getElementById('sortableList');
+    let dragSrc = null;
+    list.addEventListener('dragstart', (e) => {
+        dragSrc = e.target;
+        e.dataTransfer.effectAllowed = 'move';
+    });
+    list.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+    });
+    list.addEventListener('drop', (e) => {
+        e.preventDefault();
+        if (dragSrc !== e.target) {
+            const fromIdx = parseInt(dragSrc.dataset.idx);
+            const toIdx = parseInt(e.target.dataset.idx);
+            const moved = items.splice(fromIdx, 1)[0];
+            items.splice(toIdx, 0, moved);
+            render();
+        }
+    });
+}
+render();
+
+    </script>
+</body>
+</html>
