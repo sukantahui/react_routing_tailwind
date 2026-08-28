@@ -1,0 +1,339 @@
+import React, { useEffect, useRef, useState } from "react";
+import clsx from "clsx";
+import Teacher from "../../../../../common/TeacherSukantaHui";
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import JavaScriptEditableCodeBlock from "../../../../../common/JavaScriptEditableCodeBlock";
+import questions from "./topic4_files/topic4_questions";
+import noteText from "./topic4_files/topic4_note.txt?raw";
+import demoCode from "./topic4_files/ChromeEdgeDevtoolsMasteryBreakpointsCallStackWatchDemo.js?raw";
+
+/**
+ * Topic4 – Chrome & Edge DevTools Mastery: Breakpoints, Call Stack & Watch
+ * Module: 003_004_error-handling-and-debugging
+ *
+ * @component
+ * @returns {JSX.Element} Full 11-section interactive JavaScript tutorial component.
+ */
+export default function Topic4() {
+  const sectionRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      { threshold: 0.08 }
+    );
+
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const addRef = (el) => {
+    if (el && !sectionRefs.current.includes(el)) {
+      sectionRefs.current.push(el);
+    }
+  };
+
+  return (
+    <>
+      <style>{`
+        .reveal-section {
+          opacity: 0.99;
+          transform: translateY(0);
+          transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        }
+        .reveal-section.is-visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `}</style>
+
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-amber-500/30 selection:text-amber-200">
+        
+        {/* ─── 1. HEADER SECTION ──────────────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-950/70 border border-amber-700/60 text-amber-300 text-xs font-semibold uppercase tracking-wider shadow-lg">
+            <span>⚡</span>
+            <span>Module 003_004_error-handling-and-debugging · Topic 4</span>
+          </div>
+
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-sky-300 tracking-tight leading-tight">
+            {"Chrome & Edge DevTools Mastery: Breakpoints, Call Stack & Watch"}
+          </h1>
+
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Master the core mechanics, V8 execution rules, and practical enterprise workflows of <strong className="text-amber-300">{"Chrome & Edge DevTools Mastery: Breakpoints, Call Stack & Watch"}</strong> in modern JavaScript.
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-slate-400 pt-2">
+            <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-amber-400">Course Code: JS-PRO-101</span>
+            <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-sky-400">Center: Coder &amp; AccoTax (Barrackpore Lab)</span>
+            <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-emerald-400">Mentor: Sukanta Hui</span>
+          </div>
+        </header>
+
+        {/* ─── 2. CONCEPT OVERVIEW ────────────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
+          <div className="bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg hover:border-slate-700 transition-all">
+            <h2 className="text-xl sm:text-2xl font-bold text-amber-400 mb-4 flex items-center gap-2">
+              <span>💡</span> Conceptual Overview &amp; Mental Models
+            </h2>
+            <p className="text-slate-300 leading-relaxed mb-4">
+              In JavaScript, understanding <strong className="text-amber-300">{"Chrome & Edge DevTools Mastery: Breakpoints, Call Stack & Watch"}</strong> is critical for writing robust and bug-free code. When building enterprise web applications, code must be predictable, resilient to unexpected user inputs, and optimized for high-performance browser execution.
+            </p>
+            <div className="p-4 rounded-xl bg-slate-900/90 border border-amber-900/40 text-sm text-slate-300 leading-relaxed">
+              <span className="text-amber-400 font-bold">🏫 Classroom Scenario (Barrackpore Lab):</span> During a hands-on lab exercise, <strong>Swadeep</strong> encountered unexpected runtime behavior while testing an interactive component. Mentor <strong>Sukanta Hui</strong> demonstrated how tracing the execution flow of <em>{"Chrome & Edge DevTools Mastery: Breakpoints, Call Stack & Watch"}</em> eliminates guesswork, ensuring smooth and deterministic UI state transitions.
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 3. SEMANTIC VISUAL SVG DIAGRAM ─────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
+          <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl">
+            <h2 className="text-lg sm:text-xl font-bold text-sky-400 mb-4 flex items-center gap-2">
+              <span>📊</span> Runtime Architecture &amp; Execution Diagram
+            </h2>
+            <div className="w-full overflow-x-auto">
+              <svg viewBox="0 0 800 240" className="w-full h-auto" role="img" aria-label="JavaScript Memory Layout &amp; Data Pipeline">
+  <defs>
+    <linearGradient id="memGrad_4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.8" />
+      <stop offset="100%" stopColor="#b45309" stopOpacity="0.2" />
+    </linearGradient>
+    <linearGradient id="heapGrad_4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.8" />
+      <stop offset="100%" stopColor="#5b21b6" stopOpacity="0.2" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
+  <text x="400" y="34" fill="#f8fafc" fontSize="16" fontWeight="bold" textAnchor="middle">Chrome &amp; Edge DevTools Mastery: Breakpoints, Call Stack &amp; Watch · Architecture &amp; Execution Pipeline</text>
+
+  <g transform="translate(60, 65)">
+    <rect width="280" height="145" rx="12" fill="#1e293b" stroke="#f59e0b" strokeWidth="1.5" />
+    <text x="140" y="28" fill="#fbbf24" fontSize="13" fontWeight="bold" textAnchor="middle">Execution Call Stack (Primitives)</text>
+    <rect x="20" y="42" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
+    <text x="30" y="59" fill="#94a3b8" fontSize="11">let student = "Swadeep"</text>
+    <text x="210" y="59" fill="#38bdf8" fontSize="11" fontWeight="bold">String (Value)</text>
+
+    <rect x="20" y="74" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
+    <text x="30" y="91" fill="#94a3b8" fontSize="11">let marks = 98.5</text>
+    <text x="210" y="91" fill="#38bdf8" fontSize="11" fontWeight="bold">Number (Value)</text>
+
+    <rect x="20" y="106" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
+    <text x="30" y="123" fill="#94a3b8" fontSize="11">let refObj = 0x8849F</text>
+    <text x="195" y="123" fill="#ec4899" fontSize="11" fontWeight="bold">Heap Pointer →</text>
+  </g>
+
+  <g transform="translate(460, 65)">
+    <rect width="280" height="145" rx="12" fill="url(#heapGrad_4)" stroke="#a855f7" strokeWidth="1.5" />
+    <text x="140" y="28" fill="#e9d5ff" fontSize="13" fontWeight="bold" textAnchor="middle">Memory Heap (Objects / Arrays / Closures)</text>
+    <rect x="20" y="45" width="240" height="85" rx="8" fill="#0f172a" stroke="#6366f1" />
+    <text x="30" y="68" fill="#38bdf8" fontSize="11" fontWeight="bold">Address: 0x8849F</text>
+    <text x="30" y="88" fill="#e2e8f0" fontSize="11">&#123; course: "JS-PRO-101", city: "Barrackpore" &#125;</text>
+    <text x="30" y="108" fill="#a5b4fc" fontSize="10">Managed by V8 Garbage Collector (Mark &amp; Sweep)</text>
+  </g>
+
+  <path d="M 340 185 C 390 185, 410 135, 460 135" fill="none" stroke="#ec4899" strokeWidth="2.5" strokeDasharray="6 3" />
+  <circle cx="460" cy="135" r="4" fill="#ec4899" />
+</svg>
+            </div>
+            <p className="text-xs text-slate-400 mt-3 text-center">
+              Figure 1.1: Architectural execution pipeline and memory layout.
+            </p>
+          </div>
+        </section>
+
+        {/* ─── 4. DEEP TECHNICAL BREAKDOWN ─────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
+          <div className="bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg">
+            <h2 className="text-xl sm:text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2">
+              <span>🔬</span> Deep Technical Breakdown &amp; Execution Rules
+            </h2>
+            
+            <p className="text-slate-300 leading-relaxed mb-6">
+              The ECMAScript specification defines formal execution invariants for <strong className="text-amber-300">{"Chrome & Edge DevTools Mastery: Breakpoints, Call Stack & Watch"}</strong>. When a script runs, the JavaScript runtime establishes an execution context consisting of variable environments, lexical scopes, and binding environments.
+            </p>
+
+            <div className="overflow-x-auto mb-6">
+              <table className="w-full text-left text-sm text-slate-300 border-collapse border border-slate-800">
+                <thead className="bg-slate-900/90 text-amber-300 uppercase text-xs">
+                  <tr>
+                    <th className="p-3 border border-slate-800">Execution Phase</th>
+                    <th className="p-3 border border-slate-800">Engine Behavior</th>
+                    <th className="p-3 border border-slate-800">Developer Invariant</th>
+                    <th className="p-3 border border-slate-800">Optimization Goal</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-800">
+                  <tr className="hover:bg-slate-800/30">
+                    <td className="p-3 font-mono text-sky-400">1. Parse / Tokenize</td>
+                    <td className="p-3">Lexer converts source code into AST tokens</td>
+                    <td className="p-3">Zero syntax errors &amp; clean lexical grammar</td>
+                    <td className="p-3 text-emerald-400">Fast AST building</td>
+                  </tr>
+                  <tr className="hover:bg-slate-800/30">
+                    <td className="p-3 font-mono text-sky-400">2. Ignition Bytecode</td>
+                    <td className="p-3">Generates bytecodes and initializes type feedback</td>
+                    <td className="p-3">Avoid dynamic property shape mutations</td>
+                    <td className="p-3 text-emerald-400">Instant startup time</td>
+                  </tr>
+                  <tr className="hover:bg-slate-800/30">
+                    <td className="p-3 font-mono text-sky-400">3. TurboFan JIT</td>
+                    <td className="p-3">Hot code paths compiled to optimized machine code</td>
+                    <td className="p-3">Maintain monomorphic function call sites</td>
+                    <td className="p-3 text-emerald-400">Near C++ performance</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 5. HANDS-ON MONACO CODE RUNNER ─────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl sm:text-2xl font-bold text-amber-400 flex items-center gap-2">
+              <span>💻</span> Interactive Monaco Playground: 5+ Working Examples
+            </h2>
+            <span className="text-xs font-mono px-3 py-1 rounded bg-amber-950/60 border border-amber-800 text-amber-300">
+              Live In-Browser Execution
+            </span>
+          </div>
+
+          <div className="rounded-2xl border border-slate-800 overflow-hidden shadow-2xl bg-slate-900">
+            <JavaScriptEditableCodeBlock
+              initialCode={demoCode}
+              title="ChromeEdgeDevtoolsMasteryBreakpointsCallStackWatchDemo.js"
+            />
+          </div>
+        </section>
+
+        {/* ─── 6. COMMON PITFALLS & BEST PRACTICES ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-rose-400 flex items-center gap-2">
+            <span>⚖️</span> Common Pitfalls vs Senior Best Practices
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Incorrect */}
+            <div className="bg-rose-950/20 border border-rose-800/40 rounded-2xl p-6 shadow-lg">
+              <div className="flex items-center gap-2 text-rose-400 font-bold mb-3">
+                <span>❌</span>
+                <span>Anti-Pattern / Common Bug</span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-300 mb-4 leading-relaxed">
+                Relying on implicit coercion, uninitialized variable hoisting, or neglecting boundary state checks.
+              </p>
+              <pre className="p-4 rounded-xl bg-slate-950 border border-rose-900/50 text-xs font-mono text-rose-300 overflow-x-auto">
+{`// ❌ AVOID: Loose comparisons and unhandled TDZ
+function checkStatus(val) {
+  if (val == null) { // Unclear intent
+    return "default";
+  }
+  return val.toUpperCase(); // May throw TypeError!
+}`}
+              </pre>
+            </div>
+
+            {/* Correct */}
+            <div className="bg-emerald-950/20 border border-emerald-800/40 rounded-2xl p-6 shadow-lg">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold mb-3">
+                <span>✓</span>
+                <span>Senior Pro Best Practice</span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-300 mb-4 leading-relaxed">
+                Explicit type validation, strict equality, optional chaining, and nullish coalescing operators.
+              </p>
+              <pre className="p-4 rounded-xl bg-slate-950 border border-emerald-900/50 text-xs font-mono text-emerald-300 overflow-x-auto">
+{`// ✓ RECOMMENDED: Safe, explicit and defensive
+function checkStatus(val) {
+  if (typeof val !== "string") {
+    return "default";
+  }
+  return val.toUpperCase();
+}`}
+              </pre>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 7. 💎 JAVASCRIPT HIDDEN GEMS & SENIOR PRO TRICKS ────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
+          <div className="bg-gradient-to-br from-amber-950/30 via-slate-900 to-purple-950/20 border border-amber-500/30 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xl shadow-md">
+                💎
+              </span>
+              <div>
+                <span className="text-xs uppercase font-mono tracking-wider text-amber-400 font-bold block">
+                  JavaScript Hidden Gem &amp; Senior Pro Secret
+                </span>
+                <h3 className="text-lg sm:text-xl font-bold text-white">
+                  {"console.trace() & console.groupCollapsed()"}
+                </h3>
+              </div>
+            </div>
+
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+              {"Print the full interactive call stack path and organize complex logs into collapsible groups."}
+            </p>
+
+            <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
+              <pre>{"console.groupCollapsed('API Response Diagnostic');\nconsole.log('Status:', 200);\nconsole.trace('Call Origin');\nconsole.groupEnd();"}</pre>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 8. THINKING & HINTS ("Think About This...") ─────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
+          <div className="bg-indigo-950/20 border border-indigo-800/40 rounded-2xl p-6 md:p-8 shadow-lg">
+            <h2 className="text-lg sm:text-xl font-bold text-indigo-300 mb-3 flex items-center gap-2">
+              <span>🤔</span> Architectural Mental Challenge: Think About This...
+            </h2>
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-4">
+              If an application triggers thousands of operations per second using <strong className="text-amber-300">{"Chrome & Edge DevTools Mastery: Breakpoints, Call Stack & Watch"}</strong>, how does the V8 engine manage memory allocation and Garbage Collection pressure without causing UI frame drops (jank)?
+            </p>
+            <div className="p-4 rounded-xl bg-slate-900 border border-indigo-900/50 text-xs sm:text-sm text-indigo-300 font-mono">
+              💡 Hint: Focus on object pool recycling, avoiding closure leaks in long-lived event listeners, and minimizing temporary object allocations in hot loops.
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 9. COMPREHENSIVE FAQ SECTION ───────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
+          <FAQTemplate
+            title={"Frequently Asked Questions · Chrome & Edge DevTools Mastery: Breakpoints, Call Stack & Watch"}
+            subtitle="Explore 25+ comprehensive questions from basic to senior architecture levels"
+            questions={questions}
+          />
+        </section>
+
+        {/* ─── 10. PLAIN TEXT PRINTABLE STUDY NOTE ─────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
+          <PlainTextPrint
+            content={noteText}
+            title={"JavaScript Master Note · Chrome & Edge DevTools Mastery: Breakpoints, Call Stack & Watch"}
+            downloadFileName="003_004_error-handling-and-debugging-topic4-note.txt"
+          />
+        </section>
+
+        {/* ─── 11. TEACHER'S NOTE & MENTORSHIP ────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
+          <Teacher
+            note={"In my 27+ years of mentoring engineers at Coder & AccoTax in Barrackpore, I have seen that mastering Chrome & Edge DevTools Mastery: Breakpoints, Call Stack & Watch is the exact turning point between amateur scripting and professional software engineering. Practice each example in the Monaco editor until you can explain the execution flow without hesitation."}
+          />
+        </section>
+
+      </div>
+    </>
+  );
+}
