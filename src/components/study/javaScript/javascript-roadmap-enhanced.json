@@ -221,6 +221,13 @@
       "edition": "Living Standard (Updated Daily)",
       "description": "The authoritative industry reference for standard built-in objects, Web APIs, and browser compatibility.",
       "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+    },
+    {
+      "title": "Master JavaScript Programming Exercises (165+ Practical Coding Labs)",
+      "author": "4Geeks Academy",
+      "edition": "Open-Source Practice Suite (2024)",
+      "description": "165+ hands-on JavaScript programming exercises covering boolean logic, conditionals, math computations, object properties, array algorithms, data structure transformations, recursion, and real-world algorithmic challenges.",
+      "link": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises.git"
     }
   ],
   "toolsAndEnvironments": [
@@ -461,11 +468,12 @@
           "difficultyIndex": 2,
           "summary": "Master JavaScript operators, mathematical expressions, logical short-circuiting, and comparison rules.",
           "miniProjects": [
-            "E-Commerce Discount & Tax Calculator: Compute net total, GST taxes, coupon discounts, and fallback delivery charges using operators"
+            "E-Commerce Discount & Tax Calculator: Compute net total, GST taxes, coupon discounts, and fallback delivery charges using operators",
+            "Hands-On Coding Lab (19 Practice Programs from 4Geeks Academy: 006-getFullName, 010-isSameLength, 025-average, 026-computeAreaOfATriangle...)"
           ],
           "exercises": {
             "mcq": 16,
-            "coding": 9,
+            "coding": 19,
             "projects": 1
           },
           "assessment": {
@@ -486,7 +494,8 @@
           ],
           "references": [
             "MDN Web Docs – Expressions and Operators",
-            "javascript.info – Comparisons and Logical Operators"
+            "javascript.info – Comparisons and Logical Operators",
+            "4Geeks Academy Master JS Exercises (19 Hands-on Practice Programs) — https://github.com/4GeeksAcademy/master-javascript-programming-exercises.git"
           ],
           "teachingTips": [
             "Give students a table of weird JS comparisons (`[] == false`, `null == undefined`) to prove the necessity of `===`.",
@@ -513,6 +522,141 @@
               "title": "Unary Plus (+) vs Number() vs parseInt() Parsing Matrix",
               "description": "Unary `+` coerces empty string `+'' === 0` and `+null === 0`, while `parseInt('') === NaN` and `parseInt('120px') === 120`.",
               "codeSnippet": "+'42';       // 42\n+'42px';     // NaN\nparseInt('42px'); // 42 (parses leading digits)"
+            }
+          ],
+          "practicePrograms": [
+            {
+              "id": "006-getFullName",
+              "title": "006 getFullName",
+              "summary": ": \r \r 1. Write a function called `getFullName`. Given a first and a last name, `getFullName` returns a single string wit",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/006-getFullName",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "010-isSameLength",
+              "title": "010 isSameLength",
+              "summary": ": \r \r 1. Write a function called `isSameLength`. Given two words, `isSameLength` returns `true` if the given words have ",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/010-isSameLength",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "025-average",
+              "title": "025 Average",
+              "summary": ":\r \r 1. Write a function called `average`. Given two numbers, `average` returns their average.",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/025-average",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "026-computeAreaOfATriangle",
+              "title": "026 computeAreaOfATriangle",
+              "summary": ":\r \r 1. Write a function called `computeAreaOfATriangle`. Given the base and height of a triangle `computeAreaOfATriangl",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/026-computeAreaOfATriangle",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "027-cube",
+              "title": "027 cube",
+              "summary": ":\r \r 1. Write a function called `cube`. Given a number, `cube` returns the cube of that number.",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/027-cube",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "028-square",
+              "title": "028 square",
+              "summary": ":\r \r 1. Write a function called `square`. Given a number, `square` should return the square of the given number.",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/028-square",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "038-computeAreaOfARectangle",
+              "title": "038 computeAreaOfARectangle",
+              "summary": ":\r \r 1. Write a function called `computeAreaOfARectangle`. Given the length and width of a rectangle, `computeAreaOfARec",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/038-computeAreaOfARectangle",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "039-computePerimeterOfARectangle",
+              "title": "039 computePerimeterOfARectangle",
+              "summary": ":\r \r 1. Write a function called `computePerimeterOfARectangle`.  Given the length and width of a rectangle, `computePeri",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/039-computePerimeterOfARectangle",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "040-computePerimeterOfATriangle",
+              "title": "040 computePerimeterOfATriangle",
+              "summary": ":\r \r 1. Write a function called `computePerimeterOfATriangle`. Given 3 sides describing a triangle, `computePerimeterOfA",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/040-computePerimeterOfATriangle",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "042-computePerimeterOfACircle",
+              "title": "042 computePerimeterOfACircle",
+              "summary": ":\r \r 1. Write a function called `computePerimeterOfACircle`. Given the radius of a circle, `computePerimeterOfACircle` r",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/042-computePerimeterOfACircle",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "043-computeAreaOfACircle",
+              "title": "043 computeAreaOfACircle",
+              "summary": ":\r \r 1. Write a function called `computeAreaOfACircle`. Given the radius of a circle, `computeAreaOfACircle` returns its",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/043-computeAreaOfACircle",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "044-computePower",
+              "title": "044 computePower",
+              "summary": ":\r \r 1. Write a function called `computePower`. Given a number and an exponent, `computePower` returns the given number,",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/044-computePower",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "045-computeSquareRoot",
+              "title": "045 computeSquareRoot",
+              "summary": ":\r \r 1. Write a function called `computeSquareRoot`. Given a number, `computeSquareRoot` returns its square root.",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/045-computeSquareRoot",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "046-doubleSquareRootOf",
+              "title": "046 doubleSquareRootOf",
+              "summary": ":\r \r 1. Write a function called `doubleSquareRootOf`. Given a number, `doubleSquareRootOf` returns double its square roo",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/046-doubleSquareRootOf",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "112-getLengthOfLongestElement",
+              "title": "112 getLengthOfLongestElement",
+              "summary": ":\r \r 1. Write a function called `getLengthOfLongestElement`. Given an array, `getLengthOfLongestElement` returns the len",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/112-getLengthOfLongestElement",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "113-squareElements",
+              "title": "113 squareElements",
+              "summary": ":\r \r 1. Write a function called `squareElements`. Given an array of numbers, `squareElements` should return a new array ",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/113-squareElements",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "128-averageIntegers",
+              "title": "128 averageIntegers",
+              "summary": ":\r \r 1. Use the skeleton provided to write a working implementation.\r \r 2. You need to discover the average of a list or",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/128-averageIntegers",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "129-calculateBillTotal",
+              "title": "129 calculateBillTotal",
+              "summary": ":\r \r 1. Write a function called `calculateBillTotal`. Given an amount to pay **before** taxes and tips for a meal, `calc",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/129-calculateBillTotal",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "137-computeCompoundInterest",
+              "title": "137 computeCompoundInterest",
+              "summary": ":\r \r 1. Write a function called `computeCompoundInterest`. Given a loan, an interest rate, a compounding frequency, and ",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/137-computeCompoundInterest",
+              "category": "4Geeks Academy Practice Lab"
             }
           ]
         },
@@ -555,11 +699,12 @@
           "difficultyIndex": 3,
           "summary": "Master conditional decision-making in JavaScript, truthy/falsy evaluation, guard clauses, and switch-case branching.",
           "miniProjects": [
-            "Barrackpore Railway Fare & Pass Rule Engine: Determine ticket prices based on age, distance, concession class, and peak-hour surcharges"
+            "Barrackpore Railway Fare & Pass Rule Engine: Determine ticket prices based on age, distance, concession class, and peak-hour surcharges",
+            "Hands-On Coding Lab (46 Practice Programs from 4Geeks Academy: 001-isOldEnoughToDrink, 002-isOldEnoughToDrive, 003-isOldEnoughToVote, 004-isOldEnoughToDrinkAndDrive...)"
           ],
           "exercises": {
             "mcq": 18,
-            "coding": 10,
+            "coding": 46,
             "projects": 1
           },
           "assessment": {
@@ -580,7 +725,8 @@
           ],
           "references": [
             "MDN Web Docs – Making Decisions in your code — Conditionals",
-            "javascript.info – Conditional Branching: if, '?'"
+            "javascript.info – Conditional Branching: if, '?'",
+            "4Geeks Academy Master JS Exercises (46 Hands-on Practice Programs) — https://github.com/4GeeksAcademy/master-javascript-programming-exercises.git"
           ],
           "teachingTips": [
             "Introduce the 'Bouncer Pattern' (guard clauses) to show how early returns eliminate deep nesting.",
@@ -607,6 +753,330 @@
               "title": "Labeled Block Break Statements (Breaking Arbitrary Blocks)",
               "description": "You can label any block statement `{ ... }` and break out of it immediately without throwing exceptions or using functions.",
               "codeSnippet": "validationBlock: {\n  if (!user.email) break validationBlock;\n  if (!user.phone) break validationBlock;\n  sendNotification(user);\n}"
+            }
+          ],
+          "practicePrograms": [
+            {
+              "id": "001-isOldEnoughToDrink",
+              "title": "001 isOldEnoughToDrink",
+              "summary": ":\r \r 1. Write a function called `isOldEnoughToDrink`. Given a number, in this case an age, `isOldEnoughToDrink` returns ",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/001-isOldEnoughToDrink",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "002-isOldEnoughToDrive",
+              "title": "002 isOldEnoughToDrive",
+              "summary": ":\r \r 1. Write a function called `isOldEnoughToDrive`. Given a number, in this case an age, `isOldEnoughToDrive` returns ",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/002-isOldEnoughToDrive",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "003-isOldEnoughToVote",
+              "title": "003 isOldEnoughToVote",
+              "summary": "",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/003-isOldEnoughToVote",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "004-isOldEnoughToDrinkAndDrive",
+              "title": "004 isOldEnoughToDrinkAndDrive",
+              "summary": ":\r \r 1. Write a function called `isOldEnoughToDrinkAndDrive`. Given a number, in this case an age `isOldEnoughToDrinkAnd",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/004-isOldEnoughToDrinkAndDrive",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "005-checkAge",
+              "title": "005 checkAge",
+              "summary": ": \r \r 1. Write a function called `checkAge`. Given a person's name and age, `checkAge` returns one of two messages:\r \r -",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/005-checkAge",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "007-getLengthOfWord",
+              "title": "007 getLengthOfWord",
+              "summary": ":\r \r 1. Write a function called `getLengthOfWord`. Given a word, `getLengthOfWord` returns the length of the given word.",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/007-getLengthOfWord",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "008-getLengthOfTwoWords",
+              "title": "008 getLengthOfTwoWords",
+              "summary": ":\r \r 1. Write a function called `getLengthOfTwoWords`. Given 2 words, `getLengthOfTwoWords` returns the **sum** of their",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/008-getLengthOfTwoWords",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "009-getLengthOfThreeWords",
+              "title": "009 getLengthOfThreeWords",
+              "summary": ":\r \r 1. Write a function called `getLengthOfThreeWords`. Given 3 words, `getLengthOfThreeWords` returns the sum of their",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/009-getLengthOfThreeWords",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "011-isGreaterThanTen",
+              "title": "011 isGreaterThanTen",
+              "summary": ": \r \r 1. Write a function called `isGreaterThanTen`. Given a number, `isGreaterThanTen` returns `true` if it is greater ",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/011-isGreaterThanTen",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "012-isLessThanThirty",
+              "title": "012 isLessThan30",
+              "summary": ": \r \r 1. Write a function called `isLessThan30`. Given a number, `isLessThan30` returns `true` if the given number is le",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/012-isLessThanThirty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "013-equalsTen",
+              "title": "013 equalsTen",
+              "summary": ":\r \r 1. Write a function called `equalsTen`. Given a number, `equalsTen` returns `true` if the given number is 10. Other",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/013-equalsTen",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "014-isLessThan",
+              "title": "014 isLessThan",
+              "summary": ":\r \r 1. Write a function called `isLessThan`. Given 2 numbers, `isLessThan` returns `true` if `num2` is less than `num1`",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/014-isLessThan",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "015-isGreaterThan",
+              "title": "015 isGreaterThan",
+              "summary": ":\r \r 1. Write a function called `isGreaterThan`. Given 2 numbers, `isGreaterThan` returns `true` if `num2` is greater th",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/015-isGreaterThan",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "016-isEqualTo",
+              "title": "016 isEqualTo",
+              "summary": ": \r \r 1. Write a function called `isEqualTo`. Given 2 numbers, `isEqualTo` returns `true` if `num2` is equal to `num1`. ",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/016-isEqualTo",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "017-isEven",
+              "title": "017 isEven",
+              "summary": ":\r \r 1. Write a function called `isEven`. Given a number, `isEven` returns `true` if it is even. Otherwise it returns `f",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/017-isEven",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "018-isOdd",
+              "title": "018 isOdd",
+              "summary": ":\r \r 1. Write a function called `isOdd`. Given a number, `isOdd` returns `true` if the given number is odd. Otherwise it",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/018-isOdd",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "019-areBothOdd",
+              "title": "019 areBothOdd",
+              "summary": ":\r \r 1. Write a function called `areBothOdd`. Given 2 numbers, `areBothOdd` returns `true` if both numbers are odd, othe",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/019-areBothOdd",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "020-isEitherEven",
+              "title": "020 isEitherEven",
+              "summary": ":\r \r 1. Write a function called `isEitherEven`. Given 2 numbers, `isEitherEven` returns `true` if one of the numbers is ",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/020-isEitherEven",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "021-isOddLength",
+              "title": "021 isOddLength",
+              "summary": ":\r \r 1. Write a function called `isOddLength`. Given a word, `isOddLength` returns `true` if the length of the given wor",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/021-isOddLength",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "022-isEvenLength",
+              "title": "022 isEvenLength",
+              "summary": ":\r \r 1. Write a function called `isEvenLength`. Given a word, `isEvenLength` returns `true` if the length of the given w",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/022-isEvenLength",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "023-computeAverageLengthOfWords",
+              "title": "023 computeAverageLengthOfWords",
+              "summary": ":\r \r 1. Write a function called `computeAverageLengthOfWords`. Given two words, `computeAverageLengthOfWords` returns th",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/023-computeAverageLengthOfWords",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "024-isEvenAndGreaterThanTen",
+              "title": "024 isEvenAndGreaterThanTen",
+              "summary": ":\r \r 1. Write a function called `isEvenAndGreaterThanTen`. Given a number, `isEvenAndGreaterThanTen` returns `true` if t",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/024-isEvenAndGreaterThanTen",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "047-isEitherEvenOrAreBoth7",
+              "title": "047 isEitherEvenOrAreBoth7",
+              "summary": ":\r \r 1. Write a function called `isEitherEvenOrAreBoth7`. Given 2 numbers, `isEitherEvenOrAreBoth7` returns `true` if an",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/047-isEitherEvenOrAreBoth7",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "048-isEitherEvenAndLessThan9",
+              "title": "048 isEitherEvenAndLessThan9",
+              "summary": ":\r \r 1. Write a function called `isEitherEvenAndLessThan9`. Given 2 numbers, `isEitherEvenAndLessThan9` should return `t",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/048-isEitherEvenAndLessThan9",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "064-getAllWords",
+              "title": "064 getAllWords",
+              "summary": ":\r \r Write a function called `getAllWords`. Given a sentence, `getAllWords` returns an array containing every word in th",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/064-getAllWords",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "065-or",
+              "title": "065 or",
+              "summary": ":\r \r 1. Write a function called `or`. Given 2 boolean expressions, `or` returns true or false, following the rules of th",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/065-or",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "079-findMinLengthOfThreeWords",
+              "title": "079 findMinLengthOfThreeWords",
+              "summary": ": \r \r 1. Write a function called `findMinLengthOfThreeWords`. Given 3 words, `findMinLengthOfThreeWords` returns the len",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/079-findMinLengthOfThreeWords",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "080-findMaxLengthOfThreeWords",
+              "title": "080 findMaxLengthOfThreeWords",
+              "summary": ":\r \r 1. Write a function called `findMaxLengthOfThreeWords`. Given 3 words, `findMaxLengthOfThreeWords` returns the leng",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/080-findMaxLengthOfThreeWords",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "082-getLongestOfThreeWords",
+              "title": "082 getLongestOfThreeWords",
+              "summary": ":\r \r 1. Write a function called `getLongestOfThreeWords`. Given 3 words, `getLongestOfThreeWords` returns the longest of",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/082-getLongestOfThreeWords",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "083-findShortestOfThreeWords",
+              "title": "083 findShortestOfThreeWords",
+              "summary": ":\r \r 1. Write a function called `findShortestOfThreeWords`. Given 3 strings, `findShortestOfThreeWords` returns the shor",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/083-findShortestOfThreeWords",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "090-filterOddLengthWords",
+              "title": "090 filterOddLengthWords",
+              "summary": ":\r \r 1. Write a function called `filterOddLengthWords`. Given an array of strings, `filterOddLengthWords` returns an arr",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/090-filterOddLengthWords",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "091-filterEvenLengthWords",
+              "title": "091 filterEvenLengthWords",
+              "summary": ":\r \r 1. Write a function called `filterEvenLengthWords`. Given an array of strings, `filterEvenLengthWords` returns an a",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/091-filterEvenLengthWords",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "098-getOddLengthWordsAtProperty",
+              "title": "098 getOddLengthWordsAtProperty",
+              "summary": ": \r \r 1. Write a function called `getOddLengthWordsAtProperty`. Given an object and a key, `getOddLengthWordsAtProperty`",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/098-getOddLengthWordsAtProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "100-getEvenLengthWordsAtProperty",
+              "title": "100 getEvenLengthWordsAtProperty",
+              "summary": ":\r \r 1. Write a function called `getEvenLengthWordsAtProperty`. Given an object and a key, `getEvenLengthWordsAtProperty",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/100-getEvenLengthWordsAtProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "117-getLengthOfShortestElement",
+              "title": "117 getLengthOfShortestElement",
+              "summary": ":\r \r 1. Write a function called `getLengthOfShortestElement`. Given an array, `getLengthOfShortestElement` returns the l",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/117-getLengthOfShortestElement",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "120-findShortestElement",
+              "title": "120 findShortestElement",
+              "summary": ":\r \r 1. Write a function called `findShortestElement`. Given an array, `findShortestElement` returns the shortest string",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/120-findShortestElement",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "124-findShortestWordAmongMixedElements",
+              "title": "124 findShortestWordAmongMixedElements",
+              "summary": ":\r \r 1. Write a function called `findShortestWordAmongMixedElements`. Given an array, `findShortestWordAmongMixedElement",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/124-findShortestWordAmongMixedElements",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "126-getLongestWordOfMixedElements",
+              "title": "126 getLongestWordOfMixedElements",
+              "summary": ": \r \r 1. Write a function called `getLongestWordOfMixedElements`. Given an array of mixed types, `getLongestWordOfMixedE",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/126-getLongestWordOfMixedElements",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "133-convertScoreToGrade",
+              "title": "133 convertScoreToGrade",
+              "summary": ":\r \r 1. Write a function called `convertScoreToGrade`. Given a score, `convertScoreToGrade` returns a string representin",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/133-convertScoreToGrade",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "134-convertScoreToGradeWithPlus",
+              "title": "134 convertScoreToGradeWithPlusAndMinus",
+              "summary": ":\r \r 1. Write a function called `convertScoreToGradeWithPlusAndMinus`. Given a score, `convertScoreToGradeWithPlusAndMin",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/134-convertScoreToGradeWithPlus",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "135-computeFactorialOfN",
+              "title": "135 computeFactorialOfN",
+              "summary": ":\r \r 1. Write a function called `computeFactorialOfN`. Given a natural number (a whole number greater than `0`),`compute",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/135-computeFactorialOfN",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "149-findPairForSum",
+              "title": "149 findPairForSum",
+              "summary": ":\r \r 1. Write a function called `findPairForSum`. Given a list of positive integers and a total objective, find the firs",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/149-findPairForSum",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "155.1-FashionInventory-A",
+              "title": "155.1 FashionInventory-A",
+              "summary": ":\r \r 1. Write a function called `renderInventory` that will receive as a parameter an array like `currentInventory`. You",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/155.1-FashionInventory-A",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "155.2-FashionInventory-B",
+              "title": "155.2 FashionInventory-B",
+              "summary": ":\r \r 1. Write a function called `renderAverageCostPerDesigner` that will take in as parameter an array like `currentInve",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/155.2-FashionInventory-B",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "155.3-FashionInventory-C",
+              "title": "155.3 FashionInventory-C",
+              "summary": ":\r \r 1. Complete the `renderInventory` function to return the expected result.\r \r 2. Return a matrix (List contained by ",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/155.3-FashionInventory-C",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "155.4-FashionInventory-D",
+              "title": "155.4 FashionInventory-D",
+              "summary": ":\r \r 1. Complete the `getLaceNameDataForShoes` function to return the expected result.\r \r 2. The function goes through t",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/155.4-FashionInventory-D",
+              "category": "4Geeks Academy Practice Lab"
             }
           ]
         },
@@ -648,7 +1118,8 @@
           "difficultyIndex": 3,
           "summary": "Learn to automate repetitive tasks, iterate over number sequences, construct nested loops, and control loop flow.",
           "miniProjects": [
-            "Mathematical Pattern & Prime Number Scanner: Generate multiplication tables, Fibonacci sequences, and filter prime numbers up to N"
+            "Mathematical Pattern & Prime Number Scanner: Generate multiplication tables, Fibonacci sequences, and filter prime numbers up to N",
+            "Hands-On Coding Lab (9 Practice Programs from 4Geeks Academy: 081-repeatString, 130-multiplyBetween, 131-computeSumBetween, 132-computeSummationToN...)"
           ],
           "exercises": {
             "mcq": 16,
@@ -673,7 +1144,8 @@
           ],
           "references": [
             "MDN Web Docs – Loops and Iteration",
-            "javascript.info – Loops: while and for"
+            "javascript.info – Loops: while and for",
+            "4Geeks Academy Master JS Exercises (9 Hands-on Practice Programs) — https://github.com/4GeeksAcademy/master-javascript-programming-exercises.git"
           ],
           "teachingTips": [
             "Have students trace counter variables step-by-step on paper for nested loops before writing code.",
@@ -700,6 +1172,71 @@
               "title": "Generators & yield for Memory-Efficient Infinite Iteration",
               "description": "Generate million-item sequences on the fly with zero memory overhead using lazy generator functions.",
               "codeSnippet": "function* idGenerator() {\n  let id = 1001;\n  while (true) yield id++;\n}\nconst nextId = idGenerator();\nconsole.log(nextId.next().value); // 1001\nconsole.log(nextId.next().value); // 1002"
+            }
+          ],
+          "practicePrograms": [
+            {
+              "id": "081-repeatString",
+              "title": "081 repeatString",
+              "summary": ":\r \r 1. Write a function called `repeatString`. Given a string and a number, `repeatString` returns the given string rep",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/081-repeatString",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "130-multiplyBetween",
+              "title": "130 multiplyBetween",
+              "summary": ":\r \r 1. Write a function called `multiplyBetween`. Given 2 integers, `multiplyBetween` returns the product between the t",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/130-multiplyBetween",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "131-computeSumBetween",
+              "title": "131 computeSumBetween",
+              "summary": ":\r \r 1. Write a function called `computeSumBetween`. Given 2 integers, `computeSumBetween` returns the sum between the t",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/131-computeSumBetween",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "132-computeSummationToN",
+              "title": "132 computeSummationToN",
+              "summary": ":\r \r 1. Write a function called `computeSummationToN`. Given a number, `computeSummationToN` returns the sum of sequenti",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/132-computeSummationToN",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "136-sumDigits",
+              "title": "136 sumDigits",
+              "summary": ":\r \r 1. Write a function called `sumDigits`. Given a number, `sumDigits` returns the sum of all its digits.",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/136-sumDigits",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "138-modulo",
+              "title": "138 modulo",
+              "summary": ":\r \r 1. Write a function called `modulo`. Given 2 numbers, `modulo` returns the \"remainder\" after dividing `num1` by `nu",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/138-modulo",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "139-multiply",
+              "title": "139 multiply",
+              "summary": ":\r \r 1. Write a function called `multiply`. Given 2 integers, `multiply` returns its product.",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/139-multiply",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "140-isOddWithoutModulo",
+              "title": "140 isOddWithoutModulo",
+              "summary": ":\r \r 1. Write a function called `isOddWithoutModulo`. Given a number, `isOddWithoutModulo` returns `true` if the passed ",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/140-isOddWithoutModulo",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "141-isEvenWithoutModulo",
+              "title": "141 isEvenWithoutModulo",
+              "summary": ":\r \r 1. Write a function called `isEvenWithoutModulo`. Given a number, `isEvenWithoutModulo` returns `true` if it's even",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/141-isEvenWithoutModulo",
+              "category": "4Geeks Academy Practice Lab"
             }
           ]
         }
@@ -777,6 +1314,281 @@
             "Multidimensional Arrays, Nested Matrices & Coordinate Systems",
             "Arrays & Essential Array Methods – 20 Practical Projects Part 1",
             "Advanced Array Transformations – 20 Practical Projects Part 2"
+          ],
+          "practicePrograms": [
+            {
+              "id": "034-isPersonOldEnoughToDrive",
+              "title": "034 isPersonOldEnoughToDrive",
+              "summary": ":\r \r 1. Write a function called `isPersonOldEnoughToDrive`. Given a `person` object, that contains an `age` property, `i",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/034-isPersonOldEnoughToDrive",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "035-isPersonOldEnoughToVote",
+              "title": "035 isPersonOldEnoughToVote",
+              "summary": ":\r \r 1. Write a function called `isPersonOldEnoughToVote`. Given a `person` object, that contains an `age` property, `is",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/035-isPersonOldEnoughToVote",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "036-isPersonOldEnoughToDrink",
+              "title": "036 isPersonOldEnoughToDrink",
+              "summary": ":\r \r 1. Write a function called `isPersonOldEnoughToDrink`. Given a `person` object, that contains an `age` property, `i",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/036-isPersonOldEnoughToDrink",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "041-computeTripledAreaOfARectangle",
+              "title": "041 computeTripledAreaOfARectangle",
+              "summary": ":\r \r 1. Write a function called `computeTripledAreaOfARectangle`. Given the length and width of a rectangle, `computeTri",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/041-computeTripledAreaOfARectangle",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "049-computeAverageOfNumbers",
+              "title": "049 computeAverageOfNumbers",
+              "summary": ": \r \r 1. Write a function called `computeAverageOfNumbers`. Given an array of numbers, `computeAverageOfNumbers` returns",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/049-computeAverageOfNumbers",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "050-getNthElement",
+              "title": "050 getNthElement",
+              "summary": ":\r \r 1. Write a function called `getNthElement`. Given an array and an integer, `getNthElement` returns the element at t",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/050-getNthElement",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "051-getFirstElement",
+              "title": "051 getFirstElement",
+              "summary": ":\r \r 1. Write a function called `getFirstElement`. Given an array, `getFirstElement` returns the first element of the gi",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/051-getFirstElement",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "052-getLastElement",
+              "title": "052 getLastElement",
+              "summary": ":\r \r 1. Write a function called `getLastElement`. Given an array, `getLastElement` returns the last element of the given",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/052-getLastElement",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "053-addToFront",
+              "title": "053 addToFront",
+              "summary": ":\r \r 1. Write a function called `addToFront`. Given an array and an element, `addToFront` adds the given element to the ",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/053-addToFront",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "054-addToBack",
+              "title": "054 addToBack",
+              "summary": ":\r \r 1. Write a function called `addToBack`. Given an array and an element, `addToBack` returns the given array with the",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/054-addToBack",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "055-joinArrays",
+              "title": "055 joinArrays",
+              "summary": ":\r \r 1. Write a function called `joinArrays`. Given 2 arrays, `joinArrays` returns an array with the elements of `arr1`,",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/055-joinArrays",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "056-getElementsAfter",
+              "title": "056 getElementsAfter",
+              "summary": ":\r \r 1. Write a function called `getElementsAfter`. Given an array and an index, `getElementsAfter` returns a new array ",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/056-getElementsAfter",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "057-getElementsUpTo",
+              "title": "057 getElementsUpTo",
+              "summary": ":\r \r 1. Write a function called `getElementsUpTo`. Given an array and an index, `getElementsUpTo` returns an array with ",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/057-getElementsUpTo",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "058-removeFromFront",
+              "title": "058 removeFromFront",
+              "summary": ":\r \r 1. Write a function called `removeFromFront`. Given an array, `removeFromFront` returns the **SAME** array with its",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/058-removeFromFront",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "059-removeFromBack",
+              "title": "059 removeFromBack",
+              "summary": ":\r \r 1. Write a function called `removeFromBack`. Given an array, `removeFromBack` returns the array with its last eleme",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/059-removeFromBack",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "060-removeFromFrontOfNew",
+              "title": "060 removeFromFrontOfNew",
+              "summary": ":\r \r 1. Write a function called `removeFromFrontOfNew`. Given an array, `removeFromFrontOfNew` returns a new array conta",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/060-removeFromFrontOfNew",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "061-removeFromBackOfNew",
+              "title": "061 removeFromBackOfNew",
+              "summary": ":\r \r 1. Write a function called `removeFromBackOfNew`. Given an array, `removeFromBackOfNew` returns a new array contain",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/061-removeFromBackOfNew",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "063-getAllLetters",
+              "title": "063 getAllLetters",
+              "summary": ":\r \r 1. Write a function called `getAllLetters`. Given a word, `getAllLetters` returns an array containing every charact",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/063-getAllLetters",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "074-removeNumberValues",
+              "title": "074 removeNumberValues",
+              "summary": ":\r \r 1. Write a function called `removeNumberValues`. Given an object, `removeNumberValues` removes any properties whose",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/074-removeNumberValues",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "076-convertDoubleSpaceToSingle",
+              "title": "076 convertDoubleSpaceToSingle",
+              "summary": ":\r \r 1. Write a function called `convertDoubleSpaceToSingle`. Given a string, `convertDoubleSpaceToSingle` returns the p",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/076-convertDoubleSpaceToSingle",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "077-areValidCredentials",
+              "title": "077 areValidCredentials",
+              "summary": ":\r \r 1. Write a function called `areValidCredentials`. Given a name and a password, `areValidCredentials`, returns `true",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/077-areValidCredentials",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "078-getIndexOf",
+              "title": "078 getIndexOf",
+              "summary": ": \r \r 1. Write a function called `getIndexOf`. Given a character and a string, `getIndexOf` returns the first position o",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/078-getIndexOf",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "084-joinThreeArrays",
+              "title": "084 joinThreeArrays",
+              "summary": ":\r \r 1. Write a function called `joinThreeArrays`. Given three arrays, `joinThreeArrays` returns an array with the eleme",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/084-joinThreeArrays",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "085-addToFrontOfNew",
+              "title": "085 addToFrontOfNew",
+              "summary": ": \r \r 1. Write a function called `addToFrontOfNew`. Given an array and an element, `addToFrontOfNew` returns a new array",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/085-addToFrontOfNew",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "086-addToBackOfNew",
+              "title": "086 addToBackOfNew",
+              "summary": ": \r \r 1. Write a function called `addToBackOfNew`. Given an array and an element, `addToBackOfNew` returns a clone of th",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/086-addToBackOfNew",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "087-getAllElementsButNth",
+              "title": "087 getAllElementsButNth",
+              "summary": ":\r \r 1. Write a function called `getAllElementsButNth`. Given an array and an index, `getAllElementsButNth` returns an a",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/087-getAllElementsButNth",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "088-keep",
+              "title": "088 keep",
+              "summary": ":\r \r 1. Write a function called `keep`. Given an array and a keeper element, `keep` returns an array containing the item",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/088-keep",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "089-removeElement",
+              "title": "089 removeElement",
+              "summary": ":\r \r 1. Write a function called `removeElement`. Given an array of elements and a `discarder` parameter, `removeElement`",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/089-removeElement",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "114-filterOddElements",
+              "title": "114 filterOddElements",
+              "summary": ":\r \r 1. Write a function called `filterOddElements`. Given an array of numbers, `filterOddElements` returns an array con",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/114-filterOddElements",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "115-computeProductOfAllElements",
+              "title": "115 computeProductOfAllElements",
+              "summary": ":\r \r 1. Write a function called `computeProductOfAllElements`. Given an array of numbers, `computeProductOfAllElements` ",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/115-computeProductOfAllElements",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "116-filterEvenElements",
+              "title": "116 filterEvenElements",
+              "summary": ":\r \r 1. Write a function called `filterEvenElements`. Given an array of numbers, `filterEvenElements` returns an array c",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/116-filterEvenElements",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "118-getLongestElement",
+              "title": "118 getLongestElement",
+              "summary": ":\r \r 1. Write a function called `getLongestElement`. Given an array, `getLongestElement` returns the longest string in t",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/118-getLongestElement",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "119-findSmallestElement",
+              "title": "119 findSmallestElement",
+              "summary": ":\r \r 1. Write a function called `findSmallestElement`. Given an array of numbers, `findSmallestElement` returns the smal",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/119-findSmallestElement",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "121-getLargestElement",
+              "title": "121 getLargestElement",
+              "summary": ":\r \r 1. Write a function called `getLargestElement`. Given an array, `getLargestElement` returns the largest number in t",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/121-getLargestElement",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "122-computeSumOfAllElements",
+              "title": "122 computeSumOfAllElements",
+              "summary": ":\r \r 1. Write a function called `computeSumOfAllElements`. Given an array of numbers, `computeSumOfAllElements` returns ",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/122-computeSumOfAllElements",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "123-joinArraysOfArrays",
+              "title": "123 joinArrayOfArrays",
+              "summary": ":\r \r 1. Write a function `joinArrayOfArrays`. Given a matrix (array of arrays), `joinArrayOfArrays` returns a single arr",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/123-joinArraysOfArrays",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "125-findSmallestnumberAmongMixedElements",
+              "title": "125 findSmallestNumberAmongMixedElements",
+              "summary": ":\r \r 1. Write a function called `findSmallestNumberAmongMixedElements`. Given an array of mixed elements, `findSmallestN",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/125-findSmallestnumberAmongMixedElements",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "127-getLargestNumberAmongMixedElements",
+              "title": "127 getLargestNumberAmongMixedElements",
+              "summary": ":\r \r 1. Write a function called `getLargestNumberAmongMixedElements`. Given an array of mixed types, `getLargestNumberAm",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/127-getLargestNumberAmongMixedElements",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "144-getStringLength",
+              "title": "144 getStringLength",
+              "summary": ":\r \r 1. Write a function called `getStringLength`. Given a string, `getStringLength` returns the length of that string.",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/144-getStringLength",
+              "category": "4Geeks Academy Practice Lab"
+            }
           ]
         },
         {
@@ -805,6 +1617,155 @@
             "Set and Map vs WeakSet and WeakMap: Garbage Collection & Key References",
             "Complex Multi-Key Indexing & In-Memory Relational Data Lookup",
             "Advanced Array Pipelines & Object Data Processing – 30 Practical Projects"
+          ],
+          "practicePrograms": [
+            {
+              "id": "092-getFirstElementOfProperty",
+              "title": "092 getFirstElementOfProperty",
+              "summary": ":\r \r 1. Write a function called `getFirstElementOfProperty`. Given an object and a key, `getFirstElementOfProperty` retu",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/092-getFirstElementOfProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "093-getNthElementOfProperty",
+              "title": "093 getNthElementOfProperty",
+              "summary": ": \r \r 1. Write a function called `getNthElementOfProperty`. Given an object, a key, and a number *n*, `getNthElementOfPr",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/093-getNthElementOfProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "094-getLastElementOfProperty",
+              "title": "094 getLastElementOfProperty",
+              "summary": ": \r \r 1. Write a function called `getLastElementOfProperty`. Given an object and a key, `getLastElementOfProperty` retur",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/094-getLastElementOfProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "095-getElementsThatEqual10AtProperty",
+              "title": "095 getElementsThatEqual10AtProperty",
+              "summary": ":\r \r 1. Write a function called `getElementsThatEqual10AtProperty`. Given an object and a key, `getElementsThatEqual10At",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/095-getElementsThatEqual10AtProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "096-getElementsLessThanOneHundredAtProperty",
+              "title": "096 getElementsLessThan100AtProperty",
+              "summary": ":\r \r 1. Write a function called `getElementsLessThan100AtProperty`. Given an object and a key, `getElementsLessThan100At",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/096-getElementsLessThanOneHundredAtProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "097-getElementsGreaterThanTenAtProperty",
+              "title": "097 getElementsGreaterThan10AtProperty",
+              "summary": ":\r \r 1. Write a function called `getElementsGreaterThan10AtProperty`. Given an object and a key, `getElementsGreaterThan",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/097-getElementsGreaterThanTenAtProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "099-getAverageOfElementsAtProperty",
+              "title": "099 getAverageOfElementsAtProperty",
+              "summary": ":\r \r 1. Write a function called `getAverageOfElementsAtProperty`. Given an object and a key, `getAverageOfElementsAtProp",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/099-getAverageOfElementsAtProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "101-getOddElementsAtProperty",
+              "title": "101 getOddElementsAtProperty",
+              "summary": ":\r \r 1. Write a function called `getOddElementsAtProperty`. Given an object and a key, `getOddElementsAtProperty` return",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/101-getOddElementsAtProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "102-getEvenElementsAtProperty",
+              "title": "102 getEvenElementsAtProperty",
+              "summary": ":\r \r 1. Write a function called `getEvenElementsAtProperty`. Given an object and a key, `getEvenElementsAtProperty` retu",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/102-getEvenElementsAtProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "103-getSquaredElementsAtProperty",
+              "title": "103 getSquaredElementsAtProperty",
+              "summary": ":\r \r 1. Write a function called `getSquaredElementsAtProperty`. Given an object and a key, `getSquaredElementsAtProperty",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/103-getSquaredElementsAtProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "104-getSmallestElementAtProperty",
+              "title": "104 getSmallestElementAtProperty",
+              "summary": ":\r \r 1. Write a function called `getSmallestElementAtProperty`. Given an object and a key, `getSmallestElementAtProperty",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/104-getSmallestElementAtProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "105-getLargestElementAtProperty",
+              "title": "105 getLargestElementAtProperty",
+              "summary": ":\r \r 1. Write a function called `getLargestElementAtProperty`. Given an object and a key, `getLargestElementAtProperty` ",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/105-getLargestElementAtProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "106-getAllButLastElementOfProperty",
+              "title": "106 getAllButLastElementOfProperty",
+              "summary": ":\r \r 1. Write a function called `getAllButLastElementOfProperty`. Given an object and a key, `getAllButLastElementOfProp",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/106-getAllButLastElementOfProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "108-getProductOfAllElementsAtProperty",
+              "title": "108 getProductOfAllElementsAtProperty",
+              "summary": ":\r \r 1. Write a function called `getProductOfAllElementsAtProperty`. Given an object and a key, `getProductOfAllElements",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/108-getProductOfAllElementsAtProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "110-getSumOfAllElementsAtProperty",
+              "title": "110 getSumOfAllElementsAtProperty",
+              "summary": ":\r \r 1. Write a function called `getSumOfAllElementsAtProperty`. Given an object and a key, `getSumOfAllElementsAtProper",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/110-getSumOfAllElementsAtProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "142.1-ArrayToObject",
+              "title": "142.1 ArrayToObject",
+              "summary": ":\r \r 1. Write a function called `transformFirstAndLast` that takes in an array, and returns an object with **the first e",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/142.1-ArrayToObject",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "142.2-ArrayToObject",
+              "title": "142.2 ArrayToObject",
+              "summary": ":\r \r 1. Write a function `fromListToObject` which takes in a matrix (an array of arrays), and returns an object with **e",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/142.2-ArrayToObject",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "142.3-ArrayToObject",
+              "title": "142.3 ArrayToObject",
+              "summary": ":\r \r 1. Write a function called `transformEmployeeData` that transforms employee data from one format to another.",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/142.3-ArrayToObject",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "143.1-ObjectToArray",
+              "title": "143.1 ObjectToArray",
+              "summary": ":\r \r 1. Write a function called `getAllKeys` which returns an array of all the input object's keys.",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/143.1-ObjectToArray",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "143.2-ObjectToArray",
+              "title": "143.2 ObjectToArray",
+              "summary": ":\r \r 1. Write a function called `listAllValues` which returns an array of all the input object's values.",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/143.2-ObjectToArray",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "143.3-ObjectToArray",
+              "title": "143.3 ObjectToArray",
+              "summary": ":\r \r 1. Write a function called `convertObjectToList` that converts a literal object into an array of arrays, like this:",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/143.3-ObjectToArray",
+              "category": "4Geeks Academy Practice Lab"
+            }
           ]
         }
       ]
@@ -859,6 +1820,148 @@
             "JSON Serialization: JSON.stringify() with Replacers & JSON.parse() with Revivers",
             "LocalStorage & Web Storage Serialization Wrappers",
             "Objects, Methods & Object-Oriented JavaScript – 40 Practical Projects"
+          ],
+          "practicePrograms": [
+            {
+              "id": "029-getProperty",
+              "title": "029 getProperty",
+              "summary": ": \r \r 1. Write a function called `getProperty`. Given an object and a key, `getProperty` returns the value of the proper",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/029-getProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "030-addProperty",
+              "title": "030 addProperty",
+              "summary": "1. Write a function called `addProperty`. Given an object, and a key, `addProperty` sets a new property on the given obj",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/030-addProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "031-removeProperty",
+              "title": "031 removeProperty",
+              "summary": ":\r \r 1. Write a function called `removeProperty`. Given an object and a key, `removeProperty` removes the given key from",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/031-removeProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "032-addFullNameProperty",
+              "title": "032 addFullNameProperty",
+              "summary": ":\r \r 1. Write a function called `addFullNameProperty`. Given an object that has a `firstName` property and a `lastName` ",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/032-addFullNameProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "033-addObjectProperty",
+              "title": "033 addObjectProperty",
+              "summary": ":\r \r 1. Write a function called `addObjectProperty`. This function takes two objects and a key as arguments.\r 2. The `ad",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/033-addObjectProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "037-addArrayProperty",
+              "title": "037 addArrayProperty",
+              "summary": ":\r \r 1. Write a function called `addArrayProperty`. \r     + `addArrayProperty` takes an object, a string key, and an arr",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/037-addArrayProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "062-countCharacter",
+              "title": "062 countCharacter",
+              "summary": ":\r \r 1. Write a function called `countCharacter`. Given a string input and a character, `countCharacter` returns the num",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/062-countCharacter",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "066-extend",
+              "title": "066 Extend",
+              "summary": ":\r \r 1. Write a function called `extend`. Given 2 objects, `extend` adds the properties of the 2nd object to the first o",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/066-extend",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "067-removeNumbersLargerThan",
+              "title": "067 removeNumbersLargerThan",
+              "summary": ":\r \r 1. Write a function called `removeNumbersLargerThan`. Given a number and an object, `removeNumbersLargerThan` remov",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/067-removeNumbersLargerThan",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "068-removeNumbersLessThan",
+              "title": "068 removeNumbersLessThan",
+              "summary": ":\r \r 1. Write a function called `removeNumbersLessThan`. Given a number and an object, `removeNumbersLessThan` removes a",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/068-removeNumbersLessThan",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "069-removeStringValuesLongerThan",
+              "title": "069 removeStringValuesLongerThan",
+              "summary": ":\r \r 1. Write a function called `removeStringValuesLongerThan`. Given a number and an object, `removeStringValuesLongerT",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/069-removeStringValuesLongerThan",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "070-removeEvenValues",
+              "title": "070 removeEvenValues",
+              "summary": ":\r \r 1. Write a function called `removeEvenValues`. Given any object, `removeEvenValues` removes any properties whose va",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/070-removeEvenValues",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "071-countNumberOfKeys",
+              "title": "071 countNumberOfKeys",
+              "summary": ":\r \r 1. Write a function called `countNumberOfKeys`. Given an object, `countNumberOfKeys` returns how many properties th",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/071-countNumberOfKeys",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "072-removeOddValues",
+              "title": "072 removeOddValues",
+              "summary": ":\r \r 1. Write a function called `removeOddValues`. Given an object, `removeOddValues` removes any properties whose value",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/072-removeOddValues",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "073-removeArrayValues",
+              "title": "073 removeArrayValues",
+              "summary": ":\r \r 1. Write a function called `removeArrayValues`. Given an object, `removeArrayValues` removes any properties whose v",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/073-removeArrayValues",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "075-removeStringValues",
+              "title": "075 removeStringValues",
+              "summary": ":\r \r 1. Write a function called `removeStringValues`. Given an object, `removeStringValues` removes any properties whose",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/075-removeStringValues",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "107-getElementOfArrayProperty",
+              "title": "107 getElementOfArrayProperty",
+              "summary": ":\r \r 1. Write a function called `getElementOfArrayProperty`. Given an object, a key, and a numerical index, `getElementO",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/107-getElementOfArrayProperty",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "109-Select",
+              "title": "109 select",
+              "summary": ":\r \r 1. Write a function called `select`. Given an array and an object, `select` returns a new object whose properties m",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/109-Select",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "111-countAllCharacters",
+              "title": "111 countAllCharacters",
+              "summary": ":\r \r 1. Write a function called `countAllCharacters`. Given a string, `countAllCharacters` returns an object where each ",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/111-countAllCharacters",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "145-GreetCustomers",
+              "title": "145 GreetCustomers",
+              "summary": ":\r \r 1. Write a function called `greetCustomer`. Given a name, `greetCustomer` returns a greeting based on how many time",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/145-GreetCustomers",
+              "category": "4Geeks Academy Practice Lab"
+            }
           ]
         }
       ]
@@ -898,6 +2001,64 @@
             "Deep Object Flattening & Dynamic String Path Resolver (get(obj, \"a.b[0].c\") & set(obj, \"x.y.z\", val))",
             "Deep Object Clone & Circular Reference Graph Resolver with WeakMap",
             "Interceptor & Middleware Chain Pattern (Express / Koa Onion Architecture from Scratch)"
+          ],
+          "practicePrograms": [
+            {
+              "id": "146-flipPairs",
+              "title": "146 flipPairs",
+              "summary": ":\r \r 1. Declare a function named `flipPairs`.\r \r 2. Function accepts a `string` input.\r \r 3. When calling the function, ",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/146-flipPairs",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "147-flipEveryNChars",
+              "title": "147 flipEveryNChars",
+              "summary": ":\r \r 1. Declare a function named `flipEveryNChars`.\r \r 2. Function accepts 2 parameters, a string and a number.\r \r 3. Wh",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/147-flipEveryNChars",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "148-detectOutlierValue",
+              "title": "148 detectOutlierValue",
+              "summary": ":\r \r 1. Declare a function named `detectOutlierValue`.\r \r 2. Function accepts a `string` parameter.\r \r 3. When calling t",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/148-detectOutlierValue",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "150-isRotated",
+              "title": "150 isRotated",
+              "summary": ":\r \r 1. The function `isRotated` receives two strings, if the second string is a rotated version of the first one, it sh",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/150-isRotated",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "151-search",
+              "title": "151 search",
+              "summary": ":\r \r 1. The function `search` receives an array of numbers and a number, it should return the position of the number giv",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/151-search",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "152-isogram",
+              "title": "152 isogram",
+              "summary": ":\r \r 1. The function `isIsogram` receives a string and returns `true` if the string is an isogram, otherwise it returns ",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/152-isogram",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "153-phoneNumber",
+              "title": "153 phoneNumber",
+              "summary": ":\r \r 1. Use the skeleton and modify the functions in order to format the numbers in the following way: `(000) 000-0000`",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/153-phoneNumber",
+              "category": "4Geeks Academy Practice Lab"
+            },
+            {
+              "id": "154-longestPalindrome",
+              "title": "154 findLongestPalindrome",
+              "summary": ":\r \r 1. Given a string, the function `findLongestPalindrome` returns the longest palindrome on that string.",
+              "githubUrl": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises/tree/main/exercises/154-longestPalindrome",
+              "category": "4Geeks Academy Practice Lab"
+            }
           ]
         }
       ]
@@ -2667,5 +3828,16 @@
     }
   ],
   "version": "3.0.0",
-  "lastUpdated": "2026-08-28"
+  "lastUpdated": "2026-08-28",
+  "practiceRepositories": [
+    {
+      "title": "Master JavaScript Programming Exercises (165+ Practical Coding Labs)",
+      "author": "4Geeks Academy & LearnPack",
+      "edition": "Open-Source Interactive Practice Suite (2024)",
+      "description": "165+ hands-on JavaScript programming exercises covering boolean logic, conditionals, math computations, object properties, array algorithms, data structure transformations, recursion, and real-world algorithmic challenges.",
+      "link": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises.git",
+      "repository": "https://github.com/4GeeksAcademy/master-javascript-programming-exercises.git",
+      "totalExercises": 165
+    }
+  ]
 }

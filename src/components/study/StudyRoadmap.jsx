@@ -40,7 +40,8 @@ import {
   Phone,
   MessageSquare,
   Compass,
-  ListOrdered
+  ListOrdered,
+  ExternalLink
 } from "lucide-react";
 import TeacherProfileCard, { defaultTeacher } from "./common/TeacherProfileCard";
 
@@ -647,18 +648,37 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <div>
-                          <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Core Textbooks</h4>
+                          <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Core Textbooks & Practice Repositories</h4>
                           <ul className="space-y-2">
                             {roadmapData.textBooks?.map((book, i) => (
                               <li key={i} className="text-xs text-slate-300 flex items-start gap-2 bg-slate-950/80 p-2.5 rounded-xl border border-slate-800">
                                 <BookMarked size={14} className="text-indigo-400 shrink-0 mt-0.5" />
-                                <span>{book}</span>
+                                {typeof book === "string" ? (
+                                  <span>{book}</span>
+                                ) : (
+                                  <div className="flex-1 min-w-0">
+                                    <div className="font-semibold text-slate-200">{book.title}</div>
+                                    {book.author && <div className="text-slate-400 text-[11px]">{book.author} ({book.edition || ""})</div>}
+                                    {book.description && <div className="text-slate-500 text-[11px] mt-0.5 leading-relaxed">{book.description}</div>}
+                                    {book.link && (
+                                      <a
+                                        href={book.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-sky-400 hover:underline text-[10px] inline-flex items-center gap-1 mt-1 font-mono"
+                                      >
+                                        <span>Open Source / Repository</span>
+                                        <ExternalLink size={10} />
+                                      </a>
+                                    )}
+                                  </div>
+                                )}
                               </li>
                             ))}
                           </ul>
                         </div>
                         <div>
-                          <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Reference Books</h4>
+                          <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Reference Literature & Guidelines</h4>
                           <ul className="space-y-2">
                             {roadmapData.referenceBooks?.map((ref, i) => (
                               <li key={i} className="text-xs text-slate-300 flex items-start gap-2 bg-slate-950/80 p-2.5 rounded-xl border border-slate-800">
@@ -669,6 +689,45 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                           </ul>
                         </div>
                       </div>
+
+                      {/* Interactive Practice Repositories & Coding Challenge Suite */}
+                      {Array.isArray(roadmapData.practiceRepositories) && roadmapData.practiceRepositories.length > 0 && (
+                        <div className="mt-5 pt-4 border-t border-slate-800">
+                          <h4 className="text-xs font-semibold uppercase tracking-wider text-amber-400 mb-2.5 flex items-center gap-1.5">
+                            <Code2 size={14} className="text-amber-400" />
+                            Official Interactive Coding Challenge Suite
+                          </h4>
+                          <div className="grid grid-cols-1 gap-3">
+                            {roadmapData.practiceRepositories.map((repo, rIdx) => (
+                              <div
+                                key={rIdx}
+                                className="p-3.5 rounded-xl bg-slate-950/90 border border-amber-900/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+                              >
+                                <div>
+                                  <div className="flex items-center gap-2 mb-1">
+                                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-950/80 text-amber-300 border border-amber-800/80">
+                                      {repo.totalExercises ? `${repo.totalExercises}+ Exercises` : "Open Source"}
+                                    </span>
+                                    <h5 className="text-xs font-bold text-slate-200">{repo.title}</h5>
+                                  </div>
+                                  <p className="text-[11px] text-slate-400 leading-relaxed max-w-2xl">{repo.description}</p>
+                                </div>
+
+                                <a
+                                  href={repo.repository || repo.link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 hover:text-amber-200 border border-amber-500/30 text-xs font-semibold transition shrink-0 self-start sm:self-auto"
+                                >
+                                  <Github size={13} />
+                                  <span>View on GitHub</span>
+                                  <ExternalLink size={12} />
+                                </a>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   )}
 

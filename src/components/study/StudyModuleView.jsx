@@ -27,7 +27,10 @@ import {
   Calculator,
   Compass,
   LayoutGrid,
-  List
+  List,
+  Code2,
+  ExternalLink,
+  Github
 } from "lucide-react";
 
 export default function StudyModuleView({
@@ -818,6 +821,71 @@ export default function StudyModuleView({
           )}
 
         </section>
+
+        {/* ========================================================== */}
+        {/* Hands-on Programming Exercises & Practice Lab Section */}
+        {/* ========================================================== */}
+        {Array.isArray(moduleData.practicePrograms) && moduleData.practicePrograms.length > 0 && (
+          <section className="rounded-2xl bg-slate-900/60 border border-slate-800 p-4 sm:p-5 backdrop-blur-sm shadow-sm space-y-3.5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+              <div>
+                <h3 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+                  <Code2 size={18} className="text-amber-400" />
+                  <span>Hands-on Programming Exercises &amp; Practice Lab</span>
+                </h3>
+                <p className="text-xs text-slate-400 mt-0.5">
+                  {moduleData.practicePrograms.length} coding lab programs from the 4Geeks Academy master exercise repository.
+                </p>
+              </div>
+
+              <a
+                href="https://github.com/4GeeksAcademy/master-javascript-programming-exercises.git"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 hover:text-amber-200 border border-amber-500/30 text-xs font-semibold transition shrink-0 self-start sm:self-auto"
+              >
+                <Github size={13} />
+                <span>View 4Geeks Repository</span>
+                <ExternalLink size={12} />
+              </a>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 pt-1">
+              {moduleData.practicePrograms.map((prog, pIdx) => (
+                <a
+                  key={pIdx}
+                  href={prog.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/50 hover:bg-slate-900 transition flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-1.5">
+                      <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-slate-900 text-amber-300 border border-slate-800 group-hover:border-amber-500/40">
+                        {prog.id}
+                      </span>
+                      <ExternalLink size={12} className="text-slate-500 group-hover:text-amber-400 transition" />
+                    </div>
+                    <h4 className="text-xs font-bold text-slate-200 group-hover:text-amber-300 transition line-clamp-1">
+                      {prog.title}
+                    </h4>
+                    {prog.summary && (
+                      <p className="text-[11px] text-slate-400 mt-1 line-clamp-2 leading-relaxed">
+                        {prog.summary}
+                      </p>
+                    )}
+                  </div>
+                  <div className="mt-3 pt-2 border-t border-slate-850 text-[10px] text-slate-500 flex items-center justify-between">
+                    <span>Exercise #{pIdx + 1}</span>
+                    <span className="text-amber-400 group-hover:underline font-medium flex items-center gap-1">
+                      Code &amp; Tests <ArrowRight size={10} />
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* ========================================================== */}
         {/* Module Navigation Footer (Prev / Next) */}
