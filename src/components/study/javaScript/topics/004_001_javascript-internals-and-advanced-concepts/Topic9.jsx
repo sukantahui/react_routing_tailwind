@@ -162,7 +162,7 @@ export default function Topic9() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 9.1: Architectural execution lifecycle, memory flow, and runtime mechanics for Proxy and Reflect APIs: Transparent Reactivity &amp; Metaprogramming.
             </p>
           </div>
         </section>

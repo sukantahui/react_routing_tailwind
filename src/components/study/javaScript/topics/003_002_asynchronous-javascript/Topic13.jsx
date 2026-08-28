@@ -162,7 +162,7 @@ export default function Topic13() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 13.1: Architectural execution lifecycle, memory flow, and runtime mechanics for Concurrency Control: Throttling &amp; Limiting Parallel Async Tasks (p-limit pattern).
             </p>
           </div>
         </section>
@@ -303,7 +303,7 @@ function checkStatus(val) {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"console.log('1. Sync Start');\nqueueMicrotask(() => console.log('2. Microtask'));\nsetTimeout(() => console.log('4. Macrotask'), 0);\nconsole.log('3. Sync End');"}</pre>
+              <pre>{"console.log('1. Sync Start');\nqueueMicrotask(() =&gt; console.log('2. Microtask'));\nsetTimeout(() =&gt; console.log('4. Macrotask'), 0);\nconsole.log('3. Sync End');"}</pre>
             </div>
           </div>
         </section>

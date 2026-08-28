@@ -127,12 +127,12 @@ export default function Topic9() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Closures in Depth: Lexical Environment Records & Memory Lifecycle"} · Architecture &amp; State Transitions</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"Closures in Depth: Lexical Environment Records & Memory Lifecycle"&#125; · Architecture &amp; State Transitions</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#gradBox1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Input</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Outer Function Execution Context"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"Outer Function Execution Context"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arrow)" />
@@ -140,7 +140,7 @@ export default function Topic9() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#gradBox2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: Execution</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"Heap Allocated Closure Environment Record"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"Heap Allocated Closure Environment Record"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic9() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#gradBox3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Output State</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Returned Inner Function Holding Reference"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"Returned Inner Function Holding Reference"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -253,7 +253,7 @@ export default function Topic9() {
                 {"Holding large arrays in outer scopes when the inner function only needs a single primitive value."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-rose-900/50 text-xs font-mono text-rose-300 overflow-x-auto">
-{"// ❌ AVOID: Retains massiveData in memory\nfunction createGetter() {\n  const massiveData = new Array(1000000).fill(\"payload\");\n  const count = 42;\n  return () => count;\n}"}
+{"// ❌ AVOID: Retains massiveData in memory\nfunction createGetter() {\n  const massiveData = new Array(1000000).fill(\"payload\");\n  const count = 42;\n  return () =&gt; count;\n}"}
               </pre>
             </div>
 
@@ -267,7 +267,7 @@ export default function Topic9() {
                 {"Only define variables inside the scope where they are needed, or nullify references after use."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-emerald-900/50 text-xs font-mono text-emerald-300 overflow-x-auto">
-{"// ✓ RECOMMENDED: Clean and leak-free\nfunction createSafeGetter() {\n  const count = 42;\n  return () => count;\n}"}
+{"// ✓ RECOMMENDED: Clean and leak-free\nfunction createSafeGetter() {\n  const count = 42;\n  return () =&gt; count;\n}"}
               </pre>
             </div>
           </div>

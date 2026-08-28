@@ -143,7 +143,7 @@ export default function Topic1() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 1.1: Architectural execution lifecycle, memory flow, and runtime mechanics for Building Neural Networks from Scratch in Vanilla JavaScript.
             </p>
           </div>
         </section>

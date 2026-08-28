@@ -98,7 +98,7 @@ export default function Topic10() {
                 {"Swadeep sorted `[10, 5, 40, 25, 100]` with `arr.sort()` and got `[10, 100, 25, 40, 5]`."}
               </p>
               <p>
-                {"Sukanta Hui explained that without a comparator, `sort()` converts elements to strings and compares UTF-16 code units; numerical sorting requires `(a, b) => a - b`."}
+                {"Sukanta Hui explained that without a comparator, `sort()` converts elements to strings and compares UTF-16 code units; numerical sorting requires `(a, b) =&gt; a - b`."}
               </p>
             </div>
           </div>
@@ -127,12 +127,12 @@ export default function Topic10() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Sorting Arrays — sort() Algorithm, Comparator Math & Unicode Sort Traps"} · Pipeline Architecture</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"Sorting Arrays — sort() Algorithm, Comparator Math & Unicode Sort Traps"&#125; · Pipeline Architecture</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#arrGrad1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Input Structure</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Unsorted Array Dataset"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"Unsorted Array Dataset"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" />
@@ -140,7 +140,7 @@ export default function Topic10() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#arrGrad2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: V8 Operation</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"V8 TimSort Algorithm (Comparator (a, b))"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"V8 TimSort Algorithm (Comparator (a, b))"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic10() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#arrGrad3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Result Memory</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"In-Place Stably Sorted Array"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"In-Place Stably Sorted Array"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -188,7 +188,7 @@ export default function Topic10() {
                     <td className="p-3 text-emerald-400 font-sans">{"String arrays (basic alphabetization)"}</td>
                   </tr>
                   <tr className="hover:bg-slate-800/30">
-                    <td className="p-3 text-sky-400">{"Numeric Comparator (a, b) => a - b"}</td>
+                    <td className="p-3 text-sky-400">{"Numeric Comparator (a, b) =&gt; a - b"}</td>
                     <td className="p-3 text-slate-300 font-sans">{"Negative: a before b; Positive: b before a; 0: unchanged"}</td>
                     <td className="p-3 text-amber-300 font-sans">{"TimSort hybrid merge/insertion sort (O(N log N))"}</td>
                     <td className="p-3 text-emerald-400 font-sans">{"Ascending number sorting"}</td>
@@ -267,7 +267,7 @@ export default function Topic10() {
                 {"Use comparator arithmetic or `toSorted()` for clean ordering."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-emerald-900/50 text-xs font-mono text-emerald-300 overflow-x-auto">
-{"// ✓ RECOMMENDED: Explicit Comparator\nconst sorted = [10, 5, 25, 100].toSorted((a, b) => a - b);\nconsole.log(sorted); // [5, 10, 25, 100]"}
+{"// ✓ RECOMMENDED: Explicit Comparator\nconst sorted = [10, 5, 25, 100].toSorted((a, b) =&gt; a - b);\nconsole.log(sorted); // [5, 10, 25, 100]"}
               </pre>
             </div>
           </div>
@@ -295,7 +295,7 @@ export default function Topic10() {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"const employees = [\n  { dept: \"IT\", salary: 80000, name: \"Swadeep\" },\n  { dept: \"IT\", salary: 95000, name: \"Tuhina\" },\n  { dept: \"HR\", salary: 70000, name: \"Abhronila\" }\n];\nemployees.sort((a, b) => \n  a.dept.localeCompare(b.dept) || (b.salary - a.salary) || a.name.localeCompare(b.name)\n);\nconsole.table(employees);"}</pre>
+              <pre>{"const employees = [\n  { dept: \"IT\", salary: 80000, name: \"Swadeep\" },\n  { dept: \"IT\", salary: 95000, name: \"Tuhina\" },\n  { dept: \"HR\", salary: 70000, name: \"Abhronila\" }\n];\nemployees.sort((a, b) =&gt; \n  a.dept.localeCompare(b.dept) || (b.salary - a.salary) || a.name.localeCompare(b.name)\n);\nconsole.table(employees);"}</pre>
             </div>
           </div>
         </section>

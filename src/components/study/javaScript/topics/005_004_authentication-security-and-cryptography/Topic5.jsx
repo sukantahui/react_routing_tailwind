@@ -143,7 +143,7 @@ export default function Topic5() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 5.1: Architectural execution lifecycle, memory flow, and runtime mechanics for Securing Web Applications against OWASP Top 10 (CSRF, XSS, SSRF, SQLi).
             </p>
           </div>
         </section>

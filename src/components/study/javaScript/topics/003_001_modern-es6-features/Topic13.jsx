@@ -162,7 +162,7 @@ export default function Topic13() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 13.1: Architectural execution lifecycle, memory flow, and runtime mechanics for Async Generators &amp; for-await-of Streams.
             </p>
           </div>
         </section>

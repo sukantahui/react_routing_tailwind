@@ -261,7 +261,7 @@ export default function Topic1() {
               <pre className="p-4 rounded-xl bg-slate-950 border border-rose-900/50 text-xs font-mono text-rose-300 overflow-x-auto">
 {`// ❌ AVOID: Freezes the UI on large datasets
 function processTransactions(items) {
-  for (let i = 0; i < 5000000; i++) {
+  for (let i = 0; i &lt; 5000000; i++) {
     // Heavy CPU calculation on main thread!
   }
 }`}
@@ -280,7 +280,7 @@ function processTransactions(items) {
 {`// ✓ RECOMMENDED: Non-blocking worker offloading
 const worker = new Worker("worker.js");
 worker.postMessage({ items: dataset });
-worker.onmessage = (e) => updateUI(e.data); // Smooth!`}
+worker.onmessage = (e) =&gt; updateUI(e.data); // Smooth!`}
               </pre>
             </div>
           </div>

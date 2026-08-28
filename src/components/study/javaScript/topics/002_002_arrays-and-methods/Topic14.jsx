@@ -98,7 +98,7 @@ export default function Topic14() {
                 {"The Barrackpore lab cohort was challenged to build an e-commerce cart calculation engine handling tiered discounts, coupon codes, tax calculations, and shipping rules."}
               </p>
               <p>
-                {"Sukanta Hui guided the students to decompose complex business logic into a sequence of pure array transformations (`filter` -> `map` -> `reduce`)."}
+                {"Sukanta Hui guided the students to decompose complex business logic into a sequence of pure array transformations (`filter` -&gt; `map` -&gt; `reduce`)."}
               </p>
             </div>
           </div>
@@ -127,12 +127,12 @@ export default function Topic14() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Arrays & Essential Array Methods – 20 Practical Projects Part 1"} · Pipeline Architecture</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"Arrays & Essential Array Methods – 20 Practical Projects Part 1"&#125; · Pipeline Architecture</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#arrGrad1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Input Structure</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Raw Business Records & Input Feed"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"Raw Business Records & Input Feed"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" />
@@ -140,7 +140,7 @@ export default function Topic14() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#arrGrad2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: V8 Operation</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"Chained Functional Array Operations"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"Chained Functional Array Operations"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic14() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#arrGrad3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Result Memory</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Verified Enterprise Solution Output"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"Verified Enterprise Solution Output"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -295,7 +295,7 @@ export default function Topic14() {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"function dedupeBy(arr, keyFn) {\n  const seen = new Set();\n  return arr.filter(item => {\n    const key = keyFn(item);\n    if (seen.has(key)) return false;\n    seen.add(key);\n    return true;\n  });\n}\nconst logs = [\n  { ip: \"192.168.1.1\", user: \"Swadeep\" },\n  { ip: \"192.168.1.1\", user: \"Swadeep\" },\n  { ip: \"10.0.0.1\", user: \"Tuhina\" }\n];\nconsole.table(dedupeBy(logs, l => l.ip));"}</pre>
+              <pre>{"function dedupeBy(arr, keyFn) {\n  const seen = new Set();\n  return arr.filter(item => {\n    const key = keyFn(item);\n    if (seen.has(key)) return false;\n    seen.add(key);\n    return true;\n  });\n}\nconst logs = [\n  { ip: \"192.168.1.1\", user: \"Swadeep\" },\n  { ip: \"192.168.1.1\", user: \"Swadeep\" },\n  { ip: \"10.0.0.1\", user: \"Tuhina\" }\n];\nconsole.table(dedupeBy(logs, l =&gt; l.ip));"}</pre>
             </div>
           </div>
         </section>

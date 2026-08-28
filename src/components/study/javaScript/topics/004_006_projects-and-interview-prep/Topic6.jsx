@@ -147,7 +147,7 @@ export default function Topic6() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 6.1: Architectural execution lifecycle, memory flow, and runtime mechanics for Next Horizons: TypeScript, React, Next.js, Node.js &amp; Full-Stack Career Roadmaps.
             </p>
           </div>
         </section>
@@ -288,7 +288,7 @@ function checkStatus(val) {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"Promise.allSettled = (promises) => Promise.all(\n  promises.map(p => Promise.resolve(p).then(\n    value => ({ status: 'fulfilled', value }),\n    reason => ({ status: 'rejected', reason })\n  ))\n);"}</pre>
+              <pre>{"Promise.allSettled = (promises) =&gt; Promise.all(\n  promises.map(p =&gt; Promise.resolve(p).then(\n    value => ({ status: 'fulfilled', value }),\n    reason => ({ status: 'rejected', reason })\n  ))\n);"}</pre>
             </div>
           </div>
         </section>

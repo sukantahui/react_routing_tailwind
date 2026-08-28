@@ -162,7 +162,7 @@ export default function Topic2() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 2.1: Architectural execution lifecycle, memory flow, and runtime mechanics for Node.js Streams Pipeline: Readable, Writable, Transform &amp; pipeline() API.
             </p>
           </div>
         </section>

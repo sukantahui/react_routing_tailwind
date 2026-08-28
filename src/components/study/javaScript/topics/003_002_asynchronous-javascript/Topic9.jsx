@@ -162,7 +162,7 @@ export default function Topic9() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 9.1: Architectural execution lifecycle, memory flow, and runtime mechanics for The Asynchronous Mastery Challenge &amp; Production Resilience.
             </p>
           </div>
         </section>
@@ -299,11 +299,11 @@ function checkStatus(val) {
             </div>
 
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-              {"Extract `{ promise, resolve, reject }` in a single line without wrapping logic in `new Promise((res, rej) => ...)`."}
+              {"Extract `{ promise, resolve, reject }` in a single line without wrapping logic in `new Promise((res, rej) =&gt; ...)`."}
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"const { promise, resolve, reject } = Promise.withResolvers();\n// Pass resolve to external event or timer callback\nsetTimeout(() => resolve('Data Ready!'), 1000);"}</pre>
+              <pre>{"const { promise, resolve, reject } = Promise.withResolvers();\n// Pass resolve to external event or timer callback\nsetTimeout(() =&gt; resolve('Data Ready!'), 1000);"}</pre>
             </div>
           </div>
         </section>

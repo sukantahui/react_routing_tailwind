@@ -160,7 +160,7 @@ export default function Topic0() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 0.1: Architectural execution lifecycle, memory flow, and runtime mechanics for Node.js Architecture: V8, Libuv Event Loop Phases &amp; ThreadPool Mechanics.
             </p>
           </div>
         </section>

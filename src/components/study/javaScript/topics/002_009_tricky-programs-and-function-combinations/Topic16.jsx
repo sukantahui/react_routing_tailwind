@@ -127,12 +127,12 @@ export default function Topic16() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Interceptor & Middleware Chain Pattern (Express / Koa Onion Architecture from Scratch)"} · Algorithmic Data Flow</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"Interceptor & Middleware Chain Pattern (Express / Koa Onion Architecture from Scratch)"&#125; · Algorithmic Data Flow</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Entry State</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Inbound Request (Layer 1 -> Layer 2 -> Target)"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"Inbound Request (Layer 1 -&gt; Layer 2 -&gt; Target)"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" />
@@ -140,7 +140,7 @@ export default function Topic16() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: Core Algorithm</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"Target Business Handler Execution"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"Target Business Handler Execution"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic16() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Final Output</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Outbound Response (Layer 2 -> Layer 1 Post-Process)"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"Outbound Response (Layer 2 -&gt; Layer 1 Post-Process)"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -300,7 +300,7 @@ function resilientHandler() {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"// 💎 SENIOR SECRET: Pure Koa-Style Async Onion Middleware Engine\nfunction composeMiddleware(middlewareList) {\n  return function(context, next) {\n    let index = -1;\n    function dispatch(i) {\n      if (i <= index) return Promise.reject(new Error(\"next() called multiple times\"));\n      index = i;\n      let fn = middlewareList[i];\n      if (i === middlewareList.length) fn = next;\n      if (!fn) return Promise.resolve();\n      try {\n        return Promise.resolve(fn(context, dispatch.bind(null, i + 1)));\n      } catch (err) {\n        return Promise.reject(err);\n      }\n    }\n    return dispatch(0);\n  };\n}\nconst app = composeMiddleware([\n  async (ctx, next) => { ctx.logs = [\"L1 Pre\"]; await next(); ctx.logs.push(\"L1 Post\"); },\n  async (ctx, next) => { ctx.logs.push(\"L2 Pre\"); await next(); ctx.logs.push(\"L2 Post\"); }\n]);\nconst ctx = {};\napp(ctx, async () => { ctx.logs.push(\"Target Core Execution\"); }).then(() => console.log(ctx.logs));"}</pre>
+              <pre>{"// 💎 SENIOR SECRET: Pure Koa-Style Async Onion Middleware Engine\nfunction composeMiddleware(middlewareList) {\n  return function(context, next) {\n    let index = -1;\n    function dispatch(i) {\n      if (i <= index) return Promise.reject(new Error(\"next() called multiple times\"));\n      index = i;\n      let fn = middlewareList[i];\n      if (i === middlewareList.length) fn = next;\n      if (!fn) return Promise.resolve();\n      try {\n        return Promise.resolve(fn(context, dispatch.bind(null, i + 1)));\n      } catch (err) {\n        return Promise.reject(err);\n      }\n    }\n    return dispatch(0);\n  };\n}\nconst app = composeMiddleware([\n  async (ctx, next) => { ctx.logs = [\"L1 Pre\"]; await next(); ctx.logs.push(\"L1 Post\"); },\n  async (ctx, next) => { ctx.logs.push(\"L2 Pre\"); await next(); ctx.logs.push(\"L2 Post\"); }\n]);\nconst ctx = {};\napp(ctx, async () => { ctx.logs.push(\"Target Core Execution\"); }).then(() =&gt; console.log(ctx.logs));"}</pre>
             </div>
           </div>
         </section>

@@ -162,7 +162,7 @@ export default function Topic4() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 4.1: Architectural execution lifecycle, memory flow, and runtime mechanics for Managing Async Loading States, Error Boundaries &amp; Offline Detection.
             </p>
           </div>
         </section>
@@ -303,7 +303,7 @@ function checkStatus(val) {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"const json = JSON.stringify(user, (key, value) => key === 'password' ? undefined : value);\nconst parsed = JSON.parse(json, (key, val) => key.endsWith('Date') ? new Date(val) : val);"}</pre>
+              <pre>{"const json = JSON.stringify(user, (key, value) =&gt; key === 'password' ? undefined : value);\nconst parsed = JSON.parse(json, (key, val) =&gt; key.endsWith('Date') ? new Date(val) : val);"}</pre>
             </div>
           </div>
         </section>

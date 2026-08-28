@@ -143,7 +143,7 @@ export default function Topic7() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 7.1: Architectural execution lifecycle, memory flow, and runtime mechanics for WebAssembly (WASM) Integration with JavaScript: Compiling C/Rust to WASM.
             </p>
           </div>
         </section>
@@ -284,7 +284,7 @@ function checkStatus(val) {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"const worker = new Worker(new URL('./sortWorker.js', import.meta.url), { type: 'module' });\nworker.postMessage({ data: largeDataset });\nworker.onmessage = (e) => updateUI(e.data);"}</pre>
+              <pre>{"const worker = new Worker(new URL('./sortWorker.js', import.meta.url), { type: 'module' });\nworker.postMessage({ data: largeDataset });\nworker.onmessage = (e) =&gt; updateUI(e.data);"}</pre>
             </div>
           </div>
         </section>

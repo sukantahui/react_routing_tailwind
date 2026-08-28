@@ -37,7 +37,7 @@ export default function App() {
       </div>
 
       {/* Main Content */}
-      <main className="pt-24 lg:pt-14">
+      <main className="pt-14">
         <AppRoutes setIsLoggedIn={setIsLoggedIn} />
       </main>
     </div>

@@ -143,7 +143,7 @@ export default function Topic4() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 4.1: Architectural execution lifecycle, memory flow, and runtime mechanics for Running Large Language Models (LLMs) Locally in the Browser with WebLLM.
             </p>
           </div>
         </section>

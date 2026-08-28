@@ -98,7 +98,7 @@ export default function Topic0() {
                 {"Swadeep used `new Array(5)` expecting an array with `[5]` but created a sparse array of 5 empty slots."}
               </p>
               <p>
-                {"Sukanta Hui demonstrated `Array.of(5)` for single-element arrays and `Array.from({ length: 5 }, (_, i) => i + 1)` for sequence generation."}
+                {"Sukanta Hui demonstrated `Array.of(5)` for single-element arrays and `Array.from({ length: 5 }, (_, i) =&gt; i + 1)` for sequence generation."}
               </p>
             </div>
           </div>
@@ -127,12 +127,12 @@ export default function Topic0() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Creating Arrays, Array Literals, Array.from(), Array.of() & Length Mechanics"} · Pipeline Architecture</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"Creating Arrays, Array Literals, Array.from(), Array.of() & Length Mechanics"&#125; · Pipeline Architecture</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#arrGrad1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Input Structure</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Iterable / Array-Like Source"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"Iterable / Array-Like Source"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" />
@@ -140,7 +140,7 @@ export default function Topic0() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#arrGrad2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: V8 Operation</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"Array.from() / Array.of() V8 Allocation"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"Array.from() / Array.of() V8 Allocation"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic0() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#arrGrad3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Result Memory</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Continuous Packed Array in Heap"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"Continuous Packed Array in Heap"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -259,7 +259,7 @@ export default function Topic0() {
                 {"Empty slots cannot be traversed by `.map()` or `.filter()`."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-rose-900/50 text-xs font-mono text-rose-300 overflow-x-auto">
-{"// ❌ AVOID: map skips empty holes\nconst zeroes = new Array(5).map(() => 0); // Still 5 empty slots!"}
+{"// ❌ AVOID: map skips empty holes\nconst zeroes = new Array(5).map(() =&gt; 0); // Still 5 empty slots!"}
               </pre>
             </div>
 
@@ -273,7 +273,7 @@ export default function Topic0() {
                 {"Always fill or map over explicitly initialized slots."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-emerald-900/50 text-xs font-mono text-emerald-300 overflow-x-auto">
-{"// ✓ RECOMMENDED: Explicit initial values\nconst zeroes = Array.from({ length: 5 }, () => 0); // [0, 0, 0, 0, 0]"}
+{"// ✓ RECOMMENDED: Explicit initial values\nconst zeroes = Array.from({ length: 5 }, () =&gt; 0); // [0, 0, 0, 0, 0]"}
               </pre>
             </div>
           </div>
@@ -301,7 +301,7 @@ export default function Topic0() {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"const range = (start, stop, step = 1) =>\n  Array.from({ length: Math.ceil((stop - start) / step) }, (_, i) => start + i * step);\nconsole.log(range(10, 50, 10)); // [10, 20, 30, 40]"}</pre>
+              <pre>{"const range = (start, stop, step = 1) =&gt;\n  Array.from({ length: Math.ceil((stop - start) / step) }, (_, i) =&gt; start + i * step);\nconsole.log(range(10, 50, 10)); // [10, 20, 30, 40]"}</pre>
             </div>
           </div>
         </section>
@@ -313,7 +313,7 @@ export default function Topic0() {
               <span>🤔</span> Architectural Mental Challenge: Think About This...
             </h2>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-4">
-              {"What happens when you execute `const a = []; a[2] = 'x'; console.log(a.map(v => v));`?"}
+              {"What happens when you execute `const a = []; a[2] = 'x'; console.log(a.map(v =&gt; v));`?"}
             </p>
             <div className="p-4 rounded-xl bg-slate-900 border border-indigo-900/50 text-xs sm:text-sm text-indigo-300 font-mono">
               💡 Hint: {"Array prototype methods like `map` skip empty unassigned slots entirely."}

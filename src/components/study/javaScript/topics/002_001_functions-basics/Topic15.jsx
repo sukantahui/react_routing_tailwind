@@ -127,12 +127,12 @@ export default function Topic15() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Functions, Scopes & Reusable Logic – Practical Projects & Question Lab"} · Architecture &amp; State Transitions</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"Functions, Scopes & Reusable Logic – Practical Projects & Question Lab"&#125; · Architecture &amp; State Transitions</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#gradBox1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Input</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Module 002_001 Comprehensive Knowledge"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"Module 002_001 Comprehensive Knowledge"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arrow)" />
@@ -140,7 +140,7 @@ export default function Topic15() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#gradBox2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: Execution</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"Architectural Synthesis & Design Patterns"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"Architectural Synthesis & Design Patterns"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic15() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#gradBox3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Output State</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Industrial Capstone Systems & Validation"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"Industrial Capstone Systems & Validation"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -253,7 +253,7 @@ export default function Topic15() {
                 {"Calling `JSON.stringify` on complex arguments with circular references throws TypeError and is computationally expensive."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-rose-900/50 text-xs font-mono text-rose-300 overflow-x-auto">
-{"// ❌ AVOID: Fails on circular objects & slow\nfunction memoize(fn) {\n  const cache = {};\n  return (...args) => cache[JSON.stringify(args)] ||= fn(...args);\n}"}
+{"// ❌ AVOID: Fails on circular objects & slow\nfunction memoize(fn) {\n  const cache = {};\n  return (...args) =&gt; cache[JSON.stringify(args)] ||= fn(...args);\n}"}
               </pre>
             </div>
 
@@ -267,7 +267,7 @@ export default function Topic15() {
                 {"Allow custom key resolvers or composite keys for fast, robust lookups."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-emerald-900/50 text-xs font-mono text-emerald-300 overflow-x-auto">
-{"// ✓ RECOMMENDED: Robust Enterprise Memoizer\nfunction createMemoizer(fn, keyResolver = (...args) => args.join(\"_\")) {\n  const cache = new Map();\n  return function(...args) {\n    const key = keyResolver(...args);\n    if (cache.has(key)) return cache.get(key);\n    const result = fn.apply(this, args);\n    cache.set(key, result);\n    return result;\n  };\n}"}
+{"// ✓ RECOMMENDED: Robust Enterprise Memoizer\nfunction createMemoizer(fn, keyResolver = (...args) =&gt; args.join(\"_\")) {\n  const cache = new Map();\n  return function(...args) {\n    const key = keyResolver(...args);\n    if (cache.has(key)) return cache.get(key);\n    const result = fn.apply(this, args);\n    cache.set(key, result);\n    return result;\n  };\n}"}
               </pre>
             </div>
           </div>
@@ -295,7 +295,7 @@ export default function Topic15() {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"function createEventBus() {\n  const topics = new Map();\n  return {\n    on(event, handler) {\n      if (!topics.has(event)) topics.set(event, new Set());\n      topics.get(event).add(handler);\n      return () => topics.get(event).delete(handler); // Clean unsubscribe\n    },\n    emit(event, payload) {\n      if (topics.has(event)) {\n        topics.get(event).forEach(handler => handler(payload));\n      }\n    }\n  };\n}\nconst bus = createEventBus();\nconst unsub = bus.on(\"orderCreated\", data => console.log(\"Order:\", data.id));\nbus.emit(\"orderCreated\", { id: \"ORD_789\" });\nunsub(); // Unsubscribed"}</pre>
+              <pre>{"function createEventBus() {\n  const topics = new Map();\n  return {\n    on(event, handler) {\n      if (!topics.has(event)) topics.set(event, new Set());\n      topics.get(event).add(handler);\n      return () =&gt; topics.get(event).delete(handler); // Clean unsubscribe\n    },\n    emit(event, payload) {\n      if (topics.has(event)) {\n        topics.get(event).forEach(handler =&gt; handler(payload));\n      }\n    }\n  };\n}\nconst bus = createEventBus();\nconst unsub = bus.on(\"orderCreated\", data =&gt; console.log(\"Order:\", data.id));\nbus.emit(\"orderCreated\", { id: \"ORD_789\" });\nunsub(); // Unsubscribed"}</pre>
             </div>
           </div>
         </section>

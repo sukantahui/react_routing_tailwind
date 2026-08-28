@@ -95,7 +95,7 @@ export default function Topic0() {
                 <span>Classroom Scenario (Barrackpore Lab):</span>
               </div>
               <p>
-                {"Swadeep wrote a loop to trigger 5 sequential delayed notifications using `for (var i = 0; i < 5; i++) { setTimeout(() => console.log(i), 100); }` and was shocked when it printed '5, 5, 5, 5, 5'."}
+                {"Swadeep wrote a loop to trigger 5 sequential delayed notifications using `for (var i = 0; i &lt; 5; i++) { setTimeout(() =&gt; console.log(i), 100); }` and was shocked when it printed '5, 5, 5, 5, 5'."}
               </p>
               <p>
                 {"Sukanta Hui visualized the Call Stack and Macrotask Queue on the whiteboard, showing how all five callbacks closed over the exact same mutable variable binding in the Function Environment Record."}
@@ -127,12 +127,12 @@ export default function Topic0() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"The Classic Asynchronous Loop & Variable Scope Trap (var vs let in setTimeout & 5 Polyfill Solutions)"} · Algorithmic Data Flow</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"The Classic Asynchronous Loop & Variable Scope Trap (var vs let in setTimeout & 5 Polyfill Solutions)"&#125; · Algorithmic Data Flow</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Entry State</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Loop Thread: Synchronous Execution (i = 0..5)"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"Loop Thread: Synchronous Execution (i = 0..5)"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" />
@@ -140,7 +140,7 @@ export default function Topic0() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: Core Algorithm</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"Macrotask Queue Timer Registrations"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"Macrotask Queue Timer Registrations"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic0() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Final Output</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Event Loop Drain: Callbacks Evaluating (i = 5)"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"Event Loop Drain: Callbacks Evaluating (i = 5)"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -300,7 +300,7 @@ function resilientHandler() {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"// 💎 SENIOR SECRET: 5 Distinct Solutions to the Async Loop Trap\n// 1. ES6 Block-scoped 'let'\nfor (let i = 0; i < 3; i++) setTimeout(() => console.log(\"let:\", i), 10);\n// 2. IIFE Parameter Closure\nfor (var j = 0; j < 3; j++) ((idx) => setTimeout(() => console.log(\"IIFE:\", idx), 20))(j);\n// 3. setTimeout 3rd Argument\nfor (var k = 0; k < 3; k++) setTimeout((idx) => console.log(\"3rd arg:\", idx), 30, k);\n// 4. Function.prototype.bind\nfor (var m = 0; m < 3; m++) setTimeout(console.log.bind(console, \"bind:\", m), 40);\n// 5. Array.from + forEach\nArray.from({ length: 3 }, (_, n) => setTimeout(() => console.log(\"forEach:\", n), 50));"}</pre>
+              <pre>{"// 💎 SENIOR SECRET: 5 Distinct Solutions to the Async Loop Trap\n// 1. ES6 Block-scoped 'let'\nfor (let i = 0; i < 3; i++) setTimeout(() =&gt; console.log(\"let:\", i), 10);\n// 2. IIFE Parameter Closure\nfor (var j = 0; j < 3; j++) ((idx) =&gt; setTimeout(() =&gt; console.log(\"IIFE:\", idx), 20))(j);\n// 3. setTimeout 3rd Argument\nfor (var k = 0; k < 3; k++) setTimeout((idx) =&gt; console.log(\"3rd arg:\", idx), 30, k);\n// 4. Function.prototype.bind\nfor (var m = 0; m < 3; m++) setTimeout(console.log.bind(console, \"bind:\", m), 40);\n// 5. Array.from + forEach\nArray.from({ length: 3 }, (_, n) =&gt; setTimeout(() =&gt; console.log(\"forEach:\", n), 50));"}</pre>
             </div>
           </div>
         </section>

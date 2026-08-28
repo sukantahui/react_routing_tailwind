@@ -127,12 +127,12 @@ export default function Topic11() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Polyfilling Core JavaScript Methods from Scratch (map, filter, reduce, flat, bind, Promise.allSettled)"} · Algorithmic Data Flow</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"Polyfilling Core JavaScript Methods from Scratch (map, filter, reduce, flat, bind, Promise.allSettled)"&#125; · Algorithmic Data Flow</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Entry State</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"ECMAScript Formal Spec Algorithm"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"ECMAScript Formal Spec Algorithm"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" />
@@ -140,7 +140,7 @@ export default function Topic11() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: Core Algorithm</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"Pure Prototype Extension / Standalone Polyfill"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"Pure Prototype Extension / Standalone Polyfill"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic11() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Final Output</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Spec-Compliant Universal Execution"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"Spec-Compliant Universal Execution"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -300,7 +300,7 @@ function resilientHandler() {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"// 💎 SENIOR SECRET: Spec-Compliant Promise.allSettled Polyfill\nfunction allSettledPolyfill(promises) {\n  return Promise.all(\n    promises.map(p =>\n      Promise.resolve(p)\n        .then(value => ({ status: \"fulfilled\", value }))\n        .catch(reason => ({ status: \"rejected\", reason }))\n    )\n  );\n}\nconst p1 = Promise.resolve(\"Success\");\nconst p2 = Promise.reject(\"Fail\");\nallSettledPolyfill([p1, p2]).then(console.table);"}</pre>
+              <pre>{"// 💎 SENIOR SECRET: Spec-Compliant Promise.allSettled Polyfill\nfunction allSettledPolyfill(promises) {\n  return Promise.all(\n    promises.map(p =&gt;\n      Promise.resolve(p)\n        .then(value => ({ status: \"fulfilled\", value }))\n        .catch(reason => ({ status: \"rejected\", reason }))\n    )\n  );\n}\nconst p1 = Promise.resolve(\"Success\");\nconst p2 = Promise.reject(\"Fail\");\nallSettledPolyfill([p1, p2]).then(console.table);"}</pre>
             </div>
           </div>
         </section>

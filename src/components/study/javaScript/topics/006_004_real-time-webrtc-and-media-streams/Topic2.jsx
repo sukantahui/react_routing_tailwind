@@ -143,7 +143,7 @@ export default function Topic2() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 2.1: Architectural execution lifecycle, memory flow, and runtime mechanics for Building a 1-on-1 Video &amp; Audio Call Application with WebRTC.
             </p>
           </div>
         </section>
@@ -284,7 +284,7 @@ function checkStatus(val) {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"class CustomNoiseGenerator extends AudioWorkletProcessor {\n  process(inputs, outputs) {\n    const output = outputs[0];\n    output[0].forEach((_, i) => output[0][i] = Math.random() * 2 - 1);\n    return true;\n  }\n}\nregisterProcessor('custom-noise', CustomNoiseGenerator);"}</pre>
+              <pre>{"class CustomNoiseGenerator extends AudioWorkletProcessor {\n  process(inputs, outputs) {\n    const output = outputs[0];\n    output[0].forEach((_, i) =&gt; output[0][i] = Math.random() * 2 - 1);\n    return true;\n  }\n}\nregisterProcessor('custom-noise', CustomNoiseGenerator);"}</pre>
             </div>
           </div>
         </section>

@@ -127,12 +127,12 @@ export default function Topic8() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Transducers in JavaScript: High-Performance Composable Transformations without Intermediate Arrays"} · Algorithmic Data Flow</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"Transducers in JavaScript: High-Performance Composable Transformations without Intermediate Arrays"&#125; · Algorithmic Data Flow</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Entry State</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Source Data Stream"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"Source Data Stream"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" />
@@ -140,7 +140,7 @@ export default function Topic8() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: Core Algorithm</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"Transducer Transformation Chain (Step Reducers)"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"Transducer Transformation Chain (Step Reducers)"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic8() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Final Output</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Single-Pass Accumulator Output"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"Single-Pass Accumulator Output"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -300,7 +300,7 @@ function resilientHandler() {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"// 💎 SENIOR SECRET: Pure JavaScript Transducer Pipeline\nconst mapTransducer = (fn) => (step) => (acc, val) => step(acc, fn(val));\nconst filterTransducer = (predicate) => (step) => (acc, val) =>\n  predicate(val) ? step(acc, val) : acc;\n\nconst compose = (...fns) => fns.reduce((f, g) => (...args) => f(g(...args)));\nconst arrayConcatStep = (acc, val) => { acc.push(val); return acc; };\n\nconst transformPipeline = compose(\n  filterTransducer(x => x % 2 === 0),\n  mapTransducer(x => x * 10)\n);\n\nconst transducer = transformPipeline(arrayConcatStep);\nconst data = [1, 2, 3, 4, 5, 6];\nconst result = data.reduce(transducer, []);\nconsole.log(\"Transduced Result (Zero intermediate arrays):\", result); // [20, 40, 60]"}</pre>
+              <pre>{"// 💎 SENIOR SECRET: Pure JavaScript Transducer Pipeline\nconst mapTransducer = (fn) => (step) => (acc, val) =&gt; step(acc, fn(val));\nconst filterTransducer = (predicate) => (step) => (acc, val) =&gt;\n  predicate(val) ? step(acc, val) : acc;\n\nconst compose = (...fns) =&gt; fns.reduce((f, g) => (...args) =&gt; f(g(...args)));\nconst arrayConcatStep = (acc, val) => { acc.push(val); return acc; };\n\nconst transformPipeline = compose(\n  filterTransducer(x =&gt; x % 2 === 0),\n  mapTransducer(x =&gt; x * 10)\n);\n\nconst transducer = transformPipeline(arrayConcatStep);\nconst data = [1, 2, 3, 4, 5, 6];\nconst result = data.reduce(transducer, []);\nconsole.log(\"Transduced Result (Zero intermediate arrays):\", result); // [20, 40, 60]"}</pre>
             </div>
           </div>
         </section>

@@ -9,7 +9,7 @@ import noteText from "./topic4_files/topic4_note.txt?raw";
 import demoCode from "./topic4_files/BaseHtmlTemplatesTemplateTagsDocumentfragmentsDemo.js?raw";
 
 /**
- * Topic4 – Base HTML Templates, <template> Tags & DocumentFragments
+ * Topic4 – Base HTML Templates, &lt;template&gt; Tags & DocumentFragments
  * Module: 004_003_dom-special-creating-manipulating-elements
  *
  * @component
@@ -67,11 +67,11 @@ export default function Topic4() {
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-sky-300 tracking-tight leading-tight">
-            {"Base HTML Templates, <template> Tags & DocumentFragments"}
+            {"Base HTML Templates, &lt;template&gt; Tags & DocumentFragments"}
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Master the core mechanics, V8 execution rules, and practical enterprise workflows of <strong className="text-amber-300">{"Base HTML Templates, <template> Tags & DocumentFragments"}</strong> in modern JavaScript.
+            Master the core mechanics, V8 execution rules, and practical enterprise workflows of <strong className="text-amber-300">{"Base HTML Templates, &lt;template&gt; Tags & DocumentFragments"}</strong> in modern JavaScript.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-slate-400 pt-2">
@@ -88,10 +88,10 @@ export default function Topic4() {
               <span>💡</span> Conceptual Overview &amp; Mental Models
             </h2>
             <p className="text-slate-300 leading-relaxed mb-4">
-              In JavaScript, understanding <strong className="text-amber-300">{"Base HTML Templates, <template> Tags & DocumentFragments"}</strong> is critical for writing robust and bug-free code. When building enterprise web applications, code must be predictable, resilient to unexpected user inputs, and optimized for high-performance browser execution.
+              In JavaScript, understanding <strong className="text-amber-300">{"Base HTML Templates, &lt;template&gt; Tags & DocumentFragments"}</strong> is critical for writing robust and bug-free code. When building enterprise web applications, code must be predictable, resilient to unexpected user inputs, and optimized for high-performance browser execution.
             </p>
             <div className="p-4 rounded-xl bg-slate-900/90 border border-amber-900/40 text-sm text-slate-300 leading-relaxed">
-              <span className="text-amber-400 font-bold">🏫 Classroom Scenario (Barrackpore Lab):</span> During a hands-on lab exercise, <strong>Swadeep</strong> encountered unexpected runtime behavior while testing an interactive component. Mentor <strong>Sukanta Hui</strong> demonstrated how tracing the execution flow of <em>{"Base HTML Templates, <template> Tags & DocumentFragments"}</em> eliminates guesswork, ensuring smooth and deterministic UI state transitions.
+              <span className="text-amber-400 font-bold">🏫 Classroom Scenario (Barrackpore Lab):</span> During a hands-on lab exercise, <strong>Swadeep</strong> encountered unexpected runtime behavior while testing an interactive component. Mentor <strong>Sukanta Hui</strong> demonstrated how tracing the execution flow of <em>{"Base HTML Templates, &lt;template&gt; Tags & DocumentFragments"}</em> eliminates guesswork, ensuring smooth and deterministic UI state transitions.
             </div>
           </div>
         </section>
@@ -147,7 +147,7 @@ export default function Topic4() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 4.1: Architectural execution lifecycle, memory flow, and runtime mechanics for Base HTML Templates, &lt;template&gt; Tags &amp; DocumentFragments.
             </p>
           </div>
         </section>
@@ -160,7 +160,7 @@ export default function Topic4() {
             </h2>
             
             <p className="text-slate-300 leading-relaxed mb-6">
-              The ECMAScript specification defines formal execution invariants for <strong className="text-amber-300">{"Base HTML Templates, <template> Tags & DocumentFragments"}</strong>. When a script runs, the JavaScript runtime establishes an execution context consisting of variable environments, lexical scopes, and binding environments.
+              The ECMAScript specification defines formal execution invariants for <strong className="text-amber-300">{"Base HTML Templates, &lt;template&gt; Tags & DocumentFragments"}</strong>. When a script runs, the JavaScript runtime establishes an execution context consisting of variable environments, lexical scopes, and binding environments.
             </p>
 
             <div className="overflow-x-auto mb-6">
@@ -300,7 +300,7 @@ function checkStatus(val) {
               <span>🤔</span> Architectural Mental Challenge: Think About This...
             </h2>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-4">
-              If an application triggers thousands of operations per second using <strong className="text-amber-300">{"Base HTML Templates, <template> Tags & DocumentFragments"}</strong>, how does the V8 engine manage memory allocation and Garbage Collection pressure without causing UI frame drops (jank)?
+              If an application triggers thousands of operations per second using <strong className="text-amber-300">{"Base HTML Templates, &lt;template&gt; Tags & DocumentFragments"}</strong>, how does the V8 engine manage memory allocation and Garbage Collection pressure without causing UI frame drops (jank)?
             </p>
             <div className="p-4 rounded-xl bg-slate-900 border border-indigo-900/50 text-xs sm:text-sm text-indigo-300 font-mono">
               💡 Hint: Focus on object pool recycling, avoiding closure leaks in long-lived event listeners, and minimizing temporary object allocations in hot loops.
@@ -311,7 +311,7 @@ function checkStatus(val) {
         {/* ─── 9. COMPREHENSIVE FAQ SECTION ───────────────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <FAQTemplate
-            title={"Frequently Asked Questions · Base HTML Templates, <template> Tags & DocumentFragments"}
+            title={"Frequently Asked Questions · Base HTML Templates, &lt;template&gt; Tags & DocumentFragments"}
             subtitle="Explore 25+ comprehensive questions from basic to senior architecture levels"
             questions={questions}
           />
@@ -321,7 +321,7 @@ function checkStatus(val) {
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <PlainTextPrint
             content={noteText}
-            title={"JavaScript Master Note · Base HTML Templates, <template> Tags & DocumentFragments"}
+            title={"JavaScript Master Note · Base HTML Templates, &lt;template&gt; Tags & DocumentFragments"}
             downloadFileName="004_003_dom-special-creating-manipulating-elements-topic4-note.txt"
           />
         </section>
@@ -329,7 +329,7 @@ function checkStatus(val) {
         {/* ─── 11. TEACHER'S NOTE & MENTORSHIP ────────────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <Teacher
-            note={"In my 27+ years of mentoring engineers at Coder & AccoTax in Barrackpore, I have seen that mastering Base HTML Templates, <template> Tags & DocumentFragments is the exact turning point between amateur scripting and professional software engineering. Practice each example in the Monaco editor until you can explain the execution flow without hesitation."}
+            note={"In my 27+ years of mentoring engineers at Coder & AccoTax in Barrackpore, I have seen that mastering Base HTML Templates, &lt;template&gt; Tags & DocumentFragments is the exact turning point between amateur scripting and professional software engineering. Practice each example in the Monaco editor until you can explain the execution flow without hesitation."}
           />
         </section>
 

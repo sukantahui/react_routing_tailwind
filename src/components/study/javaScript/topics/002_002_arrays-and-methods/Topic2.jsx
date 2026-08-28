@@ -127,12 +127,12 @@ export default function Topic2() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Mutating Stack & Queue Methods — push(), pop(), shift(), unshift()"} · Pipeline Architecture</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"Mutating Stack & Queue Methods — push(), pop(), shift(), unshift()"&#125; · Pipeline Architecture</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#arrGrad1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Input Structure</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Push / Pop (Tail: O(1) Amortized)"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"Push / Pop (Tail: O(1) Amortized)"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" />
@@ -140,7 +140,7 @@ export default function Topic2() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#arrGrad2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: V8 Operation</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"Shift / Unshift (Head: O(N) Re-indexing)"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"Shift / Unshift (Head: O(N) Re-indexing)"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic2() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#arrGrad3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Result Memory</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Double-Ended Circular Buffer Pattern"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"Double-Ended Circular Buffer Pattern"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -301,7 +301,7 @@ export default function Topic2() {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"function batchPush(target, source, chunkSize = 10000) {\n  for (let i = 0; i < source.length; i += chunkSize) {\n    target.push(...source.slice(i, i + chunkSize));\n  }\n  return target.length;\n}\nconst bigArr = [];\nbatchPush(bigArr, Array.from({ length: 150000 }, (_, i) => i));\nconsole.log(\"Big Array Length:\", bigArr.length); // 150000"}</pre>
+              <pre>{"function batchPush(target, source, chunkSize = 10000) {\n  for (let i = 0; i < source.length; i += chunkSize) {\n    target.push(...source.slice(i, i + chunkSize));\n  }\n  return target.length;\n}\nconst bigArr = [];\nbatchPush(bigArr, Array.from({ length: 150000 }, (_, i) =&gt; i));\nconsole.log(\"Big Array Length:\", bigArr.length); // 150000"}</pre>
             </div>
           </div>
         </section>

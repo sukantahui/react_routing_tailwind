@@ -127,12 +127,12 @@ export default function Topic4() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"High-Performance Memoization Engine with Custom Cache Resolvers & LRU Cache Eviction"} · Algorithmic Data Flow</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"High-Performance Memoization Engine with Custom Cache Resolvers & LRU Cache Eviction"&#125; · Algorithmic Data Flow</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Entry State</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Incoming Function Arguments"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"Incoming Function Arguments"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" />
@@ -140,7 +140,7 @@ export default function Topic4() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: Core Algorithm</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"LRU Map Cache (O(1) Get / Set / Touch)"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"LRU Map Cache (O(1) Get / Set / Touch)"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic4() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Final Output</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Cached Value or Computed Fresh Result"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"Cached Value or Computed Fresh Result"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -300,7 +300,7 @@ function resilientHandler() {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"// 💎 SENIOR SECRET: High-Performance O(1) LRU Memoizer\nfunction memoizeLRU(fn, capacity = 100, keyResolver = (...args) => args.join(\"|\")) {\n  const cache = new Map();\n  return function(...args) {\n    const key = keyResolver(...args);\n    if (cache.has(key)) {\n      const val = cache.get(key);\n      cache.delete(key); // Refresh key position for LRU\n      cache.set(key, val);\n      return val;\n    }\n    const res = fn.apply(this, args);\n    if (cache.size >= capacity) {\n      const oldestKey = cache.keys().next().value;\n      cache.delete(oldestKey);\n    }\n    cache.set(key, res);\n    return res;\n  };\n}"}</pre>
+              <pre>{"// 💎 SENIOR SECRET: High-Performance O(1) LRU Memoizer\nfunction memoizeLRU(fn, capacity = 100, keyResolver = (...args) =&gt; args.join(\"|\")) {\n  const cache = new Map();\n  return function(...args) {\n    const key = keyResolver(...args);\n    if (cache.has(key)) {\n      const val = cache.get(key);\n      cache.delete(key); // Refresh key position for LRU\n      cache.set(key, val);\n      return val;\n    }\n    const res = fn.apply(this, args);\n    if (cache.size >= capacity) {\n      const oldestKey = cache.keys().next().value;\n      cache.delete(oldestKey);\n    }\n    cache.set(key, res);\n    return res;\n  };\n}"}</pre>
             </div>
           </div>
         </section>

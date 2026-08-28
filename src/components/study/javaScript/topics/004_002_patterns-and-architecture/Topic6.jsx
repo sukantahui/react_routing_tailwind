@@ -143,7 +143,7 @@ export default function Topic6() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 6.1: Architectural execution lifecycle, memory flow, and runtime mechanics for Reactive State Systems: Signals Pattern (TC39 proposal) &amp; Fine-Grained Reactivity.
             </p>
           </div>
         </section>
@@ -284,7 +284,7 @@ function checkStatus(val) {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"const createReactive = (target, onChange) => new Proxy(target, {\n  set(obj, prop, val) {\n    Reflect.set(obj, prop, val);\n    onChange(prop, val);\n    return true;\n  }\n});"}</pre>
+              <pre>{"const createReactive = (target, onChange) =&gt; new Proxy(target, {\n  set(obj, prop, val) {\n    Reflect.set(obj, prop, val);\n    onChange(prop, val);\n    return true;\n  }\n});"}</pre>
             </div>
           </div>
         </section>

@@ -127,12 +127,12 @@ export default function Topic6() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Fluent Method Chaining & Lazy Evaluation Query Pipeline (LINQ / Stream Pattern in JS)"} · Algorithmic Data Flow</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"Fluent Method Chaining & Lazy Evaluation Query Pipeline (LINQ / Stream Pattern in JS)"&#125; · Algorithmic Data Flow</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Entry State</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Infinite / Massive Generator Source"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"Infinite / Massive Generator Source"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" />
@@ -140,7 +140,7 @@ export default function Topic6() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: Core Algorithm</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"Lazy Pipeline Chain (Pull-Based Yield)"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"Lazy Pipeline Chain (Pull-Based Yield)"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic6() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Final Output</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Bounded Array Realization via .take(N)"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"Bounded Array Realization via .take(N)"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -300,7 +300,7 @@ function resilientHandler() {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"// 💎 SENIOR SECRET: Generator-Powered Lazy Stream Engine (LINQ in JS)\nclass LazyStream {\n  constructor(iterable) { this.iterable = iterable; }\n  static from(iterable) { return new LazyStream(iterable); }\n  \n  *filter(predicate) {\n    for (const item of this.iterable) {\n      if (predicate(item)) yield item;\n    }\n  }\n  *map(transform) {\n    for (const item of this.iterable) yield transform(item);\n  }\n  take(count) {\n    const res = [];\n    for (const item of this.iterable) {\n      res.push(item);\n      if (res.length >= count) break;\n    }\n    return res;\n  }\n}\n// Processes only what is needed!\nconst first3EvenSquares = LazyStream.from((function* () { let i = 1; while(true) yield i++; })())\n  .filter(x => x % 2 === 0)\n  .map(x => x * x);\nconsole.log(new LazyStream(first3EvenSquares).take(3)); // [4, 16, 36]"}</pre>
+              <pre>{"// 💎 SENIOR SECRET: Generator-Powered Lazy Stream Engine (LINQ in JS)\nclass LazyStream {\n  constructor(iterable) { this.iterable = iterable; }\n  static from(iterable) { return new LazyStream(iterable); }\n  \n  *filter(predicate) {\n    for (const item of this.iterable) {\n      if (predicate(item)) yield item;\n    }\n  }\n  *map(transform) {\n    for (const item of this.iterable) yield transform(item);\n  }\n  take(count) {\n    const res = [];\n    for (const item of this.iterable) {\n      res.push(item);\n      if (res.length >= count) break;\n    }\n    return res;\n  }\n}\n// Processes only what is needed!\nconst first3EvenSquares = LazyStream.from((function* () { let i = 1; while(true) yield i++; })())\n  .filter(x =&gt; x % 2 === 0)\n  .map(x =&gt; x * x);\nconsole.log(new LazyStream(first3EvenSquares).take(3)); // [4, 16, 36]"}</pre>
             </div>
           </div>
         </section>

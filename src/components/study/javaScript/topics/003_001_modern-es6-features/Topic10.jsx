@@ -162,7 +162,7 @@ export default function Topic10() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 10.1: Architectural execution lifecycle, memory flow, and runtime mechanics for TC39 Stage 3/4 Proposals: Temporal API for Modern Date/Time.
             </p>
           </div>
         </section>

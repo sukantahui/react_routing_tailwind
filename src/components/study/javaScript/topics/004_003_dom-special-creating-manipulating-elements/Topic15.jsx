@@ -147,7 +147,7 @@ export default function Topic15() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 15.1: Architectural execution lifecycle, memory flow, and runtime mechanics for DOM Geometry, Offsets &amp; Viewport Screen Positioning.
             </p>
           </div>
         </section>

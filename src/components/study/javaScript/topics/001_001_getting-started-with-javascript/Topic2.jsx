@@ -125,14 +125,14 @@ export default function Topic2() {
                 <rect width="850" height="260" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
                 <text x="425" y="30" fill="#f8fafc" fontSize="15" fontWeight="bold" textAnchor="middle">Browser Critical Rendering Path (CRP) &amp; JavaScript Interaction</text>
 
-                {/* HTML -> DOM */}
+                {/* HTML -&gt; DOM */}
                 <g transform="translate(30, 50)">
                   <rect width="130" height="60" rx="8" fill="url(#crpGrad1)" stroke="#f59e0b" />
                   <text x="65" y="26" fill="#fef3c7" fontSize="11" fontWeight="bold" textAnchor="middle">HTML Bytes</text>
                   <text x="65" y="44" fill="#fef3c7" fontSize="10" textAnchor="middle">→ DOM Tree</text>
                 </g>
 
-                {/* CSS -> CSSOM */}
+                {/* CSS -&gt; CSSOM */}
                 <g transform="translate(30, 130)">
                   <rect width="130" height="60" rx="8" fill="url(#crpGrad2)" stroke="#38bdf8" />
                   <text x="65" y="26" fill="#e0f2fe" fontSize="11" fontWeight="bold" textAnchor="middle">CSS Bytes</text>

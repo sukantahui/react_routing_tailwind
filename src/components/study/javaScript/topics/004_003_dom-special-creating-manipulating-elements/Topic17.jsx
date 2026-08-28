@@ -147,7 +147,7 @@ export default function Topic17() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 17.1: Architectural execution lifecycle, memory flow, and runtime mechanics for Shadow DOM: Encapsulated Styles, Closed vs Open Mode &amp; Slots.
             </p>
           </div>
         </section>
@@ -278,7 +278,7 @@ function checkStatus(val) {
                   JavaScript Hidden Gem &amp; Senior Pro Secret
                 </span>
                 <h3 className="text-lg sm:text-xl font-bold text-white">
-                  {"HTML <template> Cloning for High-Speed Widget Instantiation"}
+                  {"HTML &lt;template&gt; Cloning for High-Speed Widget Instantiation"}
                 </h3>
               </div>
             </div>

@@ -127,12 +127,12 @@ export default function Topic4() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Arrow Functions: Syntax, Lexical this Binding & Implicit Returns"} · Architecture &amp; State Transitions</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"Arrow Functions: Syntax, Lexical this Binding & Implicit Returns"&#125; · Architecture &amp; State Transitions</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#gradBox1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Input</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Enclosing Lexical Scope (this = Owner)"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"Enclosing Lexical Scope (this = Owner)"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arrow)" />
@@ -140,7 +140,7 @@ export default function Topic4() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#gradBox2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: Execution</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"Arrow Function (No [[ThisValue]] / No prototype)"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"Arrow Function (No [[ThisValue]] / No prototype)"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic4() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#gradBox3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Output State</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Inner Execution (Inherits Lexical this)"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"Inner Execution (Inherits Lexical this)"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -253,7 +253,7 @@ export default function Topic4() {
                 {"Arrow functions cannot access instance properties via `this` when defined directly on object literals."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-rose-900/50 text-xs font-mono text-rose-300 overflow-x-auto">
-{"// ❌ AVOID: this is undefined or global\nconst user = {\n  name: \"Swadeep\",\n  getName: () => this.name // undefined!\n};"}
+{"// ❌ AVOID: this is undefined or global\nconst user = {\n  name: \"Swadeep\",\n  getName: () =&gt; this.name // undefined!\n};"}
               </pre>
             </div>
 
@@ -267,7 +267,7 @@ export default function Topic4() {
                 {"Use concise ES6 method syntax for objects and arrow functions for inner callbacks."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-emerald-900/50 text-xs font-mono text-emerald-300 overflow-x-auto">
-{"// ✓ RECOMMENDED: Perfect balance\nconst user = {\n  name: \"Swadeep\",\n  getName() {\n    return this.name;\n  },\n  getDelayedName() {\n    setTimeout(() => console.log(this.name), 100); // lexical this works!\n  }\n};"}
+{"// ✓ RECOMMENDED: Perfect balance\nconst user = {\n  name: \"Swadeep\",\n  getName() {\n    return this.name;\n  },\n  getDelayedName() {\n    setTimeout(() =&gt; console.log(this.name), 100); // lexical this works!\n  }\n};"}
               </pre>
             </div>
           </div>

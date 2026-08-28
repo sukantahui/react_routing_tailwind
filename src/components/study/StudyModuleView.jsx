@@ -834,18 +834,18 @@ export default function StudyModuleView({
                   <span>Hands-on Programming Exercises &amp; Practice Lab</span>
                 </h3>
                 <p className="text-xs text-slate-400 mt-0.5">
-                  {moduleData.practicePrograms.length} coding lab programs from the 4Geeks Academy master exercise repository.
+                  {moduleData.practicePrograms.length} hands-on programming exercises from the master exercise repository.
                 </p>
               </div>
 
               <a
-                href="https://github.com/4GeeksAcademy/master-javascript-programming-exercises.git"
+                href="https://github.com/sukantahui/cnat-javascript-programming-exercisest.git"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 hover:text-amber-200 border border-amber-500/30 text-xs font-semibold transition shrink-0 self-start sm:self-auto"
               >
                 <Github size={13} />
-                <span>View 4Geeks Repository</span>
+                <span>View Exercise Repository</span>
                 <ExternalLink size={12} />
               </a>
             </div>

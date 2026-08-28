@@ -98,7 +98,7 @@ export default function Topic13() {
                 {"Swadeep initialized a 3x3 tic-tac-toe grid using `new Array(3).fill(new Array(3).fill(''))` and mutating row 0 mutated all rows simultaneously."}
               </p>
               <p>
-                {"Sukanta Hui showed how `Array.from({ length: 3 }, () => Array(3).fill(''))` constructs distinct row array references."}
+                {"Sukanta Hui showed how `Array.from({ length: 3 }, () =&gt; Array(3).fill(''))` constructs distinct row array references."}
               </p>
             </div>
           </div>
@@ -127,12 +127,12 @@ export default function Topic13() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Multidimensional Arrays, Nested Matrices & Coordinate Systems"} · Pipeline Architecture</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"Multidimensional Arrays, Nested Matrices & Coordinate Systems"&#125; · Pipeline Architecture</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#arrGrad1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Input Structure</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Matrix[row][col] Coordinate Space"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"Matrix[row][col] Coordinate Space"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" />
@@ -140,7 +140,7 @@ export default function Topic13() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#arrGrad2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: V8 Operation</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"Row-Major Contiguous Memory Traversal"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"Row-Major Contiguous Memory Traversal"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic13() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#arrGrad3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Result Memory</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Matrix Transformations (Transpose, Rotate, Pathfind)"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"Matrix Transformations (Transpose, Rotate, Pathfind)"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -195,7 +195,7 @@ export default function Topic13() {
                   </tr>
                   <tr className="hover:bg-slate-800/30">
                     <td className="p-3 text-sky-400">{"Matrix Transposition"}</td>
-                    <td className="p-3 text-slate-300 font-sans">{"Swapping rows and columns: M[r][c] -> M[c][r]"}</td>
+                    <td className="p-3 text-slate-300 font-sans">{"Swapping rows and columns: M[r][c] -&gt; M[c][r]"}</td>
                     <td className="p-3 text-amber-300 font-sans">{"O(R * C) coordinate mapping algorithm"}</td>
                     <td className="p-3 text-emerald-400 font-sans">{"Mathematical rotations & tabular pivot views"}</td>
                   </tr>
@@ -295,7 +295,7 @@ export default function Topic13() {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"const rotate90 = matrix =>\n  matrix[0].map((_, colIdx) => matrix.map(row => row[colIdx]).reverse());\n\nconst grid = [\n  [1, 2, 3],\n  [4, 5, 6],\n  [7, 8, 9]\n];\nconsole.table(rotate90(grid));\n// [[7, 4, 1], [8, 5, 2], [9, 6, 3]]"}</pre>
+              <pre>{"const rotate90 = matrix =&gt;\n  matrix[0].map((_, colIdx) =&gt; matrix.map(row =&gt; row[colIdx]).reverse());\n\nconst grid = [\n  [1, 2, 3],\n  [4, 5, 6],\n  [7, 8, 9]\n];\nconsole.table(rotate90(grid));\n// [[7, 4, 1], [8, 5, 2], [9, 6, 3]]"}</pre>
             </div>
           </div>
         </section>

@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
-import clsx from "clsx";
+import React, { useEffect, useRef } from "react";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
@@ -9,11 +8,10 @@ import noteText from "./topic7_files/topic7_note.txt?raw";
 import demoCode from "./topic7_files/NumbersInJavascriptArithmeticNanInfinityPrecisionDemo.js?raw";
 
 /**
- * Topic7 – Numbers in JavaScript — Arithmetic, NaN, Infinity & Precision
+ * Topic7 – Numbers in JavaScript — IEEE 754 Arithmetic, NaN, Infinity & Precision
  * Module: 001_002_javascript-syntax-and-basics
- *
- * @component
- * @returns {JSX.Element} Full 11-section interactive JavaScript tutorial component.
+ * Subject: JavaScript (Core Foundations, ES6+, Web APIs, Async JS, DOM & Ecosystem)
+ * Educator: Sukanta Hui | Coder & AccoTax
  */
 export default function Topic7() {
   const sectionRefs = useRef([]);
@@ -59,7 +57,7 @@ export default function Topic7() {
 
       <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-amber-500/30 selection:text-amber-200">
         
-        {/* ─── 1. HEADER SECTION ──────────────────────────────────────── */}
+        {/* ─── SECTION 1: HEADER & METADATA ─────────────────────────── */}
         <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-950/70 border border-amber-700/60 text-amber-300 text-xs font-semibold uppercase tracking-wider shadow-lg">
             <span>⚡</span>
@@ -67,142 +65,160 @@ export default function Topic7() {
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-sky-300 tracking-tight leading-tight">
-            {"Numbers in JavaScript — Arithmetic, NaN, Infinity & Precision"}
+            {"Numbers in JavaScript — IEEE 754 Arithmetic, NaN, Infinity & Precision"}
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Master the core mechanics, V8 execution rules, and practical enterprise workflows of <strong className="text-amber-300">{"Numbers in JavaScript — Arithmetic, NaN, Infinity & Precision"}</strong> in modern JavaScript.
+            Master 64-bit floating-point numbers, 0.1 + 0.2 precision drift, Number.EPSILON, and safe integer limits.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-slate-400 pt-2">
             <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-amber-400">Course Code: JS-PRO-101</span>
-            <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-sky-400">Center: Coder &amp; AccoTax (Ichapur Training Room)</span>
+            <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-sky-400">Center: Coder &amp; AccoTax (Barrackpore Lab)</span>
             <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-emerald-400">Mentor: Sukanta Hui</span>
           </div>
         </header>
 
-        {/* ─── 2. CONCEPT OVERVIEW ────────────────────────────────────── */}
+        {/* ─── SECTION 2: DETAILED CONCEPT DISCUSSION & MENTAL MODELS ── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
           <div className="bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg hover:border-slate-700 transition-all">
             <h2 className="text-xl sm:text-2xl font-bold text-amber-400 mb-4 flex items-center gap-2">
-              <span>💡</span> Conceptual Overview &amp; Mental Models
+              <span>💡</span> Detailed Conceptual Foundation &amp; Mechanics
             </h2>
+            
             <p className="text-slate-300 leading-relaxed mb-4">
-              In JavaScript, understanding <strong className="text-amber-300">{"Numbers in JavaScript — Arithmetic, NaN, Infinity & Precision"}</strong> is critical for writing robust and bug-free code. When building enterprise web applications, code must be predictable, resilient to unexpected user inputs, and optimized for high-performance browser execution.
+              Mastering <strong className="text-amber-300">Numbers & IEEE 754</strong> provides the rock-solid foundation necessary for advanced JavaScript and TypeScript development. In high-scale web applications, subtle syntax nuances, type coercions, and lexical scoping rules dictate how the V8 engine allocates memory and compiles bytecode.
             </p>
-            <div className="p-4 rounded-xl bg-slate-900/90 border border-amber-900/40 text-sm text-slate-300 leading-relaxed">
-              <span className="text-amber-400 font-bold">🏫 Classroom Scenario (Ichapur Training Room):</span> During a hands-on lab exercise, <strong>Debangshu</strong> encountered unexpected runtime behavior while testing an interactive component. Mentor <strong>Sukanta Hui</strong> demonstrated how tracing the execution flow of <em>{"Numbers in JavaScript — Arithmetic, NaN, Infinity & Precision"}</em> eliminates guesswork, ensuring smooth and deterministic UI state transitions.
+
+            <p className="text-slate-300 leading-relaxed mb-4">
+              By understanding the underlying ECMAScript formal specifications, engineers avoid silent runtime bugs, write clean idiomatic code, and pass rigorous technical architecture interviews.
+            </p>
+
+            {/* Classroom Story */}
+            <div className="p-5 rounded-xl bg-slate-900/90 border border-amber-900/40 text-sm text-slate-300 leading-relaxed space-y-2">
+              <div className="flex items-center gap-2 text-amber-400 font-bold">
+                <span>🏫</span>
+                <span>Classroom Scenario (Barrackpore Lab):</span>
+              </div>
+              <p>
+                During an interactive lab session, student <strong>Abhronila</strong> encountered unexpected runtime behavior. Abhronila wrote if (0.1 + 0.2 === 0.3) for an ecommerce checkout cart and the condition evaluated to false! Sukanta Hui explained IEEE 754 binary floating-point representation and how to use Number.EPSILON for financial calculations.
+              </p>
+              <p>
+                Mentor <strong>Sukanta Hui</strong> demonstrated the step-by-step memory allocation on the whiteboard, showing how mastering <em>Numbers & IEEE 754</em> guarantees deterministic code execution.
+              </p>
             </div>
           </div>
         </section>
 
-        {/* ─── 3. SEMANTIC VISUAL SVG DIAGRAM ─────────────────────────── */}
+        {/* ─── SECTION 3: TOPIC-SPECIFIC SEMANTIC SVG DIAGRAM ─────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl">
             <h2 className="text-lg sm:text-xl font-bold text-sky-400 mb-4 flex items-center gap-2">
-              <span>📊</span> Runtime Architecture &amp; Execution Diagram
+              <span>📊</span> IEEE 754 Double-Precision (64-bit) Binary Floating-Point Format
             </h2>
             <div className="w-full overflow-x-auto">
-              <svg viewBox="0 0 800 240" className="w-full h-auto" role="img" aria-label="JavaScript Memory Layout &amp; Data Pipeline">
-  <defs>
-    <linearGradient id="memGrad_7" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.8" />
-      <stop offset="100%" stopColor="#b45309" stopOpacity="0.2" />
-    </linearGradient>
-    <linearGradient id="heapGrad_7" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.8" />
-      <stop offset="100%" stopColor="#5b21b6" stopOpacity="0.2" />
-    </linearGradient>
-  </defs>
-  <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-  <text x="400" y="34" fill="#f8fafc" fontSize="16" fontWeight="bold" textAnchor="middle">Numbers in JavaScript — Arithmetic, NaN, Infinity &amp; Precision · Architecture &amp; Execution Pipeline</text>
+              <svg viewBox="0 0 840 280" className="w-full h-auto" role="img" aria-label="Numbers in JavaScript — IEEE 754 Arithmetic, NaN, Infinity & Precision Architecture">
+                <rect width="840" height="280" rx="16" fill="#0b1120" stroke="#1e293b" strokeWidth="1.5" />
+                <text x="420" y="28" fill="#f8fafc" fontSize="15" fontWeight="bold" textAnchor="middle">
+                  IEEE 754 Double-Precision (64-bit) Binary Floating-Point Format
+                </text>
+                
+                <g transform="translate(60, 60)">
+                  {/* Sign bit */}
+                  <rect x="0" y="0" width="80" height="80" rx="8" fill="#1e293b" stroke="#f43f5e" strokeWidth="1.5" />
+                  <text x="40" y="28" fill="#f43f5e" fontSize="11" fontWeight="bold" textAnchor="middle">Sign (1-bit)</text>
+                  <text x="40" y="52" fill="#fda4af" fontSize="14" fontFamily="monospace" textAnchor="middle">0 / 1</text>
+                  <text x="40" y="70" fill="#94a3b8" fontSize="8" textAnchor="middle">Positive / Negative</text>
 
-  <g transform="translate(60, 65)">
-    <rect width="280" height="145" rx="12" fill="#1e293b" stroke="#f59e0b" strokeWidth="1.5" />
-    <text x="140" y="28" fill="#fbbf24" fontSize="13" fontWeight="bold" textAnchor="middle">Execution Call Stack (Primitives)</text>
-    <rect x="20" y="42" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
-    <text x="30" y="59" fill="#94a3b8" fontSize="11">let student = "Swadeep"</text>
-    <text x="210" y="59" fill="#38bdf8" fontSize="11" fontWeight="bold">String (Value)</text>
+                  {/* Exponent */}
+                  <rect x="95" y="0" width="220" height="80" rx="8" fill="#1e293b" stroke="#f59e0b" strokeWidth="1.5" />
+                  <text x="205" y="28" fill="#fbbf24" fontSize="11" fontWeight="bold" textAnchor="middle">Exponent (11-bits)</text>
+                  <text x="205" y="52" fill="#fde68a" fontSize="13" fontFamily="monospace" textAnchor="middle">Bias 1023 (Range 2^-1022 to 2^1023)</text>
+                  <text x="205" y="70" fill="#94a3b8" fontSize="8" textAnchor="middle">Determines magnitude &amp; decimal point</text>
 
-    <rect x="20" y="74" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
-    <text x="30" y="91" fill="#94a3b8" fontSize="11">let marks = 98.5</text>
-    <text x="210" y="91" fill="#38bdf8" fontSize="11" fontWeight="bold">Number (Value)</text>
+                  {/* Mantissa / Fraction */}
+                  <rect x="330" y="0" width="390" height="80" rx="8" fill="#1e293b" stroke="#10b981" strokeWidth="1.5" />
+                  <text x="525" y="28" fill="#34d399" fontSize="11" fontWeight="bold" textAnchor="middle">Mantissa / Fraction (52-bits + 1 hidden)</text>
+                  <text x="525" y="52" fill="#a7f3d0" fontSize="13" fontFamily="monospace" textAnchor="middle">53-bit Precision (Number.MAX_SAFE_INTEGER: 2^53 - 1)</text>
+                  <text x="525" y="70" fill="#94a3b8" fontSize="8" textAnchor="middle">Precision limit causes 0.1 + 0.2 = 0.30000000000000004</text>
+                </g>
 
-    <rect x="20" y="106" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
-    <text x="30" y="123" fill="#94a3b8" fontSize="11">let refObj = 0x8849F</text>
-    <text x="195" y="123" fill="#ec4899" fontSize="11" fontWeight="bold">Heap Pointer →</text>
-  </g>
-
-  <g transform="translate(460, 65)">
-    <rect width="280" height="145" rx="12" fill="url(#heapGrad_7)" stroke="#a855f7" strokeWidth="1.5" />
-    <text x="140" y="28" fill="#e9d5ff" fontSize="13" fontWeight="bold" textAnchor="middle">Memory Heap (Objects / Arrays / Closures)</text>
-    <rect x="20" y="45" width="240" height="85" rx="8" fill="#0f172a" stroke="#6366f1" />
-    <text x="30" y="68" fill="#38bdf8" fontSize="11" fontWeight="bold">Address: 0x8849F</text>
-    <text x="30" y="88" fill="#e2e8f0" fontSize="11">&#123; course: "JS-PRO-101", city: "Barrackpore" &#125;</text>
-    <text x="30" y="108" fill="#a5b4fc" fontSize="10">Managed by V8 Garbage Collector (Mark &amp; Sweep)</text>
-  </g>
-
-  <path d="M 340 185 C 390 185, 410 135, 460 135" fill="none" stroke="#ec4899" strokeWidth="2.5" strokeDasharray="6 3" />
-  <circle cx="460" cy="135" r="4" fill="#ec4899" />
-</svg>
+                <g transform="translate(60, 160)">
+                  <rect width="720" height="60" rx="8" fill="#0f172a" stroke="#334155" />
+                  <text x="360" y="26" fill="#38bdf8" fontSize="11" fontWeight="bold" textAnchor="middle">Safe Float Comparison Formula: Math.abs(a - b) &lt; Number.EPSILON</text>
+                  <text x="360" y="46" fill="#94a3b8" fontSize="10" textAnchor="middle">Math.abs((0.1 + 0.2) - 0.3) &lt; Number.EPSILON === true (Determines mathematical equality safely)</text>
+                </g>
+    
+              </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 7.1: Runtime execution pipeline, memory layout, and engine rules for Numbers &amp; IEEE 754.
             </p>
           </div>
         </section>
 
-        {/* ─── 4. DEEP TECHNICAL BREAKDOWN ─────────────────────── */}
+        {/* ─── SECTION 4: DEEP TECHNICAL BREAKDOWN & SPECIFICATIONS ───── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
           <div className="bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg">
             <h2 className="text-xl sm:text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2">
-              <span>🔬</span> Deep Technical Breakdown &amp; Execution Rules
+              <span>🔬</span> Deep Technical Know-How &amp; Spec Invariants
             </h2>
             
             <p className="text-slate-300 leading-relaxed mb-6">
-              The ECMAScript specification defines formal execution invariants for <strong className="text-amber-300">{"Numbers in JavaScript — Arithmetic, NaN, Infinity & Precision"}</strong>. When a script runs, the JavaScript runtime establishes an execution context consisting of variable environments, lexical scopes, and binding environments.
+              The ECMAScript specification governs strict lexical grammar and runtime type transitions. Understanding these low-level invariants ensures complete cross-engine compatibility across V8, SpiderMonkey, and JavaScriptCore.
             </p>
 
             <div className="overflow-x-auto mb-6">
               <table className="w-full text-left text-sm text-slate-300 border-collapse border border-slate-800">
-                <thead className="bg-slate-900/90 text-amber-300 uppercase text-xs">
+                <thead className="bg-slate-900/90 text-amber-300 uppercase text-xs font-mono">
                   <tr>
-                    <th className="p-3 border border-slate-800">Execution Phase</th>
-                    <th className="p-3 border border-slate-800">Engine Behavior</th>
-                    <th className="p-3 border border-slate-800">Developer Invariant</th>
-                    <th className="p-3 border border-slate-800">Optimization Goal</th>
+                    <th className="p-3 border border-slate-800">Core Rule / Feature</th>
+                    <th className="p-3 border border-slate-800">ECMAScript Spec Clause</th>
+                    <th className="p-3 border border-slate-800">Engine Implementation</th>
+                    <th className="p-3 border border-slate-800">Best Practice Standard</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800">
+                <tbody className="divide-y divide-slate-800 text-xs font-mono">
                   <tr className="hover:bg-slate-800/30">
-                    <td className="p-3 font-mono text-sky-400">1. Parse / Tokenize</td>
-                    <td className="p-3">Lexer converts source code into AST tokens</td>
-                    <td className="p-3">Zero syntax errors &amp; clean lexical grammar</td>
-                    <td className="p-3 text-emerald-400">Fast AST building</td>
+                    <td className="p-3 text-sky-400">Lexical Evaluation</td>
+                    <td className="p-3 text-slate-300 font-sans">ECMA-262 Grammatical Grammar</td>
+                    <td className="p-3 text-amber-300 font-sans">Ignition Scanner Tokenizer</td>
+                    <td className="p-3 text-emerald-400 font-sans">Use strict mode ('use strict')</td>
                   </tr>
                   <tr className="hover:bg-slate-800/30">
-                    <td className="p-3 font-mono text-sky-400">2. Ignition Bytecode</td>
-                    <td className="p-3">Generates bytecodes and initializes type feedback</td>
-                    <td className="p-3">Avoid dynamic property shape mutations</td>
-                    <td className="p-3 text-emerald-400">Instant startup time</td>
+                    <td className="p-3 text-sky-400">Memory Allocation</td>
+                    <td className="p-3 text-slate-300 font-sans">ExecutionContext Environment Records</td>
+                    <td className="p-3 text-amber-300 font-sans">Call Stack Frame vs Heap Handle</td>
+                    <td className="p-3 text-emerald-400 font-sans">Prefer const &gt; let &gt; avoid var</td>
                   </tr>
                   <tr className="hover:bg-slate-800/30">
-                    <td className="p-3 font-mono text-sky-400">3. TurboFan JIT</td>
-                    <td className="p-3">Hot code paths compiled to optimized machine code</td>
-                    <td className="p-3">Maintain monomorphic function call sites</td>
-                    <td className="p-3 text-emerald-400">Near C++ performance</td>
+                    <td className="p-3 text-sky-400">Optimization Tier</td>
+                    <td className="p-3 text-slate-300 font-sans">Type Invariants &amp; Feedback Vectors</td>
+                    <td className="p-3 text-amber-300 font-sans">TurboFan Inline Caches (IC)</td>
+                    <td className="p-3 text-emerald-400 font-sans">Keep data shapes monomorphic</td>
                   </tr>
                 </tbody>
               </table>
             </div>
+
+            <div className="mt-6 p-5 rounded-xl bg-slate-900/80 border border-rose-900/40 space-y-3">
+              <h3 className="text-base font-bold text-rose-400 flex items-center gap-2">
+                <span>⚠️</span> Exceptions, Quirks &amp; Traps to Avoid
+              </h3>
+              <ul className="list-disc list-inside space-y-2 text-sm text-slate-300 leading-relaxed">
+                <li><strong className="text-rose-300">Coercion Drift:</strong> Using loose equality (<code className="text-amber-300">==</code>) triggers complex 12-step type conversion rules. Always use strict equality (<code className="text-emerald-400">===</code>).</li>
+                <li><strong className="text-amber-300">Unintended Globals:</strong> In non-strict mode, assigning to an undeclared variable attaches it to the global <code className="text-slate-200">window</code> object.</li>
+                <li><strong className="text-sky-300">Precision Traps:</strong> Financial numbers must never be summed directly as IEEE 754 floats. Use cents/integers or a BigInt/Decimal library.</li>
+              </ul>
+            </div>
           </div>
         </section>
 
-        {/* ─── 5. HANDS-ON MONACO CODE RUNNER ─────────────────────────── */}
+        {/* ─── SECTION 5: HANDS-ON MONACO CODE RUNNER ─────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-xl sm:text-2xl font-bold text-amber-400 flex items-center gap-2">
-              <span>💻</span> Interactive Monaco Playground: 5+ Working Examples
+              <span>💻</span> Interactive Monaco Playground: Practical Working Examples
             </h2>
             <span className="text-xs font-mono px-3 py-1 rounded bg-amber-950/60 border border-amber-800 text-amber-300">
               Live In-Browser Execution
@@ -212,61 +228,53 @@ export default function Topic7() {
           <div className="rounded-2xl border border-slate-800 overflow-hidden shadow-2xl bg-slate-900">
             <JavaScriptEditableCodeBlock
               initialCode={demoCode}
-              title="NumbersInJavascriptArithmeticNanInfinityPrecisionDemo.js"
+              title="NumbersPrecisionAndNaNDemo.js"
             />
           </div>
         </section>
 
-        {/* ─── 6. COMMON PITFALLS & BEST PRACTICES ────────────────────── */}
+        {/* ─── SECTION 6: COMMON PITFALLS & SENIOR BEST PRACTICES ─────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
           <h2 className="text-xl sm:text-2xl font-bold text-rose-400 flex items-center gap-2">
             <span>⚖️</span> Common Pitfalls vs Senior Best Practices
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Incorrect */}
-            <div className="bg-rose-950/20 border border-rose-800/40 rounded-2xl p-6 shadow-lg">
-              <div className="flex items-center gap-2 text-rose-400 font-bold mb-3">
+            <div className="bg-rose-950/20 border border-rose-800/40 rounded-2xl p-6 shadow-lg space-y-3">
+              <div className="flex items-center gap-2 text-rose-400 font-bold">
                 <span>❌</span>
-                <span>Anti-Pattern / Common Bug</span>
+                <span>Anti-Pattern: Implicit Coercion Assumptions</span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-300 mb-4 leading-relaxed">
-                Relying on implicit coercion, uninitialized variable hoisting, or neglecting boundary state checks.
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Relying on implicit coercion in comparisons causes severe logic bugs across truthy/falsy edges.
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-rose-900/50 text-xs font-mono text-rose-300 overflow-x-auto">
-{`// ❌ AVOID: Loose comparisons and unhandled TDZ
-function checkStatus(val) {
-  if (val == null) { // Unclear intent
-    return "default";
-  }
-  return val.toUpperCase(); // May throw TypeError!
+{`// ❌ AVOID:
+if (val == false) {
+  // Matches 0, "", [], and false!
 }`}
               </pre>
             </div>
 
-            {/* Correct */}
-            <div className="bg-emerald-950/20 border border-emerald-800/40 rounded-2xl p-6 shadow-lg">
-              <div className="flex items-center gap-2 text-emerald-400 font-bold mb-3">
+            <div className="bg-emerald-950/20 border border-emerald-800/40 rounded-2xl p-6 shadow-lg space-y-3">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold">
                 <span>✓</span>
-                <span>Senior Pro Best Practice</span>
+                <span>Senior Best Practice: Strict Type Boundaries</span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-300 mb-4 leading-relaxed">
-                Explicit type validation, strict equality, optional chaining, and nullish coalescing operators.
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Always use strict equality and explicit type conversion guards.
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-emerald-900/50 text-xs font-mono text-emerald-300 overflow-x-auto">
-{`// ✓ RECOMMENDED: Safe, explicit and defensive
-function checkStatus(val) {
-  if (typeof val !== "string") {
-    return "default";
-  }
-  return val.toUpperCase();
+{`// ✓ RECOMMENDED:
+if (val === false) {
+  // Strictly matches boolean false
 }`}
               </pre>
             </div>
           </div>
         </section>
 
-        {/* ─── 7. 💎 JAVASCRIPT HIDDEN GEMS & SENIOR PRO TRICKS ────────── */}
+        {/* ─── SECTION 7: 💎 JAVASCRIPT HIDDEN GEMS & PRO TRICKS ──────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <div className="bg-gradient-to-br from-amber-950/30 via-slate-900 to-purple-950/20 border border-amber-500/30 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden">
             <div className="flex items-center gap-3 mb-4">
@@ -278,58 +286,60 @@ function checkStatus(val) {
                   JavaScript Hidden Gem &amp; Senior Pro Secret
                 </span>
                 <h3 className="text-lg sm:text-xl font-bold text-white">
-                  {"Numeric Separators & BigInt Literals"}
+                  Number.isSafeInteger() and 2^53 - 1 Boundary
                 </h3>
               </div>
             </div>
 
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-              {"Use underscores to write crystal-clear large financial numbers and append 'n' for arbitrary-precision integers beyond 2^53 - 1."}
+              JavaScript integers above 9,007,199,254,740,991 (Number.MAX_SAFE_INTEGER) lose precision because the 53-bit mantissa overflows into the exponent. For larger IDs, always use BigInt.
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"const salary = 1_500_000; // Rs 15 Lakhs\nconst maxSafe = 9_007_199_254_740_991n + 5n;"}</pre>
+              <pre>{`// 💎 SENIOR SECRET:
+console.log(9007199254740991 + 1); // 9007199254740992
+console.log(9007199254740991 + 2); // 9007199254740992 (Precision lost!)`}</pre>
             </div>
           </div>
         </section>
 
-        {/* ─── 8. THINKING & HINTS ("Think About This...") ─────────────── */}
+        {/* ─── SECTION 8: THINKING & ARCHITECTURAL CHALLENGE ─────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <div className="bg-indigo-950/20 border border-indigo-800/40 rounded-2xl p-6 md:p-8 shadow-lg">
             <h2 className="text-lg sm:text-xl font-bold text-indigo-300 mb-3 flex items-center gap-2">
-              <span>🤔</span> Architectural Mental Challenge: Think About This...
+              <span>🤔</span> Architectural Mental Challenge: Type Safety in Dynamic JavaScript
             </h2>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-4">
-              If an application triggers thousands of operations per second using <strong className="text-amber-300">{"Numbers in JavaScript — Arithmetic, NaN, Infinity & Precision"}</strong>, how does the V8 engine manage memory allocation and Garbage Collection pressure without causing UI frame drops (jank)?
+              In a large distributed frontend team without a full TypeScript build pipeline, what architectural patterns guarantee runtime type safety across critical API gateways?
             </p>
             <div className="p-4 rounded-xl bg-slate-900 border border-indigo-900/50 text-xs sm:text-sm text-indigo-300 font-mono">
-              💡 Hint: Focus on object pool recycling, avoiding closure leaks in long-lived event listeners, and minimizing temporary object allocations in hot loops.
+              💡 Hint: Implement schema validation layers (such as <code className="text-amber-300">Zod</code> or lightweight runtime assertion contracts) at the network boundary to validate incoming JSON before it enters application state.
             </div>
           </div>
         </section>
 
-        {/* ─── 9. COMPREHENSIVE FAQ SECTION ───────────────────────────── */}
+        {/* ─── SECTION 9: COMPREHENSIVE FAQ SECTION ───────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <FAQTemplate
-            title={"Frequently Asked Questions · Numbers in JavaScript — Arithmetic, NaN, Infinity & Precision"}
-            subtitle="Explore 25+ comprehensive questions from basic to senior architecture levels"
+            title={"Frequently Asked Questions · " + "Numbers & IEEE 754"}
+            subtitle="Explore 25 comprehensive questions covering runtime mechanics, memory models, and engine optimizations"
             questions={questions}
           />
         </section>
 
-        {/* ─── 10. PLAIN TEXT PRINTABLE STUDY NOTE ─────────────────────── */}
+        {/* ─── SECTION 10: PLAIN TEXT PRINTABLE STUDY NOTE ─────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <PlainTextPrint
             content={noteText}
-            title={"JavaScript Master Note · Numbers in JavaScript — Arithmetic, NaN, Infinity & Precision"}
+            title={"JavaScript Master Note · " + "Numbers & IEEE 754"}
             downloadFileName="001_002_javascript-syntax-and-basics-topic7-note.txt"
           />
         </section>
 
-        {/* ─── 11. TEACHER'S NOTE & MENTORSHIP ────────────────────────── */}
+        {/* ─── SECTION 11: TEACHER'S NOTE & MENTORSHIP ────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <Teacher
-            note={"In my 27+ years of mentoring engineers at Coder & AccoTax in Barrackpore, I have seen that mastering Numbers in JavaScript — Arithmetic, NaN, Infinity & Precision is the exact turning point between amateur scripting and professional software engineering. Practice each example in the Monaco editor until you can explain the execution flow without hesitation."}
+            note={"In my 27+ years of training software engineers at Coder & AccoTax in Barrackpore, I always emphasize that JavaScript's dynamic flexibility is its greatest power and its greatest trap. Understand type coercion, scoping, and value representation deeply, and you will write unbreakable code."}
           />
         </section>
 

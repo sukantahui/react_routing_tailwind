@@ -127,12 +127,12 @@ export default function Topic9() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Custom EventEmitter & Async Pub/Sub Broker with Wildcards, Once Handlers & Error Bubbling"} · Algorithmic Data Flow</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"Custom EventEmitter & Async Pub/Sub Broker with Wildcards, Once Handlers & Error Bubbling"&#125; · Algorithmic Data Flow</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Entry State</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Event Publisher / Dispatcher"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"Event Publisher / Dispatcher"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" />
@@ -140,7 +140,7 @@ export default function Topic9() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: Core Algorithm</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"Topic Map with Wildcard RegEx Matcher"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"Topic Map with Wildcard RegEx Matcher"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic9() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Final Output</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Subscriber Handlers (Sync & Async Safe)"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"Subscriber Handlers (Sync & Async Safe)"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -300,7 +300,7 @@ function resilientHandler() {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"// 💎 SENIOR SECRET: Industrial Async EventEmitter with Wildcard Matching\nclass RobustEventEmitter {\n  #listeners = new Map();\n  on(event, fn) {\n    if (!this.#listeners.has(event)) this.#listeners.set(event, new Set());\n    this.#listeners.get(event).add(fn);\n    return () => this.off(event, fn); // Unsubscribe handle\n  }\n  once(event, fn) {\n    const wrapper = (...args) => { this.off(event, wrapper); fn(...args); };\n    return this.on(event, wrapper);\n  }\n  off(event, fn) { this.#listeners.get(event)?.delete(fn); }\n  async emit(event, ...args) {\n    const handlers = [];\n    for (const [pattern, fns] of this.#listeners.entries()) {\n      const regex = new RegExp(\"^\" + pattern.replace(/\\*/g, \".*\") + \"$\");\n      if (regex.test(event)) fns.forEach(fn => handlers.push(fn));\n    }\n    return Promise.allSettled(handlers.map(fn => Promise.resolve(fn(...args))));\n  }\n}\nconst bus = new RobustEventEmitter();\nbus.on(\"order.*\", (data) => console.log(\"Wildcard Audit:\", data));\nbus.emit(\"order.created\", { id: \"ORD-99\" });"}</pre>
+              <pre>{"// 💎 SENIOR SECRET: Industrial Async EventEmitter with Wildcard Matching\nclass RobustEventEmitter {\n  #listeners = new Map();\n  on(event, fn) {\n    if (!this.#listeners.has(event)) this.#listeners.set(event, new Set());\n    this.#listeners.get(event).add(fn);\n    return () =&gt; this.off(event, fn); // Unsubscribe handle\n  }\n  once(event, fn) {\n    const wrapper = (...args) => { this.off(event, wrapper); fn(...args); };\n    return this.on(event, wrapper);\n  }\n  off(event, fn) { this.#listeners.get(event)?.delete(fn); }\n  async emit(event, ...args) {\n    const handlers = [];\n    for (const [pattern, fns] of this.#listeners.entries()) {\n      const regex = new RegExp(\"^\" + pattern.replace(/\\*/g, \".*\") + \"$\");\n      if (regex.test(event)) fns.forEach(fn =&gt; handlers.push(fn));\n    }\n    return Promise.allSettled(handlers.map(fn =&gt; Promise.resolve(fn(...args))));\n  }\n}\nconst bus = new RobustEventEmitter();\nbus.on(\"order.*\", (data) =&gt; console.log(\"Wildcard Audit:\", data));\nbus.emit(\"order.created\", { id: \"ORD-99\" });"}</pre>
             </div>
           </div>
         </section>

@@ -95,7 +95,7 @@ export default function Topic2() {
                 <span>Classroom Scenario (Barrackpore Lab):</span>
               </div>
               <p>
-                {"Abhronila composed 4 async API transforms using `fns.reduce((acc, fn) => fn(acc), data)` and got an unhandled Promise object midway through the pipeline."}
+                {"Abhronila composed 4 async API transforms using `fns.reduce((acc, fn) =&gt; fn(acc), data)` and got an unhandled Promise object midway through the pipeline."}
               </p>
               <p>
                 {"Sukanta Hui walked through `pipeAsync`, showing how `await accPromise` unwraps pending promises before feeding resolved data into subsequent pipeline steps."}
@@ -127,12 +127,12 @@ export default function Topic2() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Variadic Function Composition & Async Pipeline Engine (pipe(), compose(), pipeAsync())"} · Algorithmic Data Flow</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"Variadic Function Composition & Async Pipeline Engine (pipe(), compose(), pipeAsync())"&#125; · Algorithmic Data Flow</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Entry State</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Raw Input Payload"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"Raw Input Payload"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" />
@@ -140,7 +140,7 @@ export default function Topic2() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: Core Algorithm</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"Pipeline Reducer: (await acc) -> fn(data)"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"Pipeline Reducer: (await acc) -&gt; fn(data)"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic2() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Final Output</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Final Validated Async Pipeline Output"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"Final Validated Async Pipeline Output"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -300,7 +300,7 @@ function resilientHandler() {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"// 💎 SENIOR SECRET: Resilient Async Pipeline with Context Injection\nconst pipeAsync = (...fns) => (initialValue, ctx = {}) =>\n  fns.reduce(\n    async (promiseAcc, fn) => fn(await promiseAcc, ctx),\n    Promise.resolve(initialValue)\n  );\n\nconst authUser = async (id, ctx) => ({ id, name: \"Swadeep\", tenant: \"ACME\" });\nconst attachRole = async (user, ctx) => ({ ...user, role: \"ARCHITECT\" });\nconst format = (user) => `[${user.tenant}] ${user.name} (${user.role})`;\n\npipeAsync(authUser, attachRole, format)(101).then(console.log);"}</pre>
+              <pre>{"// 💎 SENIOR SECRET: Resilient Async Pipeline with Context Injection\nconst pipeAsync = (...fns) => (initialValue, ctx = {}) =&gt;\n  fns.reduce(\n    async (promiseAcc, fn) =&gt; fn(await promiseAcc, ctx),\n    Promise.resolve(initialValue)\n  );\n\nconst authUser = async (id, ctx) => ({ id, name: \"Swadeep\", tenant: \"ACME\" });\nconst attachRole = async (user, ctx) => ({ ...user, role: \"ARCHITECT\" });\nconst format = (user) =&gt; `[${user.tenant}] ${user.name} (${user.role})`;\n\npipeAsync(authUser, attachRole, format)(101).then(console.log);"}</pre>
             </div>
           </div>
         </section>

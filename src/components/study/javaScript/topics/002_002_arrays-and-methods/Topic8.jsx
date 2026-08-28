@@ -127,12 +127,12 @@ export default function Topic8() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Filtering & Multi-Condition Filtering with filter()"} · Pipeline Architecture</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"Filtering & Multi-Condition Filtering with filter()"&#125; · Pipeline Architecture</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#arrGrad1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Input Structure</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Complete Input Dataset"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"Complete Input Dataset"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" />
@@ -140,7 +140,7 @@ export default function Topic8() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#arrGrad2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: V8 Operation</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"Composite Predicate Validator (Boolean Gate)"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"Composite Predicate Validator (Boolean Gate)"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic8() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#arrGrad3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Result Memory</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Filtered Subset Array"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"Filtered Subset Array"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -189,7 +189,7 @@ export default function Topic8() {
                   </tr>
                   <tr className="hover:bg-slate-800/30">
                     <td className="p-3 text-sky-400">{"Composite Predicate"}</td>
-                    <td className="p-3 text-slate-300 font-sans">{"Combining rules: (item) => rule1(item) && rule2(item)"}</td>
+                    <td className="p-3 text-slate-300 font-sans">{"Combining rules: (item) =&gt; rule1(item) && rule2(item)"}</td>
                     <td className="p-3 text-amber-300 font-sans">{"Single-pass evaluation with short-circuiting"}</td>
                     <td className="p-3 text-emerald-400 font-sans">{"Multi-filter e-commerce search"}</td>
                   </tr>
@@ -253,7 +253,7 @@ export default function Topic8() {
                 {"Each `.filter()` traverses the entire dataset and allocates an intermediate array."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-rose-900/50 text-xs font-mono text-rose-300 overflow-x-auto">
-{"// ❌ AVOID: 3 full passes & 3 arrays\nconst res = users.filter(u => u.active).filter(u => u.age > 18).filter(u => u.verified);"}
+{"// ❌ AVOID: 3 full passes & 3 arrays\nconst res = users.filter(u =&gt; u.active).filter(u =&gt; u.age > 18).filter(u =&gt; u.verified);"}
               </pre>
             </div>
 
@@ -267,7 +267,7 @@ export default function Topic8() {
                 {"Evaluate all conditions in one pass."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-emerald-900/50 text-xs font-mono text-emerald-300 overflow-x-auto">
-{"// ✓ RECOMMENDED: Single pass\nconst res = users.filter(u => u.active && u.age > 18 && u.verified);"}
+{"// ✓ RECOMMENDED: Single pass\nconst res = users.filter(u =&gt; u.active && u.age > 18 && u.verified);"}
               </pre>
             </div>
           </div>
@@ -295,7 +295,7 @@ export default function Topic8() {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"const createFilter = (...predicates) => (item) => predicates.every(p => p(item));\nconst isAdult = u => u.age >= 18;\nconst isActive = u => u.status === \"ACTIVE\";\nconst isEngineer = u => u.role === \"ENGINEER\";\n\nconst enterpriseFilter = createFilter(isAdult, isActive, isEngineer);\nconst users = [{ age: 25, status: \"ACTIVE\", role: \"ENGINEER\", name: \"Swadeep\" }];\nconsole.log(users.filter(enterpriseFilter));"}</pre>
+              <pre>{"const createFilter = (...predicates) => (item) =&gt; predicates.every(p =&gt; p(item));\nconst isAdult = u =&gt; u.age >= 18;\nconst isActive = u =&gt; u.status === \"ACTIVE\";\nconst isEngineer = u =&gt; u.role === \"ENGINEER\";\n\nconst enterpriseFilter = createFilter(isAdult, isActive, isEngineer);\nconst users = [{ age: 25, status: \"ACTIVE\", role: \"ENGINEER\", name: \"Swadeep\" }];\nconsole.log(users.filter(enterpriseFilter));"}</pre>
             </div>
           </div>
         </section>

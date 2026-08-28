@@ -162,7 +162,7 @@ export default function Topic7() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 7.1: Architectural execution lifecycle, memory flow, and runtime mechanics for Service Workers &amp; Offline PWA Caching Strategies (Cache API).
             </p>
           </div>
         </section>
@@ -303,7 +303,7 @@ function checkStatus(val) {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"const segmenter = new Intl.Segmenter('en', { granularity: 'word' });\nconst words = [...segmenter.segment('JavaScript is awesome!')].map(s => s.segment);"}</pre>
+              <pre>{"const segmenter = new Intl.Segmenter('en', { granularity: 'word' });\nconst words = [...segmenter.segment('JavaScript is awesome!')].map(s =&gt; s.segment);"}</pre>
             </div>
           </div>
         </section>

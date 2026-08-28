@@ -841,7 +841,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
           {/* ============================================================== */}
           <main
             ref={mainContentRef}
-            className="flex-1 px-2 sm:px-3 lg:px-4 py-3 min-w-0 transition-all duration-150 relative"
+            className="flex-1 px-2 sm:px-4 lg:px-6 py-4 min-w-0 transition-all duration-150 relative"
             style={{
               marginLeft: showSidebar && !focusMode ? "16rem" : "0px",
               marginRight: showRightSidebar && !focusMode ? `${rightSidebarWidth}px` : "0px",

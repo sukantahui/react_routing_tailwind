@@ -127,12 +127,12 @@ export default function Topic5() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Searching & Inspection — indexOf(), lastIndexOf(), includes(), find(), findIndex(), findLast(), findLastIndex()"} · Pipeline Architecture</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"Searching & Inspection — indexOf(), lastIndexOf(), includes(), find(), findIndex(), findLast(), findLastIndex()"&#125; · Pipeline Architecture</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#arrGrad1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Input Structure</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Array Dataset & Predicate Query"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"Array Dataset & Predicate Query"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" />
@@ -140,7 +140,7 @@ export default function Topic5() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#arrGrad2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: V8 Operation</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"Forward Search vs Reverse Search Engine"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"Forward Search vs Reverse Search Engine"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic5() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#arrGrad3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Result Memory</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Matched Value / Index / Boolean Result"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"Matched Value / Index / Boolean Result"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -259,7 +259,7 @@ export default function Topic5() {
                 {"`arr.slice().reverse().find(...)` clones and reverses the whole array, wasting CPU and memory."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-rose-900/50 text-xs font-mono text-rose-300 overflow-x-auto">
-{"// ❌ AVOID: Inefficient array reversal\nconst lastActive = [...users].reverse().find(u => u.active);"}
+{"// ❌ AVOID: Inefficient array reversal\nconst lastActive = [...users].reverse().find(u =&gt; u.active);"}
               </pre>
             </div>
 
@@ -273,7 +273,7 @@ export default function Topic5() {
                 {"Search backward directly with zero memory allocation."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-emerald-900/50 text-xs font-mono text-emerald-300 overflow-x-auto">
-{"// ✓ RECOMMENDED: Modern & Efficient\nconst lastActive = users.findLast(u => u.active);"}
+{"// ✓ RECOMMENDED: Modern & Efficient\nconst lastActive = users.findLast(u =&gt; u.active);"}
               </pre>
             </div>
           </div>
@@ -301,7 +301,7 @@ export default function Topic5() {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"function binarySearch(arr, target) {\n  let left = 0, right = arr.length - 1;\n  while (left <= right) {\n    const mid = (left + right) >> 1;\n    if (arr[mid] === target) return mid;\n    if (arr[mid] < target) left = mid + 1;\n    else right = mid - 1;\n  }\n  return -1;\n}\nconst sorted = Array.from({ length: 100000 }, (_, i) => i * 2);\nconsole.log(\"Binary Search index for 8888:\", binarySearch(sorted, 8888));"}</pre>
+              <pre>{"function binarySearch(arr, target) {\n  let left = 0, right = arr.length - 1;\n  while (left <= right) {\n    const mid = (left + right) >> 1;\n    if (arr[mid] === target) return mid;\n    if (arr[mid] < target) left = mid + 1;\n    else right = mid - 1;\n  }\n  return -1;\n}\nconst sorted = Array.from({ length: 100000 }, (_, i) =&gt; i * 2);\nconsole.log(\"Binary Search index for 8888:\", binarySearch(sorted, 8888));"}</pre>
             </div>
           </div>
         </section>

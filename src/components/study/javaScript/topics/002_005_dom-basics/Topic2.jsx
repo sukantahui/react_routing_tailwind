@@ -147,7 +147,7 @@ export default function Topic2() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 2.1: Architectural execution lifecycle, memory flow, and runtime mechanics for Changing Text, HTML &amp; CSS Using JavaScript.
             </p>
           </div>
         </section>
@@ -288,7 +288,7 @@ function checkStatus(val) {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"if (element.matches('button[data-action=\"delete\"]')) { ... }"}</pre>
+              <pre>{"if (element.matches('button[data-action=\"delete\"]')) &#123; ... &#125;"}</pre>
             </div>
           </div>
         </section>

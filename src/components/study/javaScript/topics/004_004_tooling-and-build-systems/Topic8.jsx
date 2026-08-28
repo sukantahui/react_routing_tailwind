@@ -147,7 +147,7 @@ export default function Topic8() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 8.1: Architectural execution lifecycle, memory flow, and runtime mechanics for Node.js 20+ Modern Capabilities: Native Test Runner, Watch Mode &amp; .env support.
             </p>
           </div>
         </section>

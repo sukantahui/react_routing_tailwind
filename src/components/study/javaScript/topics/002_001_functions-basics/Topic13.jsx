@@ -127,12 +127,12 @@ export default function Topic13() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Tail Call Optimization (TCO), Trampolines & Stack-Safe Recursion"} · Architecture &amp; State Transitions</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"Tail Call Optimization (TCO), Trampolines & Stack-Safe Recursion"&#125; · Architecture &amp; State Transitions</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#gradBox1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Input</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Thunk Function Generator () => fn()"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"Thunk Function Generator () =&gt; fn()"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arrow)" />
@@ -140,7 +140,7 @@ export default function Topic13() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#gradBox2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: Execution</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"Trampoline Loop (While loop dispatch)"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"Trampoline Loop (While loop dispatch)"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic13() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#gradBox3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Output State</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Constant O(1) Stack Frame Execution"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"Constant O(1) Stack Frame Execution"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -195,7 +195,7 @@ export default function Topic13() {
                   </tr>
                   <tr className="hover:bg-slate-800/30">
                     <td className="p-3 text-sky-400">{"Thunk"}</td>
-                    <td className="p-3 text-slate-300 font-sans">{"Zero-argument function delaying evaluation: () => fn(...args)"}</td>
+                    <td className="p-3 text-slate-300 font-sans">{"Zero-argument function delaying evaluation: () =&gt; fn(...args)"}</td>
                     <td className="p-3 text-amber-300 font-sans">{"Lightweight closure evaluated on next loop tick"}</td>
                     <td className="p-3 text-emerald-400 font-sans">{"Control flow abstraction & lazy evaluation"}</td>
                   </tr>
@@ -267,7 +267,7 @@ export default function Topic13() {
                 {"Wrap recursive invocations in thunks and execute via a trampoline loop."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-emerald-900/50 text-xs font-mono text-emerald-300 overflow-x-auto">
-{"// ✓ RECOMMENDED: Safe for 1,000,000+ iterations\nconst trampoline = fn => (...args) => {\n  let result = fn(...args);\n  while (typeof result === \"function\") {\n    result = result();\n  }\n  return result;\n};\n\nconst safeSum = trampoline(function sum(n, acc = 0) {\n  if (n === 0) return acc;\n  return () => sum(n - 1, acc + n);\n});\nconsole.log(safeSum(100000)); // 5000050000 without crashing!"}
+{"// ✓ RECOMMENDED: Safe for 1,000,000+ iterations\nconst trampoline = fn => (...args) => {\n  let result = fn(...args);\n  while (typeof result === \"function\") {\n    result = result();\n  }\n  return result;\n};\n\nconst safeSum = trampoline(function sum(n, acc = 0) {\n  if (n === 0) return acc;\n  return () =&gt; sum(n - 1, acc + n);\n});\nconsole.log(safeSum(100000)); // 5000050000 without crashing!"}
               </pre>
             </div>
           </div>
@@ -295,7 +295,7 @@ export default function Topic13() {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"const trampoline = fn => (...args) => {\n  let res = fn(...args);\n  while (typeof res === \"function\") res = res();\n  return res;\n};\n\nfunction deepCount(node, cont = x => x) {\n  if (!node) return () => cont(0);\n  return () => deepCount(node.left, leftCount =>\n    () => deepCount(node.right, rightCount =>\n      () => cont(1 + leftCount + rightCount)\n    )\n  );\n}"}</pre>
+              <pre>{"const trampoline = fn => (...args) => {\n  let res = fn(...args);\n  while (typeof res === \"function\") res = res();\n  return res;\n};\n\nfunction deepCount(node, cont = x =&gt; x) {\n  if (!node) return () =&gt; cont(0);\n  return () =&gt; deepCount(node.left, leftCount =&gt;\n    () =&gt; deepCount(node.right, rightCount =&gt;\n      () =&gt; cont(1 + leftCount + rightCount)\n    )\n  );\n}"}</pre>
             </div>
           </div>
         </section>

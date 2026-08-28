@@ -127,12 +127,12 @@ export default function Topic15() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Deep Object Clone & Circular Reference Graph Resolver with WeakMap"} · Algorithmic Data Flow</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"Deep Object Clone & Circular Reference Graph Resolver with WeakMap"&#125; · Algorithmic Data Flow</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Entry State</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Source Object Graph (With Cycles)"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"Source Object Graph (With Cycles)"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" />
@@ -140,7 +140,7 @@ export default function Topic15() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: Core Algorithm</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"WeakMap Visited Memoizer Cache"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"WeakMap Visited Memoizer Cache"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic15() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Final Output</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Completely Decoupled Deep Clone Graph"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"Completely Decoupled Deep Clone Graph"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -300,7 +300,7 @@ function resilientHandler() {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"// 💎 SENIOR SECRET: Bulletproof Deep Clone with Circular Reference Handling\nfunction deepClone(value, hash = new WeakMap()) {\n  if (Object(value) !== value) return value;\n  if (value instanceof Date) return new Date(value);\n  if (value instanceof RegExp) return new RegExp(value.source, value.flags);\n  if (hash.has(value)) return hash.get(value);\n  \n  const result = Array.isArray(value) ? [] : Object.create(Object.getPrototypeOf(value));\n  hash.set(value, result);\n  \n  if (value instanceof Map) {\n    value.forEach((v, k) => result.set(deepClone(k, hash), deepClone(v, hash)));\n    return result;\n  }\n  if (value instanceof Set) {\n    value.forEach(v => result.add(deepClone(v, hash)));\n    return result;\n  }\n  \n  return Object.assign(\n    result,\n    ...Object.keys(value).map(k => ({ [k]: deepClone(value[k], hash) }))\n  );\n}\nconst circular = { name: \"Swadeep\" };\ncircular.self = circular;\nconst copy = deepClone(circular);\nconsole.log(\"Cloned cycle check:\", copy.self === copy); // true"}</pre>
+              <pre>{"// 💎 SENIOR SECRET: Bulletproof Deep Clone with Circular Reference Handling\nfunction deepClone(value, hash = new WeakMap()) {\n  if (Object(value) !== value) return value;\n  if (value instanceof Date) return new Date(value);\n  if (value instanceof RegExp) return new RegExp(value.source, value.flags);\n  if (hash.has(value)) return hash.get(value);\n  \n  const result = Array.isArray(value) ? [] : Object.create(Object.getPrototypeOf(value));\n  hash.set(value, result);\n  \n  if (value instanceof Map) {\n    value.forEach((v, k) =&gt; result.set(deepClone(k, hash), deepClone(v, hash)));\n    return result;\n  }\n  if (value instanceof Set) {\n    value.forEach(v =&gt; result.add(deepClone(v, hash)));\n    return result;\n  }\n  \n  return Object.assign(\n    result,\n    ...Object.keys(value).map(k => ({ [k]: deepClone(value[k], hash) }))\n  );\n}\nconst circular = { name: \"Swadeep\" };\ncircular.self = circular;\nconst copy = deepClone(circular);\nconsole.log(\"Cloned cycle check:\", copy.self === copy); // true"}</pre>
             </div>
           </div>
         </section>

@@ -98,7 +98,7 @@ export default function Topic5() {
                 {"Tuhina tried to calculate a 100,000-level deep recursive sequence and crashed V8 with call stack exhaustion."}
               </p>
               <p>
-                {"Sukanta Hui refactored the recursive step into a thunk `() => rec(n - 1, acc)` and passed it through a 5-line trampoline runner."}
+                {"Sukanta Hui refactored the recursive step into a thunk `() =&gt; rec(n - 1, acc)` and passed it through a 5-line trampoline runner."}
               </p>
             </div>
           </div>
@@ -127,12 +127,12 @@ export default function Topic5() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Recursive Function Trampolining: Executing Deep Recursion Without Call Stack Overflow"} · Algorithmic Data Flow</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"Recursive Function Trampolining: Executing Deep Recursion Without Call Stack Overflow"&#125; · Algorithmic Data Flow</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Entry State</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Recursive Call Returning Thunk () => fn()"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"Recursive Call Returning Thunk () =&gt; fn()"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" />
@@ -140,7 +140,7 @@ export default function Topic5() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: Core Algorithm</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"Trampoline Loop (Flattens Stack to O(1))"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"Trampoline Loop (Flattens Stack to O(1))"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic5() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#puzzleGrad3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Final Output</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Final Computed Accumulated Return Value"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"Final Computed Accumulated Return Value"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -300,7 +300,7 @@ function resilientHandler() {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"// 💎 SENIOR SECRET: Zero-Overhead Universal Trampoline Engine\nconst trampoline = (fn) => (...args) => {\n  let res = fn(...args);\n  while (typeof res === \"function\") res = res();\n  return res;\n};\n\nconst safeFactorial = trampoline(function fact(n, acc = 1n) {\n  if (n <= 1n) return acc;\n  return () => fact(n - 1n, acc * n);\n});\nconsole.log(\"Safe 5000! (BigInt):\", safeFactorial(5000n).toString().slice(0, 30) + \"...\");"}</pre>
+              <pre>{"// 💎 SENIOR SECRET: Zero-Overhead Universal Trampoline Engine\nconst trampoline = (fn) => (...args) => {\n  let res = fn(...args);\n  while (typeof res === \"function\") res = res();\n  return res;\n};\n\nconst safeFactorial = trampoline(function fact(n, acc = 1n) {\n  if (n <= 1n) return acc;\n  return () =&gt; fact(n - 1n, acc * n);\n});\nconsole.log(\"Safe 5000! (BigInt):\", safeFactorial(5000n).toString().slice(0, 30) + \"...\");"}</pre>
             </div>
           </div>
         </section>

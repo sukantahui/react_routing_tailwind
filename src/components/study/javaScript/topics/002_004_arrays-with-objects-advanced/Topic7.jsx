@@ -9,7 +9,7 @@ import noteText from "./topic7_files/topic7_note.txt?raw";
 import demoCode from "./topic7_files/TheFullProcessingPipelineFilterSortMapTransformationsDemo.js?raw";
 
 /**
- * Topic7 – The Full Processing Pipeline: Filter -> Sort -> Map Transformations
+ * Topic7 – The Full Processing Pipeline: Filter -&gt; Sort -&gt; Map Transformations
  * Module: 002_004_arrays-with-objects-advanced
  *
  * @component
@@ -67,11 +67,11 @@ export default function Topic7() {
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-sky-300 tracking-tight leading-tight">
-            {"The Full Pipeline: Filter -> Sort -> Map Transformations in Production"}
+            {"The Full Pipeline: Filter -&gt; Sort -&gt; Map Transformations in Production"}
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Master the core mechanics, V8 execution rules, and practical enterprise workflows of <strong className="text-amber-300">{"The Full Processing Pipeline: Filter -> Sort -> Map Transformations"}</strong> in modern JavaScript.
+            Master the core mechanics, V8 execution rules, and practical enterprise workflows of <strong className="text-amber-300">{"The Full Processing Pipeline: Filter -&gt; Sort -&gt; Map Transformations"}</strong> in modern JavaScript.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-slate-400 pt-2">
@@ -88,10 +88,10 @@ export default function Topic7() {
               <span>💡</span> Conceptual Overview &amp; Mental Models
             </h2>
             <p className="text-slate-300 leading-relaxed mb-4">
-              In JavaScript, understanding <strong className="text-amber-300">{"The Full Processing Pipeline: Filter -> Sort -> Map Transformations"}</strong> is critical for writing robust and bug-free code. When building enterprise web applications, code must be predictable, resilient to unexpected user inputs, and optimized for high-performance browser execution.
+              In JavaScript, understanding <strong className="text-amber-300">{"The Full Processing Pipeline: Filter -&gt; Sort -&gt; Map Transformations"}</strong> is critical for writing robust and bug-free code. When building enterprise web applications, code must be predictable, resilient to unexpected user inputs, and optimized for high-performance browser execution.
             </p>
             <div className="p-4 rounded-xl bg-slate-900/90 border border-amber-900/40 text-sm text-slate-300 leading-relaxed">
-              <span className="text-amber-400 font-bold">🏫 Classroom Scenario (Ichapur Training Room):</span> During a hands-on lab exercise, <strong>Debangshu</strong> encountered unexpected runtime behavior while testing an interactive component. Mentor <strong>Sukanta Hui</strong> demonstrated how tracing the execution flow of <em>{"The Full Processing Pipeline: Filter -> Sort -> Map Transformations"}</em> eliminates guesswork, ensuring smooth and deterministic UI state transitions.
+              <span className="text-amber-400 font-bold">🏫 Classroom Scenario (Ichapur Training Room):</span> During a hands-on lab exercise, <strong>Debangshu</strong> encountered unexpected runtime behavior while testing an interactive component. Mentor <strong>Sukanta Hui</strong> demonstrated how tracing the execution flow of <em>{"The Full Processing Pipeline: Filter -&gt; Sort -&gt; Map Transformations"}</em> eliminates guesswork, ensuring smooth and deterministic UI state transitions.
             </div>
           </div>
         </section>
@@ -103,51 +103,44 @@ export default function Topic7() {
               <span>📊</span> Runtime Architecture &amp; Execution Diagram
             </h2>
             <div className="w-full overflow-x-auto">
-              <svg viewBox="0 0 800 240" className="w-full h-auto" role="img" aria-label="JavaScript Memory Layout &amp; Data Pipeline">
-  <defs>
-    <linearGradient id="memGrad_7" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.8" />
-      <stop offset="100%" stopColor="#b45309" stopOpacity="0.2" />
-    </linearGradient>
-    <linearGradient id="heapGrad_7" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.8" />
-      <stop offset="100%" stopColor="#5b21b6" stopOpacity="0.2" />
-    </linearGradient>
-  </defs>
-  <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-  <text x="400" y="34" fill="#f8fafc" fontSize="16" fontWeight="bold" textAnchor="middle">The Full Processing Pipeline: Filter -&gt; Sort -&gt; Map Transformations · Architecture &amp; Execution Pipeline</text>
-
-  <g transform="translate(60, 65)">
-    <rect width="280" height="145" rx="12" fill="#1e293b" stroke="#f59e0b" strokeWidth="1.5" />
-    <text x="140" y="28" fill="#fbbf24" fontSize="13" fontWeight="bold" textAnchor="middle">Execution Call Stack (Primitives)</text>
-    <rect x="20" y="42" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
-    <text x="30" y="59" fill="#94a3b8" fontSize="11">let student = "Swadeep"</text>
-    <text x="210" y="59" fill="#38bdf8" fontSize="11" fontWeight="bold">String (Value)</text>
-
-    <rect x="20" y="74" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
-    <text x="30" y="91" fill="#94a3b8" fontSize="11">let marks = 98.5</text>
-    <text x="210" y="91" fill="#38bdf8" fontSize="11" fontWeight="bold">Number (Value)</text>
-
-    <rect x="20" y="106" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
-    <text x="30" y="123" fill="#94a3b8" fontSize="11">let refObj = 0x8849F</text>
-    <text x="195" y="123" fill="#ec4899" fontSize="11" fontWeight="bold">Heap Pointer →</text>
-  </g>
-
-  <g transform="translate(460, 65)">
-    <rect width="280" height="145" rx="12" fill="url(#heapGrad_7)" stroke="#a855f7" strokeWidth="1.5" />
-    <text x="140" y="28" fill="#e9d5ff" fontSize="13" fontWeight="bold" textAnchor="middle">Memory Heap (Objects / Arrays / Closures)</text>
-    <rect x="20" y="45" width="240" height="85" rx="8" fill="#0f172a" stroke="#6366f1" />
-    <text x="30" y="68" fill="#38bdf8" fontSize="11" fontWeight="bold">Address: 0x8849F</text>
-    <text x="30" y="88" fill="#e2e8f0" fontSize="11">&#123; course: "JS-PRO-101", city: "Barrackpore" &#125;</text>
-    <text x="30" y="108" fill="#a5b4fc" fontSize="10">Managed by V8 Garbage Collector (Mark &amp; Sweep)</text>
-  </g>
-
-  <path d="M 340 185 C 390 185, 410 135, 460 135" fill="none" stroke="#ec4899" strokeWidth="2.5" strokeDasharray="6 3" />
-  <circle cx="460" cy="135" r="4" fill="#ec4899" />
-</svg>
+              <svg viewBox="0 0 840 280" className="w-full h-auto" role="img" aria-label="The Full Pipeline: Filter -&gt; Sort -&gt; Map Transformations in Production Architecture">
+                <rect width="840" height="280" rx="16" fill="#0b1120" stroke="#1e293b" strokeWidth="1.5" />
+                <text x="420" y="28" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">
+                  The Full Pipeline: Filter -&gt; Sort -&gt; Map Transformations in Production · Data Transformation &amp; Memory Layout
+                </text>
+                <g transform="translate(40, 50)">
+                  <rect width="220" height="110" rx="8" fill="#1e293b" stroke="#38bdf8" strokeWidth="1.5" />
+                  <text x="110" y="24" fill="#38bdf8" fontSize="11" fontWeight="bold" textAnchor="middle">1. Array of Records [Obj]</text>
+                  <rect x="15" y="38" width="190" height="58" rx="4" fill="#0f172a" stroke="#334155" />
+                  <text x="25" y="58" fill="#7dd3fc" fontSize="10" fontFamily="monospace">[ &#123; id: 101, score: 95 &#125;,</text>
+                  <text x="35" y="78" fill="#7dd3fc" fontSize="10" fontFamily="monospace">  &#123; id: 102, score: 88 &#125; ]</text>
+                </g>
+                <path d="M 265 105 L 315 105" fill="none" stroke="#f59e0b" strokeWidth="2.5" />
+                <g transform="translate(320, 50)">
+                  <rect width="220" height="110" rx="8" fill="#1e293b" stroke="#f59e0b" strokeWidth="1.5" />
+                  <text x="110" y="24" fill="#fbbf24" fontSize="11" fontWeight="bold" textAnchor="middle">2. Transformation Pipeline</text>
+                  <rect x="15" y="38" width="190" height="58" rx="4" fill="#0f172a" stroke="#334155" />
+                  <text x="25" y="58" fill="#fde68a" fontSize="10" fontFamily="monospace">.filter(r =&gt; r.score &gt; 90)</text>
+                  <text x="25" y="78" fill="#fde68a" fontSize="10" fontFamily="monospace">.map(r =&gt; r.id)</text>
+                </g>
+                <path d="M 545 105 L 595 105" fill="none" stroke="#10b981" strokeWidth="2.5" />
+                <g transform="translate(600, 50)">
+                  <rect width="200" height="110" rx="8" fill="#064e3b" stroke="#10b981" strokeWidth="1.5" />
+                  <text x="100" y="24" fill="#34d399" fontSize="11" fontWeight="bold" textAnchor="middle">3. Consolidated Metric</text>
+                  <rect x="15" y="38" width="170" height="58" rx="4" fill="#0f172a" stroke="#10b981" />
+                  <text x="25" y="58" fill="#a7f3d0" fontSize="10" fontFamily="monospace">Top Scorers: [101]</text>
+                  <text x="25" y="78" fill="#94a3b8" fontSize="9">O(N) single-pass execution</text>
+                </g>
+                <g transform="translate(40, 175)">
+                  <rect width="760" height="85" rx="8" fill="#0f172a" stroke="#334155" />
+                  <text x="380" y="28" fill="#f8fafc" fontSize="11" fontWeight="bold" textAnchor="middle">V8 Engine Invariant: Monomorphic Hidden Class Transitions &amp; GC Efficiency</text>
+                  <text x="380" y="48" fill="#94a3b8" fontSize="9" textAnchor="middle">Objects created with identical property orders share Hidden Classes (Shapes), allowing TurboFan Inline Caches (IC) to read fields in 1 CPU cycle.</text>
+                  <text x="380" y="66" fill="#38bdf8" fontSize="9" textAnchor="middle">Chaining methods with pure functions ensures zero side-effects and predictable React UI state updates.</text>
+                </g>
+              </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 7.1: Architectural execution lifecycle, memory flow, and runtime mechanics for The Full Pipeline: Filter -&gt; Sort -&gt; Map Transformations in Production.
             </p>
           </div>
         </section>
@@ -160,7 +153,7 @@ export default function Topic7() {
             </h2>
             
             <p className="text-slate-300 leading-relaxed mb-6">
-              The ECMAScript specification defines formal execution invariants for <strong className="text-amber-300">{"The Full Processing Pipeline: Filter -> Sort -> Map Transformations"}</strong>. When a script runs, the JavaScript runtime establishes an execution context consisting of variable environments, lexical scopes, and binding environments.
+              The ECMAScript specification defines formal execution invariants for <strong className="text-amber-300">{"The Full Processing Pipeline: Filter -&gt; Sort -&gt; Map Transformations"}</strong>. When a script runs, the JavaScript runtime establishes an execution context consisting of variable environments, lexical scopes, and binding environments.
             </p>
 
             <div className="overflow-x-auto mb-6">
@@ -288,7 +281,7 @@ function checkStatus(val) {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"const activeUserEmails = users.flatMap(u => u.isActive ? [u.email] : []);"}</pre>
+              <pre>{"const activeUserEmails = users.flatMap(u =&gt; u.isActive ? [u.email] : []);"}</pre>
             </div>
           </div>
         </section>
@@ -300,7 +293,7 @@ function checkStatus(val) {
               <span>🤔</span> Architectural Mental Challenge: Think About This...
             </h2>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-4">
-              If an application triggers thousands of operations per second using <strong className="text-amber-300">{"The Full Processing Pipeline: Filter -> Sort -> Map Transformations"}</strong>, how does the V8 engine manage memory allocation and Garbage Collection pressure without causing UI frame drops (jank)?
+              If an application triggers thousands of operations per second using <strong className="text-amber-300">{"The Full Processing Pipeline: Filter -&gt; Sort -&gt; Map Transformations"}</strong>, how does the V8 engine manage memory allocation and Garbage Collection pressure without causing UI frame drops (jank)?
             </p>
             <div className="p-4 rounded-xl bg-slate-900 border border-indigo-900/50 text-xs sm:text-sm text-indigo-300 font-mono">
               💡 Hint: Focus on object pool recycling, avoiding closure leaks in long-lived event listeners, and minimizing temporary object allocations in hot loops.
@@ -311,7 +304,7 @@ function checkStatus(val) {
         {/* ─── 9. COMPREHENSIVE FAQ SECTION ───────────────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <FAQTemplate
-            title={"Frequently Asked Questions · The Full Pipeline: Filter -> Sort -> Map Transformations in Production"}
+            title={"Frequently Asked Questions · The Full Pipeline: Filter -&gt; Sort -&gt; Map Transformations in Production"}
             subtitle="Explore 25+ comprehensive questions from basic to senior architecture levels"
             questions={questions}
           />
@@ -321,7 +314,7 @@ function checkStatus(val) {
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <PlainTextPrint
             content={noteText}
-            title={"JavaScript Master Note · The Full Pipeline: Filter -> Sort -> Map Transformations in Production"}
+            title={"JavaScript Master Note · The Full Pipeline: Filter -&gt; Sort -&gt; Map Transformations in Production"}
             downloadFileName="002-004-topic7-note.txt"
           />
         </section>
@@ -329,7 +322,7 @@ function checkStatus(val) {
         {/* ─── 11. TEACHER'S NOTE & MENTORSHIP ────────────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <Teacher
-            note={"In my 27+ years of mentoring engineers at Coder & AccoTax in Barrackpore, I have seen that mastering The Full Processing Pipeline: Filter -> Sort -> Map Transformations is the exact turning point between amateur scripting and professional software engineering. Practice each example in the Monaco editor until you can explain the execution flow without hesitation."}
+            note={"In my 27+ years of mentoring engineers at Coder & AccoTax in Barrackpore, I have seen that mastering The Full Processing Pipeline: Filter -&gt; Sort -&gt; Map Transformations is the exact turning point between amateur scripting and professional software engineering. Practice each example in the Monaco editor until you can explain the execution flow without hesitation."}
           />
         </section>
 

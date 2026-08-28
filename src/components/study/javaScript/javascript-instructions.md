@@ -691,6 +691,15 @@ Segment 10 – Modern Web Standards, WebAssembly, WebGPU, AI & Cutting-Edge Brow
 • 006_004_real-time-webrtc-and-media-streams (Hidden Gem: AudioWorkletProcessor custom DSP on dedicated audio thread)
 • 006_005_progressive-web-apps-and-offline-first-architecture (Hidden Gem: CRDT Conflict-Free Replicated Data Types for offline-first sync)
 
+Segment 11 – Master JavaScript Programming Exercises & CNAT Coding Lab (165+ Practical Problem Sets)
+--------------------------------------------------------------------------------
+• 007_001_conditionals-logic-and-comparisons (Hidden Gem: Double Negation Boolean Coercion !!)
+• 007_002_math-geometry-and-arithmetic-algorithms (Hidden Gem: Bitwise Math for Integer Floor and Truncation)
+• 007_003_string-analysis-and-character-manipulation (Hidden Gem: String Traversal with for...of vs Indexed Loops)
+• 007_004_object-properties-and-nested-structures (Hidden Gem: Object.hasOwn() vs in Operator)
+• 007_005_array-transformations-and-aggregation (Hidden Gem: Array.prototype.toSpliced() and toSorted())
+• 007_006_data-structures-and-complex-algorithmic-challenges (Hidden Gem: Object.entries() and Object.fromEntries() Symmetry)
+
 
 ================================================================================
 8. PRE-DELIVERY QUALITY AUDIT CHECKLIST

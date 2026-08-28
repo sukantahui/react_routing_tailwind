@@ -103,51 +103,44 @@ export default function Topic7() {
               <span>📊</span> Runtime Architecture &amp; Execution Diagram
             </h2>
             <div className="w-full overflow-x-auto">
-              <svg viewBox="0 0 800 240" className="w-full h-auto" role="img" aria-label="JavaScript Memory Layout &amp; Data Pipeline">
-  <defs>
-    <linearGradient id="memGrad_7" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.8" />
-      <stop offset="100%" stopColor="#b45309" stopOpacity="0.2" />
-    </linearGradient>
-    <linearGradient id="heapGrad_7" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.8" />
-      <stop offset="100%" stopColor="#5b21b6" stopOpacity="0.2" />
-    </linearGradient>
-  </defs>
-  <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-  <text x="400" y="34" fill="#f8fafc" fontSize="16" fontWeight="bold" textAnchor="middle">Finite State Machines (FSM) &amp; Statechart Design in JavaScript · Architecture &amp; Execution Pipeline</text>
-
-  <g transform="translate(60, 65)">
-    <rect width="280" height="145" rx="12" fill="#1e293b" stroke="#f59e0b" strokeWidth="1.5" />
-    <text x="140" y="28" fill="#fbbf24" fontSize="13" fontWeight="bold" textAnchor="middle">Execution Call Stack (Primitives)</text>
-    <rect x="20" y="42" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
-    <text x="30" y="59" fill="#94a3b8" fontSize="11">let student = "Swadeep"</text>
-    <text x="210" y="59" fill="#38bdf8" fontSize="11" fontWeight="bold">String (Value)</text>
-
-    <rect x="20" y="74" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
-    <text x="30" y="91" fill="#94a3b8" fontSize="11">let marks = 98.5</text>
-    <text x="210" y="91" fill="#38bdf8" fontSize="11" fontWeight="bold">Number (Value)</text>
-
-    <rect x="20" y="106" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
-    <text x="30" y="123" fill="#94a3b8" fontSize="11">let refObj = 0x8849F</text>
-    <text x="195" y="123" fill="#ec4899" fontSize="11" fontWeight="bold">Heap Pointer →</text>
-  </g>
-
-  <g transform="translate(460, 65)">
-    <rect width="280" height="145" rx="12" fill="url(#heapGrad_7)" stroke="#a855f7" strokeWidth="1.5" />
-    <text x="140" y="28" fill="#e9d5ff" fontSize="13" fontWeight="bold" textAnchor="middle">Memory Heap (Objects / Arrays / Closures)</text>
-    <rect x="20" y="45" width="240" height="85" rx="8" fill="#0f172a" stroke="#6366f1" />
-    <text x="30" y="68" fill="#38bdf8" fontSize="11" fontWeight="bold">Address: 0x8849F</text>
-    <text x="30" y="88" fill="#e2e8f0" fontSize="11">&#123; course: "JS-PRO-101", city: "Barrackpore" &#125;</text>
-    <text x="30" y="108" fill="#a5b4fc" fontSize="10">Managed by V8 Garbage Collector (Mark &amp; Sweep)</text>
-  </g>
-
-  <path d="M 340 185 C 390 185, 410 135, 460 135" fill="none" stroke="#ec4899" strokeWidth="2.5" strokeDasharray="6 3" />
-  <circle cx="460" cy="135" r="4" fill="#ec4899" />
-</svg>
+              <svg viewBox="0 0 840 280" className="w-full h-auto" role="img" aria-label="Finite State Machines (FSM) & Statechart Design in JavaScript Architecture">
+                <rect width="840" height="280" rx="16" fill="#0b1120" stroke="#1e293b" strokeWidth="1.5" />
+                <text x="420" y="28" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">
+                  Finite State Machines (FSM) & Statechart Design in JavaScript · V8 Engine Compilation &amp; Architecture Pipeline
+                </text>
+                <g transform="translate(40, 50)">
+                  <rect width="210" height="100" rx="8" fill="#1e293b" stroke="#38bdf8" strokeWidth="1.5" />
+                  <text x="105" y="24" fill="#38bdf8" fontSize="11" fontWeight="bold" textAnchor="middle">1. Ignition Bytecode</text>
+                  <rect x="15" y="38" width="180" height="48" rx="4" fill="#0f172a" stroke="#334155" />
+                  <text x="25" y="58" fill="#7dd3fc" fontSize="10" fontFamily="monospace">Abstract Syntax Tree (AST)</text>
+                  <text x="25" y="74" fill="#94a3b8" fontSize="9">Bytecode Interpretation</text>
+                </g>
+                <path d="M 255 100 L 310 100" fill="none" stroke="#f59e0b" strokeWidth="2.5" />
+                <g transform="translate(315, 50)">
+                  <rect width="220" height="100" rx="8" fill="#1e293b" stroke="#f59e0b" strokeWidth="1.5" />
+                  <text x="110" y="24" fill="#fbbf24" fontSize="11" fontWeight="bold" textAnchor="middle">2. Inline Caching &amp; Feedback</text>
+                  <rect x="15" y="38" width="190" height="48" rx="4" fill="#0f172a" stroke="#334155" />
+                  <text x="25" y="58" fill="#fde68a" fontSize="10" fontFamily="monospace">Type Feedback Vector</text>
+                  <text x="25" y="74" fill="#94a3b8" fontSize="9">Monomorphic Shape Tracking</text>
+                </g>
+                <path d="M 540 100 L 595 100" fill="none" stroke="#10b981" strokeWidth="2.5" />
+                <g transform="translate(600, 50)">
+                  <rect width="200" height="100" rx="8" fill="#064e3b" stroke="#10b981" strokeWidth="1.5" />
+                  <text x="100" y="24" fill="#34d399" fontSize="11" fontWeight="bold" textAnchor="middle">3. TurboFan Optimized Code</text>
+                  <rect x="15" y="38" width="170" height="48" rx="4" fill="#0f172a" stroke="#10b981" />
+                  <text x="25" y="58" fill="#a7f3d0" fontSize="10" fontFamily="monospace">Native Machine Code</text>
+                  <text x="25" y="74" fill="#94a3b8" fontSize="9">Vectorized SIMD Execution</text>
+                </g>
+                <g transform="translate(40, 165)">
+                  <rect width="760" height="95" rx="8" fill="#0f172a" stroke="#334155" />
+                  <text x="380" y="26" fill="#f8fafc" fontSize="11" fontWeight="bold" textAnchor="middle">V8 Engine Architecture: Zero-Deopt Hot Paths &amp; Garbage Collection</text>
+                  <text x="380" y="46" fill="#94a3b8" fontSize="9" textAnchor="middle">Keeping object schemas consistent prevents bailout to interpreted bytecode, preserving native CPU throughput.</text>
+                  <text x="380" y="64" fill="#38bdf8" fontSize="9" textAnchor="middle">V8 Scavenger nursery reclaims short-lived objects without stopping the main UI execution thread.</text>
+                </g>
+              </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 7.1: Architectural execution lifecycle, memory flow, and runtime mechanics for Finite State Machines (FSM) &amp; Statechart Design in JavaScript.
             </p>
           </div>
         </section>
@@ -288,7 +281,7 @@ function checkStatus(val) {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"const compose = (middlewares) => (context) => {\n  const dispatch = (i) => {\n    const fn = middlewares[i];\n    if (!fn) return Promise.resolve();\n    return Promise.resolve(fn(context, () => dispatch(i + 1)));\n  };\n  return dispatch(0);\n};"}</pre>
+              <pre>{"const compose = (middlewares) => (context) => {\n  const dispatch = (i) => {\n    const fn = middlewares[i];\n    if (!fn) return Promise.resolve();\n    return Promise.resolve(fn(context, () =&gt; dispatch(i + 1)));\n  };\n  return dispatch(0);\n};"}</pre>
             </div>
           </div>
         </section>

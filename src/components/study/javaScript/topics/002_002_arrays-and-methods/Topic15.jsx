@@ -127,12 +127,12 @@ export default function Topic15() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Advanced Array Transformations – 20 Practical Projects Part 2"} · Pipeline Architecture</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"Advanced Array Transformations – 20 Practical Projects Part 2"&#125; · Pipeline Architecture</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#arrGrad1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Input Structure</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Flat Relational Dataset (Parent-Child)"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"Flat Relational Dataset (Parent-Child)"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" />
@@ -140,7 +140,7 @@ export default function Topic15() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#arrGrad2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: V8 Operation</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"Map Index Lookup & Reference Linking"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"Map Index Lookup & Reference Linking"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic15() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#arrGrad3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Result Memory</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Hierarchical Nested Object Tree"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"Hierarchical Nested Object Tree"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -253,7 +253,7 @@ export default function Topic15() {
                 {"Searching the entire array inside a recursive loop for each child takes quadratic time."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-rose-900/50 text-xs font-mono text-rose-300 overflow-x-auto">
-{"// ❌ AVOID: O(N^2) quadratic search\nfunction getChildren(id) {\n  return list.filter(item => item.parentId === id).map(item => ({\n    ...item,\n    children: getChildren(item.id)\n  }));\n}"}
+{"// ❌ AVOID: O(N^2) quadratic search\nfunction getChildren(id) {\n  return list.filter(item =&gt; item.parentId === id).map(item => ({\n    ...item,\n    children: getChildren(item.id)\n  }));\n}"}
               </pre>
             </div>
 
@@ -295,7 +295,7 @@ export default function Topic15() {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"const chunk = (arr, size) =>\n  Array.from({ length: Math.ceil(arr.length / size) }, (_, i) =>\n    arr.slice(i * size, i * size + size)\n  );\n\nconst items = [1, 2, 3, 4, 5, 6, 7, 8, 9];\nconsole.log(chunk(items, 3)); // [[1, 2, 3], [4, 5, 6], [7, 8, 9]]"}</pre>
+              <pre>{"const chunk = (arr, size) =&gt;\n  Array.from({ length: Math.ceil(arr.length / size) }, (_, i) =&gt;\n    arr.slice(i * size, i * size + size)\n  );\n\nconst items = [1, 2, 3, 4, 5, 6, 7, 8, 9];\nconsole.log(chunk(items, 3)); // [[1, 2, 3], [4, 5, 6], [7, 8, 9]]"}</pre>
             </div>
           </div>
         </section>

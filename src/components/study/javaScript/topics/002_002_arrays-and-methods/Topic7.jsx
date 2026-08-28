@@ -127,12 +127,12 @@ export default function Topic7() {
                   </linearGradient>
                 </defs>
                 <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Transformation Pipelines — map(), flatMap(), flat() with Depth Control"} · Pipeline Architecture</text>
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">&#123;"Transformation Pipelines — map(), flatMap(), flat() with Depth Control"&#125; · Pipeline Architecture</text>
 
                 {/* Box 1 */}
                 <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#arrGrad1)" stroke="#f59e0b" strokeWidth="1" />
                 <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Input Structure</text>
-                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Nested Raw Array Source"}</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">&#123;"Nested Raw Array Source"&#125;</text>
 
                 {/* Arrow 1 */}
                 <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" />
@@ -140,7 +140,7 @@ export default function Topic7() {
                 {/* Box 2 */}
                 <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#arrGrad2)" stroke="#38bdf8" strokeWidth="1" />
                 <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: V8 Operation</text>
-                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"Map Function + Flatten Pass"}</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">&#123;"Map Function + Flatten Pass"&#125;</text>
 
                 {/* Arrow 2 */}
                 <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
@@ -148,7 +148,7 @@ export default function Topic7() {
                 {/* Box 3 */}
                 <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#arrGrad3)" stroke="#10b981" strokeWidth="1" />
                 <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Result Memory</text>
-                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Flat Normalized 1D Array"}</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">&#123;"Flat Normalized 1D Array"&#125;</text>
               </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
@@ -253,7 +253,7 @@ export default function Topic7() {
                 {"Calling `.map().flat()` allocates an unnecessary intermediate nested array."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-rose-900/50 text-xs font-mono text-rose-300 overflow-x-auto">
-{"// ❌ INEFFECTIVE: Allocates two arrays\nconst tags = posts.map(p => p.tags).flat();"}
+{"// ❌ INEFFECTIVE: Allocates two arrays\nconst tags = posts.map(p =&gt; p.tags).flat();"}
               </pre>
             </div>
 
@@ -267,7 +267,7 @@ export default function Topic7() {
                 {"Combine map and flatten in a single pass."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-emerald-900/50 text-xs font-mono text-emerald-300 overflow-x-auto">
-{"// ✓ RECOMMENDED: Single-pass allocation\nconst tags = posts.flatMap(p => p.tags);"}
+{"// ✓ RECOMMENDED: Single-pass allocation\nconst tags = posts.flatMap(p =&gt; p.tags);"}
               </pre>
             </div>
           </div>
@@ -295,7 +295,7 @@ export default function Topic7() {
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"const numbers = [1, 2, 3, 4, 5, 6];\n// Double only even numbers in one pass\nconst doubledEvens = numbers.flatMap(n => n % 2 === 0 ? [n * 2] : []);\nconsole.log(doubledEvens); // [4, 8, 12]"}</pre>
+              <pre>{"const numbers = [1, 2, 3, 4, 5, 6];\n// Double only even numbers in one pass\nconst doubledEvens = numbers.flatMap(n =&gt; n % 2 === 0 ? [n * 2] : []);\nconsole.log(doubledEvens); // [4, 8, 12]"}</pre>
             </div>
           </div>
         </section>

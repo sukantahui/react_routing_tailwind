@@ -1,116 +1,112 @@
-// ============================================================================
-// CODER & ACCOTAX - JAVASCRIPT MASTERCLASS
-// Module: 001_005_loops-and-iteration
-// Topic: while Loop
-// Classroom Lab: Barrackpore Lab
-// Mentors: Sukanta Hui | Students: Swadeep, Tuhina
-// ============================================================================
+/**
+ * Topic 0 Demo: while Loop
+ * Module: 001_005_loops-and-iteration
+ * Educator: Sukanta Hui | Coder & AccoTax
+ */
 
-console.log("=== [1] FUNDAMENTAL CONCEPT & INITIALIZATION ===");
-console.log("Demonstrating foundational mechanics for: while Loop");
+console.log("==================================================");
+console.log("TOPIC 0: THE while LOOP IN JAVASCRIPT - DEMO");
+console.log("==================================================");
+
+// ─── 1. CORE MECHANICS & ENTRY-CONTROLLED EVALUATION ──────────────
 console.log("");
+console.log("1. Entry-Controlled Loop Evaluation (0 vs N executions):");
 
-// Example 1: Basic declaration and setup
-const courseConfig = {
-  subject: "JavaScript Master Pro",
-  module: "Loops & Basic Iteration",
-  center: "Barrackpore Lab",
-  student: "Swadeep",
-  score: 95.5,
-  isActive: true
+let counter = 0;
+while (counter < 3) {
+  console.log(`Counter value: ${counter} -> Condition (${counter} < 3) is TRUE`);
+  counter++;
+}
+console.log(`Loop finished with counter = ${counter}`);
+
+let neverExecutes = 10;
+while (neverExecutes < 5) {
+  console.log("This will NEVER print because 10 < 5 is FALSE initially.");
+}
+console.log("Verified zero-execution behavior when condition is false initially.");
+
+// ─── 2. DRAIN QUEUE PATTERN (DYNAMIC DATA STRUCTURE) ───────────────
+console.log("");
+console.log("2. Draining a Dynamic Task Queue with while:");
+
+const taskQueue = [
+  { id: "TASK-01", name: "Validate User Input", priority: "High" },
+  { id: "TASK-02", name: "Encrypt Password", priority: "Critical" },
+  { id: "TASK-03", name: "Send Confirmation Email", priority: "Normal" }
+];
+
+console.log(`Starting queue with ${taskQueue.length} pending items.`);
+while (taskQueue.length > 0) {
+  const currentTask = taskQueue.shift(); // Remove from front
+  console.log(`[Processing] ${currentTask.id} (${currentTask.name}) -> Remaining in queue: ${taskQueue.length}`);
+}
+console.log("✓ Task queue completely drained.");
+
+// ─── 3. TRAVERSING A LINKED DATA STRUCTURE ────────────────────────
+console.log("");
+console.log("3. Linked Node Traversal with while (node = node.next):");
+
+const linkedChain = {
+  value: "Header Element",
+  next: {
+    value: "Authentication Middleware",
+    next: {
+      value: "Database Query Handler",
+      next: {
+        value: "JSON Response Formatter",
+        next: null
+      }
+    }
+  }
 };
 
-console.log("Configured student profile:");
-console.log(courseConfig);
-console.log("Student Name:", courseConfig.student);
-console.log("Status Active:", courseConfig.isActive);
-console.log("");
-
-console.log("=== [2] CORE DATA PROCESSING & FUNCTION PIPELINE ===");
-// Example 2: Practical data manipulation
-function processTopicData(items) {
-  return items.map((item, index) => {
-    return {
-      index: index + 1,
-      name: item,
-      processedAt: new Date().toISOString(),
-      verifiedBy: "Tuhina"
-    };
-  });
+let currentNode = linkedChain;
+let step = 1;
+while (currentNode !== null) {
+  console.log(`Node ${step}: ${currentNode.value}`);
+  currentNode = currentNode.next;
+  step++;
 }
 
-const sampleList = ["Foundational Syntax", "Execution Mechanics", "Optimization Rules"];
-const processedResults = processTopicData(sampleList);
-console.log("Processed pipeline data:");
-console.table(processedResults);
+// ─── 4. REAL-WORLD RETRY WITH EXPONENTIAL BACKOFF ──────────────────
 console.log("");
+console.log("4. Simulated Network Retry Loop with Exponential Backoff:");
 
-console.log("=== [3] ALGORITHMIC LOGIC & CONTROL FLOW ===");
-// Example 3: Branching and transformation logic
-function evaluateProficiency(score) {
-  if (score >= 90) return { grade: "Distinction", level: "Ultra Expert" };
-  if (score >= 75) return { grade: "First Class", level: "Advanced" };
-  if (score >= 50) return { grade: "Pass", level: "Intermediate" };
-  return { grade: "Needs Review", level: "Beginner" };
-}
+let attempts = 0;
+const maxRetries = 4;
+let isConnected = false;
 
-const evaluation = evaluateProficiency(courseConfig.score);
-console.log("Evaluation Result for " + courseConfig.student + ":", evaluation);
-console.log("");
-
-console.log("=== [4] ERROR RESILIENCE & SAFE GUARDS ===");
-// Example 4: Defensive programming and validation
-function safeRunner(action, fallbackValue) {
-  try {
-    return action();
-  } catch (err) {
-    console.warn("Recovered from operational failure:", err.message);
-    return fallbackValue;
+while (!isConnected && attempts < maxRetries) {
+  attempts++;
+  console.log(`Attempt #${attempts} connecting to payment gateway...`);
+  // Simulate success on 3rd attempt
+  if (attempts === 3) {
+    isConnected = true;
+    console.log("✓ Connection established successfully!");
+  } else {
+    const delay = Math.pow(2, attempts) * 10;
+    console.log(`⚠️ Connection failed. Waiting ${delay}ms backoff before retry.`);
   }
 }
 
-const safeOutcome = safeRunner(() => {
-  const data = JSON.parse('{"status": "success", "metric": 99.9}');
-  return data.status + " -> Metric: " + data.metric;
-}, "default_fallback");
-
-console.log("Safe Execution Output:", safeOutcome);
+// ─── 5. ADVANCED: NUMBER DIGIT REVERSAL WITHOUT STRINGS ────────────
 console.log("");
+console.log("5. Advanced Mathematical Digit Reversal via Pure Arithmetic while Loop:");
 
-console.log("=== [5] SENIOR ARCHITECTURE PATTERN & BEST PRACTICE ===");
-// Example 5: Modular encapsulation & clean API design
-const LabController = (function() {
-  const registry = new Map();
-  
-  return {
-    register(id, handler) {
-      registry.set(id, handler);
-      console.log("Registered handler for key: [" + id + "]");
-    },
-    dispatch(id, payload) {
-      if (!registry.has(id)) {
-        console.error("No handler registered for: " + id);
-        return null;
-      }
-      return registry.get(id)(payload);
-    },
-    getRegistrySize() {
-      return registry.size;
-    }
-  };
-})();
+function reverseInteger(n) {
+  let num = n;
+  let reversed = 0;
+  while (num > 0) {
+    const lastDigit = num % 10;
+    reversed = (reversed * 10) + lastDigit;
+    num = Math.floor(num / 10);
+  }
+  return reversed;
+}
 
-LabController.register("INIT_TOPIC", (payload) => {
-  return "Lab initialized with payload: " + JSON.stringify(payload);
-});
+const originalNumber = 987654;
+const resultReversed = reverseInteger(originalNumber);
+console.log(`Original: ${originalNumber} -> Reversed: ${resultReversed}`);
 
-const dispatchResult = LabController.dispatch("INIT_TOPIC", {
-  topic: "while Loop",
-  student: "Swadeep",
-  mentor: "Sukanta Hui"
-});
-
-console.log("Dispatch Output:", dispatchResult);
-console.log("Total Registered Handlers:", LabController.getRegistrySize());
 console.log("");
-console.log("=== JavaScript Lab Execution Completed Successfully ===");
+console.log("✓ All 5 while loop practical demonstrations completed.");

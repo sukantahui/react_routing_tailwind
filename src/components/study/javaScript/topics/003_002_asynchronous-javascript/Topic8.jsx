@@ -162,7 +162,7 @@ export default function Topic8() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 8.1: Architectural execution lifecycle, memory flow, and runtime mechanics for The Evolution of Async JavaScript: Callbacks to Streams.
             </p>
           </div>
         </section>

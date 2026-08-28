@@ -143,7 +143,7 @@ export default function Topic3() {
 </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure 3.1: Architectural execution lifecycle, memory flow, and runtime mechanics for Local In-Browser Vector Search &amp; Cosine Similarity for Semantic Search.
             </p>
           </div>
         </section>

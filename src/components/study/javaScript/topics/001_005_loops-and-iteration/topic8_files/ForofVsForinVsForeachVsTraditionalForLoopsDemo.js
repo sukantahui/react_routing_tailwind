@@ -1,116 +1,159 @@
-// ============================================================================
-// CODER & ACCOTAX - JAVASCRIPT MASTERCLASS
-// Module: 001_005_loops-and-iteration
-// Topic: for...of vs for...in vs forEach vs Traditional for Loops
-// Classroom Lab: Barrackpore Lab
-// Mentors: Sukanta Hui | Students: Swadeep, Tuhina
-// ============================================================================
+/**
+ * Topic 8 Demo: for...of vs for...in vs forEach vs Traditional for Loops
+ * Module: 001_005_loops-and-iteration
+ * Educator: Sukanta Hui | Coder & AccoTax
+ */
 
-console.log("=== [1] FUNDAMENTAL CONCEPT & INITIALIZATION ===");
-console.log("Demonstrating foundational mechanics for: for...of vs for...in vs forEach vs Traditional for Loops");
+console.log("==================================================");
+console.log("TOPIC 8: LOOPING PARADIGMS IN JAVASCRIPT - DEMO");
+console.log("==================================================");
+
+// ─── 1. CORE MECHANICS & CONTROL FLOW (BREAK / CONTINUE) ───────────
 console.log("");
+console.log("1. Control Flow Comparison (break & continue support):");
 
-// Example 1: Basic declaration and setup
-const courseConfig = {
-  subject: "JavaScript Master Pro",
-  module: "Loops & Basic Iteration",
-  center: "Barrackpore Lab",
-  student: "Swadeep",
-  score: 95.5,
-  isActive: true
-};
+const scores = [45, 78, 88, 92, 99];
 
-console.log("Configured student profile:");
-console.log(courseConfig);
-console.log("Student Name:", courseConfig.student);
-console.log("Status Active:", courseConfig.isActive);
-console.log("");
-
-console.log("=== [2] CORE DATA PROCESSING & FUNCTION PIPELINE ===");
-// Example 2: Practical data manipulation
-function processTopicData(items) {
-  return items.map((item, index) => {
-    return {
-      index: index + 1,
-      name: item,
-      processedAt: new Date().toISOString(),
-      verifiedBy: "Tuhina"
-    };
-  });
-}
-
-const sampleList = ["Foundational Syntax", "Execution Mechanics", "Optimization Rules"];
-const processedResults = processTopicData(sampleList);
-console.log("Processed pipeline data:");
-console.table(processedResults);
-console.log("");
-
-console.log("=== [3] ALGORITHMIC LOGIC & CONTROL FLOW ===");
-// Example 3: Branching and transformation logic
-function evaluateProficiency(score) {
-  if (score >= 90) return { grade: "Distinction", level: "Ultra Expert" };
-  if (score >= 75) return { grade: "First Class", level: "Advanced" };
-  if (score >= 50) return { grade: "Pass", level: "Intermediate" };
-  return { grade: "Needs Review", level: "Beginner" };
-}
-
-const evaluation = evaluateProficiency(courseConfig.score);
-console.log("Evaluation Result for " + courseConfig.student + ":", evaluation);
-console.log("");
-
-console.log("=== [4] ERROR RESILIENCE & SAFE GUARDS ===");
-// Example 4: Defensive programming and validation
-function safeRunner(action, fallbackValue) {
-  try {
-    return action();
-  } catch (err) {
-    console.warn("Recovered from operational failure:", err.message);
-    return fallbackValue;
+console.log("--- [A] Traditional for Loop (Full break/continue/index control) ---");
+for (let i = 0; i < scores.length; i++) {
+  if (scores[i] < 50) continue; // Skip failed marks
+  if (scores[i] > 90) {
+    console.log(`First distinction score found at index ${i}: ${scores[i]} (breaking early)`);
+    break;
   }
 }
 
-const safeOutcome = safeRunner(() => {
-  const data = JSON.parse('{"status": "success", "metric": 99.9}');
-  return data.status + " -> Metric: " + data.metric;
-}, "default_fallback");
+console.log("--- [B] for...of Loop (Clean value iteration + break support) ---");
+for (const score of scores) {
+  if (score > 90) {
+    console.log(`Top score ${score} detected via for...of (breaking early)`);
+    break;
+  }
+}
 
-console.log("Safe Execution Output:", safeOutcome);
+console.log("--- [C] forEach Loop (Cannot break! Always visits all elements) ---");
+scores.forEach((score, idx) => {
+  // 'break' is a SyntaxError inside forEach callback.
+  // 'return' only exits the current callback iteration, NOT the loop!
+  if (score > 90) {
+    console.log(`forEach visited score: ${score} at index ${idx} (cannot break outer loop)`);
+  }
+});
+
+// ─── 2. THE DANGEROUS for...in ON ARRAYS VS OBJECTS ─────────────────
 console.log("");
+console.log("2. The Pitfall of for...in on Arrays vs Object Keys:");
 
-console.log("=== [5] SENIOR ARCHITECTURE PATTERN & BEST PRACTICE ===");
-// Example 5: Modular encapsulation & clean API design
-const LabController = (function() {
-  const registry = new Map();
-  
+// Adding a custom property or prototype method
+Array.prototype.customHelper = function() { return "polluted"; };
+const marksList = [80, 85, 90];
+marksList.studentName = "Swadeep"; // Non-numeric custom property
+
+console.log("--- ❌ Dangerous: for...in on Array (iterates keys as strings & prototype properties) ---");
+for (const key in marksList) {
+  console.log(`Key: "${key}" (type: ${typeof key}) | Value: ${marksList[key]}`);
+  // Notice key is STRING! ("0" + 1 = "01", NOT 1)
+}
+
+console.log("--- ✓ Recommended: for...of on Array (iterates only indexed elements) ---");
+for (const mark of marksList) {
+  console.log(`Direct Element Value: ${mark} (type: ${typeof mark})`);
+}
+
+// Clean up prototype pollution
+delete Array.prototype.customHelper;
+
+console.log("--- ✓ Correct usage of for...in on Plain Objects ---");
+const courseProfile = {
+  course: "JS-PRO-101",
+  center: "Barrackpore Lab",
+  instructor: "Sukanta Hui",
+  durationWeeks: 12
+};
+
+for (const prop in courseProfile) {
+  if (Object.hasOwn(courseProfile, prop)) {
+    console.log(`Property "${prop}" -> ${courseProfile[prop]}`);
+  }
+}
+
+// ─── 3. ASYNCHRONOUS ITERATION: for...of VS forEach ─────────────────
+console.log("");
+console.log("3. Asynchronous Execution Mechanics (Sequential vs Concurrent):");
+
+const mockFetchMarks = (student, delay) =>
+  new Promise(resolve => setTimeout(() => resolve(`${student}: 95%`), delay));
+
+async function demonstrateAsyncLooping() {
+  const students = ["Swadeep", "Tuhina", "Abhronila"];
+
+  console.log("--- [A] Sequential async with for...of (Waits for each promise) ---");
+  for (const student of students) {
+    const result = await mockFetchMarks(student, 20);
+    console.log(`✓ Fetched sequentially: ${result}`);
+  }
+
+  console.log("--- [B] forEach with async callback (Fires all concurrently, does NOT wait!) ---");
+  students.forEach(async (student) => {
+    const result = await mockFetchMarks(student, 20);
+    console.log(`⚡ forEach callback resolved: ${result}`);
+  });
+  console.log("--> Note: Outer function continued immediately without waiting for forEach!");
+}
+
+await demonstrateAsyncLooping();
+
+// ─── 4. ENTERPRISE DATA TRANSFORMATION & TABLE LOGGING ─────────────
+console.log("");
+console.log("4. Enterprise Transformation Pipeline (Comparing Performance Styles):");
+
+const labSubmissions = [
+  { id: 101, student: "Swadeep", module: "Loops", passed: true, score: 98 },
+  { id: 102, student: "Tuhina", module: "Functions", passed: true, score: 94 },
+  { id: 103, student: "Debangshu", module: "V8 Internals", passed: false, score: 48 },
+  { id: 104, student: "Abhronila", module: "DOM Events", passed: true, score: 91 }
+];
+
+console.log("--- Index and Value Pair Traversal with for...of & entries() ---");
+const processedReport = [];
+for (const [index, item] of labSubmissions.entries()) {
+  processedReport.push({
+    rank: index + 1,
+    student: item.student,
+    status: item.passed ? "CERTIFIED" : "RETAKE",
+    grade: item.score >= 90 ? "A+" : item.score >= 75 ? "A" : "F"
+  });
+}
+console.table(processedReport);
+
+// ─── 5. ADVANCED: CREATING A CUSTOM ITERABLE FOR for...of ──────────
+console.log("");
+console.log("5. Advanced Senior Pattern: Custom Iterable Protocol ([Symbol.iterator]):");
+
+// Creating a custom step Range object that works seamlessly with for...of
+function createNumberRange(start, end, step = 1) {
   return {
-    register(id, handler) {
-      registry.set(id, handler);
-      console.log("Registered handler for key: [" + id + "]");
-    },
-    dispatch(id, payload) {
-      if (!registry.has(id)) {
-        console.error("No handler registered for: " + id);
-        return null;
-      }
-      return registry.get(id)(payload);
-    },
-    getRegistrySize() {
-      return registry.size;
+    [Symbol.iterator]() {
+      let current = start;
+      return {
+        next() {
+          if (current <= end) {
+            const val = current;
+            current += step;
+            return { value: val, done: false };
+          }
+          return { value: undefined, done: true };
+        }
+      };
     }
   };
-})();
+}
 
-LabController.register("INIT_TOPIC", (payload) => {
-  return "Lab initialized with payload: " + JSON.stringify(payload);
-});
+const customRange = createNumberRange(10, 50, 10);
+console.log("Iterating custom range with for...of:");
+for (const num of customRange) {
+  console.log(`Range value: ${num}`);
+}
 
-const dispatchResult = LabController.dispatch("INIT_TOPIC", {
-  topic: "for...of vs for...in vs forEach vs Traditional for Loops",
-  student: "Swadeep",
-  mentor: "Sukanta Hui"
-});
-
-console.log("Dispatch Output:", dispatchResult);
-console.log("Total Registered Handlers:", LabController.getRegistrySize());
 console.log("");
-console.log("=== JavaScript Lab Execution Completed Successfully ===");
+console.log("✓ All 5 looping paradigm practical demonstrations completed.");
