@@ -1,13 +1,13 @@
 ================================================================================
 CODER & ACCOTAX - JAVASCRIPT COMPLETE ROADMAP
 MODULE [002_004_arrays-with-objects-advanced]: Advanced Array Pipelines & Object Data Processing
-TOPIC [15]: Map and Set vs WeakMap and WeakSet: Garbage Collection Semantics
+TOPIC [16]: Complex Multi-Key Indexing & In-Memory Relational Data Lookup
 Educator: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
 1. CORE CONCEPTS & RULES
 --------------------------------------------------------------------------------
-- Map and Set vs WeakMap and WeakSet: Garbage Collection Semantics is a foundational pillar of modern JavaScript application architecture.
+- Complex Multi-Key Indexing & In-Memory Relational Data Lookup is a foundational pillar of modern JavaScript application architecture.
 - Execution is governed by ECMAScript specification rules and V8 engine JIT compilation.
 - Follows the single-threaded event loop concurrency model with microtask priority.
 - Adheres to lexical scoping, strict mode ('use strict') standards, and defensive coding.
@@ -17,10 +17,10 @@ Educator: Sukanta Hui | Barrackpore, West Bengal, India
 // Standard ES6+ JavaScript implementation
 const executeTopicRoutine = (payload = {}) => {
   const timestamp = new Date().toISOString();
-  console.log("[JS-PRO-101] Executing topic: Map and Set vs WeakMap and WeakSet: Garbage Collection Semantics");
+  console.log("[JS-PRO-101] Executing topic: Complex Multi-Key Indexing & In-Memory Relational Data Lookup");
   return {
     success: true,
-    topic: "Map and Set vs WeakMap and WeakSet: Garbage Collection Semantics",
+    topic: "Complex Multi-Key Indexing & In-Memory Relational Data Lookup",
     timestamp,
     ...payload
   };

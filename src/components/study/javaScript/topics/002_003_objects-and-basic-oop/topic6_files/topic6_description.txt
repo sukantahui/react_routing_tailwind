@@ -1,0 +1,66 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_003_OBJECTS-AND-BASIC-OOP
+Topic 6: ITERATING OBJECTS: FOR...IN VS OBJECT.KEYS(), VALUES(), ENTRIES(), FROMENTRIES()
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine opening an inventory catalog for a computer store. You can ask for 3 different reports: 1. A list of all Item Barcodes (Keys); 2. A list of all Price Numbers (Values); 3. A list of complete [Barcode, Price] item cards (Entries). JavaScript gives us dedicated built-in utilities to extract all 3 views into real arrays!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Abhronila had a student fees object: `{ Swadeep: 5000, Tuhina: 6000, Debangshu: 4500 }`. She wanted to sum all the fees using `.reduce()`, but objects don't have array methods! I showed her `Object.values(fees)`. It gave her `[5000, 6000, 4500]`, which she immediately summed with reduce. Then I showed `Object.entries()` and `Object.fromEntries()`. Abhronila saw how easily objects and arrays convert back and forth.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. The Object Reflection Methods:
+- Object.keys(obj): Returns an array of own enumerable property names (strings).
+- Object.values(obj): Returns an array of own enumerable property values.
+- Object.entries(obj): Returns an array of `[key, value]` pairs.
+- Object.fromEntries(iterable): Transforms an array of `[key, value]` pairs back into an Object!
+
+2. Why Prefer Object.entries() over for...in:
+`for...in` iterates over inherited prototype properties and requires `Object.hasOwn` guards. `Object.entries()` returns a clean array containing only own properties that works directly with modern array methods.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Converting, Transforming, and Reconstructing Objects ---
+const coursePrices = {
+  JavaScript: 4000,
+  React: 5500,
+  NodeJS: 5000
+};
+
+// 1. Get all keys and values:
+console.log('Courses:', Object.keys(coursePrices));   // ['JavaScript', 'React', 'NodeJS']
+console.log('Prices:', Object.values(coursePrices));   // [4000, 5500, 5000]
+
+// 2. Transform Object via entries -> map -> fromEntries (Add 10% tax):
+const pricesWithTax = Object.fromEntries(
+  Object.entries(coursePrices).map(([course, price]) => [course, price * 1.10])
+);
+
+console.log('Prices with Tax:', pricesWithTax);
+
+Teacher's Note on Example 1:
+Object.entries and fromEntries enable full functional transformations on objects.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Assuming Object.keys preserves numeric insertion order: JavaScript sorts numeric keys in ascending order first before string keys.
+
+[!] Using for...in without prototype guards: Always prefer Object.keys() or Object.entries() for reliable iteration.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Object.keys(), Object.values(), and Object.entries() convert objects into arrays.
+• Object.fromEntries() converts [key, value] pairs back into an object.
+• Essential for transforming, filtering, and mapping dictionary objects.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

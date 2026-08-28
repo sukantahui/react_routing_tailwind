@@ -1,0 +1,60 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 001_003_OPERATORS-AND-EXPRESSIONS
+Topic 5: NULLISH COALESCING OPERATOR (??) VS OR (||) FALLBACKS & FALSY TRAP HANDLING
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine you are filling out an online exam form. If you scored '0' marks, that 0 is your real score! But if you left the question blank (null or undefined), only then should the system assign a default score. In old JavaScript, the OR operator (||) treated '0' as missing because 0 is falsy, accidentally erasing your real score. The Nullish Coalescing Operator (??) was invented specifically to fix this bug!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Swadeep had a volume control slider in his audio app: let volume = 0; let currentVolume = volume || 50; console.log(currentVolume); // 50 (Sound suddenly blasted at 50%!) Swadeep was shocked: 'Sir, the user deliberately muted the volume to 0, why did it reset to 50?' I showed him volume ?? 50. Because 0 is a real defined number (not null/undefined), ?? respected the user's choice. The entire class saw why modern developers prefer ?? over || for default values.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. The Problem with || for Defaults:
+Logical OR (||) falls back on ANY falsy value (0, "", false, null, undefined, NaN).
+If 0, false, or "" are valid actual inputs, || will overwrite them!
+
+2. The Nullish Coalescing Operator (??):
+Nullish Coalescing (??) ONLY falls back when the value is null or undefined.
+- 0 ?? 50 -> 0 (Preserved!)
+- "" ?? "Default" -> "" (Preserved!)
+- false ?? true -> false (Preserved!)
+- null ?? "Default" -> "Default"
+- undefined ?? "Default" -> "Default"
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Comparing || vs ?? with Zero ---
+let userDiscount = 0; // 0% discount
+
+let billWithOr = userDiscount || 10;
+console.log("Using || :", billWithOr); // 10 (Incorrectly overwrote 0!)
+
+let billWithNullish = userDiscount ?? 10;
+console.log("Using ?? :", billWithNullish); // 0 (Correctly kept 0!)
+
+Teacher's Note on Example 1:
+?? correctly distinguishes between deliberate zeros and truly missing null/undefined values.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Mixing ?? with && or || without parentheses: JavaScript forbids writing a && b ?? c directly. You must explicitly write (a && b) ?? c.
+
+[!] Using || when dealing with numbers or booleans: Always default to ?? for safe numeric and boolean fallbacks.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• ?? only triggers on null and undefined.
+• || triggers on all 8 falsy values (including 0, false, and '').
+• Use ?? for safe defaults in forms, numbers, and settings.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Never rush through the basics. When your foundation is solid, building complex
+applications becomes as effortless as speaking your native language. Keep practicing!"
+================================================================================

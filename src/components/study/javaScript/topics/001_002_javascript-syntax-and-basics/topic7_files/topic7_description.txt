@@ -1,0 +1,57 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 001_002_JAVASCRIPT-SYNTAX-AND-BASICS
+Topic 7: SYMBOLS: CREATION, UNIQUE PROPERTY KEYS, GLOBAL REGISTRY & WELL-KNOWN SYMBOLS
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine you are assigned a permanent Unique National Identity Number (Aadhaar or Social Security Number). Even if someone else has the exact same name, date of birth, and home city as you, your Identity Number is 100% unique across the entire country. In JavaScript, Symbols are guaranteed 100% unique tokens that can never collide with any other value!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Debangshu was creating key names for a student records system. He was worried that if two different libraries tried to add a property called 'id' to the same student record, one would overwrite the other. I introduced him to Symbol('id'). I created const id1 = Symbol('id'); const id2 = Symbol('id'); and showed him id1 === id2 returns false. Debangshu realized that Symbols provide collision-free identifiers.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. What is a Symbol?
+Introduced in ES6, Symbol is a primitive data type used to create guaranteed unique identifiers.
+
+2. Creating Symbols:
+const sym1 = Symbol("description");
+Every call to Symbol() produces a completely distinct unique value, even with the identical description.
+
+3. Global Symbol Registry:
+- Symbol.for("key"): Searches the global registry; if it exists, it returns it; otherwise, it creates it.
+- Symbol.keyFor(sym): Retrieves the string key for a global symbol.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Guaranteed Uniqueness of Symbols ---
+const symA = Symbol("apiKey");
+const symB = Symbol("apiKey");
+
+console.log(symA === symB); // false! Every Symbol is unique.
+console.log(typeof symA);   // "symbol"
+
+Teacher's Note on Example 1:
+Even with the same description string, symbols are completely unique and never equal.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Using new Symbol(): Symbol is a primitive factory function, not a constructor. Writing new Symbol() throws a TypeError!
+
+[!] Expecting symbols to auto-convert to strings: String concatenation like 'ID: ' + sym throws a TypeError. Use sym.toString() or String(sym).
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Symbols are immutable, 100% unique primitive identifiers.
+• They prevent key collisions in complex applications.
+• Always create symbols using Symbol('desc') without the 'new' keyword.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Never rush through the basics. When your foundation is solid, building complex
+applications becomes as effortless as speaking your native language. Keep practicing!"
+================================================================================

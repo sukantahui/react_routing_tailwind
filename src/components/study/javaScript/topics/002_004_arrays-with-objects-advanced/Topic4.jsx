@@ -322,7 +322,7 @@ function checkStatus(val) {
           <PlainTextPrint
             content={noteText}
             title={"JavaScript Master Note · Searching Object Arrays with find(), findIndex() & findLast()"}
-            downloadFileName="002_004_arrays-with-objects-advanced-topic4-note.txt"
+            downloadFileName="002-004-topic4-note.txt"
           />
         </section>
 

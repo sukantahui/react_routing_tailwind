@@ -1,0 +1,75 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_003_OBJECTS-AND-BASIC-OOP
+Topic 19: METHOD OVERRIDING, POLYMORPHISM & DYNAMIC METHOD DISPATCH IN JAVASCRIPT
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think about the universal command 'SPEAK' given to different animals. If you tell a dog to speak, it barks ('Woof!'). If you tell a cat to speak, it meows ('Meow!'). If you tell a duck to speak, it quacks ('Quack!'). The exact same command name (`speak()`) produces different, customized behaviors depending on which animal receives it. In Object-Oriented Programming, that is Polymorphism!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Abhronila was building a notification system. She had `EmailNotification`, `SmsNotification`, and `PushNotification`. Instead of writing messy if-statements like `if (type === 'email') sendEmail() else if...`, she defined a base class `Notification` with `send()`, and had each subclass override `send()`. Now her dispatcher simply looped through notifications and called `item.send()`. Abhronila saw how polymorphism keeps code clean, open for extension, and closed for modification.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. What is Method Overriding?
+A subclass provides its own specific implementation of a method that is already defined in its parent superclass.
+
+2. What is Polymorphism (Many Shapes)?
+The ability of different object types to respond to the exact same method call in their own specialized way.
+
+3. Dynamic Method Dispatch:
+When `obj.method()` is called, JavaScript dynamically looks up the method starting at the instance's own prototype, finding the overridden subclass version first.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Polymorphic Shape Area Calculator ---
+class Shape {
+  calculateArea() {
+    return 0;
+  }
+}
+
+class Rectangle extends Shape {
+  constructor(width, height) {
+    super();
+    this.width = width;
+    this.height = height;
+  }
+  calculateArea() { return this.width * this.height; } // Overridden!
+}
+
+class Circle extends Shape {
+  constructor(radius) {
+    super();
+    this.radius = radius;
+  }
+  calculateArea() { return Math.PI * (this.radius ** 2); } // Overridden!
+}
+
+const shapes = [new Rectangle(10, 5), new Circle(7), new Rectangle(4, 6)];
+shapes.forEach(shape => console.log('Area:', shape.calculateArea().toFixed(2)));
+
+Teacher's Note on Example 1:
+The loop calls calculateArea() uniformly; each shape computes its own specific area.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Forgetting to return values in overridden methods: Ensure the overridden method adheres to the same return type contract as the parent.
+
+[!] Breaking parameter signatures: Keep overridden method parameters compatible with parent definitions.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Method overriding replaces parent implementations in subclasses.
+• Polymorphism allows treating diverse subclasses uniformly through shared method interfaces.
+• Eliminates giant if-else chains in application architecture.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

@@ -1,20 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
-import clsx from "clsx";
+import React, { useEffect, useRef } from "react";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import JavaScriptEditableCodeBlock from "../../../../../common/JavaScriptEditableCodeBlock";
 import questions from "./topic8_files/topic8_questions";
 import noteText from "./topic8_files/topic8_note.txt?raw";
-import demoCode from "./topic8_files/FunctionprototypeMethodsCallApplyAndBindWithCustomContextsDemo.js?raw";
+import demoCode from "./topic8_files/CallApplyBindCustomContextsDemoDemo.js?raw";
 
-/**
- * Topic8 – Function.prototype Methods: call(), apply(), and bind() with Custom Contexts
- * Module: 002_001_functions-basics
- *
- * @component
- * @returns {JSX.Element} Full 11-section interactive JavaScript tutorial component.
- */
 export default function Topic8() {
   const sectionRefs = useRef([]);
 
@@ -59,7 +51,7 @@ export default function Topic8() {
 
       <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-amber-500/30 selection:text-amber-200">
         
-        {/* ─── 1. HEADER SECTION ──────────────────────────────────────── */}
+        {/* ─── SECTION 1: HEADER & METADATA ─────────────────────────── */}
         <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-950/70 border border-amber-700/60 text-amber-300 text-xs font-semibold uppercase tracking-wider shadow-lg">
             <span>⚡</span>
@@ -71,7 +63,7 @@ export default function Topic8() {
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Master the core mechanics, V8 execution rules, and practical enterprise workflows of <strong className="text-amber-300">{"Function.prototype Methods: call(), apply(), and bind() with Custom Contexts"}</strong> in modern JavaScript.
+            {"Explicitly control function context in JavaScript using call, apply, and bind: method borrowing, partial application, and handling dynamic this bindings."}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-slate-400 pt-2">
@@ -81,128 +73,155 @@ export default function Topic8() {
           </div>
         </header>
 
-        {/* ─── 2. CONCEPT OVERVIEW ────────────────────────────────────── */}
+        {/* ─── SECTION 2: DETAILED CONCEPT DISCUSSION & MENTAL MODELS ── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
           <div className="bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg hover:border-slate-700 transition-all">
             <h2 className="text-xl sm:text-2xl font-bold text-amber-400 mb-4 flex items-center gap-2">
-              <span>💡</span> Conceptual Overview &amp; Mental Models
+              <span>💡</span> Detailed Discussion &amp; Conceptual Foundation
             </h2>
+            
             <p className="text-slate-300 leading-relaxed mb-4">
-              In JavaScript, understanding <strong className="text-amber-300">{"Function.prototype Methods: call(), apply(), and bind() with Custom Contexts"}</strong> is critical for writing robust and bug-free code. When building enterprise web applications, code must be predictable, resilient to unexpected user inputs, and optimized for high-performance browser execution.
+              {"Explicitly control function context in JavaScript using call, apply, and bind: method borrowing, partial application, and handling dynamic this bindings."} In modern software engineering, mastering this feature allows developers to write decoupled, resilient, and highly performant JavaScript applications across Node.js runtimes and client browsers.
             </p>
-            <div className="p-4 rounded-xl bg-slate-900/90 border border-amber-900/40 text-sm text-slate-300 leading-relaxed">
-              <span className="text-amber-400 font-bold">🏫 Classroom Scenario (Barrackpore Lab):</span> During a hands-on lab exercise, <strong>Swadeep</strong> encountered unexpected runtime behavior while testing an interactive component. Mentor <strong>Sukanta Hui</strong> demonstrated how tracing the execution flow of <em>{"Function.prototype Methods: call(), apply(), and bind() with Custom Contexts"}</em> eliminates guesswork, ensuring smooth and deterministic UI state transitions.
+
+            <p className="text-slate-300 leading-relaxed mb-4">
+              During evaluation, the JavaScript V8 engine parses code into an Abstract Syntax Tree (AST), generates bytecode via Ignition, and tracks variable bindings inside specialized Environment Records before optimizing hot paths via the TurboFan JIT compiler.
+            </p>
+
+            {/* Classroom Story with Code/State */}
+            <div className="p-5 rounded-xl bg-slate-900/90 border border-amber-900/40 text-sm text-slate-300 leading-relaxed space-y-2">
+              <div className="flex items-center gap-2 text-amber-400 font-bold">
+                <span>🏫</span>
+                <span>Classroom Scenario (Barrackpore Lab):</span>
+              </div>
+              <p>
+                {"Debangshu borrowed an array method using `call` but passed arguments as an array instead of a comma-separated list, causing arguments to wrap inside a single array index."}
+              </p>
+              <p>
+                {"Sukanta Hui clarified the mnemonic: **C**all uses **C**ommas (`fn.call(ctx, 1, 2)`), while **A**pply uses **A**rrays (`fn.apply(ctx, [1, 2])`)."}
+              </p>
             </div>
           </div>
         </section>
 
-        {/* ─── 3. SEMANTIC VISUAL SVG DIAGRAM ─────────────────────────── */}
+        {/* ─── SECTION 3: TOPIC-SPECIFIC SEMANTIC SVG DIAGRAM ─────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl">
             <h2 className="text-lg sm:text-xl font-bold text-sky-400 mb-4 flex items-center gap-2">
-              <span>📊</span> Runtime Architecture &amp; Execution Diagram
+              <span>📊</span> Runtime Architecture &amp; Execution Pipeline Diagram
             </h2>
             <div className="w-full overflow-x-auto">
-              <svg viewBox="0 0 800 240" className="w-full h-auto" role="img" aria-label="JavaScript Memory Layout &amp; Data Pipeline">
-  <defs>
-    <linearGradient id="memGrad_8" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.8" />
-      <stop offset="100%" stopColor="#b45309" stopOpacity="0.2" />
-    </linearGradient>
-    <linearGradient id="heapGrad_8" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.8" />
-      <stop offset="100%" stopColor="#5b21b6" stopOpacity="0.2" />
-    </linearGradient>
-  </defs>
-  <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-  <text x="400" y="34" fill="#f8fafc" fontSize="16" fontWeight="bold" textAnchor="middle">Function.prototype Methods: call(), apply(), and bind() with Custom Contexts · Architecture &amp; Execution Pipeline</text>
+              <svg viewBox="0 0 800 240" className="w-full h-auto" role="img" aria-label={"Function.prototype Methods: call(), apply(), and bind() with Custom Contexts"}>
+                <defs>
+                  <linearGradient id="gradBox1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#b45309" stopOpacity="0.3" />
+                  </linearGradient>
+                  <linearGradient id="gradBox2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#0369a1" stopOpacity="0.3" />
+                  </linearGradient>
+                  <linearGradient id="gradBox3" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#10b981" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#047857" stopOpacity="0.3" />
+                  </linearGradient>
+                </defs>
+                <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Function.prototype Methods: call(), apply(), and bind() with Custom Contexts"} · Architecture &amp; State Transitions</text>
 
-  <g transform="translate(60, 65)">
-    <rect width="280" height="145" rx="12" fill="#1e293b" stroke="#f59e0b" strokeWidth="1.5" />
-    <text x="140" y="28" fill="#fbbf24" fontSize="13" fontWeight="bold" textAnchor="middle">Execution Call Stack (Primitives)</text>
-    <rect x="20" y="42" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
-    <text x="30" y="59" fill="#94a3b8" fontSize="11">let student = "Swadeep"</text>
-    <text x="210" y="59" fill="#38bdf8" fontSize="11" fontWeight="bold">String (Value)</text>
+                {/* Box 1 */}
+                <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#gradBox1)" stroke="#f59e0b" strokeWidth="1" />
+                <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Input</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Target Context Object (thisArg)"}</text>
 
-    <rect x="20" y="74" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
-    <text x="30" y="91" fill="#94a3b8" fontSize="11">let marks = 98.5</text>
-    <text x="210" y="91" fill="#38bdf8" fontSize="11" fontWeight="bold">Number (Value)</text>
+                {/* Arrow 1 */}
+                <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arrow)" />
 
-    <rect x="20" y="106" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
-    <text x="30" y="123" fill="#94a3b8" fontSize="11">let refObj = 0x8849F</text>
-    <text x="195" y="123" fill="#ec4899" fontSize="11" fontWeight="bold">Heap Pointer →</text>
-  </g>
+                {/* Box 2 */}
+                <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#gradBox2)" stroke="#38bdf8" strokeWidth="1" />
+                <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: Execution</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"Function.prototype.call / apply / bind"}</text>
 
-  <g transform="translate(460, 65)">
-    <rect width="280" height="145" rx="12" fill="url(#heapGrad_8)" stroke="#a855f7" strokeWidth="1.5" />
-    <text x="140" y="28" fill="#e9d5ff" fontSize="13" fontWeight="bold" textAnchor="middle">Memory Heap (Objects / Arrays / Closures)</text>
-    <rect x="20" y="45" width="240" height="85" rx="8" fill="#0f172a" stroke="#6366f1" />
-    <text x="30" y="68" fill="#38bdf8" fontSize="11" fontWeight="bold">Address: 0x8849F</text>
-    <text x="30" y="88" fill="#e2e8f0" fontSize="11">&#123; course: "JS-PRO-101", city: "Barrackpore" &#125;</text>
-    <text x="30" y="108" fill="#a5b4fc" fontSize="10">Managed by V8 Garbage Collector (Mark &amp; Sweep)</text>
-  </g>
+                {/* Arrow 2 */}
+                <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
 
-  <path d="M 340 185 C 390 185, 410 135, 460 135" fill="none" stroke="#ec4899" strokeWidth="2.5" strokeDasharray="6 3" />
-  <circle cx="460" cy="135" r="4" fill="#ec4899" />
-</svg>
+                {/* Box 3 */}
+                <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#gradBox3)" stroke="#10b981" strokeWidth="1" />
+                <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Output State</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Bound Execution with Injected [[ThisValue]]"}</text>
+              </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure: Step-by-step architectural execution and state transitions for {"Function.prototype Methods: call(), apply(), and bind() with Custom Contexts"}.
             </p>
           </div>
         </section>
 
-        {/* ─── 4. DEEP TECHNICAL BREAKDOWN ─────────────────────── */}
+        {/* ─── SECTION 4: DEEP TECHNICAL BREAKDOWN & SPECIFICATIONS ───── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
           <div className="bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg">
             <h2 className="text-xl sm:text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2">
-              <span>🔬</span> Deep Technical Breakdown &amp; Execution Rules
+              <span>🔬</span> Deep Technical Know-How, Spec Invariants &amp; Mechanics
             </h2>
             
             <p className="text-slate-300 leading-relaxed mb-6">
-              The ECMAScript specification defines formal execution invariants for <strong className="text-amber-300">{"Function.prototype Methods: call(), apply(), and bind() with Custom Contexts"}</strong>. When a script runs, the JavaScript runtime establishes an execution context consisting of variable environments, lexical scopes, and binding environments.
+              The ECMAScript specification mandates precise abstract operations during the lifecycle of {"Function.prototype Methods: call(), apply(), and bind() with Custom Contexts"}. The table below outlines formal specification rules, engine runtime dynamics, and actionable developer invariants.
             </p>
 
+            {/* Specifications Comparison Table */}
             <div className="overflow-x-auto mb-6">
               <table className="w-full text-left text-sm text-slate-300 border-collapse border border-slate-800">
                 <thead className="bg-slate-900/90 text-amber-300 uppercase text-xs">
                   <tr>
-                    <th className="p-3 border border-slate-800">Execution Phase</th>
-                    <th className="p-3 border border-slate-800">Engine Behavior</th>
-                    <th className="p-3 border border-slate-800">Developer Invariant</th>
-                    <th className="p-3 border border-slate-800">Optimization Goal</th>
+                    <th className="p-3 border border-slate-800">Feature / Phase</th>
+                    <th className="p-3 border border-slate-800">ECMAScript Spec Rule</th>
+                    <th className="p-3 border border-slate-800">Runtime / Engine Behavior</th>
+                    <th className="p-3 border border-slate-800">Developer Invariant &amp; Best Practice</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800">
+                <tbody className="divide-y divide-slate-800 font-mono text-xs">
+                  
                   <tr className="hover:bg-slate-800/30">
-                    <td className="p-3 font-mono text-sky-400">1. Parse / Tokenize</td>
-                    <td className="p-3">Lexer converts source code into AST tokens</td>
-                    <td className="p-3">Zero syntax errors &amp; clean lexical grammar</td>
-                    <td className="p-3 text-emerald-400">Fast AST building</td>
+                    <td className="p-3 text-sky-400">{"fn.call(thisArg, ...args)"}</td>
+                    <td className="p-3 text-slate-300 font-sans">{"Invokes function immediately with given this and individual args"}</td>
+                    <td className="p-3 text-amber-300 font-sans">{"Direct invocation with explicit thisArg"}</td>
+                    <td className="p-3 text-emerald-400 font-sans">{"Method borrowing & parameter passing"}</td>
                   </tr>
                   <tr className="hover:bg-slate-800/30">
-                    <td className="p-3 font-mono text-sky-400">2. Ignition Bytecode</td>
-                    <td className="p-3">Generates bytecodes and initializes type feedback</td>
-                    <td className="p-3">Avoid dynamic property shape mutations</td>
-                    <td className="p-3 text-emerald-400">Instant startup time</td>
+                    <td className="p-3 text-sky-400">{"fn.apply(thisArg, [args])"}</td>
+                    <td className="p-3 text-slate-300 font-sans">{"Invokes function immediately with given this and array of args"}</td>
+                    <td className="p-3 text-amber-300 font-sans">{"Unpacks array elements into argument list"}</td>
+                    <td className="p-3 text-emerald-400 font-sans">{"Variadic argument passing in older code"}</td>
                   </tr>
                   <tr className="hover:bg-slate-800/30">
-                    <td className="p-3 font-mono text-sky-400">3. TurboFan JIT</td>
-                    <td className="p-3">Hot code paths compiled to optimized machine code</td>
-                    <td className="p-3">Maintain monomorphic function call sites</td>
-                    <td className="p-3 text-emerald-400">Near C++ performance</td>
+                    <td className="p-3 text-sky-400">{"fn.bind(thisArg, ...args)"}</td>
+                    <td className="p-3 text-slate-300 font-sans">{"Creates a new BoundFunction with permanently locked this"}</td>
+                    <td className="p-3 text-amber-300 font-sans">{"Allocates wrapper function in heap"}</td>
+                    <td className="p-3 text-emerald-400 font-sans">{"Event handlers, currying, deferred callbacks"}</td>
                   </tr>
                 </tbody>
               </table>
             </div>
+
+            {/* Exceptions & Quirks Subsection */}
+            <div className="mt-6 p-5 rounded-xl bg-slate-900/80 border border-rose-900/40 space-y-3">
+              <h3 className="text-base font-bold text-rose-400 flex items-center gap-2">
+                <span>⚠️</span> Exceptions, Quirks &amp; Corner Cases to Know
+              </h3>
+              <ul className="list-disc list-inside space-y-2 text-sm text-slate-300 leading-relaxed">
+                <li><strong className="text-rose-300">{"TypeError on Non-Callable Bind:"}</strong> {"Calling `.call()` or `.bind()` on an undefined or non-function property throws TypeError."}</li>
+                <li><strong className="text-rose-300">{"Re-binding a Bound Function:"}</strong> {"Calling `.bind()` on an already bound function does NOT change the original bound `this`; subsequent binds are ignored."}</li>
+                <li><strong className="text-rose-300">{"Sloppy vs Strict Mode Null thisArg:"}</strong> {"Passing `null` or `undefined` as `thisArg` in non-strict mode coerces `this` to global window; in strict mode it remains null/undefined."}</li>
+              </ul>
+            </div>
           </div>
         </section>
 
-        {/* ─── 5. HANDS-ON MONACO CODE RUNNER ─────────────────────────── */}
+        {/* ─── SECTION 5: HANDS-ON MONACO CODE RUNNER (5+ EXAMPLES) ──── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-xl sm:text-2xl font-bold text-amber-400 flex items-center gap-2">
-              <span>💻</span> Interactive Monaco Playground: 5+ Working Examples
+              <span>💻</span> Interactive Monaco Playground: 5+ Practical Working Examples
             </h2>
             <span className="text-xs font-mono px-3 py-1 rounded bg-amber-950/60 border border-amber-800 text-amber-300">
               Live In-Browser Execution
@@ -212,61 +231,49 @@ export default function Topic8() {
           <div className="rounded-2xl border border-slate-800 overflow-hidden shadow-2xl bg-slate-900">
             <JavaScriptEditableCodeBlock
               initialCode={demoCode}
-              title="FunctionprototypeMethodsCallApplyAndBindWithCustomContextsDemo.js"
+              title="CallApplyBindCustomContextsDemoDemo.js"
             />
           </div>
         </section>
 
-        {/* ─── 6. COMMON PITFALLS & BEST PRACTICES ────────────────────── */}
+        {/* ─── SECTION 6: COMMON PITFALLS & SENIOR BEST PRACTICES ─────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
           <h2 className="text-xl sm:text-2xl font-bold text-rose-400 flex items-center gap-2">
             <span>⚖️</span> Common Pitfalls vs Senior Best Practices
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Incorrect */}
-            <div className="bg-rose-950/20 border border-rose-800/40 rounded-2xl p-6 shadow-lg">
-              <div className="flex items-center gap-2 text-rose-400 font-bold mb-3">
+            {/* Pitfall Anti-Pattern */}
+            <div className="bg-rose-950/20 border border-rose-800/40 rounded-2xl p-6 shadow-lg space-y-3">
+              <div className="flex items-center gap-2 text-rose-400 font-bold">
                 <span>❌</span>
-                <span>Anti-Pattern / Common Bug</span>
+                <span>Anti-Pattern: {"Attempting to Re-Bind an Already Bound Function"}</span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-300 mb-4 leading-relaxed">
-                Relying on implicit coercion, uninitialized variable hoisting, or neglecting boundary state checks.
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                {"Once a function is bound via `.bind()`, its `this` context is permanently locked."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-rose-900/50 text-xs font-mono text-rose-300 overflow-x-auto">
-{`// ❌ AVOID: Loose comparisons and unhandled TDZ
-function checkStatus(val) {
-  if (val == null) { // Unclear intent
-    return "default";
-  }
-  return val.toUpperCase(); // May throw TypeError!
-}`}
+{"// ❌ AVOID: Secondary bind has no effect on this\nconst logName = user.print.bind({ name: \"First\" });\nconst reBound = logName.bind({ name: \"Second\" });\nreBound(); // Prints \"First\", not \"Second\"!"}
               </pre>
             </div>
 
-            {/* Correct */}
-            <div className="bg-emerald-950/20 border border-emerald-800/40 rounded-2xl p-6 shadow-lg">
-              <div className="flex items-center gap-2 text-emerald-400 font-bold mb-3">
+            {/* Senior Best Practice */}
+            <div className="bg-emerald-950/20 border border-emerald-800/40 rounded-2xl p-6 shadow-lg space-y-3">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold">
                 <span>✓</span>
-                <span>Senior Pro Best Practice</span>
+                <span>Senior Pro Practice: {"Use Arrow Functions or Higher-Order Wrappers for Dynamic Context"}</span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-300 mb-4 leading-relaxed">
-                Explicit type validation, strict equality, optional chaining, and nullish coalescing operators.
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                {"When dynamic re-contextualization is required, use explicit wrappers rather than stacked binds."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-emerald-900/50 text-xs font-mono text-emerald-300 overflow-x-auto">
-{`// ✓ RECOMMENDED: Safe, explicit and defensive
-function checkStatus(val) {
-  if (typeof val !== "string") {
-    return "default";
-  }
-  return val.toUpperCase();
-}`}
+{"// ✓ RECOMMENDED: Explicit Context Injection\nfunction executeWithContext(fn, context, ...args) {\n  return fn.apply(context, args);\n}"}
               </pre>
             </div>
           </div>
         </section>
 
-        {/* ─── 7. 💎 JAVASCRIPT HIDDEN GEMS & SENIOR PRO TRICKS ────────── */}
+        {/* ─── SECTION 7: 💎 JAVASCRIPT HIDDEN GEMS & PRO TRICKS ──────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <div className="bg-gradient-to-br from-amber-950/30 via-slate-900 to-purple-950/20 border border-amber-500/30 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden">
             <div className="flex items-center gap-3 mb-4">
@@ -278,58 +285,58 @@ function checkStatus(val) {
                   JavaScript Hidden Gem &amp; Senior Pro Secret
                 </span>
                 <h3 className="text-lg sm:text-xl font-bold text-white">
-                  {"Immediate Parameter Destructuring with Default Object Fallback"}
+                  {"Partial Application via Function.prototype.bind()"}
                 </h3>
               </div>
             </div>
 
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-              {"Safely destructure parameters while supporting zero-argument calls without throwing 'cannot destructure property of undefined'."}
+              {"`bind()` not only locks the `this` context but also prepends fixed leading arguments to the newly created function, enabling classic partial application."}
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"const createUser = ({ name = 'Guest', role = 'viewer' } = {}) => {\n  return { name, role };\n};\ncreateUser(); // Works cleanly without error!"}</pre>
+              <pre>{"function multiply(a, b) {\n  return a * b;\n}\nconst double = multiply.bind(null, 2);\nconst triple = multiply.bind(null, 3);\nconsole.log(double(5)); // 10\nconsole.log(triple(5)); // 15"}</pre>
             </div>
           </div>
         </section>
 
-        {/* ─── 8. THINKING & HINTS ("Think About This...") ─────────────── */}
+        {/* ─── SECTION 8: THINKING & ARCHITECTURAL CHALLENGE ─────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <div className="bg-indigo-950/20 border border-indigo-800/40 rounded-2xl p-6 md:p-8 shadow-lg">
             <h2 className="text-lg sm:text-xl font-bold text-indigo-300 mb-3 flex items-center gap-2">
               <span>🤔</span> Architectural Mental Challenge: Think About This...
             </h2>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-4">
-              If an application triggers thousands of operations per second using <strong className="text-amber-300">{"Function.prototype Methods: call(), apply(), and bind() with Custom Contexts"}</strong>, how does the V8 engine manage memory allocation and Garbage Collection pressure without causing UI frame drops (jank)?
+              {"What is the ECMAScript internal algorithm name used by `bind()`, and why can a bound function still be instantiated with the `new` operator?"}
             </p>
             <div className="p-4 rounded-xl bg-slate-900 border border-indigo-900/50 text-xs sm:text-sm text-indigo-300 font-mono">
-              💡 Hint: Focus on object pool recycling, avoiding closure leaks in long-lived event listeners, and minimizing temporary object allocations in hot loops.
+              💡 Hint: {"BoundFunctionCreate abstract operation creates a specialized wrapper that overrides the bound this when invoked as a constructor."}
             </div>
           </div>
         </section>
 
-        {/* ─── 9. COMPREHENSIVE FAQ SECTION ───────────────────────────── */}
+        {/* ─── SECTION 9: COMPREHENSIVE FAQ SECTION (25-30 ITEMS) ─────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <FAQTemplate
-            title={"Frequently Asked Questions · Function.prototype Methods: call(), apply(), and bind() with Custom Contexts"}
-            subtitle="Explore 25+ comprehensive questions from basic to senior architecture levels"
+            title={"Frequently Asked Questions · " + "Function.prototype Methods: call(), apply(), and bind() with Custom Contexts"}
+            subtitle="Explore 25+ comprehensive questions from basic concepts to senior enterprise architecture"
             questions={questions}
           />
         </section>
 
-        {/* ─── 10. PLAIN TEXT PRINTABLE STUDY NOTE ─────────────────────── */}
+        {/* ─── SECTION 10: PLAIN TEXT PRINTABLE STUDY NOTE ─────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <PlainTextPrint
             content={noteText}
-            title={"JavaScript Master Note · Function.prototype Methods: call(), apply(), and bind() with Custom Contexts"}
-            downloadFileName="002_001_functions-basics-topic8-note.txt"
+            title={"JavaScript Master Note · " + "Function.prototype Methods: call(), apply(), and bind() with Custom Contexts"}
+            downloadFileName="002-001-topic8-note.txt"
           />
         </section>
 
-        {/* ─── 11. TEACHER'S NOTE & MENTORSHIP ────────────────────────── */}
+        {/* ─── SECTION 11: TEACHER'S NOTE & MENTORSHIP ────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <Teacher
-            note={"In my 27+ years of mentoring engineers at Coder & AccoTax in Barrackpore, I have seen that mastering Function.prototype Methods: call(), apply(), and bind() with Custom Contexts is the exact turning point between amateur scripting and professional software engineering. Practice each example in the Monaco editor until you can explain the execution flow without hesitation."}
+            note={"In my 27+ years of mentoring software engineers at Coder & AccoTax in Barrackpore, I have consistently seen that mastering " + "Function.prototype Methods: call(), apply(), and bind() with Custom Contexts" + " separates code monkeys from genuine software engineers. " + "Mastering `call`, `apply`, and `bind` unlocks advanced metaprogramming, method borrowing, and framework-level plumbing in JavaScript."}
           />
         </section>
 

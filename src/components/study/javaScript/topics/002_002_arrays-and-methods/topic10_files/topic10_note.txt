@@ -1,53 +1,83 @@
 ================================================================================
 CODER & ACCOTAX - JAVASCRIPT COMPLETE ROADMAP
-MODULE [002_002_arrays-and-methods]: Arrays & Essential Array Methods
-TOPIC [10]: New Immutable Array Methods (toSorted, toReversed, toSpliced, with)
+MODULE 002_002_ARRAYS-AND-METHODS: ARRAYS & ESSENTIAL ARRAY METHODS
+TOPIC 10: SORTING ARRAYS — SORT() ALGORITHM, COMPARATOR MATH & UNICODE SORT TRAPS
 Educator: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. CORE CONCEPTS & RULES
+1. TOPIC OVERVIEW & DETAILED CONCEPT DISCUSSION
 --------------------------------------------------------------------------------
-- New Immutable Array Methods (toSorted, toReversed, toSpliced, with) is a foundational pillar of modern JavaScript application architecture.
-- Execution is governed by ECMAScript specification rules and V8 engine JIT compilation.
-- Follows the single-threaded event loop concurrency model with microtask priority.
-- Adheres to lexical scoping, strict mode ('use strict') standards, and defensive coding.
+- Definition: Deconstruct JavaScript array sorting: in-place mutation, the default lexicographical (Unicode) sort trap, custom comparator math, V8 TimSort mechanics, and stable sorting guarantees.
+- Classroom Experience: Swadeep sorted `[10, 5, 40, 25, 100]` with `arr.sort()` and got `[10, 100, 25, 40, 5]`.
+- Solution: Sukanta Hui explained that without a comparator, `sort()` converts elements to strings and compares UTF-16 code units; numerical sorting requires `(a, b) => a - b`.
+- Core Invariant: Mastering array methods ensures high-performance, immutable data processing.
 
-2. SYNTAX & JAVASCRIPT CODE SNIPPETS
+2. IN-DEPTH TECHNICAL KNOW-HOW & ENGINE RUNTIME MECHANICS
 --------------------------------------------------------------------------------
-// Standard ES6+ JavaScript implementation
-const executeTopicRoutine = (payload = {}) => {
-  const timestamp = new Date().toISOString();
-  console.log("[JS-PRO-101] Executing topic: New Immutable Array Methods (toSorted, toReversed, toSpliced, with)");
-  return {
-    success: true,
-    topic: "New Immutable Array Methods (toSorted, toReversed, toSpliced, with)",
-    timestamp,
-    ...payload
-  };
-};
+- Execution Context Lifecycle: Memory allocation and element kind tracking in V8.
+- Memory Stack vs Heap: Continuous array buffer vs hash table dictionary mode.
+- Abstract Operations: ToPrimitive, SameValueZero, and Length invariants.
+- V8 Optimizations: Fast elements, monomorphic inline caching, and TimSort.
 
-const result = executeTopicRoutine({ student: "Swadeep", center: "Barrackpore" });
-console.log("Routine Result:", result);
-
-3. 💎 HIDDEN GEMS & PRO SECRETS
+3. EXCEPTIONS, CORNER CASES, COERCIONS & QUIRKS
 --------------------------------------------------------------------------------
-- V8 Hidden Classes & Inline Caching: Always instantiate object fields in consistent order.
-- Microtask queue prioritization: queueMicrotask() executes before next rendering frame.
-- Strict Equality vs Object.is(): Object.is(NaN, NaN) is true, and Object.is(+0, -0) is false.
-- Structured Clone: native window.structuredClone() handles circular object graphs safely.
+[!] Numeric Subtraction Overflow Trap: `a - b` can overflow/underflow with extreme numbers (Infinity or -Infinity) or produce NaN with undefined.
+[!] String Locale Traps: Accented characters and regional alphabets require `localeCompare()`.
+[!] In-Place Mutation: `arr.sort()` mutates the original array; use `toSorted()` or `[...arr].sort()` for immutability.
 
-4. CRITICAL PITFALLS TO AVOID
+4. 💎 SPECIAL LANGUAGE FEATURES & SENIOR PRO SECRETS
 --------------------------------------------------------------------------------
-[!] Watch out for Temporal Dead Zone (TDZ) when referencing let/const before declaration.
-[!] Never rely on loose equality (==) which triggers complex implicit type coercion rules.
-[!] Beware of unhandled Promise rejections and uncleaned event listeners causing memory leaks.
-[!] Do not mutate array parameters directly in functions; use immutable utilities.
+- Secret 1: Multi-Field Priority Sorting via Comparator Chaining
+  Sort by primary field (e.g. Department), then secondary field (e.g. Salary descending), and tertiary field (e.g. Name).
+- Secret 2: Prevent array de-optimization by avoiding delete operations on indices.
+- Secret 3: Leverage ES2023 immutable methods for clean state management.
 
-5. ESSENTIAL CHECKLIST
+5. PRACTICAL ENTERPRISE USE-CASES & CODE EXAMPLES
 --------------------------------------------------------------------------------
-[✓] Core concept and syntax patterns thoroughly mastered.
-[✓] Interactive Monaco playground code executed with zero runtime exceptions.
-[✓] Understood memory stack vs heap allocation behavior.
-[✓] Completed all 25+ comprehensive domain FAQ questions.
-[✓] Ready for senior software engineer technical interview assessments.
+Example 1: Fundamental Mechanics
+console.log("Fundamental array pattern executed");
+
+Example 2: Data Pipeline & Transformation
+const result = [10, 20, 30].map(x => x * 1.18);
+
+Example 3: Defensive Boundary Validation
+// Defensive validation guards
+
+Example 4: Real-World Enterprise Workflow
+// Enterprise dataset filtering and ranking
+
+Example 5: Senior Pro Pattern
+const employees = [
+  { dept: "IT", salary: 80000, name: "Swadeep" },
+  { dept: "IT", salary: 95000, name: "Tuhina" },
+  { dept: "HR", salary: 70000, name: "Abhronila" }
+];
+employees.sort((a, b) => 
+  a.dept.localeCompare(b.dept) || (b.salary - a.salary) || a.name.localeCompare(b.name)
+);
+console.table(employees);
+
+6. COMPARATIVE SPECIFICATION CHEAT-SHEET
+--------------------------------------------------------------------------------
++----------------------+--------------------+---------------------+--------------------+
+| Feature / Operation  | Syntax / Signature | Return Type / State | Common Gotcha      |
++----------------------+--------------------+---------------------+--------------------+
+| Default sort()       | Converts elements  | Mutates original ar | String arrays (bas |
+| Numeric Comparator (a, b) => a - b | Negative: a before | TimSort hybrid merg | Ascending number s |
+| Stable Sorting       | ES2019 guarantees  | Preserves secondary | Multi-column UI gr |
++----------------------+--------------------+---------------------+--------------------+
+
+7. INTERVIEW & VIVA QUICK-FIRE KNOWLEDGE POINTS
+--------------------------------------------------------------------------------
+Q1: What is the primary role of Sorting Arrays — sort() Algorithm, Comparator Math & Unicode Sort Traps?
+A1: Deconstruct JavaScript array sorting: in-place mutation, the default lexicographical (Unicode) sort trap, custom comparator math, V8 TimSort mechanics, and stable sorting guarantees.
+
+Q2: How does V8 optimize array memory for this operation?
+A2: By maintaining contiguous packed element buffers and using fast C++ native methods.
+
+Q3: What common bug occurs with junior developers?
+A3: Sorting Arrays of Numbers Without a Comparator: Default string coercion places 100 before 25.
+
+Q4: What is the Senior Pro recommended pattern?
+A4: Always Provide an Explicit Numeric Comparator: Use comparator arithmetic or `toSorted()` for clean ordering.
 ================================================================================

@@ -1,13 +1,13 @@
 ================================================================================
 CODER & ACCOTAX - JAVASCRIPT COMPLETE ROADMAP
 MODULE [002_004_arrays-with-objects-advanced]: Advanced Array Pipelines & Object Data Processing
-TOPIC [13]: Advanced Array Pipelines & Object Data Processing – 30 Practical Projects
+TOPIC [14]: Native Object.groupBy() and Map.groupBy() for Relational Pipelines
 Educator: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
 1. CORE CONCEPTS & RULES
 --------------------------------------------------------------------------------
-- Advanced Array Pipelines & Object Data Processing – 30 Practical Projects is a foundational pillar of modern JavaScript application architecture.
+- Native Object.groupBy() and Map.groupBy() for Relational Pipelines is a foundational pillar of modern JavaScript application architecture.
 - Execution is governed by ECMAScript specification rules and V8 engine JIT compilation.
 - Follows the single-threaded event loop concurrency model with microtask priority.
 - Adheres to lexical scoping, strict mode ('use strict') standards, and defensive coding.
@@ -17,10 +17,10 @@ Educator: Sukanta Hui | Barrackpore, West Bengal, India
 // Standard ES6+ JavaScript implementation
 const executeTopicRoutine = (payload = {}) => {
   const timestamp = new Date().toISOString();
-  console.log("[JS-PRO-101] Executing topic: Advanced Array Pipelines & Object Data Processing – 30 Practical Projects");
+  console.log("[JS-PRO-101] Executing topic: Native Object.groupBy() and Map.groupBy() for Relational Pipelines");
   return {
     success: true,
-    topic: "Advanced Array Pipelines & Object Data Processing – 30 Practical Projects",
+    topic: "Native Object.groupBy() and Map.groupBy() for Relational Pipelines",
     timestamp,
     ...payload
   };

@@ -1,0 +1,76 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_009_TRICKY-PROGRAMS-AND-FUNCTION-COMBINATIONS
+Topic 4: HIGH-PERFORMANCE MEMOIZATION ENGINE WITH CUSTOM CACHE RESOLVERS & LRU CACHE EVICTION
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think about a master accountant in Barrackpore who frequently calculates complex GST tax formulas on 50 different invoice types. Instead of spending 10 minutes recalculating the exact same formula for the same product every day, they write the answer on a quick-reference cheat sheet on their desk. When the same question is asked, they answer in 0.001 seconds from the cheat sheet! That is Memoization and LRU Caching.
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Swadeep had an expensive recursive calculation that took 3.5 seconds to compute. When called 10 times with the same inputs, his app froze for 35 seconds! I showed him how to build a generic `memoize(fn, resolver)` utility. On the second call, the result was returned in 0.0001ms from the internal cache. Then we added an LRU (Least Recently Used) cache with a maximum size limit of 100 entries so memory never overflows. Swadeep was amazed at the speed boost.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. What is Memoization?
+An optimization technique that caches the return value of a pure function based on its input arguments, avoiding redundant re-computations.
+
+2. Custom Cache Resolvers:
+Generating cache keys from multi-argument or object inputs using custom serialization (e.g. `JSON.stringify(args)` or a custom key builder).
+
+3. LRU (Least Recently Used) Eviction:
+When the cache reaches its maximum capacity, it automatically evicts the oldest, least recently accessed entry using a `Map` (which maintains key insertion order).
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: LRU Memoization Engine ---
+function memoizeLRU(fn, capacity = 3) {
+  const cache = new Map();
+  
+  return function(...args) {
+    const key = JSON.stringify(args);
+    
+    if (cache.has(key)) {
+      const val = cache.get(key);
+      cache.delete(key);   // Refresh key position
+      cache.set(key, val); // Move to most recently used
+      return val;
+    }
+    
+    const result = fn.apply(this, args);
+    if (cache.size >= capacity) {
+      const oldestKey = cache.keys().next().value;
+      cache.delete(oldestKey); // Evict LRU entry
+    }
+    cache.set(key, result);
+    return result;
+  };
+}
+
+const slowSquare = memoizeLRU(n => { console.log('Computing:', n); return n * n; }, 2);
+console.log(slowSquare(5)); // Computes: 25
+console.log(slowSquare(5)); // Instant cache: 25
+
+Teacher's Note on Example 1:
+The Map tracks key access order and evicts the least recently used item when full.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Memoizing impure functions: Functions that depend on external state (or `Date.now()`) will return stale cached data if memoized. Only memoize pure functions.
+
+[!] Memory leak from unbounded caches: Always set a maximum cache size (like LRU) to prevent infinite memory growth.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Memoization caches pure function outputs for instant lookup.
+• Custom resolvers generate deterministic cache keys for complex arguments.
+• LRU eviction prevents memory bloat by capping cache capacity.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

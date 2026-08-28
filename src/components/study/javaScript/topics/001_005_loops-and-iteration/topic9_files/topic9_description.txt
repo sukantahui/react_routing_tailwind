@@ -1,0 +1,70 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 001_005_LOOPS-AND-ITERATION
+Topic 9: LOOP PERFORMANCE, BREAK/CONTINUE LABELS & INFINITE LOOP GUARDS
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine a manufacturing conveyor belt with safety sensors. If a machine gets jammed, an emergency shutdown switch trips instantly (Infinite Loop Guard) before the engine burns out. And if an inspector notices a batch defect on Tier 2 of a multi-tiered conveyor, a master control switch halts BOTH the outer and inner conveyor belts simultaneously (Labeled Statements)! In JavaScript, labeled control flow gives you ultimate control over nested loops.
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Debangshu was searching for a matching coordinate `(x, y)` inside a nested 2D matrix loop. When he found the match inside the inner loop, writing `break;` only broke the inner loop, and the outer loop kept running for 500 more iterations! I showed him Labeled Break: `matrixSearch: for (...) { for (...) { if (found) break matrixSearch; } }`. The instant the coordinate was found, JavaScript exited both loops cleanly. Debangshu saw how labels save massive CPU cycles in multi-dimensional search.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. Labeled Statements (`labelName:`):
+Allows giving a name to an outer loop so an inner loop can `break labelName;` or `continue labelName;` across multiple nested levels.
+
+2. Infinite Loop Safety Guards:
+When writing dynamic while loops driven by user data, always maintain a maximum iteration safety counter to prevent freezing browser threads.
+
+3. Loop Invariant Optimization:
+Hoist calculations outside loop headers to avoid redundant evaluation on every lap.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Labeled Break in Nested 2D Grid Search ---
+const matrix = [
+  [1, 2, 3],
+  [4, 42, 6], // 42 is our target!
+  [7, 8, 9]
+];
+
+let targetFound = false;
+
+// Labeled outer loop:
+gridSearch: for (let r = 0; r < matrix.length; r++) {
+  for (let c = 0; c < matrix[r].length; c++) {
+    if (matrix[r][c] === 42) {
+      console.log(`Target 42 found at Row ${r}, Col ${c}!`);
+      targetFound = true;
+      break gridSearch; // Exits BOTH loops immediately!
+    }
+  }
+}
+
+console.log('Search completed efficiently.');
+
+Teacher's Note on Example 1:
+Labeled break terminates nested loops simultaneously upon finding the target.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Using goto-style chaotic labels: Use labeled statements strictly for breaking out of nested loops cleanly.
+
+[!] Missing loop increment before continue in while loops: Always increment loop counters before calling continue.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Labeled statements (`label:`) break or continue outer nested loops directly.
+• Safety counters guard against runaway infinite while loops.
+• Essential for 2D matrix search, graph traversals, and game grid algorithms.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

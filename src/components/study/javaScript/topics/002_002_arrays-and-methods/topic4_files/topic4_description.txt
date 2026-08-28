@@ -1,0 +1,64 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_002_ARRAYS-AND-METHODS
+Topic 4: TRANSFORMATION WITH MAP(): 1-TO-1 MAPPING & IMMUTABILITY PATTERNS
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine a currency exchange booth at Kolkata Airport. 10 travelers line up holding US Dollars. The booth officer takes each person's US Dollars and hands back the exact equivalent in Indian Rupees. 10 people enter the line, and exactly 10 people exit with converted money. The line length never changes; every single item is transformed 1-to-1. That is `map()`!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Swadeep had an array of course fees: [3000, 4500, 5000]. He wanted to add 18% GST to each fee. He wrote a for-loop, created a new empty array, and pushed items manually. I showed him `fees.map(f => f * 1.18)`. In one clean line, JavaScript transformed all 3 values and returned a brand new array. Swadeep smiled: 'No index counters, no empty array setup, just pure data transformation!'
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. What is map()?
+A Higher-Order Function that creates a BRAND NEW array populated with the results of calling a provided callback function on every single element in the original array.
+
+2. Key Invariants:
+- Strict 1-to-1 Relationship: If the input array has 5 items, map() ALWAYS returns an array of exactly 5 items.
+- Non-Mutating: Leaves the original array 100% unchanged.
+
+3. Callback Parameters: (element, index, array) => { ... }
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Transforming Prices with 18% GST ---
+const basePrices = [1000, 2500, 4000];
+
+const pricesWithGst = basePrices.map(price => price * 1.18);
+
+console.log('Original prices:', basePrices); // [1000, 2500, 4000]
+console.log('Prices with GST:', pricesWithGst); // [1180, 2950, 4720]
+
+Teacher's Note on Example 1:
+map transforms every number in basePrices into its GST-inclusive value.
+
+--- Example 2: Formatting Student Names ---
+const names = ['swadeep', 'tuhina', 'abhronila'];
+const capitalized = names.map(n => n.charAt(0).toUpperCase() + n.slice(1));
+console.log(capitalized); // ['Swadeep', 'Tuhina', 'Abhronila']
+
+Teacher's Note on Example 2:
+map seamlessly cleans and capitalizes string entries.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Using map when you don't return anything: If you just want to run side effects (like console.log), use forEach. map() expects a returned value.
+
+[!] The parseInt trap: ['1', '2', '3'].map(parseInt) produces [1, NaN, NaN] because map passes (item, index) and parseInt accepts (string, radix)!
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• map() transforms an array into a new array of the exact same length.
+• Always returns a new array; never mutates the original.
+• Use map when each input element corresponds to an output element.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

@@ -1,0 +1,66 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_003_OBJECTS-AND-BASIC-OOP
+Topic 25: SYMBOLS AS UNIQUE OBJECT KEYS & WELL-KNOWN SYMBOLS (SYMBOL.ITERATOR, SYMBOL.TOPRIMITIVE)
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine an exclusive VIP locker room in a club. Standard locker keys are labeled with regular numbers ('101', '102'). But what if the club management wants to attach a hidden tracking chip inside the locker that no regular member can see or accidentally overwrite with a regular key? In JavaScript, Symbols provide non-enumerable, collision-proof keys, and Well-Known Symbols unlock internal engine behaviors!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Swadeep wanted his custom `Classroom` class to work directly inside a `for...of` loop: `for (let student of myClassroom)`. When he tried, JavaScript said `TypeError: myClassroom is not iterable`. I introduced him to the Well-Known Symbol `Symbol.iterator`. We attached a generator method `[Symbol.iterator]() { ... }` to the class. Instantly, `for...of` worked seamlessly. Swadeep realized that Well-Known Symbols allow tapping into JavaScript's deepest internal protocols.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. Symbols as Object Keys:
+- Guaranteed unique: `const id = Symbol('id'); obj[id] = 123;`
+- Hidden from `Object.keys()` and `for...in` (accessible only via `Object.getOwnPropertySymbols()`).
+
+2. Well-Known Symbols (Customizing Engine Protocols):
+- Symbol.iterator: Defines the default iterator for `for...of` and spread `[...]`.
+- Symbol.toPrimitive: Customizes how an object converts to a primitive (number, string, default).
+- Symbol.toStringTag: Customizes `Object.prototype.toString.call(obj)` output.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Making a Custom Object Iterable with Symbol.iterator ---
+const codingBatch = {
+  batchName: 'Barrackpore JS Masterclass',
+  students: ['Swadeep', 'Tuhina', 'Abhronila', 'Debangshu'],
+  
+  // Well-Known Symbol for Iteration Protocol:
+  *[Symbol.iterator]() {
+    for (let student of this.students) {
+      yield student;
+    }
+  }
+};
+
+// Custom object now iterates seamlessly in for...of!
+for (let student of codingBatch) {
+  console.log('Enrolled:', student);
+}
+
+Teacher's Note on Example 1:
+Symbol.iterator enables native for...of iteration on custom objects.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] JSON.stringify ignores Symbols: Symbols as keys or values are omitted by JSON.stringify().
+
+[!] Using `new Symbol()`: Symbol is a primitive factory, not a constructor. Writing `new Symbol()` throws a TypeError.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Symbols prevent property key collisions in libraries and plugins.
+• Well-Known Symbols (`Symbol.iterator`, `Symbol.toPrimitive`) hook into engine protocols.
+• Inspect symbol keys using `Object.getOwnPropertySymbols(obj)`.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

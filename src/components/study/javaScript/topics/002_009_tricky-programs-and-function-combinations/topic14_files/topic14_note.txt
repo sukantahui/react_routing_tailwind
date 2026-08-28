@@ -1,0 +1,126 @@
+================================================================================
+CODER & ACCOTAX - JAVASCRIPT COMPLETE ROADMAP
+MODULE 002_009_TRICKY-PROGRAMS-AND-FUNCTION-COMBINATIONS: TRICKY JAVASCRIPT PROGRAMS, FUNCTION COMBINATIONS & PUZZLES
+TOPIC 14: DEEP OBJECT FLATTENING & DYNAMIC STRING PATH RESOLVER (GET(OBJ, "A.B[0].C") & SET(OBJ, "X.Y.Z", VAL))
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. TOPIC OVERVIEW & DETAILED CONCEPT DISCUSSION
+--------------------------------------------------------------------------------
+- Definition: Build Lodash-style deep path utilities from scratch: getting and setting deeply nested object/array values with string paths and flattening complex graphs into dot notation.
+- Classroom Experience: Abhronila needed to read `order.customer.addresses[0].city` safely without crashing on missing intermediate keys.
+- Solution: Sukanta Hui implemented recursive dot/bracket string tokenizers and safe reducers.
+- Core Invariant: Deep mastery of tricky patterns and function combinations
+  is what differentiates senior software architects from standard developers.
+
+2. IN-DEPTH TECHNICAL KNOW-HOW & ENGINE RUNTIME MECHANICS
+--------------------------------------------------------------------------------
+- Execution Contexts & Closures: Memory allocation in the V8 Heap for long-lived environments.
+- Event Loop & Call Stack Dynamics: Microtasks vs Macrotasks lifecycle timing.
+- Abstract Operations: ToPrimitive, GetValue, and Declarative Environment Lookups.
+- V8 Optimization: Monomorphic call-sites and Ignition bytecode execution.
+
+3. EXCEPTIONS, CORNER CASES, COERCIONS & QUIRKS
+--------------------------------------------------------------------------------
+[!] TypeError / ReferenceError: Pitfalls in dynamic invocation and uninitialized bindings.
+[!] Memory Leaks in Closures: Retaining massive outer scope references indefinitely.
+[!] Asynchronous Race Conditions: Unhandled promise rejections and event collision.
+
+4. 💎 SPECIAL LANGUAGE FEATURES & SENIOR PRO SECRETS
+--------------------------------------------------------------------------------
+- Secret 1: High-Performance Algorithmic Composition
+  // 💎 SENIOR SECRET: Pure JavaScript Deep Get & Set Path Resolver
+function get(obj, path, defaultValue = undefined) {
+  const tokens = path.replace(/\[(\d+)\]/g, ".$1").split(".").filter(Boolean);
+  let current = obj;
+  for (const token of tokens) {
+    if (current === null || current === undefined) return defaultValue;
+    current = current[token];
+  }
+  return current === undefined ? defaultValue : current;
+}
+
+function set(obj, path, value) {
+  const tokens = path.replace(/\[(\d+)\]/g, ".$1").split(".").filter(Boolean);
+  let current = obj;
+  for (let i = 0; i < tokens.length - 1; i++) {
+    const token = tokens[i];
+    const nextIsNum = !isNaN(tokens[i + 1]);
+    if (!(token in current)) current[token] = nextIsNum ? [] : {};
+    current = current[token];
+  }
+  current[tokens[tokens.length - 1]] = value;
+  return obj;
+}
+const data = {};
+set(data, "users[0].profile.city", "Barrackpore");
+console.log("Resolved City:", get(data, "users[0].profile.city")); // "Barrackpore"
+- Secret 2: Clean immutable patterns prevent unintended state mutation across modules.
+- Secret 3: Bounded memory caches eliminate production memory exhaustion.
+
+5. PRACTICAL ENTERPRISE USE-CASES & CODE EXAMPLES
+--------------------------------------------------------------------------------
+Example 1: Fundamental Pattern
+console.log("Core algorithm executed");
+
+Example 2: Data Pipeline & Transformation
+const transformed = [1, 2, 3].map(x => x * 10);
+
+Example 3: Defensive Validation Guard
+// Defensive state validation
+
+Example 4: Enterprise Real-World Application
+// Production service monitoring
+
+Example 5: Senior Pro Pattern
+// 💎 SENIOR SECRET: Pure JavaScript Deep Get & Set Path Resolver
+function get(obj, path, defaultValue = undefined) {
+  const tokens = path.replace(/\[(\d+)\]/g, ".$1").split(".").filter(Boolean);
+  let current = obj;
+  for (const token of tokens) {
+    if (current === null || current === undefined) return defaultValue;
+    current = current[token];
+  }
+  return current === undefined ? defaultValue : current;
+}
+
+function set(obj, path, value) {
+  const tokens = path.replace(/\[(\d+)\]/g, ".$1").split(".").filter(Boolean);
+  let current = obj;
+  for (let i = 0; i < tokens.length - 1; i++) {
+    const token = tokens[i];
+    const nextIsNum = !isNaN(tokens[i + 1]);
+    if (!(token in current)) current[token] = nextIsNum ? [] : {};
+    current = current[token];
+  }
+  current[tokens[tokens.length - 1]] = value;
+  return obj;
+}
+const data = {};
+set(data, "users[0].profile.city", "Barrackpore");
+console.log("Resolved City:", get(data, "users[0].profile.city")); // "Barrackpore"
+
+6. COMPARATIVE SPECIFICATION CHEAT-SHEET
+--------------------------------------------------------------------------------
++----------------------+--------------------+---------------------+--------------------+
+| Feature / Operation  | Syntax / Signature | Return Type / State | Common Gotcha      |
++----------------------+--------------------+---------------------+--------------------+
+| Core Implementation  | fn(...args)        | Evaluated Value     | Context Detachment |
+| Async Transformation | async (...args)    | Promise<Result>     | Uncaught Rejection |
+| Memory Management    | WeakMap / Map      | Cached Lookup       | Memory Leak        |
++----------------------+--------------------+---------------------+--------------------+
+
+7. INTERVIEW & VIVA QUICK-FIRE KNOWLEDGE POINTS
+--------------------------------------------------------------------------------
+Q1: What is the primary purpose of Deep Object Flattening & Dynamic String Path Resolver (get(obj, "a.b[0].c") & set(obj, "x.y.z", val))?
+A1: Build Lodash-style deep path utilities from scratch: getting and setting deeply nested object/array values with string paths and flattening complex graphs into dot notation.
+
+Q2: How does the V8 engine execute this algorithm under the hood?
+A2: It allocates execution contexts and resolves bindings via Lexical Environment Records.
+
+Q3: What common bug occurs during implementation?
+A3: Unintended context loss or stack frame exhaustion when base cases or bounds are missed.
+
+Q4: What is the Senior Pro recommendation?
+A4: Use pure functions, explicit binding, and defensive guard clauses.
+================================================================================

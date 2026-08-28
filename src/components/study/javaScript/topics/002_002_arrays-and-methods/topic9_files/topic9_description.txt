@@ -1,0 +1,64 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_002_ARRAYS-AND-METHODS
+Topic 9: SORTING MECHANICS: SORT(), TOSORTED(), AND COMPAREFN
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine lining up students by height for morning assembly. If you sort them alphabetically by their name tags, you get alphabetical order. But if you try to sort their ages alphabetically, the string '100' comes BEFORE '25' because '1' comes before '2' in the dictionary! To sort numbers correctly in JavaScript, you MUST give the sorting officer a Numeric Comparison Rule!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Swadeep had student scores: [100, 25, 5, 80]. He called `scores.sort()` expecting `[5, 25, 80, 100]`. Instead, JavaScript gave him `[100, 25, 5, 80]`! He cried: 'Sir! Why is 100 smaller than 25?' I explained that by default, `sort()` converts all values into strings and sorts lexicographically by UTF-16 character codes. I wrote the numeric compare function on the board: `scores.sort((a, b) => a - b)`. Instantly, numbers sorted in perfect ascending order.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. Default sort() Behavior:
+- Converts elements to strings and compares UTF-16 code units (causing 100 < 25).
+- MUTATES the original array in place!
+
+2. The Comparator Function (a, b) => ...:
+- If return value < 0: 'a' comes before 'b'.
+- If return value > 0: 'b' comes before 'a'.
+- If return value === 0: Order unchanged.
+- Ascending numbers: `(a, b) => a - b`
+- Descending numbers: `(a, b) => b - a`
+
+3. Modern Non-Mutating toSorted() (ES2023):
+`arr.toSorted((a, b) => a - b)` returns a brand new sorted array without mutating the original.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Sorting Numbers Correctly ---
+const scores = [100, 25, 5, 80, 42];
+
+// Ascending sort (small to large):
+const ascending = scores.toSorted((a, b) => a - b);
+console.log('Ascending:', ascending); // [5, 25, 42, 80, 100]
+
+// Descending sort (large to small):
+const descending = scores.toSorted((a, b) => b - a);
+console.log('Descending:', descending); // [100, 80, 42, 25, 5]
+
+Teacher's Note on Example 1:
+The comparator (a, b) => a - b guarantees mathematically accurate numeric sorting.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Calling sort() without a compare function on numbers: Always pass (a, b) => a - b when sorting numbers.
+
+[!] Forgetting that sort() mutates: Use modern .toSorted() or [...arr].sort() to avoid mutating original datasets.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Default sort() sorts lexicographically as strings and mutates the array.
+• Use (a, b) => a - b for ascending numeric sort and (a, b) => b - a for descending.
+• Use ES2023 toSorted() for safe, non-mutating sorting.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

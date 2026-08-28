@@ -1,0 +1,67 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_003_OBJECTS-AND-BASIC-OOP
+Topic 14: PROTOTYPAL INHERITANCE: ADDING SHARED METHODS & MEMORY EFFICIENCY
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine an apartment building with 100 flats in Barrackpore. Instead of buying 100 separate swimming pools (one for every individual flat, which would waste massive space and money), the building has ONE shared swimming pool on the rooftop that all 100 flat owners share. In JavaScript, attaching methods to `.prototype` stores ONE copy of the method in memory that 10,000 instances share effortlessly!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Abhronila created 10,000 student objects using a constructor that defined `this.calculateRank = function() { ... }` inside the constructor body. Her browser consumed 120MB of RAM because JavaScript created 10,000 duplicate copies of the exact same function in memory! I moved the method to `Student.prototype.calculateRank = function() { ... }`. Memory consumption dropped from 120MB down to 2MB! Abhronila saw the massive memory efficiency of prototypal method sharing.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. Why Attach Methods to `.prototype`:
+- Methods inside constructor body: Copied into EVERY instance (Wastes RAM).
+- Methods on `.prototype`: Stored ONCE in memory; all instances inherit access via the prototype chain (O(1) memory footprint).
+
+2. Syntax:
+```js
+function Student(name) { this.name = name; }
+Student.prototype.greet = function() { return `Hello, ${this.name}`; };
+```
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Shared Prototype Methods for Memory Efficiency ---
+function CourseStudent(name, course) {
+  this.name = name;
+  this.course = course;
+}
+
+// Shared method on prototype (Stored only ONCE in memory!):
+CourseStudent.prototype.printCertificate = function() {
+  return `[Certificate] ${this.name} successfully mastered ${this.course}!`;
+};
+
+const s1 = new CourseStudent('Swadeep', 'JavaScript');
+const s2 = new CourseStudent('Tuhina', 'React');
+
+console.log(s1.printCertificate());
+console.log(s2.printCertificate());
+console.log('Do they share the exact same function reference?', s1.printCertificate === s2.printCertificate); // true!
+
+Teacher's Note on Example 1:
+Prototype methods are shared across all instances, saving substantial memory.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Using arrow functions on `.prototype`: Arrow functions inherit outer `this` (global window), breaking `this.name` inside prototype methods! Always use standard `function()` syntax on prototypes.
+
+[!] Reassigning prototype completely after creating instances: `Student.prototype = { ... }` breaks the chain for already created instances.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Attach methods to `Constructor.prototype` for O(1) shared memory efficiency.
+• All instances share identical function references (`s1.fn === s2.fn`).
+• Always use standard functions (never arrow functions) on prototype methods.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

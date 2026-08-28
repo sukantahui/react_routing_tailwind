@@ -1,0 +1,61 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 001_003_OPERATORS-AND-EXPRESSIONS
+Topic 7: UNARY OPERATORS (+, -, !, ~, TYPEOF, VOID, DELETE) & COERCION MECHANICS
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+In grammar, some verbs need both a subject and an object ('Swadeep threw the ball' - binary). But some words act on just a single subject ('Swadeep smiled' - unary). In JavaScript, Unary Operators are single-target tools that act directly on a single operand to convert, negate, or inspect it.
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Swadeep received a form input as a string: let input = "450";. He wanted to convert it into a number to calculate tax. He was about to write a long conversion function. I showed him the Unary Plus operator: let num = +input;. Instantly, num became the number 450! Swadeep laughed: 'Just a single plus sign did the whole conversion?' We then explored unary minus, typeof, and !. The class saw how unary operators are powerful shorthand tools.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. What is a Unary Operator?
+An operator that takes exactly one operand.
+
+2. Essential Unary Operators:
+- Unary Plus (+): Converts the operand into a Number (e.g. +"42" -> 42).
+- Unary Negation (-): Converts to number and negates the sign (e.g. -5 -> -5).
+- Logical NOT (!): Inverts truthiness into a boolean.
+- Bitwise NOT (~): Inverts bitwise representation (~x equals -(x + 1)).
+- typeof: Returns the string type of the operand.
+- void: Evaluates expression and returns undefined (e.g. void 0).
+- delete: Removes a property from an object.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Fast Number Conversion with Unary Plus ---
+let textScore = "98";
+let numericScore = +textScore;
+
+console.log("Value:", numericScore, "Type:", typeof numericScore); // 98 "number"
+console.log(+"");      // 0
+console.log(+true);    // 1
+console.log(+false);   // 0
+console.log(+"apple"); // NaN
+
+Teacher's Note on Example 1:
+Unary + is the most concise way in JavaScript to coerce a string into a number.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Unary + on invalid strings returns NaN: +"hello" results in NaN (Not a Number). Always verify with Number.isNaN().
+
+[!] Using delete on regular variables: delete variableName does nothing in strict mode; delete is only for object properties.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Unary operators take a single operand.
+• Unary + is a fast, idiomatic way to convert strings to numbers.
+• typeof inspects types; ! converts to inverted boolean.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Never rush through the basics. When your foundation is solid, building complex
+applications becomes as effortless as speaking your native language. Keep practicing!"
+================================================================================

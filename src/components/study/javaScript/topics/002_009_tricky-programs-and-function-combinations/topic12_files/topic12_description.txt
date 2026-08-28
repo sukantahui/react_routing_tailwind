@@ -1,0 +1,76 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_009_TRICKY-PROGRAMS-AND-FUNCTION-COMBINATIONS
+Topic 12: PARTIAL APPLICATION WITH PLACEHOLDER ARGUMENTS (PARTIAL(FN, _, 'ARG2', _))
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine a template form letter with blank underlines `_`: 'Dear _, Your course fee of ₹_ is due on _'. You don't have to fill in all 3 blanks at the same time. You can pre-fill the fee (Blank #2) and leave Blanks #1 and #3 open to be filled in later when the student arrives. In JavaScript, Partial Application with Placeholder Arguments lets you pre-fill ANY parameter position while leaving placeholders for dynamic arguments!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Swadeep had a function: `function sendEmail(to, subject, body)`. He wanted to pre-fill `subject` as `'Lab Update'`, but still allow passing `to` and `body` dynamically. Standard partial application only fixes arguments from left to right. I showed him how to use a Placeholder token `_ = Symbol('placeholder')`. Now he could write `const sendUpdate = partial(sendEmail, _, 'Lab Update', _)`. Swadeep was amazed at how flexible placeholder argument injection is.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. What is Placeholder Partial Application?
+A functional helper that pre-fills specific argument slots while using a special placeholder symbol `_` to represent slots that will be supplied by future invocations.
+
+2. The Placeholder Algorithm:
+- When invoked, loop through the pre-configured argument list.
+- If a slot is the placeholder symbol `_`, consume the next available argument from the current call.
+- Append any leftover current arguments to the end.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Partial Application with Placeholder Symbol ---
+const _ = Symbol('placeholder');
+
+function partial(fn, ...presetArgs) {
+  return function(...dynamicArgs) {
+    let dynamicIndex = 0;
+    const finalArgs = presetArgs.map(arg => {
+      if (arg === _) {
+        return dynamicArgs[dynamicIndex++];
+      }
+      return arg;
+    });
+    // Append any extra remaining arguments:
+    while (dynamicIndex < dynamicArgs.length) {
+      finalArgs.push(dynamicArgs[dynamicIndex++]);
+    }
+    return fn.apply(this, finalArgs);
+  };
+}
+
+function createReceipt(studentName, course, discount) {
+  return `Receipt: ${studentName} | ${course} | ₹${discount} Off`;
+}
+
+// Pre-fix course as 'JavaScript Pro' while leaving studentName and discount dynamic:
+const jsReceipt = partial(createReceipt, _, 'JavaScript Pro', _);
+console.log(jsReceipt('Swadeep', 500));
+console.log(jsReceipt('Tuhina', 1000));
+
+Teacher's Note on Example 1:
+Placeholder symbols enable flexible argument pinning at arbitrary parameter indices.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Running out of dynamic arguments: If fewer dynamic arguments are supplied than placeholders, remaining placeholders pass `undefined` to the original function.
+
+[!] Symbol equality mismatch: Ensure the same unique `_` symbol is shared across the application.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Partial application pre-fixes some arguments to create specialized functions.
+• Placeholders (`_`) allow skipping arguments and filling middle/last slots flexibly.
+• A core pattern found in high-level functional libraries like Lodash and Ramda.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

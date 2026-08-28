@@ -1,0 +1,70 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 001_005_LOOPS-AND-ITERATION
+Topic 3: LOOP CONTROL STATEMENTS: BREAK VS CONTINUE VS LABELED STATEMENTS (LABEL:)
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine you are inspecting a crate of 50 mangoes. If you pick up a slightly unripened mango, you set it aside and SKIP to the next mango (that is 'continue'). But if you find a rotten mango that has contaminated the box, you STOP inspecting immediately and close the crate (that is 'break')!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Debangshu was searching for a specific student roll number (Roll 42) in a loop of 10,000 numbers. Once he found Roll 42 on the 5th iteration, his loop kept checking the remaining 9,995 numbers uselessly! I showed him the break; statement. The instant Roll 42 was found, break exited the loop immediately, saving massive CPU cycles. Then we explored continue to skip odd numbers and print only evens.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. The break Statement:
+Immediately terminates the loop and jumps execution to the statement following the loop.
+
+2. The continue Statement:
+Skips the REST of the current lap and jumps immediately to the next iteration (updating the counter).
+
+3. Labeled Statements (label:):
+When you have nested loops (a loop inside a loop), standard break only exits the inner loop. A Label gives the outer loop a name so you can break out of BOTH loops simultaneously:
+outerLoop: for (...) {
+  for (...) {
+    if (...) break outerLoop;
+  }
+}
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Using break for Search and continue for Filtering ---
+console.log("=== Printing Even Numbers between 1 and 10 ===");
+for (let i = 1; i <= 10; i++) {
+  // If odd number, skip to next iteration:
+  if (i % 2 !== 0) {
+    continue;
+  }
+  
+  console.log("Even Number:", i);
+  
+  // Stop early if we reach 8:
+  if (i === 8) {
+    console.log("Target 8 reached! Breaking early.");
+    break;
+  }
+}
+
+Teacher's Note on Example 1:
+continue skips odd numbers; break stops the entire loop upon reaching 8.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Using continue in a while loop without updating the counter: If you write 'continue' before i++, you create an infinite loop because i never increments!
+
+[!] Overusing labeled statements: Labels should be used sparingly when exiting deeply nested loops.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• break exits the loop immediately.
+• continue skips the remainder of the current lap and proceeds to the next.
+• Labeled statements allow breaking out of outer nested loops.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Never rush through the basics. When your foundation is solid, building complex
+applications becomes as effortless as speaking your native language. Keep practicing!"
+================================================================================

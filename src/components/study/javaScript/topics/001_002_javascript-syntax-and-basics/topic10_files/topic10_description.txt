@@ -1,0 +1,57 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 001_002_JAVASCRIPT-SYNTAX-AND-BASICS
+Topic 10: OBJECT.IS() VS STRICT (===) AND LOOSE (==) EQUALITY
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine a scientist with an ultra-precise electronic microscope. Standard strict equality (`===`) is very accurate, but it has two famous blind spots: it treats `NaN === NaN` as `false`, and treats `+0 === -0` as `true`. `Object.is()` is the ultimate precision microscope that fixes both blind spots with 100% mathematical perfection!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Debangshu was building a state comparison function in our lab. He checked `NaN === NaN` and got `false`, which broke his change detection. I introduced `Object.is(NaN, NaN)` which correctly returned `true`. Then I showed him `Object.is(+0, -0)` which returned `false`. Debangshu realized that `Object.is()` (SameValue equality) is the exact comparison algorithm used under the hood by modern state libraries like React `Object.is`.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. The 3 Equality Types in JavaScript:
+- Loose Equality (`==`): Performs type coercion before comparing (Avoid!).
+- Strict Equality (`===`): Compares value and type without coercion (Standard).
+- SameValue Equality (`Object.is(a, b)`): Strict comparison with two crucial fixes:
+  * `Object.is(NaN, NaN)` is `true` (whereas `NaN === NaN` is `false`).
+  * `Object.is(+0, -0)` is `false` (whereas `+0 === -0` is `true`).
+
+2. When to Use Object.is():
+- React-style state change detection.
+- Financial and scientific algorithms requiring distinct -0 vs +0 polarity.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Comparing == vs === vs Object.is ---
+console.log('NaN === NaN :', NaN === NaN);         // false (Strict quirk)
+console.log('Object.is(NaN, NaN):', Object.is(NaN, NaN)); // true! (Fixed)
+
+console.log('+0 === -0 :', +0 === -0);             // true
+console.log('Object.is(+0, -0):', Object.is(+0, -0)); // false! (Distinguishes signs)
+
+Teacher's Note on Example 1:
+Object.is provides mathematically exact equality without strict comparison quirks.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Using Object.is for object contents: `Object.is({}, {})` is still false because objects are compared by reference.
+
+[!] Replacing all === with Object.is unnecessarily: Use `===` for everyday code; reserve `Object.is` for state change diffing.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• `Object.is()` fixes `NaN` and `+0 / -0` equality quirks.
+• Core comparison algorithm used in React's `useMemo`, `useEffect`, and state diffing.
+• Use `===` for general application code and `Object.is` for precise state comparisons.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

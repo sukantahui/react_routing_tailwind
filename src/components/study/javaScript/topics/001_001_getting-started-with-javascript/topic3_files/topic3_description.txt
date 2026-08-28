@@ -1,0 +1,62 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 001_001_GETTING-STARTED-WITH-JAVASCRIPT
+Topic 3: DEVELOPER SETUP: MODERN VS CODE, CHROME DEVTOOLS CONSOLE, NODE.JS & NPM TOOLCHAINS
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+A master carpenter never starts carving wood with blunt tools or bare hands; they have a dedicated workbench, sharp chisels, measuring tape, and safety gear. As a software developer, your text editor (VS Code), browser console (DevTools), and runtime engine (Node.js) are your digital workbench.
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Debangshu arrived at the lab with default Windows Notepad trying to write JavaScript. When he had a missing bracket, Notepad didn't highlight the error, and he spent 45 minutes searching for a typo. I sat with him, helped him install VS Code, enabled syntax highlighting and the Prettier extension, and opened the Chrome DevTools Console side by side. His eyes lit up when VS Code instantly underlined a syntax error in red before he even ran the code!
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. Visual Studio Code (VS Code):
+The industry-standard code editor. Essential extensions for JavaScript beginners:
+- Prettier - Code Formatter (automatically formats code on save)
+- ESLint (catches syntax and logic mistakes early)
+- Live Server (automatically refreshes your browser when you save HTML/JS files)
+
+2. Chrome DevTools Console:
+Your immediate testing ground inside the browser:
+- Press F12 (or Right-Click -> Inspect -> Click 'Console').
+- You can type single lines of JavaScript and press Enter to see instant results.
+- Errors appear in red with exact line numbers pointing to the problem.
+
+3. Node.js and npm:
+- Node.js lets you run JavaScript files outside the browser via your terminal (node filename.js).
+- npm (Node Package Manager) allows you to install helpful tools and libraries created by other developers worldwide.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Running JavaScript in Node.js via Terminal ---
+// Save this in a file named test.js:
+console.log("Running directly via Node.js runtime!");
+
+// In your terminal, run:
+// node test.js
+
+Teacher's Note on Example 1:
+Node.js runs the file directly from top to bottom and prints the output in your terminal window.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Writing code without checking the console: Always keep DevTools open so you catch errors the moment they happen.
+
+[!] Ignoring red squiggly lines in VS Code: VS Code underlines syntax errors in red before you even run your program.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• VS Code provides syntax highlighting, auto-completion, and instant error detection.
+• Chrome DevTools Console is your interactive live feedback environment.
+• Node.js runs JavaScript on your local machine outside the web browser.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Never rush through the basics. When your foundation is solid, building complex
+applications becomes as effortless as speaking your native language. Keep practicing!"
+================================================================================

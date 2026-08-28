@@ -1,0 +1,60 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_002_ARRAYS-AND-METHODS
+Topic 10: ARRAY VALIDATION & PREDICATES: SOME(), EVERY()
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think about an airport security check. If EVERY single passenger in a tour group has a valid passport, the whole group can board (that is `every()`). But if EVEN ONE passenger is carrying a prohibited item, the security alarm rings immediately (that is `some()`). In JavaScript, `some()` and `every()` test boolean conditions across entire datasets with short-circuit efficiency!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Tuhina was building an eligibility check for our Barrackpore scholarship batch. She had to verify that EVERY student scored at least 60 marks, and check if ANY student scored 100 marks. I showed her `marks.every(m => m >= 60)` and `marks.some(m => m === 100)`. She saw how both methods stop evaluating the instant the final boolean answer is certain (Short-Circuiting).
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. arr.every(predicateFn):
+- Returns `true` if EVERY element satisfies the predicate.
+- Short-circuits: Returns `false` the instant it finds the first falsy element.
+- Vacuous Truth: Calling `[].every(...)` on an empty array ALWAYS returns `true`!
+
+2. arr.some(predicateFn):
+- Returns `true` if AT LEAST ONE element satisfies the predicate.
+- Short-circuits: Returns `true` the instant it finds the first truthy element.
+- Calling `[].some(...)` on an empty array ALWAYS returns `false`.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Testing Class Attendance and Top Scores ---
+const studentAges = [21, 19, 24, 17, 22];
+
+// Check if all students are adults (>= 18):
+const allAdults = studentAges.every(age => age >= 18);
+console.log('Is everyone adult?', allAdults); // false (because of 17)
+
+// Check if at least one student is underage (< 18):
+const hasMinor = studentAges.some(age => age < 18);
+console.log('Any minor student?', hasMinor); // true
+
+Teacher's Note on Example 1:
+every checks for unanimous agreement; some checks for at least one match.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] The empty array trap with every(): [].every(x => false) returns true! Remember vacuous truth in mathematical logic.
+
+[!] Using every when you meant some: every requires 100% compliance; some requires at least one match.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• every() returns true only if all elements pass the test.
+• some() returns true if any single element passes the test.
+• Both methods short-circuit early to save CPU cycles.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

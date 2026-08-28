@@ -1,0 +1,67 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 001_003_OPERATORS-AND-EXPRESSIONS
+Topic 6: BITWISE OPERATORS (&, |, ^, ~, <<, >>, >>>): BINARY FLAGS & FAST MATH
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think of an electrical control panel with 8 light switches on the wall. Instead of carrying 8 separate clipboards to check which lights are ON or OFF, you can represent the state of all 8 lights in a single single-byte binary number like 10100101. Bitwise operators let you manipulate individual binary bits directly at the CPU level.
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Tuhina asked: 'Sir, how do permission systems in operating systems check Read, Write, and Execute permissions in a fraction of a nanosecond?' I drew the 8-bit binary register on the board: Read = 4 (0100), Write = 2 (0010), Execute = 1 (0001). I showed her how permission = READ | WRITE combines permissions, and (permission & WRITE) !== 0 tests for write permission with a single CPU instruction. Abhronila and Debangshu tested bitwise shifts (5 << 1 = 10, multiplying by 2 instantly).
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. How Bitwise Operators Work:
+JavaScript converts numbers to 32-bit signed integers, performs the bit-level operation, and returns a standard number.
+
+2. Core Bitwise Operators:
+- Bitwise AND (&): 1 if both bits are 1.
+- Bitwise OR (|): 1 if either bit is 1.
+- Bitwise XOR (^): 1 if bits are different.
+- Bitwise NOT (~): Inverts all bits.
+- Left Shift (<<): Shifts bits left (multiplies by powers of 2).
+- Sign-Propagating Right Shift (>>): Shifts bits right (divides by 2).
+- Zero-Fill Right Shift (>>>): Shifts right filling with zeros.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Permission Flag System with Bitwise Operators ---
+const READ = 1;    // 0001
+const WRITE = 2;   // 0010
+const EXECUTE = 4; // 0100
+
+// Assign Read + Write permission:
+let userPermission = READ | WRITE; // 3 (0011)
+
+// Check if user has WRITE permission:
+let canWrite = (userPermission & WRITE) !== 0;
+console.log("Can write?", canWrite); // true
+
+// Check if user has EXECUTE permission:
+let canExec = (userPermission & EXECUTE) !== 0;
+console.log("Can execute?", canExec); // false
+
+Teacher's Note on Example 1:
+Bitwise masks allow storing and checking multiple boolean flags in a single compact integer.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Using bitwise operators on BigInt or floats: Bitwise operators truncate decimal parts, converting numbers to 32-bit integers.
+
+[!] Confusing & with &&: & is bitwise AND; && is logical short-circuit AND.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Bitwise operators operate directly on 32-bit binary representations.
+• Used for high-speed permission masks, graphics, and performance optimization.
+• Bitwise left shift (<< 1) quickly doubles an integer; right shift (>> 1) halves it.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Never rush through the basics. When your foundation is solid, building complex
+applications becomes as effortless as speaking your native language. Keep practicing!"
+================================================================================

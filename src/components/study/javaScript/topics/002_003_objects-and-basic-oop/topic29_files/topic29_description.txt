@@ -1,0 +1,71 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_003_OBJECTS-AND-BASIC-OOP
+Topic 29: JSON SERIALIZATION: JSON.STRINGIFY() WITH REPLACERS & JSON.PARSE() WITH REVIVERS
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think about sending a physical bicycle through the mail. You cannot put an assembled bicycle into a standard envelope. You must disassemble the bicycle into a flat kit with numbered assembly instructions (Serialization: `JSON.stringify()`), mail the flat kit across the country, and when the recipient opens the envelope, they follow the instructions to reassemble the bicycle (Deserialization: `JSON.parse()`).
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Swadeep had a student object with a `Date` property: `enrollDate: new Date()`. When he serialized it to JSON and parsed it back, `enrollDate` turned into a plain string and `student.enrollDate.getFullYear()` crashed with a TypeError! I showed him the `reviver` function in `JSON.parse(text, (key, value) => key === 'enrollDate' ? new Date(value) : value)`. Swadeep saw how replacers and revivers provide full control over serialization.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. JSON.stringify(value, replacer, space):
+Converts JavaScript objects into standard JSON strings.
+- `replacer`: An array of allowed keys or a filter function `(key, val) => ...`.
+- `space`: Number of indentation spaces for pretty-printing (e.g. `2` or `4`).
+
+2. JSON.parse(text, reviver):
+Parses a JSON string back into a JavaScript object.
+- `reviver`: Transformation function `(key, val) => ...` to revive Dates, BigInts, or custom classes.
+
+3. JSON Limitations:
+JSON cannot natively serialize Functions, `undefined`, `Symbol`, or Circular References.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: JSON Pretty Printing, Filtering Replacer & Date Reviver ---
+const studentRecord = {
+  id: 101,
+  name: 'Swadeep',
+  secretPin: '4091',
+  joinedAt: new Date()
+};
+
+// 1. Stringify with whitelist replacer (hide secretPin) & 2-space indentation:
+const jsonStr = JSON.stringify(studentRecord, ['id', 'name', 'joinedAt'], 2);
+console.log('Pretty JSON:\n' + jsonStr);
+
+// 2. Parse back with reviver to reconstruct Date object:
+const parsed = JSON.parse(jsonStr, (key, value) => {
+  if (key === 'joinedAt') return new Date(value);
+  return value;
+});
+
+console.log('Revived Year:', parsed.joinedAt.getFullYear());
+
+Teacher's Note on Example 1:
+Replacers and revivers enable custom filtering and accurate type reconstruction.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Circular JSON reference error: `const a = {}; a.self = a; JSON.stringify(a);` throws TypeError: Converting circular structure to JSON.
+
+[!] Losing undefined and functions: Properties with `undefined` or function values are silently omitted by `JSON.stringify()`.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• `JSON.stringify()` converts objects to JSON strings with replacer and indentation options.
+• `JSON.parse()` parses JSON strings with revivers for restoring complex types.
+• Universal data interchange format for REST APIs and file storage.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

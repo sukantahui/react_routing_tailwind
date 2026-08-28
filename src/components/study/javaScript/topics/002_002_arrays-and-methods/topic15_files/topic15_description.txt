@@ -1,0 +1,69 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_002_ARRAYS-AND-METHODS
+Topic 15: ARRAY TRANSFORMATION ALGORITHMS & QUESTION LAB
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+A master chess player doesn't just memorize the rules for how rooks and knights move; they calculate combinations, anticipate opponent moves, and construct checkmates. In this capstone topic for Arrays and Methods, we assemble map, filter, reduce, sort, flat, and slicing to solve 20 practical real-world data processing algorithms!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+During our Saturday lab session at Barrackpore, our 4 students took on 20 data engineering problems: Swadeep built a Top-N Leaderboard Ranker and Group-By Aggregator; Tuhina engineered a Cart Checkout Pipeline with discounts and taxes; Abhronila built a Duplicate Remover and Frequency Counter; and Debangshu built a Chunky Array Paginator. Every student gained deep algorithmic confidence.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. The 5 Core Array Algorithmic Patterns:
+1. Pipeline Transformation: arr.filter(...).map(...).reduce(...)
+2. Grouping & Frequency Counting: Using reduce to tally categories into objects
+3. De-duplication: Array.from(new Set(arr)) or arr.filter
+4. Chunking / Pagination: Slicing arrays into pages of size N
+5. Flattening & Matrix Transposition: flatMap and nested coordinate reductions
+
+2. Real-World Applications Covered in the 20 Projects:
+1. E-Commerce Cart Price & GST Aggregator
+2. Frequency Counter / Histogram Generator
+3. Array De-duplication (Primitives & Objects)
+4. Paginated Data Slicer (Page 1, 2, 3...)
+5. Top-K Elements Leaderboard
+6. Array Chunking Algorithm
+7. Student Grade Categorizer
+8. Matrix Transposition
+9. Intersection & Difference of Datasets
+10. Multi-Field Sorting Pipeline
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Complete Pipeline: Top 3 Passing Scores with GST Calculation ---
+const rawScores = [35, 88, 92, 45, 28, 76, 95, 82];
+
+// Pipeline: Filter passing (>=40) -> Sort descending -> Take top 3
+const top3Passing = rawScores
+  .filter(score => score >= 40)
+  .toSorted((a, b) => b - a)
+  .slice(0, 3);
+
+console.log('Top 3 Passing Scores:', top3Passing); // [95, 92, 88]
+
+Teacher's Note on Example 1:
+Chaining filter, toSorted, and slice creates a clean, declarative data pipeline.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Over-chaining array methods on huge datasets: Chaining 5 maps and filters creates 5 intermediate arrays. Combine them inside reduce() for huge data.
+
+[!] Mutating original arrays in pipelines: Always use non-mutating methods (toSorted, slice, filter, map).
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Combine map, filter, reduce, and sort to build powerful data pipelines.
+• Declarative array pipelines make business logic readable and self-documenting.
+• Completing Module 002_002 establishes complete mastery over JavaScript arrays!
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

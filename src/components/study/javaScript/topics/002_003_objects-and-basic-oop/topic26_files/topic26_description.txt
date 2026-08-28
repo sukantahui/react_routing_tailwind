@@ -1,0 +1,73 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_003_OBJECTS-AND-BASIC-OOP
+Topic 26: METAPROGRAMMING WITH PROXY & REFLECT: INTERCEPTING GET, SET, APPLY & CONSTRUCT
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine hiring an executive personal bodyguard who stands in front of you. Whenever someone tries to hand you a letter (Setting a property) or ask you a question (Getting a property), the bodyguard intercepts the interaction first, verifies credentials, logs the event, and only then decides whether to let the message reach you. That is a JavaScript Proxy!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Abhronila wanted to build an automatic audit log where whenever any property of a student object was modified, it automatically printed a timestamped log to the console and validated that marks were >= 0. I showed her `new Proxy(target, { get(target, prop) { ... }, set(target, prop, value) { ... } })`. When she ran it, every property change was intercepted cleanly. Abhronila saw the foundation of modern reactive frameworks like Vue 3 and MobX.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. What is a Proxy?
+An object that wraps another target object and intercepts fundamental operations (property lookup, assignment, enumeration, function invocation) using 'Traps'.
+
+2. The Traps Architecture:
+- `get(target, prop, receiver)`: Intercepts reading properties.
+- `set(target, prop, val, receiver)`: Intercepts writing properties.
+- `has(target, prop)`: Intercepts the `in` operator.
+- `deleteProperty(target, prop)`: Intercepts `delete`.
+- `apply(target, thisArg, args)`: Intercepts function calls.
+
+3. The Reflect API:
+A built-in global object that provides methods for interceptable JavaScript operations, mirroring proxy traps with matching signatures (e.g. `Reflect.set(target, prop, val)`).
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Dynamic Validation and Auditing with Proxy & Reflect ---
+const student = { name: 'Swadeep', marks: 85 };
+
+const auditedStudent = new Proxy(student, {
+  get(target, prop) {
+    console.log(`[ACCESS LOG] Reading property: ${String(prop)}`);
+    return Reflect.get(target, prop);
+  },
+  set(target, prop, value) {
+    if (prop === 'marks' && (value < 0 || value > 100)) {
+      throw new RangeError('Marks must be between 0 and 100!');
+    }
+    console.log(`[AUDIT LOG] Setting ${String(prop)} = ${value}`);
+    return Reflect.set(target, prop, value);
+  }
+});
+
+console.log(auditedStudent.name);
+auditedStudent.marks = 95;
+// auditedStudent.marks = 150; // Throws RangeError!
+
+Teacher's Note on Example 1:
+Proxies intercept low-level operations for reactivity, logging, and validation.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Forgetting to return a boolean from set trap: The `set` trap MUST return `true` to signal success in strict mode; returning false or undefined throws a TypeError.
+
+[!] Proxy identity comparison: `proxy === target` is `false` because the proxy is a wrapper object.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Proxy wraps objects to intercept and customize low-level engine operations.
+• Reflect provides standardized counterparts for forwarding trapped calls.
+• The underlying engine behind modern reactivity (Vue 3, MobX, validation layers).
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

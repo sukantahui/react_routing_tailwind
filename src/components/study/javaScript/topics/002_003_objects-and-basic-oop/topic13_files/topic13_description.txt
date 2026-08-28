@@ -1,0 +1,68 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_003_OBJECTS-AND-BASIC-OOP
+Topic 13: THE PROTOTYPE CHAIN: PROTOTYPE, __PROTO__, OBJECT.PROTOTYPE & PROTOTYPE LOOKUP
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think about genetic biological inheritance. You inherited your eye color and height from your parents; your parents inherited their traits from your grandparents; and all humans trace their ancestry back to a common origin. In JavaScript, when you ask an object for a property it doesn't have, it looks at its parent (`__proto__`), then its grandparent, all the way up to `Object.prototype` (the Adam and Eve of JavaScript objects)! That is the Prototype Chain.
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Swadeep created an empty array: `let arr = [];`. When he typed `arr.push(10)`, it worked. He asked: 'Sir, I never wrote a push function inside arr, so where did push come from?' I drew the Prototype Chain on the board: `arr` -> `Array.prototype` (where push, pop, and map live) -> `Object.prototype` (where toString lives) -> `null`. I showed how JavaScript walks up the chain step by step until it finds the property.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. The Prototype Mechanism:
+Every JavaScript object has an internal hidden link called `[[Prototype]]` (accessible via `Object.getPrototypeOf(obj)` or legacy `__proto__`).
+
+2. Property Lookup Algorithm:
+When you access `obj.someProp`:
+- Step 1: Does `obj` own `someProp` directly? (Yes -> Return it!).
+- Step 2: If No, inspect `obj`'s prototype.
+- Step 3: Repeat up the chain until `Object.prototype`.
+- Step 4: If still not found, `Object.prototype.[[Prototype]]` is `null` -> returns `undefined`.
+
+3. Functions vs Objects:
+- Every Function has a `.prototype` object property (used as the blueprint for instances created with `new`).
+- Every Object instance has a `[[Prototype]]` (`__proto__`) pointing to its creator's `.prototype`.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Walking the Prototype Chain ---
+const grandParent = { familyName: 'Hui' };
+const parent = Object.create(grandParent);
+parent.city = 'Barrackpore';
+
+const child = Object.create(parent);
+child.firstName = 'Swadeep';
+
+// Prototype Lookup:
+console.log(child.firstName);  // 'Swadeep' (Own property)
+console.log(child.city);       // 'Barrackpore' (Found on parent)
+console.log(child.familyName); // 'Hui' (Found on grandParent)
+console.log(child.toString()); // '[object Object]' (Found on Object.prototype)
+console.log(child.secret);     // undefined (End of chain reached)
+
+Teacher's Note on Example 1:
+JavaScript walks up the prototype chain automatically until matching properties are found.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Confusing `fn.prototype` with `obj.__proto__`: `fn.prototype` is the blueprint attached to constructors; `__proto__` is the live link on instances.
+
+[!] Mutating `Object.prototype`: Adding properties directly to `Object.prototype` causes prototype pollution across the entire application.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• JavaScript uses prototypal inheritance via linked prototype objects.
+• Property lookups cascade upwards from child to parent to `Object.prototype`.
+• Use `Object.create(proto)` or `Object.getPrototypeOf(obj)` for clean prototype management.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

@@ -1,0 +1,66 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_003_OBJECTS-AND-BASIC-OOP
+Topic 2: ADDING, MODIFYING, DELETING PROPERTIES & THE DELETE OPERATOR MECHANICS
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think about an address diary in your pocket. If you meet a new friend, you write their phone number on a new line (Adding). If they move to a new apartment, you update their address (Modifying). If you lose contact, you use an eraser to erase their line completely (The `delete` Operator). In JavaScript, objects are dynamic and can have properties added, modified, or deleted at runtime!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Abhronila was trying to remove an expired password field from a user object before sending it to the client. She wrote `user.password = undefined;`. When she sent it, the key `password: undefined` was still present in the JSON payload! I showed her the `delete` operator: `delete user.password;`. The key was completely excised from the object. Abhronila learned how `delete` actually removes the key from the object hash-map.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. Dynamic Mutation:
+- Add / Modify: `obj.newKey = 'value'` or `obj['newKey'] = 'value'`.
+- Delete: `delete obj.targetKey` removes both the key and the value from the object.
+
+2. The delete Operator Mechanics:
+- Returns `true` if property was successfully deleted or didn't exist.
+- Returns `false` in non-strict mode (or throws TypeError in strict mode) if property is non-configurable.
+- Deleting properties from objects changes the hidden class shape in V8, which can slow down hot loops (use caution in performance-critical code).
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Adding, Updating, and Deleting Properties ---
+const studentProfile = {
+  name: 'Swadeep',
+  roll: 101
+};
+
+// 1. Adding a new property:
+studentProfile.city = 'Barrackpore';
+
+// 2. Modifying an existing property:
+studentProfile.roll = 105;
+
+// 3. Completely removing a property:
+delete studentProfile.city;
+
+console.log('Final Object:', studentProfile); // { name: 'Swadeep', roll: 105 }
+console.log('Is city present?', 'city' in studentProfile); // false
+
+Teacher's Note on Example 1:
+delete removes the key entirely rather than just assigning undefined.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Setting property to undefined instead of deleting: Setting `obj.key = undefined` leaves the key in `Object.keys()` and `'key' in obj`. Use `delete obj.key` to remove it.
+
+[!] Using delete on regular variables: `delete myVar` does nothing and is forbidden in strict mode.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Objects are dynamic: properties can be added or updated with assignment.
+• The `delete` operator completely removes a key from an object.
+• Avoid excessive deletes inside performance-critical hot loops.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

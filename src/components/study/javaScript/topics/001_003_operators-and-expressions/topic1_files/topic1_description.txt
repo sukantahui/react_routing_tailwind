@@ -1,0 +1,69 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 001_003_OPERATORS-AND-EXPRESSIONS
+Topic 1: ASSIGNMENT OPERATORS, COMPOUND ASSIGNMENTS & LOGICAL ASSIGNMENT OPERATORS (&&=, ||=, ??=)
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think about your phone battery percentage. Instead of saying 'My battery percentage is now equal to my old battery percentage minus 10%', you simply say 'My battery dropped by 10%'. In JavaScript, compound assignment operators let you express updates concisely without repeating the variable name over and over.
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Tuhina was calculating a student's total score across 5 subjects. She wrote: totalScore = totalScore + subject1; totalScore = totalScore + subject2; totalScore = totalScore + subject3; I showed her the compound assignment operator: totalScore += subject1;. She realized how much typing and visual noise it eliminated. Then we looked at modern logical assignments (||=, ??=) for setting default fallback values.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. Basic Assignment: =
+Assigns the evaluated value from the right-hand side to the variable on the left.
+
+2. Compound Arithmetic Assignment:
+- x += 5  -> (x = x + 5)
+- x -= 5  -> (x = x - 5)
+- x *= 2  -> (x = x * 2)
+- x /= 2  -> (x = x / 2)
+- x %= 3  -> (x = x % 3)
+- x **= 2 -> (x = x ** 2)
+
+3. Modern Logical Assignment (ES2021):
+- x ||= y  -> Assigns y to x ONLY if x is falsy (Logical OR assignment)
+- x &&= y  -> Assigns y to x ONLY if x is truthy (Logical AND assignment)
+- x ??= y  -> Assigns y to x ONLY if x is null or undefined (Nullish assignment)
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Compound Arithmetic Accumulation ---
+let bankBalance = 1000;
+bankBalance += 500; // Deposit: 1500
+bankBalance -= 200; // Withdrawal: 1300
+console.log("Updated Balance: ₹" + bankBalance);
+
+Teacher's Note on Example 1:
++= and -= directly modify the variable in place.
+
+--- Example 2: Nullish Assignment for Defaults ---
+let defaultBranch = null;
+defaultBranch ??= "Barrackpore Main";
+console.log("Branch:", defaultBranch); // "Barrackpore Main"
+
+Teacher's Note on Example 2:
+??= safely assigns a fallback value only when the variable is null or undefined.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Confusing = (assignment) with == or === (comparison): Writing if (x = 5) assigns 5 to x instead of checking equality!
+
+[!] Using ||= when 0 is a valid value: If score is 0, score ||= 10 will overwrite 0 because 0 is falsy. Use ??= instead.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Compound assignments (+=, -=, *=) update variables cleanly.
+• Modern logical assignments (&&=, ||=, ??=) combine conditions with assignment.
+• Always use ??= when 0 or empty strings are valid values.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Never rush through the basics. When your foundation is solid, building complex
+applications becomes as effortless as speaking your native language. Keep practicing!"
+================================================================================

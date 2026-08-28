@@ -1,0 +1,62 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_002_ARRAYS-AND-METHODS
+Topic 7: ITERATION UTILITIES: FOREACH, ENTRIES, KEYS, VALUES
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine a school teacher walking down rows of desks in a classroom, handing a worksheet to every single student. The teacher isn't creating a new classroom of students (map) or expelling students (filter); they are simply performing an action for every student. That is `forEach()`! And when the teacher reads desk numbers (keys) or names (values), they use array iteration utilities.
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Abhronila was trying to print student badges to the console. She used map() but didn't save the returned array. I told her: 'Abhronila, if you just want to execute an action (a side-effect like logging) without building a new array, use `forEach()`. Use map when you need the new array, and forEach when you just want to do work for each item.'
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. arr.forEach(callbackFn):
+Executes a provided function once for each array element.
+- Returns undefined (does not produce a new array).
+- Cannot be stopped early with break (use for/for...of if early exit is required).
+
+2. Array Iterator Methods (ES6):
+- arr.keys(): Returns an iterable of array indices (0, 1, 2...).
+- arr.values(): Returns an iterable of element values.
+- arr.entries(): Returns an iterable of [index, value] pairs.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Using forEach and entries() ---
+const labStudents = ['Swadeep', 'Tuhina', 'Abhronila'];
+
+// 1. forEach for side-effects
+labStudents.forEach((student, index) => {
+  console.log('Badge #' + (index + 1) + ': ' + student);
+});
+
+// 2. entries() with for...of
+for (let [idx, val] of labStudents.entries()) {
+  console.log(`Index ${idx} -> ${val}`);
+}
+
+Teacher's Note on Example 1:
+forEach runs side effects; entries() provides clean [index, value] tuples.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Trying to break out of forEach: 'break' or 'return' inside forEach does not stop the loop; it just returns from the current callback. Use for...of if you need 'break'.
+
+[!] Using forEach when you want to return a transformed array: Use map() instead.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• forEach() executes side-effects for each element and returns undefined.
+• entries(), keys(), and values() return iterables for modern loops.
+• Use for...of if you need early 'break' termination.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

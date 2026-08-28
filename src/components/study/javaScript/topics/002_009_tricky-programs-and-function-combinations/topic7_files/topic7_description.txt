@@ -1,0 +1,78 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_009_TRICKY-PROGRAMS-AND-FUNCTION-COMBINATIONS
+Topic 7: FUNCTION OVERLOADING SIMULATION IN JAVASCRIPT VIA ARITY, TYPE SIGNATURES & DISPATCH TABLES
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine a customer service helpdesk in Barrackpore. 1. If you hand them a Receipt Number (1 argument, string), they print your invoice. 2. If you hand them a Student Name and Course ID (2 arguments), they print your admit card. 3. If you hand them Cash and an Account Number (2 arguments, number + string), they process a deposit. In languages like Java/C++, this is Method Overloading. In JavaScript, we simulate function overloading dynamically using Dispatch Tables!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Debangshu had a function `createUser()` that needed to work whether passed: 1. Just a username `('Swadeep')`; 2. A username and email `('Swadeep', 's@lab.com')`; or 3. A full configuration object `{ username: 'Swadeep', role: 'Admin' }`. He was writing messy type checks with 6 nested if-statements. I showed him how to build an elegant Function Overload Dispatcher that matches functions by argument count (`arity`) and type signatures. Debangshu's code became remarkably organized.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. The JavaScript Overloading Reality:
+JavaScript does NOT support native static function overloading. If you declare two functions with the same name, the second declaration completely overwrites the first.
+
+2. Overload Simulation Techniques:
+- Arity Matching (`fn.length` or `arguments.length`): Dispatching based on how many arguments were passed.
+- Type Signature Matching: Inspecting `typeof` and `instanceof` (e.g. `(string, number)` vs `(object)`).
+- Dynamic Dispatch Registry: A higher-order helper that registers overloaded signatures into a lookup table.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Dynamic Overload Dispatcher ---
+function createOverload() {
+  const signatures = new Map();
+  
+  function dispatcher(...args) {
+    const signature = args.map(a => Array.isArray(a) ? 'array' : typeof a).join(',');
+    const targetFn = signatures.get(signature);
+    
+    if (!targetFn) {
+      throw new TypeError(`No overloaded match found for signature: (${signature})`);
+    }
+    return targetFn.apply(this, args);
+  }
+  
+  dispatcher.add = (sig, fn) => {
+    signatures.set(sig, fn);
+    return dispatcher;
+  };
+  
+  return dispatcher;
+}
+
+const formatData = createOverload()
+  .add('number', num => `₹${num.toFixed(2)}`)
+  .add('string', str => `[TEXT] ${str.toUpperCase()}`)
+  .add('string,number', (name, marks) => `${name}: ${marks} Marks`);
+
+console.log(formatData(450));
+console.log(formatData('barrackpore'));
+console.log(formatData('Swadeep', 95));
+
+Teacher's Note on Example 1:
+The dispatcher evaluates argument types and routes to the matching implementation.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Overload collisions on null/objects: `typeof null === 'object'` and `typeof [] === 'object'`. Differentiate them explicitly in signature parsers.
+
+[!] Overloading on functions with rest parameters: `fn.length` does not count rest `...args` parameters.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• JavaScript lacks native overloading, but supports dynamic signature dispatching.
+• Match by arity (argument count) or type signatures (`typeof`, `instanceof`).
+• Cleans up polymorphic API entry points.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

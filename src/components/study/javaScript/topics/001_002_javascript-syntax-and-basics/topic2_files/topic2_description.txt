@@ -1,0 +1,66 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 001_002_JAVASCRIPT-SYNTAX-AND-BASICS
+Topic 2: DATA TYPES OVERVIEW: THE 7 PRIMITIVE TYPES VS REFERENCE (OBJECT) TYPES
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine holding a 100-rupee currency note in your pocket versus holding the key to a bank locker in Barrackpore. When you give your friend a photocopy of a 100-rupee note, they get their own independent copy. But if you give your friend a copy of the bank locker key, both of you now open the exact same locker! In JavaScript, Primitive Types are independent values, while Reference Types (Objects) are shared locker keys.
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Debangshu wrote: let a = 50; let b = a; b = 100; console.log(a); // 50. He understood that 'a' didn't change because numbers are primitives. But later, when we touch objects, changing one affects the other. I told the class: 'Memorize the 7 Primitive types of JavaScript today, and you will never get confused about memory for the rest of your career!'
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. The 7 Primitive Data Types (Stored by Value in Stack):
+1. Number: Integers and decimal numbers (e.g. 42, 98.5).
+2. String: Text characters enclosed in quotes (e.g. "Barrackpore").
+3. Boolean: Logical flags (true or false).
+4. Undefined: A variable that has been declared but not assigned any value.
+5. Null: An intentional empty value ('nothing here on purpose').
+6. BigInt: Extra-large integers exceeding 2^53 - 1 (e.g. 9007199254740991n).
+7. Symbol: Unique, immutable identifier tokens.
+
+2. Reference Types (Stored by Reference in Heap):
+- Objects, Arrays, and Functions. (We will master these in upcoming modules!).
+
+3. Checking Types with typeof:
+Use the typeof operator to inspect the data type of any variable.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Inspecting Primitive Types ---
+let studentAge = 21;
+let studentName = "Swadeep";
+let isEnrolled = true;
+let graduationYear; // undefined
+let scholarship = null;
+
+console.log(typeof studentAge);     // "number"
+console.log(typeof studentName);    // "string"
+console.log(typeof isEnrolled);     // "boolean"
+console.log(typeof graduationYear); // "undefined"
+
+Teacher's Note on Example 1:
+typeof allows you to check the type of any primitive variable.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] typeof null returns 'object': This is a famous historic bug in JavaScript from 1995 that cannot be fixed without breaking older websites. 'null' is a primitive, not an object!
+
+[!] Confusing undefined with null: undefined means 'uninitialized / not set', while null means 'intentionally empty'.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• JavaScript has 7 primitive types (Number, String, Boolean, Undefined, Null, BigInt, Symbol).
+• Primitives are stored directly by value and are immutable.
+• Use typeof to inspect variable types.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Never rush through the basics. When your foundation is solid, building complex
+applications becomes as effortless as speaking your native language. Keep practicing!"
+================================================================================

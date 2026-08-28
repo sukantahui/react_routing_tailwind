@@ -1,0 +1,65 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_004_ARRAYS-WITH-OBJECTS-ADVANCED
+Topic 2: FILTERING OBJECT COLLECTIONS WITH MULTI-CRITERIA DYNAMIC PREDICATES
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine shopping on Amazon or Flipkart. You click filters on the sidebar: Brand: 'Apple' AND Price < ₹80,000 AND Rating >= 4 Stars AND In Stock: YES. The catalog instantly filters 50,000 products down to 3 matching items. In JavaScript, `filter()` with compound boolean predicates is the exact engine behind every e-commerce multi-criteria search filter!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Debangshu was building a student filter for our Barrackpore center. The admin wanted to see all students who are in the 'JavaScript' course AND have scored > 80 marks AND have paid their fees. Debangshu wrote 3 nested loops. I showed him how to combine all 3 criteria inside a single `filter()` predicate: `students.filter(s => s.course === 'JavaScript' && s.marks > 80 && s.isPaid)`. Debangshu was amazed at how clean and readable multi-criteria filtering is.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. Multi-Criteria Filtering:
+Combining multiple boolean conditions using `&&` (AND) and `||` (OR) inside the `filter()` callback function.
+
+2. Dynamic Filter Predicates:
+Building dynamic filter functions where criteria can be optionally toggled (e.g. if category filter is selected, filter by category; otherwise show all).
+
+3. Immutability:
+`filter()` creates a new array of matching object references without mutating the original list.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Dynamic Multi-Criteria E-Commerce Search ---
+const products = [
+  { id: 1, name: 'Gaming Laptop', price: 75000, rating: 4.8, inStock: true },
+  { id: 2, name: 'Wireless Mouse', price: 1200, rating: 4.2, inStock: false },
+  { id: 3, name: 'Mechanical Keyboard', price: 3500, rating: 4.6, inStock: true },
+  { id: 4, name: 'Budget Monitor', price: 8500, rating: 3.9, inStock: true }
+];
+
+// Filter: Price < 10000 AND Rating >= 4.0 AND InStock === true
+const matchedProducts = products.filter(p => 
+  p.price < 10000 && 
+  p.rating >= 4.0 && 
+  p.inStock
+);
+
+console.log('Filtered Products:', matchedProducts);
+
+Teacher's Note on Example 1:
+Compound boolean predicates filter the collection across multiple simultaneous constraints.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Operator precedence errors: Mixing `&&` and `||` without parentheses causes subtle logic bugs. Always write `(a || b) && c`.
+
+[!] Shallow filtering mutation: The filtered array contains references to the original objects; mutating a filtered object mutates the original object.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• filter() extracts records matching multi-criteria conditions.
+• Use parentheses `(p.cat === 'A' || p.cat === 'B') && p.price < 100` for clarity.
+• Powers real-world search, catalog filtering, and permission audits.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

@@ -1,0 +1,66 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_003_OBJECTS-AND-BASIC-OOP
+Topic 8: OBJECT DESTRUCTURING, REST PROPERTIES & PARAMETER UNPACKING
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine receiving a delivery parcel containing a laptop, a mouse, and a charging cable. Instead of digging into the box every time you need the mouse (`parcel.mouse`), you take all 3 items out of the box on day one and lay them neatly on your desk: `const { laptop, mouse, cable } = parcel;`. That is Object Destructuring!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Tuhina had a complex student configuration object: `{ id: 101, personal: { name: 'Tuhina' }, fees: { paid: true } }`. She was writing `student.personal.name` and `student.fees.paid` 20 times in her code. I showed her Object Destructuring with Renaming and Defaults: `const { id, personal: { name: studentName }, role = 'Student' } = student;`. Her code shrank by 40% and became instantly readable.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. Basic Destructuring:
+Extract properties into distinct local variables: `const { name, roll } = student;`.
+
+2. Renaming & Default Values:
+- Renaming: `const { name: fullName } = student;` (assigns `student.name` to a new variable called `fullName`).
+- Default values: `const { role = 'User' } = student;` (provides fallback if `role` is undefined).
+
+3. Rest Properties (...rest):
+Collect all remaining unpacked properties into a new object: `const { id, ...otherDetails } = student;`.
+
+4. Parameter Destructuring:
+Unpack properties directly inside function parameter signatures: `function printUser({ name, email }) { ... }`.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Destructuring with Renaming, Defaults, and Rest ---
+const labUser = {
+  username: 'swadeep_hui',
+  score: 95,
+  batch: 'Morning'
+};
+
+// Unpack with renaming, default, and rest operator:
+const { username: studentName, score, role = 'Lab Student', ...metadata } = labUser;
+
+console.log('Student Name:', studentName);
+console.log('Role:', role);
+console.log('Remaining Metadata:', metadata); // { batch: 'Morning' }
+
+Teacher's Note on Example 1:
+Destructuring pulls properties into local variables with renaming and defaults.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Destructuring null or undefined: `const { a } = null;` throws TypeError: Cannot destructure property 'a' of null. Provide default fallback: `const { a } = inputObj ?? {};`.
+
+[!] Variable declaration syntax when reassigning: When destructuring into already declared variables, wrap in parentheses: `({ a, b } = obj);`.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Destructuring extracts properties into cleanly named local variables.
+• Supports property renaming `oldKey: newName` and default fallback values.
+• Rest properties `{ id, ...rest }` cleanly isolate remaining fields.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

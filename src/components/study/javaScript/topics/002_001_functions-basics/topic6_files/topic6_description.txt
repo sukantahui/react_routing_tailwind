@@ -1,0 +1,67 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_001_FUNCTIONS-BASICS
+Topic 6: FIRST-CLASS FUNCTIONS, CALLBACKS & HIGHER-ORDER FUNCTIONS (HOFS)
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine a taxi service in Barrackpore. A taxi is a vehicle that can take any passenger (data) to any destination. But what if you could put a professional driver inside a suitcase and pass that driver into another vehicle to steer it? In JavaScript, functions are 'First-Class Citizens'—meaning functions can be treated just like any regular variable: stored in containers, passed into other functions, and returned from functions!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Debangshu was amazed when I passed a function as an argument into another function: function processPayment(amount, formatterFn) { return formatterFn(amount); } I passed rupeeFormatter and then dollarFormatter. Debangshu realized: 'Sir, we can change the entire behavior of the function without rewriting it!' I explained that functions that accept or return other functions are called Higher-Order Functions (HOFs), and the function passed in is called a Callback.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. First-Class Functions:
+In JavaScript, functions are first-class values. You can:
+- Assign functions to variables
+- Pass functions as arguments to other functions
+- Return functions from other functions
+- Store functions inside arrays or objects
+
+2. Higher-Order Functions (HOFs):
+A function that does at least one of the following:
+- Takes one or more functions as arguments (e.g. custom processors)
+- Returns a function as its result
+
+3. Callbacks:
+A function passed into another function with the expectation that the outer function will 'call it back' at the appropriate time.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Custom Higher-Order Function with Callbacks ---
+// Two simple worker functions:
+const toUppercase = text => text.toUpperCase();
+const addGreeting = text => 'Welcome, ' + text + '!';
+
+// Higher-Order Function that accepts a transform callback:
+function processStudentName(name, transformCallback) {
+  return transformCallback(name);
+}
+
+console.log(processStudentName('Swadeep', toUppercase));  // 'SWADEEP'
+console.log(processStudentName('Swadeep', addGreeting)); // 'Welcome, Swadeep!'
+
+Teacher's Note on Example 1:
+processStudentName is a HOF that delegates transformation to the supplied callback.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Accidentally invoking the callback when passing it: Writing process(name, fn()) executes fn immediately! Pass the function reference fn without parentheses.
+
+[!] Callback nesting in complex programs: Structure callbacks cleanly as named functions.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• JavaScript functions are first-class values that can be passed around like data.
+• Higher-Order Functions accept or return other functions.
+• Callbacks provide flexible, customizable execution hooks.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

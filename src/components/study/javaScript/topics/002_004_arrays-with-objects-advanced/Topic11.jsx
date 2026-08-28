@@ -67,7 +67,7 @@ export default function Topic11() {
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-sky-300 tracking-tight leading-tight">
-            {"Deep Cloning & Immutability in Object Collections"}
+            {"Deep Cloning & Immutability in Object Collections (structuredClone)"}
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
@@ -311,7 +311,7 @@ function checkStatus(val) {
         {/* ─── 9. COMPREHENSIVE FAQ SECTION ───────────────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <FAQTemplate
-            title={"Frequently Asked Questions · Deep Cloning & Immutability in Object Collections"}
+            title={"Frequently Asked Questions · Deep Cloning & Immutability in Object Collections (structuredClone)"}
             subtitle="Explore 25+ comprehensive questions from basic to senior architecture levels"
             questions={questions}
           />
@@ -321,8 +321,8 @@ function checkStatus(val) {
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <PlainTextPrint
             content={noteText}
-            title={"JavaScript Master Note · Deep Cloning & Immutability in Object Collections"}
-            downloadFileName="002_004_arrays-with-objects-advanced-topic11-note.txt"
+            title={"JavaScript Master Note · Deep Cloning & Immutability in Object Collections (structuredClone)"}
+            downloadFileName="002-004-topic11-note.txt"
           />
         </section>
 

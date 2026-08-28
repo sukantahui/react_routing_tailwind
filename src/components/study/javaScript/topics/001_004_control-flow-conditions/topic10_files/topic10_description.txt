@@ -1,0 +1,67 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 001_004_CONTROL-FLOW-CONDITIONS
+Topic 10: THE SWITCH(TRUE) RANGE EVALUATION & PATTERN MATCHING PATTERN
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine a sorting machine with multiple adjustable sensor gates. Standard switch statements match an exact discrete value (`switch(day)`). But what if you want to test variable numeric ranges (e.g. `score >= 90`, `score >= 80`) inside a switch? By evaluating `switch (true)`, JavaScript tests each case condition as a boolean expression, giving you an elegant range evaluation table!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Tuhina wanted to write a score evaluator using `switch` instead of a 10-line `if...else if` ladder. She wrote: `switch (true) { case marks >= 90: return 'A+'; case marks >= 80: return 'A'; }`. When she passed `marks = 85`, `marks >= 90` evaluated to `false`, and `marks >= 80` evaluated to `true`, matching the case! Tuhina was delighted by the `switch(true)` idiom.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. The `switch (true)` Idiom:
+- The switch expression is the boolean literal `true`.
+- Each case clause contains a boolean expression (e.g. `case age >= 18:`).
+- JavaScript evaluates cases in order and executes the first case whose expression evaluates to `true`!
+
+2. When to Use:
+- Numeric score/tax ranges.
+- Complex multi-variable condition ladders that benefit from clean columnar alignment.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Grade Evaluation with switch(true) ---
+function calculateGrade(score) {
+  switch (true) {
+    case score >= 90:
+      return 'Grade A+ (Distinction)';
+    case score >= 80:
+      return 'Grade A (First Class)';
+    case score >= 60:
+      return 'Grade B (Second Class)';
+    case score >= 40:
+      return 'Grade C (Pass)';
+    default:
+      return 'Grade F (Needs Improvement)';
+  }
+}
+
+console.log(calculateGrade(88)); // 'Grade A (First Class)'
+console.log(calculateGrade(35)); // 'Grade F (Needs Improvement)'
+
+Teacher's Note on Example 1:
+switch(true) matches the first case expression that evaluates to true.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Ordering cases incorrectly: Just like if ladders, cases in `switch(true)` must be ordered from most specific to least specific.
+
+[!] Missing return or break: Always return or break to prevent accidental fallthrough.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• `switch(true)` evaluates dynamic boolean range conditions cleanly.
+• Provides an organized, tabular alternative to long if-else ladders.
+• Order cases carefully from highest/most specific to lowest.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

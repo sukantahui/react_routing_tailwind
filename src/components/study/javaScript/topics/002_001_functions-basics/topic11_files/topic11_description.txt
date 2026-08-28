@@ -1,0 +1,64 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_001_FUNCTIONS-BASICS
+Topic 11: FUNCTION COMPOSITION & PIPE ARCHITECTURE (COMPOSE, PIPE)
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think about an automated assembly line in a car factory. Step 1: Clean the metal. Step 2: Paint the body red. Step 3: Attach the tires. Step 4: Polish the finish. The output of Station 1 flows directly into Station 2, which flows into Station 3. In programming, Function Composition and Pipe let you build complex data processing pipelines by chaining small, pure functions together like LEGO blocks!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Abhronila was cleaning up messy user input names. She wrote: let step1 = raw.trim(); let step2 = step1.toLowerCase(); let step3 = capitalizeFirst(step2); let step4 = addHonorific(step3);. It was 4 lines of temporary variables. I showed her the pipe utility: const sanitizeName = pipe(trim, toLowerCase, capitalizeFirst, addHonorific);. Abhronila gasped: 'It looks like an assembly line where data flows smoothly from left to right!'
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. What is Function Composition?
+Combining two or more pure functions to produce a new function. Mathematically: (f ∘ g)(x) = f(g(x)).
+
+2. Pipe (Left-to-Right Data Flow):
+- Evaluates functions in natural reading order (Function 1 -> Function 2 -> Function 3).
+- Formula: const pipe = (...fns) => input => fns.reduce((acc, fn) => fn(acc), input);
+
+3. Compose (Right-to-Left Data Flow):
+- Evaluates from right-to-left (standard mathematical composition).
+- Formula: const compose = (...fns) => input => fns.reduceRight((acc, fn) => fn(acc), input);
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Building a Left-to-Right Text Pipe ---
+// Small pure building blocks:
+const trimText = str => str.trim();
+const toLower = str => str.toLowerCase();
+const wrapInTags = str => '<span>' + str + '</span>';
+
+// Universal Pipe function:
+const pipe = (...fns) => initialValue => fns.reduce((acc, fn) => fn(acc), initialValue);
+
+// Create composite pipeline:
+const processUserTag = pipe(trimText, toLower, wrapInTags);
+
+console.log(processUserTag('   SWADEEP HUI   ')); // '<span>swadeep hui</span>'
+
+Teacher's Note on Example 1:
+pipe executes trim -> toLower -> wrapInTags in left-to-right sequence.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Passing multi-argument functions in the middle of a pipe: Intermediate functions in a composition pipeline must be unary (accepting exactly one input and returning one output).
+
+[!] Mutating values inside pipeline functions: Keep all pipeline functions completely pure.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Pipe connects functions left-to-right (f -> g -> h).
+• Compose connects functions right-to-left (h ∘ g ∘ f).
+• Build complex data pipelines from small, single-purpose pure functions.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

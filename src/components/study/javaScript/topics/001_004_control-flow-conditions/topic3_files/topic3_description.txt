@@ -1,0 +1,53 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 001_004_CONTROL-FLOW-CONDITIONS
+Topic 3: SHORT-CIRCUIT LOGICAL BRANCHING AS CONTROL FLOW: GUARD CLAUSES & DEFAULT INVARIANTS
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think about an electrical surge protector. If lightning strikes and a huge surge of power enters the board, the fuse immediately trips and cuts the circuit, protecting your expensive computer from damage. In JavaScript, short-circuit logical operators (&& and ||) act as software surge protectors, executing code only when safe!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Abhronila was writing a login handler. She wanted to display the user's name, but if the user wasn't logged in, accessing the name caused an error. I showed her: isLoggedIn && console.log('Welcome back, ' + userName);. Because isLoggedIn was false, JavaScript short-circuited and didn't even attempt to execute the log. Abhronila loved how clean guard expressions can be when used appropriately.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. How Short-Circuiting Acts as Control Flow:
+- Logical AND (&&) as a Guard: condition && executeAction() -> The right side runs ONLY if the left side is truthy.
+- Logical OR (||) as a Fallback: value || defaultFallback -> Returns fallback if the primary value is falsy.
+- Nullish (??) as a Precise Fallback: value ?? defaultFallback -> Returns fallback ONLY if value is null or undefined.
+
+2. When to Use Guard Clauses:
+- Ensuring prerequisites are met before running an operation.
+- Setting safe default values for missing configuration.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Using && as an Inline Guard ---
+let isLabAdmin = true;
+// Only logs if isLabAdmin is true:
+isLabAdmin && console.log("Admin Panel Access Granted");
+
+Teacher's Note on Example 1:
+The right-hand side is only evaluated when the left-hand condition is truthy.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Overusing && for complex logic: If the action requires multiple lines or calculations, use a clear 'if' statement instead of a cryptic short-circuit line.
+
+[!] Forgetting that 0 triggers || fallbacks: Always prefer ?? when 0 is a valid number.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• && short-circuits on falsy and acts as an inline guard.
+• || and ?? provide fallback default values.
+• Use short-circuits for simple guards and if-statements for complex workflows.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Never rush through the basics. When your foundation is solid, building complex
+applications becomes as effortless as speaking your native language. Keep practicing!"
+================================================================================

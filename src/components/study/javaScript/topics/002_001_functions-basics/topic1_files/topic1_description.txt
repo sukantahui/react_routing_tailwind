@@ -1,0 +1,81 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_001_FUNCTIONS-BASICS
+Topic 1: PARAMETERS, ARGUMENTS OBJECT, DEFAULT VALUES & REST PARAMETERS (...ARGS)
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think about ordering a plate of biryani at a restaurant in Barrackpore. The menu says 'Biryani (comes with 1 egg and 1 potato by default)' - that is a Default Parameter. If you ask the waiter to add extra raita, salad, and cold drinks (an arbitrary number of extras), the waiter collects all extra items in a single tray - that is a Rest Parameter (...extras)!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Tuhina wrote a function to calculate course fees with an optional scholarship discount. When someone didn't pass a discount argument, her function calculated NaN because discount was undefined. I showed her modern ES6 Default Parameters: function calculateFees(baseFee, discount = 0). Then Debangshu asked: 'What if a student wants to submit 10 subject marks without writing 10 parameter names?' I introduced Rest Parameters: function sumMarks(...marks). Within 10 minutes, the class mastered flexible parameter handling.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. Parameters vs Arguments:
+- Parameters: The variable names listed in the function definition (e.g. baseFee, discount).
+- Arguments: The actual values passed into the function when called (e.g. 5000, 500).
+
+2. Default Parameters (ES6):
+Assign fallback values directly in the parameter list:
+function enroll(student, course = 'JavaScript Core') { ... }
+Triggered ONLY when the argument is undefined or omitted.
+
+3. Rest Parameters (...args):
+Gathers any number of remaining arguments into a real JavaScript Array:
+function calculateAverage(...numbers) { ... }
+Must always be the LAST parameter in the list!
+
+4. The Legacy 'arguments' Object:
+An array-like object available inside standard functions (lacks modern array methods like map/filter; rest parameters are universally preferred in modern JS).
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Default Parameters in Action ---
+function generateReceipt(studentName, course = 'JavaScript Foundations', fee = 3500) {
+  console.log('Student : ' + studentName);
+  console.log('Course  : ' + course);
+  console.log('Fee Paid: ₹' + fee);
+}
+
+generateReceipt('Swadeep'); // Uses default course & fee
+generateReceipt('Tuhina', 'React Masterclass', 5000);
+
+Teacher's Note on Example 1:
+Missing arguments gracefully fall back to default parameter values.
+
+--- Example 2: Summing Variable Numbers of Arguments with Rest Parameters ---
+function sumAllMarks(...scores) {
+  let total = 0;
+  for (let score of scores) {
+    total += score;
+  }
+  return total;
+}
+
+console.log('3 Subjects Total:', sumAllMarks(85, 90, 92)); // 267
+console.log('5 Subjects Total:', sumAllMarks(70, 80, 85, 90, 95)); // 420
+
+Teacher's Note on Example 2:
+Rest parameters (...scores) collect any count of arguments into an array.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Placing rest parameter in the middle: function test(...a, b) throws a SyntaxError! Rest must be the last parameter.
+
+[!] Expecting null to trigger default parameters: Default parameters ONLY trigger on undefined. Passing null explicitly passes null!
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Default parameters (param = default) prevent undefined calculation bugs.
+• Rest parameters (...args) collect arbitrary arguments into a clean array.
+• Rest parameters are modern, clean, and replace the legacy arguments object.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

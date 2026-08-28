@@ -1,20 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
-import clsx from "clsx";
+import React, { useEffect, useRef } from "react";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import JavaScriptEditableCodeBlock from "../../../../../common/JavaScriptEditableCodeBlock";
 import questions from "./topic3_files/topic3_questions";
 import noteText from "./topic3_files/topic3_note.txt?raw";
-import demoCode from "./topic3_files/SearchingInArraysIndexofIncludesFindFindindexDemo.js?raw";
+import demoCode from "./topic3_files/SlicingSplicingCopyWithinFillDemoDemo.js?raw";
 
-/**
- * Topic3 – Searching in Arrays — indexOf(), includes(), find(), findIndex()
- * Module: 002_002_arrays-and-methods
- *
- * @component
- * @returns {JSX.Element} Full 11-section interactive JavaScript tutorial component.
- */
 export default function Topic3() {
   const sectionRefs = useRef([]);
 
@@ -59,7 +51,7 @@ export default function Topic3() {
 
       <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-amber-500/30 selection:text-amber-200">
         
-        {/* ─── 1. HEADER SECTION ──────────────────────────────────────── */}
+        {/* ─── SECTION 1: HEADER & METADATA ─────────────────────────── */}
         <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-950/70 border border-amber-700/60 text-amber-300 text-xs font-semibold uppercase tracking-wider shadow-lg">
             <span>⚡</span>
@@ -67,142 +59,175 @@ export default function Topic3() {
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-sky-300 tracking-tight leading-tight">
-            {"Searching in Arrays — indexOf(), includes(), find(), findIndex()"}
+            {"Powerful Slicing & Splicing — slice(), splice(), copyWithin(), fill()"}
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Master the core mechanics, V8 execution rules, and practical enterprise workflows of <strong className="text-amber-300">{"Searching in Arrays — indexOf(), includes(), find(), findIndex()"}</strong> in modern JavaScript.
+            {"Deep dive into array slicing and splicing: pure non-mutating slice vs Swiss-army-knife mutating splice, in-place copyWithin memory shifting, and fast buffer initialization with fill."}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-slate-400 pt-2">
             <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-amber-400">Course Code: JS-PRO-101</span>
-            <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-sky-400">Center: Coder &amp; AccoTax (Ichapur Training Room)</span>
+            <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-sky-400">Center: Coder &amp; AccoTax (Barrackpore Lab)</span>
             <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-emerald-400">Mentor: Sukanta Hui</span>
           </div>
         </header>
 
-        {/* ─── 2. CONCEPT OVERVIEW ────────────────────────────────────── */}
+        {/* ─── SECTION 2: DETAILED CONCEPT DISCUSSION & MENTAL MODELS ── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
           <div className="bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg hover:border-slate-700 transition-all">
             <h2 className="text-xl sm:text-2xl font-bold text-amber-400 mb-4 flex items-center gap-2">
-              <span>💡</span> Conceptual Overview &amp; Mental Models
+              <span>💡</span> Detailed Discussion &amp; Conceptual Foundation
             </h2>
+            
             <p className="text-slate-300 leading-relaxed mb-4">
-              In JavaScript, understanding <strong className="text-amber-300">{"Searching in Arrays — indexOf(), includes(), find(), findIndex()"}</strong> is critical for writing robust and bug-free code. When building enterprise web applications, code must be predictable, resilient to unexpected user inputs, and optimized for high-performance browser execution.
+              {"Deep dive into array slicing and splicing: pure non-mutating slice vs Swiss-army-knife mutating splice, in-place copyWithin memory shifting, and fast buffer initialization with fill."} In high-scale frontend and backend applications, understanding array memory mechanics and transformation algorithms is essential for building efficient data pipelines.
             </p>
-            <div className="p-4 rounded-xl bg-slate-900/90 border border-amber-900/40 text-sm text-slate-300 leading-relaxed">
-              <span className="text-amber-400 font-bold">🏫 Classroom Scenario (Ichapur Training Room):</span> During a hands-on lab exercise, <strong>Debangshu</strong> encountered unexpected runtime behavior while testing an interactive component. Mentor <strong>Sukanta Hui</strong> demonstrated how tracing the execution flow of <em>{"Searching in Arrays — indexOf(), includes(), find(), findIndex()"}</em> eliminates guesswork, ensuring smooth and deterministic UI state transitions.
+
+            <p className="text-slate-300 leading-relaxed mb-4">
+              The V8 JavaScript engine optimizes continuous packed arrays as fast C++ buffers, enabling direct hardware-level memory access while abstracting complexity behind clean ECMAScript method APIs.
+            </p>
+
+            {/* Classroom Story with Code/State */}
+            <div className="p-5 rounded-xl bg-slate-900/90 border border-amber-900/40 text-sm text-slate-300 leading-relaxed space-y-2">
+              <div className="flex items-center gap-2 text-amber-400 font-bold">
+                <span>🏫</span>
+                <span>Classroom Scenario (Barrackpore Lab):</span>
+              </div>
+              <p>
+                {"Swadeep used `arr.splice(0, 2)` thinking it returned the remaining array without mutating the original, and lost data."}
+              </p>
+              <p>
+                {"Sukanta Hui contrasted **slice** (pure, shallow copy, non-mutating) with **splice** (destructive, mutates in place, returns removed elements)."}
+              </p>
             </div>
           </div>
         </section>
 
-        {/* ─── 3. SEMANTIC VISUAL SVG DIAGRAM ─────────────────────────── */}
+        {/* ─── SECTION 3: TOPIC-SPECIFIC SEMANTIC SVG DIAGRAM ─────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl">
             <h2 className="text-lg sm:text-xl font-bold text-sky-400 mb-4 flex items-center gap-2">
-              <span>📊</span> Runtime Architecture &amp; Execution Diagram
+              <span>📊</span> Runtime Architecture &amp; Execution Pipeline Diagram
             </h2>
             <div className="w-full overflow-x-auto">
-              <svg viewBox="0 0 800 240" className="w-full h-auto" role="img" aria-label="JavaScript Memory Layout &amp; Data Pipeline">
-  <defs>
-    <linearGradient id="memGrad_3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.8" />
-      <stop offset="100%" stopColor="#b45309" stopOpacity="0.2" />
-    </linearGradient>
-    <linearGradient id="heapGrad_3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.8" />
-      <stop offset="100%" stopColor="#5b21b6" stopOpacity="0.2" />
-    </linearGradient>
-  </defs>
-  <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-  <text x="400" y="34" fill="#f8fafc" fontSize="16" fontWeight="bold" textAnchor="middle">Searching in Arrays — indexOf(), includes(), find(), findIndex() · Architecture &amp; Execution Pipeline</text>
+              <svg viewBox="0 0 800 240" className="w-full h-auto" role="img" aria-label={"Powerful Slicing & Splicing — slice(), splice(), copyWithin(), fill()"}>
+                <defs>
+                  <linearGradient id="arrGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#b45309" stopOpacity="0.3" />
+                  </linearGradient>
+                  <linearGradient id="arrGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#0369a1" stopOpacity="0.3" />
+                  </linearGradient>
+                  <linearGradient id="arrGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#10b981" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#047857" stopOpacity="0.3" />
+                  </linearGradient>
+                </defs>
+                <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Powerful Slicing & Splicing — slice(), splice(), copyWithin(), fill()"} · Pipeline Architecture</text>
 
-  <g transform="translate(60, 65)">
-    <rect width="280" height="145" rx="12" fill="#1e293b" stroke="#f59e0b" strokeWidth="1.5" />
-    <text x="140" y="28" fill="#fbbf24" fontSize="13" fontWeight="bold" textAnchor="middle">Execution Call Stack (Primitives)</text>
-    <rect x="20" y="42" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
-    <text x="30" y="59" fill="#94a3b8" fontSize="11">let student = "Swadeep"</text>
-    <text x="210" y="59" fill="#38bdf8" fontSize="11" fontWeight="bold">String (Value)</text>
+                {/* Box 1 */}
+                <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#arrGrad1)" stroke="#f59e0b" strokeWidth="1" />
+                <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Input Structure</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"slice(start, end) -> Pure Subarray Copy"}</text>
 
-    <rect x="20" y="74" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
-    <text x="30" y="91" fill="#94a3b8" fontSize="11">let marks = 98.5</text>
-    <text x="210" y="91" fill="#38bdf8" fontSize="11" fontWeight="bold">Number (Value)</text>
+                {/* Arrow 1 */}
+                <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" />
 
-    <rect x="20" y="106" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
-    <text x="30" y="123" fill="#94a3b8" fontSize="11">let refObj = 0x8849F</text>
-    <text x="195" y="123" fill="#ec4899" fontSize="11" fontWeight="bold">Heap Pointer →</text>
-  </g>
+                {/* Box 2 */}
+                <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#arrGrad2)" stroke="#38bdf8" strokeWidth="1" />
+                <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: V8 Operation</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"splice(start, count, ...items) -> Destructive Surgery"}</text>
 
-  <g transform="translate(460, 65)">
-    <rect width="280" height="145" rx="12" fill="url(#heapGrad_3)" stroke="#a855f7" strokeWidth="1.5" />
-    <text x="140" y="28" fill="#e9d5ff" fontSize="13" fontWeight="bold" textAnchor="middle">Memory Heap (Objects / Arrays / Closures)</text>
-    <rect x="20" y="45" width="240" height="85" rx="8" fill="#0f172a" stroke="#6366f1" />
-    <text x="30" y="68" fill="#38bdf8" fontSize="11" fontWeight="bold">Address: 0x8849F</text>
-    <text x="30" y="88" fill="#e2e8f0" fontSize="11">&#123; course: "JS-PRO-101", city: "Barrackpore" &#125;</text>
-    <text x="30" y="108" fill="#a5b4fc" fontSize="10">Managed by V8 Garbage Collector (Mark &amp; Sweep)</text>
-  </g>
+                {/* Arrow 2 */}
+                <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
 
-  <path d="M 340 185 C 390 185, 410 135, 460 135" fill="none" stroke="#ec4899" strokeWidth="2.5" strokeDasharray="6 3" />
-  <circle cx="460" cy="135" r="4" fill="#ec4899" />
-</svg>
+                {/* Box 3 */}
+                <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#arrGrad3)" stroke="#10b981" strokeWidth="1" />
+                <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Result Memory</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"copyWithin(target, start, end) -> In-Place Block Copy"}</text>
+              </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure: Step-by-step architectural execution for {"Powerful Slicing & Splicing — slice(), splice(), copyWithin(), fill()"}.
             </p>
           </div>
         </section>
 
-        {/* ─── 4. DEEP TECHNICAL BREAKDOWN ─────────────────────── */}
+        {/* ─── SECTION 4: DEEP TECHNICAL BREAKDOWN & SPECIFICATIONS ───── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
           <div className="bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg">
             <h2 className="text-xl sm:text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2">
-              <span>🔬</span> Deep Technical Breakdown &amp; Execution Rules
+              <span>🔬</span> Deep Technical Know-How, Spec Invariants &amp; Mechanics
             </h2>
             
             <p className="text-slate-300 leading-relaxed mb-6">
-              The ECMAScript specification defines formal execution invariants for <strong className="text-amber-300">{"Searching in Arrays — indexOf(), includes(), find(), findIndex()"}</strong>. When a script runs, the JavaScript runtime establishes an execution context consisting of variable environments, lexical scopes, and binding environments.
+              The ECMAScript specification defines strict abstract operations for {"Powerful Slicing & Splicing — slice(), splice(), copyWithin(), fill()"}. The table below compares spec behavior, engine mechanics, and senior best practices.
             </p>
 
+            {/* Specifications Comparison Table */}
             <div className="overflow-x-auto mb-6">
               <table className="w-full text-left text-sm text-slate-300 border-collapse border border-slate-800">
                 <thead className="bg-slate-900/90 text-amber-300 uppercase text-xs">
                   <tr>
-                    <th className="p-3 border border-slate-800">Execution Phase</th>
-                    <th className="p-3 border border-slate-800">Engine Behavior</th>
-                    <th className="p-3 border border-slate-800">Developer Invariant</th>
-                    <th className="p-3 border border-slate-800">Optimization Goal</th>
+                    <th className="p-3 border border-slate-800">Feature / Phase</th>
+                    <th className="p-3 border border-slate-800">ECMAScript Spec Rule</th>
+                    <th className="p-3 border border-slate-800">Runtime / Engine Behavior</th>
+                    <th className="p-3 border border-slate-800">Developer Invariant &amp; Best Practice</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800">
+                <tbody className="divide-y divide-slate-800 font-mono text-xs">
+                  
                   <tr className="hover:bg-slate-800/30">
-                    <td className="p-3 font-mono text-sky-400">1. Parse / Tokenize</td>
-                    <td className="p-3">Lexer converts source code into AST tokens</td>
-                    <td className="p-3">Zero syntax errors &amp; clean lexical grammar</td>
-                    <td className="p-3 text-emerald-400">Fast AST building</td>
+                    <td className="p-3 text-sky-400">{"slice(start, end)"}</td>
+                    <td className="p-3 text-slate-300 font-sans">{"Returns shallow copy from start up to (excluding) end"}</td>
+                    <td className="p-3 text-amber-300 font-sans">{"Allocates new continuous array; does NOT mutate original"}</td>
+                    <td className="p-3 text-emerald-400 font-sans">{"Pagination, cloning, sub-array extraction"}</td>
                   </tr>
                   <tr className="hover:bg-slate-800/30">
-                    <td className="p-3 font-mono text-sky-400">2. Ignition Bytecode</td>
-                    <td className="p-3">Generates bytecodes and initializes type feedback</td>
-                    <td className="p-3">Avoid dynamic property shape mutations</td>
-                    <td className="p-3 text-emerald-400">Instant startup time</td>
+                    <td className="p-3 text-sky-400">{"splice(start, count, ...add)"}</td>
+                    <td className="p-3 text-slate-300 font-sans">{"Removes/inserts items in place; returns array of deleted items"}</td>
+                    <td className="p-3 text-amber-300 font-sans">{"Mutates original array length and indices"}</td>
+                    <td className="p-3 text-emerald-400 font-sans">{"Deleting, replacing, or inserting items at index"}</td>
                   </tr>
                   <tr className="hover:bg-slate-800/30">
-                    <td className="p-3 font-mono text-sky-400">3. TurboFan JIT</td>
-                    <td className="p-3">Hot code paths compiled to optimized machine code</td>
-                    <td className="p-3">Maintain monomorphic function call sites</td>
-                    <td className="p-3 text-emerald-400">Near C++ performance</td>
+                    <td className="p-3 text-sky-400">{"copyWithin(target, start, end)"}</td>
+                    <td className="p-3 text-slate-300 font-sans">{"Copies a sequence within the same array in place"}</td>
+                    <td className="p-3 text-amber-300 font-sans">{"Ultra-fast C++ memmove byte copy; zero allocation"}</td>
+                    <td className="p-3 text-emerald-400 font-sans">{"Physics engines, graphics buffers, game states"}</td>
+                  </tr>
+                  <tr className="hover:bg-slate-800/30">
+                    <td className="p-3 text-sky-400">{"fill(value, start, end)"}</td>
+                    <td className="p-3 text-slate-300 font-sans">{"Fills slots with a static value in place"}</td>
+                    <td className="p-3 text-amber-300 font-sans">{"Direct memory slot writes"}</td>
+                    <td className="p-3 text-emerald-400 font-sans">{"Buffer initialization, resetting grids"}</td>
                   </tr>
                 </tbody>
               </table>
             </div>
+
+            {/* Exceptions & Quirks Subsection */}
+            <div className="mt-6 p-5 rounded-xl bg-slate-900/80 border border-rose-900/40 space-y-3">
+              <h3 className="text-base font-bold text-rose-400 flex items-center gap-2">
+                <span>⚠️</span> Exceptions, Quirks &amp; Corner Cases to Know
+              </h3>
+              <ul className="list-disc list-inside space-y-2 text-sm text-slate-300 leading-relaxed">
+                <li><strong className="text-rose-300">{"Object Reference Duplication in fill():"}</strong> {"`new Array(3).fill({})` fills with the EXACT SAME object reference across all slots; mutating one mutates all."}</li>
+                <li><strong className="text-rose-300">{"Negative Index Wrapping:"}</strong> {"Negative indices wrap relative to `length` (`arr.slice(-2)` grabs last 2 items)."}</li>
+                <li><strong className="text-rose-300">{"splice() Return Trap:"}</strong> {"`splice()` returns the DELETED items, not the modified array."}</li>
+              </ul>
+            </div>
           </div>
         </section>
 
-        {/* ─── 5. HANDS-ON MONACO CODE RUNNER ─────────────────────────── */}
+        {/* ─── SECTION 5: HANDS-ON MONACO CODE RUNNER (5+ EXAMPLES) ──── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-xl sm:text-2xl font-bold text-amber-400 flex items-center gap-2">
-              <span>💻</span> Interactive Monaco Playground: 5+ Working Examples
+              <span>💻</span> Interactive Monaco Playground: 5+ Practical Working Examples
             </h2>
             <span className="text-xs font-mono px-3 py-1 rounded bg-amber-950/60 border border-amber-800 text-amber-300">
               Live In-Browser Execution
@@ -212,61 +237,49 @@ export default function Topic3() {
           <div className="rounded-2xl border border-slate-800 overflow-hidden shadow-2xl bg-slate-900">
             <JavaScriptEditableCodeBlock
               initialCode={demoCode}
-              title="SearchingInArraysIndexofIncludesFindFindindexDemo.js"
+              title="SlicingSplicingCopyWithinFillDemoDemo.js"
             />
           </div>
         </section>
 
-        {/* ─── 6. COMMON PITFALLS & BEST PRACTICES ────────────────────── */}
+        {/* ─── SECTION 6: COMMON PITFALLS & SENIOR BEST PRACTICES ─────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
           <h2 className="text-xl sm:text-2xl font-bold text-rose-400 flex items-center gap-2">
             <span>⚖️</span> Common Pitfalls vs Senior Best Practices
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Incorrect */}
-            <div className="bg-rose-950/20 border border-rose-800/40 rounded-2xl p-6 shadow-lg">
-              <div className="flex items-center gap-2 text-rose-400 font-bold mb-3">
+            {/* Pitfall Anti-Pattern */}
+            <div className="bg-rose-950/20 border border-rose-800/40 rounded-2xl p-6 shadow-lg space-y-3">
+              <div className="flex items-center gap-2 text-rose-400 font-bold">
                 <span>❌</span>
-                <span>Anti-Pattern / Common Bug</span>
+                <span>Anti-Pattern: {"Using array.fill() with Object or Array References"}</span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-300 mb-4 leading-relaxed">
-                Relying on implicit coercion, uninitialized variable hoisting, or neglecting boundary state checks.
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                {"All indices share the exact same object reference."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-rose-900/50 text-xs font-mono text-rose-300 overflow-x-auto">
-{`// ❌ AVOID: Loose comparisons and unhandled TDZ
-function checkStatus(val) {
-  if (val == null) { // Unclear intent
-    return "default";
-  }
-  return val.toUpperCase(); // May throw TypeError!
-}`}
+{"// ❌ AVOID: All rows share same array reference\nconst matrix = new Array(3).fill([]);\nmatrix[0].push(\"BUG\"); // All 3 rows now have [\"BUG\"]!"}
               </pre>
             </div>
 
-            {/* Correct */}
-            <div className="bg-emerald-950/20 border border-emerald-800/40 rounded-2xl p-6 shadow-lg">
-              <div className="flex items-center gap-2 text-emerald-400 font-bold mb-3">
+            {/* Senior Best Practice */}
+            <div className="bg-emerald-950/20 border border-emerald-800/40 rounded-2xl p-6 shadow-lg space-y-3">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold">
                 <span>✓</span>
-                <span>Senior Pro Best Practice</span>
+                <span>Senior Pro Practice: {"Use Array.from() for Independent Reference Instances"}</span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-300 mb-4 leading-relaxed">
-                Explicit type validation, strict equality, optional chaining, and nullish coalescing operators.
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                {"Each element gets an independently constructed object or array."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-emerald-900/50 text-xs font-mono text-emerald-300 overflow-x-auto">
-{`// ✓ RECOMMENDED: Safe, explicit and defensive
-function checkStatus(val) {
-  if (typeof val !== "string") {
-    return "default";
-  }
-  return val.toUpperCase();
-}`}
+{"// ✓ RECOMMENDED: Fresh independent instances\nconst matrix = Array.from({ length: 3 }, () => []);\nmatrix[0].push(\"OK\"); // Only row 0 is modified!"}
               </pre>
             </div>
           </div>
         </section>
 
-        {/* ─── 7. 💎 JAVASCRIPT HIDDEN GEMS & SENIOR PRO TRICKS ────────── */}
+        {/* ─── SECTION 7: 💎 JAVASCRIPT HIDDEN GEMS & PRO TRICKS ──────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <div className="bg-gradient-to-br from-amber-950/30 via-slate-900 to-purple-950/20 border border-amber-500/30 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden">
             <div className="flex items-center gap-3 mb-4">
@@ -278,58 +291,58 @@ function checkStatus(val) {
                   JavaScript Hidden Gem &amp; Senior Pro Secret
                 </span>
                 <h3 className="text-lg sm:text-xl font-bold text-white">
-                  {"Immutable Array Methods: toSorted(), toReversed(), toSpliced() & with()"}
+                  {"Zero-Allocation In-Place Array Shifting via copyWithin()"}
                 </h3>
               </div>
             </div>
 
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-              {"Modern ECMAScript (ES2023) methods that return brand-new transformed arrays without mutating the original array."}
+              {"`copyWithin()` performs a C++ level `memmove`, making it hundreds of times faster than slicing and re-assigning for sliding window algorithms."}
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"const scores = [40, 10, 80, 20];\nconst sorted = scores.toSorted((a, b) => a - b);\nconst modified = scores.with(1, 99); // Replaces index 1 with 99\nconsole.log(scores); // [40, 10, 80, 20] (Original is completely untouched!)"}</pre>
+              <pre>{"const buffer = [1, 2, 3, 4, 5, 6];\n// Shift elements from index 2-5 into position starting at 0\nbuffer.copyWithin(0, 2, 5);\nconsole.log(buffer); // [3, 4, 5, 4, 5, 6]"}</pre>
             </div>
           </div>
         </section>
 
-        {/* ─── 8. THINKING & HINTS ("Think About This...") ─────────────── */}
+        {/* ─── SECTION 8: THINKING & ARCHITECTURAL CHALLENGE ─────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <div className="bg-indigo-950/20 border border-indigo-800/40 rounded-2xl p-6 md:p-8 shadow-lg">
             <h2 className="text-lg sm:text-xl font-bold text-indigo-300 mb-3 flex items-center gap-2">
               <span>🤔</span> Architectural Mental Challenge: Think About This...
             </h2>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-4">
-              If an application triggers thousands of operations per second using <strong className="text-amber-300">{"Searching in Arrays — indexOf(), includes(), find(), findIndex()"}</strong>, how does the V8 engine manage memory allocation and Garbage Collection pressure without causing UI frame drops (jank)?
+              {"How do you insert an element at index `K` without mutating the original array using ES6 spread and `slice()`?"}
             </p>
             <div className="p-4 rounded-xl bg-slate-900 border border-indigo-900/50 text-xs sm:text-sm text-indigo-300 font-mono">
-              💡 Hint: Focus on object pool recycling, avoiding closure leaks in long-lived event listeners, and minimizing temporary object allocations in hot loops.
+              💡 Hint: {"`[...arr.slice(0, K), newItem, ...arr.slice(K)]` creates a pure, updated copy."}
             </div>
           </div>
         </section>
 
-        {/* ─── 9. COMPREHENSIVE FAQ SECTION ───────────────────────────── */}
+        {/* ─── SECTION 9: COMPREHENSIVE FAQ SECTION (25-30 ITEMS) ─────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <FAQTemplate
-            title={"Frequently Asked Questions · Searching in Arrays — indexOf(), includes(), find(), findIndex()"}
-            subtitle="Explore 25+ comprehensive questions from basic to senior architecture levels"
+            title={"Frequently Asked Questions · " + "Powerful Slicing & Splicing — slice(), splice(), copyWithin(), fill()"}
+            subtitle="Explore 25+ comprehensive questions from basic concepts to senior enterprise architecture"
             questions={questions}
           />
         </section>
 
-        {/* ─── 10. PLAIN TEXT PRINTABLE STUDY NOTE ─────────────────────── */}
+        {/* ─── SECTION 10: PLAIN TEXT PRINTABLE STUDY NOTE ─────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <PlainTextPrint
             content={noteText}
-            title={"JavaScript Master Note · Searching in Arrays — indexOf(), includes(), find(), findIndex()"}
-            downloadFileName="002_002_arrays-and-methods-topic3-note.txt"
+            title={"JavaScript Master Note · " + "Powerful Slicing & Splicing — slice(), splice(), copyWithin(), fill()"}
+            downloadFileName="002-002-topic3-note.txt"
           />
         </section>
 
-        {/* ─── 11. TEACHER'S NOTE & MENTORSHIP ────────────────────────── */}
+        {/* ─── SECTION 11: TEACHER'S NOTE & MENTORSHIP ────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <Teacher
-            note={"In my 27+ years of mentoring engineers at Coder & AccoTax in Barrackpore, I have seen that mastering Searching in Arrays — indexOf(), includes(), find(), findIndex() is the exact turning point between amateur scripting and professional software engineering. Practice each example in the Monaco editor until you can explain the execution flow without hesitation."}
+            note={"In my 27+ years of mentoring software engineers at Coder & AccoTax in Barrackpore, I have consistently seen that mastering " + "Powerful Slicing & Splicing — slice(), splice(), copyWithin(), fill()" + " separates code monkeys from genuine software engineers. " + "Remember the rule: slice for pure safety, splice for in-place surgical mutations, copyWithin for raw computational speed."}
           />
         </section>
 

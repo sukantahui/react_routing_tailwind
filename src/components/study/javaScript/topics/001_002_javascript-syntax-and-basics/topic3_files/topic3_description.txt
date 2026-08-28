@@ -1,0 +1,67 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 001_002_JAVASCRIPT-SYNTAX-AND-BASICS
+Topic 3: PRIMITIVE NUMBERS, BIGINT, FLOATING POINT QUIRKS (0.1 + 0.2) & NUMBER METHODS
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Have you ever tried measuring 1/3 of a cup of water using a measuring cylinder marked in decimal tenths? 1/3 in decimal is 0.333333... it never ends cleanly! Computers store numbers in binary (base-2: 0s and 1s). Just like 1/3 cannot be written cleanly in base-10, 0.1 and 0.2 cannot be stored with exact precision in binary. That is why 0.1 + 0.2 equals 0.30000000000000004!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Tuhina was building a shopping cart total for our AccoTax accounting project. She added Rs 0.10 tax and Rs 0.20 surcharge, expecting Rs 0.30. When she checked 0.1 + 0.2 === 0.3, JavaScript said false! She panicked: 'Sir! Has JavaScript forgotten basic mathematics?' I drew binary floating point fractions on the whiteboard to explain IEEE-754 double precision. I taught her how professional financial systems either use whole paise/cents (multiplying by 100) or use .toFixed(2) and Number.EPSILON for accurate rounding.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. JavaScript Number Representation:
+All standard numbers in JavaScript are 64-bit floating point numbers (IEEE-754 standard).
+- Maximum Safe Integer: Number.MAX_SAFE_INTEGER (9,007,199,254,740,991)
+- Special Number Values:
+  * Infinity (e.g. 10 / 0)
+  * -Infinity (e.g. -10 / 0)
+  * NaN ('Not-a-Number', e.g. "apple" / 5)
+
+2. BigInt for Giant Numbers:
+If you need to calculate integers larger than 9 quadrillion (e.g. bank transaction IDs, cryptography), append an 'n' to the number:
+let huge = 9007199254740991n + 5n;
+
+3. Useful Number Methods:
+- Number.parseInt("42px") -> 42
+- Number.parseFloat("3.14m") -> 3.14
+- Number.isNaN(val) -> checks if value is NaN
+- Number.isFinite(val) -> checks if value is finite
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Safe Financial Rounding with toFixed ---
+let price1 = 0.1;
+let price2 = 0.2;
+let rawSum = price1 + price2;
+console.log("Raw Sum:", rawSum); // 0.30000000000000004
+
+// Safe rounding for currency display:
+let cleanBill = (price1 + price2).toFixed(2);
+console.log("Formatted Bill: ₹" + cleanBill); // "₹0.30"
+
+Teacher's Note on Example 1:
+toFixed(2) rounds the floating point result to 2 decimal places for clean display.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Mixing BigInt and regular Numbers directly: You cannot write 10n + 5. You must explicitly convert: 10n + BigInt(5).
+
+[!] Using == to check NaN: NaN === NaN is always false! Always use Number.isNaN(x) to test for NaN.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Numbers in JS are 64-bit floats; 0.1 + 0.2 has tiny precision quirks.
+• Use BigInt for integers beyond 9 quadrillion.
+• Use Number.isNaN() and .toFixed() for safe numeric operations.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Never rush through the basics. When your foundation is solid, building complex
+applications becomes as effortless as speaking your native language. Keep practicing!"
+================================================================================

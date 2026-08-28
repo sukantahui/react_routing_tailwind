@@ -1,0 +1,64 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_003_OBJECTS-AND-BASIC-OOP
+Topic 9: PROPERTY DESCRIPTORS & METAPROGRAMMING: OBJECT.DEFINEPROPERTY(), GETOWNPROPERTYDESCRIPTOR()
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think about setting permissions on a file in Windows or Linux. A file can be marked as 'Read-Only' (cannot be edited), 'Hidden' (doesn't show up in standard lists), or 'Protected' (cannot be deleted). In JavaScript, every single property on an object has 3 hidden internal security flags called Property Descriptors: `writable`, `enumerable`, and `configurable`!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Debangshu had a banking object where he wanted `accountNumber` to be permanently read-only and impossible to delete, even if someone tried `account.accountNumber = 999;`. I showed him `Object.defineProperty(account, 'accountNumber', { value: 'ACC-8842', writable: false, configurable: false })`. When Debangshu tried to overwrite or delete it in strict mode, JavaScript threw a TypeError. Debangshu felt like he unlocked JavaScript's inner security vault.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. The 3 Property Descriptor Attributes:
+- writable: If true, the value can be changed with `=`. If false, it is read-only.
+- enumerable: If true, the property shows up in `for...in` and `Object.keys()`. If false, it is hidden from loops.
+- configurable: If true, the property can be deleted and its descriptor flags modified. If false, it cannot be deleted or reconfigured.
+
+2. Inspecting Descriptors:
+`Object.getOwnPropertyDescriptor(obj, 'propName')` reveals all 4 descriptor settings.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Creating a Read-Only, Non-Enumerable Property ---
+const student = { name: 'Swadeep' };
+
+Object.defineProperty(student, 'nationalId', {
+  value: 'IND-9021',
+  writable: false,     // Read-only!
+  enumerable: false,   // Hidden from Object.keys()!
+  configurable: false  // Cannot be deleted!
+});
+
+console.log('National ID:', student.nationalId); // 'IND-9021'
+console.log('Keys visible:', Object.keys(student)); // ['name'] (nationalId is hidden!)
+
+// Attempting to overwrite in non-strict mode fails silently:
+student.nationalId = 'NEW-1111';
+console.log('After overwrite attempt:', student.nationalId); // 'IND-9021' (Protected!)
+
+Teacher's Note on Example 1:
+Property descriptors allow granular control over mutability and visibility.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Default flags when using Object.defineProperty: Unlike object literal assignment (where flags default to true), `Object.defineProperty` defaults missing flags (`writable`, `enumerable`, `configurable`) to `false`!
+
+[!] Modifying non-configurable properties: Once configurable is false, you cannot change it back to true.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Property descriptors govern `value`, `writable`, `enumerable`, and `configurable`.
+• `Object.defineProperty()` enables fine-grained metadata and access control.
+• Foundational tool for frameworks and library authors creating secure immutable objects.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

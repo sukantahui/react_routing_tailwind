@@ -1,20 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
-import clsx from "clsx";
+import React, { useEffect, useRef } from "react";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import JavaScriptEditableCodeBlock from "../../../../../common/JavaScriptEditableCodeBlock";
 import questions from "./topic12_files/topic12_questions";
 import noteText from "./topic12_files/topic12_note.txt?raw";
-import demoCode from "./topic12_files/NewtargetMetaPropertyConstructorGuardsDemo.js?raw";
+import demoCode from "./topic12_files/RecursionFundamentalsBaseCasesCallStackDemoDemo.js?raw";
 
-/**
- * Topic12 – new.target Meta-Property & Constructor Guards
- * Module: 002_001_functions-basics
- *
- * @component
- * @returns {JSX.Element} Full 11-section interactive JavaScript tutorial component.
- */
 export default function Topic12() {
   const sectionRefs = useRef([]);
 
@@ -59,7 +51,7 @@ export default function Topic12() {
 
       <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-amber-500/30 selection:text-amber-200">
         
-        {/* ─── 1. HEADER SECTION ──────────────────────────────────────── */}
+        {/* ─── SECTION 1: HEADER & METADATA ─────────────────────────── */}
         <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-950/70 border border-amber-700/60 text-amber-300 text-xs font-semibold uppercase tracking-wider shadow-lg">
             <span>⚡</span>
@@ -67,11 +59,11 @@ export default function Topic12() {
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-sky-300 tracking-tight leading-tight">
-            {"new.target Meta-Property & Constructor Guards"}
+            {"Recursion Fundamentals, Base Cases & Call Stack Overflow Invariants"}
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Master the core mechanics, V8 execution rules, and practical enterprise workflows of <strong className="text-amber-300">{"new.target Meta-Property & Constructor Guards"}</strong> in modern JavaScript.
+            {"Master recursive algorithm design: defining clear base cases, tracing call stack frame allocation, calculating time/space complexity, and handling deep tree traversals."}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-slate-400 pt-2">
@@ -81,128 +73,155 @@ export default function Topic12() {
           </div>
         </header>
 
-        {/* ─── 2. CONCEPT OVERVIEW ────────────────────────────────────── */}
+        {/* ─── SECTION 2: DETAILED CONCEPT DISCUSSION & MENTAL MODELS ── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
           <div className="bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg hover:border-slate-700 transition-all">
             <h2 className="text-xl sm:text-2xl font-bold text-amber-400 mb-4 flex items-center gap-2">
-              <span>💡</span> Conceptual Overview &amp; Mental Models
+              <span>💡</span> Detailed Discussion &amp; Conceptual Foundation
             </h2>
+            
             <p className="text-slate-300 leading-relaxed mb-4">
-              In JavaScript, understanding <strong className="text-amber-300">{"new.target Meta-Property & Constructor Guards"}</strong> is critical for writing robust and bug-free code. When building enterprise web applications, code must be predictable, resilient to unexpected user inputs, and optimized for high-performance browser execution.
+              {"Master recursive algorithm design: defining clear base cases, tracing call stack frame allocation, calculating time/space complexity, and handling deep tree traversals."} In modern software engineering, mastering this feature allows developers to write decoupled, resilient, and highly performant JavaScript applications across Node.js runtimes and client browsers.
             </p>
-            <div className="p-4 rounded-xl bg-slate-900/90 border border-amber-900/40 text-sm text-slate-300 leading-relaxed">
-              <span className="text-amber-400 font-bold">🏫 Classroom Scenario (Barrackpore Lab):</span> During a hands-on lab exercise, <strong>Swadeep</strong> encountered unexpected runtime behavior while testing an interactive component. Mentor <strong>Sukanta Hui</strong> demonstrated how tracing the execution flow of <em>{"new.target Meta-Property & Constructor Guards"}</em> eliminates guesswork, ensuring smooth and deterministic UI state transitions.
+
+            <p className="text-slate-300 leading-relaxed mb-4">
+              During evaluation, the JavaScript V8 engine parses code into an Abstract Syntax Tree (AST), generates bytecode via Ignition, and tracks variable bindings inside specialized Environment Records before optimizing hot paths via the TurboFan JIT compiler.
+            </p>
+
+            {/* Classroom Story with Code/State */}
+            <div className="p-5 rounded-xl bg-slate-900/90 border border-amber-900/40 text-sm text-slate-300 leading-relaxed space-y-2">
+              <div className="flex items-center gap-2 text-amber-400 font-bold">
+                <span>🏫</span>
+                <span>Classroom Scenario (Barrackpore Lab):</span>
+              </div>
+              <p>
+                {"Debangshu wrote a recursive file tree crawler that omitted a base case for leaf nodes, triggering `RangeError: Maximum call stack size exceeded`."}
+              </p>
+              <p>
+                {"Sukanta Hui visualized the V8 Call Stack on the whiteboard, showing how every recursive call pushes a stack frame until the stack pointer exceeds the memory ceiling."}
+              </p>
             </div>
           </div>
         </section>
 
-        {/* ─── 3. SEMANTIC VISUAL SVG DIAGRAM ─────────────────────────── */}
+        {/* ─── SECTION 3: TOPIC-SPECIFIC SEMANTIC SVG DIAGRAM ─────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl">
             <h2 className="text-lg sm:text-xl font-bold text-sky-400 mb-4 flex items-center gap-2">
-              <span>📊</span> Runtime Architecture &amp; Execution Diagram
+              <span>📊</span> Runtime Architecture &amp; Execution Pipeline Diagram
             </h2>
             <div className="w-full overflow-x-auto">
-              <svg viewBox="0 0 800 240" className="w-full h-auto" role="img" aria-label="JavaScript Memory Layout &amp; Data Pipeline">
-  <defs>
-    <linearGradient id="memGrad_12" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.8" />
-      <stop offset="100%" stopColor="#b45309" stopOpacity="0.2" />
-    </linearGradient>
-    <linearGradient id="heapGrad_12" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.8" />
-      <stop offset="100%" stopColor="#5b21b6" stopOpacity="0.2" />
-    </linearGradient>
-  </defs>
-  <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
-  <text x="400" y="34" fill="#f8fafc" fontSize="16" fontWeight="bold" textAnchor="middle">new.target Meta-Property &amp; Constructor Guards · Architecture &amp; Execution Pipeline</text>
+              <svg viewBox="0 0 800 240" className="w-full h-auto" role="img" aria-label={"Recursion Fundamentals, Base Cases & Call Stack Overflow Invariants"}>
+                <defs>
+                  <linearGradient id="gradBox1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#b45309" stopOpacity="0.3" />
+                  </linearGradient>
+                  <linearGradient id="gradBox2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#0369a1" stopOpacity="0.3" />
+                  </linearGradient>
+                  <linearGradient id="gradBox3" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#10b981" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#047857" stopOpacity="0.3" />
+                  </linearGradient>
+                </defs>
+                <rect width="800" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
+                <text x="400" y="30" fill="#f8fafc" fontSize="14" fontWeight="bold" textAnchor="middle">{"Recursion Fundamentals, Base Cases & Call Stack Overflow Invariants"} · Architecture &amp; State Transitions</text>
 
-  <g transform="translate(60, 65)">
-    <rect width="280" height="145" rx="12" fill="#1e293b" stroke="#f59e0b" strokeWidth="1.5" />
-    <text x="140" y="28" fill="#fbbf24" fontSize="13" fontWeight="bold" textAnchor="middle">Execution Call Stack (Primitives)</text>
-    <rect x="20" y="42" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
-    <text x="30" y="59" fill="#94a3b8" fontSize="11">let student = "Swadeep"</text>
-    <text x="210" y="59" fill="#38bdf8" fontSize="11" fontWeight="bold">String (Value)</text>
+                {/* Box 1 */}
+                <rect x="40" y="70" width="200" height="110" rx="12" fill="url(#gradBox1)" stroke="#f59e0b" strokeWidth="1" />
+                <text x="140" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 1: Input</text>
+                <text x="140" y="135" fill="#fef3c7" fontSize="11" textAnchor="middle">{"Initial Invocation (Stack Frame 1)"}</text>
 
-    <rect x="20" y="74" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
-    <text x="30" y="91" fill="#94a3b8" fontSize="11">let marks = 98.5</text>
-    <text x="210" y="91" fill="#38bdf8" fontSize="11" fontWeight="bold">Number (Value)</text>
+                {/* Arrow 1 */}
+                <path d="M 250 125 L 290 125" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arrow)" />
 
-    <rect x="20" y="106" width="240" height="26" rx="6" fill="#0f172a" stroke="#334155" />
-    <text x="30" y="123" fill="#94a3b8" fontSize="11">let refObj = 0x8849F</text>
-    <text x="195" y="123" fill="#ec4899" fontSize="11" fontWeight="bold">Heap Pointer →</text>
-  </g>
+                {/* Box 2 */}
+                <rect x="300" y="70" width="200" height="110" rx="12" fill="url(#gradBox2)" stroke="#38bdf8" strokeWidth="1" />
+                <text x="400" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 2: Execution</text>
+                <text x="400" y="135" fill="#e0f2fe" fontSize="11" textAnchor="middle">{"Recursive Unwinding (Base Case Hit)"}</text>
 
-  <g transform="translate(460, 65)">
-    <rect width="280" height="145" rx="12" fill="url(#heapGrad_12)" stroke="#a855f7" strokeWidth="1.5" />
-    <text x="140" y="28" fill="#e9d5ff" fontSize="13" fontWeight="bold" textAnchor="middle">Memory Heap (Objects / Arrays / Closures)</text>
-    <rect x="20" y="45" width="240" height="85" rx="8" fill="#0f172a" stroke="#6366f1" />
-    <text x="30" y="68" fill="#38bdf8" fontSize="11" fontWeight="bold">Address: 0x8849F</text>
-    <text x="30" y="88" fill="#e2e8f0" fontSize="11">&#123; course: "JS-PRO-101", city: "Barrackpore" &#125;</text>
-    <text x="30" y="108" fill="#a5b4fc" fontSize="10">Managed by V8 Garbage Collector (Mark &amp; Sweep)</text>
-  </g>
+                {/* Arrow 2 */}
+                <path d="M 510 125 L 550 125" stroke="#38bdf8" strokeWidth="2" />
 
-  <path d="M 340 185 C 390 185, 410 135, 460 135" fill="none" stroke="#ec4899" strokeWidth="2.5" strokeDasharray="6 3" />
-  <circle cx="460" cy="135" r="4" fill="#ec4899" />
-</svg>
+                {/* Box 3 */}
+                <rect x="560" y="70" width="200" height="110" rx="12" fill="url(#gradBox3)" stroke="#10b981" strokeWidth="1" />
+                <text x="660" y="105" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">Phase 3: Output State</text>
+                <text x="660" y="135" fill="#d1fae5" fontSize="11" textAnchor="middle">{"Stack Frame Teardown & Return Accumulation"}</text>
+              </svg>
             </div>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              Figure 1.1: Architectural execution pipeline and memory layout.
+              Figure: Step-by-step architectural execution and state transitions for {"Recursion Fundamentals, Base Cases & Call Stack Overflow Invariants"}.
             </p>
           </div>
         </section>
 
-        {/* ─── 4. DEEP TECHNICAL BREAKDOWN ─────────────────────── */}
+        {/* ─── SECTION 4: DEEP TECHNICAL BREAKDOWN & SPECIFICATIONS ───── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
           <div className="bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg">
             <h2 className="text-xl sm:text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2">
-              <span>🔬</span> Deep Technical Breakdown &amp; Execution Rules
+              <span>🔬</span> Deep Technical Know-How, Spec Invariants &amp; Mechanics
             </h2>
             
             <p className="text-slate-300 leading-relaxed mb-6">
-              The ECMAScript specification defines formal execution invariants for <strong className="text-amber-300">{"new.target Meta-Property & Constructor Guards"}</strong>. When a script runs, the JavaScript runtime establishes an execution context consisting of variable environments, lexical scopes, and binding environments.
+              The ECMAScript specification mandates precise abstract operations during the lifecycle of {"Recursion Fundamentals, Base Cases & Call Stack Overflow Invariants"}. The table below outlines formal specification rules, engine runtime dynamics, and actionable developer invariants.
             </p>
 
+            {/* Specifications Comparison Table */}
             <div className="overflow-x-auto mb-6">
               <table className="w-full text-left text-sm text-slate-300 border-collapse border border-slate-800">
                 <thead className="bg-slate-900/90 text-amber-300 uppercase text-xs">
                   <tr>
-                    <th className="p-3 border border-slate-800">Execution Phase</th>
-                    <th className="p-3 border border-slate-800">Engine Behavior</th>
-                    <th className="p-3 border border-slate-800">Developer Invariant</th>
-                    <th className="p-3 border border-slate-800">Optimization Goal</th>
+                    <th className="p-3 border border-slate-800">Feature / Phase</th>
+                    <th className="p-3 border border-slate-800">ECMAScript Spec Rule</th>
+                    <th className="p-3 border border-slate-800">Runtime / Engine Behavior</th>
+                    <th className="p-3 border border-slate-800">Developer Invariant &amp; Best Practice</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800">
+                <tbody className="divide-y divide-slate-800 font-mono text-xs">
+                  
                   <tr className="hover:bg-slate-800/30">
-                    <td className="p-3 font-mono text-sky-400">1. Parse / Tokenize</td>
-                    <td className="p-3">Lexer converts source code into AST tokens</td>
-                    <td className="p-3">Zero syntax errors &amp; clean lexical grammar</td>
-                    <td className="p-3 text-emerald-400">Fast AST building</td>
+                    <td className="p-3 text-sky-400">{"Base Case"}</td>
+                    <td className="p-3 text-slate-300 font-sans">{"Termination condition returning without recursion"}</td>
+                    <td className="p-3 text-amber-300 font-sans">{"Halts call stack expansion and initiates unwinding"}</td>
+                    <td className="p-3 text-emerald-400 font-sans">{"Mandatory in every recursive function"}</td>
                   </tr>
                   <tr className="hover:bg-slate-800/30">
-                    <td className="p-3 font-mono text-sky-400">2. Ignition Bytecode</td>
-                    <td className="p-3">Generates bytecodes and initializes type feedback</td>
-                    <td className="p-3">Avoid dynamic property shape mutations</td>
-                    <td className="p-3 text-emerald-400">Instant startup time</td>
+                    <td className="p-3 text-sky-400">{"Recursive Step"}</td>
+                    <td className="p-3 text-slate-300 font-sans">{"Self-invocation with state advancing towards base case"}</td>
+                    <td className="p-3 text-amber-300 font-sans">{"Pushes new execution context frame onto Call Stack"}</td>
+                    <td className="p-3 text-emerald-400 font-sans">{"Tree/graph traversal, divide-and-conquer"}</td>
                   </tr>
                   <tr className="hover:bg-slate-800/30">
-                    <td className="p-3 font-mono text-sky-400">3. TurboFan JIT</td>
-                    <td className="p-3">Hot code paths compiled to optimized machine code</td>
-                    <td className="p-3">Maintain monomorphic function call sites</td>
-                    <td className="p-3 text-emerald-400">Near C++ performance</td>
+                    <td className="p-3 text-sky-400">{"Stack Memory Limit"}</td>
+                    <td className="p-3 text-slate-300 font-sans">{"Engine-enforced maximum call stack depth (~10,000 frames)"}</td>
+                    <td className="p-3 text-amber-300 font-sans">{"Throws RangeError when stack ceiling breached"}</td>
+                    <td className="p-3 text-emerald-400 font-sans">{"Requires defensive depth guards or iteration"}</td>
                   </tr>
                 </tbody>
               </table>
             </div>
+
+            {/* Exceptions & Quirks Subsection */}
+            <div className="mt-6 p-5 rounded-xl bg-slate-900/80 border border-rose-900/40 space-y-3">
+              <h3 className="text-base font-bold text-rose-400 flex items-center gap-2">
+                <span>⚠️</span> Exceptions, Quirks &amp; Corner Cases to Know
+              </h3>
+              <ul className="list-disc list-inside space-y-2 text-sm text-slate-300 leading-relaxed">
+                <li><strong className="text-rose-300">{"RangeError: Maximum call stack size exceeded:"}</strong> {"Infinite recursion or recursion depth exceeding the V8 stack limit (~10k frames)."}</li>
+                <li><strong className="text-rose-300">{"Exponential Time Complexity (O(2^N)):"}</strong> {"Naive recursive algorithms (e.g. un-memoized Fibonacci) trigger catastrophic performance degradation."}</li>
+                <li><strong className="text-rose-300">{"Stack Memory Exhaustion:"}</strong> {"Large objects held in recursive activation frames prevent garbage collection until the entire chain unwinds."}</li>
+              </ul>
+            </div>
           </div>
         </section>
 
-        {/* ─── 5. HANDS-ON MONACO CODE RUNNER ─────────────────────────── */}
+        {/* ─── SECTION 5: HANDS-ON MONACO CODE RUNNER (5+ EXAMPLES) ──── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-xl sm:text-2xl font-bold text-amber-400 flex items-center gap-2">
-              <span>💻</span> Interactive Monaco Playground: 5+ Working Examples
+              <span>💻</span> Interactive Monaco Playground: 5+ Practical Working Examples
             </h2>
             <span className="text-xs font-mono px-3 py-1 rounded bg-amber-950/60 border border-amber-800 text-amber-300">
               Live In-Browser Execution
@@ -212,61 +231,49 @@ export default function Topic12() {
           <div className="rounded-2xl border border-slate-800 overflow-hidden shadow-2xl bg-slate-900">
             <JavaScriptEditableCodeBlock
               initialCode={demoCode}
-              title="NewtargetMetaPropertyConstructorGuardsDemo.js"
+              title="RecursionFundamentalsBaseCasesCallStackDemoDemo.js"
             />
           </div>
         </section>
 
-        {/* ─── 6. COMMON PITFALLS & BEST PRACTICES ────────────────────── */}
+        {/* ─── SECTION 6: COMMON PITFALLS & SENIOR BEST PRACTICES ─────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
           <h2 className="text-xl sm:text-2xl font-bold text-rose-400 flex items-center gap-2">
             <span>⚖️</span> Common Pitfalls vs Senior Best Practices
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Incorrect */}
-            <div className="bg-rose-950/20 border border-rose-800/40 rounded-2xl p-6 shadow-lg">
-              <div className="flex items-center gap-2 text-rose-400 font-bold mb-3">
+            {/* Pitfall Anti-Pattern */}
+            <div className="bg-rose-950/20 border border-rose-800/40 rounded-2xl p-6 shadow-lg space-y-3">
+              <div className="flex items-center gap-2 text-rose-400 font-bold">
                 <span>❌</span>
-                <span>Anti-Pattern / Common Bug</span>
+                <span>Anti-Pattern: {"Naive Recursive Fibonacci without Memoization"}</span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-300 mb-4 leading-relaxed">
-                Relying on implicit coercion, uninitialized variable hoisting, or neglecting boundary state checks.
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                {"Calculating fib(45) naively takes billions of repeated function calls, freezing the main thread."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-rose-900/50 text-xs font-mono text-rose-300 overflow-x-auto">
-{`// ❌ AVOID: Loose comparisons and unhandled TDZ
-function checkStatus(val) {
-  if (val == null) { // Unclear intent
-    return "default";
-  }
-  return val.toUpperCase(); // May throw TypeError!
-}`}
+{"// ❌ AVOID: O(2^N) Exponential Explosion\nfunction fib(n) {\n  if (n <= 1) return n;\n  return fib(n - 1) + fib(n - 2); // Recalculates identical branches!\n}"}
               </pre>
             </div>
 
-            {/* Correct */}
-            <div className="bg-emerald-950/20 border border-emerald-800/40 rounded-2xl p-6 shadow-lg">
-              <div className="flex items-center gap-2 text-emerald-400 font-bold mb-3">
+            {/* Senior Best Practice */}
+            <div className="bg-emerald-950/20 border border-emerald-800/40 rounded-2xl p-6 shadow-lg space-y-3">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold">
                 <span>✓</span>
-                <span>Senior Pro Best Practice</span>
+                <span>Senior Pro Practice: {"Memoized or Iterative Recursion"}</span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-300 mb-4 leading-relaxed">
-                Explicit type validation, strict equality, optional chaining, and nullish coalescing operators.
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                {"Cache intermediate branch results to reduce complexity to linear O(N)."}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 border border-emerald-900/50 text-xs font-mono text-emerald-300 overflow-x-auto">
-{`// ✓ RECOMMENDED: Safe, explicit and defensive
-function checkStatus(val) {
-  if (typeof val !== "string") {
-    return "default";
-  }
-  return val.toUpperCase();
-}`}
+{"// ✓ RECOMMENDED: O(N) Linear Complexity\nfunction fibMemo(n, memo = new Map()) {\n  if (n <= 1) return n;\n  if (memo.has(n)) return memo.get(n);\n  const res = fibMemo(n - 1, memo) + fibMemo(n - 2, memo);\n  memo.set(n, res);\n  return res;\n}"}
               </pre>
             </div>
           </div>
         </section>
 
-        {/* ─── 7. 💎 JAVASCRIPT HIDDEN GEMS & SENIOR PRO TRICKS ────────── */}
+        {/* ─── SECTION 7: 💎 JAVASCRIPT HIDDEN GEMS & PRO TRICKS ──────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <div className="bg-gradient-to-br from-amber-950/30 via-slate-900 to-purple-950/20 border border-amber-500/30 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden">
             <div className="flex items-center gap-3 mb-4">
@@ -278,58 +285,58 @@ function checkStatus(val) {
                   JavaScript Hidden Gem &amp; Senior Pro Secret
                 </span>
                 <h3 className="text-lg sm:text-xl font-bold text-white">
-                  {"new.target Meta-Property for Constructor Guarding"}
+                  {"Deep Object Tree Traversal & Key Path Collector"}
                 </h3>
               </div>
             </div>
 
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-              {"Detect whether a function was invoked with the `new` operator or as a regular function call."}
+              {"Recursion is the natural paradigm for navigating nested hierarchical structures such as ASTs, JSON schemas, and DOM trees."}
             </p>
 
             <div className="rounded-xl border border-amber-900/50 bg-slate-950 p-4 font-mono text-xs text-amber-200 overflow-x-auto">
-              <pre>{"function User(name) {\n  if (!new.target) return new User(name); // Auto-instantiates if new is omitted\n  this.name = name;\n}"}</pre>
+              <pre>{"function findKeys(obj, prefix = \"\", result = []) {\n  for (const [key, value] of Object.entries(obj)) {\n    const path = prefix ? `${prefix}.${key}` : key;\n    if (value !== null && typeof value === \"object\" && !Array.isArray(value)) {\n      findKeys(value, path, result);\n    } else {\n      result.push({ path, value });\n    }\n  }\n  return result;\n}\nconst user = { profile: { address: { city: \"Barrackpore\", pin: \"700120\" } } };\nconsole.table(findKeys(user));"}</pre>
             </div>
           </div>
         </section>
 
-        {/* ─── 8. THINKING & HINTS ("Think About This...") ─────────────── */}
+        {/* ─── SECTION 8: THINKING & ARCHITECTURAL CHALLENGE ─────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <div className="bg-indigo-950/20 border border-indigo-800/40 rounded-2xl p-6 md:p-8 shadow-lg">
             <h2 className="text-lg sm:text-xl font-bold text-indigo-300 mb-3 flex items-center gap-2">
               <span>🤔</span> Architectural Mental Challenge: Think About This...
             </h2>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-4">
-              If an application triggers thousands of operations per second using <strong className="text-amber-300">{"new.target Meta-Property & Constructor Guards"}</strong>, how does the V8 engine manage memory allocation and Garbage Collection pressure without causing UI frame drops (jank)?
+              {"What is the typical Call Stack depth limit in the Google Chrome V8 engine, and how can you measure it programmatically?"}
             </p>
             <div className="p-4 rounded-xl bg-slate-900 border border-indigo-900/50 text-xs sm:text-sm text-indigo-300 font-mono">
-              💡 Hint: Focus on object pool recycling, avoiding closure leaks in long-lived event listeners, and minimizing temporary object allocations in hot loops.
+              💡 Hint: {"A simple recursive counter function wrapped in a try/catch block will catch the RangeError and report the exact stack limit."}
             </div>
           </div>
         </section>
 
-        {/* ─── 9. COMPREHENSIVE FAQ SECTION ───────────────────────────── */}
+        {/* ─── SECTION 9: COMPREHENSIVE FAQ SECTION (25-30 ITEMS) ─────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <FAQTemplate
-            title={"Frequently Asked Questions · new.target Meta-Property & Constructor Guards"}
-            subtitle="Explore 25+ comprehensive questions from basic to senior architecture levels"
+            title={"Frequently Asked Questions · " + "Recursion Fundamentals, Base Cases & Call Stack Overflow Invariants"}
+            subtitle="Explore 25+ comprehensive questions from basic concepts to senior enterprise architecture"
             questions={questions}
           />
         </section>
 
-        {/* ─── 10. PLAIN TEXT PRINTABLE STUDY NOTE ─────────────────────── */}
+        {/* ─── SECTION 10: PLAIN TEXT PRINTABLE STUDY NOTE ─────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <PlainTextPrint
             content={noteText}
-            title={"JavaScript Master Note · new.target Meta-Property & Constructor Guards"}
-            downloadFileName="002_001_functions-basics-topic12-note.txt"
+            title={"JavaScript Master Note · " + "Recursion Fundamentals, Base Cases & Call Stack Overflow Invariants"}
+            downloadFileName="002-001-topic12-note.txt"
           />
         </section>
 
-        {/* ─── 11. TEACHER'S NOTE & MENTORSHIP ────────────────────────── */}
+        {/* ─── SECTION 11: TEACHER'S NOTE & MENTORSHIP ────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
           <Teacher
-            note={"In my 27+ years of mentoring engineers at Coder & AccoTax in Barrackpore, I have seen that mastering new.target Meta-Property & Constructor Guards is the exact turning point between amateur scripting and professional software engineering. Practice each example in the Monaco editor until you can explain the execution flow without hesitation."}
+            note={"In my 27+ years of mentoring software engineers at Coder & AccoTax in Barrackpore, I have consistently seen that mastering " + "Recursion Fundamentals, Base Cases & Call Stack Overflow Invariants" + " separates code monkeys from genuine software engineers. " + "Recursion is not about cleverness—it is about breaking a problem down until the solution becomes trivially self-evident at the base case."}
           />
         </section>
 

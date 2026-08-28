@@ -1,0 +1,64 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_004_ARRAYS-WITH-OBJECTS-ADVANCED
+Topic 1: TRANSFORMING OBJECT ARRAYS WITH MAP() & OBJECT DESTRUCTURING
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine a company HR department generating monthly salary slips. The master employee records contain 20 detailed fields (home address, blood group, emergency contact). But the bank transfer file only needs 3 fields (Employee ID, Bank Account Number, Net Salary). `map()` with Object Destructuring allows you to selectively extract, recalculate, and reshape object records cleanly!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Tuhina had a list of 500 student records with raw marks out of 100. She needed to produce a report card array showing student name, final grade letter, and pass/fail status. She was writing 15 lines of loops. I showed her `students.map(({ name, marks }) => ({ name, score: marks, isPassed: marks >= 40 }))`. In 3 lines, she projected a brand new lightweight array of report cards. Tuhina loved the elegance of object destructuring inside map parameters.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. Data Projection & Reshaping:
+Using `map()` to convert an array of complex objects into a new array of reshaped objects or primitive values.
+
+2. Parameter Destructuring in map callbacks:
+Instead of writing `student => student.name`, write `({ name, marks }) => ({ ... })` to pull properties directly into local variables.
+
+3. Returning Object Literals:
+Remember to wrap returned object literals in parentheses `({ key: val })` so arrow functions don't treat curly braces as a code block.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Projecting Fee Invoices from Student Objects ---
+const rawStudents = [
+  { id: 1, name: 'Swadeep', baseFee: 4000, discount: 500 },
+  { id: 2, name: 'Tuhina', baseFee: 5000, discount: 1000 },
+  { id: 3, name: 'Abhronila', baseFee: 4500, discount: 0 }
+];
+
+// Reshape into Invoice summaries:
+const invoices = rawStudents.map(({ name, baseFee, discount }) => ({
+  student: name,
+  finalPayable: (baseFee - discount) * 1.18, // Fee after discount + 18% GST
+  status: 'INVOICED'
+}));
+
+console.log(invoices);
+
+Teacher's Note on Example 1:
+map with destructuring extracts properties and computes new fields in a single step.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Mutating original objects inside map: Writing `student.isPaid = true; return student;` mutates the original dataset! Always return a new object: `return { ...student, isPaid: true };`.
+
+[!] Missing parentheses on returned object: `arr.map(x => { id: x.id })` returns undefined. Use `arr.map(x => ({ id: x.id }))`.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• map() reshapes and projects object arrays into new formats.
+• Destructure parameters `({ prop1, prop2 })` for clean, concise callbacks.
+• Always return fresh immutable object copies using `{ ...item, newProp }`.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

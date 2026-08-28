@@ -1,0 +1,76 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_003_OBJECTS-AND-BASIC-OOP
+Topic 15: ES6 CLASSES: SYNTAX, CONSTRUCTORS, INSTANCE METHODS & CLASS EXPRESSIONS
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think about building a house with raw bricks, cement, and trowels (Old Prototypal syntax) versus having a modern pre-fabricated architectural blueprint system (ES6 Classes). The foundation under the ground is still the exact same concrete and prototypes, but the modern blueprint syntax makes designing, reading, and maintaining the building 10 times cleaner and more organized!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Swadeep was tired of writing constructor functions and manually attaching 10 prototype methods with `.prototype.methodName = ...`. I introduced him to modern ES6 `class` syntax: `class Student { constructor(name) { this.name = name; } print() { ... } }`. Swadeep cheered: 'It looks so clean, elegant, and modern!' I explained that ES6 classes are syntactic sugar over JavaScript's existing prototype system.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. What is an ES6 Class?
+Introduced in ES6 (2015), `class` provides clean, declarative syntax for constructor functions and prototypal inheritance.
+
+2. Anatomy of a Class:
+- `constructor(...args)`: The initialization method invoked by `new`.
+- Instance Methods: Methods placed directly inside the class body are automatically attached to `Class.prototype`!
+- Class Expressions: `const Student = class { ... };`.
+
+3. Key Class Invariants:
+- Classes ALWAYS execute in Strict Mode (`'use strict'`).
+- Classes are NOT hoisted (must be declared before instantiation).
+- Classes CANNOT be called without `new` (throws `TypeError: Class constructor cannot be invoked without 'new'`).
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Building an ES6 Student Class ---
+class LabStudent {
+  constructor(name, roll, course) {
+    this.name = name;
+    this.roll = roll;
+    this.course = course;
+    this.isEnrolled = true;
+  }
+  
+  // Automatically attached to LabStudent.prototype:
+  getSummary() {
+    return `${this.name} (Roll #${this.roll}) - Enrolled in ${this.course}`;
+  }
+  
+  markAbsent() {
+    this.isEnrolled = false;
+    return `${this.name} marked inactive.`;
+  }
+}
+
+const student = new LabStudent('Swadeep', 101, 'JavaScript Pro');
+console.log(student.getSummary());
+console.log('Is method on prototype?', student.getSummary === LabStudent.prototype.getSummary); // true
+
+Teacher's Note on Example 1:
+ES6 class methods are automatically added to the class prototype cleanly.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Calling a class without `new`: `const s = LabStudent('Swadeep')` throws a TypeError. Classes strictly enforce `new`.
+
+[!] Expecting class declarations to be hoisted: Unlike function declarations, class declarations cannot be accessed before their declaration line.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• ES6 classes provide modern, readable syntax over prototypal inheritance.
+• Methods defined inside class bodies are automatically attached to the prototype.
+• Classes strictly require `new` and run in strict mode automatically.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

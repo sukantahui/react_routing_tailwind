@@ -1,0 +1,65 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 001_005_LOOPS-AND-ITERATION
+Topic 1: THE WHILE LOOP: CONDITION-DRIVEN ITERATION, PRE-CHECK MECHANICS & SENTINEL VALUES
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine waiting at a bus stop on Barrackpore Station Road. You don't know in advance how many minutes it will take for the bus to arrive. You simply stand and wait WHILE the bus has not arrived. When the bus finally appears, your waiting stops. A while loop is for situations where you don't know the exact count in advance; you just loop as long as a condition remains true.
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Tuhina was building a digital bank savings simulation. A student deposits ₹1,000 and earns 10% compound interest every year. She wanted to find out how many years it would take for the balance to double to ₹2,000. She asked: 'Sir, I don't know how many years it will take, so how can I set the loop count?' I showed her the while loop: while (balance < 2000) { balance *= 1.10; years++; }. Her loop ran 8 times and found the answer (8 years).
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. Syntax of a while Loop:
+while (Condition) {
+  // Code executed repeatedly
+  // MUST update variables so the condition eventually becomes false!
+}
+
+2. Pre-Check Mechanism:
+The condition is checked BEFORE the first lap runs. If the condition is false right from the beginning, the while loop will run ZERO times.
+
+3. When to Use while vs for:
+- Use 'for' when you know the count in advance (e.g. repeat 10 times).
+- Use 'while' when repetition depends on an external state or dynamic condition (e.g. while balance < target, while gameNotOver).
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Compound Savings Target Simulator ---
+let balance = 1000;
+let target = 2000;
+let annualInterestRate = 0.10; // 10%
+let years = 0;
+
+while (balance < target) {
+  balance += balance * annualInterestRate;
+  years++;
+}
+
+console.log("Target reached in " + years + " years! Final Balance: ₹" + balance.toFixed(2));
+
+Teacher's Note on Example 1:
+The while loop iterates until the balance reaches or exceeds the target threshold.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Forgetting to update the loop variable inside the body: If you forget years++, the loop runs infinitely.
+
+[!] Pre-condition already false: If balance is already 2500, the while body will never execute once.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• while loops repeat as long as a boolean condition remains true.
+• Pre-checks condition before every lap (can run 0 times).
+• Always ensure variables inside the body move towards terminating the condition.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Never rush through the basics. When your foundation is solid, building complex
+applications becomes as effortless as speaking your native language. Keep practicing!"
+================================================================================

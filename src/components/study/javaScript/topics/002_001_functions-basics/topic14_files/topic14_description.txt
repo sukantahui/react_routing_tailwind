@@ -1,0 +1,70 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_001_FUNCTIONS-BASICS
+Topic 14: NEW.TARGET META-PROPERTY & CONSTRUCTOR FUNCTION GUARDS
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think about an emergency exit door in a cinema hall. If someone tries to enter through the emergency exit instead of the main lobby door, an alarm sounds and redirects them to the proper entrance. In JavaScript, new.target is an internal alarm that detects whether a constructor function was called properly with the new keyword or accidentally called as a regular function!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Swadeep wrote a constructor function: function Student(name) { this.name = name; }. He forgot the new keyword and called const s = Student('Swadeep');. In non-strict mode, this.name attached directly to the global window object, and s was undefined! I showed him new.target. We added a defensive guard: if (!new.target) return new Student(name);. Now, whether Swadeep wrote Student() or new Student(), it created a clean instance every time.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. What is new.target?
+A meta-property available inside all functions that detects whether a function was invoked with the new keyword.
+- If called with new: new.target points to the constructor function itself.
+- If called normally as a regular function: new.target is undefined.
+
+2. Defensive Constructor Guard Pattern:
+Automatically handle missing 'new' keywords so users never corrupt the global scope:
+function User(name) {
+  if (!new.target) {
+    return new User(name); // Auto-instantiate!
+  }
+  this.name = name;
+}
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Defensive Constructor Guard with new.target ---
+function AccountHolder(name, initialBalance) {
+  // Defensive guard: auto-instantiate if called without 'new'
+  if (!new.target) {
+    return new AccountHolder(name, initialBalance);
+  }
+  
+  this.name = name;
+  this.balance = initialBalance;
+}
+
+const holder1 = new AccountHolder('Swadeep', 5000); // Called with new
+const holder2 = AccountHolder('Tuhina', 8000);      // Called without new
+
+console.log(holder1.name, 'Balance: ₹' + holder1.balance);
+console.log(holder2.name, 'Balance: ₹' + holder2.balance);
+
+Teacher's Note on Example 1:
+new.target detects missing new keywords and auto-instantiates cleanly.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] new.target outside functions: Using new.target outside of a function throws a SyntaxError.
+
+[!] Assuming arrow functions have new.target: Arrow functions cannot be called with 'new' and will throw a TypeError.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• new.target detects whether a function was invoked with the 'new' keyword.
+• Returns undefined when called as a regular function.
+• Use new.target to create robust self-instantiating constructor guards.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

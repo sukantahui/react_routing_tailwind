@@ -189,7 +189,7 @@ const questions = [
     explanation: "Explicit semicolons ensure deterministic code execution regardless of code formatting changes or build tool bundler concatenations.",
     hint: "Configure Prettier 'semi: true' for safe deterministic builds.",
     level: "basic",
-    codeExample: "// .prettierrc:\n{\n  "semi": true,\n  "singleQuote": true\n}"
+    codeExample: "{\\n  \\\"semi\\\": true,\\n  \\\"singleQuote\\\": true\\n}"
   },
   {
     question: "What is the core takeaway regarding JavaScript Lexical Grammar for professional engineers?",

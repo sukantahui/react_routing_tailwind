@@ -1,0 +1,66 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_003_OBJECTS-AND-BASIC-OOP
+Topic 1: PROPERTY ACCESS: DOT NOTATION VS BRACKET NOTATION & DYNAMIC COMPUTED KEYS
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine searching for a book in a library. If you know the exact title written on the signpost (e.g. 'Mathematics'), you walk straight to that shelf (Dot Notation: `library.mathematics`). But if the librarian gives you a piece of paper with a variable title scribbled on it, or a title containing spaces like 'Computer Science 101', you MUST look up the shelf using the piece of paper (Bracket Notation: `library[topicName]`)!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Tuhina had a property name with a space: `'course fee'`. When she tried `student.course fee`, JavaScript threw a SyntaxError. I showed her Bracket Notation: `student['course fee']`. Then Debangshu wanted to read a property dynamically based on user input stored in a variable: `let key = 'marks'`. Writing `student.key` looked for a literal property called 'key' (which was undefined), while `student[key]` read `student['marks']` (95). Debangshu saw the essential power of dynamic bracket notation.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. Dot Notation (obj.prop):
+- Clean and standard for valid, fixed identifier names.
+- Cannot be used with variables, spaces, special characters, or numeric keys starting with digits.
+
+2. Bracket Notation (obj['prop'] / obj[variable]):
+- Evaluates the expression inside brackets to a string before looking up the property.
+- Mandatory for dynamic variables, property names with spaces/hyphens, and computed keys.
+
+3. Computed Property Names (ES6):
+Define dynamic keys directly inside object literals using `[expression]`: `const obj = { [dynamicKey]: 'Value' };`.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Dot vs Bracket vs Computed Property Names ---
+const fieldName = 'primaryCourse';
+
+const instituteRecord = {
+  instituteName: 'Coder & AccoTax',
+  'branch location': 'Barrackpore, Shibtala',
+  [fieldName]: 'JavaScript & React Pro' // Computed key!
+};
+
+// 1. Dot notation for standard identifiers:
+console.log(instituteRecord.instituteName);
+
+// 2. Bracket notation for spaced keys and variables:
+console.log(instituteRecord['branch location']);
+console.log(instituteRecord[fieldName]); // Reads dynamic key!
+
+Teacher's Note on Example 1:
+Bracket notation evaluates variables and supports arbitrary string keys.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Writing obj[key] when you meant obj.key: If key is a variable, obj[key] looks up the variable's value. If you want a property literally named 'key', write obj.key or obj['key'].
+
+[!] Using dot notation on numeric keys: `obj.123` is a syntax error. Use `obj[123]`.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Use dot notation for static, standard property names.
+• Use bracket notation for dynamic variable keys and property names with spaces.
+• Use `[computedKey]: value` for dynamic keys in object literals.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

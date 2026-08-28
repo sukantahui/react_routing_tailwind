@@ -1,0 +1,66 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_003_OBJECTS-AND-BASIC-OOP
+Topic 12: CONSTRUCTOR FUNCTIONS & THE NEW KEYWORD EXECUTION LIFECYCLE
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine a steel cookie cutter in a bakery. Instead of hand-molding every individual biscuit from scratch, you press the cookie cutter into dough over and over to stamp out 100 identical star-shaped cookies in minutes. In JavaScript, a Constructor Function is that cookie cutter, and the `new` keyword is the action of stamping out a fresh instance!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Tuhina and Debangshu were manually typing 50 student objects by hand. Every object had duplicate code for `name`, `course`, and `print()`. I introduced Constructor Functions: `function Student(name, course) { this.name = name; this.course = course; }`. Then they stamped out instances: `const s1 = new Student('Tuhina', 'React'); const s2 = new Student('Debangshu', 'JS');`. Tuhina watched in delight as 50 objects were created with 3 lines of code.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. The 4 Steps of the `new` Keyword Lifecycle:
+When you execute `new ConstructorFunction(args)`:
+1. A brand new empty object `{}` is created in memory.
+2. The new object's `[[Prototype]]` (`__proto__`) is linked to `ConstructorFunction.prototype`.
+3. The constructor function is executed with `this` bound to the newly created object.
+4. If the constructor does not explicitly return its own object, the new object is automatically returned.
+
+2. Naming Convention:
+Constructor functions are always capitalized in PascalCase (e.g. `Student`, `BankAccount`) to signal that they must be called with `new`.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Creating Student Instances with Constructor Function ---
+function Student(name, roll, course) {
+  // 1. Guard against missing 'new'
+  if (!new.target) return new Student(name, roll, course);
+  
+  this.name = name;
+  this.roll = roll;
+  this.course = course;
+  this.enrollDate = new Date().toLocaleDateString();
+}
+
+const student1 = new Student('Swadeep', 101, 'JavaScript');
+const student2 = new Student('Tuhina', 102, 'React');
+
+console.log(student1);
+console.log(student2.name, 'is in', student2.course);
+
+Teacher's Note on Example 1:
+Constructor functions stamp out multiple structured object instances with shared fields.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Forgetting the `new` keyword: Calling `Student()` without `new` executes as a regular function, polluting the global `window` and returning `undefined`! Always guard with `new.target`.
+
+[!] Returning primitives from constructor: If a constructor returns a primitive (e.g. `return 42`), the engine ignores it and returns `this`. If it returns an object, that object replaces `this`.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Constructor functions are capitalized blueprints for stamping out object instances.
+• The `new` keyword creates an object, links prototypes, binds `this`, and returns the instance.
+• Always use `new.target` guards to handle missing `new` keywords safely.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

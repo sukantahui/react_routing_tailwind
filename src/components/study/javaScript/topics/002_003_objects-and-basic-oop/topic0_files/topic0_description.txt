@@ -1,0 +1,64 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_003_OBJECTS-AND-BASIC-OOP
+Topic 0: OBJECT LITERALS — KEY-VALUE PAIRS, METHODS & MEMORY ALLOCATION IN THE HEAP
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine holding a physical passport. On page 1, you have labelled text fields: 'Name': 'Swadeep', 'Country': 'India', 'BirthYear': 2003. It groups distinct pieces of related information into one single official booklet. In JavaScript, an Object Literal is that official booklet—a collection of labelled properties and actions stored in computer memory!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Swadeep asked: 'Sir, primitive numbers and strings are stored directly on the Call Stack. Where do objects live?' I drew the computer architecture on the board: The Stack vs The Heap. The Stack holds small, fixed-size variables and memory pointers. The Heap is a vast open warehouse where complex objects are allocated. When you assign an object to a variable, the variable on the stack simply holds the warehouse address pointer to that object in the heap.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. What is an Object Literal?
+A comma-separated list of key-value pairs wrapped in curly braces `{ ... }`.
+
+2. Properties vs Methods:
+- Properties: Data fields (e.g. `name: 'Swadeep'`).
+- Methods: Functions attached to an object that represent actions (e.g. `greet: function() { ... }` or modern shorthand `greet() { ... }`).
+
+3. Memory Allocation in the Heap:
+Objects are stored by reference in the memory heap. Two distinct variables holding `{ a: 1 }` point to two different addresses in the heap and are NOT equal (`{} === {}` is false!).
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Creating an Object with Properties and Method Shorthand ---
+const student = {
+  name: 'Swadeep',
+  center: 'Barrackpore',
+  course: 'JavaScript',
+  feesPaid: 4500,
+  // Method shorthand (ES6):
+  printBadge() {
+    console.log(`[Badge] ${this.name} | ${this.center} Lab`);
+  }
+};
+
+console.log('Student Name:', student.name);
+student.printBadge();
+
+Teacher's Note on Example 1:
+Object literals group state (data) and behavior (methods) into a unified entity.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Comparing objects with `===`: `{} === {}` is always false because they are different memory references.
+
+[!] Trailing comma syntax: Trailing commas are valid in modern JS, but ensure you don't accidentally leave dangling colons.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Objects group key-value pairs and methods into a single reference type.
+• Stored in the Heap memory and accessed via stack reference pointers.
+• Method shorthand `method() { ... }` simplifies object action definitions.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

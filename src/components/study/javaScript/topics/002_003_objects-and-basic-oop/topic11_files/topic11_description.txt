@@ -1,0 +1,81 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_003_OBJECTS-AND-BASIC-OOP
+Topic 11: PROPERTY GETTERS AND SETTERS (ACCESSORS) FOR DATA VALIDATION & ENCAPSULATION
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think about an electronic thermostat on the wall of our Barrackpore computer lab. When you read the temperature, it automatically formats the number with a degree Celsius symbol (Getter: `get temp`). When you turn the dial to set a new temperature, an internal safety chip checks: 'Is this temperature between 16°C and 30°C?' If someone tries to set 100°C, the chip rejects the command (Setter: `set temp`). That is Getters and Setters!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Swadeep had a student object with `age: 21`. Someone accidentally set `student.age = -5`. Swadeep asked: 'How can I prevent negative ages without making users call a separate setAge() function?' I showed him Getters and Setters: `get age() { return this._age; }` and `set age(val) { if (val < 0) throw Error('Invalid age'); this._age = val; }`. Now, reading and writing `student.age` ran validation automatically while looking like standard property access.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. What are Accessor Properties?
+Methods that mimic regular object properties: `get` for reading and `set` for writing.
+
+2. Syntax:
+- `get propName() { return this._internalProp; }`
+- `set propName(value) { if (isValid) this._internalProp = value; }`
+
+3. Benefits of Accessors:
+- Computed / Derived Properties (e.g. `fullName` combining `first` and `last`).
+- Data Validation & Sanitization during assignment.
+- Encapsulation without breaking external property access APIs.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Derived Full Name & Validated Marks via Get/Set ---
+const student = {
+  firstName: 'Swadeep',
+  lastName: 'Hui',
+  _marks: 85,
+  
+  // Computed Getter:
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+  
+  // Validated Getter & Setter for Marks:
+  get marks() {
+    return this._marks;
+  },
+  set marks(newScore) {
+    if (typeof newScore !== 'number' || newScore < 0 || newScore > 100) {
+      console.warn('Invalid marks! Must be between 0 and 100.');
+      return;
+    }
+    this._marks = newScore;
+  }
+};
+
+console.log('Full Name:', student.fullName); // 'Swadeep Hui'
+student.marks = 95;
+console.log('Updated Marks:', student.marks); // 95
+student.marks = -20; // Logs warning, marks unchanged!
+console.log('Marks after invalid attempt:', student.marks); // 95
+
+Teacher's Note on Example 1:
+Getters compute derived properties; setters validate data before assignment.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Infinite recursion trap: Inside `set marks(val) { this.marks = val; }`, writing `this.marks` calls the setter again, causing a maximum call stack overflow! Always store the actual value in a backing property like `this._marks`.
+
+[!] Getters must have zero parameters: `get prop(x)` is a SyntaxError.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Getters (`get`) compute derived properties dynamically upon access.
+• Setters (`set`) validate and sanitize inputs before saving.
+• Always use a distinct backing property (like `_prop`) to avoid recursive setter loops.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

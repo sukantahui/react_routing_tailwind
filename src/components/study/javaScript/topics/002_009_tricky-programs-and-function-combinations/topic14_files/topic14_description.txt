@@ -1,0 +1,68 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_009_TRICKY-PROGRAMS-AND-FUNCTION-COMBINATIONS
+Topic 14: DEEP OBJECT FLATTENING & DYNAMIC STRING PATH RESOLVER (GET(OBJ, 'A.B[0].C') & SET(OBJ, 'X.Y.Z', VAL))
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think of a GPS navigation address: 'India / West Bengal / Barrackpore / Shibtala Road / Building 25'. If you give this address path string to a courier, they can navigate through country, state, city, and street to deliver a package to your exact door. In JavaScript, dynamic path utilities (`get` and `set`) let you read and write deeply nested object properties using simple dot-separated path strings!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Debangshu was building a dynamic form builder where field names were stored as string paths: `'user.preferences.notifications.email'`. When a user typed in the input box, Debangshu had to update that deep property in a complex state object. Writing nested if-checks was tedious. We wrote universal `get(obj, path)` and `set(obj, path, value)` path resolvers using regex tokenization and reduce. Debangshu's form builder worked like magic.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. What is Dynamic Path Resolution?
+Navigating through nested objects using string path notations like `'student.scores[0].marks'` or `'a.b.c'`.
+
+2. Deep Getter (`get(obj, path, defaultValue)`):
+Parses the string path into an array of keys and traverses the object safely, returning the defaultValue if any intermediate property is missing.
+
+3. Deep Setter (`set(obj, path, value)`):
+Traverses the path, automatically creating intermediate empty objects `{}` or arrays `[]` if they don't exist, and assigns the final value.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Dynamic Deep Path Getter and Setter ---
+function getDeep(obj, path, fallback = undefined) {
+  const keys = path.replace(/\[(\d+)\]/g, '.$1').split('.');
+  let current = obj;
+  for (let key of keys) {
+    if (current === null || current === undefined) return fallback;
+    current = current[key];
+  }
+  return current ?? fallback;
+}
+
+const state = {
+  users: [
+    { name: 'Swadeep', profile: { city: 'Barrackpore' } }
+  ]
+};
+
+console.log(getDeep(state, 'users[0].profile.city')); // 'Barrackpore'
+console.log(getDeep(state, 'users[0].profile.zipCode', '700120')); // '700120' (Fallback)
+
+Teacher's Note on Example 1:
+Parses dot and bracket notation to navigate deeply nested structures safely.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Prototype pollution via `__proto__` path: Never allow user input paths containing `__proto__` or `constructor` to be passed into `setDeep()`. Always guard against prototype pollution attacks!
+
+[!] Handling numeric bracket indices: Convert `[0]` into `.0` during path tokenization.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Dynamic path resolvers read and write deep properties via string paths.
+• Essential for form libraries (React Hook Form, Formik) and state managers.
+• Always sanitize path inputs against prototype pollution attacks.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

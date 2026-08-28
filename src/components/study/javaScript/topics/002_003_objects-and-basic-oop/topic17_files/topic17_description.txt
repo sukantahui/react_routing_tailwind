@@ -1,0 +1,77 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_003_OBJECTS-AND-BASIC-OOP
+Topic 17: CLASS INHERITANCE: EXTENDS, SUPER(), & SUBCLASS CONSTRUCTOR RULES
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think about vehicles in the real world. A generic 'Vehicle' has an engine, wheels, and speed. A specialized 'ElectricCar' is a Vehicle that inherits engine, wheels, and speed, but also adds a battery pack and charging port. In JavaScript, `class ElectricCar extends Vehicle` lets the subclass inherit everything from the parent class while adding specialized features!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Debangshu was building a portal with two user types: `Student` and `Teacher`. Both had `name`, `email`, and `login()`, but `Teacher` also had `salary` and `assignGrades()`. Instead of duplicating 30 lines of code, Debangshu created a base class `User` and extended it: `class Teacher extends User`. Inside the teacher constructor, he called `super(name, email)`. Debangshu watched his code become modular and DRY (Don't Repeat Yourself).
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. The `extends` Keyword:
+Creates a subclass child that inherits prototype methods and static properties from the parent superclass.
+
+2. The Golden Rule of `super()` in Subclass Constructors:
+If a subclass defines a `constructor()`, it MUST call `super(...args)` BEFORE accessing `this`! `super()` invokes the parent constructor to initialize the instance.
+
+3. Method Super Calls: `super.methodName()`:
+Allows the subclass method to call and reuse the parent class implementation before adding extra behavior.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Subclassing User into Teacher with extends and super ---
+class BaseUser {
+  constructor(name, email) {
+    this.name = name;
+    this.email = email;
+  }
+  
+  getRole() {
+    return 'General User';
+  }
+}
+
+class LabInstructor extends BaseUser {
+  constructor(name, email, subject, labRoom) {
+    super(name, email); // Mandatory: calls BaseUser constructor first!
+    this.subject = subject;
+    this.labRoom = labRoom;
+  }
+  
+  // Override getRole method:
+  getRole() {
+    return `Lab Instructor for ${this.subject} in ${this.labRoom}`;
+  }
+}
+
+const instructor = new LabInstructor('Sukanta Hui', 'sukanta@lab.com', 'JavaScript', 'Lab 1');
+console.log(instructor.name);   // Inherited from BaseUser: 'Sukanta Hui'
+console.log(instructor.getRole()); // 'Lab Instructor for JavaScript in Lab 1'
+
+Teacher's Note on Example 1:
+extends establishes inheritance; super() initializes parent properties.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Accessing `this` before `super()` in a derived class: Throws a ReferenceError: Must call super constructor in derived class before accessing 'this'.
+
+[!] Forgetting to pass required arguments to `super()`: Ensure parent constructor arguments are forwarded through `super(...)`.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• `extends` creates parent-child class inheritance hierarchies.
+• Subclasses must call `super()` before reading or writing `this`.
+• `super.method()` allows calling overridden parent methods.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

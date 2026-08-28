@@ -1,0 +1,59 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_002_ARRAYS-AND-METHODS
+Topic 1: MUTATING STACK & QUEUE METHODS: PUSH, POP, SHIFT, UNSHIFT
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think about a stack of cafeteria dinner plates. When a clean plate arrives from the dishwasher, you place it on the TOP of the stack (push). When a customer takes a plate, they take it from the TOP of the stack (pop) - this is LIFO (Last-In, First-Out). But when people stand in line at an ATM queue, new people join the END (push), and the person at the FRONT gets served first (shift) - this is FIFO (First-In, First-Out)!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Swadeep had an array of student inquiries: ['Swadeep', 'Tuhina']. He used push('Abhronila') to add to the back and unshift('Debangshu') to insert at the front. But when we benchmarked 100,000 items, unshift took 45ms while push took 1ms! Swadeep asked why. I demonstrated how unshift and shift force every single existing element in memory to re-index and shift one slot over, while push and pop touch only the end.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. End Operations (Fast O(1)):
+- push(item1, item2): Appends one or more items to the end. Returns the NEW length.
+- pop(): Removes and returns the LAST item. Decrements length by 1.
+
+2. Beginning Operations (Slower O(N)):
+- unshift(item1, ...): Inserts items at the beginning. Re-indexes all items and returns NEW length.
+- shift(): Removes and returns the FIRST item. Re-indexes all remaining items.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Managing a Student Queue (FIFO) and Stack (LIFO) ---
+let queue = ['Swadeep', 'Tuhina'];
+
+// Add to end (Join line)
+queue.push('Abhronila');
+console.log('Queue after push:', queue);
+
+// Serve front person (First-In, First-Out)
+let served = queue.shift();
+console.log('Served:', served); // 'Swadeep'
+console.log('Remaining queue:', queue); // ['Tuhina', 'Abhronila']
+
+Teacher's Note on Example 1:
+push and shift together model a FIFO Queue; push and pop model a LIFO Stack.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Forgetting return values: push/unshift return the new array length (a number); pop/shift return the removed element.
+
+[!] Heavy unshift/shift on giant arrays: Re-indexing millions of elements causes UI frame drops.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• push/pop operate on the end (fast O(1)).
+• unshift/shift operate on the beginning (re-indexes elements O(N)).
+• All 4 methods directly mutate the original array.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

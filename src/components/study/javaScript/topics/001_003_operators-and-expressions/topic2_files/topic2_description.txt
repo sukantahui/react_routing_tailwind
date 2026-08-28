@@ -1,0 +1,63 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 001_003_OPERATORS-AND-EXPRESSIONS
+Topic 2: COMPARISON OPERATORS: LOOSE (==) VS STRICT (===) EQUALITY & THE COERCION ALGORITHM
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine a security guard at an examination hall. A strict guard (===) checks that you have both the correct Admit Card AND the matching Photo ID card (value AND type must match). A loose, careless guard (==) lets you in if your ticket number resembles a number scribbled on a napkin, guessing your identity (implicit coercion). In JavaScript, always hire the strict guard (===)!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Swadeep ran into a famous bug: let userRole = 0; if (userRole == false) { console.log('Access Denied'); } Because he used ==, JavaScript converted the number 0 to a boolean, decided 0 == false is true, and locked out the user! I showed the class the comparison table on the board. I made every student promise: 'From this day forward, I will always use strict equality (===) and strict inequality (!==) in all my code.'
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. Strict Equality (===) & Strict Inequality (!==):
+- Compares BOTH Value AND Type without any hidden type conversion.
+- 5 === 5 -> true
+- 5 === "5" -> false (Number vs String)
+- 0 === false -> false
+
+2. Loose Equality (==) & Loose Inequality (!=):
+- Performs implicit type coercion if the types differ, trying to force them into common types.
+- 5 == "5" -> true (coerces string to number)
+- 0 == false -> true (coerces false to 0)
+- "" == 0 -> true (coerces empty string to 0)
+- null == undefined -> true
+
+3. Relational Comparisons (<, <=, >, >=):
+- Compares numbers mathematically (10 > 5 -> true).
+- If strings are compared, it compares lexicographically by character code ("b" > "a" -> true).
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Strict vs Loose Equality Comparison ---
+let input = "100";
+let target = 100;
+
+console.log("Loose (==):", input == target);   // true (Dangerous coercion)
+console.log("Strict (===):", input === target); // false (Safe & Predictable)
+
+Teacher's Note on Example 1:
+Strict equality protects you against accidental type mismatches.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Using loose equality (==): Loose equality causes unpredictable bugs due to complex coercion rules.
+
+[!] Comparing NaN: NaN === NaN is false. Use Number.isNaN(x) instead.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Always use === and !== in modern JavaScript.
+• Strict equality checks both value and type without coercion.
+• Loose equality (==) has confusing type coercion traps.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Never rush through the basics. When your foundation is solid, building complex
+applications becomes as effortless as speaking your native language. Keep practicing!"
+================================================================================

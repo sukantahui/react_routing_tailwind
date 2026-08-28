@@ -1,0 +1,61 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 001_001_GETTING-STARTED-WITH-JAVASCRIPT
+Topic 6: STRICT MODE ('USE STRICT') MECHANICS & GLOBAL SCOPE LEAK PREVENTION
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine driving a car on an open test track with no speed limits or lane dividers—you can drive carelessly and get away with sloppy turns. But when you drive on a busy city highway, traffic laws and lane dividers force you to drive safely and prevent accidental crashes. 'use strict' is the traffic police for your JavaScript code!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Debangshu was working on a billing exercise. He meant to write let studentFee = 5000;, but accidentally typed studentFe = 5000; without any let keyword. In old, non-strict JavaScript, the engine silently created a brand new global variable called studentFe attached to the entire window! Later in the program, when he checked studentFee, it was undefined, and it took him 2 hours to notice the typo. I added "use strict"; at the top of his script. Immediately, JavaScript threw an error: ReferenceError: studentFe is not defined. Debangshu realized that strict mode instantly caught his typo before it could cause a bug.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. What is Strict Mode?
+Introduced in ECMAScript 5 (ES5), Strict Mode opts your JavaScript code into a restricted, safer execution variant.
+
+2. How to Enable It:
+Place the string "use strict"; at the very top of your JavaScript file or at the beginning of a function.
+(Note: Modern ES6 modules automatically run in strict mode by default!).
+
+3. Key Protections of Strict Mode:
+- Eliminates Silent Global Variable Leaks: Assigning to an undeclared variable throws a ReferenceError instead of silently creating a global variable.
+- Prevents Accidental Deletions: Attempting to delete undeletable variables throws an error.
+- Forbids Duplicate Parameter Names: A function cannot have two parameters with the exact same name.
+- Secures the this keyword: In standalone functions, this remains undefined instead of accidentally pointing to the global window object.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Catching Undeclared Variable Assignment ---
+"use strict";
+
+// This will immediately throw an error because city was not declared:
+// city = "Barrackpore"; // ReferenceError: city is not defined
+
+let city = "Barrackpore"; // Correct!
+console.log("City safely declared:", city);
+
+Teacher's Note on Example 1:
+Strict mode forces you to explicitly declare variables, preventing accidental scope pollution.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Placing code or comments before 'use strict': The string 'use strict'; must be the very first statement in the file (only comments may precede it).
+
+[!] Writing sloppy code in non-strict mode: Always use strict mode (or modern ES modules) in every project.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• 'use strict' converts silent JavaScript mistakes into explicit, catchable errors.
+• It prevents accidental global variable leaks caused by missing declaration keywords.
+• Modern ES6 modules enable strict mode automatically by default.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Never rush through the basics. When your foundation is solid, building complex
+applications becomes as effortless as speaking your native language. Keep practicing!"
+================================================================================

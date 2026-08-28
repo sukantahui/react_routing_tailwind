@@ -1,0 +1,70 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 001_003_OPERATORS-AND-EXPRESSIONS
+Topic 0: ARITHMETIC OPERATORS, EXPONENTIATION, INCREMENT/DECREMENT & PRE VS POST INVARIANTS
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine a turnstile gate at the Barrackpore railway station. 'Pre-increment (++count)' is like a coin slot where you must insert your coin FIRST before the counter ticks up and you step through. 'Post-increment (count++)' is like a visitor register where you write down your current number FIRST, and then the counter ticks up for the next person.
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Swadeep had a calculation: let a = 5; let b = a++; console.log(a, b); He expected b to be 6, but b was 5 while a was 6! He showed it to Abhronila, who was equally puzzled. I drew a two-step diagram on the whiteboard: Step 1: 'b' captures the CURRENT value of 'a' (5). Step 2: 'a' increments itself to 6. I contrasted this with let b = ++a; where incrementation happens BEFORE the assignment. The entire class wrote this golden rule in their notebooks.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. Standard Arithmetic Operators:
+- Addition: + (also concatenates strings!)
+- Subtraction: -
+- Multiplication: *
+- Division: /
+- Remainder (Modulo): % (gives the leftover after division, e.g. 10 % 3 is 1)
+- Exponentiation: ** (powers, e.g. 2 ** 3 is 8)
+
+2. Pre vs Post Increment / Decrement:
+- Post-Increment (x++): Evaluates to the CURRENT value, then increments x by 1.
+- Pre-Increment (++x): Increments x by 1 FIRST, then evaluates to the new value.
+- Post-Decrement (x--): Evaluates to CURRENT value, then decrements.
+- Pre-Decrement (--x): Decrements FIRST, then evaluates.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Pre vs Post Increment in Action ---
+let x = 10;
+let postResult = x++; // postResult gets 10, then x becomes 11
+console.log("postResult:", postResult, "x is now:", x);
+
+let y = 10;
+let preResult = ++y;  // y becomes 11 first, preResult gets 11
+console.log("preResult:", preResult, "y is now:", y);
+
+Teacher's Note on Example 1:
+Post-increment returns the value before incrementing; Pre-increment returns the value after.
+
+--- Example 2: Modulo for Even/Odd Checking ---
+let rollNumber = 17;
+let remainder = rollNumber % 2;
+console.log("Is odd roll number?", remainder !== 0); // true
+
+Teacher's Note on Example 2:
+The modulo operator % is the classic tool for checking remainders, even/odd, and cycles.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Writing confusing chained expressions like a++ + ++a: Keep increments on their own separate lines for clarity.
+
+[!] Assuming + always adds numbers: If one operand is a string, + performs string concatenation instead of addition!
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Arithmetic operators perform standard mathematics (+, -, *, /, %, **).
+• x++ reads first, then increments. ++x increments first, then reads.
+• The modulo operator % returns division remainders.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Never rush through the basics. When your foundation is solid, building complex
+applications becomes as effortless as speaking your native language. Keep practicing!"
+================================================================================

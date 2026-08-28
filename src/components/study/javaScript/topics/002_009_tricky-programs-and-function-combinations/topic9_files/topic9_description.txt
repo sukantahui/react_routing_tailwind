@@ -1,0 +1,89 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_009_TRICKY-PROGRAMS-AND-FUNCTION-COMBINATIONS
+Topic 9: CUSTOM EVENTEMITTER & ASYNC PUB/SUB BROKER WITH WILDCARDS, ONCE HANDLERS & ERROR BUBBLING
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think about a radio broadcast tower in Barrackpore. The radio station broadcasts news on frequency 98.3 FM (The Publisher). Thousands of car radios across the city tune in to 98.3 FM (The Subscribers). The radio station doesn't know who is listening or where they are; it just emits audio waves. In JavaScript, an EventEmitter is that broadcast system connecting decoupled application modules!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Tuhina and Debangshu were building a multi-module lab portal. When a student registered in `auth.js`, `billing.js` needed to generate an invoice and `email.js` needed to send a welcome email. Instead of tightly coupling all 3 files, they built a custom `EventEmitter`. `auth.js` simply called `emitter.emit('user:registered', student)`, and both billing and email listeners reacted independently. The architecture became clean, decoupled, and modular.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. The Pub/Sub (Observer) Pattern:
+Decouples the producer of events (Publisher) from the consumers of events (Subscribers).
+
+2. Core Methods of EventEmitter:
+- `on(eventName, listener)`: Subscribes a listener to an event.
+- `off(eventName, listener)`: Unsubscribes a listener.
+- `emit(eventName, ...args)`: Broadcasts an event with payload data to all registered listeners.
+- `once(eventName, listener)`: Subscribes a listener that automatically removes itself after its first execution.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Custom EventEmitter with once() and error Handling ---
+class LabEventEmitter {
+  constructor() {
+    this.events = new Map();
+  }
+  
+  on(event, listener) {
+    if (!this.events.has(event)) this.events.set(event, new Set());
+    this.events.get(event).add(listener);
+    return () => this.off(event, listener); // Return unsubscribe fn
+  }
+  
+  once(event, listener) {
+    const wrapper = (...args) => {
+      this.off(event, wrapper);
+      listener.apply(this, args);
+    };
+    this.on(event, wrapper);
+  }
+  
+  emit(event, ...args) {
+    if (!this.events.has(event)) return false;
+    this.events.get(event).forEach(fn => fn(...args));
+    return true;
+  }
+  
+  off(event, listener) {
+    if (this.events.has(event)) {
+      this.events.get(event).delete(listener);
+    }
+  }
+}
+
+const hub = new LabEventEmitter();
+hub.on('admission', student => console.log('Welcome student:', student));
+hub.once('promo', code => console.log('Promo code activated once:', code));
+
+hub.emit('admission', 'Swadeep');
+hub.emit('promo', 'DISCOUNT2026');
+hub.emit('promo', 'DISCOUNT2026'); // Ignored on second call!
+
+Teacher's Note on Example 1:
+Custom EventEmitter implements complete publish-subscribe decoupling.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Memory leak from forgotten listeners: Forgetting to unsubscribe event listeners when components unmount retains closures in memory indefinitely.
+
+[!] Error handling in listeners: An unhandled exception in one listener can crash subsequent listeners unless wrapped in `try...catch`.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• EventEmitters decouple publishers and subscribers via event channels.
+• Support `.on()`, `.off()`, `.emit()`, and auto-removing `.once()` listeners.
+• Foundational pattern for Node.js, DOM events, WebSockets, and state managers.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

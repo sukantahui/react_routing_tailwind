@@ -1,0 +1,70 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 001_003_OPERATORS-AND-EXPRESSIONS
+Topic 9: UNARY, RELATIONAL & COMMA OPERATORS (IN, DELETE, VOID, TYPEOF, INSTANCEOF)
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine a master Swiss Army knife with specialized attachments: a magnifying glass to inspect objects (`typeof`, `instanceof`), a tweezers to remove loose items (`delete`), a key to check if a drawer contains a label (`in`), and an eraser that clears screen values (`void`). These are JavaScript's specialized relational and utility operators!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Swadeep wanted to know if a property existed inside an object without reading its value. I showed him the `in` operator: `'course' in student`. Then Tuhina asked about `void 0`. I explained that `void 0` is an ancient and reliable idiom that evaluates an expression and guaranteed-returns `undefined`. Abhronila used `delete` to remove a property, and Debangshu used `typeof` for type validation. The class completed their operator masterclass.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. The in Operator:
+Tests whether a specified property key exists in an object or its prototype chain: `'name' in obj` -> true.
+
+2. The delete Operator:
+Removes a property from an object: `delete obj.prop`.
+
+3. The typeof Operator:
+Returns a string indicating the data type of the unevaluated operand.
+
+4. The instanceof Operator:
+Tests whether an object has a constructor's prototype in its chain.
+
+5. The void Operator:
+Evaluates an expression and returns `undefined`: `void 0`.
+
+6. The Comma Operator (,):
+Evaluates multiple expressions from left to right and returns the value of the LAST expression.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Using in, delete, and void ---
+const student = { name: 'Swadeep', roll: 101 };
+
+// 1. in operator
+console.log('Is name present?', 'name' in student); // true
+
+// 2. delete operator
+delete student.roll;
+console.log('Is roll present after delete?', 'roll' in student); // false
+
+// 3. void operator
+console.log('void 0 result:', void 0); // undefined
+
+Teacher's Note on Example 1:
+Demonstrates relational existence checks, property deletion, and void expressions.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Using in with array values: `5 in ['a', 'b']` checks if index 5 exists, NOT if the value 5 is in the array!
+
+[!] Overusing comma operator: Chaining expressions with commas makes code difficult to read.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• `in` checks property key existence in objects.
+• `delete` excises properties from objects.
+• `void` evaluates expressions and returns undefined.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

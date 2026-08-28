@@ -1,0 +1,73 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 001_004_CONTROL-FLOW-CONDITIONS
+Topic 1: SWITCH STATEMENTS: EXACT MATCHING, FALLTHROUGH BEHAVIOR, MULTI-CASE GROUPING & PATTERN MATCHING
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine walking into a cafeteria with a numbered menu: Press 1 for Tea, 2 for Coffee, 3 for Green Tea, 4 for Cold Drinks. Instead of writing 10 separate if-else checks, a switch statement is like a direct selector switch that jumps straight to the matching option.
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Tuhina wrote a day-of-the-week announcer using switch. When she passed day = 2 (Tuesday), her console printed: 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'! She cried out: 'Sir! Why did it print all the days after Tuesday?' I took a red pen and circled the missing break; statements. I explained 'Fallthrough'—how without a break, the switch statement cascades straight down into subsequent cases. Once she added break;, her switch worked perfectly.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. What is a Switch Statement?
+Evaluates an expression and matches its value against multiple case clauses using Strict Equality (===).
+
+2. The break Statement:
+Terminates the switch block. Without a break;, execution continues falling through into the next case regardless of whether it matches.
+
+3. The default Clause:
+Acts as the fallback if no case matches (similar to the final else in an if-chain).
+
+4. Multi-Case Grouping:
+You can stack multiple cases together to share the exact same logic (e.g. grouping Saturday and Sunday as 'Weekend').
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Day Category Selector with Multi-Case Grouping ---
+let day = "Sunday";
+let dayType;
+
+switch (day) {
+  case "Monday":
+  case "Tuesday":
+  case "Wednesday":
+  case "Thursday":
+  case "Friday":
+    dayType = "Weekday (Work/Classes)";
+    break;
+  case "Saturday":
+  case "Sunday":
+    dayType = "Weekend (Lab Practice)";
+    break;
+  default:
+    dayType = "Invalid Day";
+}
+
+console.log(day, "is a:", dayType);
+
+Teacher's Note on Example 1:
+Multiple cases are stacked together to execute shared logic cleanly.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Forgetting the break statement: Forgetting break causes unintended fallthrough bugs.
+
+[!] Expecting switch to do loose equality: Switch uses strict equality (===), so switch("5") will NOT match case 5:.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• switch is clean for exact equality matching against discrete options.
+• Always include break; at the end of each case block unless deliberate fallthrough is intended.
+• Always provide a default: fallback clause.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Never rush through the basics. When your foundation is solid, building complex
+applications becomes as effortless as speaking your native language. Keep practicing!"
+================================================================================

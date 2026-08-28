@@ -1,0 +1,64 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_001_FUNCTIONS-BASICS
+Topic 12: RECURSION FUNDAMENTALS, BASE CASES & CALL STACK OVERFLOW INVARIANTS
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think about looking into two mirrors placed directly opposite each other in a barber shop. You see an image of yourself inside an image, inside an image, stretching out endlessly. In programming, Recursion is when a function solves a big problem by calling a smaller version of ITSELF, until it reaches a solid stopping point (The Base Case) where the reflection ends.
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Debangshu was writing a countdown timer from 5 to 1. He called countdown(n - 1) inside countdown(n), but forgot to write if (n === 0) return;. When he ran the code, his browser froze and crashed with a big red error: RangeError: Maximum call stack size exceeded! I explained the Call Stack on the whiteboard. Every recursive call pushes a new frame onto the stack. Without a Base Case (emergency brake), the stack fills up until memory explodes. We added the base case, and his countdown worked smoothly.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. The Anatomy of Every Recursive Function:
+Every valid recursive function MUST have two essential parts:
+a) The Base Case (The Stopping Rule): A condition that stops recursion and returns a value without calling itself.
+b) The Recursive Step: Calls the function with a smaller or simpler input that moves closer to the base case.
+
+2. The Call Stack Mechanics:
+Each recursive call pushes a stack frame onto the Call Stack. Once the base case is hit, the stack 'unwinds' (pops frames) from top to bottom, returning values back up the chain.
+
+3. Call Stack Overflow:
+If the base case is missing or unreachable, recursive calls fill the stack until the engine throws a RangeError: Maximum call stack size exceeded.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Calculating Factorial with Recursion ---
+function factorial(n) {
+  // 1. Base Case: 0! = 1 and 1! = 1
+  if (n <= 1) {
+    return 1;
+  }
+  
+  // 2. Recursive Step: n * factorial(n - 1)
+  return n * factorial(n - 1);
+}
+
+console.log('5! =', factorial(5)); // 120 (5 * 4 * 3 * 2 * 1)
+console.log('3! =', factorial(3)); // 6
+
+Teacher's Note on Example 1:
+factorial(5) evaluates 5 * factorial(4) until factorial(1) hits the base case.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Forgetting the base case: Causes infinite recursion and Call Stack exhaustion.
+
+[!] Moving away from the base case: Writing factorial(n + 1) moves infinitely away from 1, causing a stack overflow.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Recursion is a function calling itself to solve smaller sub-problems.
+• Must always have a solid Base Case to stop execution.
+• Always ensure each recursive call moves closer to the base case.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

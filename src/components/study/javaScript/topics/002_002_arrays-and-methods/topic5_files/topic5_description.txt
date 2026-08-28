@@ -1,0 +1,60 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_002_ARRAYS-AND-METHODS
+Topic 5: FILTERING DATASETS WITH FILTER(): PREDICATE LOGIC & COMPACTION
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think about a water purification filter at our Barrackpore lab. Dirty water passes through the porous membrane. Clean water droplets pass through the filter holes, while pebbles, sand, and dust are trapped and left behind. In JavaScript, `filter()` passes an array through a logical sieve, keeping only the elements that pass your true/false test!
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Debangshu had an exam results list: [78, 32, 91, 28, 85, 40]. He needed to separate passing students (>= 40) from failed students. He was writing 8 lines of if-statements. I showed him `const passed = marks.filter(m => m >= 40)`. In a split second, his array was filtered down to [78, 91, 85, 40]. Debangshu realized that `filter()` is the cleanest way to weed out invalid or unwanted data.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. What is filter()?
+A Higher-Order Function that creates a new array containing all elements that return `true` when passed to the predicate callback function.
+
+2. Key Invariants:
+- Length can vary: The returned array length will be between 0 and N.
+- Non-Mutating: Leaves the original array intact.
+- Truthy/Falsy Test: If the callback returns truthy, the item is kept; if falsy, it is discarded.
+
+3. Array Compaction:
+Quickly remove all falsy values (0, null, undefined, '') using: `arr.filter(Boolean)`.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Filtering Passing Grades & Compacting Data ---
+const examScores = [85, 32, 90, 45, 22, 100];
+const passedScores = examScores.filter(score => score >= 40);
+console.log('Passed Scores:', passedScores); // [85, 90, 45, 100]
+
+// Array Compaction (Removing empty/falsy items):
+const messyData = ['Swadeep', '', null, 'Tuhina', undefined, 'Debangshu', 0];
+const cleanData = messyData.filter(Boolean);
+console.log('Clean Data:', cleanData); // ['Swadeep', 'Tuhina', 'Debangshu']
+
+Teacher's Note on Example 1:
+filter keeps elements that return truthy from the callback.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Expecting filter to transform values: filter() only selects items; it cannot change an item's shape or value. Use map() for transformation.
+
+[!] Returning nothing from the callback: If you forget 'return', the callback returns undefined (falsy) and filters out everything!
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• filter() creates a new array with elements that pass a boolean test.
+• Array length can range from 0 to original length.
+• arr.filter(Boolean) cleanly strips out all falsy values.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================

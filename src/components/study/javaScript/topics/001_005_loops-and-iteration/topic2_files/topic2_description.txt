@@ -1,0 +1,66 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 001_005_LOOPS-AND-ITERATION
+Topic 2: THE DO...WHILE LOOP: GUARANTEED SINGLE EXECUTION & USER-PROMPT HANDLERS
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think about an interactive ATM withdrawal. The ATM screen MUST prompt you for your PIN at least ONCE. If your PIN is wrong, it prompts you again. But it could never skip asking for the PIN on the very first try! A do...while loop guarantees that the code block runs AT LEAST ONCE before checking whether it needs to repeat.
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Abhronila was building a dice rolling game. The player must roll the dice at least once. If they roll a 6, they get a bonus roll. She wrote a while loop and had to duplicate the roll code outside the loop. I showed her do...while: do { roll = rollDice(); } while (roll === 6); She saw how do...while cleanly eliminated the duplicate code by guaranteeing the first roll always happens.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. Syntax of do...while:
+do {
+  // Code block executes AT LEAST ONCE
+} while (Condition);
+
+2. Key Difference from while:
+- while loop: Checks condition FIRST. (May run 0 times).
+- do...while loop: Runs body FIRST, then checks condition at the end. (Guaranteed to run at least 1 time).
+
+3. Common Real-World Uses:
+- Interactive menus (display menu at least once).
+- Retrying an operation after a failed first attempt.
+- User input validation prompts.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Guaranteed Dice Roll Simulation ---
+let roll;
+let rollCount = 0;
+
+do {
+  // Simulating random dice roll between 1 and 6
+  roll = Math.floor(Math.random() * 6) + 1;
+  rollCount++;
+  console.log("Roll #" + rollCount + " result: " + roll);
+} while (roll === 6); // Bonus roll on 6!
+
+console.log("Turn ended after " + rollCount + " roll(s).");
+
+Teacher's Note on Example 1:
+The dice roll executes at least once regardless of the random outcome.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Forgetting the trailing semicolon after while(condition);: do { ... } while(condition); requires a semicolon at the end.
+
+[!] Using do...while when 0 executions might be needed: If the action should not happen when condition is initially false, use standard while.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• do...while guarantees at least 1 execution before checking the condition.
+• Condition is post-checked at the end of every lap.
+• Requires a trailing semicolon after while(condition);.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Never rush through the basics. When your foundation is solid, building complex
+applications becomes as effortless as speaking your native language. Keep practicing!"
+================================================================================

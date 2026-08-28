@@ -15,10 +15,8 @@ console.log("1. The Classic ASI 'return' Statement Hazard:");
 // Broken Function: Newline immediately following 'return'
 function calculateTuitionBroken(baseFee) {
   return
-  {
-    course: "JS-PRO-101",
-    total: baseFee * 1.18
-  };
+  // Unreachable code due to ASI inserting semicolon after 'return'
+  ("Unreachable payload: " + baseFee);
 }
 
 // Correct Function: Opening brace on same physical line

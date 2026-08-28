@@ -85,7 +85,7 @@ const questions = [
     explanation: "Committing workspace settings prevents git diff noise caused by different team members using conflicting tab sizes or formatting rules.",
     hint: "Repository-level VS Code editor configuration.",
     level: "intermediate",
-    codeExample: "{\n  "editor.tabSize": 2,\n  "editor.formatOnSave": true\n}"
+    codeExample: "{\\n  \\\"editor.tabSize\\\": 2,\\n  \\\"editor.formatOnSave\\\": true\\n}"
   },
   {
     question: "What is Node.js and why is it needed in a frontend developer environment?",

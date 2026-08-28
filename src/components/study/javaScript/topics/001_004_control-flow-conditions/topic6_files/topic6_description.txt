@@ -1,0 +1,72 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 001_004_CONTROL-FLOW-CONDITIONS
+Topic 6: TRUTH TABLE ARCHITECTURE & COMPLEX MULTI-BRANCH DECISION ENGINEERING
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Think about an airport flight dispatch system. Whether an airplane is cleared for takeoff depends on multiple intersecting factors: Runway Clear? Weather Good? Fuel Sufficient? Crew Ready? Instead of writing chaotic, entangled if-conditions, engineers design a structured Truth Table where every combination of factors has a clear, predictable outcome.
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Tuhina and Debangshu were designing an admission discount system with 3 criteria: Early Bird, Merit Score > 90, and Sibling Enrolled. They had written an if-statement with 8 chained && and || operators that gave contradictory results. I had them stand at the whiteboard and draw a Truth Table with 8 rows (all combinations of True/False). Once they mapped out each row's expected result, translating it into clear, bug-free code took only 3 minutes.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. What is a Truth Table?
+A mathematical table showing all possible combinations of input truth values (True/False) and the corresponding output.
+
+2. Engineering Multi-Branch Decisions:
+When business logic involves 3 or more boolean factors:
+- Step 1: List all inputs (e.g. A, B, C).
+- Step 2: Determine total states (2^N combinations).
+- Step 3: Identify dominant override conditions (e.g. if Account is Blocked, all other checks are irrelevant).
+- Step 4: Write clean, modular guard clauses based on the table.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Multi-Condition Discount Decision Engine ---
+function calculateDiscountPercentage(isEarlyBird, isMeritStudent, hasSibling) {
+  // Dominant Rule 1: Merit + Early Bird gets highest discount
+  if (isMeritStudent && isEarlyBird) {
+    return 30; // 30% discount
+  }
+  
+  // Rule 2: Merit or Sibling gets standard discount
+  if (isMeritStudent || hasSibling)
+    return 20; // 20% discount
+  
+  // Rule 3: Early bird only
+  if (isEarlyBird) {
+    return 10; // 10% discount
+  }
+  
+  // Default Base Case
+  return 0; // No discount
+}
+
+console.log("Discount:", calculateDiscountPercentage(true, true, false) + "%"); // 30%
+console.log("Discount:", calculateDiscountPercentage(false, false, true) + "%"); // 20%
+
+Teacher's Note on Example 1:
+Conditions are engineered in descending order of priority based on the business truth table.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Writing un-parenthesized compound conditions: (A && B || C) is ambiguous to teammates. Use explicit parentheses.
+
+[!] Ignoring edge cases in boolean logic: Creating a truth table ensures you never miss an unhandled combination.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Truth tables map all input combinations to deterministic outputs.
+• Order decision branches from most specific to least specific.
+• Use truth tables to simplify complex business logic.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Never rush through the basics. When your foundation is solid, building complex
+applications becomes as effortless as speaking your native language. Keep practicing!"
+================================================================================

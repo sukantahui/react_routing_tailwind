@@ -1,0 +1,68 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 001_003_OPERATORS-AND-EXPRESSIONS
+Topic 3: LOGICAL OPERATORS: AND (&&), OR (||), NOT (!) & SHORT-CIRCUIT EVALUATION PATTERNS
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine an ATM machine. To withdraw cash, you need BOTH a valid PIN AND sufficient account balance (Logical AND: both conditions must be met). But if you want to pay for tea at a shop, you can pay with Cash OR UPI (Logical OR: either payment method works). In JavaScript, logical operators connect multiple conditions.
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Abhronila was checking if a student was eligible for a scholarship: let hasGoodMarks = true; let hasGoodAttendance = false; let isEligible = hasGoodMarks && hasGoodAttendance; She asked: 'Sir, how does JavaScript evaluate this?' I explained Short-Circuit Evaluation: When JavaScript sees false && ..., it immediately stops reading further because an AND condition can never be true once it encounters a single false! The entire class tested short-circuiting with console logs.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. Logical AND (&&):
+- Returns true only if ALL operands are truthy.
+- Short-circuits: If the first operand is falsy, it immediately returns that falsy value without evaluating the second operand.
+
+2. Logical OR (||):
+- Returns true if AT LEAST ONE operand is truthy.
+- Short-circuits: If the first operand is truthy, it immediately returns that truthy value without evaluating the second operand.
+
+3. Logical NOT (!):
+- Inverts the truthiness of a value.
+- !true -> false
+- !false -> true
+- Double NOT (!!): Converts any value to its pure boolean equivalent.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Logical Conditions in Action ---
+let marks = 85;
+let attendance = 90;
+
+let isHonorsStudent = (marks >= 80) && (attendance >= 75);
+console.log("Honors Eligible:", isHonorsStudent); // true
+
+Teacher's Note on Example 1:
+Both sub-conditions are verified before granting honors status.
+
+--- Example 2: Short-Circuit Default Value Pattern ---
+let enteredName = "";
+let displayName = enteredName || "Anonymous Guest";
+console.log("Welcome,", displayName); // "Anonymous Guest"
+
+Teacher's Note on Example 2:
+Because enteredName is empty (falsy), || short-circuits and falls back to 'Anonymous Guest'.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Using || for default values when 0 is valid: If a student's score is 0, score || 50 will overwrite 0 with 50. Use ?? instead.
+
+[!] Forgetting parentheses in mixed expressions: Always write (a && b) || c to be explicit about evaluation order.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• && requires all conditions to be truthy; short-circuits on first falsy.
+• || requires any one condition to be truthy; short-circuits on first truthy.
+• ! inverts truthiness; !! converts to pure boolean.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Never rush through the basics. When your foundation is solid, building complex
+applications becomes as effortless as speaking your native language. Keep practicing!"
+================================================================================

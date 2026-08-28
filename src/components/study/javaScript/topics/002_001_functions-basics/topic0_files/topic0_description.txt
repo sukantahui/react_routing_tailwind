@@ -1,0 +1,70 @@
+================================================================================
+CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
+Module: 002_001_FUNCTIONS-BASICS
+Topic 0: FUNCTION DECLARATIONS VS FUNCTION EXPRESSIONS: HOISTING & SYNTAX INVARIANTS
+Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
+--------------------------------------------------------------------------------
+Imagine a master chef writing a favorite soup recipe in a family notebook. If they write the recipe as an official named chapter at the top of the table of contents (Function Declaration), anyone in the kitchen can call for that soup at any moment of the day. But if the chef writes the recipe on a loose post-it note and puts it inside a specific locked drawer (Function Expression assigned to a variable), no one can make that soup until the drawer is opened and the post-it note is read.
+
+2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
+--------------------------------------------------------------------------------
+Swadeep tried calling a function before writing its definition: `calculateGst(1000);` and it worked perfectly! But when he assigned an anonymous function to a variable `const calculateGst = function(amt) { ... }` and called it before that line, JavaScript crashed with a ReferenceError. He asked: 'Sir, both are functions, so why did the first one work while the second crashed?' I went to the whiteboard and drew the JavaScript Execution Context: Phase 1 (Creation/Hoisting) vs Phase 2 (Execution). I showed how function declarations are hoisted entirely with their body, while let/const variables remain in the Temporal Dead Zone.
+
+3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
+--------------------------------------------------------------------------------
+1. Function Declarations:
+- Syntax: function calculateTax(amount) { return amount * 0.18; }
+- Hoisted: The entire function definition is lifted to the top of the scope during the creation phase. You can call it before its physical line in code.
+
+2. Function Expressions:
+- Syntax: const calculateTax = function(amount) { return amount * 0.18; };
+- Variable Hoisting Rules Apply: If declared with let or const, calling it before its line throws a ReferenceError (Temporal Dead Zone).
+
+3. When to Use Which:
+- Use Function Declarations for top-level, general-purpose utilities that should be available everywhere in your file.
+- Use Function Expressions when passing functions as arguments to other functions or conditionally defining behaviors.
+
+4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
+--------------------------------------------------------------------------------
+--- Example 1: Function Declaration (Hoisting in Action) ---
+// Calling before definition works cleanly:
+let bill = calculateTotal(1000, 180);
+console.log('Calculated Total: ₹' + bill); // 1180
+
+function calculateTotal(subtotal, tax) {
+  return subtotal + tax;
+}
+
+Teacher's Note on Example 1:
+Function declarations are hoisted in their entirety to the top of their scope.
+
+--- Example 2: Function Expression with const ---
+const formatCurrency = function(amount) {
+  return '₹' + amount.toFixed(2);
+};
+
+console.log(formatCurrency(450.5)); // '₹450.50'
+
+Teacher's Note on Example 2:
+Function expressions treat functions as values assigned to constant variables.
+
+5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
+--------------------------------------------------------------------------------
+[!] Calling function expressions before declaration: Always declare your function expression before calling it.
+
+[!] Accidentally overwriting function declarations with var: Function declarations share scope with var declarations.
+
+6. KEY TAKEAWAYS & REVISION SUMMARY
+--------------------------------------------------------------------------------
+• Function Declarations are fully hoisted with their body.
+• Function Expressions assign a function to a variable and follow variable TDZ rules.
+• Choose declarations for top-level utilities; choose expressions for dynamic assignments.
+
+================================================================================
+Teacher's Personal Mentorship Note from Sukanta Hui:
+"Every master programmer once sat in a beginner classroom with confusing syntax.
+Step by step, line by line, consistency turns confusion into natural mastery. Keep coding!"
+================================================================================
