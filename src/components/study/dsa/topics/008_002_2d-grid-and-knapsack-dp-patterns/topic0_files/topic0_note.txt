@@ -1,0 +1,65 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: 2D GRID DP & 0/1 KNAPSACK PATTERNS
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. 2D GRID DP (MINIMUM PATH SUM / UNIQUE PATHS)
+--------------------------------------------------------------------------------
+Given an M x N grid, move only Right and Down from (0, 0) to (M-1, N-1).
+
+• 2D Recurrence:
+    `dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1])`
+
+• 1D Space-Optimized Implementation in C:
+    int* dp = (int*)malloc(N * sizeof(int));
+    // Fill first row...
+    for (int i = 1; i < M; i++) {
+        dp[0] += grid[i][0];
+        for (int j = 1; j < N; j++) {
+            dp[j] = grid[i][j] + min(dp[j], dp[j - 1]);
+        }
+    }
+    // Result: dp[N - 1] (O(M * N) time, O(N) auxiliary space)
+
+2. 0/1 KNAPSACK FORMULATION
+--------------------------------------------------------------------------------
+Given N items, each with weight `w[i]` and value `v[i]`, and knapsack capacity W:
+
+• Decision at item `i`:
+    - Skip: `dp[i-1][cap]`
+    - Take: `v[i] + dp[i-1][cap - w[i]]` (if cap >= w[i])
+• Recurrence:
+    `dp[i][cap] = max(dp[i-1][cap], v[i] + dp[i-1][cap - w[i]])`
+
+3. BACKWARDS 1D SPACE COMPRESSION TRICK
+--------------------------------------------------------------------------------
+To compress `dp[N][W]` into a single 1D array of size `W + 1`:
+
+    int* dp = (int*)calloc(W + 1, sizeof(int));
+    for (int i = 0; i < N; i++) {
+        // MUST ITERATE BACKWARDS to prevent using the same item multiple times!
+        for (int cap = W; cap >= weights[i]; cap--) {
+            dp[cap] = max(dp[cap], values[i] + dp[cap - weights[i]]);
+        }
+    }
+
+Comparison:
+  • 0/1 Knapsack (Item used at most once):   Iterate `cap` from W down to `weights[i]` (Backwards)
+  • Unbounded Knapsack (Infinite copies):   Iterate `cap` from `weights[i]` up to W (Forward)
+
+4. SUBSET SUM & EQUAL PARTITION MAPPING
+--------------------------------------------------------------------------------
+• Subset Sum Target T: Boolean array `dp[j] = dp[j] || dp[j - num]`.
+• Partition Equal Subset Sum: Check if `TotalSum % 2 == 0`, then solve Subset Sum for `T = TotalSum / 2`.
+• Target Sum (+/- signs): Subset Sum for `(TotalSum + Target) / 2`.
+
+5. MEMORY SAFETY & INVARIANTS IN C
+--------------------------------------------------------------------------------
+[✓] Allocate 1D DP array with `capacity + 1` size: `calloc(capacity + 1, sizeof(int))`.
+[✓] Base case: always initialize `dp[0] = 0` (or `dp[0] = 1` for boolean subset existence).
+[✓] Free allocated 1D array before returning result.
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

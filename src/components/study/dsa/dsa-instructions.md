@@ -32,35 +32,65 @@ Examples:
   * `002_001_trees-bst-avl`
   * `002_002_heaps-and-priority-queues`
   * `002_003_hash-tables-and-hashing`
-  * `003_001_graphs-and-graph-algorithms`
-  * `003_002_sorting-and-searching-algorithms`
-  * `003_003_algorithm-design-paradigms`
-  * `004_001_dsa-output-practice-lab`
-  * `004_002_dsa-capstone-projects-hub`
+  * `003_001_binary-search-and-search-space-optimization`
+  * `003_002_two-pointer-and-fast-slow-mechanics`
+  * `003_003_sliding-window-and-prefix-difference-arrays`
+  * `004_001_c-strings-and-trie-prefix-trees`
+  * `004_002_kmp-and-rabin-karp-pattern-matching`
+  * `004_003_palindromic-and-advanced-string-algorithms`
+  * `005_001_bitwise-operators-and-binary-mechanics`
+  * `005_002_essential-bit-hacks-and-brian-kernighan`
+  * `005_003_bitmasking-subsets-and-compact-bitsets`
+  * `006_001_disjoint-set-union-and-dynamic-connectivity`
+  * `006_002_segment-trees-and-lazy-propagation`
+  * `006_003_fenwick-trees-and-b-trees-architecture`
+  * `007_001_graph-representations-and-traversals`
+  * `007_002_mst-and-shortest-path-algorithms`
+  * `007_003_strongly-connected-components-and-network-flows`
+  * `008_001_1d-dp-and-linear-subproblem-patterns`
+  * `008_002_2d-grid-and-knapsack-dp-patterns`
+  * `008_003_string-interval-and-bitmask-dp-patterns`
+  * `009_001_bubble-selection-insertion-sort`
+  * `009_002_quick-and-merge-sort`
+  * `009_003_heap-tree-and-non-comparison-sorts`
+  * `009_004_specialized-hybrid-sorts-and-decision-matrix`
+  * `009_005_dsa-output-practice-and-memory-diagnostics-lab`
+  * `009_006_dsa-capstone-projects-hub`
+  * `010_001_asymptotic-notations-and-mathematical-bounds`
+  * `010_002_time-complexity-loop-analysis-and-step-counting`
+  * `010_003_recurrence-relations-and-divide-and-conquer`
+  * `010_004_space-complexity-and-memory-hierarchy`
+  * `010_005_amortized-analysis-and-aggregate-mechanics`
+  * `010_006_complexity-classes-and-performance-tradeoffs`
 
 For standard topic index `N` (0, 1, 2, ...):
 1. Create `Topic[N].jsx` directly inside the module slug folder.
 2. Create a subfolder named `topic[N]_files/` containing:
    - `[DescriptiveName]Demo.c` (Runnable, clean, well-commented C code demonstrating operations)
-   - `topic[N]_questions.js` (Structured Q&A array with options, answer, and detailed explanation)
+   - `topic[N]_questions.js` (Structured Q&A array with MINIMUM 25 and MAXIMUM 30 technical MCQs)
    - `topic[N]_note.txt` (Comprehensive ASCII printable study note with complexity tables & memory formulas)
-
-For Output Practice Lab topics (e.g. `004_001_dsa-output-practice-lab`):
-1. `Topic[N].jsx` renders `<COutputPracticeTemplateWithFiles data={enhancedData} />`.
-2. Subfolder `topic[N]_files/`:
-   - `output-questions.json` (Structured JSON catalog of output practice questions)
-   - `answers/` folder containing individual solution `.c` files (`D001.c`, `D002.c`, etc.)
-   - Dynamically loaded via Vite eager glob: `import.meta.glob("./topic[N]_files/answers/*.c", { query: "?raw", import: "default", eager: true })`
-
-For Capstone Project topics (e.g. `004_002_dsa-capstone-projects-hub`):
-1. `Topic[N].jsx` renders `<CProjectAnswerTemplate data={enhancedData} />`.
-2. Subfolder `topic[N]_files/`:
-   - `dsa-projects-catalog.json` (Structured JSON catalog of real-world projects)
-   - `answers/` folder containing individual solution `.c` files (`PROJ001.c`, `PROJ002.c`, etc.)
 
 
 ================================================================================
-2. THE 4 MANDATORY CONTENT PILLARS (REQUIRED IN EVERY TOPIC & NOTE)
+2. FAQ / MCQ SPECIFICATION RULES (MINIMUM 25 TO MAXIMUM 30 QUESTIONS PER TOPIC)
+================================================================================
+Every single `topic[N]_questions.js` file MUST export an array containing between
+25 and 30 exhaustive, technically rigorous Multiple-Choice Questions (MCQs).
+
+Question Quality Guidelines:
+1. Exact Schema:
+   `{ id: number, question: string, options: string[], answer: string, explanation: string }`
+2. Core Categories to Cover in Each Topic's 25-30 Questions:
+   • 5 Questions on Physical Memory Layout (Stack vs Heap, Pointer arithmetic, Struct padding, Stride).
+   • 5 Questions on Core Operations & Step-by-step Algorithms (Insert, Delete, Lookup, Partitioning, Rotations).
+   • 5 Questions on Corner Cases & Faults (SIGSEGV, NULL dereference, Buffer overflow, Dangling pointers, Memory leaks).
+   • 5 Questions on Asymptotic Time & Space Complexity (Best, Worst, Average, Amortized, Auxiliary memory).
+   • 5-10 Questions on Industrial Applications, C Library Quirks, and Optimization Strategies.
+3. Zero Trivial Questions: Every option must be realistic, and the explanation must cite specific memory behaviors or formulas.
+
+
+================================================================================
+3. THE 4 MANDATORY CONTENT PILLARS (REQUIRED IN EVERY TOPIC & NOTE)
 ================================================================================
 Every topic generated MUST thoroughly satisfy these 4 technical content pillars:
 
@@ -99,7 +129,7 @@ Every topic generated MUST thoroughly satisfy these 4 technical content pillars:
 
 
 ================================================================================
-3. GOLD STANDARD `Topic[N].jsx` CODE BLUEPRINT
+4. GOLD STANDARD `Topic[N].jsx` CODE BLUEPRINT
 ================================================================================
 ```jsx
 import React, { useEffect, useRef } from "react";

@@ -1,0 +1,59 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: AMORTIZED ANALYSIS & MECHANICS
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS AMORTIZED ANALYSIS?
+--------------------------------------------------------------------------------
+Amortized analysis guarantees the average performance of each operation in the 
+WORST-CASE SEQUENCE of operations.
+
+• Worst-Case Single Operation:  May be expensive (e.g. O(N) array copy during vector reallocation).
+• Amortized Cost:               Guaranteed constant O(1) across the entire sequence.
+
+2. THE THREE CLASSICAL PROOF METHODS
+--------------------------------------------------------------------------------
+1. Aggregate Method:
+   Compute total cost T(N) for a sequence of N operations in the worst case.
+   Amortized cost = T(N) / N.
+
+2. Accounting (Banker's) Method:
+   Charge each cheap operation an amortized fee $\hat{c} > c_{\text{actual}}$.
+   Store the difference $(\hat{c} - c_{\text{actual}})$ as prepaid credit in a bank.
+   When an expensive operation occurs, use stored credits to pay for it.
+   Rule: Bank balance must NEVER become negative!
+
+3. Potential Method (Physicist's Method):
+   Define potential function $\Phi(D) \ge 0$ measuring stored "energy" of state $D$.
+   Amortized cost: $\hat{c}_i = c_i + \Phi(D_i) - \Phi(D_{i-1})$.
+   Total cost: $\sum c_i = \sum \hat{c}_i - (\Phi(D_N) - \Phi(D_0)) \le \sum \hat{c}_i$.
+
+3. DYNAMIC VECTOR GEOMETRIC DOUBLING PROOF
+--------------------------------------------------------------------------------
+Initial Capacity = 1. Double capacity when full: 1 -> 2 -> 4 -> 8 -> ... -> 2^k.
+
+For N = 2^k insertions:
+  • Regular insertions:  N operations (cost 1 each).
+  • Resizing copy steps: 1 + 2 + 4 + 8 + ... + N/2 = N - 1 operations.
+  • Total Cost:          T(N) = N + (N - 1) = 2N - 1 < 2N operations.
+  • Amortized Cost:      T(N) / N < 2N / N = 2 = O(1) operations per insertion!
+
+Contrast with Arithmetic Growth (Capacity += 100):
+  • Total Cost:          T(N) = N + (100 + 200 + ... + N) = O(N^2).
+  • Amortized Cost:      O(N^2) / N = O(N) per insertion (UNACCEPTABLE!).
+
+4. QUEUE VIA TWO STACKS AMORTIZED PROOF
+--------------------------------------------------------------------------------
+Inbox Stack (Pushes) and Outbox Stack (Pops).
+When Outbox is empty, pop all elements from Inbox and push to Outbox.
+Each item is handled exactly 4 times in its entire lifecycle:
+  1. Push to Inbox
+  2. Pop from Inbox
+  3. Push to Outbox
+  4. Pop from Outbox
+Total lifetime cost for N items = 4N operations -> Exactly O(1) amortized!
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

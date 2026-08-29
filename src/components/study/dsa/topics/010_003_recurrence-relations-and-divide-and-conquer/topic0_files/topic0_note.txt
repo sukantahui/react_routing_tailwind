@@ -1,0 +1,52 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: RECURRENCE RELATIONS & MASTER THEOREM
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. MASTER THEOREM FORMULA & CRITICAL EXPONENT
+--------------------------------------------------------------------------------
+Applies to recurrences of the standard divide-and-conquer form:
+    T(n) = a * T(n / b) + f(n)
+Where:
+  • a >= 1: Number of recursive subproblems generated.
+  • b > 1:  Factor by which the problem size is divided.
+  • f(n):   Cost of dividing the problem and combining the subproblem results.
+  • Critical Exponent: p = log_b(a)
+
+2. THE THREE MASTER THEOREM CASES
+--------------------------------------------------------------------------------
+Case 1: Leaves Dominate (Cost grows polynomially slower than leaf count)
+  If f(n) = O(n^(p - eps)) for some eps > 0:
+    T(n) = Θ(n^p) = Θ(n^(log_b a))
+  Example: Strassen's Matrix Mult T(n) = 7T(n/2) + O(n^2) -> Θ(n^(log2 7)) = Θ(n^2.807)
+
+Case 2: Balanced Work (Work is evenly distributed across all tree levels)
+  If f(n) = Θ(n^p * log^k(n)) for some k >= 0:
+    T(n) = Θ(n^p * log^(k+1)(n)) = Θ(n^(log_b a) * log^(k+1)(n))
+  Example: Merge Sort T(n) = 2T(n/2) + O(n) (k=0) -> Θ(n log n)
+  Example: Binary Search T(n) = T(n/2) + O(1) -> Θ(log n)
+
+Case 3: Root Dominates (Cost at root grows polynomially faster than leaf count)
+  If f(n) = Ω(n^(p + eps)) for some eps > 0 AND regularity condition a*f(n/b) <= c*f(n) holds:
+    T(n) = Θ(f(n))
+
+3. RECURSION TREE METHOD
+--------------------------------------------------------------------------------
+Visualizes cost at each depth level:
+  Level 0 (Root):    f(n)
+  Level 1:           a * f(n/b)
+  Level 2:           a^2 * f(n/b^2)
+  ...
+  Level log_b(n):    a^(log_b n) * T(1) = n^(log_b a) * Θ(1) (Leaves)
+Total Work = Sum of costs across all levels from 0 to log_b(n).
+
+4. AKRA-BAZZI METHOD FOR UNEQUAL SPLITS
+--------------------------------------------------------------------------------
+For recurrences like `T(n) = T(n/3) + T(2n/3) + O(n)`:
+  Find real number `p` such that: Sum_{i=1 to k} a_i * (b_i)^p = 1
+  Solution: T(n) = Θ(n^p * (1 + integral_1^n [g(u) / u^(p+1)] du))
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

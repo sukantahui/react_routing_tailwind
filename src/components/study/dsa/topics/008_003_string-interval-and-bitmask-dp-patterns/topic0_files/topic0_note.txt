@@ -1,0 +1,55 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: STRING, INTERVAL & BITMASK DP
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. STRING DP: LONGEST COMMON SUBSEQUENCE (LCS)
+--------------------------------------------------------------------------------
+Given strings S1 of length M and S2 of length N:
+
+• State Definition: `dp[i][j]` = length of LCS between S1[0..i-1] and S2[0..j-1]
+• Transitions:
+    - If S1[i-1] == S2[j-1]: `dp[i][j] = 1 + dp[i-1][j-1]`
+    - If S1[i-1] != S2[j-1]: `dp[i][j] = max(dp[i-1][j], dp[i][j-1])`
+• Space Optimization: Two 1D row arrays `prev[]` and `curr[]` of size N + 1 -> O(N) space.
+
+2. STRING DP: EDIT DISTANCE (LEVENSHTEIN)
+--------------------------------------------------------------------------------
+Minimum Insert, Delete, Replace operations to convert Word1 to Word2:
+
+• Base Cases: `dp[i][0] = i` (delete all), `dp[0][j] = j` (insert all)
+• Transitions:
+    - If chars match:    `dp[i][j] = dp[i-1][j-1]`
+    - If chars mismatch: `dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])`
+• Complexity: O(M * N) time, O(M * N) or O(N) space.
+
+3. INTERVAL DP: MATRIX CHAIN MULTIPLICATION (MCM)
+--------------------------------------------------------------------------------
+Finds the optimal parenthesization order to minimize scalar multiplications of N matrices.
+
+• State Definition: `dp[i][j]` = minimum scalar multiplications to multiply matrices i through j
+• Loop Hierarchy:
+    for (int L = 2; L < N; L++) {         // Sub-chain length
+        for (int i = 1; i < N - L + 1; i++) {
+            int j = i + L - 1;
+            for (int k = i; k < j; k++) { // Split point k
+                dp[i][j] = min(dp[i][j], dp[i][k] + dp[k+1][j] + p[i-1]*p[k]*p[j]);
+            }
+        }
+    }
+• Complexity: O(N^3) time, O(N^2) space.
+
+4. BITMASK DP: TRAVELING SALESPERSON PROBLEM (TSP)
+--------------------------------------------------------------------------------
+Finds the minimum cost Hamiltonian cycle visiting all N cities exactly once.
+
+• State Definition: `dp[mask][u]` = minimum cost of visiting city subset `mask` ending at city `u`
+• Recurrence:
+    `dp[mask | (1 << v)][v] = min(dp[mask | (1 << v)][v], dp[mask][u] + dist[u][v])`
+• Total States: 2^N masks * N cities = N * 2^N states
+• Total Time:   O(N^2 * 2^N) (massively faster than O(N!) factorial brute force for N <= 20!)
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

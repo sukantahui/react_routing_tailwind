@@ -1,0 +1,47 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: SCC, BRIDGES & NETWORK FLOW
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. STRONGLY CONNECTED COMPONENTS (KOSARAJU'S ALGORITHM)
+--------------------------------------------------------------------------------
+Given a directed graph G:
+  1. DFS Pass 1 on G: Push vertices to stack in order of finish times: O(V + E).
+  2. Transpose G: Reverse all directed edge directions to create G^T: O(V + E).
+  3. DFS Pass 2 on G^T: Pop vertices from stack; each DFS exploration discovers one full SCC!
+Total Time Complexity: O(V + E), Auxiliary Space: O(V).
+
+2. TARJAN'S LOW-LINK VALUES & BRIDGES (CRITICAL CONNECTIONS)
+--------------------------------------------------------------------------------
+In an undirected graph, an edge is a Bridge if removing it increases the number 
+of connected components.
+
+Variables:
+  • `tin[u]`: Entry / discovery timestamp of node `u`.
+  • `low[u]`: Lowest discovery time reachable from `u` via DFS tree edges or back-edges.
+
+Low-Link Updates:
+  • If (u, v) is a Back-Edge:    `low[u] = min(low[u], tin[v])`
+  • If (u, v) is a Tree-Edge:    `low[u] = min(low[u], low[v])`
+  • Bridge Condition:            `if (low[v] > tin[u]) -> Edge (u, v) is a Bridge!`
+
+3. FORD-FULKERSON & EDMONDS-KARP MAXIMUM FLOW
+--------------------------------------------------------------------------------
+Computes maximum material throughput from source `s` to sink `t` in a directed capacitated network.
+
+Key Concepts:
+  • Residual Capacity: `r(u, v) = c(u, v) - f(u, v)`
+  • Augmenting Path: Path from `s` to `t` in residual network where every edge has `r(u, v) > 0`.
+  • Edmonds-Karp: Uses BFS to find the shortest augmenting path in O(V * E^2).
+  • Max-Flow Min-Cut Theorem: Maximum (s, t)-flow == Minimum capacity of (s, t)-cut.
+
+4. MEMORY SAFETY & INVARIANTS IN C
+--------------------------------------------------------------------------------
+[✓] Allocate arrays `visited`, `tin`, `low` with exact size `V * sizeof(int)`.
+[✓] Free both original and transposed graph adjacency lists.
+[✓] Ensure `timer` is reset to 0 for disjoint components.
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

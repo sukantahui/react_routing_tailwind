@@ -1,0 +1,58 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: MANACHER'S ALGORITHM & Z-ARRAY
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. EXPAND-AROUND-CENTER VS MANACHER'S ALGORITHM
+--------------------------------------------------------------------------------
+Given a string S of length N:
+
+• Expand-Around-Center:
+    Expands around 2N - 1 possible centers (N single characters + N - 1 inter-character gaps).
+    Time Complexity: O(N^2) worst-case (e.g. "aaaaaa"), Auxiliary Space: O(1).
+
+• Manacher's Algorithm:
+    Transforms string into odd-length representation and leverages previous palindrome 
+    symmetries to prevent redundant character comparisons.
+    Guaranteed Time Complexity: O(N), Auxiliary Space: O(N) for radius array P.
+
+2. STRING PREPROCESSING TRANSFORMATION
+--------------------------------------------------------------------------------
+Original:     "aba"
+Transformed:  "^ # a # b # a # $"
+Sentinels:    '^' at index 0 and '$' at end prevent out-of-bounds array reads.
+New Length:   2 * N + 3
+
+Properties:
+  • Every palindrome in transformed string T is strictly of odd length.
+  • Palindrome radius `P[i]` in T corresponds directly to palindrome length in original S!
+  • Starting index in original S: `(centerIndex - 1 - P[centerIndex]) / 2`
+
+3. THE MANACHER SYMMETRY INVARIANT
+--------------------------------------------------------------------------------
+Let `center` be the center of the rightmost palindrome discovered so far, and `R` its right boundary.
+For any index `i < R`:
+  • Mirror index: `iMirror = 2 * center - i`
+  • Initial radius initialization:
+      P[i] = (R > i) ? min(R - i, P[iMirror]) : 0;
+  • Continue expanding `P[i]` only beyond `R`.
+
+4. Z-ALGORITHM (Z-ARRAY PATTERN MATCHING)
+--------------------------------------------------------------------------------
+`Z[i]` = length of the longest common prefix between S and the suffix starting at index S[i..N-1].
+
+Pattern Matching Application:
+  1. Construct string S' = Pattern + "$" + Text
+  2. Compute Z-array for S' in O(N + M) time using [L, R] Z-box window.
+  3. Every index `i > M` where `Z[i] == M` marks an exact match of Pattern in Text!
+
+5. MEMORY SAFETY & POINTER INVARIANTS IN C
+--------------------------------------------------------------------------------
+[✓] Allocate transformed buffer with `(2 * n + 3) * sizeof(char)` bytes.
+[✓] Free transformed string `T` and radius array `P` before returning from function.
+[✓] Ensure sentinels '^' and '$' are distinct characters not present in input alphabet.
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

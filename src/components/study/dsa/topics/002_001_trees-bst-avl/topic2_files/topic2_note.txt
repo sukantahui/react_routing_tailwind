@@ -1,0 +1,34 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Segment 2 · Module: Binary Trees, BST & AVL Self-Balancing Trees
+Topic: Binary Search Tree (BST) Operations: Insertion, Search, and 3-Case Deletion using Inorder Predecessor/Successor
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. CONCEPT OVERVIEW & THEORETICAL FOUNDATIONS
+--------------------------------------------------------------------------------
+Topic Title: Binary Search Tree (BST) Operations: Insertion, Search, and 3-Case Deletion using Inorder Predecessor/Successor
+Course Module: Binary Trees, BST & AVL Self-Balancing Trees
+
+Core Principles:
+  • Memory Integrity: Strict bounds checking on all array indices and pointers.
+  • Time Invariants: Asymptotically optimal step execution.
+  • Space Optimization: Minimal auxiliary allocation to leverage CPU cache lines.
+
+2. ASYMPTOTIC COMPLEXITY ANALYSIS
+--------------------------------------------------------------------------------
+Operation / Phase         Time Complexity       Auxiliary Space
+--------------------------------------------------------------------------------
+Primary Execution         O(N) or O(log N)      O(1) / O(N)
+Memory Allocation         O(1)                  O(N) total block
+Teardown / Cleanup        O(1) or O(N)          O(1)
+
+3. MEMORY SAFETY & POINTER INVARIANTS
+--------------------------------------------------------------------------------
+[✓] Check pointer return after malloc(): `if (!ptr) { exit(EXIT_FAILURE); }`
+[✓] Neutralize pointers post-deallocation: `free(ptr); ptr = NULL;`
+[✓] Never access memory outside allocated boundaries: `0 <= index < capacity`
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

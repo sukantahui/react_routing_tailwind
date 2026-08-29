@@ -1,0 +1,36 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: DSA OUTPUT TRACING & MEMORY DIAGNOSTICS
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. MENTAL COMPILER POINTER TRACING RULES
+--------------------------------------------------------------------------------
+• Pointer Assignment: `p = q` makes pointer `p` point to the EXACT same memory address as `q`.
+• Dereference Mutation: `*p = 50` alters the value inside that shared address.
+• Arrow Operator: `node->next` is shorthand syntax for `(*node).next`.
+
+2. MEMORY SAFETY CHECKLIST FOR INDUSTRIAL C
+--------------------------------------------------------------------------------
+[✓] Always verify `malloc()` return pointer is not NULL before dereferencing:
+    int* ptr = (int*)malloc(n * sizeof(int));
+    if (!ptr) { perror("Allocation failed"); exit(EXIT_FAILURE); }
+
+[✓] Pair every `malloc()` / `calloc()` with a corresponding `free()`:
+    free(ptr);
+    ptr = NULL; // Neutralize immediately to prevent Use-After-Free bugs!
+
+[✓] Guard against Null Pointer Dereferences in recursive traversals:
+    if (!root) return;
+
+[✓] Prevent Buffer Overruns: Never index beyond allocated array bounds `arr[n]`.
+
+3. MEMORY DIAGNOSTIC TOOLS
+--------------------------------------------------------------------------------
+• Valgrind Memcheck: `valgrind --leak-check=full --track-origins=yes ./program`
+• AddressSanitizer (ASan): Compile with `gcc -fsanitize=address -g program.c`
+• UndefinedBehaviorSanitizer (UBSan): Compile with `gcc -fsanitize=undefined program.c`
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

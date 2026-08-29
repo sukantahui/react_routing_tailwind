@@ -1,0 +1,63 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: ESSENTIAL BIT HACKS & KERNIGHAN
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. ESSENTIAL BIT MANIPULATION IDIOMS IN C
+--------------------------------------------------------------------------------
+Operation                    C Expression                     Explanation
+--------------------------------------------------------------------------------
+Check k-th bit is set        (n & (1U << k)) != 0            Returns true if bit k == 1
+Set k-th bit to 1            n | (1U << k)                   Forces bit k to 1
+Clear k-th bit to 0          n & ~(1U << k)                  Forces bit k to 0
+Toggle k-th bit              n ^ (1U << k)                   Flips bit k (0->1, 1->0)
+Clear lowest set bit         n & (n - 1)                     Turns off rightmost 1-bit
+Extract lowest set bit       n & (-n)                        Isolates rightmost 1-bit
+Check if Power of 2          (n > 0) && ((n & (n-1)) == 0)   Power of 2 has 1 set bit
+
+2. BRIAN KERNIGHAN'S POPULATION COUNT ALGORITHM
+--------------------------------------------------------------------------------
+Counts the number of set bits (1s) in an integer in O(K) where K = count of 1s:
+
+    int countSetBits(uint32_t n) {
+        int count = 0;
+        while (n > 0) {
+            n = n & (n - 1); // Clears rightmost set bit
+            count++;
+        }
+        return count;
+    }
+
+3. GCC COMPILER INTRINSICS (HARDWARE CPU INSTRUCTIONS)
+--------------------------------------------------------------------------------
+Intrinsic Function         CPU Operation                  x86 Assembly
+--------------------------------------------------------------------------------
+__builtin_popcount(x)      Count number of 1-bits         POPCNT
+__builtin_clz(x)           Count leading zeros            BSR / LZCNT
+__builtin_ctz(x)           Count trailing zeros           BSF / TZCNT
+__builtin_parity(x)        Parity of 1-bits (0 or 1)      TEST / JNP
+
+Note: For 64-bit `uint64_t`, append suffix `ll`: `__builtin_popcountll(x)`.
+
+4. XOR PROPERTIES & PRACTICAL APPLICATIONS
+--------------------------------------------------------------------------------
+• In-Place Variable Swap without Temporary Variable:
+    a ^= b;
+    b ^= a;
+    a ^= b;
+    (Warning: Fails if &a == &b, i.e., same memory address).
+
+• Single Number in Array (pairs cancel out):
+    int unique = 0;
+    for (int i = 0; i < n; i++) unique ^= arr[i];
+
+5. MEMORY SAFETY & SYSTEM TRAPS IN C
+--------------------------------------------------------------------------------
+[✓] Always cast shift amount to unsigned literal (`1U << k`) to avoid UB.
+[✓] In `isPowerOfTwo(n)`, explicitly guard against `n == 0` (`0 & -1 == 0` is false positive).
+[✓] `__builtin_clz(0)` and `__builtin_ctz(0)` are undefined behavior on x86/ARM CPUs!
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

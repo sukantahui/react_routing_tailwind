@@ -1,0 +1,67 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: DISJOINT SET UNION (DSU / UNION-FIND)
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. CORE ADT DEFINITION & ASYMPTOTIC COMPLEXITY
+--------------------------------------------------------------------------------
+Disjoint Set Union (DSU) tracks elements partitioned into disjoint (non-overlapping)
+subsets, supporting two primary operations:
+  • `find(u)`: Returns the representative (root) of the set containing `u`.
+  • `union(u, v)`: Merges the set containing `u` with the set containing `v`.
+
+Amortized Complexity (with Path Compression + Union by Rank):
+  • Time per operation:   O(alpha(N))   [alpha is the Inverse Ackermann function <= 4]
+  • Auxiliary Space:      O(N)          [Three 1D integer arrays: parent, rank, size]
+
+2. PATH COMPRESSION MECHANISM
+--------------------------------------------------------------------------------
+Flattens the tree hierarchy during traversal so every inspected node points 
+directly to the root representative:
+
+    int findParent(DSU* dsu, int i) {
+        if (dsu->parent[i] == i) return i;
+        return dsu->parent[i] = findParent(dsu, dsu->parent[i]); // Path compression
+    }
+
+3. UNION BY RANK & UNION BY SIZE
+--------------------------------------------------------------------------------
+Attaches the shallower root to the deeper root to prevent tree elongation:
+
+    bool unionSets(DSU* dsu, int u, int v) {
+        int rootU = findParent(dsu, u);
+        int rootV = findParent(dsu, v);
+        if (rootU == rootV) return false; // Cycle detected!
+
+        if (dsu->rank[rootU] < dsu->rank[rootV]) {
+            dsu->parent[rootU] = rootV;
+            dsu->size[rootV] += dsu->size[rootU];
+        } else if (dsu->rank[rootU] > dsu->rank[rootV]) {
+            dsu->parent[rootV] = rootU;
+            dsu->size[rootU] += dsu->size[rootV];
+        } else {
+            dsu->parent[rootV] = rootU;
+            dsu->size[rootU] += dsu->size[rootV];
+            dsu->rank[rootU]++;
+        }
+        dsu->numComponents--;
+        return true;
+    }
+
+4. KEY APPLICATIONS OF DSU
+--------------------------------------------------------------------------------
+• Kruskal's Minimum Spanning Tree (MST): Greedy edge selection with cycle rejection in O(E log E).
+• Dynamic Graph Connectivity: Real-time queries "is node U connected to node V?".
+• Connected Components Counting in 2D Grids (Number of Islands).
+• Percolation & Grid Physics Simulations.
+
+5. MEMORY SAFETY & INVARIANTS IN C
+--------------------------------------------------------------------------------
+[✓] Check boundary conditions: `0 <= u < n` and `0 <= v < n`.
+[✓] Check `malloc()` return pointers for `dsu->parent`, `rank`, `size`.
+[✓] Free all allocated internal arrays in `freeDSU()` before freeing struct pointer.
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

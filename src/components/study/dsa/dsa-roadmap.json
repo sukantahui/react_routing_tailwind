@@ -1,14 +1,14 @@
 {
   "trackId": "dsa-in-c-basic-to-pro",
-  "trackTitle": "Data Structures & Algorithms in C",
-  "description": "A comprehensive, enterprise-grade Data Structures and Algorithms curriculum implemented natively in C. Designed for computer science students and engineering professionals. Covers memory allocation, pointer mechanics, linear/non-linear structures, binary trees, BST, AVL trees, heaps, hash tables, graphs, shortest paths, a dedicated Master Class segment on all Sorting Algorithms, Big-O complexity, and modern algorithm design paradigms.",
+  "trackTitle": "Data Structures & Algorithms in C (Master Edition)",
+  "description": "An exhaustive, enterprise-grade Data Structures and Algorithms curriculum implemented natively in C. Designed for computer science students, competitive programmers, and engineering professionals. Spans 10 master segments covering linear/non-linear structures, searching & sliding windowing, string pattern matching & tries, low-level bit manipulation, advanced range query trees & DSU, graph optimization & flows, dynamic programming masterclass, complete sorting algorithms, output diagnostics, and asymptotic complexity analysis.",
   "institute": {
     "name": "Coder & AccoTax",
     "website": "https://www.codernaccotax.co.in",
     "author": "Sukanta Hui",
     "location": "25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore, West Bengal, India",
-    "trackType": "Data Structures & Algorithms Course Roadmap",
-    "version": "1.2.0",
+    "trackType": "Data Structures & Algorithms Master Roadmap",
+    "version": "2.0.0",
     "lastUpdated": "2026-08-29"
   },
   "folder": "dsa",
@@ -26,7 +26,7 @@
     "organization": "Founder, Coder & AccoTax",
     "location": "Barrackpore, West Bengal",
     "photo": "/teachers/sukantahui.jpg",
-    "bio": "Deeply passionate about memory management, procedural optimization, data structures, and computer science fundamentals in C and C++.",
+    "bio": "Deeply passionate about memory management, procedural optimization, algorithmic complexity, data structures, and computer science fundamentals in C and C++.",
     "social": {
       "linkedin": "https://www.linkedin.com/in/sukantahui/",
       "twitter": "https://twitter.com/sukantahui",
@@ -42,7 +42,7 @@
       "segmentId": "segment-1-linear",
       "title": "Segment 1 - Linear Data Structures & Memory Foundations",
       "level": "Foundational to Intermediate",
-      "summary": "Master fundamental dynamic memory management in C, dynamic arrays, pointer arithmetic, singly/doubly linked lists, stacks, queues, and deques.",
+      "summary": "Master fundamental dynamic memory management in C, contiguous array mechanics, pointer arithmetic, singly/doubly/circular linked lists, stacks, queues, and deques.",
       "modules": [
         {
           "moduleId": "dsa-arrays-matrices",
@@ -50,13 +50,56 @@
           "title": "Array Data Structure, Dynamic Arrays & Matrix Algorithms",
           "level": "Beginner to Intermediate",
           "estimatedHours": 4,
-          "tags": ["arrays", "dynamic-memory", "pointers", "matrices"],
+          "tags": [
+            "arrays",
+            "dynamic-memory",
+            "pointers",
+            "matrices",
+            "sparse-matrix",
+            "cache-locality"
+          ],
+          "difficulty": "Beginner to Intermediate",
+          "difficultyIndex": 1,
+          "summary": "Master physical contiguous memory allocation, address translation formula Base + (i * size), dynamic array expansion with malloc, realloc, and free, multi-dimensional array mapping (Row-Major vs Column-Major), and sparse matrix representations in C.",
+          "learningOutcomes": [
+            "Calculate exact physical byte addresses for 1D and 2D arrays using Base Address arithmetic",
+            "Implement a dynamic resizable array (vector) in C with geometric growth and error-checked reallocation",
+            "Map 2D matrix indices (i, j) to 1D contiguous memory using Row-Major and Column-Major formulas",
+            "Represent sparse matrices efficiently using Triplet format (Row, Col, Value) and Coordinate List (COO)",
+            "Implement memory-efficient matrix multiplication and in-place matrix transposition"
+          ],
           "topics": [
-            "Contiguous memory layout and indexing mechanics in C",
-            "Pointer arithmetic and array element access formula",
-            "Dynamic array resizing with realloc(), malloc(), and free()",
-            "Multi-dimensional arrays and Row-Major vs Column-Major ordering",
-            "Sparse matrix representation and matrix multiplication algorithms"
+            "Contiguous Memory Layout, Pointer Arithmetic, and Physical Address Calculation: Address = Base + (i * sizeof(type))",
+            "Dynamic Array Implementation in C: Struct encapsulation, geometric doubling strategy, and safe realloc() pointer reassignment",
+            "Multi-Dimensional Arrays: Row-Major vs Column-Major Mapping Formulas and L1/L2 Cache Line Optimization",
+            "Sparse Matrix Representation: 3-Tuple (Row, Column, Value) Array Structure and Fast Transpose Algorithm",
+            "Example & Discussion: Memory Leak Prevention and Dangling Pointer Traps during Array Reallocation",
+            "Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on arr[i] vs *(arr + i) vs i[arr] Equivalence in C"
+          ],
+          "miniProjects": [
+            "Dynamic C Vector Library with Auto-Shrinking and Bounds Checking"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 6,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "Coding Lab + Pointer Arithmetic Quiz",
+            "passScore": 75
+          },
+          "useCases": [
+            "High-performance matrix computation kernels",
+            "Contiguous buffer management in OS audio and video pipelines"
+          ],
+          "careerSkills": [
+            "Low-level buffer management",
+            "Cache-conscious array layout design"
+          ],
+          "commonMistakes": [
+            "Assigning realloc() return directly to the same pointer (ptr = realloc(ptr, size)), losing memory on failure",
+            "Off-by-one buffer overruns corrupting adjacent heap chunks",
+            "Assuming 2D dynamic arrays (int**) are contiguous in physical RAM"
           ]
         },
         {
@@ -65,13 +108,57 @@
           "title": "Singly, Doubly & Circular Linked Lists",
           "level": "Intermediate",
           "estimatedHours": 5,
-          "tags": ["linked-list", "singly-linked-list", "doubly-linked-list", "circular-list"],
+          "tags": [
+            "linked-list",
+            "singly-linked-list",
+            "doubly-linked-list",
+            "circular-list",
+            "floyds-algorithm",
+            "pointers"
+          ],
+          "difficulty": "Intermediate",
+          "difficultyIndex": 2,
+          "summary": "Master non-contiguous dynamic node memory allocation using self-referential C structs. Implement Singly, Doubly, and Circular linked lists, Floyd's Cycle Detection algorithm, pointer reversal, and polynomial manipulation.",
+          "learningOutcomes": [
+            "Design self-referential C structs for singly and doubly linked nodes with proper byte alignment",
+            "Perform boundary-safe insertions and deletions at Head, Tail, and arbitrary positions",
+            "Reverse a singly linked list iteratively in O(n) time and O(1) space using 3 sliding pointers (prev, curr, next)",
+            "Detect and locate cycles in a linked list using Floyd's Tortoise and Hare algorithm",
+            "Implement Circular Linked Lists and polynomial arithmetic (addition & multiplication) in C"
+          ],
           "topics": [
-            "Node structure design with C structs and self-referential pointers",
-            "Singly Linked List insertion, deletion, reversal, and cycle detection (Floyd's algorithm)",
-            "Doubly Linked List node memory management and bidirectional navigation",
-            "Circular Linked Lists and applications in round-robin scheduling",
-            "Polynomial addition and sparse polynomial manipulation using linked lists"
+            "Self-Referential Struct Mechanics: Struct padding, heap node allocation via malloc(), and NULL pointer sentinel checks",
+            "Singly Linked List: Head/Tail insertion, middle deletion, and iterative 3-pointer list reversal",
+            "Floyd's Cycle-Finding Algorithm: Mathematical proof of cycle detection, loop start node location, and loop removal",
+            "Doubly Linked List: Bidirectional pointers (prev, next), node swapping, and memory cleanup traversal",
+            "Circular Linked Lists: Tail pointer optimization, round-robin process scheduler simulation, and break-loop mechanics",
+            "Example & Discussion: Polynomial Addition & Sparse Polynomial Multiplication using Sorted Linked Nodes",
+            "Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on Dangling Pointers after free(node)"
+          ],
+          "miniProjects": [
+            "Sparse Polynomial Arithmetic Engine and Round-Robin Task Scheduler"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 7,
+            "diagnostics": 5
+          },
+          "assessment": {
+            "type": "Linked List Pointer Manipulation Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "OS kernel process scheduling queues",
+            "Dynamic music playlist and undo/redo memory chains"
+          ],
+          "careerSkills": [
+            "Pointer indirection mastery",
+            "Dynamic chain lifecycle management"
+          ],
+          "commonMistakes": [
+            "Accessing node->next after free(node) (Use-After-Free bug)",
+            "Losing the Head pointer reference during list traversal without a temporary crawler pointer",
+            "Failing to update both prev and next pointers during Doubly Linked List deletion"
           ]
         },
         {
@@ -80,13 +167,57 @@
           "title": "Stacks, Queues & Priority Buffers",
           "level": "Intermediate",
           "estimatedHours": 5,
-          "tags": ["stack", "queue", "circular-queue", "deque", "infix-postfix"],
+          "tags": [
+            "stack",
+            "queue",
+            "circular-queue",
+            "deque",
+            "infix-postfix",
+            "monotonic-stack"
+          ],
+          "difficulty": "Intermediate",
+          "difficultyIndex": 2,
+          "summary": "Explore LIFO and FIFO Abstract Data Types. Implement array-based and linked-list backed Stacks, Queues, Circular Queues with modulo math, Deques, and an infix-to-postfix expression parser.",
+          "learningOutcomes": [
+            "Implement Stack ADT with dynamic resizing and linked list backing, enforcing boundary preconditions",
+            "Build an Infix-to-Postfix conversion and arithmetic expression evaluation engine in C",
+            "Implement Linear Queue and solve the memory drift problem using Circular Queue modulo arithmetic",
+            "Design a Double-Ended Queue (Deque) supporting O(1) front and rear push/pop operations",
+            "Analyze monotonic stack patterns for Next Greater Element and Largest Rectangle in Histogram"
+          ],
           "topics": [
-            "Stack ADT: Array-based vs Linked List-based LIFO implementation",
-            "Infix to Postfix/Prefix conversion and expression evaluation engine",
-            "Queue ADT: FIFO mechanics, linear queue limitation & array shifting problem",
-            "Circular Queue using modulo arithmetic in fixed arrays",
-            "Double-Ended Queue (Deque) and Priority Queue basics"
+            "Stack ADT Architecture: Array implementation with top index vs dynamic linked list implementation",
+            "Expression Parsing Engine: Infix to Postfix/Prefix conversion using Shunting-Yard Algorithm and Postfix evaluation",
+            "Queue ADT & The Shifting Dilemma: Why linear array queues waste space and how Circular Queue modulo math ((rear + 1) % MAX) solves it",
+            "Double-Ended Queue (Deque): Circular array implementation and dynamic two-way buffer mechanics",
+            "Monotonic Stack Pattern: Finding Next Greater Element in O(n) time using stack invariant maintenance",
+            "Example & Discussion: Valid Parentheses Verification and Call Stack Overflow Simulation in C",
+            "Classroom Lab Dialogue: Sukanta Sir on Full vs Empty Condition Ambiguity in Circular Queue ((rear + 1) % N == front)"
+          ],
+          "miniProjects": [
+            "Full Arithmetic Expression Evaluator with Operator Precedence & Parentheses Support"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 6,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "Stack/Queue Implementation Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "Compiler expression parsing and syntax tree construction",
+            "Network packet FIFO buffering and print spooler queues"
+          ],
+          "careerSkills": [
+            "LIFO/FIFO buffer architecture",
+            "Monotonic stack optimization patterns"
+          ],
+          "commonMistakes": [
+            "Stack Underflow on pop() without checking top == -1 or top == NULL",
+            "Overwriting Circular Queue data due to incorrect full-condition check ((rear + 1) % SIZE == front)",
+            "Operator precedence errors in infix-to-postfix conversion (failing to handle associative power ^ operator)"
           ]
         }
       ]
@@ -103,13 +234,58 @@
           "title": "Binary Trees, BST & AVL Self-Balancing Trees",
           "level": "Intermediate to Advanced",
           "estimatedHours": 6,
-          "tags": ["trees", "binary-tree", "bst", "avl-tree", "tree-traversal"],
+          "tags": [
+            "trees",
+            "binary-tree",
+            "bst",
+            "avl-tree",
+            "tree-traversal",
+            "rotations",
+            "balance-factor"
+          ],
+          "difficulty": "Intermediate to Advanced",
+          "difficultyIndex": 3,
+          "summary": "Master hierarchical tree structures in C: recursive and iterative traversals, Binary Search Tree (BST) invariant maintenance and deletion cases, and AVL Tree self-balancing rotations (LL, RR, LR, RL).",
+          "learningOutcomes": [
+            "Construct binary tree structures with left/right node pointers and calculate height/diameter",
+            "Implement Inorder, Preorder, Postorder, and Level-Order (BFS) traversals iteratively and recursively",
+            "Implement BST insertion, lookup, and 3-case node deletion (0, 1, and 2 children via in-order successor)",
+            "Calculate node Balance Factor (BF = Height(Left) - Height(Right)) in AVL Trees",
+            "Perform single (LL, RR) and double (LR, RL) rotations to restore O(log n) tree balance"
+          ],
           "topics": [
-            "Tree anatomy: Root, leaves, height, depth, subtrees, and binary tree properties",
-            "Recursive and iterative tree traversals: Inorder, Preorder, Postorder, and Level-Order",
-            "Binary Search Tree (BST) insertion, search, and predecessor/successor deletion",
-            "AVL Trees: Balance factor analysis and Single/Double Rotations (LL, RR, LR, RL)",
-            "Tree visualization and height calculation algorithms in C"
+            "Tree Anatomy & Invariants: Root, leaves, height, depth, subtrees, and binary tree strict properties",
+            "Recursive & Iterative Traversals: Inorder, Preorder, Postorder, and Level-Order (using dynamic queue)",
+            "Binary Search Tree (BST) Operations: Insertion, Search, and 3-Case Deletion using Inorder Predecessor/Successor",
+            "AVL Self-Balancing Trees: Balance Factor calculation and Single Rotations (LL, RR) & Double Rotations (LR, RL)",
+            "Tree Serialization & Deserialization: Encoding binary trees to text streams and reconstructing pointer hierarchies",
+            "Example & Discussion: Lowest Common Ancestor (LCA) in BST vs General Binary Trees",
+            "Classroom Lab Dialogue: Sukanta Sir on AVL Height Tracking vs Dynamic Height Recalculation Overhead"
+          ],
+          "miniProjects": [
+            "Self-Balancing AVL Dictionary with Real-Time Terminal ASCII Tree Visualizer"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 7,
+            "diagnostics": 5
+          },
+          "assessment": {
+            "type": "Tree & AVL Rotation Coding Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "Database indexing and B-Tree precursor architectures",
+            "Syntax tree construction in compilers and file system directory hierarchies"
+          ],
+          "careerSkills": [
+            "Hierarchical pointer structure manipulation",
+            "Self-balancing tree invariant maintenance"
+          ],
+          "commonMistakes": [
+            "Forgetting to update parent pointers or heights during AVL rotation phase",
+            "Memory leak when deleting a BST node with 2 children (freeing the wrong node)",
+            "Infinite recursion in tree traversals due to missing NULL base condition check"
           ]
         },
         {
@@ -118,13 +294,57 @@
           "title": "Heaps, Priority Queues & Huffman Coding",
           "level": "Advanced",
           "estimatedHours": 5,
-          "tags": ["heap", "max-heap", "min-heap", "priority-queue", "huffman"],
+          "tags": [
+            "heap",
+            "max-heap",
+            "min-heap",
+            "priority-queue",
+            "huffman",
+            "heapify"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 3,
+          "summary": "Implement binary heaps mapped into 1D contiguous arrays using index arithmetic. Master O(n) build-heap, O(log n) sift-up/sift-down heapify, Priority Queue ADT, and Huffman coding compression trees.",
+          "learningOutcomes": [
+            "Map complete binary trees into 1D arrays using parent = (i-1)/2 and children = 2i+1, 2i+2 math",
+            "Implement sift-up (Heapify-Up) and sift-down (Heapify-Down) operations in C",
+            "Prove mathematically why Build-Heap runs in O(n) linear time rather than O(n log n)",
+            "Implement a priority queue ADT supporting O(log n) enqueue, O(log n) dequeue, and O(1) peek",
+            "Construct a Huffman Coding Tree to generate prefix-free variable-length binary codes"
+          ],
           "topics": [
-            "Binary Heap representation in 1D arrays (parent/child index math)",
-            "Heapify-Up and Heapify-Down algorithms for Max Heap and Min Heap",
-            "Priority Queue implementation backed by Binary Heap in C",
-            "Heap Sort algorithm and runtime performance comparison",
-            "Huffman Coding tree construction for data compression"
+            "Binary Heap Representation in 1D Arrays: Zero-based indexing math for parents and children",
+            "Heapify-Up and Heapify-Down Mechanics: Invariant restoration during push and pop operations",
+            "Linear Time Build-Heap Algorithm: Mathematical summation proof of O(n) bottom-up heap construction",
+            "Priority Queue Implementation in C: Generic priority queue struct backed by dynamic array heap",
+            "Huffman Coding Tree Construction: Frequency counting, Min-Heap extraction, and prefix code generation",
+            "Example & Discussion: Finding Top-K Largest Elements in a Stream using a Min-Heap of size K",
+            "Classroom Lab Dialogue: Sukanta Sir on Array-Backed Heaps vs Pointer-Linked Binary Trees Cache Locality"
+          ],
+          "miniProjects": [
+            "Huffman File Compression & Decompression CLI Utility in C"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 6,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "Heap & Priority Queue Lab Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "OS task scheduler priority queues and interrupt handling",
+            "Dijkstra's shortest path algorithm optimization and data compression"
+          ],
+          "careerSkills": [
+            "Array-backed tree index arithmetic",
+            "Greedy compression algorithm construction"
+          ],
+          "commonMistakes": [
+            "Using 1-based indexing formulas on 0-based C arrays causing off-by-one errors",
+            "Assuming Build-Heap takes O(n log n) by confusing repeated insertions with bottom-up heapify",
+            "Index out-of-bounds when accessing right child (2*i + 2) without checking heap size bound"
           ]
         },
         {
@@ -133,165 +353,1904 @@
           "title": "Hash Tables, Collision Resolution & Hash Functions",
           "level": "Advanced",
           "estimatedHours": 5,
-          "tags": ["hashing", "hash-table", "collision-resolution", "chaining", "open-addressing"],
+          "tags": [
+            "hashing",
+            "hash-table",
+            "collision-resolution",
+            "chaining",
+            "open-addressing",
+            "djb2"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 3,
+          "summary": "Master key-value mapping and collision resolution in C: design hash functions (Division, Multiplication, DJB2 String Hash), implement Separate Chaining with linked buckets, Open Addressing (Linear, Quadratic, Double Hashing), and dynamic table rehashing.",
+          "learningOutcomes": [
+            "Design uniform hash functions for integers and strings (DJB2, FNV-1a, polynomial rolling hash)",
+            "Implement Separate Chaining collision resolution using dynamic linked list bucket arrays",
+            "Implement Open Addressing collision resolution: Linear Probing, Quadratic Probing, and Double Hashing",
+            "Manage Load Factor (alpha = n / m) and implement automatic dynamic table resizing and rehashing",
+            "Handle tombstone deletion markers in open-addressing hash tables without breaking search chains"
+          ],
           "topics": [
-            "Hash functions: Division method, Multiplication method, and Mid-Square method",
-            "Collision resolution by Separate Chaining using linked list buckets",
-            "Open Addressing techniques: Linear Probing, Quadratic Probing, and Double Hashing",
-            "Load factor management, dynamic re-hashing, and performance analysis",
-            "Building a fast string-key hash dictionary in C"
+            "Hash Function Design: Division method, Multiplication method, and DJB2 string hashing algorithm",
+            "Separate Chaining Mechanics: Dynamic bucket array, linked list collision chaining, and memory cleanup",
+            "Open Addressing Techniques: Linear Probing (Primary Clustering), Quadratic Probing, and Double Hashing",
+            "Load Factor Management: Monitoring alpha = n/m, dynamic array doubling, and full table rehashing in C",
+            "Tombstone Deletion Pattern: Preserving linear probe lookup chains while marking deleted slots",
+            "Example & Discussion: Building a High-Speed String Dictionary / Symbol Table in C",
+            "Classroom Lab Dialogue: Sukanta Sir on Worst-Case O(n) Hash Table Degradation vs Average O(1) Operations"
+          ],
+          "miniProjects": [
+            "High-Throughput In-Memory Key-Value Store with Dynamic Rehashing in C"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 6,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "Hash Table Implementation & Collision Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "Compiler symbol tables and identifier lookup caches",
+            "High-speed routing caches and in-memory key-value databases (Redis-like engine)"
+          ],
+          "careerSkills": [
+            "Hash function engineering",
+            "Collision resolution and dynamic memory scaling"
+          ],
+          "commonMistakes": [
+            "Forgetting to free linked list bucket chains when destroying a hash table (causing massive leaks)",
+            "Deleting an entry in Open Addressing by setting slot to NULL, accidentally breaking subsequent search probes",
+            "Using poor hash functions (e.g. key % 10) leading to extreme collision clustering"
           ]
         }
       ]
     },
     {
-      "segmentId": "segment-3-graphs-paradigms",
-      "title": "Segment 3 - Graphs & Algorithmic Paradigms",
-      "level": "Advanced to Expert",
-      "summary": "Master graph representations, traversal algorithms, shortest paths, minimum spanning trees, searching mechanics, and algorithm design paradigms.",
+      "segmentId": "segment-3-searching-windowing",
+      "title": "Segment 3 - Searching, Two-Pointer & Sliding Window Masterclass",
+      "level": "Foundational to Advanced",
+      "summary": "Master fundamental and advanced searching paradigms in C: Binary Search on sorted arrays and answer spaces, Two-Pointer opposite and fast-slow pointer techniques, Sliding Window variable frames, and Prefix Sum / Difference Array optimizations.",
       "modules": [
         {
-          "moduleId": "dsa-graphs",
-          "slug": "003_001_graphs-and-graph-algorithms",
-          "title": "Graph Representations, Traversal & Shortest Path Algorithms",
-          "level": "Advanced to Expert",
-          "estimatedHours": 7,
-          "tags": ["graphs", "bfs", "dfs", "dijkstra", "kruskal", "prim"],
+          "moduleId": "dsa-search-binary",
+          "slug": "003_001_binary-search-and-search-space-optimization",
+          "title": "Binary Search & Search Space Optimization: Lower/Upper Bounds & Monotonic Predicates",
+          "level": "Foundational to Advanced",
+          "estimatedHours": 5,
+          "tags": [
+            "binary-search",
+            "lower-bound",
+            "upper-bound",
+            "rotated-array",
+            "search-on-answer",
+            "monotonicity"
+          ],
+          "difficulty": "Intermediate to Advanced",
+          "difficultyIndex": 2,
+          "summary": "Go far beyond standard binary search: master Lower Bound and Upper Bound derivations, searching in Rotated Sorted Arrays, Peak Element finding, and the powerful 'Binary Search on Answer' paradigm for optimization problems.",
+          "learningOutcomes": [
+            "Implement bug-free Binary Search with mid = low + (high - low) / 2 to avoid 32-bit integer overflow",
+            "Derive exact Lower Bound (first index with value >= X) and Upper Bound (first index > X) in C",
+            "Search in Rotated Sorted Arrays in O(log n) by identifying the sorted half",
+            "Apply the Binary Search on Answer paradigm using monotonic boolean predicate functions",
+            "Solve classical optimization challenges: Aggressive Cows, Book Allocation, and Ship Packages within D Days"
+          ],
           "topics": [
-            "Graph representations: Adjacency Matrix vs Adjacency List in C structs",
-            "Breadth-First Search (BFS) and Depth-First Search (DFS) graph traversal",
-            "Topological Sorting (Kahn's algorithm & DFS stack approach)",
-            "Minimum Spanning Trees: Kruskal's (with Disjoint Set Union) and Prim's Algorithm",
-            "Single-Source Shortest Path: Dijkstra's Algorithm and Bellman-Ford Algorithm"
+            "Binary Search Architecture: Mid calculation math, loop termination conditions (low <= high vs low < high), and integer overflow prevention",
+            "Lower Bound and Upper Bound Mechanics: Mathematical derivation, insertion index location, and frequency counting in O(log n)",
+            "Rotated Sorted Array Search: Pivot detection, single-pass decision tree, and handling duplicates",
+            "Peak Element Detection in Mountain Arrays: Binary search on gradients without full array sorting",
+            "Binary Search on Answer Space: Formulating the isPossible() monotonic predicate function and bound estimation",
+            "Example & Discussion: The Painter's Partition / Book Allocation Problem Step-by-Step in C",
+            "Classroom Lab Dialogue: Sukanta Sir on Why Binary Search on Answer is the Most Common Hard Problem Pattern"
+          ],
+          "miniProjects": [
+            "Search Engine Query Range Locator using Lower & Upper Bound Binary Search in C"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 7,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "Binary Search & Monotonic Predicate Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "Database range query index lookups (B-Tree leaf binary search)",
+            "Resource allocation scheduling and capacity threshold optimization"
+          ],
+          "careerSkills": [
+            "Logarithmic search space pruning",
+            "Optimization problem reduction via monotonic predicates"
+          ],
+          "commonMistakes": [
+            "Calculating mid = (low + high) / 2 which overflows 32-bit signed integers when low + high > 2^31 - 1",
+            "Infinite loops due to incorrect pointer updates (using high = mid instead of high = mid - 1 in <= loops)",
+            "Failing to verify monotonicity of the solution space before applying Binary Search on Answer"
           ]
         },
         {
-          "moduleId": "dsa-algorithm-design",
-          "slug": "003_003_algorithm-design-paradigms",
-          "title": "Algorithm Design Techniques: Greedy, DP & Backtracking",
-          "level": "Advanced to Expert",
-          "estimatedHours": 7,
-          "tags": ["greedy", "dynamic-programming", "backtracking", "knapsack", "n-queens"],
+          "moduleId": "dsa-two-pointers",
+          "slug": "003_002_two-pointer-and-fast-slow-mechanics",
+          "title": "Two-Pointer Paradigm: Opposite-End, Partitioning & Fast-Slow Pointer Mechanics",
+          "level": "Intermediate",
+          "estimatedHours": 4,
+          "tags": [
+            "two-pointer",
+            "fast-slow-pointers",
+            "floyds-algorithm",
+            "3-sum",
+            "container-most-water",
+            "in-place"
+          ],
+          "difficulty": "Intermediate",
+          "difficultyIndex": 2,
+          "summary": "Master the Two-Pointer paradigm in C: opposite-end converging pointers for sorted arrays and optimization, in-place partitioning pointers, and Floyd's Fast & Slow Tortoise and Hare pointer mechanics for cycle detection and middle element location.",
+          "learningOutcomes": [
+            "Apply opposite-end converging pointers to solve 2-Sum and 3-Sum in O(n^2) without extra hash memory",
+            "Solve the Container with Most Water problem with O(n) greedy two-pointer shrinking proof",
+            "Implement in-place partitioning pointers (Dutch National Flag 3-way sort: 0s, 1s, and 2s)",
+            "Apply Fast and Slow pointers to find the exact middle node of a linked list in a single pass",
+            "Prove mathematically why Floyd's fast pointer meets slow pointer at the exact cycle node"
+          ],
           "topics": [
-            "Greedy Paradigm: Fractional Knapsack, Activity Selection, and Greedy choice property",
-            "Dynamic Programming: Memoization vs Tabulation, 0/1 Knapsack, and LCS",
-            "Backtracking Paradigm: State-space tree exploration, N-Queens problem, and Maze navigation",
-            "Divide and Conquer paradigm: Binary Exponentiation and Matrix Exponentiation",
-            "Algorithmic trade-offs and complexity optimizations in systems programming"
+            "Opposite-End Converging Pointers: Invariant maintenance in sorted arrays and reducing O(n^2) to O(n)",
+            "3-Sum & 4-Sum Generalization: Sorting, duplicate skipping mechanics, and avoiding hash set memory allocations",
+            "Container with Most Water: Proof of correctness for moving the shorter boundary pointer",
+            "Dutch National Flag 3-Way Partitioning: Low, Mid, and High pointer array sorting in single pass O(n)",
+            "Fast and Slow Pointer Mechanics: Finding linked list middle, detecting cycles, and palindrome linked list verification",
+            "Example & Discussion: Trapping Rain Water using Two Pointers in O(n) Time and O(1) Auxiliary Space",
+            "Classroom Lab Dialogue: Sukanta Sir on Why Two Pointers Saves Heap Allocations in Embedded C"
+          ],
+          "miniProjects": [
+            "In-Place Memory Buffer Squeezer and Dutch Flag Memory Partitioner in C"
+          ],
+          "exercises": {
+            "mcq": 10,
+            "coding": 6,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "Two-Pointer Optimization Coding Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "High-throughput real-time stream packet deduplication",
+            "In-place memory buffer compaction without auxiliary array allocations"
+          ],
+          "careerSkills": [
+            "In-place O(1) auxiliary space optimization",
+            "Multi-pointer index synchronization"
+          ],
+          "commonMistakes": [
+            "Forgetting to skip duplicate elements in 3-Sum, leading to duplicate result triplets",
+            "Moving the wrong pointer in Container with Most Water (moving taller bar instead of shorter bar)",
+            "Null pointer dereference when advancing fast pointer (must check fast != NULL && fast->next != NULL)"
+          ]
+        },
+        {
+          "moduleId": "dsa-sliding-window-prefix",
+          "slug": "003_003_sliding-window-and-prefix-difference-arrays",
+          "title": "Sliding Window & Prefix/Difference Arrays: Range Queries & Dynamic Frames",
+          "level": "Intermediate to Advanced",
+          "estimatedHours": 5,
+          "tags": [
+            "sliding-window",
+            "prefix-sum",
+            "difference-array",
+            "range-query",
+            "dynamic-window",
+            "subarray"
+          ],
+          "difficulty": "Intermediate to Advanced",
+          "difficultyIndex": 3,
+          "summary": "Master contiguous subarray optimizations in C: Fixed-size sliding windows, Dynamic-size expanding/shrinking sliding windows with frequency arrays, 1D/2D Prefix Sums for O(1) range queries, and Difference Arrays for O(1) range updates.",
+          "learningOutcomes": [
+            "Implement fixed-size sliding window algorithms in O(n) time (Maximum sum subarray of size K)",
+            "Implement dynamic-size sliding windows with frequency state tracking in C (Longest Substring Without Repeating Characters)",
+            "Construct 1D and 2D Prefix Sum arrays for O(1) range sum queries across matrices",
+            "Apply Difference Arrays to perform multiple range increment operations [L, R] += V in O(1) time",
+            "Solve Minimum Window Substring using character frequency arrays and window validity counters"
+          ],
+          "topics": [
+            "Fixed-Size Sliding Window: Window sliding mechanics, state difference updates, and avoiding repeated sum calculations",
+            "Dynamic-Size Sliding Window: Right pointer expansion, Left pointer contraction, and valid window state invariants",
+            "Frequency Array State Tracking: Fast 128/256-element ASCII lookup arrays in C for zero-overhead character counting",
+            "1D Prefix Sum Arrays: Construction in O(n) and answering arbitrary range queries Sum(L, R) = P[R] - P[L-1] in O(1)",
+            "2D Prefix Sum Matrices: Submatrix sum formula Sum(r1,c1,r2,c2) = P[r2][c2] - P[r1-1][c2] - P[r2][c1-1] + P[r1-1][c1-1]",
+            "Difference Array Technique: Range updates diff[L] += val, diff[R+1] -= val followed by prefix sum reconstruction",
+            "Example & Discussion: Minimum Window Substring in C using 256-element frequency table and match counter",
+            "Classroom Lab Dialogue: Sukanta Sir on Sliding Window vs Prefix Sum Decision Framework"
+          ],
+          "miniProjects": [
+            "Real-Time Network Bandwidth Traffic Monitor with Sliding Window Rate Limiter"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 7,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "Sliding Window & Prefix Array Lab Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "API rate limiting (sliding window log / counter algorithms)",
+            "Image processing integral images (2D prefix sum for box blur filters)"
+          ],
+          "careerSkills": [
+            "Subarray optimization mechanics",
+            "Constant-time range query design"
+          ],
+          "commonMistakes": [
+            "Off-by-one errors when querying 0-indexed prefix arrays (failing to handle L == 0 boundary)",
+            "Shrinking sliding window past right boundary when window is invalid",
+            "Forgetting that Difference Arrays require a final prefix sum pass to materialize actual array values"
           ]
         }
       ]
     },
     {
-      "segmentId": "segment-4-sorting-mastery",
-      "title": "Segment 4 - Master Class: Comprehensive Sorting Algorithms",
+      "segmentId": "segment-4-strings-and-tries",
+      "title": "Segment 4 - String Algorithms, Tries & Pattern Matching",
+      "level": "Intermediate to Advanced",
+      "summary": "Master low-level C string manipulation, Trie (Prefix Tree) data structures, linear pattern matching algorithms (KMP, Rabin-Karp), and palindromic substring optimizations.",
+      "modules": [
+        {
+          "moduleId": "dsa-strings-trie",
+          "slug": "004_001_c-strings-and-trie-prefix-trees",
+          "title": "C String Mechanics & Trie (Prefix Tree) Data Structures",
+          "level": "Intermediate to Advanced",
+          "estimatedHours": 5,
+          "tags": [
+            "strings",
+            "c-strings",
+            "trie",
+            "prefix-tree",
+            "autocomplete",
+            "radix-tree"
+          ],
+          "difficulty": "Intermediate to Advanced",
+          "difficultyIndex": 3,
+          "summary": "Master fundamental C string mechanics (null terminators, pointer arithmetic, buffer safety) and construct Trie (Prefix Tree) data structures in C structs for high-speed word insertion, lookup, prefix querying, and autocomplete.",
+          "learningOutcomes": [
+            "Manipulate C strings safely using pointer arithmetic without relying on unsafe standard library functions",
+            "Design a Trie node struct in C with 26-child pointer array and boolean word termination flag",
+            "Implement O(L) time Word Insertion, Exact Lookup, and Prefix Searching in a Trie",
+            "Implement memory-safe Trie destruction using recursive post-order cleanup to prevent memory leaks",
+            "Build an Autocomplete and Spell-Checker engine backed by a Trie data structure in C"
+          ],
+          "topics": [
+            "C String Memory Mechanics: Pointer decay, null terminator '\\0', buffer overrun risks, and custom strlen/strcpy/strcmp",
+            "Trie (Prefix Tree) Node Architecture: Struct layout with 26 child pointers and isEndOfWord flag",
+            "Trie Core Operations: Insert word, Search word, and StartsWith prefix matching in O(Length) time",
+            "Recursive Memory Teardown: Safely freeing multi-level Trie pointer nodes via post-order traversal",
+            "Compact Trie / Radix Tree Concept: Edge compression to save child pointer memory in sparse dictionaries",
+            "Example & Discussion: Building an Autocomplete Suggestion Engine in Terminal C",
+            "Classroom Lab Dialogue: Sukanta Sir on Trie Pointer Memory Footprint (26 * 8 bytes per node) vs Hash Tables"
+          ],
+          "miniProjects": [
+            "Interactive Terminal Autocomplete & Spell-Check Dictionary in C"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 6,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "Trie Implementation & String Mechanics Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "Search engine autocomplete and query suggestions",
+            "IP routing tables (Longest Prefix Match) and genome DNA sequence indexing"
+          ],
+          "careerSkills": [
+            "Prefix-tree data structure engineering",
+            "Low-level C string memory manipulation"
+          ],
+          "commonMistakes": [
+            "Forgetting null terminator when constructing custom strings, causing garbage memory printing",
+            "Memory leak by freeing Trie parent node before recursively freeing all child node pointers",
+            "Index calculation bug by forgetting key[i] - 'a' for 0-indexed alphabet array access"
+          ]
+        },
+        {
+          "moduleId": "dsa-kmp-rabin-karp",
+          "slug": "004_002_kmp-and-rabin-karp-pattern-matching",
+          "title": "Pattern Matching Masterclass: KMP (LPS Table) & Rabin-Karp Rolling Hash",
+          "level": "Advanced",
+          "estimatedHours": 5,
+          "tags": [
+            "pattern-matching",
+            "kmp",
+            "lps-table",
+            "rabin-karp",
+            "rolling-hash",
+            "string-search"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 4,
+          "summary": "Master linear-time string pattern searching algorithms: derive the Knuth-Morris-Pratt (KMP) Longest Prefix Suffix (LPS) table to eliminate backtracking, and build the Rabin-Karp polynomial rolling hash matcher with modulo collision safety.",
+          "learningOutcomes": [
+            "Explain why naive string matching degrades to O(N * M) on repetitive text inputs",
+            "Construct the KMP Longest Prefix Suffix (LPS / pi-table) array in O(M) time",
+            "Execute KMP pattern search in guaranteed O(N + M) linear time with zero text pointer backtracking",
+            "Derive polynomial rolling hash formula in Rabin-Karp: Hash(next) = ((Hash - old*B^(m-1))*B + new) % MOD",
+            "Handle hash collisions safely in Rabin-Karp using secondary character verification"
+          ],
+          "topics": [
+            "Naive String Matching Breakdown: Repetitive pattern worst case O(N * M) (e.g. searching 'AAAAB' in 'AAAAAAAAAAAA')",
+            "KMP Algorithm Intuition: Avoiding text pointer regression by utilizing known matching prefix information",
+            "LPS (Longest Prefix Suffix) Array Derivation: Step-by-step mathematical construction of pi-table in C",
+            "KMP Linear Search Execution: Text traversal, pattern mismatch state jumps, and full match reporting",
+            "Rabin-Karp Rolling Hash Mechanics: Polynomial hashing, modulo arithmetic, and constant-time window rolling",
+            "Spurious Hits & Collision Handling: Why Rabin-Karp must verify string equality on hash match",
+            "Example & Discussion: Multi-Pattern Document Scanning using Rabin-Karp Rolling Hashes",
+            "Classroom Lab Dialogue: Sukanta Sir on Why KMP is Preferred for Stream Processing without Buffering"
+          ],
+          "miniProjects": [
+            "High-Speed Regex / Substring Grep Utility in C implementing KMP and Rabin-Karp"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 6,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "KMP & Rabin-Karp Pattern Matching Exam",
+            "passScore": 80
+          },
+          "useCases": [
+            "Intrusion detection systems scanning network packet payloads for virus signatures",
+            "Plagiarism detection engines comparing document similarity rolling hashes"
+          ],
+          "careerSkills": [
+            "Linear pattern search engineering",
+            "Polynomial rolling hash mechanics"
+          ],
+          "commonMistakes": [
+            "Backtracking the text pointer `i` in KMP (text pointer `i` must NEVER decrease)",
+            "Integer overflow in Rabin-Karp rolling hash due to missing intermediate modulo operations",
+            "Assuming a hash match in Rabin-Karp guarantees string equality without secondary verification"
+          ]
+        },
+        {
+          "moduleId": "dsa-palindromes-advanced-strings",
+          "slug": "004_003_palindromic-and-advanced-string-algorithms",
+          "title": "Palindromic & Advanced String Algorithms: Manacher's Algorithm & Z-Array",
+          "level": "Advanced to Expert",
+          "estimatedHours": 4,
+          "tags": [
+            "palindromes",
+            "manachers-algorithm",
+            "z-algorithm",
+            "longest-palindrome",
+            "suffix-array"
+          ],
+          "difficulty": "Advanced to Expert",
+          "difficultyIndex": 4,
+          "summary": "Master advanced string algorithms: expand-around-center palindrome search, Manacher's linear O(N) longest palindromic substring algorithm with virtual delimiter insertion, and the Z-Algorithm for pattern matching.",
+          "learningOutcomes": [
+            "Implement Expand-Around-Center palindrome search in O(N^2) time and O(1) space",
+            "Transform strings with delimiters (e.g. '^#a#b#a#$') to unify odd and even palindrome handling",
+            "Implement Manacher's Algorithm to find the Longest Palindromic Substring in guaranteed O(N) linear time",
+            "Construct the Z-Array (Longest common prefix between string and its suffixes) in O(N) time",
+            "Apply Z-Algorithm to solve string matching and period detection problems"
+          ],
+          "topics": [
+            "Palindrome Properties: Center expansion symmetry, odd vs even length palindrome dichotomy",
+            "Expand-Around-Center Algorithm: 2N-1 centers, boundary expansion, and memory efficiency in C",
+            "Manacher's Algorithm Architecture: String transformation with '#' delimiters and boundary sentinels",
+            "Manacher's Mirroring & Radius Array (P): Utilizing previously computed palindrome boundaries to skip checks",
+            "Z-Algorithm Mechanics: Z-box window [L, R], prefix matching, and linear O(N) pattern search",
+            "Example & Discussion: Finding the Longest Palindromic Substring in Sub-Millisecond Time",
+            "Classroom Lab Dialogue: Sukanta Sir on the Mathematical Elegance of Manacher's Mirror Invariant"
+          ],
+          "miniProjects": [
+            "Linear Time Palindrome DNA Analyzer & Z-Pattern Matcher in C"
+          ],
+          "exercises": {
+            "mcq": 10,
+            "coding": 5,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "Advanced String Algorithms Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "Bioinformatics DNA palindrome and restriction enzyme recognition site detection",
+            "Data compression repeated sub-pattern detection"
+          ],
+          "careerSkills": [
+            "Linear-time string symmetry analysis",
+            "Z-box window optimization techniques"
+          ],
+          "commonMistakes": [
+            "Failing to handle even-length palindromes in center expansion without virtual delimiter insertion",
+            "Overstepping the rightmost palindrome boundary `R` in Manacher's algorithm",
+            "Allocating transformed string without 2*N + 3 byte buffer, causing buffer overflow"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-5-bit-manipulation",
+      "title": "Segment 5 - Bit Manipulation & Low-Level Systems Optimization",
+      "level": "Intermediate to Advanced",
+      "summary": "Master binary arithmetic and low-level bitwise operations in C: bitmasking, Brian Kernighan's algorithm, subset generation, bitsets, and compiler intrinsic optimizations.",
+      "modules": [
+        {
+          "moduleId": "dsa-bitwise-fundamentals",
+          "slug": "005_001_bitwise-operators-and-binary-mechanics",
+          "title": "Binary Representation, Two's Complement & Bitwise Operators in C",
+          "level": "Intermediate",
+          "estimatedHours": 4,
+          "tags": [
+            "bit-manipulation",
+            "bitwise-operators",
+            "twos-complement",
+            "binary",
+            "bitfields",
+            "endianness"
+          ],
+          "difficulty": "Intermediate",
+          "difficultyIndex": 2,
+          "summary": "Deep dive into binary representation in C: Two's Complement signed integer encoding, bitwise operators (&, |, ^, ~, <<, >>), logical vs arithmetic right shifts, sign-extension, endianness, and compact C struct bitfields.",
+          "learningOutcomes": [
+            "Explain Two's Complement encoding for positive and negative signed integers in physical RAM",
+            "Execute bitwise AND, OR, XOR, NOT, Left Shift, and Right Shift operations on integers",
+            "Differentiate between Logical Right Shift (unsigned) and Arithmetic Right Shift (signed sign-extension)",
+            "Detect machine Endianness (Little-Endian vs Big-Endian) using char pointer byte inspection",
+            "Define and utilize C struct bitfields to pack multiple boolean flags into a single byte"
+          ],
+          "topics": [
+            "Two's Complement Mechanics: Sign bit, inversion, adding 1, and the asymmetry of integer ranges (-2^31 to 2^31 - 1)",
+            "Bitwise Operators in C: Exact truth tables for &, |, ^ (XOR), ~ (Bitwise NOT), << (Left Shift), >> (Right Shift)",
+            "Logical vs Arithmetic Shifts: Zero-filling unsigned types vs sign-bit propagation on signed integers",
+            "Endianness Inspection: Using (char*)&num to inspect physical memory byte layout (x86 Little-Endian vs Network Big-Endian)",
+            "C Struct Bitfields: Syntax, packing rules, compiler padding, and memory-saving flag representations",
+            "Example & Discussion: Swapping Two Variables in C using XOR without Temporary Variables (and why compilers optimize it)",
+            "Classroom Lab Dialogue: Sukanta Sir on Undefined Behavior in Bit Shifts (Shifting by >= 32 bits on 32-bit int)"
+          ],
+          "miniProjects": [
+            "Binary Bit-Inspector CLI: Visualizing Memory Byte Layout and Bitfields in Real Time"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 6,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "Bitwise Operations & Memory Encoding Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "Device driver register manipulation and hardware memory-mapped I/O",
+            "Network packet header serialization and binary protocol parsing"
+          ],
+          "careerSkills": [
+            "Low-level memory encoding mastery",
+            "Bit-level register manipulation in C"
+          ],
+          "commonMistakes": [
+            "Shifting a 32-bit integer by 32 or more bits, triggering C Undefined Behavior (UB)",
+            "Operator precedence bug: Writing `if (num & 1 == 0)` instead of `if ((num & 1) == 0)` (equality `==` has higher precedence than `&`)",
+            "Performing right shifts on signed negative numbers expecting zero-fill instead of arithmetic sign-extension"
+          ]
+        },
+        {
+          "moduleId": "dsa-bit-hacks-kernighan",
+          "slug": "005_002_essential-bit-hacks-and-brian-kernighan",
+          "title": "Essential Bit Hacks: Brian Kernighan, Power-of-Two & Lowest Set Bit",
+          "level": "Intermediate to Advanced",
+          "estimatedHours": 4,
+          "tags": [
+            "bit-hacks",
+            "brian-kernighan",
+            "power-of-two",
+            "lowest-set-bit",
+            "compiler-intrinsics",
+            "xor-tricks"
+          ],
+          "difficulty": "Intermediate to Advanced",
+          "difficultyIndex": 3,
+          "summary": "Master the essential bit manipulation recipes used in competitive programming and systems kernels: check/set/clear/toggle bit, isolate lowest set bit (x & -x), clear lowest set bit (x & (x - 1)), Brian Kernighan bit count, and GCC intrinsics.",
+          "learningOutcomes": [
+            "Perform standard single-bit manipulations in O(1): Check bit, Set bit, Clear bit, Toggle bit",
+            "Isolate the lowest set bit using Two's complement property (x & -x)",
+            "Clear the lowest set bit using (x & (x - 1)) and verify power-of-two in O(1)",
+            "Implement Brian Kernighan's algorithm to count set bits in O(number of set bits)",
+            "Utilize GCC compiler intrinsics: __builtin_popcount, __builtin_clz, __builtin_ctz"
+          ],
+          "topics": [
+            "Single Bit Recipes: (n & (1 << k)), (n | (1 << k)), (n & ~(1 << k)), (n ^ (1 << k))",
+            "The Power-of-Two Test: Mathematical proof why `n > 0 && (n & (n - 1)) == 0` identifies powers of two in O(1)",
+            "Isolating Lowest Set Bit: Mathematical derivation of `x & -x` using two's complement negation",
+            "Brian Kernighan's Algorithm: Repeatedly clearing lowest set bit via `n = n & (n - 1)` for fast popcount",
+            "XOR Superpowers: Single Number (finding non-duplicate in array where every other element appears twice)",
+            "GCC Built-in Intrinsics: `__builtin_popcount`, `__builtin_clz` (count leading zeros), `__builtin_ctz` (count trailing zeros)",
+            "Example & Discussion: Finding the Two Unique Non-Repeating Numbers in an Array using XOR Partitioning",
+            "Classroom Lab Dialogue: Sukanta Sir on When to Use Intrinsics vs Pure C Bit Hacks for Portability"
+          ],
+          "miniProjects": [
+            "Ultra-Fast Bitwise Math & Set Operations Utility Library in C"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 7,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "Bit Hacks & Competitive Programming Quiz",
+            "passScore": 80
+          },
+          "useCases": [
+            "Chess engine bitboard game state representation",
+            "Cryptographic hashing algorithms (SHA-256 bit rotations and mixers)"
+          ],
+          "careerSkills": [
+            "High-performance bitwise optimization",
+            "XOR-based algorithmic problem solving"
+          ],
+          "commonMistakes": [
+            "Failing to check `n > 0` before checking `(n & (n - 1)) == 0` (0 falsely passes without positive check)",
+            "Using 1 instead of 1ULL when shifting 64-bit numbers: `1ULL << 40` vs `1 << 40` (causes 32-bit overflow)",
+            "Forgetting parentheses around bitwise operations due to operator precedence"
+          ]
+        },
+        {
+          "moduleId": "dsa-bitmasking-subsets",
+          "slug": "005_003_bitmasking-subsets-and-compact-bitsets",
+          "title": "Bitmasking, Subset Generation & Industrial Bitset / Bloom Filters",
+          "level": "Advanced",
+          "estimatedHours": 5,
+          "tags": [
+            "bitmasking",
+            "subsets",
+            "bitset",
+            "bloom-filter",
+            "state-space",
+            "combinatorics"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 3,
+          "summary": "Master state representation using bitmasks: generate all 2^N subsets using binary counting, implement a dynamic Bitset array supporting millions of boolean flags, and construct a space-efficient Bloom Filter in C.",
+          "learningOutcomes": [
+            "Represent subsets of elements as integer bitmasks where bit `i` represents inclusion of item `i`",
+            "Generate all 2^N power-set subsets iteratively using a binary counter loop from 0 to (1 << N) - 1",
+            "Implement a dynamic Bitset in C using an array of `uint64_t` supporting O(1) set, test, and clear",
+            "Construct a Bloom Filter in C combining bit arrays with multiple independent hash functions",
+            "Iterate through all submasks of a given mask in O(3^N) total time using `sub = (sub - 1) & mask`"
+          ],
+          "topics": [
+            "State Representation via Bitmasks: Mapping finite sets (size <= 64) to unsigned 64-bit integers",
+            "Power Set Generation: Generating all 2^N subsets iteratively without recursive call stack overhead",
+            "Submask Iteration Algorithm: Elegantly traversing all submasks of a mask via `for (int s = m; s > 0; s = (s - 1) & m)`",
+            "Custom Bitset Data Structure in C: Memory layout `uint64_t *words`, bit offset math `index / 64` and `1ULL << (index % 64)`",
+            "Bloom Filter Architecture: Probabilistic set membership, false positive rate calculation, and multi-hash hashing",
+            "Example & Discussion: Solving the Traveling Salesperson Problem (TSP) State Space using Bitmask DP in C",
+            "Classroom Lab Dialogue: Sukanta Sir on Bloom Filter False Positives vs False Negatives Invariants"
+          ],
+          "miniProjects": [
+            "High-Capacity Bloom Filter & Bitset Library for Million-Element URL Deduplication in C"
+          ],
+          "exercises": {
+            "mcq": 10,
+            "coding": 6,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "Bitmasking & Bloom Filter Project Review",
+            "passScore": 80
+          },
+          "useCases": [
+            "Web crawler URL deduplication using Bloom Filters",
+            "State-space exploration in AI game trees and combinatorial optimization"
+          ],
+          "careerSkills": [
+            "Combinatorial state-space representation",
+            "Probabilistic data structure engineering"
+          ],
+          "commonMistakes": [
+            "Using 32-bit signed integers for masks when N > 30, causing integer overflow",
+            "Failing to handle submask iteration termination when `sub == 0` (causing infinite loops)",
+            "Incorrect word index calculation in Bitset (must use `index >> 6` instead of `index / 32` for 64-bit words)"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-6-advanced-trees-dsu",
+      "title": "Segment 6 - Advanced Range Queries, Trees & Disjoint Sets",
+      "level": "Advanced to Expert",
+      "summary": "Master advanced hierarchical and range-query data structures in C: Disjoint Set Union (DSU / Union-Find), Segment Trees with Lazy Propagation, Fenwick Trees (BIT), and database B-Tree index architectures.",
+      "modules": [
+        {
+          "moduleId": "dsa-dsu-union-find",
+          "slug": "006_001_disjoint-set-union-and-dynamic-connectivity",
+          "title": "Disjoint Set Union (DSU / Union-Find): Path Compression & Union by Rank",
+          "level": "Advanced",
+          "estimatedHours": 5,
+          "tags": [
+            "dsu",
+            "union-find",
+            "path-compression",
+            "union-by-rank",
+            "dynamic-connectivity",
+            "kruskal"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 3,
+          "summary": "Master dynamic connectivity using Disjoint Set Union (DSU / Union-Find) in C: implement Path Compression and Union by Rank/Size to achieve near-constant alpha(n) inverse Ackermann complexity.",
+          "learningOutcomes": [
+            "Implement Disjoint Set Union (DSU) struct with parent array and rank/size tracking in C",
+            "Implement Find operation with Path Compression (`parent[i] = find(parent[i])`)",
+            "Implement Union by Rank and Union by Size to maintain balanced tree depths",
+            "Prove why DSU operations run in amortized O(alpha(n)) time where alpha is the inverse Ackermann function",
+            "Apply DSU to detect cycles in undirected graphs and execute Kruskal's Minimum Spanning Tree"
+          ],
+          "topics": [
+            "Dynamic Connectivity Problem: Tracking connected components under incremental edge additions",
+            "Naive DSU Limitations: Degenerate linear chains O(n) without balancing",
+            "Path Compression Optimization: Flattening tree structure during Find operations to root",
+            "Union by Rank / Size Optimization: Attaching shorter trees under taller roots to prevent tree skew",
+            "Amortized Inverse Ackermann Bound: Why alpha(n) <= 4 for all practical inputs n <= 10^80",
+            "Cycle Detection & Connected Components: Answering connectivity queries `find(u) == find(v)` in O(1)",
+            "Example & Discussion: Number of Connected Components in an Incremental Grid (Island counting in C)",
+            "Classroom Lab Dialogue: Sukanta Sir on Path Compression Recursion Stack vs Iterative Two-Pass DSU"
+          ],
+          "miniProjects": [
+            "Dynamic Graph Connectivity & Kruskal MST Visualizer in C backed by DSU"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 6,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "DSU Implementation & Connectivity Exam",
+            "passScore": 80
+          },
+          "useCases": [
+            "Network routing connected subnet determination",
+            "Image segmentation in computer vision (connected component labeling)"
+          ],
+          "careerSkills": [
+            "Dynamic equivalence relation modeling",
+            "Near-constant time set partition engineering"
+          ],
+          "commonMistakes": [
+            "Forgetting to assign `parent[x] = find(parent[x])` in Path Compression (merely returning without updating)",
+            "Performing Union on elements directly instead of performing Union on their root representatives (`find(u)` and `find(v)`)",
+            "Incrementing rank incorrectly when joining trees of different ranks (rank only increases when ranks are equal)"
+          ]
+        },
+        {
+          "moduleId": "dsa-segment-trees",
+          "slug": "006_002_segment-trees-and-lazy-propagation",
+          "title": "Segment Trees & Lazy Propagation: Range Minimum/Sum Queries & Range Updates",
+          "level": "Advanced to Expert",
+          "estimatedHours": 6,
+          "tags": [
+            "segment-tree",
+            "lazy-propagation",
+            "range-query",
+            "rmq",
+            "point-update",
+            "range-update"
+          ],
+          "difficulty": "Advanced to Expert",
+          "difficultyIndex": 4,
+          "summary": "Master Segment Trees in C: build complete binary segment trees in 1D arrays (4*N size), answer arbitrary Range Sum/Minimum Queries (RSQ/RMQ) in O(log n), and implement Lazy Propagation for O(log n) range interval updates.",
+          "learningOutcomes": [
+            "Construct a Segment Tree from an array in O(n) time using recursive post-order tree building",
+            "Prove why a Segment Tree array requires at most 4*N allocated slots",
+            "Execute Point Update operations in O(log n) time and Range Queries in O(log n) time",
+            "Implement Lazy Propagation to defer interval updates and achieve O(log n) Range Updates",
+            "Apply Segment Trees to solve Range Minimum Query (RMQ) and Dynamic GCD queries"
+          ],
+          "topics": [
+            "Segment Tree Representation: Storing tree nodes in 1D array with left child `2*idx + 1` and right child `2*idx + 2`",
+            "Tree Construction Algorithm: Recursive post-order building `tree[idx] = tree[left] + tree[right]` in O(n)",
+            "Range Query Execution: Complete overlap, partial overlap, and no overlap query classifications in O(log n)",
+            "Point Update Mechanics: Updating leaf node and propagating changes up the ancestor path in O(log n)",
+            "Lazy Propagation Architecture: Maintaining a secondary `lazy[]` array to defer expensive subtree updates",
+            "Lazy Propagation Pushdown: Applying pending updates before querying child subtrees to guarantee correctness",
+            "Example & Discussion: Dynamic Range Sum Queries with Range Interval Increments [L, R] += V in C",
+            "Classroom Lab Dialogue: Sukanta Sir on Why Lazy Propagation is Mandatory for Range Interval Updates"
+          ],
+          "miniProjects": [
+            "High-Performance Range Minimum & Sum Query Engine with Lazy Propagation in C"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 6,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "Segment Tree & Lazy Propagation Coding Exam",
+            "passScore": 80
+          },
+          "useCases": [
+            "Financial stock market high-frequency range analytics (Min/Max/Average over arbitrary intervals)",
+            "Geographic information systems (GIS) spatial elevation range queries"
+          ],
+          "careerSkills": [
+            "Advanced interval query tree design",
+            "Lazy evaluation state synchronization"
+          ],
+          "commonMistakes": [
+            "Allocating only 2*N space instead of 4*N for the Segment Tree array, causing buffer overflow segmentation faults",
+            "Forgetting to push down pending lazy updates before querying or modifying child nodes",
+            "Incorrect partial overlap boundary indices in range queries"
+          ]
+        },
+        {
+          "moduleId": "dsa-fenwick-b-trees",
+          "slug": "006_003_fenwick-trees-and-b-trees-architecture",
+          "title": "Fenwick Trees (BIT) & Database Indexing B-Trees / B+ Trees",
+          "level": "Advanced to Expert",
+          "estimatedHours": 5,
+          "tags": [
+            "fenwick-tree",
+            "binary-indexed-tree",
+            "b-tree",
+            "b-plus-tree",
+            "database-indexing",
+            "disk-io"
+          ],
+          "difficulty": "Advanced to Expert",
+          "difficultyIndex": 4,
+          "summary": "Master lightweight Fenwick Trees (Binary Indexed Tree) using `i += i & -i` index math for O(log n) prefix sums and point updates, and explore B-Trees and B+ Trees multi-way indexing designed for relational database storage engines (MySQL InnoDB, SQLite).",
+          "learningOutcomes": [
+            "Implement a Fenwick Tree (Binary Indexed Tree) using 1-based array indexing and O(n) memory",
+            "Derive the bitwise index navigation formulas: `idx += idx & -idx` (update) and `idx -= idx & -idx` (query)",
+            "Compare Fenwick Trees vs Segment Trees in terms of memory footprint, implementation complexity, and capabilities",
+            "Explain the B-Tree and B+ Tree multi-way search tree invariants (minimum degree t, node splitting, disk block alignment)",
+            "Differentiate B-Trees from B+ Trees and justify why database storage engines use B+ Trees for range scanning"
+          ],
+          "topics": [
+            "Fenwick Tree (BIT) Architecture: Isolating lowest set bit `i & -i` to encode contiguous power-of-two interval sums",
+            "BIT Point Update & Prefix Query Operations: Updating with `i += i & -i` and querying with `i -= i & -i` in O(log n)",
+            "Range Sum via BIT: Calculating `Sum(L, R) = Query(R) - Query(L - 1)` in O(log n) time",
+            "B-Tree Fundamentals: Multi-way branching factor, minimum degree t, key ordering, and root splitting",
+            "B+ Tree Architecture: Internal routing nodes vs linked leaf data nodes for ultra-fast sequential range scans",
+            "Disk I/O & Hardware Alignment: Why wide shallow trees (B+ Trees) minimize mechanical disk seeks vs binary trees",
+            "Example & Discussion: Counting Inversions in an Array in O(n log n) using Fenwick Tree Coordinate Compression",
+            "Classroom Lab Dialogue: Sukanta Sir on Why SQLite and MySQL InnoDB Choose B+ Trees Over AVL / Red-Black Trees"
+          ],
+          "miniProjects": [
+            "Inversion Counter & Mini B+ Tree Database Indexing Simulator in C"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 6,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "Fenwick & B-Tree Architecture Exam",
+            "passScore": 80
+          },
+          "useCases": [
+            "Relational database storage engines (MySQL, PostgreSQL B-Tree indexes)",
+            "Dynamic rank and cumulative frequency tracking in gaming leaderboards"
+          ],
+          "careerSkills": [
+            "Bit-level interval index navigation",
+            "Storage engine index architecture design"
+          ],
+          "commonMistakes": [
+            "Using 0-based indexing for Fenwick Trees (Fenwick Tree bit navigation REQUIRES 1-based indexing to avoid infinite loop at 0)",
+            "Confusing B-Tree leaf nodes (which store data) with B+ Tree leaf nodes (which store all data linked in a doubly-linked chain)",
+            "Attempting range updates on basic Fenwick Trees without secondary difference tree arrays"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-7-graphs-and-networks",
+      "title": "Segment 7 - Graphs, Shortest Paths & Network Optimization",
+      "level": "Advanced to Expert",
+      "summary": "Master graph representations, traversal algorithms, topological sorting, minimum spanning trees, single-source & all-pairs shortest paths, strongly connected components, and network flows.",
+      "modules": [
+        {
+          "moduleId": "dsa-graphs-representations-traversals",
+          "slug": "007_001_graph-representations-and-traversals",
+          "title": "Graph Representations, BFS, DFS & Topological Sorting Algorithms",
+          "level": "Advanced",
+          "estimatedHours": 6,
+          "tags": [
+            "graphs",
+            "adjacency-matrix",
+            "adjacency-list",
+            "bfs",
+            "dfs",
+            "topological-sort",
+            "kahns-algorithm"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 3,
+          "summary": "Master graph foundations in C: Adjacency Matrix vs Adjacency List memory trade-offs, Breadth-First Search (BFS) for shortest unweighted paths, Depth-First Search (DFS), and Topological Sorting using Kahn's algorithm and DFS recursion stacks.",
+          "learningOutcomes": [
+            "Construct Adjacency Matrix and Adjacency List representations in C using dynamic structs",
+            "Implement Breadth-First Search (BFS) using a dynamic queue for shortest unweighted path calculation",
+            "Implement Depth-First Search (DFS) recursively and iteratively using an explicit stack",
+            "Perform Topological Sorting on Directed Acyclic Graphs (DAG) using Kahn's In-Degree Algorithm",
+            "Detect cycles in directed graphs (using 3-color DFS state) and undirected graphs (using parent tracking)"
+          ],
+          "topics": [
+            "Graph Representations in C: Adjacency Matrix (O(V^2) space) vs Adjacency List (O(V + E) space) using dynamic node arrays",
+            "Breadth-First Search (BFS): Level-by-level traversal, shortest unweighted path finding, and visited array state management",
+            "Depth-First Search (DFS): Backtracking exploration, discovery/finish timestamps, and connected component labeling",
+            "Topological Sorting via Kahn's Algorithm: In-degree calculation array, zero in-degree queue processing, and cycle verification",
+            "Topological Sorting via DFS: Post-order traversal and reverse stack collection",
+            "Cycle Detection in Directed Graphs: 3-State node coloring (WHITE = unvisited, GRAY = active on stack, BLACK = fully explored)",
+            "Example & Discussion: Course Schedule Prerequisite Resolution & Build Dependency Engine in C",
+            "Classroom Lab Dialogue: Sukanta Sir on Preventing Infinite Recursion in Cyclic Graph DFS Traversals"
+          ],
+          "miniProjects": [
+            "Software Package Build Dependency Resolver & Cycle Detector in C"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 7,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "Graph Traversals & Topological Sort Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "Compilers and build systems (Makefile target dependency resolution)",
+            "Social network friend connection degrees and web crawler URL explorers"
+          ],
+          "careerSkills": [
+            "Graph model representation in memory",
+            "Dependency graph DAG analysis"
+          ],
+          "commonMistakes": [
+            "Allocating an Adjacency Matrix for a sparse graph with 100,000 vertices, causing out-of-memory crashes",
+            "Forgetting to check the visited array before enqueueing neighbors in BFS, causing duplicate vertex processing",
+            "Using simple visited boolean array for directed cycle detection instead of active recursion stack tracking"
+          ]
+        },
+        {
+          "moduleId": "dsa-mst-shortest-paths",
+          "slug": "007_002_mst-and-shortest-path-algorithms",
+          "title": "Minimum Spanning Trees & Shortest Paths: Dijkstra, Bellman-Ford & Floyd-Warshall",
+          "level": "Advanced to Expert",
+          "estimatedHours": 7,
+          "tags": [
+            "mst",
+            "kruskal",
+            "prim",
+            "dijkstra",
+            "bellman-ford",
+            "floyd-warshall",
+            "shortest-path"
+          ],
+          "difficulty": "Advanced to Expert",
+          "difficultyIndex": 4,
+          "summary": "Master weighted graph algorithms in C: Kruskal's MST (with DSU), Prim's Greedy MST, Dijkstra's Single-Source Shortest Path (with Min-Heap), Bellman-Ford negative cycle detection, and Floyd-Warshall all-pairs shortest paths.",
+          "learningOutcomes": [
+            "Implement Kruskal's MST algorithm by sorting edges and maintaining Disjoint Set Union (DSU)",
+            "Implement Prim's MST algorithm using Min-Heap priority queue in O(E log V) time",
+            "Implement Dijkstra's Single-Source Shortest Path algorithm with priority queue optimization",
+            "Implement Bellman-Ford algorithm to find shortest paths and detect negative weight cycles in O(V * E) time",
+            "Implement Floyd-Warshall All-Pairs Shortest Path algorithm in O(V^3) time using dynamic programming"
+          ],
+          "topics": [
+            "Minimum Spanning Tree Concept: Cut property, cycle property, and spanning tree invariants",
+            "Kruskal's Algorithm: Edge sorting, greedy selection, and cycle avoidance backed by DSU in O(E log E)",
+            "Prim's Algorithm: Growing connected component tree using Min-Heap priority queue in O(E log V)",
+            "Dijkstra's Algorithm: Greedy relaxation property `dist[v] = min(dist[v], dist[u] + weight)`, priority queue optimization",
+            "Bellman-Ford Algorithm: V-1 edge relaxation passes, negative weight edge handling, and negative cycle detection loop",
+            "Floyd-Warshall Algorithm: Intermediate vertex DP state transition `dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])` in O(V^3)",
+            "Example & Discussion: GPS City Transit Navigation & Route Optimization with Live Road Weights",
+            "Classroom Lab Dialogue: Sukanta Sir on Why Dijkstra Fails on Graphs with Negative Edge Weights"
+          ],
+          "miniProjects": [
+            "Inter-City Road Navigation & Telecommunication Cable Network Optimizer in C"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 7,
+            "diagnostics": 5
+          },
+          "assessment": {
+            "type": "MST & Shortest Path Algorithms Exam",
+            "passScore": 80
+          },
+          "useCases": [
+            "Telecommunication fiber-optic cable layout cost minimization (MST)",
+            "GPS map routing engines (Dijkstra) and financial currency arbitrage detection (Bellman-Ford negative cycle)"
+          ],
+          "careerSkills": [
+            "Network cost minimization engineering",
+            "Shortest path and distance matrix optimization"
+          ],
+          "commonMistakes": [
+            "Applying Dijkstra's algorithm on graphs with negative edge weights (yielding wrong shortest paths)",
+            "Forgetting to initialize distance array with infinity (e.g. INT_MAX) and dist[source] = 0",
+            "Integer overflow in Dijkstra relaxation step `dist[u] + weight` when dist[u] is initialized to INT_MAX"
+          ]
+        },
+        {
+          "moduleId": "dsa-scc-network-flows",
+          "slug": "007_003_strongly-connected-components-and-network-flows",
+          "title": "Strongly Connected Components (Tarjan & Kosaraju) & Network Max-Flow",
+          "level": "Expert",
+          "estimatedHours": 6,
+          "tags": [
+            "scc",
+            "tarjan",
+            "kosaraju",
+            "bridges",
+            "articulation-points",
+            "network-flow",
+            "ford-fulkerson"
+          ],
+          "difficulty": "Expert",
+          "difficultyIndex": 5,
+          "summary": "Master advanced graph algorithms in C: Tarjan's and Kosaraju's algorithms for Strongly Connected Components (SCC), finding Bridges and Articulation Points in networks, and Ford-Fulkerson / Edmonds-Karp Network Max-Flow intuition.",
+          "learningOutcomes": [
+            "Define Strongly Connected Components (SCC) in directed graphs and condense graphs into DAGs",
+            "Implement Kosaraju's Algorithm using two DFS passes and graph transposition in O(V + E) time",
+            "Implement Tarjan's SCC Algorithm in a single DFS pass using discovery times and low-link values",
+            "Identify Critical Connections (Bridges) and Vulnerable Nodes (Articulation Points) in communication networks",
+            "Understand Network Flow concepts: Source, Sink, Capacity, Residual Graph, and Ford-Fulkerson Max-Flow"
+          ],
+          "topics": [
+            "Strongly Connected Components (SCC) Definition: Maximal subgraphs where every vertex is reachable from every other vertex",
+            "Kosaraju's Two-Pass Algorithm: DFS finishing time stack, graph transposition (reversing all edges), and component discovery",
+            "Tarjan's Single-Pass SCC Algorithm: Discovery timestamps (`tin`), lowest reachable timestamps (`low`), and DFS recursion stack",
+            "Bridges and Articulation Points in Undirected Graphs: Tarjan's bridge condition `low[v] > tin[u]` and articulation condition `low[v] >= tin[u]`",
+            "Network Flow Fundamentals: Capacity constraints, flow conservation, residual capacities, and augmenting paths",
+            "Ford-Fulkerson & Edmonds-Karp Algorithm: Finding augmenting paths via BFS and updating bottleneck capacities",
+            "Example & Discussion: Identifying Single Points of Failure in Telecommunications Networks in C",
+            "Classroom Lab Dialogue: Sukanta Sir on the Low-Link Invariant Proof in Tarjan's Algorithm"
+          ],
+          "miniProjects": [
+            "Network Resilience Analyzer: Identifying Critical Bridges and Computing Maximum Throughput Flow"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 6,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "SCC & Network Optimization Master Exam",
+            "passScore": 80
+          },
+          "useCases": [
+            "Detecting critical vulnerabilities and single points of failure in power grid and internet infrastructure",
+            "Bipartite matching for job assignment and airline crew scheduling problems"
+          ],
+          "careerSkills": [
+            "Advanced graph topology decomposition",
+            "Network flow capacity optimization"
+          ],
+          "commonMistakes": [
+            "Updating `low[u] = min(low[u], tin[v])` instead of `low[u] = min(low[u], low[v])` during tree edge traversal",
+            "Failing to check if a vertex is active on the stack in Tarjan's algorithm before updating low values",
+            "Ignoring residual backward edges in network flow algorithms, preventing flow cancellation"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-8-dynamic-programming",
+      "title": "Segment 8 - Master Class: Dynamic Programming (DP) Archetypes",
       "level": "Comprehensive All-Level Masterclass",
-      "summary": "A dedicated, exhaustive segment covering every major sorting algorithm family in C: Elementary Comparison Sorts, Divide & Conquer Sorts, Heap/Tree Sorts, Non-Comparison Linear Sorts, and Specialized Hybrid Sorts.",
+      "summary": "An exhaustive, pattern-driven master class on Dynamic Programming in C: 1D linear subproblems, 2D grid & knapsack archetypes, string editing & interval DP, and state-space bitmask optimizations.",
+      "modules": [
+        {
+          "moduleId": "dsa-dp-1d-linear",
+          "slug": "008_001_1d-dp-and-linear-subproblem-patterns",
+          "title": "1D Dynamic Programming: Linear Subproblems, State Transitions & Space Optimization",
+          "level": "Intermediate to Advanced",
+          "estimatedHours": 5,
+          "tags": [
+            "dynamic-programming",
+            "1d-dp",
+            "memoization",
+            "tabulation",
+            "coin-change",
+            "house-robber",
+            "lis"
+          ],
+          "difficulty": "Intermediate to Advanced",
+          "difficultyIndex": 3,
+          "summary": "Master fundamental 1D Dynamic Programming in C: Top-Down Memoization vs Bottom-Up Tabulation, state array allocation, rolling variable space optimization (O(n) to O(1) space), House Robber, Coin Change, and Longest Increasing Subsequence (LIS).",
+          "learningOutcomes": [
+            "Identify overlapping subproblems and optimal substructure in recursive problem formulations",
+            "Formulate 1D state transition equations DP[i] = f(DP[i-1], DP[i-2], ...)",
+            "Optimize 1D DP space complexity from O(n) auxiliary memory to O(1) using rolling variables",
+            "Solve the Coin Change problem (Minimum Coins needed vs Total number of combinations)",
+            "Implement Longest Increasing Subsequence (LIS) in O(n^2) DP and optimize to O(n log n) using Binary Search"
+          ],
+          "topics": [
+            "Dynamic Programming Philosophy: Overlapping subproblems, Memoization cache array, and Tabulation build order",
+            "Linear State Transitions: Climbing Stairs, Fibonacci, and House Robber (non-adjacent element maximum sum)",
+            "Space Optimization Pattern: Replacing full 1D arrays with two rolling scalar variables (`prev1`, `prev2`) for O(1) space",
+            "Coin Change (Min Coins): State formulation `dp[amount] = min(dp[amount - coin] + 1)` and handling unreachable amounts",
+            "Coin Change (Total Ways): Permutations vs Combinations loop ordering (`for coin` outer vs `for amount` outer)",
+            "Longest Increasing Subsequence (LIS): O(n^2) classic DP formulation and O(n log n) Patience Sorting with Binary Search",
+            "Example & Discussion: Maximum Subarray Sum (Kadane's Algorithm) as a 1D DP Space Optimization",
+            "Classroom Lab Dialogue: Sukanta Sir on Outer Loop Ordering (Combinations vs Permutations) in Unbounded Knapsack"
+          ],
+          "miniProjects": [
+            "Financial Investment Portfolio Max-Return Optimizer in C using 1D DP"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 7,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "1D Dynamic Programming Coding Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "Currency change cash dispenser machines",
+            "Stock price trend analysis and maximum profit scheduling"
+          ],
+          "careerSkills": [
+            "Recursive recurrence to iterative DP conversion",
+            "Linear state space optimization"
+          ],
+          "commonMistakes": [
+            "Failing to initialize DP array with sentinel values (e.g. -1 for uncomputed memoization, INT_MAX/2 for min problems)",
+            "Loop order bug in Coin Change: Swapping coin and amount loops causing permutations instead of combinations",
+            "Integer overflow when doing `dp[amount - coin] + 1` if `dp[amount - coin]` is initialized to INT_MAX"
+          ]
+        },
+        {
+          "moduleId": "dsa-dp-2d-knapsack",
+          "slug": "008_002_2d-grid-and-knapsack-dp-patterns",
+          "title": "2D Grid & Knapsack DP: Subset Sum, Partition Equal & Multi-Dimensional States",
+          "level": "Advanced",
+          "estimatedHours": 6,
+          "tags": [
+            "dynamic-programming",
+            "2d-dp",
+            "01-knapsack",
+            "subset-sum",
+            "grid-dp",
+            "space-optimization"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 4,
+          "summary": "Master multi-dimensional and grid dynamic programming in C: Grid Unique Paths with obstacles, Minimum Path Sum, classical 0/1 Knapsack, Subset Sum, Partition Equal Subset Sum, and 2D-to-1D array space compression.",
+          "learningOutcomes": [
+            "Formulate 2D Grid DP state transitions `dp[r][c] = f(dp[r-1][c], dp[r][c-1])` with boundary handling",
+            "Solve the classical 0/1 Knapsack problem using a 2D table `dp[item][capacity]`",
+            "Optimize 0/1 Knapsack memory from O(N * W) 2D table down to O(W) 1D array by iterating right-to-left",
+            "Solve Subset Sum and Partition Equal Subset Sum using boolean DP state matrices",
+            "Reconstruct actual chosen items from the completed DP table using backtracking pointers"
+          ],
+          "topics": [
+            "2D Grid DP Architecture: Grid Unique Paths, obstacle avoidance, and Minimum Path Sum in matrix grids",
+            "0/1 Knapsack Formulation: Include vs Exclude choice `dp[i][w] = max(dp[i-1][w], dp[i-1][w - weight[i]] + val[i])`",
+            "Knapsack Space Compression: Why iterating right-to-left (`for w = W down to weight[i]`) enables 1D array O(W) space",
+            "Subset Sum & Partition Equal Problem: Boolean reachability state transitions and target sum division",
+            "Item Reconstruction Phase: Backtracking through the DP table from `dp[n][W]` to identify the exact subset of items selected",
+            "Target Sum & 0/1 Knapsack Reductions: Reducing algebraic sum/difference problems to Subset Sum",
+            "Example & Discussion: Cargo Container Weight-Value Maximization System in C",
+            "Classroom Lab Dialogue: Sukanta Sir on Why 0/1 Knapsack Iterates Backwards while Unbounded Knapsack Iterates Forwards"
+          ],
+          "miniProjects": [
+            "Enterprise Cargo Logistics Cargo Loader & Knapsack Item Reconstructor in C"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 7,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "2D Grid & Knapsack DP Lab Exam",
+            "passScore": 80
+          },
+          "useCases": [
+            "Server CPU resource allocation and memory budgeting",
+            "Supply chain truck weight and cargo loading optimization"
+          ],
+          "careerSkills": [
+            "Multi-dimensional state matrix design",
+            "DP table item reconstruction"
+          ],
+          "commonMistakes": [
+            "Iterating forward in 1D array 0/1 Knapsack, accidentally converting it into Unbounded Knapsack (reusing same item multiple times)",
+            "Allocating a 2D matrix on the stack (`int dp[1000][100000]`), triggering stack overflow (must allocate dynamically on heap)",
+            "Failing to handle base case when target capacity `W == 0`"
+          ]
+        },
+        {
+          "moduleId": "dsa-dp-strings-interval-bitmask",
+          "slug": "008_003_string-interval-and-bitmask-dp-patterns",
+          "title": "String, Interval & Bitmask DP: LCS, Edit Distance, MCM & TSP",
+          "level": "Advanced to Expert",
+          "estimatedHours": 6,
+          "tags": [
+            "dynamic-programming",
+            "string-dp",
+            "lcs",
+            "edit-distance",
+            "matrix-chain-multiplication",
+            "bitmask-dp",
+            "tsp"
+          ],
+          "difficulty": "Advanced to Expert",
+          "difficultyIndex": 5,
+          "summary": "Master advanced DP archetypes in C: String DP (Longest Common Subsequence, Edit Distance / Levenshtein), Interval DP (Matrix Chain Multiplication, Palindrome Partitioning), and State-Space Bitmask DP (Traveling Salesperson Problem).",
+          "learningOutcomes": [
+            "Formulate String DP tables for Longest Common Subsequence (LCS) and reconstruct the common subsequence string",
+            "Implement Edit Distance (Levenshtein Distance) supporting Insert, Delete, and Replace operations",
+            "Solve Interval DP problems (Matrix Chain Multiplication) by evaluating sub-interval splits `i <= k < j`",
+            "Combine Bitmasks with Dynamic Programming to represent visited subset states in O(N^2 * 2^N) time",
+            "Solve the Traveling Salesperson Problem (TSP) using Held-Karp Bitmask DP in C"
+          ],
+          "topics": [
+            "Longest Common Subsequence (LCS): Match condition `dp[i][j] = 1 + dp[i-1][j-1]` vs mismatch `max(dp[i-1][j], dp[i][j-1])`",
+            "Edit Distance (Levenshtein): Cost minimization across Insertion, Deletion, and Substitution operations in C",
+            "Reconstructing String Diff: Tracing back through the Edit Distance table to generate Git-style line additions/deletions",
+            "Interval DP Paradigm: Loop order by interval length `L = 2 to n`, splitting at intermediate points `k` in O(n^3)",
+            "Matrix Chain Multiplication (MCM): Optimal parenthesization to minimize scalar matrix multiplications",
+            "Bitmask DP Fundamentals: State representation `dp[mask][city]` where mask encodes visited cities",
+            "Example & Discussion: Traveling Salesperson Problem (TSP) in C — Reducing O(n!) Brute Force to O(n^2 * 2^n) via Bitmask DP",
+            "Classroom Lab Dialogue: Sukanta Sir on Diagnosing the Correct Loop Order in Interval DP"
+          ],
+          "miniProjects": [
+            "File Difference (Diff) Engine & Exact TSP Optimal Route Solver in C"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 7,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "Advanced String, Interval & Bitmask DP Exam",
+            "passScore": 80
+          },
+          "useCases": [
+            "Version control systems (Git diff and merge conflict resolution)",
+            "DNA sequence alignment and traveling delivery logistics optimization"
+          ],
+          "careerSkills": [
+            "Complex state-space dynamic programming",
+            "Interval and string alignment optimization"
+          ],
+          "commonMistakes": [
+            "Using incorrect loop order in Interval DP (looping `i` and `j` normally before interval length `len` is established)",
+            "Off-by-one errors when mapping 1-indexed DP tables to 0-indexed C strings in LCS and Edit Distance",
+            "Attempting Bitmask DP when N > 22, causing memory exhaustion (2^N * N memory explodes for large N)"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-9-sorting-and-practice",
+      "title": "Segment 9 - Master Class: Sorting Algorithms, Output Tracing & Capstone Hub",
+      "level": "Comprehensive All-Level Masterclass",
+      "summary": "An exhaustive, hands-on segment covering all comparison and non-comparison sorting families in C, mental compiler pointer output tracing labs, and industrial C capstone project implementations.",
       "modules": [
         {
           "moduleId": "dsa-sort-elementary",
-          "slug": "004_001_bubble-selection-insertion-sort",
+          "slug": "009_001_bubble-selection-insertion-sort",
           "title": "Elementary Comparison Sorts: Bubble, Selection & Insertion Sort",
           "level": "Beginner to Intermediate",
           "estimatedHours": 4,
-          "tags": ["sorting", "bubble-sort", "selection-sort", "insertion-sort", "in-place"],
+          "tags": [
+            "sorting",
+            "bubble-sort",
+            "selection-sort",
+            "insertion-sort",
+            "in-place",
+            "stability"
+          ],
+          "difficulty": "Beginner to Intermediate",
+          "difficultyIndex": 1,
+          "summary": "Master elementary comparison sorting in C: Bubble Sort with early exit flag optimization, Selection Sort with minimal swap property, and Insertion Sort online sorting mechanics with stability proofs.",
+          "learningOutcomes": [
+            "Implement Bubble Sort with early termination flag for O(n) best-case nearly sorted data",
+            "Implement Selection Sort and explain why it performs at most O(n) swaps",
+            "Implement Insertion Sort and demonstrate why it is the fastest algorithm for small arrays (n < 32)",
+            "Define algorithm stability and determine stability for Bubble, Selection, and Insertion sorts",
+            "Analyze in-place memory usage O(1) and worst-case O(n^2) comparisons"
+          ],
           "topics": [
-            "Bubble Sort mechanics and early exit flag optimization for nearly sorted data",
-            "Selection Sort minimum element scanning and minimal swap property",
-            "Insertion Sort online sorting mechanics and shift vs swap comparisons",
-            "Stability, best/worst case Big-O analysis, and space complexity comparison"
+            "Bubble Sort Mechanics: Adjacent element swapping, pass invariant, and early exit optimization flag",
+            "Selection Sort Mechanics: Finding minimum element in unsorted subarray, minimal O(n) swaps, and instability proof",
+            "Insertion Sort Mechanics: Shift vs swap comparisons, online sorting property, and adaptive O(n) performance",
+            "Sorting Stability & Memory Classification: Preserving relative order of duplicate keys in structs",
+            "Example & Discussion: Sorting Array of Employee Structs by Salary while Preserving Original ID Order",
+            "Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on Why Modern Hybrid Sorts (TimSort) Use Insertion Sort"
+          ],
+          "miniProjects": [
+            "Elementary Sort Comparator: Visualizing and Counting Real Swaps and Comparisons in C"
+          ],
+          "exercises": {
+            "mcq": 10,
+            "coding": 5,
+            "diagnostics": 3
+          },
+          "assessment": {
+            "type": "Elementary Sorting Code & Analysis Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "Sorting small data chunks in hybrid sorting routines",
+            "Embedded microcontrollers with extreme RAM constraints"
+          ],
+          "careerSkills": [
+            "Sorting mechanics and stability analysis",
+            "In-place array rearrangement"
+          ],
+          "commonMistakes": [
+            "Failing to include early break in Bubble Sort, forcing O(n^2) even on sorted inputs",
+            "Swapping instead of shifting elements in Insertion Sort, multiplying pointer/assignment overhead by 3x",
+            "Assuming Selection Sort is stable without realizing long swaps skip duplicate keys"
           ]
         },
         {
           "moduleId": "dsa-sort-divide-conquer",
-          "slug": "004_002_quick-and-merge-sort",
+          "slug": "009_002_quick-and-merge-sort",
           "title": "Divide & Conquer Sorts: Quick Sort & Merge Sort",
           "level": "Intermediate to Advanced",
           "estimatedHours": 5,
-          "tags": ["sorting", "quick-sort", "merge-sort", "lomuto", "hoare", "partitioning"],
+          "tags": [
+            "sorting",
+            "quick-sort",
+            "merge-sort",
+            "lomuto",
+            "hoare",
+            "partitioning"
+          ],
+          "difficulty": "Intermediate to Advanced",
+          "difficultyIndex": 3,
+          "summary": "Master divide-and-conquer sorting: Lomuto vs Hoare partitioning schemes in Quick Sort, pivot selection strategies (Random, Median-of-Three), recursive Merge Sort, guaranteed O(n log n) stability, and cache locality trade-offs.",
+          "learningOutcomes": [
+            "Implement Lomuto and Hoare partitioning schemes for Quick Sort in C",
+            "Apply Median-of-Three pivot selection to eliminate worst-case O(n^2) behavior on sorted inputs",
+            "Implement recursive Merge Sort with temporary buffer allocation and guaranteed O(n log n) stability",
+            "Compare auxiliary space requirements: Quick Sort O(log n) stack vs Merge Sort O(n) heap buffers",
+            "Analyze CPU cache locality and explain why Quick Sort typically outperforms Merge Sort in RAM"
+          ],
           "topics": [
-            "Quick Sort partitioning strategies: Lomuto vs Hoare scheme in C",
-            "Pivot selection strategies (First, Last, Random, Median-of-Three) to prevent O(n^2) worst case",
-            "Merge Sort recursive divide-and-merge process and guaranteed O(n log n) stability",
-            "In-place vs O(n) auxiliary memory trade-offs and cache locality analysis"
+            "Quick Sort Partitioning Mechanics: Lomuto Partitioning Scheme vs Hoare Partitioning Scheme in C",
+            "Pivot Selection Strategies: First, Last, Random, and Median-of-Three Pivot Selection to Prevent O(n^2)",
+            "Merge Sort Divide & Merge Process: Array splitting, buffer allocation, and guaranteed O(n log n) stability",
+            "In-Place vs Auxiliary Memory Trade-Offs: Quick Sort O(log n) stack vs Merge Sort O(n) array buffers",
+            "Cache Locality & Branch Prediction: Why Quick Sort cache friendliness makes it the fastest general-purpose sort",
+            "Example & Discussion: Iterative Bottom-Up Merge Sort without Recursion",
+            "Classroom Lab Dialogue: Sukanta Sir on Quick Sort Worst-Case Stack Depth Explosion and Tail-Call Optimization"
+          ],
+          "miniProjects": [
+            "High-Speed Sorting Benchmark: Lomuto vs Hoare vs Merge Sort on Random, Sorted, and Reversed Datasets"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 6,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "Quick & Merge Sort Implementation Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "C standard library qsort() implementation",
+            "External sorting of large dataset files larger than physical RAM"
+          ],
+          "careerSkills": [
+            "Divide-and-conquer partitioning design",
+            "Memory-conscious sorting optimization"
+          ],
+          "commonMistakes": [
+            "Picking first element as pivot on already sorted arrays, triggering O(n^2) worst case and stack overflow",
+            "Allocating a new auxiliary array on every recursive call of Merge Sort instead of allocating once",
+            "Infinite loops in Hoare partitioning due to incorrect pointer increment bounds"
           ]
         },
         {
-          "moduleId": "dsa-sort-tree-heap",
-          "slug": "004_003_heap-and-tree-sort",
-          "title": "Tree & Priority Queue Sorts: Heap Sort & Tree Sort",
+          "moduleId": "dsa-sort-tree-linear",
+          "slug": "009_003_heap-tree-and-non-comparison-sorts",
+          "title": "Tree, Heap & Non-Comparison Linear Sorts: Heap, Counting, Radix & Bucket Sort",
           "level": "Advanced",
           "estimatedHours": 5,
-          "tags": ["sorting", "heap-sort", "tree-sort", "max-heap", "bst-sort"],
+          "tags": [
+            "sorting",
+            "heap-sort",
+            "tree-sort",
+            "counting-sort",
+            "radix-sort",
+            "bucket-sort",
+            "linear-time"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 3,
+          "summary": "Master deterministic tree-based and non-comparison linear-time sorting algorithms in C: in-place Heap Sort O(1) space, Counting Sort, Radix Sort (LSD), and Bucket Sort, breaking the Omega(n log n) comparison lower bound.",
+          "learningOutcomes": [
+            "Implement in-place Heap Sort using Max-Heap construction and root extraction phase",
+            "Prove mathematically why comparison sorting has a theoretical lower bound of Omega(n log n)",
+            "Implement Counting Sort using frequency arrays, prefix sums, and stable output placement",
+            "Implement Radix Sort using Least Significant Digit (LSD) passes backed by stable Counting Sort",
+            "Implement Bucket Sort for floating point numbers and analyze range domain constraints"
+          ],
           "topics": [
-            "Heap Sort: In-place max heap construction and root extraction phase",
-            "Tree Sort: Building a Binary Search Tree (BST) and Inorder traversal extraction",
-            "Auxiliary space analysis (O(1) Heap Sort vs O(n) Tree Sort)",
-            "Priority queue extraction sorting pattern in C"
+            "Heap Sort Architecture: In-place Max-Heap construction phase and root extraction-swap phase in C",
+            "Breaking the Omega(n log n) Lower Bound: Decision tree model and comparison sorting limits",
+            "Counting Sort Mechanics: Frequency array counting, prefix sum position mapping, and stable backward placement",
+            "Radix Sort (LSD) Mechanics: Digit extraction with modulo math (n / exp) % 10 and multi-pass sorting",
+            "Bucket Sort Mechanics: Normalizing floating-point numbers into linked buckets and sorting individual buckets",
+            "Example & Discussion: Sorting 10 Million 32-bit Integers in Sub-Second Time using 4-Pass 8-bit Radix Sort",
+            "Classroom Lab Dialogue: Sukanta Sir on Stable Counting Sort as the Non-Negotiable Core of Radix Sort"
+          ],
+          "miniProjects": [
+            "High-Performance 32-Bit Integer Radix Sort Engine with Byte-Level Bitwise Masking in C"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 6,
+            "diagnostics": 4
+          },
+          "assessment": {
+            "type": "Heap & Linear Sorting Algorithms Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "Deterministic real-time avionics systems (Heap Sort)",
+            "High-speed IP routing table sorting and postal zip code indexing (Radix Sort)"
+          ],
+          "careerSkills": [
+            "In-place heap manipulation",
+            "Non-comparison linear optimization"
+          ],
+          "commonMistakes": [
+            "Using Min-Heap instead of Max-Heap for ascending order sort (causing O(n) extra space)",
+            "Iterating forward through input array in Counting Sort, breaking stability",
+            "Applying Counting Sort when range k >> n (causing out-of-memory crashes)"
           ]
         },
         {
-          "moduleId": "dsa-sort-non-comparison",
-          "slug": "004_004_counting-radix-bucket-sort",
-          "title": "Non-Comparison Linear Sorts: Counting, Radix & Bucket Sort",
-          "level": "Advanced to Expert",
-          "estimatedHours": 5,
-          "tags": ["sorting", "counting-sort", "radix-sort", "bucket-sort", "linear-time"],
-          "topics": [
-            "Counting Sort: Frequency array counting, prefix sums, and O(n + k) linear sorting",
-            "Radix Sort: Least Significant Digit (LSD) sorting using Counting Sort sub-routine",
-            "Bucket Sort: Distributing elements into floating point bucket buckets",
-            "Breaking the O(n log n) comparison lower bound: Conditions and memory trade-offs"
-          ]
-        },
-        {
-          "moduleId": "dsa-sort-specialized",
-          "slug": "004_005_shell-and-tim-sort",
-          "title": "Specialized & Hybrid Sorts: Shell Sort & TimSort Principles",
+          "moduleId": "dsa-sort-specialized-matrix",
+          "slug": "009_004_specialized-hybrid-sorts-and-decision-matrix",
+          "title": "Specialized & Hybrid Sorts: Shell Sort, TimSort & Sorting Selection Decision Matrix",
           "level": "Expert",
           "estimatedHours": 4,
-          "tags": ["sorting", "shell-sort", "timsort", "hybrid-sort", "gap-sequence"],
+          "tags": [
+            "sorting",
+            "shell-sort",
+            "timsort",
+            "hybrid-sort",
+            "introsort",
+            "decision-matrix"
+          ],
+          "difficulty": "Expert",
+          "difficultyIndex": 4,
+          "summary": "Master modern industrial and hybrid sorting algorithms: Shell Sort diminishing gap sequences (Knuth), TimSort design principles (Natural Runs, Galloping, Insertion Sort merge), IntroSort, and the Comprehensive Sorting Selection Decision Matrix.",
+          "learningOutcomes": [
+            "Implement Shell Sort with diminishing gap sequences (Knuth sequence: 3k+1)",
+            "Analyze TimSort architectural principles: identifying natural sorted runs and merging via stack invariants",
+            "Understand IntroSort mechanics (C++ std::sort standard): Quick Sort switching to Heap Sort on deep recursion",
+            "Construct a comprehensive Sorting Decision Matrix for choosing algorithms based on data characteristics"
+          ],
           "topics": [
-            "Shell Sort: Diminishing gap sequence insertion sorting (Knuth vs Shell gaps)",
-            "TimSort Principles: Combining Insertion Sort runs and Merge Sort for real-world data",
-            "IntroSort: Hybrid Quick Sort + Heap Sort + Insertion Sort used in C++ std::sort",
-            "Comprehensive sorting selection decision matrix for enterprise applications"
+            "Shell Sort Architecture: Diminishing gap sequence insertion sorting (Shell vs Knuth vs Sedgewick gaps)",
+            "TimSort Principles: Natural ascending/descending runs, minrun calculation, and binary insertion sort",
+            "IntroSort (Introspective Sort): Fast Quick Sort switching to Heap Sort at recursion depth 2*log(n)",
+            "Real-World Benchmark Comparison: Execution times across random, sorted, reverse, and duplicate-heavy data",
+            "Sorting Selection Decision Matrix: Choosing the right algorithm based on N, memory constraints, and stability needs",
+            "Example & Discussion: Building a Mini-Hybrid Sorter in C (Quick Sort with Insertion Sort cutoff for n <= 16)",
+            "Classroom Lab Dialogue: Sukanta Sir on Why Production Language Runtimes (Python, Java, V8) Standardized on TimSort"
+          ],
+          "miniProjects": [
+            "Production-Grade Hybrid Sorter (Quick Sort + Heap Fallback + Insertion Sort Threshold) in C"
+          ],
+          "exercises": {
+            "mcq": 10,
+            "coding": 5,
+            "diagnostics": 3
+          },
+          "assessment": {
+            "type": "Specialized & Hybrid Sorting Master Exam",
+            "passScore": 80
+          },
+          "useCases": [
+            "Standard language runtime library sorting implementations (std::sort, Array.prototype.sort)",
+            "High-throughput enterprise data processing engines"
+          ],
+          "careerSkills": [
+            "Production hybrid sorting engineering",
+            "Algorithm selection matrix evaluation"
+          ],
+          "commonMistakes": [
+            "Using naive gap sequences (N/2) in Shell Sort that fail to break O(n^2) worst-case",
+            "Setting the Insertion Sort cutoff threshold too high (n > 64) in hybrid sorts, degrading overall speed",
+            "Failing to maintain the TimSort stack invariant (A > B + C, B > C) during run merging"
+          ]
+        },
+        {
+          "moduleId": "dsa-output-practice-lab",
+          "slug": "009_005_dsa-output-practice-and-memory-diagnostics-lab",
+          "title": "Output Practice Lab: Mental Compiler Simulation & Memory Diagnostics",
+          "level": "Applied Practice",
+          "estimatedHours": 4,
+          "tags": [
+            "output-practice",
+            "code-tracing",
+            "pointers",
+            "memory-leaks",
+            "debugging",
+            "valgrind"
+          ],
+          "difficulty": "Applied Practice",
+          "difficultyIndex": 3,
+          "summary": "Sharpen your mental compiler and debugging skills: trace complex pointer arithmetic, predict output of linked list mutations and recursive call stacks, and diagnose dynamic memory leaks and dangling pointer traps in C.",
+          "learningOutcomes": [
+            "Predict exact console output of complex multi-level pointer arithmetic and array access expressions",
+            "Trace pointer manipulations, linked list pointer reassignments, and loop mutation traps",
+            "Diagnose dynamic memory leaks, dangling pointers, and double-free bugs using Valgrind mechanics",
+            "Trace recursive stack frame sequences and tree traversal output order step-by-step",
+            "Evaluate sorting partition step-by-step traces and pivot state changes"
+          ],
+          "topics": [
+            "Predict Output of Complex Pointer Arithmetic and Multi-Dimensional Array Access Expressions",
+            "Trace Linked List Loop Mutations, Stack Frame Allocations, and Deep Recursion Return Sequences",
+            "Diagnose Dynamic Memory Leaks, Dangling Pointers, Uninitialized Heap Read, and Double-Free Bugs",
+            "Analyze Tree Traversal Outputs, Stack State Transitions, and Heapify Step Traces",
+            "Evaluate Sorting Step-by-Step Traces, Pivot Selection States, and Partition Array Snapshots",
+            "Example & Discussion: Step-by-Step Memory Box Diagram Tracing of Complex C Struct Pointers",
+            "Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on Common Technical Interview Output Traps"
+          ],
+          "miniProjects": [
+            "Interactive C Code Output Tracing Engine with Step-by-Step Memory Visualizer"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "tracing": 15,
+            "diagnostics": 10
+          },
+          "assessment": {
+            "type": "Comprehensive Code Tracing & Output Exam",
+            "passScore": 80
+          },
+          "useCases": [
+            "Technical interview code snippet tracing and output prediction rounds",
+            "Production debugging of complex low-level C codebase memory defects"
+          ],
+          "careerSkills": [
+            "Mental compiler simulation",
+            "Rapid pointer bug identification"
+          ],
+          "commonMistakes": [
+            "Assuming post-increment (*ptr++) increments the value instead of the pointer address",
+            "Misinterpreting operator precedence between *ptr.member vs (*ptr).member vs ptr->member",
+            "Ignoring undefined behavior outputs produced by uninitialized pointers"
+          ]
+        },
+        {
+          "moduleId": "dsa-capstone-hub",
+          "slug": "009_006_dsa-capstone-projects-hub",
+          "title": "DSA Capstone Projects Hub: Industrial C Implementations",
+          "level": "Capstone Projects",
+          "estimatedHours": 8,
+          "tags": [
+            "capstone-projects",
+            "c-projects",
+            "data-structures",
+            "real-world",
+            "memory-allocator",
+            "transit-system"
+          ],
+          "difficulty": "Advanced Capstone",
+          "difficultyIndex": 5,
+          "summary": "Build industrial-strength C applications combining multiple data structures: custom heap memory allocator pool, doubly-linked text editor buffer with undo/redo, and a graph-based transit routing system.",
+          "learningOutcomes": [
+            "Architect and implement a custom Heap-Backed Dynamic Memory Pool Allocator in C",
+            "Build an interactive Doubly-Linked List Undo/Redo Text Editor Buffer with cursor navigation",
+            "Implement a Graph-Based City Transit Navigation & Shortest Path System with Dijkstra and DSU",
+            "Write production-grade, modular C code with header files, structs, and zero memory leaks"
+          ],
+          "topics": [
+            "Capstone Project 1: Custom Heap-Backed Dynamic Memory Pool Allocator with Free-List Management",
+            "Capstone Project 2: Doubly-Linked List Undo/Redo Text Editor Buffer with Gap-Buffer Optimization",
+            "Capstone Project 3: Graph-Based City Transit Navigation & Shortest Path System with Live Delay Updates",
+            "Modular C Architecture: Separation of Concerns with .h Header Files and Clean Encapsulation",
+            "Memory Leak Audit: Running Valgrind Memcheck and AddressSanitizer (ASan) on Capstone Codebases",
+            "Example & Discussion: Benchmarking Custom Memory Pool vs Standard glibc malloc()",
+            "Classroom Lab Dialogue: Sukanta Sir on Writing Enterprise-Grade C Code for Portfolio and Interviews"
+          ],
+          "miniProjects": [
+            "Complete Industrial C Portfolio Suite: Custom Memory Allocator, Text Buffer, and Transit Router"
+          ],
+          "exercises": {
+            "projects": 3,
+            "codeReviews": 3
+          },
+          "assessment": {
+            "type": "Capstone Project Code Review & Memory Leak Audit",
+            "passScore": 85
+          },
+          "useCases": [
+            "Custom memory management in high-frequency trading (HFT) and game engines",
+            "Industrial GIS routing networks and interactive text editors"
+          ],
+          "careerSkills": [
+            "End-to-end systems software architecture",
+            "Enterprise C modular programming"
+          ],
+          "commonMistakes": [
+            "Failing to handle memory fragmentation in custom allocator free-lists",
+            "Hardcoding fixed-size buffer limits instead of dynamic memory expansion in text editor",
+            "Over-complicating graph node representation, leading to excessive pointer indirection overhead"
           ]
         }
       ]
     },
     {
-      "segmentId": "segment-5-projects-practice",
-      "title": "Segment 5 - Output Tracing Lab & Capstone Projects Hub",
-      "level": "Applied & Project Focused",
-      "summary": "Put your knowledge into practice with output tracing labs, pointer defect analysis, and industrial-grade C capstone projects.",
+      "segmentId": "segment-10-complexity",
+      "title": "Segment 10 - Master Class: Time & Space Complexity Analysis",
+      "level": "Comprehensive All-Level Masterclass",
+      "summary": "An exhaustive, mathematical, and practical master class on Asymptotic Analysis (Big-O, Big-Omega, Big-Theta, Little-o, Little-omega), loop step-counting formulas, recurrence relation solving (Substitution, Recursion Tree, Master Theorem), space complexity, recursive call stack mechanics, amortized analysis, and practical Big-O case studies with C code examples and classroom discussions.",
       "modules": [
         {
-          "moduleId": "dsa-output-lab",
-          "slug": "005_001_dsa-output-practice-lab",
-          "title": "Output Practice Lab: Pointer Tracing & Memory Diagnostics",
-          "level": "Applied Practice",
+          "moduleId": "dsa-complexity-asymptotic-notations",
+          "slug": "010_001_asymptotic-notations-and-mathematical-bounds",
+          "title": "Mathematical Foundations & Asymptotic Notations: Big-O, Omega, Theta, Little-o & Little-omega",
+          "level": "Foundational to Intermediate",
           "estimatedHours": 4,
-          "tags": ["output-practice", "code-tracing", "pointers", "memory-leaks"],
+          "tags": [
+            "asymptotic-analysis",
+            "big-o",
+            "big-omega",
+            "big-theta",
+            "little-o",
+            "math-proofs",
+            "growth-rates"
+          ],
+          "difficulty": "Foundational to Intermediate",
+          "difficultyIndex": 1,
+          "summary": "Understand why empirical timing fails across diverse hardware and establish the mathematical RAM machine model. Master formal definitions of Big-O, Omega, Theta, Little-o, and Little-omega with rigorous constant-finding proofs and practical C examples.",
+          "learningOutcomes": [
+            "Distinguish between empirical benchmarking limitations and theoretical asymptotic analysis",
+            "Formally define Big-O, Big-Omega, Big-Theta, Little-o, and Little-omega mathematically",
+            "Find constants c and n0 to prove upper, lower, and tight complexity bounds",
+            "Rank growth rate functions from O(1) to O(n!) in order of asymptotic dominance",
+            "Evaluate constant-time O(1) pointer dereferences, bitwise operations, and memory access in C"
+          ],
           "topics": [
-            "Predict output of complex pointer arithmetic and array access expressions",
-            "Trace linked list loop mutations, stack frame allocations, and recursion limits",
-            "Diagnose dynamic memory leaks, dangling pointers, and double-free bugs",
-            "Analyze tree traversal outputs and stack state sequences",
-            "Evaluate sorting step-by-step trace and pivot selection states"
+            "Empirical Benchmarking Pitfalls vs Asymptotic Growth Model (RAM Machine Model)",
+            "Big-O (O) Upper Bound Formal Definition: Finding constants c and n0, Growth rate hierarchy (1 < log n < sqrt(n) < n < n log n < n^2 < 2^n < n!)",
+            "Big-Omega (Ω) Lower Bound & Big-Theta (Θ) Tight Bound Analysis with Formal Invariants",
+            "Little-o (o) and Little-omega (ω) Strict Asymptotic Boundaries & Calculus Limit Tests (lim n->inf f(n)/g(n))",
+            "Example & Discussion: Step-by-Step Mathematical Proof for Polynomial Growth (3n^2 + 5n + 12 = O(n^2) vs O(n))",
+            "Example & Discussion: Constant Time O(1) Operations in C (Pointer Dereference, Direct Array Indexing, Bitwise Shifts)",
+            "Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on the Common 'Big-O equals Worst-Case' Misconception"
+          ],
+          "miniProjects": [
+            "Benchmarking Lab: Comparing Wall-Clock Execution Times vs Asymptotic Predictions in GCC"
+          ],
+          "exercises": {
+            "mcq": 10,
+            "coding": 4,
+            "proofs": 4
+          },
+          "assessment": {
+            "type": "Quiz + Asymptotic Proofs",
+            "passScore": 75
+          },
+          "useCases": [
+            "Evaluating algorithm scalability before writing production C code",
+            "Selecting appropriate data structures based on asymptotic query vs update costs"
+          ],
+          "careerSkills": [
+            "Mathematical rigor in algorithm analysis",
+            "Technical interview problem complexity justification"
+          ],
+          "commonMistakes": [
+            "Confusing Big-O (upper bound) with worst-case scenario (an input configuration)",
+            "Ignoring lower-order terms prematurely before establishing formal constant n0",
+            "Assuming O(1) means exactly 1 processor cycle rather than independent of input size n"
           ]
         },
         {
-          "moduleId": "dsa-capstone-projects",
-          "slug": "005_002_dsa-capstone-projects-hub",
-          "title": "DSA Capstone Projects Hub: Industrial C Implementations",
-          "level": "Capstone Projects",
-          "estimatedHours": 8,
-          "tags": ["capstone-projects", "c-projects", "data-structures", "real-world"],
+          "moduleId": "dsa-complexity-loop-analysis",
+          "slug": "010_002_time-complexity-loop-analysis-and-step-counting",
+          "title": "Time Complexity: Loop Step-Counting, Nested Loops & Dependent Summations",
+          "level": "Foundational to Intermediate",
+          "estimatedHours": 5,
+          "tags": [
+            "time-complexity",
+            "loops",
+            "nested-loops",
+            "summations",
+            "step-counting",
+            "harmonic-series"
+          ],
+          "difficulty": "Intermediate",
+          "difficultyIndex": 2,
+          "summary": "Master exact step-counting in imperative C code. Learn to formulate discrete summations for independent loops, dependent triangular loops, logarithmic stepping, square-root loops, and harmonic series progressions.",
+          "learningOutcomes": [
+            "Calculate exact execution counts for loop bodies using summation notation",
+            "Analyze dependent nested loops yielding triangular summation series (n*(n+1)/2)",
+            "Identify logarithmic progression loops (i *= 2, i /= 2) and their O(log n) derivations",
+            "Compute time complexity for square-root bounds O(sqrt(n)) in primality and factorization",
+            "Analyze harmonic series loops (sum n/i) in number theory algorithms like Sieve of Eratosthenes"
+          ],
           "topics": [
-            "Project 1: Custom Heap-Backed Dynamic Memory Pool Allocator",
-            "Project 2: Doubly-Linked List Undo/Redo Text Editor Buffer",
-            "Project 3: Graph-Based City Transit Navigation & Shortest Path System"
+            "Exact Step-Counting Methodology: Counting Basic Operations & Formulating Discrete Summations (∑)",
+            "Single-Pass Iterations: Step Jumps (i += 1, i += k, i *= 2, i /= 2) and Logarithmic Convergence",
+            "Nested Independent Loops: Grid Traversals, Matrix Operations & Row-Major vs Column-Major Cache Discussion",
+            "Nested Dependent Loops: Triangular Summations (∑ i = n(n+1)/2 = Θ(n^2)) in Bubble & Selection Sort",
+            "Non-Linear Loop Stepping: Square Root Bounds (O(sqrt(n))) in Primality Tests & Integer Factorization",
+            "Example & Discussion: Harmonic Series Loops (∑ n/i = O(n log n)) in Sieve of Eratosthenes",
+            "Example & Discussion: Multi-Variable Nested Iterations (O(n * m) vs O(n + m)) in Graph & Matrix Traversals"
+          ],
+          "miniProjects": [
+            "C Loop Profiler: Instrumenting C Loops with Counter Variables to Verify Analytical Summations"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 6,
+            "proofs": 4
+          },
+          "assessment": {
+            "type": "Code Analysis & Step-Counting Assessment",
+            "passScore": 75
+          },
+          "useCases": [
+            "Optimizing nested computational loops in image processing and matrix kernels",
+            "Eliminating accidental quadratic O(n^2) bottlenecks in nested string and array traversals"
+          ],
+          "careerSkills": [
+            "Accurate code review runtime profiling",
+            "Algorithmic bottleneck identification"
+          ],
+          "commonMistakes": [
+            "Assuming every nested 2-level loop is always O(n^2) without checking the inner variable bounds",
+            "Failing to recognize harmonic series summations ∑(n/i) = n ln(n) = O(n log n)",
+            "Overlooking loop increment multipliers (e.g. i *= 2 taking O(log n) steps)"
+          ]
+        },
+        {
+          "moduleId": "dsa-complexity-recurrence-relations",
+          "slug": "010_003_recurrence-relations-and-divide-and-conquer",
+          "title": "Recurrence Relations & Divide-and-Conquer Complexity: Master Theorem & Recursion Trees",
+          "level": "Intermediate to Advanced",
+          "estimatedHours": 6,
+          "tags": [
+            "recurrence-relations",
+            "recursion-tree",
+            "master-theorem",
+            "divide-and-conquer",
+            "substitution-method"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 3,
+          "summary": "Formulate mathematical recurrence relations T(n) from recursive C algorithms. Master the 3 primary solving techniques: Substitution Method, Recursion Tree Method, and the Master Theorem across all standard cases and edge boundaries.",
+          "learningOutcomes": [
+            "Formulate mathematical recurrence equations T(n) = aT(n/b) + f(n) from recursive functions",
+            "Apply the Substitution Method using mathematical induction to establish upper and lower bounds",
+            "Construct and evaluate recursion trees by summing per-level costs and leaf nodes",
+            "Apply Master Theorem across Case 1 (leaf heavy), Case 2 (balanced), and Case 3 (root heavy)",
+            "Recognize Master Theorem limitations and apply Akra-Bazzi intuition for non-uniform splits"
+          ],
+          "topics": [
+            "Formulating Recurrence Relations T(n) from Recursive C Functions and Base Conditions",
+            "The Substitution Method (Mathematical Induction) for Guessing and Verifying Bounds",
+            "The Recursion Tree Method: Visualizing Cost per Level, Tree Depth, and Leaf Count",
+            "Master Theorem Masterclass: Standard Form T(n) = aT(n/b) + f(n) and All 3 Cases Explained",
+            "Master Theorem Limitations & Extended Cases (Akra-Bazzi Intuition for Unequal Splits)",
+            "Example & Discussion: Merge Sort (T(n) = 2T(n/2) + O(n)) vs Binary Search (T(n) = T(n/2) + O(1)) Tree Breakdown",
+            "Example & Discussion: Naive Recursive Fibonacci Explosion (T(n) = T(n-1) + T(n-2) = O(2^n)) vs Strassen's Matrix Multiplication (O(n^2.81))"
+          ],
+          "miniProjects": [
+            "Recursive Call Tree Visualizer: Tracing and Counting Recursive Call Depths in C"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 5,
+            "proofs": 5
+          },
+          "assessment": {
+            "type": "Recurrence Relation Solving Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "Designing efficient divide-and-conquer algorithms (sorting, searching, computational geometry)",
+            "Analyzing parallel divide-and-conquer task distributions across CPU threads"
+          ],
+          "careerSkills": [
+            "Advanced mathematical algorithm verification",
+            "Divide-and-conquer paradigm optimization"
+          ],
+          "commonMistakes": [
+            "Applying Master Theorem when f(n) is not polynomial (e.g. T(n) = 2T(n/2) + n/log n)",
+            "Forgetting the regularity condition in Master Theorem Case 3",
+            "Ignoring base case overheads when recursing down to small subproblems (n <= 16)"
+          ]
+        },
+        {
+          "moduleId": "dsa-complexity-space-memory",
+          "slug": "010_004_space-complexity-and-memory-hierarchy",
+          "title": "Space Complexity, Auxiliary Memory & Recursive Call Stack Mechanics",
+          "level": "Intermediate",
+          "estimatedHours": 4,
+          "tags": [
+            "space-complexity",
+            "auxiliary-space",
+            "call-stack",
+            "heap-memory",
+            "recursion-depth",
+            "cache-locality"
+          ],
+          "difficulty": "Intermediate",
+          "difficultyIndex": 2,
+          "summary": "Deep dive into memory mechanics: distinguish input space from auxiliary space, trace physical stack frame allocation during recursion, measure heap allocator metadata overhead, and understand CPU cache hierarchy impacts on algorithm performance.",
+          "learningOutcomes": [
+            "Differentiate clearly between Total Space Complexity and Auxiliary Space Complexity",
+            "Trace physical stack frame activation records and calculate maximum recursion stack depth",
+            "Measure dynamic heap allocation costs, pointer overheads, and allocator fragmentation in C",
+            "Implement Tail Call Optimization (TCO) and convert recursive algorithms to iterative loops",
+            "Analyze cache line utilization (spatial & temporal locality) and its real-world performance impact"
+          ],
+          "topics": [
+            "Input Space vs Auxiliary Space: In-Place Algorithms vs Extra Buffer Allocations",
+            "Stack Memory Mechanics: Activation Records, Stack Frames, and Call Stack Depth in Recursion",
+            "Heap Allocations in C: malloc, calloc, Memory Overhead, and Fragmentation Cost",
+            "Tail Call Optimization (TCO) & Converting Deep Recursion to Iteration to Avoid Stack Overflow",
+            "Example & Discussion: In-Place Array Inversion (O(1) Space) vs Linked List Copying (O(n) Space)",
+            "Example & Discussion: Auxiliary Space in Recursive Sorts (Merge Sort O(n) vs Quick Sort O(log n) Stack Depth)",
+            "Memory Layout & Hardware Discussion: Struct Padding, Memory Alignment, and Cache Line Locality (L1/L2/L3 Cache Misses vs Big-O)"
+          ],
+          "miniProjects": [
+            "Stack Depth & Memory Monitor: Tracking Physical Virtual Memory (VSS/RSS) and Stack Limits in C"
+          ],
+          "exercises": {
+            "mcq": 10,
+            "coding": 5,
+            "proofs": 3
+          },
+          "assessment": {
+            "type": "Space & Memory Diagnostics Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "Developing memory-constrained embedded systems and kernel-level drivers",
+            "Preventing stack overflow segmentation faults in deeply recursive production services"
+          ],
+          "careerSkills": [
+            "Low-level memory budgeting and profiling",
+            "Cache-conscious algorithm engineering"
+          ],
+          "commonMistakes": [
+            "Confusing input space (O(n) for reading an array) with auxiliary space (O(1) extra variables used)",
+            "Ignoring call stack memory when calculating space complexity of recursive algorithms",
+            "Assuming dynamic node-based structures have the same memory footprint as contiguous arrays"
+          ]
+        },
+        {
+          "moduleId": "dsa-complexity-amortized-analysis",
+          "slug": "010_005_amortized-analysis-and-aggregate-mechanics",
+          "title": "Amortized Complexity Analysis: Aggregate, Accounting (Banker's) & Potential Methods",
+          "level": "Advanced",
+          "estimatedHours": 5,
+          "tags": [
+            "amortized-analysis",
+            "aggregate-method",
+            "accounting-method",
+            "potential-method",
+            "dynamic-array",
+            "multipop"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 3,
+          "summary": "Understand why worst-case per-operation bounds can be overly pessimistic for sequences of operations. Master the 3 classical amortized techniques: Aggregate Method, Accounting (Banker's) Method, and the Potential (Physicist's) Method.",
+          "learningOutcomes": [
+            "Explain the fundamental difference between average-case complexity and amortized complexity",
+            "Apply the Aggregate Method to compute average worst-case cost across n operations",
+            "Use the Accounting / Banker's Method by assigning virtual credits to cheap operations",
+            "Define and evaluate potential energy functions Φ(D) in the Potential Method",
+            "Mathematically prove the O(1) amortized insertion cost for geometric array resizing (capacity doubling)"
+          ],
+          "topics": [
+            "Worst-Case Single-Operation vs Sequence of Operations: The Need for Amortized Analysis",
+            "Aggregate Method: Calculating Average Worst-Case Cost across a Sequence of k Operations",
+            "Accounting (Banker's) Method: Assigning Virtual Credits and Charge Balances to Invariant Pools",
+            "Potential Method (Physicist's Method): Defining Potential Energy Functions Φ(Di)",
+            "Example & Discussion: Dynamic Vector Doubling (std::vector / C Dynamic Array) — Mathematical Proof of O(1) Amortized Push",
+            "Example & Discussion: Multi-Pop Stack Operation (Push, Pop, MultiPop) Sequence Analysis",
+            "Example & Discussion: Binary Counter Bit-Flipping Cost Analysis from 0 to n"
+          ],
+          "miniProjects": [
+            "Dynamic Array Resizing Benchmarking: Comparing Linear Increment vs Geometric Doubling Strategies"
+          ],
+          "exercises": {
+            "mcq": 10,
+            "coding": 4,
+            "proofs": 4
+          },
+          "assessment": {
+            "type": "Amortized Proofs & Analysis Quiz",
+            "passScore": 75
+          },
+          "useCases": [
+            "Designing high-throughput data buffers, hash tables, and vector data structures",
+            "Guaranteeing predictable response times in operating system paging and transaction logs"
+          ],
+          "careerSkills": [
+            "Advanced data structure efficiency analysis",
+            "System throughput capacity planning"
+          ],
+          "commonMistakes": [
+            "Confusing amortized analysis (guaranteed average across sequences) with probabilistic average-case analysis",
+            "Using linear growth (+k elements) instead of geometric doubling (*2) in dynamic arrays, causing O(n^2) insertion",
+            "Failing to maintain the non-negativity invariant Φ(Di) >= Φ(D0) in the Potential Method"
+          ]
+        },
+        {
+          "moduleId": "dsa-complexity-classes-tradeoffs",
+          "slug": "010_006_complexity-classes-and-performance-tradeoffs",
+          "title": "Complexity Classes (P, NP, NP-Complete) & Real-World Engineering Trade-Offs",
+          "level": "Advanced to Expert",
+          "estimatedHours": 5,
+          "tags": [
+            "complexity-classes",
+            "p-vs-np",
+            "np-complete",
+            "space-time-tradeoff",
+            "benchmarking",
+            "profiling"
+          ],
+          "difficulty": "Advanced to Expert",
+          "difficultyIndex": 4,
+          "summary": "Bridge theoretical computer science and practical systems engineering: explore complexity classes (P, NP, NP-Complete, NP-Hard), master Space-Time trade-offs, and discover why constant factors and cache effects matter in real-world C systems.",
+          "learningOutcomes": [
+            "Define and categorize problem complexity classes: P, NP, NP-Complete, and NP-Hard",
+            "Understand polynomial-time verification vs polynomial-time solution finding",
+            "Implement Space-Time Trade-offs (lookup tables, bitsets, memoization) to accelerate critical paths",
+            "Analyze the impact of hidden constant factors (c) and hardware cache hits vs asymptotic Big-O",
+            "Profile C algorithms using Linux tools (Valgrind, Cachegrind, gprof) to validate theoretical predictions"
+          ],
+          "topics": [
+            "Taxonomy of Complexity Classes: P (Polynomial), NP (Nondeterministic Polynomial), NP-Complete, and NP-Hard",
+            "Tractable vs Intractable Problems: Reductions, Verification vs Finding Solutions, and the P vs NP Question",
+            "Space-Time Trade-Offs in Systems Programming: Lookup Tables, Memoization, and Precomputations",
+            "Hidden Constant Factors (c) & Lower-Order Terms: When O(n^2) Beats O(n log n) for Small Inputs (n < 50)",
+            "Example & Discussion: Traveling Salesperson Problem (TSP) Brute-Force O(n!) vs Held-Karp DP O(n^2 * 2^n) vs 2-Approximation",
+            "Example & Discussion: Fibonacci 4-Way Comparison (Naive O(2^n), Memoized O(n), Iterative O(1) Space, Matrix Power O(log n))",
+            "Classroom Lab Dialogue: Hardware Profiling (Valgrind, Cachegrind, gprof) vs Theoretical Big-O Curves"
+          ],
+          "miniProjects": [
+            "Empirical Benchmark Suite: Measuring CPU Instruction Counts and Cache Misses vs Big-O Predictions"
+          ],
+          "exercises": {
+            "mcq": 10,
+            "coding": 5,
+            "proofs": 3
+          },
+          "assessment": {
+            "type": "Comprehensive Complexity Master Exam",
+            "passScore": 80
+          },
+          "useCases": [
+            "Recognizing NP-Complete problems in industry and applying heuristic / approximation strategies",
+            "Tuning mission-critical algorithms where small input sizes favor low constant factor algorithms"
+          ],
+          "careerSkills": [
+            "Architectural algorithm trade-off decision making",
+            "Production systems profiling and optimization"
+          ],
+          "commonMistakes": [
+            "Assuming an NP-Complete problem has no practical solution (ignoring heuristics and DP approximations)",
+            "Prematurely optimizing for asymptotic Big-O when constants and cache misses dominate for small N",
+            "Confusing NP (solvable in nondeterministic polynomial time) with Non-Polynomial"
           ]
         }
       ]

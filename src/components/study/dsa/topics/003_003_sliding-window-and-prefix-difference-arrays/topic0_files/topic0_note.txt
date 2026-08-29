@@ -1,0 +1,74 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: SLIDING WINDOW & RANGE QUERY ARRAYS
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. FIXED-SIZE SLIDING WINDOW
+--------------------------------------------------------------------------------
+Computes aggregations over all contiguous subarrays of fixed length K in O(n).
+
+Algorithm:
+  1. Compute initial window sum: sum = arr[0] + arr[1] + ... + arr[k-1]
+  2. For i from k to n - 1:
+       sum += arr[i] - arr[i - k]   // Add incoming element, remove outgoing element
+       maxSum = max(maxSum, sum)
+
+Complexity: Time O(n), Auxiliary Space O(1).
+
+2. DYNAMIC-SIZE SLIDING WINDOW
+--------------------------------------------------------------------------------
+Maintains a variable-length window [left..right] matching specific validity conditions.
+
+Template:
+  int left = 0;
+  for (int right = 0; right < n; right++) {
+      add(arr[right]); // Expand right boundary
+      while (!isValidWindow()) {
+          remove(arr[left]); // Contract left boundary
+          left++;
+      }
+      updateAnswer(right - left + 1);
+  }
+
+Classic Problems:
+  - Longest Substring Without Repeating Characters
+  - Minimum Window Substring (LeetCode 76)
+  - Longest Subarray with Sum <= K
+
+3. 1D & 2D PREFIX SUM ARRAYS
+--------------------------------------------------------------------------------
+Precomputes cumulative sums to answer any subarray sum query in O(1) time.
+
+• 1D Prefix Sum:
+    P[i] = P[i - 1] + arr[i]
+    Query Sum(L, R) = P[R] - P[L - 1] (handle L == 0 by checking index or 1-indexing)
+
+• 2D Matrix Prefix Sum (Principle of Inclusion-Exclusion):
+    P[r][c] = arr[r][c] + P[r-1][c] + P[r][c-1] - P[r-1][c-1]
+    Submatrix Sum(r1, c1, r2, c2) = P[r2][c2] - P[r1-1][c2] - P[r2][c1-1] + P[r1-1][c1-1]
+
+4. DIFFERENCE ARRAY TECHNIQUE (RANGE UPDATES)
+--------------------------------------------------------------------------------
+Performs Q range update operations `[L, R] += val` in O(1) time each, rather 
+than O(n) per update.
+
+Algorithm:
+  1. Initialize difference array `diff[]` of size N + 1 with zeros.
+  2. For each update `(L, R, val)`:
+       diff[L] += val
+       diff[R + 1] -= val
+  3. Reconstruct actual array values via running prefix sum in O(n):
+       runningSum += diff[i]
+       arr[i] += runningSum
+
+5. MEMORY SAFETY & POINTER INVARIANTS IN C
+--------------------------------------------------------------------------------
+[✓] Cast char to `unsigned char` when indexing 256-element frequency arrays:
+    `unsigned char c = (unsigned char)s[right]; freq[c]++;`
+[✓] Allocate difference arrays with size `n + 1` to prevent buffer overrun at `R + 1`.
+[✓] Check `k <= n` before initializing fixed-size sliding windows.
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

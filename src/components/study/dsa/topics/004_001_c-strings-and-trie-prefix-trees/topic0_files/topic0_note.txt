@@ -1,0 +1,71 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: C STRINGS & TRIE PREFIX TREES
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. C STRING MEMORY LAYOUT & MECHANICS
+--------------------------------------------------------------------------------
+In C, a string is a contiguous sequence of characters in memory terminated by 
+the null sentinel character '\0' (ASCII value 0).
+
+• String Literal vs Array Buffer:
+    char str1[] = "Barrackpore"; // Stack-allocated mutable buffer of 12 bytes
+    char* str2 = "Barrackpore";  // Pointer to read-only .rodata segment (modifying causes SIGSEGV!)
+
+• Safe String Length Formula:
+    size_t my_strlen(const char* s) {
+        const char* p = s;
+        while (*p) p++;
+        return p - s;
+    }
+
+2. TRIE (PREFIX TREE) ARCHITECTURE
+--------------------------------------------------------------------------------
+A Trie is an N-ary tree where each path from the root represents a word or prefix.
+Common prefixes are shared across words, saving space and enabling instant prefix lookups.
+
+Node Structure in C:
+    typedef struct TrieNode {
+        struct TrieNode* children[26]; // 26 pointers for letters 'a' through 'z'
+        bool isEndOfWord;              // true if node marks end of a valid word
+    } TrieNode;
+
+Operations & Complexities:
+  • Insertion:    O(L) time, O(L * 26) max space per word of length L
+  • Search:       O(L) time, O(1) space
+  • Prefix Search: O(L) time, O(1) space
+  • Autocomplete: O(Prefix_Length + Number_of_Matching_Nodes)
+
+3. COMPARISON: TRIE VS HASH TABLE
+--------------------------------------------------------------------------------
+Feature               Trie (Prefix Tree)            Hash Table (DJB2)
+--------------------------------------------------------------------------------
+Search Time           Guaranteed O(L)               Average O(L), Worst-case O(N*L)
+Prefix Matching       Native O(Prefix_Length)       Impossible without scanning all
+Alphabetical Sorting  Native via Inorder DFS        Requires external sorting
+Memory Overhead       High (216 bytes/node)         Compact (buckets + strings)
+Collision Risk        Zero Collisions               Hash collisions possible
+
+4. SAFE MEMORY TEARDOWN (POST-ORDER TRAVERSAL)
+--------------------------------------------------------------------------------
+To prevent catastrophic memory leaks in C:
+    void freeTrie(TrieNode* root) {
+        if (!root) return;
+        for (int i = 0; i < 26; i++) {
+            if (root->children[i]) {
+                freeTrie(root->children[i]); // Free children first
+            }
+        }
+        free(root); // Free parent node last
+    }
+
+5. RADIX TREE (PATRICIA TRIE) OPTIMIZATION
+--------------------------------------------------------------------------------
+When many single-child node chains exist (e.g. "b" -> "a" -> "r" -> "r" -> "a" -> "c" -> "k"),
+Radix Trees compress them into a single node with string label "barrack", saving
+hundreds of unused pointer bytes. Widely used in Linux kernel and IP routing tables.
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

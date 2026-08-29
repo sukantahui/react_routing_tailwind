@@ -1,0 +1,55 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: FENWICK TREES (BIT) & B-TREES
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. FENWICK TREE (BINARY INDEXED TREE - BIT)
+--------------------------------------------------------------------------------
+A Fenwick Tree maintains cumulative prefix sums under point updates using 
+lowest-set-bit binary decomposition (`lowbit(i) = i & -i`).
+
+• Array Size:             N + 1 (1-based indexing)
+• Prefix Sum Time:        O(log2 N)
+• Point Update Time:      O(log2 N)
+• Auxiliary Space:        (N + 1) * sizeof(int)  [4x more compact than Segment Tree]
+
+Core Bitwise Invariants in C:
+  • Update (Add val to index i):
+      while (i <= N) { tree[i] += val; i += i & (-i); }
+  • Query (Prefix Sum up to index i):
+      int sum = 0;
+      while (i > 0) { sum += tree[i]; i -= i & (-i); }
+  • Range Sum [L, R]:
+      Query(R) - Query(L - 1)
+
+2. B-TREE & B+ TREE DATABASE INDEX ARCHITECTURE
+--------------------------------------------------------------------------------
+Binary search trees suffer from extreme tree depth on multi-gigabyte datasets,
+triggering excessive slow disk block seeks.
+
+B-Tree Characteristics (Order M):
+  • High Branching Factor: Each internal node has between ceil(M/2) and M children.
+  • Multi-Key Node: Each node stores between ceil(M/2)-1 and M-1 sorted keys.
+  • Perfect Balance: All leaf nodes reside at the exact same depth.
+  • Page Block Alignment: Node size matches disk sector page size (4KB, 8KB, 16KB).
+
+3. B-TREE VS B+ TREE COMPARISON
+--------------------------------------------------------------------------------
+Feature               B-Tree                         B+ Tree (InnoDB / SQLite)
+--------------------------------------------------------------------------------
+Record Storage        Stored in all internal & leaves Stored exclusively in leaf nodes
+Internal Nodes        Holds data pointers & keys     Holds routing search keys only
+Leaf Structure        Disconnected leaves            Doubly-linked list of leaf pages
+Range Scans           Requires Inorder tree traversal Fast linear scan across leaf list
+Cache Efficiency      Lower (internal nodes large)   High (more keys fit per 4KB page)
+
+4. MEMORY SAFETY & INVARIANTS IN C
+--------------------------------------------------------------------------------
+[✓] Fenwick trees strictly require 1-based indexing (`index 1 to N`). Never query index 0!
+[✓] In B-Trees, node splits and child pointer updates must precede disk write flushes.
+[✓] Allocate Fenwick array with `calloc(n + 1, sizeof(int))` to ensure zero initialization.
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

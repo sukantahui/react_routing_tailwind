@@ -1,0 +1,55 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: MST & SHORTEST PATH ALGORITHMS
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. MINIMUM SPANNING TREE (MST) ALGORITHMS
+--------------------------------------------------------------------------------
+An MST connects all V vertices in a weighted undirected graph using exactly V - 1 
+edges with minimal possible total weight.
+
+• Kruskal's Algorithm (Edge-Centric):
+    1. Sort all E edges in ascending order: O(E log E).
+    2. Iterate through edges; add edge (u, v) if `unionDSU(u, v)` succeeds (no cycle).
+    3. Stop when V - 1 edges are selected.
+    Complexity: O(E log E) time, O(V) space.
+
+• Prim's Algorithm (Vertex-Centric):
+    1. Start from an arbitrary root vertex; insert all incident edges into Min-Heap.
+    2. Extract minimum weight edge connecting unvisited vertex; mark visited.
+    3. Repeat until all V vertices are in MST.
+    Complexity: O(E log V) with Min-Heap, O(V^2) with matrix.
+
+2. SHORTEST PATH ALGORITHMS COMPARISON
+--------------------------------------------------------------------------------
+Algorithm           Type           Edge Weights        Time Complexity      Space
+--------------------------------------------------------------------------------
+BFS                 Single-Source  Unweighted (all=1)  O(V + E)             O(V)
+Dijkstra            Single-Source  Non-Negative (>= 0) O((V + E) log V)     O(V)
+Bellman-Ford        Single-Source  Can have Negatives  O(V * E)             O(V)
+Floyd-Warshall      All-Pairs      Can have Negatives  O(V^3)               O(V^2)
+
+3. DIJKSTRA RELAXATION INVARIANT
+--------------------------------------------------------------------------------
+For edge `(u, v)` with weight `w`:
+    if (dist[u] != INF && dist[u] + w < dist[v]) {
+        dist[v] = dist[u] + w;
+    }
+
+4. BELLMAN-FORD NEGATIVE CYCLE DETECTION
+--------------------------------------------------------------------------------
+• Pass 1 to V - 1: Relax all E edges.
+• Pass V (Verification): If any edge `(u, v)` can still be relaxed:
+    `if (dist[u] + w < dist[v]) -> Negative Cycle Exists!`
+
+5. MEMORY SAFETY & SYSTEM TRAPS IN C
+--------------------------------------------------------------------------------
+[✓] Guard against integer overflow when checking `dist[u] + weight < dist[v]` 
+    by ensuring `dist[u] != INT_MAX`.
+[✓] Free allocated `dsu` parent/rank arrays after Kruskal MST termination.
+[✓] Always verify that total vertices $V \ge 1$ before array allocation.
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

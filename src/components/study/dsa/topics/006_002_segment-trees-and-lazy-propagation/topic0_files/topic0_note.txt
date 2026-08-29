@@ -1,0 +1,61 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: SEGMENT TREES & LAZY PROPAGATION
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. SEGMENT TREE STRUCTURE & ASYMPTOTIC COMPLEXITY
+--------------------------------------------------------------------------------
+A Segment Tree is a full binary tree where each node stores an aggregated summary 
+(Sum, Minimum, Maximum, GCD) over a contiguous subsegment `[start..end]` of an array.
+
+• Build Tree Time:             O(N)         [Visits < 4N nodes once]
+• Point Query / Update Time:    O(log N)     [Tree height is ceil(log2 N)]
+• Range Query Time:             O(log N)     [Visits at most 4 nodes per tree level]
+• Range Update (with Lazy):     O(log N)     [Defers child subtree traversals]
+• Auxiliary Memory Space:       4 * N * sizeof(int) [Flat 1D array representation]
+
+2. TREE INDEXING IN FLAT 1D C ARRAYS (1-BASED)
+--------------------------------------------------------------------------------
+Root Node:          Index 1
+Left Child of k:    `2 * k`      (Bitwise: `k << 1`)
+Right Child of k:   `2 * k + 1`  (Bitwise: `(k << 1) | 1`)
+Parent of node k:   `k / 2`      (Bitwise: `k >> 1`)
+
+3. THREE RANGE OVERLAP CASES
+--------------------------------------------------------------------------------
+During recursive query / update on node handling `[start..end]` with target `[l..r]`:
+
+1. No Overlap (Completely Outside):
+   Condition: `r < start || end < l`
+   Action: Return neutral identity value (0 for Sum, INT_MAX for Min, 0 for GCD).
+
+2. Total Overlap (Completely Inside):
+   Condition: `l <= start && end <= r`
+   Action: Return / Update `tree[node]` directly; set `lazy[node]` if not a leaf.
+
+3. Partial Overlap:
+   Action: Push down any pending lazy values; recurse on left and right children;
+           merge results: `tree[node] = tree[leftChild] + tree[rightChild]`.
+
+4. LAZY PROPAGATION (PUSH-DOWN MECHANICS)
+--------------------------------------------------------------------------------
+When a node has pending lazy values (`lazy[node] != 0`):
+  • Propagate to left child:
+      tree[leftChild] += lazy[node] * leftSegmentLength;
+      lazy[leftChild] += lazy[node];
+  • Propagate to right child:
+      tree[rightChild] += lazy[node] * rightSegmentLength;
+      lazy[rightChild] += lazy[node];
+  • Reset current node lazy value:
+      lazy[node] = 0;
+
+5. MEMORY SAFETY & POINTER INVARIANTS IN C
+--------------------------------------------------------------------------------
+[✓] Always allocate `4 * n` elements: `calloc(4 * n, sizeof(int))`.
+[✓] Never access index 0 when using 1-based indexing; root starts at `node = 1`.
+[✓] Check `start == end` to identify leaf nodes and avoid pushing lazy values past leaves.
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

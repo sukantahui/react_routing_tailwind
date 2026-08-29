@@ -1,0 +1,34 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Segment 8 · Module: 2D Grid & Knapsack DP: Subset Sum, Partition Equal & Multi-Dimensional States
+Topic: Classroom Lab Dialogue: Sukanta Sir on Why 0/1 Knapsack Iterates Backwards while Unbounded Knapsack Iterates Forwards
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. CONCEPT OVERVIEW & THEORETICAL FOUNDATIONS
+--------------------------------------------------------------------------------
+Topic Title: Classroom Lab Dialogue: Sukanta Sir on Why 0/1 Knapsack Iterates Backwards while Unbounded Knapsack Iterates Forwards
+Course Module: 2D Grid & Knapsack DP: Subset Sum, Partition Equal & Multi-Dimensional States
+
+Core Principles:
+  • Memory Integrity: Strict bounds checking on all array indices and pointers.
+  • Time Invariants: Asymptotically optimal step execution.
+  • Space Optimization: Minimal auxiliary allocation to leverage CPU cache lines.
+
+2. ASYMPTOTIC COMPLEXITY ANALYSIS
+--------------------------------------------------------------------------------
+Operation / Phase         Time Complexity       Auxiliary Space
+--------------------------------------------------------------------------------
+Primary Execution         O(N) or O(log N)      O(1) / O(N)
+Memory Allocation         O(1)                  O(N) total block
+Teardown / Cleanup        O(1) or O(N)          O(1)
+
+3. MEMORY SAFETY & POINTER INVARIANTS
+--------------------------------------------------------------------------------
+[✓] Check pointer return after malloc(): `if (!ptr) { exit(EXIT_FAILURE); }`
+[✓] Neutralize pointers post-deallocation: `free(ptr); ptr = NULL;`
+[✓] Never access memory outside allocated boundaries: `0 <= index < capacity`
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

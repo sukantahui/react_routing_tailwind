@@ -1,0 +1,58 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: BITMASKING, SUBSETS & BITSETS
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. BITMASKING PRINCIPLE
+--------------------------------------------------------------------------------
+A bitmask is an integer whose individual bits represent boolean membership flags.
+An N-bit integer can model the presence/absence of N items across 2^N possible states.
+
+• Check if item `i` is in subset `mask`:    (mask & (1 << i)) != 0
+• Add item `i` to subset `mask`:            mask | (1 << i)
+• Remove item `i` from subset `mask`:         mask & ~(1 << i)
+• Total subsets for N items:                 1 << N  (= 2^N)
+
+2. SUBMASK ENUMERATION TRICK (O(3^N) TOTAL COMPLEXITY)
+--------------------------------------------------------------------------------
+To iterate over all valid submasks of a given mask:
+
+    int submask = mask;
+    while (submask > 0) {
+        // Process submask
+        submask = (submask - 1) & mask;
+    }
+    // Process submask = 0 (empty set)
+
+Mathematical Proof of O(3^N):
+  Sum_{k=0 to N} (N choose k) * 2^k = (1 + 2)^N = 3^N states total.
+  Much faster than brute force O(2^N * 2^N) = O(4^N)!
+
+3. DYNAMIC 64-BIT BITSET ARCHITECTURE IN C
+--------------------------------------------------------------------------------
+A Bitset compresses boolean arrays 8x compared to `bool[]`:
+
+    typedef struct {
+        uint64_t* words; // Array of 64-bit integers
+        size_t size;     // Total bit capacity
+    } Bitset;
+
+Memory Addressing Math:
+  • Word Index: `index / 64`  (or `index >> 6`)
+  • Bit Offset: `index % 64`  (or `index & 63`)
+
+Operations:
+  • Set:   `bs->words[idx >> 6] |= (1ULL << (idx & 63));`
+  • Clear: `bs->words[idx >> 6] &= ~(1ULL << (idx & 63));`
+  • Test:  `(bs->words[idx >> 6] & (1ULL << (idx & 63))) != 0;`
+
+4. MEMORY SAFETY & 64-BIT SHIFT TRAPS
+--------------------------------------------------------------------------------
+[✓] Always write `1ULL << (idx & 63)`. Never use `1 << (idx & 63)` (which is 32-bit UB!).
+[✓] Calculate number of words as `(numBits + 63) / 64` to prevent buffer truncation.
+[✓] Free allocated `bs->words` before freeing `bs` struct pointer.
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

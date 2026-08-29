@@ -1,0 +1,58 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: SPACE COMPLEXITY & MEMORY HIERARCHY
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. TOTAL SPACE VS AUXILIARY SPACE COMPLEXITY
+--------------------------------------------------------------------------------
+• Total Space Complexity:     Input Space + Auxiliary (Working) Space
+• Auxiliary Space Complexity: Extra temporary working memory allocated by the algorithm
+
+Example (Merge Sort on Array of size N):
+  • Total Space:     O(N) [Input Array] + O(N) [Merge Buffer] + O(log N) [Stack] = O(N)
+  • Auxiliary Space: O(N) [Merge Buffer] + O(log N) [Call Stack] = O(N)
+
+Example (Heap Sort on Array of size N):
+  • Total Space:     O(N) [Input Array]
+  • Auxiliary Space: O(1) [Zero extra memory allocated]
+
+2. CALL STACK ANATOMY & ACTIVATION RECORDS
+--------------------------------------------------------------------------------
+On modern 64-bit x86/ARM systems, each function call pushes a stack frame:
+  [ High Memory ]
+  • Function Arguments (excess beyond registers)
+  • Return Address (8 bytes)
+  • Saved Base Pointer RBP (8 bytes)
+  • Local Automatic Variables (int, structs, buffers)
+  • Saved Callee-Saved Registers (RBX, R12-R15)
+  • Stack Alignment Padding (16-byte boundary)
+  [ Low Memory (RSP) ]
+Overhead: ~32 to 64 bytes per frame. Maximum default stack limit is 8MB on Linux / 1MB on Windows.
+
+3. TAIL CALL OPTIMIZATION (TCO)
+--------------------------------------------------------------------------------
+If the return value of a recursive call is returned directly without further computation:
+    long long factTail(int n, long long acc) {
+        if (n <= 1) return acc;
+        return factTail(n - 1, n * acc); // Tail call!
+    }
+Optimizing C compilers convert this into an in-place `JMP` instruction, achieving O(1) stack space.
+
+4. HARDWARE MEMORY HIERARCHY & CACHE LINES
+--------------------------------------------------------------------------------
+Tier           Typical Capacity       Access Latency       Line Size
+--------------------------------------------------------------------------------
+CPU Registers  ~1 KB                  0.5 ns               8 bytes
+L1 Cache       32 - 64 KB             1 - 1.5 ns           64 bytes
+L2 Cache       512 KB - 1 MB          3 - 5 ns             64 bytes
+L3 Cache       16 - 64 MB             10 - 20 ns           64 bytes
+Main RAM       8 - 64 GB              50 - 100 ns          64 bytes
+NVMe SSD       512 GB - 2 TB          10,000 - 50,000 ns   4 KB Page
+
+Key Takeaway: Sequential Row-Major RAM access takes full advantage of 64-byte 
+L1 cache lines, running 5x-10x faster than strided Column-Major access!
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

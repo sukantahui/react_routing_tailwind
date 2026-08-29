@@ -1,0 +1,48 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: COMPLEXITY CLASSES & TRADEOFFS
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. COMPLEXITY CLASS DEFINITIONS
+--------------------------------------------------------------------------------
+Class                    Definition                                   Examples
+--------------------------------------------------------------------------------
+P (Polynomial)           Solvable in deterministic polynomial O(n^k)  Sorting, Shortest Path, MST
+NP (Nondeterministic P)  Verifiable in deterministic polynomial O(n^k) Sudoku, TSP, Factoring
+NP-Complete              Hardest in NP; if one is in P, then P = NP   3-SAT, TSP, Subset Sum
+NP-Hard                  At least as hard as NP-Complete problems     Halting Problem, Optimization TSP
+
+2. THE MILLENNIUM PRIZE PROBLEM: P VS NP
+--------------------------------------------------------------------------------
+• Question: Does `P = NP`?
+• Meaning: If verifying a solution is easy, is finding the solution always easy?
+• Consensus: Most computer scientists believe `P != NP`, implying NP-Complete problems 
+  require exponential time O(2^n) in the worst case.
+
+3. POLYNOMIAL REDUCTION (L1 <=p L2)
+--------------------------------------------------------------------------------
+A problem L1 reduces to L2 in polynomial time if any instance of L1 can be 
+transformed into an equivalent instance of L2 using a polynomial-time algorithm.
+If L2 is solvable in polynomial time, L1 is automatically solvable in polynomial time.
+
+4. FUNDAMENTAL SPACE-TIME TRADEOFFS IN C
+--------------------------------------------------------------------------------
+Pattern                   Time Complexity    Space Complexity    Trade-off Rationale
+--------------------------------------------------------------------------------
+Linear Array Search       O(N)               O(1)                Saves RAM, slow lookup
+Direct Address Table      O(1)               O(MaxVal)           Instant speed, large RAM
+Hash Table (DJB2)         Average O(1)       O(N)                Balanced memory & speed
+DP Memoization Table      O(N)               O(N)                Trades memory to cache results
+In-Place Sort (HeapSort)  O(N log N)         O(1)                Sacrifices stability for 0 RAM
+Merge Sort                O(N log N)         O(N)                Trades auxiliary RAM for stability
+
+5. ENGINEERING CHECKLIST FOR PRODUCTION C CODE
+--------------------------------------------------------------------------------
+[✓] Profile before optimizing: use `gprof` or `valgrind --tool=callgrind`.
+[✓] Avoid micro-optimizations that sacrifice code clarity unless on critical loop hot paths.
+[✓] Match the data structure to access patterns: fast lookups -> Hash/Trie; ordered range scans -> BST/B+ Tree.
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

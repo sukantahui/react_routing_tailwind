@@ -1,0 +1,41 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: DSA CAPSTONE PROJECTS & ARCHITECTURE
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. CAPSTONE ARCHITECTURE: THE HIGH-PERFORMANCE LRU CACHE
+--------------------------------------------------------------------------------
+The Least Recently Used (LRU) Cache is an industry-standard data structure used 
+in Redis, Memcached, Linux VFS page caches, and database buffer pools.
+
+Component Composition:
+  • Doubly Linked List: Maintains temporal recency order in O(1) pointer updates.
+  • Hash Table:         Provides O(1) instant key-to-node lookup.
+
+2. OPERATION INVARIANTS
+--------------------------------------------------------------------------------
+• Get(key):
+    1. Search key in Hash Table.
+    2. If found, detach node from current list position and attach to head (MRU).
+    3. Return node value (O(1) time).
+    4. If not found, return -1 (Cache Miss).
+
+• Put(key, value):
+    1. If key exists in Hash Table: update value and promote to head (MRU).
+    2. If key is new:
+       a. If cache is full (`size == capacity`), evict `tail` node (LRU).
+       b. Remove evicted node from hash bucket and `free()` its memory.
+       c. Allocate new node, attach to head (MRU), insert into hash bucket.
+       d. Increment size (O(1) time).
+
+3. ENTERPRISE CAPSTONE BLUEPRINTS
+--------------------------------------------------------------------------------
+Project 1: In-Memory Key-Value Store with TTL (Time-To-Live) and LRU Eviction
+Project 2: Huffman File Compression and Decompression Engine in C
+Project 3: B+ Tree Storage Engine for On-Disk Database Indexing
+Project 4: High-Throughput Network Router Packet Buffer with Sliding Window
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

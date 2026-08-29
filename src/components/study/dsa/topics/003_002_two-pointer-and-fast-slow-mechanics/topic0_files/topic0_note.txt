@@ -1,0 +1,68 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: TWO-POINTER & FAST-SLOW POINTERS
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. CORE CONCEPTS & PATTERNS
+--------------------------------------------------------------------------------
+The Two-Pointer technique optimizes search and partition algorithms on arrays 
+and linked lists, typically reducing O(n^2) brute-force searches to O(n) linear 
+scans with O(1) auxiliary space.
+
+Primary Two-Pointer Archetypes:
+  1. Opposite-End Converging Pointers: left = 0, right = n - 1 (2-Sum, Container Water)
+  2. Same-Direction Pointers: Read pointer & Write pointer (Remove Duplicates)
+  3. Fast & Slow Pointers (Floyd's Tortoise & Hare): Cycle detection & list midpoint
+  4. 3-Way Partitioning Pointers: Dutch National Flag (Low, Mid, High)
+
+2. OPPOSITE-END CONVERGING POINTERS
+--------------------------------------------------------------------------------
+Used on sorted arrays where moving pointers inward preserves monotonic properties:
+
+• 2-Sum in Sorted Array:
+    int sum = arr[left] + arr[right];
+    if (sum == target) return match;
+    else if (sum < target) left++;   // Need larger sum
+    else right--;                   // Need smaller sum
+
+• Container With Most Water Proof:
+    Area = min(h[L], h[R]) * (R - L)
+    If h[L] < h[R], all areas formed with L and any R' < R will be strictly smaller.
+    Therefore, L can be permanently discarded by incrementing L++.
+
+3. DUTCH NATIONAL FLAG 3-WAY PARTITIONING
+--------------------------------------------------------------------------------
+Partitions an array into 3 regions: [0..low-1] are 0s, [low..mid-1] are 1s,
+[high+1..n-1] are 2s.
+
+Loop Invariants:
+  • arr[mid] == 0: swap(arr[low], arr[mid]), low++, mid++
+  • arr[mid] == 1: mid++
+  • arr[mid] == 2: swap(arr[mid], arr[high]), high-- (DO NOT increment mid!)
+
+4. FLOYD'S TORTOISE & HARE (FAST & SLOW) POINTERS
+--------------------------------------------------------------------------------
+• Middle Node Finding:
+    Slow moves 1 step: slow = slow->next
+    Fast moves 2 steps: fast = fast->next->next
+    When fast == NULL (even length) or fast->next == NULL (odd length), slow is at middle.
+
+• Mathematical Cycle Invariant:
+    Let distance from head to cycle start = L
+    Let distance from cycle start to meeting point = d
+    Let cycle length = C
+    When fast and slow meet, fast has traveled 2x distance of slow:
+      2 * (L + d) = L + d + k * C  =>  L = k * C - d
+    Starting one pointer at head and one at meeting point moving 1 step each,
+    they will collide exactly at the cycle entrance node!
+
+5. MEMORY SAFETY & CORNER CASES IN C
+--------------------------------------------------------------------------------
+[✓] Check `fast != NULL && fast->next != NULL` before advancing `fast->next->next`.
+[✓] Handle 0-element and 1-element arrays before initializing `right = n - 1`.
+[✓] Always skip duplicate elements in 3-Sum: `while (L < R && arr[L] == arr[L+1]) L++`.
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

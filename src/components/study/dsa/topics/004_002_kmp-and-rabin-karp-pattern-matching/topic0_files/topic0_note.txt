@@ -1,0 +1,64 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: KMP & RABIN-KARP PATTERN SEARCHING
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. NAIVE VS ADVANCED PATTERN MATCHING
+--------------------------------------------------------------------------------
+Given Text T of length N and Pattern P of length M:
+
+• Naive Matcher:
+    Compares P against T[i..i+M-1]. On mismatch, increments text index i by 1 
+    and restarts pattern from index 0.
+    Worst-Case Time: O(N * M) (e.g. searching "AAAAB" in "AAAAAAAAAAAAAAAAAA")
+
+• Knuth-Morris-Pratt (KMP):
+    Eliminates text pointer backtracking by precomputing the Longest Prefix Suffix 
+    (LPS / pi-table) array of the pattern.
+    Guaranteed Time: O(N + M), Auxiliary Space: O(M) for LPS array.
+
+• Rabin-Karp Rolling Hash:
+    Computes a polynomial rolling hash for pattern and text windows.
+    Average Time: O(N + M), Worst-Case Time: O(N * M) (if every hash collides).
+
+2. KMP LPS (LONGEST PREFIX SUFFIX) TABLE DERIVATION
+--------------------------------------------------------------------------------
+`LPS[i]` = length of the longest proper prefix of P[0..i] that is also a suffix.
+
+Example for Pattern P = "ABABCABAB":
+  Index i:      0  1  2  3  4  5  6  7  8
+  Pattern P[i]: A  B  A  B  C  A  B  A  B
+  LPS[i]:       0  0  1  2  0  1  2  3  4
+
+Search Logic:
+  • If mismatch occurs at P[j] != T[i]:
+      - If j != 0: set `j = LPS[j - 1]` (text index i remains UNCHANGED!)
+      - If j == 0: increment `i++`
+
+3. RABIN-KARP POLYNOMIAL ROLLING HASH FORMULA
+--------------------------------------------------------------------------------
+Let base B = 256 (ASCII range) and prime MOD = 1,000,000,007.
+
+• Initial Hash for Window W = T[0..M-1]:
+    Hash(W) = (T[0]*B^(M-1) + T[1]*B^(M-2) + ... + T[M-1]*B^0) % MOD
+
+• Rolling to Next Window W' = T[1..M] in O(1):
+    Hash(W') = (B * (Hash(W) - T[0]*B^(M-1)) + T[M]) % MOD
+
+• Handling Negative Modulo in C:
+    if (Hash < 0) Hash += MOD;
+
+• Spurious Hits:
+    If Hash(Window) == Hash(Pattern), verify exact characters using `strncmp()` 
+    to guard against hash collisions.
+
+4. MEMORY SAFETY & INVARIANTS IN C
+--------------------------------------------------------------------------------
+[✓] Const-qualify string parameters: `void KMPSearch(const char* text, const char* pattern)`.
+[✓] Dynamically allocate LPS array with size `m * sizeof(int)` and free after search.
+[✓] Handle edge cases: pattern longer than text (M > N), empty pattern (M == 0).
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

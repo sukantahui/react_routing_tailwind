@@ -1,0 +1,59 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: 1D DYNAMIC PROGRAMMING PATTERNS
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. DYNAMIC PROGRAMMING PARADIGM PILLARS
+--------------------------------------------------------------------------------
+Dynamic Programming is an optimization over recursive brute-force search that 
+trades memory for speed (caching overlapping subproblems).
+
+The 4-Step DP Formulation Recipe:
+  1. Define State: What does `dp[i]` represent in plain English?
+  2. Formulate Recurrence Relation: How does `dp[i]` transition from previous states?
+  3. Establish Base Cases: What are the simplest known values (e.g. `dp[0] = 0`)?
+  4. Optimize Space: Can we compress the 1D array into 2 or 3 scalar variables?
+
+2. CLIMBING STAIRS & FIBONACCI PATTERN
+--------------------------------------------------------------------------------
+Recurrence: `dp[i] = dp[i-1] + dp[i-2]`
+Space Optimization:
+    int prev2 = 1, prev1 = 1;
+    for (int i = 2; i <= n; i++) {
+        int curr = prev1 + prev2;
+        prev2 = prev1;
+        prev1 = curr;
+    }
+    // Result: prev1 (O(N) time, O(1) space)
+
+3. HOUSE ROBBER (NON-ADJACENT SUBSET SUM)
+--------------------------------------------------------------------------------
+Decision at house `i`:
+  • Option 1 (Rob house i):  `nums[i] + dp[i-2]`
+  • Option 2 (Skip house i): `dp[i-1]`
+Recurrence: `dp[i] = max(dp[i-1], nums[i] + dp[i-2])`
+Space Complexity: O(1) auxiliary variables `prev1`, `prev2`.
+
+4. COIN CHANGE (MINIMUM COINS)
+--------------------------------------------------------------------------------
+Recurrence: `dp[amount] = min_{c in coins} (dp[amount - c] + 1)`
+Initialization: `dp[0] = 0`, all other `dp[i] = amount + 1` (safe infinity)
+Time Complexity: O(amount * number_of_coins)
+
+5. LONGEST INCREASING SUBSEQUENCE (LIS)
+--------------------------------------------------------------------------------
+• Standard DP:
+    `dp[i] = 1 + max_{j < i, arr[j] < arr[i]} dp[j]` -> O(N^2) time.
+
+• Patience Sorting with Binary Search (Optimal):
+    Maintain `tails[]` array where `tails[len]` is the smallest tail of an 
+    increasing subsequence of length `len + 1`.
+    For each `x` in `nums`:
+      Find insertion index `idx` using lowerBound(tails, x).
+      tails[idx] = x; (if idx == len, len++).
+    Time Complexity: O(N log N), Auxiliary Space: O(N).
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

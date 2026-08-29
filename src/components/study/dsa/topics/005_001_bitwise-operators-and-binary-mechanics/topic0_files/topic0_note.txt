@@ -1,0 +1,70 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: BITWISE OPERATORS & BINARY SYSTEMS
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. BITWISE OPERATOR TRUTH TABLES
+--------------------------------------------------------------------------------
+Operands: A and B (0 or 1)
+
+  A   B  |  AND (&)  |  OR (|)  |  XOR (^)  |  NOT (~A)
+---------------------------------------------------------
+  0   0  |     0     |    0     |    0      |     1
+  0   1  |     0     |    1     |    1      |     1
+  1   0  |     0     |    1     |    1      |     0
+  1   1  |     1     |    1     |    0      |     0
+
+Key Algebraic Properties:
+  • Identity:      x ^ 0 = x,      x & ~0 = x,     x | 0 = x
+  • Self-Inverse:  x ^ x = 0       (Used in single-number finding algorithms)
+  • Inversion:     ~x = -(x + 1)   (Two's Complement arithmetic identity)
+
+2. TWO'S COMPLEMENT NUMBER SYSTEM
+--------------------------------------------------------------------------------
+In Two's complement representation:
+  - Positive numbers: standard binary (MSB = 0)
+  - Negative numbers: invert all bits and add 1 (-x = ~x + 1, MSB = 1)
+
+Example (8-bit signed char):
+  +5  = 0000 0101
+  ~5  = 1111 1010
+  -5  = 1111 1011 (Decimal -5)
+
+Range of N-bit signed integer:    -2^(N-1) to 2^(N-1) - 1
+Range of N-bit unsigned integer:   0 to 2^N - 1
+
+3. ENDIANNESS IN PHYSICAL MEMORY
+--------------------------------------------------------------------------------
+Value: 0x12345678 (4 bytes)
+
+• Little-Endian (x86, ARM default):
+    Address A+0: 0x78 (LSB)
+    Address A+1: 0x56
+    Address A+2: 0x34
+    Address A+3: 0x12 (MSB)
+
+• Big-Endian (Network Byte Order, TCP/IP):
+    Address A+0: 0x12 (MSB)
+    Address A+1: 0x34
+    Address A+2: 0x56
+    Address A+3: 0x78 (LSB)
+
+4. C BITFIELDS & PACKED STRUCTURES
+--------------------------------------------------------------------------------
+struct Register {
+    unsigned int readEnable  : 1; // 1 bit
+    unsigned int writeEnable : 1; // 1 bit
+    unsigned int mode        : 2; // 2 bits
+    unsigned int channelId   : 4; // 4 bits
+}; // Packs 8 bits into a single byte!
+
+5. SAFETY RULES IN C BIT MANIPULATION
+--------------------------------------------------------------------------------
+[✓] Always use unsigned types (`uint32_t`, `uint64_t`) for bit shifts.
+[✓] Use `1ULL << k` when shifting 64-bit masks; `1 << 35` overflows signed 32-bit int.
+[✓] Never shift by an amount >= bit-width of operand (e.g. `x << 32` for 32-bit int is UB).
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

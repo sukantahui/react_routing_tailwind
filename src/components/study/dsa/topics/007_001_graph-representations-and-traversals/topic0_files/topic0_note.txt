@@ -1,0 +1,63 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: GRAPH REPRESENTATIONS & TRAVERSALS
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. GRAPH REPRESENTATION COMPARISON
+--------------------------------------------------------------------------------
+Given graph G = (V, E):
+
+Feature                  Adjacency Matrix              Adjacency List
+--------------------------------------------------------------------------------
+Memory Space             O(V^2)                        O(V + E) [Optimal for Sparse]
+Edge Lookup (u, v)       O(1)                          O(degree(u))
+Iterate Neighbors of u   O(V)                          O(degree(u))
+Dynamic Edge Insertion   O(1)                          O(1) (prepend to list)
+Best Use Case            Dense graphs (E ~ V^2)        Sparse graphs (E << V^2)
+
+2. BREADTH-FIRST SEARCH (BFS) & DEPTH-FIRST SEARCH (DFS)
+--------------------------------------------------------------------------------
+• BFS (Queue-based / Level-Order):
+    - Discovers shortest path in unweighted graphs.
+    - Time: O(V + E), Auxiliary Space: O(V) for visited array & FIFO queue.
+
+• DFS (Stack-based / Recursive):
+    - Explores as deep as possible along each branch before backtracking.
+    - Finds connected components, cycles, bridges, and articulation points.
+    - Time: O(V + E), Auxiliary Space: O(V) for recursion call stack.
+
+3. KAHN'S ALGORITHM FOR TOPOLOGICAL SORT (DAG)
+--------------------------------------------------------------------------------
+Linear ordering of vertices in a Directed Acyclic Graph (DAG) such that for every 
+directed edge u -> v, vertex u comes before v.
+
+Algorithm:
+  1. Calculate in-degree of all V vertices.
+  2. Enqueue all vertices with `inDegree[u] == 0`.
+  3. While queue is not empty:
+       - Dequeue u, append to topological sort output.
+       - For each neighbor v of u:
+           decrement `inDegree[v]--`
+           if `inDegree[v] == 0`, enqueue v.
+  4. If `count < V`, the graph contains a directed cycle (Topological sort is impossible!).
+
+4. MEMORY MANAGEMENT IN C ADJACENCY LISTS
+--------------------------------------------------------------------------------
+    void freeGraph(Graph* graph) {
+        if (!graph) return;
+        for (int i = 0; i < graph->V; i++) {
+            AdjListNode* curr = graph->adjLists[i];
+            while (curr != NULL) {
+                AdjListNode* temp = curr;
+                curr = curr->next;
+                free(temp); // Free each list node
+            }
+        }
+        free(graph->adjLists); // Free pointer array
+        free(graph);           // Free main graph container
+    }
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

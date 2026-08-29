@@ -1,0 +1,73 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: BINARY SEARCH & SEARCH ON ANSWER
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
+================================================================================
+
+1. CORE CONCEPT & ASYMPTOTIC COMPLEXITY
+--------------------------------------------------------------------------------
+Binary Search is a divide-and-conquer search algorithm on ordered search spaces.
+Instead of inspecting elements sequentially (O(n)), it compares the target to 
+the median element, eliminating half of the search space at each step.
+
+• Time Complexity (Best Case):    O(1)        [Target found at initial mid]
+• Time Complexity (Worst/Avg):    O(log2 n)   [Search space halved every step]
+• Auxiliary Space (Iterative):   O(1)        [Only 2 pointer variables in RAM]
+• Auxiliary Space (Recursive):   O(log2 n)   [Call stack frames depth]
+
+2. OVERFLOW-SAFE MID CALCULATION
+--------------------------------------------------------------------------------
+Naive calculation:
+    int mid = (low + high) / 2;     // DANGEROUS! If low + high > 2,147,483,647 (INT_MAX),
+                                    // 32-bit signed integer wraps to negative values.
+
+Overflow-Safe calculation:
+    int mid = low + (high - low) / 2; // Mathematically equivalent, 100% overflow safe.
+
+Bitwise equivalent:
+    int mid = low + ((high - low) >> 1); // Uses CPU right shift instruction.
+
+3. LOWER BOUND & UPPER BOUND FORMULAS
+--------------------------------------------------------------------------------
+Given sorted array arr[] of size n and query target X:
+
+• Lower Bound (First occurrence or insertion point):
+  Smallest index `i` such that arr[i] >= X.
+  If all elements are < X, returns n.
+
+• Upper Bound (First element strictly greater):
+  Smallest index `j` such that arr[j] > X.
+  If all elements are <= X, returns n.
+
+• Exact Element Frequency Formula:
+  Count(X) = upperBound(X) - lowerBound(X)
+
+4. BINARY SEARCH ON ANSWER (MONOTONIC PREDICATE PARADIGM)
+--------------------------------------------------------------------------------
+When a problem asks to minimize a maximum (or maximize a minimum), convert the
+optimization problem into a decision problem:
+  
+  Predicate Function: bool isPossible(int candidate_value)
+
+Search Space Monotonicity Curve:
+  [low .............................. optimal_answer .......................... high]
+  [false, false, false, false, false,   true,         true, true, true, true,  true ]
+                                          ▲
+                                   Boundary found in O(log(high - low) * cost(predicate))
+
+Classic Problems:
+  - Painter's Partition Problem / Book Allocation Problem
+  - Aggressive Cows / Capacity to Ship Packages within D Days
+  - Koko Eating Bananas (LeetCode 875)
+
+5. MEMORY SAFETY & POINTER INVARIANTS IN C
+--------------------------------------------------------------------------------
+[✓] Always ensure `low <= high` loop condition when using `high = mid - 1`.
+[✓] Const-qualify input array pointer (`const int arr[]`) to prevent accidental writes.
+[✓] Check boundary conditions: empty array (n == 0), single element (n == 1).
+[!] Never pass uninitialized arrays or raw pointer size via `sizeof(arr)` in functions
+    (in C, arrays decay to pointers inside function signatures).
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

@@ -1,21 +1,72 @@
 ================================================================================
-CODER & ACCOTAX - PRINTABLE STUDY NOTE
-Subject: Data Structures & Algorithms in C
-Module: Array Data Structure, Dynamic Arrays & Matrix Algorithms
-Topic 1: Sparse Matrix Representation & Matrix Operations
-Mentor: Sukanta Hui (Barrackpore, West Bengal)
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: DYNAMIC ARRAY (VECTOR) IN C
+Course: Data Structures & Algorithms in C
+Educator: Sukanta Hui · Barrackpore, West Bengal, India
 ================================================================================
 
-1. SPARSE MATRIX DEFINITION
+1. DYNAMIC ARRAY STRUCT ENCAPSULATION
 --------------------------------------------------------------------------------
-A matrix is considered sparse if the majority of its elements are zero.
-Storing a dense 1000x1000 matrix takes 4 MB of RAM even if only 10 elements are non-zero!
+In C, dynamic arrays are represented as a composite struct managing a heap buffer:
 
-2. 3-TUPLE REPRESENTATION
+  typedef struct {
+      int* data;          // Base address of dynamically allocated heap buffer
+      size_t size;        // Number of elements currently in use
+      size_t capacity;    // Total allocated slots in heap memory
+  } DynamicArray;
+
+  Stack Memory                      Heap Memory
+  ┌───────────────────────┐         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+  │ DynamicArray v        │         │ 10 │ 20 │ 30 │ 40 │ 50 │ ?? │ ?? │ ?? │
+  │ ├─ data: 0x5000 ──────┼────────>└────┴────┴────┴────┴────┴────┴────┴────┘
+  │ ├─ size: 5            │           0    1    2    3    4    5    6    7
+  │ └─ capacity: 8        │          [<---- Active Elements ---->|<-- Free -->]
+  └───────────────────────┘
+
+2. THE GEOMETRIC DOUBLING STRATEGY & AMORTIZED O(1) PROOF
 --------------------------------------------------------------------------------
-Store non-zero elements as an array of structs:
-struct Element { int row; int col; int value; };
-Space Complexity: O(NonZeroCount) instead of O(Rows * Cols).
+Why double capacity (2x) instead of linear increment (+10)?
+
+• Linear Growth (+C):
+  - Inserting N elements triggers N/C reallocations.
+  - Total copy operations: C + 2C + 3C + ... + N = O(N^2) total work.
+  - Amortized cost per push: O(N^2) / N = O(N) (SLOW / Unacceptable).
+
+• Geometric Doubling (2x):
+  - Reallocations occur at capacities 1, 2, 4, 8, 16, ..., N.
+  - Total copy operations: 1 + 2 + 4 + 8 + ... + N/2 = N - 1.
+  - Total work across N pushes = N (insertions) + (N - 1) (copies) = 2N - 1.
+  - Amortized cost per push: (2N - 1) / N ≈ O(1) CONSTANT TIME!
+
+3. SAFE REALLOCATION VS THE DANGLING TRAP
+--------------------------------------------------------------------------------
+[X] DEADLY TRAP (Causes Memory Leak on Realloc Failure):
+    vec->data = (int*)realloc(vec->data, new_capacity * sizeof(int));
+    // If realloc() fails, it returns NULL, overwriting vec->data and 
+    // permanently orphaning the existing buffer!
+
+[✓] IDIOMATIC C SAFE PATTERN:
+    int* temp = (int*)realloc(vec->data, new_capacity * sizeof(int));
+    if (!temp) {
+        perror("Memory allocation failed");
+        // vec->data is still valid! Graceful error recovery possible.
+        return;
+    }
+    vec->data = temp;
+    vec->capacity = new_capacity;
+
+4. HYSTERESIS SHRINKING (PREVENTING BUFFER THRASHING)
+--------------------------------------------------------------------------------
+• Never shrink capacity immediately when size drops below 1/2 capacity.
+• If an app alternates between pushing and popping at the boundary:
+  Push -> Double (realloc) -> Pop -> Halve (realloc) -> Push -> Double...
+• Thrashing cost: O(N) work on EVERY operation!
+• Solution: Shrink capacity to half ONLY when size drops to 1/4 of capacity (25%).
+
+5. MEMORY TEARDOWN CHECKLIST (ZERO LEAKS)
+--------------------------------------------------------------------------------
+1. Free internal buffer: `free(vec->data);`
+2. Neutralize pointer:   `vec->data = NULL;`
+3. Free wrapper struct:  `free(vec);`
 
 ================================================================================
 Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
