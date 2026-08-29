@@ -14636,6 +14636,12 @@
       --tw-shadow-color: color-mix(in oklab, var(--color-cyan-950) var(--tw-shadow-alpha), transparent);
     }
   }
+  .shadow-cyan-950\/20 {
+    --tw-shadow-color: color-mix(in srgb, oklch(30.2% 0.056 229.695) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-cyan-950) 20%, transparent) var(--tw-shadow-alpha), transparent);
+    }
+  }
   .shadow-cyan-950\/40 {
     --tw-shadow-color: color-mix(in srgb, oklch(30.2% 0.056 229.695) 40%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
