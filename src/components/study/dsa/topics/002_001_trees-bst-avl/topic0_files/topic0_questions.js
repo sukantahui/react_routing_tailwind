@@ -1,303 +1,363 @@
 const questions = [
   {
-    "id": 1,
-    "question": "What is the primary physical memory allocation pattern utilized in \"Tree Anatomy & Invariants: Root, leaves, height, depth, subtrees, and binary tree strict properties\"?",
-    "options": [
-      "Contiguous heap/stack buffer layout designed to maximize CPU L1/L2 cache line hits and deterministic address calculation",
-      "Randomly scattered virtual pages without memory alignment",
-      "Unbuffered disk swap paging exclusively",
-      "Hardware register banking without RAM involvement"
+    id: 1,
+    question: "What is the fundamental graph-theoretic definition of a Tree data structure?",
+    options: [
+      "An undirected, connected, acyclic graph containing N vertices and exactly N - 1 edges with a unique simple path between any two vertices",
+      "A cyclic directed graph with bidirectional loops",
+      "A linear data structure where each element has at least two parents",
+      "A collection of isolated vertices with zero connecting edges"
     ],
-    "answer": "Contiguous heap/stack buffer layout designed to maximize CPU L1/L2 cache line hits and deterministic address calculation",
-    "explanation": "In C systems programming, efficient data structures prioritize contiguous byte layout to leverage hardware spatial locality and minimize L1 cache miss latency."
+    answer: "An undirected, connected, acyclic graph containing N vertices and exactly N - 1 edges with a unique simple path between any two vertices",
+    explanation: "A tree is an acyclic connected graph. If a tree has N vertices, it is mathematically guaranteed to contain exactly N - 1 edges and zero cycles."
   },
   {
-    "id": 2,
-    "question": "In \"Tree Anatomy & Invariants: Root, leaves, height, depth, subtrees, and binary tree strict properties\", what is the exact consequence of dereferencing a NULL or uninitialized pointer?",
-    "options": [
-      "Triggers an immediate Hardware Segmentation Fault (SIGSEGV) because page 0 (0x0) is protected by the OS MMU",
-      "Silently returns integer value 0 without interrupting execution",
-      "The C runtime automatically allocates a new node on the heap",
-      "The CPU switches to single-threaded mode"
+    id: 2,
+    question: "What is a 'Root Node' in a rooted binary tree hierarchy?",
+    options: [
+      "The topmost vertex in the tree that has in-degree 0 (has no incoming edges or parent)",
+      "The bottom-most node with out-degree 0",
+      "Any node that has exactly two children",
+      "A node stored at physical memory address 0x0"
     ],
-    "answer": "Triggers an immediate Hardware Segmentation Fault (SIGSEGV) because page 0 (0x0) is protected by the OS MMU",
-    "explanation": "The virtual memory page containing address 0x0 is mapped as non-accessible by the Operating System kernel. Attempting to read or write to it raises an unrecoverable SIGSEGV signal."
+    answer: "The topmost vertex in the tree that has in-degree 0 (has no incoming edges or parent)",
+    explanation: "The root node is the unique entry point into the tree hierarchy from which all other nodes are reachable via directed descendant paths."
   },
   {
-    "id": 3,
-    "question": "Why must dynamic memory allocations in \"Binary Trees, BST & AVL Self-Balancing Trees\" be performed using `sizeof(*ptr)` rather than hardcoded primitive sizes?",
-    "options": [
-      "It ensures type-safety and eliminates allocation size mismatches if the pointer's declared type is modified during refactoring",
-      "It compresses heap chunks by 50%",
-      "It is required by the POSIX thread standard",
-      "It forces the memory to be allocated in read-only segments"
+    id: 3,
+    question: "What is the difference between the 'Depth' and the 'Height' of a node in a tree?",
+    options: [
+      "Depth is the number of edges from the ROOT down to the node; Height is the number of edges on the LONGEST path from the node down to a leaf",
+      "Depth and Height are identical synonyms with the exact same value",
+      "Depth is measured from leaf to root; Height is measured from root to sibling",
+      "Depth is always 0 for leaves; Height is always 0 for the root"
     ],
-    "answer": "It ensures type-safety and eliminates allocation size mismatches if the pointer's declared type is modified during refactoring",
-    "explanation": "Writing `ptr = malloc(sizeof(*ptr))` automatically binds allocation size directly to the target struct or variable type, preventing buffer overflow bugs."
+    answer: "Depth is the number of edges from the ROOT down to the node; Height is the number of edges on the LONGEST path from the node down to a leaf",
+    explanation: "Depth measures distance downwards from the top (Root has depth 0). Height measures the longest distance downwards to a bottom leaf (Leaves have height 0; Root height equals the tree's total height)."
   },
   {
-    "id": 4,
-    "question": "How does CPU Spatial Locality impact the execution time of algorithms in \"Tree Anatomy & Invariants: Root, leaves, height, depth, subtrees, and binary tree strict properties\"?",
-    "options": [
-      "When a memory byte is accessed, the hardware prefetcher loads adjacent 64-byte cache lines into L1 cache, making subsequent sequential accesses ~100x faster than random memory jumps",
-      "It disables CPU speculative execution",
-      "It compresses all integer arithmetic into 8-bit registers",
-      "It eliminates the need for pointer validation"
+    id: 4,
+    question: "Under the standard edge-count convention in computer science, what is the height of an EMPTY tree and a SINGLE-NODE tree?",
+    options: [
+      "Empty tree height = -1; Single-node tree height = 0",
+      "Empty tree height = 0; Single-node tree height = 1",
+      "Empty tree height = 1; Single-node tree height = 2",
+      "Empty tree height = undefined; Single-node tree height = -1"
     ],
-    "answer": "When a memory byte is accessed, the hardware prefetcher loads adjacent 64-byte cache lines into L1 cache, making subsequent sequential accesses ~100x faster than random memory jumps",
-    "explanation": "Reading from L1 cache takes ~1ns (4-5 CPU cycles) whereas reading from main RAM takes ~100ns (200-300 cycles). Spatial locality is a cornerstone of low-latency DSA design."
+    answer: "Empty tree height = -1; Single-node tree height = 0",
+    explanation: "Because height measures the number of edges on the longest downward path, a single node has 0 edges to itself (height = 0), and an empty tree (NULL) is defined as -1 so that 1 + max(-1, -1) = 0 for a leaf."
   },
   {
-    "id": 5,
-    "question": "What is the risk of Struct Padding and Byte Alignment when creating custom node structures for \"Tree Anatomy & Invariants: Root, leaves, height, depth, subtrees, and binary tree strict properties\"?",
-    "options": [
-      "The compiler inserts invisible padding bytes to align members to natural word boundaries (4 or 8 bytes), increasing total memory consumption per node",
-      "It causes compilation failure on 64-bit systems",
-      "It reverses the byte endianness of integer fields",
-      "It converts structs into unions"
+    id: 5,
+    question: "What is a 'Leaf Node' (External Node) in a binary tree?",
+    options: [
+      "A node with degree 0 (both left and right child pointers are NULL)",
+      "A node that has exactly one child",
+      "A node that is an ancestor of the root",
+      "Any node located at depth 1"
     ],
-    "answer": "The compiler inserts invisible padding bytes to align members to natural word boundaries (4 or 8 bytes), increasing total memory consumption per node",
-    "explanation": "To optimize memory bus transfers, CPUs require data to align with addresses divisible by their size. Ordering struct fields from largest to smallest minimizes padding waste."
+    answer: "A node with degree 0 (both left and right child pointers are NULL)",
+    explanation: "Leaf nodes are the terminal vertices at the boundaries of the tree hierarchy that possess zero children (`node->left == NULL && node->right == NULL`)."
   },
   {
-    "id": 6,
-    "question": "What is the core algorithmic invariant that must be maintained throughout \"Tree Anatomy & Invariants: Root, leaves, height, depth, subtrees, and binary tree strict properties\"?",
-    "options": [
-      "Strict adherence to the structural ordering property and validity of boundary indices/pointers across all mutations",
-      "All arrays must be strictly sorted in descending order",
-      "Every function must execute in O(1) time",
-      "All memory blocks must be smaller than 1 kilobyte"
+    id: 6,
+    question: "What defines an 'Internal Node' (Non-Leaf Node) in a tree?",
+    options: [
+      "Any node that has at least one child (degree >= 1)",
+      "Only nodes that have exactly two children",
+      "Only the root node",
+      "Nodes that do not have memory allocated on the heap"
     ],
-    "answer": "Strict adherence to the structural ordering property and validity of boundary indices/pointers across all mutations",
-    "explanation": "Algorithmic correctness relies on preserving invariant state (e.g. BST search property, heap order, or sliding window bounds) before and after every state transition."
+    answer: "Any node that has at least one child (degree >= 1)",
+    explanation: "An internal node is any non-terminal vertex in the tree that possesses one or more child subtrees (degree >= 1)."
   },
   {
-    "id": 7,
-    "question": "In \"Tree Anatomy & Invariants: Root, leaves, height, depth, subtrees, and binary tree strict properties\", what is the primary state transition or recursion step?",
-    "options": [
-      "Subdividing the primary problem space into smaller independent or overlapping sub-problems and aggregating optimal sub-solutions",
-      "Executing an infinite loop until RAM is exhausted",
-      "Rebooting the CPU thread pool on each iteration",
-      "Converting dynamic structures to static arrays"
+    id: 7,
+    question: "What are 'Siblings' in a tree data structure?",
+    options: [
+      "Nodes that share the exact same direct parent node",
+      "Nodes located on adjacent memory addresses",
+      "Nodes located at different depths in the tree",
+      "Nodes that have the exact same integer key value"
     ],
-    "answer": "Subdividing the primary problem space into smaller independent or overlapping sub-problems and aggregating optimal sub-solutions",
-    "explanation": "Whether through Divide-and-Conquer, Dynamic Programming, or iterative window shrinking, reducing problem dimension systematically ensures convergence."
+    answer: "Nodes that share the exact same direct parent node",
+    explanation: "In a binary tree, the left child and right child of a given parent node are siblings to each other."
   },
   {
-    "id": 8,
-    "question": "When executing pointer updates in \"Tree Anatomy & Invariants: Root, leaves, height, depth, subtrees, and binary tree strict properties\", why is update ordering critical?",
-    "options": [
-      "Modifying a pointer before securing reference to its target or downstream chain permanently breaks linked connectivity, orphaning unreferenced nodes in memory",
-      "The compiler will reverse the execution order automatically",
-      "Pointers can only be updated once per process",
-      "It causes integer underflow in CPU registers"
+    id: 8,
+    question: "What is the defining invariant of a 'Full Binary Tree' (also known as a Proper or Strict Binary Tree)?",
+    options: [
+      "Every node in the tree has EITHER 0 OR 2 children (no node has degree 1)",
+      "All levels must be completely filled with nodes",
+      "All leaves must be on the leftmost side of the tree",
+      "Every node must have exactly one left child"
     ],
-    "answer": "Modifying a pointer before securing reference to its target or downstream chain permanently breaks linked connectivity, orphaning unreferenced nodes in memory",
-    "explanation": "In pointer-based structures, updating `curr->next = new_node` without first saving `new_node->next = curr->next` permanently loses the rest of the list."
+    answer: "Every node in the tree has EITHER 0 OR 2 children (no node has degree 1)",
+    explanation: "In a Full Binary Tree, every vertex is either an internal node with both left and right children, or a leaf node with zero children. No node has only a single child."
   },
   {
-    "id": 9,
-    "question": "How does in-place algorithm execution compare to auxiliary buffer allocation in \"Tree Anatomy & Invariants: Root, leaves, height, depth, subtrees, and binary tree strict properties\"?",
-    "options": [
-      "In-place execution operates within the existing memory footprint in O(1) auxiliary space, preserving cache warmth and reducing memory pressure",
-      "In-place execution requires O(N^2) extra RAM",
-      "Auxiliary allocation is always faster than in-place mutation",
-      "In-place algorithms cannot be written in C"
+    id: 9,
+    question: "In any Full Binary Tree with I internal nodes, what is the number of Leaf Nodes L?",
+    options: [
+      "L = I + 1",
+      "L = 2 * I",
+      "L = I - 1",
+      "L = I^2"
     ],
-    "answer": "In-place execution operates within the existing memory footprint in O(1) auxiliary space, preserving cache warmth and reducing memory pressure",
-    "explanation": "In-place mutation avoids expensive heap allocation system calls and keeps active data residing inside CPU cache hierarchies."
+    answer: "L = I + 1",
+    explanation: "Mathematical proof: In a full binary tree, each internal node adds 2 edges, and total vertices N = 2I + 1. Since N = L + I, substituting yields L + I = 2I + 1 => L = I + 1."
   },
   {
-    "id": 10,
-    "question": "What role do sentinel nodes (dummy heads/tails) play in simplifying pointer logic in \"Tree Anatomy & Invariants: Root, leaves, height, depth, subtrees, and binary tree strict properties\"?",
-    "options": [
-      "They eliminate edge-case branching for empty structures and insertions/deletions at boundary positions (head/tail)",
-      "They double the memory capacity of the container",
-      "They automatically sort the elements",
-      "They prevent stack allocation limits"
+    id: 10,
+    question: "What is the defining invariant of a 'Complete Binary Tree'?",
+    options: [
+      "All levels are completely filled except possibly the last level, and all nodes in the last level are packed as far LEFT as possible",
+      "Every level has exactly 2^h nodes without exception",
+      "All leaves must be at odd-numbered depths",
+      "The left subtree must always be larger than the right subtree"
     ],
-    "answer": "They eliminate edge-case branching for empty structures and insertions/deletions at boundary positions (head/tail)",
-    "explanation": "A dummy sentinel guarantees that every valid element always has a non-null preceding and succeeding neighbor, removing tedious `if (!head)` checks."
+    answer: "All levels are completely filled except possibly the last level, and all nodes in the last level are packed as far LEFT as possible",
+    explanation: "Complete binary trees allow contiguous array representations without gaps: if a parent is at index i, left child is at 2i + 1 and right child at 2i + 2 (essential for Binary Heaps)."
   },
   {
-    "id": 11,
-    "question": "What critical edge case must always be checked first when implementing \"Tree Anatomy & Invariants: Root, leaves, height, depth, subtrees, and binary tree strict properties\"?",
-    "options": [
-      "Empty input container, NULL base pointer, or container size N = 0 and N = 1",
-      "Checking if the computer is connected to the internet",
-      "Verifying if numbers are prime",
-      "Checking floating point precision mode"
+    id: 11,
+    question: "In a Complete Binary Tree mapped to a 0-indexed array, where are the parent and children of a node at index i located?",
+    options: [
+      "Parent: floor((i - 1) / 2); Left Child: 2i + 1; Right Child: 2i + 2",
+      "Parent: 2i; Left Child: i + 1; Right Child: i + 2",
+      "Parent: i - 1; Left Child: 2i; Right Child: 2i + 1",
+      "Parent: i / 2; Left Child: i + 2; Right Child: i + 4"
     ],
-    "answer": "Empty input container, NULL base pointer, or container size N = 0 and N = 1",
-    "explanation": "Boundary inputs (empty, single-element, or identical values) are the most frequent causes of null-pointer exceptions and infinite loops."
+    answer: "Parent: floor((i - 1) / 2); Left Child: 2i + 1; Right Child: 2i + 2",
+    explanation: "This mathematical index relation enables Binary Heaps and Priority Queues to be stored in contiguous cache-friendly arrays with zero pointer overhead."
   },
   {
-    "id": 12,
-    "question": "What is a 'Dangling Pointer' bug in the context of \"Tree Anatomy & Invariants: Root, leaves, height, depth, subtrees, and binary tree strict properties\"?",
-    "options": [
-      "A pointer that continues to hold the memory address of a node or buffer that has already been deallocated via `free()`",
-      "A pointer declared with the `const` qualifier",
-      "A pointer that points to static global memory",
-      "A pointer stored in an array"
+    id: 12,
+    question: "What is a 'Perfect Binary Tree'?",
+    options: [
+      "A binary tree where all internal nodes have exactly 2 children AND all leaf nodes are at the exact same depth",
+      "A tree where all node keys are prime numbers",
+      "A tree with height equal to the number of nodes N",
+      "A tree where every node has only a right child"
     ],
-    "answer": "A pointer that continues to hold the memory address of a node or buffer that has already been deallocated via `free()`",
-    "explanation": "Deallocating memory releases the heap block to the allocator's free list, but leaves the pointer variable holding the old address. Reading or writing to it results in Use-After-Free corruption."
+    answer: "A binary tree where all internal nodes have exactly 2 children AND all leaf nodes are at the exact same depth",
+    explanation: "A perfect binary tree is completely full at every level. For height h, it contains exactly 2^(h+1) - 1 nodes and 2^h leaves."
   },
   {
-    "id": 13,
-    "question": "What is the standard industrial remedy to eliminate Dangling Pointer bugs after `free(ptr)`?",
-    "options": [
-      "Immediately set `ptr = NULL;` so any accidental future access triggers an instant, predictable SIGSEGV crash instead of silent memory corruption",
-      "Call malloc immediately with size 0",
-      "Recompile the code with optimization flags -O3",
-      "Cast the pointer to `void*`"
+    id: 13,
+    question: "How many total nodes N are present in a Perfect Binary Tree of height h?",
+    options: [
+      "N = 2^(h + 1) - 1",
+      "N = 2^h",
+      "N = 2 * h + 1",
+      "N = h^2"
     ],
-    "answer": "Immediately set `ptr = NULL;` so any accidental future access triggers an instant, predictable SIGSEGV crash instead of silent memory corruption",
-    "explanation": "Neutralizing pointers to NULL prevents Use-After-Free security vulnerabilities, and `free(NULL)` is guaranteed to be a safe no-op by ISO C."
+    answer: "N = 2^(h + 1) - 1",
+    explanation: "Sum of geometric progression across levels 0 to h: 2^0 + 2^1 + 2^2 + ... + 2^h = 2^(h+1) - 1."
   },
   {
-    "id": 14,
-    "question": "What catastrophic vulnerability occurs when dynamic memory is reallocated using `ptr = realloc(ptr, new_size)` without a temporary pointer?",
-    "options": [
-      "If `realloc()` fails and returns NULL, `ptr` is overwritten with NULL, causing an unrecoverable memory leak of the original allocated block",
-      "The operating system terminates all running threads",
-      "The file system enters read-only mode",
-      "The compiler converts the array to a linked list"
+    id: 14,
+    question: "How many leaf nodes L are in a Perfect Binary Tree of height h?",
+    options: [
+      "L = 2^h",
+      "L = 2^(h - 1)",
+      "L = h + 1",
+      "L = 2 * h"
     ],
-    "answer": "If `realloc()` fails and returns NULL, `ptr` is overwritten with NULL, causing an unrecoverable memory leak of the original allocated block",
-    "explanation": "Always use `void* tmp = realloc(ptr, new_size); if (!tmp) { /* handle error */ } else { ptr = tmp; }` to preserve the original pointer on failure."
+    answer: "L = 2^h",
+    explanation: "In a perfect binary tree, all leaves reside at the bottom level h. Level h has exactly 2^h vertices."
   },
   {
-    "id": 15,
-    "question": "What happens if a recursive function in \"Tree Anatomy & Invariants: Root, leaves, height, depth, subtrees, and binary tree strict properties\" lacks a proper base termination condition?",
-    "options": [
-      "Unbounded recursive activation frames are pushed onto the Call Stack until the OS stack guard page is breached, triggering a Stack Overflow (SIGSEGV) crash",
-      "The function returns 0 automatically",
-      "The CPU executes the function in negative time",
-      "The operating system increases stack RAM to infinite capacity"
+    id: 15,
+    question: "What is a 'Degenerate' (or Pathological / Skewed) Binary Tree?",
+    options: [
+      "A tree where every internal parent node has only ONE child, causing height to equal N - 1 (resembling a singly linked list)",
+      "A tree with negative numbers as node keys",
+      "A tree where all nodes are stored in read-only memory",
+      "A tree with circular loops between leaf nodes"
     ],
-    "answer": "Unbounded recursive activation frames are pushed onto the Call Stack until the OS stack guard page is breached, triggering a Stack Overflow (SIGSEGV) crash",
-    "explanation": "Call stack memory is strictly bounded (typically 1-8 MB). Unbounded recursion exhausts stack memory rapidly, causing a hard process crash."
+    answer: "A tree where every internal parent node has only ONE child, causing height to equal N - 1 (resembling a singly linked list)",
+    explanation: "A degenerate tree loses all logarithmic advantages: tree height degrades to N - 1, and search time degrades from O(log N) to linear O(N)."
   },
   {
-    "id": 16,
-    "question": "What is the optimal Asymptotic Time Complexity targeted in \"Tree Anatomy & Invariants: Root, leaves, height, depth, subtrees, and binary tree strict properties\"?",
-    "options": [
-      "O(1) constant or O(log N) logarithmic / O(N) linear time depending on the exact operational phase",
-      "O(N!) factorial time",
-      "O(2^N) exponential time",
-      "O(N^4) polynomial time"
+    id: 16,
+    question: "What is the maximum number of nodes that can exist at level l of any binary tree (where root is level 0)?",
+    options: [
+      "2^l",
+      "2^(l - 1)",
+      "2 * l",
+      "l^2"
     ],
-    "answer": "O(1) constant or O(log N) logarithmic / O(N) linear time depending on the exact operational phase",
-    "explanation": "Industrial algorithms strive for logarithmic O(log N) or linear O(N) upper bounds to ensure scalable execution on millions of data records."
+    answer: "2^l",
+    explanation: "Level 0 has 2^0 = 1 node (root), level 1 has up to 2^1 = 2 nodes, level 2 has up to 2^2 = 4 nodes, and level l has up to 2^l nodes."
   },
   {
-    "id": 17,
-    "question": "What is the difference between 'Auxiliary Space Complexity' and 'Total Space Complexity' for \"Tree Anatomy & Invariants: Root, leaves, height, depth, subtrees, and binary tree strict properties\"?",
-    "options": [
-      "Auxiliary Space measures only the extra temporary working memory allocated by the algorithm, excluding the input data size itself",
-      "Auxiliary Space includes the hard disk swap partition",
-      "Total Space measures only CPU register usage",
-      "There is no difference between auxiliary and total space"
+    id: 17,
+    question: "What is the minimum possible height of a binary tree containing N nodes?",
+    options: [
+      "ceil(log2(N + 1)) - 1 (or floor(log2(N)))",
+      "N / 2",
+      "N - 1",
+      "sqrt(N)"
     ],
-    "answer": "Auxiliary Space measures only the extra temporary working memory allocated by the algorithm, excluding the input data size itself",
-    "explanation": "An algorithm that sorts an array of size N in-place uses O(N) total space (for input) but strictly O(1) auxiliary working space."
+    answer: "ceil(log2(N + 1)) - 1 (or floor(log2(N)))",
+    explanation: "Minimum height occurs when the tree is as complete/balanced as possible, packing up to 2^(h+1) - 1 nodes into height h, yielding logarithmic height."
   },
   {
-    "id": 18,
-    "question": "What is the formal definition of 'Amortized Time Complexity' in data structure operations?",
-    "options": [
-      "The average time per operation evaluated over a worst-case sequence of N consecutive operations (e.g. dynamic array doubling)",
-      "The best-case execution time on a sorted array",
-      "The time taken when running on multiple CPU cores",
-      "The compilation time of the program"
+    id: 18,
+    question: "In ANY binary tree, what is the mathematical relationship between the number of leaf nodes L and the number of nodes with degree 2 (N_2)?",
+    options: [
+      "L = N_2 + 1",
+      "L = 2 * N_2",
+      "L = N_2 - 1",
+      "L = N_2 + 2"
     ],
-    "answer": "The average time per operation evaluated over a worst-case sequence of N consecutive operations (e.g. dynamic array doubling)",
-    "explanation": "Amortized analysis guarantees that even if an occasional single operation is expensive (e.g. O(N) reallocation), the average cost per operation across a long sequence remains strictly O(1)."
+    answer: "L = N_2 + 1",
+    explanation: "Universal Theorem: In any binary tree where vertices have degree 0, 1, or 2, the number of leaves (degree 0) is always exactly 1 greater than the number of nodes with 2 children (L = N_2 + 1)."
   },
   {
-    "id": 19,
-    "question": "According to the Master Theorem for divide-and-conquer recurrences T(n) = aT(n/b) + f(n), what determines the overall complexity?",
-    "options": [
-      "The asymptotic comparison between the work done at the leaves n^(log_b a) and the work done at the divide/combine step f(n)",
-      "The total number of global variables in the C source file",
-      "The physical clock speed of the CPU in GHz",
-      "The RAM bus width"
+    id: 19,
+    question: "What is the Balance Factor (BF) of a node N in an AVL / Balanced Binary Tree?",
+    options: [
+      "BF = Height(N.left) - Height(N.right)",
+      "BF = Depth(N.left) + Depth(N.right)",
+      "BF = Count(N.left) / Count(N.right)",
+      "BF = Height(N) * 2"
     ],
-    "answer": "The asymptotic comparison between the work done at the leaves n^(log_b a) and the work done at the divide/combine step f(n)",
-    "explanation": "The Master Theorem compares $f(n)$ against the watershed function $n^{\\log_b a}$ to determine whether leaf work, root work, or balanced tree work dominates the asymptotic bound."
+    answer: "BF = Height(N.left) - Height(N.right)",
+    explanation: "The balance factor is the difference between left and right subtree heights. For an AVL tree, BF must be in {-1, 0, +1} at every node."
   },
   {
-    "id": 20,
-    "question": "Why is an algorithm with O(N log N) time complexity vastly superior to O(N^2) for N = 1,000,000 elements?",
-    "options": [
-      "For N = 10^6, N log2(N) is ~20 million operations, whereas N^2 is 1 trillion (10^12) operations—running in milliseconds vs hours",
-      "Because log N removes negative numbers",
-      "Because O(N^2) is not compilable in modern C",
-      "Because O(N log N) uses zero CPU power"
+    id: 20,
+    question: "What is the 'Diameter' (or Width) of a binary tree?",
+    options: [
+      "The length of the longest path between any two nodes in the tree (which may or may not pass through the root)",
+      "The number of leaf nodes on the bottom level",
+      "The total memory size of all tree structs combined",
+      "The maximum difference between keys in the tree"
     ],
-    "answer": "For N = 10^6, N log2(N) is ~20 million operations, whereas N^2 is 1 trillion (10^12) operations—running in milliseconds vs hours",
-    "explanation": "Asymptotic growth curves diverge exponentially at scale: a 1-trillion operation workload takes ~16 minutes at 1 GHz, while 20 million operations take ~0.02 seconds."
+    answer: "The length of the longest path between any two nodes in the tree (which may or may not pass through the root)",
+    explanation: "Diameter is calculated as max(left_diameter, right_diameter, left_height + right_height + 2) in edge count."
   },
   {
-    "id": 21,
-    "question": "In the Barrackpore Lab dialogue for \"Tree Anatomy & Invariants: Root, leaves, height, depth, subtrees, and binary tree strict properties\", what key insight does Sukanta Sir emphasize regarding pointer ownership?",
-    "options": [
-      "Every dynamically allocated heap resource must have exactly ONE clearly designated owner responsible for its lifecycle and deallocation",
-      "All pointers should be global variables to avoid passing arguments",
-      "Pointers should never be freed until the operating system shuts down",
-      "Always cast every pointer to a float"
+    id: 21,
+    question: "In C, what is the memory footprint of `struct TreeNode { int data; struct TreeNode *left, *right; }` on a 64-bit architecture?",
+    options: [
+      "24 bytes (4 bytes data + 4 bytes compiler padding + 8 bytes left + 8 bytes right)",
+      "12 bytes (4 bytes data + 4 bytes left + 4 bytes right)",
+      "16 bytes with zero padding",
+      "32 bytes due to 64-bit alignment restrictions"
     ],
-    "answer": "Every dynamically allocated heap resource must have exactly ONE clearly designated owner responsible for its lifecycle and deallocation",
-    "explanation": "Disciplined resource ownership prevents both orphaned memory leaks and catastrophic double-free heap corruption bugs in enterprise C architectures."
+    answer: "24 bytes (4 bytes data + 4 bytes compiler padding + 8 bytes left + 8 bytes right)",
+    explanation: "On 64-bit systems, pointer variables require 8-byte boundary alignment. The compiler inserts 4 padding bytes after `int data` (4B) so that `struct TreeNode *left` starts at an 8-byte aligned address."
   },
   {
-    "id": 22,
-    "question": "Which compiler flag in GCC/Clang should always be enabled during development of \"Tree Anatomy & Invariants: Root, leaves, height, depth, subtrees, and binary tree strict properties\" to detect memory leaks and boundary violations at runtime?",
-    "options": [
-      "-fsanitize=address -g (AddressSanitizer / ASan)",
-      "-O3 (Maximum optimization only)",
-      "-w (Disable all warnings)",
-      "-fno-exceptions"
+    id: 22,
+    question: "How many edges E exist in a valid binary tree containing N vertices?",
+    options: [
+      "E = N - 1",
+      "E = N",
+      "E = 2 * N",
+      "E = N / 2"
     ],
-    "answer": "-fsanitize=address -g (AddressSanitizer / ASan)",
-    "explanation": "AddressSanitizer instruments memory operations with shadow memory guards, reporting exact source code line numbers for out-of-bounds reads/writes and memory leaks."
+    answer: "E = N - 1",
+    explanation: "Every node in a tree has exactly one incoming edge from its parent, except the root node which has 0 incoming edges. Total edges = N - 1."
   },
   {
-    "id": 23,
-    "question": "In real-world enterprise infrastructure (e.g. Linux Kernel, Redis, PostgreSQL), where is \"Tree Anatomy & Invariants: Root, leaves, height, depth, subtrees, and binary tree strict properties\" actively applied?",
-    "options": [
-      "Core system subsystems such as memory allocators, database index engines, virtual file systems (VFS), and high-throughput network packet buffers",
-      "Writing simple word processing macros only",
-      "Designing static HTML pages",
-      "Disabling hardware interrupts exclusively"
+    id: 23,
+    question: "What is an 'Ancestor' of a node X in a tree?",
+    options: [
+      "Any node located on the unique path from the Root node down to X (including parent, grandparent, etc.)",
+      "Any node located in X's left or right subtrees",
+      "Any node that shares the same depth as X",
+      "The sibling node of X"
     ],
-    "answer": "Core system subsystems such as memory allocators, database index engines, virtual file systems (VFS), and high-throughput network packet buffers",
-    "explanation": "The data structures and algorithmic patterns in this track form the fundamental bedrock of operating system kernels, relational storage engines, and high-frequency trading engines."
+    answer: "Any node located on the unique path from the Root node down to X (including parent, grandparent, etc.)",
+    explanation: "Node Y is an ancestor of X if and only if X is a descendant of Y (i.e. Y lies on the path from Root to X)."
   },
   {
-    "id": 24,
-    "question": "What is the diagnostic difference between a 'Definitely Lost' leak and a 'Still Reachable' leak in Valgrind Memcheck?",
-    "options": [
-      "'Definitely Lost' means all pointers to the allocated block were lost (unrecoverable leak); 'Still Reachable' means pointers to the block still exist at program exit",
-      "'Still Reachable' means the CPU memory is permanently damaged",
-      "'Definitely Lost' indicates a hardware disk fault",
-      "Both indicate syntax compilation errors"
+    id: 24,
+    question: "What is a 'Descendant' of a node X in a tree?",
+    options: [
+      "Any node reachable by following downward child edges starting from X (all nodes in X's subtrees)",
+      "The direct parent of X",
+      "Nodes located on level 0",
+      "Nodes with degree 2"
     ],
-    "answer": "'Definitely Lost' means all pointers to the allocated block were lost (unrecoverable leak); 'Still Reachable' means pointers to the block still exist at program exit",
-    "explanation": "Definitely lost leaks represent fundamental bugs where memory became unreachable during runtime. Still reachable blocks are typically global pointers not explicitly freed before process termination."
+    answer: "Any node reachable by following downward child edges starting from X (all nodes in X's subtrees)",
+    explanation: "A descendant of X is any vertex that lies within the subtree rooted at X."
   },
   {
-    "id": 25,
-    "question": "What is the ultimate takeaway from Sukanta Sir's Barrackpore Lab on mastering Data Structures in C?",
-    "options": [
-      "True mastery requires bridging high-level mathematical abstractions with exact low-level physical byte layouts, cache locality, and zero-leak memory management",
-      "Memorizing syntax without understanding memory is sufficient",
-      "Always avoid pointers and use global variables",
-      "C is strictly a theoretical academic language"
+    id: 25,
+    question: "Why does recursive tree height calculation `calculateHeight(root)` require Post-Order Traversal?",
+    options: [
+      "Because the height of a parent node cannot be determined until the heights of BOTH left and right children are calculated first (Height = 1 + max(lh, rh))",
+      "Because pre-order traversal cannot allocate stack memory in C",
+      "Because in-order traversal reverses child heights",
+      "Because post-order traversal runs in O(1) time"
     ],
-    "answer": "True mastery requires bridging high-level mathematical abstractions with exact low-level physical byte layouts, cache locality, and zero-leak memory management",
-    "explanation": "Understanding how algorithms interact with CPU cache lines, stack frames, and the OS heap allocator is what distinguishes an exceptional systems engineer from a syntax coder."
+    answer: "Because the height of a parent node cannot be determined until the heights of BOTH left and right children are calculated first (Height = 1 + max(lh, rh))",
+    explanation: "Computing parent height is a bottom-up aggregation: we must visit Left child, visit Right child, and then compute `1 + max(leftH, rightH)` for the current Root."
+  },
+  {
+    id: 26,
+    question: "What is the time complexity of calculating the Height of a binary tree with N nodes?",
+    options: [
+      "O(N) because every node in the tree must be visited once",
+      "O(log N) under all circumstances",
+      "O(1) using hardware prefetchers",
+      "O(N^2) due to nested recursive calls"
+    ],
+    answer: "O(N) because every node in the tree must be visited once",
+    explanation: "The recursive function `calculateHeight(root)` visits every vertex in the tree exactly once, executing constant O(1) operations per vertex, leading to strictly O(N) total time."
+  },
+  {
+    id: 27,
+    question: "What happens if a programmer frees a parent node with `free(root)` before calling `freeTree(root->left)` and `freeTree(root->right)`?",
+    options: [
+      "It causes Undefined Behavior and Memory Leaks because child pointers become Dangling Pointers that cannot be safely dereferenced",
+      "The C runtime automatically deallocates all child nodes",
+      "The operating system re-attaches the children to the root",
+      "The program executes faster due to batch deallocation"
+    ],
+    answer: "It causes Undefined Behavior and Memory Leaks because child pointers become Dangling Pointers that cannot be safely dereferenced",
+    explanation: "In C, deallocating memory invalidates its addresses. Reading `root->left` after `free(root)` is a Use-After-Free bug. Post-order deallocation is required to ensure children are freed before parent."
+  },
+  {
+    id: 28,
+    question: "What is a 'Subtree' in a binary tree?",
+    options: [
+      "A tree consisting of a chosen node and all of its descendants, retaining all connecting edges",
+      "A collection of leaves with no root",
+      "An array of integer values",
+      "A disjoint set with no edges"
+    ],
+    answer: "A tree consisting of a chosen node and all of its descendants, retaining all connecting edges",
+    explanation: "Every node in a binary tree acts as the root of its own subtree, containing all nodes that descend from it."
+  },
+  {
+    id: 29,
+    question: "How does the number of edges in a tree compare to a general graph with N vertices?",
+    options: [
+      "A tree with N vertices has strictly N - 1 edges (minimal connectivity), whereas a general graph can have up to N*(N - 1)/2 edges",
+      "A tree always has more edges than a complete graph",
+      "A tree has exactly 2N edges",
+      "A tree has no edges"
+    ],
+    answer: "A tree with N vertices has strictly N - 1 edges (minimal connectivity), whereas a general graph can have up to N*(N - 1)/2 edges",
+    explanation: "A tree is a minimally connected graph: removing any single edge disconnects the tree, and adding any single edge creates a cycle."
+  },
+  {
+    id: 30,
+    question: "Why are binary trees fundamentally important in modern systems programming and database architecture?",
+    options: [
+      "They provide hierarchical logarithmic O(log N) search, insertion, and deletion, powering B-Trees in databases, LSM-Trees in storage engines, and ASTs in compilers",
+      "They use less electricity than arrays in CPU hardware",
+      "They allow infinite data storage without RAM limits",
+      "They eliminate the need for CPU instruction registers"
+    ],
+    answer: "They provide hierarchical logarithmic O(log N) search, insertion, and deletion, powering B-Trees in databases, LSM-Trees in storage engines, and ASTs in compilers",
+    explanation: "From SQLite and PostgreSQL index B+Trees to Linux kernel Red-Black process schedulers and compiler syntax trees (ASTs), hierarchical tree data structures form the backbone of systems engineering."
   }
 ];
 

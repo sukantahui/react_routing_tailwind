@@ -1,30 +1,89 @@
 ================================================================================
-CODER & ACCOTAX - PRINTABLE STUDY NOTE
-Subject: Data Structures & Algorithms in C
-Module: Binary Trees, BST & AVL Self-Balancing Trees
-Topic 0: Tree Traversals, BST Mechanics & AVL Balance Factors
-Mentor: Sukanta Hui (Barrackpore, West Bengal)
+CODER & ACCOTAX - ADVANCED TECHNICAL STUDY NOTE
+Segment 2 · Module: Binary Trees, BST & AVL Self-Balancing Trees
+Topic 0: Tree Anatomy & Invariants: Root, leaves, height, depth, subtrees, and strict properties
+Mentor: Sukanta Hui · Barrackpore, West Bengal, India
 ================================================================================
 
-1. TREE TRAVERSALS SUMMARY
+1. TREE ANATOMY & FUNDAMENTAL DEFINITIONS
 --------------------------------------------------------------------------------
-- Inorder (LVR): Left Subtree -> Root -> Right Subtree (Sorted for BST)
-- Preorder (VLR): Root -> Left Subtree -> Right Subtree (Copy / Serialization)
-- Postorder (LRV): Left Subtree -> Right Subtree -> Root (Deletion / Evaluation)
-- Level-Order: BFS using Queue data structure
+A Tree is a non-linear, hierarchical data structure consisting of nodes connected
+by directed or undirected edges, with exactly ONE unique simple path between any
+two vertices and ZERO cycles.
 
-2. AVL TREE ROTATION MATRIX
---------------------------------------------------------------------------------
-Imbalance Type        Rotation Strategy
---------------------------------------------------------------------------------
-LL (Left-Left)        Single Right Rotation
-RR (Right-Right)      Single Left Rotation
-LR (Left-Right)       Left Rotation on Left Child, then Right Rotation on Root
-RL (Right-Left)       Right Rotation on Right Child, then Left Rotation on Root
+Core Anatomical Components:
+  • Root: The top-most vertex with in-degree 0 (has no parent).
+  • Edge: Directed link connecting a parent node to its child.
+  • Parent & Child: If edge points A -> B, A is the parent and B is the child.
+  • Siblings: Nodes sharing the exact same direct parent.
+  • Leaf (External) Node: A node with degree 0 (no children: left == NULL && right == NULL).
+  • Internal (Non-Leaf) Node: A node with at least one child (degree >= 1).
+  • Ancestors: All nodes on the path from Root down to that node (excluding itself).
+  • Descendants: All nodes in the subtrees rooted at that node.
+  • Subtree: Any node in the tree together with all its descendants.
 
-Balance Factor Formula:
-  Balance_Factor(node) = Height(Left_Subtree) - Height(Right_Subtree)
-  Valid AVL Balance Factor: {-1, 0, +1}
+2. HEIGHT VS. DEPTH VS. LEVEL (THE CRITICAL DISTINCTIONS)
+--------------------------------------------------------------------------------
+Metric              Definition                                  Root Value      Leaf Value
+--------------------------------------------------------------------------------
+Depth of Node N     Number of edges from ROOT down to N         0               Depth = Tree Height
+Height of Node N    Number of edges on longest path down to LEAF Height of Tree 0
+Height of Tree      Height of the Root Node                     Longest path    --
+Level of Node N     Distance from Root + 1 (or 0-indexed Depth) Level 0 / 1     Level h / h+1
+
+Edge vs Node Convention:
+  • Edge Count Convention (Standard): Empty tree height = -1, single node height = 0.
+  • Node Count Convention: Empty tree height = 0, single node height = 1.
+
+3. STRICT BINARY TREE CLASSIFICATIONS
+--------------------------------------------------------------------------------
+[1] Full (Strict / Proper) Binary Tree:
+    • Invariant: Every node has EITHER 0 OR 2 children (no node has degree 1).
+    • Theorem: Number of leaves L = Internal nodes I + 1.
+
+[2] Complete Binary Tree:
+    • Invariant: All levels are completely filled except possibly the last level,
+      and all nodes on the last level are as far LEFT as possible.
+    • Array Mapping: If parent is at index `i`, left child is at `2i + 1`, right child at `2i + 2`.
+    • Height: Exactly floor(log2(N)).
+
+[3] Perfect Binary Tree:
+    • Invariant: All internal nodes have 2 children AND all leaf nodes are at the same level.
+    • Total Nodes: N = 2^(h+1) - 1.
+    • Total Leaves: L = 2^h.
+
+[4] Balanced Binary Tree (AVL Invariant):
+    • Invariant: For every node N, |Height(N.left) - Height(N.right)| <= 1.
+    • Guarantees O(log N) worst-case height and lookup bounds.
+
+[5] Degenerate (Pathological / Skewed) Tree:
+    • Invariant: Every internal node has exactly 1 child.
+    • Tree height = N - 1. Equivalent to a singly linked list with O(N) search time.
+
+4. MATHEMATICAL FORMULAS & INVARIANTS CHEAT SHEET
+--------------------------------------------------------------------------------
+Property                                Formula / Bound
+--------------------------------------------------------------------------------
+Max nodes at level `l`                  2^l (assuming root is level 0)
+Max nodes in binary tree of height `h`  2^(h+1) - 1
+Min height with `N` nodes               ceil(log2(N + 1)) - 1
+Max height with `N` nodes               N - 1 (Degenerate tree)
+Leaf-to-Degree-2 Relationship           L = N_2 + 1 (in ANY binary tree!)
+Edges in a tree with `N` vertices       E = N - 1
+
+5. C PHYSICAL MEMORY & STRUCT ALIGNMENT
+--------------------------------------------------------------------------------
+```c
+typedef struct TreeNode {
+    int data;               // 4 bytes
+    // 4 bytes invisible padding inserted by compiler on 64-bit systems
+    struct TreeNode *left;  // 8 bytes pointer
+    struct TreeNode *right; // 8 bytes pointer
+} TreeNode;                 // Total = 24 bytes per node in RAM
+```
+[✓] Check `malloc` return for NULL before initialization.
+[✓] Always use post-order traversal (`freeTree`) to free children before root.
+[✓] Set pointers to NULL after freeing to eliminate Dangling Pointers.
 
 ================================================================================
 Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India

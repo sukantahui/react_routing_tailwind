@@ -298,6 +298,66 @@ const questions = [
     ],
     "answer": "100 elements (at indices 0 through 99)",
     "explanation": "An array dimension of size N provides exactly N discrete slots, indexed from `0` to `N - 1`."
+  },
+  {
+    "id": 26,
+    "question": "What is the primary operational difference between `malloc(n * sizeof(int))` and `calloc(n, sizeof(int))` in C?",
+    "options": [
+      "`malloc` leaves allocated memory uninitialized containing arbitrary garbage values, whereas `calloc` zeroes out all allocated bytes (0x00)",
+      "`malloc` allocates memory on the Stack while `calloc` allocates on the Heap",
+      "`malloc` is only for integers while `calloc` is for characters",
+      "`calloc` cannot be freed with `free()`"
+    ],
+    "answer": "`malloc` leaves allocated memory uninitialized containing arbitrary garbage values, whereas `calloc` zeroes out all allocated bytes (0x00)",
+    "explanation": "`malloc` directly returns the allocated heap chunk without zeroing bits, making it faster when all elements are overwritten immediately. `calloc` guarantees zero-initialization, preventing uninitialized memory reads."
+  },
+  {
+    "id": 27,
+    "question": "Why does `calloc(num_elements, element_size)` take two arguments instead of one total byte count?",
+    "options": [
+      "To check for integer multiplication overflow before attempting memory allocation",
+      "Because the C compiler requires row and column dimensions",
+      "To separate memory between CPU and GPU",
+      "Because of a syntax legacy in C89"
+    ],
+    "answer": "To check for integer multiplication overflow before attempting memory allocation",
+    "explanation": "If `num_elements * element_size` exceeds `SIZE_MAX`, an integer overflow wraps around to a small number. `calloc` detects this multiplication overflow internally and safely returns `NULL` without allocating inadequate memory."
+  },
+  {
+    "id": 28,
+    "question": "What does `realloc(ptr, new_size)` do if the existing heap memory block cannot be expanded in-place?",
+    "options": [
+      "It allocates a new contiguous memory block elsewhere on the heap, copies existing data over, automatically frees the old block, and returns the new pointer",
+      "It throws an exception and terminates the process",
+      "It corrupts adjacent heap memory chunks",
+      "It converts the array to a linked list"
+    ],
+    "answer": "It allocates a new contiguous memory block elsewhere on the heap, copies existing data over, automatically frees the old block, and returns the new pointer",
+    "explanation": "When contiguous space adjacent to the current block is unavailable, `realloc` allocates a fresh block of `new_size`, migrates `min(old_size, new_size)` bytes, releases the old block, and returns the updated pointer address."
+  },
+  {
+    "id": 29,
+    "question": "Why is writing `ptr = NULL;` immediately after `free(ptr);` considered an essential defensive programming standard?",
+    "options": [
+      "It eliminates Dangling Pointers and ensures any subsequent accidental dereference crashes immediately at address 0x0 rather than corrupting memory silently (Use-After-Free)",
+      "It returns physical RAM to the motherboard faster",
+      "It speeds up CPU clock cycles",
+      "It is required by the C standard to avoid compilation errors"
+    ],
+    "answer": "It eliminates Dangling Pointers and ensures any subsequent accidental dereference crashes immediately at address 0x0 rather than corrupting memory silently (Use-After-Free)",
+    "explanation": "`free(ptr)` marks heap memory as reusable by the allocator, but the variable `ptr` retains the dead memory address. Setting `ptr = NULL` neutralizes the pointer. Furthermore, `free(NULL)` is a safe no-op in standard C, preventing double-free bugs."
+  },
+  {
+    "id": 30,
+    "question": "What is the result of dereferencing a NULL pointer `int *p = NULL; int val = *p;` on modern protected memory operating systems?",
+    "options": [
+      "Segmentation Fault (SIGSEGV) / Access Violation due to page fault on protected address 0x0",
+      "The value 0 is returned",
+      "The program prompts the user for input",
+      "The CPU resets"
+    ],
+    "answer": "Segmentation Fault (SIGSEGV) / Access Violation due to page fault on protected address 0x0",
+    "explanation": "Virtual memory systems deliberately unmap the lowest address page (`0x00000000`) so that dereferencing a NULL pointer triggers an immediate MMU page fault and terminates the faulty process before data corruption occurs."
   }
 ];
 

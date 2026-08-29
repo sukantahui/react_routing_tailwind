@@ -1,33 +1,141 @@
 ================================================================================
-CODER & ACCOTAX - PRINTABLE STUDY NOTE
+CODER & ACCOTAX - ADVANCED TECHNICAL STUDY NOTE
 Segment 2 · Module: Binary Trees, BST & AVL Self-Balancing Trees
-Topic: Binary Search Tree (BST) Operations: Insertion, Search, and 3-Case Deletion using Inorder Predecessor/Successor
-Educator: Sukanta Hui · Barrackpore, West Bengal, India
+Topic 2: Binary Search Tree (BST) Operations: Insertion, Search, and 3-Case Deletion
+Mentor: Sukanta Hui · Barrackpore, West Bengal, India
 ================================================================================
 
-1. CONCEPT OVERVIEW & THEORETICAL FOUNDATIONS
+1. BST DEFINITION & THE FUNDAMENTAL INVARIANT
 --------------------------------------------------------------------------------
-Topic Title: Binary Search Tree (BST) Operations: Insertion, Search, and 3-Case Deletion using Inorder Predecessor/Successor
-Course Module: Binary Trees, BST & AVL Self-Balancing Trees
-
-Core Principles:
-  • Memory Integrity: Strict bounds checking on all array indices and pointers.
-  • Time Invariants: Asymptotically optimal step execution.
-  • Space Optimization: Minimal auxiliary allocation to leverage CPU cache lines.
+A Binary Search Tree (BST) is a node-based binary tree data structure with the
+following invariant holding true for EVERY node N:
+  • All nodes in the Left Subtree of N have keys STRICTLY LESS THAN N.key
+  • All nodes in the Right Subtree of N have keys STRICTLY GREATER THAN N.key
+  • Both left and right subtrees must also recursively be Binary Search Trees.
+  • Inorder Traversal (Left -> Root -> Right) of a BST ALWAYS yields keys in
+    strictly ascending (sorted) order.
 
 2. ASYMPTOTIC COMPLEXITY ANALYSIS
 --------------------------------------------------------------------------------
-Operation / Phase         Time Complexity       Auxiliary Space
+Operation           Average Case (Balanced)     Worst Case (Skewed)     Auxiliary Space
 --------------------------------------------------------------------------------
-Primary Execution         O(N) or O(log N)      O(1) / O(N)
-Memory Allocation         O(1)                  O(N) total block
-Teardown / Cleanup        O(1) or O(N)          O(1)
+Search              O(log N)                   O(N)                    O(h) stack / O(1) iter
+Insertion           O(log N)                   O(N)                    O(h) recursion
+Deletion (All Cases)O(log N)                   O(N)                    O(h) recursion
+Inorder Traversal   O(N)                       O(N)                    O(h) call stack
+Memory per Node     24 Bytes (on 64-bit: 4B int + 4B pad + 8B left + 8B right)
 
-3. MEMORY SAFETY & POINTER INVARIANTS
+3. BST DELETION: THE 3 STRUCTURAL CASES & MECHANICS
 --------------------------------------------------------------------------------
-[✓] Check pointer return after malloc(): `if (!ptr) { exit(EXIT_FAILURE); }`
-[✓] Neutralize pointers post-deallocation: `free(ptr); ptr = NULL;`
-[✓] Never access memory outside allocated boundaries: `0 <= index < capacity`
+
+[CASE 1]: Node to be deleted is a LEAF NODE (0 Children / Degree 0)
+--------------------------------------------------------------------------------
+• Structural State: Target node has `left == NULL` and `right == NULL`.
+• Pointer Mechanics:
+    - Simply deallocate target node memory: `free(root);`
+    - Return `NULL` to the caller so parent node's corresponding pointer is reset.
+• Concrete Example:
+       50                     50
+      /  \       Delete 20   /  \
+    [30]  70    ---------> 30   70
+    /  \                   \
+  (20)  40                  40
+• C Code Snippet:
+    if (root->left == NULL && root->right == NULL) {
+        free(root);
+        return NULL;
+    }
+
+[CASE 2]: Node to be deleted has ONE CHILD (1 Child / Degree 1)
+--------------------------------------------------------------------------------
+• Structural State: Either `root->left == NULL` OR `root->right == NULL`.
+• Pointer Mechanics:
+    - Bypass the target node by pointing the parent directly to the single child.
+    - Grandparent adopts the grandchild.
+    - Save child pointer: `BSTNode* temp = root->left ? root->left : root->right;`
+    - Deallocate target: `free(root);`
+    - Return `temp;` to parent.
+• Concrete Example (Left child only):
+       50                     50
+      /  \       Delete 30   /  \
+    (30)  70    --------->  20   70
+    /
+   20
+• Concrete Example (Right child only):
+       50                     50
+      /  \       Delete 70   /  \
+     30  (70)   --------->  30   80
+           \
+            80
+• C Code Snippet:
+    if (root->left == NULL) {
+        BSTNode* temp = root->right;
+        free(root);
+        return temp;
+    } else if (root->right == NULL) {
+        BSTNode* temp = root->left;
+        free(root);
+        return temp;
+    }
+
+[CASE 3]: Node to be deleted has TWO CHILDREN (2 Children / Degree 2)
+--------------------------------------------------------------------------------
+When a node has two non-empty subtrees, directly removing it would sever two
+subtrees from the parent. We resolve this by replacing the node's value with an
+adjacent value in the sorted order, reducing the problem to deleting a node with
+at most 1 child!
+
+METHOD 3A: Inorder Successor (Smallest Node in Right Subtree) [RECOMMENDED]
+  • How to find: Go to `root->right`, then traverse `left` as far as possible (`findMin(root->right)`).
+  • Invariant Guarantee: The successor has NO left child (at most 1 right child).
+  • Execution:
+      1. Find successor = `findMin(root->right)`
+      2. Copy successor key into target node: `root->data = successor->data;`
+      3. Recursively delete successor key from right subtree:
+         `root->right = deleteNode(root->right, successor->data);`
+  • Concrete Example (Delete Root 50):
+         (50) [Target]                      (60) [Replaced]
+        /    \                             /    \
+      30      70          ------>        30      70
+     /  \    /  \                       /  \       \
+    20  40 (60)  80                    20  40       80
+          [Succ]
+
+METHOD 3B: Inorder Predecessor (Largest Node in Left Subtree)
+  • How to find: Go to `root->left`, then traverse `right` as far as possible (`findMax(root->left)`).
+  • Invariant Guarantee: The predecessor has NO right child (at most 1 left child).
+  • Execution:
+      1. Find predecessor = `findMax(root->left)`
+      2. Copy predecessor key into target node: `root->data = predecessor->data;`
+      3. Recursively delete predecessor key from left subtree:
+         `root->left = deleteNode(root->left, predecessor->data);`
+  • Concrete Example (Delete Root 50 using Predecessor):
+         (50) [Target]                      (40) [Replaced]
+        /    \                             /    \
+      30      70          ------>        30      70
+     /  \    /  \                       /          \
+    20  (40) 60  80                    20          80
+       [Pred]
+
+4. SUCCESSOR VS. PREDECESSOR COMPARISON MATRIX
+--------------------------------------------------------------------------------
+Metric                  Inorder Successor             Inorder Predecessor
+--------------------------------------------------------------------------------
+Subtree Searched        Right Subtree (`root->right`) Left Subtree (`root->left`)
+Direction of Traversal  Leftmost (`current->left`)    Rightmost (`current->right`)
+Max Children of Candidate At most 1 child (Right)     At most 1 child (Left)
+BST Invariant Preserved YES (Next greater element)    YES (Previous smaller element)
+Cache & Height Impact   Biased deletions skew tree    Alternating preserves balance
+
+5. HARDWARE & MEMORY SAFETY CHECKLIST (ZERO-LEAK DISCIPLINE)
+--------------------------------------------------------------------------------
+[✓] Check `malloc` return for NULL before initialization.
+[✓] In recursive delete, capture returned pointer into parent link:
+    `root->left = deleteNode(root->left, key);`
+[✓] Free heap allocation before re-linking to avoid orphaned memory leaks.
+[✓] Pass double pointer `BSTNode** root` or assign return value `root = deleteNode(root, key)`
+    when deleting root to avoid stale root references in caller.
+[✓] Post-order traversal for `freeTree(root)` guarantees children are freed before parent.
 
 ================================================================================
 Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India

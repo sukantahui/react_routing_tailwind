@@ -1,5 +1,6 @@
 // ============================================================================
 // BinaryTreeVisualizer.jsx - Pro-Level Next-Generation BST Visualizer
+// Soothing Aesthetic Design, Fluid Animations & Batch Entry Engine
 // ============================================================================
 
 import React, { useState, useCallback, useRef, useEffect, useMemo } from "react";
@@ -18,6 +19,12 @@ class TreeNode {
   }
 }
 
+// Deep clone of tree
+const cloneTree = (root) => {
+  if (!root) return null;
+  return new TreeNode(root.value, cloneTree(root.left), cloneTree(root.right));
+};
+
 // Immutable BST Insert
 const insertNode = (root, value) => {
   if (!root) return new TreeNode(value);
@@ -26,22 +33,24 @@ const insertNode = (root, value) => {
   } else if (value > root.value) {
     return new TreeNode(root.value, root.left, insertNode(root.right, value));
   }
-  return root; // No duplicates allowed in BST
+  return root; // No duplicates allowed in standard BST
 };
 
-// Find Minimum node
+// Find Minimum node (Leftmost in subtree)
 const findMin = (node) => {
-  while (node && node.left) node = node.left;
-  return node;
+  let curr = node;
+  while (curr && curr.left) curr = curr.left;
+  return curr;
 };
 
-// Find Maximum node
+// Find Maximum node (Rightmost in subtree)
 const findMax = (node) => {
-  while (node && node.right) node = node.right;
-  return node;
+  let curr = node;
+  while (curr && curr.right) curr = curr.right;
+  return curr;
 };
 
-// Immutable BST Delete
+// Immutable BST Delete (Successor)
 const deleteNode = (root, value) => {
   if (!root) return null;
   if (value < root.value) {
@@ -49,17 +58,36 @@ const deleteNode = (root, value) => {
   } else if (value > root.value) {
     return new TreeNode(root.value, root.left, deleteNode(root.right, value));
   } else {
-    // Node found
     if (!root.left && !root.right) return null;
     if (!root.left) return root.right;
     if (!root.right) return root.left;
 
-    // Node with two children: get inorder successor
     const successor = findMin(root.right);
     return new TreeNode(
       successor.value,
       root.left,
       deleteNode(root.right, successor.value)
+    );
+  }
+};
+
+// Immutable BST Delete (Predecessor)
+const deleteNodePredecessor = (root, value) => {
+  if (!root) return null;
+  if (value < root.value) {
+    return new TreeNode(root.value, deleteNodePredecessor(root.left, value), root.right);
+  } else if (value > root.value) {
+    return new TreeNode(root.value, root.left, deleteNodePredecessor(root.right, value));
+  } else {
+    if (!root.left && !root.right) return null;
+    if (!root.left) return root.right;
+    if (!root.right) return root.left;
+
+    const predecessor = findMax(root.left);
+    return new TreeNode(
+      predecessor.value,
+      deleteNodePredecessor(root.left, predecessor.value),
+      root.right
     );
   }
 };
@@ -163,246 +191,135 @@ const findLCA = (root, n1, n2) => {
   return root;
 };
 
-// Presets
+// Presets (including user batch preset)
 const PRESETS = {
-  balanced: [50, 25, 75, 12, 37, 62, 87],
-  full: [40, 20, 60, 10, 30, 50, 70],
-  skewedLeft: [70, 60, 50, 40, 30],
-  skewedRight: [20, 30, 40, 50, 60],
-  complex: [55, 33, 78, 22, 44, 66, 99, 11, 28, 38, 49, 88],
+  balanced: { label: "Balanced BST (7)", data: [50, 25, 75, 12, 37, 62, 87] },
+  userBatch: { label: "Batch Sample (10)", data: [23, 67, 12, 45, 10, 5, 8, 37, 7, 34] },
+  full: { label: "Full Binary Tree (7)", data: [40, 20, 60, 10, 30, 50, 70] },
+  skewedLeft: { label: "Left Skewed (5)", data: [70, 60, 50, 40, 30] },
+  skewedRight: { label: "Right Skewed (5)", data: [20, 30, 40, 50, 60] },
+  complex: { label: "Complex (12 nodes)", data: [55, 33, 78, 22, 44, 66, 99, 11, 28, 38, 49, 88] },
 };
 
-// Color Themes
+// Soothing, Eye-Comfortable Color Themes
 const THEMES = {
-  cyan: {
-    name: "Neon Cyan",
-    primary: "#06b6d4",
-    accent: "#38bdf8",
-    gradStart: "#0891b2",
-    gradEnd: "#06b6d4",
-    border: "border-cyan-500/40",
-    text: "text-cyan-400",
-    bgPill: "bg-cyan-500/20 text-cyan-300 border-cyan-500/30",
-    ring: "ring-cyan-500/30",
+  ocean: {
+    name: "Serene Azure",
+    nodeStart: "#1e293b",
+    nodeEnd: "#0f172a",
+    border: "rgba(56, 189, 248, 0.4)",
+    edge: "#334155",
+    activeEdge: "#38bdf8",
+    halo: "#38bdf8",
+    activeNodeStart: "#0284c7",
+    activeNodeEnd: "#0369a1",
+    accent: "text-sky-400",
+    pillBg: "bg-sky-500/15 border-sky-500/30 text-sky-300",
   },
-  emerald: {
-    name: "Emerald Jade",
-    primary: "#10b981",
-    accent: "#34d399",
-    gradStart: "#059669",
-    gradEnd: "#10b981",
-    border: "border-emerald-500/40",
-    text: "text-emerald-400",
-    bgPill: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
-    ring: "ring-emerald-500/30",
+  sage: {
+    name: "Sage & Mint",
+    nodeStart: "#132a22",
+    nodeEnd: "#0a1914",
+    border: "rgba(52, 211, 153, 0.4)",
+    edge: "#204639",
+    activeEdge: "#34d399",
+    halo: "#34d399",
+    activeNodeStart: "#059669",
+    activeNodeEnd: "#047857",
+    accent: "text-emerald-400",
+    pillBg: "bg-emerald-500/15 border-emerald-500/30 text-emerald-300",
   },
-  purple: {
-    name: "Cosmic Purple",
-    primary: "#8b5cf6",
-    accent: "#a855f7",
-    gradStart: "#7c3aed",
-    gradEnd: "#a855f7",
-    border: "border-purple-500/40",
-    text: "text-purple-400",
-    bgPill: "bg-purple-500/20 text-purple-300 border-purple-500/30",
-    ring: "ring-purple-500/30",
+  lavender: {
+    name: "Lavender Mist",
+    nodeStart: "#231f45",
+    nodeEnd: "#121026",
+    border: "rgba(192, 132, 252, 0.4)",
+    edge: "#3b346d",
+    activeEdge: "#c084fc",
+    halo: "#c084fc",
+    activeNodeStart: "#7c3aed",
+    activeNodeEnd: "#5b21b6",
+    accent: "text-purple-400",
+    pillBg: "bg-purple-500/15 border-purple-500/30 text-purple-300",
   },
-  amber: {
-    name: "Solar Amber",
-    primary: "#f59e0b",
-    accent: "#fbbf24",
-    gradStart: "#d97706",
-    gradEnd: "#f59e0b",
-    border: "border-amber-500/40",
-    text: "text-amber-400",
-    bgPill: "bg-amber-500/20 text-amber-300 border-amber-500/30",
-    ring: "ring-amber-500/30",
+  peach: {
+    name: "Rose Peach",
+    nodeStart: "#2d1b22",
+    nodeEnd: "#190d12",
+    border: "rgba(251, 113, 133, 0.4)",
+    edge: "#4a2835",
+    activeEdge: "#fb7185",
+    halo: "#fb7185",
+    activeNodeStart: "#e11d48",
+    activeNodeEnd: "#be123c",
+    accent: "text-rose-400",
+    pillBg: "bg-rose-500/15 border-rose-500/30 text-rose-300",
   },
 };
 
-// ============================================================================
-// 2. Comprehensive Task Rules & DSA Blueprints Dictionary
-// ============================================================================
-
+// Rules Dictionary
 const TASK_RULES = {
   insert: {
-    id: "insert",
-    title: "BST Node Insertion Protocol",
-    icon: "bi-plus-circle-fill",
-    badge: "O(log N) Avg | O(N) Worst",
-    color: "from-cyan-500/20 to-blue-500/10 text-cyan-400 border-cyan-500/30",
+    title: "BST Node Insertion",
+    badge: "O(log N) Avg",
     invariants: "For any node N: key(N.left) < key(N) < key(N.right)",
     steps: [
-      { step: 1, title: "Comparison with Root", desc: "Compare target value V with current node value N.val." },
-      { step: 2, title: "Branch Direction Decision", desc: "If V < N.val, navigate to left subtree. If V > N.val, navigate to right subtree." },
-      { step: 3, title: "Duplicate Check", desc: "If V === N.val, insertion is rejected (standard BSTs do not allow duplicate keys)." },
-      { step: 4, title: "Leaf Attachment", desc: "When a null pointer is reached, create new TreeNode(V) and attach as a leaf." },
+      { step: 1, title: "Compare with Root", desc: "Compare target V with N.val." },
+      { step: 2, title: "Branch Decision", desc: "If V < N.val branch Left; if V > N.val branch Right." },
+      { step: 3, title: "Attach Leaf", desc: "When NULL is reached, allocate TreeNode(V) as new leaf." },
     ],
-    timeComplexity: "O(log N) average, O(N) worst-case (for skewed trees)",
-    spaceComplexity: "O(h) call stack memory where h is tree height",
-    keyInsight: "Node insertion always occurs as a new leaf node at the bottom of the tree.",
+    timeComplexity: "O(log N) Avg | O(N) Worst",
+    spaceComplexity: "O(h) Stack",
+  },
+  batch: {
+    title: "Sequential Batch Insertion",
+    badge: "O(K log N)",
+    invariants: "Inserts K elements one by one, preserving BST rules at each step.",
+    steps: [
+      { step: 1, title: "Parse Entry Sequence", desc: "Extract valid numeric keys from comma/space separated list." },
+      { step: 2, title: "Iterative Insertion", desc: "For each key, perform standard BST insertion starting from current root." },
+      { step: 3, title: "Tree Construction", desc: "Updates overall tree structure and metrics progressively." },
+    ],
+    timeComplexity: "O(K log N) for K entries",
+    spaceComplexity: "O(h) auxiliary stack per element",
   },
   delete: {
-    id: "delete",
-    title: "BST Node Deletion (3 Structural Cases)",
-    icon: "bi-dash-circle-fill",
+    title: "BST 3-Case Deletion",
     badge: "O(log N) Avg",
-    color: "from-rose-500/20 to-orange-500/10 text-rose-400 border-rose-500/30",
-    invariants: "Must preserve BST ordering property across all subtrees after deletion.",
+    invariants: "Preserves BST ordering across all remaining subtrees.",
     steps: [
-      { step: 1, title: "Case 1: Leaf Node (0 Children)", desc: "Simply delete the node and set its parent pointer to null." },
-      { step: 2, title: "Case 2: Single Child (1 Child)", desc: "Bypass the node by linking its parent directly to its only child (left or right)." },
-      { step: 3, title: "Case 3: Two Children (2 Children)", desc: "Find In-Order Successor (smallest node in right subtree: findMin(node.right))." },
-      { step: 4, title: "Value Replacement & Recursive Cleanup", desc: "Copy successor's value into current node, then delete that successor from right subtree." },
+      { step: 1, title: "Case 1: Leaf (0 Children)", desc: "Directly unlink node and set parent pointer to NULL." },
+      { step: 2, title: "Case 2: Single Child (1 Child)", desc: "Bypass node by linking parent directly to only child." },
+      { step: 3, title: "Case 3: Two Children (2 Children)", desc: "Replace with Inorder Successor (min right) or Predecessor (max left), then delete candidate from subtree." },
     ],
-    timeComplexity: "O(h) where h is tree height (average O(log N))",
-    spaceComplexity: "O(h) auxiliary recursion stack",
-    keyInsight: "Using the in-order successor guarantees that all nodes in left subtree remain smaller, and all remaining nodes in right subtree remain greater.",
+    timeComplexity: "O(log N) Avg",
+    spaceComplexity: "O(h) Stack",
   },
   search: {
-    id: "search",
-    title: "BST Search & Binary Elimination",
-    icon: "bi-search",
-    badge: "Binary Elimination",
-    color: "from-amber-500/20 to-yellow-500/10 text-amber-400 border-amber-500/30",
-    invariants: "Each comparison eliminates half of the remaining search space.",
+    title: "Binary Elimination Search",
+    badge: "O(log N) Avg",
+    invariants: "Halves search space at each level.",
     steps: [
-      { step: 1, title: "Start at Root", desc: "Initialize pointer at the root of the tree." },
-      { step: 2, title: "Match Test", desc: "If node.value === target, search succeeds immediately (Node Found!)." },
-      { step: 3, title: "Target Smaller", desc: "If target < node.value, discard entire right subtree and branch left." },
-      { step: 4, title: "Target Larger", desc: "If target > node.value, discard entire left subtree and branch right." },
-      { step: 5, title: "Termination", desc: "If pointer reaches null, target is guaranteed not present in the BST." },
+      { step: 1, title: "Start at Root", desc: "Initialize search pointer at root." },
+      { step: 2, title: "Binary Comparison", desc: "If target === val: Found! If target < val: branch left; else branch right." },
+      { step: 3, title: "Termination", desc: "If NULL reached, key is not present in BST." },
     ],
-    timeComplexity: "O(log N) best/avg, O(N) worst-case",
-    spaceComplexity: "O(1) iterative / O(h) recursive",
-    keyInsight: "Similar to Binary Search on sorted arrays, BST search achieves logarithmic time by halving search space at each step.",
-  },
-  inorder: {
-    id: "inorder",
-    title: "In-Order Traversal (L → Root → R)",
-    icon: "bi-play-circle-fill",
-    badge: "Produces Sorted Order",
-    color: "from-purple-500/20 to-pink-500/10 text-purple-400 border-purple-500/30",
-    invariants: "Visits nodes in strictly ascending non-decreasing numerical sequence.",
-    steps: [
-      { step: 1, title: "Traverse Left", desc: "Recursively traverse the left subtree: inOrder(node.left)." },
-      { step: 2, title: "Visit Current Root", desc: "Process, print, or record current node value." },
-      { step: 3, title: "Traverse Right", desc: "Recursively traverse the right subtree: inOrder(node.right)." },
-    ],
-    timeComplexity: "O(N) — visits each of the N nodes exactly once",
-    spaceComplexity: "O(h) where h is tree height",
-    keyInsight: "Fundamental for validating if a binary tree is a valid BST (the in-order sequence must be strictly sorted).",
-  },
-  preorder: {
-    id: "preorder",
-    title: "Pre-Order Traversal (Root → L → R)",
-    icon: "bi-diagram-2",
-    badge: "Tree Serialization",
-    color: "from-sky-500/20 to-indigo-500/10 text-sky-400 border-sky-500/30",
-    invariants: "Root is visited before any of its descendant subtrees.",
-    steps: [
-      { step: 1, title: "Visit Current Root", desc: "Process, print, or record current root node first." },
-      { step: 2, title: "Traverse Left", desc: "Recursively traverse the entire left subtree: preOrder(node.left)." },
-      { step: 3, title: "Traverse Right", desc: "Recursively traverse the entire right subtree: preOrder(node.right)." },
-    ],
-    timeComplexity: "O(N) — all nodes visited once",
-    spaceComplexity: "O(h) call stack memory",
-    keyInsight: "Used to create exact clones/copies of a binary tree and in prefix expression evaluations.",
-  },
-  postorder: {
-    id: "postorder",
-    title: "Post-Order Traversal (L → R → Root)",
-    icon: "bi-arrow-repeat",
-    badge: "Bottom-Up Processing",
-    color: "from-indigo-500/20 to-purple-500/10 text-indigo-400 border-indigo-500/30",
-    invariants: "Children are processed completely before their parent node.",
-    steps: [
-      { step: 1, title: "Traverse Left", desc: "Recursively traverse the entire left subtree: postOrder(node.left)." },
-      { step: 2, title: "Traverse Right", desc: "Recursively traverse the entire right subtree: postOrder(node.right)." },
-      { step: 3, title: "Visit Current Root", desc: "Process parent node after all children have finished executing." },
-    ],
-    timeComplexity: "O(N) — linear traversal",
-    spaceComplexity: "O(h) recursion depth",
-    keyInsight: "Essential for bottom-up tasks like calculating subtree sizes, heights, or deleting dynamically allocated trees.",
-  },
-  levelorder: {
-    id: "levelorder",
-    title: "Level-Order Traversal (Breadth-First Search / BFS)",
-    icon: "bi-layers-fill",
-    badge: "Queue Based (BFS)",
-    color: "from-teal-500/20 to-emerald-500/10 text-teal-400 border-teal-500/30",
-    invariants: "Visits nodes level by level from depth 0 down to maximum depth.",
-    steps: [
-      { step: 1, title: "Initialize Queue", desc: "Create a FIFO queue and push root node." },
-      { step: 2, title: "Dequeue & Process", desc: "While queue is not empty, dequeue current node and record its value." },
-      { step: 3, title: "Enqueue Children", desc: "If left child exists, push to queue; if right child exists, push to queue." },
-      { step: 4, title: "Repeat", desc: "Continue until all levels of the tree have been exhausted." },
-    ],
-    timeComplexity: "O(N) — visits each node once",
-    spaceComplexity: "O(W) where W is maximum width of tree",
-    keyInsight: "Used to find shortest paths in unweighted trees/graphs and printing hierarchical tree diagrams.",
-  },
-  lca: {
-    id: "lca",
-    title: "Lowest Common Ancestor (LCA) Split Rule",
-    icon: "bi-share-fill",
-    badge: "O(h) Split Point",
-    color: "from-emerald-500/20 to-teal-500/10 text-emerald-400 border-emerald-500/30",
-    invariants: "The LCA is the highest node where values n1 and n2 diverge into separate subtrees.",
-    steps: [
-      { step: 1, title: "Both Nodes Smaller", desc: "If n1 < root.val AND n2 < root.val, LCA must lie in the left subtree (recurse left)." },
-      { step: 2, title: "Both Nodes Larger", desc: "If n1 > root.val AND n2 > root.val, LCA must lie in the right subtree (recurse right)." },
-      { step: 3, title: "Split Point Detected", desc: "If one value is <= root.val and other >= root.val (or root matches one of them), root is the LCA!" },
-    ],
-    timeComplexity: "O(h) where h is tree height (O(log N) in balanced BST)",
-    spaceComplexity: "O(1) iterative / O(h) recursive",
-    keyInsight: "Taking advantage of BST order allows finding LCA in O(h) without extra memory or parent pointers.",
-  },
-  balance: {
-    id: "balance",
-    title: "Tree Auto-Balancing (Sorted Array D&C)",
-    icon: "bi-arrows-collapse",
-    badge: "Height Minimizer",
-    color: "from-cyan-500/20 to-emerald-500/10 text-cyan-400 border-cyan-500/30",
-    invariants: "Produces perfectly balanced BST with height h = floor(log2 N).",
-    steps: [
-      { step: 1, title: "Extract Sorted Array", desc: "Perform In-Order traversal to extract elements into a sorted array in O(N)." },
-      { step: 2, title: "Find Middle Element", desc: "Compute mid = (start + end)/2 and create new root from array[mid]." },
-      { step: 3, title: "Recursive Subtree Construction", desc: "Recursively build left subtree from (start, mid-1) and right subtree from (mid+1, end)." },
-    ],
-    timeComplexity: "O(N) time to construct balanced tree from N elements",
-    spaceComplexity: "O(N) auxiliary array storage",
-    keyInsight: "Guarantees logarithmic height O(log N) for all future search, insert, and delete operations.",
-  },
-  invert: {
-    id: "invert",
-    title: "Tree Mirror / Inversion Protocol",
-    icon: "bi-arrow-left-right",
-    badge: "Pointer Swap",
-    color: "from-pink-500/20 to-purple-500/10 text-pink-400 border-pink-500/30",
-    invariants: "Every left subtree becomes a right subtree and vice-versa.",
-    steps: [
-      { step: 1, title: "Base Case Check", desc: "If current node is null, return null." },
-      { step: 2, title: "Recursive Subtree Inversion", desc: "Recursively invert left subtree and invert right subtree." },
-      { step: 3, title: "Pointer Swap", desc: "Swap left and right pointers: node.left = invertedRight; node.right = invertedLeft." },
-    ],
-    timeComplexity: "O(N) — visits all nodes",
-    spaceComplexity: "O(h) call stack memory",
-    keyInsight: "Classical interview problem demonstrating recursive symmetry in binary trees.",
+    timeComplexity: "O(log N) Avg",
+    spaceComplexity: "O(1) Iterative",
   },
 };
 
 // ============================================================================
-// 3. SVG Tree Layout Computation
+// 2. SVG Tree Layout Computation
 // ============================================================================
-const NODE_RADIUS = 24;
-const LEVEL_HEIGHT = 90;
-const SIBLING_SPACING = 50;
-const TOP_PADDING = 50;
-const EXTRA_PADDING = 60;
+const NODE_RADIUS = 18;
+const LEVEL_HEIGHT = 70;
+const SIBLING_SPACING = 30;
+const TOP_PADDING = 35;
+const EXTRA_PADDING = 45;
 
 const computeLayout = (root) => {
-  if (!root) return { positions: new Map(), nodeLevels: new Map(), width: 600, height: 350, minX: 0, maxX: 600 };
+  if (!root) return { positions: new Map(), nodeLevels: new Map(), width: 600, height: 300, minX: 0, maxX: 600 };
 
   const positions = new Map();
   const nodeLevels = new Map();
@@ -430,9 +347,467 @@ const computeLayout = (root) => {
   if (!isFinite(maxX)) maxX = 600;
 
   const depth = getTreeHeight(root);
-  const treeHeight = Math.max(depth * LEVEL_HEIGHT + TOP_PADDING + 40, 350);
+  const treeHeight = Math.max(depth * LEVEL_HEIGHT + TOP_PADDING + 30, 300);
 
   return { positions, nodeLevels, minX, maxX, height: treeHeight };
+};
+
+// ============================================================================
+// 3. STEP GENERATORS
+// ============================================================================
+
+const generateAnimatedInsertSteps = (initialTree, val) => {
+  const steps = [];
+  const currentPath = [];
+
+  steps.push({
+    title: `Insert ${val}: Start at Root`,
+    tree: cloneTree(initialTree),
+    activeNode: initialTree ? initialTree.value : null,
+    highlightedPath: [],
+    targetVal: val,
+    message: `Starting BST Insertion for key ${val} at Root.`,
+    cCode: `BSTNode* insert(BSTNode* root, int value = ${val})`,
+  });
+
+  let curr = initialTree;
+  let parent = null;
+  let branchSide = null;
+
+  while (curr) {
+    currentPath.push(curr.value);
+
+    if (val === curr.value) {
+      steps.push({
+        title: `Insert ${val}: Duplicate Detected`,
+        tree: cloneTree(initialTree),
+        activeNode: curr.value,
+        highlightedPath: [...currentPath],
+        targetVal: val,
+        comparisonText: `Duplicate (${val}) ⚠️`,
+        message: `Key ${val} already exists in the BST. Duplicate values are ignored.`,
+        cCode: `if (value == root->data) return root; // Duplicate ignored`,
+        isFinal: true,
+      });
+      return steps;
+    }
+
+    if (val < curr.value) {
+      steps.push({
+        title: `Insert ${val}: ${val} < ${curr.value} → Left`,
+        tree: cloneTree(initialTree),
+        activeNode: curr.value,
+        highlightedPath: [...currentPath],
+        targetVal: val,
+        comparisonText: `${val} < ${curr.value}  ← Left`,
+        message: `Since ${val} < ${curr.value}, navigate to LEFT subtree.`,
+        cCode: `root->left = insert(root->left, ${val});`,
+      });
+      parent = curr;
+      branchSide = "left";
+      curr = curr.left;
+    } else {
+      steps.push({
+        title: `Insert ${val}: ${val} > ${curr.value} → Right`,
+        tree: cloneTree(initialTree),
+        activeNode: curr.value,
+        highlightedPath: [...currentPath],
+        targetVal: val,
+        comparisonText: `${val} > ${curr.value}  Right →`,
+        message: `Since ${val} > ${curr.value}, navigate to RIGHT subtree.`,
+        cCode: `root->right = insert(root->right, ${val});`,
+      });
+      parent = curr;
+      branchSide = "right";
+      curr = curr.right;
+    }
+  }
+
+  const finalTree = insertNode(initialTree, val);
+  steps.push({
+    title: `Insert ${val}: Attached as Leaf`,
+    tree: finalTree,
+    activeNode: val,
+    isNewlyInserted: val,
+    highlightedPath: [...currentPath, val],
+    targetVal: val,
+    comparisonText: `Attached ✨`,
+    message: `Reached NULL pointer on ${branchSide ? branchSide.toUpperCase() : "ROOT"} of parent ${parent ? parent.value : "NULL"}. Created new TreeNode(${val}).`,
+    cCode: `if (root == NULL) return new TreeNode(${val});`,
+    isFinal: true,
+  });
+
+  return steps;
+};
+
+// Batch Insert Step Generator
+const generateAnimatedBatchInsertSteps = (initialTree, numbers) => {
+  const steps = [];
+  let currentTree = cloneTree(initialTree);
+
+  steps.push({
+    title: `Start Batch Entry (${numbers.length} keys)`,
+    tree: cloneTree(currentTree),
+    activeNode: null,
+    highlightedPath: [],
+    message: `Starting sequential insertion of ${numbers.length} keys: [ ${numbers.join(", ")} ]`,
+    cCode: `// Sequential Batch Insert: ${numbers.length} elements`,
+  });
+
+  numbers.forEach((num, index) => {
+    const singleSteps = generateAnimatedInsertSteps(currentTree, num);
+    singleSteps.forEach((s) => {
+      steps.push({
+        ...s,
+        title: `[${index + 1}/${numbers.length}] ${s.title}`,
+      });
+    });
+    currentTree = insertNode(currentTree, num);
+  });
+
+  steps.push({
+    title: `Batch Insertion Complete (${numbers.length} keys)`,
+    tree: cloneTree(currentTree),
+    activeNode: null,
+    highlightedPath: [],
+    message: `Successfully inserted all ${numbers.length} elements: [ ${numbers.join(", ")} ]. BST invariant preserved.`,
+    cCode: `// Batch Insert Finished. Tree Size = ${countNodes(currentTree)}`,
+    isFinal: true,
+  });
+
+  return steps;
+};
+
+const generateAnimatedSearchSteps = (initialTree, val) => {
+  const steps = [];
+  const currentPath = [];
+
+  steps.push({
+    title: "Start Search at Root",
+    tree: cloneTree(initialTree),
+    activeNode: initialTree ? initialTree.value : null,
+    highlightedPath: [],
+    targetVal: val,
+    message: `Initializing BST search for target key ${val} at Root.`,
+    cCode: `TreeNode* search(TreeNode* root, int key = ${val})`,
+  });
+
+  let curr = initialTree;
+  while (curr) {
+    currentPath.push(curr.value);
+
+    if (curr.value === val) {
+      steps.push({
+        title: `Key ${val} Located!`,
+        tree: cloneTree(initialTree),
+        activeNode: curr.value,
+        isSearchMatch: curr.value,
+        highlightedPath: [...currentPath],
+        targetVal: val,
+        comparisonText: `Found ${val} 🎯`,
+        message: `Success! Target key ${val} located after visiting [${currentPath.join(" → ")}].`,
+        cCode: `if (root->data == key) return root; // Key ${val} found!`,
+        isFinal: true,
+      });
+      return steps;
+    }
+
+    if (val < curr.value) {
+      steps.push({
+        title: `Compare: ${val} < ${curr.value} → Branch Left`,
+        tree: cloneTree(initialTree),
+        activeNode: curr.value,
+        highlightedPath: [...currentPath],
+        targetVal: val,
+        comparisonText: `${val} < ${curr.value}  ← Left`,
+        message: `Target ${val} < ${curr.value}. Branching left.`,
+        cCode: `return search(root->left, ${val});`,
+      });
+      curr = curr.left;
+    } else {
+      steps.push({
+        title: `Compare: ${val} > ${curr.value} → Branch Right`,
+        tree: cloneTree(initialTree),
+        activeNode: curr.value,
+        highlightedPath: [...currentPath],
+        targetVal: val,
+        comparisonText: `${val} > ${curr.value}  Right →`,
+        message: `Target ${val} > ${curr.value}. Branching right.`,
+        cCode: `return search(root->right, ${val});`,
+      });
+      curr = curr.right;
+    }
+  }
+
+  steps.push({
+    title: `Key ${val} Not Found`,
+    tree: cloneTree(initialTree),
+    activeNode: null,
+    highlightedPath: [...currentPath],
+    targetVal: val,
+    isFailed: true,
+    message: `Reached NULL pointer. Key ${val} is not present in BST.`,
+    cCode: `if (root == NULL) return NULL; // Not found`,
+    isFinal: true,
+  });
+
+  return steps;
+};
+
+const generateAnimatedDeleteSteps = (initialTree, val, strategy = "successor") => {
+  const steps = [];
+  const currentPath = [];
+
+  steps.push({
+    title: "Locate Target Node",
+    tree: cloneTree(initialTree),
+    activeNode: initialTree ? initialTree.value : null,
+    highlightedPath: [],
+    targetVal: val,
+    message: `Searching BST to locate target node ${val} for deletion.`,
+    cCode: `TreeNode* deleteNode(TreeNode* root, int key = ${val})`,
+  });
+
+  let curr = initialTree;
+  let targetNode = null;
+
+  while (curr) {
+    currentPath.push(curr.value);
+    if (curr.value === val) {
+      targetNode = curr;
+      break;
+    }
+    if (val < curr.value) {
+      curr = curr.left;
+    } else {
+      curr = curr.right;
+    }
+  }
+
+  if (!targetNode) {
+    steps.push({
+      title: `Node ${val} Not Found`,
+      tree: cloneTree(initialTree),
+      activeNode: null,
+      highlightedPath: [...currentPath],
+      targetVal: val,
+      message: `Node ${val} does not exist in the BST. Tree remains unchanged.`,
+      cCode: `if (root == NULL) return NULL;`,
+      isFinal: true,
+    });
+    return steps;
+  }
+
+  steps.push({
+    title: `Target Located: Node ${val}`,
+    tree: cloneTree(initialTree),
+    activeNode: val,
+    isTargetNode: val,
+    highlightedPath: [...currentPath],
+    targetVal: val,
+    comparisonText: `Target: ${val} 🗑️`,
+    message: `Target node ${val} located! Analyzing child count...`,
+    cCode: `// Target node ${val} found. Degree = ${(targetNode.left?1:0)+(targetNode.right?1:0)}`,
+  });
+
+  // CASE 1: Leaf (0 children)
+  if (!targetNode.left && !targetNode.right) {
+    steps.push({
+      title: "Case 1: Leaf Node Deletion",
+      tree: cloneTree(initialTree),
+      activeNode: val,
+      isTargetNode: val,
+      highlightedPath: [...currentPath],
+      targetVal: val,
+      comparisonText: `Leaf (0 Child) 🍃`,
+      message: `Target ${val} has 0 children (Leaf). Resetting parent pointer to NULL.`,
+      cCode: `if (root->left == NULL && root->right == NULL) return NULL;`,
+    });
+
+    const finalTree = deleteNode(initialTree, val);
+    steps.push({
+      title: `Deletion Complete: Leaf Removed`,
+      tree: finalTree,
+      activeNode: null,
+      highlightedPath: [],
+      targetVal: val,
+      message: `Leaf node ${val} successfully deleted. BST invariant preserved.`,
+      cCode: `// Memory freed cleanly.`,
+      isFinal: true,
+    });
+    return steps;
+  }
+
+  // CASE 2: Single Child (1 Child)
+  if (!targetNode.left || !targetNode.right) {
+    const childVal = targetNode.left ? targetNode.left.value : targetNode.right.value;
+    const side = targetNode.left ? "Left" : "Right";
+
+    steps.push({
+      title: `Case 2: Single Child Deletion`,
+      tree: cloneTree(initialTree),
+      activeNode: val,
+      isTargetNode: val,
+      promotedChild: childVal,
+      highlightedPath: [...currentPath],
+      targetVal: val,
+      comparisonText: `1 Child (${side}) 🌿`,
+      message: `Target ${val} has a single child (${childVal}). Bypassing node ${val}: parent adopts ${childVal}.`,
+      cCode: `TreeNode* temp = root->${side.toLowerCase()};\nreturn temp; // Child ${childVal} promoted`,
+    });
+
+    const finalTree = deleteNode(initialTree, val);
+    steps.push({
+      title: `Deletion Complete: Child Promoted`,
+      tree: finalTree,
+      activeNode: childVal,
+      highlightedPath: [],
+      targetVal: val,
+      message: `Node ${val} removed. Child ${childVal} adopted into parent link.`,
+      cCode: `// Node ${val} freed without losing descendant subtree.`,
+      isFinal: true,
+    });
+    return steps;
+  }
+
+  // CASE 3: Two Children
+  if (strategy === "successor") {
+    steps.push({
+      title: "Case 3: Two Children → Inorder Successor",
+      tree: cloneTree(initialTree),
+      activeNode: val,
+      isTargetNode: val,
+      highlightedPath: [...currentPath],
+      targetVal: val,
+      comparisonText: `2 Children ⚡`,
+      message: `Target ${val} has 2 children. Searching for Inorder Successor (min node in Right Subtree).`,
+      cCode: `TreeNode* succ = findMin(root->right); // Min of right subtree`,
+    });
+
+    let succCurr = targetNode.right;
+    const succPath = [targetNode.right.value];
+    while (succCurr.left) {
+      succCurr = succCurr.left;
+      succPath.push(succCurr.value);
+    }
+    const succVal = succCurr.value;
+
+    steps.push({
+      title: `Inorder Successor: Key ${succVal}`,
+      tree: cloneTree(initialTree),
+      activeNode: succVal,
+      isTargetNode: val,
+      isSuccessorNode: succVal,
+      highlightedPath: [...currentPath, ...succPath],
+      targetVal: val,
+      comparisonText: `Successor: ${succVal} 🌟`,
+      message: `Found Inorder Successor ${succVal} (smallest key in right subtree). Guaranteed <= 1 child!`,
+      cCode: `// Successor ${succVal} located at leftmost position of right branch`,
+    });
+
+    const intermediateTree = cloneTree(initialTree);
+    const replaceVal = (node) => {
+      if (!node) return;
+      if (node.value === val) node.value = succVal;
+      replaceVal(node.left);
+      replaceVal(node.right);
+    };
+    replaceVal(intermediateTree);
+
+    steps.push({
+      title: `Copy Successor (${succVal}) into Target`,
+      tree: intermediateTree,
+      activeNode: succVal,
+      isTargetNode: succVal,
+      isSuccessorNode: succVal,
+      highlightedPath: [...currentPath],
+      targetVal: val,
+      comparisonText: `Copied ${succVal} 🔄`,
+      message: `Copied successor key ${succVal} into target node. Now deleting original successor ${succVal} from right subtree.`,
+      cCode: `root->data = succ->data;\nroot->right = deleteNode(root->right, succ->data);`,
+    });
+
+    const finalTree = deleteNode(initialTree, val);
+    steps.push({
+      title: `Deletion Complete: Successor Promoted`,
+      tree: finalTree,
+      activeNode: succVal,
+      highlightedPath: [],
+      targetVal: val,
+      message: `Case 3 deletion complete! Node ${val} replaced with Inorder Successor ${succVal}.`,
+      cCode: `// Zero dangling pointers. BST invariant preserved.`,
+      isFinal: true,
+    });
+    return steps;
+  } else {
+    steps.push({
+      title: "Case 3: Two Children → Inorder Predecessor",
+      tree: cloneTree(initialTree),
+      activeNode: val,
+      isTargetNode: val,
+      highlightedPath: [...currentPath],
+      targetVal: val,
+      comparisonText: `2 Children ⚡`,
+      message: `Target ${val} has 2 children. Searching for Inorder Predecessor (max node in Left Subtree).`,
+      cCode: `TreeNode* pred = findMax(root->left); // Max of left subtree`,
+    });
+
+    let predCurr = targetNode.left;
+    const predPath = [targetNode.left.value];
+    while (predCurr.right) {
+      predCurr = predCurr.right;
+      predPath.push(predCurr.value);
+    }
+    const predVal = predCurr.value;
+
+    steps.push({
+      title: `Inorder Predecessor: Key ${predVal}`,
+      tree: cloneTree(initialTree),
+      activeNode: predVal,
+      isTargetNode: val,
+      isPredecessorNode: predVal,
+      highlightedPath: [...currentPath, ...predPath],
+      targetVal: val,
+      comparisonText: `Predecessor: ${predVal} 🌟`,
+      message: `Found Inorder Predecessor ${predVal} (largest key in left subtree). Guaranteed <= 1 child!`,
+      cCode: `// Predecessor ${predVal} located at rightmost position of left branch`,
+    });
+
+    const intermediateTree = cloneTree(initialTree);
+    const replaceVal = (node) => {
+      if (!node) return;
+      if (node.value === val) node.value = predVal;
+      replaceVal(node.left);
+      replaceVal(node.right);
+    };
+    replaceVal(intermediateTree);
+
+    steps.push({
+      title: `Copy Predecessor (${predVal}) into Target`,
+      tree: intermediateTree,
+      activeNode: predVal,
+      isTargetNode: predVal,
+      isPredecessorNode: predVal,
+      highlightedPath: [...currentPath],
+      targetVal: val,
+      comparisonText: `Copied ${predVal} 🔄`,
+      message: `Copied predecessor key ${predVal} into target node. Now deleting original predecessor ${predVal} from left subtree.`,
+      cCode: `root->data = pred->data;\nroot->left = deleteNode(root->left, pred->data);`,
+    });
+
+    const finalTree = deleteNodePredecessor(initialTree, val);
+    steps.push({
+      title: `Deletion Complete: Predecessor Promoted`,
+      tree: finalTree,
+      activeNode: predVal,
+      highlightedPath: [],
+      targetVal: val,
+      message: `Case 3 deletion complete! Node ${val} replaced with Inorder Predecessor ${predVal}.`,
+      cCode: `// Zero dangling pointers. BST invariant preserved.`,
+      isFinal: true,
+    });
+    return steps;
+  }
 };
 
 // ============================================================================
@@ -443,57 +818,101 @@ const BinaryTreeVisualizer = () => {
   // Tree State
   const [root, setRoot] = useState(() => {
     let r = null;
-    PRESETS.balanced.forEach((v) => {
+    PRESETS.balanced.data.forEach((v) => {
       r = insertNode(r, v);
     });
     return r;
   });
 
-  // Inputs
-  const [inputValue, setInputValue] = useState("");
-  const [batchInput, setBatchInput] = useState("");
-  const [deleteInput, setDeleteInput] = useState("");
-  const [searchInput, setSearchInput] = useState("");
-  const [lcaInputs, setLcaInputs] = useState({ n1: "", n2: "" });
+  // Action Inputs
+  const [actionVal, setActionVal] = useState("");
+  const [batchVal, setBatchVal] = useState("23, 67, 12, 45, 10, 5, 8, 37, 7, 34");
+  const [deleteStrategy, setDeleteStrategy] = useState("successor");
+  const [selectedOperation, setSelectedOperation] = useState("batch"); // "insert" | "batch" | "delete" | "search"
 
   // Status & Feedback
-  const [message, setMessage] = useState({ type: "info", text: "Ready to explore Binary Search Trees" });
+  const [feedback, setFeedback] = useState({ text: "Ready to explore Binary Search Trees", type: "info" });
   const [selectedNode, setSelectedNode] = useState(null);
-  const [insertedNode, setInsertedNode] = useState(null);
-  const [pendingDelete, setPendingDelete] = useState(null);
-  const [currentTheme, setCurrentTheme] = useState("cyan");
+  const [currentTheme, setCurrentTheme] = useState("ocean");
 
-  // Selected Rule Key for Rulebook Panel (defaults to 'insert')
-  const [activeRuleKey, setActiveRuleKey] = useState("insert");
-  const [showRulesPanel, setShowRulesPanel] = useState(true);
+  // Secondary Drawer / View mode
+  const [bottomTab, setBottomTab] = useState(null); // null | "traversal" | "lca" | "rules" | "code"
+  const [showNodeLevels, setShowNodeLevels] = useState(true);
+  const [zoomLevel, setZoomLevel] = useState(1);
 
-  // Traversal & Step Animation State
+  // Traversal Player
   const [traversalType, setTraversalType] = useState("inorder");
   const [traversalSequence, setTraversalSequence] = useState([]);
-  const [activeStepIndex, setActiveStepIndex] = useState(-1);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [animationSpeed, setAnimationSpeed] = useState(600); // ms per step
-  const [activeTab, setActiveTab] = useState("operations"); // 'operations' | 'traversal' | 'analytics' | 'code'
+  const [traversalStepIdx, setTraversalStepIdx] = useState(-1);
+  const [isTraversalPlaying, setIsTraversalPlaying] = useState(false);
 
-  // Canvas View Controls
-  const [zoomLevel, setZoomLevel] = useState(1);
-  const [showNodeLevels, setShowNodeLevels] = useState(true);
-
-  // Search Trace
-  const [searchPath, setSearchPath] = useState([]);
-  const [searchTarget, setSearchTarget] = useState(null);
-
-  // LCA Result
+  // LCA Inputs
+  const [lcaInputs, setLcaInputs] = useState({ n1: "", n2: "" });
   const [lcaResult, setLcaResult] = useState(null);
 
-  // Refs
+  // Operation Animation Engine
+  const [opSteps, setOpSteps] = useState([]);
+  const [opStepIdx, setOpStepIdx] = useState(0);
+  const [isOpPlaying, setIsOpPlaying] = useState(false);
+  const [animationSpeed, setAnimationSpeed] = useState(600); // ms per step
+
   const svgContainerRef = useRef(null);
-  const timerRef = useRef(null);
+  const traversalTimerRef = useRef(null);
 
-  // Calculate Layout
-  const layout = useMemo(() => computeLayout(root), [root]);
+  // Auto-play for Operation Steps
+  useEffect(() => {
+    let timer = null;
+    if (isOpPlaying && opSteps.length > 0) {
+      if (opStepIdx < opSteps.length - 1) {
+        timer = setTimeout(() => {
+          setOpStepIdx((prev) => prev + 1);
+        }, animationSpeed);
+      } else {
+        const lastStep = opSteps[opSteps.length - 1];
+        if (lastStep && lastStep.tree) {
+          setRoot(lastStep.tree);
+        }
+        setIsOpPlaying(false);
+      }
+    }
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [isOpPlaying, opStepIdx, opSteps, animationSpeed]);
 
-  // Derived Tree Metrics
+  // Traversal playback effect
+  useEffect(() => {
+    if (isTraversalPlaying && traversalSequence.length > 0) {
+      traversalTimerRef.current = setInterval(() => {
+        setTraversalStepIdx((prev) => {
+          if (prev >= traversalSequence.length - 1) {
+            setIsTraversalPlaying(false);
+            clearInterval(traversalTimerRef.current);
+            setFeedback({ text: `${traversalType.toUpperCase()} traversal complete!`, type: "success" });
+            return prev;
+          }
+          return prev + 1;
+        });
+      }, animationSpeed);
+    } else {
+      clearInterval(traversalTimerRef.current);
+    }
+    return () => clearInterval(traversalTimerRef.current);
+  }, [isTraversalPlaying, traversalSequence, animationSpeed, traversalType]);
+
+  // Current active step snapshot
+  const currentOpStep = useMemo(() => {
+    if (opSteps.length > 0 && opSteps[opStepIdx]) {
+      return opSteps[opStepIdx];
+    }
+    return null;
+  }, [opSteps, opStepIdx]);
+
+  // Active Tree for Layout Calculation
+  const activeTreeToRender = currentOpStep?.tree || root;
+  const layout = useMemo(() => computeLayout(activeTreeToRender), [activeTreeToRender]);
+
+  // Tree Metrics
   const metrics = useMemo(() => {
     const total = countNodes(root);
     const height = getTreeHeight(root);
@@ -501,9 +920,14 @@ const BinaryTreeVisualizer = () => {
     const balanced = checkIsBalanced(root);
     const minNode = root ? findMin(root) : null;
     const maxNode = root ? findMax(root) : null;
-    const min = minNode ? minNode.value : "—";
-    const max = maxNode ? maxNode.value : "—";
-    return { total, height, leaves, balanced, min, max };
+    return {
+      total,
+      height,
+      leaves,
+      balanced,
+      min: minNode ? minNode.value : "—",
+      max: maxNode ? maxNode.value : "—",
+    };
   }, [root]);
 
   // Dynamic SVG ViewBox
@@ -511,235 +935,196 @@ const BinaryTreeVisualizer = () => {
     const minX = isFinite(layout.minX) ? layout.minX - EXTRA_PADDING : 0;
     const spanX = isFinite(layout.maxX) && isFinite(layout.minX) ? layout.maxX - layout.minX : 600;
     const width = Math.max(spanX + 2 * EXTRA_PADDING, 600);
-    const minY = TOP_PADDING - 30;
-    const height = Math.max(isFinite(layout.height) ? layout.height : 350, 350);
+    const minY = TOP_PADDING - 25;
+    const height = Math.max(isFinite(layout.height) ? layout.height : 320, 320);
     return `${minX} ${minY} ${width} ${height}`;
   }, [layout]);
 
-  // Helper to show message
-  const setFeedback = (text, type = "info") => {
-    setMessage({ type, text });
-  };
-
-  // --------------------------------------------------------------------------
-  // Tree Actions
-  // --------------------------------------------------------------------------
-
-  // Single Insert
-  const handleInsert = useCallback(() => {
-    setActiveRuleKey("insert");
-    if (!inputValue.trim()) {
-      setFeedback("Please enter a numeric value to insert", "error");
-      return;
-    }
-    const val = parseInt(inputValue.trim(), 10);
-    if (isNaN(val)) {
-      setFeedback("Invalid input: Value must be a valid integer", "error");
-      return;
-    }
-
-    if (getInOrder(root).includes(val)) {
-      setFeedback(`Value ${val} already exists in the BST. Duplicate values are ignored.`, "warning");
-      return;
-    }
-
-    setRoot((prev) => insertNode(prev, val));
-    setInsertedNode(val);
-    setFeedback(`Successfully inserted node ${val} into the tree.`, "success");
-    setInputValue("");
-
-    setTimeout(() => setInsertedNode(null), 1200);
-  }, [inputValue, root]);
-
-  // Batch Insert
-  const handleBatchInsert = useCallback(() => {
-    setActiveRuleKey("insert");
-    if (!batchInput.trim()) {
-      setFeedback("Please enter comma-separated numbers (e.g., 40, 20, 60, 10)", "error");
-      return;
-    }
-    const numbers = batchInput
+  // Helper to parse batch string
+  const parseBatchNumbers = (text) => {
+    return text
       .split(/[\s,]+/)
       .map((n) => parseInt(n.trim(), 10))
       .filter((n) => !isNaN(n));
+  };
 
-    if (numbers.length === 0) {
-      setFeedback("No valid numbers found in the input.", "error");
+  // Operation Triggers
+  const handleExecuteOperation = useCallback(() => {
+    if (selectedOperation === "batch") {
+      const numbers = parseBatchNumbers(batchVal);
+      if (numbers.length === 0) {
+        setFeedback({ text: "Please enter valid comma-separated integers (e.g. 23, 67, 12...)", type: "error" });
+        return;
+      }
+      const steps = generateAnimatedBatchInsertSteps(root, numbers);
+      setOpSteps(steps);
+      setOpStepIdx(0);
+      setIsOpPlaying(true);
+      setFeedback({ text: `Animating batch insertion for ${numbers.length} elements...`, type: "info" });
       return;
     }
 
-    let newRoot = root;
-    let addedCount = 0;
-    numbers.forEach((num) => {
-      const before = countNodes(newRoot);
-      newRoot = insertNode(newRoot, num);
-      if (countNodes(newRoot) > before) addedCount++;
-    });
-
-    setRoot(newRoot);
-    setBatchInput("");
-    setFeedback(`Batch inserted ${addedCount} new nodes into the BST.`, "success");
-  }, [batchInput, root]);
-
-  // Delete Node
-  const handleDelete = useCallback((val) => {
-    setActiveRuleKey("delete");
-    if (val === null || val === undefined) return;
-    if (pendingDelete) return;
-
-    if (!getInOrder(root).includes(val)) {
-      setFeedback(`Node ${val} does not exist in the tree.`, "error");
+    if (!actionVal.trim()) {
+      setFeedback({ text: "Please enter a numeric key", type: "error" });
       return;
     }
-
-    setPendingDelete(val);
-    setFeedback(`Deleting node ${val}...`, "warning");
-
-    setTimeout(() => {
-      setRoot((prev) => deleteNode(prev, val));
-      setPendingDelete(null);
-      if (selectedNode?.value === val) setSelectedNode(null);
-      setFeedback(`Node ${val} successfully removed.`, "success");
-    }, 500);
-  }, [root, pendingDelete, selectedNode]);
-
-  // Step-by-Step Search
-  const handleSearch = useCallback(() => {
-    setActiveRuleKey("search");
-    if (!searchInput.trim()) {
-      setFeedback("Please enter a value to search for", "error");
-      return;
-    }
-    const val = parseInt(searchInput.trim(), 10);
+    const val = parseInt(actionVal.trim(), 10);
     if (isNaN(val)) {
-      setFeedback("Value must be a valid integer", "error");
+      setFeedback({ text: "Invalid input: Please enter a valid integer", type: "error" });
       return;
     }
 
-    // Compute path
-    const path = [];
-    let curr = root;
-    let found = false;
+    if (selectedOperation === "insert") {
+      const steps = generateAnimatedInsertSteps(root, val);
+      setOpSteps(steps);
+      setOpStepIdx(0);
+      setIsOpPlaying(true);
+      setFeedback({ text: `Inserting node ${val} step-by-step...`, type: "info" });
+      setActionVal("");
+    } else if (selectedOperation === "delete") {
+      if (!getInOrder(root).includes(val)) {
+        setFeedback({ text: `Node ${val} not found in tree`, type: "error" });
+        return;
+      }
+      const steps = generateAnimatedDeleteSteps(root, val, deleteStrategy);
+      setOpSteps(steps);
+      setOpStepIdx(0);
+      setIsOpPlaying(true);
+      setFeedback({ text: `Deleting node ${val} (${deleteStrategy})...`, type: "warning" });
+      setActionVal("");
+    } else if (selectedOperation === "search") {
+      const steps = generateAnimatedSearchSteps(root, val);
+      setOpSteps(steps);
+      setOpStepIdx(0);
+      setIsOpPlaying(true);
+      setFeedback({ text: `Searching for key ${val}...`, type: "info" });
+    }
+  }, [actionVal, batchVal, selectedOperation, root, deleteStrategy]);
 
-    while (curr) {
-      path.push(curr.value);
-      if (curr.value === val) {
-        found = true;
-        break;
-      } else if (val < curr.value) {
-        curr = curr.left;
-      } else {
-        curr = curr.right;
+  // Instant Single Add
+  const handleQuickInsert = () => {
+    if (!actionVal.trim()) {
+      setFeedback({ text: "Please enter a numeric key to insert", type: "error" });
+      return;
+    }
+    const val = parseInt(actionVal.trim(), 10);
+    if (isNaN(val)) {
+      setFeedback({ text: "Invalid numeric key", type: "error" });
+      return;
+    }
+    handleCloseOpAnimation();
+    setRoot((prev) => insertNode(prev, val));
+    setSelectedNode(null);
+    setFeedback({ text: `Instant inserted node ${val}`, type: "success" });
+    setActionVal("");
+  };
+
+  // Instant Batch Add
+  const handleQuickBatchAdd = () => {
+    const numbers = parseBatchNumbers(batchVal);
+    if (numbers.length === 0) {
+      setFeedback({ text: "Please enter valid batch numbers", type: "error" });
+      return;
+    }
+    handleCloseOpAnimation();
+    let newRoot = root;
+    numbers.forEach((n) => {
+      newRoot = insertNode(newRoot, n);
+    });
+    setRoot(newRoot);
+    setSelectedNode(null);
+    setFeedback({ text: `Instant added ${numbers.length} batch keys: [ ${numbers.join(", ")} ]`, type: "success" });
+  };
+
+  // Rebuild BST from Batch
+  const handleRebuildFromBatch = () => {
+    const numbers = parseBatchNumbers(batchVal);
+    if (numbers.length === 0) return;
+    handleCloseOpAnimation();
+    let newRoot = null;
+    numbers.forEach((n) => {
+      newRoot = insertNode(newRoot, n);
+    });
+    setRoot(newRoot);
+    setFeedback({ text: `Tree constructed fresh with ${numbers.length} batch keys: [ ${numbers.join(", ")} ]`, type: "success" });
+  };
+
+  // Reset Op Animation
+  const handleCloseOpAnimation = () => {
+    setIsOpPlaying(false);
+    if (opSteps.length > 0) {
+      const lastStep = opSteps[opSteps.length - 1];
+      if (lastStep && lastStep.tree) {
+        setRoot(lastStep.tree);
       }
     }
+    setOpSteps([]);
+    setOpStepIdx(0);
+  };
 
-    setSearchPath(path);
-    setSearchTarget(val);
-
-    if (found) {
-      setFeedback(`Found value ${val} in ${path.length} step${path.length > 1 ? "s" : ""}! Path: [ ${path.join(" → ")} ]`, "success");
-    } else {
-      setFeedback(`Value ${val} not found in the BST. Checked path: [ ${path.join(" → ")} → null ]`, "error");
-    }
-  }, [searchInput, root]);
-
-  // Load Preset
+  // Presets
   const handleLoadPreset = (key) => {
+    handleCloseOpAnimation();
     let newRoot = null;
-    PRESETS[key].forEach((v) => {
+    PRESETS[key].data.forEach((v) => {
       newRoot = insertNode(newRoot, v);
     });
     setRoot(newRoot);
-    setSearchPath([]);
-    setSearchTarget(null);
     setSelectedNode(null);
     setTraversalSequence([]);
-    setActiveStepIndex(-1);
-    setIsPlaying(false);
-    setFeedback(`Loaded ${key.replace(/([A-Z])/g, " $1")} preset tree.`, "info");
+    setTraversalStepIdx(-1);
+    setIsTraversalPlaying(false);
+    setFeedback({ text: `Loaded ${PRESETS[key].label} preset.`, type: "info" });
   };
 
-  // Generate Random Tree
   const handleRandomTree = () => {
-    const size = Math.floor(Math.random() * 6) + 6;
+    handleCloseOpAnimation();
+    const size = Math.floor(Math.random() * 5) + 6;
     const vals = new Set();
     while (vals.size < size) {
-      vals.add(Math.floor(Math.random() * 90) + 10);
+      vals.add(Math.floor(Math.random() * 85) + 10);
     }
     let newRoot = null;
     Array.from(vals).forEach((v) => {
       newRoot = insertNode(newRoot, v);
     });
     setRoot(newRoot);
-    setSearchPath([]);
-    setSearchTarget(null);
     setSelectedNode(null);
-    setTraversalSequence([]);
-    setActiveStepIndex(-1);
-    setIsPlaying(false);
-    setFeedback(`Generated random tree with ${size} nodes.`, "info");
+    setFeedback({ text: `Generated random BST with ${size} nodes.`, type: "info" });
   };
 
-  // Balance the Tree
   const handleBalanceTree = () => {
-    setActiveRuleKey("balance");
     if (!root) return;
+    handleCloseOpAnimation();
     const sorted = getSortedArray(root);
-    const balanced = buildBalancedTree(sorted);
-    setRoot(balanced);
-    setFeedback("Tree re-balanced into optimal O(log N) height!", "success");
+    setRoot(buildBalancedTree(sorted));
+    setFeedback({ text: "Re-balanced tree to optimal logarithmic height!", type: "success" });
   };
 
-  // Invert Tree
   const handleInvertTree = () => {
-    setActiveRuleKey("invert");
     if (!root) return;
+    handleCloseOpAnimation();
     setRoot((prev) => invertTree(prev));
-    setFeedback("Tree inverted / mirrored successfully!", "info");
+    setFeedback({ text: "Tree mirrored / inverted.", type: "info" });
   };
 
-  // Clear Tree
   const handleClearTree = () => {
+    handleCloseOpAnimation();
     setRoot(null);
     setSelectedNode(null);
-    setSearchPath([]);
-    setSearchTarget(null);
     setTraversalSequence([]);
-    setActiveStepIndex(-1);
-    setIsPlaying(false);
-    setFeedback("Tree cleared. Canvas is empty.", "info");
+    setTraversalStepIdx(-1);
+    setFeedback({ text: "Canvas cleared.", type: "info" });
   };
 
-  // Calculate LCA
-  const handleCalculateLCA = () => {
-    setActiveRuleKey("lca");
-    const n1 = parseInt(lcaInputs.n1, 10);
-    const n2 = parseInt(lcaInputs.n2, 10);
-    if (isNaN(n1) || isNaN(n2)) {
-      setFeedback("Please enter two valid integer values for LCA", "error");
-      return;
-    }
-    const lca = findLCA(root, n1, n2);
-    if (lca) {
-      setLcaResult(lca.value);
-      setFeedback(`Lowest Common Ancestor of ${n1} and ${n2} is [ ${lca.value} ]`, "success");
-    } else {
-      setLcaResult(null);
-      setFeedback(`Could not compute LCA for ${n1} and ${n2}`, "error");
-    }
-  };
-
-  // --------------------------------------------------------------------------
-  // Traversal Playback Engine
-  // --------------------------------------------------------------------------
-
-  const startTraversal = (type) => {
+  // Start Traversal
+  const handleStartTraversal = (type) => {
     if (!root) {
-      setFeedback("Cannot traverse an empty tree", "error");
+      setFeedback({ text: "Tree is empty.", type: "error" });
       return;
     }
+    handleCloseOpAnimation();
     setTraversalType(type);
-    setActiveRuleKey(type);
     let seq = [];
     if (type === "inorder") seq = getInOrder(root);
     else if (type === "preorder") seq = getPreOrder(root);
@@ -747,785 +1132,432 @@ const BinaryTreeVisualizer = () => {
     else if (type === "levelorder") seq = getLevelOrder(root);
 
     setTraversalSequence(seq);
-    setActiveStepIndex(0);
-    setIsPlaying(true);
-    setFeedback(`Started ${type.toUpperCase()} traversal: [ ${seq.join(", ")} ]`, "info");
+    setTraversalStepIdx(0);
+    setIsTraversalPlaying(true);
+    setFeedback({ text: `Traversing ${type.toUpperCase()}: [ ${seq.join(", ")} ]`, type: "info" });
   };
 
-  useEffect(() => {
-    if (isPlaying && traversalSequence.length > 0) {
-      timerRef.current = setInterval(() => {
-        setActiveStepIndex((prev) => {
-          if (prev >= traversalSequence.length - 1) {
-            setIsPlaying(false);
-            clearInterval(timerRef.current);
-            setFeedback(`${traversalType.toUpperCase()} traversal complete!`, "success");
-            return prev;
-          }
-          return prev + 1;
-        });
-      }, animationSpeed);
-    } else {
-      clearInterval(timerRef.current);
-    }
-    return () => clearInterval(timerRef.current);
-  }, [isPlaying, traversalSequence, animationSpeed, traversalType]);
-
-  // Click on Node Inspector
+  // Node Inspector Click
   const handleNodeClick = (node) => {
     if (!node) return;
-    const leftVal = node.left ? node.left.value : "None";
-    const rightVal = node.right ? node.right.value : "None";
-    const subHeight = getTreeHeight(node);
-    const subSize = countNodes(node);
-    const level = layout.nodeLevels.get(node.value) || 1;
-
     setSelectedNode({
       value: node.value,
-      left: leftVal,
-      right: rightVal,
-      height: subHeight,
-      size: subSize,
-      level,
+      left: node.left ? node.left.value : "None",
+      right: node.right ? node.right.value : "None",
+      height: getTreeHeight(node),
+      size: countNodes(node),
+      level: layout.nodeLevels.get(node.value) || 1,
     });
   };
 
   const activeTheme = THEMES[currentTheme];
-  const activeRule = TASK_RULES[activeRuleKey] || TASK_RULES.insert;
 
   return (
-    <div className="w-full min-h-screen bg-[#030712] text-slate-100 p-3 sm:p-6 flex flex-col items-center selection:bg-cyan-500/30 selection:text-cyan-300">
+    <div className="w-full min-h-screen bg-[#070b14] text-slate-100 p-3 sm:p-5 flex flex-col items-center selection:bg-sky-500/25 selection:text-sky-300">
       
-      {/* Background ambient lighting */}
-      <div className="fixed w-[600px] h-[600px] bg-cyan-600/10 rounded-full blur-[140px] -top-20 -left-20 pointer-events-none" />
-      <div className="fixed w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[140px] bottom-0 right-0 pointer-events-none" />
+      {/* Soothing background radial ambient glow */}
+      <div className="fixed w-[650px] h-[650px] bg-sky-900/10 rounded-full blur-[160px] -top-24 -left-24 pointer-events-none" />
+      <div className="fixed w-[550px] h-[550px] bg-indigo-950/15 rounded-full blur-[160px] bottom-0 right-0 pointer-events-none" />
 
-      <div className="w-full max-w-7xl relative z-10 flex flex-col gap-4">
+      <div className="w-full max-w-6xl relative z-10 flex flex-col gap-3">
         
         {/* =================================================================== */}
-        {/* 1. PRO HEADER & ALGORITHM COMPLEXITY BAR */}
+        {/* 1. TOP HEADER & METRICS (SOOTHING & BALANCED) */}
         {/* =================================================================== */}
-        <div className="bg-slate-900/90 backdrop-blur-2xl border border-slate-800/90 rounded-3xl p-5 sm:p-6 shadow-2xl shadow-black/60 relative overflow-hidden ring-1 ring-white/10">
-          <div className="h-[2px] w-full bg-gradient-to-r from-cyan-500 via-indigo-500 to-purple-500 absolute top-0 left-0" />
-
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-            <div>
-              <div className="flex items-center gap-2.5 mb-1.5">
-                <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white shadow-lg shadow-cyan-500/25">
-                  <i className="bi bi-diagram-2-fill text-xl"></i>
-                </div>
-                <div>
-                  <h1 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight flex items-center gap-2">
-                    Binary Search Tree Visualizer
-                    <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">
-                      Pro Interactive Engine
-                    </span>
-                  </h1>
-                  <p className="text-xs text-slate-400">
-                    Step-by-step BST operations, traversals, path tracing, balance analysis & live rule guide
-                  </p>
-                </div>
-              </div>
+        <header className="bg-slate-900/60 backdrop-blur-2xl border border-slate-800/80 rounded-2xl px-4 py-3 sm:px-5 sm:py-3.5 shadow-xl flex flex-wrap items-center justify-between gap-3">
+          
+          {/* Logo & Title */}
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-500/80 via-cyan-600/70 to-indigo-600/80 flex items-center justify-center text-white shadow-lg shadow-sky-500/15 border border-sky-400/20">
+              <i className="bi bi-diagram-2 text-lg"></i>
             </div>
-
-            {/* Top Right: Rules Panel Toggle & Complexity Badges */}
-            <div className="flex flex-wrap items-center gap-2 text-xs">
-              <button
-                type="button"
-                onClick={() => setShowRulesPanel(!showRulesPanel)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-bold transition border cursor-pointer ${
-                  showRulesPanel
-                    ? "bg-gradient-to-r from-cyan-600 to-blue-600 text-white border-cyan-400 shadow-md shadow-cyan-500/20"
-                    : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
-                }`}
-              >
-                <i className="bi bi-journal-text text-sm"></i>
-                <span>{showRulesPanel ? "Hide Rules Guide" : "Show Rules Guide"}</span>
-              </button>
-
-              <div className="px-2.5 py-1 rounded-xl bg-slate-950/80 border border-slate-800 text-slate-300 font-mono">
-                <span className="text-slate-500 mr-1.5">Search:</span>
-                <span className="text-cyan-400 font-bold">O(log N)</span>
-              </div>
-              <div className="px-2.5 py-1 rounded-xl bg-slate-950/80 border border-slate-800 text-slate-300 font-mono">
-                <span className="text-slate-500 mr-1.5">Insert:</span>
-                <span className="text-emerald-400 font-bold">O(log N)</span>
-              </div>
-              <div className="px-2.5 py-1 rounded-xl bg-slate-950/80 border border-slate-800 text-slate-300 font-mono">
-                <span className="text-slate-500 mr-1.5">Delete:</span>
-                <span className="text-rose-400 font-bold">O(log N)</span>
-              </div>
+            <div>
+              <h1 className="text-base sm:text-lg font-bold text-slate-100 tracking-tight flex items-center gap-2">
+                BST Interactive Studio
+                <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/20">
+                  Visualizer
+                </span>
+              </h1>
+              <p className="text-[11px] text-slate-400 hidden sm:block">
+                Batch entry, fluid animations, balanced color schemes &amp; step-by-step algorithms
+              </p>
             </div>
           </div>
 
-          {/* Quick Metrics Bar */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2.5 mt-4 pt-4 border-t border-slate-800/80">
-            <div className="bg-slate-950/60 p-2.5 rounded-2xl border border-slate-800/60">
-              <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider block">Total Nodes</span>
-              <span className="text-base font-extrabold text-cyan-400">{metrics.total}</span>
+          {/* Quick Metrics & Theme Dropdown */}
+          <div className="flex flex-wrap items-center gap-2 text-xs">
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-slate-950/60 border border-slate-800/80 text-slate-300 font-mono text-[11px]">
+              <span className="text-slate-400">Nodes:</span>
+              <span className="text-sky-300 font-semibold">{metrics.total}</span>
             </div>
-            <div className="bg-slate-950/60 p-2.5 rounded-2xl border border-slate-800/60">
-              <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider block">Tree Height</span>
-              <span className="text-base font-extrabold text-indigo-400">{metrics.height}</span>
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-slate-950/60 border border-slate-800/80 text-slate-300 font-mono text-[11px]">
+              <span className="text-slate-400">Height:</span>
+              <span className="text-indigo-300 font-semibold">{metrics.height}</span>
             </div>
-            <div className="bg-slate-950/60 p-2.5 rounded-2xl border border-slate-800/60">
-              <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider block">Leaf Nodes</span>
-              <span className="text-base font-extrabold text-purple-400">{metrics.leaves}</span>
-            </div>
-            <div className="bg-slate-950/60 p-2.5 rounded-2xl border border-slate-800/60">
-              <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider block">Is Balanced?</span>
-              <span className={`text-base font-extrabold ${metrics.balanced ? "text-emerald-400" : "text-amber-400"}`}>
-                {metrics.balanced ? "Yes (Optimal)" : "No (Skewed)"}
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-slate-950/60 border border-slate-800/80 text-slate-300 font-mono text-[11px]">
+              <span className="text-slate-400">Balanced:</span>
+              <span className={`font-semibold ${metrics.balanced ? "text-emerald-300" : "text-amber-300"}`}>
+                {metrics.balanced ? "Yes" : "No"}
               </span>
             </div>
-            <div className="bg-slate-950/60 p-2.5 rounded-2xl border border-slate-800/60">
-              <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider block">Min Value</span>
-              <span className="text-base font-extrabold text-slate-200">{metrics.min}</span>
+
+            {/* Theme Selector */}
+            <div className="flex items-center gap-1 bg-slate-950/60 border border-slate-800/80 rounded-xl px-2 py-1">
+              <span className="text-[10px] text-slate-400">🎨</span>
+              <select
+                value={currentTheme}
+                onChange={(e) => setCurrentTheme(e.target.value)}
+                className="bg-transparent text-xs text-slate-300 focus:outline-none cursor-pointer"
+              >
+                <option value="ocean" className="bg-slate-900">Serene Azure</option>
+                <option value="sage" className="bg-slate-900">Sage &amp; Mint</option>
+                <option value="lavender" className="bg-slate-900">Lavender Mist</option>
+                <option value="peach" className="bg-slate-900">Rose Peach</option>
+              </select>
             </div>
-            <div className="bg-slate-950/60 p-2.5 rounded-2xl border border-slate-800/60">
-              <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider block">Max Value</span>
-              <span className="text-base font-extrabold text-slate-200">{metrics.max}</span>
+          </div>
+        </header>
+
+        {/* =================================================================== */}
+        {/* 2. STUDIO ACTION DOCK WITH BATCH ENTRY (SLICK & UNIFIED) */}
+        {/* =================================================================== */}
+        {/* =================================================================== */}
+        {/* 2. STUDIO ACTION DOCK WITH BATCH ENTRY (SLICK & STRICT SINGLE ROW) */}
+        {/* =================================================================== */}
+        <div className="bg-slate-900/80 backdrop-blur-2xl border border-slate-800/90 rounded-2xl px-3 py-2 shadow-xl shadow-black/40 ring-1 ring-white/5 flex items-center justify-between gap-2.5 overflow-x-auto">
+          
+          {/* Left Wing: Mode Selector + Input + Action Buttons */}
+          <div className="flex items-center gap-2 shrink-0">
+            {/* Segmented Mode Selector */}
+            <div className="inline-flex items-center bg-slate-950/90 p-0.5 rounded-xl border border-slate-800/90 shadow-inner shrink-0">
+              <button
+                onClick={() => setSelectedOperation("batch")}
+                className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition cursor-pointer flex items-center gap-1.5 ${
+                  selectedOperation === "batch"
+                    ? "bg-sky-500/25 text-sky-200 border border-sky-400/40 shadow-sm"
+                    : "text-slate-400 hover:text-slate-200"
+                }`}
+              >
+                <i className="bi bi-stack text-[11px]"></i>
+                <span>Batch</span>
+              </button>
+              <button
+                onClick={() => setSelectedOperation("insert")}
+                className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition cursor-pointer flex items-center gap-1.5 ${
+                  selectedOperation === "insert"
+                    ? "bg-sky-500/25 text-sky-200 border border-sky-400/40 shadow-sm"
+                    : "text-slate-400 hover:text-slate-200"
+                }`}
+              >
+                <i className="bi bi-plus-circle text-[11px]"></i>
+                <span>Insert</span>
+              </button>
+              <button
+                onClick={() => setSelectedOperation("delete")}
+                className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition cursor-pointer flex items-center gap-1.5 ${
+                  selectedOperation === "delete"
+                    ? "bg-rose-500/25 text-rose-200 border border-rose-400/40 shadow-sm"
+                    : "text-slate-400 hover:text-slate-200"
+                }`}
+              >
+                <i className="bi bi-dash-circle text-[11px]"></i>
+                <span>Delete</span>
+              </button>
+              <button
+                onClick={() => setSelectedOperation("search")}
+                className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition cursor-pointer flex items-center gap-1.5 ${
+                  selectedOperation === "search"
+                    ? "bg-amber-500/25 text-amber-200 border border-amber-400/40 shadow-sm"
+                    : "text-slate-400 hover:text-slate-200"
+                }`}
+              >
+                <i className="bi bi-search text-[11px]"></i>
+                <span>Search</span>
+              </button>
             </div>
+
+            {/* BATCH ENTRY MODE INPUT */}
+            {selectedOperation === "batch" ? (
+              <div className="flex items-center gap-1.5 shrink-0">
+                <input
+                  type="text"
+                  value={batchVal}
+                  onChange={(e) => setBatchVal(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleExecuteOperation()}
+                  placeholder="23, 67, 12, 45, 10, 5, 8, 37, 7, 34"
+                  className="w-44 sm:w-56 bg-slate-950/90 border border-slate-700/60 rounded-xl px-2.5 py-1 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-sky-500/70 font-mono transition"
+                />
+
+                <button
+                  onClick={() => setBatchVal("23, 67, 12, 45, 10, 5, 8, 37, 7, 34")}
+                  className="px-2 py-1 rounded-xl text-xs bg-slate-800/80 hover:bg-slate-750 text-sky-300 border border-slate-700/60 transition cursor-pointer shrink-0"
+                  title="Fill sample batch: 23, 67, 12, 45, 10, 5, 8, 37, 7, 34"
+                >
+                  Sample ✨
+                </button>
+
+                <button
+                  onClick={handleExecuteOperation}
+                  className="px-3 py-1 rounded-xl text-xs font-semibold bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white shadow-md shadow-sky-500/25 flex items-center gap-1.5 cursor-pointer shrink-0"
+                >
+                  <span>▶️</span>
+                  <span>Animate</span>
+                </button>
+
+                <button
+                  onClick={handleQuickBatchAdd}
+                  className="px-2.5 py-1 rounded-xl text-xs bg-slate-800/90 hover:bg-slate-750 text-slate-200 font-medium border border-slate-700/60 transition cursor-pointer shrink-0"
+                  title="Add all batch keys directly to current tree"
+                >
+                  Instant
+                </button>
+
+                <button
+                  onClick={handleRebuildFromBatch}
+                  className="px-2 py-1 rounded-xl text-xs bg-teal-900/40 hover:bg-teal-800/60 text-teal-300 font-medium border border-teal-700/50 transition cursor-pointer shrink-0"
+                  title="Clear canvas and construct tree exclusively from this batch"
+                >
+                  🌱 Rebuild
+                </button>
+              </div>
+            ) : (
+              /* SINGLE OPERATION INPUT */
+              <div className="flex items-center gap-1.5 shrink-0">
+                <input
+                  type="number"
+                  value={actionVal}
+                  onChange={(e) => setActionVal(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleExecuteOperation()}
+                  placeholder={selectedOperation === "insert" ? "Key..." : selectedOperation === "delete" ? "Key..." : "Key..."}
+                  className="w-24 sm:w-28 bg-slate-950/90 border border-slate-700/60 rounded-xl px-2.5 py-1 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-sky-500/70 font-mono transition"
+                />
+
+                {/* Strategy toggle for Deletion */}
+                {selectedOperation === "delete" && (
+                  <div className="flex items-center bg-slate-950/90 p-0.5 rounded-xl border border-slate-800/90 text-[11px] font-mono shrink-0">
+                    <button
+                      onClick={() => setDeleteStrategy("successor")}
+                      className={`px-2 py-0.5 rounded-lg transition ${
+                        deleteStrategy === "successor" ? "bg-sky-500/25 text-sky-200 border border-sky-400/30 font-semibold" : "text-slate-400 hover:text-white"
+                      }`}
+                      title="Inorder Successor (Min node in Right Subtree)"
+                    >
+                      Successor
+                    </button>
+                    <button
+                      onClick={() => setDeleteStrategy("predecessor")}
+                      className={`px-2 py-0.5 rounded-lg transition ${
+                        deleteStrategy === "predecessor" ? "bg-purple-500/25 text-purple-200 border border-purple-400/30 font-semibold" : "text-slate-400 hover:text-white"
+                      }`}
+                      title="Inorder Predecessor (Max node in Left Subtree)"
+                    >
+                      Predecessor
+                    </button>
+                  </div>
+                )}
+
+                {/* Animate Action Button */}
+                <button
+                  onClick={handleExecuteOperation}
+                  className={`px-3 py-1 rounded-xl text-xs font-semibold transition flex items-center gap-1.5 cursor-pointer shadow-md shrink-0 ${
+                    selectedOperation === "insert"
+                      ? "bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white shadow-sky-500/25"
+                      : selectedOperation === "delete"
+                      ? "bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-400 hover:to-pink-500 text-white shadow-rose-500/25"
+                      : "bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white shadow-amber-500/25"
+                  }`}
+                >
+                  <span>▶️</span>
+                  <span>Animate</span>
+                </button>
+
+                {selectedOperation === "insert" && (
+                  <button
+                    onClick={handleQuickInsert}
+                    className="px-2.5 py-1 rounded-xl text-xs bg-slate-800/90 hover:bg-slate-750 text-slate-300 font-medium border border-slate-700/60 transition cursor-pointer shrink-0"
+                    title="Directly add node without animation"
+                  >
+                    Instant
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
+
+          {/* Center Divider */}
+          <div className="hidden xl:block w-[1px] h-5 bg-slate-800/80 shrink-0" />
+
+          {/* Right Wing: Preset & Modifiers */}
+          <div className="flex items-center gap-1.5 shrink-0">
+            <select
+              onChange={(e) => {
+                if (e.target.value) handleLoadPreset(e.target.value);
+              }}
+              defaultValue=""
+              className="bg-slate-950/90 border border-slate-800/90 text-xs text-slate-300 rounded-xl px-2.5 py-1 focus:outline-none cursor-pointer hover:border-slate-700 transition"
+            >
+              <option value="" disabled>🌲 Presets</option>
+              <option value="userBatch" className="bg-slate-900">User Batch (23, 67, 12...)</option>
+              <option value="balanced" className="bg-slate-900">Balanced BST (7)</option>
+              <option value="full" className="bg-slate-900">Full Tree (7)</option>
+              <option value="skewedLeft" className="bg-slate-900">Left Skewed (5)</option>
+              <option value="skewedRight" className="bg-slate-900">Right Skewed (5)</option>
+              <option value="complex" className="bg-slate-900">Complex (12 nodes)</option>
+            </select>
+
+            <button
+              onClick={handleRandomTree}
+              className="px-2.5 py-1 rounded-xl text-xs bg-slate-950/90 hover:bg-slate-800 text-slate-300 border border-slate-800/90 transition cursor-pointer flex items-center gap-1"
+              title="Generate random BST"
+            >
+              <span>🎲</span>
+              <span>Random</span>
+            </button>
+
+            <button
+              onClick={handleBalanceTree}
+              className="px-2.5 py-1 rounded-xl text-xs bg-slate-950/90 hover:bg-slate-800 text-slate-300 border border-slate-800/90 transition cursor-pointer flex items-center gap-1"
+              title="Auto-balance BST into minimal height"
+            >
+              <span>🔄</span>
+              <span>Balance</span>
+            </button>
+
+            <button
+              onClick={handleInvertTree}
+              className="px-2.5 py-1 rounded-xl text-xs bg-slate-950/90 hover:bg-slate-800 text-slate-300 border border-slate-800/90 transition cursor-pointer flex items-center gap-1"
+              title="Invert BST left and right subtrees"
+            >
+              <span>🪞</span>
+              <span>Invert</span>
+            </button>
+
+            <button
+              onClick={handleClearTree}
+              className="px-2.5 py-1 rounded-xl text-xs bg-rose-950/30 hover:bg-rose-900/50 text-rose-300 border border-rose-800/40 transition cursor-pointer flex items-center gap-1"
+              title="Clear Canvas"
+            >
+              <span>🧹</span>
+              <span>Clear</span>
+            </button>
           </div>
         </div>
 
         {/* =================================================================== */}
-        {/* 2. DEDICATED TASK RULES & ALGORITHM BLUEPRINT PANEL */}
+        {/* 3. FLUID STEP ANIMATION PLAYBACK DOCK */}
         {/* =================================================================== */}
         <AnimatePresence>
-          {showRulesPanel && (
+          {opSteps.length > 0 && currentOpStep && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.25 }}
-              className="overflow-hidden"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              className="bg-slate-900/90 border border-sky-500/30 rounded-2xl p-3 shadow-xl backdrop-blur-xl space-y-2"
             >
-              <div className="bg-slate-900/95 backdrop-blur-2xl border border-slate-800/90 rounded-3xl p-5 shadow-2xl shadow-black/60 relative ring-1 ring-cyan-500/20">
-                
-                {/* Rules Selector Pills */}
-                <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-slate-800/80 flex-wrap">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                    <span className="text-xs font-bold uppercase tracking-wider text-white">
-                      Task Rules & Algorithm Blueprint:
-                    </span>
-                  </div>
-
-                  {/* Task Switcher Pills */}
-                  <div className="flex items-center gap-1.5 overflow-x-auto py-1 max-w-full">
-                    {[
-                      { key: "insert", label: "Insert Rule", icon: "bi-plus-circle" },
-                      { key: "delete", label: "Delete (3 Cases)", icon: "bi-dash-circle" },
-                      { key: "search", label: "Search Trace", icon: "bi-search" },
-                      { key: "inorder", label: "In-Order", icon: "bi-play-circle" },
-                      { key: "preorder", label: "Pre-Order", icon: "bi-diagram-2" },
-                      { key: "postorder", label: "Post-Order", icon: "bi-arrow-repeat" },
-                      { key: "levelorder", label: "Level-Order (BFS)", icon: "bi-layers" },
-                      { key: "lca", label: "LCA Split", icon: "bi-share" },
-                      { key: "balance", label: "Auto-Balance", icon: "bi-arrows-collapse" },
-                      { key: "invert", label: "Mirror / Invert", icon: "bi-arrow-left-right" },
-                    ].map((t) => (
-                      <button
-                        key={t.key}
-                        type="button"
-                        onClick={() => setActiveRuleKey(t.key)}
-                        className={`flex items-center gap-1 px-2.5 py-1 rounded-xl text-[11px] font-semibold whitespace-nowrap transition cursor-pointer ${
-                          activeRuleKey === t.key
-                            ? "bg-cyan-500 text-white shadow-sm shadow-cyan-500/30"
-                            : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
-                        }`}
-                      >
-                        <i className={`bi ${t.icon}`}></i>
-                        <span>{t.label}</span>
-                      </button>
-                    ))}
-                  </div>
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-mono font-bold text-sky-300 bg-sky-950/70 px-2 py-0.5 rounded-lg border border-sky-800/50">
+                    Step {opStepIdx + 1}/{opSteps.length}
+                  </span>
+                  <span className="text-xs font-semibold text-slate-100">
+                    {currentOpStep.title}
+                  </span>
                 </div>
 
-                {/* Active Rule Details Card */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
-                  
-                  {/* Left Column: Rule Title & Invariant (4 cols) */}
-                  <div className="lg:col-span-4 bg-slate-950/80 p-4 rounded-2xl border border-slate-800 space-y-2.5">
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 flex items-center justify-center text-sm">
-                        <i className={`bi ${activeRule.icon}`}></i>
-                      </div>
-                      <div>
-                        <h3 className="text-sm font-bold text-white">{activeRule.title}</h3>
-                        <span className="text-[10px] font-semibold text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20 inline-block">
-                          {activeRule.badge}
-                        </span>
-                      </div>
-                    </div>
+                {/* Controls */}
+                <div className="flex items-center gap-1.5">
+                  <button
+                    onClick={() => opStepIdx > 0 && setOpStepIdx((p) => p - 1)}
+                    disabled={opStepIdx === 0}
+                    className="px-2 py-1 text-xs rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 disabled:opacity-40 transition cursor-pointer"
+                  >
+                    ⏮️ Prev
+                  </button>
 
-                    <div className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-[11px]">
-                      <span className="text-[10px] uppercase font-bold text-slate-500 block mb-0.5">Core Invariant</span>
-                      <p className="font-mono text-cyan-300">{activeRule.invariants}</p>
-                    </div>
+                  <button
+                    onClick={() => setIsOpPlaying(!isOpPlaying)}
+                    className={`px-3 py-1 text-xs font-semibold rounded-lg transition cursor-pointer ${
+                      isOpPlaying ? "bg-amber-500 text-slate-950" : "bg-sky-500 text-slate-950"
+                    }`}
+                  >
+                    {isOpPlaying ? "⏸️ Pause" : "▶️ Play"}
+                  </button>
 
-                    <div className="space-y-1 text-[11px]">
-                      <div className="flex items-center justify-between text-slate-400">
-                        <span>Time Complexity:</span>
-                        <span className="font-mono font-bold text-emerald-400">{activeRule.timeComplexity}</span>
-                      </div>
-                      <div className="flex items-center justify-between text-slate-400">
-                        <span>Space Complexity:</span>
-                        <span className="font-mono font-bold text-purple-400">{activeRule.spaceComplexity}</span>
-                      </div>
-                    </div>
+                  <button
+                    onClick={() => {
+                      if (opStepIdx < opSteps.length - 1) {
+                        const next = opStepIdx + 1;
+                        setOpStepIdx(next);
+                        if (next === opSteps.length - 1 && opSteps[next].tree) setRoot(opSteps[next].tree);
+                      }
+                    }}
+                    disabled={opStepIdx === opSteps.length - 1}
+                    className="px-2 py-1 text-xs rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 disabled:opacity-40 transition cursor-pointer"
+                  >
+                    Next ⏭️
+                  </button>
 
-                    <div className="p-2.5 rounded-xl bg-cyan-950/30 border border-cyan-500/20 text-[11px] text-slate-300">
-                      <span className="text-cyan-400 font-bold block mb-0.5">💡 Key Concept:</span>
-                      {activeRule.keyInsight}
-                    </div>
-                  </div>
-
-                  {/* Right Column: Step-by-Step Rules (8 cols) */}
-                  <div className="lg:col-span-8 space-y-2">
-                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
-                      Step-by-Step Execution Rules ({activeRule.steps.length} Steps)
-                    </span>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                      {activeRule.steps.map((s, idx) => (
-                        <div
-                          key={idx}
-                          className="bg-slate-950/70 p-3 rounded-2xl border border-slate-800/90 flex items-start gap-3 hover:border-slate-700 transition"
-                        >
-                          <div className="w-6 h-6 rounded-lg bg-cyan-500/20 text-cyan-300 font-extrabold text-xs flex items-center justify-center flex-shrink-0 mt-0.5 border border-cyan-500/30">
-                            {s.step}
-                          </div>
-                          <div className="min-w-0">
-                            <h4 className="text-xs font-bold text-white mb-0.5">{s.title}</h4>
-                            <p className="text-[11px] text-slate-400 leading-relaxed">{s.desc}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
+                  <button
+                    onClick={handleCloseOpAnimation}
+                    className="px-2 py-1 text-xs rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white transition cursor-pointer ml-1"
+                  >
+                    Done ✕
+                  </button>
                 </div>
+              </div>
 
+              {/* Progress bar */}
+              <div className="w-full bg-slate-950/80 rounded-full h-1 overflow-hidden">
+                <div
+                  className="bg-gradient-to-r from-sky-400 via-teal-300 to-emerald-400 h-1 transition-all duration-300"
+                  style={{ width: `${((opStepIdx + 1) / opSteps.length) * 100}%` }}
+                />
+              </div>
+
+              {/* Description message */}
+              <div className="flex items-center justify-between text-[11px] font-mono bg-slate-950/80 px-3 py-1.5 rounded-xl border border-slate-800/60">
+                <span className="text-sky-200">💡 {currentOpStep.message}</span>
+                <span className="text-emerald-300 hidden sm:inline">{currentOpStep.cCode.split("\n")[0]}</span>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
 
         {/* =================================================================== */}
-        {/* 3. CONTROL DECK WITH TABS */}
+        {/* 4. MAIN HERO 2D CANVAS (SOOTHING & ELEGANT) */}
         {/* =================================================================== */}
-        <div className="bg-slate-900/90 backdrop-blur-2xl border border-slate-800/90 rounded-3xl p-4 sm:p-5 shadow-xl shadow-black/50">
+        <main className="relative bg-[#080d19]/90 backdrop-blur-2xl border border-slate-800/80 rounded-3xl p-4 sm:p-6 shadow-2xl flex flex-col min-h-[430px] overflow-hidden ring-1 ring-white/5">
           
-          {/* Tabs Navigation */}
-          <div className="flex items-center gap-1.5 p-1 bg-slate-950 rounded-2xl border border-slate-800/80 mb-4 overflow-x-auto">
-            <button
-              onClick={() => {
-                setActiveTab("operations");
-                setActiveRuleKey("insert");
-              }}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap cursor-pointer ${
-                activeTab === "operations"
-                  ? "bg-cyan-500 text-white shadow-md shadow-cyan-500/20"
-                  : "text-slate-400 hover:text-white"
-              }`}
-            >
-              <i className="bi bi-gear-wide-connected"></i>
-              <span>Tree Operations</span>
-            </button>
-
-            <button
-              onClick={() => {
-                setActiveTab("traversal");
-                setActiveRuleKey("inorder");
-              }}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap cursor-pointer ${
-                activeTab === "traversal"
-                  ? "bg-purple-600 text-white shadow-md shadow-purple-500/20"
-                  : "text-slate-400 hover:text-white"
-              }`}
-            >
-              <i className="bi bi-play-circle-fill"></i>
-              <span>Traversal Player</span>
-            </button>
-
-            <button
-              onClick={() => {
-                setActiveTab("analytics");
-                setActiveRuleKey("lca");
-              }}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap cursor-pointer ${
-                activeTab === "analytics"
-                  ? "bg-emerald-600 text-white shadow-md shadow-emerald-500/20"
-                  : "text-slate-400 hover:text-white"
-              }`}
-            >
-              <i className="bi bi-diagram-3-fill"></i>
-              <span>Algorithms & LCA</span>
-            </button>
-
-            <button
-              onClick={() => setActiveTab("code")}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap cursor-pointer ${
-                activeTab === "code"
-                  ? "bg-amber-600 text-white shadow-md shadow-amber-500/20"
-                  : "text-slate-400 hover:text-white"
-              }`}
-            >
-              <i className="bi bi-code-slash"></i>
-              <span>Code Implementations</span>
-            </button>
-          </div>
-
-          {/* TAB 1: OPERATIONS */}
-          {activeTab === "operations" && (
-            <div className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                
-                {/* Insert Node */}
-                <div className="bg-slate-950/60 p-3 rounded-2xl border border-slate-800/80">
-                  <label className="text-xs font-bold text-slate-300 block mb-1.5 flex items-center gap-1.5">
-                    <i className="bi bi-plus-circle-fill text-cyan-400"></i>
-                    <span>Insert Single Node</span>
-                  </label>
-                  <div className="flex gap-2">
-                    <input
-                      type="number"
-                      value={inputValue}
-                      onChange={(e) => setInputValue(e.target.value)}
-                      onFocus={() => setActiveRuleKey("insert")}
-                      onKeyDown={(e) => e.key === "Enter" && handleInsert()}
-                      placeholder="e.g. 45"
-                      className="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500"
-                    />
-                    <button
-                      onClick={handleInsert}
-                      className="px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs shadow-lg shadow-cyan-600/20 transition cursor-pointer"
-                    >
-                      Insert
-                    </button>
-                  </div>
-                </div>
-
-                {/* Delete Node */}
-                <div className="bg-slate-950/60 p-3 rounded-2xl border border-slate-800/80">
-                  <label className="text-xs font-bold text-slate-300 block mb-1.5 flex items-center gap-1.5">
-                    <i className="bi bi-dash-circle-fill text-rose-400"></i>
-                    <span>Delete Node by Value</span>
-                  </label>
-                  <div className="flex gap-2">
-                    <input
-                      type="number"
-                      value={deleteInput}
-                      onChange={(e) => setDeleteInput(e.target.value)}
-                      onFocus={() => setActiveRuleKey("delete")}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter" && deleteInput) {
-                          handleDelete(parseInt(deleteInput, 10));
-                          setDeleteInput("");
-                        }
-                      }}
-                      placeholder="e.g. 25"
-                      className="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-rose-500"
-                    />
-                    <button
-                      onClick={() => {
-                        if (deleteInput) {
-                          handleDelete(parseInt(deleteInput, 10));
-                          setDeleteInput("");
-                        }
-                      }}
-                      className="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs shadow-lg shadow-rose-600/20 transition cursor-pointer"
-                    >
-                      Delete
-                    </button>
-                  </div>
-                </div>
-
-                {/* Search Trace */}
-                <div className="bg-slate-950/60 p-3 rounded-2xl border border-slate-800/80">
-                  <label className="text-xs font-bold text-slate-300 block mb-1.5 flex items-center gap-1.5">
-                    <i className="bi bi-search text-amber-400"></i>
-                    <span>Search Path Trace</span>
-                  </label>
-                  <div className="flex gap-2">
-                    <input
-                      type="number"
-                      value={searchInput}
-                      onChange={(e) => setSearchInput(e.target.value)}
-                      onFocus={() => setActiveRuleKey("search")}
-                      onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-                      placeholder="e.g. 75"
-                      className="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500"
-                    />
-                    <button
-                      onClick={handleSearch}
-                      className="px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs shadow-lg shadow-amber-600/20 transition cursor-pointer"
-                    >
-                      Trace
-                    </button>
-                  </div>
-                </div>
-
-              </div>
-
-              {/* Batch Insert & Presets Bar */}
-              <div className="flex flex-col md:flex-row gap-3 pt-2 border-t border-slate-800/80">
-                {/* Batch insert input */}
-                <div className="flex-1 flex gap-2">
-                  <input
-                    type="text"
-                    value={batchInput}
-                    onChange={(e) => setBatchInput(e.target.value)}
-                    onKeyDown={(e) => e.key === "Enter" && handleBatchInsert()}
-                    placeholder="Batch Insert (comma-separated): 50, 30, 70, 20, 40, 60, 80"
-                    className="w-full bg-slate-950 border border-slate-700/80 rounded-xl px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500"
-                  />
-                  <button
-                    onClick={handleBatchInsert}
-                    className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 font-semibold text-xs border border-cyan-500/30 whitespace-nowrap cursor-pointer"
-                  >
-                    Batch Add
-                  </button>
-                </div>
-
-                {/* Quick Presets */}
-                <div className="flex items-center gap-1.5 overflow-x-auto">
-                  <span className="text-[11px] text-slate-500 font-bold uppercase mr-1">Presets:</span>
-                  <button
-                    onClick={() => handleLoadPreset("balanced")}
-                    className="px-2.5 py-1 rounded-lg text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 whitespace-nowrap transition cursor-pointer"
-                  >
-                    Balanced BST
-                  </button>
-                  <button
-                    onClick={() => handleLoadPreset("complex")}
-                    className="px-2.5 py-1 rounded-lg text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 whitespace-nowrap transition cursor-pointer"
-                  >
-                    Complex (12)
-                  </button>
-                  <button
-                    onClick={handleRandomTree}
-                    className="px-2.5 py-1 rounded-lg text-xs bg-cyan-600/20 hover:bg-cyan-600/30 text-cyan-300 border border-cyan-500/40 whitespace-nowrap transition cursor-pointer"
-                  >
-                    🎲 Random
-                  </button>
-                  <button
-                    onClick={handleClearTree}
-                    className="px-2.5 py-1 rounded-lg text-xs bg-rose-600/20 hover:bg-rose-600/30 text-rose-300 border border-rose-500/40 whitespace-nowrap transition cursor-pointer"
-                  >
-                    Clear Canvas
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* TAB 2: TRAVERSAL PLAYER */}
-          {activeTab === "traversal" && (
-            <div className="space-y-4">
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                {/* Traversal Selector Buttons */}
-                <div className="flex flex-wrap items-center gap-2">
-                  <button
-                    onClick={() => startTraversal("inorder")}
-                    className={`px-3.5 py-2 rounded-xl text-xs font-bold transition cursor-pointer ${
-                      traversalType === "inorder" && traversalSequence.length > 0
-                        ? "bg-purple-600 text-white shadow-md shadow-purple-500/30"
-                        : "bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700"
-                    }`}
-                  >
-                    In-Order (L-Root-R)
-                  </button>
-
-                  <button
-                    onClick={() => startTraversal("preorder")}
-                    className={`px-3.5 py-2 rounded-xl text-xs font-bold transition cursor-pointer ${
-                      traversalType === "preorder" && traversalSequence.length > 0
-                        ? "bg-purple-600 text-white shadow-md shadow-purple-500/30"
-                        : "bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700"
-                    }`}
-                  >
-                    Pre-Order (Root-L-R)
-                  </button>
-
-                  <button
-                    onClick={() => startTraversal("postorder")}
-                    className={`px-3.5 py-2 rounded-xl text-xs font-bold transition cursor-pointer ${
-                      traversalType === "postorder" && traversalSequence.length > 0
-                        ? "bg-purple-600 text-white shadow-md shadow-purple-500/30"
-                        : "bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700"
-                    }`}
-                  >
-                    Post-Order (L-R-Root)
-                  </button>
-
-                  <button
-                    onClick={() => startTraversal("levelorder")}
-                    className={`px-3.5 py-2 rounded-xl text-xs font-bold transition cursor-pointer ${
-                      traversalType === "levelorder" && traversalSequence.length > 0
-                        ? "bg-purple-600 text-white shadow-md shadow-purple-500/30"
-                        : "bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700"
-                    }`}
-                  >
-                    Level-Order (BFS)
-                  </button>
-                </div>
-
-                {/* Playback Controls & Speed Slider */}
-                <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-1.5 bg-slate-950 p-1 rounded-xl border border-slate-800">
-                    <button
-                      onClick={() => setActiveStepIndex((prev) => Math.max(0, prev - 1))}
-                      disabled={activeStepIndex <= 0}
-                      className="p-1.5 rounded-lg text-slate-400 hover:text-white disabled:opacity-40"
-                      title="Step Backward"
-                    >
-                      <i className="bi bi-skip-backward-fill"></i>
-                    </button>
-                    
-                    <button
-                      onClick={() => setIsPlaying(!isPlaying)}
-                      className="px-3 py-1 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs"
-                    >
-                      {isPlaying ? <i className="bi bi-pause-fill"></i> : <i className="bi bi-play-fill"></i>}
-                      <span className="ml-1">{isPlaying ? "Pause" : "Play"}</span>
-                    </button>
-
-                    <button
-                      onClick={() => setActiveStepIndex((prev) => Math.min(traversalSequence.length - 1, prev + 1))}
-                      disabled={activeStepIndex >= traversalSequence.length - 1}
-                      className="p-1.5 rounded-lg text-slate-400 hover:text-white disabled:opacity-40"
-                      title="Step Forward"
-                    >
-                      <i className="bi bi-skip-forward-fill"></i>
-                    </button>
-                  </div>
-
-                  {/* Speed Selector */}
-                  <div className="flex items-center gap-1 text-xs text-slate-400">
-                    <span>Speed:</span>
-                    <select
-                      value={animationSpeed}
-                      onChange={(e) => setAnimationSpeed(Number(e.target.value))}
-                      className="bg-slate-950 border border-slate-800 text-white text-xs rounded-lg px-2 py-1 focus:outline-none"
-                    >
-                      <option value={1200}>0.5x (Slow)</option>
-                      <option value={600}>1.0x (Normal)</option>
-                      <option value={300}>2.0x (Fast)</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              {/* Traversal Tape / Visited Array */}
-              {traversalSequence.length > 0 && (
-                <div className="p-3 bg-slate-950 rounded-2xl border border-slate-800 space-y-2">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-bold text-slate-400 uppercase tracking-wider">
-                      {traversalType.toUpperCase()} Sequence ({activeStepIndex + 1} / {traversalSequence.length})
-                    </span>
-                    <span className="text-[11px] text-purple-400 font-mono">
-                      Current Node: {activeStepIndex >= 0 ? traversalSequence[activeStepIndex] : "—"}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-2 overflow-x-auto py-1">
-                    {traversalSequence.map((val, idx) => (
-                      <div
-                        key={idx}
-                        className={`flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center font-bold text-xs transition-all duration-200 border ${
-                          idx === activeStepIndex
-                            ? "bg-purple-600 text-white border-purple-400 scale-110 shadow-lg shadow-purple-500/40 ring-2 ring-purple-400"
-                            : idx < activeStepIndex
-                            ? "bg-purple-950/40 text-purple-300 border-purple-800/60 opacity-80"
-                            : "bg-slate-900 text-slate-500 border-slate-800"
-                        }`}
-                      >
-                        {val}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* TAB 3: ADVANCED ALGORITHMS & LCA */}
-          {activeTab === "analytics" && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              
-              {/* Lowest Common Ancestor (LCA) */}
-              <div className="bg-slate-950/60 p-3.5 rounded-2xl border border-slate-800/80 space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-white flex items-center gap-1.5">
-                    <i className="bi bi-share-fill text-emerald-400"></i>
-                    <span>Lowest Common Ancestor (LCA)</span>
-                  </span>
-                  <span className="text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/20">
-                    O(H)
-                  </span>
-                </div>
-                <p className="text-xs text-slate-400">
-                  Find the shared ancestor node of any two elements in this BST.
-                </p>
-
-                <div className="flex gap-2">
-                  <input
-                    type="number"
-                    value={lcaInputs.n1}
-                    onChange={(e) => setLcaInputs({ ...lcaInputs, n1: e.target.value })}
-                    onFocus={() => setActiveRuleKey("lca")}
-                    placeholder="Node 1 (e.g. 12)"
-                    className="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500"
-                  />
-                  <input
-                    type="number"
-                    value={lcaInputs.n2}
-                    onChange={(e) => setLcaInputs({ ...lcaInputs, n2: e.target.value })}
-                    onFocus={() => setActiveRuleKey("lca")}
-                    placeholder="Node 2 (e.g. 37)"
-                    className="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500"
-                  />
-                  <button
-                    onClick={handleCalculateLCA}
-                    className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-lg shadow-emerald-600/20 whitespace-nowrap cursor-pointer"
-                  >
-                    Find LCA
-                  </button>
-                </div>
-
-                {lcaResult !== null && (
-                  <div className="p-2.5 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-semibold">
-                    🎉 Lowest Common Ancestor = <span className="text-white text-sm font-bold underline">{lcaResult}</span>
-                  </div>
-                )}
-              </div>
-
-              {/* Tree Optimization Tools */}
-              <div className="bg-slate-950/60 p-3.5 rounded-2xl border border-slate-800/80 space-y-3">
-                <span className="text-xs font-bold text-white flex items-center gap-1.5">
-                  <i className="bi bi-magic text-cyan-400"></i>
-                  <span>Structural Transformers</span>
-                </span>
-                <p className="text-xs text-slate-400">
-                  Instantly optimize tree height or invert binary pointers.
-                </p>
-
-                <div className="grid grid-cols-2 gap-2 pt-1">
-                  <button
-                    onClick={handleBalanceTree}
-                    className="p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-left transition group cursor-pointer"
-                  >
-                    <div className="text-xs font-bold text-cyan-400 group-hover:text-cyan-300 flex items-center gap-1 mb-1">
-                      <i className="bi bi-arrows-collapse"></i>
-                      <span>Auto-Balance Tree</span>
-                    </div>
-                    <p className="text-[10px] text-slate-400">Convert skewed BST into minimal height tree</p>
-                  </button>
-
-                  <button
-                    onClick={handleInvertTree}
-                    className="p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-left transition group cursor-pointer"
-                  >
-                    <div className="text-xs font-bold text-purple-400 group-hover:text-purple-300 flex items-center gap-1 mb-1">
-                      <i className="bi bi-arrow-left-right"></i>
-                      <span>Mirror / Invert Tree</span>
-                    </div>
-                    <p className="text-[10px] text-slate-400">Swap every left and right subtree</p>
-                  </button>
-                </div>
-              </div>
-
-            </div>
-          )}
-
-          {/* TAB 4: CODE & THEORY */}
-          {activeTab === "code" && (
-            <div className="bg-slate-950 p-3.5 rounded-2xl border border-slate-800 text-xs font-mono text-slate-300 space-y-3">
-              <div className="flex items-center justify-between text-slate-400">
-                <span className="font-bold text-white flex items-center gap-1.5">
-                  <i className="bi bi-file-earmark-code text-cyan-400"></i>
-                  <span>BST Insertion & Lookup Algorithm (C++ / Java / Python Equivalent)</span>
-                </span>
-              </div>
-              <div className="bg-slate-900/90 p-3 rounded-xl border border-slate-800 overflow-x-auto text-[11px] text-sky-300 leading-relaxed">
-                <pre>{`// BST Node Lookup - O(log N) average, O(N) worst case
-TreeNode* search(TreeNode* root, int key) {
-    if (root == nullptr || root->val == key)
-        return root;
-    if (key < root->val)
-        return search(root->left, key);
-    return search(root->right, key);
-}
-
-// BST Node Insertion
-TreeNode* insert(TreeNode* root, int key) {
-    if (root == nullptr) return new TreeNode(key);
-    if (key < root->val)
-        root->left = insert(root->left, key);
-    else if (key > root->val)
-        root->right = insert(root->right, key);
-    return root;
-}`}</pre>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* =================================================================== */}
-        {/* 4. INTERACTIVE CANVAS & VISUALIZER */}
-        {/* =================================================================== */}
-        <div className="relative bg-slate-900/80 backdrop-blur-2xl border border-slate-800/90 rounded-3xl p-4 sm:p-6 shadow-2xl shadow-black/80 flex flex-col min-h-[460px] overflow-hidden">
-          
-          {/* Canvas Controls Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800/80 mb-3">
-            
-            {/* Live Interactive Feedback Banner */}
-            <div className="flex items-center gap-2 text-xs font-medium">
+          {/* Top Bar inside Canvas */}
+          <div className="flex items-center justify-between pb-3 border-b border-slate-800/60 mb-3 text-xs">
+            {/* Feedback message banner */}
+            <div className="flex items-center gap-2">
               <span
                 className={`w-2 h-2 rounded-full ${
-                  message.type === "success"
+                  feedback.type === "success"
                     ? "bg-emerald-400 shadow-sm shadow-emerald-400/80"
-                    : message.type === "error"
+                    : feedback.type === "error"
                     ? "bg-rose-400 shadow-sm shadow-rose-400/80"
-                    : message.type === "warning"
+                    : feedback.type === "warning"
                     ? "bg-amber-400 shadow-sm shadow-amber-400/80"
-                    : "bg-cyan-400 shadow-sm shadow-cyan-400/80"
+                    : "bg-sky-400 shadow-sm shadow-sky-400/80"
                 }`}
               />
-              <span className="text-slate-200">{message.text}</span>
+              <span className="text-slate-300 text-[11px] font-medium">{feedback.text}</span>
             </div>
 
-            {/* Viewport Zoom & Theme Switcher */}
+            {/* Viewport Zoom & Level toggles */}
             <div className="flex items-center gap-2">
-              {/* Node Level Badges Toggle */}
               <button
                 onClick={() => setShowNodeLevels(!showNodeLevels)}
-                className={`px-2.5 py-1 rounded-lg text-xs font-medium border transition cursor-pointer ${
-                  showNodeLevels
-                    ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/30"
-                    : "bg-slate-950 text-slate-400 border-slate-800"
+                className={`px-2 py-0.5 rounded-lg text-[11px] font-medium border transition cursor-pointer ${
+                  showNodeLevels ? "bg-sky-500/15 text-sky-300 border-sky-500/30" : "bg-slate-950/80 text-slate-500 border-slate-800/80"
                 }`}
               >
-                Levels: {showNodeLevels ? "ON" : "OFF"}
+                Levels {showNodeLevels ? "ON" : "OFF"}
               </button>
 
-              {/* Theme Selector */}
-              <select
-                value={currentTheme}
-                onChange={(e) => setCurrentTheme(e.target.value)}
-                className="bg-slate-950 border border-slate-800 text-xs text-slate-300 rounded-lg px-2 py-1 focus:outline-none"
-              >
-                <option value="cyan">Neon Cyan</option>
-                <option value="emerald">Emerald Jade</option>
-                <option value="purple">Cosmic Purple</option>
-                <option value="amber">Solar Amber</option>
-              </select>
-
-              {/* Zoom Buttons */}
-              <div className="flex items-center gap-1 bg-slate-950 p-0.5 rounded-lg border border-slate-800 text-xs">
+              <div className="flex items-center gap-1 bg-slate-950/80 p-0.5 rounded-lg border border-slate-800/80 text-xs">
                 <button
                   onClick={() => setZoomLevel((z) => Math.max(0.6, z - 0.15))}
                   className="p-1 text-slate-400 hover:text-white"
@@ -1552,16 +1584,16 @@ TreeNode* insert(TreeNode* root, int key) {
             </div>
           </div>
 
-          {/* SVG Canvas Area */}
+          {/* SVG Tree Canvas */}
           <div
             ref={svgContainerRef}
-            className="flex-1 w-full overflow-auto flex items-center justify-center p-2 rounded-2xl bg-[#020617]/90 border border-slate-950 shadow-inner min-h-[380px]"
+            className="flex-1 w-full overflow-auto flex items-center justify-center p-2 rounded-2xl min-h-[350px]"
           >
             {!root ? (
               <div className="text-center py-16 text-slate-500 space-y-2">
-                <i className="bi bi-diagram-2 text-4xl block opacity-40"></i>
-                <p className="text-sm font-semibold text-slate-400">Canvas is empty</p>
-                <p className="text-xs text-slate-500">Insert values or click "Random Tree" above to begin visualizing</p>
+                <i className="bi bi-diagram-2 text-4xl block opacity-25"></i>
+                <p className="text-sm font-medium text-slate-400">BST canvas is empty</p>
+                <p className="text-xs text-slate-500">Insert values, batch keys, or click "Sample" above to begin</p>
               </div>
             ) : (
               <div
@@ -1574,37 +1606,61 @@ TreeNode* insert(TreeNode* root, int key) {
               >
                 <svg
                   viewBox={viewBox}
-                  className="w-full h-auto max-h-[600px] overflow-visible select-none"
+                  className="w-full h-auto max-h-[560px] overflow-visible select-none"
                 >
                   <defs>
-                    <linearGradient id="treeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor={activeTheme.gradStart} />
-                      <stop offset="100%" stopColor={activeTheme.gradEnd} />
+                    {/* Soothing Node Radial & Linear Gradients */}
+                    <linearGradient id="soothingNodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor={activeTheme.nodeStart} />
+                      <stop offset="100%" stopColor={activeTheme.nodeEnd} />
                     </linearGradient>
 
-                    <linearGradient id="activeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#f59e0b" />
-                      <stop offset="100%" stopColor="#ef4444" />
+                    <linearGradient id="soothingActiveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor={activeTheme.activeNodeStart} />
+                      <stop offset="100%" stopColor={activeTheme.activeNodeEnd} />
                     </linearGradient>
 
-                    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                      <feGaussianBlur stdDeviation="4" result="blur" />
+                    <linearGradient id="soothingMatchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#059669" />
+                      <stop offset="100%" stopColor="#047857" />
+                    </linearGradient>
+
+                    <linearGradient id="soothingTargetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#9f1239" />
+                      <stop offset="100%" stopColor="#881337" />
+                    </linearGradient>
+
+                    <linearGradient id="soothingSuccessorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#065f46" />
+                      <stop offset="100%" stopColor="#047857" />
+                    </linearGradient>
+
+                    <linearGradient id="soothingPredecessorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#6b21a8" />
+                      <stop offset="100%" stopColor="#581c87" />
+                    </linearGradient>
+
+                    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+                      <feGaussianBlur stdDeviation="3" result="blur" />
                       <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
+
+                    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#000000" floodOpacity="0.5" />
                     </filter>
                   </defs>
 
                   {/* 1. EDGES / BRANCHES */}
                   {Array.from(layout.positions.entries()).map(([node, pos]) => {
-                    const isDeleting = pendingDelete === node.value;
-                    if (isDeleting) return null;
-
                     const branches = [];
 
-                    if (node.left && pendingDelete !== node.left.value) {
+                    if (node.left) {
                       const childPos = layout.positions.get(node.left);
                       if (childPos) {
-                        const inSearchPath =
-                          searchPath.includes(node.value) && searchPath.includes(node.left.value);
+                        const inOpPath =
+                          currentOpStep?.highlightedPath?.includes(node.value) &&
+                          currentOpStep?.highlightedPath?.includes(node.left.value);
+
                         branches.push(
                           <g key={`${node.value}-left`}>
                             <line
@@ -1612,17 +1668,19 @@ TreeNode* insert(TreeNode* root, int key) {
                               y1={pos.y + NODE_RADIUS * 0.8}
                               x2={childPos.x}
                               y2={childPos.y - NODE_RADIUS * 0.8}
-                              stroke={inSearchPath ? "#f59e0b" : "#334155"}
-                              strokeWidth={inSearchPath ? "3.5" : "2.5"}
+                              stroke={inOpPath ? activeTheme.activeEdge : activeTheme.edge}
+                              strokeWidth={inOpPath ? "2.5" : "1.75"}
+                              strokeDasharray={inOpPath ? "6 3" : undefined}
                               className="transition-all duration-300"
                             />
-                            {/* Directional Subtitle (L) */}
+                            {/* Directional Tag */}
                             <text
-                              x={(pos.x + childPos.x) / 2 - 8}
+                              x={(pos.x + childPos.x) / 2 - 7}
                               y={(pos.y + childPos.y) / 2}
-                              fill="#64748b"
-                              fontSize="9"
-                              fontWeight="bold"
+                              fill={inOpPath ? activeTheme.activeEdge : "#475569"}
+                              fontSize="8"
+                              fontWeight="600"
+                              fontFamily="system-ui, sans-serif"
                             >
                               L
                             </text>
@@ -1631,11 +1689,13 @@ TreeNode* insert(TreeNode* root, int key) {
                       }
                     }
 
-                    if (node.right && pendingDelete !== node.right.value) {
+                    if (node.right) {
                       const childPos = layout.positions.get(node.right);
                       if (childPos) {
-                        const inSearchPath =
-                          searchPath.includes(node.value) && searchPath.includes(node.right.value);
+                        const inOpPath =
+                          currentOpStep?.highlightedPath?.includes(node.value) &&
+                          currentOpStep?.highlightedPath?.includes(node.right.value);
+
                         branches.push(
                           <g key={`${node.value}-right`}>
                             <line
@@ -1643,17 +1703,19 @@ TreeNode* insert(TreeNode* root, int key) {
                               y1={pos.y + NODE_RADIUS * 0.8}
                               x2={childPos.x}
                               y2={childPos.y - NODE_RADIUS * 0.8}
-                              stroke={inSearchPath ? "#f59e0b" : "#334155"}
-                              strokeWidth={inSearchPath ? "3.5" : "2.5"}
+                              stroke={inOpPath ? activeTheme.activeEdge : activeTheme.edge}
+                              strokeWidth={inOpPath ? "2.5" : "1.75"}
+                              strokeDasharray={inOpPath ? "6 3" : undefined}
                               className="transition-all duration-300"
                             />
-                            {/* Directional Subtitle (R) */}
+                            {/* Directional Tag */}
                             <text
-                              x={(pos.x + childPos.x) / 2 + 8}
+                              x={(pos.x + childPos.x) / 2 + 7}
                               y={(pos.y + childPos.y) / 2}
-                              fill="#64748b"
-                              fontSize="9"
-                              fontWeight="bold"
+                              fill={inOpPath ? activeTheme.activeEdge : "#475569"}
+                              fontSize="8"
+                              fontWeight="600"
+                              fontFamily="system-ui, sans-serif"
                             >
                               R
                             </text>
@@ -1667,15 +1729,58 @@ TreeNode* insert(TreeNode* root, int key) {
 
                   {/* 2. NODES */}
                   {Array.from(layout.positions.entries()).map(([node, pos]) => {
-                    const isInserted = insertedNode === node.value;
-                    const isDeleting = pendingDelete === node.value;
                     const isSelected = selectedNode?.value === node.value;
                     const isTraversalActive =
-                      activeStepIndex >= 0 && traversalSequence[activeStepIndex] === node.value;
-                    const inSearchPath = searchPath.includes(node.value);
-                    const isSearchMatch = searchTarget === node.value;
-                    const isLCANode = lcaResult === node.value;
+                      traversalStepIdx >= 0 && traversalSequence[traversalStepIdx] === node.value;
+
+                    // Operation step states
+                    const isOpActiveNode = currentOpStep?.activeNode === node.value;
+                    const isOpTargetNode = currentOpStep?.isTargetNode === node.value;
+                    const isOpSuccessorNode = currentOpStep?.isSuccessorNode === node.value;
+                    const isOpPredecessorNode = currentOpStep?.isPredecessorNode === node.value;
+                    const isOpSearchMatch = currentOpStep?.isSearchMatch === node.value;
                     const level = layout.nodeLevels.get(node.value) || 1;
+
+                    let nodeFill = "url(#soothingNodeGrad)";
+                    let nodeStroke = activeTheme.border;
+                    let strokeWidth = "1.5";
+                    let haloStroke = activeTheme.halo;
+
+                    if (isOpTargetNode) {
+                      nodeFill = "url(#soothingTargetGrad)";
+                      nodeStroke = "rgba(244, 63, 94, 0.8)";
+                      strokeWidth = "2.5";
+                      haloStroke = "#f43f5e";
+                    } else if (isOpSuccessorNode) {
+                      nodeFill = "url(#soothingSuccessorGrad)";
+                      nodeStroke = "rgba(52, 211, 153, 0.8)";
+                      strokeWidth = "2.5";
+                      haloStroke = "#34d399";
+                    } else if (isOpPredecessorNode) {
+                      nodeFill = "url(#soothingPredecessorGrad)";
+                      nodeStroke = "rgba(192, 132, 252, 0.8)";
+                      strokeWidth = "2.5";
+                      haloStroke = "#c084fc";
+                    } else if (isOpSearchMatch) {
+                      nodeFill = "url(#soothingMatchGrad)";
+                      nodeStroke = "rgba(52, 211, 153, 0.9)";
+                      strokeWidth = "2.5";
+                      haloStroke = "#34d399";
+                    } else if (isOpActiveNode) {
+                      nodeFill = "url(#soothingActiveGrad)";
+                      nodeStroke = "rgba(56, 189, 248, 0.9)";
+                      strokeWidth = "2.5";
+                      haloStroke = activeTheme.halo;
+                    } else if (isTraversalActive) {
+                      nodeFill = "url(#soothingActiveGrad)";
+                      nodeStroke = "rgba(251, 191, 36, 0.8)";
+                      strokeWidth = "2.5";
+                      haloStroke = "#fbbf24";
+                    } else if (isSelected) {
+                      nodeFill = "url(#soothingActiveGrad)";
+                      nodeStroke = "rgba(147, 197, 253, 0.9)";
+                      strokeWidth = "2";
+                    }
 
                     return (
                       <g
@@ -1685,130 +1790,133 @@ TreeNode* insert(TreeNode* root, int key) {
                         className="cursor-pointer group"
                         style={{
                           transformOrigin: `${pos.x}px ${pos.y}px`,
-                          transition: "all 0.3s ease-out",
+                          transition: "all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
                         }}
                       >
-                        {/* Outer Glow Halo for Active State */}
-                        {(isTraversalActive || isSearchMatch || isLCANode || isSelected) && (
-                          <circle
-                            cx={pos.x}
-                            cy={pos.y}
-                            r={NODE_RADIUS + 8}
-                            fill="none"
-                            stroke={
-                              isTraversalActive
-                                ? "#a855f7"
-                                : isSearchMatch
-                                ? "#10b981"
-                                : isLCANode
-                                ? "#10b981"
-                                : "#38bdf8"
-                            }
-                            strokeWidth="2"
-                            strokeDasharray="4 2"
-                            className="animate-spin"
-                            style={{ transformOrigin: `${pos.x}px ${pos.y}px`, animationDuration: "8s" }}
-                          />
+                        {/* Soothing Concentric Animated Halo */}
+                        {(isTraversalActive || isSelected || isOpActiveNode || isOpTargetNode || isOpSuccessorNode || isOpPredecessorNode || isOpSearchMatch) && (
+                          <>
+                            <circle
+                              cx={pos.x}
+                              cy={pos.y}
+                              r={NODE_RADIUS + 5}
+                              fill="none"
+                              stroke={haloStroke}
+                              strokeWidth="1.5"
+                              strokeDasharray="4 3"
+                              className="animate-spin"
+                              style={{
+                                transformOrigin: `${pos.x}px ${pos.y}px`,
+                                animationDuration: "12s",
+                                opacity: 0.85,
+                              }}
+                            />
+                            <circle
+                              cx={pos.x}
+                              cy={pos.y}
+                              r={NODE_RADIUS + 9}
+                              fill="none"
+                              stroke={haloStroke}
+                              strokeWidth="1"
+                              strokeOpacity="0.3"
+                              className="animate-ping"
+                              style={{
+                                transformOrigin: `${pos.x}px ${pos.y}px`,
+                                animationDuration: "3s",
+                              }}
+                            />
+                          </>
                         )}
 
-                        {/* Node Main Circle */}
+                        {/* Main Node Body with Soothing Drop Shadow */}
                         <circle
                           cx={pos.x}
                           cy={pos.y}
                           r={NODE_RADIUS}
-                          fill={
-                            isTraversalActive
-                              ? "url(#activeGrad)"
-                              : inSearchPath
-                              ? "#d97706"
-                              : isLCANode
-                              ? "#059669"
-                              : isSelected
-                              ? "#2563eb"
-                              : "url(#treeGrad)"
-                          }
-                          stroke={
-                            isInserted || isTraversalActive || isSearchMatch
-                              ? "#fbbf24"
-                              : isSelected
-                              ? "#93c5fd"
-                              : "#1e293b"
-                          }
-                          strokeWidth={isSelected || isTraversalActive ? "3" : "2"}
-                          filter={isTraversalActive || isSearchMatch ? "url(#glow)" : undefined}
-                          className="transition-all duration-300 transform group-hover:scale-110"
+                          fill={nodeFill}
+                          stroke={nodeStroke}
+                          strokeWidth={strokeWidth}
+                          filter="url(#softShadow)"
+                          className="transition-all duration-300 transform group-hover:scale-108"
+                        />
+
+                        {/* Soft Inner Highlight Ring */}
+                        <circle
+                          cx={pos.x}
+                          cy={pos.y}
+                          r={NODE_RADIUS - 1.5}
+                          fill="none"
+                          stroke="rgba(255, 255, 255, 0.12)"
+                          strokeWidth="1"
+                          className="pointer-events-none"
                         />
 
                         {/* Node Value */}
                         <text
                           x={pos.x}
-                          y={pos.y + 1}
+                          y={pos.y + 0.5}
                           textAnchor="middle"
                           dominantBaseline="middle"
-                          fill="white"
-                          fontSize="13"
-                          fontWeight="800"
+                          fill="#f8fafc"
+                          fontSize="10.5"
+                          fontWeight="700"
                           fontFamily="monospace"
-                          className="pointer-events-none"
+                          className="pointer-events-none tracking-tight"
                         >
                           {node.value}
                         </text>
 
-                        {/* Level / Depth Badge Tag */}
+                        {/* Soothing Level Pill */}
                         {showNodeLevels && (
                           <g className="pointer-events-none">
                             <rect
-                              x={pos.x - 14}
-                              y={pos.y + NODE_RADIUS - 4}
-                              width="28"
-                              height="13"
-                              rx="6"
-                              fill="#090d16"
-                              stroke="#334155"
-                              strokeWidth="1"
+                              x={pos.x - 11}
+                              y={pos.y + NODE_RADIUS - 2}
+                              width="22"
+                              height="11"
+                              rx="5.5"
+                              fill="#0b1120"
+                              stroke="rgba(255, 255, 255, 0.15)"
+                              strokeWidth="0.75"
                             />
                             <text
                               x={pos.x}
-                              y={pos.y + NODE_RADIUS + 4}
+                              y={pos.y + NODE_RADIUS + 4.5}
                               textAnchor="middle"
                               dominantBaseline="middle"
                               fill="#94a3b8"
-                              fontSize="8"
-                              fontWeight="bold"
+                              fontSize="7"
+                              fontWeight="600"
                             >
                               L{level}
                             </text>
                           </g>
                         )}
 
-                        {/* Delete Mini Quick Action Button */}
-                        {!isDeleting && (
-                          <g
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleDelete(node.value);
-                            }}
-                            className="opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                          >
-                            <circle
-                              cx={pos.x + NODE_RADIUS - 5}
-                              cy={pos.y - NODE_RADIUS + 5}
-                              r="9"
-                              fill="#ef4444"
-                              stroke="#0f172a"
-                              strokeWidth="1.5"
-                              className="hover:fill-rose-700"
+                        {/* Beautiful Floating Glassmorphism Comparison Pill */}
+                        {isOpActiveNode && currentOpStep?.comparisonText && (
+                          <g className="animate-bounce pointer-events-none" style={{ animationDuration: "1.8s" }}>
+                            <rect
+                              x={pos.x - 44}
+                              y={pos.y - 44}
+                              width="88"
+                              height="20"
+                              rx="10"
+                              fill="#0c1829"
+                              stroke="rgba(56, 189, 248, 0.6)"
+                              strokeWidth="1"
+                              filter="url(#softShadow)"
                             />
                             <text
-                              x={pos.x + NODE_RADIUS - 5}
-                              y={pos.y - NODE_RADIUS + 5}
+                              x={pos.x}
+                              y={pos.y - 32}
                               textAnchor="middle"
-                              dominantBaseline="middle"
-                              fill="white"
-                              fontSize="10"
-                              fontWeight="bold"
+                              fontSize="8"
+                              fontWeight="600"
+                              fill="#e0f2fe"
+                              fontFamily="system-ui, sans-serif"
                             >
-                              ×
+                              {currentOpStep.comparisonText}
                             </text>
                           </g>
                         )}
@@ -1819,71 +1927,288 @@ TreeNode* insert(TreeNode* root, int key) {
               </div>
             )}
           </div>
+        </main>
+
+        {/* =================================================================== */}
+        {/* 5. SECONDARY STUDIO EXPANDABLE TOOLS (NEAT & CLEAN) */}
+        {/* =================================================================== */}
+        <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl p-3 shadow-lg space-y-3">
+          
+          {/* Navigation Pill Buttons */}
+          <div className="flex items-center justify-between flex-wrap gap-2">
+            <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+              Studio Tools &amp; Blueprints:
+            </span>
+
+            <div className="flex items-center gap-1.5 flex-wrap">
+              {[
+                { key: "traversal", label: "Traversal Player", icon: "bi-play-circle" },
+                { key: "lca", label: "LCA Calculator", icon: "bi-share" },
+                { key: "rules", label: "Task Rules Guide", icon: "bi-journal-text" },
+                { key: "code", label: "C Code Blueprint", icon: "bi-code-slash" },
+              ].map((tab) => (
+                <button
+                  key={tab.key}
+                  onClick={() => setBottomTab(bottomTab === tab.key ? null : tab.key)}
+                  className={`px-3 py-1 rounded-xl text-xs font-medium transition cursor-pointer flex items-center gap-1.5 ${
+                    bottomTab === tab.key
+                      ? "bg-sky-500/20 text-sky-200 border border-sky-500/40 shadow-sm"
+                      : "bg-slate-950/70 text-slate-400 hover:text-white border border-slate-800/80"
+                  }`}
+                >
+                  <i className={`bi ${tab.icon}`}></i>
+                  <span>{tab.label}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Collapsible Content */}
+          <AnimatePresence>
+            {bottomTab && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                className="pt-2 border-t border-slate-800/60 overflow-hidden"
+              >
+                {/* 1. Traversal Player */}
+                {bottomTab === "traversal" && (
+                  <div className="space-y-3 p-1">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <div className="flex items-center gap-1.5">
+                        {["inorder", "preorder", "postorder", "levelorder"].map((t) => (
+                          <button
+                            key={t}
+                            onClick={() => handleStartTraversal(t)}
+                            className={`px-2.5 py-1 rounded-lg text-xs font-medium transition cursor-pointer ${
+                              traversalType === t && traversalSequence.length > 0
+                                ? "bg-purple-600/80 text-white border border-purple-400/40"
+                                : "bg-slate-950/80 hover:bg-slate-800/80 text-slate-300 border border-slate-800/80"
+                            }`}
+                          >
+                            {t === "inorder" ? "In-Order (L-Root-R)" : t === "preorder" ? "Pre-Order (Root-L-R)" : t === "postorder" ? "Post-Order (L-R-Root)" : "Level-Order (BFS)"}
+                          </button>
+                        ))}
+                      </div>
+
+                      {traversalSequence.length > 0 && (
+                        <div className="flex items-center gap-1.5">
+                          <button
+                            onClick={() => setTraversalStepIdx((p) => Math.max(0, p - 1))}
+                            disabled={traversalStepIdx <= 0}
+                            className="px-2 py-1 rounded-lg bg-slate-950 text-xs text-slate-300 disabled:opacity-40"
+                          >
+                            ⏮️
+                          </button>
+                          <button
+                            onClick={() => setIsTraversalPlaying(!isTraversalPlaying)}
+                            className="px-2.5 py-1 rounded-lg bg-purple-600 text-xs text-white font-medium"
+                          >
+                            {isTraversalPlaying ? "Pause" : "Play"}
+                          </button>
+                          <button
+                            onClick={() => setTraversalStepIdx((p) => Math.min(traversalSequence.length - 1, p + 1))}
+                            disabled={traversalStepIdx >= traversalSequence.length - 1}
+                            className="px-2 py-1 rounded-lg bg-slate-950 text-xs text-slate-300 disabled:opacity-40"
+                          >
+                            ⏭️
+                          </button>
+                        </div>
+                      )}
+                    </div>
+
+                    {traversalSequence.length > 0 && (
+                      <div className="flex items-center gap-1.5 overflow-x-auto py-1">
+                        {traversalSequence.map((val, idx) => (
+                          <div
+                            key={idx}
+                            className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-bold text-xs transition-all border ${
+                              idx === traversalStepIdx
+                                ? "bg-purple-600 text-white border-purple-400 scale-110 shadow"
+                                : idx < traversalStepIdx
+                                ? "bg-purple-950/40 text-purple-300 border-purple-800/40"
+                                : "bg-slate-950 text-slate-500 border-slate-800"
+                            }`}
+                          >
+                            {val}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* 2. LCA Calculator */}
+                {bottomTab === "lca" && (
+                  <div className="p-1 space-y-2">
+                    <p className="text-xs text-slate-400">
+                      Find the Lowest Common Ancestor (LCA) split node for any two keys in O(h) time:
+                    </p>
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="number"
+                        value={lcaInputs.n1}
+                        onChange={(e) => setLcaInputs({ ...lcaInputs, n1: e.target.value })}
+                        placeholder="Node 1"
+                        className="w-28 bg-slate-950/80 border border-slate-800 rounded-xl px-2.5 py-1 text-xs text-white font-mono"
+                      />
+                      <input
+                        type="number"
+                        value={lcaInputs.n2}
+                        onChange={(e) => setLcaInputs({ ...lcaInputs, n2: e.target.value })}
+                        placeholder="Node 2"
+                        className="w-28 bg-slate-950/80 border border-slate-800 rounded-xl px-2.5 py-1 text-xs text-white font-mono"
+                      />
+                      <button
+                        onClick={() => {
+                          const n1 = parseInt(lcaInputs.n1, 10);
+                          const n2 = parseInt(lcaInputs.n2, 10);
+                          if (isNaN(n1) || isNaN(n2)) return;
+                          const lca = findLCA(root, n1, n2);
+                          setLcaResult(lca ? lca.value : "None");
+                        }}
+                        className="px-3 py-1 bg-emerald-600/80 hover:bg-emerald-500 text-white text-xs font-semibold rounded-xl cursor-pointer"
+                      >
+                        Compute LCA
+                      </button>
+                      {lcaResult !== null && (
+                        <span className="text-xs font-semibold text-emerald-300 bg-emerald-950/60 px-2.5 py-1 rounded-xl border border-emerald-800/60">
+                          LCA = {lcaResult}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                )}
+
+                {/* 3. Task Rules Guide */}
+                {bottomTab === "rules" && (
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 p-1 text-xs">
+                    {Object.values(TASK_RULES).map((rule, idx) => (
+                      <div key={idx} className="bg-slate-950/70 p-2.5 rounded-xl border border-slate-800/80 space-y-1.5">
+                        <div className="flex items-center justify-between">
+                          <span className="font-semibold text-slate-100">{rule.title}</span>
+                          <span className="text-[10px] text-sky-400 font-mono">{rule.badge}</span>
+                        </div>
+                        <p className="text-[11px] text-slate-400">{rule.invariants}</p>
+                        <div className="space-y-1 text-[10px] text-slate-400">
+                          {rule.steps.map((s, sIdx) => (
+                            <div key={sIdx} className="flex gap-1.5">
+                              <span className="text-sky-400 font-semibold">{s.step}.</span>
+                              <span>{s.title}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* 4. C Code Reference */}
+                {bottomTab === "code" && (
+                  <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800 text-[11px] font-mono text-sky-300">
+                    <pre className="overflow-x-auto leading-relaxed">{`// BST Node Lookup & Insertion (O(log N) average)
+TreeNode* insert(TreeNode* root, int key) {
+    if (root == NULL) return new TreeNode(key);
+    if (key < root->val) root->left = insert(root->left, key);
+    else if (key > root->val) root->right = insert(root->right, key);
+    return root;
+}
+
+// BST 3-Case Deletion
+TreeNode* deleteNode(TreeNode* root, int key) {
+    if (root == NULL) return NULL;
+    if (key < root->val) root->left = deleteNode(root->left, key);
+    else if (key > root->val) root->right = deleteNode(root->right, key);
+    else {
+        if (!root->left && !root->right) { delete root; return NULL; }
+        if (!root->left) { TreeNode* t = root->right; delete root; return t; }
+        if (!root->right) { TreeNode* t = root->left; delete root; return t; }
+        TreeNode* succ = findMin(root->right);
+        root->val = succ->val;
+        root->right = deleteNode(root->right, succ->val);
+    }
+    return root;
+}`}</pre>
+                  </div>
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* =================================================================== */}
-        {/* 5. FLOATING NODE INSPECTOR MODAL */}
+        {/* 6. FLOATING NODE INSPECTOR CARD */}
         {/* =================================================================== */}
         <AnimatePresence>
           {selectedNode && (
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 15 }}
-              className="fixed bottom-6 right-6 z-50 w-80 bg-slate-900/95 backdrop-blur-2xl border border-slate-700/80 rounded-2xl shadow-2xl p-4 ring-1 ring-cyan-500/30"
+              exit={{ opacity: 0, y: 8 }}
+              className="fixed bottom-5 right-5 z-50 w-72 bg-slate-900/95 backdrop-blur-2xl border border-slate-700/70 rounded-2xl shadow-2xl p-3.5 ring-1 ring-sky-500/20"
             >
-              <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-800">
+              <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-800/80">
                 <div className="flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-lg bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 flex items-center justify-center font-mono font-bold text-xs">
+                  <div className="w-6 h-6 rounded-lg bg-sky-500/20 text-sky-300 border border-sky-500/30 flex items-center justify-center font-mono font-bold text-xs">
                     {selectedNode.value}
                   </div>
                   <div>
-                    <h3 className="text-xs font-bold text-white">Node Inspector</h3>
-                    <p className="text-[10px] text-slate-400">Level {selectedNode.level} in BST</p>
+                    <h3 className="text-xs font-semibold text-white">Node Inspector</h3>
+                    <p className="text-[10px] text-slate-400">Level {selectedNode.level}</p>
                   </div>
                 </div>
                 <button
                   onClick={() => setSelectedNode(null)}
-                  className="text-slate-400 hover:text-white text-xs"
+                  className="text-slate-400 hover:text-white text-xs cursor-pointer"
                 >
                   <i className="bi bi-x-lg"></i>
                 </button>
               </div>
 
-              <div className="grid grid-cols-2 gap-2 text-xs mb-3">
-                <div className="bg-slate-950/80 p-2 rounded-xl border border-slate-800">
-                  <span className="text-[10px] text-slate-500 block">Left Child</span>
-                  <span className="font-mono font-bold text-cyan-300">{selectedNode.left}</span>
+              <div className="grid grid-cols-2 gap-1.5 text-xs mb-2.5">
+                <div className="bg-slate-950/80 p-1.5 rounded-lg border border-slate-800/80">
+                  <span className="text-[9px] text-slate-400 block">Left Child</span>
+                  <span className="font-mono font-semibold text-sky-300">{selectedNode.left}</span>
                 </div>
-                <div className="bg-slate-950/80 p-2 rounded-xl border border-slate-800">
-                  <span className="text-[10px] text-slate-500 block">Right Child</span>
-                  <span className="font-mono font-bold text-cyan-300">{selectedNode.right}</span>
+                <div className="bg-slate-950/80 p-1.5 rounded-lg border border-slate-800/80">
+                  <span className="text-[9px] text-slate-400 block">Right Child</span>
+                  <span className="font-mono font-semibold text-sky-300">{selectedNode.right}</span>
                 </div>
-                <div className="bg-slate-950/80 p-2 rounded-xl border border-slate-800">
-                  <span className="text-[10px] text-slate-500 block">Subtree Height</span>
-                  <span className="font-bold text-purple-300">{selectedNode.height}</span>
+                <div className="bg-slate-950/80 p-1.5 rounded-lg border border-slate-800/80">
+                  <span className="text-[9px] text-slate-400 block">Subtree Height</span>
+                  <span className="font-semibold text-purple-300">{selectedNode.height}</span>
                 </div>
-                <div className="bg-slate-950/80 p-2 rounded-xl border border-slate-800">
-                  <span className="text-[10px] text-slate-500 block">Subtree Size</span>
-                  <span className="font-bold text-indigo-300">{selectedNode.size} nodes</span>
+                <div className="bg-slate-950/80 p-1.5 rounded-lg border border-slate-800/80">
+                  <span className="text-[9px] text-slate-400 block">Subtree Size</span>
+                  <span className="font-semibold text-indigo-300">{selectedNode.size} nodes</span>
                 </div>
               </div>
 
-              <div className="flex gap-2">
+              <div className="flex gap-1.5">
                 <button
-                  onClick={() => handleDelete(selectedNode.value)}
-                  className="flex-1 py-1.5 rounded-xl bg-rose-600/20 hover:bg-rose-600 text-rose-300 hover:text-white border border-rose-500/30 text-xs font-bold transition cursor-pointer"
+                  onClick={() => {
+                    const steps = generateAnimatedDeleteSteps(root, selectedNode.value, deleteStrategy);
+                    setOpSteps(steps);
+                    setOpStepIdx(0);
+                    setIsOpPlaying(true);
+                    setSelectedNode(null);
+                  }}
+                  className="flex-1 py-1 rounded-lg bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 hover:text-white border border-rose-500/30 text-xs font-semibold transition cursor-pointer"
                 >
-                  Delete Node
+                  Delete
                 </button>
                 <button
                   onClick={() => {
-                    setSearchInput(selectedNode.value.toString());
-                    handleSearch();
+                    const steps = generateAnimatedSearchSteps(root, selectedNode.value);
+                    setOpSteps(steps);
+                    setOpStepIdx(0);
+                    setIsOpPlaying(true);
+                    setSelectedNode(null);
                   }}
-                  className="flex-1 py-1.5 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 text-cyan-300 hover:text-white border border-cyan-500/30 text-xs font-bold transition cursor-pointer"
+                  className="flex-1 py-1 rounded-lg bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 hover:text-white border border-sky-500/30 text-xs font-semibold transition cursor-pointer"
                 >
-                  Trace Path
+                  Search
                 </button>
               </div>
             </motion.div>
