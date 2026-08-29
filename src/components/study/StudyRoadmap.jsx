@@ -412,14 +412,42 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
 
   // Search & Filtering Logic
   const matchesSearch = useCallback((module) => {
-    if (!search.trim()) return true;
-    const q = search.toLowerCase().trim();
-    const titleMatch = module.title?.toLowerCase().includes(q);
-    const idMatch = module.moduleId?.toLowerCase().includes(q);
-    const summaryMatch = module.summary?.toLowerCase().includes(q);
-    const topicMatch = Array.isArray(module.topics) &&
-      module.topics.some(t => t.toLowerCase().includes(q));
-    return titleMatch || idMatch || summaryMatch || topicMatch;
+    if (!search || !search.trim()) return true;
+    const searchTerms = search.toLowerCase().trim().split(/\s+/).filter(Boolean);
+    if (searchTerms.length === 0) return true;
+
+    // Helper to safely convert strings/arrays/objects into searchable plain text
+    const extractText = (val) => {
+      if (val === null || val === undefined) return "";
+      if (typeof val === "string") return val;
+      if (typeof val === "number") return String(val);
+      if (Array.isArray(val)) {
+        return val.map(extractText).join(" ");
+      }
+      if (typeof val === "object") {
+        return Object.values(val).map(extractText).join(" ");
+      }
+      return "";
+    };
+
+    const searchableBlob = [
+      module.title,
+      module.moduleId,
+      module.slug,
+      module.summary,
+      module.segmentTitle,
+      module.level,
+      module.difficulty,
+      module.topics,
+      module.tags,
+      module.learningOutcomes,
+      module.miniProjects,
+      module.useCases,
+      module.careerSkills,
+      module.commonMistakes
+    ].map(extractText).join(" ").toLowerCase();
+
+    return searchTerms.every(term => searchableBlob.includes(term));
   }, [search]);
 
   const matchesFilters = useCallback((module) => {
@@ -471,6 +499,14 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
 
   const totalFilteredCount = useMemo(() => {
     return filteredSegments.reduce((acc, s) => acc + s.filteredModules.length, 0);
+  }, [filteredSegments]);
+
+  const segmentMatchCounts = useMemo(() => {
+    const map = {};
+    filteredSegments.forEach((s) => {
+      map[s.segmentId] = s.filteredModules.length;
+    });
+    return map;
   }, [filteredSegments]);
 
   const teacher = roadmapData.teacher || defaultTeacher;
@@ -956,13 +992,15 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                   : "bg-slate-900 border border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
               }`}
             >
-              All Segments ({roadmapData.segments?.length || 0})
+              All Segments ({(search.trim() || difficultyFilter !== "all" || statusFilter !== "all") ? totalFilteredCount : (roadmapData.segments?.length || 0)})
             </button>
 
             {roadmapData.segments?.map((seg, idx) => {
-              const count = seg.modules?.length || 0;
+              const totalCount = seg.modules?.length || 0;
+              const matchCount = segmentMatchCounts[seg.segmentId] || 0;
               const isSelected = selectedSegment === seg.segmentId;
               const theme = SEGMENT_THEMES[idx % SEGMENT_THEMES.length];
+              const isFilteringActive = Boolean(search.trim() || difficultyFilter !== "all" || statusFilter !== "all");
 
               return (
                 <button
@@ -978,11 +1016,15 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                   className={`px-3 py-1 rounded-lg text-xs font-medium transition flex items-center gap-1.5 ${
                     isSelected
                       ? "bg-slate-800 border border-slate-600 text-slate-100 font-semibold"
+                      : isFilteringActive && matchCount === 0
+                      ? "bg-slate-950/40 border border-slate-900 text-slate-600 opacity-50"
                       : "bg-slate-900 border border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   }`}
                 >
                   <span className={`inline-block w-1.5 h-1.5 rounded-full ${theme.dot}`} />
-                  <span>{seg.title.split("–")[0].trim()} ({count})</span>
+                  <span>
+                    {seg.title.split("–")[0].split("-")[0].trim()} ({isFilteringActive ? matchCount : totalCount})
+                  </span>
                 </button>
               );
             })}
@@ -1161,7 +1203,8 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
               const segmentPercent = segment.totalModulesInSegment > 0
                 ? Math.round((segment.completedInSegment / segment.totalModulesInSegment) * 100)
                 : 0;
-              const isExpanded = expandedSegments[segment.segmentId] === true;
+              const isSearchingOrFiltering = Boolean(search.trim() || selectedSegment !== "all" || difficultyFilter !== "all" || statusFilter !== "all");
+              const isExpanded = isSearchingOrFiltering ? true : expandedSegments[segment.segmentId] === true;
               const isCurrent = activeSegmentId === segment.segmentId;
 
               return (

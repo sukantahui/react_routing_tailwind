@@ -2020,6 +2020,67 @@
           ]
         },
         {
+          "moduleId": "dsa-complexity-logarithms-in-cs",
+          "slug": "010_002b_logarithms-in-computer-science-and-complexity-analysis",
+          "title": "Logarithms in Computer Science: O(log N) Mechanics, Base Conversions & Tree Depths",
+          "level": "Foundational to Intermediate",
+          "estimatedHours": 4,
+          "tags": [
+            "logarithms",
+            "logarithmic-time",
+            "big-o",
+            "base-2",
+            "binary-search",
+            "tree-height",
+            "divide-and-conquer",
+            "log-star"
+          ],
+          "difficulty": "Intermediate",
+          "difficultyIndex": 2,
+          "summary": "Demystify logarithms (log2 N) as the mathematical foundation of computer science. Master why logarithmic time O(log N) arises in halve-and-conquer loops, binary search, tree height calculations (floor(log2 N) + 1), bit length representations, change-of-base invariance in Big-O, O(log log N) bounds, and log* N iterated logarithms in dynamic algorithms.",
+          "learningOutcomes": [
+            "Formally define logarithms as inverse exponentiation (log_b x = y <=> b^y = x) and derive why base-2 (log2) naturally models binary state splits in CS",
+            "Prove why log base is invariant under Big-O notation using the logarithm Change of Base formula (log_a N = log_b N / log_b a = Θ(log_b N))",
+            "Analyze multiplicative loop stepping (i *= 2, i /= 2, i *= k) and calculate exact step counts k = ceil(log_b N) in C loops",
+            "Connect logarithmic bounds to physical computer science structures: binary representation bit length (floor(log2 N) + 1) and balanced tree depth (h = ceil(log2 N))",
+            "Compare logarithmic complexity growth curves: O(1) < O(log* N) < O(log log N) < O(log N) < O(sqrt(N)) < O(N log N)"
+          ],
+          "topics": [
+            "Intuitive Foundation of Logarithms in CS: 'How many times can you divide N by 2 before reaching 1?' (log2 N = k <=> 2^k = N)",
+            "Mathematical Properties & Change-of-Base Theorem: Why log2 N, log10 N, and ln N differ only by constant multipliers c and yield equivalent Big-O classes (O(log N))",
+            "Loop Stepping Mechanics in C: Analyzing multiplicative increments (i *= 2, i /= 2, i *= k) and deriving exact logarithmic step count summations",
+            "Physical CS Connections: Integer bit length calculation (bits = floor(log2 N) + 1), balanced binary tree height (h = ceil(log2(N+1)) - 1), and heap depth",
+            "Exotic Logarithmic Complexities: Double logarithms O(log log N) in Interpolation Search / Van Emde Boas Trees and Iterated Logarithms O(log* N) in DSU Path Compression",
+            "Example & Discussion: Binary Search (O(log N)) vs Linear Search (O(N)) vs Jump Search (O(sqrt(N))) step growth for N = 1,000,000 (20 steps vs 1,000,000 steps)",
+            "Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on why O(N log N) is the theoretical lower bound for comparison sorting algorithms"
+          ],
+          "miniProjects": [
+            "Logarithmic Step Instrumenter: C Benchmarking Tool Measuring Real Loop Iteration Counts vs Theoretical log2 N Predictions"
+          ],
+          "exercises": {
+            "mcq": 10,
+            "coding": 5,
+            "proofs": 4
+          },
+          "assessment": {
+            "type": "Logarithmic Analysis & Math Proofs Quiz",
+            "passScore": 75
+          },
+          "useCases": [
+            "Evaluating logarithmic divide-and-conquer algorithms (Binary Search, Balanced BST lookups, Segment Trees)",
+            "Determining memory bit budgets and key space sizes for cryptographic and database indexing engines"
+          ],
+          "careerSkills": [
+            "Mathematical reasoning for logarithmic scale optimization",
+            "Accurate complexity bounds derivation in technical coding interviews"
+          ],
+          "commonMistakes": [
+            "Assuming the base of a logarithm matters in Big-O notation (forgetting that log_a N = log_b N / log_b a differs only by a constant factor)",
+            "Confusing logarithmic complexity O(log N) with linear-logarithmic complexity O(N log N) or sub-linear square root O(sqrt(N))",
+            "Failing to recognize multiplicative loop updates (e.g. i *= 2 or i /= 2) as O(log N) loops"
+          ]
+        },
+        {
           "moduleId": "dsa-complexity-recurrence-relations",
           "slug": "010_003_recurrence-relations-and-divide-and-conquer",
           "title": "Recurrence Relations & Divide-and-Conquer Complexity: Master Theorem & Recursion Trees",
