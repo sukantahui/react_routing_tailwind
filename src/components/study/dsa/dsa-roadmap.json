@@ -74,7 +74,8 @@
             "Multi-Dimensional Arrays: Row-Major vs Column-Major Mapping Formulas and L1/L2 Cache Line Optimization",
             "Sparse Matrix Representation: 3-Tuple (Row, Column, Value) Array Structure and Fast Transpose Algorithm",
             "Example & Discussion: Memory Leak Prevention and Dangling Pointer Traps during Array Reallocation",
-            "Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on arr[i] vs *(arr + i) vs i[arr] Equivalence in C"
+            "Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on arr[i] vs *(arr + i) vs i[arr] Equivalence in C",
+            "Practical Coding Lab & Projects: 10 Comprehensive C Projects with Raw Source Code, Algorithms & Memory Mechanics"
           ],
           "miniProjects": [
             "Dynamic C Vector Library with Auto-Shrinking and Bounds Checking"
