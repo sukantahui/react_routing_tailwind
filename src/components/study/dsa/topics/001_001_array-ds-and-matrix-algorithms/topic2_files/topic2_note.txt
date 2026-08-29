@@ -1,0 +1,16 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Array Data Structure, Dynamic Arrays & Matrix Algorithms
+Topic 2: Dynamic Array Resizing with realloc(), malloc(), and free()
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. AMORTIZED CONSTANT TIME RESIZING
+--------------------------------------------------------------------------------
+By doubling capacity (1 -> 2 -> 4 -> 8 -> 16) when the array is full,
+the amortized time complexity of push operation is O(1)!
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

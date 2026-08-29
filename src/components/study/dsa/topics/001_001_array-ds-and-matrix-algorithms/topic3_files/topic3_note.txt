@@ -1,0 +1,16 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Array Data Structure, Dynamic Arrays & Matrix Algorithms
+Topic 3: Multi-dimensional Arrays and Row-Major vs Column-Major Ordering
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. ROW-MAJOR FORMULA (0-INDEXED)
+--------------------------------------------------------------------------------
+For array A[ROWS][COLS]:
+Address(A[i][j]) = BaseAddress + (i * COLS + j) * sizeof(DataType)
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

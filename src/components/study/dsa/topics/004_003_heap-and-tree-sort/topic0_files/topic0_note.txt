@@ -1,0 +1,18 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Tree & Priority Queue Sorts: Heap Sort & Tree Sort
+Topic 0: In-Place Max Heap Extraction & BST Inorder Traversal Extraction
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. HEAP SORT ALGORITHM STEPS
+--------------------------------------------------------------------------------
+1. Build Max Heap from unsorted 1D array: O(n)
+2. Swap root arr[0] with last element arr[i].
+3. Reduce heap size by 1 and call heapify(arr, i, 0): O(log n)
+4. Repeat for all elements -> Guaranteed O(n log n) Time, O(1) Space.
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

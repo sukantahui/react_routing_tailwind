@@ -1,0 +1,54 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Array Data Structure, Dynamic Arrays & Matrix Algorithms
+Topic 0: Array Foundations, Memory Models, Pointer Arithmetic & Dynamic Sizing
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. CORE CONCEPT & MEMORY LAYOUT
+--------------------------------------------------------------------------------
+An Array in C is a collection of elements of identical data types stored in 
+contiguous physical memory addresses.
+
+Base Address Formula for 1D Array:
+  Address(A[i]) = Base_Address + (i * sizeof(element_type))
+
+Base Address Formula for 2D Array (Row-Major Order in C):
+  Address(A[i][j]) = Base_Address + (i * NUM_COLS + j) * sizeof(element_type)
+
+2. STATIC VS DYNAMIC ARRAYS
+--------------------------------------------------------------------------------
+- Static Array: Allocated on the Stack. Size fixed at compile-time.
+  Example: int arr[100];
+- Dynamic Array: Allocated on the Heap. Capacity grows dynamically using malloc/realloc.
+  Example: int *arr = (int*)malloc(capacity * sizeof(int));
+
+3. POINTER ARITHMETIC IN C
+--------------------------------------------------------------------------------
+Given `int *ptr = arr;`:
+- `*(ptr + i)` is exactly identical to `arr[i]`.
+- Incrementing a pointer (`ptr++`) advances the physical memory address by 
+  `sizeof(type)` bytes (e.g. 4 bytes for 32-bit int).
+
+4. TIME & SPACE COMPLEXITY CHEATSHEET
+--------------------------------------------------------------------------------
+Operation           Time Complexity     Space Complexity
+--------------------------------------------------------------------------------
+Index Access        O(1)                O(1)
+Search (Unsorted)   O(n)                O(1)
+Search (Sorted)     O(log n)            O(1)
+Insertion at End    O(1) amortized      O(1)
+Insertion at Start  O(n)                O(1)
+Deletion at Index   O(n)                O(1)
+
+5. COMMON PITFALLS & MEMORY BUG RISKS
+--------------------------------------------------------------------------------
+- Buffer Overflow: Writing beyond array boundaries corrupts stack memory.
+- Memory Leak: Forgetting to call `free()` after `malloc()`/`realloc()`.
+- Dangling Pointer: Accessing pointer memory after calling `free(ptr)`.
+- Dangling Pointer Solution: Set `ptr = NULL;` immediately after `free(ptr)`.
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

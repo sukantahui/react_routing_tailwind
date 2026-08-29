@@ -1,0 +1,26 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Singly, Doubly & Circular Linked Lists
+Topic 4: Polynomial Addition & Sparse Polynomial Manipulation
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. POLYNOMIAL LINKED LIST NODE
+--------------------------------------------------------------------------------
+struct Term {
+    int coeff;
+    int exp;
+    struct Term *next;
+};
+
+2. ADDITION LOGIC
+--------------------------------------------------------------------------------
+Compare exponents exp1 vs exp2:
+- exp1 > exp2: Copy P1 term, advance P1.
+- exp1 < exp2: Copy P2 term, advance P2.
+- exp1 == exp2: Sum coefficients, advance both P1 and P2.
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

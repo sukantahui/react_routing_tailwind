@@ -1,0 +1,29 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Sorting Algorithms, Searching Techniques & Big-O Analysis
+Topic 0: Asymptotic Notations, Quick/Merge Sort & Search Paradigms
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. SORTING ALGORITHMS COMPLEXITY CHEATSHEET
+--------------------------------------------------------------------------------
+Algorithm       Best Time       Avg Time        Worst Time      Space     Stable
+--------------------------------------------------------------------------------
+Bubble Sort     O(n)            O(n^2)          O(n^2)          O(1)      Yes
+Selection Sort  O(n^2)          O(n^2)          O(n^2)          O(1)      No
+Insertion Sort  O(n)            O(n^2)          O(n^2)          O(1)      Yes
+Merge Sort      O(n log n)      O(n log n)      O(n log n)      O(n)      Yes
+Quick Sort      O(n log n)      O(n log n)      O(n^2)          O(log n)  No
+Heap Sort       O(n log n)      O(n log n)      O(n log n)      O(1)      No
+Radix Sort      O(nk)           O(nk)           O(nk)           O(n+k)    Yes
+
+2. SEARCHING ALGORITHMS
+--------------------------------------------------------------------------------
+- Linear Search: O(n) Time, O(1) Space (Works on unsorted arrays)
+- Binary Search: O(log n) Time, O(1) Space (Requires pre-sorted arrays)
+- Interpolation Search: O(log log n) avg time for uniformly distributed data
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

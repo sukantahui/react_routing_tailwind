@@ -1,0 +1,51 @@
+{
+  "title": "DSA Output Practice & Memory Diagnostics Lab",
+  "subtitle": "Test your mental model of pointer arithmetic, stack frames, linked lists, and struct alignment in C",
+  "questions": [
+    {
+      "id": "D001",
+      "title": "Pointer Arithmetic & Array Access Trace",
+      "category": "Pointers & Arrays",
+      "difficulty": "Easy",
+      "codeFile": "D001.c",
+      "expectedOutput": "10 40\n20",
+      "explanation": "`*ptr` is `arr[0]` (10). `*(ptr + 3)` is `arr[3]` (40). After `ptr++`, `*ptr` accesses `arr[1]` (20)."
+    },
+    {
+      "id": "D002",
+      "title": "Recursive Stack Frame Unwinding",
+      "category": "Recursion & Stack",
+      "difficulty": "Medium",
+      "codeFile": "D002.c",
+      "expectedOutput": "5 3 1 1 3 5 ",
+      "explanation": "Recursion prints `n` during stack pushing (5, 3, 1), base case hits `n <= 0`, then unwinds stack printing `n` again (1, 3, 5)."
+    },
+    {
+      "id": "D003",
+      "title": "Singly Linked List Traversal Output",
+      "category": "Linked Lists",
+      "difficulty": "Easy",
+      "codeFile": "D003.c",
+      "expectedOutput": "100 -> 200 -> 300 -> END",
+      "explanation": "Traversing through `next` pointers prints values 100, 200, 300 sequentially until `p == NULL`."
+    },
+    {
+      "id": "D004",
+      "title": "Circular Queue Rear Modulo Arithmetic",
+      "category": "Queues",
+      "difficulty": "Medium",
+      "codeFile": "D004.c",
+      "expectedOutput": "rear: 4\nrear: 0\nrear: 1\nrear: 2",
+      "explanation": "`rear` increments from 3 -> 4, then `(4 + 1) % 5` wraps around to 0, then 1, then 2."
+    },
+    {
+      "id": "D005",
+      "title": "Struct Memory Alignment Padding",
+      "category": "Memory & Structs",
+      "difficulty": "Hard",
+      "codeFile": "D005.c",
+      "expectedOutput": "Size of struct: 12 bytes",
+      "explanation": "On 32/64-bit systems, `char a` has 3 padding bytes to align `int b` on a 4-byte boundary, and `char c` has 3 padding bytes, giving 1 + 3 + 4 + 1 + 3 = 12 bytes total."
+    }
+  ]
+}

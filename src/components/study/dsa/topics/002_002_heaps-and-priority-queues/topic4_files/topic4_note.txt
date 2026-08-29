@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Heaps, Priority Queues & Huffman Coding
+Topic 4: Huffman Coding Tree Construction for Data Compression
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. HUFFMAN COMPRESSION PROCEDURE
+--------------------------------------------------------------------------------
+1. Count character frequencies in input source string.
+2. Insert all character leaf nodes into Min Heap.
+3. Extract two minimum frequency nodes, join under new parent node ($), re-insert to Min Heap.
+4. Repeat until size == 1 -> Tree Root achieved!
+5. Left branch = 0, Right branch = 1.
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

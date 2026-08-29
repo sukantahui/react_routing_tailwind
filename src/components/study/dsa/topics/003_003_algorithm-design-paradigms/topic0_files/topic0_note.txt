@@ -1,0 +1,25 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Algorithm Design Techniques: Greedy, DP & Backtracking
+Topic 0: Dynamic Programming Tabulation, Greedy Choices & Backtracking Pruning
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. ALGORITHM DESIGN PARADIGMS SUMMARY
+--------------------------------------------------------------------------------
+Paradigm                Key Invariant                       Example Problems
+--------------------------------------------------------------------------------
+Greedy                  Locally optimal choice at each step Fractional Knapsack, Prim's, Huffman
+Dynamic Programming     Overlapping subproblem memoization  0/1 Knapsack, LCS, Shortest Path
+Backtracking            State-space tree pruning            N-Queens, Sudoku, Maze Navigation
+Divide and Conquer      Independent subproblem splitting   Merge Sort, Quick Sort, Binary Search
+
+2. DP VS GREEDY COMPARISON
+--------------------------------------------------------------------------------
+- Fractional Knapsack: Greedy strategy works (Sort by Value / Weight ratio).
+- 0/1 Knapsack: Greedy fails. Dynamic Programming required (O(n * W) table).
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

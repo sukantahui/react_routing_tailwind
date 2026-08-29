@@ -1,0 +1,20 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Binary Trees, BST & AVL Self-Balancing Trees
+Topic 1: AVL Tree Balance Factors & Single/Double Rotations (LL, RR, LR, RL)
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. AVL ROTATION RULES
+--------------------------------------------------------------------------------
+Case            Balance Factor  Unbalance Cause     Rotation Required
+--------------------------------------------------------------------------------
+LL Case         > +1            Left child left     Single Right Rotate
+RR Case         < -1            Right child right   Single Left Rotate
+LR Case         > +1            Left child right    Left Rotate child + Right Rotate parent
+RL Case         < -1            Right child left    Right Rotate child + Left Rotate parent
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

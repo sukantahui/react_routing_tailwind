@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Non-Comparison Linear Sorts: Counting, Radix & Bucket Sort
+Topic 0: Frequency Counting, Prefix Sum Positioning & LSD Radix Sort
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. NON-COMPARISON SORTS COMPLEXITY
+--------------------------------------------------------------------------------
+Algorithm       Time Complexity     Space Complexity    Constraint
+--------------------------------------------------------------------------------
+Counting Sort   O(n + k)            O(n + k)            Small integer range [0..k]
+Radix Sort      O(d * (n + k))      O(n + k)            Fixed digit length d
+Bucket Sort     O(n + k) avg        O(n + k)            Uniform distribution [0,1)
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

@@ -1,0 +1,48 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Singly, Doubly & Circular Linked Lists
+Topic 0: Node Allocation, Pointer Manipulation & Reversal Mechanics
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. SINGLY LINKED LIST STRUCTURE IN C
+--------------------------------------------------------------------------------
+struct Node {
+    int data;
+    struct Node *next;
+};
+
+2. NODE ALLOCATION & DEALLOCATION
+--------------------------------------------------------------------------------
+Creation:
+  Node *newNode = (Node*)malloc(sizeof(Node));
+  newNode->data = val;
+  newNode->next = NULL;
+
+Deletion Safety Rule:
+  Save `Node *temp = head->next;` before executing `free(head);`.
+
+3. REVERSAL ALGORITHM (IN-PLACE, 3-POINTERS)
+--------------------------------------------------------------------------------
+Node *prev = NULL, *curr = head, *next = NULL;
+while (curr != NULL) {
+    next = curr->next;
+    curr->next = prev;
+    prev = curr;
+    curr = next;
+}
+head = prev;
+
+4. TIME & SPACE COMPLEXITY COMPARISON
+--------------------------------------------------------------------------------
+Operation           Array           Singly Linked List  Doubly Linked List
+--------------------------------------------------------------------------------
+Access at k         O(1)            O(k)                O(k)
+Insert at Head      O(n)            O(1)                O(1)
+Insert at Tail      O(1) amortized  O(n) / O(1) w/ tail O(1) w/ tail
+Delete Given Node   O(n)            O(n)                O(1) w/ pointer
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

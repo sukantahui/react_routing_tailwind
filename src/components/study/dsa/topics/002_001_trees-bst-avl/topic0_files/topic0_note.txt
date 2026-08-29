@@ -1,0 +1,31 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Binary Trees, BST & AVL Self-Balancing Trees
+Topic 0: Tree Traversals, BST Mechanics & AVL Balance Factors
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. TREE TRAVERSALS SUMMARY
+--------------------------------------------------------------------------------
+- Inorder (LVR): Left Subtree -> Root -> Right Subtree (Sorted for BST)
+- Preorder (VLR): Root -> Left Subtree -> Right Subtree (Copy / Serialization)
+- Postorder (LRV): Left Subtree -> Right Subtree -> Root (Deletion / Evaluation)
+- Level-Order: BFS using Queue data structure
+
+2. AVL TREE ROTATION MATRIX
+--------------------------------------------------------------------------------
+Imbalance Type        Rotation Strategy
+--------------------------------------------------------------------------------
+LL (Left-Left)        Single Right Rotation
+RR (Right-Right)      Single Left Rotation
+LR (Left-Right)       Left Rotation on Left Child, then Right Rotation on Root
+RL (Right-Left)       Right Rotation on Right Child, then Left Rotation on Root
+
+Balance Factor Formula:
+  Balance_Factor(node) = Height(Left_Subtree) - Height(Right_Subtree)
+  Valid AVL Balance Factor: {-1, 0, +1}
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

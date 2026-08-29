@@ -1,0 +1,16 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Singly, Doubly & Circular Linked Lists
+Topic 3: Circular Linked Lists & Round-Robin Scheduling
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. CIRCULAR LIST INVARIANT
+--------------------------------------------------------------------------------
+Last Node (`tail`) satisfies: `tail->next == head`.
+Loop Condition: `do { ... curr = curr->next; } while (curr != head);`
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

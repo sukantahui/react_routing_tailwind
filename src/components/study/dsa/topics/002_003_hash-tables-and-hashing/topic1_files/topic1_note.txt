@@ -1,0 +1,17 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Hash Tables, Collision Resolution & Hash Functions
+Topic 1: Open Addressing (Linear Probing, Quadratic Probing, Double Hashing)
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. PROBING FORMULAS
+--------------------------------------------------------------------------------
+Linear Probing:    index = (h(k) + i) % TableSize
+Quadratic Probing: index = (h(k) + c1*i + c2*i^2) % TableSize
+Double Hashing:    index = (h1(k) + i * h2(k)) % TableSize
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

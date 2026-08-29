@@ -1,0 +1,28 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Hash Tables, Collision Resolution & Hash Functions
+Topic 0: Hash Functions, Separate Chaining & Open Addressing
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. HASH TABLE CONVERGENCE
+--------------------------------------------------------------------------------
+Key space -> [ Hash Function h(k) ] -> Index [ 0 ... N-1 ]
+
+Load Factor Formula:
+  alpha = n / m  (n = total elements stored, m = table capacity)
+  Optimal alpha for Separate Chaining: < 1.0
+  Optimal alpha for Open Addressing: < 0.7
+
+2. COLLISION RESOLUTION COMPARISON
+--------------------------------------------------------------------------------
+Technique           Advantage                   Disadvantage
+--------------------------------------------------------------------------------
+Separate Chaining   Simple, table never fills   Pointer memory overhead
+Linear Probing      Great cache locality        Primary clustering problem
+Double Hashing      No clustering               Requires second hash function
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

@@ -1,0 +1,18 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Stacks, Queues & Priority Buffers
+Topic 1: Infix to Postfix Shunting-Yard Algorithm
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. SHUNTING-YARD ALGORITHM RULES
+--------------------------------------------------------------------------------
+1. Operands -> Output string immediately.
+2. '(' -> Push to operator stack.
+3. ')' -> Pop stack to output string until '(' is encountered. Pop '('.
+4. Operator op -> Pop stack operators of higher/equal precedence to output string, then push op.
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

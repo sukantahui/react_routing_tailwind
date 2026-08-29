@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Elementary Comparison Sorts: Bubble, Selection & Insertion Sort
+Topic 0: Swapping Mechanics, Adaptive Insertion & Selection Min Scans
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. ELEMENTARY SORTS MATRIX
+--------------------------------------------------------------------------------
+Algorithm       Best Time   Avg Time    Worst Time  Swaps       Stable
+--------------------------------------------------------------------------------
+Bubble Sort     O(n)        O(n^2)      O(n^2)      O(n^2)      Yes
+Selection Sort  O(n^2)      O(n^2)      O(n^2)      O(n)        No
+Insertion Sort  O(n)        O(n^2)      O(n^2)      O(n^2)      Yes
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

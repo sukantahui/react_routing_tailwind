@@ -1,0 +1,22 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Array Data Structure, Dynamic Arrays & Matrix Algorithms
+Topic 1: Sparse Matrix Representation & Matrix Operations
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. SPARSE MATRIX DEFINITION
+--------------------------------------------------------------------------------
+A matrix is considered sparse if the majority of its elements are zero.
+Storing a dense 1000x1000 matrix takes 4 MB of RAM even if only 10 elements are non-zero!
+
+2. 3-TUPLE REPRESENTATION
+--------------------------------------------------------------------------------
+Store non-zero elements as an array of structs:
+struct Element { int row; int col; int value; };
+Space Complexity: O(NonZeroCount) instead of O(Rows * Cols).
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

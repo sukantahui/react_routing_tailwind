@@ -1,0 +1,22 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Divide & Conquer Sorts: Quick Sort & Merge Sort
+Topic 0: Lomuto vs Hoare Partitioning & Sequential Merge Mechanics
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. QUICK SORT VS MERGE SORT COMPARISON
+--------------------------------------------------------------------------------
+Feature             Quick Sort                  Merge Sort
+--------------------------------------------------------------------------------
+Strategy            Divide & Conquer (Pivot)    Divide & Conquer (Midpoint)
+Average Time        O(n log n)                  O(n log n)
+Worst Time          O(n^2)                      O(n log n) Guaranteed
+Auxiliary Space     O(log n) stack call frames  O(n) external array buffers
+Stability           Unstable                    Stable
+Best Datastructure  Arrays (Cache Locality)     Linked Lists (No array copying)
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

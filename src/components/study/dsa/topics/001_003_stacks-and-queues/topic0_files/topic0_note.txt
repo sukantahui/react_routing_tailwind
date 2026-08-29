@@ -1,0 +1,33 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Stacks, Queues & Priority Buffers
+Topic 0: LIFO vs FIFO Mechanics, Infix Conversion & Circular Queue Math
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. STACK ADT (LAST IN FIRST OUT - LIFO)
+--------------------------------------------------------------------------------
+- Array-backed Top Index: `top = -1` (Empty)
+- Push: `top++; items[top] = val;` (Overflow check when `top == MAX-1`)
+- Pop: `val = items[top]; top--;` (Underflow check when `top == -1`)
+
+2. CIRCULAR QUEUE ADT (FIRST IN FIRST OUT - FIFO)
+--------------------------------------------------------------------------------
+- Front & Rear indices wrap around using Modulo Arithmetic `% MAX_SIZE`.
+- Full Condition: `(rear + 1) % MAX_SIZE == front`
+- Empty Condition: `front == -1`
+- Enqueue: `rear = (rear + 1) % MAX_SIZE; items[rear] = val;`
+- Dequeue: `val = items[front]; front = (front + 1) % MAX_SIZE;`
+
+3. INFIX TO POSTFIX CONVERSION PRECEDENCE RULES
+--------------------------------------------------------------------------------
+Operator    Precedence    Associativity
+--------------------------------------------------------------------------------
+^ (Power)   3             Right-to-Left
+*, /        2             Left-to-Right
++, -        1             Left-to-Right
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

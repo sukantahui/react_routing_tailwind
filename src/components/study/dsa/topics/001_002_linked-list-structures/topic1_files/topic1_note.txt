@@ -1,0 +1,27 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Singly, Doubly & Circular Linked Lists
+Topic 1: Doubly Linked Lists & Bidirectional Pointers
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. DOUBLY LINKED LIST NODE IN C
+--------------------------------------------------------------------------------
+struct Node {
+    int data;
+    struct Node *prev;
+    struct Node *next;
+};
+
+2. DELETION ADVANTAGE
+--------------------------------------------------------------------------------
+Given `Node *del`:
+  if (del->prev) del->prev->next = del->next;
+  if (del->next) del->next->prev = del->prev;
+  free(del);
+Time Complexity: O(1) direct pointer deletion!
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

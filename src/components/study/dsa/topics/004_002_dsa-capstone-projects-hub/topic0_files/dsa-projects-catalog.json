@@ -1,0 +1,30 @@
+{
+  "title": "DSA Capstone Projects Catalog",
+  "subtitle": "Industrial C data structures projects with full source code & memory management implementations",
+  "projects": [
+    {
+      "id": "PROJ001",
+      "title": "Custom Heap-Backed Dynamic Memory Pool Allocator",
+      "category": "Systems & Memory Management",
+      "difficulty": "Advanced",
+      "answerFile": "./answers/PROJ001.c",
+      "description": "Implement a custom memory allocator managing a fixed 1KB byte pool using block header metadata, free list tracking, and explicit allocation/deallocation routines (`myMalloc` and `myFree`)."
+    },
+    {
+      "id": "PROJ002",
+      "title": "Doubly-Linked Text Editor State Undo/Redo Buffer",
+      "category": "Linear Data Structures",
+      "difficulty": "Intermediate",
+      "answerFile": "./answers/PROJ002.c",
+      "description": "Design an undo/redo buffer engine for a text editor using a Doubly Linked List of state nodes, handling boundary state truncation during edit branches."
+    },
+    {
+      "id": "PROJ003",
+      "title": "Graph-Based City Transit Navigation System (Dijkstra)",
+      "category": "Graphs & Algorithms",
+      "difficulty": "Advanced",
+      "answerFile": "./answers/PROJ003.c",
+      "description": "Build a shortest path routing engine using an adjacency matrix representation and Dijkstra's algorithm to compute minimum transit distances between map nodes."
+    }
+  ]
+}

@@ -123,6 +123,10 @@ const ROUTES = {
   C_MODULE: '/c-language/module/:slug',
   C_TOPIC: '/c-language/topic/:moduleSlug/:topicIndex',
 
+  DSA_ROADMAP: '/dsa/roadmap',
+  DSA_MODULE: '/dsa/module/:slug',
+  DSA_TOPIC: '/dsa/topic/:moduleSlug/:topicIndex',
+
   TALLY_ROADMAP: '/tally/roadmap',
   TALLY_MODULE: '/tally/module/:slug',
   TALLY_TOPIC: '/tally/topic/:moduleSlug/:topicIndex',
@@ -339,6 +343,15 @@ const STUDY_TRACKS = [
     loadRoadmap: () => import('../components/study/c-language/c-language-roadmap.json'),
     getTopics: () => import.meta.glob('../components/study/c-language/topics/*/Topic*.jsx'),
     topicBasePath: '../components/study/c-language/topics',
+  },
+  {
+    key: 'dsa',
+    roadmapRoute: ROUTES.DSA_ROADMAP,
+    moduleRoute: ROUTES.DSA_MODULE,
+    topicRoute: ROUTES.DSA_TOPIC,
+    loadRoadmap: () => import('../components/study/dsa/dsa-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/dsa/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/dsa/topics',
   },
   {
     key: 'tally',

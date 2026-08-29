@@ -1,0 +1,17 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Heaps, Priority Queues & Huffman Coding
+Topic 2: Priority Queue Implementation Backed by Binary Heap in C
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. PRIORITY QUEUE COMPLEXITY
+--------------------------------------------------------------------------------
+Enqueue (Insert): O(log n)
+Dequeue (Pop):    O(log n)
+Peek Highest:     O(1)
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

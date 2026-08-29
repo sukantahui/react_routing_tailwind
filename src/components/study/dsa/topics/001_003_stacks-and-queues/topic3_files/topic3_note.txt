@@ -1,0 +1,18 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Stacks, Queues & Priority Buffers
+Topic 3: Circular Queue Modulo Arithmetic
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. CIRCULAR QUEUE INVARIANTS
+--------------------------------------------------------------------------------
+Is Full Condition:  (rear + 1) % MAX == front
+Is Empty Condition: front == -1
+Advance Front:      front = (front + 1) % MAX
+Advance Rear:       rear = (rear + 1) % MAX
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================

@@ -16,8 +16,9 @@ export default class EditableCCodeBlock extends Component {
   constructor(props) {
     super(props);
 
+    const startCode = props.code !== undefined ? props.code : (props.initialCode !== undefined ? props.initialCode : "");
     this.state = {
-      code: props.initialCode || "",
+      code: startCode,
       fontSize: 14,
       theme: "vs-dark",
       isFullscreen: false,
@@ -28,6 +29,16 @@ export default class EditableCCodeBlock extends Component {
 
     this.editorRef = null;
     this.monaco = null;
+  }
+
+  componentDidUpdate(prevProps) {
+    const nextCode = this.props.code !== undefined ? this.props.code : this.props.initialCode;
+    const prevCode = prevProps.code !== undefined ? prevProps.code : prevProps.initialCode;
+    if (nextCode !== prevCode && nextCode !== undefined) {
+      this.setState({ code: nextCode }, () => {
+        this.updateEditorHeight();
+      });
+    }
   }
 
   // ---------------------------- MOUNT ----------------------------
@@ -61,8 +72,9 @@ export default class EditableCCodeBlock extends Component {
 
   // ---------------------------- RESET ----------------------------
   resetCode = () => {
+    const orig = this.props.code !== undefined ? this.props.code : (this.props.initialCode || "");
     this.setState({
-      code: this.props.initialCode || "",
+      code: orig,
     });
   };
 

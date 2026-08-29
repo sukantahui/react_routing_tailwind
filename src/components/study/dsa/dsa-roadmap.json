@@ -1,0 +1,300 @@
+{
+  "trackId": "dsa-in-c-basic-to-pro",
+  "trackTitle": "Data Structures & Algorithms in C",
+  "description": "A comprehensive, enterprise-grade Data Structures and Algorithms curriculum implemented natively in C. Designed for computer science students and engineering professionals. Covers memory allocation, pointer mechanics, linear/non-linear structures, binary trees, BST, AVL trees, heaps, hash tables, graphs, shortest paths, a dedicated Master Class segment on all Sorting Algorithms, Big-O complexity, and modern algorithm design paradigms.",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore, West Bengal, India",
+    "trackType": "Data Structures & Algorithms Course Roadmap",
+    "version": "1.2.0",
+    "lastUpdated": "2026-08-29"
+  },
+  "folder": "dsa",
+  "subject": "Data Structures & Algorithms (C)",
+  "subjectLogo": {
+    "name": "DSA",
+    "icon": "diagram-3",
+    "type": "svg",
+    "path": "/logos/c.svg",
+    "alt": "DSA Logo"
+  },
+  "teacher": {
+    "name": "Sukanta Hui",
+    "designation": "Educator · Software Trainer · Mentor",
+    "organization": "Founder, Coder & AccoTax",
+    "location": "Barrackpore, West Bengal",
+    "photo": "/teachers/sukantahui.jpg",
+    "bio": "Deeply passionate about memory management, procedural optimization, data structures, and computer science fundamentals in C and C++.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/sukantahui/",
+      "twitter": "https://twitter.com/sukantahui",
+      "website": "https://www.codernaccotax.co.in",
+      "github": "https://github.com/sukantahui",
+      "email": "contact@codernaccotax.co.in",
+      "phone": "+917003756860",
+      "whatsapp": "+917003756860"
+    }
+  },
+  "segments": [
+    {
+      "segmentId": "segment-1-linear",
+      "title": "Segment 1 - Linear Data Structures & Memory Foundations",
+      "level": "Foundational to Intermediate",
+      "summary": "Master fundamental dynamic memory management in C, dynamic arrays, pointer arithmetic, singly/doubly linked lists, stacks, queues, and deques.",
+      "modules": [
+        {
+          "moduleId": "dsa-arrays-matrices",
+          "slug": "001_001_array-ds-and-matrix-algorithms",
+          "title": "Array Data Structure, Dynamic Arrays & Matrix Algorithms",
+          "level": "Beginner to Intermediate",
+          "estimatedHours": 4,
+          "tags": ["arrays", "dynamic-memory", "pointers", "matrices"],
+          "topics": [
+            "Contiguous memory layout and indexing mechanics in C",
+            "Pointer arithmetic and array element access formula",
+            "Dynamic array resizing with realloc(), malloc(), and free()",
+            "Multi-dimensional arrays and Row-Major vs Column-Major ordering",
+            "Sparse matrix representation and matrix multiplication algorithms"
+          ]
+        },
+        {
+          "moduleId": "dsa-linked-lists",
+          "slug": "001_002_linked-list-structures",
+          "title": "Singly, Doubly & Circular Linked Lists",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "tags": ["linked-list", "singly-linked-list", "doubly-linked-list", "circular-list"],
+          "topics": [
+            "Node structure design with C structs and self-referential pointers",
+            "Singly Linked List insertion, deletion, reversal, and cycle detection (Floyd's algorithm)",
+            "Doubly Linked List node memory management and bidirectional navigation",
+            "Circular Linked Lists and applications in round-robin scheduling",
+            "Polynomial addition and sparse polynomial manipulation using linked lists"
+          ]
+        },
+        {
+          "moduleId": "dsa-stacks-queues",
+          "slug": "001_003_stacks-and-queues",
+          "title": "Stacks, Queues & Priority Buffers",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "tags": ["stack", "queue", "circular-queue", "deque", "infix-postfix"],
+          "topics": [
+            "Stack ADT: Array-based vs Linked List-based LIFO implementation",
+            "Infix to Postfix/Prefix conversion and expression evaluation engine",
+            "Queue ADT: FIFO mechanics, linear queue limitation & array shifting problem",
+            "Circular Queue using modulo arithmetic in fixed arrays",
+            "Double-Ended Queue (Deque) and Priority Queue basics"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-2-non-linear",
+      "title": "Segment 2 - Non-Linear Data Structures, Trees & Hashing",
+      "level": "Intermediate to Advanced",
+      "summary": "Explore hierarchical data structures, binary trees, self-balancing search trees (AVL), heaps, priority queues, and hash table collision resolution.",
+      "modules": [
+        {
+          "moduleId": "dsa-trees-bst-avl",
+          "slug": "002_001_trees-bst-avl",
+          "title": "Binary Trees, BST & AVL Self-Balancing Trees",
+          "level": "Intermediate to Advanced",
+          "estimatedHours": 6,
+          "tags": ["trees", "binary-tree", "bst", "avl-tree", "tree-traversal"],
+          "topics": [
+            "Tree anatomy: Root, leaves, height, depth, subtrees, and binary tree properties",
+            "Recursive and iterative tree traversals: Inorder, Preorder, Postorder, and Level-Order",
+            "Binary Search Tree (BST) insertion, search, and predecessor/successor deletion",
+            "AVL Trees: Balance factor analysis and Single/Double Rotations (LL, RR, LR, RL)",
+            "Tree visualization and height calculation algorithms in C"
+          ]
+        },
+        {
+          "moduleId": "dsa-heaps-pq",
+          "slug": "002_002_heaps-and-priority-queues",
+          "title": "Heaps, Priority Queues & Huffman Coding",
+          "level": "Advanced",
+          "estimatedHours": 5,
+          "tags": ["heap", "max-heap", "min-heap", "priority-queue", "huffman"],
+          "topics": [
+            "Binary Heap representation in 1D arrays (parent/child index math)",
+            "Heapify-Up and Heapify-Down algorithms for Max Heap and Min Heap",
+            "Priority Queue implementation backed by Binary Heap in C",
+            "Heap Sort algorithm and runtime performance comparison",
+            "Huffman Coding tree construction for data compression"
+          ]
+        },
+        {
+          "moduleId": "dsa-hash-tables",
+          "slug": "002_003_hash-tables-and-hashing",
+          "title": "Hash Tables, Collision Resolution & Hash Functions",
+          "level": "Advanced",
+          "estimatedHours": 5,
+          "tags": ["hashing", "hash-table", "collision-resolution", "chaining", "open-addressing"],
+          "topics": [
+            "Hash functions: Division method, Multiplication method, and Mid-Square method",
+            "Collision resolution by Separate Chaining using linked list buckets",
+            "Open Addressing techniques: Linear Probing, Quadratic Probing, and Double Hashing",
+            "Load factor management, dynamic re-hashing, and performance analysis",
+            "Building a fast string-key hash dictionary in C"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-3-graphs-paradigms",
+      "title": "Segment 3 - Graphs & Algorithmic Paradigms",
+      "level": "Advanced to Expert",
+      "summary": "Master graph representations, traversal algorithms, shortest paths, minimum spanning trees, searching mechanics, and algorithm design paradigms.",
+      "modules": [
+        {
+          "moduleId": "dsa-graphs",
+          "slug": "003_001_graphs-and-graph-algorithms",
+          "title": "Graph Representations, Traversal & Shortest Path Algorithms",
+          "level": "Advanced to Expert",
+          "estimatedHours": 7,
+          "tags": ["graphs", "bfs", "dfs", "dijkstra", "kruskal", "prim"],
+          "topics": [
+            "Graph representations: Adjacency Matrix vs Adjacency List in C structs",
+            "Breadth-First Search (BFS) and Depth-First Search (DFS) graph traversal",
+            "Topological Sorting (Kahn's algorithm & DFS stack approach)",
+            "Minimum Spanning Trees: Kruskal's (with Disjoint Set Union) and Prim's Algorithm",
+            "Single-Source Shortest Path: Dijkstra's Algorithm and Bellman-Ford Algorithm"
+          ]
+        },
+        {
+          "moduleId": "dsa-algorithm-design",
+          "slug": "003_003_algorithm-design-paradigms",
+          "title": "Algorithm Design Techniques: Greedy, DP & Backtracking",
+          "level": "Advanced to Expert",
+          "estimatedHours": 7,
+          "tags": ["greedy", "dynamic-programming", "backtracking", "knapsack", "n-queens"],
+          "topics": [
+            "Greedy Paradigm: Fractional Knapsack, Activity Selection, and Greedy choice property",
+            "Dynamic Programming: Memoization vs Tabulation, 0/1 Knapsack, and LCS",
+            "Backtracking Paradigm: State-space tree exploration, N-Queens problem, and Maze navigation",
+            "Divide and Conquer paradigm: Binary Exponentiation and Matrix Exponentiation",
+            "Algorithmic trade-offs and complexity optimizations in systems programming"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-4-sorting-mastery",
+      "title": "Segment 4 - Master Class: Comprehensive Sorting Algorithms",
+      "level": "Comprehensive All-Level Masterclass",
+      "summary": "A dedicated, exhaustive segment covering every major sorting algorithm family in C: Elementary Comparison Sorts, Divide & Conquer Sorts, Heap/Tree Sorts, Non-Comparison Linear Sorts, and Specialized Hybrid Sorts.",
+      "modules": [
+        {
+          "moduleId": "dsa-sort-elementary",
+          "slug": "004_001_bubble-selection-insertion-sort",
+          "title": "Elementary Comparison Sorts: Bubble, Selection & Insertion Sort",
+          "level": "Beginner to Intermediate",
+          "estimatedHours": 4,
+          "tags": ["sorting", "bubble-sort", "selection-sort", "insertion-sort", "in-place"],
+          "topics": [
+            "Bubble Sort mechanics and early exit flag optimization for nearly sorted data",
+            "Selection Sort minimum element scanning and minimal swap property",
+            "Insertion Sort online sorting mechanics and shift vs swap comparisons",
+            "Stability, best/worst case Big-O analysis, and space complexity comparison"
+          ]
+        },
+        {
+          "moduleId": "dsa-sort-divide-conquer",
+          "slug": "004_002_quick-and-merge-sort",
+          "title": "Divide & Conquer Sorts: Quick Sort & Merge Sort",
+          "level": "Intermediate to Advanced",
+          "estimatedHours": 5,
+          "tags": ["sorting", "quick-sort", "merge-sort", "lomuto", "hoare", "partitioning"],
+          "topics": [
+            "Quick Sort partitioning strategies: Lomuto vs Hoare scheme in C",
+            "Pivot selection strategies (First, Last, Random, Median-of-Three) to prevent O(n^2) worst case",
+            "Merge Sort recursive divide-and-merge process and guaranteed O(n log n) stability",
+            "In-place vs O(n) auxiliary memory trade-offs and cache locality analysis"
+          ]
+        },
+        {
+          "moduleId": "dsa-sort-tree-heap",
+          "slug": "004_003_heap-and-tree-sort",
+          "title": "Tree & Priority Queue Sorts: Heap Sort & Tree Sort",
+          "level": "Advanced",
+          "estimatedHours": 5,
+          "tags": ["sorting", "heap-sort", "tree-sort", "max-heap", "bst-sort"],
+          "topics": [
+            "Heap Sort: In-place max heap construction and root extraction phase",
+            "Tree Sort: Building a Binary Search Tree (BST) and Inorder traversal extraction",
+            "Auxiliary space analysis (O(1) Heap Sort vs O(n) Tree Sort)",
+            "Priority queue extraction sorting pattern in C"
+          ]
+        },
+        {
+          "moduleId": "dsa-sort-non-comparison",
+          "slug": "004_004_counting-radix-bucket-sort",
+          "title": "Non-Comparison Linear Sorts: Counting, Radix & Bucket Sort",
+          "level": "Advanced to Expert",
+          "estimatedHours": 5,
+          "tags": ["sorting", "counting-sort", "radix-sort", "bucket-sort", "linear-time"],
+          "topics": [
+            "Counting Sort: Frequency array counting, prefix sums, and O(n + k) linear sorting",
+            "Radix Sort: Least Significant Digit (LSD) sorting using Counting Sort sub-routine",
+            "Bucket Sort: Distributing elements into floating point bucket buckets",
+            "Breaking the O(n log n) comparison lower bound: Conditions and memory trade-offs"
+          ]
+        },
+        {
+          "moduleId": "dsa-sort-specialized",
+          "slug": "004_005_shell-and-tim-sort",
+          "title": "Specialized & Hybrid Sorts: Shell Sort & TimSort Principles",
+          "level": "Expert",
+          "estimatedHours": 4,
+          "tags": ["sorting", "shell-sort", "timsort", "hybrid-sort", "gap-sequence"],
+          "topics": [
+            "Shell Sort: Diminishing gap sequence insertion sorting (Knuth vs Shell gaps)",
+            "TimSort Principles: Combining Insertion Sort runs and Merge Sort for real-world data",
+            "IntroSort: Hybrid Quick Sort + Heap Sort + Insertion Sort used in C++ std::sort",
+            "Comprehensive sorting selection decision matrix for enterprise applications"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-5-projects-practice",
+      "title": "Segment 5 - Output Tracing Lab & Capstone Projects Hub",
+      "level": "Applied & Project Focused",
+      "summary": "Put your knowledge into practice with output tracing labs, pointer defect analysis, and industrial-grade C capstone projects.",
+      "modules": [
+        {
+          "moduleId": "dsa-output-lab",
+          "slug": "005_001_dsa-output-practice-lab",
+          "title": "Output Practice Lab: Pointer Tracing & Memory Diagnostics",
+          "level": "Applied Practice",
+          "estimatedHours": 4,
+          "tags": ["output-practice", "code-tracing", "pointers", "memory-leaks"],
+          "topics": [
+            "Predict output of complex pointer arithmetic and array access expressions",
+            "Trace linked list loop mutations, stack frame allocations, and recursion limits",
+            "Diagnose dynamic memory leaks, dangling pointers, and double-free bugs",
+            "Analyze tree traversal outputs and stack state sequences",
+            "Evaluate sorting step-by-step trace and pivot selection states"
+          ]
+        },
+        {
+          "moduleId": "dsa-capstone-projects",
+          "slug": "005_002_dsa-capstone-projects-hub",
+          "title": "DSA Capstone Projects Hub: Industrial C Implementations",
+          "level": "Capstone Projects",
+          "estimatedHours": 8,
+          "tags": ["capstone-projects", "c-projects", "data-structures", "real-world"],
+          "topics": [
+            "Project 1: Custom Heap-Backed Dynamic Memory Pool Allocator",
+            "Project 2: Doubly-Linked List Undo/Redo Text Editor Buffer",
+            "Project 3: Graph-Based City Transit Navigation & Shortest Path System"
+          ]
+        }
+      ]
+    }
+  ]
+}

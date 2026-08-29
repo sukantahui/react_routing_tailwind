@@ -1,0 +1,16 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Subject: Data Structures & Algorithms in C
+Module: Array Data Structure, Dynamic Arrays & Matrix Algorithms
+Topic 4: Matrix Multiplication Algorithms & Sparse Representation
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
+================================================================================
+
+1. MATRIX MULTIPLICATION TIME COMPLEXITY
+--------------------------------------------------------------------------------
+Standard 3-Loop Multiplication: O(n^3)
+Strassen's Matrix Algorithm:    O(n^2.807)
+
+================================================================================
+Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
+================================================================================
