@@ -2058,7 +2058,7 @@
             "Logarithmic Step Instrumenter: C Benchmarking Tool Measuring Real Loop Iteration Counts vs Theoretical log2 N Predictions"
           ],
           "exercises": {
-            "mcq": 10,
+            "mcq": 210,
             "coding": 5,
             "proofs": 4
           },

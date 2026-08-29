@@ -1,0 +1,57 @@
+================================================================================
+CODER & ACCOTAX - BARRACKPORE COMPUTER SCIENCE & DSA LAB
+MODULE: LOGARITHMS IN COMPUTER SCIENCE & DATA STRUCTURES
+TOPIC 0: MATHEMATICAL FOUNDATIONS OF LOGARITHMS & THE "HALVING" PARADIGM
+================================================================================
+
+1. WHAT IS A LOGARITHM? (THE INVERSE OF EXPONENTIATION)
+--------------------------------------------------------------------------------
+In mathematics, a logarithm answers the question:
+  "To what power must we raise base 'b' to get number 'x'?"
+
+  Equation:
+    log_b(x) = y   <===>   b^y = x
+
+  Examples:
+    log_2(8)    = 3    because 2^3 = 8
+    log_2(1024) = 10   because 2^10 = 1024
+    log_10(1000)= 3    because 10^3 = 1000
+
+2. THE FUNDAMENTAL COMPUTER SCIENCE INTUITION: CONTINUOUS HALVING
+--------------------------------------------------------------------------------
+In Computer Science and DSA, logarithms almost always appear in Base 2 (log_2).
+The operational question asked by algorithms is:
+  "How many times can you divide N by 2 before you reach 1?"
+
+  Let k be the number of divisions:
+    N / (2^k) = 1  ===>  N = 2^k  ===>  k = log_2(N)
+
+  If N is not an exact power of two, the exact number of halving divisions is:
+    Steps = floor(log_2(N))
+
+3. THE DRAMATIC POWER OF LOGARITHMIC TIME O(log N)
+--------------------------------------------------------------------------------
+Consider searching or processing N items:
+
+  N (Items)       | Linear O(N) Steps  | Logarithmic O(log2 N) Steps
+  ----------------+--------------------+-----------------------------
+  10              | 10 operations      | ~ 4 operations
+  1,000           | 1,000 operations   | ~ 10 operations
+  1,000,000 (1M)  | 1,000,000 ops      | ~ 20 operations
+  1,000,000,000(1B)| 1,000,000,000 ops  | ~ 30 operations
+  10^18 (1 Exa)   | 10^18 operations   | ~ 60 operations
+
+While Linear time grows proportionally with data size, Logarithmic time requires
+only 30 operations to search 1 BILLION sorted elements!
+
+4. WHY BASE 2 IS THE NATIVE LANGUAGE OF HARDWARE & ALGORITHMS
+--------------------------------------------------------------------------------
+- Digital computers operate on binary logic gates (0 and 1).
+- Every branch / decision in a comparison algorithm halves the search space into 2.
+- A balanced binary tree splits each node into 2 children.
+- Therefore, base-2 logarithm (log_2) directly represents the height of trees,
+  the number of bits needed to store an integer, and binary search iterations.
+
+================================================================================
+AUTHORED BY: SUKANTA HUI · CODER & ACCOTAX BARRACKPORE
+================================================================================

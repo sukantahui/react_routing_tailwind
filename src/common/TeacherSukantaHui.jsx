@@ -1,8 +1,13 @@
 import React from "react";
 import teacherImage from "../assets/image/sukantahui.jpg";
-import { Github, GitBranch } from "lucide-react";
+import { Github } from "lucide-react";
 
-export default function TeacherSukantaHui({ note = "" }) {
+export default function TeacherSukantaHui({
+    note = "",
+    mentorAdvice = "",
+    noteTitle = "",
+    topicName = ""
+}) {
     const workingFrom = "1998-05-20";
     const name = "Sukanta Hui";
 
@@ -24,15 +29,22 @@ export default function TeacherSukantaHui({ note = "" }) {
     };
 
     const experience = calculateExperience(workingFrom);
+    const displayNote = note || mentorAdvice;
+    const displayTitle = noteTitle || (topicName ? `Instructor Mentorship: ${topicName}` : "Instructor Note");
 
     return (
         <div className="dark max-w-lg mx-auto bg-slate-900/80 rounded-2xl shadow-xl p-6 text-center border border-slate-800 hover:border-slate-700 transition duration-300 text-slate-100">
 
-            {/* Note */}
-            {note && (
+            {/* Note / Mentor Advice */}
+            {displayNote && (
                 <div className="p-3.5 mb-4 rounded-xl bg-slate-950/80 border border-slate-800/80 text-xs sm:text-sm text-slate-300 leading-relaxed text-left font-sans">
-                    <span className="text-amber-400 font-bold mr-1">👨‍🏫 Instructor Note:</span>
-                    {note}
+                    <div className="text-amber-400 font-bold mb-1 flex items-center gap-1.5">
+                        <span>👨‍🏫</span>
+                        <span>{displayTitle}:</span>
+                    </div>
+                    <div className="whitespace-pre-line text-slate-300">
+                        {displayNote}
+                    </div>
                 </div>
             )}
 
@@ -63,14 +75,14 @@ export default function TeacherSukantaHui({ note = "" }) {
                 </a>
             </div>
 
-            {/* Experience */}
+            {/* Experience Badge */}
             <div className="mt-3 inline-block px-3 py-1 rounded-full bg-sky-950 border border-sky-800 text-sky-300 text-xs font-semibold font-mono">
                 Corporate &amp; Academic Experience: {experience}+ Years
             </div>
 
-            {/* Description */}
+            {/* Description with dynamically calculated experience */}
             <p className="mt-3 text-xs sm:text-sm text-slate-400 leading-relaxed max-w-md mx-auto">
-                Senior Lead Software Architect &amp; Corporate Instructor with 27+ years of industry experience across enterprise architecture, advanced analytics, financial modeling, and engineering systems.
+                Senior Lead Software Architect &amp; Corporate Instructor with {experience}+ years of industry experience across enterprise architecture, advanced analytics, financial modeling, and engineering systems.
             </p>
         </div>
     );

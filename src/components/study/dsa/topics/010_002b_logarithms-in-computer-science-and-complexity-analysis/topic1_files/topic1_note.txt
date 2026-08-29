@@ -1,0 +1,41 @@
+================================================================================
+CODER & ACCOTAX - BARRACKPORE COMPUTER SCIENCE & DSA LAB
+MODULE: LOGARITHMS IN COMPUTER SCIENCE & DATA STRUCTURES
+TOPIC 1: CHANGE OF BASE THEOREM & ASYMPTOTIC BASE INVARIANCE
+================================================================================
+
+1. THE CHANGE OF BASE FORMULA
+--------------------------------------------------------------------------------
+Given any two positive bases 'a' and 'b' (a != 1, b != 1):
+
+    log_a(N) = log_b(N) / log_b(a)
+
+  Proof:
+    Let y = log_a(N).
+    Then a^y = N.
+    Taking log_b on both sides:
+      log_b(a^y) = log_b(N)
+      y * log_b(a) = log_b(N)
+      y = log_b(N) / log_b(a)
+    Therefore: log_a(N) = (1 / log_b(a)) * log_b(N).
+
+2. WHY THE BASE DOES NOT MATTER IN BIG-O NOTATION
+--------------------------------------------------------------------------------
+Notice that (1 / log_b(a)) is a pure CONSTANT that does NOT depend on N!
+
+  For instance:
+    log_10(N) = (1 / log_2(10)) * log_2(N) ≈ 0.30103 * log_2(N)
+    ln(N)     = (1 / log_2(e))  * log_2(N) ≈ 0.69315 * log_2(N)
+
+By definition of Big-O Notation:
+  If f(N) = c * g(N) where c > 0 is a constant, then f(N) = Theta(g(N)).
+
+Therefore:
+  O(log_2 N) = O(log_10 N) = O(ln N) = O(log_16 N) = O(log N).
+
+In computer science literature and asymptotic analysis, we simply write:
+  O(log N) without specifying a base!
+
+================================================================================
+AUTHORED BY: SUKANTA HUI · CODER & ACCOTAX BARRACKPORE
+================================================================================

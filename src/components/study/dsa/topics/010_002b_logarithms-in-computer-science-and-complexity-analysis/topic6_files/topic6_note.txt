@@ -1,0 +1,33 @@
+================================================================================
+CODER & ACCOTAX - BARRACKPORE COMPUTER SCIENCE & DSA LAB
+MODULE: LOGARITHMS IN COMPUTER SCIENCE & DATA STRUCTURES
+TOPIC 6: PRACTICAL CODING LAB & HARDWARE BENCHMARKING PROJECTS
+================================================================================
+
+1. HARDWARE BIT-SCAN INSTRUCTION: __builtin_clz(N)
+--------------------------------------------------------------------------------
+Modern CPUs (Intel x86, AMD, ARM) have dedicated hardware instructions to find
+the most significant bit in a single clock cycle:
+  - x86: BSR (Bit Scan Reverse) / LZCNT (Leading Zero Count)
+  - ARM: CLZ (Count Leading Zeros)
+
+In GCC / Clang C:
+  int fast_log2 = 31 - __builtin_clz(n);
+
+This computes floor(log_2(n)) in O(1) time without any floating point division
+or loop iterations!
+
+2. PRACTICAL DSA APPLICATIONS
+--------------------------------------------------------------------------------
+Project 1: Range Minimum Query (RMQ) Sparse Table
+  Uses fast_log2(R - L + 1) to query precomputed power-of-two intervals in O(1) time.
+
+Project 2: Binary Lifting on Trees (LCA - Lowest Common Ancestor)
+  Jumps along 2^k ancestor pointers to find LCA in O(log N) query time.
+
+Project 3: Dynamic Array Vector Doubling
+  Calculates next power-of-two buffer capacity in O(1) using hardware log2.
+
+================================================================================
+AUTHORED BY: SUKANTA HUI · CODER & ACCOTAX BARRACKPORE
+================================================================================

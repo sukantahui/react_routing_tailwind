@@ -1,0 +1,46 @@
+================================================================================
+CODER & ACCOTAX - BARRACKPORE COMPUTER SCIENCE & DSA LAB
+MODULE: LOGARITHMS IN COMPUTER SCIENCE & DATA STRUCTURES
+TOPIC 3: PHYSICAL COMPUTER CONNECTIONS - BIT LENGTH & TREE HEIGHTS
+================================================================================
+
+1. INTEGER BIT LENGTH IN SILICON HARDWARE
+--------------------------------------------------------------------------------
+How many bits in binary are required to store an integer N?
+
+  In base 10:
+    Number of digits = floor(log_10(N)) + 1
+    Example: N = 450 -> floor(log_10(450)) + 1 = 2 + 1 = 3 digits.
+
+  In base 2 (Binary Computer Memory):
+    Number of bits = floor(log_2(N)) + 1
+    Example:
+      N = 7   -> 111_2   -> floor(log_2(7)) + 1   = 2 + 1 = 3 bits
+      N = 8   -> 1000_2  -> floor(log_2(8)) + 1   = 3 + 1 = 4 bits
+      N = 255 -> 11111111_2 -> floor(log_2(255)) + 1 = 7 + 1 = 8 bits
+
+2. BALANCED BINARY TREE HEIGHT (AVL, RED-BLACK, HEAPS)
+--------------------------------------------------------------------------------
+In a complete binary tree with N nodes:
+  - Level 0 has 2^0 = 1 node
+  - Level 1 has 2^1 = 2 nodes
+  - Level 2 has 2^2 = 4 nodes
+  - Level h has 2^h nodes
+
+Total nodes for tree of height h:
+  N = 1 + 2 + 4 + ... + 2^h = 2^(h+1) - 1
+
+Solving for height h:
+  2^(h+1) = N + 1
+  h + 1 = log_2(N + 1)
+  h = log_2(N + 1) - 1  ===>  h = floor(log_2(N)) = Theta(log N).
+
+3. WHY HEAPS AND BALANCED BSTS ARE O(log N)
+--------------------------------------------------------------------------------
+- In a Min-Heap / Max-Heap with 1,000,000 nodes, tree height is only 19 levels.
+- Sift-Up (insertion) and Sift-Down (deletion) traverse at most from root to leaf (height h).
+- Thus, heap operations take at most 19 node swaps for 1 million elements!
+
+================================================================================
+AUTHORED BY: SUKANTA HUI · CODER & ACCOTAX BARRACKPORE
+================================================================================

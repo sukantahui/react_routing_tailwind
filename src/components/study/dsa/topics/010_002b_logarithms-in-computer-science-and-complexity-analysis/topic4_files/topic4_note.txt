@@ -1,0 +1,46 @@
+================================================================================
+CODER & ACCOTAX - BARRACKPORE COMPUTER SCIENCE & DSA LAB
+MODULE: LOGARITHMS IN COMPUTER SCIENCE & DATA STRUCTURES
+TOPIC 4: EXOTIC LOGARITHMS - DOUBLE LOGARITHMS & ITERATED LOGARITHMS (log* N)
+================================================================================
+
+1. DOUBLE LOGARITHM: O(log log N)
+--------------------------------------------------------------------------------
+What is log(log N)?
+It is applying the logarithm twice:
+  If N = 4,000,000,000 (4 billion items):
+    log_2(N) = 32
+    log_2(log_2(N)) = log_2(32) = 5 operations!
+
+Where does O(log log N) appear in DSA?
+  1) Interpolation Search on uniformly distributed sorted arrays.
+  2) Van Emde Boas Trees (vEB trees) for integer priority queues.
+  3) Sieve of Eratosthenes harmonic prime bound: Sum(1/p) = Theta(log log N).
+
+2. ITERATED LOGARITHM: O(log* N) ("log star N")
+--------------------------------------------------------------------------------
+Definition:
+  log*(N) is the number of times the logarithm function must be iteratively applied
+  before the result is less than or equal to 1.
+
+Values of log*(N):
+  N                       | log*(N)
+  ------------------------+---------
+  1                       | 0
+  2                       | 1
+  4 = 2^2                 | 2
+  16 = 2^4                | 3
+  65,536 = 2^16           | 4
+  2^65536 ≈ 10^19728      | 5
+
+Note: The total estimated number of atoms in the observable universe is ~10^80.
+Because 10^80 << 10^19728, for ALL physical and realistic datasets on Earth:
+  log*(N) <= 5.
+
+Where does log* N appear?
+  In Disjoint Set Union (DSU / Union-Find) with path compression, where amortized
+  operation time is O(alpha(N)), bounded by O(log* N) <= 5.
+
+================================================================================
+AUTHORED BY: SUKANTA HUI · CODER & ACCOTAX BARRACKPORE
+================================================================================

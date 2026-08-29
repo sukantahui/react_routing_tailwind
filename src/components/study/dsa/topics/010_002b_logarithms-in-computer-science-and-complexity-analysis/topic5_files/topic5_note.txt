@@ -1,0 +1,37 @@
+================================================================================
+CODER & ACCOTAX - BARRACKPORE COMPUTER SCIENCE & DSA LAB
+MODULE: LOGARITHMS IN COMPUTER SCIENCE & DATA STRUCTURES
+TOPIC 5: THE ASYMPTOTIC SCALE & DECISION TREE SORTING LOWER BOUND Omega(N log N)
+================================================================================
+
+1. THE COMPLETE ASYMPTOTIC GROWTH HIERARCHY
+--------------------------------------------------------------------------------
+From fastest to slowest growing function:
+
+  O(1) < O(log* N) < O(log log N) < O(log N) < O(sqrt(N)) < O(N) < O(N log N) < O(N^2) < O(2^N) < O(N!)
+
+2. PROOF OF THE COMPARISON SORT LOWER BOUND: Omega(N log N)
+--------------------------------------------------------------------------------
+Can we sort an array of N items in O(N) time using comparisons? NO!
+
+The Decision Tree Model:
+  1) Any comparison algorithm (QuickSort, MergeSort, HeapSort) compares two elements (A[i] < A[j])
+     and branches in 2 directions (TRUE or FALSE).
+  2) This forms a binary decision tree.
+  3) For an input array of N distinct elements, there are N! possible permutations (orderings).
+  4) To correctly sort all inputs, the decision tree must contain at least N! leaves.
+  5) A binary tree of height 'h' has at most 2^h leaves:
+       2^h >= N!
+       h >= log_2(N!)
+
+Applying Stirling's Approximation:
+  ln(N!) = N * ln(N) - N + O(ln N)
+  log_2(N!) = Theta(N * log_2 N)
+
+Therefore:
+  Height h >= Omega(N log N).
+  Every comparison-based sorting algorithm must execute at least Omega(N log N) comparisons in the worst case!
+
+================================================================================
+AUTHORED BY: SUKANTA HUI · CODER & ACCOTAX BARRACKPORE
+================================================================================

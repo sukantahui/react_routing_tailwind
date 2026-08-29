@@ -41,7 +41,8 @@ import {
   MessageSquare,
   Compass,
   ListOrdered,
-  ExternalLink
+  ExternalLink,
+  Zap
 } from "lucide-react";
 import TeacherProfileCard, { defaultTeacher } from "./common/TeacherProfileCard";
 
@@ -83,6 +84,29 @@ const SEGMENT_THEMES = [
     dot: "bg-rose-400"
   }
 ];
+
+// Helper to highlight matching search words in titles & topics
+function HighlightedText({ text, search }) {
+  if (!search || !search.trim() || !text) return <span>{text}</span>;
+  const terms = search.trim().split(/\s+/).filter(Boolean).map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  if (terms.length === 0) return <span>{text}</span>;
+  const regex = new RegExp(`(${terms.join('|')})`, 'gi');
+  const parts = String(text).split(regex);
+
+  return (
+    <span>
+      {parts.map((part, i) =>
+        regex.test(part) ? (
+          <mark key={i} className="bg-amber-400/30 text-amber-200 px-0.5 rounded font-semibold">
+            {part}
+          </mark>
+        ) : (
+          <span key={i}>{part}</span>
+        )
+      )}
+    </span>
+  );
+}
 
 export default function StudyRoadmap({ roadmapData, subjectKey }) {
   // ==========================================================
@@ -357,8 +381,8 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
   // ==========================================================
   const flatModules = useMemo(() => {
     const list = [];
-    roadmapData.segments.forEach((seg, sIndex) => {
-      seg.modules.forEach((mod, mIndex) => {
+    (roadmapData?.segments || []).forEach((seg, sIndex) => {
+      (seg.modules || []).forEach((mod, mIndex) => {
         list.push({
           ...mod,
           segmentId: seg.segmentId,
@@ -370,7 +394,36 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
       });
     });
     return list;
-  }, []);
+  }, [roadmapData]);
+
+  // Global Flattened Topics Index across ALL segments and modules for instant search
+  const allFlattenedTopics = useMemo(() => {
+    if (!roadmapData?.segments) return [];
+    const list = [];
+    roadmapData.segments.forEach((seg, sIdx) => {
+      (seg.modules || []).forEach((mod, mIdx) => {
+        (mod.topics || []).forEach((topicStr, tIdx) => {
+          list.push({
+            topicTitle: topicStr,
+            topicIndex: tIdx,
+            moduleSlug: mod.slug,
+            moduleTitle: mod.title,
+            moduleId: mod.moduleId,
+            segmentId: seg.segmentId,
+            segmentTitle: seg.title,
+            segmentIndex: sIdx,
+            segmentTheme: SEGMENT_THEMES[sIdx % SEGMENT_THEMES.length],
+            difficulty: mod.difficulty,
+            estimatedHours: mod.estimatedHours,
+            topicLink: `/${roadmapData.folder}/topic/${mod.slug}/${tIdx}`,
+            moduleLink: `/${roadmapData.folder}/module/${mod.slug}`,
+            indexOverall: list.length + 1
+          });
+        });
+      });
+    });
+    return list;
+  }, [roadmapData]);
 
   // Completion & Progress Metrics
   const stats = useMemo(() => {
@@ -508,6 +561,25 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
     });
     return map;
   }, [filteredSegments]);
+
+  // Matching Topics found across ALL segments for instant direct jump
+  const matchingTopics = useMemo(() => {
+    if (!search || !search.trim()) return [];
+    const searchTerms = search.toLowerCase().trim().split(/\s+/).filter(Boolean);
+    if (searchTerms.length === 0) return [];
+
+    return allFlattenedTopics.filter(item => {
+      const topicAliases = `topic ${item.topicIndex} topic${item.topicIndex} #${item.topicIndex} t${item.topicIndex}`;
+      const searchBlob = `${item.topicTitle} ${item.moduleTitle} ${item.segmentTitle} ${item.moduleId} ${topicAliases}`.toLowerCase();
+      return searchTerms.every(term => searchBlob.includes(term));
+    });
+  }, [allFlattenedTopics, search]);
+
+  // Matching Modules found across ALL segments
+  const matchingModules = useMemo(() => {
+    if (!search || !search.trim()) return [];
+    return flatModules.filter(matchesSearch);
+  }, [flatModules, matchesSearch]);
 
   const teacher = roadmapData.teacher || defaultTeacher;
 
@@ -976,6 +1048,94 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
 
           </div>
 
+          {/* ========================================================== */}
+          {/* Quick Topic & Module Jump Results Overlay */}
+          {/* ========================================================== */}
+          {search.trim().length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              className="p-4 sm:p-5 rounded-2xl bg-slate-900/95 border border-cyan-500/40 shadow-2xl space-y-4 backdrop-blur-md"
+            >
+              {/* Results Top Header Bar */}
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                <div className="flex items-center gap-2">
+                  <span className="p-1.5 rounded-lg bg-cyan-950 border border-cyan-700/60 text-cyan-300">
+                    <Zap className="w-4 h-4 text-amber-400" />
+                  </span>
+                  <div>
+                    <div className="text-xs font-bold text-slate-100 uppercase tracking-wider flex items-center gap-1.5">
+                      <span>Quick Topic Jump</span>
+                      <span className="text-cyan-300">"{search}"</span>
+                    </div>
+                    <div className="text-[10px] text-slate-400 font-mono">
+                      Found <strong className="text-cyan-300">{matchingTopics.length}</strong> topic{matchingTopics.length === 1 ? "" : "s"} &amp; <strong className="text-sky-300">{matchingModules.length}</strong> module{matchingModules.length === 1 ? "" : "s"} across all course segments
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setSearch("")}
+                    className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-750 text-slate-300 text-xs font-medium transition cursor-pointer border border-slate-700"
+                  >
+                    Clear Search
+                  </button>
+                </div>
+              </div>
+
+              {/* Section 1: Matching Topics across ALL Segments */}
+              {matchingTopics.length > 0 ? (
+                <div className="space-y-2">
+                  <div className="text-[11px] font-bold text-cyan-300 uppercase tracking-wider flex items-center gap-1.5">
+                    <Sparkles size={12} className="text-cyan-400" />
+                    <span>Direct Topic Links ({matchingTopics.length}):</span>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 max-h-80 overflow-y-auto pr-1">
+                    {matchingTopics.map((item, idx) => (
+                      <Link
+                        key={idx}
+                        to={item.topicLink}
+                        onClick={() => recordVisit({ slug: item.moduleSlug, title: item.moduleTitle, moduleId: item.moduleId }, item.segmentId, item.segmentTitle)}
+                        className="group p-3 rounded-xl bg-slate-950/80 hover:bg-slate-950 border border-slate-800/80 hover:border-cyan-500/60 transition-all flex flex-col justify-between shadow-sm hover:shadow-cyan-950/30"
+                      >
+                        <div>
+                          <div className="flex items-center justify-between gap-1.5 mb-1.5">
+                            <span className={`px-2 py-0.5 rounded text-[9.5px] font-bold border ${item.segmentTheme.badge}`}>
+                              {item.segmentTitle.split("–")[0].split("-")[0].trim()}
+                            </span>
+                            <span className="text-[10px] font-mono font-bold text-amber-300 bg-amber-950/60 border border-amber-800/50 px-2 py-0.5 rounded-full">
+                              Topic #{item.topicIndex}
+                            </span>
+                          </div>
+
+                          <div className="text-xs font-semibold text-white group-hover:text-cyan-300 transition-colors leading-snug line-clamp-2">
+                            <HighlightedText text={item.topicTitle} search={search} />
+                          </div>
+                        </div>
+
+                        <div className="mt-2.5 pt-2 border-t border-slate-850 flex items-center justify-between text-[11px] text-slate-400">
+                          <span className="truncate max-w-[200px] text-slate-500 text-[10px] font-sans">
+                            Module: {item.moduleTitle}
+                          </span>
+                          <span className="font-bold text-cyan-400 group-hover:text-cyan-300 flex items-center gap-1 text-[11px] shrink-0 font-mono">
+                            ⚡ Open Topic <ArrowRight size={11} className="group-hover:translate-x-0.5 transition-transform" />
+                          </span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="p-4 rounded-xl bg-slate-950 text-center text-xs text-slate-400 font-medium">
+                  No individual topic titles directly matched "{search}". Check the matching modules below or try searching terms like <em>"matrix"</em>, <em>"tree"</em>, <em>"pointer"</em>, or <em>"Topic 3"</em>.
+                </div>
+              )}
+            </motion.div>
+          )}
+
           {/* Segment Filter Pills */}
           <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
             <span className="text-xs font-medium text-slate-400 mr-1 flex items-center gap-1">
@@ -1356,6 +1516,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                                   key={module.moduleId}
                                   module={module}
                                   theme={theme}
+                                  search={search}
                                   isCompleted={isCompleted(module.moduleId)}
                                   isBookmarked={isBookmarked(module.moduleId)}
                                   isExpanded={!!expandedTopics[module.moduleId]}
@@ -1389,6 +1550,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                                   <ModuleCard
                                     module={module}
                                     theme={theme}
+                                    search={search}
                                     isCompleted={isCompleted(module.moduleId)}
                                     isBookmarked={isBookmarked(module.moduleId)}
                                     isExpanded={!!expandedTopics[module.moduleId]}
@@ -1477,6 +1639,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
 function ModuleCard({
   module,
   theme,
+  search = "",
   isCompleted,
   isBookmarked,
   isExpanded,
@@ -1499,6 +1662,8 @@ function ModuleCard({
     if (d.includes("advanced")) return "bg-rose-400";
     return "bg-amber-400";
   };
+
+  const searchTerms = search ? search.toLowerCase().trim().split(/\s+/).filter(Boolean) : [];
 
   return (
     <div
@@ -1535,7 +1700,7 @@ function ModuleCard({
             <button
               onClick={onCopyLink}
               title="Copy direct module link"
-              className="p-1 rounded-md text-slate-500 hover:text-slate-300 hover:bg-slate-800 transition relative"
+              className="p-1 rounded-md text-slate-500 hover:text-slate-300 hover:bg-slate-800 transition relative cursor-pointer"
             >
               {isCopied ? <Check size={13} className="text-emerald-400" /> : <Copy size={13} />}
             </button>
@@ -1544,7 +1709,7 @@ function ModuleCard({
             <button
               onClick={onToggleBookmark}
               title={isBookmarked ? "Remove bookmark" : "Bookmark module"}
-              className={`p-1 rounded-md transition ${
+              className={`p-1 rounded-md transition cursor-pointer ${
                 isBookmarked
                   ? "text-amber-400 bg-slate-800"
                   : "text-slate-500 hover:text-slate-300 hover:bg-slate-800"
@@ -1563,43 +1728,66 @@ function ModuleCard({
         >
           <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-sky-300 transition-colors flex items-start gap-2 leading-snug">
             <Code2 size={16} className={`shrink-0 mt-0.5 ${isCompleted ? "text-emerald-400" : theme.accent}`} />
-            <span>{module.title}</span>
+            <span><HighlightedText text={module.title} search={search} /></span>
           </h3>
         </Link>
 
         {/* Module Summary */}
         {module.summary && (
           <p className="mt-1.5 text-xs text-slate-400 leading-relaxed line-clamp-2">
-            {module.summary}
+            <HighlightedText text={module.summary} search={search} />
           </p>
         )}
 
-        {/* Topics Accordion Preview */}
+        {/* Topics Accordion Preview with Clickable Jump Links */}
         {topicsCount > 0 && (
-          <div className="mt-2.5">
-            <div className="flex flex-wrap gap-1">
-              {(isExpanded ? module.topics : module.topics.slice(0, 3)).map((topic, i) => (
-                <span
-                  key={i}
-                  className="px-2 py-0.5 rounded-md text-[10px] bg-slate-950 text-slate-400 border border-slate-850 truncate max-w-full"
-                >
-                  {topic}
-                </span>
-              ))}
+          <div className="mt-3">
+            <div className="text-[10px] uppercase tracking-wider font-semibold text-slate-500 mb-1.5 flex items-center justify-between">
+              <span>Topics &amp; Interactive Studios:</span>
+              <span className="text-[9px] text-slate-600 font-mono">Click to open</span>
+            </div>
+
+            <div className="flex flex-wrap gap-1.5">
+              {(isExpanded ? module.topics : module.topics.slice(0, 3)).map((topic, i) => {
+                const topicAliases = `topic ${i} topic${i} #${i} t${i}`;
+                const isMatch = searchTerms.length > 0 && searchTerms.some(t => `${topic} ${topicAliases}`.toLowerCase().includes(t));
+
+                return (
+                  <Link
+                    key={i}
+                    to={`/${roadmapFolder}/topic/${module.slug}/${i}`}
+                    onClick={onRecordVisit}
+                    title={`Open Topic #${i}: ${topic}`}
+                    className={`group/t px-2 py-1 rounded-lg text-[10px] transition-all flex items-center gap-1.5 border max-w-full ${
+                      isMatch
+                        ? "bg-cyan-950/90 border-cyan-400 text-cyan-200 font-bold shadow-md shadow-cyan-950 ring-1 ring-cyan-400/60"
+                        : "bg-slate-950 text-slate-400 border-slate-850 hover:border-slate-700 hover:text-slate-200 hover:bg-slate-900"
+                    }`}
+                  >
+                    <span className={`font-mono text-[9px] font-bold px-1 py-0.2 rounded ${isMatch ? "bg-cyan-900 text-amber-300" : "bg-slate-900 text-slate-500"}`}>
+                      T{i}
+                    </span>
+                    <span className="truncate max-w-[170px] sm:max-w-[210px]">
+                      <HighlightedText text={topic} search={search} />
+                    </span>
+                    <ArrowRight size={10} className={`shrink-0 transition-opacity ${isMatch ? "opacity-100 text-cyan-300" : "opacity-0 group-hover/t:opacity-100 text-sky-400"}`} />
+                  </Link>
+                );
+              })}
             </div>
 
             {topicsCount > 3 && (
               <button
                 onClick={onToggleExpand}
-                className="mt-1 inline-flex items-center gap-1 text-[10px] text-slate-400 hover:text-slate-200 font-medium transition"
+                className="mt-1.5 inline-flex items-center gap-1 text-[10px] text-slate-400 hover:text-slate-200 font-medium transition cursor-pointer"
               >
                 {isExpanded ? (
                   <>
-                    <ChevronUp size={11} /> Show less
+                    <ChevronUp size={11} /> Show less topics
                   </>
                 ) : (
                   <>
-                    <ChevronDown size={11} /> +{topicsCount - 3} more topics & worked examples
+                    <ChevronDown size={11} /> +{topicsCount - 3} more clickable topics &amp; worked examples
                   </>
                 )}
               </button>

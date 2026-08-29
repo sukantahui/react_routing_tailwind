@@ -1,0 +1,63 @@
+================================================================================
+CODER & ACCOTAX - BARRACKPORE COMPUTER SCIENCE & DSA LAB
+MODULE: LOGARITHMS IN COMPUTER SCIENCE & DATA STRUCTURES
+TOPIC 2: MULTIPLICATIVE LOOP STEPPING IN C & EXACT LOGARITHMIC BOUNDS
+================================================================================
+
+1. PATTERN 1: MULTIPLICATIVE INCREMENT (i *= 2)
+--------------------------------------------------------------------------------
+Code:
+  for (int i = 1; i < n; i *= 2) {
+      // O(1) work
+  }
+
+Iteration Trace:
+  Iteration 1: i = 1   = 2^0
+  Iteration 2: i = 2   = 2^1
+  Iteration 3: i = 4   = 2^2
+  ...
+  Iteration k: i = 2^(k-1)
+
+Termination Condition:
+  The loop terminates when i >= n, i.e., 2^(k-1) >= n.
+  Taking log_2:
+    k - 1 >= log_2(n)
+    k >= log_2(n) + 1
+  Exact number of iterations:
+    T(n) = ceil(log_2(n)) = Theta(log n).
+
+2. PATTERN 2: DIVISION STEPPING (i /= 2)
+--------------------------------------------------------------------------------
+Code:
+  for (int i = n; i > 1; i /= 2) {
+      // O(1) work
+  }
+
+Exact number of iterations:
+  T(n) = floor(log_2(n)) = Theta(log n).
+
+3. PATTERN 3: GENERAL MULTIPLICATIVE STEPPING (i *= k)
+--------------------------------------------------------------------------------
+Code:
+  for (int i = 1; i < n; i *= k) { ... }
+
+Exact iterations:
+  T(n) = ceil(log_k(n)) = Theta(log n).
+
+4. PATTERN 4: NESTED LOGARITHMIC LOOPS
+--------------------------------------------------------------------------------
+Code:
+  for (int i = 1; i < n; i *= 2) {
+      for (int j = 1; j < n; j *= 2) {
+          // O(1) work
+      }
+  }
+
+Complexity:
+  Outer loop: log_2(n) iterations.
+  Inner loop: log_2(n) iterations.
+  Total work: log_2(n) * log_2(n) = Theta((log n)^2)  [Polylogarithmic time].
+
+================================================================================
+AUTHORED BY: SUKANTA HUI · CODER & ACCOTAX BARRACKPORE
+================================================================================
