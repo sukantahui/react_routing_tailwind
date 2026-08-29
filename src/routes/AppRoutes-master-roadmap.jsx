@@ -18,6 +18,9 @@ const VSCodeUltraExpertGuide = lazy(() => import('../components/VSCodeUltraExper
 const TypingTest = lazy(() => import('../components/TypingTest'));
 const AudioExtractor = lazy(() => import('../components/AudioExtractor'));
 const TypingLearn = lazy(() => import('../components/typing-app/TypingLearn'));
+const SortingVisualizer = lazy(() => import('../components/SortingVisualizer'));
+const BigOCalculator = lazy(() => import('../components/BigOCalculator'));
+const JsonFormatter = lazy(() => import('../components/JsonFormatter'));
 
 // Data structure visualizers
 const LinkedListVisualizer = lazy(() => import('../common/LinkedListVisualizer'));
@@ -102,7 +105,11 @@ const ROUTES = {
   TYPING_TEST: '/tools/type-test',
   TYPING_LEARN: '/tools/typing-learn',
   AUDIO_EXTRACT: '/tools/audioextract',
+  SORTING_VISUALIZER: '/tools/sorting-visualizer',
+  BIG_O_CALCULATOR: '/tools/big-o-calculator',
+  JSON_FORMATTER: '/tools/json-formatter',
   PLAYGROUND: '/play',
+
   PYTHON_PLAY: '/python-play',
   ICONS: '/icons',
   VSCODE: '/vscode',
@@ -553,6 +560,10 @@ export default function AppRoutes() {
         <Route path={ROUTES.TYPING_TEST} element={<TypingTest />} />
         <Route path={ROUTES.TYPING_LEARN} element={<TypingLearn />} />
         <Route path={ROUTES.AUDIO_EXTRACT} element={<AudioExtractor />} />
+        <Route path={ROUTES.SORTING_VISUALIZER} element={<SortingVisualizer />} />
+        <Route path={ROUTES.BIG_O_CALCULATOR} element={<BigOCalculator />} />
+        <Route path={ROUTES.JSON_FORMATTER} element={<JsonFormatter />} />
+
 
         {/* Data structure visualizers */}
         <Route path={ROUTES.LINKED_LIST} element={<LinkedListVisualizer />} />

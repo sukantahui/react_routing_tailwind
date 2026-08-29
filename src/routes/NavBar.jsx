@@ -115,6 +115,20 @@ const NavBar = () => {
           icon: "bi-share-fill",
           tag: "DSA",
         },
+        {
+          to: "/tools/sorting-visualizer",
+          label: "Sorting Visualizer",
+          desc: "Step-by-step array sorting animations",
+          icon: "bi-bar-chart-steps",
+          tag: "Visualizer",
+        },
+        {
+          to: "/tools/big-o-calculator",
+          label: "Big-O Calculator",
+          desc: "Step count & asymptotic profiler",
+          icon: "bi-calculator-fill",
+          tag: "Profiler",
+        },
       ],
     },
     {
@@ -123,6 +137,13 @@ const NavBar = () => {
       icon: "bi-lightning-charge-fill",
       color: "from-emerald-500/20 to-teal-500/10 text-emerald-400 border-emerald-500/30",
       items: [
+        {
+          to: "/tools/json-formatter",
+          label: "JSON Formatter",
+          desc: "Format, minify & validate JSON data",
+          icon: "bi-filetype-json",
+          tag: "Formatter",
+        },
         {
           to: "/tools/type-test",
           label: "Typing Speed Test",
@@ -160,6 +181,7 @@ const NavBar = () => {
         },
       ],
     },
+
     {
       id: "resources",
       title: "Verifications & Resources",

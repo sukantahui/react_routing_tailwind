@@ -231,6 +231,20 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           icon: "bi-share-fill",
           tag: "DSA",
         },
+        {
+          to: "/tools/sorting-visualizer",
+          label: "Sorting Visualizer",
+          desc: "Step-by-step array sorting animations",
+          icon: "bi-bar-chart-steps",
+          tag: "Visualizer",
+        },
+        {
+          to: "/tools/big-o-calculator",
+          label: "Big-O Calculator",
+          desc: "Step count & asymptotic profiler",
+          icon: "bi-calculator-fill",
+          tag: "Profiler",
+        },
       ],
     },
     {
@@ -239,6 +253,13 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
       icon: "bi-lightning-charge-fill",
       color: "from-emerald-500/20 to-teal-500/10 text-emerald-400 border-emerald-500/30",
       items: [
+        {
+          to: "/tools/json-formatter",
+          label: "JSON Formatter",
+          desc: "Format, minify & validate JSON data",
+          icon: "bi-filetype-json",
+          tag: "Formatter",
+        },
         {
           to: "/tools/type-test",
           label: "Typing Speed Test",
@@ -267,6 +288,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           icon: "bi-qr-code-scan",
           tag: "Utility",
         },
+
         {
           to: "/icons",
           label: "Developer Icons",
@@ -276,43 +298,8 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
         },
       ],
     },
-    {
-      id: "accounts",
-      title: "Student Fees & Accounts",
-      icon: "bi-receipt-cutoff",
-      color: "from-amber-500/20 to-yellow-500/10 text-amber-400 border-amber-500/30",
-      items: [
-        {
-          to: "/studentFeesReceipt",
-          label: "Fee Receipt (Standard)",
-          desc: "Generate printable tuition invoices",
-          icon: "bi-receipt",
-          tag: "Billing",
-        },
-        {
-          to: "/studentFeesReceiptPart2",
-          label: "Fee Receipt Part 2",
-          desc: "Installment tracking & print slips",
-          icon: "bi-file-earmark-spreadsheet",
-          tag: "v2",
-        },
-        {
-          to: "/studentFeesReceiptPart3",
-          label: "Fee Receipt Part 3",
-          desc: "Advanced multi-session batch invoices",
-          icon: "bi-calculator-fill",
-          tag: "v3",
-        },
-        {
-          to: "/studentFeesReceiptPart4",
-          label: "Fee Receipt Part 4 (Test)",
-          desc: "Experimental custom tax receipt engine",
-          icon: "bi-file-earmark-diff",
-          tag: "Beta",
-        },
-      ],
-    },
   ], []);
+
 
   // Tutorials & Roadmaps Items with Categories
   const tutorialsCategories = [
@@ -530,9 +517,10 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
   }, [location.pathname]);
 
   const isToolsActive = useMemo(() => {
-    const paths = ["/tools", "/python-play", "/play", "/vscode", "/whiteBoard", "/qrcode", "/icons", "/LinkedListVisualizer", "/DoublyLinkedListVisualizer", "/BinaryTreeVisualizer", "/AvlTreeVisualizer", "/studentFeesReceipt"];
+    const paths = ["/tools", "/python-play", "/play", "/vscode", "/whiteBoard", "/qrcode", "/icons", "/LinkedListVisualizer", "/DoublyLinkedListVisualizer", "/BinaryTreeVisualizer", "/AvlTreeVisualizer"];
     return paths.some((p) => location.pathname.startsWith(p));
   }, [location.pathname]);
+
 
   const isTutorialsActive = useMemo(() => {
     return location.pathname.includes("/roadmap") || location.pathname.includes("/module/") || location.pathname.includes("/topic/");
