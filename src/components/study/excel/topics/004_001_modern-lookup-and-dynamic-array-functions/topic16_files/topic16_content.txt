@@ -1,0 +1,9 @@
+TOPIC 16: MODERN FORMULA-DRIVEN PIVOT REPORTS WITH GROUPBY & PIVOTBY
+Module: 004_001_modern-lookup-and-dynamic-array-functions
+Mentor: Sukanta Hui (28+ Years Experience)
+
+KEY CONCEPTS:
+1. Formula Signature: =GROUPBY(row_fields, values, function, [field_headers], [total_depth], [sort_order], [filter_array])
+2. Core Mechanics: Generates dynamic array pivot aggregations in a single formula that update instantly when source data changes without manual Pivot Table refreshes.
+3. Questions Bank: Exactly 30 structured assessment MCQs
+4. Practice Worksheet: Topic16_Groupby_Pivotby

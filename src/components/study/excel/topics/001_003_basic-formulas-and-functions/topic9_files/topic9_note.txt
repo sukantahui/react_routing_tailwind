@@ -1,0 +1,27 @@
+TOPIC 9: ENGINEERING UNIT CONVERSIONS & BITWISE LOGIC
+Module: 001_003_basic-formulas-and-functions
+Instructor: Sukanta Hui (28+ Years Experience)
+
+KEY CONCEPTS:
+1. CONVERT(number, from_unit, to_unit):
+   - Mass: "g", "kg", "lbm", "ozm", "ton"
+   - Distance: "m", "km", "in", "ft", "yd", "mi", "Nmi"
+   - Thermodynamics: "C", "F", "K", "Rank", "Reau"
+   - Time: "yr", "day", "hr", "mn", "sec"
+   - Pressure: "Pa", "atm", "bar", "mmHg", "psi"
+   - Energy: "J", "e", "c", "cal", "BTU", "Wh", "HPh"
+   - Power: "W", "HP", "PS"
+
+2. BITWISE LOGIC ENGINE (48-bit Precision):
+   - BITAND(n1, n2): Bitwise AND masking
+   - BITOR(n1, n2): Bitwise OR combination
+   - BITXOR(n1, n2): Bitwise XOR difference/toggle
+   - BITLSHIFT(n, shift): Multiplies by 2^shift
+   - BITRSHIFT(n, shift): Divides by 2^shift
+
+3. BASE CONVERSIONS:
+   - BIN2DEC, DEC2BIN, DEC2HEX, HEX2DEC, HEX2BIN, OCT2BIN
+
+PRACTICE WORKBOOK SHEET:
+   - Sheet: Topic9_Engineering_Bitwise
+   - Master Workbook: basic_formulas_and_functions_master.xlsx

@@ -1,0 +1,9 @@
+TOPIC 14: DYNAMIC ARRAY BOUNDARY TRIMMING WITH TRIMRANGE
+Module: 004_002_next-gen-array-reshaping-and-grid-transformation
+Mentor: Sukanta Hui (28+ Years Experience)
+
+KEY CONCEPTS:
+1. Formula Signature: =TRIMRANGE(range, [trim_row_mode], [trim_col_mode])
+2. Core Mechanics: Removes leading, trailing, or all blank boundary rows and columns from dynamic arrays and grid ranges.
+3. Questions Bank: Exactly 30 structured assessment MCQs
+4. Practice Worksheet: Topic14_Trimrange_Boundaries

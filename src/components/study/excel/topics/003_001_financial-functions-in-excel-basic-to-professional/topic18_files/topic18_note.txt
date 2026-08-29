@@ -1,0 +1,9 @@
+TOPIC 18: VARIABLE DECLINING BALANCE DEPRECIATION
+Module: 003_001_financial-functions-in-excel-basic-to-professional
+Mentor: Sukanta Hui (28+ Years Experience)
+
+KEY CONCEPTS:
+1. Formula Signature: =VDB(cost, salvage, life, start_period, end_period, [factor], [no_switch])
+2. Core Mechanics: Calculates depreciation for any period using variable declining balance with optional straight-line crossover.
+3. Questions Bank: Exactly 30 structured assessment MCQs
+4. Practice Worksheet: Topic18_VDB_Depreciation

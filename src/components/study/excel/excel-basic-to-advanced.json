@@ -491,7 +491,8 @@
             "Copying formulas using fill handle and understanding reference changes",
             "Handling common errors: #DIV/0!, #VALUE!, #NAME?",
             "Practice These Topics",
-            "Test Your Skill"
+            "Test Your Skill",
+            "Engineering Unit Conversions & Bitwise Logic: Physical metrics conversion with CONVERT and hardware bit manipulation with BITAND, BITOR, BITXOR, BITLSHIFT, BITRSHIFT, BIN2DEC, and DEC2HEX"
           ],
           "learningOutcomes": [
             "Construct robust mathematical calculations using arithmetic operators and order of operations (BODMAS/PEMDAS)",
@@ -915,7 +916,9 @@
             "Combining Statistical Functions with IF Logic",
             "Practice: Multi-Condition Statistical Analysis",
             "Practice: Real Dataset Interpretation",
-            "Test Your Skill"
+            "Test Your Skill",
+            "Time-Series Forecasting & Exponential Smoothing: Seasonal decomposition, trend projection, and confidence intervals with FORECAST.ETS, FORECAST.ETS.SEASONALITY, and FORECAST.ETS.CONFINT",
+            "Multiple Linear & Non-Linear Regression ANOVA: Full matrix coefficient, standard error, and R-squared analysis with LINEST and LOGEST"
           ],
           "learningOutcomes": [
             "Execute multi-condition conditional aggregation using SUMIFS, COUNTIFS, and AVERAGEIFS with dynamic criteria",
@@ -1178,7 +1181,9 @@
             "Advanced financial modeling best practices: Color coding, dynamic inputs, and auditing",
             "Real-world case study: Commercial real estate investment appraisal model",
             "Practice: Corporate equipment lease vs purchase decision matrix",
-            "Assessment: Comprehensive Financial Valuation & Amortization Lab"
+            "Assessment: Comprehensive Financial Valuation & Amortization Lab",
+            "Variable Declining Balance Depreciation: Modeling corporate asset amortization, partial-period conventions, and automatic straight-line crossover with VDB",
+            "Integrated 3-Statement Financial Modeling: Dynamic linking of Income Statement, Balance Sheet, and Cash Flow Statement with circular debt loop resolution"
           ],
           "learningOutcomes": [
             "Model complete loan amortization schedules with dynamic principal/interest breakdowns using PMT, PPMT, and IPMT",
@@ -1337,7 +1342,8 @@
             "Adding integer, binary (0/1), and range constraints in Solver",
             "Solver Sensitivity and Answer reports for management decision review",
             "Real-world project: Production mix optimization to maximize corporate profit under resource limits",
-            "Real-world project: Optimal investment portfolio allocation using Markowitz mean-variance Solver model"
+            "Real-world project: Optimal investment portfolio allocation using Markowitz mean-variance Solver model",
+            "Sensitivity Analysis & Tornado Risk Diagrams: Multi-variable stress testing using Two-Way Data Tables and visual Tornado variance ranking"
           ],
           "learningOutcomes": [
             "Perform reverse goal engineering using Goal Seek for break-even and target pricing analysis",
@@ -1509,7 +1515,8 @@
             "Real-world project: Building an automated live search and filter table without VBA",
             "Practice Lab: Multi-criteria customer segmentation engine with dynamic array spilling",
             "Modern Dynamic Array Aggregations: Building formula-based Pivot Tables with GROUPBY, PIVOTBY, and PERCENTOF",
-            "Advanced #Spill Matrix Transformations: Combining LET, UNIQUE, FILTER, and Dynamic Range Reshaping"
+            "Advanced #Spill Matrix Transformations: Combining LET, UNIQUE, FILTER, and Dynamic Range Reshaping",
+            "Modern Dynamic Array Aggregations: Building multi-level formulaic Pivot Tables using GROUPBY, PIVOTBY, and PERCENTOF"
           ],
           "learningOutcomes": [
             "Harness Excel's modern dynamic array calculation engine and leverage the spilled range operator (#)",
@@ -1594,7 +1601,9 @@
             "Combining VSTACK and HSTACK to append and merge disparate datasets in memory",
             "Matrix transposition and multi-block dataset alignment using array functions",
             "Real-world project: Converting unformatted multi-column bank transaction statements into clean tabular data",
-            "Assessment: Advanced Grid Reshaping and Dimension Transformation Challenge"
+            "Assessment: Advanced Grid Reshaping and Dimension Transformation Challenge",
+            "Dynamic Array Boundary Trimming: Eliminating empty edge cells and ragged spill borders with TRIMRANGE and range operators",
+            "Matrix Algebra & Simultaneous Linear Systems: Solving multi-variable engineering and financial equations with MMULT, MINVERSE, and MDETERM"
           ],
           "learningOutcomes": [
             "Reshape, stack, and flatten complex multidimensional tables using TOCOL, TOROW, VSTACK, and HSTACK in memory",
@@ -1928,7 +1937,8 @@
             "Optimizing Power Query performance: Buffering tables (`Table.Buffer`), reducing memory footprint",
             "Documenting and organizing complex enterprise ETL query groups",
             "Real-world project: Building an automated multi-branch daily sales consolidation pipeline",
-            "Assessment: Advanced M Scripting & Enterprise ETL Engineering Challenge"
+            "Assessment: Advanced M Scripting & Enterprise ETL Engineering Challenge",
+            "Functional Recursion & State Accumulation in Power Query M: Dynamic REST API pagination with List.Generate and iterative state folding with List.Accumulate"
           ],
           "learningOutcomes": [
             "Write and edit custom M language scripts directly in Advanced Editor using `let...in` syntax",

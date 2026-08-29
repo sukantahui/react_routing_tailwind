@@ -1,0 +1,9 @@
+TOPIC 14: SENSITIVITY ANALYSIS & TORNADO RISK DIAGRAMS
+Module: 003_003_what-if-analysis-and-scenario-planning
+Mentor: Sukanta Hui (28+ Years Experience)
+
+KEY CONCEPTS:
+1. Formula Signature: =TABLE(row_input_cell, column_input_cell)
+2. Core Mechanics: Evaluates model output sensitivity across a 2D matrix of input variations, feeding Tornado charts that rank risk drivers by impact.
+3. Questions Bank: Exactly 30 structured assessment MCQs
+4. Practice Worksheet: Topic14_Tornado_Sensitivity

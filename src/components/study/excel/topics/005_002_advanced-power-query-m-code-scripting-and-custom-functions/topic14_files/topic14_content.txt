@@ -1,0 +1,9 @@
+TOPIC 14: FUNCTIONAL RECURSION & STATE ACCUMULATION IN POWER QUERY M
+Module: 005_002_advanced-power-query-m-code-scripting-and-custom-functions
+Mentor: Sukanta Hui (28+ Years Experience)
+
+KEY CONCEPTS:
+1. Formula Signature: =List.Generate(initial, condition, next, [selector]) / =List.Accumulate(list, seed, accumulator)
+2. Core Mechanics: Executes while-loops in pure functional M-code for REST API pagination with List.Generate and fold/reduce state aggregation with List.Accumulate.
+3. Questions Bank: Exactly 30 structured assessment MCQs
+4. Practice Worksheet: Topic14_M_Recursion_List

@@ -1,0 +1,9 @@
+TOPIC 40: MULTIPLE LINEAR & NON-LINEAR REGRESSION ANOVA
+Module: 002_004_statistical-functions-for-data-analysis
+Mentor: Sukanta Hui (28+ Years Experience)
+
+KEY CONCEPTS:
+1. Formula Signature: =LINEST(known_y's, [known_x's], [const], [stats])
+2. Core Mechanics: Calculates the statistics for a straight line using ordinary least squares to fit known_y's against known_x's.
+3. Questions Bank: Exactly 30 structured assessment MCQs
+4. Practice Worksheet: Topic40_Linest_Logest

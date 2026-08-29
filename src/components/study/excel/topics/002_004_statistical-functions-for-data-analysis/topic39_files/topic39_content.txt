@@ -1,0 +1,9 @@
+TOPIC 39: TIME-SERIES FORECASTING & EXPONENTIAL SMOOTHING
+Module: 002_004_statistical-functions-for-data-analysis
+Mentor: Sukanta Hui (28+ Years Experience)
+
+KEY CONCEPTS:
+1. Formula Signature: =FORECAST.ETS(target_date, values, timeline, [seasonality], [data_completion], [aggregation])
+2. Core Mechanics: Predicts future values using AAA Exponential Triple Smoothing (Holt-Winters additive model).
+3. Questions Bank: Exactly 30 structured assessment MCQs
+4. Practice Worksheet: Topic39_Forecast_ETS

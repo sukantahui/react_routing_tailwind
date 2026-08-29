@@ -1,0 +1,9 @@
+TOPIC 19: INTEGRATED 3-STATEMENT FINANCIAL MODELING ARCHITECTURE
+Module: 003_001_financial-functions-in-excel-basic-to-professional
+Mentor: Sukanta Hui (28+ Years Experience)
+
+KEY CONCEPTS:
+1. Formula Signature: =Net_Income - Capex + Depreciation - Change_in_NWC + Debt_Issued
+2. Core Mechanics: Links Net Income to Retained Earnings and Operating Cash Flow, feeding Cash into Balance Sheet Assets and resolving circular interest loops.
+3. Questions Bank: Exactly 30 structured assessment MCQs
+4. Practice Worksheet: Topic19_3_Statement_Model

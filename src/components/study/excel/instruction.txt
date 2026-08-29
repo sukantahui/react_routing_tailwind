@@ -4,6 +4,9 @@ MICROSOFT EXCEL MASTER TUTORIAL GENERATION PROMPT & ARCHITECTURAL SPECIFICATION
 Track: Microsoft Excel: From Zero to Ultra Expert (Course Code: EXCEL-PRO-901)
 Target Stack: React 19 (Function Components) + Tailwind CSS (Zero-Config / Modern)
 Layout Philosophy: Single-Column Vertical Flow, Default Dark Mode, Interactive Visualizations
+Official Workbook Brand Assets: 
+  - src/components/study/excel/assets/cnat.png (Official Organization Brand Logo: Native 452x451px, 1:1 Ratio)
+  - src/components/study/excel/assets/landing_sheet.jpg (Executive Landing Sheet Hero Graphic: Native 1536x1024px, 3:2 Ratio)
 
 --------------------------------------------------------------------------------
 1. DIRECTORY & FILE HIERARCHY (MANDATORY)
@@ -11,9 +14,10 @@ Layout Philosophy: Single-Column Vertical Flow, Default Dark Mode, Interactive V
 The Excel study module structure:
   src/components/study/excel/
   ├── assets/
-  │   └── cnat.png                     (Official CNAT Organization Logo for Workbooks)
+  │   ├── cnat.png                     (Official CNAT Organization Logo - 1:1 aspect ratio)
+  │   └── landing_sheet.jpg            (Official Executive Landing Page Hero Graphic - 3:2 aspect ratio)
   ├── instruction.txt                  (This master architecture & generation prompt)
-  ├── excel-basic-to-advanced.json     (Curriculum Roadmap & Bloom's Taxonomy Taxonomy)
+  ├── excel-basic-to-advanced.json     (Curriculum Roadmap & Bloom's Taxonomy)
   └── topics/[SSS_MMM_slug]/           (Dedicated Directory per Module)
       ├── Topic0.jsx                   (Primary React 19 Topic Component)
       ├── Topic1.jsx
@@ -33,7 +37,8 @@ The Excel study module structure:
     - Every module has ONE central, comprehensive Excel workbook stored in:
         `./excel_files/[module_name].xlsx`
     - This single workbook serves as the master interactive worksheet for all topics in that chapter.
-    - Inside this workbook, each topic has its own dedicated worksheet (e.g. `Topic0_Overview`, `Topic1_Calc`, `VLOOKUP_Table`, etc.).
+    - Inside this workbook, the FIRST sheet (`SheetNames[0]`) is ALWAYS the executive **Overview** landing sheet.
+    - Each subsequent topic has its own dedicated worksheet (e.g. `Topic0_Spill_Engine`, `Topic1_Calc`, `VLOOKUP_Table`, etc.).
     - When a topic requires multi-table comparisons or relational joins, multiple related sheets can be included (e.g. `Orders_Data`, `Customers_Master`).
 • MANDATORY DOWNLOAD BUTTON IN EVERY TOPIC:
     - Every `Topic[N].jsx` must include an intuitive, high-visibility **Download Practice Workbook (.xlsx)** button.
@@ -42,57 +47,122 @@ The Excel study module structure:
         import sampleWorkbookUrl from "./excel_files/[module_name].xlsx?url";
 
 --------------------------------------------------------------------------------
-3. INSTRUCTIONS & STANDARDS FOR CREATING THE EXCEL WORKBOOK (.xlsx)
+3. INSTRUCTIONS FOR THE EXECUTIVE LANDING SHEET & WORKBOOK (.xlsx)
 --------------------------------------------------------------------------------
-When generating or expanding a tutorial module, you MUST also generate the common `.xlsx` workbook. Follow these strict data engineering standards:
+When generating or expanding an Excel tutorial module, you MUST generate the common `.xlsx` workbook using Node.js with `exceljs` (`const ExcelJS = require('exceljs');`).
 
-• Tooling:
-    - Use Node.js with the pre-installed `exceljs` package (`const ExcelJS = require('exceljs');`).
-    - `exceljs` enables rich cell fills, custom fonts, borders, alignments, and high-resolution image embedding (`workbook.addImage(...)`).
+Follow these strict design, branding, aspect ratio, navigation, and security standards:
+
 • Mandatory Executive Landing Sheet (Sheet 1: `Overview`):
-    - Every master module `.xlsx` workbook MUST feature a beautifully formatted, colorful, and graphical `Overview` landing sheet as its very first worksheet (`SheetNames[0]`).
-    - **Logo Placement**: Embed the official CNAT logo (`src/components/study/excel/assets/cnat.png`) in the top-left banner area (`A1:B5`) with 120x120px dimensions.
-    - **Top Executive Banner**: Deep Slate Navy background (`#0F172A`), Bold White 20pt title `CODER & ACCOTAX`, Cyan 10pt subtitle `ISO 9001:2015 Certified Centre of Excellence...`, and Amber 9pt workbook description.
-    - **Section 1: 🏢 ORGANISATION PROFILE & CONTACT DETAILS** (Sky Blue Header `#0284C7`):
-        • Institute Name: `Coder & AccoTax`
+    - Every master module `.xlsx` workbook MUST feature a beautifully formatted, executive, graphical, and password-protected `Overview` landing sheet as its very first worksheet tab (`SheetNames[0]`).
+    
+    - **1. Grid Column Sizing & Zero-Underlap Spacing Rule**:
+        • Column A is the dedicated Logo Column with explicit width: `width: 18` (approx 135px).
+        • Columns B to F hold the banner text, institutional details, and directory tables.
+        • Grid Columns definition:
+            `wsOverview.columns = [{ width: 18 }, { width: 32 }, { width: 34 }, { width: 40 }, { width: 30 }, { width: 14 }];`
+
+    - **2. Brand Logo Placement (Strict 1:1 Aspect Ratio, Zero Text Underlap)**: 
+        • Embed the official CNAT logo (`src/components/study/excel/assets/cnat.png`) in Column A (`A1:A5`).
+        • Rendered Dimensions: `width: 110, height: 110` px (Strict 1:1 square aspect ratio preserving original 452x451px proportions without distortion).
+        • Position & Anchor: `tl: { col: 0.08, row: 0.15 }`, `editAs: 'oneCell'`.
+        • Sits 100% inside Column A (0 to 125px) so it NEVER underlaps or cuts into the title text in Column B.
+        • Fallback: Verify `fs.existsSync(logoPath)` before embedding.
+
+    - **3. Top Executive Header Banner (Shifted Right to Column B:F with Indent 2)**:
+        • `B1:F2`: Deep Slate Navy background (`#0F172A`), Bold White 18pt title `CODER & ACCOTAX` with `indent: 2` (positioned safely to the right of the logo).
+        • `B3:F3`: Dark Slate (`#1E293B`), Cyan 10pt subtitle `ISO 9001:2015 Certified Centre of Excellence in Computer Science & Financial Modeling` with `indent: 2`.
+        • `B4:F4`: Dark Slate (`#1E293B`), Amber 9pt metadata with dynamic mentor experience: `Interactive Chapter Practice Workbook · Mentored by Sukanta Hui (${new Date().getFullYear() - 1998}+ Years Exp.) · Barrackpore` with `indent: 2`.
+
+    - **4. Hero Graphic Placement (`landing_sheet.jpg`) (Strict 3:2 Aspect Ratio Unchanged from Original 1536x1024px)**:
+        • Embed the official executive landing artwork (`src/components/study/excel/assets/landing_sheet.jpg`) in a dedicated visual showcase container beneath the top banner (spanning rows 6 to 25 across columns A to F).
+        • **Original Aspect Ratio Formula**: `width / height = 1536 / 1024 = 1.5000` (Exact 3 : 2 ratio).
+        • **Rendered Dimensions**: `width: 600, height: 400` px (`600 / 400 = 1.5000` — **100% UNCHANGED aspect ratio**).
+        • Position & Anchor: `tl: { col: 0.15, row: 5.2 }`, `editAs: 'oneCell'`.
+        • **Row Space Reservation**: Rows 6 to 25 are set to `height: 20px` each (20 rows × 20px = 400px), followed by a gap buffer at Row 26 (`height: 12px`). This guarantees the artwork sits flush and never overlaps subsequent tables or text.
+        • Fallback: Verify `fs.existsSync(landingImgPath)` before embedding.
+
+    - **5. Section 1: 🏢 ORGANISATION PROFILE & CONTACT DETAILS** (Sky Blue Header `#0284C7` - Starts at Row 27):
+        • Institute Name: `Coder & AccoTax (Centre of Excellence)`
         • Accreditation: `ISO 9001:2015 Certified Training & Professional Development Institute`
         • Campus Address: `25(10/A) Shibtala Road, Nona Chandan Pukur, Barrackpore, Kolkata 700122, West Bengal, India`
-        • Phone / WhatsApp: `+91 70037 56860`
+        • Phone / WhatsApp: `+91 70037 56860 / +91 84202 04207`
         • Official Email: `sukantahui@codernaccotax.co.in | info@codernaccotax.co.in`
-        • Web Portal: `https://codernaccotax.co.in`
-        • Core Specializations: `Full Stack Software Engineering, Python & Data Science, Advanced Excel (Dynamic Arrays, Power Query), Power BI, Tally Prime, GST, Corporate Income Tax & Financial Modeling`
-    - **Section 2: 👨‍🏫 LEAD INSTRUCTOR & MASTER MENTOR PROFILE** (Emerald Header `#059669`):
+        • Web Portal: `https://www.codernaccotax.co.in`
+        • Core Specializations: `Full Stack Software Engineering, Python & Data Science, Advanced Excel (Dynamic Arrays, Power Query, DAX, VBA), Power BI, Tally Prime, Financial Modeling & Taxation`
+
+    - **6. Section 2: 👨‍🏫 LEAD INSTRUCTOR & MASTER MENTOR PROFILE** (Emerald Header `#059669`):
         • Lead Instructor / Mentor: `Sukanta Hui`
-        • Designation: `Senior Software Engineer, Corporate Financial Consultant & Lead Academic Mentor`
-        • Industry Experience: `27+ Years of Experience in Building Scalable Software Applications & Mentoring (Since May 1998)`
+        • Designation: `Senior Software Architect, Corporate Financial Consultant & Lead Academic Mentor`
+        • Industry Experience: `${new Date().getFullYear() - 1998}+ Years of Industrial & Academic Mentoring Experience (Since May 1998)`
         • GitHub Portfolio: `https://github.com/sukantahui`
-        • Technical Arsenal: `Python, Advanced Excel, Power BI, SQL, Financial Modeling, C, C++, Java, JavaScript, Angular, React, Laravel, Shell Scripting, Data Structures & Algorithms`
-        • Teaching Philosophy: `Bridging rigorous industrial standard practices with practical, hands-on, zero-VBA modern spreadsheet architecture.`
-    - **Section 3: 🎓 COURSE & MODULE ACADEMIC METRICS** (Violet Header `#7C3AED`):
-        • Curriculum Code & Title (e.g. `EXCEL-PRO-901: Advanced Excel & Modern Dynamic Array Mastery`)
-        • Active Module Slug & Bloom's Taxonomy Competency (`CO1 to CO8`)
-        • Total Topics & Structured Assessment FAQs count
-    - **Section 4: 📑 WORKBOOK SHEET DIRECTORY & LAB NAVIGATION** (Amber Header `#D97706`):
-        • A complete mapped table of all workbook sheets, target topics, primary formulas/techniques, and dataset contexts with zebra striping and thin slate borders.
-    - **Password Protection (Mandatory)**:
-        • The `Overview` Landing Sheet MUST be protected with password: `sukantahui`
-        • Code: `await wsOverview.protect('sukantahui', { selectLockedCells: true, selectUnlockedCells: true });`
+        • Technical Arsenal: `Python, Advanced Excel, Power BI, SQL, Financial Modeling, C, C++, Java, JavaScript, React, Angular, Data Structures & Algorithms`
+        • Teaching Philosophy: `Bridging rigorous industrial standard practices with practical, hands-on, modern spreadsheet architecture.`
+
+    - **7. Section 3: 🎓 COURSE & MODULE ACADEMIC METRICS** (Violet Header `#7C3AED`):
+        • Curriculum Code & Title: `EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert`
+        • Active Module Slug & Directory: `[module_slug]`
+        • Bloom's Taxonomy Competency: `Level 4 (Analyze), Level 5 (Evaluate) & Level 6 (Create)`
+
+    - **8. Section 4: 📑 INTERACTIVE WORKBOOK SHEET DIRECTORY & QUICK JUMP (Click-to-Jump Navigation Table)**:
+        • A complete mapped directory table of all workbook sheets in this module.
+        • Table Columns:
+            1. `SL #` (Centered, Slate `#64748B`)
+            2. `Sheet Name / Topic` (Bold Slate `#0F172A`)
+            3. `Primary Formula / Technique Covered` (Consolas Font, Blue `#0284C7`)
+            4. `Business Context / Dataset` (Slate `#475569`)
+            5. `🚀 Instant Action / Quick Jump` (CLICKABLE INTERNAL HYPERLINK)
+            6. `Status / Category` (Centered Green `#059669`)
+        • **Interactive Click-to-Jump Hyperlinks**:
+            - In Column E, add an active internal Excel hyperlink for every sheet:
+                `cell.value = { text: '👉 Open ' + sheetName + ' Sheet', hyperlink: "#'" + sheetName + "'!A1", tooltip: 'Click to navigate to ' + sheetName };`
+                `cell.font = { name: 'Segoe UI', size: 9.5, bold: true, color: { argb: 'FF0284C7' }, underline: true };`
+            - Clicking any item in this table instantly navigates the user directly to that specific exercise sheet in Microsoft Excel / Office software!
+
+    - **9. MANDATORY PASSWORD PROTECTION (Password: `sukantahui`)**:
+        • The `Overview` Landing Sheet MUST be protected and locked with password: **`sukantahui`**
+        • All cells on `wsOverview` are explicitly locked (`cell.protection = { locked: true }`).
+        • ExcelJS Cryptographic Protection Code:
+            ```javascript
+            await wsOverview.protect('sukantahui', {
+              selectLockedCells: true,
+              selectUnlockedCells: true,
+              formatCells: false,
+              formatColumns: false,
+              formatRows: false,
+              insertColumns: false,
+              insertRows: false,
+              insertHyperlinks: false,
+              deleteColumns: false,
+              deleteRows: false,
+              sort: false,
+              autoFilter: false,
+              pivotTables: false,
+              objects: false, // Locks images and artwork from editing
+              scenarios: false
+            });
+            ```
         • Topic sheets (Sheets 2 onwards) MUST remain unprotected so learners can edit cells, practice formulas, and complete assignments.
 
-• Multi-Sheet Topic Structure (Sheets 2 onwards):
-    - Create ONE sheet per topic in the module, named cleanly (e.g. `Topic0_Spill_Engine`, `Topic1_Spill_Operator`, `Topic2_Unique_Deduplication`).
-    - Sheet names must match the exact `sheetName` prop passed to `<ExcelFileLoader sheetName="..." />` in the topic JSX files.
-    - Each topic sheet MUST feature a dark bold header row (height 26px), white text, thin cell borders, alternate row zebra fills (`#F8FAFC`), and explicit column widths.
-• Dataset Realism & Richness (Non-Negotiable):
-    - Minimum 20 to 50 rows per sheet of authentic, realistic data (no lazy 3-row tables, no "Foo/Bar/Test" placeholders).
-    - Clear, professional header row (e.g. `Emp_ID`, `Employee_Name`, `Department`, `Joining_Date`, `Basic_Salary`, `HRA`, `Gross_Salary`, `Performance_Rating`, `Location`).
+• Return Navigation Link on Every Topic Sheet (Sheets 2 onwards):
+    - At cell `A1` (or header banner) of each child topic sheet, add a **"🔙 Back to Overview / Navigation Index"** clickable hyperlink pointing back to `#'Overview'!A1`:
+        `ws.getCell('A1').value = { text: '🔙 Back to Overview / Sheet Index', hyperlink: "#'Overview'!A1", tooltip: 'Return to Executive Overview' };`
+        `ws.getCell('A1').font = { name: 'Segoe UI', size: 9, bold: true, color: { argb: 'FF0284C7' }, underline: true };`
+    - This allows students to effortlessly jump back and forth between the landing menu and their exercises with a single click.
+
+• Topic Sheet Styling & Dataset Standards (Sheets 2 onwards):
+    - Dark bold header row (height 26px, Dark Navy fill `#0F172A`, White bold text `#FFFFFF`).
+    - Thin cell borders (`#CBD5E1`), alternate row zebra fills (`#F8FAFC`), explicit column widths.
+    - Dataset Realism: Minimum 20 to 50 rows per sheet of authentic, realistic data (no lazy 3-row tables).
     - Authentic Indian & Local Names:
         • Students: Swadeep, Tuhina, Abhronila, Susmita, Debangshu, Rahul, Priya, Aniket, Sourav, Sneha.
         • Locations: Barrackpore, Shyamnagar, Ichapur, Naihati, Titagarh, Kolkata.
-• Formulas in Cells:
-    - Where calculations are taught, populate calculation columns with real working Excel formulas (`{ f: "SUM(E2:G2)", v: 45000 }` or string formulas) so students can inspect the formula bar in their desktop Excel.
-• Automated Node.js Generator Script Blueprint (`generate_sheets.cjs`):
-    Write and run a script in the module directory using `exceljs` to construct the workbook cleanly:
+    - Formulas in Cells: Populate calculation columns with real working Excel formulas (`{ f: "SUM(E3:G3)", v: 45000 }` or formula strings) so students can inspect the formula bar in their desktop Excel.
+
+--------------------------------------------------------------------------------
+4. COMPLETE WORKBOOK GENERATION BLUEPRINT (`generate_sheets.cjs`)
+--------------------------------------------------------------------------------
+Every module directory must contain `generate_sheets.cjs` following this exact pattern:
 
 ```javascript
 // generate_sheets.cjs
@@ -104,45 +174,337 @@ async function buildMasterWorkbook() {
   const wb = new ExcelJS.Workbook();
   wb.creator = 'Coder & AccoTax';
   wb.lastModifiedBy = 'Sukanta Hui';
+  wb.created = new Date();
+  wb.modified = new Date();
 
-  // Sheet 1: Overview (Landing Page - Colourful, Graphical with CNAT Logo)
+  // ---------------------------------------------------------------------------
+  // 1. SHEET 1: OVERVIEW (EXECUTIVE LANDING PAGE WITH ZERO-UNDERLAP CLEARANCE)
+  // ---------------------------------------------------------------------------
   const wsOverview = wb.addWorksheet('Overview', { views: [{ showGridLines: true }] });
-  wsOverview.columns = [{ width: 22 }, { width: 26 }, { width: 28 }, { width: 32 }, { width: 26 }, { width: 36 }];
+  wsOverview.columns = [
+    { width: 18 }, // Col A (Dedicated Logo Column - 135px width)
+    { width: 32 }, // Col B (Sheet Name / Key - Starts cleanly right of logo)
+    { width: 34 }, // Col C (Primary Formula / Technique)
+    { width: 40 }, // Col D (Business Context / Details)
+    { width: 30 }, // Col E (Clickable Quick Jump Action)
+    { width: 14 }  // Col F (Status / Level)
+  ];
 
-  // Embed CNAT Logo from dedicated study/excel/assets/ directory
+  // 1A. Embed Official CNAT Logo (Inside Column A: 110x110px)
   const logoPath = path.resolve(__dirname, '../../assets/cnat.png');
   if (fs.existsSync(logoPath)) {
-    const logoId = wb.addImage({ filename: logoPath, extension: 'png' });
-    wsOverview.addImage(logoId, { tl: { col: 0.3, row: 0.3 }, ext: { width: 120, height: 120 }, editAs: 'oneCell' });
+    const logoId = wb.addImage({
+      filename: logoPath,
+      extension: 'png',
+    });
+    wsOverview.addImage(logoId, {
+      tl: { col: 0.08, row: 0.15 },
+      ext: { width: 110, height: 110 },
+      editAs: 'oneCell'
+    });
   }
 
-  // Header Banner
-  wsOverview.mergeCells('C1:F2');
-  const bannerTitle = wsOverview.getCell('C1');
-  bannerTitle.value = 'CODER & ACCOTAX';
-  bannerTitle.font = { name: 'Segoe UI', size: 20, bold: true, color: { argb: 'FFFFFFFF' } };
-  bannerTitle.alignment = { vertical: 'middle', horizontal: 'left', indent: 1 };
-  bannerTitle.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF0F172A' } };
+  // 1B. Top Executive Header Banner (Merged B to F with Indent 2)
+  wsOverview.mergeCells('B1:F2');
+  const bannerCell = wsOverview.getCell('B1');
+  bannerCell.value = 'CODER & ACCOTAX';
+  bannerCell.font = { name: 'Segoe UI', size: 18, bold: true, color: { argb: 'FFFFFFFF' } };
+  bannerCell.alignment = { vertical: 'middle', horizontal: 'left', indent: 2 };
+  bannerCell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF0F172A' } };
 
-  // ... Sections 1, 2, 3, 4 with rich fills and borders ...
+  wsOverview.mergeCells('B3:F3');
+  const subBanner = wsOverview.getCell('B3');
+  subBanner.value = 'ISO 9001:2015 Certified Centre of Excellence in Computer Science & Financial Modeling';
+  subBanner.font = { name: 'Segoe UI', size: 10, bold: true, color: { argb: 'FF38BDF8' } };
+  subBanner.alignment = { vertical: 'middle', horizontal: 'left', indent: 2 };
+  subBanner.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1E293B' } };
 
-  // Protect Overview Landing Sheet with password 'sukantahui'
-  await wsOverview.protect('sukantahui', { selectLockedCells: true, selectUnlockedCells: true });
+  wsOverview.mergeCells('B4:F4');
+  const metaBanner = wsOverview.getCell('B4');
+  const expYears = new Date().getFullYear() - 1998;
+  metaBanner.value = `Interactive Chapter Practice Workbook · Mentored by Sukanta Hui (${expYears}+ Years Exp.) · Barrackpore`;
+  metaBanner.font = { name: 'Segoe UI', size: 9, italic: true, color: { argb: 'FFF59E0B' } };
+  metaBanner.alignment = { vertical: 'middle', horizontal: 'left', indent: 2 };
+  metaBanner.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1E293B' } };
 
-  // Topic Sheets (Sheets 2 onwards remain unlocked for student practice)
-  // ... addStyledTopicSheet('Topic0_Sales', 'FF0F172A', columns, data);
+  wsOverview.getRow(1).height = 24;
+  wsOverview.getRow(2).height = 24;
+  wsOverview.getRow(3).height = 20;
+  wsOverview.getRow(4).height = 20;
+  wsOverview.getRow(5).height = 12; // Gap row
 
+  // 1C. Embed Executive Landing Hero Graphic (Native 1536x1024 -> 3:2 Ratio: 600x400px)
+  const landingImgPath = path.resolve(__dirname, '../../assets/landing_sheet.jpg');
+  if (fs.existsSync(landingImgPath)) {
+    const landingImgId = wb.addImage({
+      filename: landingImgPath,
+      extension: 'jpeg',
+    });
+    wsOverview.addImage(landingImgId, {
+      tl: { col: 0.15, row: 5.2 },
+      ext: { width: 600, height: 400 }, // Exact 1.5 aspect ratio (3:2) preserved
+      editAs: 'oneCell'
+    });
+  }
+
+  // Reserve rows 6 to 25 (20 rows * 20px = 400px height)
+  for (let r = 6; r <= 25; r++) {
+    wsOverview.getRow(r).height = 20;
+  }
+  wsOverview.getRow(26).height = 12; // Gap row before Section 1
+
+  let curRow = 27;
+
+  // Helper for Section Headers
+  function addSectionHeader(title, hexColor) {
+    wsOverview.mergeCells(`A${curRow}:F${curRow}`);
+    const cell = wsOverview.getCell(`A${curRow}`);
+    cell.value = title;
+    cell.font = { name: 'Segoe UI', size: 11, bold: true, color: { argb: 'FFFFFFFF' } };
+    cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: hexColor } };
+    cell.alignment = { vertical: 'middle', indent: 1 };
+    wsOverview.getRow(curRow).height = 24;
+    curRow++;
+  }
+
+  // Helper for Two-Column Info Rows
+  function addInfoRow(label, val) {
+    const r = wsOverview.getRow(curRow);
+    r.height = 19;
+    wsOverview.mergeCells(`A${curRow}:B${curRow}`);
+    const c1 = wsOverview.getCell(`A${curRow}`);
+    c1.value = label;
+    c1.font = { name: 'Segoe UI', size: 9.5, bold: true, color: { argb: 'FF1E293B' } };
+    c1.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFF1F5F9' } };
+    c1.alignment = { vertical: 'middle', indent: 1 };
+
+    wsOverview.mergeCells(`C${curRow}:F${curRow}`);
+    const c2 = wsOverview.getCell(`C${curRow}`);
+    c2.value = val;
+    c2.font = { name: 'Segoe UI', size: 9.5, color: { argb: 'FF334155' } };
+    c2.alignment = { vertical: 'middle', indent: 1 };
+    curRow++;
+  }
+
+  // Section 1: Organisation Profile
+  addSectionHeader('🏢 1. ORGANISATION PROFILE & CONTACT DETAILS', 'FF0284C7');
+  addInfoRow('Institute Name', 'Coder & AccoTax (Centre of Excellence)');
+  addInfoRow('Campus Address', '25(10/A) Shibtala Road, Nona Chandan Pukur, Barrackpore, Kolkata 700122, WB, India');
+  addInfoRow('Contact Numbers', '+91 70037 56860 / +91 84202 04207 (WhatsApp Available)');
+  addInfoRow('Official Email', 'sukantahui@codernaccotax.co.in | info@codernaccotax.co.in');
+  addInfoRow('Web Portal', 'https://www.codernaccotax.co.in');
+  addInfoRow('Core Domains', 'Full Stack Engineering, Python & Data Science, Advanced Excel, Power BI, Financial Modeling & Taxation');
+  curRow++;
+
+  // Section 2: Master Mentor Profile
+  addSectionHeader('👨‍🏫 2. LEAD INSTRUCTOR & MASTER MENTOR PROFILE', 'FF059669');
+  addInfoRow('Lead Instructor', 'Sukanta Hui');
+  addInfoRow('Designation', 'Senior Software Architect, Corporate Financial Consultant & Lead Academic Mentor');
+  addInfoRow('Experience', `${expYears}+ Years of Industrial & Academic Mentoring Experience (Since May 1998)`);
+  addInfoRow('GitHub Portfolio', 'https://github.com/sukantahui');
+  addInfoRow('Teaching Focus', 'Deep mechanical intuition, edge-case analysis, and production-grade spreadsheet architecture');
+  curRow++;
+
+  // Section 3: Chapter Academic Metrics
+  addSectionHeader('🎓 3. CHAPTER ACADEMIC & MODULE SPECIFICATIONS', 'FF7C3AED');
+  addInfoRow('Course Code & Title', 'EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert');
+  addInfoRow('Module Directory', path.basename(__dirname));
+  addInfoRow('Bloom\'s Taxonomy', 'Level 4 (Analyze), Level 5 (Evaluate) & Level 6 (Create)');
+  curRow++;
+
+  // Section 4: Interactive Sheet Navigation Directory (Click-to-Jump Table)
+  addSectionHeader('📑 4. WORKBOOK SHEET DIRECTORY & QUICK-JUMP NAVIGATION', 'FFD97706');
+
+  // Directory Table Headers
+  const tableHeaderRow = wsOverview.getRow(curRow);
+  tableHeaderRow.height = 22;
+  const headers = ['SL #', 'Target Sheet / Topic', 'Primary Formula / Technique', 'Business Context / Dataset', '🚀 Instant Jump Action', 'Status'];
+  const colLetters = ['A', 'B', 'C', 'D', 'E', 'F'];
+  headers.forEach((h, idx) => {
+    const c = wsOverview.getCell(`${colLetters[idx]}${curRow}`);
+    c.value = h;
+    c.font = { name: 'Segoe UI', size: 9.5, bold: true, color: { argb: 'FFFFFFFF' } };
+    c.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF334155' } };
+    c.alignment = { vertical: 'middle', horizontal: idx === 0 || idx === 5 ? 'center' : 'left', indent: idx === 0 || idx === 5 ? 0 : 1 };
+  });
+  curRow++;
+
+  // Sheet Directory Metadata Array
+  const topicSheets = [
+    { id: 1, sheet: 'Topic0_Overview', title: 'Topic 0: Dynamic Spill Engine', formula: '=FILTER(), =UNIQUE()', context: 'Barrackpore Branch Sales', status: 'Core Lab' },
+    { id: 2, sheet: 'Topic1_Spill_Ops', title: 'Topic 1: Spill Operator #', formula: '=A2#, SUM(A2#)', context: 'Shyamnagar Employee Payroll', status: 'Core Lab' },
+    { id: 3, sheet: 'Topic2_Unique_Sort', title: 'Topic 2: UNIQUE & SORT', formula: '=SORT(UNIQUE(A2:A100))', context: 'Kolkata Region Inventory', status: 'Exercise' }
+  ];
+
+  // Populate Interactive Directory with Clickable Excel Hyperlinks
+  topicSheets.forEach((t, idx) => {
+    const r = wsOverview.getRow(curRow);
+    r.height = 20;
+    const isEven = idx % 2 === 0;
+    const rowBg = isEven ? 'FFFFFFFF' : 'FFF8FAFC';
+
+    // SL
+    const c1 = wsOverview.getCell(`A${curRow}`);
+    c1.value = t.id;
+    c1.alignment = { vertical: 'middle', horizontal: 'center' };
+
+    // Sheet Name / Topic
+    const c2 = wsOverview.getCell(`B${curRow}`);
+    c2.value = t.title;
+    c2.font = { name: 'Segoe UI', size: 9.5, bold: true, color: { argb: 'FF0F172A' } };
+    c2.alignment = { vertical: 'middle', indent: 1 };
+
+    // Formula
+    const c3 = wsOverview.getCell(`C${curRow}`);
+    c3.value = t.formula;
+    c3.font = { name: 'Consolas', size: 9, color: { argb: 'FF0284C7' } };
+    c3.alignment = { vertical: 'middle', indent: 1 };
+
+    // Context
+    const c4 = wsOverview.getCell(`D${curRow}`);
+    c4.value = t.context;
+    c4.font = { name: 'Segoe UI', size: 9, color: { argb: 'FF475569' } };
+    c4.alignment = { vertical: 'middle', indent: 1 };
+
+    // CLICKABLE HYPERLINK: Jumps straight to the specific sheet!
+    const c5 = wsOverview.getCell(`E${curRow}`);
+    c5.value = {
+      text: `👉 Open ${t.sheet} Sheet`,
+      hyperlink: `#'${t.sheet}'!A1`,
+      tooltip: `Click to navigate to ${t.sheet}`
+    };
+    c5.font = { name: 'Segoe UI', size: 9.5, bold: true, color: { argb: 'FF0284C7' }, underline: true };
+    c5.alignment = { vertical: 'middle', indent: 1 };
+
+    // Status
+    const c6 = wsOverview.getCell(`F${curRow}`);
+    c6.value = t.status;
+    c6.font = { name: 'Segoe UI', size: 8.5, bold: true, color: { argb: 'FF059669' } };
+    c6.alignment = { vertical: 'middle', horizontal: 'center' };
+
+    // Apply borders and alternating background
+    colLetters.forEach((col) => {
+      const cell = wsOverview.getCell(`${col}${curRow}`);
+      if (cell !== c5) {
+        cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: rowBg } };
+      } else {
+        cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: isEven ? 'FFF0F9FF' : 'FFE0F2FE' } };
+      }
+      cell.border = {
+        top: { style: 'thin', color: { argb: 'FFE2E8F0' } },
+        bottom: { style: 'thin', color: { argb: 'FFE2E8F0' } },
+        left: { style: 'thin', color: { argb: 'FFE2E8F0' } },
+        right: { style: 'thin', color: { argb: 'FFE2E8F0' } }
+      };
+    });
+
+    curRow++;
+  });
+
+  // Lock all cells on wsOverview
+  wsOverview.eachRow((row) => {
+    row.eachCell((cell) => {
+      cell.protection = { locked: true };
+    });
+  });
+
+  // Protect Overview Landing Sheet (Password: 'sukantahui')
+  await wsOverview.protect('sukantahui', {
+    selectLockedCells: true,
+    selectUnlockedCells: true,
+    formatCells: false,
+    formatColumns: false,
+    formatRows: false,
+    insertColumns: false,
+    insertRows: false,
+    insertHyperlinks: false,
+    deleteColumns: false,
+    deleteRows: false,
+    sort: false,
+    autoFilter: false,
+    pivotTables: false,
+    objects: false, // Locks images and artwork from being moved/deleted
+    scenarios: false
+  });
+
+  // ---------------------------------------------------------------------------
+  // 2. CHILD TOPIC SHEETS (SHEETS 2 ONWARDS - UNLOCKED FOR STUDENT PRACTICE)
+  // ---------------------------------------------------------------------------
+  function addStyledTopicSheet(sheetName, themeColor, columns, dataRows) {
+    const ws = wb.addWorksheet(sheetName, { views: [{ showGridLines: true }] });
+    ws.columns = columns;
+
+    // Row 1: Return Navigation Link to Overview
+    ws.mergeCells('A1:B1');
+    const returnLink = ws.getCell('A1');
+    returnLink.value = {
+      text: '🔙 Back to Overview / Sheet Index',
+      hyperlink: `#'Overview'!A1`,
+      tooltip: 'Click to return to the Executive Overview'
+    };
+    returnLink.font = { name: 'Segoe UI', size: 9, bold: true, color: { argb: 'FF0284C7' }, underline: true };
+    returnLink.alignment = { vertical: 'middle', horizontal: 'left', indent: 1 };
+    ws.getRow(1).height = 20;
+
+    // Row 2: Topic Sheet Header Row
+    const headerRow = ws.getRow(2);
+    headerRow.height = 26;
+    columns.forEach((col, idx) => {
+      const colLetter = String.fromCharCode(65 + idx);
+      const cell = ws.getCell(`${colLetter}2`);
+      cell.value = col.header;
+      cell.font = { name: 'Segoe UI', size: 10, bold: true, color: { argb: 'FFFFFFFF' } };
+      cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: themeColor } };
+      cell.alignment = { vertical: 'middle', horizontal: 'center' };
+      cell.border = {
+        top: { style: 'medium', color: { argb: 'FF0F172A' } },
+        bottom: { style: 'medium', color: { argb: 'FF0F172A' } }
+      };
+    });
+
+    // Populate Data Rows (Zebra striping & thin borders)
+    dataRows.forEach((rowObj, rIdx) => {
+      const rowNum = rIdx + 3;
+      const row = ws.getRow(rowNum);
+      row.height = 20;
+      const isEven = rIdx % 2 === 0;
+
+      columns.forEach((col, cIdx) => {
+        const colLetter = String.fromCharCode(65 + cIdx);
+        const cell = ws.getCell(`${colLetter}${rowNum}`);
+        cell.value = rowObj[col.key];
+        cell.font = { name: 'Segoe UI', size: 9.5, color: { argb: 'FF0F172A' } };
+        cell.alignment = { vertical: 'middle', horizontal: col.alignment || 'left', indent: col.alignment === 'center' ? 0 : 1 };
+        cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: isEven ? 'FFFFFFFF' : 'FFF8FAFC' } };
+        cell.border = {
+          top: { style: 'thin', color: { argb: 'FFE2E8F0' } },
+          bottom: { style: 'thin', color: { argb: 'FFE2E8F0' } },
+          left: { style: 'thin', color: { argb: 'FFE2E8F0' } },
+          right: { style: 'thin', color: { argb: 'FFE2E8F0' } }
+        };
+      });
+    });
+
+    return ws;
+  }
+
+  // Create child sheets for each topic
+  // e.g. addStyledTopicSheet('Topic0_Overview', 'FF0F172A', sampleColumns, sampleData);
+
+  // Ensure output directory exists
   const outputDir = path.join(__dirname, 'excel_files');
   if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
-  await wb.xlsx.writeFile(path.join(outputDir, 'dynamic_arrays_master.xlsx'));
-  console.log('✓ Successfully generated master module workbook with protected Overview Landing Page & CNAT logo');
+
+  const workbookPath = path.join(outputDir, 'module_workbook.xlsx');
+  await wb.xlsx.writeFile(workbookPath);
+  console.log(`✓ Master module workbook successfully generated at: ${workbookPath}`);
 }
 
 buildMasterWorkbook();
 ```
 
 --------------------------------------------------------------------------------
-4. REACT 19 & TAILWIND CSS TECHNICAL SPECIFICATIONS
+5. REACT 19 & TAILWIND CSS TECHNICAL SPECIFICATIONS
 --------------------------------------------------------------------------------
 • Strict React 19 Function Components:
     - Pure JavaScript functions only (NO class components).
@@ -163,7 +525,7 @@ buildMasterWorkbook();
     - Subtle hover elevation and soft glow borders on cards (`hover:border-sky-500/40 transition-all duration-300`).
 
 --------------------------------------------------------------------------------
-5. EXCEL PEDAGOGICAL BLUEPRINT (12 MANDATORY SECTIONS PER TOPIC)
+6. EXCEL PEDAGOGICAL BLUEPRINT (12 MANDATORY SECTIONS PER TOPIC)
 --------------------------------------------------------------------------------
 Every `Topic[N].jsx` file must systematically include the following sections:
 
@@ -235,10 +597,14 @@ Every `Topic[N].jsx` file must systematically include the following sections:
   - Wisdom, pedagogical anchors, and exam memory tips from Instructor Sukanta Hui:
       import Teacher from "../../../../../common/TeacherSukantaHui";
 
-      <Teacher note={"Practical advice, memory hooks, and real-world corporate warnings from instructor Sukanta Hui."} />
+      <Teacher
+        topicName="[Topic Name]"
+        noteTitle="Sukanta Hui's Mentor Guide"
+        mentorAdvice={"Remember: In professional financial and data modeling, accuracy precedes speed. Always verify calculation edge cases and test with zero and negative values."}
+      />
 
 --------------------------------------------------------------------------------
-6. COMPANION DATA FILE SPECIFICATION (`topic[N]_questions.js`)
+7. COMPANION DATA FILE SPECIFICATION (`topic[N]_questions.js`)
 --------------------------------------------------------------------------------
 Every topic MUST have a companion file `topic[N]_files/topic[N]_questions.js` containing exactly 30 structured, moderate-to-expert questions adhering to this schema:
 
@@ -246,11 +612,14 @@ Every topic MUST have a companion file `topic[N]_files/topic[N]_questions.js` co
 const questions = [
   {
     question: "How does exact match (0) differ from approximate match (1/TRUE) in lookup functions?",
-    shortAnswer: "Exact match finds the identical key; approximate match requires sorted data and returns the closest value <= lookup value.",
-    explanation: "In exact match mode, Excel searches sequentially or via hash map for an exact string/numeric equality. In approximate match mode, data must be sorted in ascending order, and Excel uses binary search to return the largest value less than or equal to the lookup value. Using approximate match on unsorted data yields unpredictable, silent errors.",
-    hint: "Think about tax brackets vs looking up an employee ID.",
-    level: "moderate", // "basic" | "moderate" | "advanced" | "expert"
-    codeExample: "=XLOOKUP(E2, A2:A100, B2:B100, \"Not Found\", 0)"
+    options: [
+      "Exact match requires sorted data, approximate match does not",
+      "Exact match finds the identical key; approximate match requires sorted data and returns the closest value <= lookup value",
+      "Both are identical in Excel 365",
+      "Approximate match is only for text"
+    ],
+    correctAnswer: 1,
+    explanation: "In exact match mode, Excel searches sequentially or via hash map for an exact string/numeric equality. In approximate match mode, data must be sorted in ascending order, and Excel uses binary search to return the largest value less than or equal to the lookup value. Using approximate match on unsorted data yields unpredictable, silent errors."
   },
   // ... (Generate exactly 30 rich, domain-specific questions)
 ];
@@ -259,7 +628,7 @@ export default questions;
 ```
 
 --------------------------------------------------------------------------------
-7. COMPLETE TOPIC COMPONENT BOILERPLATE TEMPLATE (`Topic[N].jsx`)
+8. COMPLETE TOPIC COMPONENT BOILERPLATE TEMPLATE (`Topic[N].jsx`)
 --------------------------------------------------------------------------------
 ```jsx
 "use client";
@@ -267,7 +636,7 @@ export default questions;
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/lookup_functions.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/[module_name].xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic0_files/topic0_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -296,7 +665,7 @@ export default function Topic0() {
     if (!sampleWorkbookUrl) return;
     const link = document.createElement("a");
     link.href = sampleWorkbookUrl;
-    link.download = "lookup_functions_practice.xlsx";
+    link.download = "[module_name]_practice.xlsx";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -455,7 +824,9 @@ export default function Topic0() {
         {/* 11. Teacher's Note */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <Teacher
-            note={"Remember: In professional financial and data modeling, accuracy precedes speed. Always verify calculation edge cases and test with zero and negative values."}
+            topicName="[Topic Name]"
+            noteTitle="Sukanta Hui's Mentor Guide"
+            mentorAdvice={"Remember: In professional financial and data modeling, accuracy precedes speed. Always verify calculation edge cases and test with zero and negative values."}
           />
         </div>
       </div>
@@ -465,10 +836,18 @@ export default function Topic0() {
 ```
 
 --------------------------------------------------------------------------------
-8. GENERATION & WORKFLOW PROTOCOL
+9. GENERATION & WORKFLOW PROTOCOL
 --------------------------------------------------------------------------------
 1. Read the topic list from the module in `excel-basic-to-advanced.json`.
-2. Generate the common module workbook `.xlsx` inside `excel_files/[module_name].xlsx` using `generate_sheets.cjs` with dedicated sheets for each topic.
+2. Generate the common module workbook `.xlsx` inside `excel_files/[module_name].xlsx` using `generate_sheets.cjs` with:
+   - Column A width 18 (dedicated 135px logo column).
+   - The official CNAT logo embedded inside Column A at `110x110px` (Strict 1:1 ratio, 0 overlap with text).
+   - The top banner merged across `B1:F2`, `B3:F3`, `B4:F4` with `indent: 2` ensuring `CODER & ACCOTAX` is placed cleanly to the right of the logo.
+   - The official executive landing hero artwork embedded from `../../assets/landing_sheet.jpg` spanning `A6:F25` (Strict 3:2 aspect ratio: `600x400px`, native 1536x1024px).
+   - Beautiful Executive Landing Sheet (`Overview` as Sheet 0) with interactive clickable hyperlinks (`#'SheetName'!A1`) in Section 4.
+   - Return navigation links (`#'Overview'!A1`) at cell `A1` on all topic sheets.
+   - Cryptographic password protection (`sukantahui`) on `Overview`.
 3. Generate ONE topic at a time (e.g. `Topic0.jsx`) with the embedded `handleDownload` button, `ExcelFileLoader`, and its companion `topic0_files/topic0_questions.js` (30 questions).
 4. Ensure every single file is 100% complete, fully articulated (no `// TODO` or truncated sections), and ready for production copy-pasting.
 5. Wait for confirmation before advancing to the next sequential topic (`Topic1.jsx`, `Topic2.jsx`, etc.).
+================================================================================
