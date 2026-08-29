@@ -1,0 +1,26 @@
+{
+  "projectCategory": "DSA Module 10.2: Time Complexity, Loop Analysis & Step Counting",
+  "subject": "Data Structures & Algorithms in C",
+  "board": "University & Industrial Standards",
+  "class": "Computer Science Core / BCA / B.Tech",
+  "tools": ["GCC Compiler", "VS Code", "GDB Debugger", "Valgrind"],
+  "institute": {
+    "author": "Sukanta Hui",
+    "name": "Coder & AccoTax",
+    "location": "Barrackpore & Naihati"
+  },
+  "projects": [
+    {
+      "projectId": "LOOP_001",
+      "title": "Single Loop Linear Step Counter and Time Complexity Profiler",
+      "difficulty": "Beginner",
+      "description": "Demonstrates O(N) linear time complexity step counting in a single loop traversal.",
+      "learningOutcome": "Step Counting, O(N) Profiling",
+      "exampleText": "N = 100",
+      "exampleOutput": "--- Single Loop Profiler ---\nTotal Steps Executed: 100",
+      "logicExplanation": "1. **Single Loop**: Loop runs N times.\n2. **Step Count**: Total execution steps = N.",
+      "answerFile": "./answers/answer1.c",
+      "codeExplanation": "1. `count_steps()`: Tracks loop iteration counts."
+    }
+  ]
+}
