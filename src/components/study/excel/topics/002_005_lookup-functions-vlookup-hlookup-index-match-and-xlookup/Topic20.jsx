@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/lookup_functions_vlookup_hlookup_index_match_and_xlookup_master.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/002_005_lookup_functions_vlookup_hlookup_index_match_and_xlookup_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic20_files/topic20_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -37,7 +37,7 @@ export default function Topic20() {
   };
 
   return (
-    <div className="dark bg-slate-950 text-slate-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8 font-sans selection:bg-purple-500/30 selection:text-purple-200">
+    <div className="dark bg-slate-950 text-slate-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8 font-sans selection:bg-sky-500/30 selection:text-sky-200">
       <style>{`
         @keyframes fadeInSlide {
           from { transform: translateY(18px); }
@@ -56,42 +56,40 @@ export default function Topic20() {
           ref={(el) => (sectionsRef.current[0] = el)}
           className="reveal-section rounded-3xl p-6 sm:p-10 bg-gradient-to-b from-slate-900/90 via-slate-900/60 to-slate-950 border border-slate-800 shadow-2xl relative overflow-hidden"
         >
-          <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
-
+          <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+          
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
-            <span className="px-3.5 py-1 rounded-full bg-purple-950/80 border border-purple-700/60 text-purple-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              🏆 Module Capstone · Topic 20
+            <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
+              🔍 Lookup & Relational Retrieval · Topic 20
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              Relational Lookups &amp; Data Retrieval Assessment
+              Advanced
             </span>
-            <span className="px-3 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-semibold">
-              Bloom's Level 6: Evaluate
+            <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
+              Bloom's Level 4 & 5: Analyze & Evaluate
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-emerald-300 to-sky-300 bg-clip-text text-transparent leading-tight">
-            Test Your Skill: VLOOKUP, HLOOKUP, INDEX-MATCH &amp; XLOOKUP
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+            Lookup with Multiple Criteria using Boolean Multi-Condition Arrays
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Welcome to the final capstone evaluation for <strong>Module 2.5: Lookup Functions</strong>. 
-            This assessment evaluates your proficiency in diagnosing legacy lookup limitations, constructing dynamic two-way matrix intersection formulas (<code className="text-purple-300 font-mono">INDEX-MATCH</code>), 
-            deploying next-generation multi-condition <code className="text-emerald-300 font-mono">XLOOKUP</code> engines, and implementing error-resilient sanitation.
+            Master Lookup with Multiple Criteria using Boolean Multi-Condition Arrays: In-depth theoretical mechanics, formula syntax, corporate execution best practices, and enterprise troubleshooting workflows.
           </p>
 
-          <div className="mt-8 pt-8 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
+          <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
             <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-purple-400 text-base">✓</span>
-              <span><strong>100-Point Rubric:</strong> VLOOKUP, INDEX-MATCH, XLOOKUP &amp; Two-Way Matrices</span>
+              <span className="text-sky-400 text-base">✓</span>
+              <span><strong>Coordinate Precision:</strong> Exact Key Resolution</span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-emerald-400 text-base">✓</span>
-              <span><strong>Lookup Specialist:</strong> Distinction awarded for scores &ge; 85%</span>
+              <span><strong>Resilient Architecture:</strong> Immune to Insertions</span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-sky-400 text-base">✓</span>
-              <span><strong>Accredited by:</strong> Coder &amp; AccoTax Centre of Excellence</span>
+              <span className="text-indigo-400 text-base">✓</span>
+              <span><strong>Modern Standards:</strong> XLOOKUP & INDEX-MATCH</span>
             </div>
           </div>
         </header>
@@ -101,54 +99,57 @@ export default function Topic20() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[1] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all duration-300 space-y-6"
         >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-purple-400">⚡</span> Relational Lookup Competency Evaluation Matrix
-            </h2>
-            <span className="text-xs font-mono text-purple-300 bg-purple-950/60 px-3 py-1 rounded-lg border border-purple-800">
-              Grading Rubric
-            </span>
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">⚡</span>
+            Formula Syntax & Argument Anatomy
+          </h2>
+
+          <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
+            =XLOOKUP(1, (tblData[Dept]="IT") * (tblData[City]="Kolkata"), tblData[Salary])
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
+            <table className="w-full text-left text-xs sm:text-sm text-slate-300 border-collapse">
               <thead>
-                <tr className="border-b border-slate-800 text-slate-400 font-semibold bg-slate-950/50">
-                  <th className="py-3 px-4">Evaluation Domain</th>
-                  <th className="py-3 px-4">Core Syntax Mechanics</th>
-                  <th className="py-3 px-4">Point Weight</th>
-                  <th className="py-3 px-4">Key Assessment Criteria</th>
+                <tr className="border-b border-slate-800 text-slate-400 font-semibold uppercase tracking-wider">
+                  <th className="py-3 px-4">Component</th>
+                  <th className="py-3 px-4">Type</th>
+                  <th className="py-3 px-4">Requirement</th>
+                  <th className="py-3 px-4">Description</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60 text-slate-300">
+              <tbody className="divide-y divide-slate-800/50 font-mono">
+                
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-purple-300">1. Legacy Lookups</td>
-                  <td className="py-3 px-4 font-mono text-emerald-300">VLOOKUP, HLOOKUP, Exact FALSE</td>
-                  <td className="py-3 px-4 text-emerald-400 font-semibold">25 Points</td>
-                  <td className="py-3 px-4">Enforcing exact matches and managing column index limitations.</td>
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Lookup Expression</td>
+                  <td className="py-3 px-4 text-teal-400">Core Function Call</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Mandatory</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Evaluates Lookup with Multiple Criteria using Boolean Multi-Condition Arrays against target reference ranges.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-emerald-300">2. Coordinate &amp; Matrix</td>
-                  <td className="py-3 px-4 font-mono text-emerald-300">INDEX, MATCH, Two-Way Matrix</td>
-                  <td className="py-3 px-4 text-emerald-400 font-semibold">25 Points</td>
-                  <td className="py-3 px-4">Constructing resilient 2D matrix lookups and left-side lookups.</td>
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Return Parameter</td>
+                  <td className="py-3 px-4 text-teal-400">Vector / Scalar</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Extraction</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Delivers corresponding attribute with exact coordinate precision.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-sky-300">3. Modern XLOOKUP</td>
-                  <td className="py-3 px-4 font-mono text-emerald-300">XLOOKUP, Multi-Spill, If_Not_Found</td>
-                  <td className="py-3 px-4 text-emerald-400 font-semibold">25 Points</td>
-                  <td className="py-3 px-4">Deploying omnidirectional lookups with native error handling.</td>
-                </tr>
-                <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-amber-300">4. Multi-Criteria Logic</td>
-                  <td className="py-3 px-4 font-mono text-emerald-300">Boolean Arrays, TRIM Sanitation</td>
-                  <td className="py-3 px-4 text-emerald-400 font-semibold">25 Points</td>
-                  <td className="py-3 px-4">Evaluating compound multi-condition queries and sanitizing keys.</td>
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Error Handler</td>
+                  <td className="py-3 px-4 text-teal-400">Resilience Wrapper</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Robustness</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Handles missing keys or out-of-bounds index requests gracefully.</td>
                 </tr>
               </tbody>
             </table>
+          </div>
+
+          <div className="p-4 rounded-xl bg-sky-950/40 border border-sky-800/60 flex items-start gap-3">
+            <span className="text-sky-400 text-lg">💡</span>
+            <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <strong className="text-white">Return Evaluation: </strong>
+              Returns a <span className="text-sky-300 font-semibold">Relational Scalar / Array Vector</span> dynamically extracted from the matching table record.
+            </div>
           </div>
         </section>
 
@@ -157,51 +158,30 @@ export default function Topic20() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-emerald-400">🔬</span> Conceptual Architecture: Relational Data Integrity
-            </h2>
-            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-800">
-              Retrieval Principles
-            </span>
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">🔬</span>
+            Computational Mechanics & Search Algorithms
+          </h2>
+
+          <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+            <p>In Microsoft Excel, Lookup with Multiple Criteria using Boolean Multi-Condition Arrays provides industrial-grade relational data extraction capabilities across enterprise workbooks.</p>
+            <p>Understanding memory pointer traversal, binary search vs linear search, and dynamic array returns is vital for elite financial modeling.</p>
+            <p>Always design lookup tables with clean, normalized data types to eliminate #N/A type mismatch exceptions.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-300">
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 space-y-3">
-              <h3 className="font-bold text-purple-300 text-base flex items-center gap-2">
-                <span>1.</span> Decoupled Vector Architecture
-              </h3>
-              <p className="leading-relaxed text-xs sm:text-sm text-slate-300">
-                Legacy VLOOKUP forces the search and return ranges into a contiguous monolithic block. Modern lookup architecture decouples the key vector from the return vector, allowing lookups across different worksheets and backwards in space.
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+            <div className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">Memory Pointer Traversal</h3>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                Excel scans indices in memory to locate exact key matching coordinates, returning values from connected data vectors.
               </p>
             </div>
-
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 space-y-3">
-              <h3 className="font-bold text-emerald-300 text-base flex items-center gap-2">
-                <span>2.</span> The Column Insertion Vulnerability
-              </h3>
-              <p className="leading-relaxed text-xs sm:text-sm text-slate-300">
-                A hardcoded column index (<code className="text-rose-300 font-mono">3</code>) in VLOOKUP silently fails when an accountant inserts a new tax column, corrupting financial reports. Full marks are awarded for implementing dynamically resilient <code className="text-emerald-300 font-mono">XLOOKUP</code> and <code className="text-emerald-300 font-mono">INDEX-MATCH</code>.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 space-y-3">
-              <h3 className="font-bold text-sky-300 text-base flex items-center gap-2">
-                <span>3.</span> Boolean Array Matrix Resolution
-              </h3>
-              <p className="leading-relaxed text-xs sm:text-sm text-slate-300">
-                Evaluating compound conditions like <code className="text-sky-300 font-mono">(Branch="BKP") * (Tier="Gold")</code> creates an array of 1s and 0s in memory. Searching for <code className="text-sky-300 font-mono">1</code> in XLOOKUP eliminates ugly concatenation helper columns.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 space-y-3">
-              <h3 className="font-bold text-amber-300 text-base flex items-center gap-2">
-                <span>4.</span> Built-In Error Governance
-              </h3>
-              <p className="leading-relaxed text-xs sm:text-sm text-slate-300">
-                XLOOKUP's native <code className="text-amber-300 font-mono">[if_not_found]</code> parameter replaces ugly <code className="text-slate-300 font-mono">IFERROR(VLOOKUP(...))</code> wrappers, returning clean default numbers (like 0) that do not break downstream arithmetic.
+            <div className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
+              <h3 className="text-sm font-bold text-sky-300 uppercase tracking-wider">Column Insertion Immunity</h3>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                Modern INDEX-MATCH and XLOOKUP bind directly to return column vectors, rendering formulas immune to inserted or deleted columns.
               </p>
             </div>
           </div>
@@ -212,87 +192,78 @@ export default function Topic20() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-sky-400">📐</span> Module 2.5 Relational Lookup Competency Radar
-            </h2>
-            <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
-              Evaluation Radar
-            </span>
-          </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
+            Visual Engine: Lookup with Multiple Criteria using Boolean Multi-Condition Arrays Architecture &amp; Evaluation Mechanics
+          </h2>
 
-          <div className="p-4 rounded-2xl bg-slate-950/90 border border-slate-800/80 flex flex-col items-center justify-center overflow-x-auto shadow-inner">
-            <svg
-              viewBox="0 0 880 320"
-              className="w-full max-w-4xl h-auto text-slate-200 select-none font-sans"
-            >
+          <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
+            <svg viewBox="0 0 800 260" className="w-full max-w-3xl h-auto" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <linearGradient id="lkRadarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.5" />
-                  <stop offset="100%" stopColor="#059669" stopOpacity="0.2" />
+                <linearGradient id="m6_key" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#0369a1" stopOpacity="0.4" />
+                </linearGradient>
+                <linearGradient id="m6_scan" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#059669" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#047857" stopOpacity="0.4" />
+                </linearGradient>
+                <linearGradient id="m6_val" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#6d28d9" stopOpacity="0.4" />
                 </linearGradient>
               </defs>
 
-              {/* Spider Grid Lines */}
-              <polygon points="440,60 580,160 440,260 300,160" fill="none" stroke="#334155" strokeWidth="1" />
-              <polygon points="440,90 535,160 440,230 345,160" fill="none" stroke="#334155" strokeWidth="1" strokeDasharray="3,3" />
-              <polygon points="440,120 490,160 440,200 390,160" fill="none" stroke="#334155" strokeWidth="1" strokeDasharray="3,3" />
+              <rect x="30" y="50" width="200" height="150" rx="12" fill="url(#m6_key)" stroke="#38bdf8" strokeWidth="2" />
+              <text x="130" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">1. Lookup Value</text>
+              <text x="130" y="115" textAnchor="middle" fill="#e0f2fe" fontSize="11">Search Key: "EMP-1005"</text>
+              <text x="130" y="135" textAnchor="middle" fill="#e0f2fe" fontSize="11">Unique Surrogate ID</text>
+              <text x="130" y="165" textAnchor="middle" fill="#bae6fd" fontSize="11" fontWeight="bold">Search Query</text>
 
-              {/* Axes */}
-              <line x1="440" y1="40" x2="440" y2="280" stroke="#475569" strokeWidth="1.5" />
-              <line x1="280" y1="160" x2="600" y2="160" stroke="#475569" strokeWidth="1.5" />
+              <path d="M 235 125 L 295 125" stroke="#38bdf8" strokeWidth="3" strokeDasharray="6,4" />
+              <polygon points="295,120 305,125 295,130" fill="#38bdf8" />
 
-              {/* Competency Poly */}
-              <polygon points="440,65 570,160 440,250 310,160" fill="url(#lkRadarGrad)" stroke="#c084fc" strokeWidth="2.5" />
+              <rect x="310" y="50" width="200" height="150" rx="12" fill="url(#m6_scan)" stroke="#34d399" strokeWidth="2" />
+              <text x="410" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">2. Vector Matching</text>
+              <text x="410" y="115" textAnchor="middle" fill="#d1fae5" fontSize="11">Exact Match (0)</text>
+              <text x="410" y="135" textAnchor="middle" fill="#d1fae5" fontSize="11">Row Coordinate: 6</text>
+              <text x="410" y="165" textAnchor="middle" fill="#a7f3d0" fontSize="11" fontWeight="bold">MATCH Index Found</text>
 
-              {/* Points */}
-              <circle cx="440" cy="65" r="5" fill="#a855f7" />
-              <circle cx="570" cy="160" r="5" fill="#38bdf8" />
-              <circle cx="440" cy="250" r="5" fill="#34d399" />
-              <circle cx="310" cy="160" r="5" fill="#fbbf24" />
+              <path d="M 515 125 L 575 125" stroke="#34d399" strokeWidth="3" strokeDasharray="6,4" />
+              <polygon points="575,120 585,125 575,130" fill="#34d399" />
 
-              {/* Labels */}
-              <text x="440" y="32" textAnchor="middle" fill="#c084fc" fontWeight="bold" fontSize="13">
-                1. MODERN XLOOKUP &amp; SPILL (98%)
-              </text>
-              <text x="615" y="165" fill="#38bdf8" fontWeight="bold" fontSize="13">
-                2. TWO-WAY MATRIX (95%)
-              </text>
-              <text x="440" y="298" textAnchor="middle" fill="#34d399" fontWeight="bold" fontSize="13">
-                3. MULTI-CRITERIA BOOLEAN (94%)
-              </text>
-              <text x="140" y="165" fill="#fbbf24" fontWeight="bold" fontSize="13">
-                4. KEY SANITATION &amp; TRIM (96%)
-              </text>
+              <rect x="590" y="50" width="180" height="150" rx="12" fill="url(#m6_val)" stroke="#a78bfa" strokeWidth="2" />
+              <text x="680" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">3. Attribute Return</text>
+              <text x="680" y="115" textAnchor="middle" fill="#ede9fe" fontSize="11">₹ 85,000.00 (Salary)</text>
+              <text x="680" y="135" textAnchor="middle" fill="#ede9fe" fontSize="11">Zero Column Drift</text>
+              <text x="680" y="165" textAnchor="middle" fill="#ddd6fe" fontSize="11" fontWeight="bold">Target Extracted</text>
             </svg>
           </div>
-          <p className="text-xs text-slate-400 text-center italic">
-            Figure 20.1: Master Relational Lookup Competency Radar. Evaluates XLOOKUP versatility, two-way matrix resolution, multi-criteria Boolean querying, and primary key hygiene.
-          </p>
         </section>
 
         {/* =========================================================================
-            SECTION 5: INTERACTIVE SPREADSHEET & DIRECT DOWNLOAD PORTAL
+            SECTION 5: LIVE EXCEL PRACTICE GRID & DOWNLOAD PORTAL
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[4] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
             <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-                <span className="text-emerald-400">📥</span> Interactive Spreadsheet &amp; Practice Workbook
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">📥</span>
+                Interactive Spreadsheet & Practice Workbook
               </h2>
               <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                Explore the candidate evaluation scorecard below or download the master module workbook to practice in Microsoft Excel.
+                Interact with the dataset live below or download the master chapter workbook to practice locally in desktop Excel.
               </p>
             </div>
             <button
               onClick={handleDownload}
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all duration-200 shadow-lg shadow-emerald-950/40 hover:scale-[1.02] active:scale-[0.98] shrink-0"
-              title="Download the full .xlsx practice workbook for this module"
+              title="Download full .xlsx master workbook for Module 2.5"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -303,148 +274,173 @@ export default function Topic20() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic20_Test_Your_Skill"
-            title="Module 2.5 Assessment Candidate Scorecard (Candidate ID, Candidate Name, Exam Branch, VLOOKUP Score, INDEX-MATCH Score, XLOOKUP Score, Total Score, Qualification)"
-            rowsPerPage={10}
+            sheetName="Topic16_Lookup_with_Multip"
+            title="Module 2.5 - Lookup with Multiple Criteria using Boolean Multi-Condition Arrays"
+            rowsPerPage={25}
             showSheetSelector={true}
           />
         </section>
 
         {/* =========================================================================
-            SECTION 6: REAL-WORLD BUSINESS SCENARIOS
+            SECTION 6: REAL-WORLD BUSINESS SCENARIOS (4+ CASES)
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[5] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-amber-400">🏢</span> Real-World Assessment Scenarios
-            </h2>
-            <span className="text-xs font-mono text-amber-300 bg-amber-950/60 px-3 py-1 rounded-lg border border-amber-800">
-              Evaluation Cases
-            </span>
-          </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
+            Real-World Business Scenarios (Bengal & Corporate Applications)
+          </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-            {/* Case 1 */}
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-purple-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-purple-400">Scenario 1 · Master Defense</span>
-                <span className="text-xs font-mono text-slate-400">Barrackpore HQ</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
+                <h3 className="text-base font-bold text-white">Kolkata Corporate Lookup with Multiple Criteria  Implementation</h3>
               </div>
-              <h3 className="font-bold text-white text-base">
-                Swadeep Banerjee: 98/100 Lookup Defense
-              </h3>
-              <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
-                Candidate <strong>Swadeep Banerjee</strong> presents a 3-tier commercial tariff model featuring Boolean multi-condition XLOOKUP, two-way matrix resolution, and dynamic spill vectors, earning the Gold Medal of Relational Data Architecture.
-              </p>
-              <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Score: 98/100 &rarr; Principal Relational Data Specialist
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Enterprise deployment of Lookup with Multiple Criteria using Boolean Multi-Condition Arrays across 500 corporate branch records.</p>
+              
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
+                  <tbody className="divide-y divide-slate-800">
+                    
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Operation</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formula_Applied</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Audited_Outcome</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Relational Retrieval</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=XLOOKUP(1, (tblData[Dept]="IT") * (tblData[City]="Kolkata"), tblData[Salary])</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100% Exact verified match</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
+                <div className="text-sky-300 font-mono font-semibold">Applied: =XLOOKUP(1, (tblData[Dept]="IT") * (tblData[City]="Kolkata"), tblData[Salary])</div>
+                <div className="text-emerald-400 font-semibold">Result: Flawless automated data retrieval.</div>
+                <div className="text-slate-400 text-[11px]">Industrial lookup formulas streamline enterprise operations.</div>
               </div>
             </div>
-
-            {/* Case 2 */}
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-emerald-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">Scenario 2 · Boolean XLOOKUP Polish</span>
-                <span className="text-xs font-mono text-slate-400">Shyamnagar Operations</span>
+            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">02</span>
+                <h3 className="text-base font-bold text-white">Barrackpore Academy Academic Records Matching</h3>
               </div>
-              <h3 className="font-bold text-white text-base">
-                Tuhina Mukherjee: 94/100 Multi-Criteria Logic
-              </h3>
-              <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
-                Candidate <strong>Tuhina Mukherjee</strong> refactors an error-prone nested IF structure into a streamlined Boolean array XLOOKUP, evaluating region, customer tier, and volume bracket in a single cell formula.
-              </p>
-              <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Score: 94/100 &rarr; Certified Advanced Lookup Specialist
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Cross-referencing student exam results with fee payment status.</p>
+              
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
+                  <tbody className="divide-y divide-slate-800">
+                    
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Student_Key</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Lookup_Formula</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Payment_Status</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">STD-1002</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=XLOOKUP(1, (tblData[Dept]="IT") * (tblData[City]="Kolkata"), tblData[Salary])</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">PAID / CLEARED</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
+                <div className="text-sky-300 font-mono font-semibold">Applied: =XLOOKUP(1, (tblData[Dept]="IT") * (tblData[City]="Kolkata"), tblData[Salary])</div>
+                <div className="text-emerald-400 font-semibold">Result: Instant administrative verification.</div>
+                <div className="text-slate-400 text-[11px]">Lookups eliminate duplicate student records.</div>
               </div>
             </div>
-
-            {/* Case 3 */}
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-sky-400">Scenario 3 · Two-Way Matrix Mastery</span>
-                <span className="text-xs font-mono text-slate-400">Ichapur Heavy Engg</span>
+            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">03</span>
+                <h3 className="text-base font-bold text-white">Shyamnagar Wholesale Inventory SKU Audit</h3>
               </div>
-              <h3 className="font-bold text-white text-base">
-                Abhronila Das: 92/100 Matrix Resolution
-              </h3>
-              <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
-                Candidate <strong>Abhronila Das</strong> models a 2D tariff grid using nested MATCH functions inside INDEX, allowing dynamic pricing extraction without hardcoding column offsets.
-              </p>
-              <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-sky-300">
-                Score: 92/100 &rarr; Certified Matrix Architecture Specialist
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Matching warehouse physical counts against ERP system records.</p>
+              
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
+                  <tbody className="divide-y divide-slate-800">
+                    
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">SKU_Code</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formula</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Variance</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">SKU-902</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=XLOOKUP(1, (tblData[Dept]="IT") * (tblData[City]="Kolkata"), tblData[Salary])</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">0 Variance (Reconciled)</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
+                <div className="text-sky-300 font-mono font-semibold">Applied: =XLOOKUP(1, (tblData[Dept]="IT") * (tblData[City]="Kolkata"), tblData[Salary])</div>
+                <div className="text-emerald-400 font-semibold">Result: 100% stock reconciliation.</div>
+                <div className="text-slate-400 text-[11px]">Automated lookups audit inventory variance rapidly.</div>
               </div>
             </div>
-
-            {/* Case 4 */}
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Scenario 4 · Left-Lookup &amp; Sanitation</span>
-                <span className="text-xs font-mono text-slate-400">Naihati Logistics</span>
+            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">04</span>
+                <h3 className="text-base font-bold text-white">Ichapur Plant Machine Quality Compliance Verification</h3>
               </div>
-              <h3 className="font-bold text-white text-base">
-                Debangshu Roy: 90/100 Data Hygiene
-              </h3>
-              <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
-                Candidate <strong>Debangshu Roy</strong> diagnoses #N/A errors caused by non-breaking whitespace and type mismatches, writing an automated <code className="text-amber-300 font-mono">TRIM(CLEAN(...))</code> left-lookup to retrieve supplier records.
-              </p>
-              <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-amber-300">
-                Score: 90/100 &rarr; Certified Data Hygiene Specialist
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Extracting ISO calibration expiry dates by Machine serial number.</p>
+              
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
+                  <tbody className="divide-y divide-slate-800">
+                    
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Machine_ID</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Lookup_Applied</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">ISO_Status</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MCH-50</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=XLOOKUP(1, (tblData[Dept]="IT") * (tblData[City]="Kolkata"), tblData[Salary])</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">VALID (Calibrated)</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
+                <div className="text-sky-300 font-mono font-semibold">Applied: =XLOOKUP(1, (tblData[Dept]="IT") * (tblData[City]="Kolkata"), tblData[Salary])</div>
+                <div className="text-emerald-400 font-semibold">Result: Audit compliance certified.</div>
+                <div className="text-slate-400 text-[11px]">Quality records extracted with coordinate precision.</div>
               </div>
             </div>
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 7: STEP-BY-STEP PRACTICAL CALCULATION WALKTHROUGH
+            SECTION 7: STEP-BY-STEP CALCULATION WALKTHROUGH
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[6] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-purple-400">🛠️</span> Step-by-Step Assessment Protocol
-            </h2>
-            <span className="text-xs font-mono text-purple-300 bg-purple-950/60 px-3 py-1 rounded-lg border border-purple-800">
-              Exam Guide
-            </span>
-          </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">🪜</span>
+            Step-by-Step Practical Implementation Guide
+          </h2>
 
-          <div className="space-y-4 text-xs sm:text-sm">
-            {/* Step 1 */}
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <h3 className="font-bold text-purple-300 text-sm sm:text-base flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-purple-950 border border-purple-700 text-purple-300 flex items-center justify-center text-xs">1</span>
-                Step 1: Check Primary Key Uniqueness &amp; Format
-              </h3>
-              <p className="text-slate-300 leading-relaxed">
-                Confirm that the key column contains 100% unique records and sanitize strings with <code className="text-purple-300 font-mono">TRIM()</code> to prevent false #N/A failures.
-              </p>
+          <div className="space-y-4">
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-4">
+              <span className="w-7 h-7 rounded-lg bg-sky-500/20 text-sky-300 text-xs font-bold flex items-center justify-center shrink-0">1</span>
+              <div>
+                <h3 className="text-sm font-bold text-white">Identify Search Key & Master Range</h3>
+                <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                  Ensure the lookup value coordinate is specified and the master table is locked (<kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">F4</kbd>) or formatted as an Excel Table.
+                </p>
+              </div>
             </div>
 
-            {/* Step 2 */}
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <h3 className="font-bold text-emerald-300 text-sm sm:text-base flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-300 flex items-center justify-center text-xs">2</span>
-                Step 2: Deploy Decoupled XLOOKUP or INDEX-MATCH
-              </h3>
-              <p className="text-slate-300 leading-relaxed">
-                Avoid rigid hardcoded column indexes. Use independent lookup and return ranges to ensure formula immunity against column insertions.
-              </p>
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-4">
+              <span className="w-7 h-7 rounded-lg bg-teal-500/20 text-teal-300 text-xs font-bold flex items-center justify-center shrink-0">2</span>
+              <div>
+                <h3 className="text-sm font-bold text-white">Construct Resilient Lookup Formula</h3>
+                <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                  Enter formula syntax (e.g. <code className="text-amber-300 font-mono">=XLOOKUP(1, (tblData[Dept]="IT") * (tblData[City]="Kolkata"), tblData[Salary])</code>).
+                </p>
+              </div>
             </div>
 
-            {/* Step 3 */}
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <h3 className="font-bold text-sky-300 text-sm sm:text-base flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-sky-950 border border-sky-700 text-sky-300 flex items-center justify-center text-xs">3</span>
-                Step 3: Configure Explicit Error Fallbacks
-              </h3>
-              <p className="text-slate-300 leading-relaxed">
-                Set XLOOKUP's <code className="text-sky-300 font-mono">[if_not_found]</code> parameter to <code className="text-slate-300 font-mono">0</code> or <code className="text-slate-300 font-mono">"Not Found"</code> to preserve downstream calculation integrity.
-              </p>
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-4">
+              <span className="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-300 text-xs font-bold flex items-center justify-center shrink-0">3</span>
+              <div>
+                <h3 className="text-sm font-bold text-white">Embed Error Handling Wrapper</h3>
+                <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                  Wrap in <code className="text-sky-300 font-mono">=IFERROR(formula, "Not Found")</code> to prevent unsightly <code className="text-rose-300 font-mono">#N/A</code> errors.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-4">
+              <span className="w-7 h-7 rounded-lg bg-indigo-500/20 text-indigo-300 text-xs font-bold flex items-center justify-center shrink-0">4</span>
+              <div>
+                <h3 className="text-sm font-bold text-white">Audit Formula Evaluation (F9)</h3>
+                <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                  Highlight the MATCH segment inside formula bar and press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">F9</kbd> to inspect the evaluated row index number.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -454,51 +450,42 @@ export default function Topic20() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[7] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-rose-400">⚠️</span> Lookup Assessment Penalties
-            </h2>
-            <span className="text-xs font-mono text-rose-300 bg-rose-950/60 px-3 py-1 rounded-lg border border-rose-800">
-              Exam Penalties
-            </span>
-          </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-500/20 text-rose-400 text-base font-mono">⚠️</span>
+            Common Pitfalls & Diagnostic Troubleshooting
+          </h2>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
+            <table className="w-full text-left text-xs sm:text-sm text-slate-300 border-collapse">
               <thead>
-                <tr className="border-b border-slate-800 text-slate-400 font-semibold bg-slate-950/50">
-                  <th className="py-3 px-4">Evaluation Deficiency</th>
-                  <th className="py-3 px-4">Technical Impact</th>
-                  <th className="py-3 px-4">Point Penalty</th>
-                  <th className="py-3 px-4">Remediation</th>
+                <tr className="border-b border-slate-800 text-slate-400 font-semibold uppercase tracking-wider">
+                  <th className="py-3 px-4">Error / Symptom</th>
+                  <th className="py-3 px-4">Root Cause</th>
+                  <th className="py-3 px-4">Diagnostic Check</th>
+                  <th className="py-3 px-4">Foolproof Fix</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60 text-slate-300">
+              <tbody className="divide-y divide-slate-800/50">
+                
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Omitted FALSE in VLOOKUP</td>
-                  <td className="py-3 px-4">Triggers approximate matching on unsorted data, returning wrong rows.</td>
-                  <td className="py-3 px-4 text-rose-400 font-bold">-15 Points</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Set 4th argument explicitly to FALSE or 0.</td>
+                  <td className="py-3 px-4 text-rose-300 font-mono font-bold">#N/A Error (Value Not Available)</td>
+                  <td className="py-3 px-4 text-slate-300">Search key does not exist in the reference table.</td>
+                  <td className="py-3 px-4 text-amber-300">Lookup key missing or misspelled.</td>
+                  <td className="py-3 px-4 text-emerald-400 font-medium">Verify key spelling or wrap formula in =IFERROR(..., "Not Found").</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-amber-300">Hardcoded Column Indices</td>
-                  <td className="py-3 px-4">Static index numbers break when columns are inserted into the sheet.</td>
-                  <td className="py-3 px-4 text-amber-400 font-bold">-15 Points</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Switch to XLOOKUP or INDEX-MATCH.</td>
+                  <td className="py-3 px-4 text-rose-300 font-mono font-bold">#REF! Error on Column Deletion</td>
+                  <td className="py-3 px-4 text-slate-300">Deleting a column within a hardcoded VLOOKUP index range.</td>
+                  <td className="py-3 px-4 text-amber-300">Column index exceeds table width.</td>
+                  <td className="py-3 px-4 text-emerald-400 font-medium">Switch to resilient INDEX-MATCH or XLOOKUP.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-purple-300">Whole Column References</td>
-                  <td className="py-3 px-4">Evaluating <code className="text-purple-300 font-mono">A:F</code> across large workbooks degrades performance.</td>
-                  <td className="py-3 px-4 text-purple-400 font-bold">-10 Points</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Use structured table references (tbl_Data[Col]).</td>
-                </tr>
-                <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-sky-300">Unsanitized Trailing Spaces</td>
-                  <td className="py-3 px-4">Hidden spaces trigger persistent #N/A errors.</td>
-                  <td className="py-3 px-4 text-sky-400 font-bold">-10 Points</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Wrap lookup values in TRIM(CLEAN(...)).</td>
+                  <td className="py-3 px-4 text-rose-300 font-mono font-bold">#VALUE! Data Type Mismatch</td>
+                  <td className="py-3 px-4 text-slate-300">Formula exceeds character limits or corrupt array dimensions.</td>
+                  <td className="py-3 px-4 text-amber-300">Calculation engine throws syntax error.</td>
+                  <td className="py-3 px-4 text-emerald-400 font-medium">Check argument count and syntax.</td>
                 </tr>
               </tbody>
             </table>
@@ -506,56 +493,42 @@ export default function Topic20() {
         </section>
 
         {/* =========================================================================
-            SECTION 9: PRO TIPS & HIGH-SPEED SHORTCUTS
+            SECTION 9: PRO TIPS & PRODUCTIVITY SHORTCUTS
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[8] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-purple-400">💡</span> Final Architect Tips &amp; Keyboard Accelerators
-            </h2>
-            <span className="text-xs font-mono text-purple-300 bg-purple-950/60 px-3 py-1 rounded-lg border border-purple-800">
-              Exam Strategies
-            </span>
-          </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 text-base font-mono">💡</span>
+            Classroom Pro Tips & High-Speed Shortcuts
+          </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> Tip 1: Multi-Column Spill via XLOOKUP
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Specify a multi-column range to XLOOKUP's return vector to populate all customer attributes across the row in a single formula.
-              </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
+              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                F4
+              </kbd>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Lock coordinate range ($A$2:$F$100).</p>
             </div>
-
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-emerald-300 flex items-center gap-2">
-                <span>⚡</span> Tip 2: Bottom-Up Search (-1)
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Use search mode <code className="text-emerald-300 font-mono">-1</code> in XLOOKUP to extract the latest chronological transaction effortlessly.
-              </p>
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
+              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                Alt + M + V
+              </kbd>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Open Step-by-Step Evaluate Formula dialog.</p>
             </div>
-
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-sky-300 flex items-center gap-2">
-                <span>⚡</span> Tip 3: Built-In If_Not_Found Fallbacks
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Set the 4th argument of XLOOKUP to <code className="text-sky-300 font-mono">0</code> to prevent missing records from breaking downstream arithmetic totals.
-              </p>
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
+              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                Ctrl + `
+              </kbd>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Toggle Formula Auditing view.</p>
             </div>
-
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-amber-300 flex items-center gap-2">
-                <span>⚡</span> Tip 4: Lock Range Coordinates via F4
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs">F4</kbd> when defining non-table ranges to prevent floating reference coordinate shifts.
-              </p>
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
+              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                Ctrl + Shift + Enter
+              </kbd>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Legacy CSE array entry (if applicable in pre-365 Excel).</p>
             </div>
           </div>
         </section>
@@ -565,65 +538,46 @@ export default function Topic20() {
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[9] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-teal-400">🤔</span> Socratic Analytical Hints ("Think About...")
-            </h2>
-            <span className="text-xs font-mono text-teal-300 bg-teal-950/60 px-3 py-1 rounded-lg border border-teal-800">
-              Exam Reflection
-            </span>
-          </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">🤔</span>
+            Socratic Analytical Hints ("Think About...")
+          </h2>
 
-          <div className="space-y-4 text-xs sm:text-sm text-slate-300">
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-purple-400">💭</span> Question 1: How does decoupled vector architecture eliminate formula maintenance?
-              </h3>
-              <p className="leading-relaxed">
-                Why does separating lookup and return arrays make models immune to columns being inserted, moved, or deleted?
-              </p>
+          <div className="space-y-3">
+            
+            <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
+              <span className="text-teal-400 text-base">❓</span>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Why is Lookup with Multiple Criteria using Boolean Multi-Condition Arrays preferred in modern financial modeling over legacy hardcoded cell references?</p>
             </div>
-
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-emerald-400">💭</span> Question 2: Why are Boolean multi-condition lookups superior to helper columns?
-              </h3>
-              <p className="leading-relaxed">
-                How does in-memory array evaluation keep your worksheet clean, compact, and aligned with database standards?
-              </p>
+            <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
+              <span className="text-teal-400 text-base">❓</span>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">How does Excel's calculation engine manage memory pointers during massive multi-row lookups?</p>
             </div>
-
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-sky-400">💭</span> Question 3: What is the mark of a master Excel Relational Architect?
-              </h3>
-              <p className="leading-relaxed">
-                How does mastering two-way matrices, modern XLOOKUP, and primary key hygiene elevate your spreadsheet models to institutional grade?
-              </p>
+            <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
+              <span className="text-teal-400 text-base">❓</span>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">What is the mathematical difference between linear O(n) table scanning and O(log n) binary search?</p>
             </div>
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 11: FREQUENTLY ASKED QUESTIONS (30 QUESTIONS)
+            SECTION 11: COMPREHENSIVE FAQ SECTION (30 QUESTIONS)
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Topic 20: Relational Lookups Assessment FAQ"
+            title="Lookup with Multiple Criteria using Boolean Multi-Condition Arrays - Frequently Asked Questions"
             questions={questions}
           />
         </div>
 
         {/* =========================================================================
-            SECTION 12: TEACHER'S NOTE & WISDOM
+            SECTION 12: TEACHER'S NOTE & EXAM WISDOM
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note={
-              "Mastering relational lookups is a defining milestone in your spreadsheet engineering journey. Always protect your data integrity: enforce exact matches, clean your keys with TRIM, utilize XLOOKUP and INDEX-MATCH for flexible left and two-way lookups, and configure explicit fallback values. Build your models with discipline, and they will serve your organization reliably for years to come."
-            }
+            note="Master Lookup with Multiple Criteria using Boolean Multi-Condition Arrays! Pay meticulous attention to coordinate anchoring with F4, verify key uniqueness, and leverage INDEX-MATCH or XLOOKUP for immune, boardroom-ready spreadsheet models!"
           />
         </div>
       </div>

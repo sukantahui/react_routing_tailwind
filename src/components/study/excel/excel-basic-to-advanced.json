@@ -1188,7 +1188,6 @@
             "ADDRESS",
             "AREAS",
             "HYPERLINK",
-            "Projects_002_005",
             "INDEX Function Basics",
             "Combining INDEX and MATCH",
             "Advantages of INDEX-MATCH over VLOOKUP",
@@ -1204,7 +1203,8 @@
             "Test Your Skill",
             "Dynamic Range Construction with OFFSET: Syntax OFFSET(reference, rows, cols, [height], [width]), sliding window averages, and OFFSET (volatile) vs INDEX (non-volatile)",
             "Grid Coordinate & Dimension Functions: Generating dynamic numbering, matrix dimensions, and zebra-striping using ROW(), ROWS(), COLUMN(), and COLUMNS()",
-            "Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas"
+            "Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas",
+            "Projects_002_005"
           ],
           "learningOutcomes": [
             "Master exact and approximate lookups using VLOOKUP, HLOOKUP, INDEX-MATCH, and modern XLOOKUP",

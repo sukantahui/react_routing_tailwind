@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/what_if_analysis_and_scenario_planning_master.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/003_003_what_if_analysis_and_scenario_planning_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic5_files/topic5_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";

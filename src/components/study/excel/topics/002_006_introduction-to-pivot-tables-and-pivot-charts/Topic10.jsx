@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/introduction_to_pivot_tables_and_pivot_charts_master.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/002_006_introduction_to_pivot_tables_and_pivot_charts_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic10_files/topic10_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";

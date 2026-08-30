@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/data_table_one_variable_master.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/003_003_what_if_analysis_and_scenario_planning_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic2_files/topic2_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";

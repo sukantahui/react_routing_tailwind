@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/lookup_functions_vlookup_hlookup_index_match_and_xlookup_master.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/002_005_lookup_functions_vlookup_hlookup_index_match_and_xlookup_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic14_files/topic14_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -72,11 +71,11 @@ export default function Topic14() {
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            Graceful Missing Value Handling with IFERROR and XLOOKUP if_not_found
+            Advantages of INDEX-MATCH over VLOOKUP: Left Lookup, Column Insertion Immunity &amp; Speed
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Master Graceful Missing Value Handling with IFERROR and XLOOKUP if_not_found: In-depth theoretical mechanics, formula syntax, corporate execution best practices, and enterprise troubleshooting workflows.
+            Master Advantages of INDEX-MATCH over VLOOKUP: Left Lookup, Column Insertion Immunity &amp; Speed: In-depth theoretical mechanics, formula syntax, corporate execution best practices, and enterprise troubleshooting workflows.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -108,7 +107,7 @@ export default function Topic14() {
           </h2>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            =IFERROR(VLOOKUP(A2, Table, 2, FALSE), "Customer Not Found")
+            =INDEX(tblEmployees[Name], MATCH(A2, tblEmployees[Salary], 0))
           </div>
 
           <div className="overflow-x-auto">
@@ -127,7 +126,7 @@ export default function Topic14() {
                   <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Lookup Expression</td>
                   <td className="py-3 px-4 text-teal-400">Core Function Call</td>
                   <td className="py-3 px-4 text-amber-400 font-sans">Mandatory</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Evaluates Graceful Missing Value Handling with IFERROR and XLOOKUP if_not_found against target reference ranges.</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Evaluates Advantages of INDEX-MATCH over VLOOKUP: Left Lookup, Column Insertion Immunity &amp; Speed against target reference ranges.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Return Parameter</td>
@@ -167,7 +166,7 @@ export default function Topic14() {
           </h2>
 
           <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-            <p>In Microsoft Excel, Graceful Missing Value Handling with IFERROR and XLOOKUP if_not_found provides industrial-grade relational data extraction capabilities across enterprise workbooks.</p>
+            <p>In Microsoft Excel, Advantages of INDEX-MATCH over VLOOKUP: Left Lookup, Column Insertion Immunity &amp; Speed provides industrial-grade relational data extraction capabilities across enterprise workbooks.</p>
             <p>Understanding memory pointer traversal, binary search vs linear search, and dynamic array returns is vital for elite financial modeling.</p>
             <p>Always design lookup tables with clean, normalized data types to eliminate #N/A type mismatch exceptions.</p>
           </div>
@@ -197,7 +196,7 @@ export default function Topic14() {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Engine: Graceful Missing Value Handling with IFERROR and XLOOKUP if_not_found Architecture &amp; Evaluation Mechanics
+            Visual Engine: Advantages of INDEX-MATCH over VLOOKUP: Left Lookup, Column Insertion Immunity &amp; Speed Architecture &amp; Evaluation Mechanics
           </h2>
 
           <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
@@ -275,8 +274,8 @@ export default function Topic14() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic14_Handling_Missing_V"
-            title="Module 2.5 - Graceful Missing Value Handling with IFERROR and XLOOKUP if_not_found"
+            sheetName="Topic10_Advantages_of_INDE"
+            title="Module 2.5 - Advantages of INDEX-MATCH over VLOOKUP: Left Lookup, Column Insertion Immunity &amp; Speed"
             rowsPerPage={25}
             showSheetSelector={true}
           />
@@ -299,22 +298,22 @@ export default function Topic14() {
             <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
-                <h3 className="text-base font-bold text-white">Kolkata Corporate Graceful Missing Value Handlin Implementation</h3>
+                <h3 className="text-base font-bold text-white">Kolkata Corporate Advantages of INDEX-MATCH over Implementation</h3>
               </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Enterprise deployment of Graceful Missing Value Handling with IFERROR and XLOOKUP if_not_found across 500 corporate branch records.</p>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Enterprise deployment of Advantages of INDEX-MATCH over VLOOKUP: Left Lookup, Column Insertion Immunity &amp; Speed across 500 corporate branch records.</p>
               
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Operation</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formula_Applied</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Audited_Outcome</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Relational Retrieval</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IFERROR(VLOOKUP(A2, Table, 2, FALSE), "Customer Not Found")</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100% Exact verified match</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Relational Retrieval</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=INDEX(tblEmployees[Name], MATCH(A2, tblEmployees[Salary], 0))</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100% Exact verified match</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =IFERROR(VLOOKUP(A2, Table, 2, FALSE), "Customer Not Found")</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: =INDEX(tblEmployees[Name], MATCH(A2, tblEmployees[Salary], 0))</div>
                 <div className="text-emerald-400 font-semibold">Result: Flawless automated data retrieval.</div>
                 <div className="text-slate-400 text-[11px]">Industrial lookup formulas streamline enterprise operations.</div>
               </div>
@@ -331,13 +330,13 @@ export default function Topic14() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Student_Key</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Lookup_Formula</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Payment_Status</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">STD-1002</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IFERROR(VLOOKUP(A2, Table, 2, FALSE), "Customer Not Found")</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">PAID / CLEARED</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">STD-1002</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=INDEX(tblEmployees[Name], MATCH(A2, tblEmployees[Salary], 0))</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">PAID / CLEARED</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =IFERROR(VLOOKUP(A2, Table, 2, FALSE), "Customer Not Found")</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: =INDEX(tblEmployees[Name], MATCH(A2, tblEmployees[Salary], 0))</div>
                 <div className="text-emerald-400 font-semibold">Result: Instant administrative verification.</div>
                 <div className="text-slate-400 text-[11px]">Lookups eliminate duplicate student records.</div>
               </div>
@@ -354,13 +353,13 @@ export default function Topic14() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">SKU_Code</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formula</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Variance</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">SKU-902</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IFERROR(VLOOKUP(A2, Table, 2, FALSE), "Customer Not Found")</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">0 Variance (Reconciled)</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">SKU-902</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=INDEX(tblEmployees[Name], MATCH(A2, tblEmployees[Salary], 0))</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">0 Variance (Reconciled)</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =IFERROR(VLOOKUP(A2, Table, 2, FALSE), "Customer Not Found")</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: =INDEX(tblEmployees[Name], MATCH(A2, tblEmployees[Salary], 0))</div>
                 <div className="text-emerald-400 font-semibold">Result: 100% stock reconciliation.</div>
                 <div className="text-slate-400 text-[11px]">Automated lookups audit inventory variance rapidly.</div>
               </div>
@@ -377,13 +376,13 @@ export default function Topic14() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Machine_ID</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Lookup_Applied</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">ISO_Status</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MCH-50</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IFERROR(VLOOKUP(A2, Table, 2, FALSE), "Customer Not Found")</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">VALID (Calibrated)</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MCH-50</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=INDEX(tblEmployees[Name], MATCH(A2, tblEmployees[Salary], 0))</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">VALID (Calibrated)</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =IFERROR(VLOOKUP(A2, Table, 2, FALSE), "Customer Not Found")</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: =INDEX(tblEmployees[Name], MATCH(A2, tblEmployees[Salary], 0))</div>
                 <div className="text-emerald-400 font-semibold">Result: Audit compliance certified.</div>
                 <div className="text-slate-400 text-[11px]">Quality records extracted with coordinate precision.</div>
               </div>
@@ -419,7 +418,7 @@ export default function Topic14() {
               <div>
                 <h3 className="text-sm font-bold text-white">Construct Resilient Lookup Formula</h3>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Enter formula syntax (e.g. <code className="text-amber-300 font-mono">=IFERROR(VLOOKUP(A2, Table, 2, FALSE), "Customer Not Found")</code>).
+                  Enter formula syntax (e.g. <code className="text-amber-300 font-mono">=INDEX(tblEmployees[Name], MATCH(A2, tblEmployees[Salary], 0))</code>).
                 </p>
               </div>
             </div>
@@ -550,7 +549,7 @@ export default function Topic14() {
             
             <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
               <span className="text-teal-400 text-base">❓</span>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Why is Graceful Missing Value Handling with IFERROR and XLOOKUP if_not_found preferred in modern financial modeling over legacy hardcoded cell references?</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Why is Advantages of INDEX-MATCH over VLOOKUP: Left Lookup, Column Insertion Immunity &amp; Speed preferred in modern financial modeling over legacy hardcoded cell references?</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
               <span className="text-teal-400 text-base">❓</span>
@@ -568,7 +567,7 @@ export default function Topic14() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Graceful Missing Value Handling with IFERROR and XLOOKUP if_not_found - Frequently Asked Questions"
+            title="Advantages of INDEX-MATCH over VLOOKUP: Left Lookup, Column Insertion Immunity &amp; Speed - Frequently Asked Questions"
             questions={questions}
           />
         </div>
@@ -578,7 +577,7 @@ export default function Topic14() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="Master Graceful Missing Value Handling with IFERROR and XLOOKUP if_not_found! Pay meticulous attention to coordinate anchoring with F4, verify key uniqueness, and leverage INDEX-MATCH or XLOOKUP for immune, boardroom-ready spreadsheet models!"
+            note="Master Advantages of INDEX-MATCH over VLOOKUP: Left Lookup, Column Insertion Immunity & Speed! Pay meticulous attention to coordinate anchoring with F4, verify key uniqueness, and leverage INDEX-MATCH or XLOOKUP for immune, boardroom-ready spreadsheet models!"
           />
         </div>
       </div>

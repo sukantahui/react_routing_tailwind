@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/data_validation_protection_and_cleaning_techniques_master.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/003_002_data_validation_protection_and_cleaning_techniques_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic11_files/topic11_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";

@@ -6,6 +6,10 @@ const moduleDir = __dirname;
 const excelFilesDir = path.join(moduleDir, 'excel_files');
 if (!fs.existsSync(excelFilesDir)) fs.mkdirSync(excelFilesDir, { recursive: true });
 
+const sampleNames = ['Swadeep Hui', 'Tuhina Das', 'Abhronila Ray', 'Susmita Sen', 'Debangshu Roy', 'Rahul Kumar', 'Priya Sharma', 'Aniket Verma', 'Sourav Ganguly', 'Sneha Ghosh', 'Arpan Dey', 'Subhajit Pal', 'Riya Sarkar', 'Dipankar Mitra', 'Barnali Dutta', 'Vikram Singh', 'Kavita Nair', 'Amitabh Basu', 'Pooja Bannerjee', 'Sanjay Chakraborty', 'Tanmoy Das', 'Mousumi Mukhopadhyay', 'Bikash Chatterjee', 'Sayani Bose', 'Aritra Sen', 'Niladri Roy', 'Paromita Guha', 'Siddharth Mallick', 'Trisha Roy', 'Kaushik Hazra'];
+const sampleCities = ['Barrackpore', 'Shyamnagar', 'Ichapur', 'Naihati', 'Titagarh', 'Kolkata', 'Howrah', 'Hooghly', 'Kanchrapara', 'Sodepur'];
+const sampleDepts = ['Finance', 'Accounts', 'Engineering', 'HR', 'Logistics', 'Procurement', 'Taxation', 'Audit'];
+
 async function buildWorkbook() {
   const wb = new ExcelJS.Workbook();
   wb.creator = 'Coder & AccoTax';
@@ -36,12 +40,6 @@ async function buildWorkbook() {
       cell.font = { name: 'Segoe UI', size: 11, bold: true, color: { argb: 'FFFFFFFF' } };
       cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: headerColor } };
       cell.alignment = { vertical: 'middle', horizontal: 'center' };
-      cell.border = {
-        top: { style: 'medium', color: { argb: 'FF0F172A' } },
-        bottom: { style: 'medium', color: { argb: 'FF0F172A' } },
-        left: { style: 'thin', color: { argb: 'FF334155' } },
-        right: { style: 'thin', color: { argb: 'FF334155' } }
-      };
     });
 
     data.forEach((row, idx) => {
@@ -54,12 +52,6 @@ async function buildWorkbook() {
         cell.font = { name: 'Segoe UI', size: 10 };
         cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: idx % 2 === 0 ? 'FFF8FAFC' : 'FFFFFFFF' } };
         cell.alignment = { vertical: 'middle', horizontal: typeof val === 'number' ? 'right' : 'left' };
-        cell.border = {
-          top: { style: 'thin', color: { argb: 'FFE2E8F0' } },
-          bottom: { style: 'thin', color: { argb: 'FFE2E8F0' } },
-          left: { style: 'thin', color: { argb: 'FFE2E8F0' } },
-          right: { style: 'thin', color: { argb: 'FFE2E8F0' } }
-        };
       });
     });
 
@@ -123,49 +115,63 @@ async function buildWorkbook() {
     r.getCell(4).value = 'Verified Master';
   });
 
+  function gen30(funcName) {
+    return Array.from({ length: 30 }, (_, i) => [
+      `Cell_B${i + 4}`,
+      sampleNames[i % sampleNames.length],
+      `=${funcName}(B${i + 4})`,
+      i % 2 === 0 ? 'TRUE' : 'FALSE'
+    ]);
+  }
+
   addStyledInspectionSheet('Topic0_ISTEXT', 'FF0284C7', 'ISTEXT (Text Verification)',
     [{ header: 'Cell_Ref' }, { header: 'Content' }, { header: 'Formula' }, { header: 'Evaluated Result' }],
-    [['A4', 'Kolkata Branch', '=ISTEXT(B4)', 'TRUE'], ['A5', 145000, '=ISTEXT(B5)', 'FALSE']]
+    gen30('ISTEXT')
   );
 
   addStyledInspectionSheet('Topic1_ISNONTEXT', 'FF059669', 'ISNONTEXT (Non-Text Verification)',
     [{ header: 'Cell_Ref' }, { header: 'Content' }, { header: 'Formula' }, { header: 'Evaluated Result' }],
-    [['A4', 98000, '=ISNONTEXT(B4)', 'TRUE'], ['A5', 'Verified', '=ISNONTEXT(B5)', 'FALSE']]
+    gen30('ISNONTEXT')
   );
 
   addStyledInspectionSheet('Topic2_ISREF', 'FF7C3AED', 'ISREF (Cell Reference Validation)',
-    [{ header: 'Ref_String' }, { header: 'Formula' }, { header: 'Evaluated Result' }],
-    [['B4:B10', '=ISREF(INDIRECT(A4))', 'TRUE'], ['Invalid_Name', '=ISREF(INDIRECT(A5))', 'FALSE']]
+    [{ header: 'Cell_Ref' }, { header: 'Content' }, { header: 'Formula' }, { header: 'Evaluated Result' }],
+    gen30('ISREF')
   );
 
   addStyledInspectionSheet('Topic3_ISFORMULA', 'FFD97706', 'ISFORMULA (Formula Presence Audit)',
-    [{ header: 'Cell' }, { header: 'Entry Type' }, { header: 'Applied Formula' }, { header: 'Audit Result' }],
-    [['C4', 'Formula Calculation', '=ISFORMULA(C4)', 'TRUE'], ['C5', 'Hardcoded Constant', '=ISFORMULA(C5)', 'FALSE']]
+    [{ header: 'Cell_Ref' }, { header: 'Content' }, { header: 'Formula' }, { header: 'Evaluated Result' }],
+    gen30('ISFORMULA')
   );
 
-  addStyledInspectionSheet('Topic4_TYPE', 'FDC2626', 'TYPE (Data Type Classification)',
-    [{ header: 'Value' }, { header: 'Data Category' }, { header: 'TYPE Code' }],
-    [[145.89, 'Number', '1'], ['Barrackpore', 'Text', '2'], [true, 'Logical Boolean', '4']]
+  addStyledInspectionSheet('Topic4_TYPE', 'FFDC2626', 'TYPE (Data Type Classification)',
+    [{ header: 'Cell_Ref' }, { header: 'Content' }, { header: 'Formula' }, { header: 'Evaluated Result' }],
+    gen30('TYPE')
   );
 
   addStyledInspectionSheet('Topic5_FORMULATEXT', 'FF2563EB', 'FORMULATEXT (Formula Expression Audit)',
-    [{ header: 'Target Cell' }, { header: 'Formula Content' }, { header: 'Extracted Formula' }],
-    [['E10', '=SUM(B4:B9)', '=FORMULATEXT(E10)']]
+    [{ header: 'Cell_Ref' }, { header: 'Content' }, { header: 'Formula' }, { header: 'Evaluated Result' }],
+    gen30('FORMULATEXT')
   );
 
   addStyledInspectionSheet('Topic6_CELL', 'FF4F46E5', 'CELL (Cell Environment Metadata)',
-    [{ header: 'Info Type' }, { header: 'Formula' }, { header: 'Returned Value' }],
-    [['filename', '=CELL("filename", A1)', 'Active Workbook Path & Sheet Name'], ['address', '=CELL("address", B4)', '$B$4']]
+    [{ header: 'Cell_Ref' }, { header: 'Content' }, { header: 'Formula' }, { header: 'Evaluated Result' }],
+    gen30('CELL')
   );
 
   addStyledInspectionSheet('Topic7_INFO', 'FF0891B2', 'INFO (System & Calculation Environment)',
-    [{ header: 'Environment Type' }, { header: 'Formula' }, { header: 'Returned Output' }],
-    [['recalc', '=INFO("recalc")', 'Automatic'], ['osversion', '=INFO("osversion")', 'Windows (64-bit)']]
+    [{ header: 'Cell_Ref' }, { header: 'Content' }, { header: 'Formula' }, { header: 'Evaluated Result' }],
+    gen30('INFO')
   );
 
   const targetPath = path.join(excelFilesDir, 'information_and_cell_inspection_functions_master.xlsx');
   await wb.xlsx.writeFile(targetPath);
-  console.log(`Generated ${targetPath}`);
+  // Synchronize both prefixed and legacy file names
+  const masterPath = path.join(excelFilesDir, '009_001_information_and_cell_inspection_functions_master.xlsx');
+  const legacyPath = path.join(excelFilesDir, 'information_and_cell_inspection_functions_master.xlsx');
+  if (fs.existsSync(masterPath)) fs.copyFileSync(masterPath, legacyPath);
+
+  console.log(`✓ Generated ${targetPath} with 30 rows per sheet`);
 }
 
 buildWorkbook();

@@ -7,6 +7,25 @@ const moduleDir = path.join(excelBaseDir, 'topics/004_001_modern-lookup-and-dyna
 const excelFilesDir = path.join(moduleDir, 'excel_files');
 if (!fs.existsSync(excelFilesDir)) fs.mkdirSync(excelFilesDir, { recursive: true });
 
+
+  // Rich 30-Row Workplace Data Generator Helper
+  const sampleNames = ['Swadeep Hui', 'Tuhina Das', 'Abhronila Ray', 'Susmita Sen', 'Debangshu Roy', 'Rahul Kumar', 'Priya Sharma', 'Aniket Verma', 'Sourav Ganguly', 'Sneha Ghosh', 'Arpan Dey', 'Subhajit Pal', 'Riya Sarkar', 'Dipankar Mitra', 'Barnali Dutta', 'Vikram Singh', 'Kavita Nair', 'Amitabh Basu', 'Pooja Bannerjee', 'Sanjay Chakraborty', 'Tanmoy Das', 'Mousumi Mukhopadhyay', 'Bikash Chatterjee', 'Sayani Bose', 'Aritra Sen', 'Niladri Roy', 'Paromita Guha', 'Siddharth Mallick', 'Trisha Roy', 'Kaushik Hazra'];
+  const sampleCities = ['Barrackpore', 'Shyamnagar', 'Ichapur', 'Naihati', 'Titagarh', 'Kolkata', 'Howrah', 'Hooghly', 'Kanchrapara', 'Sodepur'];
+  const sampleDepts = ['Finance', 'Accounts', 'Engineering', 'HR', 'Logistics', 'Procurement', 'Taxation', 'Audit'];
+  const sampleCats = ['Hardware', 'Software', 'Services', 'Cloud Subscriptions', 'Office Assets', 'Consumables'];
+
+  function generate30Rows(sheetPrefix, formulaType) {
+    return Array.from({ length: 30 }, (_, i) => [
+      `${sheetPrefix}-${101 + i}`,
+      sampleNames[i % sampleNames.length],
+      sampleDepts[i % sampleDepts.length],
+      sampleCities[i % sampleCities.length],
+      sampleCats[i % sampleCats.length],
+      15000 + i * 3250,
+      i % 2 === 0 ? 'Active / Verified' : 'Pending Audit'
+    ]);
+  }
+
 async function buildWorkbook() {
   const wb = new ExcelJS.Workbook();
   wb.creator = 'Coder & AccoTax';
@@ -745,13 +764,32 @@ async function buildWorkbook() {
     col.width = Math.min(Math.max(maxLen + 5, 22), 65);
   });
 
-  moduleProjects.forEach(proj => {
+  moduleProjects.forEach((proj, pIdx) => {
+    const sampleNames = ['Swadeep Hui', 'Tuhina Das', 'Abhronila Ray', 'Susmita Sen', 'Debangshu Roy', 'Rahul Kumar', 'Priya Sharma', 'Aniket Verma', 'Sourav Ganguly', 'Sneha Ghosh', 'Arpan Dey', 'Subhajit Pal', 'Riya Sarkar', 'Dipankar Mitra', 'Barnali Dutta', 'Vikram Singh', 'Kavita Nair', 'Amitabh Basu', 'Pooja Bannerjee', 'Sanjay Chakraborty', 'Tanmoy Das', 'Mousumi Mukhopadhyay', 'Bikash Chatterjee', 'Sayani Bose', 'Aritra Sen', 'Niladri Roy', 'Paromita Guha', 'Siddharth Mallick', 'Trisha Roy', 'Kaushik Hazra'];
+    const sampleCities = ['Barrackpore', 'Shyamnagar', 'Ichapur', 'Naihati', 'Titagarh', 'Kolkata', 'Howrah', 'Hooghly', 'Kanchrapara', 'Sodepur'];
+    const sampleDepts = ['Finance', 'Accounts', 'Engineering', 'HR', 'Logistics', 'Procurement', 'Taxation', 'Audit'];
+
+    const richRows = Array.from({ length: 30 }, (_, i) => [
+      `${proj.projectId}-${String(i + 1).padStart(2, '0')}`,
+      sampleNames[i % sampleNames.length],
+      sampleDepts[i % sampleDepts.length],
+      sampleCities[i % sampleCities.length],
+      18500 + i * 2450 + (pIdx * 100),
+      proj.formula || `=PRACTICE_FORMULA(${proj.projectId})`,
+      'Verified & Audit Passed'
+    ]);
+
     addStyledSheet(proj.projectId, 'FF0F172A',
-      [{ header: 'Item_ID', key: 'id' }, { header: 'Parameter_Name', key: 'p' }, { header: 'Formula_Calculation', key: 'f' }, { header: 'Audit_Result', key: 'r' }],
       [
-        [`${proj.projectId}-01`, proj.title, proj.formula, 'Verified'],
-        [`${proj.projectId}-02`, 'Secondary Parameter', '=SUM(A1:A10)', 'Verified']
-      ]
+        { header: 'Record_ID', key: 'id' },
+        { header: 'Candidate / Employee Name', key: 'name' },
+        { header: 'Department', key: 'dept' },
+        { header: 'Campus Location', key: 'city' },
+        { header: 'Transaction Value (₹)', key: 'val' },
+        { header: 'Target Practice Formula', key: 'form' },
+        { header: 'Audit Status', key: 'stat' }
+      ],
+      richRows
     );
   });
 

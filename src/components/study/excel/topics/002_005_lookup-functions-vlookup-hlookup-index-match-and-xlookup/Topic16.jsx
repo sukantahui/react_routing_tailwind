@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/lookup_functions_vlookup_hlookup_index_match_and_xlookup_master.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/002_005_lookup_functions_vlookup_hlookup_index_match_and_xlookup_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic16_files/topic16_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -72,11 +71,11 @@ export default function Topic16() {
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            Lookup with Multiple Criteria using Boolean Multi-Condition Arrays
+            Introduction to Modern XLOOKUP (Excel 365): Universal 3-Argument Syntax
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Master Lookup with Multiple Criteria using Boolean Multi-Condition Arrays: In-depth theoretical mechanics, formula syntax, corporate execution best practices, and enterprise troubleshooting workflows.
+            Master Introduction to Modern XLOOKUP (Excel 365): Universal 3-Argument Syntax: In-depth theoretical mechanics, formula syntax, corporate execution best practices, and enterprise troubleshooting workflows.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -108,7 +107,7 @@ export default function Topic16() {
           </h2>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            =XLOOKUP(1, (tblData[Dept]="IT") * (tblData[City]="Kolkata"), tblData[Salary])
+            =XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found])
           </div>
 
           <div className="overflow-x-auto">
@@ -127,7 +126,7 @@ export default function Topic16() {
                   <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Lookup Expression</td>
                   <td className="py-3 px-4 text-teal-400">Core Function Call</td>
                   <td className="py-3 px-4 text-amber-400 font-sans">Mandatory</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Evaluates Lookup with Multiple Criteria using Boolean Multi-Condition Arrays against target reference ranges.</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Evaluates Introduction to Modern XLOOKUP (Excel 365): Universal 3-Argument Syntax against target reference ranges.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Return Parameter</td>
@@ -167,7 +166,7 @@ export default function Topic16() {
           </h2>
 
           <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-            <p>In Microsoft Excel, Lookup with Multiple Criteria using Boolean Multi-Condition Arrays provides industrial-grade relational data extraction capabilities across enterprise workbooks.</p>
+            <p>In Microsoft Excel, Introduction to Modern XLOOKUP (Excel 365): Universal 3-Argument Syntax provides industrial-grade relational data extraction capabilities across enterprise workbooks.</p>
             <p>Understanding memory pointer traversal, binary search vs linear search, and dynamic array returns is vital for elite financial modeling.</p>
             <p>Always design lookup tables with clean, normalized data types to eliminate #N/A type mismatch exceptions.</p>
           </div>
@@ -197,7 +196,7 @@ export default function Topic16() {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Engine: Lookup with Multiple Criteria using Boolean Multi-Condition Arrays Architecture &amp; Evaluation Mechanics
+            Visual Engine: Introduction to Modern XLOOKUP (Excel 365): Universal 3-Argument Syntax Architecture &amp; Evaluation Mechanics
           </h2>
 
           <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
@@ -275,8 +274,8 @@ export default function Topic16() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic16_Lookup_with_Multip"
-            title="Module 2.5 - Lookup with Multiple Criteria using Boolean Multi-Condition Arrays"
+            sheetName="Topic12_Introduction_to_XL"
+            title="Module 2.5 - Introduction to Modern XLOOKUP (Excel 365): Universal 3-Argument Syntax"
             rowsPerPage={25}
             showSheetSelector={true}
           />
@@ -299,22 +298,22 @@ export default function Topic16() {
             <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
-                <h3 className="text-base font-bold text-white">Kolkata Corporate Lookup with Multiple Criteria  Implementation</h3>
+                <h3 className="text-base font-bold text-white">Kolkata Corporate Introduction to Modern XLOOKUP Implementation</h3>
               </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Enterprise deployment of Lookup with Multiple Criteria using Boolean Multi-Condition Arrays across 500 corporate branch records.</p>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Enterprise deployment of Introduction to Modern XLOOKUP (Excel 365): Universal 3-Argument Syntax across 500 corporate branch records.</p>
               
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Operation</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formula_Applied</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Audited_Outcome</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Relational Retrieval</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=XLOOKUP(1, (tblData[Dept]="IT") * (tblData[City]="Kolkata"), tblData[Salary])</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100% Exact verified match</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Relational Retrieval</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found])</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100% Exact verified match</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =XLOOKUP(1, (tblData[Dept]="IT") * (tblData[City]="Kolkata"), tblData[Salary])</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: =XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found])</div>
                 <div className="text-emerald-400 font-semibold">Result: Flawless automated data retrieval.</div>
                 <div className="text-slate-400 text-[11px]">Industrial lookup formulas streamline enterprise operations.</div>
               </div>
@@ -331,13 +330,13 @@ export default function Topic16() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Student_Key</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Lookup_Formula</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Payment_Status</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">STD-1002</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=XLOOKUP(1, (tblData[Dept]="IT") * (tblData[City]="Kolkata"), tblData[Salary])</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">PAID / CLEARED</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">STD-1002</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found])</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">PAID / CLEARED</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =XLOOKUP(1, (tblData[Dept]="IT") * (tblData[City]="Kolkata"), tblData[Salary])</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: =XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found])</div>
                 <div className="text-emerald-400 font-semibold">Result: Instant administrative verification.</div>
                 <div className="text-slate-400 text-[11px]">Lookups eliminate duplicate student records.</div>
               </div>
@@ -354,13 +353,13 @@ export default function Topic16() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">SKU_Code</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formula</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Variance</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">SKU-902</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=XLOOKUP(1, (tblData[Dept]="IT") * (tblData[City]="Kolkata"), tblData[Salary])</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">0 Variance (Reconciled)</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">SKU-902</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found])</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">0 Variance (Reconciled)</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =XLOOKUP(1, (tblData[Dept]="IT") * (tblData[City]="Kolkata"), tblData[Salary])</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: =XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found])</div>
                 <div className="text-emerald-400 font-semibold">Result: 100% stock reconciliation.</div>
                 <div className="text-slate-400 text-[11px]">Automated lookups audit inventory variance rapidly.</div>
               </div>
@@ -377,13 +376,13 @@ export default function Topic16() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Machine_ID</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Lookup_Applied</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">ISO_Status</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MCH-50</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=XLOOKUP(1, (tblData[Dept]="IT") * (tblData[City]="Kolkata"), tblData[Salary])</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">VALID (Calibrated)</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MCH-50</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found])</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">VALID (Calibrated)</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =XLOOKUP(1, (tblData[Dept]="IT") * (tblData[City]="Kolkata"), tblData[Salary])</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: =XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found])</div>
                 <div className="text-emerald-400 font-semibold">Result: Audit compliance certified.</div>
                 <div className="text-slate-400 text-[11px]">Quality records extracted with coordinate precision.</div>
               </div>
@@ -419,7 +418,7 @@ export default function Topic16() {
               <div>
                 <h3 className="text-sm font-bold text-white">Construct Resilient Lookup Formula</h3>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Enter formula syntax (e.g. <code className="text-amber-300 font-mono">=XLOOKUP(1, (tblData[Dept]="IT") * (tblData[City]="Kolkata"), tblData[Salary])</code>).
+                  Enter formula syntax (e.g. <code className="text-amber-300 font-mono">=XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found])</code>).
                 </p>
               </div>
             </div>
@@ -550,7 +549,7 @@ export default function Topic16() {
             
             <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
               <span className="text-teal-400 text-base">❓</span>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Why is Lookup with Multiple Criteria using Boolean Multi-Condition Arrays preferred in modern financial modeling over legacy hardcoded cell references?</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Why is Introduction to Modern XLOOKUP (Excel 365): Universal 3-Argument Syntax preferred in modern financial modeling over legacy hardcoded cell references?</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
               <span className="text-teal-400 text-base">❓</span>
@@ -568,7 +567,7 @@ export default function Topic16() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Lookup with Multiple Criteria using Boolean Multi-Condition Arrays - Frequently Asked Questions"
+            title="Introduction to Modern XLOOKUP (Excel 365): Universal 3-Argument Syntax - Frequently Asked Questions"
             questions={questions}
           />
         </div>
@@ -578,7 +577,7 @@ export default function Topic16() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="Master Lookup with Multiple Criteria using Boolean Multi-Condition Arrays! Pay meticulous attention to coordinate anchoring with F4, verify key uniqueness, and leverage INDEX-MATCH or XLOOKUP for immune, boardroom-ready spreadsheet models!"
+            note="Master Introduction to Modern XLOOKUP (Excel 365): Universal 3-Argument Syntax! Pay meticulous attention to coordinate anchoring with F4, verify key uniqueness, and leverage INDEX-MATCH or XLOOKUP for immune, boardroom-ready spreadsheet models!"
           />
         </div>
       </div>

@@ -1,586 +1,626 @@
+import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
+import TeacherSukantaHui from "../../../../../common/TeacherSukantaHui";
+import FAQTemplate from "../../../../../common/FAQTemplate";
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import clsx from "clsx";
-import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/lookup_functions_vlookup_hlookup_index_match_and_xlookup_master.xlsx?url";
-import FAQTemplate from "../../../../../common/FAQTemplate";
+import React, { useState, useMemo } from "react";
+import { Link } from "react-router-dom";
+import {
+  FileSpreadsheet,
+  CheckCircle2,
+  HelpCircle,
+  BookOpen,
+  ArrowLeft,
+  ArrowRight,
+  Download,
+  Sparkles,
+  Layers,
+  Code2,
+  Cpu,
+  Search,
+  Copy,
+  Check,
+  Zap,
+  Info,
+  Terminal,
+  ShieldAlert,
+  Hash,
+  Type
+} from "lucide-react";
 import questions from "./topic11_files/topic11_questions";
-import Teacher from "../../../../../common/TeacherSukantaHui";
+import workbookUrl from "./excel_files/002_005_lookup_functions_vlookup_hlookup_index_match_and_xlookup_master.xlsx?url";
 
 export default function Topic11() {
-  const sectionsRef = useRef([]);
+  const [activeTab, setActiveTab] = useState("overview");
+  const [selectedAnswers, setSelectedAnswers] = useState({});
+  const [showResults, setShowResults] = useState(false);
+  const [copiedIndex, setCopiedIndex] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("revealed");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+  const examples = useMemo(() => [
+  {
+    "id": 1,
+    "title": "1. Internal Workbook Sheet Jump (#)",
+    "sampleInput": "Target Sheet: Overview, Cell A1",
+    "formula": "=HYPERLINK(\"#'Overview'!A1\", \"🏠 Jump to Overview\")",
+    "result": "🏠 Jump to Overview",
+    "category": "Internal Sheet Link",
+    "businessUse": "Creates single-click hyperlink jumping directly to Executive Overview sheet."
+  },
+  {
+    "id": 2,
+    "title": "2. Web Portal URL Link",
+    "sampleInput": "Official Web Portal",
+    "formula": "=HYPERLINK(\"https://www.codernaccotax.co.in\", \"🌐 Coder & AccoTax Portal\")",
+    "result": "🌐 Coder & AccoTax Portal",
+    "category": "Web Link",
+    "businessUse": "Creates clickable web link opening institute portal in browser."
+  },
+  {
+    "id": 3,
+    "title": "3. Direct Email Link (mailto:)",
+    "sampleInput": "Email: sukantahui@codernaccotax.co.in",
+    "formula": "=HYPERLINK(\"mailto:sukantahui@codernaccotax.co.in\", \"✉️ Email Instructor\")",
+    "result": "✉️ Email Instructor",
+    "category": "Email Link",
+    "businessUse": "Launches default email client addressed to mentor Sukanta Hui."
+  },
+  {
+    "id": 4,
+    "title": "4. Local File System PDF Link",
+    "sampleInput": "Path: C:\\Reports\\Q1_Audit.pdf",
+    "formula": "=HYPERLINK(\"C:\\Reports\\Q1_Audit.pdf\", \"📄 Open Q1 Audit PDF\")",
+    "result": "📄 Open Q1 Audit PDF",
+    "category": "Local File Link",
+    "businessUse": "Opens local audit report PDF document directly from spreadsheet cell."
+  },
+  {
+    "id": 5,
+    "title": "5. Dynamic Sheet Jump based on Cell Value",
+    "sampleInput": "Sheet Name in Cell B2 = \"Topic5\"",
+    "formula": "=HYPERLINK(\"#'\" & B2 & \"'!A1\", \"👉 Open \" & B2)",
+    "result": "👉 Open Topic5",
+    "category": "Dynamic Link",
+    "businessUse": "Constructs dynamic sheet jump hyperlink based on active dropdown sheet name."
+  },
+  {
+    "id": 6,
+    "title": "6. Jump to Specific Cell Address in Active Sheet",
+    "sampleInput": "Target Cell B100",
+    "formula": "=HYPERLINK(\"#B100\", \"⬇️ Jump to Totals Row\")",
+    "result": "⬇️ Jump to Totals Row",
+    "category": "In-Sheet Jump",
+    "businessUse": "Jumps cursor down 100 rows directly to table summary totals row."
+  },
+  {
+    "id": 7,
+    "title": "7. Dynamic Customer Invoice PDF Link",
+    "sampleInput": "Invoice ID: INV-8940 in Cell A2",
+    "formula": "=HYPERLINK(\"https://invoices.acme.com/\" & A2 & \".pdf\", \"📄 View Invoice \" & A2)",
+    "result": "📄 View Invoice INV-8940",
+    "category": "Dynamic Web Link",
+    "businessUse": "Generates custom invoice PDF download URL based on invoice ID."
+  },
+  {
+    "id": 8,
+    "title": "8. Jump to Maximum Sales Record Cell",
+    "sampleInput": "Address string: $B$45",
+    "formula": "=HYPERLINK(\"#\" & ADDRESS(MATCH(MAX(B2:B100), B1:B100, 0), 2), \"⭐ Jump to Top Sale\")",
+    "result": "⭐ Jump to Top Sale",
+    "category": "Dynamic Target",
+    "businessUse": "Constructs clickable hyperlink jumping to highest sales record cell in table."
+  },
+  {
+    "id": 9,
+    "title": "9. Shared Network Drive Directory Link",
+    "sampleInput": "\\\\Server\\Finance\\2026_Budgets",
+    "formula": "=HYPERLINK(\"\\\\Server\\Finance\\2026_Budgets\", \"📁 Shared Network Folder\")",
+    "result": "📁 Shared Network Folder",
+    "category": "Network Link",
+    "businessUse": "Opens corporate shared network drive folder directory."
+  },
+  {
+    "id": 10,
+    "title": "10. WhatsApp Chat Quick Link",
+    "sampleInput": "Phone: +917003756860",
+    "formula": "=HYPERLINK(\"https://wa.me/917003756860\", \"💬 Chat on WhatsApp\")",
+    "result": "💬 Chat on WhatsApp",
+    "category": "WhatsApp Link",
+    "businessUse": "Opens direct WhatsApp chat conversation with support team."
+  },
+  {
+    "id": 11,
+    "title": "11. Dynamic Table Directory Index Hyperlinks",
+    "sampleInput": "Sheet Name: Topic12_XLOOKUP",
+    "formula": "=HYPERLINK(\"#'\" & C2 & \"'!A1\", \"🚀 Open \" & C2 & \" Sheet\")",
+    "result": "🚀 Open Topic12_XLOOKUP Sheet",
+    "category": "Directory Table",
+    "businessUse": "Populates interactive sheet directory table in Executive Overview landing page."
+  },
+  {
+    "id": 12,
+    "title": "12. GitHub Code Repository Link",
+    "sampleInput": "GitHub Repo URL",
+    "formula": "=HYPERLINK(\"https://github.com/sukantahui\", \"💻 Mentor GitHub Profile\")",
+    "result": "💻 Mentor GitHub Profile",
+    "category": "GitHub Link",
+    "businessUse": "Links to Sukanta Hui's open-source GitHub portfolio repository."
+  },
+  {
+    "id": 13,
+    "title": "13. Jump to Named Range Target",
+    "sampleInput": "Named Range \"TaxSummary\"",
+    "formula": "=HYPERLINK(\"#TaxSummary\", \"📊 Jump to Tax Summary\")",
+    "result": "📊 Jump to Tax Summary",
+    "category": "Named Range Link",
+    "businessUse": "Jumps directly to named range selection block 'TaxSummary'."
+  },
+  {
+    "id": 14,
+    "title": "14. Conditional Hyperlink (Valid vs Invalid)",
+    "sampleInput": "Status Cell = \"Approved\"",
+    "formula": "=IF(C2=\"Approved\", HYPERLINK(\"#'Approval'!A1\", \"✅ View Certificate\"), \"❌ Pending\")",
+    "result": "✅ View Certificate",
+    "category": "Conditional Link",
+    "businessUse": "Displays active hyperlink only when record approval status is met."
+  },
+  {
+    "id": 15,
+    "title": "15. Dynamic Google Maps Location Link",
+    "sampleInput": "Pincode / Address in Cell A2",
+    "formula": "=HYPERLINK(\"https://www.google.com/maps/search/\" & ENCODEURL(A2), \"📍 Map Location\")",
+    "result": "📍 Map Location",
+    "category": "Maps Link",
+    "businessUse": "Generates Google Maps location link for client campus address."
+  },
+  {
+    "id": 16,
+    "title": "16. Dynamic Search Query Link",
+    "sampleInput": "GSTIN Code in Cell A2",
+    "formula": "=HYPERLINK(\"https://services.gst.gov.in/services/searchtp?gstin=\" & A2, \"🔍 Verify GSTIN\")",
+    "result": "🔍 Verify GSTIN",
+    "category": "Tax Portal Link",
+    "businessUse": "Opens government GST portal verifying customer tax registration."
+  },
+  {
+    "id": 17,
+    "title": "17. External Excel Workbook Link",
+    "sampleInput": "Master_Model.xlsx",
+    "formula": "=HYPERLINK(\"C:\\Models\\Master_Model.xlsx\", \"📊 Open Master Model\")",
+    "result": "📊 Open Master Model",
+    "category": "External Workbook",
+    "businessUse": "Opens external financial master model workbook from current sheet."
+  },
+  {
+    "id": 18,
+    "title": "18. Return to Top Navigation Link",
+    "sampleInput": "Cell A1 Target",
+    "formula": "=HYPERLINK(\"#A1\", \"⬆️ Back to Top\")",
+    "result": "⬆️ Back to Top",
+    "category": "Top Nav Link",
+    "businessUse": "Adds 'Back to Top' navigation link at bottom of long data tables."
+  },
+  {
+    "id": 19,
+    "title": "19. Dynamic Help Desk Ticket Link",
+    "sampleInput": "Ticket # 4589",
+    "formula": "=HYPERLINK(\"https://support.acme.com/ticket/\" & A2, \"🎫 Ticket #\" & A2)",
+    "result": "🎫 Ticket #4589",
+    "category": "Helpdesk Link",
+    "businessUse": "Creates clickable tracking link for customer support tickets."
+  },
+  {
+    "id": 20,
+    "title": "20. Final HYPERLINK Audit Verification",
+    "sampleInput": "Navigation Menu System",
+    "formula": "=HYPERLINK(Target, Label)",
+    "result": "Audit Verified",
+    "category": "Audit Pass",
+    "businessUse": "Confirms all internal and external hyperlinks navigate cleanly without broken targets."
+  }
+], []);
+
+  const filteredExamples = useMemo(() => {
+    if (!searchQuery.trim()) return examples;
+    const q = searchQuery.toLowerCase();
+    return examples.filter(
+      (ex) =>
+        ex.title.toLowerCase().includes(q) ||
+        ex.sampleInput.toLowerCase().includes(q) ||
+        ex.formula.toLowerCase().includes(q) ||
+        ex.result.toLowerCase().includes(q) ||
+        ex.businessUse.toLowerCase().includes(q)
     );
-    sectionsRef.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
+  }, [searchQuery, examples]);
+
+  const handleCopyFormula = (formulaText, index) => {
+    navigator.clipboard.writeText(formulaText);
+    setCopiedIndex(index);
+    setTimeout(() => setCopiedIndex(null), 2000);
+  };
+
+  const handleOptionSelect = (questionId, optionIndex) => {
+    setSelectedAnswers((prev) => ({
+      ...prev,
+      [questionId]: optionIndex
+    }));
+  };
+
+  const calculateScore = () => {
+    let score = 0;
+    questions.forEach((q) => {
+      if (selectedAnswers[q.id] === q.correctAnswer) {
+        score++;
+      }
+    });
+    return score;
+  };
 
   const handleDownload = () => {
-    if (!sampleWorkbookUrl) return;
+    if (!workbookUrl) return;
     const link = document.createElement("a");
-    link.href = sampleWorkbookUrl;
-    link.download = "lookup_functions_practice.xlsx";
+    link.href = workbookUrl;
+    link.download = "002_005_lookup_functions_vlookup_hlookup_index_match_and_xlookup_master.xlsx";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   return (
-    <div className="dark bg-slate-950 text-slate-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8 font-sans selection:bg-sky-500/30 selection:text-sky-200">
-      <style>{`
-        @keyframes fadeInSlide {
-          from { transform: translateY(18px); }
-          to { transform: translateY(0); }
-        }
-        .reveal-section {
-          animation: fadeInSlide 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-      `}</style>
-
-      <div className="max-w-5xl mx-auto space-y-10">
-        {/* =========================================================================
-            SECTION 1: HERO HEADER & OVERVIEW
-        ========================================================================= */}
-        <header
-          ref={(el) => (sectionsRef.current[0] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-10 bg-gradient-to-b from-slate-900/90 via-slate-900/60 to-slate-950 border border-slate-800 shadow-2xl relative overflow-hidden"
-        >
-          <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
-          
-          <div className="flex flex-wrap items-center gap-2.5 mb-4">
-            <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              🔍 Lookup & Relational Retrieval · Topic 11
-            </span>
-            <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              Advanced
-            </span>
-            <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              Bloom's Level 4 & 5: Analyze & Evaluate
-            </span>
-          </div>
-
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            Two-Way Matrix Lookup: Dynamic Row &amp; Column Intersections with Double MATCH
-          </h1>
-
-          <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Master Two-Way Matrix Lookup: Dynamic Row &amp; Column Intersections with Double MATCH: In-depth theoretical mechanics, formula syntax, corporate execution best practices, and enterprise troubleshooting workflows.
-          </p>
-
-          <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
-            <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-sky-400 text-base">✓</span>
-              <span><strong>Coordinate Precision:</strong> Exact Key Resolution</span>
-            </div>
-            <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-emerald-400 text-base">✓</span>
-              <span><strong>Resilient Architecture:</strong> Immune to Insertions</span>
-            </div>
-            <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-indigo-400 text-base">✓</span>
-              <span><strong>Modern Standards:</strong> XLOOKUP & INDEX-MATCH</span>
-            </div>
-          </div>
-        </header>
-
-        {/* =========================================================================
-            SECTION 2: FORMULA & SYNTAX ANATOMY CARD
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[1] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all duration-300 space-y-6"
-        >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">⚡</span>
-            Formula Syntax & Argument Anatomy
-          </h2>
-
-          <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            =INDEX(Matrix, MATCH(RowKey, RowRange, 0), MATCH(ColKey, ColRange, 0))
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm text-slate-300 border-collapse">
-              <thead>
-                <tr className="border-b border-slate-800 text-slate-400 font-semibold uppercase tracking-wider">
-                  <th className="py-3 px-4">Component</th>
-                  <th className="py-3 px-4">Type</th>
-                  <th className="py-3 px-4">Requirement</th>
-                  <th className="py-3 px-4">Description</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-800/50 font-mono">
-                
-                <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Lookup Expression</td>
-                  <td className="py-3 px-4 text-teal-400">Core Function Call</td>
-                  <td className="py-3 px-4 text-amber-400 font-sans">Mandatory</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Evaluates Two-Way Matrix Lookup: Dynamic Row &amp; Column Intersections with Double MATCH against target reference ranges.</td>
-                </tr>
-                <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Return Parameter</td>
-                  <td className="py-3 px-4 text-teal-400">Vector / Scalar</td>
-                  <td className="py-3 px-4 text-amber-400 font-sans">Extraction</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Delivers corresponding attribute with exact coordinate precision.</td>
-                </tr>
-                <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Error Handler</td>
-                  <td className="py-3 px-4 text-teal-400">Resilience Wrapper</td>
-                  <td className="py-3 px-4 text-amber-400 font-sans">Robustness</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Handles missing keys or out-of-bounds index requests gracefully.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div className="p-4 rounded-xl bg-sky-950/40 border border-sky-800/60 flex items-start gap-3">
-            <span className="text-sky-400 text-lg">💡</span>
-            <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              <strong className="text-white">Return Evaluation: </strong>
-              Returns a <span className="text-sky-300 font-semibold">Relational Scalar / Array Vector</span> dynamically extracted from the matching table record.
-            </div>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 3: DEEP CONCEPTUAL & THEORETICAL MECHANICS
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[2] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">🔬</span>
-            Computational Mechanics & Search Algorithms
-          </h2>
-
-          <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-            <p>In Microsoft Excel, Two-Way Matrix Lookup: Dynamic Row &amp; Column Intersections with Double MATCH provides industrial-grade relational data extraction capabilities across enterprise workbooks.</p>
-            <p>Understanding memory pointer traversal, binary search vs linear search, and dynamic array returns is vital for elite financial modeling.</p>
-            <p>Always design lookup tables with clean, normalized data types to eliminate #N/A type mismatch exceptions.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-            <div className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">Memory Pointer Traversal</h3>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                Excel scans indices in memory to locate exact key matching coordinates, returning values from connected data vectors.
-              </p>
-            </div>
-            <div className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-sky-300 uppercase tracking-wider">Column Insertion Immunity</h3>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                Modern INDEX-MATCH and XLOOKUP bind directly to return column vectors, rendering formulas immune to inserted or deleted columns.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 4: INTERACTIVE SEMANTIC SVG DIAGRAM
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[3] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Engine: Two-Way Matrix Lookup: Dynamic Row &amp; Column Intersections with Double MATCH Architecture &amp; Evaluation Mechanics
-          </h2>
-
-          <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
-            <svg viewBox="0 0 800 260" className="w-full max-w-3xl h-auto" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="m6_key" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#0369a1" stopOpacity="0.4" />
-                </linearGradient>
-                <linearGradient id="m6_scan" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#059669" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#047857" stopOpacity="0.4" />
-                </linearGradient>
-                <linearGradient id="m6_val" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#6d28d9" stopOpacity="0.4" />
-                </linearGradient>
-              </defs>
-
-              <rect x="30" y="50" width="200" height="150" rx="12" fill="url(#m6_key)" stroke="#38bdf8" strokeWidth="2" />
-              <text x="130" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">1. Lookup Value</text>
-              <text x="130" y="115" textAnchor="middle" fill="#e0f2fe" fontSize="11">Search Key: "EMP-1005"</text>
-              <text x="130" y="135" textAnchor="middle" fill="#e0f2fe" fontSize="11">Unique Surrogate ID</text>
-              <text x="130" y="165" textAnchor="middle" fill="#bae6fd" fontSize="11" fontWeight="bold">Search Query</text>
-
-              <path d="M 235 125 L 295 125" stroke="#38bdf8" strokeWidth="3" strokeDasharray="6,4" />
-              <polygon points="295,120 305,125 295,130" fill="#38bdf8" />
-
-              <rect x="310" y="50" width="200" height="150" rx="12" fill="url(#m6_scan)" stroke="#34d399" strokeWidth="2" />
-              <text x="410" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">2. Vector Matching</text>
-              <text x="410" y="115" textAnchor="middle" fill="#d1fae5" fontSize="11">Exact Match (0)</text>
-              <text x="410" y="135" textAnchor="middle" fill="#d1fae5" fontSize="11">Row Coordinate: 6</text>
-              <text x="410" y="165" textAnchor="middle" fill="#a7f3d0" fontSize="11" fontWeight="bold">MATCH Index Found</text>
-
-              <path d="M 515 125 L 575 125" stroke="#34d399" strokeWidth="3" strokeDasharray="6,4" />
-              <polygon points="575,120 585,125 575,130" fill="#34d399" />
-
-              <rect x="590" y="50" width="180" height="150" rx="12" fill="url(#m6_val)" stroke="#a78bfa" strokeWidth="2" />
-              <text x="680" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">3. Attribute Return</text>
-              <text x="680" y="115" textAnchor="middle" fill="#ede9fe" fontSize="11">₹ 85,000.00 (Salary)</text>
-              <text x="680" y="135" textAnchor="middle" fill="#ede9fe" fontSize="11">Zero Column Drift</text>
-              <text x="680" y="165" textAnchor="middle" fill="#ddd6fe" fontSize="11" fontWeight="bold">Target Extracted</text>
-            </svg>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 5: LIVE EXCEL PRACTICE GRID & DOWNLOAD PORTAL
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[4] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
-            <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">📥</span>
-                Interactive Spreadsheet & Practice Workbook
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                Interact with the dataset live below or download the master chapter workbook to practice locally in desktop Excel.
-              </p>
-            </div>
-            <button
-              onClick={handleDownload}
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all duration-200 shadow-lg shadow-emerald-950/40 hover:scale-[1.02] active:scale-[0.98] shrink-0"
-              title="Download full .xlsx master workbook for Module 2.5"
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans antialiased selection:bg-sky-500/30 selection:text-sky-200 pb-16">
+      {/* HEADER BANNER */}
+      <div className="border-b border-slate-800 bg-slate-900/60 backdrop-blur-xl sticky top-0 z-40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <Link
+              to="/study/excel"
+              className="p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 hover:text-white transition-all duration-200 border border-slate-700/50"
+              title="Back to Excel Dashboard"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
-              <span>Download Practice Workbook (.xlsx)</span>
-            </button>
-          </div>
-
-          <ExcelFileLoader
-            fileModule={sampleWorkbookUrl}
-            sheetName="Topic11_Two_Way_Lookup_usi"
-            title="Module 2.5 - Two-Way Matrix Lookup: Dynamic Row &amp; Column Intersections with Double MATCH"
-            rowsPerPage={25}
-            showSheetSelector={true}
-          />
-        </section>
-
-        {/* =========================================================================
-            SECTION 6: REAL-WORLD BUSINESS SCENARIOS (4+ CASES)
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[5] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
-            Real-World Business Scenarios (Bengal & Corporate Applications)
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
-                <h3 className="text-base font-bold text-white">Kolkata Corporate Two-Way Matrix Lookup: Dynamic Implementation</h3>
+              <ArrowLeft className="w-5 h-5" />
+            </Link>
+            <div>
+              <div className="flex items-center gap-2 text-xs font-semibold text-emerald-400 uppercase tracking-wider font-mono">
+                <span>Module 002_005</span>
+                <span>•</span>
+                <span>Topic 11</span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Enterprise deployment of Two-Way Matrix Lookup: Dynamic Row &amp; Column Intersections with Double MATCH across 500 corporate branch records.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Operation</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formula_Applied</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Audited_Outcome</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Relational Retrieval</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=INDEX(Matrix, MATCH(RowKey, RowRange, 0), MATCH(ColKey, ColRange, 0))</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100% Exact verified match</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =INDEX(Matrix, MATCH(RowKey, RowRange, 0), MATCH(ColKey, ColRange, 0))</div>
-                <div className="text-emerald-400 font-semibold">Result: Flawless automated data retrieval.</div>
-                <div className="text-slate-400 text-[11px]">Industrial lookup formulas streamline enterprise operations.</div>
-              </div>
-            </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">02</span>
-                <h3 className="text-base font-bold text-white">Barrackpore Academy Academic Records Matching</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Cross-referencing student exam results with fee payment status.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Student_Key</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Lookup_Formula</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Payment_Status</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">STD-1002</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=INDEX(Matrix, MATCH(RowKey, RowRange, 0), MATCH(ColKey, ColRange, 0))</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">PAID / CLEARED</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =INDEX(Matrix, MATCH(RowKey, RowRange, 0), MATCH(ColKey, ColRange, 0))</div>
-                <div className="text-emerald-400 font-semibold">Result: Instant administrative verification.</div>
-                <div className="text-slate-400 text-[11px]">Lookups eliminate duplicate student records.</div>
-              </div>
-            </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">03</span>
-                <h3 className="text-base font-bold text-white">Shyamnagar Wholesale Inventory SKU Audit</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Matching warehouse physical counts against ERP system records.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">SKU_Code</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formula</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Variance</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">SKU-902</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=INDEX(Matrix, MATCH(RowKey, RowRange, 0), MATCH(ColKey, ColRange, 0))</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">0 Variance (Reconciled)</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =INDEX(Matrix, MATCH(RowKey, RowRange, 0), MATCH(ColKey, ColRange, 0))</div>
-                <div className="text-emerald-400 font-semibold">Result: 100% stock reconciliation.</div>
-                <div className="text-slate-400 text-[11px]">Automated lookups audit inventory variance rapidly.</div>
-              </div>
-            </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">04</span>
-                <h3 className="text-base font-bold text-white">Ichapur Plant Machine Quality Compliance Verification</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Extracting ISO calibration expiry dates by Machine serial number.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Machine_ID</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Lookup_Applied</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">ISO_Status</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MCH-50</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=INDEX(Matrix, MATCH(RowKey, RowRange, 0), MATCH(ColKey, ColRange, 0))</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">VALID (Calibrated)</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =INDEX(Matrix, MATCH(RowKey, RowRange, 0), MATCH(ColKey, ColRange, 0))</div>
-                <div className="text-emerald-400 font-semibold">Result: Audit compliance certified.</div>
-                <div className="text-slate-400 text-[11px]">Quality records extracted with coordinate precision.</div>
-              </div>
+              <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                HYPERLINK Interactive Navigation Engine
+              </h1>
             </div>
           </div>
-        </section>
+          <button
+            onClick={handleDownload}
+            className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs sm:text-sm transition-all duration-200 shadow-lg shadow-emerald-950/40 hover:scale-[1.02] active:scale-[0.98] shrink-0"
+          >
+            <Download className="w-4 h-4" />
+            <span>Download Master Workbook (.xlsx)</span>
+          </button>
+        </div>
+      </div>
 
-        {/* =========================================================================
-            SECTION 7: STEP-BY-STEP CALCULATION WALKTHROUGH
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[6] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">🪜</span>
-            Step-by-Step Practical Implementation Guide
-          </h2>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 space-y-8">
+        {/* NAVIGATION TABS */}
+        <div className="flex items-center gap-2 border-b border-slate-800 pb-4 overflow-x-auto">
+          <button
+            onClick={() => setActiveTab("overview")}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-xs sm:text-sm transition-all whitespace-nowrap ${
+              activeTab === "overview"
+                ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-lg shadow-emerald-950/30"
+                : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/60 border border-transparent"
+            }`}
+          >
+            <BookOpen className="w-4 h-4" />
+            <span>Conceptual Guide & 20 Scenarios</span>
+          </button>
 
-          <div className="space-y-4">
-            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-4">
-              <span className="w-7 h-7 rounded-lg bg-sky-500/20 text-sky-300 text-xs font-bold flex items-center justify-center shrink-0">1</span>
-              <div>
-                <h3 className="text-sm font-bold text-white">Identify Search Key & Master Range</h3>
-                <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Ensure the lookup value coordinate is specified and the master table is locked (<kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">F4</kbd>) or formatted as an Excel Table.
-                </p>
-              </div>
-            </div>
+          <button
+            onClick={() => setActiveTab("faq")}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-xs sm:text-sm transition-all whitespace-nowrap ${
+              activeTab === "faq"
+                ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-lg shadow-emerald-950/30"
+                : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/60 border border-transparent"
+            }`}
+          >
+            <HelpCircle className="w-4 h-4" />
+            <span>FAQ & Explanations</span>
+          </button>
 
-            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-4">
-              <span className="w-7 h-7 rounded-lg bg-teal-500/20 text-teal-300 text-xs font-bold flex items-center justify-center shrink-0">2</span>
-              <div>
-                <h3 className="text-sm font-bold text-white">Construct Resilient Lookup Formula</h3>
-                <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Enter formula syntax (e.g. <code className="text-amber-300 font-mono">=INDEX(Matrix, MATCH(RowKey, RowRange, 0), MATCH(ColKey, ColRange, 0))</code>).
-                </p>
-              </div>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-4">
-              <span className="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-300 text-xs font-bold flex items-center justify-center shrink-0">3</span>
-              <div>
-                <h3 className="text-sm font-bold text-white">Embed Error Handling Wrapper</h3>
-                <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Wrap in <code className="text-sky-300 font-mono">=IFERROR(formula, "Not Found")</code> to prevent unsightly <code className="text-rose-300 font-mono">#N/A</code> errors.
-                </p>
-              </div>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-4">
-              <span className="w-7 h-7 rounded-lg bg-indigo-500/20 text-indigo-300 text-xs font-bold flex items-center justify-center shrink-0">4</span>
-              <div>
-                <h3 className="text-sm font-bold text-white">Audit Formula Evaluation (F9)</h3>
-                <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Highlight the MATCH segment inside formula bar and press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">F9</kbd> to inspect the evaluated row index number.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 8: COMMON PITFALLS & TROUBLESHOOTING MATRIX
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[7] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-500/20 text-rose-400 text-base font-mono">⚠️</span>
-            Common Pitfalls & Diagnostic Troubleshooting
-          </h2>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm text-slate-300 border-collapse">
-              <thead>
-                <tr className="border-b border-slate-800 text-slate-400 font-semibold uppercase tracking-wider">
-                  <th className="py-3 px-4">Error / Symptom</th>
-                  <th className="py-3 px-4">Root Cause</th>
-                  <th className="py-3 px-4">Diagnostic Check</th>
-                  <th className="py-3 px-4">Foolproof Fix</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-800/50">
-                
-                <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-rose-300 font-mono font-bold">#N/A Error (Value Not Available)</td>
-                  <td className="py-3 px-4 text-slate-300">Search key does not exist in the reference table.</td>
-                  <td className="py-3 px-4 text-amber-300">Lookup key missing or misspelled.</td>
-                  <td className="py-3 px-4 text-emerald-400 font-medium">Verify key spelling or wrap formula in =IFERROR(..., "Not Found").</td>
-                </tr>
-                <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-rose-300 font-mono font-bold">#REF! Error on Column Deletion</td>
-                  <td className="py-3 px-4 text-slate-300">Deleting a column within a hardcoded VLOOKUP index range.</td>
-                  <td className="py-3 px-4 text-amber-300">Column index exceeds table width.</td>
-                  <td className="py-3 px-4 text-emerald-400 font-medium">Switch to resilient INDEX-MATCH or XLOOKUP.</td>
-                </tr>
-                <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-rose-300 font-mono font-bold">#VALUE! Data Type Mismatch</td>
-                  <td className="py-3 px-4 text-slate-300">Formula exceeds character limits or corrupt array dimensions.</td>
-                  <td className="py-3 px-4 text-amber-300">Calculation engine throws syntax error.</td>
-                  <td className="py-3 px-4 text-emerald-400 font-medium">Check argument count and syntax.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 9: PRO TIPS & PRODUCTIVITY SHORTCUTS
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[8] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 text-base font-mono">💡</span>
-            Classroom Pro Tips & High-Speed Shortcuts
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            
-            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
-              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                F4
-              </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Lock coordinate range ($A$2:$F$100).</p>
-            </div>
-            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
-              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                Alt + M + V
-              </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Open Step-by-Step Evaluate Formula dialog.</p>
-            </div>
-            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
-              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                Ctrl + `
-              </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Toggle Formula Auditing view.</p>
-            </div>
-            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
-              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                Ctrl + Shift + Enter
-              </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Legacy CSE array entry (if applicable in pre-365 Excel).</p>
-            </div>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 10: SOCRATIC ANALYTICAL HINTS ("THINK ABOUT...")
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[9] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">🤔</span>
-            Socratic Analytical Hints ("Think About...")
-          </h2>
-
-          <div className="space-y-3">
-            
-            <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
-              <span className="text-teal-400 text-base">❓</span>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Why is Two-Way Matrix Lookup: Dynamic Row &amp; Column Intersections with Double MATCH preferred in modern financial modeling over legacy hardcoded cell references?</p>
-            </div>
-            <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
-              <span className="text-teal-400 text-base">❓</span>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">How does Excel's calculation engine manage memory pointers during massive multi-row lookups?</p>
-            </div>
-            <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
-              <span className="text-teal-400 text-base">❓</span>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">What is the mathematical difference between linear O(n) table scanning and O(log n) binary search?</p>
-            </div>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 11: COMPREHENSIVE FAQ SECTION (30 QUESTIONS)
-        ========================================================================= */}
-        <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
-          <FAQTemplate
-            title="Two-Way Matrix Lookup: Dynamic Row &amp; Column Intersections with Double MATCH - Frequently Asked Questions"
-            questions={questions}
-          />
+          <button
+            onClick={() => setActiveTab("questions")}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-xs sm:text-sm transition-all whitespace-nowrap ${
+              activeTab === "questions"
+                ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-lg shadow-emerald-950/30"
+                : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/60 border border-transparent"
+            }`}
+          >
+            <FileSpreadsheet className="w-4 h-4" />
+            <span>Practice & Assessment</span>
+          </button>
         </div>
 
-        {/* =========================================================================
-            SECTION 12: TEACHER'S NOTE & EXAM WISDOM
-        ========================================================================= */}
-        <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
-          <Teacher
-            note="Master Two-Way Matrix Lookup: Dynamic Row & Column Intersections with Double MATCH! Pay meticulous attention to coordinate anchoring with F4, verify key uniqueness, and leverage INDEX-MATCH or XLOOKUP for immune, boardroom-ready spreadsheet models!"
-          />
-        </div>
+        {/* TAB 1: CONCEPTUAL GUIDE & 20 EXAMPLES */}
+        {activeTab === "overview" && (
+          <div className="space-y-8">
+            {/* EASY TOPIC EXPLANATION CARD */}
+            <div className="bg-slate-900/90 border border-emerald-500/30 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
+              <div className="flex items-center gap-3 border-b border-slate-800 pb-3">
+                <div className="p-2 rounded-lg bg-emerald-500/20 text-emerald-400">
+                  <Zap className="w-5 h-5" />
+                </div>
+                <h3 className="text-lg font-bold text-white">Easy Concept Explanation & Quick Summary</h3>
+              </div>
+              <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
+                HYPERLINK creates a clickable shortcut link that opens a document, jumps to a specific sheet/cell in the active workbook, or opens a web portal URL. Syntax: =HYPERLINK(link_location, [friendly_name]). To jump to cell A1 on sheet 'Overview' in the active workbook, use =HYPERLINK("#'Overview'!A1", "🏠 Back to Overview").
+              </p>
+            </div>
+
+            {/* TOPIC-SPECIFIC SYNTAX & OVERVIEW CARD */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2 bg-slate-900/80 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4">
+                <h2 className="text-xl font-semibold text-white flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-emerald-400" />
+                  Topic-Specific Excel Syntax & Parameter Breakdown
+                </h2>
+                <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                  In Microsoft Excel, mastering <strong>HYPERLINK Interactive Navigation Engine</strong> is vital for building robust financial models, automated reporting dashboards, and dynamic multi-criteria lookup systems.
+                </p>
+
+                {/* SYNTAX CARD */}
+                <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 font-mono text-xs sm:text-sm text-emerald-300 space-y-2.5">
+                  <div className="text-slate-500 flex items-center justify-between">
+                    <span>// Topic-Specific Excel Function Signature</span>
+                    <span className="text-[11px] text-amber-400 bg-amber-950/80 px-2 py-0.5 rounded border border-amber-800/60 font-sans">
+                      Return: undefined
+                    </span>
+                  </div>
+                  <div className="text-amber-300 font-bold text-base sm:text-lg tracking-wide bg-slate-900/80 p-2.5 rounded-lg border border-slate-800">
+                    =HYPERLINK(link_location, [friendly_name])
+                  </div>
+                  <div className="text-slate-300 text-xs leading-relaxed pt-1">
+                    • <strong>Parameter Breakdown:</strong> link_location: Path, URL, or internal workbook sheet destination e.g. "#'SheetName'!A1" | friendly_name: Custom blue clickable text displayed in cell
+                  </div>
+                  <div className="text-emerald-400 text-xs leading-relaxed font-sans pt-1 border-t border-slate-800">
+                    💡 <strong>Implementation Tip:</strong> For internal workbook sheet jumps, ALWAYS prefix the sheet reference with '#' and enclose sheet names in single quotes e.g. =HYPERLINK("#'Overview'!A1", "Jump to Overview").
+                  </div>
+                </div>
+              </div>
+
+              {/* MENTOR NOTE SIDEBAR */}
+              <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-4 relative overflow-hidden flex flex-col justify-between">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-lg border border-emerald-500/30">
+                      SH
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-white text-sm">Instructor's Note</h4>
+                      <p className="text-xs text-slate-400">Mentored by Sukanta Hui</p>
+                    </div>
+                  </div>
+                  <p className="text-xs sm:text-sm text-slate-300 italic leading-relaxed">
+                    "Consistent practice with real workplace datasets builds true Excel speed. Review all 20 examples below to master every edge case in professional spreadsheet modeling."
+                  </p>
+                </div>
+                <div className="pt-2 border-t border-slate-800 text-[11px] text-emerald-400 font-mono">
+                  ✓ 20 Practical Scenarios Verified
+                </div>
+              </div>
+            </div>
+
+            {/* DEDICATED TOPIC BREAKDOWN & DETAILED DESCRIPTION CARD */}
+            <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
+              <h2 className="text-xl font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
+                <Layers className="w-5 h-5 text-emerald-400" />
+                Comprehensive Topic Breakdown & Detailed Description
+              </h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-300 leading-relaxed">
+                <div className="bg-slate-950/60 border border-slate-800/80 rounded-xl p-5 space-y-3">
+                  <h3 className="font-semibold text-emerald-300 flex items-center gap-2">
+                    <Code2 className="w-4 h-4" />
+                    Core Technical Mechanics
+                  </h3>
+                  <p>
+                    Understanding the underlying logic of <strong>HYPERLINK Interactive Navigation Engine</strong> equips spreadsheet architects to eliminate manual lookup errors, prevent model breakage during row/column insertion, and construct high-performance data pipelines.
+                  </p>
+                </div>
+
+                <div className="bg-slate-950/60 border border-slate-800/80 rounded-xl p-5 space-y-3">
+                  <h3 className="font-semibold text-cyan-300 flex items-center gap-2">
+                    <Cpu className="w-4 h-4" />
+                    Workplace Use Cases & Audit Standards
+                  </h3>
+                  <p>
+                    Corporate financial analysts use these techniques for financial reporting, executive dashboards, inventory tracking, and dynamic cross-sheet calculations while ensuring zero formula distortion during audits.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 20 WORKPLACE EXAMPLES TABLE */}
+            <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                    <Layers className="w-5 h-5 text-emerald-400" />
+                    20 Real-World Workplace Examples & Scenarios
+                  </h2>
+                  <p className="text-slate-400 text-xs sm:text-sm mt-1">
+                    Explore 20 practical workplace scenarios with real inputs, exact Excel formulas, and copyable syntax.
+                  </p>
+                </div>
+
+                <div className="relative w-full sm:w-64">
+                  <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Search 20 examples..."
+                    className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-colors"
+                  />
+                </div>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse min-w-[750px]">
+                  <thead>
+                    <tr className="bg-slate-950 border-b border-slate-800 text-slate-400 text-xs uppercase tracking-wider font-mono">
+                      <th className="p-3.5"># Scenario Title</th>
+                      <th className="p-3.5">Sample Input</th>
+                      <th className="p-3.5">Excel Formula</th>
+                      <th className="p-3.5 text-center">Calculated Output</th>
+                      <th className="p-3.5">Business & Audit Application</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/60 text-xs sm:text-sm">
+                    {filteredExamples.map((ex, eIdx) => (
+                      <tr key={ex.id} className="hover:bg-slate-800/40 transition-colors">
+                        <td className="p-3.5 font-medium text-white">
+                          <div className="font-semibold text-emerald-300">{ex.title}</div>
+                          <div className="text-[11px] text-slate-500">{ex.category}</div>
+                        </td>
+                        <td className="p-3.5 font-mono text-slate-200 bg-slate-950/50 rounded-lg">{ex.sampleInput}</td>
+                        <td className="p-3.5 font-mono text-emerald-400 flex items-center justify-between gap-2">
+                          <span>{ex.formula}</span>
+                          <button
+                            onClick={() => handleCopyFormula(ex.formula, eIdx)}
+                            className="p-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors"
+                            title="Copy Formula"
+                          >
+                            {copiedIndex === eIdx ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                          </button>
+                        </td>
+                        <td className="p-3.5 font-mono font-bold text-center text-cyan-300 text-base">{ex.result}</td>
+                        <td className="p-3.5 text-slate-300 text-xs leading-relaxed max-w-xs">{ex.businessUse}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* TEACHER SUKANTA HUI MENTOR GUIDE */}
+            <div className="pt-6 border-t border-slate-800">
+              <TeacherSukantaHui
+                topicName="HYPERLINK Interactive Navigation Engine"
+                noteTitle="Sukanta Hui's Master Mentor Guide"
+                mentorAdvice="In corporate financial modeling and enterprise spreadsheet architecture, accuracy precedes speed. Always verify calculation edge cases, check absolute cell reference locks ($), and test formulas against zero and negative inputs."
+              />
+            </div>
+          </div>
+        )}
+
+        {/* TAB FAQ & EXPLANATIONS */}
+        {activeTab === "faq" && questions && (
+          <div className="max-w-7xl mx-auto space-y-6">
+            <FAQTemplate
+              title="Frequently Asked Questions & Detailed Explanations"
+              subtitle="Deep-dive solutions for common workplace edge cases and formula questions"
+              questions={questions}
+            />
+          </div>
+        )}
+
+        {/* TAB 2: PRACTICE & QUIZ */}
+        {activeTab === "questions" && questions && (
+          <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-8">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-xl font-bold text-white">Practice & Assessment</h2>
+                <p className="text-slate-400 text-xs sm:text-sm">Test your comprehension of HYPERLINK Interactive Navigation Engine</p>
+              </div>
+              {showResults && (
+                <div className="bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 px-4 py-2 rounded-xl text-sm font-semibold">
+                  Score: {calculateScore()} / {questions.length}
+                </div>
+              )}
+            </div>
+
+            {/* LIVE INTERACTIVE EXCEL PRACTICE GRID & SHEET VIEWER */}
+            <div className="bg-slate-950 border border-slate-800 rounded-2xl p-6 space-y-4 shadow-2xl">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+                <div>
+                  <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                    <span className="text-emerald-400">📥</span> Interactive Master Sheet Practice Viewer
+                  </h3>
+                  <p className="text-xs text-slate-400 mt-1">
+                    Explore the live worksheet data below or download the full module workbook to practice in Microsoft Excel.
+                  </p>
+                </div>
+              </div>
+              <ExcelFileLoader
+                fileModule={workbookUrl}
+                title="Live Module Master Worksheet"
+                rowsPerPage={25}
+                showSheetSelector={true}
+              />
+            </div>
+
+            <div className="space-y-6">
+              {questions.map((q, qIdx) => {
+                const selected = selectedAnswers[q.id];
+                const isCorrect = selected === q.correctAnswer;
+
+                return (
+                  <div key={q.id} className="bg-slate-950 border border-slate-800 rounded-xl p-5 space-y-4">
+                    <div className="flex items-start gap-3">
+                      <span className="bg-slate-800 text-emerald-400 font-mono text-xs px-2.5 py-1 rounded-md font-bold">
+                        Q{qIdx + 1}
+                      </span>
+                      <h3 className="font-medium text-slate-200 text-sm sm:text-base">{q.question}</h3>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pl-8">
+                      {q.options.map((opt, optIdx) => {
+                        let optStyle = "bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700";
+                        if (selected === optIdx) {
+                          optStyle = "bg-emerald-950 border-emerald-500 text-emerald-200";
+                        }
+                        if (showResults) {
+                          if (optIdx === q.correctAnswer) {
+                            optStyle = "bg-emerald-950 border-emerald-500 text-emerald-300 font-semibold";
+                          } else if (selected === optIdx && !isCorrect) {
+                            optStyle = "bg-rose-950 border-rose-500 text-rose-300";
+                          }
+                        }
+
+                        return (
+                          <button
+                            key={optIdx}
+                            onClick={() => handleOptionSelect(q.id, optIdx)}
+                            className={`text-left p-3 rounded-lg border text-xs sm:text-sm transition-all flex items-start gap-2.5 ${optStyle}`}
+                          >
+                            <span className="font-mono text-slate-500 text-xs shrink-0">{String.fromCharCode(65 + optIdx)}.</span>
+                            <span>{opt}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {showResults && (
+                      <div className="ml-8 bg-slate-900/60 border border-slate-800 rounded-lg p-3 text-xs text-slate-400">
+                        <strong className="text-emerald-400">Explanation: </strong>
+                        {q.explanation}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="flex justify-end gap-4 pt-4 border-t border-slate-800">
+              <button
+                onClick={() => setShowResults(true)}
+                className="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-2.5 rounded-xl font-medium text-sm transition-all shadow-lg shadow-emerald-950/40"
+              >
+                Submit & Check Score
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

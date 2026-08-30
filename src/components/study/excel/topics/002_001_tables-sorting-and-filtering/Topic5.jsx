@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/tables_sorting_filtering.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/002_001_tables_sorting_and_filtering_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic5_files/topic5_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
@@ -31,7 +30,7 @@ export default function Topic5() {
     if (!sampleWorkbookUrl) return;
     const link = document.createElement("a");
     link.href = sampleWorkbookUrl;
-    link.download = "tables_sorting_filtering_practice.xlsx";
+    link.download = "002_001_tables_sorting_and_filtering_master.xlsx";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -50,9 +49,7 @@ export default function Topic5() {
       `}</style>
 
       <div className="max-w-5xl mx-auto space-y-10">
-        {/* =========================================================================
-            SECTION 1: HERO HEADER & OVERVIEW
-        ========================================================================= */}
+        {/* SECTION 1: HERO HEADER & OVERVIEW */}
         <header
           ref={(el) => (sectionsRef.current[0] = el)}
           className="reveal-section rounded-3xl p-6 sm:p-10 bg-gradient-to-b from-slate-900/90 via-slate-900/60 to-slate-950 border border-slate-800 shadow-2xl relative overflow-hidden"
@@ -67,48 +64,46 @@ export default function Topic5() {
               Intermediate
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              Bloom's Level 3: Apply
+              Bloom's Level 2 &amp; 3: Understand &amp; Apply
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            Slicers for Excel Tables: Visual 1-Click Interactive Filtering and Dashboard Integration
+            Removing Duplicates & Unique Record Extraction Engine
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Master Slicers for Excel Tables: Inserting visual filter buttons (Alt+J+T+S), multi-column button layout, Slicer styling to match Coder &amp; AccoTax dark aesthetics, connecting multiple slicers, and building interactive no-code dashboards.
+            Master single-column and multi-column duplicate removal in Excel. Explore the Data -&gt; Remove Duplicates feature, case-insensitivity rules, leading/trailing space pitfalls, and dynamic array =UNIQUE() extraction.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-sky-400 text-base">✓</span>
-              <span><strong>Structured Syntax:</strong> [@Column] Relational Math</span>
+              <span><strong>Deduplication:</strong> Data -&gt; Remove Duplicates (Alt + A + M)</span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-emerald-400 text-base">✓</span>
-              <span><strong>Filter Subtotals:</strong> SUBTOTAL(109) Recalculation</span>
+              <span><strong>Dynamic Unique:</strong> =UNIQUE(tbl[Column]) Spilling Array</span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-indigo-400 text-base">✓</span>
-              <span><strong>Interactive Slicers:</strong> 1-Click Dashboard UI</span>
+              <span><strong>Data Cleanliness:</strong> TRIM() & CLEAN() Pre-Processing</span>
             </div>
           </div>
         </header>
 
-        {/* =========================================================================
-            SECTION 2: FORMULA & SYNTAX ANATOMY CARD
-        ========================================================================= */}
+        {/* SECTION 2: FORMULA & SYNTAX ANATOMY CARD */}
         <section
           ref={(el) => (sectionsRef.current[1] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all duration-300 space-y-6"
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">⚡</span>
-            Structured Referencing & Table Syntax
+            Structured Referencing &amp; Table Syntax
           </h2>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            =SLICER_INTERACTION(SelectedButtons, ActiveTable)
+            Remove Duplicates: Alt + A + M  |  Dynamic Formula: =UNIQUE(tblCustomers[Customer_ID])
           </div>
 
           <div className="overflow-x-auto">
@@ -124,22 +119,22 @@ export default function Topic5() {
               <tbody className="divide-y divide-slate-800/50 font-mono">
                 
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Slicer Buttons</td>
-                  <td className="py-3 px-4 text-teal-400">Visual Filter UI</td>
-                  <td className="py-3 px-4 text-amber-400 font-sans">Interaction</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Clean clickable pills displaying unique categorical items (e.g. Branch, Department).</td>
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Remove Duplicates</td>
+                  <td className="py-3 px-4 text-teal-400">Data Tool</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Destructive Action</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Permanently deletes duplicate rows from dataset, keeping first occurrence.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Multi-Select (Ctrl/Multi)</td>
-                  <td className="py-3 px-4 text-teal-400">Filter State</td>
-                  <td className="py-3 px-4 text-amber-400 font-sans">Flexibility</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Click multiple buttons to filter for multi-category subsets.</td>
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Select All Columns</td>
+                  <td className="py-3 px-4 text-teal-400">Dialog Setting</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Multi-Key Check</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Evaluates exact match across ALL selected columns simultaneously.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Slicer Columns</td>
-                  <td className="py-3 px-4 text-teal-400">Layout Grid</td>
-                  <td className="py-3 px-4 text-amber-400 font-sans">Ergonomics</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Arranging buttons in 2, 3, or 4 columns for compact horizontal dashboard headers.</td>
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">=UNIQUE(array)</td>
+                  <td className="py-3 px-4 text-teal-400">Dynamic Array Function</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Non-Destructive</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Extracts distinct values into a dynamic spilling array without altering raw data.</td>
                 </tr>
               </tbody>
             </table>
@@ -149,104 +144,98 @@ export default function Topic5() {
             <span className="text-sky-400 text-lg">💡</span>
             <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
               <strong className="text-white">Structured Output: </strong>
-              Evaluates to a <span className="text-sky-300 font-semibold">Visual 1-Click UI Filter State</span> that expands dynamically with data volume.
+              Always create a backup copy of raw data before using destructive Remove Duplicates!
             </div>
           </div>
         </section>
 
-        {/* =========================================================================
-            SECTION 3: DEEP CONCEPTUAL & THEORETICAL MECHANICS
-        ========================================================================= */}
+        {/* SECTION 3: DEEP CONCEPTUAL & THEORETICAL MECHANICS */}
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">🔬</span>
-            Relational Data Architecture & Query Mechanics
+            Deduplication Mechanics & Unique Record Extraction Engine
           </h2>
 
           <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-            <p>Slicers provide a visual, user-friendly interface for filtering Excel Tables, displaying both active filtered items and inactive (dimmed) unselected items simultaneously.</p>
-            <p>Unlike hidden dropdown menus in AutoFilter, Slicers remain permanently visible on the canvas, providing immediate clarity on what data is currently being viewed.</p>
-            <p>Custom Slicer Styles allow complete cosmetic alignment with your corporate dashboard palette (dark slate containers, vibrant sky blue active buttons).</p>
+            <p>Duplicate records distort corporate analytics, leading to double-counted revenues, duplicate customer mailings, and inaccurate inventory metrics.</p>
+            <p>Excel's Remove Duplicates feature scans designated columns: if two rows contain identical values in ALL selected columns, Excel deletes subsequent occurrences, keeping only the first row.</p>
+            <p>For non-destructive unique extraction, modern Excel provides the =UNIQUE() dynamic array function, which generates a live, spill-updated list of unique items.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
             <div className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">Dynamic Boundary Self-Healing</h3>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">Destructive vs Non-Destructive</h3>
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                Excel Tables automatically expand their coordinate boundaries upon row entry, extending formulas and formats without manual drag.
+                Remove Duplicates permanently mutates source data, whereas =UNIQUE() extracts non-duplicate items live into a separate range.
               </p>
             </div>
             <div className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-sky-300 uppercase tracking-wider">Filter-Aware Subtotals</h3>
+              <h3 className="text-sm font-bold text-sky-300 uppercase tracking-wider">Case-Insensitive String Matching</h3>
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                Total Rows leverage =SUBTOTAL(109) to ignore hidden filtered rows, guaranteeing that visible summaries match screen views.
+                Excel considers 'Kolkata' and 'KOLKATA' as duplicates. Hidden spaces or non-breaking spaces prevent matches.
               </p>
             </div>
           </div>
         </section>
 
-        {/* =========================================================================
-            SECTION 4: INTERACTIVE SEMANTIC SVG DIAGRAM
-        ========================================================================= */}
+        {/* SECTION 4: INTERACTIVE SEMANTIC SVG DIAGRAM */}
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Architecture: Interactive Slicer UI Architecture: Multi-Column Buttons &amp; Visual Filtering
+            Visual Architecture: Raw Duplicate Stream to Clean Master Registry
           </h2>
 
           <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
             <svg viewBox="0 0 800 260" className="w-full max-w-3xl h-auto" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <linearGradient id="m5_table" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient id="m5_table_5" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
                   <stop offset="100%" stopColor="#0369a1" stopOpacity="0.4" />
                 </linearGradient>
-                <linearGradient id="m5_query" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient id="m5_query_5" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#059669" stopOpacity="0.8" />
                   <stop offset="100%" stopColor="#047857" stopOpacity="0.4" />
                 </linearGradient>
-                <linearGradient id="m5_slicer" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient id="m5_slicer_5" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.8" />
                   <stop offset="100%" stopColor="#6d28d9" stopOpacity="0.4" />
                 </linearGradient>
               </defs>
 
-              <rect x="30" y="50" width="200" height="150" rx="12" fill="url(#m5_table)" stroke="#38bdf8" strokeWidth="2" />
-              <text x="130" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">1. Excel Table (Ctrl+T)</text>
-              <text x="130" y="115" textAnchor="middle" fill="#e0f2fe" fontSize="11">Headers: tblStudents</text>
-              <text x="130" y="135" textAnchor="middle" fill="#e0f2fe" fontSize="11">Syntax: [@Course_Fee]</text>
-              <text x="130" y="165" textAnchor="middle" fill="#bae6fd" fontSize="11" fontWeight="bold">Auto-Expanding Grid</text>
+              <rect x="30" y="50" width="200" height="150" rx="12" fill="url(#m5_table_5)" stroke="#38bdf8" strokeWidth="2" />
+              <text x="130" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">1. Raw Data Stream</text>
+              <text x="130" y="115" textAnchor="middle" fill="#e0f2fe" fontSize="11">Contains 1,000 Records</text>
+              <text x="130" y="135" textAnchor="middle" fill="#e0f2fe" fontSize="11">200 Duplicate Entries</text>
+              <text x="130" y="165" textAnchor="middle" fill="#bae6fd" fontSize="11" fontWeight="bold">Raw Input</text>
 
               <path d="M 235 125 L 295 125" stroke="#38bdf8" strokeWidth="3" strokeDasharray="6,4" />
               <polygon points="295,120 305,125 295,130" fill="#38bdf8" />
 
-              <rect x="310" y="50" width="200" height="150" rx="12" fill="url(#m5_query)" stroke="#34d399" strokeWidth="2" />
-              <text x="410" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">2. Filter & Sort Engine</text>
-              <text x="410" y="115" textAnchor="middle" fill="#d1fae5" fontSize="11">Multi-Level Sorting</text>
-              <text x="410" y="135" textAnchor="middle" fill="#d1fae5" fontSize="11">Advanced Boolean Logic</text>
-              <text x="410" y="165" textAnchor="middle" fill="#a7f3d0" fontSize="11" fontWeight="bold">SUBTOTAL(109)</text>
+              <rect x="310" y="50" width="200" height="150" rx="12" fill="url(#m5_query_5)" stroke="#34d399" strokeWidth="2" />
+              <text x="410" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">2. Deduplication Engine</text>
+              <text x="410" y="115" textAnchor="middle" fill="#d1fae5" fontSize="11">Multi-Column Key Check</text>
+              <text x="410" y="135" textAnchor="middle" fill="#d1fae5" fontSize="11">Case-Insensitive Scan</text>
+              <text x="410" y="165" textAnchor="middle" fill="#a7f3d0" fontSize="11" fontWeight="bold">Remove Duplicates</text>
 
               <path d="M 515 125 L 575 125" stroke="#34d399" strokeWidth="3" strokeDasharray="6,4" />
               <polygon points="575,120 585,125 575,130" fill="#34d399" />
 
-              <rect x="590" y="50" width="180" height="150" rx="12" fill="url(#m5_slicer)" stroke="#a78bfa" strokeWidth="2" />
-              <text x="680" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">3. Interactive UI</text>
-              <text x="680" y="115" textAnchor="middle" fill="#ede9fe" fontSize="11">1-Click Slicer Buttons</text>
-              <text x="680" y="135" textAnchor="middle" fill="#ede9fe" fontSize="11">Multi-Select Filtering</text>
-              <text x="680" y="165" textAnchor="middle" fill="#ddd6fe" fontSize="11" fontWeight="bold">No-Code Dashboard</text>
+              <rect x="590" y="50" width="180" height="150" rx="12" fill="url(#m5_slicer_5)" stroke="#a78bfa" strokeWidth="2" />
+              <text x="680" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">3. Clean Registry</text>
+              <text x="680" y="115" textAnchor="middle" fill="#ede9fe" fontSize="11">800 Unique Master Rows</text>
+              <text x="680" y="135" textAnchor="middle" fill="#ede9fe" fontSize="11">Zero Error Propagation</text>
+              <text x="680" y="165" textAnchor="middle" fill="#ddd6fe" fontSize="11" fontWeight="bold">Master List</text>
             </svg>
           </div>
         </section>
 
-        {/* =========================================================================
-            SECTION 5: LIVE EXCEL PRACTICE GRID & DOWNLOAD PORTAL
-        ========================================================================= */}
+        {/* SECTION 5: LIVE EXCEL PRACTICE GRID & DOWNLOAD PORTAL */}
         <section
           ref={(el) => (sectionsRef.current[4] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
@@ -255,7 +244,7 @@ export default function Topic5() {
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
                 <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">📥</span>
-                Interactive Spreadsheet & Practice Workbook
+                Interactive Spreadsheet &amp; Practice Workbook
               </h2>
               <p className="text-xs sm:text-sm text-slate-400 mt-1">
                 Interact with the dataset live below or download the master chapter workbook to practice locally in desktop Excel.
@@ -275,23 +264,21 @@ export default function Topic5() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Excel_Tables"
-            title="Module 2.1 - Slicers for Excel Tables: Visual 1-Click Interactive Filtering and Dashboard Integration"
+            sheetName="EX106"
+            title="Module 2.1 - Removing Duplicates & Unique Record Extraction Engine"
             rowsPerPage={25}
             showSheetSelector={true}
           />
         </section>
 
-        {/* =========================================================================
-            SECTION 6: REAL-WORLD BUSINESS SCENARIOS (4+ CASES)
-        ========================================================================= */}
+        {/* SECTION 6: REAL-WORLD BUSINESS SCENARIOS (4+ CASES) */}
         <section
           ref={(el) => (sectionsRef.current[5] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
-            Real-World Business Scenarios (Bengal & Corporate Applications)
+            Real-World Business Scenarios (Bengal &amp; Corporate Applications)
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -299,103 +286,95 @@ export default function Topic5() {
             <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
-                <h3 className="text-base font-bold text-white">Coder &amp; AccoTax Multi-Branch Interactive Student Dashboard</h3>
+                <h3 className="text-base font-bold text-white">Titagarh Client Registry Deduplication</h3>
               </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Building 1-click Branch and Department slicers for academic counselors.</p>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Removing duplicate client profiles based on Client ID and Tax PAN number.</p>
               
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
                   <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Slicer_Name</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Button_Layout</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Interaction_Behavior</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Branch Slicer</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">4 Columns (Barrackpore, Shyamnagar, Ichapur, Kolkata)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Clicking 'Barrackpore' instantly filters table and charts in &lt;0.1s</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Department Slicer</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">3 Columns (Software, Taxation, Data Analytics)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Multi-selecting 'Software' + 'Taxation' shows combined cohort</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Initial_Rows</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Duplicates_Removed</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Clean_Total</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">1,200 Records</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">150 Duplicates</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">1,050 Unique Clients</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Table Slicers (Insert -&gt; Slicer)</div>
-                <div className="text-emerald-400 font-semibold">Result: Interactive app-like filtering interface without writing VBA.</div>
-                <div className="text-slate-400 text-[11px]">Slicers turn static tables into dynamic interactive web-like applications.</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Data -&gt; Remove Duplicates -&gt; Select All Columns</div>
+                <div className="text-emerald-400 font-semibold">Result: Clean client registry.</div>
+                <div className="text-slate-400 text-[11px]">Selecting multiple columns enforces multi-key uniqueness.</div>
               </div>
             </div>
             <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">02</span>
-                <h3 className="text-base font-bold text-white">Kolkata Corporate Executive Sales Region Slicer Panel</h3>
+                <h3 className="text-base font-bold text-white">Kolkata Customer Email List Cleaning</h3>
               </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Creating a horizontal 5-button Region Slicer bar above the main sales summary table.</p>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Extracting distinct customer email addresses using =UNIQUE().</p>
               
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
                   <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Layout_Setting</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Configuration_Applied</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Visual_Benefit</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Slicer Columns</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Set to 5 Columns</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Fits horizontally across top of sheet like a modern web nav-bar</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Slicer Style</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Dark Theme (Sky-500 Active / Slate-800 Inactive)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100% aesthetic match with Coder &amp; AccoTax executive theme</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Raw_Emails</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formula_Applied</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Spilled_List</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">500 Emails</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=UNIQUE(tblCustomers[Email])</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">380 Unique Emails</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Horizontal Multi-Column Slicer Bar</div>
-                <div className="text-emerald-400 font-semibold">Result: Compact, modern dashboard navigation header.</div>
-                <div className="text-slate-400 text-[11px]">Horizontal slicers save vertical canvas space on executive dashboards.</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Dynamic Array =UNIQUE()</div>
+                <div className="text-emerald-400 font-semibold">Result: Spilled unique email vector.</div>
+                <div className="text-slate-400 text-[11px]">=UNIQUE() updates live when new customers are added.</div>
               </div>
             </div>
             <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">03</span>
-                <h3 className="text-base font-bold text-white">Shyamnagar Regional Inventory Stock Status Slicer</h3>
+                <h3 className="text-base font-bold text-white">Barrackpore Student Enrollment Verification</h3>
               </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Filtering inventory by status: 'In Stock', 'Reorder Required', 'Discontinued'.</p>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Identifying students registered in multiple courses.</p>
               
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
                   <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Button_Clicked</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Table_Filtered_Rows</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Total_Row_Subtotal</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">'Reorder Required'</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">14 Critical SKUs displayed</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">₹ 4,50,000.00 Emergency Purchase Budget</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Student_ID</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Action</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Audit_Status</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">STD-1002</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Remove Duplicates (ID + Course)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Duplicate Regs Cleared</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Single-Click Status Slicer</div>
-                <div className="text-emerald-400 font-semibold">Result: Warehouse managers execute reorder audits in 1 second.</div>
-                <div className="text-slate-400 text-[11px]">Slicers accelerate routine operational decision-making.</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Multi-Key Deduplication</div>
+                <div className="text-emerald-400 font-semibold">Result: Clean enrollment roster.</div>
+                <div className="text-slate-400 text-[11px]">Check student ID and course code together to detect double enrollment.</div>
               </div>
             </div>
             <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">04</span>
-                <h3 className="text-base font-bold text-white">Ichapur Plant Machine Line Multi-Select Slicer Audit</h3>
+                <h3 className="text-base font-bold text-white">Shyamnagar Inventory SKU Cleaning</h3>
               </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Holding Ctrl to select Line 1 and Line 3 simultaneously while excluding Line 2.</p>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Trimming hidden spaces before running duplicate removal.</p>
               
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
                   <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Key_Action</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Selected_Lines</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Machine_Output</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Ctrl + Click 'Line 1' &amp; 'Line 3'</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Lines 1 and 3 highlighted in Sky Blue</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Combined throughput: 8,400 units</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">SKU_Input</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Pre-Clean</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Deduplication_Outcome</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">'SKU-101 '</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=TRIM(A4)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Exact Duplicate Matched</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Multi-Selection (Ctrl + Click)</div>
-                <div className="text-emerald-400 font-semibold">Result: Flexible custom subset aggregation on demand.</div>
-                <div className="text-slate-400 text-[11px]">Ctrl-click enables arbitrary category combination filtering.</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: TRIM() -&gt; Remove Duplicates</div>
+                <div className="text-emerald-400 font-semibold">Result: 100% accurate SKU count.</div>
+                <div className="text-slate-400 text-[11px]">Hidden trailing spaces cause Excel to view identical text as unique.</div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* =========================================================================
-            SECTION 7: STEP-BY-STEP CALCULATION WALKTHROUGH
-        ========================================================================= */}
+        {/* SECTION 7: STEP-BY-STEP CALCULATION WALKTHROUGH */}
         <section
           ref={(el) => (sectionsRef.current[6] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
@@ -406,58 +385,54 @@ export default function Topic5() {
           </h2>
 
           <div className="space-y-4">
+            
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-4">
               <span className="w-7 h-7 rounded-lg bg-sky-500/20 text-sky-300 text-xs font-bold flex items-center justify-center shrink-0">1</span>
               <div>
-                <h3 className="text-sm font-bold text-white">Convert Range to Structured Table</h3>
+                <h3 className="text-sm font-bold text-white">Backup Raw Data Worksheet</h3>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Click inside dataset. Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Ctrl + T</kbd> &rarr; Check 'My table has headers' &rarr; Click OK. Rename table in Table Design tab.
+                  Right-click worksheet tab -&gt; Move or Copy -&gt; Create a copy (Safeguard raw data).
                 </p>
               </div>
             </div>
-
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-4">
               <span className="w-7 h-7 rounded-lg bg-teal-500/20 text-teal-300 text-xs font-bold flex items-center justify-center shrink-0">2</span>
               <div>
-                <h3 className="text-sm font-bold text-white">Input Structured Formula & Enable Total Row</h3>
+                <h3 className="text-sm font-bold text-white">Select Dataset & Open Remove Duplicates</h3>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Type <code className="text-amber-300 font-mono">=[@Fee] * 0.18</code> in calculated column. Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Ctrl + Shift + T</kbd> to activate Total Row.
+                  Click inside table. Press Alt + A + M to open Remove Duplicates dialog.
                 </p>
               </div>
             </div>
-
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-4">
               <span className="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-300 text-xs font-bold flex items-center justify-center shrink-0">3</span>
               <div>
-                <h3 className="text-sm font-bold text-white">Configure Multi-Level Sort Hierarchy</h3>
+                <h3 className="text-sm font-bold text-white">Configure Matching Key Columns</h3>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Alt + D + S</kbd> to open Sort dialog. Add Level 1 (Branch), Level 2 (Department), and Level 3 (Total Marks Descending).
+                  Check column checkboxes defining uniqueness (e.g. Customer ID + Email).
                 </p>
               </div>
             </div>
-
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-4">
               <span className="w-7 h-7 rounded-lg bg-indigo-500/20 text-indigo-300 text-xs font-bold flex items-center justify-center shrink-0">4</span>
               <div>
-                <h3 className="text-sm font-bold text-white">Insert & Format Interactive Slicers</h3>
+                <h3 className="text-sm font-bold text-white">Execute & Confirm Deletion Summary</h3>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Go to Table Design &rarr; <strong>Insert Slicer</strong> &rarr; Select Branch and Department. Set Slicer Columns to 4 and align horizontally.
+                  Click OK. Excel displays summary: 'X duplicate values found and removed; Y unique values remain'.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* =========================================================================
-            SECTION 8: COMMON PITFALLS & TROUBLESHOOTING MATRIX
-        ========================================================================= */}
+        {/* SECTION 8: COMMON PITFALLS & TROUBLESHOOTING MATRIX */}
         <section
           ref={(el) => (sectionsRef.current[7] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-500/20 text-rose-400 text-base font-mono">⚠️</span>
-            Common Pitfalls & Diagnostic Troubleshooting
+            Common Pitfalls &amp; Diagnostic Troubleshooting
           </h2>
 
           <div className="overflow-x-auto">
@@ -473,72 +448,68 @@ export default function Topic5() {
               <tbody className="divide-y divide-slate-800/50">
                 
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-rose-300 font-mono font-bold">Slicers Grayed Out / Disabled</td>
-                  <td className="py-3 px-4 text-slate-300">Attempting to insert a slicer on a normal range instead of an Excel Table (Ctrl+T).</td>
-                  <td className="py-3 px-4 text-amber-300">Insert Slicer button is disabled in the Ribbon.</td>
-                  <td className="py-3 px-4 text-emerald-400 font-medium">Convert the data to an Excel Table (Ctrl + T) first.</td>
+                  <td className="py-3 px-4 text-rose-300 font-mono font-bold">Identical-Looking Text Not Removed as Duplicate</td>
+                  <td className="py-3 px-4 text-slate-300">Hidden leading/trailing spaces or non-breaking space characters.</td>
+                  <td className="py-3 px-4 text-amber-300">Test cell lengths with =LEN().</td>
+                  <td className="py-3 px-4 text-emerald-400 font-medium">Apply =TRIM(CLEAN(cell)) to strip invisible spaces before deduplicating.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-rose-300 font-mono font-bold">Slicers Moving / Stretching when Columns Resize</td>
-                  <td className="py-3 px-4 text-slate-300">Slicer property set to 'Move and size with cells'.</td>
-                  <td className="py-3 px-4 text-amber-300">Slicer becomes distorted when column widths are adjusted.</td>
-                  <td className="py-3 px-4 text-emerald-400 font-medium">Right-click Slicer -&gt; Size and Properties -&gt; Select 'Don\'t move or size with cells'.</td>
+                  <td className="py-3 px-4 text-rose-300 font-mono font-bold">Remove Duplicates Deleted Important Data</td>
+                  <td className="py-3 px-4 text-slate-300">Only 1 column was checked in dialog instead of full composite key.</td>
+                  <td className="py-3 px-4 text-amber-300">Undo immediately (Ctrl + Z).</td>
+                  <td className="py-3 px-4 text-emerald-400 font-medium">Select all key columns defining record uniqueness before clicking OK.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-rose-300 font-mono font-bold">Cluttering Dashboard with 10 Slicers</td>
-                  <td className="py-3 px-4 text-slate-300">Adding a slicer for every single column in the table.</td>
-                  <td className="py-3 px-4 text-amber-300">Canvas becomes overwhelmed with button clutter.</td>
-                  <td className="py-3 px-4 text-emerald-400 font-medium">Limit slicers to 2 or 3 high-impact categorical dimensions (e.g. Branch, Status).</td>
+                  <td className="py-3 px-4 text-rose-300 font-mono font-bold">=UNIQUE() Returns #SPILL! Error</td>
+                  <td className="py-3 px-4 text-slate-300">Cell range below =UNIQUE() formula contains text or formatting obstacles.</td>
+                  <td className="py-3 px-4 text-amber-300">Inspect cells below formula.</td>
+                  <td className="py-3 px-4 text-emerald-400 font-medium">Clear all content in the spill path.</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </section>
 
-        {/* =========================================================================
-            SECTION 9: PRO TIPS & PRODUCTIVITY SHORTCUTS
-        ========================================================================= */}
+        {/* SECTION 9: PRO TIPS & PRODUCTIVITY SHORTCUTS */}
         <section
           ref={(el) => (sectionsRef.current[8] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 text-base font-mono">💡</span>
-            Classroom Pro Tips & High-Speed Shortcuts
+            Classroom Pro Tips &amp; High-Speed Shortcuts
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                Alt + J + T + S
+                Alt + A + M
               </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Insert Slicer on active Excel Table.</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Open Data -&gt; Remove Duplicates dialog instantly.</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                Ctrl + Click (on Slicer Button)
+                Ctrl + Z
               </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Select multiple non-contiguous buttons simultaneously.</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Undo accidental duplicate deletion immediately.</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                Alt + C (inside Slicer)
+                =UNIQUE()
               </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Clear active Slicer filter.</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Extract non-destructive unique list using dynamic array formula.</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                Slicer Tools -&gt; Columns: N
+                =TRIM()
               </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Change button layout from vertical stack to multi-column horizontal grid.</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Remove leading and trailing spaces before deduplicating.</p>
             </div>
           </div>
         </section>
 
-        {/* =========================================================================
-            SECTION 10: SOCRATIC ANALYTICAL HINTS ("THINK ABOUT...")
-        ========================================================================= */}
+        {/* SECTION 10: SOCRATIC ANALYTICAL HINTS ("THINK ABOUT...") */}
         <section
           ref={(el) => (sectionsRef.current[9] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
@@ -552,35 +523,34 @@ export default function Topic5() {
             
             <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
               <span className="text-teal-400 text-base">❓</span>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Why are Slicers vastly superior to traditional AutoFilter dropdowns in executive dashboard presentations?</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Why is running =TRIM() essential prior to removing duplicate text records?</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
               <span className="text-teal-400 text-base">❓</span>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Why must Slicers be configured with 'Don\'t move or size with cells' in corporate dashboard templates?</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">What is the operational risk of using destructive Remove Duplicates vs non-destructive =UNIQUE()?</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
               <span className="text-teal-400 text-base">❓</span>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">How do Slicers provide immediate visual feedback on which data categories are currently active vs inactive?</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">How does Excel evaluate record uniqueness when multiple column checkboxes are selected?</p>
             </div>
           </div>
         </section>
 
-        {/* =========================================================================
-            SECTION 11: COMPREHENSIVE FAQ SECTION (30 QUESTIONS)
-        ========================================================================= */}
+        {/* SECTION 11: COMPREHENSIVE FAQ SECTION (30 QUESTIONS) */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Slicers for Excel Tables: Visual 1-Click Interactive Filtering and Dashboard Integration - Frequently Asked Questions"
+            title="Removing Duplicates & Unique Record Extraction - Frequently Asked Questions"
             questions={questions}
           />
         </div>
 
-        {/* =========================================================================
-            SECTION 12: TEACHER'S NOTE & EXAM WISDOM
-        ========================================================================= */}
+        {/* SECTION 12: TEACHER'S NOTE & EXAM WISDOM */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="Slicers are the secret to building executive dashboards that look like custom software! Always convert your data to an Excel Table (Ctrl + T), click Table Design -> Insert Slicer, and arrange your buttons into 3 or 4 columns across the top. Right-click the slicer, go to Properties, and set 'Don't move or size with cells' so your buttons never stretch when columns are resized!"
+            topicName="Removing Duplicates & Unique Record Extraction Engine"
+            noteTitle="Sukanta Hui's Master Mentor Guide"
+            mentorAdvice="Always duplicate your worksheet tab before running Data -&gt; Remove Duplicates! Remove Duplicates is a destructive operation. Keeping a raw backup sheet ensures you can verify deleted records against audit logs!"
+            note="Master deduplication mechanics! Use TRIM() to clean hidden text spaces and leverage =UNIQUE() for live, non-destructive summary lists!"
           />
         </div>
       </div>

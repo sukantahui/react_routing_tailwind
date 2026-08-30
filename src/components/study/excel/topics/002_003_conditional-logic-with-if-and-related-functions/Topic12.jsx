@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/conditional_logic_with_if_and_related_functions_master.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/002_003_conditional_logic_with_if_and_related_functions_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic12_files/topic12_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
