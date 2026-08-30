@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import clsx from "clsx";
+import React, { useState, useEffect, useRef } from "react";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
 import sampleWorkbookUrl from "./excel_files/001_003_basic_formulas_and_functions_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
@@ -37,6 +36,119 @@ export default function Topic9() {
     document.body.removeChild(link);
   };
 
+  const engineeringExamples = [
+    {
+      id: "1",
+      code: "ENG-101",
+      category: "Thermodynamics",
+      system: "HVAC Steam Boiler Temp",
+      raw: "100.0",
+      target: '"F"',
+      formula: '=CONVERT(100, "C", "F")',
+      output: "212.00 °F",
+      rationale: "Converts HVAC steam boiler temperature from Celsius to Fahrenheit for US equipment telemetry."
+    },
+    {
+      id: "2",
+      code: "ENG-102",
+      category: "Thermodynamics",
+      system: "Thermodynamic Chamber",
+      raw: "25.0",
+      target: '"K"',
+      formula: '=CONVERT(25, "C", "K")',
+      output: "298.15 K",
+      rationale: "Converts ambient room temperature to Kelvin for gas expansion entropy calculations."
+    },
+    {
+      id: "3",
+      code: "ENG-103",
+      category: "Structural Mechanics",
+      system: "Bridge Structural Load",
+      raw: "100.0",
+      target: '"N"',
+      formula: '=CONVERT(100, "lbf", "N")',
+      output: "444.82 N",
+      rationale: "Converts imperial load limits to metric SI Newtons for bridge structural stress analysis."
+    },
+    {
+      id: "4",
+      code: "ENG-104",
+      category: "Logistics",
+      system: "Freight Transit Distance",
+      raw: "100.0",
+      target: '"mi"',
+      formula: '=CONVERT(100, "km", "mi")',
+      output: "62.14 mi",
+      rationale: "Converts freight logistics transit distance for international shipping ledgers."
+    },
+    {
+      id: "5",
+      code: "ENG-105",
+      category: "Fluid Dynamics",
+      system: "Hydraulic Pump Pressure",
+      raw: "1.0",
+      target: '"psi"',
+      formula: '=CONVERT(1, "atm", "psi")',
+      output: "14.70 psi",
+      rationale: "Converts standard atmospheric pressure to pounds per square inch for hydraulic pump specs."
+    },
+    {
+      id: "6",
+      code: "ENG-106",
+      category: "SCADA Security",
+      system: "SCADA User Auth Bitmask",
+      raw: "13",
+      target: "4",
+      formula: "=BITAND(13, 4)",
+      output: "4 (Execute Active)",
+      rationale: "Decodes user security flag (13 = 1101 binary) to verify if Bit 2 (Execute Access = 4) is granted."
+    },
+    {
+      id: "7",
+      code: "ENG-107",
+      category: "IoT Telemetry",
+      system: "IoT Thermal Trip Byte",
+      raw: "36",
+      target: "32",
+      formula: '=IF(BITAND(36, 32)=32, "ALERT", "NORMAL")',
+      output: "ALERT",
+      rationale: "Checks SCADA status byte (36 = 100100 binary) to see if emergency thermal trip bit (32) is active."
+    },
+    {
+      id: "8",
+      code: "ENG-108",
+      category: "Bitwise Logic",
+      system: "Role Permission Assembler",
+      raw: "1 (Read), 4 (Exec)",
+      target: "BITOR",
+      formula: "=BITOR(1, 4)",
+      output: "5 (Read + Exec)",
+      rationale: "Combines individual role permission flags into unified composite integer mask."
+    },
+    {
+      id: "9",
+      code: "ENG-109",
+      category: "Signal Processing",
+      system: "Telemetry Register Delta",
+      raw: "12, 10",
+      target: "BITXOR",
+      formula: "=BITXOR(12, 10)",
+      output: "6 (Delta Bit)",
+      rationale: "Evaluates changed bits between previous and current telemetry registers for delta compression."
+    },
+    {
+      id: "10",
+      code: "ENG-110",
+      category: "Hardware Telemetry",
+      system: "Microcontroller Sensor Feed",
+      raw: '"00001101"',
+      target: "DEC",
+      formula: '=BIN2DEC("00001101")',
+      output: "13",
+      rationale: "Converts 8-bit binary string payload from IoT sensor into numeric integer decimal."
+    }
+  ];
+
   return (
     <div className="dark bg-slate-950 text-slate-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8 font-sans selection:bg-sky-500/30 selection:text-sky-200">
       <style>{`
@@ -60,7 +172,7 @@ export default function Topic9() {
             <span>⚙️</span> Excel Engineering Masterclass · Topic 9
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent tracking-tight">
-            Engineering Conversions & Bitwise Operations
+            Engineering Conversions &amp; Bitwise Operations
           </h1>
           <p className="text-slate-300 mt-4 text-base sm:text-lg leading-relaxed max-w-4xl">
             Harness Excel's industrial engineering and low-level computing engines: seamlessly convert across metric, imperial, thermodynamic, and pressure units with <code className="text-sky-300 bg-slate-800 px-1.5 py-0.5 rounded">CONVERT()</code>, and execute 48-bit silicon bitwise masking and number base translations with <code className="text-teal-300 bg-slate-800 px-1.5 py-0.5 rounded">BITAND</code>, <code className="text-teal-300 bg-slate-800 px-1.5 py-0.5 rounded">BITOR</code>, <code className="text-teal-300 bg-slate-800 px-1.5 py-0.5 rounded">BITXOR</code>, and <code className="text-indigo-300 bg-slate-800 px-1.5 py-0.5 rounded">BIN2DEC</code>.
@@ -74,7 +186,7 @@ export default function Topic9() {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="p-2 rounded-xl bg-sky-950 border border-sky-800 text-sky-400">⚡</span>
-            Formula Syntax & Signature Matrix
+            Formula Syntax &amp; Signature Matrix
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -84,7 +196,7 @@ export default function Topic9() {
                 =CONVERT(number, from_unit, to_unit)
               </code>
               <p className="text-xs text-slate-400">
-                Converts numbers across thermodynamics (&quot;C&quot;,&quot;F&quot;), distance (&quot;m&quot;,&quot;km&quot;,&quot;mi&quot;,&quot;ft&quot;), mass (&quot;kg&quot;,&quot;lbm&quot;), and pressure (&quot;atm&quot;,&quot;Pa&quot;,&quot;psi&quot;).
+                Converts numbers across thermodynamics (&quot;C&quot;,&quot;F&quot;,&quot;K&quot;), distance (&quot;m&quot;,&quot;km&quot;,&quot;mi&quot;,&quot;ft&quot;), mass (&quot;kg&quot;,&quot;lbm&quot;), and pressure (&quot;atm&quot;,&quot;Pa&quot;,&quot;psi&quot;).
               </p>
             </div>
 
@@ -107,7 +219,7 @@ export default function Topic9() {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="p-2 rounded-xl bg-emerald-950 border border-emerald-800 text-emerald-400">🔬</span>
-            Computational Mechanics & Bitmask Architecture
+            Computational Mechanics &amp; Bitmask Architecture
           </h2>
 
           <div className="space-y-4 text-sm text-slate-300 leading-relaxed">
@@ -133,23 +245,21 @@ export default function Topic9() {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="p-2 rounded-xl bg-indigo-950 border border-indigo-800 text-indigo-400">📐</span>
-            Visual Bitwise Logic & Unit Transformation Engine
+            Visual Bitwise Logic &amp; Unit Transformation Engine
           </h2>
 
           <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex justify-center">
             <svg className="w-full max-w-2xl h-auto" viewBox="0 0 700 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-              {/* Unit Conversion Flow */}
               <rect x="20" y="30" width="160" height="70" rx="12" fill="#0F172A" stroke="#0284C7" strokeWidth="2" />
               <text x="100" y="60" fill="#38BDF8" fontSize="13" fontWeight="bold" textAnchor="middle">Input Value: 100°C</text>
               <text x="100" y="80" fill="#94A3B8" fontSize="11" textAnchor="middle">=CONVERT(100, &quot;C&quot;, &quot;F&quot;)</text>
 
-              <path d="M190 65 H 250" stroke="#38BDF8" strokeWidth="2" strokeDasharray="4 4" markerEnd="url(#arrow)" />
+              <path d="M190 65 H 250" stroke="#38BDF8" strokeWidth="2" strokeDasharray="4 4" />
 
               <rect x="260" y="30" width="160" height="70" rx="12" fill="#0F172A" stroke="#059669" strokeWidth="2" />
               <text x="340" y="60" fill="#34D399" fontSize="13" fontWeight="bold" textAnchor="middle">Output Value: 212°F</text>
               <text x="340" y="80" fill="#94A3B8" fontSize="11" textAnchor="middle">Zero Distortion Scaling</text>
 
-              {/* Bitwise Mask Flow */}
               <rect x="20" y="130" width="160" height="70" rx="12" fill="#0F172A" stroke="#7C3AED" strokeWidth="2" />
               <text x="100" y="160" fill="#A78BFA" fontSize="13" fontWeight="bold" textAnchor="middle">Register: 0110 (6)</text>
               <text x="100" y="180" fill="#94A3B8" fontSize="11" textAnchor="middle">Mask: 0011 (3)</text>
@@ -177,10 +287,10 @@ export default function Topic9() {
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
                 <span className="p-2 rounded-xl bg-emerald-950 border border-emerald-800 text-emerald-400">📥</span>
-                Interactive Spreadsheet & Chapter Practice Workbook
+                Interactive Spreadsheet &amp; Practice Grid
               </h2>
               <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                Inspect the engineering unit datasets and bitwise calculation models live or download the complete chapter workbook (.xlsx).
+                Inspect raw engineering sensor payloads vs converted formula displays on worksheet tab Topic9.
               </p>
             </div>
             <button
@@ -196,44 +306,63 @@ export default function Topic9() {
           </div>
 
           <ExcelFileLoader
-            fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Basic_Formulas"
-            title="Interactive Engineering & Formula Practice Grid"
-            rowsPerPage={25}
-            showSheetSelector={true}
+            fileUrl={sampleWorkbookUrl}
+            defaultSheetName="Topic9"
           />
         </section>
 
-        {/* SECTION 6: REAL-WORLD SCENARIOS */}
+        {/* SECTION 6: 10 COMPREHENSIVE REAL-WORLD EXAMPLES & EXPLANATIONS */}
         <section
           ref={(el) => (sectionsRef.current[5] = el)}
           className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="p-2 rounded-xl bg-amber-950 border border-amber-800 text-amber-400">🏢</span>
-            Real-World Industrial Case Studies
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
-              <h3 className="text-base font-bold text-amber-300">Case 1: Barrackpore Engineering HVAC Heat Exchanger</h3>
-              <p className="text-xs text-slate-300 leading-relaxed">
-                Swadeep converts temperature telemetry from sensor feeds in Celsius to thermodynamic Kelvin for entropy calculations:
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-800">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="p-2 rounded-xl bg-amber-950 border border-amber-800 text-amber-400">📊</span>
+                10 Real-World Engineering &amp; Bitwise Operations Scenarios
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                Comparing raw telemetry inputs, target units/bitmasks, exact Excel formulas, evaluated output displays, and industrial business rationale.
               </p>
-              <code className="text-xs font-mono text-sky-300 block bg-slate-900 p-2 rounded">
-                =CONVERT(B3, &quot;C&quot;, &quot;K&quot;)
-              </code>
             </div>
+            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/80 px-3 py-1.5 rounded-full border border-emerald-800 shrink-0 font-bold">
+              10 Scenarios
+            </span>
+          </div>
 
-            <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
-              <h3 className="text-base font-bold text-amber-300">Case 2: Shyamnagar IoT Security Bitmasking</h3>
-              <p className="text-xs text-slate-300 leading-relaxed">
-                Tuhina inspects packed hardware status bytes in column D to verify if the emergency thermal alarm (Bit 5, value 32) is triggered:
-              </p>
-              <code className="text-xs font-mono text-emerald-300 block bg-slate-900 p-2 rounded">
-                =IF(BITAND(D3, 32) = 32, &quot;ALERT&quot;, &quot;NORMAL&quot;)
-              </code>
-            </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr className="border-b border-slate-800 text-slate-400 font-semibold bg-slate-950/80">
+                  <th className="py-3 px-3">#</th>
+                  <th className="py-3 px-3">Code &amp; Category</th>
+                  <th className="py-3 px-3">Sensor System</th>
+                  <th className="py-3 px-3">Raw Stored Input</th>
+                  <th className="py-3 px-3">Target Unit / Bitmask</th>
+                  <th className="py-3 px-3">Applied Excel Formula</th>
+                  <th className="py-3 px-3">Evaluated Output</th>
+                  <th className="py-3 px-3 min-w-[260px]">Business Rationale &amp; Use Case</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/60 text-slate-300">
+                {engineeringExamples.map((ex) => (
+                  <tr key={ex.id} className="hover:bg-slate-800/40 transition-colors">
+                    <td className="py-3 px-3 font-mono text-slate-500">{ex.id}</td>
+                    <td className="py-3 px-3 font-semibold text-sky-300">
+                      <div className="font-mono text-[11px] text-slate-400">{ex.code}</div>
+                      <div>{ex.category}</div>
+                    </td>
+                    <td className="py-3 px-3 font-medium text-slate-200">{ex.system}</td>
+                    <td className="py-3 px-3 font-mono text-amber-300">{ex.raw}</td>
+                    <td className="py-3 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">{ex.target}</td>
+                    <td className="py-3 px-3 font-mono text-teal-300 bg-slate-950/60 rounded px-2 text-[11px]">{ex.formula}</td>
+                    <td className="py-3 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">{ex.output}</td>
+                    <td className="py-3 px-3 text-slate-300 leading-relaxed text-[11px]">{ex.rationale}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </section>
 
@@ -244,7 +373,7 @@ export default function Topic9() {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="p-2 rounded-xl bg-rose-950 border border-rose-800 text-rose-400">⚠️</span>
-            Troubleshooting & Diagnostic Matrix
+            Troubleshooting &amp; Diagnostic Matrix
           </h2>
 
           <div className="overflow-x-auto">
@@ -275,7 +404,7 @@ export default function Topic9() {
         {/* SECTION 8: FAQ ACCORDION */}
         <div ref={(el) => (sectionsRef.current[7] = el)} className="reveal-section">
           <FAQTemplate
-            title="Engineering Conversions & Bitwise Operations FAQ"
+            title="Engineering Conversions &amp; Bitwise Operations FAQ"
             questions={questions}
           />
         </div>
@@ -283,7 +412,7 @@ export default function Topic9() {
         {/* SECTION 9: TEACHER NOTE */}
         <div ref={(el) => (sectionsRef.current[8] = el)} className="reveal-section">
           <Teacher
-            topicName="Engineering Unit Conversions & Bitwise Operations"
+            topicName="Engineering Unit Conversions &amp; Bitwise Operations"
             noteTitle="Sukanta Hui's Pedagogical Guide"
             mentorAdvice={"Remember: Bitwise operations are the foundation of high-performance data packing in enterprise ERPs and telemetry. When working with HEX2DEC or BIN2DEC, always wrap hexadecimal strings in double quotes so Excel does not misidentify column headers like 'AD' or 'CA' as cell coordinates."}
           />

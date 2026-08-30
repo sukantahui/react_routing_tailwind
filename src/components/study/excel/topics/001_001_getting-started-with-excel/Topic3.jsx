@@ -280,7 +280,7 @@ export default function Topic3() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic3_Understanding_work"
+            sheetName="Topic3"
             title="Module 1.1 - Understanding Workbooks, Worksheets, Rows, Columns and Grid Coordinate Limits"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -294,107 +294,196 @@ export default function Topic3() {
           ref={(el) => (sectionsRef.current[5] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
-            Real-World Business Scenarios (Bengal & Corporate Applications)
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
-                <h3 className="text-base font-bold text-white">Kolkata Retail Chain Multi-Year Transaction Storage Planning</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">An IT manager checks whether 3 years of 300,000 annual sales receipts fit in a single worksheet.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Annual_Receipts</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Total_3_Year_Rows</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Excel_Worksheet_Limit</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Feasibility_Verdict</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">300,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">900,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">1,048,576 rows</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Fits comfortably in 1 sheet (85.8% capacity)</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =ROWS(A:A)</div>
-                <div className="text-emerald-400 font-semibold">Result: 1,048,576 rows capacity verified.</div>
-                <div className="text-slate-400 text-[11px]">Understanding physical limits allows proper database partitioning across multiple sheets or Power Pivot data models.</div>
-              </div>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
+                20 Real-World Business Scenarios: Cell Referencing &amp; Grid Navigation
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                20 practical workplace scenarios detailing absolute/relative references, mouse cursor modes, keyboard jump shortcuts, and range pointers.
+              </p>
             </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">02</span>
-                <h3 className="text-base font-bold text-white">Barrackpore Academic Institute Semester-Wise Sheet Tab Organization</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Coder &amp; AccoTax structures a workbook with dedicated sheets for Sem1, Sem2, Sem3, and Summary.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Sheet_Tab_Name</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Character_Count</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Validity_Check</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Status</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Sem1_Accounts_2026</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">18 chars</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Within 31 chars, no illegal symbols</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Valid</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Sem2_Taxation/GST</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">17 chars</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Contains illegal '/' character</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">INVALID - Rename to Sem2_Taxation_GST</td></tr>
-                  </tbody>
-                </table>
-              </div>
+            <span className="text-xs font-mono text-amber-300 bg-amber-950/80 px-3 py-1.5 rounded-full border border-amber-800 shrink-0 font-bold">
+              20 Real-World Examples
+            </span>
+          </div>
 
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Sheet Tab Naming Protocol</div>
-                <div className="text-emerald-400 font-semibold">Result: Structured workbook with zero tab name corruption.</div>
-                <div className="text-slate-400 text-[11px]">Adhering to worksheet naming rules ensures robust formula referencing across sheets.</div>
-              </div>
-            </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">03</span>
-                <h3 className="text-base font-bold text-white">Naihati Logistics Used Range Bloat Elimination</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">A file of 500 rows ballooned to 45 MB because formatting was applied to column Z row 1,000,000.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Metric</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Before_Cleanup</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">After_Cleanup</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Optimization_Gain</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Ctrl + End Target</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Z1048576</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">F505</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">1,048,071 phantom rows removed</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">File Size</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">45.2 MB</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">185 KB</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">99.6% file size reduction</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Delete rows 506 to 1048576 &amp;rarr; Save Workbook</div>
-                <div className="text-emerald-400 font-semibold">Result: Workbook opens instantly with zero memory lag.</div>
-                <div className="text-slate-400 text-[11px]">Resetting the used range eliminates phantom cells and speeds up workbook load times.</div>
-              </div>
-            </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">04</span>
-                <h3 className="text-base font-bold text-white">Shyamnagar Manufacturing Monthly 3D Consolidation</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Consolidating sales figures from 12 monthly sheets (Jan to Dec) into an Annual Summary sheet.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Consolidation_Formula</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Referenced_Sheets</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Target_Cell</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Result</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=SUM(Jan:Dec!B5)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Jan, Feb, Mar ... Dec</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Annual_Summary!B5</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Sum of cell B5 across all 12 sheets calculated in 1 formula</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =SUM('Jan:Dec'!B5)</div>
-                <div className="text-emerald-400 font-semibold">Result: 3D formula sums identical cell coordinates across sheet tabs.</div>
-                <div className="text-slate-400 text-[11px]">Worksheet tab ranges enable elegant 3D financial consolidation across multi-period workbooks.</div>
-              </div>
-            </div>
+          <div className="overflow-x-auto rounded-xl border border-slate-800">
+            <table className="w-full text-left text-xs text-slate-300 border-collapse">
+              <thead>
+                <tr className="bg-slate-950 text-slate-400 font-semibold uppercase tracking-wider border-b border-slate-800">
+                  <th className="py-3 px-3 w-16">ID</th>
+                  <th className="py-3 px-3">Business Application</th>
+                  <th className="py-3 px-3">Reference / Cursor Mode</th>
+                  <th className="py-3 px-3">Applied Syntax / Keyboard Action</th>
+                  <th className="py-3 px-3">Calculated Output</th>
+                  <th className="py-3 px-3">Key Structural Advantage</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/60 font-mono">
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CA-101</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Kolkata CA Tax Commission Lock</td>
+                  <td className="py-2.5 px-3 text-sky-300">Absolute Cell Reference</td>
+                  <td className="py-2.5 px-3 text-amber-300">`=B2*$C$1` (C1 = 18% GST)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Locked to C1</td>
+                  <td className="py-2.5 px-3 text-slate-300">Prevents tax rate cell drift when dragging formula down.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CA-102</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Barrackpore Payroll Line Multiplication</td>
+                  <td className="py-2.5 px-3 text-sky-300">Relative Cell Reference</td>
+                  <td className="py-2.5 px-3 text-amber-300">`=B2*C2` (Hours * Rate)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Shifted to B3*C3</td>
+                  <td className="py-2.5 px-3 text-slate-300">Automatically adjusts row index relative to position.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CA-103</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Shyamnagar Supermarket Pricing Matrix</td>
+                  <td className="py-2.5 px-3 text-sky-300">Mixed Column-Fixed Reference</td>
+                  <td className="py-2.5 px-3 text-amber-300">`=$A2*B$1`</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Grid Product Matrix</td>
+                  <td className="py-2.5 px-3 text-slate-300">Locks base product price column while allowing tier rates.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CA-104</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Salt Lake SaaS Discount Schedule</td>
+                  <td className="py-2.5 px-3 text-sky-300">Mixed Row-Fixed Reference</td>
+                  <td className="py-2.5 px-3 text-amber-300">`=B2*(1-B$1)`</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Locked to Row 1</td>
+                  <td className="py-2.5 px-3 text-slate-300">Locks tier discount header row across multiple columns.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CA-105</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Ichapur Plant Weekly Revenue Sum</td>
+                  <td className="py-2.5 px-3 text-sky-300">Contiguous Range Reference</td>
+                  <td className="py-2.5 px-3 text-amber-300">`=SUM(C2:C50)`</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Range Total</td>
+                  <td className="py-2.5 px-3 text-slate-300">Aggregates continuous vertical numeric array.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CA-106</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Titagarh Mill Non-Adjacent Accounts</td>
+                  <td className="py-2.5 px-3 text-sky-300">Non-Contiguous Multi-Range</td>
+                  <td className="py-2.5 px-3 text-amber-300">`=SUM(B2:B10, E2:E10)`</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Combined Total</td>
+                  <td className="py-2.5 px-3 text-slate-300">Sums isolated blocks skipping intermediate columns.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CA-107</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Naihati Dynamic Invoice Totaling</td>
+                  <td className="py-2.5 px-3 text-sky-300">Entire Column Reference</td>
+                  <td className="py-2.5 px-3 text-amber-300">`=SUM(D:D)`</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Entire Col Sum</td>
+                  <td className="py-2.5 px-3 text-slate-300">Automatically captures newly added rows at the bottom.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CA-108</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Sodepur Store Banner Header Total</td>
+                  <td className="py-2.5 px-3 text-sky-300">Entire Row Reference</td>
+                  <td className="py-2.5 px-3 text-amber-300">`=SUM(5:5)`</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Entire Row Sum</td>
+                  <td className="py-2.5 px-3 text-slate-300">Sums horizontal store totals across all monthly columns.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CA-109</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Howrah Freight Range Highlighting</td>
+                  <td className="py-2.5 px-3 text-sky-300">White Cross Pointer</td>
+                  <td className="py-2.5 px-3 text-amber-300">Click B2 &amp; Drag to D20</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Range B2:D20 Selected</td>
+                  <td className="py-2.5 px-3 text-slate-300">Standard range selection cursor mode.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CA-110</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Durgapur Steel AutoFill Series</td>
+                  <td className="py-2.5 px-3 text-sky-300">Black Plus Fill Handle</td>
+                  <td className="py-2.5 px-3 text-amber-300">Drag bottom-right cell corner</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Formulas Copied</td>
+                  <td className="py-2.5 px-3 text-slate-300">Rapid replication of logic across adjacent cells.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CA-111</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Asansol Power Block Move Operation</td>
+                  <td className="py-2.5 px-3 text-sky-300">4-Headed Arrow Pointer</td>
+                  <td className="py-2.5 px-3 text-amber-300">Drag border of range D2:D10</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Block Relocated</td>
+                  <td className="py-2.5 px-3 text-slate-300">Moves cell contents updating relative internal references.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CA-112</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Siliguri Tea Column Resizing</td>
+                  <td className="py-2.5 px-3 text-sky-300">Double-Arrow Column Divider</td>
+                  <td className="py-2.5 px-3 text-amber-300">Double-click between Col B &amp; C</td>
+                  <td className="py-2.5 px-3 text-emerald-400">AutoFit Column B</td>
+                  <td className="py-2.5 px-3 text-slate-300">Adjusts column width to fit longest text string.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CA-113</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Haldia Port 50,000-Row Navigation</td>
+                  <td className="py-2.5 px-3 text-sky-300">Ctrl + Down Arrow Jump</td>
+                  <td className="py-2.5 px-3 text-amber-300">Press Ctrl + Down Arrow</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Jumps to Row 50,000</td>
+                  <td className="py-2.5 px-3 text-slate-300">Navigates instantly to end of continuous data region.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CA-114</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Malda Mango Rapid Block Selection</td>
+                  <td className="py-2.5 px-3 text-sky-300">Ctrl + Shift + Down/Right</td>
+                  <td className="py-2.5 px-3 text-amber-300">Press Ctrl + Shift + Down Arrow</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Entire Table Selected</td>
+                  <td className="py-2.5 px-3 text-slate-300">Selects 10,000 data rows in under 0.1 seconds.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CA-115</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Midnapore Hospital Top-Left Return</td>
+                  <td className="py-2.5 px-3 text-sky-300">Ctrl + Home Shortcut</td>
+                  <td className="py-2.5 px-3 text-amber-300">Press Ctrl + Home</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Jumped to Cell A1</td>
+                  <td className="py-2.5 px-3 text-slate-300">Returns cursor to top-left origin cell from anywhere.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CA-116</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Kharagpur Library Used Range Check</td>
+                  <td className="py-2.5 px-3 text-sky-300">Ctrl + End Shortcut</td>
+                  <td className="py-2.5 px-3 text-amber-300">Press Ctrl + End</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Jumped to F1250</td>
+                  <td className="py-2.5 px-3 text-slate-300">Audits actual bottom-right boundary of active grid.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CA-117</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Hooghly Jute Data Region Selection</td>
+                  <td className="py-2.5 px-3 text-sky-300">Ctrl + A (Data Block Mode)</td>
+                  <td className="py-2.5 px-3 text-amber-300">Press Ctrl + A inside table</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Table A1:F500 Selected</td>
+                  <td className="py-2.5 px-3 text-slate-300">Selects current data region without highlighting entire sheet.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CA-118</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Burdwan Seed Specific Cell Jump</td>
+                  <td className="py-2.5 px-3 text-sky-300">Name Box Direct Input</td>
+                  <td className="py-2.5 px-3 text-amber-300">Type `X500` in Name Box + Enter</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Active Cell = X500</td>
+                  <td className="py-2.5 px-3 text-slate-300">Direct coordinate jump skipping scroll bar dragging.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CA-119</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Purulia Solar Blank Cell Cleanup</td>
+                  <td className="py-2.5 px-3 text-sky-300">Go To Special Blanks</td>
+                  <td className="py-2.5 px-3 text-amber-300">F5 $\rightarrow$ Special $\rightarrow$ Blanks</td>
+                  <td className="py-2.5 px-3 text-emerald-400">All Blank Cells Selected</td>
+                  <td className="py-2.5 px-3 text-slate-300">Batch selects missing data cells for instant fill.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CA-120</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Bankura Craft External Sheet Reference</td>
+                  <td className="py-2.5 px-3 text-sky-300">Cross-Sheet Range Syntax</td>
+                  <td className="py-2.5 px-3 text-amber-300">`='Sales_Jan'!B2:B50`</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Foreign Range Array</td>
+                  <td className="py-2.5 px-3 text-slate-300">References range arrays residing on different worksheets.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 

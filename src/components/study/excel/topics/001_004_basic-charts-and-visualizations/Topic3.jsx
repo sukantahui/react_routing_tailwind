@@ -189,58 +189,144 @@ export default function Topic3() {
         </section>
 
         {/* =========================================================================
-            SECTION 4: INTERACTIVE SEMANTIC SVG DIAGRAM
+            SECTION 4: INTERACTIVE VISUAL CHARTS & CHART MECHANICS GUIDE
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Encoding Architecture: Doughnut Architecture with Center KPI Total Callout
-          </h2>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">🍩</span>
+                Live Visual Charts: Executive Doughnut Chart vs Exploded Pie Slice Detail
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                Visualizing part-to-whole 100% proportional breakdowns with center KPI summary callouts and leader lines.
+              </p>
+            </div>
+            <span className="text-xs font-mono text-purple-300 bg-purple-950/80 px-3 py-1.5 rounded-full border border-purple-800 shrink-0 font-bold">
+              Proportion Engine
+            </span>
+          </div>
 
-          <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
-            <svg viewBox="0 0 800 260" className="w-full max-w-3xl h-auto" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="m4_input" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#0369a1" stopOpacity="0.4" />
-                </linearGradient>
-                <linearGradient id="m4_chart" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#059669" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#047857" stopOpacity="0.4" />
-                </linearGradient>
-                <linearGradient id="m4_dash" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#6d28d9" stopOpacity="0.4" />
-                </linearGradient>
-              </defs>
+          {/* TWO VISUAL CHARTS GRID */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* CHART 1: EXECUTIVE DOUGHNUT CHART WITH CENTER METRIC */}
+            <div className="p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-3 shadow-xl">
+              <div className="flex items-center justify-between border-b border-slate-800/80 pb-2">
+                <h3 className="text-sm font-bold text-purple-300 flex items-center gap-2">
+                  <span>🍩</span> 1. Executive Doughnut Chart (Center KPI Total)
+                </h3>
+                <span className="text-[10px] font-mono bg-purple-950 text-purple-400 px-2 py-0.5 rounded border border-purple-800">
+                  Part-to-Whole 100%
+                </span>
+              </div>
+              <p className="text-xs text-slate-400">Best for displaying slice contribution to a 100% whole with a central metric summary.</p>
+              
+              {/* SVG VISUAL DOUGHNUT CHART */}
+              <div className="p-2 bg-slate-900/90 rounded-lg border border-slate-800/80 flex items-center justify-center">
+                <svg viewBox="0 0 420 220" className="w-full h-auto">
+                  {/* Doughnut Center Ring & Slices */}
+                  <g transform="translate(140, 110)">
+                    {/* Slice 1: Enterprise 38% (0 deg to 136.8 deg) */}
+                    <path d="M 0 0 L 0 -80 A 80 80 0 0 1 73 32 Z" fill="#0284C7" stroke="#0F172A" strokeWidth="2" />
+                    {/* Slice 2: Cloud 25% (136.8 deg to 226.8 deg) */}
+                    <path d="M 0 0 L 73 32 A 80 80 0 0 1 -59 54 Z" fill="#059669" stroke="#0F172A" strokeWidth="2" />
+                    {/* Slice 3: Consulting 18% (226.8 deg to 291.6 deg) */}
+                    <path d="M 0 0 L -59 54 A 80 80 0 0 1 -74 -29 Z" fill="#7C3AED" stroke="#0F172A" strokeWidth="2" />
+                    {/* Slice 4: Subscriptions 12% (291.6 deg to 334.8 deg) */}
+                    <path d="M 0 0 L -74 -29 A 80 80 0 0 1 -34 -72 Z" fill="#D97706" stroke="#0F172A" strokeWidth="2" />
+                    {/* Slice 5: Support 7% (334.8 deg to 360 deg) */}
+                    <path d="M 0 0 L -34 -72 A 80 80 0 0 1 0 -80 Z" fill="#475569" stroke="#0F172A" strokeWidth="2" />
 
-              <rect x="30" y="50" width="200" height="150" rx="12" fill="url(#m4_input)" stroke="#38bdf8" strokeWidth="2" />
-              <text x="130" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">1. Data Aggregation</text>
-              <text x="130" y="115" textAnchor="middle" fill="#e0f2fe" fontSize="11">Categorical Totals</text>
-              <text x="130" y="135" textAnchor="middle" fill="#e0f2fe" fontSize="11">12-Month Time-Series</text>
-              <text x="130" y="165" textAnchor="middle" fill="#bae6fd" fontSize="11" fontWeight="bold">Clean Normalized Rows</text>
+                    {/* Center Doughnut Hole (Hollow Mask) */}
+                    <circle cx="0" cy="0" r="48" fill="#0F172A" stroke="#1E293B" strokeWidth="2" />
 
-              <path d="M 235 125 L 295 125" stroke="#38bdf8" strokeWidth="3" strokeDasharray="6,4" />
-              <polygon points="295,120 305,125 295,130" fill="#38bdf8" />
+                    {/* Center Metric Callout */}
+                    <text x="0" y="-6" textAnchor="middle" fill="#94A3B8" fontSize="8" fontWeight="bold">TOTAL REVENUE</text>
+                    <text x="0" y="10" textAnchor="middle" fill="#34D399" fontSize="11" fontWeight="extrabold">₹85.4L</text>
+                  </g>
 
-              <rect x="310" y="50" width="200" height="150" rx="12" fill="url(#m4_chart)" stroke="#34d399" strokeWidth="2" />
-              <text x="410" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">2. Visual Encoding</text>
-              <text x="410" y="115" textAnchor="middle" fill="#d1fae5" fontSize="11">Clustered Column</text>
-              <text x="410" y="135" textAnchor="middle" fill="#d1fae5" fontSize="11">Dual-Axis Combo Line</text>
-              <text x="410" y="165" textAnchor="middle" fill="#a7f3d0" fontSize="11" fontWeight="bold">Doughnut Proportions</text>
+                  {/* Legend Slices */}
+                  <g transform="translate(255, 30)">
+                    <rect x="0" y="10" width="10" height="10" rx="2" fill="#0284C7" />
+                    <text x="16" y="18" fill="#CBD5E1" fontSize="9">Enterprise (38%)</text>
 
-              <path d="M 515 125 L 575 125" stroke="#34d399" strokeWidth="3" strokeDasharray="6,4" />
-              <polygon points="575,120 585,125 575,130" fill="#34d399" />
+                    <rect x="0" y="32" width="10" height="10" rx="2" fill="#059669" />
+                    <text x="16" y="40" fill="#CBD5E1" fontSize="9">Cloud Infra (25%)</text>
 
-              <rect x="590" y="50" width="180" height="150" rx="12" fill="url(#m4_dash)" stroke="#a78bfa" strokeWidth="2" />
-              <text x="680" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">3. Executive Dashboard</text>
-              <text x="680" y="115" textAnchor="middle" fill="#ede9fe" fontSize="11">Top KPI Callouts</text>
-              <text x="680" y="135" textAnchor="middle" fill="#ede9fe" fontSize="11">Alt+Drag Grid Snapping</text>
-              <text x="680" y="165" textAnchor="middle" fill="#ddd6fe" fontSize="11" fontWeight="bold">3-Second Insight</text>
-            </svg>
+                    <rect x="0" y="54" width="10" height="10" rx="2" fill="#7C3AED" />
+                    <text x="16" y="62" fill="#CBD5E1" fontSize="9">Consulting (18%)</text>
+
+                    <rect x="0" y="76" width="10" height="10" rx="2" fill="#D97706" />
+                    <text x="16" y="84" fill="#CBD5E1" fontSize="9">Subscriptions (12%)</text>
+
+                    <rect x="0" y="98" width="10" height="10" rx="2" fill="#475569" />
+                    <text x="16" y="106" fill="#CBD5E1" fontSize="9">Support (7%)</text>
+                  </g>
+                </svg>
+              </div>
+            </div>
+
+            {/* CHART 2: EXPLODED PIE SLICE BREAKDOWN */}
+            <div className="p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-3 shadow-xl">
+              <div className="flex items-center justify-between border-b border-slate-800/80 pb-2">
+                <h3 className="text-sm font-bold text-sky-300 flex items-center gap-2">
+                  <span>🥧</span> 2. Exploded Pie Slice (Focal Segment Callout)
+                </h3>
+                <span className="text-[10px] font-mono bg-sky-950 text-sky-400 px-2 py-0.5 rounded border border-sky-800">
+                  Exploded Focal Slice
+                </span>
+              </div>
+              <p className="text-xs text-slate-400">Offsetting a key segment to highlight an executive story or major market shift.</p>
+              
+              {/* SVG VISUAL EXPLODED PIE CHART */}
+              <div className="p-2 bg-slate-900/90 rounded-lg border border-slate-800/80 flex items-center justify-center">
+                <svg viewBox="0 0 420 220" className="w-full h-auto">
+                  <g transform="translate(190, 110)">
+                    {/* Exploded Slice (Offset outwards) */}
+                    <g transform="translate(10, -10)">
+                      <path d="M 0 0 L 0 -80 A 80 80 0 0 1 73 32 Z" fill="#38BDF8" stroke="#0F172A" strokeWidth="2" />
+                      {/* Leader Line Callout */}
+                      <path d="M 35 -35 L 70 -50 L 110 -50" stroke="#38BDF8" strokeWidth="1.5" fill="none" />
+                      <text x="115" y="-46" fill="#38BDF8" fontSize="10" fontWeight="bold">Top Performer: ₹32.4L (38%)</text>
+                    </g>
+
+                    {/* Remaining Slices */}
+                    <path d="M 0 0 L 73 32 A 80 80 0 0 1 -59 54 Z" fill="#059669" stroke="#0F172A" strokeWidth="2" />
+                    <path d="M 0 0 L -59 54 A 80 80 0 0 1 -74 -29 Z" fill="#7C3AED" stroke="#0F172A" strokeWidth="2" />
+                    <path d="M 0 0 L -74 -29 A 80 80 0 0 1 -34 -72 Z" fill="#D97706" stroke="#0F172A" strokeWidth="2" />
+                    <path d="M 0 0 L -34 -72 A 80 80 0 0 1 0 -80 Z" fill="#475569" stroke="#0F172A" strokeWidth="2" />
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          {/* DETAILED CHART MECHANICS & SELECTION GUIDE */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+              <h4 className="font-bold text-purple-300 text-xs uppercase tracking-wider flex items-center gap-1.5">
+                <span>📌</span> Golden Rules for Pie &amp; Doughnut Charts
+              </h4>
+              <ul className="text-xs text-slate-300 space-y-1.5 list-disc list-inside leading-relaxed">
+                <li><strong>Max 5 Slices:</strong> Never exceed 5 or 6 slices; combine small trailing items into 'Other'.</li>
+                <li><strong>100% Total Equality:</strong> Slices must strictly sum to 100% of a unified total payload.</li>
+                <li><strong>12 O'Clock Clockwise Ordering:</strong> Position the largest slice starting at 12 o'clock running clockwise.</li>
+              </ul>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+              <h4 className="font-bold text-sky-300 text-xs uppercase tracking-wider flex items-center gap-1.5">
+                <span>📌</span> Why Executive Doughnut Charts Excel
+              </h4>
+              <ul className="text-xs text-slate-300 space-y-1.5 list-disc list-inside leading-relaxed">
+                <li><strong>Center KPI Hole:</strong> Provides high-visibility real estate for overall revenue totals or key callouts.</li>
+                <li><strong>Arc Length Encoding:</strong> Humans evaluate arc lengths more accurately than solid pie angles.</li>
+                <li><strong>Clean Modern Aesthetics:</strong> Eliminates dense center fill clutter for sleek dashboard interfaces.</li>
+              </ul>
+            </div>
           </div>
         </section>
 
@@ -274,8 +360,8 @@ export default function Topic3() {
           </div>
 
           <ExcelFileLoader
-            fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Chart_Guide"
+            fileUrl={sampleWorkbookUrl}
+            defaultSheetName="Topic3"
             title="Module 1.4 - Pie and Doughnut Charts: Part-to-Whole Proportions, Slice Limits and Modern Best Practices"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -283,122 +369,202 @@ export default function Topic3() {
         </section>
 
         {/* =========================================================================
-            SECTION 6: REAL-WORLD BUSINESS SCENARIOS (4+ CASES)
+            SECTION 6: 20 COMPREHENSIVE REAL-WORLD PIE & DOUGHNUT CHART SCENARIOS
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[5] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
-            Real-World Business Scenarios (Bengal & Corporate Applications)
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
-                <h3 className="text-base font-bold text-white">Barrackpore Academy Revenue Stream Composition</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Displaying revenue breakdown across 4 training disciplines (Software 45%, Taxation 30%, Data Analytics 15%, Hardware 10%).</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Discipline</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">% Share</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Slice_Color</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Label_Style</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Software Engineering</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">45%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">#0284C7 (Sky Blue)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Direct Data Label (Name + %)</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Taxation &amp; GST</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">30%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">#059669 (Emerald)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Direct Data Label (Name + %)</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Data Analytics</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">15%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">#7C3AED (Purple)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Direct Data Label (Name + %)</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Hardware &amp; Infra</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">10%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">#64748B (Slate)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Direct Data Label (Name + %)</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Doughnut Chart with Center Total (₹ 1.25 Cr)</div>
-                <div className="text-emerald-400 font-semibold">Result: Clean 4-slice executive proportion chart.</div>
-                <div className="text-slate-400 text-[11px]">Under 5 slices, doughnut charts communicate category proportions clearly.</div>
-              </div>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
+                20 Real-World Business Scenarios: Pie &amp; Doughnut Applications
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                20 practical workplace scenarios detailing part-to-whole composition, slice count constraints, center hole callouts, and leader lines.
+              </p>
             </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">02</span>
-                <h3 className="text-base font-bold text-white">Kolkata Corporate Budget Expense Allocation (Exploded Slice)</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Highlighting that R&amp;D receives the largest budget allocation (52%).</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Expense_Category</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Budget_%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Visual_Treatment</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Research &amp; Development</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">52%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Exploded by 10% outward from ring</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Marketing &amp; Sales</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">24%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Standard ring slice</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Operations</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">24%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Standard ring slice</td></tr>
-                  </tbody>
-                </table>
-              </div>
+            <span className="text-xs font-mono text-amber-300 bg-amber-950/80 px-3 py-1.5 rounded-full border border-amber-800 shrink-0 font-bold">
+              20 Real-World Examples
+            </span>
+          </div>
 
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Exploded Doughnut Slice (10% offset)</div>
-                <div className="text-emerald-400 font-semibold">Result: R&amp;D category instantly commands audience attention.</div>
-                <div className="text-slate-400 text-[11px]">Exploding a single slice creates an intentional focal point.</div>
-              </div>
-            </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">03</span>
-                <h3 className="text-base font-bold text-white">Shyamnagar Regional Retail Payment Method Split</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Analyzing customer checkout payment methods (UPI 68%, Credit Card 20%, Cash 12%).</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Payment_Mode</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Volume_%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Insight</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">UPI / QR Code</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">68%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Dominant digital payment channel</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Cards &amp; NetBanking</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">20%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Secondary channel</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Physical Cash</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">12%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Minority channel</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: 2D Pie Chart rotated with UPI starting at 12 o'clock</div>
-                <div className="text-emerald-400 font-semibold">Result: Digital dominance instantly recognized by retail management.</div>
-                <div className="text-slate-400 text-[11px]">Starting the largest slice at 12 o'clock aligns with natural reading order.</div>
-              </div>
-            </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">04</span>
-                <h3 className="text-base font-bold text-white">Ichapur Plant Defect Source Grouping (Top 4 + Other)</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Consolidating 20 tiny defect sources into 4 major categories plus 'Other Minor'.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Defect_Group</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Count</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">% Share</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Calibration Error</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">85</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">42.5%</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Material Fatigue</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">45</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">22.5%</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Operator Error</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">35</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">17.5%</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Power Surge</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">20</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">10.0%</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Other (16 Minor Sources)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">15</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">7.5%</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Consolidated 5-Slice Doughnut Chart</div>
-                <div className="text-emerald-400 font-semibold">Result: Clean readable chart eliminating 16 cluttered slivers.</div>
-                <div className="text-slate-400 text-[11px]">Grouping minor tails into an 'Other' bucket preserves visual clarity.</div>
-              </div>
-            </div>
+          <div className="overflow-x-auto rounded-xl border border-slate-800">
+            <table className="w-full text-left text-xs text-slate-300 border-collapse">
+              <thead>
+                <tr className="bg-slate-950 text-slate-400 font-semibold uppercase tracking-wider border-b border-slate-800">
+                  <th className="py-3 px-3 w-16">ID</th>
+                  <th className="py-3 px-3">Business Application</th>
+                  <th className="py-3 px-3">Slice Count</th>
+                  <th className="py-3 px-3">Center Hole Callout</th>
+                  <th className="py-3 px-3">Exploded Segment</th>
+                  <th className="py-3 px-3">Key Design &amp; Leader Line Rule</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/60 font-mono">
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">PD-101</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Barrackpore Academy Discipline Share</td>
+                  <td className="py-2.5 px-3 text-sky-300">4 Slices</td>
+                  <td className="py-2.5 px-3 text-emerald-400">"₹ 1.25 Cr Total"</td>
+                  <td className="py-2.5 px-3 text-purple-300">None (Unified ring)</td>
+                  <td className="py-2.5 px-3 text-slate-300">Direct data labels showing Category + Percentage.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">PD-102</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Kolkata Corporate R&amp;D Budget Share</td>
+                  <td className="py-2.5 px-3 text-sky-300">3 Slices</td>
+                  <td className="py-2.5 px-3 text-emerald-400">"₹ 85.0 L R&amp;D"</td>
+                  <td className="py-2.5 px-3 text-purple-300">10% R&amp;D slice offset</td>
+                  <td className="py-2.5 px-3 text-slate-300">Exploding primary R&amp;D slice commands executive focus.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">PD-103</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Shyamnagar Retail Payment Methods</td>
+                  <td className="py-2.5 px-3 text-sky-300">3 Slices</td>
+                  <td className="py-2.5 px-3 text-emerald-400">N/A (Solid Pie)</td>
+                  <td className="py-2.5 px-3 text-purple-300">None</td>
+                  <td className="py-2.5 px-3 text-slate-300">UPI slice (68%) high contrast sky blue fill.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">PD-104</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Ichapur Plant Factory Waste Breakdown</td>
+                  <td className="py-2.5 px-3 text-sky-300">4 Slices</td>
+                  <td className="py-2.5 px-3 text-emerald-400">"4.2 Tons Scrap"</td>
+                  <td className="py-2.5 px-3 text-purple-300">None</td>
+                  <td className="py-2.5 px-3 text-slate-300">Leader lines connect outer label to small 8% slice.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">PD-105</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Salt Lake SaaS Customer Segment Mix</td>
+                  <td className="py-2.5 px-3 text-sky-300">3 Slices</td>
+                  <td className="py-2.5 px-3 text-emerald-400">"Hole Size 65%"</td>
+                  <td className="py-2.5 px-3 text-purple-300">None</td>
+                  <td className="py-2.5 px-3 text-slate-300">Enterprise accounts for 58% ARR total.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">PD-106</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Siliguri Tea Logistics Transport Mode</td>
+                  <td className="py-2.5 px-3 text-sky-300">3 Slices</td>
+                  <td className="py-2.5 px-3 text-emerald-400">N/A (Solid Pie)</td>
+                  <td className="py-2.5 px-3 text-purple-300">None</td>
+                  <td className="py-2.5 px-3 text-slate-300">Road transport accounts for 74% shipment volume.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">PD-107</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Durgapur Steel Ore Sourcing Share</td>
+                  <td className="py-2.5 px-3 text-sky-300">4 Slices</td>
+                  <td className="py-2.5 px-3 text-emerald-400">"₹ 4.8 Cr Ore"</td>
+                  <td className="py-2.5 px-3 text-purple-300">None</td>
+                  <td className="py-2.5 px-3 text-slate-300">Domestic iron ore constitutes 62% of raw material stock.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">PD-108</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Asansol Energy Grid Supply Mix</td>
+                  <td className="py-2.5 px-3 text-sky-300">4 Slices</td>
+                  <td className="py-2.5 px-3 text-emerald-400">N/A (Solid Pie)</td>
+                  <td className="py-2.5 px-3 text-purple-300">None</td>
+                  <td className="py-2.5 px-3 text-slate-300">Thermal power represents 71% of regional energy supply.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">PD-109</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Howrah Freight Customer Satisfaction</td>
+                  <td className="py-2.5 px-3 text-sky-300">3 Slices</td>
+                  <td className="py-2.5 px-3 text-emerald-400">"88% CSAT"</td>
+                  <td className="py-2.5 px-3 text-purple-300">None</td>
+                  <td className="py-2.5 px-3 text-slate-300">Green/Yellow/Red fills; Satisfied tier represents 82%.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">PD-110</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Haldia Port Export Cargo Mix</td>
+                  <td className="py-2.5 px-3 text-sky-300">4 Slices</td>
+                  <td className="py-2.5 px-3 text-emerald-400">N/A (Solid Pie)</td>
+                  <td className="py-2.5 px-3 text-purple-300">None</td>
+                  <td className="py-2.5 px-3 text-slate-300">Slices sorted by size; petroleum generates 54% export.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">PD-111</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Malda Mango Variety Yield Share</td>
+                  <td className="py-2.5 px-3 text-sky-300">4 Slices</td>
+                  <td className="py-2.5 px-3 text-emerald-400">"12.5K Tons"</td>
+                  <td className="py-2.5 px-3 text-purple-300">None</td>
+                  <td className="py-2.5 px-3 text-slate-300">Himsagar variety leads at 48% total harvest.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">PD-112</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Midnapore Hospital Ward Admissions</td>
+                  <td className="py-2.5 px-3 text-sky-300">4 Slices</td>
+                  <td className="py-2.5 px-3 text-emerald-400">"Hole Size 70%"</td>
+                  <td className="py-2.5 px-3 text-purple-300">None</td>
+                  <td className="py-2.5 px-3 text-slate-300">General Medicine accounts for 42% total ward occupancy.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">PD-113</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Kharagpur Library Book Categories</td>
+                  <td className="py-2.5 px-3 text-sky-300">4 Slices</td>
+                  <td className="py-2.5 px-3 text-emerald-400">N/A (Solid Pie)</td>
+                  <td className="py-2.5 px-3 text-purple-300">None</td>
+                  <td className="py-2.5 px-3 text-slate-300">Computer Science books account for 51% total stock.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">PD-114</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Hooghly Jute Product Market Share</td>
+                  <td className="py-2.5 px-3 text-sky-300">3 Slices</td>
+                  <td className="py-2.5 px-3 text-emerald-400">"₹ 2.4 Cr Jute"</td>
+                  <td className="py-2.5 px-3 text-purple-300">Gunny bags slice exploded</td>
+                  <td className="py-2.5 px-3 text-slate-300">Gunny bags command 65% domestic sales volume.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">PD-115</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Burdwan Retail Sales Channels</td>
+                  <td className="py-2.5 px-3 text-sky-300">3 Slices</td>
+                  <td className="py-2.5 px-3 text-emerald-400">"₹ 3.8 Cr Sales"</td>
+                  <td className="py-2.5 px-3 text-purple-300">None</td>
+                  <td className="py-2.5 px-3 text-slate-300">In-store retail generates 76% total sales volume.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">PD-116</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Purulia Rural Solar Pump Grants</td>
+                  <td className="py-2.5 px-3 text-sky-300">3 Slices</td>
+                  <td className="py-2.5 px-3 text-emerald-400">N/A (Solid Pie)</td>
+                  <td className="py-2.5 px-3 text-purple-300">None</td>
+                  <td className="py-2.5 px-3 text-slate-300">Small farmers receive 64% total subsidy allocation.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">PD-117</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Bankura Terracotta Product Type Sales</td>
+                  <td className="py-2.5 px-3 text-sky-300">4 Slices</td>
+                  <td className="py-2.5 px-3 text-emerald-400">"₹ 95.0 L Revenue"</td>
+                  <td className="py-2.5 px-3 text-purple-300">None</td>
+                  <td className="py-2.5 px-3 text-slate-300">Decorative tiles account for 46% annual craft revenue.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">PD-118</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Jalpaiguri Tea Packaging Export Mix</td>
+                  <td className="py-2.5 px-3 text-sky-300">3 Slices</td>
+                  <td className="py-2.5 px-3 text-emerald-400">N/A (Solid Pie)</td>
+                  <td className="py-2.5 px-3 text-purple-300">None</td>
+                  <td className="py-2.5 px-3 text-slate-300">Bulk wooden chest exports account for 62% volume.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">PD-119</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Darjeeling Hotel Booking Channels</td>
+                  <td className="py-2.5 px-3 text-sky-300">4 Slices</td>
+                  <td className="py-2.5 px-3 text-emerald-400">"15.4K Guests"</td>
+                  <td className="py-2.5 px-3 text-purple-300">None</td>
+                  <td className="py-2.5 px-3 text-slate-300">Online Travel Agencies (OTA) drive 58% guest bookings.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">PD-120</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Cooch Behar Bank Loan Portfolio Mix</td>
+                  <td className="py-2.5 px-3 text-sky-300">4 Slices</td>
+                  <td className="py-2.5 px-3 text-emerald-400">"Hole Size 60%"</td>
+                  <td className="py-2.5 px-3 text-purple-300">None</td>
+                  <td className="py-2.5 px-3 text-slate-300">Agricultural loans represent 44% portfolio share.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 
@@ -505,42 +671,106 @@ export default function Topic3() {
         </section>
 
         {/* =========================================================================
-            SECTION 9: PRO TIPS & PRODUCTIVITY SHORTCUTS
+            SECTION 9: ESSENTIAL EXCEL CHARTING KEYBOARD SHORTCUTS & HOTKEYS
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[8] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 text-base font-mono">💡</span>
-            Classroom Pro Tips & High-Speed Shortcuts
-          </h2>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 text-base font-mono">⌨️</span>
+                Master Excel Charting Keyboard Shortcuts &amp; Hotkeys
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                Boost your chart creation and formatting speed by 10x with these essential workplace hotkeys.
+              </p>
+            </div>
+            <span className="text-xs font-mono text-purple-300 bg-purple-950/80 px-3 py-1.5 rounded-full border border-purple-800 shrink-0 font-bold">
+              Speed Hotkeys Matrix
+            </span>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
+              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                Alt + F1
+              </kbd>
+              <div>
+                <strong className="text-xs text-white block">Insert Embedded Chart</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Instantly create default 2D Column Chart on active worksheet.</p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
+              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                F11
+              </kbd>
+              <div>
+                <strong className="text-xs text-white block">New Chart Sheet</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Generate default chart on a dedicated standalone Chart Sheet (<code className="text-purple-300">Chart1</code>).</p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
+              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                Alt + Drag
+              </kbd>
+              <div>
+                <strong className="text-xs text-white block">Snap to Gridlines</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Hold <kbd className="text-slate-200 bg-slate-800 px-1 rounded text-[10px]">Alt</kbd> while moving chart corners to snap perfectly to cell borders.</p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
+              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                Ctrl + 1
+              </kbd>
+              <div>
+                <strong className="text-xs text-white block">Format Task Pane</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Open Format Chart Area or Format Data Series sidebar menu instantly.</p>
+              </div>
+            </div>
+
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
                 Alt + N + Q
               </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Insert Pie / Doughnut Chart.</p>
+              <div>
+                <strong className="text-xs text-white block">Insert Pie Chart Ribbon</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Trigger Insert Ribbon menu for Pie &amp; Doughnut charts.</p>
+              </div>
             </div>
+
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                Ctrl + 1 (on Slice)
+                Click → Click
               </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Open Format Data Series to adjust Hole Size and Angle of First Slice.</p>
+              <div>
+                <strong className="text-xs text-white block">Select Single Slice</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Click once to select whole series, second click selects an individual slice to explode.</p>
+              </div>
             </div>
+
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                Click &amp;rarr; Click Single Slice
+                Up / Down Arrow
               </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Select an individual slice to change its fill color or explode it outward.</p>
+              <div>
+                <strong className="text-xs text-white block">Select Chart Elements</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Cycle through chart series, legend, title, and data labels via keyboard.</p>
+              </div>
             </div>
+
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                Alt + J + C + A &amp;rarr; Data Labels
+                Ctrl+C → Alt+E+S+T
               </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Add Category Name and Percentage data labels directly on slices.</p>
+              <div>
+                <strong className="text-xs text-white block">Copy Chart Formats</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Copy one chart and paste its formatting to another chart instantly.</p>
+              </div>
             </div>
           </div>
         </section>

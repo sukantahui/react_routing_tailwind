@@ -274,8 +274,8 @@ export default function Topic1() {
           </div>
 
           <ExcelFileLoader
-            fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Data_Types"
+            fileUrl={sampleWorkbookUrl}
+            sheetName="Topic1"
             title="Module 1.2 - Efficient Data Entry Techniques, AutoComplete, Pick from Drop-Down and Keyboard Shortcuts"
             rowsPerPage={25}
             showSheetSelector={true}

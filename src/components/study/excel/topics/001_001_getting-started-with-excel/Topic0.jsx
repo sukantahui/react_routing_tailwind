@@ -280,7 +280,7 @@ export default function Topic0() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_What_Excel_is_and_"
+            sheetName="Topic0"
             title="Module 1.1 - What Excel Is and Where It Is Used in Study and Work"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -288,119 +288,202 @@ export default function Topic0() {
         </section>
 
         {/* =========================================================================
-            SECTION 6: REAL-WORLD BUSINESS SCENARIOS (4+ CASES)
+            SECTION 6: REAL-WORLD BUSINESS SCENARIOS (20 CASES)
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[5] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
-            Real-World Business Scenarios (Bengal & Corporate Applications)
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
-                <h3 className="text-base font-bold text-white">Coder &amp; AccoTax Barrackpore Academic Cohort Registry</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Instructor Sukanta Hui tracks diploma student performance and attendance across 35 enrolled students.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Student_ID</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Student_Name</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Department</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Attendance_%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Score</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Status</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">STD-1001</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Swadeep</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Software Engg</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">92%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">88</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IF(E2&gt;=75,"Passed","Review")</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">STD-1002</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Tuhina</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Corporate Accounts</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">96%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">94</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IF(E3&gt;=75,"Passed","Review")</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">STD-1003</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Abhronila</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Taxation &amp; GST</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">88%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">91</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IF(E4&gt;=75,"Passed","Review")</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">STD-1004</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Susmita</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Data Analytics</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">94%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">86</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IF(E5&gt;=75,"Passed","Review")</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =AVERAGE(E2:E35)</div>
-                <div className="text-emerald-400 font-semibold">Result: Class average score of 89.4 calculated instantly.</div>
-                <div className="text-slate-400 text-[11px]">Grid coordinates enable automatic statistical aggregation across entire batches without manual calculator errors.</div>
-              </div>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
+                20 Real-World Business Scenarios: Excel in Corporate Operations
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                20 practical workplace scenarios detailing financial modeling, inventory tracking, payroll processing, tax auditing, and operational metrics.
+              </p>
             </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">02</span>
-                <h3 className="text-base font-bold text-white">Shyamnagar Multi-Counter Retail Supermarket Daily Reconciliation</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">A busy departmental store in Shyamnagar reconciles counter-wise cash, card, and UPI collections.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Counter_No</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Cash_Sales</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">UPI_Sales</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Card_Sales</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Total_Collection</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Counter-01</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">45,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">78,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">32,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=SUM(B2:D2)</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Counter-02</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">38,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">62,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">29,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=SUM(B3:D3)</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Counter-03</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">52,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">91,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">41,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=SUM(B4:D4)</td></tr>
-                  </tbody>
-                </table>
-              </div>
+            <span className="text-xs font-mono text-amber-300 bg-amber-950/80 px-3 py-1.5 rounded-full border border-amber-800 shrink-0 font-bold">
+              20 Real-World Examples
+            </span>
+          </div>
 
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =SUM(E2:E4)</div>
-                <div className="text-emerald-400 font-semibold">Result: INR 437,000 reconciled across all registers.</div>
-                <div className="text-slate-400 text-[11px]">Formulas automatically reflect real-time updates as individual counter clerks enter closing balances.</div>
-              </div>
-            </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">03</span>
-                <h3 className="text-base font-bold text-white">Ichapur Engineering Works Machine Maintenance &amp; Oil Replacement Log</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">A factory in Ichapur logs CNC lathe running hours to trigger preventive servicing.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Machine_ID</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Machine_Type</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Operating_Hours</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Threshold_Hours</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Maintenance_Alert</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MCH-101</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">CNC Lathe</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">480</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">500</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IF(C2&gt;=D2,"DUE","OK")</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MCH-102</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Hydraulic Press</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">520</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">500</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IF(C3&gt;=D3,"DUE","OK")</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MCH-103</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Milling Unit</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">505</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">500</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=IF(C4&gt;=D4,"DUE","OK")</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =COUNTIF(E2:E25, "DUE")</div>
-                <div className="text-emerald-400 font-semibold">Result: 3 machines flagged for urgent maintenance.</div>
-                <div className="text-slate-400 text-[11px]">Automated logic eliminates equipment downtime through proactive preventative threshold alerting.</div>
-              </div>
-            </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">04</span>
-                <h3 className="text-base font-bold text-white">Kolkata Freight Logistics Fleet Diesel Mileage Audit</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">A transportation operator running trucks between Barrackpore and Kolkata Port audits fuel efficiency.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Vehicle_No</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Driver_Name</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">KM_Covered</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Diesel_Litres</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Mileage_KM_per_L</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">WB-24-1102</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Debangshu</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">1,450</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">210</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=C2/D2</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">WB-24-3389</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Rahul</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">1,820</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">255</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=C3/D3</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =AVERAGE(E2:E15)</div>
-                <div className="text-emerald-400 font-semibold">Result: 6.98 KM/L fleet average economy verified.</div>
-                <div className="text-slate-400 text-[11px]">Division arithmetic inside cells provides instant operational cost metrics for management.</div>
-              </div>
-            </div>
+          <div className="overflow-x-auto rounded-xl border border-slate-800">
+            <table className="w-full text-left text-xs text-slate-300 border-collapse">
+              <thead>
+                <tr className="bg-slate-950 text-slate-400 font-semibold uppercase tracking-wider border-b border-slate-800">
+                  <th className="py-3 px-3 w-16">ID</th>
+                  <th className="py-3 px-3">Business Application</th>
+                  <th className="py-3 px-3">Input Data Parameters</th>
+                  <th className="py-3 px-3">Applied Formula / Logic</th>
+                  <th className="py-3 px-3">Calculated Output</th>
+                  <th className="py-3 px-3">Key Operational Advantage</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/60 font-mono">
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">EX-101</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Barrackpore Academic Cohort Registry</td>
+                  <td className="py-2.5 px-3 text-sky-300">35 Students (Scores: 78–98)</td>
+                  <td className="py-2.5 px-3 text-amber-300">=AVERAGE(E2:E36)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Class Avg: 89.4</td>
+                  <td className="py-2.5 px-3 text-slate-300">Instant statistical aggregation across student cohorts.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">EX-102</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Shyamnagar Supermarket Reconciliation</td>
+                  <td className="py-2.5 px-3 text-sky-300">Cash ₹45K, UPI ₹78K, Card ₹32K</td>
+                  <td className="py-2.5 px-3 text-amber-300">=SUM(B2:D2)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Total: ₹ 1,55,000</td>
+                  <td className="py-2.5 px-3 text-slate-300">Multi-counter daily register reconciliation.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">EX-103</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Ichapur Lathe Servicing Threshold</td>
+                  <td className="py-2.5 px-3 text-sky-300">Run Hours: 520, Limit: 500</td>
+                  <td className="py-2.5 px-3 text-amber-300">=IF(C2&gt;=D2,"DUE","OK")</td>
+                  <td className="py-2.5 px-3 text-rose-400">MAINTENANCE DUE</td>
+                  <td className="py-2.5 px-3 text-slate-300">Preventative maintenance threshold alerting.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">EX-104</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Kolkata Freight Mileage Audit</td>
+                  <td className="py-2.5 px-3 text-sky-300">KM: 1,450, Diesel: 210 L</td>
+                  <td className="py-2.5 px-3 text-amber-300">=C2/D2</td>
+                  <td className="py-2.5 px-3 text-emerald-400">6.90 KM/L</td>
+                  <td className="py-2.5 px-3 text-slate-300">Fleet fuel efficiency tracking.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">EX-105</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Salt Lake SaaS ARR Projection</td>
+                  <td className="py-2.5 px-3 text-sky-300">ARR: ₹ 85 Lakhs, Growth: 15%</td>
+                  <td className="py-2.5 px-3 text-amber-300">=B2*(1+C2)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">₹ 97.75 Lakhs</td>
+                  <td className="py-2.5 px-3 text-slate-300">Annual recurring revenue forecasting.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">EX-106</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Titagarh Jute Mill Weekly Payroll</td>
+                  <td className="py-2.5 px-3 text-sky-300">Daily Hours Mon–Sat (8,8,9,8,8,6)</td>
+                  <td className="py-2.5 px-3 text-amber-300">=SUM(C2:H2)*Rate</td>
+                  <td className="py-2.5 px-3 text-emerald-400">₹ 14,100 / worker</td>
+                  <td className="py-2.5 px-3 text-slate-300">Weekly shift wage calculations.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">EX-107</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Naihati Pharmacy GST Billing</td>
+                  <td className="py-2.5 px-3 text-sky-300">Subtotal: ₹ 12,500, Tax Rate: 18%</td>
+                  <td className="py-2.5 px-3 text-amber-300">=B2*1.18</td>
+                  <td className="py-2.5 px-3 text-emerald-400">₹ 14,750 Total</td>
+                  <td className="py-2.5 px-3 text-slate-300">Automated gross invoice GST calculation.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">EX-108</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Sodepur Garment Festive Discount</td>
+                  <td className="py-2.5 px-3 text-sky-300">MRP: ₹ 3,500, Discount: 25%</td>
+                  <td className="py-2.5 px-3 text-amber-300">=B2*(1-C2)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">₹ 2,625 Net</td>
+                  <td className="py-2.5 px-3 text-slate-300">Promotional price reduction modeling.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">EX-109</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Howrah Dock Container Dwell Time</td>
+                  <td className="py-2.5 px-3 text-sky-300">Arrival: 10-Jan, Clearance: 18-Jan</td>
+                  <td className="py-2.5 px-3 text-amber-300">=C2-B2</td>
+                  <td className="py-2.5 px-3 text-emerald-400">8 Days Dwell</td>
+                  <td className="py-2.5 px-3 text-slate-300">Port demurrage fee calculation.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">EX-110</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Durgapur Steel Plant Ore Stock</td>
+                  <td className="py-2.5 px-3 text-sky-300">Initial: 4,500 T, Used: 1,800 T</td>
+                  <td className="py-2.5 px-3 text-amber-300">=B2-C2</td>
+                  <td className="py-2.5 px-3 text-emerald-400">2,700 T Remaining</td>
+                  <td className="py-2.5 px-3 text-slate-300">Raw material inventory monitoring.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">EX-111</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Asansol Power Grid Substation Load</td>
+                  <td className="py-2.5 px-3 text-sky-300">6 Transformer Loads (MW)</td>
+                  <td className="py-2.5 px-3 text-amber-300">=AVERAGE(C2:H2)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">44.8 MW Avg</td>
+                  <td className="py-2.5 px-3 text-slate-300">Grid thermal stress monitoring.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">EX-112</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Siliguri Tea Estate Crop Harvest</td>
+                  <td className="py-2.5 px-3 text-sky-300">Area: 450 Hectares, Yield: 1.8 T/Ha</td>
+                  <td className="py-2.5 px-3 text-amber-300">=B2*C2</td>
+                  <td className="py-2.5 px-3 text-emerald-400">810 Tons Total</td>
+                  <td className="py-2.5 px-3 text-slate-300">Agricultural production forecasting.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">EX-113</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Haldia Port Customs Export Audit</td>
+                  <td className="py-2.5 px-3 text-sky-300">Cargo Value: ₹ 650,000</td>
+                  <td className="py-2.5 px-3 text-amber-300">=IF(C2&gt;500000,"DUTY_REQD","FREE")</td>
+                  <td className="py-2.5 px-3 text-rose-400">DUTY_REQD</td>
+                  <td className="py-2.5 px-3 text-slate-300">Customs tariff compliance flagging.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">EX-114</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Malda Mango Wholesale Revenue</td>
+                  <td className="py-2.5 px-3 text-sky-300">Quantity: 1,200 Crates, Rate: ₹850</td>
+                  <td className="py-2.5 px-3 text-amber-300">=B2*C2</td>
+                  <td className="py-2.5 px-3 text-emerald-400">₹ 10,20,000</td>
+                  <td className="py-2.5 px-3 text-slate-300">Wholesale agricultural billing.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">EX-115</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Midnapore Hospital Ward Occupancy</td>
+                  <td className="py-2.5 px-3 text-sky-300">Occupied: 142 Beds, Total: 160 Beds</td>
+                  <td className="py-2.5 px-3 text-amber-300">=B2/C2</td>
+                  <td className="py-2.5 px-3 text-emerald-400">88.75% Occupancy</td>
+                  <td className="py-2.5 px-3 text-slate-300">Healthcare capacity management.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">EX-116</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Kharagpur Library Book Stock</td>
+                  <td className="py-2.5 px-3 text-sky-300">Opening: 12.5K, New: 450, Returned: 300</td>
+                  <td className="py-2.5 px-3 text-amber-300">=B2+C2-D2</td>
+                  <td className="py-2.5 px-3 text-emerald-400">12,650 Books</td>
+                  <td className="py-2.5 px-3 text-slate-300">Asset inventory balance sheet.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">EX-117</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Hooghly Jute Product Export Duty</td>
+                  <td className="py-2.5 px-3 text-sky-300">Export Order: ₹ 4.5 Cr, Duty: 5%</td>
+                  <td className="py-2.5 px-3 text-amber-300">=B2*C2</td>
+                  <td className="py-2.5 px-3 text-emerald-400">₹ 22.5 Lakhs</td>
+                  <td className="py-2.5 px-3 text-slate-300">International trade tax calculation.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">EX-118</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Burdwan Seed Grant Disbursal</td>
+                  <td className="py-2.5 px-3 text-sky-300">Cost: ₹ 15,000, Subsidy: 60%</td>
+                  <td className="py-2.5 px-3 text-amber-300">=B2*C2</td>
+                  <td className="py-2.5 px-3 text-emerald-400">₹ 9,000 Subsidy</td>
+                  <td className="py-2.5 px-3 text-slate-300">Government agricultural subsidy tracking.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">EX-119</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Purulia Solar Pump Eligibility</td>
+                  <td className="py-2.5 px-3 text-sky-300">Farmer Income: ₹ 145,000</td>
+                  <td className="py-2.5 px-3 text-amber-300">=IF(B2&lt;200000,"ELIGIBLE","EXCEEDED")</td>
+                  <td className="py-2.5 px-3 text-emerald-400">ELIGIBLE</td>
+                  <td className="py-2.5 px-3 text-slate-300">Rural development aid qualification.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">EX-120</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Bankura Terracotta Royalty Payout</td>
+                  <td className="py-2.5 px-3 text-sky-300">Sales: ₹ 95,000, Royalty Rate: 12%</td>
+                  <td className="py-2.5 px-3 text-amber-300">=B2*C2</td>
+                  <td className="py-2.5 px-3 text-emerald-400">₹ 11,400 Payout</td>
+                  <td className="py-2.5 px-3 text-slate-300">Artisan revenue sharing calculation.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 

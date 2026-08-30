@@ -274,8 +274,8 @@ export default function Topic9() {
           </div>
 
           <ExcelFileLoader
-            fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Data_Types"
+            fileUrl={sampleWorkbookUrl}
+            sheetName="Topic9"
             title="Module 1.2 - Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals"
             rowsPerPage={25}
             showSheetSelector={true}

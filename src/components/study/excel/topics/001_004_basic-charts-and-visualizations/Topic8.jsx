@@ -301,8 +301,8 @@ export default function Topic8() {
           </div>
 
           <ExcelFileLoader
-            fileModule={sampleWorkbookUrl}
-            sheetName="Topic8_Charts_Assessment"
+            fileUrl={sampleWorkbookUrl}
+            defaultSheetName="Topic8"
             title="Module 1.4 Assessment Candidate Scorecard (Question ID, Candidate Name, Chart Domain, Design Score, Accuracy Score, Total Score, Grade)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -310,89 +310,201 @@ export default function Topic8() {
         </section>
 
         {/* =========================================================================
-            SECTION 6: REAL-WORLD BUSINESS SCENARIOS
+            SECTION 6: 20 COMPREHENSIVE REAL-WORLD ASSESSMENT SCENARIOS
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[5] = el)}
           className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 shadow-xl space-y-6"
         >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-amber-400">🏢</span> Real-World Assessment Scenarios
-            </h2>
-            <span className="text-xs font-mono text-amber-300 bg-amber-950/60 px-3 py-1 rounded-lg border border-amber-800">
-              Evaluation Cases
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
+                <span className="text-amber-400">🏢</span> 20 Real-World Assessment &amp; Visual Defense Cases
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                20 practical evaluation scenarios detailing visual integrity fixes, dual-axis debugging, sparkline integration, and capstone defense scores.
+              </p>
+            </div>
+            <span className="text-xs font-mono text-amber-300 bg-amber-950/80 px-3 py-1.5 rounded-full border border-amber-800 shrink-0 font-bold">
+              20 Real-World Examples
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-            {/* Case 1 */}
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-purple-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-purple-400">Scenario 1 · Master Defense</span>
-                <span className="text-xs font-mono text-slate-400">Barrackpore HQ</span>
-              </div>
-              <h3 className="font-bold text-white text-base">
-                Swadeep Banerjee: 98/100 Visual Defense
-              </h3>
-              <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
-                Candidate <strong>Swadeep Banerjee</strong> presents a 4-visual operational pack featuring zero-baseline clustered columns, dynamic linked title cells, and in-cell sparklines, earning the Gold Medal of Visual Excellence.
-              </p>
-              <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Score: 98/100 &rarr; Certified Visual Storytelling Specialist
-              </div>
-            </div>
-
-            {/* Case 2 */}
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-sky-400">Scenario 2 · Truncated Axis Recovery</span>
-                <span className="text-xs font-mono text-slate-400">Shyamnagar Plant</span>
-              </div>
-              <h3 className="font-bold text-white text-base">
-                Tuhina Mukherjee: 94/100 Integrity Fix
-              </h3>
-              <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
-                Candidate <strong>Tuhina Mukherjee</strong> diagnoses a deceptive plant yield chart where an axis starting at 90% exaggerated a 1% scrap variance, refactoring the visual to anchor at 0% with secondary callouts.
-              </p>
-              <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-sky-300">
-                Score: 94/100 &rarr; Certified Visual Integrity Analyst
-              </div>
-            </div>
-
-            {/* Case 3 */}
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-teal-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-teal-400">Scenario 3 · Dual-Axis Combo Debugging</span>
-                <span className="text-xs font-mono text-slate-400">Ichapur Heavy Engg</span>
-              </div>
-              <h3 className="font-bold text-white text-base">
-                Abhronila Das: 92/100 Dual-Axis Polish
-              </h3>
-              <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
-                Candidate <strong>Abhronila Das</strong> fixes an invisible profit margin series by converting a flat column visual into a high-contrast combo chart with margin % on a secondary axis with smooth curves.
-              </p>
-              <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                Score: 92/100 &rarr; Certified Dashboard Architecture Specialist
-              </div>
-            </div>
-
-            {/* Case 4 */}
-            <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Scenario 4 · Sparkline Integration</span>
-                <span className="text-xs font-mono text-slate-400">Naihati Logistics</span>
-              </div>
-              <h3 className="font-bold text-white text-base">
-                Debangshu Roy: 90/100 Micro-Visuals
-              </h3>
-              <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
-                Candidate <strong>Debangshu Roy</strong> designs an in-cell sparkline tracker across a 35-row fleet ledger with automated high-point markers, reducing executive scanning time from 5 minutes to 30 seconds.
-              </p>
-              <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-amber-300">
-                Score: 90/100 &rarr; Certified Corporate Reporting Analyst
-              </div>
-            </div>
+          <div className="overflow-x-auto rounded-xl border border-slate-800">
+            <table className="w-full text-left text-xs text-slate-300 border-collapse">
+              <thead>
+                <tr className="bg-slate-950 text-slate-400 font-semibold uppercase tracking-wider border-b border-slate-800">
+                  <th className="py-3 px-3 w-16">ID</th>
+                  <th className="py-3 px-3">Candidate &amp; Organization</th>
+                  <th className="py-3 px-3">Evaluation Case &amp; Problem</th>
+                  <th className="py-3 px-3">Applied Remediation</th>
+                  <th className="py-3 px-3">Final Score</th>
+                  <th className="py-3 px-3">Certification Distinction</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/60 font-mono">
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">QUIZ-101</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Swadeep Banerjee (Barrackpore HQ)</td>
+                  <td className="py-2.5 px-3 text-sky-300">4-Visual Executive Defense</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Zero baseline + dynamic cell-linked titles</td>
+                  <td className="py-2.5 px-3 text-purple-300 font-bold">98 / 100</td>
+                  <td className="py-2.5 px-3 text-slate-300">Gold Medal Visual Excellence.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">QUIZ-102</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Tuhina Mukherjee (Shyamnagar Plant)</td>
+                  <td className="py-2.5 px-3 text-sky-300">Truncated Axis Exaggeration</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Reset min axis bound to 0</td>
+                  <td className="py-2.5 px-3 text-purple-300 font-bold">94 / 100</td>
+                  <td className="py-2.5 px-3 text-slate-300">Certified Visual Integrity Analyst.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">QUIZ-103</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Abhronila Das (Ichapur Heavy Engg)</td>
+                  <td className="py-2.5 px-3 text-sky-300">Invisible Flat Margin Series</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Mapped Margin % to Secondary Y-Axis</td>
+                  <td className="py-2.5 px-3 text-purple-300 font-bold">92 / 100</td>
+                  <td className="py-2.5 px-3 text-slate-300">Dashboard Architecture Specialist.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">QUIZ-104</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Debangshu Roy (Naihati Logistics)</td>
+                  <td className="py-2.5 px-3 text-sky-300">High Cognitive Load in Ledger</td>
+                  <td className="py-2.5 px-3 text-emerald-400">35-Row In-Cell Sparkline Tracker</td>
+                  <td className="py-2.5 px-3 text-purple-300 font-bold">90 / 100</td>
+                  <td className="py-2.5 px-3 text-slate-300">Corporate Reporting Analyst.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">QUIZ-105</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Ananya Sen (Salt Lake Tech)</td>
+                  <td className="py-2.5 px-3 text-sky-300">Floating Unaligned Dashboard Widgets</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Alt+Drag magnetic grid snapping</td>
+                  <td className="py-2.5 px-3 text-purple-300 font-bold">96 / 100</td>
+                  <td className="py-2.5 px-3 text-slate-300">Executive Dashboard Architect.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">QUIZ-106</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Saugata Paul (Siliguri Tea Trade)</td>
+                  <td className="py-2.5 px-3 text-sky-300">Monsoon Supply Dip Noise</td>
+                  <td className="py-2.5 px-3 text-emerald-400">7-Day Moving Average trendline</td>
+                  <td className="py-2.5 px-3 text-purple-300 font-bold">91 / 100</td>
+                  <td className="py-2.5 px-3 text-slate-300">Supply Chain Visual Analyst.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">QUIZ-107</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Sourav Das (Durgapur Steel Mill)</td>
+                  <td className="py-2.5 px-3 text-sky-300">Unsorted Equipment Downtime</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Pareto Combo Chart (80/20 rule)</td>
+                  <td className="py-2.5 px-3 text-purple-300 font-bold">95 / 100</td>
+                  <td className="py-2.5 px-3 text-slate-300">Plant Maintenance Analyst.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">QUIZ-108</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Riya Dutta (Asansol Energy Grid)</td>
+                  <td className="py-2.5 px-3 text-sky-300">Ambiguous Multi-Slice Pie</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Doughnut Chart with Center Total text</td>
+                  <td className="py-2.5 px-3 text-purple-300 font-bold">93 / 100</td>
+                  <td className="py-2.5 px-3 text-slate-300">Energy Systems Analyst.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">QUIZ-109</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Subham Ghosh (Howrah Freight)</td>
+                  <td className="py-2.5 px-3 text-sky-300">Truncated Label Text in Columns</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Horizontal Bar Chart orientation</td>
+                  <td className="py-2.5 px-3 text-purple-300 font-bold">89 / 100</td>
+                  <td className="py-2.5 px-3 text-slate-300">Freight Terminal Specialist.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">QUIZ-110</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Priyanka Roy (Haldia Refinery)</td>
+                  <td className="py-2.5 px-3 text-sky-300">Cluttered Chart Junk in Cockpit</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Executive Dark Dashboard Theme</td>
+                  <td className="py-2.5 px-3 text-purple-300 font-bold">97 / 100</td>
+                  <td className="py-2.5 px-3 text-slate-300">Refinery Operations Specialist.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">QUIZ-111</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Amitava Ray (Malda Mango Co-Op)</td>
+                  <td className="py-2.5 px-3 text-sky-300">Unclear Crop Yield Breakdown</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Stacked Column Chart with data callouts</td>
+                  <td className="py-2.5 px-3 text-purple-300 font-bold">90 / 100</td>
+                  <td className="py-2.5 px-3 text-slate-300">Agricultural Data Specialist.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">QUIZ-112</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Sneha Bose (Midnapore Hospital)</td>
+                  <td className="py-2.5 px-3 text-sky-300">Raw Bed Count Comparison Failure</td>
+                  <td className="py-2.5 px-3 text-emerald-400">100% Normalized Stacked Bar</td>
+                  <td className="py-2.5 px-3 text-purple-300 font-bold">94 / 100</td>
+                  <td className="py-2.5 px-3 text-slate-300">Healthcare Analytics Specialist.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">QUIZ-113</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Bikramjit Das (Kharagpur Campus)</td>
+                  <td className="py-2.5 px-3 text-sky-300">Legend Bouncing Cognitive Friction</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Direct data labels above bars</td>
+                  <td className="py-2.5 px-3 text-purple-300 font-bold">96 / 100</td>
+                  <td className="py-2.5 px-3 text-slate-300">Academic Analytics Specialist.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">QUIZ-114</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Sanchari Pal (Hooghly Jute Mill)</td>
+                  <td className="py-2.5 px-3 text-sky-300">Bulky Charts Crowding Table</td>
+                  <td className="py-2.5 px-3 text-emerald-400">In-Cell Text Sparklines (`=REPT`)</td>
+                  <td className="py-2.5 px-3 text-purple-300 font-bold">92 / 100</td>
+                  <td className="py-2.5 px-3 text-slate-300">Text Sparkline Specialist.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">QUIZ-115</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Arindam Kar (Burdwan Retail)</td>
+                  <td className="py-2.5 px-3 text-sky-300">Basket Size Correlation Overlap</td>
+                  <td className="py-2.5 px-3 text-emerald-400">2D Scatter Chart with trendline</td>
+                  <td className="py-2.5 px-3 text-purple-300 font-bold">88 / 100</td>
+                  <td className="py-2.5 px-3 text-slate-300">Retail Customer Analytics Specialist.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">QUIZ-116</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Tamalika De (Purulia Solar Project)</td>
+                  <td className="py-2.5 px-3 text-sky-300">Solar vs Grid Scale Mismatch</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Dual-Axis Combo Chart + Target Band</td>
+                  <td className="py-2.5 px-3 text-purple-300 font-bold">93 / 100</td>
+                  <td className="py-2.5 px-3 text-slate-300">Clean Energy Analytics Specialist.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">QUIZ-117</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Kakali Roy (Bankura Terracotta)</td>
+                  <td className="py-2.5 px-3 text-sky-300">Export Market Focal Point Loss</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Doughnut + 10% Exploded USA Slice</td>
+                  <td className="py-2.5 px-3 text-purple-300 font-bold">91 / 100</td>
+                  <td className="py-2.5 px-3 text-slate-300">Craft Export Visual Analyst.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">QUIZ-118</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Souvik Ghosal (Jalpaiguri Estate)</td>
+                  <td className="py-2.5 px-3 text-sky-300">Uncertain Quality Variance</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Line Chart with Error Bars (5% bounds)</td>
+                  <td className="py-2.5 px-3 text-purple-300 font-bold">95 / 100</td>
+                  <td className="py-2.5 px-3 text-slate-300">Quality Assurance Visual Specialist.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">QUIZ-119</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Tanusree Seal (Darjeeling Hotel)</td>
+                  <td className="py-2.5 px-3 text-sky-300">Revenue vs Occupancy Confusion</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Combo Chart (Columns + Occupancy Line)</td>
+                  <td className="py-2.5 px-3 text-purple-300 font-bold">96 / 100</td>
+                  <td className="py-2.5 px-3 text-slate-300">Hospitality Revenue Specialist.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">QUIZ-120</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Rajat Mukherjee (Cooch Behar Bank)</td>
+                  <td className="py-2.5 px-3 text-sky-300">5-Year Portfolio Trajectory Defense</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Stacked Area Chart + Cell-Linked Title</td>
+                  <td className="py-2.5 px-3 text-purple-300 font-bold">98 / 100</td>
+                  <td className="py-2.5 px-3 text-slate-300">Financial Modeling Capstone Winner.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 

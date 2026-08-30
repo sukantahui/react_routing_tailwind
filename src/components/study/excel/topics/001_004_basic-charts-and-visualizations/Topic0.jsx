@@ -195,58 +195,149 @@ export default function Topic0() {
         </section>
 
         {/* =========================================================================
-            SECTION 4: INTERACTIVE SEMANTIC SVG DIAGRAM
+            SECTION 4: INTERACTIVE VISUAL CHARTS & CHART SELECTION SHOWCASE
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Encoding Architecture: Visual Story Decision Tree: Choosing the Perfect Chart Type
-          </h2>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">📊</span>
+                Live Visual Chart Showcase: Matching Data Stories to Optimal Chart Types
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                Visualizing Column, Line, Doughnut, and Ranked Bar charts with exact axes, data labels, and color encoding.
+              </p>
+            </div>
+            <span className="text-xs font-mono text-sky-300 bg-sky-950/80 px-3 py-1.5 rounded-full border border-sky-800 shrink-0 font-bold">
+              Chart Selection Matrix
+            </span>
+          </div>
 
-          <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
-            <svg viewBox="0 0 800 260" className="w-full max-w-3xl h-auto" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="m4_input" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#0369a1" stopOpacity="0.4" />
-                </linearGradient>
-                <linearGradient id="m4_chart" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#059669" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#047857" stopOpacity="0.4" />
-                </linearGradient>
-                <linearGradient id="m4_dash" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#6d28d9" stopOpacity="0.4" />
-                </linearGradient>
-              </defs>
+          {/* 4-CHART SHOWCASE GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* CHART 1: COLUMN CHART */}
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2 shadow-lg">
+              <div className="flex items-center justify-between border-b border-slate-800/80 pb-2">
+                <h3 className="text-xs font-bold text-sky-300">1. Vertical Column Chart</h3>
+                <span className="text-[9px] font-mono text-sky-400 bg-sky-950 px-1.5 py-0.5 rounded">Discrete Comparison</span>
+              </div>
+              <p className="text-[11px] text-slate-400">Compares discrete categories side-by-side (e.g. Sales across 4 regional branches).</p>
+              <svg viewBox="0 0 300 130" className="w-full h-auto bg-slate-900/80 rounded border border-slate-800/80 p-2">
+                <line x1="30" y1="20" x2="280" y2="20" stroke="#334155" strokeDasharray="2 2" />
+                <line x1="30" y1="60" x2="280" y2="60" stroke="#334155" strokeDasharray="2 2" />
+                <line x1="30" y1="100" x2="280" y2="100" stroke="#475569" strokeWidth="1.5" />
 
-              <rect x="30" y="50" width="200" height="150" rx="12" fill="url(#m4_input)" stroke="#38bdf8" strokeWidth="2" />
-              <text x="130" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">1. Data Aggregation</text>
-              <text x="130" y="115" textAnchor="middle" fill="#e0f2fe" fontSize="11">Categorical Totals</text>
-              <text x="130" y="135" textAnchor="middle" fill="#e0f2fe" fontSize="11">12-Month Time-Series</text>
-              <text x="130" y="165" textAnchor="middle" fill="#bae6fd" fontSize="11" fontWeight="bold">Clean Normalized Rows</text>
+                <rect x="45" y="50" width="30" height="50" rx="2" fill="#0284C7" />
+                <text x="60" y="42" textAnchor="middle" fill="#38BDF8" fontSize="8" fontWeight="bold">₹14.5L</text>
+                <text x="60" y="112" textAnchor="middle" fill="#94A3B8" fontSize="7">BKP</text>
 
-              <path d="M 235 125 L 295 125" stroke="#38bdf8" strokeWidth="3" strokeDasharray="6,4" />
-              <polygon points="295,120 305,125 295,130" fill="#38bdf8" />
+                <rect x="105" y="25" width="30" height="75" rx="2" fill="#059669" />
+                <text x="120" y="18" textAnchor="middle" fill="#34D399" fontSize="8" fontWeight="bold">₹21.0L</text>
+                <text x="120" y="112" textAnchor="middle" fill="#94A3B8" fontSize="7">KOL</text>
 
-              <rect x="310" y="50" width="200" height="150" rx="12" fill="url(#m4_chart)" stroke="#34d399" strokeWidth="2" />
-              <text x="410" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">2. Visual Encoding</text>
-              <text x="410" y="115" textAnchor="middle" fill="#d1fae5" fontSize="11">Clustered Column</text>
-              <text x="410" y="135" textAnchor="middle" fill="#d1fae5" fontSize="11">Dual-Axis Combo Line</text>
-              <text x="410" y="165" textAnchor="middle" fill="#a7f3d0" fontSize="11" fontWeight="bold">Doughnut Proportions</text>
+                <rect x="165" y="40" width="30" height="60" rx="2" fill="#0284C7" />
+                <text x="180" y="32" textAnchor="middle" fill="#38BDF8" fontSize="8" fontWeight="bold">₹17.5L</text>
+                <text x="180" y="112" textAnchor="middle" fill="#94A3B8" fontSize="7">HWH</text>
 
-              <path d="M 515 125 L 575 125" stroke="#34d399" strokeWidth="3" strokeDasharray="6,4" />
-              <polygon points="575,120 585,125 575,130" fill="#34d399" />
+                <rect x="225" y="65" width="30" height="35" rx="2" fill="#0284C7" />
+                <text x="240" y="57" textAnchor="middle" fill="#38BDF8" fontSize="8" fontWeight="bold">₹12.0L</text>
+                <text x="240" y="112" textAnchor="middle" fill="#94A3B8" fontSize="7">HGH</text>
+              </svg>
+            </div>
 
-              <rect x="590" y="50" width="180" height="150" rx="12" fill="url(#m4_dash)" stroke="#a78bfa" strokeWidth="2" />
-              <text x="680" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">3. Executive Dashboard</text>
-              <text x="680" y="115" textAnchor="middle" fill="#ede9fe" fontSize="11">Top KPI Callouts</text>
-              <text x="680" y="135" textAnchor="middle" fill="#ede9fe" fontSize="11">Alt+Drag Grid Snapping</text>
-              <text x="680" y="165" textAnchor="middle" fill="#ddd6fe" fontSize="11" fontWeight="bold">3-Second Insight</text>
-            </svg>
+            {/* CHART 2: LINE CHART */}
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2 shadow-lg">
+              <div className="flex items-center justify-between border-b border-slate-800/80 pb-2">
+                <h3 className="text-xs font-bold text-emerald-300">2. Chronological Line Chart</h3>
+                <span className="text-[9px] font-mono text-emerald-400 bg-emerald-950 px-1.5 py-0.5 rounded">Time-Series Trend</span>
+              </div>
+              <p className="text-[11px] text-slate-400">Tracks continuous monthly revenue trends, seasonality, and slope trajectory over time.</p>
+              <svg viewBox="0 0 300 130" className="w-full h-auto bg-slate-900/80 rounded border border-slate-800/80 p-2">
+                <line x1="30" y1="20" x2="280" y2="20" stroke="#334155" strokeDasharray="2 2" />
+                <line x1="30" y1="60" x2="280" y2="60" stroke="#334155" strokeDasharray="2 2" />
+                <line x1="30" y1="100" x2="280" y2="100" stroke="#475569" strokeWidth="1.5" />
+
+                <path d="M 45 85 L 105 70 L 165 40 L 225 25 L 265 15" fill="none" stroke="#34D399" strokeWidth="2.5" />
+                <circle cx="45" cy="85" r="3" fill="#059669" stroke="#34D399" strokeWidth="1.5" />
+                <circle cx="105" cy="70" r="3" fill="#059669" stroke="#34D399" strokeWidth="1.5" />
+                <circle cx="165" cy="40" r="3" fill="#059669" stroke="#34D399" strokeWidth="1.5" />
+                <circle cx="225" cy="25" r="3" fill="#059669" stroke="#34D399" strokeWidth="1.5" />
+                <circle cx="265" cy="15" r="3" fill="#059669" stroke="#34D399" strokeWidth="1.5" />
+
+                <text x="45" y="112" textAnchor="middle" fill="#94A3B8" fontSize="7">Jan</text>
+                <text x="105" y="112" textAnchor="middle" fill="#94A3B8" fontSize="7">Feb</text>
+                <text x="165" y="112" textAnchor="middle" fill="#94A3B8" fontSize="7">Mar</text>
+                <text x="225" y="112" textAnchor="middle" fill="#94A3B8" fontSize="7">Apr</text>
+                <text x="265" y="112" textAnchor="middle" fill="#94A3B8" fontSize="7">May</text>
+              </svg>
+            </div>
+
+            {/* CHART 3: DOUGHNUT CHART */}
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2 shadow-lg">
+              <div className="flex items-center justify-between border-b border-slate-800/80 pb-2">
+                <h3 className="text-xs font-bold text-purple-300">3. Executive Doughnut Chart</h3>
+                <span className="text-[9px] font-mono text-purple-400 bg-purple-950 px-1.5 py-0.5 rounded">Part-to-Whole 100%</span>
+              </div>
+              <p className="text-[11px] text-slate-400">Displays percentage contribution (Max 5 slices) with a central total metric callout.</p>
+              <svg viewBox="0 0 300 130" className="w-full h-auto bg-slate-900/80 rounded border border-slate-800/80 p-2">
+                <g transform="translate(110, 65)">
+                  <path d="M 0 0 L 0 -45 A 45 45 0 0 1 42 16 Z" fill="#0284C7" stroke="#0F172A" />
+                  <path d="M 0 0 L 42 16 A 45 45 0 0 1 -33 30 Z" fill="#059669" stroke="#0F172A" />
+                  <path d="M 0 0 L -33 30 A 45 45 0 0 1 -42 -16 Z" fill="#7C3AED" stroke="#0F172A" />
+                  <path d="M 0 0 L -42 -16 A 45 45 0 0 1 0 -45 Z" fill="#D97706" stroke="#0F172A" />
+                  <circle cx="0" cy="0" r="25" fill="#0F172A" />
+                  <text x="0" y="3" textAnchor="middle" fill="#34D399" fontSize="8" fontWeight="bold">100%</text>
+                </g>
+                <g transform="translate(180, 25)">
+                  <rect x="0" y="5" width="8" height="8" fill="#0284C7" />
+                  <text x="12" y="12" fill="#CBD5E1" fontSize="8">Enterprise (42%)</text>
+                  <rect x="0" y="25" width="8" height="8" fill="#059669" />
+                  <text x="12" y="32" fill="#CBD5E1" fontSize="8">Cloud Infra (28%)</text>
+                  <rect x="0" y="45" width="8" height="8" fill="#7C3AED" />
+                  <text x="12" y="52" fill="#CBD5E1" fontSize="8">Consulting (18%)</text>
+                  <rect x="0" y="65" width="8" height="8" fill="#D97706" />
+                  <text x="12" y="72" fill="#CBD5E1" fontSize="8">Support (12%)</text>
+                </g>
+              </svg>
+            </div>
+
+            {/* CHART 4: HORIZONTAL BAR CHART */}
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2 shadow-lg">
+              <div className="flex items-center justify-between border-b border-slate-800/80 pb-2">
+                <h3 className="text-xs font-bold text-amber-300">4. Ranked Horizontal Bar Chart</h3>
+                <span className="text-[9px] font-mono text-amber-400 bg-amber-950 px-1.5 py-0.5 rounded">Leaderboard Ranking</span>
+              </div>
+              <p className="text-[11px] text-slate-400">Best for long text category labels and top-to-bottom leaderboard rankings.</p>
+              <svg viewBox="0 0 300 130" className="w-full h-auto bg-slate-900/80 rounded border border-slate-800/80 p-2">
+                <text x="75" y="25" textAnchor="end" fill="#CBD5E1" fontSize="7">Software Dev</text>
+                <rect x="85" y="16" width="160" height="12" rx="2" fill="#059669" />
+                <text x="250" y="25" textAnchor="start" fill="#34D399" fontSize="7" fontWeight="bold">₹28.5L</text>
+
+                <text x="75" y="50" textAnchor="end" fill="#CBD5E1" fontSize="7">Cloud Infra</text>
+                <rect x="85" y="41" width="125" height="12" rx="2" fill="#0284C7" />
+                <text x="215" y="50" textAnchor="start" fill="#38BDF8" fontSize="7" fontWeight="bold">₹22.0L</text>
+
+                <text x="75" y="75" textAnchor="end" fill="#CBD5E1" fontSize="7">Consulting</text>
+                <rect x="85" y="66" width="100" height="12" rx="2" fill="#0284C7" />
+                <text x="190" y="75" textAnchor="start" fill="#38BDF8" fontSize="7" fontWeight="bold">₹18.5L</text>
+
+                <text x="75" y="100" textAnchor="end" fill="#CBD5E1" fontSize="7">Tech Support</text>
+                <rect x="85" y="91" width="65" height="12" rx="2" fill="#0284C7" />
+                <text x="155" y="100" textAnchor="start" fill="#38BDF8" fontSize="7" fontWeight="bold">₹11.0L</text>
+              </svg>
+            </div>
+          </div>
+
+          {/* SUMMARY DECISION MATRIX */}
+          <div className="p-4 rounded-xl bg-sky-950/40 border border-sky-800/60 flex items-start gap-3">
+            <span className="text-sky-400 text-lg">💡</span>
+            <div className="text-xs text-slate-300 leading-relaxed">
+              <strong className="text-white">Chart Selection Golden Rule: </strong>
+              Always match your visual chart choice to the core story of your data. Use <span className="text-sky-300 font-semibold">Column/Bar</span> for comparisons, <span className="text-emerald-300 font-semibold">Line/Area</span> for time-series trends, and <span className="text-purple-300 font-semibold">Doughnut</span> for part-to-whole composition.
+            </div>
           </div>
         </section>
 
@@ -280,8 +371,8 @@ export default function Topic0() {
           </div>
 
           <ExcelFileLoader
-            fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Chart_Guide"
+            fileUrl={sampleWorkbookUrl}
+            defaultSheetName="Topic0"
             title="Module 1.4 - Chart Selection Guide: Matching Business Data Stories to Optimal Chart Types"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -289,113 +380,202 @@ export default function Topic0() {
         </section>
 
         {/* =========================================================================
-            SECTION 6: REAL-WORLD BUSINESS SCENARIOS (4+ CASES)
+            SECTION 6: 20 COMPREHENSIVE REAL-WORLD CHART SELECTION SCENARIOS
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[5] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
-            Real-World Business Scenarios (Bengal & Corporate Applications)
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
-                <h3 className="text-base font-bold text-white">Barrackpore Multi-Branch Sales Comparison Selection</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Choosing between a 3D Pie chart vs Horizontal Bar chart for 8 regional branches.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Chart_Candidate</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Legibility_Score</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Tufte_Data_Ink_Ratio</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Decision</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">3D Pie Chart (8 Slices)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">POOR (Distorted angles, cluttered labels)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Low (Excess non-data ink)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">REJECTED (Misleading)</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Horizontal Bar Chart (Sorted)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">EXCELLENT (Instant length ranking)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">High (Clean data bars)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">APPROVED (Executive Standard)</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Horizontal Bar Chart sorted descending by sales</div>
-                <div className="text-emerald-400 font-semibold">Result: Instant visual ranking across all 8 branches.</div>
-                <div className="text-slate-400 text-[11px]">Horizontal bars accommodate long branch names without slanted text.</div>
-              </div>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
+                20 Real-World Business Scenarios: Chart Type Selection Matrix
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                20 comprehensive workplace data visualization scenarios across Bengal corporate, manufacturing, and financial domains.
+              </p>
             </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">02</span>
-                <h3 className="text-base font-bold text-white">Kolkata Corporate 3-Year Monthly Revenue Trend Visualization</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Displaying 36 consecutive months of revenue to highlight seasonal spikes.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Selected_Chart</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">X_Axis</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Y_Axis</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Story_Delivered</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Multi-Line Chart with Smooth Lines</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Jan 2024 to Dec 2026</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Monthly Revenue (INR Lakhs)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Clear upward revenue trajectory with annual festive peaks</td></tr>
-                  </tbody>
-                </table>
-              </div>
+            <span className="text-xs font-mono text-amber-300 bg-amber-950/80 px-3 py-1.5 rounded-full border border-amber-800 shrink-0 font-bold">
+              20 Real-World Examples
+            </span>
+          </div>
 
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: 2D Line Chart with Highlighted Markers</div>
-                <div className="text-emerald-400 font-semibold">Result: Executive team identifies Q3 seasonal revenue acceleration.</div>
-                <div className="text-slate-400 text-[11px]">Line charts connect continuous time points to reveal velocity and trend.</div>
-              </div>
-            </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">03</span>
-                <h3 className="text-base font-bold text-white">Shyamnagar Factory Operating Expense Budget Breakdown</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Showing 4 cost components (Raw Materials 55%, Labor 25%, Power 12%, Overhead 8%).</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Cost_Component</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">% Share</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Recommended_Chart</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Raw Materials</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">55%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Doughnut Chart with Center Total</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Labor</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">25%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Doughnut Chart (High contrast slices)</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Doughnut Chart (4 slices total)</div>
-                <div className="text-emerald-400 font-semibold">Result: Clean board-ready budget composition visual.</div>
-                <div className="text-slate-400 text-[11px]">Doughnut charts with under 5 slices cleanly communicate proportions.</div>
-              </div>
-            </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">04</span>
-                <h3 className="text-base font-bold text-white">Ichapur Plant Tensile Strength Quality Distribution</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Analyzing product variation across 500 manufactured steel batches.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Quality_Metric</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Sample_Count</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Recommended_Chart</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Tensile Strength (MPa)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">500 Batches</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Histogram (Bin width: 10 MPa)</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Statistical Histogram Chart</div>
-                <div className="text-emerald-400 font-semibold">Result: Normal distribution bell curve verified for ISO audit.</div>
-                <div className="text-slate-400 text-[11px]">Histograms group continuous data into discrete frequency bins.</div>
-              </div>
-            </div>
+          <div className="overflow-x-auto rounded-xl border border-slate-800">
+            <table className="w-full text-left text-xs text-slate-300 border-collapse">
+              <thead>
+                <tr className="bg-slate-950 text-slate-400 font-semibold uppercase tracking-wider border-b border-slate-800">
+                  <th className="py-3 px-3 w-16">ID</th>
+                  <th className="py-3 px-3">Business Application</th>
+                  <th className="py-3 px-3">Analytical Story</th>
+                  <th className="py-3 px-3">Recommended Chart</th>
+                  <th className="py-3 px-3">Key Design Rule</th>
+                  <th className="py-3 px-3">Executive Insight Delivered</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/60 font-mono">
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CS-101</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Barrackpore 8 Regional Branches Sales</td>
+                  <td className="py-2.5 px-3 text-sky-300">Discrete Category Comparison</td>
+                  <td className="py-2.5 px-3 text-emerald-400 font-bold">Horizontal Bar Chart</td>
+                  <td className="py-2.5 px-3 text-slate-300">Sort descending by sales value</td>
+                  <td className="py-2.5 px-3 text-slate-300">Instant leaderboard ranking without slanted text.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CS-102</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Kolkata HQ 36-Month Revenue Trajectory</td>
+                  <td className="py-2.5 px-3 text-sky-300">Continuous Time-Series Trend</td>
+                  <td className="py-2.5 px-3 text-emerald-400 font-bold">2D Line Chart + Markers</td>
+                  <td className="py-2.5 px-3 text-slate-300">Highlight peak points in green</td>
+                  <td className="py-2.5 px-3 text-slate-300">Reveals Q3 annual festive revenue acceleration.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CS-103</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Shyamnagar Plant 4 Cost Components</td>
+                  <td className="py-2.5 px-3 text-sky-300">Part-to-Whole Composition</td>
+                  <td className="py-2.5 px-3 text-emerald-400 font-bold">Executive Doughnut Chart</td>
+                  <td className="py-2.5 px-3 text-slate-300">Center KPI callout "₹85.4L Total"</td>
+                  <td className="py-2.5 px-3 text-slate-300">Raw materials account for 55% of operating budget.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CS-104</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Ichapur Steel Quality (500 Batches)</td>
+                  <td className="py-2.5 px-3 text-sky-300">Frequency Distribution</td>
+                  <td className="py-2.5 px-3 text-emerald-400 font-bold">Statistical Histogram</td>
+                  <td className="py-2.5 px-3 text-slate-300">Bin width set to 10 MPa</td>
+                  <td className="py-2.5 px-3 text-slate-300">Normal bell curve distribution verified for ISO audit.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CS-105</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Naihati Logistics Latency vs Volume</td>
+                  <td className="py-2.5 px-3 text-sky-300">Metric Correlation</td>
+                  <td className="py-2.5 px-3 text-emerald-400 font-bold">XY Scatter Plot</td>
+                  <td className="py-2.5 px-3 text-slate-300">Add linear trendline overlay</td>
+                  <td className="py-2.5 px-3 text-slate-300">Proves shipment volume over 5K units increases delay.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CS-106</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Titagarh Paper Production vs Scrap %</td>
+                  <td className="py-2.5 px-3 text-sky-300">Dual Metric Scale</td>
+                  <td className="py-2.5 px-3 text-emerald-400 font-bold">Dual-Axis Combo Chart</td>
+                  <td className="py-2.5 px-3 text-slate-300">Left: Tons (Bars), Right: Scrap % (Line)</td>
+                  <td className="py-2.5 px-3 text-slate-300">Highlights scrap rate drop as output volume increases.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CS-107</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Hooghly IT Dept Payroll Expenses</td>
+                  <td className="py-2.5 px-3 text-sky-300">Discrete Ranking</td>
+                  <td className="py-2.5 px-3 text-emerald-400 font-bold">Horizontal Bar Chart</td>
+                  <td className="py-2.5 px-3 text-slate-300">Anchor Y-axis at zero</td>
+                  <td className="py-2.5 px-3 text-slate-300">Software development represents largest payroll expense.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CS-108</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Sodepur Retail Quarterly Share</td>
+                  <td className="py-2.5 px-3 text-sky-300">Cumulative Volume Growth</td>
+                  <td className="py-2.5 px-3 text-emerald-400 font-bold">Stacked Area Chart</td>
+                  <td className="py-2.5 px-3 text-slate-300">High-contrast solid fills</td>
+                  <td className="py-2.5 px-3 text-slate-300">Software subscriptions driving overall revenue growth.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CS-109</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Kanchrapara Defect Frequency</td>
+                  <td className="py-2.5 px-3 text-sky-300">80/20 Pareto Prioritization</td>
+                  <td className="py-2.5 px-3 text-emerald-400 font-bold">Pareto Combo Chart</td>
+                  <td className="py-2.5 px-3 text-slate-300">Descending bars + cumulative % line</td>
+                  <td className="py-2.5 px-3 text-slate-300">2 defect types cause 78% of total rework hours.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CS-110</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Executive Income Statement Summary</td>
+                  <td className="py-2.5 px-3 text-sky-300">Multi-Year Comparison</td>
+                  <td className="py-2.5 px-3 text-emerald-400 font-bold">Clustered Column Chart</td>
+                  <td className="py-2.5 px-3 text-slate-300">Sky Blue focal accent for 2026</td>
+                  <td className="py-2.5 px-3 text-slate-300">Revenue growth outpaces operating expense increases.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CS-111</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Howrah Fleet Fuel Consumption</td>
+                  <td className="py-2.5 px-3 text-sky-300">Asset Efficiency Ranking</td>
+                  <td className="py-2.5 px-3 text-emerald-400 font-bold">Horizontal Bar Chart</td>
+                  <td className="py-2.5 px-3 text-slate-300">Long vehicle registration labels</td>
+                  <td className="py-2.5 px-3 text-slate-300">Identifies top 3 fuel-inefficient heavy trucks.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CS-112</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Corporate SaaS Subscription Tiers</td>
+                  <td className="py-2.5 px-3 text-sky-300">Part-to-Whole (3 Slices)</td>
+                  <td className="py-2.5 px-3 text-emerald-400 font-bold">Executive Doughnut Chart</td>
+                  <td className="py-2.5 px-3 text-slate-300">Center ARR text ₹45.2L</td>
+                  <td className="py-2.5 px-3 text-slate-300">Enterprise plan generates 62% of annual ARR.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CS-113</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Kolkata Port Container Turnover</td>
+                  <td className="py-2.5 px-3 text-sky-300">Quarterly Seasonality</td>
+                  <td className="py-2.5 px-3 text-emerald-400 font-bold">2D Line Chart</td>
+                  <td className="py-2.5 px-3 text-slate-300">Highlight monsoon months</td>
+                  <td className="py-2.5 px-3 text-slate-300">Monsoon month dip clearly visible to operations.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CS-114</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Financial Modeling Candidate Scores</td>
+                  <td className="py-2.5 px-3 text-sky-300">Candidate Score Ranking</td>
+                  <td className="py-2.5 px-3 text-emerald-400 font-bold">Horizontal Bar Chart</td>
+                  <td className="py-2.5 px-3 text-slate-300">Data labels inside bars</td>
+                  <td className="py-2.5 px-3 text-slate-300">Top 10 candidates highlighted for final interview.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CS-115</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Textile Factory Yarn Waste by Shift</td>
+                  <td className="py-2.5 px-3 text-sky-300">Categorical Shift Variance</td>
+                  <td className="py-2.5 px-3 text-emerald-400 font-bold">Clustered Column Chart</td>
+                  <td className="py-2.5 px-3 text-slate-300">Muted gridlines (#334155)</td>
+                  <td className="py-2.5 px-3 text-slate-300">Night shift exhibits 4.2% higher waste margin.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CS-116</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Pharma Lab Batch Yield Variances</td>
+                  <td className="py-2.5 px-3 text-sky-300">Statistical Outlier Spread</td>
+                  <td className="py-2.5 px-3 text-emerald-400 font-bold">Box &amp; Whisker Plot</td>
+                  <td className="py-2.5 px-3 text-slate-300">Show inner quartile markers</td>
+                  <td className="py-2.5 px-3 text-slate-300">Identifies 3 outlier batches exceeding threshold.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CS-117</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Student Enrolment by Campus Track</td>
+                  <td className="py-2.5 px-3 text-sky-300">Composition by Campus</td>
+                  <td className="py-2.5 px-3 text-emerald-400 font-bold">100% Stacked Bar Chart</td>
+                  <td className="py-2.5 px-3 text-slate-300">Normalized percentage scale</td>
+                  <td className="py-2.5 px-3 text-slate-300">Barrackpore leads in Full Stack Engineering tracks.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CS-118</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Power Plant Turbine Telemetry</td>
+                  <td className="py-2.5 px-3 text-sky-300">Real-Time Metric Stream</td>
+                  <td className="py-2.5 px-3 text-emerald-400 font-bold">Line Chart + Alarm Marker</td>
+                  <td className="py-2.5 px-3 text-slate-300">Dashed red warning threshold line</td>
+                  <td className="py-2.5 px-3 text-slate-300">Temperature spike detected during peak load hours.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CS-119</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Executive Cash Flow Bridge</td>
+                  <td className="py-2.5 px-3 text-sky-300">Sequential Variance</td>
+                  <td className="py-2.5 px-3 text-emerald-400 font-bold">Waterfall Chart</td>
+                  <td className="py-2.5 px-3 text-slate-300">Green (Inflow) / Red (Outflow)</td>
+                  <td className="py-2.5 px-3 text-slate-300">Explains bridge from Gross Sales to Net Profit.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CS-120</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Campus Placement CTC Ranges</td>
+                  <td className="py-2.5 px-3 text-sky-300">Salary Band Distribution</td>
+                  <td className="py-2.5 px-3 text-emerald-400 font-bold">Histogram</td>
+                  <td className="py-2.5 px-3 text-slate-300">₹1.5L bin width intervals</td>
+                  <td className="py-2.5 px-3 text-slate-300">CTC distribution skewed positively toward top tier.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 
@@ -502,42 +682,106 @@ export default function Topic0() {
         </section>
 
         {/* =========================================================================
-            SECTION 9: PRO TIPS & PRODUCTIVITY SHORTCUTS
+            SECTION 9: ESSENTIAL EXCEL CHARTING KEYBOARD SHORTCUTS & HOTKEYS
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[8] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 text-base font-mono">💡</span>
-            Classroom Pro Tips & High-Speed Shortcuts
-          </h2>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 text-base font-mono">⌨️</span>
+                Master Excel Charting Keyboard Shortcuts &amp; Hotkeys
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                Boost your chart creation and formatting speed by 10x with these essential workplace hotkeys.
+              </p>
+            </div>
+            <span className="text-xs font-mono text-purple-300 bg-purple-950/80 px-3 py-1.5 rounded-full border border-purple-800 shrink-0 font-bold">
+              Speed Hotkeys Matrix
+            </span>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
                 Alt + F1
               </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Instantly insert default 2D Column Chart on active worksheet.</p>
+              <div>
+                <strong className="text-xs text-white block">Insert Embedded Chart</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Instantly create default 2D Column Chart on active worksheet.</p>
+              </div>
             </div>
+
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
                 F11
               </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Create default chart on a new dedicated Chart Sheet.</p>
+              <div>
+                <strong className="text-xs text-white block">New Chart Sheet</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Generate default chart on a dedicated standalone Chart Sheet (<code className="text-purple-300">Chart1</code>).</p>
+              </div>
             </div>
+
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                Ctrl + Q
+                Alt + Drag
               </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Open Quick Analysis tool for instant visual sparks and charts.</p>
+              <div>
+                <strong className="text-xs text-white block">Snap to Gridlines</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Hold <kbd className="text-slate-200 bg-slate-800 px-1 rounded text-[10px]">Alt</kbd> while moving chart corners to snap perfectly to cell borders.</p>
+              </div>
             </div>
+
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                Alt + J + C
+                Ctrl + 1
               </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Open Chart Design contextual tab.</p>
+              <div>
+                <strong className="text-xs text-white block">Format Task Pane</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Open Format Chart Area or Format Data Series sidebar menu instantly.</p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
+              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                Alt + N + C
+              </kbd>
+              <div>
+                <strong className="text-xs text-white block">Insert Column Chart Ribbon</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Trigger Insert Ribbon menu for 2D/3D Column &amp; Bar charts.</p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
+              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                Alt + N + N
+              </kbd>
+              <div>
+                <strong className="text-xs text-white block">Insert Line Chart Ribbon</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Trigger Insert Ribbon menu for 2D/3D Line &amp; Area charts.</p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
+              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                Alt + N + Q
+              </kbd>
+              <div>
+                <strong className="text-xs text-white block">Insert Pie Chart Ribbon</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Trigger Insert Ribbon menu for Pie &amp; Doughnut charts.</p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
+              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                Ctrl+C → Alt+E+S+T
+              </kbd>
+              <div>
+                <strong className="text-xs text-white block">Copy Chart Formats</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Copy one chart and paste its formatting to another chart instantly.</p>
+              </div>
             </div>
           </div>
         </section>

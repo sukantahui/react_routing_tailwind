@@ -274,8 +274,8 @@ export default function Topic3() {
           </div>
 
           <ExcelFileLoader
-            fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Data_Types"
+            fileUrl={sampleWorkbookUrl}
+            sheetName="Topic3"
             title="Module 1.2 - Grid Structure Editing: Inserting, Deleting, Hiding, Grouping and Resizing Rows &amp; Columns"
             rowsPerPage={25}
             showSheetSelector={true}

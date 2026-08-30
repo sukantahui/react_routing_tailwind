@@ -274,8 +274,8 @@ export default function Topic6() {
           </div>
 
           <ExcelFileLoader
-            fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Data_Types"
+            fileUrl={sampleWorkbookUrl}
+            sheetName="Topic6"
             title="Module 1.2 - Alignment, Text Wrapping, Center Across Selection vs Merge, and Executive Cell Styles"
             rowsPerPage={25}
             showSheetSelector={true}

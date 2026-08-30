@@ -274,8 +274,8 @@ export default function Topic5() {
           </div>
 
           <ExcelFileLoader
-            fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Data_Types"
+            fileUrl={sampleWorkbookUrl}
+            sheetName="Topic5"
             title="Module 1.2 - Date and Time Mechanics: Serial Numbers, Epoch 1900, Elapsed Time and Custom Date Codes"
             rowsPerPage={25}
             showSheetSelector={true}

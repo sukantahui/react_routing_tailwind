@@ -1,243 +1,333 @@
 const questions = [
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Data type coercion rules (Text vs Number vs Date vs Boolean) (Question 1)?",
-    "shortAnswer": "Data type coercion rules (Text vs Number vs Date vs Boolean) is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Data type coercion rules (Text vs Number vs Date vs Boolean) plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Data type coercion rules (Text vs Number vs Date vs Boolean) prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "basic",
-    "codeExample": "₹ #,##,##0.00;[Red]-₹ #,##0.00;\"-\";@"
+    question: "What is the primary function of pressing the `F2` key on a selected worksheet cell in Excel?",
+    options: [
+      "Toggles Edit Mode to place the cursor directly inside the cell at the end of existing content",
+      "Clears all formatting and resets the cell to General",
+      "Opens the Format Cells dialog box",
+      "Deletes the active cell contents permanently"
+    ],
+    correctAnswer: 0,
+    explanation: "Pressing `F2` activates Edit Mode, placing the text cursor directly inside the active cell so you can edit contents without overwriting existing data."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply IEEE 754 floating-point 15-digit precision limit (Question 2)?",
-    "shortAnswer": "IEEE 754 floating-point 15-digit precision limit is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, IEEE 754 floating-point 15-digit precision limit plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how IEEE 754 floating-point 15-digit precision limit prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "basic",
-    "codeExample": "=TEXT(A2, \"DD-MMM-YYYY\")"
+    question: "How does typing directly into a selected cell differ from pressing `F2` before typing?",
+    options: [
+      "Direct typing overwrites and replaces all existing cell contents; pressing F2 allows in-cell editing without deleting existing content",
+      "Direct typing converts text into numbers; F2 converts numbers into text",
+      "Direct typing requires pressing Enter twice; F2 saves automatically",
+      "There is no difference between direct typing and F2"
+    ],
+    correctAnswer: 0,
+    explanation: "Directly typing on a selected cell erases its prior contents and starts fresh input. Pressing `F2` enters Edit Mode, preserving existing cell text/formulas for precision editing."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Date serial integer storage and 1900 Epoch system (Question 3)?",
-    "shortAnswer": "Date serial integer storage and 1900 Epoch system is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Date serial integer storage and 1900 Epoch system plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Date serial integer storage and 1900 Epoch system prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "basic",
-    "codeExample": "=TYPE(A3)"
+    question: "What keyboard shortcut toggles the expansion/collapse of the Formula Bar height for viewing long formulas?",
+    options: [
+      "Ctrl + Shift + U",
+      "Alt + F2",
+      "Ctrl + F1",
+      "Shift + Enter"
+    ],
+    correctAnswer: 0,
+    explanation: "`Ctrl + Shift + U` expands or collapses the Formula Bar height, allowing analysts to inspect multi-line formulas without obscure truncation."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Time fraction decimals and [h]:mm elapsed hour formatting (Question 4)?",
-    "shortAnswer": "Time fraction decimals and [h]:mm elapsed hour formatting is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Time fraction decimals and [h]:mm elapsed hour formatting plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Time fraction decimals and [h]:mm elapsed hour formatting prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "basic",
-    "codeExample": "₹ #,##,##0.00;[Red]-₹ #,##0.00;\"-\";@"
+    question: "What keyboard shortcut opens the Find and Replace dialog box with the 'Replace' tab active?",
+    options: [
+      "Ctrl + H",
+      "Ctrl + F",
+      "Alt + R",
+      "Ctrl + R"
+    ],
+    correctAnswer: 0,
+    explanation: "`Ctrl + H` opens Find & Replace directly to the Replace tab. `Ctrl + F` opens the Find tab."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply AutoComplete buffer mechanics in contiguous columns (Question 5)?",
-    "shortAnswer": "AutoComplete buffer mechanics in contiguous columns is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, AutoComplete buffer mechanics in contiguous columns plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how AutoComplete buffer mechanics in contiguous columns prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "basic",
-    "codeExample": "=TEXT(A5, \"DD-MMM-YYYY\")"
+    question: "In Excel's Find & Replace dialog, what wildcard character represents any single individual character?",
+    options: [
+      "The question mark (`?`)",
+      "The asterisk (`*`)",
+      "The tilde (`~`)",
+      "The ampersand (`&`)"
+    ],
+    correctAnswer: 0,
+    explanation: "The question mark `?` matches exactly one character (e.g. `B?ll` matches 'Ball', 'Bell', 'Bill'). The asterisk `*` matches any sequence of characters."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Pick from Drop-Down list shortcut (Alt + Down Arrow) (Question 6)?",
-    "shortAnswer": "Pick from Drop-Down list shortcut (Alt + Down Arrow) is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Pick from Drop-Down list shortcut (Alt + Down Arrow) plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Pick from Drop-Down list shortcut (Alt + Down Arrow) prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "basic",
-    "codeExample": "=TYPE(A6)"
+    question: "How do you search for a literal asterisk (`*`) or question mark (`?`) in Find & Replace without triggering wildcard matching?",
+    options: [
+      "Prefix the character with a tilde (`~*` or `~?`)",
+      "Wrap the character in double quotes (`\"*\"`)",
+      "Enclose the character in square brackets (`[*]`)",
+      "Prefix the character with a backslash (`\\*`)"
+    ],
+    correctAnswer: 0,
+    explanation: "Preceding a wildcard with a tilde (`~`) escapes its wildcard behavior, instructing Excel to search for the literal `*` or `?` symbol."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Flash Fill inductive pattern synthesis algorithms (Ctrl + E) (Question 7)?",
-    "shortAnswer": "Flash Fill inductive pattern synthesis algorithms (Ctrl + E) is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Flash Fill inductive pattern synthesis algorithms (Ctrl + E) plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Flash Fill inductive pattern synthesis algorithms (Ctrl + E) prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "basic",
-    "codeExample": "₹ #,##,##0.00;[Red]-₹ #,##0.00;\"-\";@"
+    question: "What key opens the Paste Special dialog box after copying a cell (`Ctrl + C`)?",
+    options: [
+      "Ctrl + Alt + V (or Alt + E + S)",
+      "Ctrl + Shift + V",
+      "Alt + V",
+      "Ctrl + P"
+    ],
+    correctAnswer: 0,
+    explanation: "`Ctrl + Alt + V` (or the legacy sequence `Alt + E + S`) opens the Paste Special dialog box, giving access to Values, Formats, Column Widths, Operations, and Transpose."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Custom Lists creation and global Excel registry storage (Question 8)?",
-    "shortAnswer": "Custom Lists creation and global Excel registry storage is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Custom Lists creation and global Excel registry storage plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Custom Lists creation and global Excel registry storage prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "basic",
-    "codeExample": "=TEXT(A8, \"DD-MMM-YYYY\")"
+    question: "Which Paste Special option converts dynamic formula outputs into static, immutable raw values?",
+    options: [
+      "Paste Values (Shortcut: Alt + E + S + V)",
+      "Paste Formats (Shortcut: Alt + E + S + T)",
+      "Paste Formulas (Shortcut: Alt + E + S + F)",
+      "Paste Column Widths (Shortcut: Alt + E + S + W)"
+    ],
+    correctAnswer: 0,
+    explanation: "Paste Values strips away underlying formula logic, replacing formula cells with their current calculated constant values."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply 4-section Custom Number Format syntax (Positive; Negative; Zero; Text) (Question 9)?",
-    "shortAnswer": "4-section Custom Number Format syntax (Positive; Negative; Zero; Text) is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, 4-section Custom Number Format syntax (Positive; Negative; Zero; Text) plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how 4-section Custom Number Format syntax (Positive; Negative; Zero; Text) prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "basic",
-    "codeExample": "=TYPE(A9)"
+    question: "What does selecting 'Skip Blanks' in the Paste Special dialog achieve when pasting data over an existing range?",
+    options: [
+      "Prevents blank cells in the copied range from overwriting existing non-blank data in the target range",
+      "Deletes all blank rows in the worksheet",
+      "Replaces empty cells with zero",
+      "Fills blank cells with green background"
+    ],
+    correctAnswer: 0,
+    explanation: "'Skip Blanks' ensures that empty/blank cells within the copied source range do not overwrite existing data in the destination cells."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Currency symbol formatting (₹ #,##,##0.00) for Indian Lakhs & Crores (Question 10)?",
-    "shortAnswer": "Currency symbol formatting (₹ #,##,##0.00) for Indian Lakhs & Crores is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Currency symbol formatting (₹ #,##,##0.00) for Indian Lakhs & Crores plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Currency symbol formatting (₹ #,##,##0.00) for Indian Lakhs & Crores prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "basic",
-    "codeExample": "₹ #,##,##0.00;[Red]-₹ #,##0.00;\"-\";@"
+    question: "How does 'Clear All' (`Alt + H + E + A`) differ from pressing the `Delete` key on a selected cell?",
+    options: [
+      "'Clear All' removes cell contents, formatting, comments, and hyperlinks; 'Delete' removes only cell contents while keeping formatting intact",
+      "'Delete' removes formatting while 'Clear All' keeps formats",
+      "'Clear All' deletes the physical cell grid structure; 'Delete' does not",
+      "Both commands perform identical operations"
+    ],
+    correctAnswer: 0,
+    explanation: "Pressing `Delete` removes only cell values/formulas (Clear Contents). `Clear All` (`Alt + H + E + A`) completely strips values, fill colors, borders, custom number formats, comments, and active hyperlinks."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Scaling numbers with trailing commas (Thousands vs Millions/Crores) (Question 11)?",
-    "shortAnswer": "Scaling numbers with trailing commas (Thousands vs Millions/Crores) is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Scaling numbers with trailing commas (Thousands vs Millions/Crores) plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Scaling numbers with trailing commas (Thousands vs Millions/Crores) prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "=TEXT(A11, \"DD-MMM-YYYY\")"
+    question: "What is the shortcut to repeat your very last worksheet editing or formatting action in Excel?",
+    options: [
+      "F4 (or Ctrl + Y)",
+      "F2",
+      "Ctrl + R",
+      "Alt + Enter"
+    ],
+    correctAnswer: 0,
+    explanation: "`F4` (or `Ctrl + Y`) acts as Redo / Repeat Last Action. If you just inserted a row or formatted a fill color, pressing `F4` repeats that exact operation on the new selection."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Color tags in number format masks ([Red], [Green], [Blue]) (Question 12)?",
-    "shortAnswer": "Color tags in number format masks ([Red], [Green], [Blue]) is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Color tags in number format masks ([Red], [Green], [Blue]) plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Color tags in number format masks ([Red], [Green], [Blue]) prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "=TYPE(A12)"
+    question: "What keyboard shortcut performs an Undo operation to roll back the previous change in Excel?",
+    options: [
+      "Ctrl + Z",
+      "Ctrl + Y",
+      "Alt + Backspace",
+      "Esc"
+    ],
+    correctAnswer: 0,
+    explanation: "`Ctrl + Z` undoes the most recent editing, formatting, or structural change in the active workbook session."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Blanking zero balances with dash (\"-\") in format section 3 (Question 13)?",
-    "shortAnswer": "Blanking zero balances with dash (\"-\") in format section 3 is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Blanking zero balances with dash (\"-\") in format section 3 plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Blanking zero balances with dash (\"-\") in format section 3 prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "₹ #,##,##0.00;[Red]-₹ #,##0.00;\"-\";@"
+    question: "What happens if you use Paste Special -> Transpose (`Alt + E + S + E`) on a 3-row by 5-column range?",
+    options: [
+      "Converts the range into a 5-row by 3-column orientation, rotating rows into columns",
+      "Flips the order of rows upside down",
+      "Mirrors the text backwards",
+      "Deletes the original 3x5 matrix"
+    ],
+    correctAnswer: 0,
+    explanation: "Transpose rotates horizontal rows into vertical columns and vice-versa, transforming a $3 \\times 5$ matrix into a $5 \\times 3$ grid orientation."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Difference between visual number formatting vs =ROUND() math (Question 14)?",
-    "shortAnswer": "Difference between visual number formatting vs =ROUND() math is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Difference between visual number formatting vs =ROUND() math plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Difference between visual number formatting vs =ROUND() math prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "=TEXT(A14, \"DD-MMM-YYYY\")"
+    question: "What Paste Special Operation allows you to multiply an entire column of numbers by a constant factor (e.g. 1.18 for GST) without writing formulas?",
+    options: [
+      "Copy factor -> Select range -> Paste Special -> Multiply (`Alt + E + S + M`)",
+      "Paste Values -> Transpose",
+      "Paste Formats -> Add",
+      "Flash Fill (Ctrl + E)"
+    ],
+    correctAnswer: 0,
+    explanation: "Copying a constant cell (e.g. `1.18`) and executing Paste Special -> Multiply directly multiplies every value in the target range by `1.18` in-place."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Text to Columns delimiter parsing and date format conversion (Question 15)?",
-    "shortAnswer": "Text to Columns delimiter parsing and date format conversion is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Text to Columns delimiter parsing and date format conversion plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Text to Columns delimiter parsing and date format conversion prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "=TYPE(A15)"
+    question: "How do you insert a hard line break inside a single cell while editing text in Excel?",
+    options: [
+      "Alt + Enter",
+      "Ctrl + Enter",
+      "Shift + Enter",
+      "Tab"
+    ],
+    correctAnswer: 0,
+    explanation: "`Alt + Enter` inserts a multi-line carriage return inside a single cell during in-cell editing mode."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Center Across Selection vs destructive Merge & Center (Question 16)?",
-    "shortAnswer": "Center Across Selection vs destructive Merge & Center is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Center Across Selection vs destructive Merge & Center plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Center Across Selection vs destructive Merge & Center prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "₹ #,##,##0.00;[Red]-₹ #,##0.00;\"-\";@"
+    question: "What key sequence cancels Edit Mode without committing your edits to the cell?",
+    options: [
+      "Esc",
+      "Enter",
+      "Tab",
+      "Ctrl + Z"
+    ],
+    correctAnswer: 0,
+    explanation: "Pressing `Esc` while editing a cell discards all pending keystrokes and restores the cell to its pre-edited state."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Outline Grouping (Shift + Alt + Right) vs row/column hiding (Question 17)?",
-    "shortAnswer": "Outline Grouping (Shift + Alt + Right) vs row/column hiding is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Outline Grouping (Shift + Alt + Right) vs row/column hiding plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Outline Grouping (Shift + Alt + Right) vs row/column hiding prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "=TEXT(A17, \"DD-MMM-YYYY\")"
+    question: "What keyboard shortcut populates identical data or formulas across all currently selected cells simultaneously?",
+    options: [
+      "Ctrl + Enter",
+      "Alt + Enter",
+      "Shift + Enter",
+      "Ctrl + Shift + Enter"
+    ],
+    correctAnswer: 0,
+    explanation: "Highlighting a range, typing a value or formula, and pressing `Ctrl + Enter` writes that input across every selected cell in one atomic operation."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Clear All (Alt + H + E + A) vs Delete key contents clearing (Question 18)?",
-    "shortAnswer": "Clear All (Alt + H + E + A) vs Delete key contents clearing is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Clear All (Alt + H + E + A) vs Delete key contents clearing plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Clear All (Alt + H + E + A) vs Delete key contents clearing prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "=TYPE(A18)"
+    question: "Which option in Find & Replace restricts the search to exact complete cell matches rather than partial string fragments?",
+    options: [
+      "Match entire cell contents",
+      "Match case",
+      "Look in: Formulas",
+      "Search: By Columns"
+    ],
+    correctAnswer: 0,
+    explanation: "Checking 'Match entire cell contents' prevents partial matches (e.g. searching 'Tax' won't match 'Taxation' or 'Pre-Tax')."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply AutoFit Column Width (Alt + H + O + I) and '###' overflow fix (Question 19)?",
-    "shortAnswer": "AutoFit Column Width (Alt + H + O + I) and '###' overflow fix is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, AutoFit Column Width (Alt + H + O + I) and '###' overflow fix plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how AutoFit Column Width (Alt + H + O + I) and '###' overflow fix prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "₹ #,##,##0.00;[Red]-₹ #,##0.00;\"-\";@"
+    question: "What Paste Special shortcut sequence specifically pastes only exact column widths from a source table to a target table?",
+    options: [
+      "Alt + E + S + W (or Alt + H + V + W)",
+      "Alt + E + S + V",
+      "Alt + E + S + T",
+      "Ctrl + Shift + W"
+    ],
+    correctAnswer: 0,
+    explanation: "Paste Column Widths (`Alt + E + S + W`) adjusts destination column widths to match the source range perfectly without affecting target cell values."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Hierarchical financial statement indentation (Alt + H + 6) (Question 20)?",
-    "shortAnswer": "Hierarchical financial statement indentation (Alt + H + 6) is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Hierarchical financial statement indentation (Alt + H + 6) plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Hierarchical financial statement indentation (Alt + H + 6) prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "=TEXT(A20, \"DD-MMM-YYYY\")"
+    question: "What command ribbon sequence executes 'Clear Formats' on highlighted cells?",
+    options: [
+      "Alt + H + E + F",
+      "Alt + H + E + A",
+      "Alt + H + E + C",
+      "Delete"
+    ],
+    correctAnswer: 0,
+    explanation: "`Alt + H + E + F` executes Home -> Editing -> Clear -> Clear Formats, stripping colors, borders, and custom masks while keeping raw values."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Static date timestamping (Ctrl + ;) vs dynamic =TODAY() (Question 21)?",
-    "shortAnswer": "Static date timestamping (Ctrl + ;) vs dynamic =TODAY() is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Static date timestamping (Ctrl + ;) vs dynamic =TODAY() plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Static date timestamping (Ctrl + ;) vs dynamic =TODAY() prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "=TYPE(A21)"
+    question: "What happens if you perform a Find & Replace with 'Look in: Values' selected instead of 'Look in: Formulas'?",
+    options: [
+      "Searches the calculated rendered output text displayed in cells rather than underlying formula syntax",
+      "Searches only static hardcoded numbers",
+      "Searches cell comments and notes",
+      "Causes Find & Replace to run 10x slower"
+    ],
+    correctAnswer: 0,
+    explanation: "Searching in 'Values' inspects the rendered text visible on the grid (e.g. finding calculated formula totals), whereas 'Formulas' searches raw formula code string."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Double unary operator (--) for converting text numbers to floats (Question 22)?",
-    "shortAnswer": "Double unary operator (--) for converting text numbers to floats is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Double unary operator (--) for converting text numbers to floats plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Double unary operator (--) for converting text numbers to floats prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "₹ #,##,##0.00;[Red]-₹ #,##0.00;\"-\";@"
+    question: "What does the Formula Bar display when a cell containing a calculated formula (e.g. `=SUM(A1:A10)`) is selected?",
+    options: [
+      "The underlying formula string `=SUM(A1:A10)`",
+      "Only the final numeric result",
+      "A blank text area",
+      "The cell coordinate address"
+    ],
+    correctAnswer: 0,
+    explanation: "The Formula Bar always exposes the unformatted underlying formula text or raw value stored inside the active cell memory."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Handling leading zeros in postal PIN codes and mobile numbers (Question 23)?",
-    "shortAnswer": "Handling leading zeros in postal PIN codes and mobile numbers is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Handling leading zeros in postal PIN codes and mobile numbers plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Handling leading zeros in postal PIN codes and mobile numbers prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "advanced",
-    "codeExample": "=TEXT(A23, \"DD-MMM-YYYY\")"
+    question: "Which keyboard shortcut fills content from the cell directly above into the active cell?",
+    options: [
+      "Ctrl + D (Fill Down)",
+      "Ctrl + R (Fill Right)",
+      "Ctrl + U",
+      "Alt + Down"
+    ],
+    correctAnswer: 0,
+    explanation: "`Ctrl + D` (Fill Down) copies both the value and formula/formatting from the cell immediately above into the active cell."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Preserving 16-digit credit card and Aadhar numbers in Text format (Question 24)?",
-    "shortAnswer": "Preserving 16-digit credit card and Aadhar numbers in Text format is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Preserving 16-digit credit card and Aadhar numbers in Text format plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Preserving 16-digit credit card and Aadhar numbers in Text format prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "advanced",
-    "codeExample": "=TYPE(A24)"
+    question: "Which keyboard shortcut fills content from the cell directly to the left into the active cell?",
+    options: [
+      "Ctrl + R (Fill Right)",
+      "Ctrl + D (Fill Down)",
+      "Ctrl + L",
+      "Alt + Right"
+    ],
+    correctAnswer: 0,
+    explanation: "`Ctrl + R` (Fill Right) copies value, formula, and formatting from the cell immediately to the left into the active cell."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply AutoFill handle double-click downward table boundary fill (Question 25)?",
-    "shortAnswer": "AutoFill handle double-click downward table boundary fill is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, AutoFill handle double-click downward table boundary fill plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how AutoFill handle double-click downward table boundary fill prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "advanced",
-    "codeExample": "₹ #,##,##0.00;[Red]-₹ #,##0.00;\"-\";@"
+    question: "Why should analysts avoid manually re-typing calculated numbers over formula cells when static values are required?",
+    options: [
+      "Manual typing introduces human transcription errors; Paste Special Values (`Alt + E + S + V`) guarantees 100% exact numerical fidelity",
+      "Manual typing deletes the worksheet tab",
+      "Paste Special Values automatically formats text in red",
+      "Manual typing increases file size"
+    ],
+    correctAnswer: 0,
+    explanation: "Paste Special Values instantly freezes dynamic formulas into static numbers with 100% double-precision accuracy, avoiding manual typo mistakes."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Bounding box pre-selected range fast keyboard data entry (Question 26)?",
-    "shortAnswer": "Bounding box pre-selected range fast keyboard data entry is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Bounding box pre-selected range fast keyboard data entry plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Bounding box pre-selected range fast keyboard data entry prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "advanced",
-    "codeExample": "=TEXT(A26, \"DD-MMM-YYYY\")"
+    question: "What Paste Special Operation subtracts copied values from target cell values directly on the grid?",
+    options: [
+      "Paste Special -> Operation: Subtract (`Alt + E + S + S`)",
+      "Paste Special -> Operation: Add (`Alt + E + S + D`)",
+      "Paste Special -> Operation: Divide (`Alt + E + S + I`)",
+      "Clear Contents"
+    ],
+    correctAnswer: 0,
+    explanation: "Paste Special -> Operation: Subtract (`Alt + E + S + S`) subtracts the source copied values from existing destination cell values in-place."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Custom format conditions like [>1000] and [<0] logic (Question 27)?",
-    "shortAnswer": "Custom format conditions like [>1000] and [<0] logic is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Custom format conditions like [>1000] and [<0] logic plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Custom format conditions like [>1000] and [<0] logic prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "advanced",
-    "codeExample": "=TYPE(A27)"
+    question: "What is the result of using Paste Special -> Formulas (`Alt + E + S + F`)?",
+    options: [
+      "Pastes formula text and logic without transferring source cell formatting, colors, or borders",
+      "Pastes only cell fill colors",
+      "Converts formulas into static text strings",
+      "Pastes column widths only"
+    ],
+    correctAnswer: 0,
+    explanation: "Paste Formulas transfers only underlying formula strings and cell logic while leaving the recipient cell’s visual styling untouched."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Handling text numbers enclosed in quotes (\"45000\") (Question 28)?",
-    "shortAnswer": "Handling text numbers enclosed in quotes (\"45000\") is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Handling text numbers enclosed in quotes (\"45000\") plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Handling text numbers enclosed in quotes (\"45000\") prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "advanced",
-    "codeExample": "₹ #,##,##0.00;[Red]-₹ #,##0.00;\"-\";@"
+    question: "How do you navigate through search results sequentially after executing Find (`Ctrl + F`)?",
+    options: [
+      "Press Enter (or Shift + Enter to search backwards)",
+      "Press Tab",
+      "Press F2",
+      "Press Alt + F4"
+    ],
+    correctAnswer: 0,
+    explanation: "Pressing `Enter` jumps to the next match in Find results; `Shift + Enter` cycles backwards to previous matches."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Cell styles and executive 3-tier financial workbook architecture (Question 29)?",
-    "shortAnswer": "Cell styles and executive 3-tier financial workbook architecture is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Cell styles and executive 3-tier financial workbook architecture plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Cell styles and executive 3-tier financial workbook architecture prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "advanced",
-    "codeExample": "=TEXT(A29, \"DD-MMM-YYYY\")"
+    question: "What status bar mode indicator displays when you press `F2` once on an active cell?",
+    options: [
+      "'EDIT' mode",
+      "'READY' mode",
+      "'ENTER' mode",
+      "'POINT' mode"
+    ],
+    correctAnswer: 0,
+    explanation: "Pressing `F2` shifts the Excel status bar mode from 'READY' to 'EDIT', allowing text cursor manipulation inside the cell."
   },
   {
-    "question": "In the context of Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks, how does Excel evaluate and apply Data hygiene audit verification before formula construction (Question 30)?",
-    "shortAnswer": "Data hygiene audit verification before formula construction is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Data hygiene audit verification before formula construction plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Data hygiene audit verification before formula construction prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "advanced",
-    "codeExample": "=TYPE(A30)"
+    question: "Why is Paste Special Transpose critical when restructuring legacy accounting reports into tabular database format?",
+    options: [
+      "Instantly converts wide horizontal monthly report headers into vertical database rows for pivot table readiness",
+      "Deletes duplicate records automatically",
+      "Changes currency symbols from USD to INR",
+      "Locks the worksheet against editing"
+    ],
+    correctAnswer: 0,
+    explanation: "Pasting Transpose converts horizontal reporting columns into normalized vertical database rows, making legacy datasets ready for Power Query and Pivot Tables."
   }
 ];
 

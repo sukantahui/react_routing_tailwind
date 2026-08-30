@@ -1,4 +1,4 @@
-const ExcelJS = require('E:/react_routing_tailwind/node_modules/exceljs');
+const ExcelJS = require('exceljs');
 const fs = require('fs');
 const path = require('path');
 
@@ -7,24 +7,129 @@ const moduleDir = path.join(excelBaseDir, 'topics/001_003_basic-formulas-and-fun
 const excelFilesDir = path.join(moduleDir, 'excel_files');
 if (!fs.existsSync(excelFilesDir)) fs.mkdirSync(excelFilesDir, { recursive: true });
 
-
-  // Rich 30-Row Workplace Data Generator Helper
-  const sampleNames = ['Swadeep Hui', 'Tuhina Das', 'Abhronila Ray', 'Susmita Sen', 'Debangshu Roy', 'Rahul Kumar', 'Priya Sharma', 'Aniket Verma', 'Sourav Ganguly', 'Sneha Ghosh', 'Arpan Dey', 'Subhajit Pal', 'Riya Sarkar', 'Dipankar Mitra', 'Barnali Dutta', 'Vikram Singh', 'Kavita Nair', 'Amitabh Basu', 'Pooja Bannerjee', 'Sanjay Chakraborty', 'Tanmoy Das', 'Mousumi Mukhopadhyay', 'Bikash Chatterjee', 'Sayani Bose', 'Aritra Sen', 'Niladri Roy', 'Paromita Guha', 'Siddharth Mallick', 'Trisha Roy', 'Kaushik Hazra'];
-  const sampleCities = ['Barrackpore', 'Shyamnagar', 'Ichapur', 'Naihati', 'Titagarh', 'Kolkata', 'Howrah', 'Hooghly', 'Kanchrapara', 'Sodepur'];
-  const sampleDepts = ['Finance', 'Accounts', 'Engineering', 'HR', 'Logistics', 'Procurement', 'Taxation', 'Audit'];
-  const sampleCats = ['Hardware', 'Software', 'Services', 'Cloud Subscriptions', 'Office Assets', 'Consumables'];
-
-  function generate30Rows(sheetPrefix, formulaType) {
-    return Array.from({ length: 30 }, (_, i) => [
-      `${sheetPrefix}-${101 + i}`,
-      sampleNames[i % sampleNames.length],
-      sampleDepts[i % sampleDepts.length],
-      sampleCities[i % sampleCities.length],
-      sampleCats[i % sampleCats.length],
-      15000 + i * 3250,
-      i % 2 === 0 ? 'Active / Verified' : 'Pending Audit'
-    ]);
+// Read curriculum topics directly from excel-basic-to-advanced.json
+const jsonPath = path.join(excelBaseDir, 'excel-basic-to-advanced.json');
+let topicsFromTree = [];
+if (fs.existsSync(jsonPath)) {
+  try {
+    const rawJson = fs.readFileSync(jsonPath, 'utf8');
+    const parsed = JSON.parse(rawJson);
+    for (const seg of parsed.segments || []) {
+      for (const mod of seg.modules || []) {
+        if (mod.slug === '001_003_basic-formulas-and-functions') {
+          topicsFromTree = mod.topics || [];
+          break;
+        }
+      }
+    }
+  } catch (err) {
+    console.warn("Could not parse excel-basic-to-advanced.json:", err.message);
   }
+}
+
+// Complete 10 Topic Definitions matching JSON topics array for module 001_003
+const topicsData = [
+  {
+    topicId: "Topic0",
+    sheetName: "Topic0",
+    title: topicsFromTree[0] || "Anatomy of a Formula: Equal Sign (=), Operators, Operands and BODMAS Order of Precedence",
+    difficulty: "Beginner",
+    mask: "=B4+C4*(D4-E4)",
+    rawExample: "1250.00",
+    renderedExample: "₹ 1,250.00",
+    description: "Structure fundamental formula components, parenthesis grouping, and strict mathematical operator hierarchy."
+  },
+  {
+    topicId: "Topic1",
+    sheetName: "Topic1",
+    title: topicsFromTree[1] || "Core Arithmetic Operations: Addition (+), Subtraction (-), Multiplication (*), Division (/) and Powers (^)",
+    difficulty: "Beginner",
+    mask: "=B4*C4-(D4/E4)",
+    rawExample: "8540.50",
+    renderedExample: "₹ 8,540.50",
+    description: "Executing fundamental arithmetic calculations across multi-column financial ledgers."
+  },
+  {
+    topicId: "Topic2",
+    sheetName: "Topic2",
+    title: topicsFromTree[2] || "Foundational Aggregation Functions: SUM, AVERAGE, COUNT, COUNTA and COUNTBLANK Mechanics",
+    difficulty: "Beginner",
+    mask: "=SUM(E4:E33) | =AVERAGE(E4:E33)",
+    rawExample: "458900.00",
+    renderedExample: "₹ 4,58,900.00",
+    description: "Building primary summary statistical aggregations and distinguishing numeric COUNT vs text COUNTA."
+  },
+  {
+    topicId: "Topic3",
+    sheetName: "Topic3",
+    title: topicsFromTree[3] || "Extreme Value and Positional Ranking Functions: MIN, MAX, LARGE and SMALL Analysis",
+    difficulty: "Intermediate",
+    mask: "=MIN(E4:E33) | =MAX(E4:E33) | =LARGE(E4:E33, 2)",
+    rawExample: "98500.00",
+    renderedExample: "₹ 98,500.00",
+    description: "Extracting corporate high/low bounds and kth positional rank values for executive scorecards."
+  },
+  {
+    topicId: "Topic4",
+    sheetName: "Topic4",
+    title: topicsFromTree[4] || "Mathematical Rounding Functions: ROUND, ROUNDUP, ROUNDDOWN, INT and TRUNC Precision Control",
+    difficulty: "Intermediate",
+    mask: "=ROUND(E4, 2) | =INT(E4) | =TRUNC(E4, 1)",
+    rawExample: "14589.8765",
+    renderedExample: "14589.88",
+    description: "Controlling floating-point decimal precision for audit-compliant corporate billing calculations."
+  },
+  {
+    topicId: "Topic5",
+    sheetName: "Topic5",
+    title: topicsFromTree[5] || "High-Speed AutoSum Mastery: Multi-Directional Summing and Keyboard Shortcuts",
+    difficulty: "Beginner",
+    mask: "Alt + = (AutoSum)",
+    rawExample: "65000.00",
+    renderedExample: "₹ 65,000.00",
+    description: "Accelerating financial model construction with multi-range vertical and horizontal AutoSum shortcuts."
+  },
+  {
+    topicId: "Topic6",
+    sheetName: "Topic6",
+    title: topicsFromTree[6] || "Comprehensive Laboratory Practice Session: Basic Formulas, Functions and Calculation Auditing",
+    difficulty: "Intermediate",
+    mask: "=SUMPRODUCT(C4:C33, D4:D33)",
+    rawExample: "1245000.00",
+    renderedExample: "₹ 12,45,000.00",
+    description: "Comprehensive practical auditing and error troubleshooting for corporate calculation workbooks."
+  },
+  {
+    topicId: "Topic7",
+    sheetName: "Topic7",
+    title: topicsFromTree[7] || "Project Work: Real-World Application of Basic Formulas and Functions",
+    difficulty: "Advanced",
+    mask: "EX401-EX425 Master Modeling Practice",
+    rawExample: "2450000.00",
+    renderedExample: "₹ 24,50,000.00",
+    description: "Capstoning basic formulas mastery with 25 workplace modeling projects in the master workbook."
+  },
+  {
+    topicId: "Topic8",
+    sheetName: "Topic8",
+    title: topicsFromTree[8] || "Quick Check Quiz: Core Mathematical Functions, BODMAS & Aggregation Foundations",
+    difficulty: "Intermediate",
+    mask: "=COUNTBLANK(E4:E33)",
+    rawExample: "0",
+    renderedExample: "0 Missing Records",
+    description: "Verifying theoretical concepts, BODMAS evaluation order, and formula error code troubleshooting."
+  },
+  {
+    topicId: "Topic9",
+    sheetName: "Topic9",
+    title: topicsFromTree[9] || "Engineering Conversions & Bitwise Operations",
+    difficulty: "Advanced",
+    mask: "=CONVERT(E4, \"C\", \"F\") | =BITAND(E4, F4)",
+    rawExample: "100.0",
+    renderedExample: "212.00 °F",
+    description: "Executing technical engineering unit transformations and low-level bitwise binary operations."
+  }
+];
 
 async function buildWorkbook() {
   const wb = new ExcelJS.Workbook();
@@ -33,9 +138,11 @@ async function buildWorkbook() {
   wb.created = new Date();
   wb.modified = new Date();
 
+  // Helper to add styled worksheet with return hyperlink
   function addStyledSheet(sheetName, headerColor, columns, data) {
     const ws = wb.addWorksheet(sheetName, { views: [{ showGridLines: true }] });
 
+    // Top Navigation Bar (Row 1)
     ws.mergeCells('A1:D1');
     const navCell = ws.getCell('A1');
     navCell.value = { text: '🏠 Jump to Executive Overview Landing Sheet', hyperlink: "#'Overview'!A1" };
@@ -43,6 +150,7 @@ async function buildWorkbook() {
     navCell.alignment = { vertical: 'middle', horizontal: 'left', indent: 1 };
     ws.getRow(1).height = 24;
 
+    // Header Row (Row 3)
     const headerRow = ws.getRow(3);
     headerRow.height = 28;
     columns.forEach((c, cIdx) => {
@@ -59,6 +167,7 @@ async function buildWorkbook() {
       };
     });
 
+    // Data Rows (Row 4 onwards)
     data.forEach((row, idx) => {
       const rNum = 4 + idx;
       const r = ws.getRow(rNum);
@@ -78,6 +187,7 @@ async function buildWorkbook() {
       });
     });
 
+    // Dynamic Column Width Calculation (Zero Truncation Rule)
     columns.forEach((col, colIdx) => {
       let maxLen = col.header ? col.header.toString().length : 12;
       data.forEach(r => {
@@ -86,22 +196,26 @@ async function buildWorkbook() {
           if (s.length > maxLen) maxLen = s.length;
         }
       });
-      ws.getColumn(colIdx + 1).width = Math.max(maxLen + 6, 22);
+      ws.getColumn(colIdx + 1).width = Math.min(Math.max(maxLen + 6, 22), 65);
     });
 
     return ws;
   }
 
-  // 1. Executive Overview Sheet
+  // =========================================================================
+  // 1. EXECUTIVE OVERVIEW LANDING SHEET (Sheet 1: Overview)
+  // =========================================================================
   const wsOverview = wb.addWorksheet('Overview', { views: [{ showGridLines: true }] });
   wsOverview.columns = [{ width: 18 }, { width: 32 }, { width: 35 }, { width: 45 }, { width: 30 }, { width: 40 }];
 
+  // Organization Brand Logo Placement (A1:A5)
   const logoPath = path.join(excelBaseDir, 'assets/cnat.png');
   if (fs.existsSync(logoPath)) {
     const logoId = wb.addImage({ filename: logoPath, extension: 'png' });
     wsOverview.addImage(logoId, { tl: { col: 0.08, row: 0.15 }, ext: { width: 110, height: 110 }, editAs: 'oneCell' });
   }
 
+  // Top Title Banner (B1:F2)
   wsOverview.mergeCells('B1:F2');
   const bTitle = wsOverview.getCell('B1');
   bTitle.value = 'CODER & ACCOTAX';
@@ -109,6 +223,7 @@ async function buildWorkbook() {
   bTitle.alignment = { vertical: 'middle', horizontal: 'left', indent: 1 };
   bTitle.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF0F172A' } };
 
+  // Subtitle (B3:F3)
   wsOverview.mergeCells('B3:F3');
   const bSub1 = wsOverview.getCell('B3');
   bSub1.value = 'ISO 9001:2015 Certified Centre of Excellence in Computer Science & Financial Modeling';
@@ -116,13 +231,15 @@ async function buildWorkbook() {
   bSub1.alignment = { vertical: 'middle', horizontal: 'left', indent: 1 };
   bSub1.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1E293B' } };
 
+  // Metadata Subtitle (B4:F5)
   wsOverview.mergeCells('B4:F5');
   const bSub2 = wsOverview.getCell('B4');
-  bSub2.value = `Module 4: 001_003_basic-formulas-and-functions\nCurriculum Track: EXCEL-PRO-901 | Student Practice Workbook`;
+  bSub2.value = `Module 3: 001_003_basic-formulas-and-functions\nCurriculum Track: EXCEL-PRO-901 | Master Student Practice Workbook (10 Sequential Topics)`;
   bSub2.font = { name: 'Segoe UI', size: 9, color: { argb: 'FFFBBF24' } };
   bSub2.alignment = { vertical: 'middle', horizontal: 'left', wrapText: true, indent: 1 };
   bSub2.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1E293B' } };
 
+  // Landing Hero Artwork Placement (rows 6 to 25)
   const landingImgPath = path.join(excelBaseDir, 'assets/landing_sheet.jpg');
   if (fs.existsSync(landingImgPath)) {
     const landingImgId = wb.addImage({ filename: landingImgPath, extension: 'jpeg' });
@@ -130,6 +247,7 @@ async function buildWorkbook() {
   }
   for (let r = 6; r <= 25; r++) wsOverview.getRow(r).height = 20;
 
+  // Section 1 Header: Organization Profile
   wsOverview.mergeCells('A27:F27');
   const s1Header = wsOverview.getCell('A27');
   s1Header.value = '🏢 1. ORGANISATION PROFILE & CONTACT DETAILS';
@@ -156,13 +274,14 @@ async function buildWorkbook() {
     }
   });
 
+  // Section 2 Header: Navigation Directory (Topics Sequence: Topic0 to Topic9)
   wsOverview.mergeCells('A34:F34');
   const s4Header = wsOverview.getCell('A34');
-  s4Header.value = '📑 2. WORKBOOK SHEET DIRECTORY & CLICK-TO-JUMP NAVIGATION TABLE';
+  s4Header.value = '📑 2. WORKBOOK TOPICS DIRECTORY & CLICK-TO-JUMP NAVIGATION TABLE';
   s4Header.font = { name: 'Segoe UI', size: 12, bold: true, color: { argb: 'FFFFFFFF' } };
   s4Header.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD97706' } };
 
-  const directoryHeaders = ['Sheet ID (Click to Jump)', 'Project Title', 'Difficulty Level', 'Target Formula / Mask', 'Status'];
+  const directoryHeaders = ['Sheet ID (Click to Jump)', 'Curriculum Topic Title', 'Difficulty Level', 'Target Formula / Mask', 'Status'];
   const headerRow = wsOverview.getRow(35);
   headerRow.height = 26;
   directoryHeaders.forEach((h, cIdx) => {
@@ -173,573 +292,21 @@ async function buildWorkbook() {
     cell.alignment = { vertical: 'middle', horizontal: 'center' };
   });
 
-  const moduleProjects = [
-  {
-    "projectId": "EX401",
-    "title": "Workplace Problem Scenario 1 (Lab Exercise 1)",
-    "difficulty": "beginner",
-    "sheetName": "EX401",
-    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
-    "description": "Execute workplace practical modeling for workplace problem scenario 1. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX401.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX401.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX401** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX401**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=WorkplaceProblemScenario(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "11250",
-      "mask": "Mask: EX401_Standard",
-      "rendered": "Rendered Output 1 (EX401)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX401-01 | 11250 | Rendered Output | Passed |\n| EX401-02 | 21250 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX401 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX402",
-    "title": "Data Hygiene & Audit Exercise 2 (Lab Exercise 2)",
-    "difficulty": "beginner",
-    "sheetName": "EX402",
-    "formula": "=XLOOKUP(A3, Data!A:A, Data!B:B, \"Not Found\")",
-    "description": "Execute workplace practical modeling for data hygiene & audit exercise 2. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX402.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX402.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX402** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX402**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=DataHygieneAuditExercise(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "12500",
-      "mask": "Mask: EX402_Standard",
-      "rendered": "Rendered Output 2 (EX402)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX402-01 | 12500 | Rendered Output | Passed |\n| EX402-02 | 22500 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX402 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX403",
-    "title": "Formula Syntax Practice 3 (Lab Exercise 3)",
-    "difficulty": "beginner",
-    "sheetName": "EX403",
-    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
-    "description": "Execute workplace practical modeling for formula syntax practice 3. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX403.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX403.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX403** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX403**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=FormulaSyntaxPractice(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "13750",
-      "mask": "Mask: EX403_Standard",
-      "rendered": "Rendered Output 3 (EX403)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX403-01 | 13750 | Rendered Output | Passed |\n| EX403-02 | 23750 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX403 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX404",
-    "title": "Advanced Grid Operations 4 (Lab Exercise 4)",
-    "difficulty": "beginner",
-    "sheetName": "EX404",
-    "formula": "=XLOOKUP(A5, Data!A:A, Data!B:B, \"Not Found\")",
-    "description": "Execute workplace practical modeling for advanced grid operations 4. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX404.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX404.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX404** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX404**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=AdvancedGridOperations(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "15000",
-      "mask": "Mask: EX404_Standard",
-      "rendered": "Rendered Output 4 (EX404)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX404-01 | 15000 | Rendered Output | Passed |\n| EX404-02 | 25000 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX404 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX405",
-    "title": "Executive Reporting Layout 5 (Lab Exercise 5)",
-    "difficulty": "beginner",
-    "sheetName": "EX405",
-    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
-    "description": "Execute workplace practical modeling for executive reporting layout 5. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX405.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX405.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX405** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX405**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=ExecutiveReportingLayout(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "16250",
-      "mask": "Mask: EX405_Standard",
-      "rendered": "Rendered Output 5 (EX405)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX405-01 | 16250 | Rendered Output | Passed |\n| EX405-02 | 26250 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX405 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX406",
-    "title": "Data Modeling & Structure 6 (Lab Exercise 6)",
-    "difficulty": "beginner",
-    "sheetName": "EX406",
-    "formula": "=XLOOKUP(A7, Data!A:A, Data!B:B, \"Not Found\")",
-    "description": "Execute workplace practical modeling for data modeling & structure 6. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX406.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX406.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX406** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX406**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=DataModelingStructure(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "17500",
-      "mask": "Mask: EX406_Standard",
-      "rendered": "Rendered Output 6 (EX406)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX406-01 | 17500 | Rendered Output | Passed |\n| EX406-02 | 27500 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX406 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX407",
-    "title": "Analytical Calculation Matrix 7 (Lab Exercise 7)",
-    "difficulty": "beginner",
-    "sheetName": "EX407",
-    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
-    "description": "Execute workplace practical modeling for analytical calculation matrix 7. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX407.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX407.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX407** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX407**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=AnalyticalCalculationMatrix(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "18750",
-      "mask": "Mask: EX407_Standard",
-      "rendered": "Rendered Output 7 (EX407)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX407-01 | 18750 | Rendered Output | Passed |\n| EX407-02 | 28750 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX407 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX408",
-    "title": "Error Handling & Integrity Check 8 (Lab Exercise 8)",
-    "difficulty": "beginner",
-    "sheetName": "EX408",
-    "formula": "=XLOOKUP(A9, Data!A:A, Data!B:B, \"Not Found\")",
-    "description": "Execute workplace practical modeling for error handling & integrity check 8. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX408.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX408.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX408** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX408**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=ErrorHandlingIntegrityCheck(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "20000",
-      "mask": "Mask: EX408_Standard",
-      "rendered": "Rendered Output 8 (EX408)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX408-01 | 20000 | Rendered Output | Passed |\n| EX408-02 | 30000 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX408 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX409",
-    "title": "Automated Workflow Script 9 (Lab Exercise 9)",
-    "difficulty": "intermediate",
-    "sheetName": "EX409",
-    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
-    "description": "Execute workplace practical modeling for automated workflow script 9. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX409.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX409.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX409** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX409**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=AutomatedWorkflowScript(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "21250",
-      "mask": "Mask: EX409_Standard",
-      "rendered": "Rendered Output 9 (EX409)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX409-01 | 21250 | Rendered Output | Passed |\n| EX409-02 | 31250 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX409 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX410",
-    "title": "Capstone Comprehensive Audit 10 (Lab Exercise 10)",
-    "difficulty": "intermediate",
-    "sheetName": "EX410",
-    "formula": "=XLOOKUP(A11, Data!A:A, Data!B:B, \"Not Found\")",
-    "description": "Execute workplace practical modeling for capstone comprehensive audit 10. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX410.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX410.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX410** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX410**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=CapstoneComprehensiveAudit(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "22500",
-      "mask": "Mask: EX410_Standard",
-      "rendered": "Rendered Output 10 (EX410)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX410-01 | 22500 | Rendered Output | Passed |\n| EX410-02 | 32500 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX410 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX411",
-    "title": "Workplace Problem Scenario 1 (Lab Exercise 11)",
-    "difficulty": "intermediate",
-    "sheetName": "EX411",
-    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
-    "description": "Execute workplace practical modeling for workplace problem scenario 1. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX411.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX411.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX411** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX411**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=WorkplaceProblemScenario(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "23750",
-      "mask": "Mask: EX411_Standard",
-      "rendered": "Rendered Output 11 (EX411)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX411-01 | 23750 | Rendered Output | Passed |\n| EX411-02 | 33750 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX411 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX412",
-    "title": "Data Hygiene & Audit Exercise 2 (Lab Exercise 12)",
-    "difficulty": "intermediate",
-    "sheetName": "EX412",
-    "formula": "=XLOOKUP(A13, Data!A:A, Data!B:B, \"Not Found\")",
-    "description": "Execute workplace practical modeling for data hygiene & audit exercise 2. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX412.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX412.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX412** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX412**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=DataHygieneAuditExercise(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "25000",
-      "mask": "Mask: EX412_Standard",
-      "rendered": "Rendered Output 12 (EX412)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX412-01 | 25000 | Rendered Output | Passed |\n| EX412-02 | 35000 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX412 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX413",
-    "title": "Formula Syntax Practice 3 (Lab Exercise 13)",
-    "difficulty": "intermediate",
-    "sheetName": "EX413",
-    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
-    "description": "Execute workplace practical modeling for formula syntax practice 3. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX413.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX413.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX413** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX413**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=FormulaSyntaxPractice(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "26250",
-      "mask": "Mask: EX413_Standard",
-      "rendered": "Rendered Output 13 (EX413)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX413-01 | 26250 | Rendered Output | Passed |\n| EX413-02 | 36250 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX413 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX414",
-    "title": "Advanced Grid Operations 4 (Lab Exercise 14)",
-    "difficulty": "intermediate",
-    "sheetName": "EX414",
-    "formula": "=XLOOKUP(A15, Data!A:A, Data!B:B, \"Not Found\")",
-    "description": "Execute workplace practical modeling for advanced grid operations 4. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX414.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX414.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX414** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX414**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=AdvancedGridOperations(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "27500",
-      "mask": "Mask: EX414_Standard",
-      "rendered": "Rendered Output 14 (EX414)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX414-01 | 27500 | Rendered Output | Passed |\n| EX414-02 | 37500 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX414 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX415",
-    "title": "Executive Reporting Layout 5 (Lab Exercise 15)",
-    "difficulty": "intermediate",
-    "sheetName": "EX415",
-    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
-    "description": "Execute workplace practical modeling for executive reporting layout 5. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX415.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX415.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX415** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX415**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=ExecutiveReportingLayout(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "28750",
-      "mask": "Mask: EX415_Standard",
-      "rendered": "Rendered Output 15 (EX415)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX415-01 | 28750 | Rendered Output | Passed |\n| EX415-02 | 38750 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX415 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX416",
-    "title": "Data Modeling & Structure 6 (Lab Exercise 16)",
-    "difficulty": "intermediate",
-    "sheetName": "EX416",
-    "formula": "=XLOOKUP(A17, Data!A:A, Data!B:B, \"Not Found\")",
-    "description": "Execute workplace practical modeling for data modeling & structure 6. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX416.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX416.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX416** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX416**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=DataModelingStructure(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "30000",
-      "mask": "Mask: EX416_Standard",
-      "rendered": "Rendered Output 16 (EX416)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX416-01 | 30000 | Rendered Output | Passed |\n| EX416-02 | 40000 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX416 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX417",
-    "title": "Analytical Calculation Matrix 7 (Lab Exercise 17)",
-    "difficulty": "intermediate",
-    "sheetName": "EX417",
-    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
-    "description": "Execute workplace practical modeling for analytical calculation matrix 7. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX417.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX417.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX417** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX417**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=AnalyticalCalculationMatrix(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "31250",
-      "mask": "Mask: EX417_Standard",
-      "rendered": "Rendered Output 17 (EX417)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX417-01 | 31250 | Rendered Output | Passed |\n| EX417-02 | 41250 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX417 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX418",
-    "title": "Error Handling & Integrity Check 8 (Lab Exercise 18)",
-    "difficulty": "intermediate",
-    "sheetName": "EX418",
-    "formula": "=XLOOKUP(A19, Data!A:A, Data!B:B, \"Not Found\")",
-    "description": "Execute workplace practical modeling for error handling & integrity check 8. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX418.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX418.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX418** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX418**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=ErrorHandlingIntegrityCheck(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "32500",
-      "mask": "Mask: EX418_Standard",
-      "rendered": "Rendered Output 18 (EX418)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX418-01 | 32500 | Rendered Output | Passed |\n| EX418-02 | 42500 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX418 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX419",
-    "title": "Automated Workflow Script 9 (Lab Exercise 19)",
-    "difficulty": "advanced",
-    "sheetName": "EX419",
-    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
-    "description": "Execute workplace practical modeling for automated workflow script 9. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX419.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX419.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX419** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX419**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=AutomatedWorkflowScript(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "33750",
-      "mask": "Mask: EX419_Standard",
-      "rendered": "Rendered Output 19 (EX419)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX419-01 | 33750 | Rendered Output | Passed |\n| EX419-02 | 43750 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX419 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX420",
-    "title": "Capstone Comprehensive Audit 10 (Lab Exercise 20)",
-    "difficulty": "advanced",
-    "sheetName": "EX420",
-    "formula": "=XLOOKUP(A21, Data!A:A, Data!B:B, \"Not Found\")",
-    "description": "Execute workplace practical modeling for capstone comprehensive audit 10. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX420.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX420.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX420** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX420**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=CapstoneComprehensiveAudit(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "35000",
-      "mask": "Mask: EX420_Standard",
-      "rendered": "Rendered Output 20 (EX420)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX420-01 | 35000 | Rendered Output | Passed |\n| EX420-02 | 45000 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX420 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX421",
-    "title": "Workplace Problem Scenario 1 (Lab Exercise 21)",
-    "difficulty": "advanced",
-    "sheetName": "EX421",
-    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
-    "description": "Execute workplace practical modeling for workplace problem scenario 1. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX421.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX421.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX421** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX421**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=WorkplaceProblemScenario(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "36250",
-      "mask": "Mask: EX421_Standard",
-      "rendered": "Rendered Output 21 (EX421)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX421-01 | 36250 | Rendered Output | Passed |\n| EX421-02 | 46250 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX421 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX422",
-    "title": "Data Hygiene & Audit Exercise 2 (Lab Exercise 22)",
-    "difficulty": "advanced",
-    "sheetName": "EX422",
-    "formula": "=XLOOKUP(A23, Data!A:A, Data!B:B, \"Not Found\")",
-    "description": "Execute workplace practical modeling for data hygiene & audit exercise 2. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX422.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX422.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX422** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX422**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=DataHygieneAuditExercise(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "37500",
-      "mask": "Mask: EX422_Standard",
-      "rendered": "Rendered Output 22 (EX422)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX422-01 | 37500 | Rendered Output | Passed |\n| EX422-02 | 47500 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX422 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX423",
-    "title": "Formula Syntax Practice 3 (Lab Exercise 23)",
-    "difficulty": "advanced",
-    "sheetName": "EX423",
-    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
-    "description": "Execute workplace practical modeling for formula syntax practice 3. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX423.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX423.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX423** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX423**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=FormulaSyntaxPractice(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "38750",
-      "mask": "Mask: EX423_Standard",
-      "rendered": "Rendered Output 23 (EX423)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX423-01 | 38750 | Rendered Output | Passed |\n| EX423-02 | 48750 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX423 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX424",
-    "title": "Advanced Grid Operations 4 (Lab Exercise 24)",
-    "difficulty": "advanced",
-    "sheetName": "EX424",
-    "formula": "=XLOOKUP(A25, Data!A:A, Data!B:B, \"Not Found\")",
-    "description": "Execute workplace practical modeling for advanced grid operations 4. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX424.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX424.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX424** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX424**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=AdvancedGridOperations(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "40000",
-      "mask": "Mask: EX424_Standard",
-      "rendered": "Rendered Output 24 (EX424)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX424-01 | 40000 | Rendered Output | Passed |\n| EX424-02 | 50000 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX424 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  },
-  {
-    "projectId": "EX425",
-    "title": "Executive Reporting Layout 5 (Lab Exercise 25)",
-    "difficulty": "advanced",
-    "sheetName": "EX425",
-    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
-    "description": "Execute workplace practical modeling for executive reporting layout 5. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX425.",
-    "requirements": [
-      "Ensure target worksheet tab is named EX425.",
-      "Apply strict formula syntax or formatting rules specified in the execution guide.",
-      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
-      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
-    ],
-    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX425** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX425**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=ExecutiveReportingLayout(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
-    "rawMemoryVsRendered": {
-      "raw": "41250",
-      "mask": "Mask: EX425_Standard",
-      "rendered": "Rendered Output 25 (EX425)"
-    },
-    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX425-01 | 41250 | Rendered Output | Passed |\n| EX425-02 | 51250 | Rendered Output | Passed |",
-    "proTip": "Always use explicit alphanumeric sheet IDs like EX425 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
-  }
-];
-
-  moduleProjects.forEach((proj, idx) => {
+  // Render Directory Rows for Topic0 through Topic9
+  topicsData.forEach((topic, idx) => {
     const rowNum = 36 + idx;
     const r = wsOverview.getRow(rowNum);
     r.height = 22;
 
     const cellId = r.getCell(1);
-    cellId.value = { text: `🔗 ${proj.projectId} (Jump)`, hyperlink: `#'${proj.projectId}'!A1` };
+    cellId.value = { text: `🔗 ${topic.sheetName} (Jump)`, hyperlink: `#'${topic.sheetName}'!A1` };
     cellId.font = { name: 'Segoe UI', size: 10, bold: true, color: { argb: 'FF0284C7' }, underline: true };
     cellId.alignment = { vertical: 'middle', horizontal: 'center' };
 
-    r.getCell(2).value = proj.title;
-    r.getCell(3).value = proj.difficulty;
-    r.getCell(4).value = proj.formula;
-    r.getCell(5).value = 'Verified Practice Sheet';
+    r.getCell(2).value = topic.title;
+    r.getCell(3).value = topic.difficulty;
+    r.getCell(4).value = topic.mask;
+    r.getCell(5).value = 'Verified Topic Practice Sheet';
 
     for (let c = 1; c <= 5; c++) {
       const cell = r.getCell(c);
@@ -753,6 +320,7 @@ async function buildWorkbook() {
     }
   });
 
+  // Calculate Overview Column Widths
   wsOverview.columns.forEach((col) => {
     let maxLen = 22;
     col.eachCell({ includeEmpty: true }, (cell) => {
@@ -764,40 +332,111 @@ async function buildWorkbook() {
     col.width = Math.min(Math.max(maxLen + 5, 22), 65);
   });
 
-  moduleProjects.forEach((proj, pIdx) => {
-    const sampleNames = ['Swadeep Hui', 'Tuhina Das', 'Abhronila Ray', 'Susmita Sen', 'Debangshu Roy', 'Rahul Kumar', 'Priya Sharma', 'Aniket Verma', 'Sourav Ganguly', 'Sneha Ghosh', 'Arpan Dey', 'Subhajit Pal', 'Riya Sarkar', 'Dipankar Mitra', 'Barnali Dutta', 'Vikram Singh', 'Kavita Nair', 'Amitabh Basu', 'Pooja Bannerjee', 'Sanjay Chakraborty', 'Tanmoy Das', 'Mousumi Mukhopadhyay', 'Bikash Chatterjee', 'Sayani Bose', 'Aritra Sen', 'Niladri Roy', 'Paromita Guha', 'Siddharth Mallick', 'Trisha Roy', 'Kaushik Hazra'];
-    const sampleCities = ['Barrackpore', 'Shyamnagar', 'Ichapur', 'Naihati', 'Titagarh', 'Kolkata', 'Howrah', 'Hooghly', 'Kanchrapara', 'Sodepur'];
-    const sampleDepts = ['Finance', 'Accounts', 'Engineering', 'HR', 'Logistics', 'Procurement', 'Taxation', 'Audit'];
+  // =========================================================================
+  // 2. CREATE TOPIC WORKSHEETS IN SEQUENTIAL ORDER (Topic0 to Topic9)
+  // =========================================================================
+  const sampleNames = ['Swadeep Hui', 'Tuhina Das', 'Abhronila Ray', 'Susmita Sen', 'Debangshu Roy', 'Rahul Kumar', 'Priya Sharma', 'Aniket Verma', 'Sourav Ganguly', 'Sneha Ghosh', 'Arpan Dey', 'Subhajit Pal', 'Riya Sarkar', 'Dipankar Mitra', 'Barnali Dutta', 'Vikram Singh', 'Kavita Nair', 'Amitabh Basu', 'Pooja Bannerjee', 'Sanjay Chakraborty', 'Tanmoy Das', 'Mousumi Mukhopadhyay', 'Bikash Chatterjee', 'Sayani Bose', 'Aritra Sen', 'Niladri Roy', 'Paromita Guha', 'Siddharth Mallick', 'Trisha Roy', 'Kaushik Hazra'];
+  const sampleCities = ['Barrackpore', 'Shyamnagar', 'Ichapur', 'Naihati', 'Titagarh', 'Kolkata', 'Howrah', 'Hooghly', 'Kanchrapara', 'Sodepur'];
+  const sampleDepts = ['Finance', 'Accounts', 'Engineering', 'HR', 'Logistics', 'Procurement', 'Taxation', 'Audit'];
 
-    const richRows = Array.from({ length: 30 }, (_, i) => [
-      `${proj.projectId}-${String(i + 1).padStart(2, '0')}`,
-      sampleNames[i % sampleNames.length],
-      sampleDepts[i % sampleDepts.length],
-      sampleCities[i % sampleCities.length],
-      18500 + i * 2450 + (pIdx * 100),
-      proj.formula || `=PRACTICE_FORMULA(${proj.projectId})`,
-      'Verified & Audit Passed'
-    ]);
+  // Topic 9 Engineering Telemetry Sample Data (30 Scenarios)
+  const engineeringScenarios = [
+    { sensor: 'HVAC Steam Boiler Temp', cat: 'Thermodynamics', raw: 100.0, mask: '"F"', formula: '=CONVERT(E4, "C", "F")', out: '212.00 °F' },
+    { sensor: 'Thermodynamic Chamber', cat: 'Thermodynamics', raw: 25.0, mask: '"K"', formula: '=CONVERT(E5, "C", "K")', out: '298.15 K' },
+    { sensor: 'Bridge Structural Load', cat: 'Structural Mechanics', raw: 100.0, mask: '"N"', formula: '=CONVERT(E6, "lbf", "N")', out: '444.82 N' },
+    { sensor: 'Freight Transit Distance', cat: 'Logistics', raw: 100.0, mask: '"mi"', formula: '=CONVERT(E7, "km", "mi")', out: '62.14 mi' },
+    { sensor: 'Hydraulic Pump Pressure', cat: 'Fluid Dynamics', raw: 1.0, mask: '"psi"', formula: '=CONVERT(E8, "atm", "psi")', out: '14.70 psi' },
+    { sensor: 'SCADA Auth Bitmask', cat: 'SCADA Security', raw: 13, mask: '4', formula: '=BITAND(E9, 4)', out: '4 (Execute Active)' },
+    { sensor: 'IoT Thermal Trip Byte', cat: 'IoT Telemetry', raw: 36, mask: '32', formula: '=IF(BITAND(E10, 32)=32, "ALERT", "NORMAL")', out: 'ALERT' },
+    { sensor: 'Role Permission Assembler', cat: 'Bitwise Logic', raw: 1, mask: 'BITOR', formula: '=BITOR(E11, 4)', out: '5 (Read + Exec)' },
+    { sensor: 'Telemetry Register Delta', cat: 'Signal Processing', raw: 12, mask: 'BITXOR', formula: '=BITXOR(E12, 10)', out: '6 (Delta Bit)' },
+    { sensor: 'Microcontroller Sensor Payload', cat: 'Hardware Telemetry', raw: '00001101', mask: 'DEC', formula: '=BIN2DEC("00001101")', out: '13' },
+    { sensor: 'Turbine Exhaust Heat', cat: 'Thermodynamics', raw: 450.0, mask: '"F"', formula: '=CONVERT(E14, "C", "F")', out: '842.00 °F' },
+    { sensor: 'Cryogenic Liquid Nitrogen', cat: 'Thermodynamics', raw: -196.0, mask: '"K"', formula: '=CONVERT(E15, "C", "K")', out: '77.15 K' },
+    { sensor: 'Steel Cable Tensile Strength', cat: 'Structural Mechanics', raw: 500.0, mask: '"N"', formula: '=CONVERT(E16, "lbf", "N")', out: '2224.11 N' },
+    { sensor: 'Maritime Vessel Speed', cat: 'Logistics', raw: 25.0, mask: '"km/h"', formula: '=CONVERT(E17, "mph", "km/h")', out: '40.23 km/h' },
+    { sensor: 'Subsea Gas Pipeline Pressure', cat: 'Fluid Dynamics', raw: 5.0, mask: '"psi"', formula: '=CONVERT(E18, "atm", "psi")', out: '73.48 psi' },
+    { sensor: 'PLC Control Word Bit 0', cat: 'SCADA Security', raw: 15, mask: '1', formula: '=BITAND(E19, 1)', out: '1 (Read Active)' },
+    { sensor: 'High Voltage Breaker Alarm', cat: 'IoT Telemetry', raw: 64, mask: '64', formula: '=IF(BITAND(E20, 64)=64, "TRIPPED", "OK")', out: 'TRIPPED' },
+    { sensor: 'Admin Privilege Aggregation', cat: 'Bitwise Logic', raw: 7, mask: 'BITOR', formula: '=BITOR(E21, 8)', out: '15 (Full Admin)' },
+    { sensor: 'Modbus Holding Register Shift', cat: 'Signal Processing', raw: 16, mask: 'BITLSHIFT', formula: '=BITLSHIFT(E22, 2)', out: '64' },
+    { sensor: 'Hexadecimal Sensor Address', cat: 'Hardware Telemetry', raw: '2F', mask: 'DEC', formula: '=HEX2DEC("2F")', out: '47' },
+    { sensor: 'Solar Array Temperature', cat: 'Thermodynamics', raw: 65.0, mask: '"F"', formula: '=CONVERT(E24, "C", "F")', out: '149.00 °F' },
+    { sensor: 'Superconducting Magnet', cat: 'Thermodynamics', raw: 4.2, mask: '"C"', formula: '=CONVERT(E25, "K", "C")', out: '-268.95 °C' },
+    { sensor: 'Crane Lift Hook Capacity', cat: 'Structural Mechanics', raw: 2000.0, mask: '"N"', formula: '=CONVERT(E26, "lbf", "N")', out: '8896.44 N' },
+    { sensor: 'Highway Express Corridor', cat: 'Logistics', raw: 120.0, mask: '"mi"', formula: '=CONVERT(E27, "km", "mi")', out: '74.56 mi' },
+    { sensor: 'Compressed Air Tank', cat: 'Fluid Dynamics', raw: 8.5, mask: '"psi"', formula: '=CONVERT(E28, "atm", "psi")', out: '124.92 psi' },
+    { sensor: 'Database Access Control List', cat: 'SCADA Security', raw: 31, mask: '16', formula: '=BITAND(E29, 16)', out: '16 (Delete Active)' },
+    { sensor: 'Coolant Flow Valve Status', cat: 'IoT Telemetry', raw: 128, mask: '128', formula: '=IF(BITAND(E30, 128)=128, "OPEN", "CLOSED")', out: 'OPEN' },
+    { sensor: 'Security Group Mask', cat: 'Bitwise Logic', raw: 3, mask: 'BITOR', formula: '=BITOR(E31, 12)', out: '15' },
+    { sensor: 'Bitwise Right Shift Mask', cat: 'Signal Processing', raw: 64, mask: 'BITRSHIFT', formula: '=BITRSHIFT(E32, 2)', out: '16' },
+    { sensor: 'Octal Register Input Payload', cat: 'Hardware Telemetry', raw: '77', mask: 'DEC', formula: '=OCT2DEC("77")', out: '63' }
+  ];
 
-    addStyledSheet(proj.projectId, 'FF0F172A',
-      [
+  topicsData.forEach((topic, tIdx) => {
+    let richRows;
+    let colSpecs;
+
+    if (topic.sheetName === 'Topic9') {
+      colSpecs = [
+        { header: 'Record_ID', key: 'id' },
+        { header: 'Telemetry / Sensor System', key: 'name' },
+        { header: 'Engineering Category', key: 'dept' },
+        { header: 'Raw Input Payload', key: 'rawVal' },
+        { header: 'Target Unit / Bitmask', key: 'maskVal' },
+        { header: 'Applied Excel Formula', key: 'mask' },
+        { header: 'Evaluated Output', key: 'rendered' },
+        { header: 'Audit Status', key: 'stat' }
+      ];
+      richRows = engineeringScenarios.map((sc, i) => [
+        `ENG-${101 + i}`,
+        sc.sensor,
+        sc.cat,
+        sc.raw,
+        sc.mask,
+        sc.formula,
+        sc.out,
+        'Verified & Audit Passed'
+      ]);
+    } else {
+      colSpecs = [
         { header: 'Record_ID', key: 'id' },
         { header: 'Candidate / Employee Name', key: 'name' },
         { header: 'Department', key: 'dept' },
         { header: 'Campus Location', key: 'city' },
-        { header: 'Transaction Value (₹)', key: 'val' },
-        { header: 'Target Practice Formula', key: 'form' },
+        { header: 'Raw Numeric Payload', key: 'rawVal' },
+        { header: 'Target Formula / Mask', key: 'mask' },
+        { header: 'Rendered Cell Display', key: 'rendered' },
         { header: 'Audit Status', key: 'stat' }
-      ],
+      ];
+      richRows = Array.from({ length: 30 }, (_, i) => [
+        `${topic.sheetName}-${String(i + 1).padStart(2, '0')}`,
+        sampleNames[i % sampleNames.length],
+        sampleDepts[i % sampleDepts.length],
+        sampleCities[i % sampleCities.length],
+        15000 + i * 3250 + (tIdx * 150),
+        topic.mask,
+        topic.renderedExample,
+        'Verified & Audit Passed'
+      ]);
+    }
+
+    addStyledSheet(
+      topic.sheetName,
+      'FF0F172A',
+      colSpecs,
       richRows
     );
   });
 
+  // Save Workbook Output Files
   const outputPath = path.join(excelFilesDir, '001_003_basic_formulas_and_functions_master.xlsx');
   await wb.xlsx.writeFile(outputPath);
-  console.log(`✓ Generated 001_003_basic_formulas_and_functions_master.xlsx for module 001_003_basic-formulas-and-functions`);
+  console.log(`✓ Rebuilt 001_003_basic_formulas_and_functions_master.xlsx with 11 sequential sheets (Overview + Topic0..Topic9)`);
+  
+  // Also save copies to ensure compatibility across all import paths
   fs.copyFileSync(outputPath, path.join(excelFilesDir, 'basic_formulas_and_functions_master.xlsx'));
-  fs.copyFileSync(outputPath, path.join(excelFilesDir, '001_003_basic_formulas_and_functions_master.xlsx'));
+  fs.copyFileSync(outputPath, path.join(excelFilesDir, 'basic_formulas.xlsx'));
 }
 
 buildWorkbook().catch(console.error);

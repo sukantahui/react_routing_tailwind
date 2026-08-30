@@ -280,7 +280,7 @@ export default function Topic5() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic5_Basic_navigation__"
+            sheetName="Topic5"
             title="Module 1.1 - High-Speed Navigation: Keyboard Shortcuts, Range Selection, Name Box Teleportation &amp; Go To Special"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -294,107 +294,196 @@ export default function Topic5() {
           ref={(el) => (sectionsRef.current[5] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
-            Real-World Business Scenarios (Bengal & Corporate Applications)
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
-                <h3 className="text-base font-bold text-white">Kolkata Retail 50,000-Row Bottom Verification</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">An auditor verifies whether the ledger ends at row 50,000 without manually scrolling the mouse wheel.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Method</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Key_Sequence</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Time_Taken</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Reliability</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Mouse Scroll Drag</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Dragging vertical scrollbar</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">35 seconds (Hand fatigue)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Risk of overshooting</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Keyboard Traversal</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Ctrl + Down Arrow</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">0.01 seconds</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Instant precision jump to last row</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Ctrl + Down Arrow from cell A1</div>
-                <div className="text-emerald-400 font-semibold">Result: Cursor lands on row 50,000 instantly.</div>
-                <div className="text-slate-400 text-[11px]">Edge traversal navigates massive databases in milliseconds.</div>
-              </div>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
+                20 Real-World Business Scenarios: Excel File Formats &amp; Security Architecture
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                20 practical workplace scenarios detailing .xlsx, .xlsm, .xlsb, .csv, .pdf exports, and Backstage security configurations.
+              </p>
             </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">02</span>
-                <h3 className="text-base font-bold text-white">Barrackpore Student Attendance Batch Blank Filling</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Filling 'Absent' into 200 blank cells across a 1,000-row student roll sheet.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Step</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Action_Sequence</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Execution_Time</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Result</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">1</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Highlight Range &amp;rarr; Press F5 &amp;rarr; Special &amp;rarr; Blanks</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">2 seconds</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">All 200 blank cells highlighted</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">2</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Type 'Absent' &amp;rarr; Press Ctrl + Enter</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">1 second</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">All 200 blank cells populated simultaneously</td></tr>
-                  </tbody>
-                </table>
-              </div>
+            <span className="text-xs font-mono text-amber-300 bg-amber-950/80 px-3 py-1.5 rounded-full border border-amber-800 shrink-0 font-bold">
+              20 Real-World Examples
+            </span>
+          </div>
 
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: F5 &amp;rarr; Alt + S &amp;rarr; K &amp;rarr; Enter &amp;rarr; Type 'Absent' &amp;rarr; Ctrl + Enter</div>
-                <div className="text-emerald-400 font-semibold">Result: 200 blank cells filled in 3 seconds without loop programming.</div>
-                <div className="text-slate-400 text-[11px]">Ctrl + Enter broadcasts an input value across all currently selected disjoint cells.</div>
-              </div>
-            </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">03</span>
-                <h3 className="text-base font-bold text-white">Shyamnagar Factory Filtered Copy (Visible Cells Only)</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Copying filtered sub-totals without accidentally copying hidden rows.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Filter_State</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Standard_Copy_Risk</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Alt_Semicolon_Technique</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Outcome</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Rows 5-15 hidden by filter</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">May copy hidden rows in older Excel</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Press Alt + ; to select visible cells only</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Only visible rows copied cleanly</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Alt + ; (Select Visible Cells Only)</div>
-                <div className="text-emerald-400 font-semibold">Result: Clean paste with zero hidden rows transferred.</div>
-                <div className="text-slate-400 text-[11px]">Alt+; prevents confidential hidden data from being leaked during copy-paste operations.</div>
-              </div>
-            </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">04</span>
-                <h3 className="text-base font-bold text-white">Ichapur Production Master Name Box Named Range Jump</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Teleporting directly to the raw material pricing schedule located at Sheet3!AA500:AD750.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Named_Range</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Target_Coordinates</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Navigation_Method</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Speed</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Material_Rates</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Sheet3!AA500:AD750</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Type 'Material_Rates' in Name Box &amp;rarr; Enter</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Instant viewport switch &amp; selection</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Name Box Named Range Teleportation</div>
-                <div className="text-emerald-400 font-semibold">Result: Selected entire 250-row pricing matrix in one keystroke.</div>
-                <div className="text-slate-400 text-[11px]">Named ranges allow semantic navigation across multi-sheet models.</div>
-              </div>
-            </div>
+          <div className="overflow-x-auto rounded-xl border border-slate-800">
+            <table className="w-full text-left text-xs text-slate-300 border-collapse">
+              <thead>
+                <tr className="bg-slate-950 text-slate-400 font-semibold uppercase tracking-wider border-b border-slate-800">
+                  <th className="py-3 px-3 w-16">ID</th>
+                  <th className="py-3 px-3">Business Application</th>
+                  <th className="py-3 px-3">File Format / Security Feature</th>
+                  <th className="py-3 px-3">Applied Configuration</th>
+                  <th className="py-3 px-3">Target Extension / State</th>
+                  <th className="py-3 px-3">Key Technical Benefit</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/60 font-mono">
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">FF-101</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Kolkata CA General Audit Model</td>
+                  <td className="py-2.5 px-3 text-sky-300">Standard OpenXML Workbook</td>
+                  <td className="py-2.5 px-3 text-amber-300">Save As $\rightarrow$ `.xlsx`</td>
+                  <td className="py-2.5 px-3 text-emerald-400">`.xlsx` File</td>
+                  <td className="py-2.5 px-3 text-slate-300">Standard XML container ensuring high macro-free security.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">FF-102</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Barrackpore Payroll Macro Generator</td>
+                  <td className="py-2.5 px-3 text-sky-300">Macro-Enabled Workbook</td>
+                  <td className="py-2.5 px-3 text-amber-300">Save As $\rightarrow$ `.xlsm`</td>
+                  <td className="py-2.5 px-3 text-emerald-400">`.xlsm` File</td>
+                  <td className="py-2.5 px-3 text-slate-300">Preserves VBA automation code without stripping modules.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">FF-103</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Shyamnagar Supermarket 80MB Model</td>
+                  <td className="py-2.5 px-3 text-sky-300">Excel Binary Workbook</td>
+                  <td className="py-2.5 px-3 text-amber-300">Save As $\rightarrow$ `.xlsb`</td>
+                  <td className="py-2.5 px-3 text-emerald-400">`.xlsb` File</td>
+                  <td className="py-2.5 px-3 text-slate-300">Reduces file size by 50% and loads 4x faster.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">FF-104</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Salt Lake SaaS Database Export</td>
+                  <td className="py-2.5 px-3 text-sky-300">Comma-Separated Values</td>
+                  <td className="py-2.5 px-3 text-amber-300">Save As $\rightarrow$ `.csv`</td>
+                  <td className="py-2.5 px-3 text-emerald-400">`.csv` Text</td>
+                  <td className="py-2.5 px-3 text-slate-300">Flat text file for SQL database ingestion.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">FF-105</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Ichapur Plant Boardroom Report</td>
+                  <td className="py-2.5 px-3 text-sky-300">PDF Fixed Document Export</td>
+                  <td className="py-2.5 px-3 text-amber-300">Export $\rightarrow$ Create PDF/XPS</td>
+                  <td className="py-2.5 px-3 text-emerald-400">`.pdf` File</td>
+                  <td className="py-2.5 px-3 text-slate-300">Un-editable visual report preserving exact print layout.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">FF-106</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Titagarh Mill Legacy Unix Ingestion</td>
+                  <td className="py-2.5 px-3 text-sky-300">Tab Delimited Text</td>
+                  <td className="py-2.5 px-3 text-amber-300">Save As $\rightarrow$ `.txt` (Tab delimited)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">`.txt` File</td>
+                  <td className="py-2.5 px-3 text-slate-300">Interoperable with mainframe batch processing.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">FF-107</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Naihati Pharmacy Old PC Compatibility</td>
+                  <td className="py-2.5 px-3 text-sky-300">Excel 97–2003 Format</td>
+                  <td className="py-2.5 px-3 text-amber-300">Save As $\rightarrow$ `.xls`</td>
+                  <td className="py-2.5 px-3 text-emerald-400">`.xls` File</td>
+                  <td className="py-2.5 px-3 text-slate-300">Backwards compatibility for legacy Office installation.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">FF-108</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Sodepur Store Master Invoice Template</td>
+                  <td className="py-2.5 px-3 text-sky-300">Excel Template File</td>
+                  <td className="py-2.5 px-3 text-amber-300">Save As $\rightarrow$ `.xltx`</td>
+                  <td className="py-2.5 px-3 text-emerald-400">`.xltx` Template</td>
+                  <td className="py-2.5 px-3 text-slate-300">Opens a fresh un-saved copy preventing template overwrite.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">FF-109</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Howrah Freight Macro Invoice Template</td>
+                  <td className="py-2.5 px-3 text-sky-300">Macro-Enabled Template</td>
+                  <td className="py-2.5 px-3 text-amber-300">Save As $\rightarrow$ `.xltm`</td>
+                  <td className="py-2.5 px-3 text-emerald-400">`.xltm` Template</td>
+                  <td className="py-2.5 px-3 text-slate-300">Combines master template behavior with embedded VBA.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">FF-110</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Durgapur Steel OpenSource Exchange</td>
+                  <td className="py-2.5 px-3 text-sky-300">OpenDocument Spreadsheet</td>
+                  <td className="py-2.5 px-3 text-amber-300">Save As $\rightarrow$ `.ods`</td>
+                  <td className="py-2.5 px-3 text-emerald-400">`.ods` File</td>
+                  <td className="py-2.5 px-3 text-slate-300">Complies with open-source software standards.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">FF-111</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Asansol Power Confidential Audit Lock</td>
+                  <td className="py-2.5 px-3 text-sky-300">Backstage Encrypt with Password</td>
+                  <td className="py-2.5 px-3 text-amber-300">File $\rightarrow$ Info $\rightarrow$ Protect Workbook</td>
+                  <td className="py-2.5 px-3 text-emerald-400">AES-256 Encrypted</td>
+                  <td className="py-2.5 px-3 text-slate-300">Locks workbook behind mandatory password prompt.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">FF-112</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Siliguri Tea AutoRecover Configuration</td>
+                  <td className="py-2.5 px-3 text-sky-300">Backstage Save Interval</td>
+                  <td className="py-2.5 px-3 text-amber-300">Options $\rightarrow$ Save $\rightarrow$ Every 3 Min</td>
+                  <td className="py-2.5 px-3 text-emerald-400">3 Min Auto-Save</td>
+                  <td className="py-2.5 px-3 text-slate-300">Minimizes unsaved data loss during sudden crashes.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">FF-113</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Haldia Port Final Audit Distribution</td>
+                  <td className="py-2.5 px-3 text-sky-300">Mark as Final Command</td>
+                  <td className="py-2.5 px-3 text-amber-300">File $\rightarrow$ Info $\rightarrow$ Mark as Final</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Read-Only Banner</td>
+                  <td className="py-2.5 px-3 text-slate-300">Disables editing controls signaling completed state.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">FF-114</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Malda Mango Hidden Comment Scrub</td>
+                  <td className="py-2.5 px-3 text-sky-300">Inspect Document Privacy Check</td>
+                  <td className="py-2.5 px-3 text-amber-300">File $\rightarrow$ Info $\rightarrow$ Inspect Document</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Metadata Scrubbed</td>
+                  <td className="py-2.5 px-3 text-slate-300">Removes author tags, hidden comments, and revision logs.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">FF-115</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Midnapore Hospital Screen Reader Check</td>
+                  <td className="py-2.5 px-3 text-sky-300">Check Accessibility Audit</td>
+                  <td className="py-2.5 px-3 text-amber-300">File $\rightarrow$ Info $\rightarrow$ Check Accessibility</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Alt Text Verified</td>
+                  <td className="py-2.5 px-3 text-slate-300">Ensures charts contain Alt Text for screen reader accessibility.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">FF-116</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Kharagpur Library Feature Downgrade Check</td>
+                  <td className="py-2.5 px-3 text-sky-300">Check Compatibility Wizard</td>
+                  <td className="py-2.5 px-3 text-amber-300">File $\rightarrow$ Info $\rightarrow$ Check Compatibility</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Warnings Flagged</td>
+                  <td className="py-2.5 px-3 text-slate-300">Flags features unsupported in older .xls Excel versions.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">FF-117</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Hooghly Jute Trust Center Folder</td>
+                  <td className="py-2.5 px-3 text-sky-300">Trusted Locations Whitelist</td>
+                  <td className="py-2.5 px-3 text-amber-300">Options $\rightarrow$ Trust Center $\rightarrow$ Locations</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Folder Trusted</td>
+                  <td className="py-2.5 px-3 text-slate-300">Allows macros in specified directory to run automatically.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">FF-118</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Burdwan Seed External Link Shield</td>
+                  <td className="py-2.5 px-3 text-sky-300">External Content Security Bar</td>
+                  <td className="py-2.5 px-3 text-amber-300">Trust Center $\rightarrow$ External Content</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Prompt Mode Active</td>
+                  <td className="py-2.5 px-3 text-slate-300">Blocks unauthorized background workbook data links.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">FF-119</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Purulia Solar Author Tagging</td>
+                  <td className="py-2.5 px-3 text-sky-300">Document Properties Metadata</td>
+                  <td className="py-2.5 px-3 text-amber-300">File $\rightarrow$ Info $\rightarrow$ Properties $\rightarrow$ Author</td>
+                  <td className="py-2.5 px-3 text-emerald-400">`Sukanta Hui` Tagged</td>
+                  <td className="py-2.5 px-3 text-slate-300">Establishes copyright ownership metadata inside workbook.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">FF-120</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Bankura Craft Write Password Lock</td>
+                  <td className="py-2.5 px-3 text-sky-300">Password-to-Modify Guard</td>
+                  <td className="py-2.5 px-3 text-amber-300">Save As $\rightarrow$ Tools $\rightarrow$ General Options</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Write Password Set</td>
+                  <td className="py-2.5 px-3 text-slate-300">Allows public reading but restricts editing to key-holders.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 

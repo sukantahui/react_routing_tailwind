@@ -280,7 +280,7 @@ export default function Topic2() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic2_Exploring_the_inte"
+            sheetName="Topic2"
             title="Module 1.1 - Exploring the Interface: Ribbon, Tabs, Formula Bar, Quick Access Toolbar &amp; Status Bar Ergonomics"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -294,111 +294,196 @@ export default function Topic2() {
           ref={(el) => (sectionsRef.current[5] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
-            Real-World Business Scenarios (Bengal & Corporate Applications)
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
-                <h3 className="text-base font-bold text-white">Barrackpore Retail MIS Daily Cash Reconciliation via Status Bar</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">A store supervisor highlights sales amounts to verify register totals instantly without typing formulas.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Transaction_ID</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Customer_Name</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Invoice_Amount_INR</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Payment_Mode</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">TXN-101</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Swadeep</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">12,500</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">UPI</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">TXN-102</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Tuhina</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">18,400</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Card</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">TXN-103</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Abhronila</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">9,800</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Cash</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">TXN-104</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Susmita</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">15,200</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">UPI</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Selection of range C2:C5 &amp;rarr; Status Bar Readout</div>
-                <div className="text-emerald-400 font-semibold">Result: Average: 13,975 | Count: 4 | Sum: 55,900 displayed in footer.</div>
-                <div className="text-slate-400 text-[11px]">The Status Bar provides instant verification during fast inventory audits without modifying the sheet.</div>
-              </div>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
+                20 Real-World Business Scenarios: Workbook &amp; Worksheet Management
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                20 practical workplace scenarios detailing tab renaming, color coding, sheet protection, cross-sheet 3D formulas, and sheet security.
+              </p>
             </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">02</span>
-                <h3 className="text-base font-bold text-white">Kolkata Corporate Financial Model Multi-Line Formula Editing</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">An analyst writes a complex nested IF/LET function spanning 400 characters.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Step</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Action_Taken</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formula_Bar_State</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Ergonomic_Benefit</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">1</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Press Ctrl + Shift + U</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Expands formula bar vertically</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Prevents horizontal scrolling</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">2</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Press Alt + Enter inside formula</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Adds formatted code line break</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Structures nested calculation logic</td></tr>
-                  </tbody>
-                </table>
-              </div>
+            <span className="text-xs font-mono text-amber-300 bg-amber-950/80 px-3 py-1.5 rounded-full border border-amber-800 shrink-0 font-bold">
+              20 Real-World Examples
+            </span>
+          </div>
 
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Formula Bar Multi-Line Expansion</div>
-                <div className="text-emerald-400 font-semibold">Result: Complex financial formula formatted cleanly for peer audit.</div>
-                <div className="text-slate-400 text-[11px]">Expanding the Formula Bar allows professional line-broken coding of advanced functions.</div>
-              </div>
-            </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">03</span>
-                <h3 className="text-base font-bold text-white">Shyamnagar Factory Floor Quick Access Toolbar (QAT) Customization</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">A plant operator assigns frequently used commands (Freeze Panes, AutoFilter, Paste Values) to Alt+1, Alt+2, Alt+3.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">QAT_Position</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Command_Assigned</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Keyboard_Trigger</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Daily_Clicks_Saved</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">1</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Paste Special Values</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Alt + 1</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">250 clicks/day</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">2</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Toggle AutoFilter</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Alt + 2</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">180 clicks/day</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">3</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Freeze Panes</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Alt + 3</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">90 clicks/day</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Quick Access Toolbar Pinning</div>
-                <div className="text-emerald-400 font-semibold">Result: 40% reduction in daily repetitive mouse navigation.</div>
-                <div className="text-slate-400 text-[11px]">QAT pinning creates muscle-memory shortcuts for corporate productivity.</div>
-              </div>
-            </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">04</span>
-                <h3 className="text-base font-bold text-white">Ichapur Branch Ledger Audit with Precedent Tracing</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">An auditor traces calculation origin cells using the Formulas &amp;rarr; Formula Auditing ribbon group.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Audited_Cell</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formula_Applied</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Ribbon_Tool_Used</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Audit_Finding</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">F25</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=SUM(F2:F24)*0.18</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Trace Precedents (Ctrl + [)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Verified all 23 sales items included in GST calculation</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Formulas Tab &amp;rarr; Trace Precedents</div>
-                <div className="text-emerald-400 font-semibold">Result: Blue indicator arrows confirm zero missed cell coordinates.</div>
-                <div className="text-slate-400 text-[11px]">Ribbon auditing tools visually diagram spreadsheet mathematical logic.</div>
-              </div>
-            </div>
+          <div className="overflow-x-auto rounded-xl border border-slate-800">
+            <table className="w-full text-left text-xs text-slate-300 border-collapse">
+              <thead>
+                <tr className="bg-slate-950 text-slate-400 font-semibold uppercase tracking-wider border-b border-slate-800">
+                  <th className="py-3 px-3 w-16">ID</th>
+                  <th className="py-3 px-3">Business Application</th>
+                  <th className="py-3 px-3">Sheet Management Action</th>
+                  <th className="py-3 px-3">Applied Method / Shortcut</th>
+                  <th className="py-3 px-3">Target Outcome</th>
+                  <th className="py-3 px-3">Key Administrative Benefit</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/60 font-mono">
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WM-101</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Kolkata CA Annual Audit Master Workbook</td>
+                  <td className="py-2.5 px-3 text-sky-300">Create Blank Workbook</td>
+                  <td className="py-2.5 px-3 text-amber-300">Press Ctrl + N</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Book1 Created</td>
+                  <td className="py-2.5 px-3 text-slate-300">Instantiates clean multi-tab working model.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WM-102</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Barrackpore Branch Monthly Budgeting</td>
+                  <td className="py-2.5 px-3 text-sky-300">Rename Sheet Tab</td>
+                  <td className="py-2.5 px-3 text-amber-300">Double-Click Tab $\rightarrow$ Type `BKP_Jan26`</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Sheet Renamed `BKP_Jan26`</td>
+                  <td className="py-2.5 px-3 text-slate-300">Eliminates generic `Sheet1` default confusion.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WM-103</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Shyamnagar Supermarket Departmental Color Coding</td>
+                  <td className="py-2.5 px-3 text-sky-300">Set Tab Color</td>
+                  <td className="py-2.5 px-3 text-amber-300">Alt + H + O + T $\rightarrow$ Green</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Green Tab Accent</td>
+                  <td className="py-2.5 px-3 text-slate-300">Visual demarcation of high-margin departments.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WM-104</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Salt Lake Tech HR Salary Protection</td>
+                  <td className="py-2.5 px-3 text-sky-300">Protect Sheet with Password</td>
+                  <td className="py-2.5 px-3 text-amber-300">Review $\rightarrow$ Protect Sheet (`sukantahui`)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Cells Locked</td>
+                  <td className="py-2.5 px-3 text-slate-300">Prevents unauthorized salary adjustments.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WM-105</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Ichapur Plant Machine Maintenance Copy</td>
+                  <td className="py-2.5 px-3 text-sky-300">Duplicate Worksheet Tab</td>
+                  <td className="py-2.5 px-3 text-amber-300">Ctrl + Drag Sheet Tab</td>
+                  <td className="py-2.5 px-3 text-emerald-400">`Maint_Log (2)` Created</td>
+                  <td className="py-2.5 px-3 text-slate-300">Clones layout and formulas instantly for new month.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WM-106</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Titagarh Mill Executive Summary Hide</td>
+                  <td className="py-2.5 px-3 text-sky-300">Hide Operational Sheet Tab</td>
+                  <td className="py-2.5 px-3 text-amber-300">Alt + H + O + U + S</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Tab Hidden</td>
+                  <td className="py-2.5 px-3 text-slate-300">Reduces clutter during C-suite presentations.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WM-107</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Naihati Pharmacy Audit Unhide</td>
+                  <td className="py-2.5 px-3 text-sky-300">Unhide Hidden Sheet Tab</td>
+                  <td className="py-2.5 px-3 text-amber-300">Alt + H + O + U + H</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Tax_Log Unhidden</td>
+                  <td className="py-2.5 px-3 text-slate-300">Restores access to underlying tax calculation sheets.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WM-108</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Sodepur Retail Selective Data Entry</td>
+                  <td className="py-2.5 px-3 text-sky-300">Unlock Input Cells</td>
+                  <td className="py-2.5 px-3 text-amber-300">Ctrl+1 $\rightarrow$ Uncheck Locked $\rightarrow$ Protect Sheet</td>
+                  <td className="py-2.5 px-3 text-emerald-400">B2:B10 Editable Only</td>
+                  <td className="py-2.5 px-3 text-slate-300">Allows cashiers to type inputs while formulas stay locked.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WM-109</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Howrah Dock 12-Month Consolidation</td>
+                  <td className="py-2.5 px-3 text-sky-300">Cross-Sheet 3D Formula Reference</td>
+                  <td className="py-2.5 px-3 text-amber-300">`=SUM('Jan:Dec'!E20)`</td>
+                  <td className="py-2.5 px-3 text-emerald-400">12-Month Total Summed</td>
+                  <td className="py-2.5 px-3 text-slate-300">Aggregates identical cells across multiple month tabs.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WM-110</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Durgapur Steel Structure Lockdown</td>
+                  <td className="py-2.5 px-3 text-sky-300">Protect Workbook Structure</td>
+                  <td className="py-2.5 px-3 text-amber-300">Review $\rightarrow$ Protect Workbook</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Structure Locked</td>
+                  <td className="py-2.5 px-3 text-slate-300">Prevents users from adding, deleting, or moving tabs.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WM-111</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Asansol Power Batch Tab Selection</td>
+                  <td className="py-2.5 px-3 text-sky-300">Group Multiple Worksheets</td>
+                  <td className="py-2.5 px-3 text-amber-300">Shift + Click First &amp; Last Tab</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Tabs Highlighted [Group]</td>
+                  <td className="py-2.5 px-3 text-slate-300">Applies headers and formatting to all sheets at once.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WM-112</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Siliguri Tea Move Tab to External File</td>
+                  <td className="py-2.5 px-3 text-sky-300">Move Sheet to New Workbook</td>
+                  <td className="py-2.5 px-3 text-amber-300">Right-click $\rightarrow$ Move or Copy $\rightarrow$ (new book)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Sheet Extracted</td>
+                  <td className="py-2.5 px-3 text-slate-300">Isolates specific department data for external email.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WM-113</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Haldia Port New Sheet Rapid Insert</td>
+                  <td className="py-2.5 px-3 text-sky-300">Insert Blank Worksheet Tab</td>
+                  <td className="py-2.5 px-3 text-amber-300">Press Shift + F11</td>
+                  <td className="py-2.5 px-3 text-emerald-400">New Sheet Inserted</td>
+                  <td className="py-2.5 px-3 text-slate-300">Instant sheet addition preceding active tab.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WM-114</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Malda Mango Accidental Sheet Delete</td>
+                  <td className="py-2.5 px-3 text-sky-300">Delete Sheet with Warning</td>
+                  <td className="py-2.5 px-3 text-amber-300">Alt + H + D + S</td>
+                  <td className="py-2.5 px-3 text-rose-400">Permanent Removal</td>
+                  <td className="py-2.5 px-3 text-slate-300">Note: Sheet deletion cannot be undone with Ctrl+Z!</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WM-115</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Midnapore Hospital Security Lock</td>
+                  <td className="py-2.5 px-3 text-sky-300">Encrypt Entire File with Password</td>
+                  <td className="py-2.5 px-3 text-amber-300">File $\rightarrow$ Info $\rightarrow$ Encrypt with Password</td>
+                  <td className="py-2.5 px-3 text-emerald-400">File Encrypted</td>
+                  <td className="py-2.5 px-3 text-slate-300">Secures patient medical records under AES-256.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WM-116</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Kharagpur Library VeryHidden Sheet</td>
+                  <td className="py-2.5 px-3 text-sky-300">VBA VeryHidden Sheet State</td>
+                  <td className="py-2.5 px-3 text-amber-300">`Sheet1.Visible = xlSheetVeryHidden`</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Invisible in UI</td>
+                  <td className="py-2.5 px-3 text-slate-300">Hides backend lookup arrays from standard unhide menu.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WM-117</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Hooghly Jute AutoSave Rollback</td>
+                  <td className="py-2.5 px-3 text-sky-300">Version History Rollback</td>
+                  <td className="py-2.5 px-3 text-amber-300">File $\rightarrow$ Info $\rightarrow$ Version History</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Restored 10:00 AM State</td>
+                  <td className="py-2.5 px-3 text-slate-300">Recovers previous file versions after erroneous updates.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WM-118</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Burdwan Seed Read-Only Distribution</td>
+                  <td className="py-2.5 px-3 text-sky-300">Save As Read-Only Recommended</td>
+                  <td className="py-2.5 px-3 text-amber-300">Save As $\rightarrow$ Tools $\rightarrow$ General Options</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Read-Only Prompt</td>
+                  <td className="py-2.5 px-3 text-slate-300">Warns recipients not to overwrite template formulas.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WM-119</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Purulia Solar Ungroup Worksheets</td>
+                  <td className="py-2.5 px-3 text-sky-300">Ungroup Sheet Tabs</td>
+                  <td className="py-2.5 px-3 text-amber-300">Right-click Tab $\rightarrow$ Ungroup Sheets</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Single Sheet Active</td>
+                  <td className="py-2.5 px-3 text-slate-300">Prevents accidental simultaneous edits across tabs.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WM-120</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Bankura Craft Tab Re-ordering</td>
+                  <td className="py-2.5 px-3 text-sky-300">Drag Tab to Reposition</td>
+                  <td className="py-2.5 px-3 text-amber-300">Click &amp; Drag Sheet Tab Left/Right</td>
+                  <td className="py-2.5 px-3 text-emerald-400">New Order Established</td>
+                  <td className="py-2.5 px-3 text-slate-300">Organizes tabs chronologically or logically.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 

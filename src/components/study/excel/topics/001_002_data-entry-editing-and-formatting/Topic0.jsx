@@ -280,8 +280,8 @@ export default function Topic0() {
           </div>
 
           <ExcelFileLoader
-            fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Data_Types"
+            fileUrl={sampleWorkbookUrl}
+            sheetName="Topic0"
             title="Module 1.2 - Types of Data in Excel: Text, Numbers, Dates, Times, Booleans and Error Tokens"
             rowsPerPage={25}
             showSheetSelector={true}

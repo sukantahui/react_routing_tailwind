@@ -280,7 +280,7 @@ export default function Topic1() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic1_Excel_vs_Google_Sh"
+            sheetName="Topic1"
             title="Module 1.1 - Excel vs Google Sheets vs Other Modern Spreadsheet Engines: Architectural Feature Comparison"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -294,111 +294,196 @@ export default function Topic1() {
           ref={(el) => (sectionsRef.current[5] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
-            Real-World Business Scenarios (Bengal & Corporate Applications)
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
-                <h3 className="text-base font-bold text-white">Kolkata CA Firm 500,000-Row Bank Statement Audit</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">A chartered accountancy firm in Kolkata audits half a million transaction lines from multiple bank accounts.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Tool_Evaluated</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Row_Capacity</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Processing_Time</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Memory_Architecture</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Selection_Verdict</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Excel 365 (64-bit)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">1,048,576 rows/sheet</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">1.2 seconds</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Full RAM (64-bit Native)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Selected for Audit</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Google Sheets</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">10,000,000 cells max</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Lagging / Browser Timeout</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Cloud Sandbox VM</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Rejected for Heavy Data</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">LibreOffice Calc</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">1,048,576 rows/sheet</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">8.4 seconds</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Single-Threaded</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Backup Alternative</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Power Query ETL Ingestion + Pivot Reconciliation</div>
-                <div className="text-emerald-400 font-semibold">Result: Reconciled 500,000 rows in under 2 minutes.</div>
-                <div className="text-slate-400 text-[11px]">64-bit Excel handles massive corporate datasets without the browser memory crashes typical of web spreadsheets.</div>
-              </div>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
+                20 Real-World Business Scenarios: Excel Interface &amp; Navigation Operations
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                20 practical workplace scenarios detailing Title Bar, Ribbon, QAT, Name Box, Formula Bar, and Status Bar efficiency.
+              </p>
             </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">02</span>
-                <h3 className="text-base font-bold text-white">Barrackpore Training Institute Real-Time Group Assignment Submission</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Coder &amp; AccoTax students collaborate simultaneously on a shared group homework schedule.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Requirement</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Google_Sheets_Suitability</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Excel_Desktop_Suitability</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Recommended_Workflow</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Live Multi-User Typing</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Excellent (Real-Time Cursor)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Via OneDrive Co-Authoring</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Google Sheets or Excel Online</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Custom VBA Macros</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Not Supported (Uses GAS)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Full Native Support</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Excel 365 Desktop</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Financial Valuation Models</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Basic Functions</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Ultra Expert (XIRR, Solver)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Excel 365 Desktop</td></tr>
-                  </tbody>
-                </table>
-              </div>
+            <span className="text-xs font-mono text-amber-300 bg-amber-950/80 px-3 py-1.5 rounded-full border border-amber-800 shrink-0 font-bold">
+              20 Real-World Examples
+            </span>
+          </div>
 
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =IF(isRealTimeCollab, "Sheets/Excel Online", "Excel Desktop")</div>
-                <div className="text-emerald-400 font-semibold">Result: Appropriate tool selected based on teamwork vs computational complexity.</div>
-                <div className="text-slate-400 text-[11px]">Choosing between tools depends on whether the project demands instant co-editing or deep financial modeling.</div>
-              </div>
-            </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">03</span>
-                <h3 className="text-base font-bold text-white">Naihati Trading Company GST Invoice Export Compatibility</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">A wholesaler in Naihati exports monthly sales bills into government GST offline tools and Tally Prime.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Accounting_Software</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Direct_Export_Format</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Native_Compatibility</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Audit_Readiness</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Tally Prime</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">.xlsx / XML</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100% Native</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Verified Complete</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">GST Offline Tool</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">.xlsx / JSON</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100% Native</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Government Certified</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Direct Export to Excel Workbook (.xlsx)</div>
-                <div className="text-emerald-400 font-semibold">Result: Zero format corruption when filing GSTR-1 returns.</div>
-                <div className="text-slate-400 text-[11px]">Indian taxation portals natively expect standard Microsoft Excel .xlsx schema.</div>
-              </div>
-            </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">04</span>
-                <h3 className="text-base font-bold text-white">Shyamnagar Pharmaceutical Distribution Inventory Modeling</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">A pharma distributor models reorder points and safety stock levels across 10,000 SKU lines.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">SKU_Code</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Medicine_Name</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Daily_Sales</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Lead_Time_Days</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Safety_Stock_Formula</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MED-101</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Paracetamol 650mg</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">450</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">3</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=B2*C2*1.5</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MED-102</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Azithromycin 500mg</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">120</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">5</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=B3*C3*1.5</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =SUMPRODUCT(C2:C1000, D2:D1000)</div>
-                <div className="text-emerald-400 font-semibold">Result: Reorder levels and total working capital tied up calculated instantly.</div>
-                <div className="text-slate-400 text-[11px]">Complex inventory optimization models run 10x faster in Excel's native desktop engine.</div>
-              </div>
-            </div>
+          <div className="overflow-x-auto rounded-xl border border-slate-800">
+            <table className="w-full text-left text-xs text-slate-300 border-collapse">
+              <thead>
+                <tr className="bg-slate-950 text-slate-400 font-semibold uppercase tracking-wider border-b border-slate-800">
+                  <th className="py-3 px-3 w-16">ID</th>
+                  <th className="py-3 px-3">Business Application</th>
+                  <th className="py-3 px-3">Interface Element Used</th>
+                  <th className="py-3 px-3">Applied Action / Shortcut</th>
+                  <th className="py-3 px-3">Resulting UI State</th>
+                  <th className="py-3 px-3">Key Design &amp; Efficiency Benefit</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/60 font-mono">
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">UI-101</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Kolkata Corporate Financial Model Audit</td>
+                  <td className="py-2.5 px-3 text-sky-300">Title Bar &amp; AutoSave</td>
+                  <td className="py-2.5 px-3 text-amber-300">Toggle AutoSave (OneDrive)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">AutoSave: ON</td>
+                  <td className="py-2.5 px-3 text-slate-300">Prevents data loss during sudden power outages.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">UI-102</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Barrackpore Data Entry Screen Real Estate</td>
+                  <td className="py-2.5 px-3 text-sky-300">Ribbon Display Mode</td>
+                  <td className="py-2.5 px-3 text-amber-300">Press Ctrl + F1</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Ribbon Collapsed</td>
+                  <td className="py-2.5 px-3 text-slate-300">Gains 4 extra visible data rows on laptop screens.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">UI-103</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Shyamnagar Supermarket Daily Reconciliation</td>
+                  <td className="py-2.5 px-3 text-sky-300">Quick Access Toolbar (QAT)</td>
+                  <td className="py-2.5 px-3 text-amber-300">Add Freeze Panes &amp; Filter to QAT</td>
+                  <td className="py-2.5 px-3 text-emerald-400">1-Click Access Icons</td>
+                  <td className="py-2.5 px-3 text-slate-300">Bypasses deep ribbon tab searching.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">UI-104</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Salt Lake SaaS Multi-Tab Financial Jump</td>
+                  <td className="py-2.5 px-3 text-sky-300">Name Box Navigation</td>
+                  <td className="py-2.5 px-3 text-amber-300">Type `TOTAL_ARR` in Name Box</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Jumps to Sheet3!E150</td>
+                  <td className="py-2.5 px-3 text-slate-300">Instant navigation across 50,000-cell workbooks.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">UI-105</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Ichapur Plant Complex Nested IF Debugging</td>
+                  <td className="py-2.5 px-3 text-sky-300">Formula Bar Expansion</td>
+                  <td className="py-2.5 px-3 text-amber-300">Press Ctrl + Shift + U</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Formula Bar 5-Lines Tall</td>
+                  <td className="py-2.5 px-3 text-slate-300">Exposes entire multi-line logic without truncation.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">UI-106</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Titagarh Jute Mill Quick Cash Audit</td>
+                  <td className="py-2.5 px-3 text-sky-300">Status Bar Auto-Calculate</td>
+                  <td className="py-2.5 px-3 text-amber-300">Highlight Range E4:E50</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Sum: ₹4.8L, Avg: ₹10K</td>
+                  <td className="py-2.5 px-3 text-slate-300">Instant validation without writing `=SUM()` formulas.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">UI-107</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Naihati Pharmacy Departmental Tabs</td>
+                  <td className="py-2.5 px-3 text-sky-300">Sheet Tab Color Coding</td>
+                  <td className="py-2.5 px-3 text-amber-300">Alt + H + O + T (Tab Color)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Red (Sales), Blue (Tax)</td>
+                  <td className="py-2.5 px-3 text-slate-300">Visual demarcation of functional workbook areas.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">UI-108</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Sodepur Retail Coordinate Alignment</td>
+                  <td className="py-2.5 px-3 text-sky-300">Name Box Active Indicator</td>
+                  <td className="py-2.5 px-3 text-amber-300">Select Cell D45</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Displays `D45`</td>
+                  <td className="py-2.5 px-3 text-slate-300">Ensures accurate cell referencing in formulas.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">UI-109</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Howrah Freight Keyboard Access Mode</td>
+                  <td className="py-2.5 px-3 text-sky-300">Ribbon KeyTips Engine</td>
+                  <td className="py-2.5 px-3 text-amber-300">Press Alt Key</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Letters H, N, P Overlay</td>
+                  <td className="py-2.5 px-3 text-slate-300">Mouseless ribbon command execution.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">UI-110</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Durgapur Steel Formula Tooltip Check</td>
+                  <td className="py-2.5 px-3 text-sky-300">Formula Bar Function ScreenTip</td>
+                  <td className="py-2.5 px-3 text-amber-300">Type `=XLOOKUP(`</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Shows lookup_value hint</td>
+                  <td className="py-2.5 px-3 text-slate-300">Guides argument entry to prevent syntax errors.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">UI-111</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Asansol Energy Grid Row Dragging</td>
+                  <td className="py-2.5 px-3 text-sky-300">Vertical Scrollbar Thumb</td>
+                  <td className="py-2.5 px-3 text-amber-300">Drag scroll thumb to Row 5,000</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Row 5000 Visible</td>
+                  <td className="py-2.5 px-3 text-slate-300">Rapid vertical navigation in large logs.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">UI-112</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Siliguri Tea Estate QAT Below Ribbon</td>
+                  <td className="py-2.5 px-3 text-sky-300">QAT Position Toggle</td>
+                  <td className="py-2.5 px-3 text-amber-300">Show QAT Below Ribbon</td>
+                  <td className="py-2.5 px-3 text-emerald-400">QAT Below Tabs</td>
+                  <td className="py-2.5 px-3 text-slate-300">Places favorite tools closer to grid cells.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">UI-113</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Haldia Port 30-Tab Navigation</td>
+                  <td className="py-2.5 px-3 text-sky-300">Sheet Tab Scroll Buttons</td>
+                  <td className="py-2.5 px-3 text-amber-300">Right-click Tab Scroll Arrows</td>
+                  <td className="py-2.5 px-3 text-emerald-400">All-Sheets Popup List</td>
+                  <td className="py-2.5 px-3 text-slate-300">Lists all worksheet tabs in a searchable menu.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">UI-114</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Malda Mango Boardroom Presentation</td>
+                  <td className="py-2.5 px-3 text-sky-300">Status Bar Zoom Control</td>
+                  <td className="py-2.5 px-3 text-amber-300">Set Zoom to 140%</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Enlarged Grid Text</td>
+                  <td className="py-2.5 px-3 text-slate-300">Enhances visibility on overhead projectors.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">UI-115</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Midnapore Hospital Pivot Tooling</td>
+                  <td className="py-2.5 px-3 text-sky-300">Contextual Ribbon Tab</td>
+                  <td className="py-2.5 px-3 text-amber-300">Select PivotTable Cell</td>
+                  <td className="py-2.5 px-3 text-emerald-400">PivotTable Analyze Tab</td>
+                  <td className="py-2.5 px-3 text-slate-300">Dynamically exposes specialized object controls.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">UI-116</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Kharagpur Library Font Customization</td>
+                  <td className="py-2.5 px-3 text-sky-300">Dialog Box Launcher</td>
+                  <td className="py-2.5 px-3 text-amber-300">Click Font Group Arrow</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Format Cells Popup</td>
+                  <td className="py-2.5 px-3 text-slate-300">Accesses detailed formatting properties.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">UI-117</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Hooghly Jute Print Setup Audit</td>
+                  <td className="py-2.5 px-3 text-sky-300">View Mode Buttons</td>
+                  <td className="py-2.5 px-3 text-amber-300">Click Page Break Preview</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Blue Page Margins Shown</td>
+                  <td className="py-2.5 px-3 text-slate-300">Verifies print pagination boundaries.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">UI-118</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Burdwan Seed Grant Named Range</td>
+                  <td className="py-2.5 px-3 text-sky-300">Name Box Creation</td>
+                  <td className="py-2.5 px-3 text-amber-300">Select C2:C50 $\rightarrow$ Type `RICE_DATA`</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Range Named `RICE_DATA`</td>
+                  <td className="py-2.5 px-3 text-slate-300">Simplifies formula syntax readability.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">UI-119</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Purulia Solar Grant Cancel Input</td>
+                  <td className="py-2.5 px-3 text-sky-300">Formula Bar Cancel Button (X)</td>
+                  <td className="py-2.5 px-3 text-amber-300">Click Red X in Formula Bar</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Edit Cancelled</td>
+                  <td className="py-2.5 px-3 text-slate-300">Restores previous cell state cleanly.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">UI-120</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Bankura Craft Executive Full Screen</td>
+                  <td className="py-2.5 px-3 text-sky-300">Full Screen Mode</td>
+                  <td className="py-2.5 px-3 text-amber-300">Click Ribbon Options $\rightarrow$ Auto-Hide</td>
+                  <td className="py-2.5 px-3 text-emerald-400">100% Grid Screen Area</td>
+                  <td className="py-2.5 px-3 text-slate-300">Maximizes workspace for executive dashboards.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 

@@ -274,8 +274,8 @@ export default function Topic2() {
           </div>
 
           <ExcelFileLoader
-            fileModule={sampleWorkbookUrl}
-            sheetName="Topic2_Flash_Fill"
+            fileUrl={sampleWorkbookUrl}
+            sheetName="Topic2"
             title="Module 1.2 - AutoFill Magic, Custom Lists and AI-Powered Flash Fill (Ctrl + E) Pattern Intelligence"
             rowsPerPage={25}
             showSheetSelector={true}

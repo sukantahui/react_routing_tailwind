@@ -274,8 +274,8 @@ export default function Topic8() {
           </div>
 
           <ExcelFileLoader
-            fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Data_Types"
+            fileUrl={sampleWorkbookUrl}
+            sheetName="Topic8"
             title="Module 1.2 - Practice Multiple Choice Questions (MCQ): Data Entry, Editing &amp; Custom Number Formatting Mastery"
             rowsPerPage={25}
             showSheetSelector={true}

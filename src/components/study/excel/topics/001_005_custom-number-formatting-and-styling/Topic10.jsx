@@ -36,6 +36,209 @@ export default function Topic10() {
     document.body.removeChild(link);
   };
 
+  const unitExamples = [
+    {
+      id: "1",
+      code: "UNT-101",
+      category: "Warehouse Steel Scrap Tonnage",
+      raw: "8450.625",
+      mask: '#,##0.00" KG"',
+      formatted: "8,450.63 KG",
+      formulaBar: "8450.625",
+      logic: "Attaches engineering unit label without converting cell to text, allowing =SUM() to calculate total tonnage."
+    },
+    {
+      id: "2",
+      code: "UNT-102",
+      category: "Software Subscriptions Quantity",
+      raw: "450",
+      mask: '#,##0" Licenses"',
+      formatted: "450 Licenses",
+      formulaBar: "450",
+      logic: "Appends literal string ' Licenses' while maintaining numeric payload for pricing multiplication =B2*Price."
+    },
+    {
+      id: "3",
+      code: "UNT-103",
+      category: "Corporate Department Prefix",
+      raw: "Finance",
+      mask: '"Dept: "@',
+      formatted: "Dept: Finance",
+      formulaBar: '"Finance"',
+      logic: "Uses text placeholder token @ to prepend 'Dept: ' to text strings entered by users."
+    },
+    {
+      id: "4",
+      code: "UNT-104",
+      category: "Shift Worked Hours Unit",
+      raw: "48.5",
+      mask: '0.0" Worked Hrs"',
+      formatted: "48.5 Worked Hrs",
+      formulaBar: "48.5",
+      logic: "Appends unit label ' Worked Hrs' while allowing payroll multiplication =Hours*HourlyRate."
+    },
+    {
+      id: "5",
+      code: "UNT-105",
+      category: "Liquid Chemical Storage Volume",
+      raw: "1250.75",
+      mask: '#,##0.0" Litres"',
+      formatted: "1,250.8 Litres",
+      formulaBar: "1250.75",
+      logic: "Formats liquid chemical volume for factory tank level monitoring."
+    },
+    {
+      id: "6",
+      code: "UNT-106",
+      category: "Retail Product Box Quantity",
+      raw: "1200",
+      mask: '#,##0" Cartons"',
+      formatted: "1,200 Cartons",
+      formulaBar: "1200",
+      logic: "Appends ' Cartons' suffix while keeping raw integer for logistics pallet shipping calculations."
+    },
+    {
+      id: "7",
+      code: "UNT-107",
+      category: "Data Center Bandwidth Speed",
+      raw: "1000",
+      mask: '#,##0" Mbps"',
+      formatted: "1,000 Mbps",
+      formulaBar: "1000",
+      logic: "Displays network speed unit without converting number to string."
+    },
+    {
+      id: "8",
+      code: "UNT-108",
+      category: "Power Generation Output",
+      raw: "450.8",
+      mask: '0.0" MW"',
+      formatted: "450.8 MW",
+      formulaBar: "450.8",
+      logic: "Displays MegaWatts power unit for electricity grid monitoring."
+    },
+    {
+      id: "9",
+      code: "UNT-109",
+      category: "Employee Surname Honorific Prefix",
+      raw: "Banerjee",
+      mask: '"Mr. "@',
+      formatted: "Mr. Banerjee",
+      formulaBar: '"Banerjee"',
+      logic: "Uses text token @ to prepend formal honorific 'Mr. ' to surname payload."
+    },
+    {
+      id: "10",
+      code: "UNT-110",
+      category: "Solar Array Surface Area",
+      raw: "850",
+      mask: '#,##0" Sq. Meters"',
+      formatted: "850 Sq. Meters",
+      formulaBar: "850",
+      logic: "Appends area metric for real estate facilities management."
+    },
+    {
+      id: "11",
+      code: "UNT-111",
+      category: "Corporate Client Code Suffix",
+      raw: "Kolkata Corp",
+      mask: '@" (Client)"',
+      formatted: "Kolkata Corp (Client)",
+      formulaBar: '"Kolkata Corp"',
+      logic: "Uses text token @ to append trailing designation tag."
+    },
+    {
+      id: "12",
+      code: "UNT-112",
+      category: "Construction Cement Bag Count",
+      raw: "5000",
+      mask: '#,##0" Bags"',
+      formatted: "5,000 Bags",
+      formulaBar: "5000",
+      logic: "Formats raw inventory count with ' Bags' unit."
+    },
+    {
+      id: "13",
+      code: "UNT-113",
+      category: "Server Storage Capacity",
+      raw: "64",
+      mask: '0" TB"',
+      formatted: "64 TB",
+      formulaBar: "64",
+      logic: "Appends TerraByte storage unit for IT infrastructure provisioning."
+    },
+    {
+      id: "14",
+      code: "UNT-114",
+      category: "Employee Leave Balance Suffix",
+      raw: "14",
+      mask: '0" Days"',
+      formatted: "14 Days",
+      formulaBar: "14",
+      logic: "Appends ' Days' suffix on HR leave balance ledger."
+    },
+    {
+      id: "15",
+      code: "UNT-115",
+      category: "Quality Control Defect Audit",
+      raw: "0.0125",
+      mask: '0.00%" (PPM Defect)"',
+      formatted: "1.25% (PPM Defect)",
+      formulaBar: "0.0125",
+      logic: "Appends Quality Control audit suffix to percentage figure."
+    },
+    {
+      id: "16",
+      code: "UNT-116",
+      category: "Hotel Occupancy Room Count",
+      raw: "250",
+      mask: '0" Rooms"',
+      formatted: "250 Rooms",
+      formulaBar: "250",
+      logic: "Formats hotel occupancy unit for front-desk reservation management."
+    },
+    {
+      id: "17",
+      code: "UNT-117",
+      category: "Pipeline Pressure Metric",
+      raw: "140.5",
+      mask: '0.0" PSI"',
+      formatted: "140.5 PSI",
+      formulaBar: "140.5",
+      logic: "Displays pressure unit for gas utility pipeline monitoring."
+    },
+    {
+      id: "18",
+      code: "UNT-118",
+      category: "Vehicle Fleet Fuel Efficiency",
+      raw: "18.5",
+      mask: '0.0" KM/L"',
+      formatted: "18.5 KM/L",
+      formulaBar: "18.5",
+      logic: "Formats fuel efficiency metric for logistics fleet management."
+    },
+    {
+      id: "19",
+      code: "UNT-119",
+      category: "Project Ticket Sequence ID",
+      raw: "4092",
+      mask: '"TICKET-#"00000',
+      formatted: "TICKET-#04092",
+      formulaBar: "4092",
+      logic: "Appends literal string 'TICKET-#' to zero-padded ticket sequence number."
+    },
+    {
+      id: "20",
+      code: "UNT-120",
+      category: "Campus Distance Transit Metric",
+      raw: "15.2",
+      mask: '0.0" KM"',
+      formatted: "15.2 KM",
+      formulaBar: "15.2",
+      logic: "Appends ' KM' distance unit for transit calculation."
+    }
+  ];
+
   return (
     <div className="dark text-slate-100 font-sans selection:bg-sky-500/30 selection:text-sky-200">
       <style>{`
@@ -60,7 +263,7 @@ export default function Topic10() {
 
           <div className="flex flex-wrap items-center gap-1.5 mb-2.5">
             <span className="px-2 py-0.5 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-[10px] font-bold uppercase tracking-wider">
-              🎨 Unit Suffixes &amp; Text · Topic 10
+              🎨 Text &amp; Unit Tokens · Topic 10
             </span>
             <span className="px-2 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-[10px] font-semibold">
               Format Engineering
@@ -75,7 +278,7 @@ export default function Topic10() {
           </h1>
 
           <p className="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed max-w-5xl">
-            Attaching engineering and commercial units (KG, MT, Sq.Ft., Liters) while preserving 100% formula integrity. Master the underlying Excel format syntax, avoid common financial presentation traps, and build executive-ready spreadsheets.
+            Appending physical unit labels (<code className="text-cyan-300">0.00" KG"</code>, <code className="text-cyan-300">#,##0" Units"</code>), text tokens (<code className="text-cyan-300">"Dept: "@</code>), and literal prefixes without converting numeric cells to text strings. Preserve underlying cell math and build publication-grade spreadsheets.
           </p>
 
           <div className="mt-3 pt-2.5 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
@@ -94,29 +297,59 @@ export default function Topic10() {
           </div>
         </header>
 
-        
-
-        
-
-        
         {/* =========================================================================
-            SECTION: 20 COMPREHENSIVE REAL-WORLD EXAMPLES & EXPLANATIONS
+            SECTION 2: INTERACTIVE EXCEL FILE VIEWER & PRACTICE WORKBOOK
         ========================================================================= */}
         <section
+          ref={(el) => (sectionsRef.current[1] = el)}
+          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4 shadow-xl"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-sky-500/20 text-sky-400 text-sm font-mono font-bold">🏷️</span>
+                Interactive Master Workbook Practice &amp; Grid Inspection
+              </h2>
+              <p className="text-xs text-slate-400 mt-0.5">
+                Inspect raw numeric payloads vs unit-suffixed visual displays on worksheet tab Topic10.
+              </p>
+            </div>
+            <button
+              onClick={handleDownload}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white text-xs font-semibold shadow-md transition-all shrink-0 self-start sm:self-auto"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Download .XLSX Master Workbook
+            </button>
+          </div>
+
+          <ExcelFileLoader
+            fileUrl={sampleWorkbookUrl}
+            defaultSheetName="Topic10"
+          />
+        </section>
+
+        {/* =========================================================================
+            SECTION 3: 20 REAL-WORLD UNIT & TEXT TOKEN EXAMPLES
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[2] = el)}
           className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4 shadow-xl"
         >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-800">
             <div>
               <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
                 <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-teal-500/20 text-teal-400 text-sm font-mono font-bold">📊</span>
-                20 Comprehensive Real-World Examples with Explanations
+                20 Real-World Unit Suffix &amp; Text Token (@) Scenarios
               </h2>
               <p className="text-xs text-slate-400 mt-0.5">
-                Comparing raw stored float data vs custom format masks, visual cell displays, formula bar reality, and underlying business logic.
+                Comparing raw stored cell payloads, applied unit masks, formatted visual cell displays, formula bar reality, and business rationale.
               </p>
             </div>
             <span className="text-[10px] font-mono text-emerald-300 bg-emerald-950/80 px-2.5 py-1 rounded-full border border-emerald-800 shrink-0 font-bold">
-              20 Scenarios
+              20 Unit Scenarios
             </span>
           </div>
 
@@ -126,7 +359,7 @@ export default function Topic10() {
                 <tr className="border-b border-slate-800 text-slate-400 font-semibold bg-slate-950/70">
                   <th className="py-2.5 px-3">#</th>
                   <th className="py-2.5 px-3">Code &amp; Category</th>
-                  <th className="py-2.5 px-3">Raw Stored Value</th>
+                  <th className="py-2.5 px-3">Raw Stored Payload</th>
                   <th className="py-2.5 px-3">Applied Format Mask</th>
                   <th className="py-2.5 px-3">Visual Formatted Cell</th>
                   <th className="py-2.5 px-3">Formula Bar Reality</th>
@@ -134,420 +367,67 @@ export default function Topic10() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
-                
-                <tr key="0" className="hover:bg-slate-800/40 transition-colors">
-                  <td className="py-2.5 px-3 font-mono text-slate-500">1</td>
-                  <td className="py-2.5 px-3 font-semibold text-sky-300">
-                    <div className="font-mono text-[11px] text-slate-400">ACC-101</div>
-                    <div>Forex Trade Settlement</div>
-                  </td>
-                  <td className="py-2.5 px-3 font-mono text-amber-300">125438.8765</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">₹#,##0.00</td>
-                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">₹125,438.88</td>
-                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">125438.8765</td>
-                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Rounds visually to 2 decimal paise; downstream arbitrage ledger formulas use exact 4-decimal precision.</td>
-                </tr>
-                
-
-                <tr key="1" className="hover:bg-slate-800/40 transition-colors">
-                  <td className="py-2.5 px-3 font-mono text-slate-500">2</td>
-                  <td className="py-2.5 px-3 font-semibold text-sky-300">
-                    <div className="font-mono text-[11px] text-slate-400">ACC-102</div>
-                    <div>Mortgage Lending APR</div>
-                  </td>
-                  <td className="py-2.5 px-3 font-mono text-amber-300">0.08375</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">0.00%</td>
-                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">8.38%</td>
-                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">0.08375</td>
-                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Displays percentage visually; prevents user from multiplying by 100 which would break PMT() calculations.</td>
-                </tr>
-                
-
-                <tr key="2" className="hover:bg-slate-800/40 transition-colors">
-                  <td className="py-2.5 px-3 font-mono text-slate-500">3</td>
-                  <td className="py-2.5 px-3 font-semibold text-sky-300">
-                    <div className="font-mono text-[11px] text-slate-400">ACC-103</div>
-                    <div>Fixed Deposit Yield</div>
-                  </td>
-                  <td className="py-2.5 px-3 font-mono text-amber-300">0.07125</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">0.000%</td>
-                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">7.125%</td>
-                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">0.07125</td>
-                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Forces 3 decimal places to display banking basis points while calculations use exact floating-point interest rate.</td>
-                </tr>
-                
-
-                <tr key="3" className="hover:bg-slate-800/40 transition-colors">
-                  <td className="py-2.5 px-3 font-mono text-slate-500">4</td>
-                  <td className="py-2.5 px-3 font-semibold text-sky-300">
-                    <div className="font-mono text-[11px] text-slate-400">ACC-104</div>
-                    <div>US Treasury Bond Quote</div>
-                  </td>
-                  <td className="py-2.5 px-3 font-mono text-amber-300">98.4375</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2"># ??/??</td>
-                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">98 7/16</td>
-                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">98.4375</td>
-                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Displays traditional Wall Street fractional bond pricing (7/16) without losing decimal accuracy in yield formulas.</td>
-                </tr>
-                
-
-                <tr key="4" className="hover:bg-slate-800/40 transition-colors">
-                  <td className="py-2.5 px-3 font-mono text-slate-500">5</td>
-                  <td className="py-2.5 px-3 font-semibold text-sky-300">
-                    <div className="font-mono text-[11px] text-slate-400">ACC-105</div>
-                    <div>Contract Effective Date</div>
-                  </td>
-                  <td className="py-2.5 px-3 font-mono text-amber-300">45678</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">dddd, mmmm dd, yyyy</td>
-                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">Tuesday, January 21, 2025</td>
-                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">45678</td>
-                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Stored as integer day count elapsed since Jan 1, 1900; enables direct date arithmetic (=B2-B1).</td>
-                </tr>
-                
-
-                <tr key="5" className="hover:bg-slate-800/40 transition-colors">
-                  <td className="py-2.5 px-3 font-mono text-slate-500">6</td>
-                  <td className="py-2.5 px-3 font-semibold text-sky-300">
-                    <div className="font-mono text-[11px] text-slate-400">ACC-106</div>
-                    <div>Shift Punch In Time</div>
-                  </td>
-                  <td className="py-2.5 px-3 font-mono text-amber-300">45678.375</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">hh:mm AM/PM</td>
-                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">09:00 AM</td>
-                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">45678.375</td>
-                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">0.375 represents fraction of day (9/24 hrs); direct timestamp subtraction yields exact worked shift hours.</td>
-                </tr>
-                
-
-                <tr key="6" className="hover:bg-slate-800/40 transition-colors">
-                  <td className="py-2.5 px-3 font-mono text-slate-500">7</td>
-                  <td className="py-2.5 px-3 font-semibold text-sky-300">
-                    <div className="font-mono text-[11px] text-slate-400">ACC-107</div>
-                    <div>Corporate Cash Reserve</div>
-                  </td>
-                  <td className="py-2.5 px-3 font-mono text-amber-300">14500000</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">₹#,##0.0,,&quot; Cr&quot;</td>
-                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">₹14.5 Cr</td>
-                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">14500000</td>
-                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">2 trailing commas divide visually by 1,000,000 for C-suite dashboards without altering raw ₹1.45 Crore balance.</td>
-                </tr>
-                
-
-                <tr key="7" className="hover:bg-slate-800/40 transition-colors">
-                  <td className="py-2.5 px-3 font-mono text-slate-500">8</td>
-                  <td className="py-2.5 px-3 font-semibold text-sky-300">
-                    <div className="font-mono text-[11px] text-slate-400">ACC-108</div>
-                    <div>Warehouse Steel Inventory</div>
-                  </td>
-                  <td className="py-2.5 px-3 font-mono text-amber-300">8450.625</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">0.00&quot; KG&quot;</td>
-                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">8,450.63 KG</td>
-                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">8450.625</td>
-                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Attaches engineering unit label without converting cell to text, allowing =SUM() to calculate total tonnage.</td>
-                </tr>
-                
-
-                <tr key="8" className="hover:bg-slate-800/40 transition-colors">
-                  <td className="py-2.5 px-3 font-mono text-slate-500">9</td>
-                  <td className="py-2.5 px-3 font-semibold text-sky-300">
-                    <div className="font-mono text-[11px] text-slate-400">ACC-109</div>
-                    <div>Zero Balance Clearing</div>
-                  </td>
-                  <td className="py-2.5 px-3 font-mono text-amber-300">0</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">₹#,##0.00;(₹#,##0.00);&quot;-&quot;</td>
-                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">-</td>
-                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">0</td>
-                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Section 3 replaces zero with clean accounting hyphen (-), reducing visual clutter in financial statements.</td>
-                </tr>
-                
-
-                <tr key="9" className="hover:bg-slate-800/40 transition-colors">
-                  <td className="py-2.5 px-3 font-mono text-slate-500">10</td>
-                  <td className="py-2.5 px-3 font-semibold text-sky-300">
-                    <div className="font-mono text-[11px] text-slate-400">ACC-110</div>
-                    <div>Operating Segment Loss</div>
-                  </td>
-                  <td className="py-2.5 px-3 font-mono text-amber-300">-450000</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">₹#,##0.00;(₹#,##0.00)</td>
-                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">(₹450,000.00)</td>
-                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">-450000</td>
-                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Section 2 applies Wall Street accounting parenthesis mask to indicate negative deficit without minus sign.</td>
-                </tr>
-                
-
-                <tr key="10" className="hover:bg-slate-800/40 transition-colors">
-                  <td className="py-2.5 px-3 font-mono text-slate-500">11</td>
-                  <td className="py-2.5 px-3 font-semibold text-sky-300">
-                    <div className="font-mono text-[11px] text-slate-400">ACC-111</div>
-                    <div>Employee ID Code</div>
-                  </td>
-                  <td className="py-2.5 px-3 font-mono text-amber-300">45</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">&quot;EMP-&quot;00000</td>
-                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">EMP-00045</td>
-                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">45</td>
-                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">0 token forces 5-digit zero padding with &#39;EMP-&#39; prefix while cell remains pure numeric integer 45.</td>
-                </tr>
-                
-
-                <tr key="11" className="hover:bg-slate-800/40 transition-colors">
-                  <td className="py-2.5 px-3 font-mono text-slate-500">12</td>
-                  <td className="py-2.5 px-3 font-semibold text-sky-300">
-                    <div className="font-mono text-[11px] text-slate-400">ACC-112</div>
-                    <div>Tax Registration Number</div>
-                  </td>
-                  <td className="py-2.5 px-3 font-mono text-amber-300">1987654321</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">00-00000-000</td>
-                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">19-87654-321</td>
-                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">1987654321</td>
-                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Formats numeric tax ID into standard 2-5-3 hyphenated pattern for statutory compliance.</td>
-                </tr>
-                
-
-                <tr key="12" className="hover:bg-slate-800/40 transition-colors">
-                  <td className="py-2.5 px-3 font-mono text-slate-500">13</td>
-                  <td className="py-2.5 px-3 font-semibold text-sky-300">
-                    <div className="font-mono text-[11px] text-slate-400">ACC-113</div>
-                    <div>Commercial Floor Area</div>
-                  </td>
-                  <td className="py-2.5 px-3 font-mono text-amber-300">12500</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">#,##0&quot; Sq.Ft.&quot;</td>
-                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">12,500 Sq.Ft.</td>
-                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">12500</td>
-                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Preserves numeric area value so multiplying by Rent/Sq.Ft. computes total rental revenue seamlessly.</td>
-                </tr>
-                
-
-                <tr key="13" className="hover:bg-slate-800/40 transition-colors">
-                  <td className="py-2.5 px-3 font-mono text-slate-500">14</td>
-                  <td className="py-2.5 px-3 font-semibold text-sky-300">
-                    <div className="font-mono text-[11px] text-slate-400">ACC-114</div>
-                    <div>Customer Support Helpline</div>
-                  </td>
-                  <td className="py-2.5 px-3 font-mono text-amber-300">9876543210</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">+91 00000 00000</td>
-                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">+91 98765 43210</td>
-                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">9876543210</td>
-                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Formats 10-digit mobile number into international telecom standard with country code.</td>
-                </tr>
-                
-
-                <tr key="14" className="hover:bg-slate-800/40 transition-colors">
-                  <td className="py-2.5 px-3 font-mono text-slate-500">15</td>
-                  <td className="py-2.5 px-3 font-semibold text-sky-300">
-                    <div className="font-mono text-[11px] text-slate-400">ACC-115</div>
-                    <div>Machine Run-Time Log</div>
-                  </td>
-                  <td className="py-2.5 px-3 font-mono text-amber-300">1.75</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">[h]:mm:ss</td>
-                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">42:00:00</td>
-                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">1.75</td>
-                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Square brackets [h] prevent 24-hour clock rollover, displaying cumulative 42 elapsed hours.</td>
-                </tr>
-                
-
-                <tr key="15" className="hover:bg-slate-800/40 transition-colors">
-                  <td className="py-2.5 px-3 font-mono text-slate-500">16</td>
-                  <td className="py-2.5 px-3 font-semibold text-sky-300">
-                    <div className="font-mono text-[11px] text-slate-400">ACC-116</div>
-                    <div>Confidential Salary Base</div>
-                  </td>
-                  <td className="py-2.5 px-3 font-mono text-amber-300">2500000</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">;;;</td>
-                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">(Blank / Hidden)</td>
-                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">2500000</td>
-                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Triple semicolon hides value on sheet grid while formulas and executive charts still read ₹25 Lakhs.</td>
-                </tr>
-                
-
-                <tr key="16" className="hover:bg-slate-800/40 transition-colors">
-                  <td className="py-2.5 px-3 font-mono text-slate-500">17</td>
-                  <td className="py-2.5 px-3 font-semibold text-sky-300">
-                    <div className="font-mono text-[11px] text-slate-400">ACC-117</div>
-                    <div>Quarterly Profit Growth</div>
-                  </td>
-                  <td className="py-2.5 px-3 font-mono text-amber-300">0.142</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">[Green]+0.0% ▲;[Red]-0.0% ▼;&quot;-&quot;</td>
-                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">+14.2% ▲</td>
-                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">0.142</td>
-                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Embeds color tag and Unicode delta arrow directly into number format layer without slow conditional formatting.</td>
-                </tr>
-                
-
-                <tr key="17" className="hover:bg-slate-800/40 transition-colors">
-                  <td className="py-2.5 px-3 font-mono text-slate-500">18</td>
-                  <td className="py-2.5 px-3 font-semibold text-sky-300">
-                    <div className="font-mono text-[11px] text-slate-400">ACC-118</div>
-                    <div>Audit Status Annotation</div>
-                  </td>
-                  <td className="py-2.5 px-3 font-mono text-amber-300">&quot;Awaiting Signoff&quot;</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">#,##0;-#,##0;0;&quot;NOTE: &quot;@</td>
-                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">NOTE: Awaiting Signoff</td>
-                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">Awaiting Signoff</td>
-                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">@ token prefixes custom label to user-typed text string while preserving raw text data.</td>
-                </tr>
-                
-
-                <tr key="18" className="hover:bg-slate-800/40 transition-colors">
-                  <td className="py-2.5 px-3 font-mono text-slate-500">19</td>
-                  <td className="py-2.5 px-3 font-semibold text-sky-300">
-                    <div className="font-mono text-[11px] text-slate-400">ACC-119</div>
-                    <div>Executive Balance Fill</div>
-                  </td>
-                  <td className="py-2.5 px-3 font-mono text-amber-300">1250000</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">₹* #,##0.00</td>
-                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">₹   1,250,000.00</td>
-                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">1250000</td>
-                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Asterisk (*) fills cell width with spaces, pushing ₹ to far left and number to far right edge.</td>
-                </tr>
-                
-
-                <tr key="19" className="hover:bg-slate-800/40 transition-colors">
-                  <td className="py-2.5 px-3 font-mono text-slate-500">20</td>
-                  <td className="py-2.5 px-3 font-semibold text-sky-300">
-                    <div className="font-mono text-[11px] text-slate-400">ACC-120</div>
-                    <div>Precision Manufacturing</div>
-                  </td>
-                  <td className="py-2.5 px-3 font-mono text-amber-300">0.00045</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">0.00000&quot; mm&quot;</td>
-                  <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">0.00045 mm</td>
-                  <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">0.00045</td>
-                  <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">Forces 5 decimal places to display critical precision tolerances for aerospace engineering parts.</td>
-                </tr>
-                
+                {unitExamples.map((ex) => (
+                  <tr key={ex.id} className="hover:bg-slate-800/40 transition-colors">
+                    <td className="py-2.5 px-3 font-mono text-slate-500">{ex.id}</td>
+                    <td className="py-2.5 px-3 font-semibold text-sky-300">
+                      <div className="font-mono text-[11px] text-slate-400">{ex.code}</div>
+                      <div>{ex.category}</div>
+                    </td>
+                    <td className="py-2.5 px-3 font-mono text-amber-300">{ex.raw}</td>
+                    <td className="py-2.5 px-3 font-mono text-cyan-300 font-bold bg-slate-950/40 rounded px-2">{ex.mask}</td>
+                    <td className="py-2.5 px-3 font-mono text-emerald-400 font-extrabold bg-emerald-950/30 rounded px-2">{ex.formatted}</td>
+                    <td className="py-2.5 px-3 font-mono text-slate-400 text-[11px]">{ex.formulaBar}</td>
+                    <td className="py-2.5 px-3 text-slate-300 leading-relaxed text-[11px]">{ex.logic}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
         </section>
-  
 
         {/* =========================================================================
-            SECTION 2: ARCHITECTURAL DEEP-DIVE
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[1] = el)}
-          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all duration-200 space-y-3.5"
-        >
-          <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-            <div>
-              <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
-                <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-sky-500/20 text-sky-400 text-sm font-mono">⚡</span>
-                The Unit Suffix Technique: Clean Labels with Pure Math
-              </h2>
-              <p className="text-xs text-slate-400 mt-0.5">
-                Core mechanics and internal parser rules governing this formatting dimension.
-              </p>
-            </div>
-            <span className="text-[11px] font-mono text-sky-300 bg-sky-950/60 px-2.5 py-0.5 rounded-lg border border-sky-800 shrink-0">
-              Architecture
-            </span>
-          </div>
-
-          <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-            When users manually type &#39;50 KG&#39; or &#39;100 Units&#39; into cells, Excel converts the entry into plain text, causing all downstream SUM() and AVERAGE() formulas to return #VALUE! errors. By applying custom format unit suffixes like #,##0.00&quot; KG&quot; or 0&quot; Units&quot;, the cell stores pure numeric data while rendering professional engineering labels.
-          </p>
-
-          <div className="p-3 rounded-lg bg-slate-950/90 border border-slate-800 font-mono text-xs text-sky-300 overflow-x-auto shadow-inner">
-            <div className="text-[10px] text-slate-500 uppercase font-bold mb-1 font-sans">Token Syntax Blueprint:</div>
-            <div>Weight: #,##0.00&quot; KG&quot;  |  Volume: #,##0&quot; Liters&quot;  |  Text Decorator: &quot;Candidate: &quot;@</div>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 3: STEP-BY-STEP EXCEL PROTOCOL
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[2] = el)}
-          className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
-        >
-          <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-            <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
-              <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 text-sm font-mono">🛠️</span>
-              Step-by-Step Construction Protocol in Microsoft Excel
-            </h2>
-            <span className="text-[11px] font-mono text-emerald-300 bg-emerald-950/60 px-2.5 py-0.5 rounded-lg border border-emerald-800">
-              Protocol
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-            <div className="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-sky-300 flex items-center gap-1.5">
-                <span className="w-4 h-4 rounded-full bg-sky-950 border border-sky-700 text-sky-300 flex items-center justify-center text-[10px]">1</span>
-                Step 1: Select Target Range
-              </div>
-              <p className="text-slate-300 leading-relaxed text-[11px]">
-                Highlight the numbers or financial ledger cells you wish to format.
-              </p>
-            </div>
-
-            <div className="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-emerald-300 flex items-center gap-1.5">
-                <span className="w-4 h-4 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-300 flex items-center justify-center text-[10px]">2</span>
-                Step 2: Launch Format Dialog
-              </div>
-              <p className="text-slate-300 leading-relaxed text-[11px]">
-                Press keyboard accelerator <kbd className="px-1.5 py-0.5 bg-slate-900 border border-slate-700 rounded text-cyan-300 font-mono text-[10px]">Ctrl + 1</kbd> (or Cmd + 1).
-              </p>
-            </div>
-
-            <div className="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-teal-300 flex items-center gap-1.5">
-                <span className="w-4 h-4 rounded-full bg-teal-950 border border-teal-700 text-teal-300 flex items-center justify-center text-[10px]">3</span>
-                Step 3: Select Custom Category
-              </div>
-              <p className="text-slate-300 leading-relaxed text-[11px]">
-                Click <strong>Custom</strong> at the bottom of the Category list on the left.
-              </p>
-            </div>
-
-            <div className="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-purple-300 flex items-center gap-1.5">
-                <span className="w-4 h-4 rounded-full bg-purple-950 border border-purple-700 text-purple-300 flex items-center justify-center text-[10px]">4</span>
-                Step 4: Enter String &amp; OK
-              </div>
-              <p className="text-slate-300 leading-relaxed text-[11px]">
-                Type the format code in the <strong>Type:</strong> input box and press Enter.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 4: DEDICATED MASTER WORKBOOK VIEWER & DOWNLOAD
+            SECTION 4: TECHNICAL ARCHITECTURE & TEXT TOKEN ENGINE
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
           className="reveal-section rounded-xl p-4 sm:p-5 bg-slate-900/60 border border-slate-800 space-y-4"
         >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
-            <div>
-              <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
-                <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 text-sm font-mono">📥</span>
-                Live Demonstration Sheet: Topic10_Text_Unit_Suffixes
-              </h2>
-              <p className="text-xs text-slate-400 mt-0.5">
-                Inspect the live spreadsheet below or download the master workbook to practice in desktop Excel.
-              </p>
-            </div>
-            <button
-              onClick={handleDownload}
-              className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-all duration-200 shadow-md shadow-emerald-950/40 hover:scale-[1.02] active:scale-[0.98] shrink-0"
-              title="Download the master practice workbook (.xlsx)"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
-              <span>Download Master Workbook (.xlsx)</span>
-            </button>
+          <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+            <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+              <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-indigo-500/20 text-indigo-400 text-sm font-mono font-bold">⚙️</span>
+              Technical Architecture: The Text Token (@) &amp; Quoted Suffix Engine
+            </h2>
+            <span className="text-[11px] font-mono text-indigo-300 bg-indigo-950/60 px-2.5 py-0.5 rounded-lg border border-indigo-800">
+              Format Mechanics
+            </span>
           </div>
 
-          <ExcelFileLoader
-            fileModule={sampleWorkbookUrl}
-            sheetName="Topic10_Text_Unit_Suffixes"
-            title="Custom Number Formatting & Presentation Suite"
-            rowsPerPage={12}
-            showSheetSelector={true}
-          />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+            <div className="p-4 rounded-lg bg-slate-950/60 border border-slate-800 space-y-2">
+              <h3 className="font-bold text-sky-300 text-sm flex items-center gap-2">
+                <span>🏷️</span> Quoted Suffixes on Numbers
+              </h3>
+              <p className="text-slate-300 leading-relaxed">
+                Enclosing text labels in double quotes (e.g. <code className="text-amber-300">#,##0.00" KG"</code>) instructs Excel's format engine to display unit labels visually while keeping the underlying cell value as a pure IEEE 754 float number.
+              </p>
+              <div className="p-2.5 rounded bg-slate-900 font-mono text-[11px] text-cyan-300 border border-slate-800">
+                8450.625 + #,##0.00" KG" -&gt; "8,450.63 KG" (=SUM() Works!)
+              </div>
+            </div>
+
+            <div className="p-4 rounded-lg bg-slate-950/60 border border-slate-800 space-y-2">
+              <h3 className="font-bold text-emerald-300 text-sm flex items-center gap-2">
+                <span>🔤</span> The Text Placeholder Token (@)
+              </h3>
+              <p className="text-slate-300 leading-relaxed">
+                The <code className="text-amber-300">@</code> symbol in the 4th section of format syntax represents text strings entered into the cell. Using <code className="text-amber-300">"Dept: "@</code> automatically prepends 'Dept: ' to any text payload.
+              </p>
+              <div className="p-2.5 rounded bg-slate-900 font-mono text-[11px] text-emerald-300 border border-slate-800">
+                "Finance" + "Dept: "@ -&gt; "Dept: Finance"
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* =========================================================================
@@ -560,7 +440,7 @@ export default function Topic10() {
           <div className="flex items-center justify-between pb-3 border-b border-slate-800">
             <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
               <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-rose-500/20 text-rose-400 text-sm font-mono">⚠️</span>
-              Common Formatting Pitfalls &amp; Diagnostic Fixes
+              Common Unit Suffix Pitfalls &amp; Diagnostic Fixes
             </h2>
             <span className="text-[11px] font-mono text-rose-300 bg-rose-950/60 px-2.5 py-0.5 rounded-lg border border-rose-800">
               Troubleshooting
@@ -578,19 +458,19 @@ export default function Topic10() {
               </thead>
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-2.5 px-3 font-mono font-bold text-rose-300">SUM() returns wrong total</td>
-                  <td className="py-2.5 px-3">Cell format rounds numbers visually, but SUM uses exact unrounded floats.</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300">Use ROUND() formula if mathematical truncation is required.</td>
+                  <td className="py-2.5 px-3 font-mono font-bold text-rose-300">#VALUE! error when summing unit column</td>
+                  <td className="py-2.5 px-3">User typed text units directly into the cell ("50 KG") instead of using custom format masks.</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300">Enter raw number 50 and apply format mask #,##0" KG".</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-2.5 px-3 font-mono font-bold text-rose-300">#VALUE! calculation error</td>
-                  <td className="py-2.5 px-3">User typed text units (e.g. &quot;50 KG&quot;) into the cell instead of using format masks.</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300">Type raw number 50 and apply format mask 0&quot; KG&quot;.</td>
+                  <td className="py-2.5 px-3 font-mono font-bold text-rose-300">Invalid Number Format error popup</td>
+                  <td className="py-2.5 px-3">Unquoted literal text characters inside custom format string (e.g. #,##0 KG without quotes).</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300">Enclose literal text words in double quotes: #,##0" KG".</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-2.5 px-3 font-mono font-bold text-rose-300">Invalid Number Format error</td>
-                  <td className="py-2.5 px-3">Mismatched brackets or unquoted literal text in the custom format string.</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300">Enclose all literal words in quotes: #,##0&quot; Units&quot;.</td>
+                  <td className="py-2.5 px-3 font-mono font-bold text-rose-300">Text token @ displays literally</td>
+                  <td className="py-2.5 px-3">Enclosing @ inside quotes ("@") turns it into a literal @ symbol instead of a text placeholder.</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300">Leave @ unquoted: "Dept: "@.</td>
                 </tr>
               </tbody>
             </table>
@@ -602,7 +482,7 @@ export default function Topic10() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[5] = el)} className="reveal-section">
           <FAQTemplate
-            title="Text Placeholder Tokens (@), Literals, and Unit Suffixes (KG, Units, Hrs) Without Breaking Math - Mastery Q&amp;A"
+            title="Text Tokens (@) &amp; Unit Suffixes - Mastery Q&amp;A"
             questions={questions}
           />
         </div>
@@ -612,7 +492,7 @@ export default function Topic10() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[6] = el)} className="reveal-section">
           <Teacher
-            note="Never type text units into number cells! Type the raw number 50 and format as 0&quot; KG&quot;. Your =SUM() and arithmetic formulas will work flawlessly every time."
+            note="Never type text units (like '50 KG') directly into cells! Use custom format masks like 0.00' KG' so your spreadsheets look professional while maintaining 100% mathematical integrity for SUM and AVERAGE formulas!"
           />
         </div>
       </div>

@@ -189,58 +189,162 @@ export default function Topic4() {
         </section>
 
         {/* =========================================================================
-            SECTION 4: INTERACTIVE SEMANTIC SVG DIAGRAM
+            SECTION 4: INTERACTIVE VISUAL CHARTS & CHART MECHANICS GUIDE
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Encoding Architecture: Dual-Axis Combo Chart Architecture (Volume Bars + Margin % Line)
-          </h2>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">📊</span>
+                Live Visual Charts: Dual-Axis Combo Chart &amp; Chart Elements Anatomy
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                Combining discrete currency volume columns on primary Y-axis with percentage profitability line overlays on secondary Y-axis.
+              </p>
+            </div>
+            <span className="text-xs font-mono text-amber-300 bg-amber-950/80 px-3 py-1.5 rounded-full border border-amber-800 shrink-0 font-bold">
+              Dual-Axis Combo Engine
+            </span>
+          </div>
 
-          <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
-            <svg viewBox="0 0 800 260" className="w-full max-w-3xl h-auto" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="m4_input" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#0369a1" stopOpacity="0.4" />
-                </linearGradient>
-                <linearGradient id="m4_chart" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#059669" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#047857" stopOpacity="0.4" />
-                </linearGradient>
-                <linearGradient id="m4_dash" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#6d28d9" stopOpacity="0.4" />
-                </linearGradient>
-              </defs>
+          {/* TWO VISUAL CHARTS GRID */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* CHART 1: DUAL-AXIS COMBO CHART */}
+            <div className="p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-3 shadow-xl">
+              <div className="flex items-center justify-between border-b border-slate-800/80 pb-2">
+                <h3 className="text-sm font-bold text-sky-300 flex items-center gap-2">
+                  <span>📊</span> 1. Dual-Axis Combo (Revenue ₹ + Margin %)
+                </h3>
+                <span className="text-[10px] font-mono bg-sky-950 text-sky-400 px-2 py-0.5 rounded border border-sky-800">
+                  Left: ₹ Lakhs | Right: %
+                </span>
+              </div>
+              <p className="text-xs text-slate-400">Plotting absolute revenue (columns) alongside percentage profitability (line) on a secondary right axis.</p>
+              
+              {/* SVG VISUAL DUAL AXIS CHART */}
+              <div className="p-2 bg-slate-900/90 rounded-lg border border-slate-800/80 flex items-center justify-center">
+                <svg viewBox="0 0 420 220" className="w-full h-auto">
+                  {/* Left Primary Y-Axis (Revenue ₹) */}
+                  <line x1="45" y1="30" x2="375" y2="30" stroke="#334155" strokeDasharray="3 3" />
+                  <text x="40" y="34" textAnchor="end" fill="#38BDF8" fontSize="8" fontWeight="bold">₹30L</text>
+                  <text x="380" y="34" textAnchor="start" fill="#F59E0B" fontSize="8" fontWeight="bold">30%</text>
 
-              <rect x="30" y="50" width="200" height="150" rx="12" fill="url(#m4_input)" stroke="#38bdf8" strokeWidth="2" />
-              <text x="130" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">1. Data Aggregation</text>
-              <text x="130" y="115" textAnchor="middle" fill="#e0f2fe" fontSize="11">Categorical Totals</text>
-              <text x="130" y="135" textAnchor="middle" fill="#e0f2fe" fontSize="11">12-Month Time-Series</text>
-              <text x="130" y="165" textAnchor="middle" fill="#bae6fd" fontSize="11" fontWeight="bold">Clean Normalized Rows</text>
+                  <line x1="45" y1="75" x2="375" y2="75" stroke="#334155" strokeDasharray="3 3" />
+                  <text x="40" y="79" textAnchor="end" fill="#38BDF8" fontSize="8" fontWeight="bold">₹20L</text>
+                  <text x="380" y="79" textAnchor="start" fill="#F59E0B" fontSize="8" fontWeight="bold">20%</text>
 
-              <path d="M 235 125 L 295 125" stroke="#38bdf8" strokeWidth="3" strokeDasharray="6,4" />
-              <polygon points="295,120 305,125 295,130" fill="#38bdf8" />
+                  <line x1="45" y1="120" x2="375" y2="120" stroke="#334155" strokeDasharray="3 3" />
+                  <text x="40" y="124" textAnchor="end" fill="#38BDF8" fontSize="8" fontWeight="bold">₹10L</text>
+                  <text x="380" y="124" textAnchor="start" fill="#F59E0B" fontSize="8" fontWeight="bold">10%</text>
 
-              <rect x="310" y="50" width="200" height="150" rx="12" fill="url(#m4_chart)" stroke="#34d399" strokeWidth="2" />
-              <text x="410" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">2. Visual Encoding</text>
-              <text x="410" y="115" textAnchor="middle" fill="#d1fae5" fontSize="11">Clustered Column</text>
-              <text x="410" y="135" textAnchor="middle" fill="#d1fae5" fontSize="11">Dual-Axis Combo Line</text>
-              <text x="410" y="165" textAnchor="middle" fill="#a7f3d0" fontSize="11" fontWeight="bold">Doughnut Proportions</text>
+                  <line x1="45" y1="165" x2="375" y2="165" stroke="#475569" strokeWidth="1.5" />
 
-              <path d="M 515 125 L 575 125" stroke="#34d399" strokeWidth="3" strokeDasharray="6,4" />
-              <polygon points="575,120 585,125 575,130" fill="#34d399" />
+                  {/* Primary Columns (Revenue) */}
+                  <rect x="65" y="110" width="30" height="55" rx="3" fill="#0284C7" />
+                  <text x="80" y="180" textAnchor="middle" fill="#94A3B8" fontSize="8">Q1</text>
 
-              <rect x="590" y="50" width="180" height="150" rx="12" fill="url(#m4_dash)" stroke="#a78bfa" strokeWidth="2" />
-              <text x="680" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">3. Executive Dashboard</text>
-              <text x="680" y="115" textAnchor="middle" fill="#ede9fe" fontSize="11">Top KPI Callouts</text>
-              <text x="680" y="135" textAnchor="middle" fill="#ede9fe" fontSize="11">Alt+Drag Grid Snapping</text>
-              <text x="680" y="165" textAnchor="middle" fill="#ddd6fe" fontSize="11" fontWeight="bold">3-Second Insight</text>
-            </svg>
+                  <rect x="145" y="80" width="30" height="85" rx="3" fill="#0284C7" />
+                  <text x="160" y="180" textAnchor="middle" fill="#94A3B8" fontSize="8">Q2</text>
+
+                  <rect x="225" y="50" width="30" height="115" rx="3" fill="#0284C7" />
+                  <text x="240" y="180" textAnchor="middle" fill="#94A3B8" fontSize="8">Q3</text>
+
+                  <rect x="305" y="35" width="30" height="130" rx="3" fill="#059669" />
+                  <text x="320" y="180" textAnchor="middle" fill="#94A3B8" fontSize="8">Q4</text>
+
+                  {/* Secondary Line Overlay (Margin %) */}
+                  <path d="M 80 135 L 160 100 L 240 70 L 320 45" fill="none" stroke="#F59E0B" strokeWidth="3" />
+                  <circle cx="80" cy="135" r="3.5" fill="#D97706" stroke="#FBBF24" strokeWidth="2" />
+                  <circle cx="160" cy="100" r="3.5" fill="#D97706" stroke="#FBBF24" strokeWidth="2" />
+                  <circle cx="240" cy="70" r="3.5" fill="#D97706" stroke="#FBBF24" strokeWidth="2" />
+                  <circle cx="320" cy="45" r="3.5" fill="#D97706" stroke="#FBBF24" strokeWidth="2" />
+                  <text x="320" y="35" textAnchor="middle" fill="#FBBF24" fontSize="8" fontWeight="bold">28.4%</text>
+
+                  {/* Legend Bottom */}
+                  <rect x="120" y="195" width="8" height="8" rx="1.5" fill="#0284C7" />
+                  <text x="133" y="202" fill="#CBD5E1" fontSize="8">Revenue (Left Axis)</text>
+
+                  <line x1="230" y1="199" x2="245" y2="199" stroke="#F59E0B" strokeWidth="2" />
+                  <text x="250" y="202" fill="#CBD5E1" fontSize="8">Margin % (Right Axis)</text>
+                </svg>
+              </div>
+            </div>
+
+            {/* CHART 2: CHART ELEMENTS ANATOMY DIAGRAM */}
+            <div className="p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-3 shadow-xl">
+              <div className="flex items-center justify-between border-b border-slate-800/80 pb-2">
+                <h3 className="text-sm font-bold text-teal-300 flex items-center gap-2">
+                  <span>⚙️</span> 2. Chart Anatomy &amp; Decluttering Guidelines
+                </h3>
+                <span className="text-[10px] font-mono bg-teal-950 text-teal-400 px-2 py-0.5 rounded border border-teal-800">
+                  Element Specification
+                </span>
+              </div>
+              <p className="text-xs text-slate-400">Anatomy of professional chart elements: Title, Legends, Data Labels, Gridlines &amp; Axis bounds.</p>
+              
+              {/* SVG ANATOMY SPECIFICATION */}
+              <div className="p-2 bg-slate-900/90 rounded-lg border border-slate-800/80 flex items-center justify-center">
+                <svg viewBox="0 0 420 220" className="w-full h-auto">
+                  {/* Chart Container Box */}
+                  <rect x="20" y="15" width="380" height="190" rx="8" fill="#0F172A" stroke="#334155" strokeWidth="1.5" />
+                  
+                  {/* Title Pointer */}
+                  <text x="210" y="32" textAnchor="middle" fill="#38BDF8" fontSize="10" fontWeight="bold">Executive Sales Growth &amp; Profitability</text>
+                  <line x1="210" y1="36" x2="210" y2="44" stroke="#38BDF8" strokeWidth="1" strokeDasharray="2 2" />
+
+                  {/* Y-Axis Label Pointer */}
+                  <text x="35" y="105" textAnchor="middle" fill="#94A3B8" fontSize="8" transform="rotate(-90 35 105)">Primary Value Y-Axis</text>
+
+                  {/* Decluttered Gridlines */}
+                  <line x1="55" y1="65" x2="365" y2="65" stroke="#1E293B" strokeWidth="1" />
+                  <line x1="55" y1="105" x2="365" y2="105" stroke="#1E293B" strokeWidth="1" />
+                  <line x1="55" y1="145" x2="365" y2="145" stroke="#1E293B" strokeWidth="1" />
+
+                  {/* Bars & Labels */}
+                  <rect x="80" y="95" width="35" height="50" fill="#0284C7" rx="2" />
+                  <rect x="160" y="75" width="35" height="70" fill="#0284C7" rx="2" />
+                  <rect x="240" y="55" width="35" height="90" fill="#059669" rx="2" />
+
+                  <text x="257" y="48" textAnchor="middle" fill="#34D399" fontSize="8" fontWeight="bold">Data Callout</text>
+
+                  {/* Category X-Axis */}
+                  <line x1="55" y1="145" x2="365" y2="145" stroke="#475569" strokeWidth="1.5" />
+                  <text x="210" y="162" textAnchor="middle" fill="#94A3B8" fontSize="8">Categorical X-Axis Labels</text>
+
+                  {/* Legend Footer */}
+                  <rect x="140" y="175" width="140" height="20" rx="4" fill="#1E293B" />
+                  <text x="210" y="188" textAnchor="middle" fill="#CBD5E1" fontSize="8">Bottom Legend Alignment</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          {/* DETAILED CHART MECHANICS & SELECTION GUIDE */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+              <h4 className="font-bold text-amber-300 text-xs uppercase tracking-wider flex items-center gap-1.5">
+                <span>📌</span> When to Implement Dual-Axis Combo Charts
+              </h4>
+              <ul className="text-xs text-slate-300 space-y-1.5 list-disc list-inside leading-relaxed">
+                <li><strong>Mixed Scale Metrics:</strong> Plotting absolute currency amounts ($ Lakhs) alongside percentage rates (%).</li>
+                <li><strong>Volume vs Profitability:</strong> Comparing revenue volume bars against margin percentage lines.</li>
+                <li><strong>Explicit Axis Color Coding:</strong> Color-code axis titles to match their corresponding chart series.</li>
+              </ul>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+              <h4 className="font-bold text-teal-300 text-xs uppercase tracking-wider flex items-center gap-1.5">
+                <span>📌</span> Essential Chart Element Decluttering
+              </h4>
+              <ul className="text-xs text-slate-300 space-y-1.5 list-disc list-inside leading-relaxed">
+                <li><strong>Mute Gridlines:</strong> Soften gridlines to light grey (#334155) so bars remain the primary focus.</li>
+                <li><strong>Direct Data Callouts:</strong> Place data values above top-performing bars and eliminate redundant legend clutter.</li>
+                <li><strong>Dynamic Chart Titles:</strong> Write actionable headline titles describing the key business insight.</li>
+              </ul>
+            </div>
           </div>
         </section>
 
@@ -274,8 +378,8 @@ export default function Topic4() {
           </div>
 
           <ExcelFileLoader
-            fileModule={sampleWorkbookUrl}
-            sheetName="Topic1_Column_Bar"
+            fileUrl={sampleWorkbookUrl}
+            defaultSheetName="Topic4"
             title="Module 1.4 - Mastering Chart Elements: Titles, Legends, Data Labels, Dual-Axes and Gridline Decluttering"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -283,114 +387,202 @@ export default function Topic4() {
         </section>
 
         {/* =========================================================================
-            SECTION 6: REAL-WORLD BUSINESS SCENARIOS (4+ CASES)
+            SECTION 6: 20 COMPREHENSIVE REAL-WORLD CHART ELEMENTS & DUAL-AXIS SCENARIOS
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[5] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
-            Real-World Business Scenarios (Bengal & Corporate Applications)
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
-                <h3 className="text-base font-bold text-white">Kolkata Corporate Dual-Axis Combo Chart (Revenue &amp; Margin %)</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Plotting monthly revenue (₹ 10 to 50 Lakhs) as Columns and Margin % (15% to 35%) as a Line on a secondary axis.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Metric</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Chart_Type</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Assigned_Axis</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Color_Encoding</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Monthly Revenue</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Clustered Column</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Primary Y-Axis (Left, INR Lakhs)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">#0284C7 (Sky Blue)</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Profit Margin %</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Line with Markers</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Secondary Y-Axis (Right, %)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">#10B981 (Emerald Green)</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Insert Combo Chart &amp;rarr; Clustered Column + Line on Secondary Axis</div>
-                <div className="text-emerald-400 font-semibold">Result: Boardroom-ready chart displaying volume and profitability simultaneously.</div>
-                <div className="text-slate-400 text-[11px]">Dual-axes accommodate both large monetary values and fractional percentages.</div>
-              </div>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
+                20 Real-World Business Scenarios: Dual-Axis &amp; Chart Elements Matrix
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                20 practical workplace scenarios detailing secondary axis mapping, dynamic cell-linked titles, error bars, and chart decluttering.
+              </p>
             </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">02</span>
-                <h3 className="text-base font-bold text-white">Barrackpore Dynamic Formula-Linked Chart Headline</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Linking chart title to cell E1 containing ="FY26 Total Revenue: ₹ " &amp; TEXT(SUM(D2:D50), "#,##,##0")</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Title_Text</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Source_Cell</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Behavior</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">FY26 Total Revenue: ₹ 1,48,50,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Cell E1 (Dynamic Formula)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Title updates automatically when data changes</td></tr>
-                  </tbody>
-                </table>
-              </div>
+            <span className="text-xs font-mono text-amber-300 bg-amber-950/80 px-3 py-1.5 rounded-full border border-amber-800 shrink-0 font-bold">
+              20 Real-World Examples
+            </span>
+          </div>
 
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Select Title &amp;rarr; Type '=' in Formula Bar &amp;rarr; Click E1 &amp;rarr; Press Enter</div>
-                <div className="text-emerald-400 font-semibold">Result: Live self-updating executive title headline.</div>
-                <div className="text-slate-400 text-[11px]">Cell-linked titles guarantee that chart headers remain 100% synchronized with underlying data.</div>
-              </div>
-            </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">03</span>
-                <h3 className="text-base font-bold text-white">Shyamnagar Clean Minimalist Chart (Direct Data Labels)</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Removing distracting Y-axis and heavy gridlines by placing direct data labels on bars.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Element</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Standard_Default</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Clean_Minimalist_Fix</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Vertical Y-Axis</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Visible with numbers</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Deleted (Values shown directly on bars)</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Horizontal Gridlines</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Heavy grey lines across chart</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Deleted (Clean background)</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Data Labels</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">None</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Enabled above bars with bold white font</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Direct Data Labeling + Element Deletion</div>
-                <div className="text-emerald-400 font-semibold">Result: High-impact modern visual with zero distracting clutter.</div>
-                <div className="text-slate-400 text-[11px]">Direct labeling increases readability and eliminates horizontal eye scanning.</div>
-              </div>
-            </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">04</span>
-                <h3 className="text-base font-bold text-white">Ichapur Plant Quality Incident Error Bars &amp; Trendline</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Adding standard error bars to monthly manufacturing defect metrics.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Metric</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Element_Added</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Auditing_Value</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Monthly Defects</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Standard Error Bars (5% Margin)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Visualizes statistical variance bounds</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Add Chart Element &amp;rarr; Error Bars</div>
-                <div className="text-emerald-400 font-semibold">Result: Statistical confidence interval displayed for plant engineers.</div>
-                <div className="text-slate-400 text-[11px]">Error bars provide scientific rigor to operational monitoring charts.</div>
-              </div>
-            </div>
+          <div className="overflow-x-auto rounded-xl border border-slate-800">
+            <table className="w-full text-left text-xs text-slate-300 border-collapse">
+              <thead>
+                <tr className="bg-slate-950 text-slate-400 font-semibold uppercase tracking-wider border-b border-slate-800">
+                  <th className="py-3 px-3 w-16">ID</th>
+                  <th className="py-3 px-3">Business Application</th>
+                  <th className="py-3 px-3">Primary Left Axis ($)</th>
+                  <th className="py-3 px-3">Secondary Right Axis (%)</th>
+                  <th className="py-3 px-3">Dynamic Title Formula</th>
+                  <th className="py-3 px-3">Key Design &amp; Decluttering Rule</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/60 font-mono">
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CE-101</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Kolkata Revenue &amp; Profit Margin %</td>
+                  <td className="py-2.5 px-3 text-sky-300">Revenue (₹ Lakhs)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Margin % (Line)</td>
+                  <td className="py-2.5 px-3 text-purple-300">="Revenue vs Margin %: " &amp; E1</td>
+                  <td className="py-2.5 px-3 text-slate-300">Primary Column (Sky Blue) + Secondary Line (Emerald).</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CE-102</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Barrackpore Annual Sales Headline</td>
+                  <td className="py-2.5 px-3 text-sky-300">Sales Value (₹)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">N/A</td>
+                  <td className="py-2.5 px-3 text-purple-300">="FY26 Sales: ₹ " &amp; TEXT(SUM(D2:D50),"#,##,##0")</td>
+                  <td className="py-2.5 px-3 text-slate-300">Title linked directly to cell E1 for 100% live updates.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CE-103</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Shyamnagar Minimalist Bar Chart</td>
+                  <td className="py-2.5 px-3 text-sky-300">Sales Volume</td>
+                  <td className="py-2.5 px-3 text-emerald-400">N/A</td>
+                  <td className="py-2.5 px-3 text-purple-300">Static Title</td>
+                  <td className="py-2.5 px-3 text-slate-300">Delete Y-axis &amp; gridlines; enable direct white data labels.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CE-104</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Ichapur Plant Quality Defect Error Bars</td>
+                  <td className="py-2.5 px-3 text-sky-300">Defect Count</td>
+                  <td className="py-2.5 px-3 text-emerald-400">N/A</td>
+                  <td className="py-2.5 px-3 text-purple-300">Static Title</td>
+                  <td className="py-2.5 px-3 text-slate-300">Add Error Bars (5% margin caps) for statistical variance.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CE-105</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Salt Lake SaaS ARR vs Churn %</td>
+                  <td className="py-2.5 px-3 text-sky-300">ARR ($ Million)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Churn % (Right)</td>
+                  <td className="py-2.5 px-3 text-purple-300">="SaaS ARR &amp; Churn Trajectory"</td>
+                  <td className="py-2.5 px-3 text-slate-300">Dual-axis combo highlights churn drop alongside ARR growth.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CE-106</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Siliguri Freight Weight vs Delivery Hours</td>
+                  <td className="py-2.5 px-3 text-sky-300">Cargo Weight (Tons)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Delivery Latency (Hours)</td>
+                  <td className="py-2.5 px-3 text-purple-300">="Freight Tonnage vs Delay"</td>
+                  <td className="py-2.5 px-3 text-slate-300">Columns (Tons) + Line (Hours) on secondary axis.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CE-107</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Durgapur Steel Output vs Energy Consumption</td>
+                  <td className="py-2.5 px-3 text-sky-300">Steel Yield (Tons)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Power Consumption (MWh)</td>
+                  <td className="py-2.5 px-3 text-purple-300">="Steel Output &amp; MWh Efficiency"</td>
+                  <td className="py-2.5 px-3 text-slate-300">Tracks energy efficiency ratio per metric ton of steel.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CE-108</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Asansol Coal Production vs Safety Incidents</td>
+                  <td className="py-2.5 px-3 text-sky-300">Coal Output (K Tons)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Incident Count (Right)</td>
+                  <td className="py-2.5 px-3 text-purple-300">="Mine Production &amp; Safety Audit"</td>
+                  <td className="py-2.5 px-3 text-slate-300">Secondary axis line tracks safety incidents alongside output.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CE-109</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Howrah Freight Shipped Units vs Return %</td>
+                  <td className="py-2.5 px-3 text-sky-300">Shipped Volume (Units)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Return Rate % (Right)</td>
+                  <td className="py-2.5 px-3 text-purple-300">="Shipped Units vs Return %"</td>
+                  <td className="py-2.5 px-3 text-slate-300">Identifies product lines with spike in return rate.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CE-110</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Haldia Refinery Output vs Crude Cost</td>
+                  <td className="py-2.5 px-3 text-sky-300">Fuel Output (Barrels)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Crude Price ($/bbl)</td>
+                  <td className="py-2.5 px-3 text-purple-300">="Refinery Crack Spread Analysis"</td>
+                  <td className="py-2.5 px-3 text-slate-300">Refinery crack spread profitability visualization.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CE-111</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Malda Fruit Processing Output vs Scrap %</td>
+                  <td className="py-2.5 px-3 text-sky-300">Processed Packets</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Fruit Waste % (Right)</td>
+                  <td className="py-2.5 px-3 text-purple-300">="Processing Volume vs Waste %"</td>
+                  <td className="py-2.5 px-3 text-slate-300">Shows scrap rate dropping as batch size increases.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CE-112</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Midnapore Hospital Beds vs Occupancy %</td>
+                  <td className="py-2.5 px-3 text-sky-300">Total Beds Available</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Occupancy Rate %</td>
+                  <td className="py-2.5 px-3 text-purple-300">="Ward Capacity &amp; Utilization"</td>
+                  <td className="py-2.5 px-3 text-slate-300">ICU capacity alert visual for hospital board.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CE-113</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Kharagpur Enrolment vs Placement %</td>
+                  <td className="py-2.5 px-3 text-sky-300">Enroled Students</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Placement % (Right)</td>
+                  <td className="py-2.5 px-3 text-purple-300">="Branch Enrolment &amp; Placement %"</td>
+                  <td className="py-2.5 px-3 text-slate-300">Computer Science placement rate leads at 98%.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CE-114</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Hooghly Looms Active vs Maintenance Hours</td>
+                  <td className="py-2.5 px-3 text-sky-300">Active Looms Count</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Downtime Hours</td>
+                  <td className="py-2.5 px-3 text-purple-300">="Looms Operational &amp; Downtime"</td>
+                  <td className="py-2.5 px-3 text-slate-300">Equipment breakdown correlation tracking.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CE-115</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Burdwan Retail Sales vs Customer Footfall</td>
+                  <td className="py-2.5 px-3 text-sky-300">Sales (₹ Lakhs)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Footfall Count (Right)</td>
+                  <td className="py-2.5 px-3 text-purple-300">="Store Sales &amp; Shopper Traffic"</td>
+                  <td className="py-2.5 px-3 text-slate-300">Average transaction value visual.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CE-116</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Purulia Solar KWh vs Wind KWh Generation</td>
+                  <td className="py-2.5 px-3 text-sky-300">Solar Output (KWh)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Wind Output (KWh)</td>
+                  <td className="py-2.5 px-3 text-purple-300">="Solar &amp; Wind Energy Mix"</td>
+                  <td className="py-2.5 px-3 text-slate-300">Dual renewable source output balance visual.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CE-117</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Bankura Craft Orders vs Shipping Expense</td>
+                  <td className="py-2.5 px-3 text-sky-300">Order Volume</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Shipping Cost (₹)</td>
+                  <td className="py-2.5 px-3 text-purple-300">="Order Count vs Shipping Cost"</td>
+                  <td className="py-2.5 px-3 text-slate-300">Transport cost ratio monitoring.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CE-118</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Jalpaiguri Tea Harvest vs Rainfall mm</td>
+                  <td className="py-2.5 px-3 text-sky-300">Harvest Yield (Tons)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Rainfall (mm)</td>
+                  <td className="py-2.5 px-3 text-purple-300">="Tea Yield &amp; Monsoon Rainfall"</td>
+                  <td className="py-2.5 px-3 text-slate-300">Monsoon rainfall correlation with tea yield.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CE-119</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Darjeeling Hotel Revenue vs Occupancy %</td>
+                  <td className="py-2.5 px-3 text-sky-300">Revenue (₹ Lakhs)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Occupancy % (Right)</td>
+                  <td className="py-2.5 px-3 text-purple-300">="Hotel RevPAR &amp; Occupancy %"</td>
+                  <td className="py-2.5 px-3 text-slate-300">RevPAR performance visual for hotel management.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">CE-120</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Cooch Behar Bank Deposits vs Loan Total</td>
+                  <td className="py-2.5 px-3 text-sky-300">Total Deposits (₹ Cr)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Disbursed Loans (₹ Cr)</td>
+                  <td className="py-2.5 px-3 text-purple-300">="Bank Deposits &amp; Loan Disbursals"</td>
+                  <td className="py-2.5 px-3 text-slate-300">Credit-to-Deposit ratio visual.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 
@@ -497,42 +689,106 @@ export default function Topic4() {
         </section>
 
         {/* =========================================================================
-            SECTION 9: PRO TIPS & PRODUCTIVITY SHORTCUTS
+            SECTION 9: ESSENTIAL EXCEL CHARTING KEYBOARD SHORTCUTS & HOTKEYS
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[8] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 text-base font-mono">💡</span>
-            Classroom Pro Tips & High-Speed Shortcuts
-          </h2>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 text-base font-mono">⌨️</span>
+                Master Excel Charting Keyboard Shortcuts &amp; Hotkeys
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                Boost your chart creation and formatting speed by 10x with these essential workplace hotkeys.
+              </p>
+            </div>
+            <span className="text-xs font-mono text-purple-300 bg-purple-950/80 px-3 py-1.5 rounded-full border border-purple-800 shrink-0 font-bold">
+              Speed Hotkeys Matrix
+            </span>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                Click Title &amp;rarr; Type '=' &amp;rarr; Click Cell
+                Alt + F1
               </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Link chart title dynamically to any cell formula.</p>
+              <div>
+                <strong className="text-xs text-white block">Insert Embedded Chart</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Instantly create default 2D Column Chart on active worksheet.</p>
+              </div>
             </div>
+
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                Alt + J + C + A
+                F11
               </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Add Chart Element menu (Axes, Titles, Data Labels, Gridlines, Legends).</p>
+              <div>
+                <strong className="text-xs text-white block">New Chart Sheet</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Generate default chart on a dedicated standalone Chart Sheet (<code className="text-purple-300">Chart1</code>).</p>
+              </div>
             </div>
+
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                Ctrl + 1 (on Axis)
+                Alt + Drag
               </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Format Axis to adjust Minimum, Maximum, and Major Unit intervals.</p>
+              <div>
+                <strong className="text-xs text-white block">Snap to Gridlines</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Hold <kbd className="text-slate-200 bg-slate-800 px-1 rounded text-[10px]">Alt</kbd> while moving chart corners to snap perfectly to cell borders.</p>
+              </div>
             </div>
+
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
+              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                Ctrl + 1
+              </kbd>
+              <div>
+                <strong className="text-xs text-white block">Format Task Pane</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Open Format Chart Area or Format Data Series sidebar menu instantly.</p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
+              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                Click Title → '=' → Cell
+              </kbd>
+              <div>
+                <strong className="text-xs text-white block">Dynamic Title Link</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Select chart title, type '=', and click any cell to create a dynamic formula title.</p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
+              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                Alt + N + SD
+              </kbd>
+              <div>
+                <strong className="text-xs text-white block">Insert Dual-Axis Combo Ribbon</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Trigger Insert Ribbon menu for Dual-Axis Combo Column + Line charts.</p>
+              </div>
+            </div>
+
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
                 Delete Key
               </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Instantly remove selected legend, axis, or gridline element.</p>
+              <div>
+                <strong className="text-xs text-white block">Delete Selected Element</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Instantly remove selected legend, axis, or clutter gridline.</p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
+              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                Ctrl+C → Alt+E+S+T
+              </kbd>
+              <div>
+                <strong className="text-xs text-white block">Copy Chart Formats</strong>
+                <p className="text-xs text-slate-400 mt-0.5">Copy one chart and paste its formatting to another chart instantly.</p>
+              </div>
             </div>
           </div>
         </section>

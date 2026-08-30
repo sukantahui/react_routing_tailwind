@@ -260,7 +260,7 @@
             "Creating, Saving, AutoRecover, and File Formats: .xlsx, .xlsm, .xlsb, and .csv Architecture",
             "High-Speed Navigation: Keyboard Shortcuts, Range Selection, Name Box Teleportation & Go To Special",
             "Cell Referencing Fundamentals: Relative, Absolute ($), Mixed ($A1 vs A$1) and 3D Sheet References",
-            "Practical Laboratory Exercises: Getting Started with Excel Master Class",
+            "Project Work",
             "Practice Multiple Choice Questions (MCQ): Comprehensive Interface & Navigation Mastery",
             "Quick Check Quiz: Interface Ergonomics, Grid Mechanics & Spreadsheet Fundamentals"
           ],
@@ -351,10 +351,10 @@
             "Efficient Data Entry Techniques, AutoComplete, Pick from Drop-Down and Keyboard Shortcuts",
             "AutoFill Magic, Custom Lists and AI-Powered Flash Fill (Ctrl + E) Pattern Intelligence",
             "Grid Structure Editing: Inserting, Deleting, Hiding, Grouping and Resizing Rows & Columns",
-            "Mastering Custom Number Formatting: Currency (₹), Percentages, Accounting and Multi-Section Masks",
+            "Editing Cell Contents: F2, Formula Bar, Find & Replace, Clear, Undo/Redo and Paste Special Fundamentals",
             "Date and Time Mechanics: Serial Numbers, Epoch 1900, Elapsed Time and Custom Date Codes",
             "Alignment, Text Wrapping, Center Across Selection vs Merge, and Executive Cell Styles",
-            "Practical Laboratory Exercises: Data Entry, Editing and Formatting Master Class",
+            "Project Work: Real-World Application of Data Entry, Editing & Custom Number Formatting",
             "Practice Multiple Choice Questions (MCQ): Data Entry, Editing & Custom Number Formatting Mastery",
             "Quick Check Quiz: Number Formatting, Data Hygiene & Grid Editing Fundamentals"
           ],
@@ -537,7 +537,7 @@
             "Mathematical Rounding Functions: ROUND, ROUNDUP, ROUNDDOWN, INT and TRUNC Precision Control",
             "High-Speed AutoSum Mastery: Multi-Directional Summing and Keyboard Shortcuts",
             "Comprehensive Laboratory Practice Session: Basic Formulas, Functions and Calculation Auditing",
-            "Practical Laboratory Exercises: Basic Formulas and Functions Master Class",
+            "Project Work: Real-World Application of Basic Formulas and Functions",
             "Quick Check Quiz: Core Mathematical Functions, BODMAS & Aggregation Foundations",
             "Engineering Conversions & Bitwise Operations"
           ],
@@ -616,7 +616,7 @@
             "Mastering Chart Elements: Titles, Legends, Data Labels, Dual-Axes and Gridline Decluttering",
             "Formatting and Visual Polish: Corporate Color Palettes, Callout Cards and Modern Dashboard Aesthetics",
             "Comprehensive Laboratory Practice Session: Chart Creation, Customization and Executive Dashboard Construction",
-            "Practical Laboratory Exercises: Basic Charts and Visualizations Master Class",
+            "Project Work: Real-World Application of Basic Charts and Visualizations",
             "Quick Check Quiz & Visual Storytelling Assessment"
           ],
           "learningOutcomes": [

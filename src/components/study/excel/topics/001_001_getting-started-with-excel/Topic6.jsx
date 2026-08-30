@@ -280,7 +280,7 @@ export default function Topic6() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic6_Understanding_cell"
+            sheetName="Topic6"
             title="Module 1.1 - Cell Referencing Fundamentals: Relative, Absolute ($), Mixed ($A1 vs A$1) and 3D Sheet References"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -294,109 +294,196 @@ export default function Topic6() {
           ref={(el) => (sectionsRef.current[5] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
-            Real-World Business Scenarios (Bengal & Corporate Applications)
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">01</span>
-                <h3 className="text-base font-bold text-white">Coder &amp; AccoTax Barrackpore Staff Payroll Model with Fixed GST Rate</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Calculating 18% GST and 40% HRA on employee salaries referencing fixed parameter cells.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Emp_ID</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Employee_Name</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Basic_Salary</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">HRA_Formula (Fixed 40% in $B$1)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">GST_Formula (Fixed 18% in $B$2)</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">EMP-2001</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Swadeep</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">45,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=C2*$B$1</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=C2*$B$2</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">EMP-2002</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Tuhina</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">52,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=C3*$B$1</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=C3*$B$2</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">EMP-2003</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Abhronila</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">38,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=C4*$B$1</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=C4*$B$2</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Formula: =C2*$B$1 copied down</div>
-                <div className="text-emerald-400 font-semibold">Result: Relative cell C2 shifts to C3, C4; Parameter $B$1 remains securely locked.</div>
-                <div className="text-slate-400 text-[11px]">Absolute referencing ($) prevents parameter drift when formulas are dragged down hundreds of rows.</div>
-              </div>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
+                20 Real-World Business Scenarios: Worksheet Views, Freeze Panes &amp; Window Splitting
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                20 practical workplace scenarios detailing Normal/Page Layout views, Freeze Panes, Split Windows, Side-by-Side comparison, and Zoom controls.
+              </p>
             </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">02</span>
-                <h3 className="text-base font-bold text-white">Kolkata Retail 10x10 Price Multiplier Table (Mixed Referencing)</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Building a 2D matrix multiplying product base prices (Column A) by quantity discounts (Row 1).</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Base_Price</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Qty: 10 (B$1)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Qty: 20 (C$1)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Qty: 50 (D$1)</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Item A ($A2: 500)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=$A2*B$1 (5,000)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=$A2*C$1 (10,000)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=$A2*D$1 (25,000)</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Item B ($A3: 800)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=$A3*B$1 (8,000)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=$A3*C$1 (16,000)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=$A3*D$1 (40,000)</td></tr>
-                  </tbody>
-                </table>
-              </div>
+            <span className="text-xs font-mono text-amber-300 bg-amber-950/80 px-3 py-1.5 rounded-full border border-amber-800 shrink-0 font-bold">
+              20 Real-World Examples
+            </span>
+          </div>
 
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Single Formula: =$A2*B$1 copied across entire 10x10 grid</div>
-                <div className="text-emerald-400 font-semibold">Result: 100 table cells populated correctly using 1 formula without manual adjustments.</div>
-                <div className="text-slate-400 text-[11px]">Mixed referencing ($A2 locks column, B$1 locks row) enables multi-dimensional matrix modeling.</div>
-              </div>
-            </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">03</span>
-                <h3 className="text-base font-bold text-white">Shyamnagar Multi-Branch 3D Cross-Sheet Consolidation</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Summing total revenue across 4 quarterly sheets (Q1, Q2, Q3, Q4) into an Annual Master sheet.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Consolidation_Cell</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formula_Applied</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Source_Sheets</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Calculated_Metric</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Master!B5</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=SUM(Q1:Q4!B5)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Q1, Q2, Q3, Q4</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Sum of revenue across all 4 quarters</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =SUM('Q1:Q4'!B5)</div>
-                <div className="text-emerald-400 font-semibold">Result: Accurate corporate annual total consolidated across all quarterly tabs.</div>
-                <div className="text-slate-400 text-[11px]">3D referencing sums identical 2D coordinates across a physical stack of worksheet tabs.</div>
-              </div>
-            </div>
-            <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">04</span>
-                <h3 className="text-base font-bold text-white">Ichapur Machinery Depreciation with Fixed Scrap Value</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Computing straight-line depreciation where asset cost is relative but scrap value and life are absolute.</p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
-                  <tbody className="divide-y divide-slate-800">
-                    
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Asset_ID</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Cost (Relative)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Scrap_Val ($E$1)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Life_Years ($E$2)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Annual_Depreciation</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MCH-01</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">250,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">25,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">10</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=(B2-$E$1)/$E$2</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">MCH-02</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">420,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">25,000</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">10</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=(B3-$E$1)/$E$2</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =(B2-$E$1)/$E$2 copied down</div>
-                <div className="text-emerald-400 font-semibold">Result: Annual depreciation calculated accurately for all machinery assets.</div>
-                <div className="text-slate-400 text-[11px]">Combining relative and absolute coordinates allows building standardized accounting amortization models.</div>
-              </div>
-            </div>
+          <div className="overflow-x-auto rounded-xl border border-slate-800">
+            <table className="w-full text-left text-xs text-slate-300 border-collapse">
+              <thead>
+                <tr className="bg-slate-950 text-slate-400 font-semibold uppercase tracking-wider border-b border-slate-800">
+                  <th className="py-3 px-3 w-16">ID</th>
+                  <th className="py-3 px-3">Business Application</th>
+                  <th className="py-3 px-3">View Control Mode</th>
+                  <th className="py-3 px-3">Applied Ribbon / Shortcut Action</th>
+                  <th className="py-3 px-3">Resulting Viewport State</th>
+                  <th className="py-3 px-3">Key Ergonomic Benefit</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/60 font-mono">
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WV-101</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Kolkata CA Standard Editing Workspace</td>
+                  <td className="py-2.5 px-3 text-sky-300">Normal View Mode</td>
+                  <td className="py-2.5 px-3 text-amber-300">View $\rightarrow$ Normal Mode</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Standard Grid View</td>
+                  <td className="py-2.5 px-3 text-slate-300">Maximizes calculation speed and cell editing performance.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WV-102</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Barrackpore Payroll Print Margin Audit</td>
+                  <td className="py-2.5 px-3 text-sky-300">Page Layout View Mode</td>
+                  <td className="py-2.5 px-3 text-amber-300">View $\rightarrow$ Page Layout</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Pages with Headers/Footers</td>
+                  <td className="py-2.5 px-3 text-slate-300">Renders print pagination, margins, and headers in real time.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WV-103</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Shyamnagar Supermarket Pagination Dragging</td>
+                  <td className="py-2.5 px-3 text-sky-300">Page Break Preview Mode</td>
+                  <td className="py-2.5 px-3 text-amber-300">View $\rightarrow$ Page Break Preview</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Blue Page Boundary Lines</td>
+                  <td className="py-2.5 px-3 text-slate-300">Allows manual dragging of blue print page breaks.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WV-104</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Salt Lake SaaS 50,000-Row Header Retention</td>
+                  <td className="py-2.5 px-3 text-sky-300">Freeze Top Row</td>
+                  <td className="py-2.5 px-3 text-amber-300">Alt + W + F + R</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Row 1 Permanently Visible</td>
+                  <td className="py-2.5 px-3 text-slate-300">Keeps column headers pinned while scrolling down 50K rows.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WV-105</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Ichapur Plant Wide Sheet Employee ID Lock</td>
+                  <td className="py-2.5 px-3 text-sky-300">Freeze First Column</td>
+                  <td className="py-2.5 px-3 text-amber-300">Alt + W + F + C</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Column A Permanently Visible</td>
+                  <td className="py-2.5 px-3 text-slate-300">Keeps employee names visible during rightward horizontal scroll.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WV-106</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Titagarh Mill 2-Axis Custom Panes Lock</td>
+                  <td className="py-2.5 px-3 text-sky-300">Freeze Custom Panes</td>
+                  <td className="py-2.5 px-3 text-amber-300">Select Cell C3 $\rightarrow$ Alt + W + F + F</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Rows 1–2 &amp; Cols A–B Locked</td>
+                  <td className="py-2.5 px-3 text-slate-300">Locks custom dual-axis headers simultaneously.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WV-107</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Naihati Pharmacy Viewport Reset</td>
+                  <td className="py-2.5 px-3 text-sky-300">Unfreeze Panes</td>
+                  <td className="py-2.5 px-3 text-amber-300">Alt + W + F + F (Toggle)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">All Panes Unlocked</td>
+                  <td className="py-2.5 px-3 text-slate-300">Restores standard unrestricted scrolling.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WV-108</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Sodepur Store Header vs Footer Compare</td>
+                  <td className="py-2.5 px-3 text-sky-300">Split Window Bar</td>
+                  <td className="py-2.5 px-3 text-amber-300">View $\rightarrow$ Split ($\rightarrow$ Alt + W + S)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">4 Independent Viewports</td>
+                  <td className="py-2.5 px-3 text-slate-300">Compares row 1 top headers against row 1,000 totals.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WV-109</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Howrah Freight 2-Workbook Audit</td>
+                  <td className="py-2.5 px-3 text-sky-300">View Side by Side</td>
+                  <td className="py-2.5 px-3 text-amber-300">View $\rightarrow$ View Side by Side</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Horizontal Tiled Windows</td>
+                  <td className="py-2.5 px-3 text-slate-300">Compares two separate workbooks side-by-side.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WV-110</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Durgapur Steel Synchronous Scroll Audit</td>
+                  <td className="py-2.5 px-3 text-sky-300">Synchronous Scrolling Toggle</td>
+                  <td className="py-2.5 px-3 text-amber-300">Click Synchronous Scrolling Button</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Lock-Step Window Scroll</td>
+                  <td className="py-2.5 px-3 text-slate-300">Scrolls both workbooks in tandem to detect discrepancies.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WV-111</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Asansol Power Multi-Monitor View</td>
+                  <td className="py-2.5 px-3 text-sky-300">New Window Instance</td>
+                  <td className="py-2.5 px-3 text-amber-300">View $\rightarrow$ New Window ($\rightarrow$ Alt + W + N)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Book1:1 and Book1:2</td>
+                  <td className="py-2.5 px-3 text-slate-300">Opens second window of same file for dual monitors.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WV-112</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Siliguri Tea 4-Window Tiling</td>
+                  <td className="py-2.5 px-3 text-sky-300">Arrange All Windows</td>
+                  <td className="py-2.5 px-3 text-amber-300">Alt + W + A $\rightarrow$ Tiled</td>
+                  <td className="py-2.5 px-3 text-emerald-400">4 Equal Screen Quadrants</td>
+                  <td className="py-2.5 px-3 text-slate-300">Tiles 4 open files evenly across the display.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WV-113</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Haldia Port Chart Focus Zoom</td>
+                  <td className="py-2.5 px-3 text-sky-300">Zoom to Selection</td>
+                  <td className="py-2.5 px-3 text-amber-300">Highlight Chart $\rightarrow$ Alt + W + G</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Selection Fills Screen</td>
+                  <td className="py-2.5 px-3 text-slate-300">Scales view to fit target selection perfectly.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WV-114</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Malda Mango Preset 100% Reset</td>
+                  <td className="py-2.5 px-3 text-sky-300">100% Zoom Preset Button</td>
+                  <td className="py-2.5 px-3 text-amber-300">Press Alt + W + J</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Zoom Reset to 100%</td>
+                  <td className="py-2.5 px-3 text-slate-300">Instantly restores standard 100% display magnification.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WV-115</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Midnapore Hospital Custom Zoom Scale</td>
+                  <td className="py-2.5 px-3 text-sky-300">Zoom Dialog Custom Percent</td>
+                  <td className="py-2.5 px-3 text-amber-300">Alt + W + Q $\rightarrow$ Type 125%</td>
+                  <td className="py-2.5 px-3 text-emerald-400">125% Magnification</td>
+                  <td className="py-2.5 px-3 text-slate-300">Customizes view scale for comfortable legibility.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WV-116</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Kharagpur Library Mouse Wheel Zoom</td>
+                  <td className="py-2.5 px-3 text-sky-300">Ctrl + Mouse Wheel Scroll</td>
+                  <td className="py-2.5 px-3 text-amber-300">Hold Ctrl + Scroll Wheel Up/Down</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Smooth Continuous Zoom</td>
+                  <td className="py-2.5 px-3 text-slate-300">Smoothly adjusts zoom level without opening menus.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WV-117</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Hooghly Jute Clean Executive Dashboard</td>
+                  <td className="py-2.5 px-3 text-sky-300">Toggle Gridlines Display</td>
+                  <td className="py-2.5 px-3 text-amber-300">Alt + W + V + G</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Gridlines Hidden</td>
+                  <td className="py-2.5 px-3 text-slate-300">Hides gray gridlines for clean executive dashboard presentation.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WV-118</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Burdwan Seed Form Screenshot Mode</td>
+                  <td className="py-2.5 px-3 text-sky-300">Toggle Row/Col Headings</td>
+                  <td className="py-2.5 px-3 text-amber-300">Alt + W + V + H</td>
+                  <td className="py-2.5 px-3 text-emerald-400">A-Z &amp; 1-N Headings Hidden</td>
+                  <td className="py-2.5 px-3 text-slate-300">Hides column letters and row numbers for form publishing.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WV-119</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Purulia Solar Maximize Grid Area</td>
+                  <td className="py-2.5 px-3 text-sky-300">Toggle Formula Bar View</td>
+                  <td className="py-2.5 px-3 text-amber-300">Alt + W + V + F</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Formula Bar Hidden</td>
+                  <td className="py-2.5 px-3 text-slate-300">Gains vertical space by hiding formula bar during entry.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-2.5 px-3 text-amber-400 font-bold">WV-120</td>
+                  <td className="py-2.5 px-3 text-white font-sans font-medium">Bankura Craft Remove Window Split</td>
+                  <td className="py-2.5 px-3 text-sky-300">Remove Split Window Bar</td>
+                  <td className="py-2.5 px-3 text-amber-300">Double-Click Split Divider Line</td>
+                  <td className="py-2.5 px-3 text-emerald-400">Single Unified Viewport</td>
+                  <td className="py-2.5 px-3 text-slate-300">Removes split pane divider returning to single window.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 
