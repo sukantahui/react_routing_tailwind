@@ -1,0 +1,3 @@
+TOPIC 7: INFO
+Syntax: =INFO(type_text)
+Description: Returns environment/system info.

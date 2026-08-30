@@ -1,0 +1,3 @@
+TOPIC 1: DCOUNT
+Syntax: =DCOUNT(database, field, criteria)
+Description: Counts numeric cells matching criteria table.

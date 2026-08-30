@@ -61,22 +61,22 @@ export default function Topic8() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              {"🔄 Circular References & Performance Optimization"} · Topic 8
+              {"🔒 Cell Protection & Formula Locking"} · Topic 9
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              {"Calculation Diagnostics & Performance"}
+              {"Worksheet Security & Governance"}
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              {"Advanced-Mastery · Bloom Level 5: Synthesize"}
+              {"Intermediate-Advanced · Bloom Level 4: Analyze"}
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            {"Identifying and resolving circular references and calculation bottlenecks"}
+            {"Cell protection: Locking formulas, unlocking input cells, and worksheet passwords"}
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            {"Diagnosing, tracing, and resolving fatal Circular References, calculation engine locks, and eliminating workbook performance bottlenecks"}. Master the complete validation architecture, diagnostic auditing tools, formula stepping, and enterprise encryption protocols.
+            {"Securing financial models from accidental tampering: unlocking user input cells, locking calculation formulas, cloaking proprietary formula code, and setting password protection"}. Master the complete validation architecture, diagnostic auditing tools, formula stepping, and enterprise encryption protocols.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,7 +113,7 @@ export default function Topic8() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Diagnostic Tools: Formulas &gt; Error Checking &gt; Circular References | File &gt; Options &gt; Formulas &gt; Enable Iterative Calculation"}
+            {"Cell Protection Protocol: 1. Select Entire Sheet &gt; Format Cells &gt; Protection &gt; Uncheck 'Locked' | 2. Select Formula Cells &gt; Check 'Locked' & 'Hidden' | 3. Review &gt; Protect Sheet (Password)"}
           </div>
 
           <div className="overflow-x-auto">
@@ -172,18 +172,18 @@ export default function Topic8() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Circular Reference Mechanics"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Occurs when a formula directly or indirectly depends on its own cell value (e.g. A1 `=B1+10` while B1 `=A1*2`), causing an infinite recalculation loop."}</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. The 2-Step Protection Paradigm"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"By default, EVERY cell in Excel has the 'Locked' property enabled, but it has ZERO effect until 'Protect Sheet' is actively turned on in the Review ribbon."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Calculation Engine Lockout"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"When an unintentional circular reference exists, Excel stops automatic calculation across the entire workbook, displaying 'Circular References: CellAddress' in the bottom status bar."}</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Unlocking Input Assumptions"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Select input/assumption cells > Format Cells (Ctrl + 1) > Protection tab > UNCHECK 'Locked' so users can edit values."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Intentional Circularity (Iterative Calculation)"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Corporate interest-and-debt fee models with circular loops require enabling 'Iterative Calculation' (File &gt; Options > Formulas > Max Iterations: 100, Max Change: 0.001)."}</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Formula Cloaking ('Hidden')"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Checking 'Hidden' on formula cells prevents proprietary formulas from being displayed in the Formula Bar once sheet protection is active."}</p>
             </div>
             
           </div>
@@ -199,7 +199,7 @@ export default function Topic8() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Circular Calculation Diagnostic Pipeline: Cyclic Feedback Detection -> Break Dependency Loop"}
+              Visual Dataflow: {"Worksheet Protection Architecture: Unlock Input Cells -> Lock Formula Cells -> Encrypt Sheet"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Security Pipeline
@@ -209,11 +209,11 @@ export default function Topic8() {
           <div className="p-4 rounded-xl bg-slate-950/90 border border-slate-800/80 flex flex-col items-center justify-center overflow-x-auto shadow-inner">
             <svg viewBox="0 0 820 220" className="w-full max-w-4xl h-auto text-slate-200 select-none font-sans">
               <defs>
-                <linearGradient id="gradFlowMod8_8" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient id="gradFlowMod8_9" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
                   <stop offset="100%" stopColor="#0369a1" stopOpacity="0.8" />
                 </linearGradient>
-                <marker id="arrowMod8_8" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <marker id="arrowMod8_9" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                   <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
                 </marker>
               </defs>
@@ -228,20 +228,20 @@ export default function Topic8() {
                 <text x="105" y="118" textAnchor="middle" fill="#64748b" fontSize="10">User Entry Cell</text>
               </g>
 
-              <path d="M 245 110 L 305 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod8_8)" fill="none" />
+              <path d="M 245 110 L 305 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod8_9)" fill="none" />
 
               {/* Node 2: Validation Gatekeeper */}
               <g transform="translate(315, 30)">
                 <rect width="250" height="160" rx="14" fill="#0c4a6e" stroke="#0284c7" strokeWidth="2" />
                 <rect x="14" y="14" width="222" height="28" rx="6" fill="#0369a1" />
                 <text x="125" y="33" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">Data Validation Gatekeeper</text>
-                <text x="125" y="75" textAnchor="middle" fill="#7dd3fc" fontSize="13" fontFamily="monospace" fontWeight="bold">{"Calculation Diagnostics & Performance"}</text>
+                <text x="125" y="75" textAnchor="middle" fill="#7dd3fc" fontSize="13" fontFamily="monospace" fontWeight="bold">{"Worksheet Security & Governance"}</text>
                 <text x="125" y="100" textAnchor="middle" fill="#bae6fd" fontSize="10">Boundary &amp; Syntax Verification</text>
                 <text x="125" y="120" textAnchor="middle" fill="#bae6fd" fontSize="10">Cell Protection Enforcement</text>
                 <text x="125" y="140" textAnchor="middle" fill="#38bdf8" fontSize="9" fontStyle="italic">Native Core Security</text>
               </g>
 
-              <path d="M 570 110 L 630 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod8_8)" fill="none" />
+              <path d="M 570 110 L 630 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod8_9)" fill="none" />
 
               {/* Node 3: Validated Commit / Block */}
               <g transform="translate(640, 45)">
@@ -286,8 +286,8 @@ export default function Topic8() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic8_Identifying_and_re"
-            title={"Identifying and resolving circular references and calculation bottlenecks - Interactive Practice Grid"}
+            sheetName="Topic8_Cell_protection__L"
+            title={"Cell protection: Locking formulas, unlocking input cells, and worksheet passwords - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
           />
@@ -314,38 +314,38 @@ export default function Topic8() {
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · VP Financial Engineering"}</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Chief Financial Officer"}</span>
                 <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Corporate Revolver Interest Circularity Resolution"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Engineers a debt interest circularity loop (Interest depends on Ending Cash, which depends on Net Income, which depends on Interest) using controlled Iterative Calculation."}</p>
+              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Enterprise Budget Collection Template Security"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Deploys 200 departmental budget entry templates where only blue assumption cells are editable; all formulas and totals are locked and cloaked with password protection."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Model Audit Lead"}</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Payroll Security Lead"}</span>
                 <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Accidental Self-Referencing Formula Bug Fix"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Tracks down and eliminates accidental =SUM(A1:A10) placed inside cell A10 using Formulas > Error Checking > Circular References."}</p>
+              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Confidential Executive Salary Calculator"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Locks statutory tax withholding formulas and hides proprietary bonus algorithms from end users."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Systems Performance Analyst"}</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Plant Operations Controller"}</span>
                 <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">{"Abhronila Das: Plant Production Model Optimization"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Cures 15-second workbook recalculation lag by replacing volatile OFFSET formulas with INDEX-MATCH."}</p>
+              <h3 className="font-bold text-white text-base">{"Abhronila Das: ISO Shopfloor Quality Log Protection"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Locks calibration equations and inspection pass/fail rules to prevent operator tampering."}</p>
             </div>
             
             <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Logistics Analytics Specialist"}</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Commercial Contracts Lead"}</span>
                 <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Dispatch Routing Calculation Speedup"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Eliminates calculation bottlenecks across 200,000 shipment lookup rows."}</p>
+              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Third-Party Carrier Rate Card Formatter"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Protects proprietary margin calculation formulas on client-facing rate quote templates."}</p>
             </div>
             
           </div>
@@ -385,7 +385,7 @@ export default function Topic8() {
                 Step 2: Configure Validation Criteria &amp; Formulas
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the Settings tab, select Allow: Custom/List and enter the formula or range reference <code className="text-cyan-300 font-mono font-bold">{"Diagnostic Tools: Formulas &gt; Error Checking &gt; Circular References | File &gt; Options &gt; Formulas &gt; Enable Iterative Calculation"}</code>.
+                In the Settings tab, select Allow: Custom/List and enter the formula or range reference <code className="text-cyan-300 font-mono font-bold">{"Cell Protection Protocol: 1. Select Entire Sheet &gt; Format Cells &gt; Protection &gt; Uncheck 'Locked' | 2. Select Formula Cells &gt; Check 'Locked' & 'Hidden' | 3. Review &gt; Protect Sheet (Password)"}</code>.
               </p>
             </div>
 
@@ -440,21 +440,21 @@ export default function Topic8() {
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Ignoring Status Bar Circular Warning"}</td>
-                  <td className="py-3 px-4">{"Working in a workbook with an active circular reference means Excel has FROZEN calculations; all other formulas on the sheet stop updating."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Immediately check Formulas > Error Checking > Circular References and resolve the loop."}</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Protecting Sheet Without Unlocking Input Cells First"}</td>
+                  <td className="py-3 px-4">{"Clicking 'Protect Sheet' immediately locks the ENTIRE sheet, preventing users from typing anywhere."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Always unlock input cells FIRST (Ctrl + 1 > Protection > uncheck Locked) before protecting sheet."}</td>
                 </tr>
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Uncontrolled Iterative Divergence"}</td>
-                  <td className="py-3 px-4">{"Enabling iterative calculation on a model with explosive non-convergent mathematical formulas causes values to spiral to `#NUM!` or `#DIV/0!`."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Incorporate an algebraic debt circularity breaker switch (`=IF(CircularBreaker=\"OFF\", 0, CalcInterest)`)."}</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Protect Sheet Does Not Secure Against Malicious Hackers"}</td>
+                  <td className="py-3 px-4">{"Standard Excel worksheet passwords can be bypassed using simple VBA scripts or ZIP file XML editing."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use worksheet protection for accidental error prevention; use File &gt; Protect Workbook > Encrypt with Password for true cryptographic security."}</td>
                 </tr>
                 
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Volatile Formula Proliferation (INDIRECT / OFFSET / TODAY)"}</td>
-                  <td className="py-3 px-4">{"Overusing volatile functions forces Excel to recalculate 50,000 formulas on EVERY single cell edit anywhere in the workbook."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Replace OFFSET with non-volatile INDEX, and replace INDIRECT with static structured references."}</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Disabling AutoFilter & Sort During Protection"}</td>
+                  <td className="py-3 px-4">{"Users complain they cannot sort tables or use filter dropdowns on protected sheets."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"In the Protect Sheet dialog, explicitly CHECK the boxes: 'Sort', 'Use AutoFilter', and 'Format cells'."}</td>
                 </tr>
                 
               </tbody>
@@ -483,26 +483,26 @@ export default function Topic8() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Locate Circular Cell"}
+                <span>⚡</span> {"Select All Formula Cells"}
               </div>
-              <p className="text-slate-300 leading-relaxed">{"Instantly navigates cursor to the exact cell containing the circular reference loop."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Formulas > Error Checking > Circular References"}</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Instantly selects every formula cell across the worksheet in 1 second."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"F5 > Special > Formulas (Alt + H + F + D + S + F)"}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Enable Iterative Calc"}
+                <span>⚡</span> {"Protect Sheet Shortcut"}
               </div>
-              <p className="text-slate-300 leading-relaxed">{"Enables controlled circular solving for corporate treasury debt models."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Alt + F + T > Formulas > Enable Iterative Calculation"}</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Launches the worksheet encryption and permission modal."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Review &gt; Protect Sheet (Alt + R + P + S)"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Circularity Breaker Switch"}
+                <span>⚡</span> {"Tab Navigation in Protected Sheet"}
               </div>
-              <p className="text-slate-300 leading-relaxed">{"Standard Wall Street switch to reset circular debt loops during model audits."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"=IF(Breaker=1, Calc, 0)"}</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Pressing Tab on a protected sheet automatically jumps smoothly between unlocked input cells only."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Press Tab key"}</kbd>
             </div>
             
           </div>
@@ -529,7 +529,7 @@ export default function Topic8() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: {"Why does a single circular reference cause Excel to freeze automatic recalculation for the entire workbook?"}
+                <span className="text-teal-400">💭</span> Question 1: {"Why does checking 'Locked' on a cell have no effect until you click 'Protect Sheet'?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the spreadsheet security architecture and data governance implications.
@@ -538,7 +538,7 @@ export default function Topic8() {
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: {"How does a Circularity Breaker Switch help financial analysts debug complex balance sheet models?"}
+                <span className="text-teal-400">💭</span> Question 2: {"How do you quickly select all formula cells on a sheet to lock them in a single step (F5 -> Special)?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the spreadsheet security architecture and data governance implications.
@@ -547,7 +547,7 @@ export default function Topic8() {
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: {"Why are volatile functions like OFFSET and INDIRECT dangerous for large enterprise model performance?"}
+                <span className="text-teal-400">💭</span> Question 3: {"Why should you check 'Use AutoFilter' in the Protect Sheet permissions dialog?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the spreadsheet security architecture and data governance implications.
@@ -562,7 +562,7 @@ export default function Topic8() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title={"Identifying and resolving circular references and calculation bottlenecks - Frequently Asked Questions"}
+            title={"Cell protection: Locking formulas, unlocking input cells, and worksheet passwords - Frequently Asked Questions"}
             questions={questions}
           />
         </div>
@@ -572,7 +572,7 @@ export default function Topic8() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note={"If you see 'Circular References' in the bottom left status bar, STOP! Your entire spreadsheet has stopped calculating. Go to Formulas -> Error Checking -> Circular References immediately and break the loop."}
+            note={"The Golden 2-Step for model protection: 1. Press F5 -> Special -> Formulas -> Ctrl+1 -> check 'Locked' and 'Hidden'. 2. Review -> Protect Sheet. Now your formulas are tamper-proof and invisible in the formula bar!"}
           />
         </div>
       </div>

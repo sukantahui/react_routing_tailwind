@@ -17,603 +17,578 @@ export const excelModuleProjectsData = {
   "projects": [
     {
       "projectId": "EX1901",
-      "title": "Practical Workplace Audit & Modeling (Task 1)",
+      "title": "Date, Time & Text Intelligence (TIME) (Task 1)",
       "difficulty": "beginner",
       "sheetName": "EX1901",
-      "formula": "=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1901 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1901.",
+      "formula": "=TIME(B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1901 in range B4:C30. You must write formulas using function **TIME** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1901** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1901**.",
+        "In cell **D4**, write formula using **TIME** e.g. `=TIME(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1901**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1901**.\n2. **Type TIME**: Enter `=TIME(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "26500",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 26,500.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1901-01| =IFERROR(XLOOKUP)| ₹ 26,500.00 | Verified     |\n| C5   | EMP-EX1901-02| =IFERROR(XLOOKUP)| ₹ 36,500.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =TIME(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function TIME ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1902",
-      "title": "Practical Workplace Audit & Modeling (Task 2)",
+      "title": "Date, Time & Text Intelligence (TIMEVALUE) (Task 2)",
       "difficulty": "beginner",
       "sheetName": "EX1902",
-      "formula": "=IFERROR(XLOOKUP(A5, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1902 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1902.",
+      "formula": "=TIMEVALUE(B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1902 in range B4:C30. You must write formulas using function **TIMEVALUE** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1902** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1902**.",
+        "In cell **D4**, write formula using **TIMEVALUE** e.g. `=TIMEVALUE(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1902**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1902**.\n2. **Type TIMEVALUE**: Enter `=TIMEVALUE(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "28000",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 28,000.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1902-01| =IFERROR(XLOOKUP)| ₹ 28,000.00 | Verified     |\n| C5   | EMP-EX1902-02| =IFERROR(XLOOKUP)| ₹ 38,000.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =TIMEVALUE(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function TIMEVALUE ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1903",
-      "title": "Practical Workplace Audit & Modeling (Task 3)",
+      "title": "Date, Time & Text Intelligence (HOUR) (Task 3)",
       "difficulty": "beginner",
       "sheetName": "EX1903",
-      "formula": "=IFERROR(XLOOKUP(A6, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1903 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1903.",
+      "formula": "=HOUR(B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1903 in range B4:C30. You must write formulas using function **HOUR** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1903** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1903**.",
+        "In cell **D4**, write formula using **HOUR** e.g. `=HOUR(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1903**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1903**.\n2. **Type HOUR**: Enter `=HOUR(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "29500",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 29,500.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1903-01| =IFERROR(XLOOKUP)| ₹ 29,500.00 | Verified     |\n| C5   | EMP-EX1903-02| =IFERROR(XLOOKUP)| ₹ 39,500.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =HOUR(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function HOUR ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1904",
-      "title": "Practical Workplace Audit & Modeling (Task 4)",
+      "title": "Date, Time & Text Intelligence (MINUTE) (Task 4)",
       "difficulty": "beginner",
       "sheetName": "EX1904",
-      "formula": "=IFERROR(XLOOKUP(A7, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1904 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1904.",
+      "formula": "=MINUTE(B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1904 in range B4:C30. You must write formulas using function **MINUTE** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1904** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1904**.",
+        "In cell **D4**, write formula using **MINUTE** e.g. `=MINUTE(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1904**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1904**.\n2. **Type MINUTE**: Enter `=MINUTE(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "31000",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 31,000.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1904-01| =IFERROR(XLOOKUP)| ₹ 31,000.00 | Verified     |\n| C5   | EMP-EX1904-02| =IFERROR(XLOOKUP)| ₹ 41,000.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =MINUTE(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function MINUTE ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1905",
-      "title": "Practical Workplace Audit & Modeling (Task 5)",
+      "title": "Date, Time & Text Intelligence (SECOND) (Task 5)",
       "difficulty": "beginner",
       "sheetName": "EX1905",
-      "formula": "=IFERROR(XLOOKUP(A8, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1905 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1905.",
+      "formula": "=SECOND(B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1905 in range B4:C30. You must write formulas using function **SECOND** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1905** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1905**.",
+        "In cell **D4**, write formula using **SECOND** e.g. `=SECOND(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1905**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1905**.\n2. **Type SECOND**: Enter `=SECOND(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "32500",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 32,500.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1905-01| =IFERROR(XLOOKUP)| ₹ 32,500.00 | Verified     |\n| C5   | EMP-EX1905-02| =IFERROR(XLOOKUP)| ₹ 42,500.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =SECOND(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function SECOND ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1906",
-      "title": "Practical Workplace Audit & Modeling (Task 6)",
+      "title": "Date, Time & Text Intelligence (EDATE) (Task 6)",
       "difficulty": "beginner",
       "sheetName": "EX1906",
-      "formula": "=IFERROR(XLOOKUP(A9, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1906 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1906.",
+      "formula": "=EDATE(B4, 6)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1906 in range B4:C30. You must write formulas using function **EDATE** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1906** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1906**.",
+        "In cell **D4**, write formula using **EDATE** e.g. `=EDATE(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1906**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1906**.\n2. **Type EDATE**: Enter `=EDATE(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "34000",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 34,000.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1906-01| =IFERROR(XLOOKUP)| ₹ 34,000.00 | Verified     |\n| C5   | EMP-EX1906-02| =IFERROR(XLOOKUP)| ₹ 44,000.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =EDATE(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function EDATE ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1907",
-      "title": "Practical Workplace Audit & Modeling (Task 7)",
+      "title": "Date, Time & Text Intelligence (EOMONTH) (Task 7)",
       "difficulty": "beginner",
       "sheetName": "EX1907",
-      "formula": "=IFERROR(XLOOKUP(A10, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1907 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1907.",
+      "formula": "=EOMONTH(B4, 6)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1907 in range B4:C30. You must write formulas using function **EOMONTH** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1907** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1907**.",
+        "In cell **D4**, write formula using **EOMONTH** e.g. `=EOMONTH(B4, 0)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1907**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1907**.\n2. **Type EOMONTH**: Enter `=EOMONTH(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "35500",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 35,500.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1907-01| =IFERROR(XLOOKUP)| ₹ 35,500.00 | Verified     |\n| C5   | EMP-EX1907-02| =IFERROR(XLOOKUP)| ₹ 45,500.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =EOMONTH(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function EOMONTH ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1908",
-      "title": "Practical Workplace Audit & Modeling (Task 8)",
+      "title": "Date, Time & Text Intelligence (DAYS) (Task 8)",
       "difficulty": "beginner",
       "sheetName": "EX1908",
-      "formula": "=IFERROR(XLOOKUP(A11, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1908 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1908.",
+      "formula": "=DAYS(C4, B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1908 in range B4:C30. You must write formulas using function **DAYS** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1908** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1908**.",
+        "In cell **D4**, write formula using **DAYS** e.g. `=DAYS(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1908**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1908**.\n2. **Type DAYS**: Enter `=DAYS(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "37000",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 37,000.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1908-01| =IFERROR(XLOOKUP)| ₹ 37,000.00 | Verified     |\n| C5   | EMP-EX1908-02| =IFERROR(XLOOKUP)| ₹ 47,000.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =DAYS(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function DAYS ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1909",
-      "title": "Practical Workplace Audit & Modeling (Task 9)",
+      "title": "Date, Time & Text Intelligence (DAYS360) (Task 9)",
       "difficulty": "intermediate",
       "sheetName": "EX1909",
-      "formula": "=IFERROR(XLOOKUP(A12, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1909 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1909.",
+      "formula": "=DAYS360(B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1909 in range B4:C30. You must write formulas using function **DAYS360** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1909** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1909**.",
+        "In cell **D4**, write formula using **DAYS360** e.g. `=DAYS360(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1909**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1909**.\n2. **Type DAYS360**: Enter `=DAYS360(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "38500",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 38,500.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1909-01| =IFERROR(XLOOKUP)| ₹ 38,500.00 | Verified     |\n| C5   | EMP-EX1909-02| =IFERROR(XLOOKUP)| ₹ 48,500.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =DAYS360(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function DAYS360 ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1910",
-      "title": "Practical Workplace Audit & Modeling (Task 10)",
+      "title": "Date, Time & Text Intelligence (WEEKDAY) (Task 10)",
       "difficulty": "intermediate",
       "sheetName": "EX1910",
-      "formula": "=IFERROR(XLOOKUP(A13, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1910 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1910.",
+      "formula": "=WEEKDAY(B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1910 in range B4:C30. You must write formulas using function **WEEKDAY** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1910** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1910**.",
+        "In cell **D4**, write formula using **WEEKDAY** e.g. `=WEEKDAY(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1910**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1910**.\n2. **Type WEEKDAY**: Enter `=WEEKDAY(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "40000",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 40,000.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1910-01| =IFERROR(XLOOKUP)| ₹ 40,000.00 | Verified     |\n| C5   | EMP-EX1910-02| =IFERROR(XLOOKUP)| ₹ 50,000.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =WEEKDAY(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function WEEKDAY ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1911",
-      "title": "Practical Workplace Audit & Modeling (Task 11)",
+      "title": "Date, Time & Text Intelligence (WEEKNUM) (Task 11)",
       "difficulty": "intermediate",
       "sheetName": "EX1911",
-      "formula": "=IFERROR(XLOOKUP(A14, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1911 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1911.",
+      "formula": "=WEEKNUM(B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1911 in range B4:C30. You must write formulas using function **WEEKNUM** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1911** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1911**.",
+        "In cell **D4**, write formula using **WEEKNUM** e.g. `=WEEKNUM(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1911**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1911**.\n2. **Type WEEKNUM**: Enter `=WEEKNUM(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "41500",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 41,500.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1911-01| =IFERROR(XLOOKUP)| ₹ 41,500.00 | Verified     |\n| C5   | EMP-EX1911-02| =IFERROR(XLOOKUP)| ₹ 51,500.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =WEEKNUM(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function WEEKNUM ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1912",
-      "title": "Practical Workplace Audit & Modeling (Task 12)",
+      "title": "Date, Time & Text Intelligence (ISOWEEKNUM) (Task 12)",
       "difficulty": "intermediate",
       "sheetName": "EX1912",
-      "formula": "=IFERROR(XLOOKUP(A15, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1912 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1912.",
+      "formula": "=ISOWEEKNUM(B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1912 in range B4:C30. You must write formulas using function **ISOWEEKNUM** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1912** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1912**.",
+        "In cell **D4**, write formula using **ISOWEEKNUM** e.g. `=ISOWEEKNUM(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1912**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1912**.\n2. **Type ISOWEEKNUM**: Enter `=ISOWEEKNUM(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "43000",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 43,000.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1912-01| =IFERROR(XLOOKUP)| ₹ 43,000.00 | Verified     |\n| C5   | EMP-EX1912-02| =IFERROR(XLOOKUP)| ₹ 53,000.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =ISOWEEKNUM(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function ISOWEEKNUM ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1913",
-      "title": "Practical Workplace Audit & Modeling (Task 13)",
+      "title": "Date, Time & Text Intelligence (EXACT) (Task 13)",
       "difficulty": "intermediate",
       "sheetName": "EX1913",
-      "formula": "=IFERROR(XLOOKUP(A16, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1913 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1913.",
+      "formula": "=EXACT(B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1913 in range B4:C30. You must write formulas using function **EXACT** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1913** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1913**.",
+        "In cell **D4**, write formula using **EXACT** e.g. `=EXACT(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1913**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1913**.\n2. **Type EXACT**: Enter `=EXACT(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "44500",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 44,500.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1913-01| =IFERROR(XLOOKUP)| ₹ 44,500.00 | Verified     |\n| C5   | EMP-EX1913-02| =IFERROR(XLOOKUP)| ₹ 54,500.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =EXACT(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function EXACT ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1914",
-      "title": "Practical Workplace Audit & Modeling (Task 14)",
+      "title": "Date, Time & Text Intelligence (CHAR) (Task 14)",
       "difficulty": "intermediate",
       "sheetName": "EX1914",
-      "formula": "=IFERROR(XLOOKUP(A17, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1914 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1914.",
+      "formula": "=CHAR(B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1914 in range B4:C30. You must write formulas using function **CHAR** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1914** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1914**.",
+        "In cell **D4**, write formula using **CHAR** e.g. `=CHAR(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1914**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1914**.\n2. **Type CHAR**: Enter `=CHAR(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "46000",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 46,000.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1914-01| =IFERROR(XLOOKUP)| ₹ 46,000.00 | Verified     |\n| C5   | EMP-EX1914-02| =IFERROR(XLOOKUP)| ₹ 56,000.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =CHAR(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function CHAR ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1915",
-      "title": "Practical Workplace Audit & Modeling (Task 15)",
+      "title": "Date, Time & Text Intelligence (CODE) (Task 15)",
       "difficulty": "intermediate",
       "sheetName": "EX1915",
-      "formula": "=IFERROR(XLOOKUP(A18, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1915 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1915.",
+      "formula": "=CODE(B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1915 in range B4:C30. You must write formulas using function **CODE** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1915** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1915**.",
+        "In cell **D4**, write formula using **CODE** e.g. `=CODE(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1915**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1915**.\n2. **Type CODE**: Enter `=CODE(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "47500",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 47,500.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1915-01| =IFERROR(XLOOKUP)| ₹ 47,500.00 | Verified     |\n| C5   | EMP-EX1915-02| =IFERROR(XLOOKUP)| ₹ 57,500.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =CODE(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function CODE ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1916",
-      "title": "Practical Workplace Audit & Modeling (Task 16)",
+      "title": "Date, Time & Text Intelligence (UNICHAR) (Task 16)",
       "difficulty": "intermediate",
       "sheetName": "EX1916",
-      "formula": "=IFERROR(XLOOKUP(A19, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1916 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1916.",
+      "formula": "=UNICHAR(B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1916 in range B4:C30. You must write formulas using function **UNICHAR** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1916** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1916**.",
+        "In cell **D4**, write formula using **UNICHAR** e.g. `=UNICHAR(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1916**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1916**.\n2. **Type UNICHAR**: Enter `=UNICHAR(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "49000",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 49,000.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1916-01| =IFERROR(XLOOKUP)| ₹ 49,000.00 | Verified     |\n| C5   | EMP-EX1916-02| =IFERROR(XLOOKUP)| ₹ 59,000.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =UNICHAR(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function UNICHAR ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1917",
-      "title": "Practical Workplace Audit & Modeling (Task 17)",
+      "title": "Date, Time & Text Intelligence (UNICODE) (Task 17)",
       "difficulty": "intermediate",
       "sheetName": "EX1917",
-      "formula": "=IFERROR(XLOOKUP(A20, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1917 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1917.",
+      "formula": "=UNICODE(B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1917 in range B4:C30. You must write formulas using function **UNICODE** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1917** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1917**.",
+        "In cell **D4**, write formula using **UNICODE** e.g. `=UNICODE(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1917**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1917**.\n2. **Type UNICODE**: Enter `=UNICODE(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "50500",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 50,500.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1917-01| =IFERROR(XLOOKUP)| ₹ 50,500.00 | Verified     |\n| C5   | EMP-EX1917-02| =IFERROR(XLOOKUP)| ₹ 60,500.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =UNICODE(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function UNICODE ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1918",
-      "title": "Practical Workplace Audit & Modeling (Task 18)",
+      "title": "Date, Time & Text Intelligence (REPT) (Task 18)",
       "difficulty": "intermediate",
       "sheetName": "EX1918",
-      "formula": "=IFERROR(XLOOKUP(A21, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1918 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1918.",
+      "formula": "=REPT(B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1918 in range B4:C30. You must write formulas using function **REPT** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1918** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1918**.",
+        "In cell **D4**, write formula using **REPT** e.g. `=REPT(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1918**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1918**.\n2. **Type REPT**: Enter `=REPT(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "52000",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 52,000.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1918-01| =IFERROR(XLOOKUP)| ₹ 52,000.00 | Verified     |\n| C5   | EMP-EX1918-02| =IFERROR(XLOOKUP)| ₹ 62,000.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =REPT(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function REPT ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1919",
-      "title": "Practical Workplace Audit & Modeling (Task 19)",
+      "title": "Date, Time & Text Intelligence (FIXED) (Task 19)",
       "difficulty": "advanced",
       "sheetName": "EX1919",
-      "formula": "=IFERROR(XLOOKUP(A22, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1919 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1919.",
+      "formula": "=FIXED(B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1919 in range B4:C30. You must write formulas using function **FIXED** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1919** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1919**.",
+        "In cell **D4**, write formula using **FIXED** e.g. `=FIXED(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1919**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1919**.\n2. **Type FIXED**: Enter `=FIXED(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "53500",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 53,500.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1919-01| =IFERROR(XLOOKUP)| ₹ 53,500.00 | Verified     |\n| C5   | EMP-EX1919-02| =IFERROR(XLOOKUP)| ₹ 63,500.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =FIXED(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function FIXED ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1920",
-      "title": "Practical Workplace Audit & Modeling (Task 20)",
+      "title": "Date, Time & Text Intelligence (DOLLAR) (Task 20)",
       "difficulty": "advanced",
       "sheetName": "EX1920",
-      "formula": "=IFERROR(XLOOKUP(A23, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1920 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1920.",
+      "formula": "=DOLLAR(B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1920 in range B4:C30. You must write formulas using function **DOLLAR** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1920** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1920**.",
+        "In cell **D4**, write formula using **DOLLAR** e.g. `=DOLLAR(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1920**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1920**.\n2. **Type DOLLAR**: Enter `=DOLLAR(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "55000",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 55,000.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1920-01| =IFERROR(XLOOKUP)| ₹ 55,000.00 | Verified     |\n| C5   | EMP-EX1920-02| =IFERROR(XLOOKUP)| ₹ 65,000.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =DOLLAR(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function DOLLAR ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1921",
-      "title": "Practical Workplace Audit & Modeling (Task 21)",
+      "title": "Date, Time & Text Intelligence (BAHTTEXT) (Task 21)",
       "difficulty": "advanced",
       "sheetName": "EX1921",
-      "formula": "=IFERROR(XLOOKUP(A24, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1921 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1921.",
+      "formula": "=BAHTTEXT(B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1921 in range B4:C30. You must write formulas using function **BAHTTEXT** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1921** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1921**.",
+        "In cell **D4**, write formula using **BAHTTEXT** e.g. `=BAHTTEXT(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1921**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1921**.\n2. **Type BAHTTEXT**: Enter `=BAHTTEXT(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "56500",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 56,500.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1921-01| =IFERROR(XLOOKUP)| ₹ 56,500.00 | Verified     |\n| C5   | EMP-EX1921-02| =IFERROR(XLOOKUP)| ₹ 66,500.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =BAHTTEXT(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function BAHTTEXT ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1922",
-      "title": "Practical Workplace Audit & Modeling (Task 22)",
+      "title": "Date, Time & Text Intelligence (TIME) (Task 22)",
       "difficulty": "advanced",
       "sheetName": "EX1922",
-      "formula": "=IFERROR(XLOOKUP(A25, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1922 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1922.",
+      "formula": "=TIME(B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1922 in range B4:C30. You must write formulas using function **TIME** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1922** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1922**.",
+        "In cell **D4**, write formula using **TIME** e.g. `=TIME(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1922**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1922**.\n2. **Type TIME**: Enter `=TIME(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "58000",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 58,000.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1922-01| =IFERROR(XLOOKUP)| ₹ 58,000.00 | Verified     |\n| C5   | EMP-EX1922-02| =IFERROR(XLOOKUP)| ₹ 68,000.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =TIME(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function TIME ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1923",
-      "title": "Practical Workplace Audit & Modeling (Task 23)",
+      "title": "Date, Time & Text Intelligence (TIMEVALUE) (Task 23)",
       "difficulty": "advanced",
       "sheetName": "EX1923",
-      "formula": "=IFERROR(XLOOKUP(A26, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1923 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1923.",
+      "formula": "=TIMEVALUE(B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1923 in range B4:C30. You must write formulas using function **TIMEVALUE** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1923** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1923**.",
+        "In cell **D4**, write formula using **TIMEVALUE** e.g. `=TIMEVALUE(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1923**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1923**.\n2. **Type TIMEVALUE**: Enter `=TIMEVALUE(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "59500",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 59,500.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1923-01| =IFERROR(XLOOKUP)| ₹ 59,500.00 | Verified     |\n| C5   | EMP-EX1923-02| =IFERROR(XLOOKUP)| ₹ 69,500.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =TIMEVALUE(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function TIMEVALUE ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1924",
-      "title": "Practical Workplace Audit & Modeling (Task 24)",
+      "title": "Date, Time & Text Intelligence (HOUR) (Task 24)",
       "difficulty": "advanced",
       "sheetName": "EX1924",
-      "formula": "=IFERROR(XLOOKUP(A27, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1924 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1924.",
+      "formula": "=HOUR(B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1924 in range B4:C30. You must write formulas using function **HOUR** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1924** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1924**.",
+        "In cell **D4**, write formula using **HOUR** e.g. `=HOUR(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1924**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1924**.\n2. **Type HOUR**: Enter `=HOUR(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "61000",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 61,000.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1924-01| =IFERROR(XLOOKUP)| ₹ 61,000.00 | Verified     |\n| C5   | EMP-EX1924-02| =IFERROR(XLOOKUP)| ₹ 71,000.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =HOUR(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function HOUR ensures consistent date serial calculations across different regional locale settings!"
     },
     {
       "projectId": "EX1925",
-      "title": "Practical Workplace Audit & Modeling (Task 25)",
+      "title": "Date, Time & Text Intelligence (MINUTE) (Task 25)",
       "difficulty": "advanced",
       "sheetName": "EX1925",
-      "formula": "=IFERROR(XLOOKUP(A28, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX1925 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX1925.",
+      "formula": "=MINUTE(B4)",
+      "description": "As a Senior Systems Analyst, you are processing date-time serials and text payloads on worksheet EX1925 in range B4:C30. You must write formulas using function **MINUTE** to calculate elapsed days, extract month-end dates, compute shift hours, convert ASCII/Unicode codes, or generate repeated in-cell bar visualizers.",
       "requirements": [
-        "Open worksheet tab **EX1925** in your master workbook.",
-        "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
-        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
-        "Double-click fill handle to copy formulas down through row 30.",
-        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
+        "Navigate to tab **EX1925**.",
+        "In cell **D4**, write formula using **MINUTE** e.g. `=MINUTE(B4)`.",
+        "Format date/time serial outputs using custom masks e.g. `dd-mmm-yyyy (dddd)` or `[h]:mm:ss`.",
+        "Drag formula down through row 30.",
+        "Verify zero date calculation discrepancies."
       ],
-      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX1925**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
+      "stepByStep": "1. **Click Cell D4**: Open tab **EX1925**.\n2. **Type MINUTE**: Enter `=MINUTE(B4)` and press **Enter**.\n3. **Apply Format**: Press **Ctrl + 1**, select Date or Time custom mask.\n4. **Copy Down**: Double-click fill handle down to D30.\n5. **Audit Verification**: Check calculated date or text string.",
       "rawMemoryVsRendered": {
-        "raw": "62500",
-        "mask": "₹ #,##,##0.00",
-        "rendered": "₹ 62,500.00"
+        "raw": "46200",
+        "mask": "Date Serial Mask",
+        "rendered": "31-Dec-2026 (Thursday)"
       },
-      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX1925-01| =IFERROR(XLOOKUP)| ₹ 62,500.00 | Verified     |\n| C5   | EMP-EX1925-02| =IFERROR(XLOOKUP)| ₹ 72,500.00 | Verified     |",
-      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
+      "expectedOutput": "| Input Value | Function Applied | Formatted Output | Audit Check |\n| ----------- | ---------------- | ---------------- | ----------- |\n| 01-Jan-2026 | =MINUTE(B4)   | Serial Output    | Verified    |",
+      "proTip": "Function MINUTE ensures consistent date serial calculations across different regional locale settings!"
     }
   ]
 };

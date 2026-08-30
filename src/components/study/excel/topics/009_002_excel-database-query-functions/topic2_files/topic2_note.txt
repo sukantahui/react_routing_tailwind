@@ -1,0 +1,3 @@
+TOPIC 2: DCOUNTA
+Syntax: =DCOUNTA(database, field, criteria)
+Description: Counts non-blank cells matching criteria table.

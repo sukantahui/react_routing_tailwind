@@ -1,0 +1,3 @@
+TOPIC 4: TYPE
+Syntax: =TYPE(value)
+Description: Returns integer representing data type.

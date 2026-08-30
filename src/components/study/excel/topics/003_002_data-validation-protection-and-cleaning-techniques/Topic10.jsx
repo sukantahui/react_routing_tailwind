@@ -61,22 +61,22 @@ export default function Topic10() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              {"🛡️ Workbook-Level Encryption & Structure"} · Topic 10
+              {"🧹 Document Inspector & Privacy Scrubbing"} · Topic 11
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              {"Enterprise File Security"}
+              {"Metadata Cleansing & Compliance"}
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              {"Advanced · Bloom Level 4: Analyze"}
+              {"Intermediate-Advanced · Bloom Level 4: Analyze"}
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            {"Workbook-level protection: Structure protection, encryption, and read-only recommendation"}
+            {"Document Inspector: Removing hidden properties, personal information, and metadata"}
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            {"Protecting workbook structure (preventing adding, deleting, hiding, or renaming sheets) and implementing AES-256 cryptographic file encryption"}. Master the complete validation architecture, diagnostic auditing tools, formula stepping, and enterprise encryption protocols.
+            {"Sanitizing sensitive corporate files before external publication using Document Inspector: removing author metadata, hidden rows/columns, invisible sheets, and internal comments"}. Master the complete validation architecture, diagnostic auditing tools, formula stepping, and enterprise encryption protocols.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,7 +113,7 @@ export default function Topic10() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Workbook Protection: Review &gt; Protect Workbook (Structure) | File &gt; Info &gt; Protect Workbook &gt; Encrypt with Password (AES-256)"}
+            {"File &gt; Info &gt; Check for Issues &gt; Inspect Document (Remove Personal Info, Document Properties, Hidden Worksheets, Comments)"}
           </div>
 
           <div className="overflow-x-auto">
@@ -172,18 +172,18 @@ export default function Topic10() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Protect Workbook Structure"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Locks the worksheet tab structure. Users cannot add new sheets, delete existing sheets, rename tabs, unhide hidden sheets, or reorder tabs."}</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Deep Metadata Inspection"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Scans the workbook XML architecture for hidden metadata: Author Name, Company, Revision History, File Paths, Printer Properties, and Email Addresses."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. AES-256 Military-Grade File Encryption"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"File &gt; Info > Protect Workbook > Encrypt with Password applies true AES-256 cryptographic encryption, making the file impossible to open without the master password."}</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Hidden Content Scrubbing"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Identifies and purges hidden worksheets, hidden rows/columns, invisible objects, custom XML data, and embedded cell comments/notes."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Read-Only Recommendation"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Prompts users with 'The author recommends you open this as read-only' to prevent accidental overwriting of master template models."}</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Regulatory Privacy & M&A Compliance"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Essential step before releasing financial models to external buyers, regulatory bodies (SEBI/SEC), or public investor relations portals."}</p>
             </div>
             
           </div>
@@ -199,7 +199,7 @@ export default function Topic10() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Workbook Security Architecture: Structural Lock (Sheet Tabs) vs AES-256 Cryptographic File Encryption"}
+              Visual Dataflow: {"Document Inspector Privacy Scrub: Deep Metadata Inspection -> Scrubbing Pipeline"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Security Pipeline
@@ -209,11 +209,11 @@ export default function Topic10() {
           <div className="p-4 rounded-xl bg-slate-950/90 border border-slate-800/80 flex flex-col items-center justify-center overflow-x-auto shadow-inner">
             <svg viewBox="0 0 820 220" className="w-full max-w-4xl h-auto text-slate-200 select-none font-sans">
               <defs>
-                <linearGradient id="gradFlowMod8_10" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient id="gradFlowMod8_11" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
                   <stop offset="100%" stopColor="#0369a1" stopOpacity="0.8" />
                 </linearGradient>
-                <marker id="arrowMod8_10" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <marker id="arrowMod8_11" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                   <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
                 </marker>
               </defs>
@@ -228,20 +228,20 @@ export default function Topic10() {
                 <text x="105" y="118" textAnchor="middle" fill="#64748b" fontSize="10">User Entry Cell</text>
               </g>
 
-              <path d="M 245 110 L 305 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod8_10)" fill="none" />
+              <path d="M 245 110 L 305 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod8_11)" fill="none" />
 
               {/* Node 2: Validation Gatekeeper */}
               <g transform="translate(315, 30)">
                 <rect width="250" height="160" rx="14" fill="#0c4a6e" stroke="#0284c7" strokeWidth="2" />
                 <rect x="14" y="14" width="222" height="28" rx="6" fill="#0369a1" />
                 <text x="125" y="33" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">Data Validation Gatekeeper</text>
-                <text x="125" y="75" textAnchor="middle" fill="#7dd3fc" fontSize="13" fontFamily="monospace" fontWeight="bold">{"Enterprise File Security"}</text>
+                <text x="125" y="75" textAnchor="middle" fill="#7dd3fc" fontSize="13" fontFamily="monospace" fontWeight="bold">{"Metadata Cleansing & Compliance"}</text>
                 <text x="125" y="100" textAnchor="middle" fill="#bae6fd" fontSize="10">Boundary &amp; Syntax Verification</text>
                 <text x="125" y="120" textAnchor="middle" fill="#bae6fd" fontSize="10">Cell Protection Enforcement</text>
                 <text x="125" y="140" textAnchor="middle" fill="#38bdf8" fontSize="9" fontStyle="italic">Native Core Security</text>
               </g>
 
-              <path d="M 570 110 L 630 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod8_10)" fill="none" />
+              <path d="M 570 110 L 630 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod8_11)" fill="none" />
 
               {/* Node 3: Validated Commit / Block */}
               <g transform="translate(640, 45)">
@@ -286,8 +286,8 @@ export default function Topic10() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic10_Workbook_level_pro"
-            title={"Workbook-level protection: Structure protection, encryption, and read-only recommendation - Interactive Practice Grid"}
+            sheetName="Topic10_Document_Inspector"
+            title={"Document Inspector: Removing hidden properties, personal information, and metadata - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
           />
@@ -314,38 +314,38 @@ export default function Topic10() {
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Director of M&A"}</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Managing Director M&A"}</span>
                 <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Confidential M&A Deal Room Financial Model"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Encrypts ₹500 Crore cross-border acquisition models with AES-256 encryption before transmitting via secure data rooms."}</p>
+              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Public Tender Financial Model Metadata Scrub"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Runs Document Inspector to scrub internal valuation commentary, previous draft author identities, and hidden sheets before submitting government contract bids."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Corporate Governance Lead"}</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Statutory Compliance Auditor"}</span>
                 <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Statutory Financial Statement Structure Lock"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Protects workbook structure to prevent regional accountants from accidentally inserting rogue sheets or renaming audited tabs."}</p>
+              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Audited Financial Statements Privacy Scrub"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Removes personal email addresses and internal audit notes from financial statements before filing with MCA."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Intellectual Property Lead"}</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Legal & IP Lead"}</span>
                 <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">{"Abhronila Das: Proprietary Alloy Formula Model Protection"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Hides and protects proprietary engineering calculation worksheets from unauthorized visibility."}</p>
+              <h3 className="font-bold text-white text-base">{"Abhronila Das: Vendor RFP Contract Sanitization"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Cleanses template properties and internal competitor benchmark pricing notes before vendor distribution."}</p>
             </div>
             
             <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Fleet Asset Manager"}</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Logistics Commercial Lead"}</span>
                 <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Master Fleet Pricing Template Read-Only Lock"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Applies 'Always Open Read-Only' recommendation to prevent transport dispatchers from overwriting baseline price tables."}</p>
+              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Client Freight Proposal Metadata Sanitization"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Removes internal cost-margin comments from customer-facing quotation spreadsheets."}</p>
             </div>
             
           </div>
@@ -385,7 +385,7 @@ export default function Topic10() {
                 Step 2: Configure Validation Criteria &amp; Formulas
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the Settings tab, select Allow: Custom/List and enter the formula or range reference <code className="text-cyan-300 font-mono font-bold">{"Workbook Protection: Review &gt; Protect Workbook (Structure) | File &gt; Info &gt; Protect Workbook &gt; Encrypt with Password (AES-256)"}</code>.
+                In the Settings tab, select Allow: Custom/List and enter the formula or range reference <code className="text-cyan-300 font-mono font-bold">{"File &gt; Info &gt; Check for Issues &gt; Inspect Document (Remove Personal Info, Document Properties, Hidden Worksheets, Comments)"}</code>.
               </p>
             </div>
 
@@ -440,21 +440,21 @@ export default function Topic10() {
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Lost Encryption Password (Unrecoverable)"}</td>
-                  <td className="py-3 px-4">{"Forgetting the master encryption password locks everyone—including Microsoft and the author—out of the file permanently."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Store corporate master encryption keys in secure enterprise password vaults."}</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Irreversible Deletion of Necessary Hidden Sheets"}</td>
+                  <td className="py-3 px-4">{"Clicking 'Remove All' on Hidden Worksheets in Document Inspector permanently DELETES those sheets from the workbook."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Always save a backup copy (`Model_Master_Internal.xlsx`) before running Document Inspector."}</td>
                 </tr>
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Confusing Sheet Protection with Workbook Protection"}</td>
-                  <td className="py-3 px-4">{"Protecting the sheet still allows users to right-click the tab and DELETE the entire sheet."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Apply BOTH Protect Sheet (cell level) and Protect Workbook (tab structure level)."}</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Accidental Removal of Live Pivot Cache XML"}</td>
+                  <td className="py-3 px-4">{"Removing Custom XML data can occasionally corrupt complex Power Query or third-party add-in connections."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Review itemized inspection results before clicking 'Remove All'."}</td>
                 </tr>
                 
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Unhiding Sheets Blocked by Structure Lock"}</td>
-                  <td className="py-3 px-4">{"Trying to unhide a hidden sheet while Workbook Protection is active."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Unprotect the workbook first (Review &gt; Protect Workbook) before managing tabs."}</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Publishing Internal Notes to Public Competitors"}</td>
+                  <td className="py-3 px-4">{"Forgetting to inspect documents leaves confidential internal margin discussions visible in cell comments."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Make Document Inspection a mandatory step in corporate sign-off checklists."}</td>
                 </tr>
                 
               </tbody>
@@ -483,26 +483,26 @@ export default function Topic10() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Protect Structure Shortcut"}
+                <span>⚡</span> {"Launch Document Inspector"}
               </div>
-              <p className="text-slate-300 leading-relaxed">{"Locks worksheet tabs against adding, deleting, and renaming."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Review &gt; Protect Workbook (Alt + R + P + W)"}</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Comprehensive audit of all hidden properties and comments."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"File &gt; Info > Check for Issues > Inspect Document"}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Military-Grade Encryption"}
+                <span>⚡</span> {"Save Backup First"}
               </div>
-              <p className="text-slate-300 leading-relaxed">{"Applies true unbreakable AES-256 file encryption."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"File &gt; Info > Encrypt with Password"}</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Mandatory safeguard before purging metadata."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Save as Model_Cleaned_External.xlsx"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Very Hidden Sheets (VBA)"}
+                <span>⚡</span> {"Inspect for Hidden Rows"}
               </div>
-              <p className="text-slate-300 leading-relaxed">{"Hides sheets so they cannot be seen or unhidden from standard Excel menus."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Sheet.Visible = xlSheetVeryHidden"}</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Prevents leaking sensitive filtered data in shared spreadsheets."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Highlights hidden rows/cols"}</kbd>
             </div>
             
           </div>
@@ -529,7 +529,7 @@ export default function Topic10() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: {"Why can a user still delete a protected sheet unless 'Protect Workbook Structure' is also turned on?"}
+                <span className="text-teal-400">💭</span> Question 1: {"Why must you always save a backup copy of your financial model before running Document Inspector?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the spreadsheet security architecture and data governance implications.
@@ -538,7 +538,7 @@ export default function Topic10() {
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: {"What is the fundamental security difference between Protect Sheet and File Encryption with Password?"}
+                <span className="text-teal-400">💭</span> Question 2: {"What confidential corporate information can be inadvertently leaked if Document Inspector is not run?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the spreadsheet security architecture and data governance implications.
@@ -547,7 +547,7 @@ export default function Topic10() {
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: {"What is the danger of losing an AES-256 encrypted Excel password?"}
+                <span className="text-teal-400">💭</span> Question 3: {"Why is Document Inspection mandatory before uploading financial files to public investor relations websites?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the spreadsheet security architecture and data governance implications.
@@ -562,7 +562,7 @@ export default function Topic10() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title={"Workbook-level protection: Structure protection, encryption, and read-only recommendation - Frequently Asked Questions"}
+            title={"Document Inspector: Removing hidden properties, personal information, and metadata - Frequently Asked Questions"}
             questions={questions}
           />
         </div>
@@ -572,7 +572,7 @@ export default function Topic10() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note={"Protect Sheet only protects cells; users can still right-click the sheet tab and DELETE it! Always go to Review -> Protect Workbook (Structure) to lock tabs from being deleted or renamed."}
+            note={"Never email an Excel model to a client or competitor without running Document Inspector! It takes 10 seconds and prevents embarrassing leaks of internal comments and author metadata."}
           />
         </div>
       </div>

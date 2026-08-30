@@ -1,0 +1,4 @@
+TECHNICAL SPECIFICATION
+Topic 5: DMIN
+Returns min value matching criteria table.
+Syntax: =DMIN(database, field, criteria)

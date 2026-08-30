@@ -17,578 +17,578 @@ export const excelModuleProjectsData = {
   "projects": [
     {
       "projectId": "EX901",
-      "title": "Statistical & Aggregation Formula Modeling (Task 1)",
+      "title": "Statistical Analytics & FREQUENCY Method (Task 1)",
       "difficulty": "beginner",
       "sheetName": "EX901",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A4, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX901. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=FREQUENCY(B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX901 in range B4:C30. You must compute method **FREQUENCY** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX901** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **FREQUENCY** e.g. `=FREQUENCY(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX901** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX901**.\n2. **Construct FREQUENCY**: Type `=FREQUENCY(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "51200",
-        "mask": "Standard Number",
-        "rendered": "₹ 51,200"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| FREQUENCY Statistic| =FREQUENCY(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method FREQUENCY provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX902",
-      "title": "Statistical & Aggregation Formula Modeling (Task 2)",
+      "title": "Statistical Analytics & GEOMEAN Method (Task 2)",
       "difficulty": "beginner",
       "sheetName": "EX902",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A5, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX902. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=GEOMEAN(B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX902 in range B4:C30. You must compute method **GEOMEAN** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX902** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **GEOMEAN** e.g. `=GEOMEAN(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX902** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX902**.\n2. **Construct GEOMEAN**: Type `=GEOMEAN(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "52400",
-        "mask": "Standard Number",
-        "rendered": "₹ 52,400"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| GEOMEAN Statistic| =GEOMEAN(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method GEOMEAN provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX903",
-      "title": "Statistical & Aggregation Formula Modeling (Task 3)",
+      "title": "Statistical Analytics & HARMEAN Method (Task 3)",
       "difficulty": "beginner",
       "sheetName": "EX903",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A6, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX903. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=HARMEAN(B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX903 in range B4:C30. You must compute method **HARMEAN** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX903** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **HARMEAN** e.g. `=HARMEAN(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX903** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX903**.\n2. **Construct HARMEAN**: Type `=HARMEAN(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "53600",
-        "mask": "Standard Number",
-        "rendered": "₹ 53,600"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| HARMEAN Statistic| =HARMEAN(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method HARMEAN provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX904",
-      "title": "Statistical & Aggregation Formula Modeling (Task 4)",
+      "title": "Statistical Analytics & TRIMMEAN Method (Task 4)",
       "difficulty": "beginner",
       "sheetName": "EX904",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A7, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX904. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=TRIMMEAN(B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX904 in range B4:C30. You must compute method **TRIMMEAN** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX904** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **TRIMMEAN** e.g. `=TRIMMEAN(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX904** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX904**.\n2. **Construct TRIMMEAN**: Type `=TRIMMEAN(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "54800",
-        "mask": "Standard Number",
-        "rendered": "₹ 54,800"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| TRIMMEAN Statistic| =TRIMMEAN(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method TRIMMEAN provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX905",
-      "title": "Statistical & Aggregation Formula Modeling (Task 5)",
+      "title": "Statistical Analytics & AVEDEV Method (Task 5)",
       "difficulty": "beginner",
       "sheetName": "EX905",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A8, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX905. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=AVEDEV(B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX905 in range B4:C30. You must compute method **AVEDEV** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX905** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **AVEDEV** e.g. `=AVEDEV(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX905** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX905**.\n2. **Construct AVEDEV**: Type `=AVEDEV(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "56000",
-        "mask": "Standard Number",
-        "rendered": "₹ 56,000"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| AVEDEV Statistic| =AVEDEV(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method AVEDEV provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX906",
-      "title": "Statistical & Aggregation Formula Modeling (Task 6)",
+      "title": "Statistical Analytics & DEVSQ Method (Task 6)",
       "difficulty": "beginner",
       "sheetName": "EX906",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A9, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX906. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=DEVSQ(B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX906 in range B4:C30. You must compute method **DEVSQ** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX906** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **DEVSQ** e.g. `=DEVSQ(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX906** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX906**.\n2. **Construct DEVSQ**: Type `=DEVSQ(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "57200",
-        "mask": "Standard Number",
-        "rendered": "₹ 57,200"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| DEVSQ Statistic| =DEVSQ(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method DEVSQ provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX907",
-      "title": "Statistical & Aggregation Formula Modeling (Task 7)",
+      "title": "Statistical Analytics & SKEW Method (Task 7)",
       "difficulty": "beginner",
       "sheetName": "EX907",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A10, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX907. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=SKEW(B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX907 in range B4:C30. You must compute method **SKEW** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX907** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **SKEW** e.g. `=SKEW(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX907** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX907**.\n2. **Construct SKEW**: Type `=SKEW(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "58400",
-        "mask": "Standard Number",
-        "rendered": "₹ 58,400"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| SKEW Statistic| =SKEW(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method SKEW provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX908",
-      "title": "Statistical & Aggregation Formula Modeling (Task 8)",
+      "title": "Statistical Analytics & SKEW.P Method (Task 8)",
       "difficulty": "beginner",
       "sheetName": "EX908",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A11, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX908. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=SKEW.P(B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX908 in range B4:C30. You must compute method **SKEW.P** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX908** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **SKEW.P** e.g. `=SKEW.P(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX908** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX908**.\n2. **Construct SKEW.P**: Type `=SKEW.P(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "59600",
-        "mask": "Standard Number",
-        "rendered": "₹ 59,600"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| SKEW.P Statistic| =SKEW.P(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method SKEW.P provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX909",
-      "title": "Statistical & Aggregation Formula Modeling (Task 9)",
+      "title": "Statistical Analytics & KURT Method (Task 9)",
       "difficulty": "intermediate",
       "sheetName": "EX909",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A12, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX909. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=KURT(B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX909 in range B4:C30. You must compute method **KURT** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX909** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **KURT** e.g. `=KURT(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX909** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX909**.\n2. **Construct KURT**: Type `=KURT(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "60800",
-        "mask": "Standard Number",
-        "rendered": "₹ 60,800"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| KURT Statistic| =KURT(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method KURT provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX910",
-      "title": "Statistical & Aggregation Formula Modeling (Task 10)",
+      "title": "Statistical Analytics & STANDARDIZE Method (Task 10)",
       "difficulty": "intermediate",
       "sheetName": "EX910",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A13, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX910. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=STANDARDIZE(B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX910 in range B4:C30. You must compute method **STANDARDIZE** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX910** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **STANDARDIZE** e.g. `=STANDARDIZE(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX910** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX910**.\n2. **Construct STANDARDIZE**: Type `=STANDARDIZE(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "62000",
-        "mask": "Standard Number",
-        "rendered": "₹ 62,000"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| STANDARDIZE Statistic| =STANDARDIZE(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method STANDARDIZE provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX911",
-      "title": "Statistical & Aggregation Formula Modeling (Task 11)",
+      "title": "Statistical Analytics & Z.TEST Method (Task 11)",
       "difficulty": "intermediate",
       "sheetName": "EX911",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A14, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX911. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=Z.TEST(B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX911 in range B4:C30. You must compute method **Z.TEST** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX911** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **Z.TEST** e.g. `=Z.TEST(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX911** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX911**.\n2. **Construct Z.TEST**: Type `=Z.TEST(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "63200",
-        "mask": "Standard Number",
-        "rendered": "₹ 63,200"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| Z.TEST Statistic| =Z.TEST(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method Z.TEST provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX912",
-      "title": "Statistical & Aggregation Formula Modeling (Task 12)",
+      "title": "Statistical Analytics & T.TEST Method (Task 12)",
       "difficulty": "intermediate",
       "sheetName": "EX912",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A15, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX912. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=T.TEST(B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX912 in range B4:C30. You must compute method **T.TEST** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX912** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **T.TEST** e.g. `=T.TEST(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX912** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX912**.\n2. **Construct T.TEST**: Type `=T.TEST(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "64400",
-        "mask": "Standard Number",
-        "rendered": "₹ 64,400"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| T.TEST Statistic| =T.TEST(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method T.TEST provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX913",
-      "title": "Statistical & Aggregation Formula Modeling (Task 13)",
+      "title": "Statistical Analytics & F.TEST Method (Task 13)",
       "difficulty": "intermediate",
       "sheetName": "EX913",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A16, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX913. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=F.TEST(B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX913 in range B4:C30. You must compute method **F.TEST** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX913** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **F.TEST** e.g. `=F.TEST(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX913** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX913**.\n2. **Construct F.TEST**: Type `=F.TEST(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "65600",
-        "mask": "Standard Number",
-        "rendered": "₹ 65,600"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| F.TEST Statistic| =F.TEST(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method F.TEST provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX914",
-      "title": "Statistical & Aggregation Formula Modeling (Task 14)",
+      "title": "Statistical Analytics & CHISQ.TEST Method (Task 14)",
       "difficulty": "intermediate",
       "sheetName": "EX914",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A17, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX914. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=CHISQ.TEST(B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX914 in range B4:C30. You must compute method **CHISQ.TEST** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX914** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **CHISQ.TEST** e.g. `=CHISQ.TEST(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX914** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX914**.\n2. **Construct CHISQ.TEST**: Type `=CHISQ.TEST(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "66800",
-        "mask": "Standard Number",
-        "rendered": "₹ 66,800"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| CHISQ.TEST Statistic| =CHISQ.TEST(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method CHISQ.TEST provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX915",
-      "title": "Statistical & Aggregation Formula Modeling (Task 15)",
+      "title": "Statistical Analytics & COVARIANCE.S Method (Task 15)",
       "difficulty": "intermediate",
       "sheetName": "EX915",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A18, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX915. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=COVARIANCE.S(B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX915 in range B4:C30. You must compute method **COVARIANCE.S** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX915** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **COVARIANCE.S** e.g. `=COVARIANCE.S(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX915** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX915**.\n2. **Construct COVARIANCE.S**: Type `=COVARIANCE.S(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "68000",
-        "mask": "Standard Number",
-        "rendered": "₹ 68,000"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| COVARIANCE.S Statistic| =COVARIANCE.S(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method COVARIANCE.S provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX916",
-      "title": "Statistical & Aggregation Formula Modeling (Task 16)",
+      "title": "Statistical Analytics & COVARIANCE.P Method (Task 16)",
       "difficulty": "intermediate",
       "sheetName": "EX916",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A19, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX916. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=COVARIANCE.P(B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX916 in range B4:C30. You must compute method **COVARIANCE.P** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX916** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **COVARIANCE.P** e.g. `=COVARIANCE.P(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX916** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX916**.\n2. **Construct COVARIANCE.P**: Type `=COVARIANCE.P(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "69200",
-        "mask": "Standard Number",
-        "rendered": "₹ 69,200"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| COVARIANCE.P Statistic| =COVARIANCE.P(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method COVARIANCE.P provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX917",
-      "title": "Statistical & Aggregation Formula Modeling (Task 17)",
+      "title": "Statistical Analytics & SLOPE Method (Task 17)",
       "difficulty": "intermediate",
       "sheetName": "EX917",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A20, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX917. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=SLOPE(C4:C30, B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX917 in range B4:C30. You must compute method **SLOPE** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX917** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **SLOPE** e.g. `=SLOPE(C4:C30, B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX917** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX917**.\n2. **Construct SLOPE**: Type `=SLOPE(C4:C30, B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "70400",
-        "mask": "Standard Number",
-        "rendered": "₹ 70,400"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| SLOPE Statistic| =SLOPE(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method SLOPE provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX918",
-      "title": "Statistical & Aggregation Formula Modeling (Task 18)",
+      "title": "Statistical Analytics & INTERCEPT Method (Task 18)",
       "difficulty": "intermediate",
       "sheetName": "EX918",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A21, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX918. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=INTERCEPT(C4:C30, B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX918 in range B4:C30. You must compute method **INTERCEPT** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX918** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **INTERCEPT** e.g. `=INTERCEPT(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX918** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX918**.\n2. **Construct INTERCEPT**: Type `=INTERCEPT(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "71600",
-        "mask": "Standard Number",
-        "rendered": "₹ 71,600"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| INTERCEPT Statistic| =INTERCEPT(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method INTERCEPT provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX919",
-      "title": "Statistical & Aggregation Formula Modeling (Task 19)",
+      "title": "Statistical Analytics & RSQ Method (Task 19)",
       "difficulty": "advanced",
       "sheetName": "EX919",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A22, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX919. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=RSQ(C4:C30, B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX919 in range B4:C30. You must compute method **RSQ** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX919** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **RSQ** e.g. `=RSQ(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX919** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX919**.\n2. **Construct RSQ**: Type `=RSQ(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "72800",
-        "mask": "Standard Number",
-        "rendered": "₹ 72,800"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| RSQ Statistic| =RSQ(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method RSQ provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX920",
-      "title": "Statistical & Aggregation Formula Modeling (Task 20)",
+      "title": "Statistical Analytics & STEYX Method (Task 20)",
       "difficulty": "advanced",
       "sheetName": "EX920",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A23, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX920. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=STEYX(C4:C30, B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX920 in range B4:C30. You must compute method **STEYX** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX920** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **STEYX** e.g. `=STEYX(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX920** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX920**.\n2. **Construct STEYX**: Type `=STEYX(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "74000",
-        "mask": "Standard Number",
-        "rendered": "₹ 74,000"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| STEYX Statistic| =STEYX(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method STEYX provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX921",
-      "title": "Statistical & Aggregation Formula Modeling (Task 21)",
+      "title": "Statistical Analytics & AGGREGATE Method (Task 21)",
       "difficulty": "advanced",
       "sheetName": "EX921",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A24, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX921. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=AGGREGATE(B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX921 in range B4:C30. You must compute method **AGGREGATE** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX921** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **AGGREGATE** e.g. `=AGGREGATE(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX921** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX921**.\n2. **Construct AGGREGATE**: Type `=AGGREGATE(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "75200",
-        "mask": "Standard Number",
-        "rendered": "₹ 75,200"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| AGGREGATE Statistic| =AGGREGATE(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method AGGREGATE provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX922",
-      "title": "Statistical & Aggregation Formula Modeling (Task 22)",
+      "title": "Statistical Analytics & FREQUENCY Method (Task 22)",
       "difficulty": "advanced",
       "sheetName": "EX922",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A25, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX922. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=FREQUENCY(B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX922 in range B4:C30. You must compute method **FREQUENCY** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX922** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **FREQUENCY** e.g. `=FREQUENCY(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX922** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX922**.\n2. **Construct FREQUENCY**: Type `=FREQUENCY(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "76400",
-        "mask": "Standard Number",
-        "rendered": "₹ 76,400"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| FREQUENCY Statistic| =FREQUENCY(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method FREQUENCY provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX923",
-      "title": "Statistical & Aggregation Formula Modeling (Task 23)",
+      "title": "Statistical Analytics & GEOMEAN Method (Task 23)",
       "difficulty": "advanced",
       "sheetName": "EX923",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A26, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX923. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=GEOMEAN(B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX923 in range B4:C30. You must compute method **GEOMEAN** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX923** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **GEOMEAN** e.g. `=GEOMEAN(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX923** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX923**.\n2. **Construct GEOMEAN**: Type `=GEOMEAN(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "77600",
-        "mask": "Standard Number",
-        "rendered": "₹ 77,600"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| GEOMEAN Statistic| =GEOMEAN(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method GEOMEAN provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX924",
-      "title": "Statistical & Aggregation Formula Modeling (Task 24)",
+      "title": "Statistical Analytics & HARMEAN Method (Task 24)",
       "difficulty": "advanced",
       "sheetName": "EX924",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A27, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX924. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=HARMEAN(B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX924 in range B4:C30. You must compute method **HARMEAN** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX924** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **HARMEAN** e.g. `=HARMEAN(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX924** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX924**.\n2. **Construct HARMEAN**: Type `=HARMEAN(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "78800",
-        "mask": "Standard Number",
-        "rendered": "₹ 78,800"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| HARMEAN Statistic| =HARMEAN(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method HARMEAN provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     },
     {
       "projectId": "EX925",
-      "title": "Statistical & Aggregation Formula Modeling (Task 25)",
+      "title": "Statistical Analytics & TRIMMEAN Method (Task 25)",
       "difficulty": "advanced",
       "sheetName": "EX925",
-      "formula": "=SUMIFS(Data!C:C, Data!A:A, A28, Data!B:B, \">=\"&B1)",
-      "description": "As a Senior Corporate Accountant at AccoTax, you need to aggregate multi-departmental expenditure metrics on worksheet EX925. Input payload is located in range A4:D50. You must construct dynamic, non-hardcoded formulas using SUMIFS, AVERAGEIFS, COUNTIFS, and MAXIFS with absolute cell lock references ($A$4:$A$50) to ensure seamless drag-copying down column E.",
+      "formula": "=TRIMMEAN(B4:B30)",
+      "description": "As a Data Scientist at AccoTax, you are conducting statistical analysis and linear regression modeling on sheet EX925 in range B4:C30. You must compute method **TRIMMEAN** to evaluate distribution skewness, sample variance, regression slope, R-squared explanatory power, or hypothesis testing probabilities.",
       "requirements": [
         "Navigate to tab **EX925** in your workbook.",
-        "In cell **E4**, write formula '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.",
-        "Use absolute locking (**$**) on criterion ranges so formula references do not shift when copied.",
-        "Double-click the fill handle in cell **E4** to auto-fill formula down to **E50**.",
-        "Verify zero #N/A or #REF! error propagation."
+        "In cell **E4**, write formula using **TRIMMEAN** e.g. `=TRIMMEAN(B4:B30)`.",
+        "Format statistical probability outputs as Decimals (4 places) or Percentages.",
+        "Verify model fit and confirm zero calculation errors.",
+        "Document statistical decision rules in cell **E5**."
       ],
-      "stepByStep": "1. **Select Cell E4**: Open worksheet **EX925** and click cell E4.\n2. **Type Formula**: Enter '=SUMIFS(C$4:C$50, A$4:A$50, A4, B$4:B$50, \">=\"&B$1)'.\n3. **Lock References**: Press **F4** while selecting range parameters to insert **$** dollar locks.\n4. **Copy Formula**: Hover over the bottom-right corner of cell E4 until black cross **+** appears, then double-click to drag down.\n5. **Audit Verification**: Press **Ctrl + ~**, verify formula syntax, and press **Ctrl + ~** again to return to normal view.",
+      "stepByStep": "1. **Click Cell E4**: Open worksheet **EX925**.\n2. **Construct TRIMMEAN**: Type `=TRIMMEAN(B4:B30)` and press **Enter**.\n3. **Format Decimal**: Set cell format to 4 decimal places.\n4. **Audit Check**: Compare computed regression output against scatter plot trendline.",
       "rawMemoryVsRendered": {
-        "raw": "80000",
-        "mask": "Standard Number",
-        "rendered": "₹ 80,000"
+        "raw": "0.8924",
+        "mask": "Decimal 4-Place",
+        "rendered": "0.8924"
       },
-      "expectedOutput": "| Item Code | Department | Criteria Filter | Dynamic Formula | Aggregated Total |\n| --------- | ---------- | --------------- | --------------- | ---------------- |\n| EX-101    | Finance    | FY2026          | =SUMIFS(...)   | ₹ 4,50,000.00    |\n| EX-102    | Operations | FY2026          | =SUMIFS(...)   | ₹ 8,25,000.00    |",
-      "proTip": "Pressing key F4 while editing a cell range toggles absolute locking modes ($A$1 -> A$1 -> $A1 -> A1). Master this shortcut to build error-free financial models!"
+      "expectedOutput": "| Statistical Metric | Applied Method | Calculated Value | Analytical Rule |\n| ------------------ | -------------- | ---------------- | --------------- |\n| TRIMMEAN Statistic| =TRIMMEAN(...) | 0.8924           | Valid Model Fit |",
+      "proTip": "Method TRIMMEAN provides mathematical rigor for statistical data analysis and predictive regression modeling!"
     }
   ]
 };

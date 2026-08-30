@@ -1,50 +1,5 @@
 CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
 ================================================================================
-Track: Microsoft Excel: From Zero to Ultra Expert
-Module: Data Validation, Protection and Cleaning Techniques
-Topic 13: Practice Lab: Multi-department procurement request form with strict validation
-================================================================================
-
-1. EXECUTIVE OVERVIEW
-Practice Lab: Multi-department procurement request form with strict validation is an essential discipline in corporate spreadsheet governance, data integrity, and template security.
-It provides the core protocols required to prevent data corruption, audit complex formulas, and encrypt sensitive corporate assets.
-
-2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Procurement Request Portal: Multi-Tier Cascading Menus + Real-Time Duplicate PO Checks + Trace Auditing + Password Defense
-
-3. CORE TECHNICAL MECHANICS
-1. Multi-Field Validation Stack:
-   Department (Dropdown) -> Expense Category (Cascading) -> Item Description (Text length >= 10) -> Quantity (Whole number > 0) -> Estimated Unit Cost (Decimal > 0).
-
-2. Real-Time Duplicate PO Detection:
-   Applies `=COUNTIF(PO_Range, PO_Cell) <= 1` to prevent duplicate purchase order generation in high-volume shared requisition sheets.
-
-3. Automated Approval Threshold Routing:
-   Calculates Total Request Value and dynamically displays approval requirement (`<₹50k = Manager`, `₹50k-₹5L = VP`, `>₹5L = Board Approval`).
-
-4. REAL-WORLD BUSINESS APPLICATION
-• Swadeep Banerjee (VP Supply Chain Governance, Barrackpore HQ):
-  Enterprise Requisition Management Portal - Implements an automated purchase requisition portal processing 10,000 monthly purchase requests with automated approval hierarchy routing.
-• Tuhina Mukherjee (Procurement Audit Lead, Shyamnagar Plant):
-  Vendor Purchase Order Compliance Matrix - Audits supplier purchase orders against approved rate contracts with zero tolerance for pricing anomalies.
-• Abhronila Das (Materials Controller, Ichapur Works):
-  Urgent Spare Parts Requisition Form - Deploys mobile-friendly tablet requisition forms for emergency maintenance parts.
-• Debangshu Roy (Fleet Procurement Specialist, Naihati Logistics):
-  Fleet Fuel & Consumables Requisition Tracker - Automates fuel voucher requisition and driver allowance approval logging.
-
-5. TROUBLESHOOTING & COMMON ERRORS
-• Bypassing Approval Tiers on Split Requisitions:
-  Root Cause: Users splitting a ₹10 Lakh order into two ₹5 Lakh orders to bypass Board approval.
-  Diagnostic Fix: Include monthly aggregate vendor spending checks using SUMIFS.
-• Missing Unit-of-Measure Consistency:
-  Root Cause: Entering quantities in 'Bags' while cost is quoted in 'Metric Tons'.
-  Diagnostic Fix: Lock Unit of Measure to a standardized dynamic drop-down list.
-• Unrestricted Vendor Name Entry:
-  Root Cause: Allowing free-text typing of vendor names results in 'Tata Steel', 'TATA STEEL LTD', and 'Tata' as separate suppliers.
-  Diagnostic Fix: Enforce strict vendor selection via approved Vendor Master drop-downs.
-
-6. PRO TIPS & SHORTCUTS
-• Multi-Tier Approval Routing (=IFS(Total>500000,"Board", Total>50000,"VP", TRUE,"Manager")): Automates governance approval matrix routing.
-• Strict Vendor Master Dropdown (Source: =VendorTable[Name]): Eliminates duplicate supplier name variations.
-• Instant Audit Verification (Ctrl + [ on Total Cell): Verify that requisition calculations link to approved rate tables.
+Topic 13: Practical Projects Lab (Projects_003_002)
+Hands-on interactive lab exercises for Data Validation & Protection.
 ================================================================================

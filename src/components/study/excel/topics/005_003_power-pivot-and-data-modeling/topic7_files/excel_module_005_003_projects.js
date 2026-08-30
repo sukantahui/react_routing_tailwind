@@ -17,578 +17,603 @@ export const excelDataEntryProjectsData = {
   "projects": [
     {
       "projectId": "EX2201",
-      "title": "PivotTable & Executive Data Summarization (Task 1)",
+      "title": "Practical Workplace Modeling & Audit (Task 1)",
       "difficulty": "beginner",
       "sheetName": "EX2201",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2201. You must create an interactive PivotTable on tab PivotSummary_EX2201, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2201 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2201.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2201**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2201**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2201** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2201** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2201**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "26500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 26,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2201-01| =IFERROR(XLOOKUP)| ₹ 26,500.00 | Verified     |\n| C5   | EMP-EX2201-02| =IFERROR(XLOOKUP)| ₹ 36,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2202",
-      "title": "PivotTable & Executive Data Summarization (Task 2)",
+      "title": "Practical Workplace Modeling & Audit (Task 2)",
       "difficulty": "beginner",
       "sheetName": "EX2202",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2202. You must create an interactive PivotTable on tab PivotSummary_EX2202, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A5, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2202 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2202.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2202**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2202**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2202** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2202** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2202**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "28000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 28,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2202-01| =IFERROR(XLOOKUP)| ₹ 28,000.00 | Verified     |\n| C5   | EMP-EX2202-02| =IFERROR(XLOOKUP)| ₹ 38,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2203",
-      "title": "PivotTable & Executive Data Summarization (Task 3)",
+      "title": "Practical Workplace Modeling & Audit (Task 3)",
       "difficulty": "beginner",
       "sheetName": "EX2203",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2203. You must create an interactive PivotTable on tab PivotSummary_EX2203, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A6, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2203 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2203.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2203**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2203**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2203** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2203** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2203**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "29500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 29,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2203-01| =IFERROR(XLOOKUP)| ₹ 29,500.00 | Verified     |\n| C5   | EMP-EX2203-02| =IFERROR(XLOOKUP)| ₹ 39,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2204",
-      "title": "PivotTable & Executive Data Summarization (Task 4)",
+      "title": "Practical Workplace Modeling & Audit (Task 4)",
       "difficulty": "beginner",
       "sheetName": "EX2204",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2204. You must create an interactive PivotTable on tab PivotSummary_EX2204, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A7, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2204 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2204.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2204**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2204**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2204** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2204** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2204**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "31000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 31,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2204-01| =IFERROR(XLOOKUP)| ₹ 31,000.00 | Verified     |\n| C5   | EMP-EX2204-02| =IFERROR(XLOOKUP)| ₹ 41,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2205",
-      "title": "PivotTable & Executive Data Summarization (Task 5)",
+      "title": "Practical Workplace Modeling & Audit (Task 5)",
       "difficulty": "beginner",
       "sheetName": "EX2205",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2205. You must create an interactive PivotTable on tab PivotSummary_EX2205, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A8, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2205 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2205.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2205**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2205**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2205** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2205** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2205**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "32500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 32,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2205-01| =IFERROR(XLOOKUP)| ₹ 32,500.00 | Verified     |\n| C5   | EMP-EX2205-02| =IFERROR(XLOOKUP)| ₹ 42,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2206",
-      "title": "PivotTable & Executive Data Summarization (Task 6)",
+      "title": "Practical Workplace Modeling & Audit (Task 6)",
       "difficulty": "beginner",
       "sheetName": "EX2206",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2206. You must create an interactive PivotTable on tab PivotSummary_EX2206, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A9, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2206 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2206.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2206**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2206**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2206** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2206** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2206**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "34000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 34,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2206-01| =IFERROR(XLOOKUP)| ₹ 34,000.00 | Verified     |\n| C5   | EMP-EX2206-02| =IFERROR(XLOOKUP)| ₹ 44,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2207",
-      "title": "PivotTable & Executive Data Summarization (Task 7)",
+      "title": "Practical Workplace Modeling & Audit (Task 7)",
       "difficulty": "beginner",
       "sheetName": "EX2207",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2207. You must create an interactive PivotTable on tab PivotSummary_EX2207, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A10, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2207 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2207.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2207**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2207**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2207** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2207** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2207**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "35500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 35,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2207-01| =IFERROR(XLOOKUP)| ₹ 35,500.00 | Verified     |\n| C5   | EMP-EX2207-02| =IFERROR(XLOOKUP)| ₹ 45,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2208",
-      "title": "PivotTable & Executive Data Summarization (Task 8)",
+      "title": "Practical Workplace Modeling & Audit (Task 8)",
       "difficulty": "beginner",
       "sheetName": "EX2208",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2208. You must create an interactive PivotTable on tab PivotSummary_EX2208, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A11, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2208 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2208.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2208**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2208**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2208** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2208** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2208**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "37000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 37,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2208-01| =IFERROR(XLOOKUP)| ₹ 37,000.00 | Verified     |\n| C5   | EMP-EX2208-02| =IFERROR(XLOOKUP)| ₹ 47,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2209",
-      "title": "PivotTable & Executive Data Summarization (Task 9)",
+      "title": "Practical Workplace Modeling & Audit (Task 9)",
       "difficulty": "intermediate",
       "sheetName": "EX2209",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2209. You must create an interactive PivotTable on tab PivotSummary_EX2209, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A12, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2209 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2209.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2209**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2209**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2209** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2209** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2209**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "38500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 38,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2209-01| =IFERROR(XLOOKUP)| ₹ 38,500.00 | Verified     |\n| C5   | EMP-EX2209-02| =IFERROR(XLOOKUP)| ₹ 48,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2210",
-      "title": "PivotTable & Executive Data Summarization (Task 10)",
+      "title": "Practical Workplace Modeling & Audit (Task 10)",
       "difficulty": "intermediate",
       "sheetName": "EX2210",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2210. You must create an interactive PivotTable on tab PivotSummary_EX2210, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A13, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2210 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2210.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2210**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2210**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2210** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2210** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2210**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "40000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 40,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2210-01| =IFERROR(XLOOKUP)| ₹ 40,000.00 | Verified     |\n| C5   | EMP-EX2210-02| =IFERROR(XLOOKUP)| ₹ 50,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2211",
-      "title": "PivotTable & Executive Data Summarization (Task 11)",
+      "title": "Practical Workplace Modeling & Audit (Task 11)",
       "difficulty": "intermediate",
       "sheetName": "EX2211",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2211. You must create an interactive PivotTable on tab PivotSummary_EX2211, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A14, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2211 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2211.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2211**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2211**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2211** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2211** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2211**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "41500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 41,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2211-01| =IFERROR(XLOOKUP)| ₹ 41,500.00 | Verified     |\n| C5   | EMP-EX2211-02| =IFERROR(XLOOKUP)| ₹ 51,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2212",
-      "title": "PivotTable & Executive Data Summarization (Task 12)",
+      "title": "Practical Workplace Modeling & Audit (Task 12)",
       "difficulty": "intermediate",
       "sheetName": "EX2212",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2212. You must create an interactive PivotTable on tab PivotSummary_EX2212, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A15, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2212 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2212.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2212**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2212**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2212** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2212** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2212**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "43000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 43,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2212-01| =IFERROR(XLOOKUP)| ₹ 43,000.00 | Verified     |\n| C5   | EMP-EX2212-02| =IFERROR(XLOOKUP)| ₹ 53,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2213",
-      "title": "PivotTable & Executive Data Summarization (Task 13)",
+      "title": "Practical Workplace Modeling & Audit (Task 13)",
       "difficulty": "intermediate",
       "sheetName": "EX2213",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2213. You must create an interactive PivotTable on tab PivotSummary_EX2213, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A16, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2213 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2213.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2213**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2213**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2213** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2213** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2213**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "44500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 44,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2213-01| =IFERROR(XLOOKUP)| ₹ 44,500.00 | Verified     |\n| C5   | EMP-EX2213-02| =IFERROR(XLOOKUP)| ₹ 54,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2214",
-      "title": "PivotTable & Executive Data Summarization (Task 14)",
+      "title": "Practical Workplace Modeling & Audit (Task 14)",
       "difficulty": "intermediate",
       "sheetName": "EX2214",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2214. You must create an interactive PivotTable on tab PivotSummary_EX2214, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A17, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2214 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2214.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2214**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2214**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2214** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2214** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2214**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "46000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 46,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2214-01| =IFERROR(XLOOKUP)| ₹ 46,000.00 | Verified     |\n| C5   | EMP-EX2214-02| =IFERROR(XLOOKUP)| ₹ 56,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2215",
-      "title": "PivotTable & Executive Data Summarization (Task 15)",
+      "title": "Practical Workplace Modeling & Audit (Task 15)",
       "difficulty": "intermediate",
       "sheetName": "EX2215",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2215. You must create an interactive PivotTable on tab PivotSummary_EX2215, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A18, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2215 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2215.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2215**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2215**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2215** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2215** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2215**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "47500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 47,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2215-01| =IFERROR(XLOOKUP)| ₹ 47,500.00 | Verified     |\n| C5   | EMP-EX2215-02| =IFERROR(XLOOKUP)| ₹ 57,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2216",
-      "title": "PivotTable & Executive Data Summarization (Task 16)",
+      "title": "Practical Workplace Modeling & Audit (Task 16)",
       "difficulty": "intermediate",
       "sheetName": "EX2216",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2216. You must create an interactive PivotTable on tab PivotSummary_EX2216, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A19, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2216 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2216.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2216**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2216**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2216** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2216** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2216**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "49000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 49,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2216-01| =IFERROR(XLOOKUP)| ₹ 49,000.00 | Verified     |\n| C5   | EMP-EX2216-02| =IFERROR(XLOOKUP)| ₹ 59,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2217",
-      "title": "PivotTable & Executive Data Summarization (Task 17)",
+      "title": "Practical Workplace Modeling & Audit (Task 17)",
       "difficulty": "intermediate",
       "sheetName": "EX2217",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2217. You must create an interactive PivotTable on tab PivotSummary_EX2217, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A20, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2217 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2217.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2217**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2217**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2217** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2217** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2217**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "50500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 50,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2217-01| =IFERROR(XLOOKUP)| ₹ 50,500.00 | Verified     |\n| C5   | EMP-EX2217-02| =IFERROR(XLOOKUP)| ₹ 60,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2218",
-      "title": "PivotTable & Executive Data Summarization (Task 18)",
+      "title": "Practical Workplace Modeling & Audit (Task 18)",
       "difficulty": "intermediate",
       "sheetName": "EX2218",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2218. You must create an interactive PivotTable on tab PivotSummary_EX2218, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A21, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2218 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2218.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2218**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2218**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2218** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2218** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2218**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "52000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 52,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2218-01| =IFERROR(XLOOKUP)| ₹ 52,000.00 | Verified     |\n| C5   | EMP-EX2218-02| =IFERROR(XLOOKUP)| ₹ 62,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2219",
-      "title": "PivotTable & Executive Data Summarization (Task 19)",
+      "title": "Practical Workplace Modeling & Audit (Task 19)",
       "difficulty": "advanced",
       "sheetName": "EX2219",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2219. You must create an interactive PivotTable on tab PivotSummary_EX2219, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A22, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2219 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2219.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2219**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2219**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2219** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2219** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2219**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "53500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 53,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2219-01| =IFERROR(XLOOKUP)| ₹ 53,500.00 | Verified     |\n| C5   | EMP-EX2219-02| =IFERROR(XLOOKUP)| ₹ 63,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2220",
-      "title": "PivotTable & Executive Data Summarization (Task 20)",
+      "title": "Practical Workplace Modeling & Audit (Task 20)",
       "difficulty": "advanced",
       "sheetName": "EX2220",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2220. You must create an interactive PivotTable on tab PivotSummary_EX2220, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A23, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2220 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2220.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2220**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2220**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2220** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2220** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2220**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "55000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 55,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2220-01| =IFERROR(XLOOKUP)| ₹ 55,000.00 | Verified     |\n| C5   | EMP-EX2220-02| =IFERROR(XLOOKUP)| ₹ 65,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2221",
-      "title": "PivotTable & Executive Data Summarization (Task 21)",
+      "title": "Practical Workplace Modeling & Audit (Task 21)",
       "difficulty": "advanced",
       "sheetName": "EX2221",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2221. You must create an interactive PivotTable on tab PivotSummary_EX2221, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A24, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2221 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2221.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2221**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2221**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2221** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2221** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2221**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "56500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 56,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2221-01| =IFERROR(XLOOKUP)| ₹ 56,500.00 | Verified     |\n| C5   | EMP-EX2221-02| =IFERROR(XLOOKUP)| ₹ 66,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2222",
-      "title": "PivotTable & Executive Data Summarization (Task 22)",
+      "title": "Practical Workplace Modeling & Audit (Task 22)",
       "difficulty": "advanced",
       "sheetName": "EX2222",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2222. You must create an interactive PivotTable on tab PivotSummary_EX2222, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A25, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2222 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2222.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2222**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2222**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2222** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2222** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2222**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "58000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 58,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2222-01| =IFERROR(XLOOKUP)| ₹ 58,000.00 | Verified     |\n| C5   | EMP-EX2222-02| =IFERROR(XLOOKUP)| ₹ 68,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2223",
-      "title": "PivotTable & Executive Data Summarization (Task 23)",
+      "title": "Practical Workplace Modeling & Audit (Task 23)",
       "difficulty": "advanced",
       "sheetName": "EX2223",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2223. You must create an interactive PivotTable on tab PivotSummary_EX2223, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A26, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2223 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2223.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2223**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2223**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2223** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2223** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2223**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "59500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 59,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2223-01| =IFERROR(XLOOKUP)| ₹ 59,500.00 | Verified     |\n| C5   | EMP-EX2223-02| =IFERROR(XLOOKUP)| ₹ 69,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2224",
-      "title": "PivotTable & Executive Data Summarization (Task 24)",
+      "title": "Practical Workplace Modeling & Audit (Task 24)",
       "difficulty": "advanced",
       "sheetName": "EX2224",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2224. You must create an interactive PivotTable on tab PivotSummary_EX2224, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A27, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2224 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2224.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2224**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2224**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2224** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2224** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2224**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "61000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 61,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2224-01| =IFERROR(XLOOKUP)| ₹ 61,000.00 | Verified     |\n| C5   | EMP-EX2224-02| =IFERROR(XLOOKUP)| ₹ 71,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2225",
-      "title": "PivotTable & Executive Data Summarization (Task 25)",
+      "title": "Practical Workplace Modeling & Audit (Task 25)",
       "difficulty": "advanced",
       "sheetName": "EX2225",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2225. You must create an interactive PivotTable on tab PivotSummary_EX2225, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A28, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2225 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2225.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2225**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2225**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2225** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2225** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2225**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "62500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 62,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2225-01| =IFERROR(XLOOKUP)| ₹ 62,500.00 | Verified     |\n| C5   | EMP-EX2225-02| =IFERROR(XLOOKUP)| ₹ 72,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     }
   ]
 };
@@ -611,578 +636,603 @@ export const excelModuleProjectsData = {
   "projects": [
     {
       "projectId": "EX2201",
-      "title": "PivotTable & Executive Data Summarization (Task 1)",
+      "title": "Practical Workplace Modeling & Audit (Task 1)",
       "difficulty": "beginner",
       "sheetName": "EX2201",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2201. You must create an interactive PivotTable on tab PivotSummary_EX2201, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2201 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2201.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2201**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2201**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2201** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2201** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2201**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "26500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 26,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2201-01| =IFERROR(XLOOKUP)| ₹ 26,500.00 | Verified     |\n| C5   | EMP-EX2201-02| =IFERROR(XLOOKUP)| ₹ 36,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2202",
-      "title": "PivotTable & Executive Data Summarization (Task 2)",
+      "title": "Practical Workplace Modeling & Audit (Task 2)",
       "difficulty": "beginner",
       "sheetName": "EX2202",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2202. You must create an interactive PivotTable on tab PivotSummary_EX2202, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A5, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2202 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2202.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2202**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2202**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2202** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2202** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2202**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "28000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 28,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2202-01| =IFERROR(XLOOKUP)| ₹ 28,000.00 | Verified     |\n| C5   | EMP-EX2202-02| =IFERROR(XLOOKUP)| ₹ 38,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2203",
-      "title": "PivotTable & Executive Data Summarization (Task 3)",
+      "title": "Practical Workplace Modeling & Audit (Task 3)",
       "difficulty": "beginner",
       "sheetName": "EX2203",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2203. You must create an interactive PivotTable on tab PivotSummary_EX2203, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A6, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2203 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2203.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2203**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2203**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2203** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2203** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2203**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "29500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 29,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2203-01| =IFERROR(XLOOKUP)| ₹ 29,500.00 | Verified     |\n| C5   | EMP-EX2203-02| =IFERROR(XLOOKUP)| ₹ 39,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2204",
-      "title": "PivotTable & Executive Data Summarization (Task 4)",
+      "title": "Practical Workplace Modeling & Audit (Task 4)",
       "difficulty": "beginner",
       "sheetName": "EX2204",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2204. You must create an interactive PivotTable on tab PivotSummary_EX2204, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A7, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2204 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2204.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2204**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2204**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2204** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2204** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2204**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "31000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 31,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2204-01| =IFERROR(XLOOKUP)| ₹ 31,000.00 | Verified     |\n| C5   | EMP-EX2204-02| =IFERROR(XLOOKUP)| ₹ 41,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2205",
-      "title": "PivotTable & Executive Data Summarization (Task 5)",
+      "title": "Practical Workplace Modeling & Audit (Task 5)",
       "difficulty": "beginner",
       "sheetName": "EX2205",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2205. You must create an interactive PivotTable on tab PivotSummary_EX2205, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A8, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2205 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2205.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2205**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2205**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2205** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2205** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2205**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "32500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 32,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2205-01| =IFERROR(XLOOKUP)| ₹ 32,500.00 | Verified     |\n| C5   | EMP-EX2205-02| =IFERROR(XLOOKUP)| ₹ 42,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2206",
-      "title": "PivotTable & Executive Data Summarization (Task 6)",
+      "title": "Practical Workplace Modeling & Audit (Task 6)",
       "difficulty": "beginner",
       "sheetName": "EX2206",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2206. You must create an interactive PivotTable on tab PivotSummary_EX2206, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A9, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2206 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2206.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2206**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2206**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2206** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2206** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2206**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "34000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 34,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2206-01| =IFERROR(XLOOKUP)| ₹ 34,000.00 | Verified     |\n| C5   | EMP-EX2206-02| =IFERROR(XLOOKUP)| ₹ 44,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2207",
-      "title": "PivotTable & Executive Data Summarization (Task 7)",
+      "title": "Practical Workplace Modeling & Audit (Task 7)",
       "difficulty": "beginner",
       "sheetName": "EX2207",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2207. You must create an interactive PivotTable on tab PivotSummary_EX2207, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A10, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2207 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2207.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2207**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2207**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2207** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2207** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2207**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "35500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 35,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2207-01| =IFERROR(XLOOKUP)| ₹ 35,500.00 | Verified     |\n| C5   | EMP-EX2207-02| =IFERROR(XLOOKUP)| ₹ 45,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2208",
-      "title": "PivotTable & Executive Data Summarization (Task 8)",
+      "title": "Practical Workplace Modeling & Audit (Task 8)",
       "difficulty": "beginner",
       "sheetName": "EX2208",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2208. You must create an interactive PivotTable on tab PivotSummary_EX2208, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A11, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2208 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2208.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2208**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2208**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2208** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2208** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2208**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "37000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 37,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2208-01| =IFERROR(XLOOKUP)| ₹ 37,000.00 | Verified     |\n| C5   | EMP-EX2208-02| =IFERROR(XLOOKUP)| ₹ 47,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2209",
-      "title": "PivotTable & Executive Data Summarization (Task 9)",
+      "title": "Practical Workplace Modeling & Audit (Task 9)",
       "difficulty": "intermediate",
       "sheetName": "EX2209",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2209. You must create an interactive PivotTable on tab PivotSummary_EX2209, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A12, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2209 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2209.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2209**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2209**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2209** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2209** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2209**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "38500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 38,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2209-01| =IFERROR(XLOOKUP)| ₹ 38,500.00 | Verified     |\n| C5   | EMP-EX2209-02| =IFERROR(XLOOKUP)| ₹ 48,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2210",
-      "title": "PivotTable & Executive Data Summarization (Task 10)",
+      "title": "Practical Workplace Modeling & Audit (Task 10)",
       "difficulty": "intermediate",
       "sheetName": "EX2210",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2210. You must create an interactive PivotTable on tab PivotSummary_EX2210, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A13, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2210 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2210.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2210**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2210**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2210** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2210** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2210**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "40000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 40,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2210-01| =IFERROR(XLOOKUP)| ₹ 40,000.00 | Verified     |\n| C5   | EMP-EX2210-02| =IFERROR(XLOOKUP)| ₹ 50,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2211",
-      "title": "PivotTable & Executive Data Summarization (Task 11)",
+      "title": "Practical Workplace Modeling & Audit (Task 11)",
       "difficulty": "intermediate",
       "sheetName": "EX2211",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2211. You must create an interactive PivotTable on tab PivotSummary_EX2211, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A14, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2211 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2211.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2211**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2211**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2211** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2211** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2211**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "41500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 41,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2211-01| =IFERROR(XLOOKUP)| ₹ 41,500.00 | Verified     |\n| C5   | EMP-EX2211-02| =IFERROR(XLOOKUP)| ₹ 51,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2212",
-      "title": "PivotTable & Executive Data Summarization (Task 12)",
+      "title": "Practical Workplace Modeling & Audit (Task 12)",
       "difficulty": "intermediate",
       "sheetName": "EX2212",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2212. You must create an interactive PivotTable on tab PivotSummary_EX2212, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A15, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2212 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2212.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2212**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2212**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2212** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2212** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2212**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "43000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 43,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2212-01| =IFERROR(XLOOKUP)| ₹ 43,000.00 | Verified     |\n| C5   | EMP-EX2212-02| =IFERROR(XLOOKUP)| ₹ 53,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2213",
-      "title": "PivotTable & Executive Data Summarization (Task 13)",
+      "title": "Practical Workplace Modeling & Audit (Task 13)",
       "difficulty": "intermediate",
       "sheetName": "EX2213",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2213. You must create an interactive PivotTable on tab PivotSummary_EX2213, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A16, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2213 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2213.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2213**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2213**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2213** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2213** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2213**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "44500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 44,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2213-01| =IFERROR(XLOOKUP)| ₹ 44,500.00 | Verified     |\n| C5   | EMP-EX2213-02| =IFERROR(XLOOKUP)| ₹ 54,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2214",
-      "title": "PivotTable & Executive Data Summarization (Task 14)",
+      "title": "Practical Workplace Modeling & Audit (Task 14)",
       "difficulty": "intermediate",
       "sheetName": "EX2214",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2214. You must create an interactive PivotTable on tab PivotSummary_EX2214, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A17, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2214 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2214.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2214**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2214**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2214** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2214** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2214**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "46000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 46,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2214-01| =IFERROR(XLOOKUP)| ₹ 46,000.00 | Verified     |\n| C5   | EMP-EX2214-02| =IFERROR(XLOOKUP)| ₹ 56,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2215",
-      "title": "PivotTable & Executive Data Summarization (Task 15)",
+      "title": "Practical Workplace Modeling & Audit (Task 15)",
       "difficulty": "intermediate",
       "sheetName": "EX2215",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2215. You must create an interactive PivotTable on tab PivotSummary_EX2215, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A18, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2215 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2215.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2215**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2215**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2215** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2215** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2215**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "47500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 47,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2215-01| =IFERROR(XLOOKUP)| ₹ 47,500.00 | Verified     |\n| C5   | EMP-EX2215-02| =IFERROR(XLOOKUP)| ₹ 57,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2216",
-      "title": "PivotTable & Executive Data Summarization (Task 16)",
+      "title": "Practical Workplace Modeling & Audit (Task 16)",
       "difficulty": "intermediate",
       "sheetName": "EX2216",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2216. You must create an interactive PivotTable on tab PivotSummary_EX2216, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A19, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2216 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2216.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2216**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2216**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2216** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2216** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2216**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "49000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 49,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2216-01| =IFERROR(XLOOKUP)| ₹ 49,000.00 | Verified     |\n| C5   | EMP-EX2216-02| =IFERROR(XLOOKUP)| ₹ 59,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2217",
-      "title": "PivotTable & Executive Data Summarization (Task 17)",
+      "title": "Practical Workplace Modeling & Audit (Task 17)",
       "difficulty": "intermediate",
       "sheetName": "EX2217",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2217. You must create an interactive PivotTable on tab PivotSummary_EX2217, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A20, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2217 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2217.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2217**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2217**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2217** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2217** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2217**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "50500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 50,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2217-01| =IFERROR(XLOOKUP)| ₹ 50,500.00 | Verified     |\n| C5   | EMP-EX2217-02| =IFERROR(XLOOKUP)| ₹ 60,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2218",
-      "title": "PivotTable & Executive Data Summarization (Task 18)",
+      "title": "Practical Workplace Modeling & Audit (Task 18)",
       "difficulty": "intermediate",
       "sheetName": "EX2218",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2218. You must create an interactive PivotTable on tab PivotSummary_EX2218, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A21, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2218 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2218.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2218**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2218**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2218** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2218** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2218**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "52000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 52,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2218-01| =IFERROR(XLOOKUP)| ₹ 52,000.00 | Verified     |\n| C5   | EMP-EX2218-02| =IFERROR(XLOOKUP)| ₹ 62,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2219",
-      "title": "PivotTable & Executive Data Summarization (Task 19)",
+      "title": "Practical Workplace Modeling & Audit (Task 19)",
       "difficulty": "advanced",
       "sheetName": "EX2219",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2219. You must create an interactive PivotTable on tab PivotSummary_EX2219, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A22, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2219 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2219.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2219**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2219**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2219** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2219** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2219**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "53500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 53,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2219-01| =IFERROR(XLOOKUP)| ₹ 53,500.00 | Verified     |\n| C5   | EMP-EX2219-02| =IFERROR(XLOOKUP)| ₹ 63,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2220",
-      "title": "PivotTable & Executive Data Summarization (Task 20)",
+      "title": "Practical Workplace Modeling & Audit (Task 20)",
       "difficulty": "advanced",
       "sheetName": "EX2220",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2220. You must create an interactive PivotTable on tab PivotSummary_EX2220, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A23, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2220 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2220.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2220**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2220**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2220** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2220** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2220**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "55000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 55,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2220-01| =IFERROR(XLOOKUP)| ₹ 55,000.00 | Verified     |\n| C5   | EMP-EX2220-02| =IFERROR(XLOOKUP)| ₹ 65,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2221",
-      "title": "PivotTable & Executive Data Summarization (Task 21)",
+      "title": "Practical Workplace Modeling & Audit (Task 21)",
       "difficulty": "advanced",
       "sheetName": "EX2221",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2221. You must create an interactive PivotTable on tab PivotSummary_EX2221, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A24, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2221 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2221.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2221**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2221**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2221** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2221** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2221**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "56500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 56,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2221-01| =IFERROR(XLOOKUP)| ₹ 56,500.00 | Verified     |\n| C5   | EMP-EX2221-02| =IFERROR(XLOOKUP)| ₹ 66,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2222",
-      "title": "PivotTable & Executive Data Summarization (Task 22)",
+      "title": "Practical Workplace Modeling & Audit (Task 22)",
       "difficulty": "advanced",
       "sheetName": "EX2222",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2222. You must create an interactive PivotTable on tab PivotSummary_EX2222, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A25, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2222 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2222.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2222**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2222**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2222** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2222** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2222**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "58000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 58,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2222-01| =IFERROR(XLOOKUP)| ₹ 58,000.00 | Verified     |\n| C5   | EMP-EX2222-02| =IFERROR(XLOOKUP)| ₹ 68,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2223",
-      "title": "PivotTable & Executive Data Summarization (Task 23)",
+      "title": "Practical Workplace Modeling & Audit (Task 23)",
       "difficulty": "advanced",
       "sheetName": "EX2223",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2223. You must create an interactive PivotTable on tab PivotSummary_EX2223, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A26, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2223 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2223.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2223**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2223**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2223** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2223** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2223**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "59500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 59,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2223-01| =IFERROR(XLOOKUP)| ₹ 59,500.00 | Verified     |\n| C5   | EMP-EX2223-02| =IFERROR(XLOOKUP)| ₹ 69,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2224",
-      "title": "PivotTable & Executive Data Summarization (Task 24)",
+      "title": "Practical Workplace Modeling & Audit (Task 24)",
       "difficulty": "advanced",
       "sheetName": "EX2224",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2224. You must create an interactive PivotTable on tab PivotSummary_EX2224, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A27, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2224 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2224.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2224**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2224**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2224** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2224** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2224**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "61000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 61,000.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2224-01| =IFERROR(XLOOKUP)| ₹ 61,000.00 | Verified     |\n| C5   | EMP-EX2224-02| =IFERROR(XLOOKUP)| ₹ 71,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2225",
-      "title": "PivotTable & Executive Data Summarization (Task 25)",
+      "title": "Practical Workplace Modeling & Audit (Task 25)",
       "difficulty": "advanced",
       "sheetName": "EX2225",
-      "formula": "GETPIVOTDATA(\"Sales\", PivotSheet!$A$3, \"Region\", \"East\")",
-      "description": "As an MIS Executive, you are tasked with summarizing a 5,000-row transaction ledger on sheet EX2225. You must create an interactive PivotTable on tab PivotSummary_EX2225, group sales dates by Month and Quarter, insert a Slicer for Regional filtering, and extract dynamic KPI values using GETPIVOTDATA.",
+      "formula": "=IFERROR(XLOOKUP(A28, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2225 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2225.",
       "requirements": [
-        "Select raw data table **A3:G5000** on sheet **EX2225**.",
-        "Go to **Insert** -> **PivotTable** and choose New Worksheet named **PivotSummary_EX2225**.",
-        "Drag **Region** to Filters, **Category** to Rows, and **Revenue** to Values (configured as Sum of Revenue).",
-        "Right-Click Date values in Rows and group by **Months** and **Quarters**.",
-        "Insert a Timeline Slicer and verify dynamic KPI card update in cell **I4**."
+        "Open worksheet tab **EX2225** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Highlight Raw Data**: Click inside range A3:G5000 on sheet **EX2225** and press **Ctrl + A**.\n2. **Insert PivotTable**: Click **Insert** tab -> **PivotTable** -> Click **OK**.\n3. **Configure Fields**: In PivotTable Field List, drag Category to Rows area and Revenue to Values area.\n4. **Group Dates**: Right-click any date cell in PivotTable -> select **Group...** -> choose **Months** and **Quarters**.\n5. **Add Slicer**: Click **PivotTable Analyze** tab -> **Insert Slicer** -> check Region -> Click **OK**.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2225**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "5450000",
-        "mask": "Pivot Value Field",
-        "rendered": "₹ 54,50,000.00"
+        "raw": "62500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 62,500.00"
       },
-      "expectedOutput": "| Category | Q1 Sales | Q2 Sales | Total Revenue | % of Grand Total |\n| -------- | -------- | -------- | ------------- | ---------------- |\n| Enterprise Hardware | ₹ 12,00,000 | ₹ 18,50,000 | ₹ 30,50,000 | 55.96% |\n| Cloud Software | ₹ 8,00,000 | ₹ 16,00,000 | ₹ 24,00,000 | 44.04% |",
-      "proTip": "Always refresh your PivotTable after updating source data by pressing Alt + F5 (or Ctrl + Alt + F5 to refresh all PivotTables in the workbook)!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2225-01| =IFERROR(XLOOKUP)| ₹ 62,500.00 | Verified     |\n| C5   | EMP-EX2225-02| =IFERROR(XLOOKUP)| ₹ 72,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     }
   ]
 };

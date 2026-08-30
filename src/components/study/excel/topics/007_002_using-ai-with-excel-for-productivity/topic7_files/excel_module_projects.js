@@ -17,15 +17,15 @@ export const excelModuleProjectsData = {
   "projects": [
     {
       "projectId": "EX2901",
-      "title": "Practical Workplace Audit & Modeling (Task 1)",
+      "title": "Practical Workplace Modeling & Audit (Task 1)",
       "difficulty": "beginner",
       "sheetName": "EX2901",
       "formula": "=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2901 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2901.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2901 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2901.",
       "requirements": [
         "Open worksheet tab **EX2901** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -41,15 +41,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2902",
-      "title": "Practical Workplace Audit & Modeling (Task 2)",
+      "title": "Practical Workplace Modeling & Audit (Task 2)",
       "difficulty": "beginner",
       "sheetName": "EX2902",
       "formula": "=IFERROR(XLOOKUP(A5, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2902 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2902.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2902 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2902.",
       "requirements": [
         "Open worksheet tab **EX2902** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -65,15 +65,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2903",
-      "title": "Practical Workplace Audit & Modeling (Task 3)",
+      "title": "Practical Workplace Modeling & Audit (Task 3)",
       "difficulty": "beginner",
       "sheetName": "EX2903",
       "formula": "=IFERROR(XLOOKUP(A6, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2903 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2903.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2903 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2903.",
       "requirements": [
         "Open worksheet tab **EX2903** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -89,15 +89,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2904",
-      "title": "Practical Workplace Audit & Modeling (Task 4)",
+      "title": "Practical Workplace Modeling & Audit (Task 4)",
       "difficulty": "beginner",
       "sheetName": "EX2904",
       "formula": "=IFERROR(XLOOKUP(A7, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2904 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2904.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2904 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2904.",
       "requirements": [
         "Open worksheet tab **EX2904** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -113,15 +113,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2905",
-      "title": "Practical Workplace Audit & Modeling (Task 5)",
+      "title": "Practical Workplace Modeling & Audit (Task 5)",
       "difficulty": "beginner",
       "sheetName": "EX2905",
       "formula": "=IFERROR(XLOOKUP(A8, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2905 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2905.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2905 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2905.",
       "requirements": [
         "Open worksheet tab **EX2905** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -137,15 +137,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2906",
-      "title": "Practical Workplace Audit & Modeling (Task 6)",
+      "title": "Practical Workplace Modeling & Audit (Task 6)",
       "difficulty": "beginner",
       "sheetName": "EX2906",
       "formula": "=IFERROR(XLOOKUP(A9, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2906 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2906.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2906 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2906.",
       "requirements": [
         "Open worksheet tab **EX2906** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -161,15 +161,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2907",
-      "title": "Practical Workplace Audit & Modeling (Task 7)",
+      "title": "Practical Workplace Modeling & Audit (Task 7)",
       "difficulty": "beginner",
       "sheetName": "EX2907",
       "formula": "=IFERROR(XLOOKUP(A10, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2907 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2907.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2907 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2907.",
       "requirements": [
         "Open worksheet tab **EX2907** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -185,15 +185,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2908",
-      "title": "Practical Workplace Audit & Modeling (Task 8)",
+      "title": "Practical Workplace Modeling & Audit (Task 8)",
       "difficulty": "beginner",
       "sheetName": "EX2908",
       "formula": "=IFERROR(XLOOKUP(A11, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2908 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2908.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2908 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2908.",
       "requirements": [
         "Open worksheet tab **EX2908** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -209,15 +209,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2909",
-      "title": "Practical Workplace Audit & Modeling (Task 9)",
+      "title": "Practical Workplace Modeling & Audit (Task 9)",
       "difficulty": "intermediate",
       "sheetName": "EX2909",
       "formula": "=IFERROR(XLOOKUP(A12, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2909 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2909.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2909 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2909.",
       "requirements": [
         "Open worksheet tab **EX2909** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -233,15 +233,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2910",
-      "title": "Practical Workplace Audit & Modeling (Task 10)",
+      "title": "Practical Workplace Modeling & Audit (Task 10)",
       "difficulty": "intermediate",
       "sheetName": "EX2910",
       "formula": "=IFERROR(XLOOKUP(A13, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2910 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2910.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2910 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2910.",
       "requirements": [
         "Open worksheet tab **EX2910** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -257,15 +257,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2911",
-      "title": "Practical Workplace Audit & Modeling (Task 11)",
+      "title": "Practical Workplace Modeling & Audit (Task 11)",
       "difficulty": "intermediate",
       "sheetName": "EX2911",
       "formula": "=IFERROR(XLOOKUP(A14, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2911 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2911.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2911 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2911.",
       "requirements": [
         "Open worksheet tab **EX2911** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -281,15 +281,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2912",
-      "title": "Practical Workplace Audit & Modeling (Task 12)",
+      "title": "Practical Workplace Modeling & Audit (Task 12)",
       "difficulty": "intermediate",
       "sheetName": "EX2912",
       "formula": "=IFERROR(XLOOKUP(A15, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2912 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2912.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2912 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2912.",
       "requirements": [
         "Open worksheet tab **EX2912** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -305,15 +305,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2913",
-      "title": "Practical Workplace Audit & Modeling (Task 13)",
+      "title": "Practical Workplace Modeling & Audit (Task 13)",
       "difficulty": "intermediate",
       "sheetName": "EX2913",
       "formula": "=IFERROR(XLOOKUP(A16, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2913 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2913.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2913 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2913.",
       "requirements": [
         "Open worksheet tab **EX2913** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -329,15 +329,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2914",
-      "title": "Practical Workplace Audit & Modeling (Task 14)",
+      "title": "Practical Workplace Modeling & Audit (Task 14)",
       "difficulty": "intermediate",
       "sheetName": "EX2914",
       "formula": "=IFERROR(XLOOKUP(A17, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2914 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2914.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2914 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2914.",
       "requirements": [
         "Open worksheet tab **EX2914** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -353,15 +353,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2915",
-      "title": "Practical Workplace Audit & Modeling (Task 15)",
+      "title": "Practical Workplace Modeling & Audit (Task 15)",
       "difficulty": "intermediate",
       "sheetName": "EX2915",
       "formula": "=IFERROR(XLOOKUP(A18, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2915 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2915.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2915 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2915.",
       "requirements": [
         "Open worksheet tab **EX2915** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -377,15 +377,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2916",
-      "title": "Practical Workplace Audit & Modeling (Task 16)",
+      "title": "Practical Workplace Modeling & Audit (Task 16)",
       "difficulty": "intermediate",
       "sheetName": "EX2916",
       "formula": "=IFERROR(XLOOKUP(A19, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2916 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2916.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2916 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2916.",
       "requirements": [
         "Open worksheet tab **EX2916** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -401,15 +401,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2917",
-      "title": "Practical Workplace Audit & Modeling (Task 17)",
+      "title": "Practical Workplace Modeling & Audit (Task 17)",
       "difficulty": "intermediate",
       "sheetName": "EX2917",
       "formula": "=IFERROR(XLOOKUP(A20, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2917 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2917.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2917 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2917.",
       "requirements": [
         "Open worksheet tab **EX2917** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -425,15 +425,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2918",
-      "title": "Practical Workplace Audit & Modeling (Task 18)",
+      "title": "Practical Workplace Modeling & Audit (Task 18)",
       "difficulty": "intermediate",
       "sheetName": "EX2918",
       "formula": "=IFERROR(XLOOKUP(A21, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2918 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2918.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2918 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2918.",
       "requirements": [
         "Open worksheet tab **EX2918** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -449,15 +449,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2919",
-      "title": "Practical Workplace Audit & Modeling (Task 19)",
+      "title": "Practical Workplace Modeling & Audit (Task 19)",
       "difficulty": "advanced",
       "sheetName": "EX2919",
       "formula": "=IFERROR(XLOOKUP(A22, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2919 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2919.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2919 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2919.",
       "requirements": [
         "Open worksheet tab **EX2919** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -473,15 +473,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2920",
-      "title": "Practical Workplace Audit & Modeling (Task 20)",
+      "title": "Practical Workplace Modeling & Audit (Task 20)",
       "difficulty": "advanced",
       "sheetName": "EX2920",
       "formula": "=IFERROR(XLOOKUP(A23, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2920 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2920.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2920 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2920.",
       "requirements": [
         "Open worksheet tab **EX2920** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -497,15 +497,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2921",
-      "title": "Practical Workplace Audit & Modeling (Task 21)",
+      "title": "Practical Workplace Modeling & Audit (Task 21)",
       "difficulty": "advanced",
       "sheetName": "EX2921",
       "formula": "=IFERROR(XLOOKUP(A24, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2921 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2921.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2921 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2921.",
       "requirements": [
         "Open worksheet tab **EX2921** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -521,15 +521,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2922",
-      "title": "Practical Workplace Audit & Modeling (Task 22)",
+      "title": "Practical Workplace Modeling & Audit (Task 22)",
       "difficulty": "advanced",
       "sheetName": "EX2922",
       "formula": "=IFERROR(XLOOKUP(A25, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2922 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2922.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2922 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2922.",
       "requirements": [
         "Open worksheet tab **EX2922** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -545,15 +545,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2923",
-      "title": "Practical Workplace Audit & Modeling (Task 23)",
+      "title": "Practical Workplace Modeling & Audit (Task 23)",
       "difficulty": "advanced",
       "sheetName": "EX2923",
       "formula": "=IFERROR(XLOOKUP(A26, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2923 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2923.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2923 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2923.",
       "requirements": [
         "Open worksheet tab **EX2923** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -569,15 +569,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2924",
-      "title": "Practical Workplace Audit & Modeling (Task 24)",
+      "title": "Practical Workplace Modeling & Audit (Task 24)",
       "difficulty": "advanced",
       "sheetName": "EX2924",
       "formula": "=IFERROR(XLOOKUP(A27, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2924 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2924.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2924 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2924.",
       "requirements": [
         "Open worksheet tab **EX2924** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
@@ -593,15 +593,15 @@ export const excelModuleProjectsData = {
     },
     {
       "projectId": "EX2925",
-      "title": "Practical Workplace Audit & Modeling (Task 25)",
+      "title": "Practical Workplace Modeling & Audit (Task 25)",
       "difficulty": "advanced",
       "sheetName": "EX2925",
       "formula": "=IFERROR(XLOOKUP(A28, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Business Systems Analyst, you are auditing operational data on worksheet EX2925 in cell range B4:E30. The current grid payload contains inconsistent formats, missing lookups, and unformatted outputs. Your goal is to structure formulas, enforce custom formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2925.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2925 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2925.",
       "requirements": [
         "Open worksheet tab **EX2925** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
-        "Apply formula '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' in cell **C4**.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
         "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
         "Double-click fill handle to copy formulas down through row 30.",
         "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."

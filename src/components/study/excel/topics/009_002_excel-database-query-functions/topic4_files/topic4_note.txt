@@ -1,0 +1,3 @@
+TOPIC 4: DMAX
+Syntax: =DMAX(database, field, criteria)
+Description: Returns max value matching criteria table.

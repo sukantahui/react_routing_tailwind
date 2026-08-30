@@ -1,0 +1,4 @@
+TECHNICAL SPECIFICATION
+Topic 6: CELL
+Returns cell format/address info.
+Syntax: =CELL(info_type, [ref])

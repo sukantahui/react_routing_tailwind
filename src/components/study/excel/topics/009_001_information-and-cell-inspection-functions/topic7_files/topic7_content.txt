@@ -1,0 +1,4 @@
+TECHNICAL SPECIFICATION
+Topic 7: INFO
+Returns environment/system info.
+Syntax: =INFO(type_text)

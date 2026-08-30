@@ -1,0 +1,4 @@
+TECHNICAL SPECIFICATION
+Topic 6: DGET
+Extracts single unique record matching criteria.
+Syntax: =DGET(database, field, criteria)

@@ -1,0 +1,4 @@
+TECHNICAL SPECIFICATION
+Topic 3: ISFORMULA
+Returns TRUE if cell has a formula.
+Syntax: =ISFORMULA(reference)

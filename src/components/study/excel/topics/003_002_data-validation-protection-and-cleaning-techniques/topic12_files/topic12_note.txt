@@ -1,21 +1,21 @@
-TOPIC 12 QUICK SUMMARY & INSTRUCTOR REFERENCE
+TOPIC 13 QUICK SUMMARY & INSTRUCTOR REFERENCE
 ================================================================================
-Topic: Real-world case study: Designing a tamper-proof corporate budget entry template
+Topic: Practice Lab: Multi-department procurement request form with strict validation
 Module: 003_002_data-validation-protection-and-cleaning-techniques
 Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
 Instructor: Sukanta Hui (Coder & AccoTax)
 
 KEY FORMULA / SYNTAX:
-Tamper-Proof Corporate Budget Engine: Unlocked Blue Inputs + Locked Black Formulas + Cascading Dropdowns + Stop Alerts + Structure Lock
+Procurement Request Portal: Multi-Tier Cascading Menus + Real-Time Duplicate PO Checks + Trace Auditing + Password Defense
 
 PRIMARY CONCEPT:
-Building an institutional tamper-proof corporate budget entry model combining data validation gates, dependent cascading menus, locked formulas, and structural encryption
+Comprehensive practical lab building an enterprise Multi-Department Procurement Request Portal with strict multi-level validation, automated approval workflows, and audit security
 
 TEACHER'S ADVICE:
-Building a tamper-proof budget template is the true test of an enterprise Excel architect. When you hand your model to 50 users and nobody can break it, you have achieved mastery.
+Congratulations on mastering Data Validation, Protection, and Auditing! These skills protect multi-million dollar corporate models from user error, fraud, and data corruption. You build systems that last.
 
 COMMON TRAPS TO AVOID:
-- Unprotected Source Lookup Lists: Leaving master category tables on an unprotected sheet allows users to modify approved cost center codes. -> Fix: Move lookup tables to a dedicated 'Admin_Lists' sheet, set to Very Hidden or protected with a password.
-- Overly Restrictive Validation Blocking Legitimate Exceptions: Setting hard Stop Alerts on items that occasionally require CFO variance approval. -> Fix: Use Warning Alerts for boundary thresholds where executive override is permitted.
-- Allowing Copy-Paste from External Sheets: External copy-pasting strips cell validation and alters locked statuses. -> Fix: Lock sheet permissions and provide clear user training on 'Paste Special Values'.
+- Bypassing Approval Tiers on Split Requisitions: Users splitting a ₹10 Lakh order into two ₹5 Lakh orders to bypass Board approval. -> Fix: Include monthly aggregate vendor spending checks using SUMIFS.
+- Missing Unit-of-Measure Consistency: Entering quantities in 'Bags' while cost is quoted in 'Metric Tons'. -> Fix: Lock Unit of Measure to a standardized dynamic drop-down list.
+- Unrestricted Vendor Name Entry: Allowing free-text typing of vendor names results in 'Tata Steel', 'TATA STEEL LTD', and 'Tata' as separate suppliers. -> Fix: Enforce strict vendor selection via approved Vendor Master drop-downs.
 ================================================================================

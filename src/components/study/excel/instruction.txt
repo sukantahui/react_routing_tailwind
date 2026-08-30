@@ -57,11 +57,14 @@ The Excel study module structure:
         `ws.columns.forEach(col => { col.width = Math.max(maxContentLength + 6, 22); });`
     - This prevents text truncation, string clipping, or numeric overflow errors (`###`).
 
-• MANDATORY DOWNLOAD BUTTON IN EVERY TOPIC:
-    - Every `Topic[N].jsx` must include an intuitive, high-visibility **Download Practice Workbook (.xlsx)** button.
-    - The button downloads the common module `.xlsx` file directly to the learner's computer so they can open and practice in their local Microsoft Excel / Office software.
-    - Uses Vite's `?url` asset import to obtain the direct downloadable asset URL:
-        import sampleWorkbookUrl from "./excel_files/[module_name].xlsx?url";
+• MANDATORY DEFAULT TOPIC SHEET SEQUENCE RESOLUTION RULE:
+    - Sheet 1 (Index 0) of every master workbook is ALWAYS the executive `Overview` landing sheet.
+    - When a student opens a topic page (e.g. `Topic0.jsx`, `Topic1.jsx`, `Topic8.jsx`...), the interactive spreadsheet viewer MUST default to that specific topic's worksheet tab (Sheet N + 2 / Index N + 1), NOT the Overview landing sheet.
+    - Sequence Rule:
+        • Topic 0 (`Topic0.jsx`) -> Default Sheet 2 (Index 1: Topic 0's Worksheet)
+        • Topic 1 (`Topic1.jsx`) -> Default Sheet 3 (Index 2: Topic 1's Worksheet)
+        • Topic N (`Topic[N].jsx`) -> Default Sheet N + 2 (Index N + 1: Topic N's Worksheet)
+    - The `Overview` landing sheet remains at Sheet 1 (Index 0), accessible at any time via the interactive sheet selector dropdown or internal hyperlinks.
 
 --------------------------------------------------------------------------------
 3. INSTRUCTIONS FOR THE EXECUTIVE LANDING SHEET & WORKBOOK (.xlsx)

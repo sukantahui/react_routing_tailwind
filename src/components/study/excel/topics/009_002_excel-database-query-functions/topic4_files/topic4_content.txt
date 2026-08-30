@@ -1,0 +1,4 @@
+TECHNICAL SPECIFICATION
+Topic 4: DMAX
+Returns max value matching criteria table.
+Syntax: =DMAX(database, field, criteria)

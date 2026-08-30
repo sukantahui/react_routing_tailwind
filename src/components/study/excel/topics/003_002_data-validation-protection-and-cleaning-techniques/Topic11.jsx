@@ -61,22 +61,22 @@ export default function Topic11() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              {"🧹 Document Inspector & Privacy Scrubbing"} · Topic 11
+              {"🏛️ Tamper-Proof Budget Template Case Study"} · Topic 12
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              {"Metadata Cleansing & Compliance"}
+              {"Enterprise Budgeting Case Study"}
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              {"Intermediate-Advanced · Bloom Level 4: Analyze"}
+              {"Advanced-Mastery · Bloom Level 6: Evaluate"}
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            {"Document Inspector: Removing hidden properties, personal information, and metadata"}
+            {"Real-world case study: Designing a tamper-proof corporate budget entry template"}
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            {"Sanitizing sensitive corporate files before external publication using Document Inspector: removing author metadata, hidden rows/columns, invisible sheets, and internal comments"}. Master the complete validation architecture, diagnostic auditing tools, formula stepping, and enterprise encryption protocols.
+            {"Building an institutional tamper-proof corporate budget entry model combining data validation gates, dependent cascading menus, locked formulas, and structural encryption"}. Master the complete validation architecture, diagnostic auditing tools, formula stepping, and enterprise encryption protocols.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,7 +113,7 @@ export default function Topic11() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"File &gt; Info &gt; Check for Issues &gt; Inspect Document (Remove Personal Info, Document Properties, Hidden Worksheets, Comments)"}
+            {"Tamper-Proof Corporate Budget Engine: Unlocked Blue Inputs + Locked Black Formulas + Cascading Dropdowns + Stop Alerts + Structure Lock"}
           </div>
 
           <div className="overflow-x-auto">
@@ -172,18 +172,18 @@ export default function Topic11() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Deep Metadata Inspection"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Scans the workbook XML architecture for hidden metadata: Author Name, Company, Revision History, File Paths, Printer Properties, and Email Addresses."}</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Multi-Layered Defense-in-Depth"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Layer 1: Data validation on inputs (Numbers > 0, Dates in FY 2026-27); Layer 2: Dependent dropdowns for Cost Center -> Expense Account; Layer 3: Cell protection locking formulas; Layer 4: Workbook structure encryption."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Hidden Content Scrubbing"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Identifies and purges hidden worksheets, hidden rows/columns, invisible objects, custom XML data, and embedded cell comments/notes."}</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Tab-Key Guided Data Entry Workflow"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Users pressing the Tab key glide smoothly between unlocked input cells only, bypassing locked calculations entirely for high-speed error-free entry."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Regulatory Privacy & M&A Compliance"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Essential step before releasing financial models to external buyers, regulatory bodies (SEBI/SEC), or public investor relations portals."}</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Automated Variance & Cap Audit Flags"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Embeds conditional alerts and visual headers that turn red if departmental submissions exceed allocated capital expenditure ceilings."}</p>
             </div>
             
           </div>
@@ -199,7 +199,7 @@ export default function Topic11() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Document Inspector Privacy Scrub: Deep Metadata Inspection -> Scrubbing Pipeline"}
+              Visual Dataflow: {"Enterprise Budget Security Architecture: Multi-Layered Validation & Protection Stack"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Security Pipeline
@@ -209,11 +209,11 @@ export default function Topic11() {
           <div className="p-4 rounded-xl bg-slate-950/90 border border-slate-800/80 flex flex-col items-center justify-center overflow-x-auto shadow-inner">
             <svg viewBox="0 0 820 220" className="w-full max-w-4xl h-auto text-slate-200 select-none font-sans">
               <defs>
-                <linearGradient id="gradFlowMod8_11" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient id="gradFlowMod8_12" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
                   <stop offset="100%" stopColor="#0369a1" stopOpacity="0.8" />
                 </linearGradient>
-                <marker id="arrowMod8_11" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <marker id="arrowMod8_12" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                   <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
                 </marker>
               </defs>
@@ -228,20 +228,20 @@ export default function Topic11() {
                 <text x="105" y="118" textAnchor="middle" fill="#64748b" fontSize="10">User Entry Cell</text>
               </g>
 
-              <path d="M 245 110 L 305 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod8_11)" fill="none" />
+              <path d="M 245 110 L 305 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod8_12)" fill="none" />
 
               {/* Node 2: Validation Gatekeeper */}
               <g transform="translate(315, 30)">
                 <rect width="250" height="160" rx="14" fill="#0c4a6e" stroke="#0284c7" strokeWidth="2" />
                 <rect x="14" y="14" width="222" height="28" rx="6" fill="#0369a1" />
                 <text x="125" y="33" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">Data Validation Gatekeeper</text>
-                <text x="125" y="75" textAnchor="middle" fill="#7dd3fc" fontSize="13" fontFamily="monospace" fontWeight="bold">{"Metadata Cleansing & Compliance"}</text>
+                <text x="125" y="75" textAnchor="middle" fill="#7dd3fc" fontSize="13" fontFamily="monospace" fontWeight="bold">{"Enterprise Budgeting Case Study"}</text>
                 <text x="125" y="100" textAnchor="middle" fill="#bae6fd" fontSize="10">Boundary &amp; Syntax Verification</text>
                 <text x="125" y="120" textAnchor="middle" fill="#bae6fd" fontSize="10">Cell Protection Enforcement</text>
                 <text x="125" y="140" textAnchor="middle" fill="#38bdf8" fontSize="9" fontStyle="italic">Native Core Security</text>
               </g>
 
-              <path d="M 570 110 L 630 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod8_11)" fill="none" />
+              <path d="M 570 110 L 630 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod8_12)" fill="none" />
 
               {/* Node 3: Validated Commit / Block */}
               <g transform="translate(640, 45)">
@@ -286,8 +286,8 @@ export default function Topic11() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic11_Document_Inspector"
-            title={"Document Inspector: Removing hidden properties, personal information, and metadata - Interactive Practice Grid"}
+            sheetName="Topic11_Real_world_case_st"
+            title={"Real-world case study: Designing a tamper-proof corporate budget entry template - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
           />
@@ -314,38 +314,38 @@ export default function Topic11() {
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Managing Director M&A"}</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · VP Corporate Planning"}</span>
                 <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Public Tender Financial Model Metadata Scrub"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Runs Document Inspector to scrub internal valuation commentary, previous draft author identities, and hidden sheets before submitting government contract bids."}</p>
+              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Enterprise Annual Operating Plan (AOP) Collection"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Deploys standard budget collection templates across 45 business units, consolidating ₹350 Crore departmental budget submissions with zero formula corruptions."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Statutory Compliance Auditor"}</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Senior Financial Controller"}</span>
                 <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Audited Financial Statements Privacy Scrub"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Removes personal email addresses and internal audit notes from financial statements before filing with MCA."}</p>
+              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Factory Opex Budget Control Template"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Enforces strict capital allocation ceilings with automated Stop Alerts on maintenance expenditure overruns."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Legal & IP Lead"}</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Plant Engineering Superintendent"}</span>
                 <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">{"Abhronila Das: Vendor RFP Contract Sanitization"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Cleanses template properties and internal competitor benchmark pricing notes before vendor distribution."}</p>
+              <h3 className="font-bold text-white text-base">{"Abhronila Das: Shopfloor Tooling Capex Request System"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Constructs standardized equipment procurement entry forms with dependent asset class cascading menus."}</p>
             </div>
             
             <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Logistics Commercial Lead"}</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Supply Chain Financial Controller"}</span>
                 <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
               </div>
-              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Client Freight Proposal Metadata Sanitization"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Removes internal cost-margin comments from customer-facing quotation spreadsheets."}</p>
+              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Regional Logistics Route Budget Consolidation"}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Collects 12-month freight budget projections with automated driver allowance rate boundary validations."}</p>
             </div>
             
           </div>
@@ -385,7 +385,7 @@ export default function Topic11() {
                 Step 2: Configure Validation Criteria &amp; Formulas
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the Settings tab, select Allow: Custom/List and enter the formula or range reference <code className="text-cyan-300 font-mono font-bold">{"File &gt; Info &gt; Check for Issues &gt; Inspect Document (Remove Personal Info, Document Properties, Hidden Worksheets, Comments)"}</code>.
+                In the Settings tab, select Allow: Custom/List and enter the formula or range reference <code className="text-cyan-300 font-mono font-bold">{"Tamper-Proof Corporate Budget Engine: Unlocked Blue Inputs + Locked Black Formulas + Cascading Dropdowns + Stop Alerts + Structure Lock"}</code>.
               </p>
             </div>
 
@@ -440,21 +440,21 @@ export default function Topic11() {
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Irreversible Deletion of Necessary Hidden Sheets"}</td>
-                  <td className="py-3 px-4">{"Clicking 'Remove All' on Hidden Worksheets in Document Inspector permanently DELETES those sheets from the workbook."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Always save a backup copy (`Model_Master_Internal.xlsx`) before running Document Inspector."}</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Unprotected Source Lookup Lists"}</td>
+                  <td className="py-3 px-4">{"Leaving master category tables on an unprotected sheet allows users to modify approved cost center codes."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Move lookup tables to a dedicated 'Admin_Lists' sheet, set to Very Hidden or protected with a password."}</td>
                 </tr>
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Accidental Removal of Live Pivot Cache XML"}</td>
-                  <td className="py-3 px-4">{"Removing Custom XML data can occasionally corrupt complex Power Query or third-party add-in connections."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Review itemized inspection results before clicking 'Remove All'."}</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Overly Restrictive Validation Blocking Legitimate Exceptions"}</td>
+                  <td className="py-3 px-4">{"Setting hard Stop Alerts on items that occasionally require CFO variance approval."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use Warning Alerts for boundary thresholds where executive override is permitted."}</td>
                 </tr>
                 
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Publishing Internal Notes to Public Competitors"}</td>
-                  <td className="py-3 px-4">{"Forgetting to inspect documents leaves confidential internal margin discussions visible in cell comments."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Make Document Inspection a mandatory step in corporate sign-off checklists."}</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Allowing Copy-Paste from External Sheets"}</td>
+                  <td className="py-3 px-4">{"External copy-pasting strips cell validation and alters locked statuses."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Lock sheet permissions and provide clear user training on 'Paste Special Values'."}</td>
                 </tr>
                 
               </tbody>
@@ -483,26 +483,26 @@ export default function Topic11() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Launch Document Inspector"}
+                <span>⚡</span> {"Tab-Only Data Entry"}
               </div>
-              <p className="text-slate-300 leading-relaxed">{"Comprehensive audit of all hidden properties and comments."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"File &gt; Info > Check for Issues > Inspect Document"}</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Guarantees rapid data entry exclusively in approved input fields."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Press Tab on protected sheet"}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Save Backup First"}
+                <span>⚡</span> {"Hidden Admin Sheet"}
               </div>
-              <p className="text-slate-300 leading-relaxed">{"Mandatory safeguard before purging metadata."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Save as Model_Cleaned_External.xlsx"}</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Hides master validation lists completely from user view."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"VBA: Sheet.Visible = 2"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Inspect for Hidden Rows"}
+                <span>⚡</span> {"Automated Budget Cap Flag"}
               </div>
-              <p className="text-slate-300 leading-relaxed">{"Prevents leaking sensitive filtered data in shared spreadsheets."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Highlights hidden rows/cols"}</kbd>
+              <p className="text-slate-300 leading-relaxed">{"Real-time visual compliance indicator."}</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"=IF(Total>BudgetLimit, \"⚠️ EXCEEDED\", \"✓ OK\")"}</kbd>
             </div>
             
           </div>
@@ -529,7 +529,7 @@ export default function Topic11() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: {"Why must you always save a backup copy of your financial model before running Document Inspector?"}
+                <span className="text-teal-400">💭</span> Question 1: {"How does combining cell protection with data validation create a foolproof corporate software interface?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the spreadsheet security architecture and data governance implications.
@@ -538,7 +538,7 @@ export default function Topic11() {
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: {"What confidential corporate information can be inadvertently leaked if Document Inspector is not run?"}
+                <span className="text-teal-400">💭</span> Question 2: {"Why is 'Tab navigation' on a protected sheet a major productivity boost for data entry operators?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the spreadsheet security architecture and data governance implications.
@@ -547,7 +547,7 @@ export default function Topic11() {
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: {"Why is Document Inspection mandatory before uploading financial files to public investor relations websites?"}
+                <span className="text-teal-400">💭</span> Question 3: {"How do you hide master lookup tables so users cannot modify company cost center codes?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the spreadsheet security architecture and data governance implications.
@@ -562,7 +562,7 @@ export default function Topic11() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title={"Document Inspector: Removing hidden properties, personal information, and metadata - Frequently Asked Questions"}
+            title={"Real-world case study: Designing a tamper-proof corporate budget entry template - Frequently Asked Questions"}
             questions={questions}
           />
         </div>
@@ -572,7 +572,7 @@ export default function Topic11() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note={"Never email an Excel model to a client or competitor without running Document Inspector! It takes 10 seconds and prevents embarrassing leaks of internal comments and author metadata."}
+            note={"Building a tamper-proof budget template is the true test of an enterprise Excel architect. When you hand your model to 50 users and nobody can break it, you have achieved mastery."}
           />
         </div>
       </div>

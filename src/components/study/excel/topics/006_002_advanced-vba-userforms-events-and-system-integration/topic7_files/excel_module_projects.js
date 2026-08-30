@@ -17,578 +17,603 @@ export const excelModuleProjectsData = {
   "projects": [
     {
       "projectId": "EX2501",
-      "title": "VBA & Macro Workflow Automation (Task 1)",
+      "title": "Practical Workplace Modeling & Audit (Task 1)",
       "difficulty": "beginner",
       "sheetName": "EX2501",
-      "formula": "Sub ProcessData_EX2501(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2501. You must write a VBA macro or Office Script named ProcessData_EX2501 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2501 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2501.",
       "requirements": [
-        "Open worksheet **EX2501** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2501()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2501** and assign macro 'ProcessData_EX2501'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2501** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2501()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2501.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2501**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "26500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 26,500.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2501-01| =IFERROR(XLOOKUP)| ₹ 26,500.00 | Verified     |\n| C5   | EMP-EX2501-02| =IFERROR(XLOOKUP)| ₹ 36,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2502",
-      "title": "VBA & Macro Workflow Automation (Task 2)",
+      "title": "Practical Workplace Modeling & Audit (Task 2)",
       "difficulty": "beginner",
       "sheetName": "EX2502",
-      "formula": "Sub ProcessData_EX2502(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2502. You must write a VBA macro or Office Script named ProcessData_EX2502 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A5, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2502 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2502.",
       "requirements": [
-        "Open worksheet **EX2502** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2502()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2502** and assign macro 'ProcessData_EX2502'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2502** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2502()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2502.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2502**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "28000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 28,000.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2502-01| =IFERROR(XLOOKUP)| ₹ 28,000.00 | Verified     |\n| C5   | EMP-EX2502-02| =IFERROR(XLOOKUP)| ₹ 38,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2503",
-      "title": "VBA & Macro Workflow Automation (Task 3)",
+      "title": "Practical Workplace Modeling & Audit (Task 3)",
       "difficulty": "beginner",
       "sheetName": "EX2503",
-      "formula": "Sub ProcessData_EX2503(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2503. You must write a VBA macro or Office Script named ProcessData_EX2503 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A6, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2503 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2503.",
       "requirements": [
-        "Open worksheet **EX2503** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2503()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2503** and assign macro 'ProcessData_EX2503'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2503** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2503()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2503.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2503**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "29500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 29,500.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2503-01| =IFERROR(XLOOKUP)| ₹ 29,500.00 | Verified     |\n| C5   | EMP-EX2503-02| =IFERROR(XLOOKUP)| ₹ 39,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2504",
-      "title": "VBA & Macro Workflow Automation (Task 4)",
+      "title": "Practical Workplace Modeling & Audit (Task 4)",
       "difficulty": "beginner",
       "sheetName": "EX2504",
-      "formula": "Sub ProcessData_EX2504(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2504. You must write a VBA macro or Office Script named ProcessData_EX2504 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A7, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2504 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2504.",
       "requirements": [
-        "Open worksheet **EX2504** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2504()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2504** and assign macro 'ProcessData_EX2504'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2504** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2504()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2504.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2504**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "31000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 31,000.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2504-01| =IFERROR(XLOOKUP)| ₹ 31,000.00 | Verified     |\n| C5   | EMP-EX2504-02| =IFERROR(XLOOKUP)| ₹ 41,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2505",
-      "title": "VBA & Macro Workflow Automation (Task 5)",
+      "title": "Practical Workplace Modeling & Audit (Task 5)",
       "difficulty": "beginner",
       "sheetName": "EX2505",
-      "formula": "Sub ProcessData_EX2505(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2505. You must write a VBA macro or Office Script named ProcessData_EX2505 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A8, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2505 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2505.",
       "requirements": [
-        "Open worksheet **EX2505** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2505()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2505** and assign macro 'ProcessData_EX2505'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2505** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2505()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2505.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2505**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "32500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 32,500.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2505-01| =IFERROR(XLOOKUP)| ₹ 32,500.00 | Verified     |\n| C5   | EMP-EX2505-02| =IFERROR(XLOOKUP)| ₹ 42,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2506",
-      "title": "VBA & Macro Workflow Automation (Task 6)",
+      "title": "Practical Workplace Modeling & Audit (Task 6)",
       "difficulty": "beginner",
       "sheetName": "EX2506",
-      "formula": "Sub ProcessData_EX2506(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2506. You must write a VBA macro or Office Script named ProcessData_EX2506 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A9, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2506 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2506.",
       "requirements": [
-        "Open worksheet **EX2506** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2506()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2506** and assign macro 'ProcessData_EX2506'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2506** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2506()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2506.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2506**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "34000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 34,000.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2506-01| =IFERROR(XLOOKUP)| ₹ 34,000.00 | Verified     |\n| C5   | EMP-EX2506-02| =IFERROR(XLOOKUP)| ₹ 44,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2507",
-      "title": "VBA & Macro Workflow Automation (Task 7)",
+      "title": "Practical Workplace Modeling & Audit (Task 7)",
       "difficulty": "beginner",
       "sheetName": "EX2507",
-      "formula": "Sub ProcessData_EX2507(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2507. You must write a VBA macro or Office Script named ProcessData_EX2507 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A10, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2507 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2507.",
       "requirements": [
-        "Open worksheet **EX2507** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2507()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2507** and assign macro 'ProcessData_EX2507'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2507** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2507()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2507.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2507**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "35500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 35,500.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2507-01| =IFERROR(XLOOKUP)| ₹ 35,500.00 | Verified     |\n| C5   | EMP-EX2507-02| =IFERROR(XLOOKUP)| ₹ 45,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2508",
-      "title": "VBA & Macro Workflow Automation (Task 8)",
+      "title": "Practical Workplace Modeling & Audit (Task 8)",
       "difficulty": "beginner",
       "sheetName": "EX2508",
-      "formula": "Sub ProcessData_EX2508(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2508. You must write a VBA macro or Office Script named ProcessData_EX2508 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A11, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2508 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2508.",
       "requirements": [
-        "Open worksheet **EX2508** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2508()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2508** and assign macro 'ProcessData_EX2508'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2508** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2508()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2508.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2508**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "37000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 37,000.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2508-01| =IFERROR(XLOOKUP)| ₹ 37,000.00 | Verified     |\n| C5   | EMP-EX2508-02| =IFERROR(XLOOKUP)| ₹ 47,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2509",
-      "title": "VBA & Macro Workflow Automation (Task 9)",
+      "title": "Practical Workplace Modeling & Audit (Task 9)",
       "difficulty": "intermediate",
       "sheetName": "EX2509",
-      "formula": "Sub ProcessData_EX2509(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2509. You must write a VBA macro or Office Script named ProcessData_EX2509 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A12, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2509 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2509.",
       "requirements": [
-        "Open worksheet **EX2509** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2509()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2509** and assign macro 'ProcessData_EX2509'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2509** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2509()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2509.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2509**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "38500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 38,500.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2509-01| =IFERROR(XLOOKUP)| ₹ 38,500.00 | Verified     |\n| C5   | EMP-EX2509-02| =IFERROR(XLOOKUP)| ₹ 48,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2510",
-      "title": "VBA & Macro Workflow Automation (Task 10)",
+      "title": "Practical Workplace Modeling & Audit (Task 10)",
       "difficulty": "intermediate",
       "sheetName": "EX2510",
-      "formula": "Sub ProcessData_EX2510(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2510. You must write a VBA macro or Office Script named ProcessData_EX2510 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A13, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2510 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2510.",
       "requirements": [
-        "Open worksheet **EX2510** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2510()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2510** and assign macro 'ProcessData_EX2510'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2510** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2510()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2510.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2510**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "40000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 40,000.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2510-01| =IFERROR(XLOOKUP)| ₹ 40,000.00 | Verified     |\n| C5   | EMP-EX2510-02| =IFERROR(XLOOKUP)| ₹ 50,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2511",
-      "title": "VBA & Macro Workflow Automation (Task 11)",
+      "title": "Practical Workplace Modeling & Audit (Task 11)",
       "difficulty": "intermediate",
       "sheetName": "EX2511",
-      "formula": "Sub ProcessData_EX2511(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2511. You must write a VBA macro or Office Script named ProcessData_EX2511 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A14, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2511 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2511.",
       "requirements": [
-        "Open worksheet **EX2511** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2511()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2511** and assign macro 'ProcessData_EX2511'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2511** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2511()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2511.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2511**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "41500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 41,500.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2511-01| =IFERROR(XLOOKUP)| ₹ 41,500.00 | Verified     |\n| C5   | EMP-EX2511-02| =IFERROR(XLOOKUP)| ₹ 51,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2512",
-      "title": "VBA & Macro Workflow Automation (Task 12)",
+      "title": "Practical Workplace Modeling & Audit (Task 12)",
       "difficulty": "intermediate",
       "sheetName": "EX2512",
-      "formula": "Sub ProcessData_EX2512(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2512. You must write a VBA macro or Office Script named ProcessData_EX2512 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A15, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2512 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2512.",
       "requirements": [
-        "Open worksheet **EX2512** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2512()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2512** and assign macro 'ProcessData_EX2512'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2512** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2512()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2512.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2512**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "43000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 43,000.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2512-01| =IFERROR(XLOOKUP)| ₹ 43,000.00 | Verified     |\n| C5   | EMP-EX2512-02| =IFERROR(XLOOKUP)| ₹ 53,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2513",
-      "title": "VBA & Macro Workflow Automation (Task 13)",
+      "title": "Practical Workplace Modeling & Audit (Task 13)",
       "difficulty": "intermediate",
       "sheetName": "EX2513",
-      "formula": "Sub ProcessData_EX2513(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2513. You must write a VBA macro or Office Script named ProcessData_EX2513 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A16, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2513 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2513.",
       "requirements": [
-        "Open worksheet **EX2513** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2513()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2513** and assign macro 'ProcessData_EX2513'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2513** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2513()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2513.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2513**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "44500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 44,500.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2513-01| =IFERROR(XLOOKUP)| ₹ 44,500.00 | Verified     |\n| C5   | EMP-EX2513-02| =IFERROR(XLOOKUP)| ₹ 54,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2514",
-      "title": "VBA & Macro Workflow Automation (Task 14)",
+      "title": "Practical Workplace Modeling & Audit (Task 14)",
       "difficulty": "intermediate",
       "sheetName": "EX2514",
-      "formula": "Sub ProcessData_EX2514(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2514. You must write a VBA macro or Office Script named ProcessData_EX2514 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A17, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2514 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2514.",
       "requirements": [
-        "Open worksheet **EX2514** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2514()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2514** and assign macro 'ProcessData_EX2514'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2514** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2514()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2514.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2514**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "46000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 46,000.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2514-01| =IFERROR(XLOOKUP)| ₹ 46,000.00 | Verified     |\n| C5   | EMP-EX2514-02| =IFERROR(XLOOKUP)| ₹ 56,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2515",
-      "title": "VBA & Macro Workflow Automation (Task 15)",
+      "title": "Practical Workplace Modeling & Audit (Task 15)",
       "difficulty": "intermediate",
       "sheetName": "EX2515",
-      "formula": "Sub ProcessData_EX2515(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2515. You must write a VBA macro or Office Script named ProcessData_EX2515 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A18, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2515 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2515.",
       "requirements": [
-        "Open worksheet **EX2515** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2515()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2515** and assign macro 'ProcessData_EX2515'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2515** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2515()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2515.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2515**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "47500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 47,500.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2515-01| =IFERROR(XLOOKUP)| ₹ 47,500.00 | Verified     |\n| C5   | EMP-EX2515-02| =IFERROR(XLOOKUP)| ₹ 57,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2516",
-      "title": "VBA & Macro Workflow Automation (Task 16)",
+      "title": "Practical Workplace Modeling & Audit (Task 16)",
       "difficulty": "intermediate",
       "sheetName": "EX2516",
-      "formula": "Sub ProcessData_EX2516(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2516. You must write a VBA macro or Office Script named ProcessData_EX2516 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A19, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2516 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2516.",
       "requirements": [
-        "Open worksheet **EX2516** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2516()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2516** and assign macro 'ProcessData_EX2516'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2516** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2516()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2516.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2516**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "49000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 49,000.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2516-01| =IFERROR(XLOOKUP)| ₹ 49,000.00 | Verified     |\n| C5   | EMP-EX2516-02| =IFERROR(XLOOKUP)| ₹ 59,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2517",
-      "title": "VBA & Macro Workflow Automation (Task 17)",
+      "title": "Practical Workplace Modeling & Audit (Task 17)",
       "difficulty": "intermediate",
       "sheetName": "EX2517",
-      "formula": "Sub ProcessData_EX2517(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2517. You must write a VBA macro or Office Script named ProcessData_EX2517 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A20, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2517 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2517.",
       "requirements": [
-        "Open worksheet **EX2517** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2517()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2517** and assign macro 'ProcessData_EX2517'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2517** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2517()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2517.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2517**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "50500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 50,500.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2517-01| =IFERROR(XLOOKUP)| ₹ 50,500.00 | Verified     |\n| C5   | EMP-EX2517-02| =IFERROR(XLOOKUP)| ₹ 60,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2518",
-      "title": "VBA & Macro Workflow Automation (Task 18)",
+      "title": "Practical Workplace Modeling & Audit (Task 18)",
       "difficulty": "intermediate",
       "sheetName": "EX2518",
-      "formula": "Sub ProcessData_EX2518(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2518. You must write a VBA macro or Office Script named ProcessData_EX2518 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A21, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2518 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2518.",
       "requirements": [
-        "Open worksheet **EX2518** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2518()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2518** and assign macro 'ProcessData_EX2518'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2518** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2518()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2518.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2518**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "52000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 52,000.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2518-01| =IFERROR(XLOOKUP)| ₹ 52,000.00 | Verified     |\n| C5   | EMP-EX2518-02| =IFERROR(XLOOKUP)| ₹ 62,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2519",
-      "title": "VBA & Macro Workflow Automation (Task 19)",
+      "title": "Practical Workplace Modeling & Audit (Task 19)",
       "difficulty": "advanced",
       "sheetName": "EX2519",
-      "formula": "Sub ProcessData_EX2519(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2519. You must write a VBA macro or Office Script named ProcessData_EX2519 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A22, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2519 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2519.",
       "requirements": [
-        "Open worksheet **EX2519** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2519()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2519** and assign macro 'ProcessData_EX2519'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2519** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2519()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2519.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2519**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "53500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 53,500.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2519-01| =IFERROR(XLOOKUP)| ₹ 53,500.00 | Verified     |\n| C5   | EMP-EX2519-02| =IFERROR(XLOOKUP)| ₹ 63,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2520",
-      "title": "VBA & Macro Workflow Automation (Task 20)",
+      "title": "Practical Workplace Modeling & Audit (Task 20)",
       "difficulty": "advanced",
       "sheetName": "EX2520",
-      "formula": "Sub ProcessData_EX2520(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2520. You must write a VBA macro or Office Script named ProcessData_EX2520 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A23, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2520 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2520.",
       "requirements": [
-        "Open worksheet **EX2520** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2520()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2520** and assign macro 'ProcessData_EX2520'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2520** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2520()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2520.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2520**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "55000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 55,000.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2520-01| =IFERROR(XLOOKUP)| ₹ 55,000.00 | Verified     |\n| C5   | EMP-EX2520-02| =IFERROR(XLOOKUP)| ₹ 65,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2521",
-      "title": "VBA & Macro Workflow Automation (Task 21)",
+      "title": "Practical Workplace Modeling & Audit (Task 21)",
       "difficulty": "advanced",
       "sheetName": "EX2521",
-      "formula": "Sub ProcessData_EX2521(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2521. You must write a VBA macro or Office Script named ProcessData_EX2521 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A24, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2521 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2521.",
       "requirements": [
-        "Open worksheet **EX2521** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2521()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2521** and assign macro 'ProcessData_EX2521'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2521** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2521()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2521.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2521**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "56500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 56,500.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2521-01| =IFERROR(XLOOKUP)| ₹ 56,500.00 | Verified     |\n| C5   | EMP-EX2521-02| =IFERROR(XLOOKUP)| ₹ 66,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2522",
-      "title": "VBA & Macro Workflow Automation (Task 22)",
+      "title": "Practical Workplace Modeling & Audit (Task 22)",
       "difficulty": "advanced",
       "sheetName": "EX2522",
-      "formula": "Sub ProcessData_EX2522(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2522. You must write a VBA macro or Office Script named ProcessData_EX2522 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A25, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2522 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2522.",
       "requirements": [
-        "Open worksheet **EX2522** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2522()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2522** and assign macro 'ProcessData_EX2522'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2522** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2522()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2522.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2522**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "58000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 58,000.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2522-01| =IFERROR(XLOOKUP)| ₹ 58,000.00 | Verified     |\n| C5   | EMP-EX2522-02| =IFERROR(XLOOKUP)| ₹ 68,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2523",
-      "title": "VBA & Macro Workflow Automation (Task 23)",
+      "title": "Practical Workplace Modeling & Audit (Task 23)",
       "difficulty": "advanced",
       "sheetName": "EX2523",
-      "formula": "Sub ProcessData_EX2523(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2523. You must write a VBA macro or Office Script named ProcessData_EX2523 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A26, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2523 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2523.",
       "requirements": [
-        "Open worksheet **EX2523** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2523()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2523** and assign macro 'ProcessData_EX2523'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2523** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2523()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2523.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2523**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "59500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 59,500.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2523-01| =IFERROR(XLOOKUP)| ₹ 59,500.00 | Verified     |\n| C5   | EMP-EX2523-02| =IFERROR(XLOOKUP)| ₹ 69,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2524",
-      "title": "VBA & Macro Workflow Automation (Task 24)",
+      "title": "Practical Workplace Modeling & Audit (Task 24)",
       "difficulty": "advanced",
       "sheetName": "EX2524",
-      "formula": "Sub ProcessData_EX2524(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2524. You must write a VBA macro or Office Script named ProcessData_EX2524 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A27, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2524 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2524.",
       "requirements": [
-        "Open worksheet **EX2524** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2524()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2524** and assign macro 'ProcessData_EX2524'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2524** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2524()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2524.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2524**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "61000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 61,000.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2524-01| =IFERROR(XLOOKUP)| ₹ 61,000.00 | Verified     |\n| C5   | EMP-EX2524-02| =IFERROR(XLOOKUP)| ₹ 71,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX2525",
-      "title": "VBA & Macro Workflow Automation (Task 25)",
+      "title": "Practical Workplace Modeling & Audit (Task 25)",
       "difficulty": "advanced",
       "sheetName": "EX2525",
-      "formula": "Sub ProcessData_EX2525(): Range(\"B4:B50\").Value = UCase(Range(\"B4:B50\")): End Sub",
-      "description": "As an Automation Developer at AccoTax, you are developing an automated macro workflow on sheet EX2525. You must write a VBA macro or Office Script named ProcessData_EX2525 that iterates through cells B4:B50, strips leading/trailing whitespace, converts text to uppercase, and formats monetary values automatically upon clicking an assigned Form Control Button.",
+      "formula": "=IFERROR(XLOOKUP(A28, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX2525 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX2525.",
       "requirements": [
-        "Open worksheet **EX2525** and press **Alt + F11** to launch the Visual Basic Editor (VBE).",
-        "Click **Insert** -> **Module** and paste sub procedure 'Sub ProcessData_EX2525()'.",
-        "Use a 'For Each cell In Range(\"B4:B50\")' loop to apply Trim(), UCase(), and formatting.",
-        "Draw a Form Control Command Button on sheet **EX2525** and assign macro 'ProcessData_EX2525'.",
-        "Test execution and confirm zero runtime errors (Err.Number = 0)."
+        "Open worksheet tab **EX2525** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Open VBE**: Press **Alt + F11** (or Developer tab -> Visual Basic).\n2. **Insert Module**: Click **Insert** menu -> **Module**.\n3. **Write VBA Procedure**: Paste the macro code:\n   Sub ProcessData_EX2525()\n     Dim cell As Range\n     For Each cell In ActiveSheet.Range(\"B4:B50\")\n       cell.Value = UCase(Trim(cell.Value))\n     Next cell\n   End Sub\n4. **Assign Button**: Return to Excel (**Alt + Q**), click **Developer** -> **Insert** -> **Button (Form Control)**. Draw button on sheet and select ProcessData_EX2525.\n5. **Execute & Test**: Click button and verify uppercase transformation instantly.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX2525**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "  sukanta hui  ",
-        "mask": "VBA UCase(Trim())",
-        "rendered": "SUKANTA HUI"
+        "raw": "62500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 62,500.00"
       },
-      "expectedOutput": "| Button Trigger | Input Cell Value | Macro Transformation | Process Status |\n| -------------- | ---------------- | -------------------- | -------------- |\n| [ Run Macro ]  | \"  acco tax  \"   | ACCO TAX             | Executed (0s)  |",
-      "proTip": "Always save VBA-enabled workbooks in .xlsm format! Saving a VBA workbook as standard .xlsx silently strips away all macro code!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX2525-01| =IFERROR(XLOOKUP)| ₹ 62,500.00 | Verified     |\n| C5   | EMP-EX2525-02| =IFERROR(XLOOKUP)| ₹ 72,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     }
   ]
 };

@@ -1,21 +1,21 @@
-TOPIC 9 QUICK SUMMARY & INSTRUCTOR REFERENCE
+TOPIC 10 QUICK SUMMARY & INSTRUCTOR REFERENCE
 ================================================================================
-Topic: Cell protection: Locking formulas, unlocking input cells, and worksheet passwords
+Topic: Workbook-level protection: Structure protection, encryption, and read-only recommendation
 Module: 003_002_data-validation-protection-and-cleaning-techniques
 Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
 Instructor: Sukanta Hui (Coder & AccoTax)
 
 KEY FORMULA / SYNTAX:
-Cell Protection Protocol: 1. Select Entire Sheet > Format Cells > Protection > Uncheck 'Locked' | 2. Select Formula Cells > Check 'Locked' & 'Hidden' | 3. Review > Protect Sheet (Password)
+Workbook Protection: Review > Protect Workbook (Structure) | File > Info > Protect Workbook > Encrypt with Password (AES-256)
 
 PRIMARY CONCEPT:
-Securing financial models from accidental tampering: unlocking user input cells, locking calculation formulas, cloaking proprietary formula code, and setting password protection
+Protecting workbook structure (preventing adding, deleting, hiding, or renaming sheets) and implementing AES-256 cryptographic file encryption
 
 TEACHER'S ADVICE:
-The Golden 2-Step for model protection: 1. Press F5 -> Special -> Formulas -> Ctrl+1 -> check 'Locked' and 'Hidden'. 2. Review -> Protect Sheet. Now your formulas are tamper-proof and invisible in the formula bar!
+Protect Sheet only protects cells; users can still right-click the sheet tab and DELETE it! Always go to Review -> Protect Workbook (Structure) to lock tabs from being deleted or renamed.
 
 COMMON TRAPS TO AVOID:
-- Protecting Sheet Without Unlocking Input Cells First: Clicking 'Protect Sheet' immediately locks the ENTIRE sheet, preventing users from typing anywhere. -> Fix: Always unlock input cells FIRST (Ctrl + 1 > Protection > uncheck Locked) before protecting sheet.
-- Protect Sheet Does Not Secure Against Malicious Hackers: Standard Excel worksheet passwords can be bypassed using simple VBA scripts or ZIP file XML editing. -> Fix: Use worksheet protection for accidental error prevention; use File > Protect Workbook > Encrypt with Password for true cryptographic security.
-- Disabling AutoFilter & Sort During Protection: Users complain they cannot sort tables or use filter dropdowns on protected sheets. -> Fix: In the Protect Sheet dialog, explicitly CHECK the boxes: 'Sort', 'Use AutoFilter', and 'Format cells'.
+- Lost Encryption Password (Unrecoverable): Forgetting the master encryption password locks everyone—including Microsoft and the author—out of the file permanently. -> Fix: Store corporate master encryption keys in secure enterprise password vaults.
+- Confusing Sheet Protection with Workbook Protection: Protecting the sheet still allows users to right-click the tab and DELETE the entire sheet. -> Fix: Apply BOTH Protect Sheet (cell level) and Protect Workbook (tab structure level).
+- Unhiding Sheets Blocked by Structure Lock: Trying to unhide a hidden sheet while Workbook Protection is active. -> Fix: Unprotect the workbook first (Review > Protect Workbook) before managing tabs.
 ================================================================================

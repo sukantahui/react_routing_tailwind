@@ -1,0 +1,3 @@
+TOPIC 0: ISTEXT
+Syntax: =ISTEXT(value)
+Description: Returns TRUE if value is text.

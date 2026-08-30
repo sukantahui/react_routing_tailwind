@@ -1183,7 +1183,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                 >
                   <span className={`inline-block w-1.5 h-1.5 rounded-full ${theme.dot}`} />
                   <span>
-                    {seg.title.split("–")[0].split("-")[0].trim()} ({isFilteringActive ? matchCount : totalCount})
+                    {(seg.title || seg.segmentTitle || "").split("–")[0].split("-")[0].trim()} ({isFilteringActive ? matchCount : totalCount})
                   </span>
                 </button>
               );

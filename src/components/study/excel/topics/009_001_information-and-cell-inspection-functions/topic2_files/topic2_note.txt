@@ -1,0 +1,3 @@
+TOPIC 2: ISREF
+Syntax: =ISREF(value)
+Description: Returns TRUE if value is a cell reference.

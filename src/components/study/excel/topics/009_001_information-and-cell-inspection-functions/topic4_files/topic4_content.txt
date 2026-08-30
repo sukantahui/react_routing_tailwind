@@ -1,0 +1,4 @@
+TECHNICAL SPECIFICATION
+Topic 4: TYPE
+Returns integer representing data type.
+Syntax: =TYPE(value)

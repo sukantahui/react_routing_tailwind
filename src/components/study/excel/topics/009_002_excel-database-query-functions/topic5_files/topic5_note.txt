@@ -1,0 +1,3 @@
+TOPIC 5: DMIN
+Syntax: =DMIN(database, field, criteria)
+Description: Returns min value matching criteria table.

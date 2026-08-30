@@ -1,0 +1,4 @@
+TECHNICAL SPECIFICATION
+Topic 5: FORMULATEXT
+Returns formula string as text.
+Syntax: =FORMULATEXT(reference)

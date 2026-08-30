@@ -1,0 +1,3 @@
+TOPIC 0: DSUM
+Syntax: =DSUM(database, field, criteria)
+Description: Sums values in database column matching criteria table.

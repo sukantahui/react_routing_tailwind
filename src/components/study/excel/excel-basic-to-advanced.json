@@ -247,7 +247,10 @@
             "interface",
             "workbooks",
             "navigation",
-            "cell-references"
+            "cell-references",
+            "hyperlink",
+            "cell",
+            "info"
           ],
           "topics": [
             "What Excel is and where it is used in study and work",
@@ -257,6 +260,9 @@
             "Creating, saving and opening workbooks",
             "Basic navigation: mouse, keyboard shortcuts, name box and Go To",
             "Understanding cell references: active cell, address, used range",
+            "HYPERLINK",
+            "CELL",
+            "INFO",
             "Projects_001_001",
             "Practice MCQ",
             "Quick Check Quiz"
@@ -264,7 +270,8 @@
           "learningOutcomes": [
             "Explain spreadsheet architecture, grid coordinate systems, and core business use cases",
             "Navigate workbooks efficiently using keyboard shortcuts, Name Box, and Go To Special",
-            "Create, save, protect, and manage multi-sheet Excel workbooks across local and cloud environments"
+            "Create, save, protect, and manage multi-sheet Excel workbooks across local and cloud environments",
+            "Apply essential and advanced Excel functions (HYPERLINK, CELL, INFO...) to build automated workplace models."
           ],
           "prerequisites": [],
           "difficulty": "Easy",
@@ -320,7 +327,27 @@
             "formatting",
             "number-formats",
             "flash-fill",
-            "conditional-formatting"
+            "conditional-formatting",
+            "int",
+            "trunc",
+            "abs",
+            "mod",
+            "quotient",
+            "round",
+            "roundup",
+            "rounddown",
+            "mround",
+            "ceiling-math",
+            "floor-math",
+            "sign",
+            "exact",
+            "char",
+            "code",
+            "unichar",
+            "unicode",
+            "fixed",
+            "dollar",
+            "bahttext"
           ],
           "topics": [
             "Best practices for data entry: headers, no blank columns, consistent formats",
@@ -330,6 +357,26 @@
             "Format Painter and cell styles for quick formatting",
             "Adjusting column width, row height and text wrap",
             "Basic conditional formatting using built-in rules",
+            "INT",
+            "TRUNC",
+            "ABS",
+            "MOD",
+            "QUOTIENT",
+            "ROUND",
+            "ROUNDUP",
+            "ROUNDDOWN",
+            "MROUND",
+            "CEILING.MATH",
+            "FLOOR.MATH",
+            "SIGN",
+            "EXACT",
+            "CHAR",
+            "CODE",
+            "UNICHAR",
+            "UNICODE",
+            "FIXED",
+            "DOLLAR",
+            "BAHTTEXT",
             "Projects_001_002",
             "Test your practice",
             "Test Your Skill"
@@ -337,7 +384,8 @@
           "learningOutcomes": [
             "Apply industry-standard data entry best practices ensuring data integrity and consistency",
             "Format numbers, currencies, percentages, and custom date serials with precision",
-            "Leverage Flash Fill, AutoFill series, Format Painter, and built-in Conditional Formatting rules"
+            "Leverage Flash Fill, AutoFill series, Format Painter, and built-in Conditional Formatting rules",
+            "Apply essential and advanced Excel functions (INT, TRUNC, ABS, MOD, QUOTIENT...) to build automated workplace models."
           ],
           "prerequisites": [
             "excel-intro"
@@ -398,7 +446,11 @@
             "financial-modeling",
             "accounting-format",
             "date-time-tokens",
-            "stealth-cloaking"
+            "stealth-cloaking",
+            "unichar",
+            "unicode",
+            "dollar",
+            "fixed"
           ],
           "topics": [
             "Introduction to Excel's format engine: Display values vs underlying stored values",
@@ -408,6 +460,10 @@
             "Financial statement presentation: Wall Street accounting alignment using _) and *",
             "Scaling large numbers into Thousands (K), Millions (M), and Billions (B)",
             "Embedded conditional criteria ([>1000]) and color formatting ([Red], [Green], [ColorN])",
+            "UNICHAR",
+            "UNICODE",
+            "DOLLAR",
+            "FIXED",
             "Projects_001_005",
             "Elapsed duration tracking exceeding 24 hours with [h]:mm:ss for timesheets",
             "Phone numbers, Tax IDs (PAN/GSTIN/SSN), and credit card masking patterns",
@@ -420,7 +476,8 @@
             "Master the 4-part number formatting syntax (Positive;Negative;Zero;Text) and digit tokens (0, #, ?)",
             "Scale financial metrics dynamically into Thousands (K), Millions (M), and Billions (B) with comma operators",
             "Format elapsed times exceeding 24 hours ([h]:mm), apply bracket conditions ([>1000]), and hide values with ;;;",
-            "Design boardroom-ready financial statements adhering to institutional accounting standards"
+            "Design boardroom-ready financial statements adhering to institutional accounting standards",
+            "Apply essential and advanced Excel functions (UNICHAR, UNICODE, DOLLAR, FIXED...) to build automated workplace models."
           ],
           "prerequisites": [
             "excel-data-entry-formatting"
@@ -480,7 +537,23 @@
             "functions",
             "relative-reference",
             "absolute-reference",
-            "error-handling"
+            "error-handling",
+            "sumproduct",
+            "product",
+            "abs",
+            "int",
+            "trunc",
+            "mod",
+            "quotient",
+            "round",
+            "sqrt",
+            "power",
+            "exp",
+            "ln",
+            "log",
+            "log10",
+            "iseven",
+            "isodd"
           ],
           "topics": [
             "Understanding formulas: equals sign, cell references and formula bar",
@@ -490,6 +563,22 @@
             "AutoSum and quick calculations using status bar",
             "Copying formulas using fill handle and understanding reference changes",
             "Handling common errors: #DIV/0!, #VALUE!, #NAME?",
+            "SUMPRODUCT",
+            "PRODUCT",
+            "ABS",
+            "INT",
+            "TRUNC",
+            "MOD",
+            "QUOTIENT",
+            "ROUND",
+            "SQRT",
+            "POWER",
+            "EXP",
+            "LN",
+            "LOG",
+            "LOG10",
+            "ISEVEN",
+            "ISODD",
             "Projects_001_003",
             "Test Your Skill",
             "Engineering Unit Conversions & Bitwise Logic: Physical metrics conversion with CONVERT and hardware bit manipulation with BITAND, BITOR, BITXOR, BITLSHIFT, BITRSHIFT, BIN2DEC, and DEC2HEX"
@@ -497,7 +586,8 @@
           "learningOutcomes": [
             "Construct robust mathematical calculations using arithmetic operators and order of operations (BODMAS/PEMDAS)",
             "Master relative (A1), absolute ($A$1), and mixed ($A1 / A$1) cell references when copying formulas",
-            "Utilize core summary functions (SUM, AVERAGE, MIN, MAX, COUNT, COUNTA) and diagnose calculation errors"
+            "Utilize core summary functions (SUM, AVERAGE, MIN, MAX, COUNT, COUNTA) and diagnose calculation errors",
+            "Apply essential and advanced Excel functions (SUMPRODUCT, PRODUCT, ABS, INT, TRUNC...) to build automated workplace models."
           ],
           "prerequisites": [
             "excel-custom-formatting"
@@ -556,7 +646,9 @@
             "column-chart",
             "bar-chart",
             "pie-chart",
-            "visual-storytelling"
+            "visual-storytelling",
+            "rept",
+            "na"
           ],
           "topics": [
             "Why charts matter: seeing patterns and trends visually",
@@ -566,13 +658,16 @@
             "Adding titles, axis labels, legends and data labels",
             "Moving and resizing charts, embedding vs new sheet",
             "Best practices: avoiding misleading charts, keeping them simple",
+            "REPT",
+            "NA",
             "Projects_001_004",
             "Quick Check Quiz"
           ],
           "learningOutcomes": [
             "Select the appropriate chart type for categorical comparisons, time-series trends, and proportions",
             "Build and format Column, Bar, Line, Area, and Pie charts with custom styling and elements",
-            "Follow data visualization best practices to avoid 3D distortion and misleading axes"
+            "Follow data visualization best practices to avoid 3D distortion and misleading axes",
+            "Apply essential and advanced Excel functions (REPT, NA...) to build automated workplace models."
           ],
           "prerequisites": [
             "excel-basic-formulas"
@@ -619,7 +714,8 @@
           "nextModule": "excel-tables-filters",
           "badge": "Visualization Artisan Badge"
         }
-      ]
+      ],
+      "segmentTitle": "Segment 1 - Excel Core Foundations & Interface Mastery (Beginner)"
     },
     {
       "segmentId": "intermediate",
@@ -638,7 +734,8 @@
             "structured-references",
             "sorting",
             "autofilter",
-            "advanced-filter"
+            "advanced-filter",
+            "subtotal"
           ],
           "topics": [
             "Converting data ranges into Excel Tables",
@@ -648,13 +745,15 @@
             "Using number, text and date filters effectively",
             "Removing duplicates and finding unique records",
             "Total Row and basic aggregation within Tables",
+            "SUBTOTAL",
             "Projects_002_001",
             "Test Your Skill"
           ],
           "learningOutcomes": [
             "Convert standard data ranges into dynamic Excel Tables (Ctrl+T) with auto-expanding ranges",
             "Author formulas using clean structured references (`[@Salary] * [@[Tax Rate]]`)",
-            "Execute multi-level custom sorting, dynamic text/date filtering, and duplicate removal"
+            "Execute multi-level custom sorting, dynamic text/date filtering, and duplicate removal",
+            "Apply essential and advanced Excel functions (SUBTOTAL...) to build automated workplace models."
           ],
           "prerequisites": [
             "excel-basic-charts"
@@ -713,7 +812,25 @@
             "time-calculations",
             "textjoin",
             "datedif",
-            "textsplit"
+            "textsplit",
+            "time",
+            "timevalue",
+            "hour",
+            "minute",
+            "second",
+            "edate",
+            "eomonth",
+            "days",
+            "days360",
+            "weekday",
+            "weeknum",
+            "isoweeknum",
+            "exact",
+            "char",
+            "code",
+            "unichar",
+            "unicode",
+            "rept"
           ],
           "topics": [
             "Text manipulation essentials: UPPER, LOWER, PROPER, TRIM, and CLEAN",
@@ -723,6 +840,24 @@
             "Date serial numbering in Excel: DATE, DAY, MONTH, YEAR, and TODAY",
             "Working day calculations: WORKDAY, WORKDAY.INTL, NETWORKDAYS, and NETWORKDAYS.INTL",
             "Date differences and milestone calculations: DATEDIF and YEARFRAC",
+            "TIME",
+            "TIMEVALUE",
+            "HOUR",
+            "MINUTE",
+            "SECOND",
+            "EDATE",
+            "EOMONTH",
+            "DAYS",
+            "DAYS360",
+            "WEEKDAY",
+            "WEEKNUM",
+            "ISOWEEKNUM",
+            "EXACT",
+            "CHAR",
+            "CODE",
+            "UNICHAR",
+            "UNICODE",
+            "REPT",
             "Projects_002_002",
             "Modern text manipulation: TEXTBEFORE, TEXTAFTER, and TEXTSPLIT",
             "Replacing and substituting strings: REPLACE and SUBSTITUTE",
@@ -734,7 +869,8 @@
           "learningOutcomes": [
             "Sanitize messy text data by stripping whitespace, unprintable characters, and standardizing casing",
             "Parse, extract, and split delimited strings using LEFT, MID, FIND, TEXTBEFORE, TEXTAFTER, and TEXTSPLIT",
-            "Perform complex calendar arithmetic, business working day calculations, and elapsed hour computations"
+            "Perform complex calendar arithmetic, business working day calculations, and elapsed hour computations",
+            "Apply essential and advanced Excel functions (TIME, TIMEVALUE, HOUR, MINUTE, SECOND...) to build automated workplace models."
           ],
           "prerequisites": [
             "excel-tables-filters"
@@ -794,7 +930,10 @@
             "switch",
             "and-or",
             "iferror",
-            "boolean-logic"
+            "boolean-logic",
+            "xor",
+            "islogical",
+            "error-type"
           ],
           "topics": [
             "Boolean fundamentals in Excel: TRUE, FALSE, comparison operators, and ISBLANK/ISNUMBER",
@@ -804,6 +943,9 @@
             "Modern multi-condition evaluation with the IFS function",
             "Value branching and condition mapping with the SWITCH function",
             "Error interception and handling: IFERROR, IFNA, and ISERROR",
+            "XOR",
+            "ISLOGICAL",
+            "ERROR.TYPE",
             "Projects_002_003",
             "Dynamic threshold scoring and tier classification systems",
             "Conditional formatting using custom logical formulas",
@@ -815,7 +957,8 @@
           "learningOutcomes": [
             "Construct robust branching logic using IF, AND, OR, NOT, IFS, and SWITCH functions",
             "Shield reports from disruptive error codes using IFERROR, IFNA, and ISBLANK gracefully",
-            "Implement multi-tier business rules such as progressive income tax brackets and tiered volume commissions"
+            "Implement multi-tier business rules such as progressive income tax brackets and tiered volume commissions",
+            "Apply essential and advanced Excel functions (XOR, ISLOGICAL, ERROR.TYPE...) to build automated workplace models."
           ],
           "prerequisites": [
             "excel-text-date-functions"
@@ -875,7 +1018,28 @@
             "averageifs",
             "standard-deviation",
             "correlation",
-            "forecasting"
+            "forecasting",
+            "aggregate",
+            "frequency",
+            "geomean",
+            "harmean",
+            "trimmean",
+            "avedev",
+            "devsq",
+            "skew",
+            "skew-p",
+            "kurt",
+            "standardize",
+            "z-test",
+            "t-test",
+            "f-test",
+            "chisq-test",
+            "covariance-s",
+            "covariance-p",
+            "slope",
+            "intercept",
+            "rsq",
+            "steyx"
           ],
           "topics": [
             "Revision: SUM Function",
@@ -885,6 +1049,27 @@
             "Revision: COUNT Function",
             "Revision: COUNTA Function",
             "SUMIF Function (Single Condition Summation)",
+            "AGGREGATE",
+            "FREQUENCY",
+            "GEOMEAN",
+            "HARMEAN",
+            "TRIMMEAN",
+            "AVEDEV",
+            "DEVSQ",
+            "SKEW",
+            "SKEW.P",
+            "KURT",
+            "STANDARDIZE",
+            "Z.TEST",
+            "T.TEST",
+            "F.TEST",
+            "CHISQ.TEST",
+            "COVARIANCE.S",
+            "COVARIANCE.P",
+            "SLOPE",
+            "INTERCEPT",
+            "RSQ",
+            "STEYX",
             "Projects_002_004",
             "COUNTIF Function (Single Condition Counting)",
             "COUNTIFS Function (Multiple Condition Counting)",
@@ -923,7 +1108,8 @@
           "learningOutcomes": [
             "Execute multi-condition conditional aggregation using SUMIFS, COUNTIFS, and AVERAGEIFS with dynamic criteria",
             "Calculate central tendencies and dispersion metrics: STDEV.S, STDEV.P, VAR.S, MEDIAN, and MODE.MULT",
-            "Perform percentile ranking, outlier detection (IQR method), correlation analysis (CORREL), and linear forecasting"
+            "Perform percentile ranking, outlier detection (IQR method), correlation analysis (CORREL), and linear forecasting",
+            "Apply essential and advanced Excel functions (AGGREGATE, FREQUENCY, GEOMEAN, HARMEAN, TRIMMEAN...) to build automated workplace models."
           ],
           "prerequisites": [
             "excel-conditional-logic"
@@ -982,7 +1168,12 @@
             "index-match",
             "xlookup",
             "two-way-lookup",
-            "approximate-match"
+            "approximate-match",
+            "xmatch",
+            "choose",
+            "address",
+            "areas",
+            "hyperlink"
           ],
           "topics": [
             "Understanding Lookup Functions and Reference Tables",
@@ -992,6 +1183,11 @@
             "Using Absolute References ($) in Lookups",
             "Common VLOOKUP Errors and Troubleshooting",
             "HLOOKUP for Horizontal Data",
+            "XMATCH",
+            "CHOOSE",
+            "ADDRESS",
+            "AREAS",
+            "HYPERLINK",
             "Projects_002_005",
             "INDEX Function Basics",
             "Combining INDEX and MATCH",
@@ -1013,7 +1209,8 @@
           "learningOutcomes": [
             "Master exact and approximate lookups using VLOOKUP, HLOOKUP, INDEX-MATCH, and modern XLOOKUP",
             "Build dynamic two-way matrix lookups (row + column intersection) and multi-criteria queries",
-            "Optimize lookup performance on large datasets and handle missing values seamlessly"
+            "Optimize lookup performance on large datasets and handle missing values seamlessly",
+            "Apply essential and advanced Excel functions (XMATCH, CHOOSE, ADDRESS, AREAS, HYPERLINK...) to build automated workplace models."
           ],
           "prerequisites": [
             "excel-statistical-functions"
@@ -1140,7 +1337,8 @@
           "nextModule": "excel-financial-functions",
           "badge": "Pivot Table Champion Badge"
         }
-      ]
+      ],
+      "segmentTitle": "Segment 2 - Productivity, Functional Logic & Statistical Analysis (Intermediate)"
     },
     {
       "segmentId": "advanced",
@@ -1161,7 +1359,15 @@
             "xirr",
             "amortization",
             "dcf-valuation",
-            "depreciation"
+            "depreciation",
+            "fv",
+            "rate",
+            "nper",
+            "rri",
+            "pduration",
+            "ispmt",
+            "fvschedule",
+            "days360"
           ],
           "topics": [
             "Time Value of Money (TVM) principles: Present Value, Future Value, and Interest Rates",
@@ -1171,6 +1377,14 @@
             "Investment appraisal: Net Present Value (NPV) and Present Value (PV)",
             "Real-world irregular cash flow valuation with XNPV",
             "Internal Rate of Return (IRR) vs Modified Internal Rate of Return (MIRR)",
+            "FV",
+            "RATE",
+            "NPER",
+            "RRI",
+            "PDURATION",
+            "ISPMT",
+            "FVSCHEDULE",
+            "DAYS360",
             "Projects_003_001",
             "Nominal vs Effective interest rates: NOMINAL and EFFECTIVE functions",
             "Bond valuation and yield calculation: YIELD, PRICE, DURATION, and MDURATION",
@@ -1188,7 +1402,8 @@
           "learningOutcomes": [
             "Model complete loan amortization schedules with dynamic principal/interest breakdowns using PMT, PPMT, and IPMT",
             "Conduct capital budgeting and corporate investment appraisal using NPV, XNPV, IRR, XIRR, and MIRR",
-            "Build complete Discounted Cash Flow (DCF) valuation models with dynamic terminal growth and WACC sensitivities"
+            "Build complete Discounted Cash Flow (DCF) valuation models with dynamic terminal growth and WACC sensitivities",
+            "Apply essential and advanced Excel functions (FV, RATE, NPER, RRI, PDURATION...) to build automated workplace models."
           ],
           "prerequisites": [
             "excel-pivot-intro"
@@ -1246,7 +1461,22 @@
             "dependent-dropdowns",
             "formula-auditing",
             "sheet-protection",
-            "workbook-security"
+            "workbook-security",
+            "istext",
+            "isnontext",
+            "isref",
+            "isformula",
+            "type",
+            "formulatext",
+            "cell",
+            "info",
+            "dsum",
+            "dcount",
+            "dcounta",
+            "daverage",
+            "dmax",
+            "dmin",
+            "dget"
           ],
           "topics": [
             "Data validation fundamentals: Whole numbers, Decimals, Dates, and Text Length",
@@ -1256,18 +1486,19 @@
             "Input messages, error alerts (Stop, Warning, Information), and circle invalid data",
             "Formula auditing tools: Trace Precedents, Trace Dependents, and Remove Arrows",
             "Step-by-step formula evaluation using Evaluate Formula tool",
-            "Projects_003_002",
             "Identifying and resolving circular references and calculation bottlenecks",
             "Cell protection: Locking formulas, unlocking input cells, and worksheet passwords",
             "Workbook-level protection: Structure protection, encryption, and read-only recommendation",
             "Document Inspector: Removing hidden properties, personal information, and metadata",
             "Real-world case study: Designing a tamper-proof corporate budget entry template",
-            "Practice Lab: Multi-department procurement request form with strict validation"
+            "Practice Lab: Multi-department procurement request form with strict validation",
+            "Projects_003_002"
           ],
           "learningOutcomes": [
             "Enforce strict data integrity rules using standard and custom formula data validations",
             "Build multi-level cascading (dependent) drop-down menus (e.g. Country > State > City)",
-            "Audit complex multi-sheet formula networks using Trace Precedents/Dependents, Watch Window, and Sheet Encryption"
+            "Audit complex multi-sheet formula networks using Trace Precedents/Dependents, Watch Window, and Sheet Encryption",
+            "Apply essential and advanced Excel functions (ISTEXT, ISNONTEXT, ISREF, ISFORMULA, TYPE...) to build automated workplace models."
           ],
           "prerequisites": [
             "excel-financial-functions"
@@ -1326,7 +1557,8 @@
             "data-tables",
             "scenario-manager",
             "solver",
-            "optimization"
+            "optimization",
+            "choose"
           ],
           "topics": [
             "Introduction to What-If Analysis and Sensitivity Modeling in Decision Making",
@@ -1336,6 +1568,7 @@
             "Optimizing performance: Setting calculation mode to automatic except for data tables",
             "Scenario Manager: Creating, editing, and comparing Best Case, Base Case, and Worst Case scenarios",
             "Generating Scenario Summary Reports and Pivot Scenario Views",
+            "CHOOSE",
             "Projects_003_003",
             "Formulating Linear Programming (LP) problems: Objective cell, Variable cells, and Constraints",
             "Solver solving methods: Simplex LP, GRG Nonlinear, and Evolutionary algorithms",
@@ -1348,7 +1581,8 @@
           "learningOutcomes": [
             "Perform reverse goal engineering using Goal Seek for break-even and target pricing analysis",
             "Construct one-variable and two-variable sensitivity Data Tables for stress-testing business plans",
-            "Solve complex constrained optimization problems (production scheduling, portfolio allocation) using Excel Solver"
+            "Solve complex constrained optimization problems (production scheduling, portfolio allocation) using Excel Solver",
+            "Apply essential and advanced Excel functions (CHOOSE...) to build automated workplace models."
           ],
           "prerequisites": [
             "excel-data-validation-cleaning"
@@ -1476,7 +1710,8 @@
           "nextModule": "excel-modern-functions",
           "badge": "Executive Dashboard Master Badge"
         }
-      ]
+      ],
+      "segmentTitle": "Segment 3 - Advanced Business Modeling, Data Integrity & Optimization (Advanced)"
     },
     {
       "segmentId": "modern-dynamic-arrays",
@@ -1497,7 +1732,9 @@
             "unique-function",
             "spill-operator",
             "sequence",
-            "randarray"
+            "randarray",
+            "rand",
+            "randbetween"
           ],
           "topics": [
             "Understanding Excel's Modern Calculation Engine and the Dynamic Array Spill (#SPILL!) behavior",
@@ -1507,6 +1744,9 @@
             "Sorting spilled arrays dynamically with SORT (single index, ascending/descending)",
             "Multi-level custom sorting with SORTBY based on auxiliary columns",
             "Generating numeric and date sequences with SEQUENCE (rows, columns, start, step)",
+            "RAND",
+            "RANDBETWEEN",
+            "RANDARRAY",
             "Projects_004_001",
             "Combining FILTER, UNIQUE, and SORT for automated alphabetical searchable lists",
             "Resolving #SPILL! errors: Blocked cells, merged cells, and dynamic range clashes",
@@ -1521,7 +1761,8 @@
           "learningOutcomes": [
             "Harness Excel's modern dynamic array calculation engine and leverage the spilled range operator (#)",
             "Construct live search engines and dynamic multi-criteria filtered tables using FILTER, SORT, SORTBY, and UNIQUE",
-            "Eliminate legacy Ctrl+Shift+Enter array formulas with high-performance native dynamic arrays"
+            "Eliminate legacy Ctrl+Shift+Enter array formulas with high-performance native dynamic arrays",
+            "Apply essential and advanced Excel functions (RAND, RANDBETWEEN, RANDARRAY...) to build automated workplace models."
           ],
           "prerequisites": [
             "excel-dashboard-basics"
@@ -1595,6 +1836,7 @@
             "Extracting specific columns and reordering layouts with CHOOSECOLS",
             "Extracting Top N or Bottom N records from arrays with TAKE",
             "Excluding headers, totals, or metadata rows/columns with DROP",
+            "EXPAND",
             "Projects_004_002",
             "Reshaping 1D data streams into structured 2D tables with WRAPROWS",
             "Reshaping 1D data streams vertically into fixed-height columns with WRAPCOLS",
@@ -1608,7 +1850,8 @@
           "learningOutcomes": [
             "Reshape, stack, and flatten complex multidimensional tables using TOCOL, TOROW, VSTACK, and HSTACK in memory",
             "Slice, dice, and reorder matrix datasets dynamically using CHOOSEROWS, CHOOSECOLS, TAKE, and DROP",
-            "Convert continuous linear data streams into structured tabular matrices using WRAPROWS and WRAPCOLS"
+            "Convert continuous linear data streams into structured tabular matrices using WRAPROWS and WRAPCOLS",
+            "Apply essential and advanced Excel functions (EXPAND...) to build automated workplace models."
           ],
           "prerequisites": [
             "excel-modern-functions"
@@ -1820,7 +2063,8 @@
           "nextModule": "excel-power-query",
           "badge": "Regex Intelligence Specialist Badge"
         }
-      ]
+      ],
+      "segmentTitle": "Segment 4 - Dynamic Arrays, Calculation Engine & Modern LAMBDA Functions (Expert)"
     },
     {
       "segmentId": "power-bi-stack",
@@ -2153,7 +2397,8 @@
           "nextModule": "excel-vba-macros",
           "badge": "DAX Master Strategist Badge"
         }
-      ]
+      ],
+      "segmentTitle": "Segment 5 - Power BI Stack — Power Query ETL & Power Pivot Data Modeling (Ultra Expert)"
     },
     {
       "segmentId": "automation-vba-scripts",
@@ -2485,7 +2730,8 @@
           "nextModule": "excel-python-analytics",
           "badge": "Cloud Automation Architect Badge"
         }
-      ]
+      ],
+      "segmentTitle": "Segment 6 - Automation with VBA, Macros & Cloud Office Scripts (Ultra Expert)"
     },
     {
       "segmentId": "ai-python-datascience",
@@ -2652,7 +2898,8 @@
           "nextModule": "excel-test-beginner",
           "badge": "AI Spreadsheet Pioneer Badge"
         }
-      ]
+      ],
+      "segmentTitle": "Segment 7 - AI, Python in Excel & Modern Data Science Workflows (Next-Gen)"
     },
     {
       "segmentId": "excel-tests",
@@ -2992,7 +3239,90 @@
           "nextModule": null,
           "badge": "Excel Ultra Expert Master Certified Badge"
         }
-      ]
+      ],
+      "segmentTitle": "Segment 8 - Enterprise Assessment, Capstones & Certification (Mastery)"
+    },
+    {
+      "segmentId": "excel-functions-catalog-mastery",
+      "segmentTitle": "Excel Function Catalog & Database Method Mastery",
+      "description": "Dedicated master catalog and comprehensive query engine labs for Information, Cell Inspection, and Structured Excel Database Functions.",
+      "modules": [
+        {
+          "moduleId": "excel-information-inspection-functions",
+          "slug": "009_001_information-and-cell-inspection-functions",
+          "title": "Information & Cell Inspection Functions",
+          "level": "Intermediate",
+          "estimatedHours": 4,
+          "tags": [
+            "istext",
+            "isnontext",
+            "isref",
+            "isformula",
+            "type",
+            "formulatext",
+            "cell",
+            "info"
+          ],
+          "topics": [
+            "ISTEXT",
+            "ISNONTEXT",
+            "ISREF",
+            "ISFORMULA",
+            "TYPE",
+            "FORMULATEXT",
+            "CELL",
+            "INFO",
+            "Projects_009_001"
+          ],
+          "learningOutcomes": [
+            "Validate cell data types and detect raw text versus numeric inputs",
+            "Reflect formula syntax and audit hardcoded cell overrides automatically",
+            "Extract environment metadata and sheet names using CELL and INFO functions"
+          ],
+          "prerequisites": [
+            "excel-basic-formulas"
+          ],
+          "difficulty": "Medium",
+          "summary": "Master cell inspection, data type auditing, and formula reflection functions."
+        },
+        {
+          "moduleId": "excel-database-query-functions",
+          "slug": "009_002_excel-database-query-functions",
+          "title": "Excel Database Query Functions",
+          "level": "Advanced",
+          "estimatedHours": 5,
+          "tags": [
+            "dsum",
+            "dcount",
+            "dcounta",
+            "daverage",
+            "dmax",
+            "dmin",
+            "dget"
+          ],
+          "topics": [
+            "DSUM",
+            "DCOUNT",
+            "DCOUNTA",
+            "DAVERAGE",
+            "DMAX",
+            "DMIN",
+            "DGET",
+            "Projects_009_002"
+          ],
+          "learningOutcomes": [
+            "Execute dynamic multi-criteria database queries directly within Excel tables",
+            "Perform targeted structured aggregations (DSUM, DCOUNT, DAVERAGE, DMAX, DMIN)",
+            "Safely retrieve unique single records using DGET with single-match error checks"
+          ],
+          "prerequisites": [
+            "excel-information-inspection-functions"
+          ],
+          "difficulty": "Medium-Hard",
+          "summary": "Master high-speed multi-criteria database filtering and calculation functions."
+        }
+      ],
+      "title": "Segment 9 - Excel Function Catalog & Database Method Mastery"
     }
   ]
 }

@@ -30,6 +30,7 @@ import {
 } from "lucide-react";
 
 import CodeBlock from "../../common/CodeBlock";
+import ExcelFunctionsMasterReference from "./excel/ExcelFunctionsMasterReference";
 
 /**
  * Rich Formatter for Excel Logic, Step-by-Step Walkthroughs & Formatting Rules
@@ -153,6 +154,7 @@ export default function ExcelProjectAnswerTemplateEnhanced({ data }) {
   const [difficultyFilter, setDifficultyFilter] = useState("all");
   const [onlyBookmarks, setOnlyBookmarks] = useState(false);
   const [onlyCompleted, setOnlyCompleted] = useState(false);
+  const [showFunctionsModal, setShowFunctionsModal] = useState(false);
 
   // Expanded answers state: map of projectId -> boolean
   const [visibleAnswers, setVisibleAnswers] = useState({});
@@ -319,16 +321,26 @@ export default function ExcelProjectAnswerTemplateEnhanced({ data }) {
               <span>EXCEL PRACTICAL LAB &amp; AUDIT EXERCISES</span>
             </div>
 
-            {sampleWorkbookUrl && (
-              <a
-                href={sampleWorkbookUrl}
-                download="excel_module_practice.xlsx"
-                className="flex items-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 text-xs font-bold shadow-lg shadow-emerald-900/40 transition-all hover:scale-105"
+            <div className="flex flex-wrap items-center gap-2">
+              <button
+                onClick={() => setShowFunctionsModal(true)}
+                className="flex items-center gap-2 rounded-xl bg-slate-800 border border-slate-700/80 hover:border-emerald-500/50 hover:bg-slate-700 text-emerald-300 px-3.5 py-2 text-xs font-bold shadow-lg transition-all hover:scale-105"
               >
-                <Download size={14} />
-                <span>Download Practice Workbook (.xlsx)</span>
-              </a>
-            )}
+                <BookOpen size={14} className="text-amber-400" />
+                <span>101 Master Functions Catalog</span>
+              </button>
+
+              {sampleWorkbookUrl && (
+                <a
+                  href={sampleWorkbookUrl}
+                  download="excel_module_practice.xlsx"
+                  className="flex items-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 text-xs font-bold shadow-lg shadow-emerald-900/40 transition-all hover:scale-105"
+                >
+                  <Download size={14} />
+                  <span>Download Practice Workbook (.xlsx)</span>
+                </a>
+              )}
+            </div>
           </div>
 
           {/* Main Title & Description */}
@@ -817,6 +829,14 @@ export default function ExcelProjectAnswerTemplateEnhanced({ data }) {
             );
           })}
         </div>
+      )}
+
+      {/* 101 MASTER FUNCTIONS CATALOG MODAL */}
+      {showFunctionsModal && (
+        <ExcelFunctionsMasterReference
+          isModal={true}
+          onClose={() => setShowFunctionsModal(false)}
+        />
       )}
     </div>
   );

@@ -1,21 +1,21 @@
-TOPIC 7 QUICK SUMMARY & INSTRUCTOR REFERENCE
+TOPIC 8 QUICK SUMMARY & INSTRUCTOR REFERENCE
 ================================================================================
-Topic: Watch Window: Monitoring key KPI cells across multiple worksheets and workbooks
+Topic: Identifying and resolving circular references and calculation bottlenecks
 Module: 003_002_data-validation-protection-and-cleaning-techniques
 Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
 Instructor: Sukanta Hui (Coder & AccoTax)
 
 KEY FORMULA / SYNTAX:
-Watch Window: Formulas > Watch Window (Alt + M + W) -> Add Watch (Select Cells Across Sheets/Files)
+Diagnostic Tools: Formulas > Error Checking > Circular References | File > Options > Formulas > Enable Iterative Calculation
 
 PRIMARY CONCEPT:
-Monitoring key performance indicators, summary balance sheet totals, and debt covenant cells across different sheets simultaneously using the floating Watch Window console
+Diagnosing, tracing, and resolving fatal Circular References, calculation engine locks, and eliminating workbook performance bottlenecks
 
 TEACHER'S ADVICE:
-If you build multi-sheet models, the Watch Window is your best friend. Put your Balance Sheet Check, Net Income, and IRR in the Watch Window, and watch them update live as you tweak assumptions.
+If you see 'Circular References' in the bottom left status bar, STOP! Your entire spreadsheet has stopped calculating. Go to Formulas -> Error Checking -> Circular References immediately and break the loop.
 
 COMMON TRAPS TO AVOID:
-- Watch Window Forgotten in Closed Workbooks: Watching cells in external workbooks causes Excel to attempt background links on startup. -> Fix: Delete obsolete watches when project modeling concludes (Click cell in Watch Window > Delete Watch).
-- Docking Window Accidentally Over Grids: Accidentally docking the Watch Window can obscure formula bars. -> Fix: Double-click the Watch Window title bar to undock and float it freely on a second monitor.
-- Performance Lag on 500+ Watched Cells: Adding hundreds of individual cells to the Watch Window can introduce minor UI lag during massive recalculations. -> Fix: Limit Watch Window to the top 10-15 executive summary KPI cells.
+- Ignoring Status Bar Circular Warning: Working in a workbook with an active circular reference means Excel has FROZEN calculations; all other formulas on the sheet stop updating. -> Fix: Immediately check Formulas > Error Checking > Circular References and resolve the loop.
+- Uncontrolled Iterative Divergence: Enabling iterative calculation on a model with explosive non-convergent mathematical formulas causes values to spiral to `#NUM!` or `#DIV/0!`. -> Fix: Incorporate an algebraic debt circularity breaker switch (`=IF(CircularBreaker="OFF", 0, CalcInterest)`).
+- Volatile Formula Proliferation (INDIRECT / OFFSET / TODAY): Overusing volatile functions forces Excel to recalculate 50,000 formulas on EVERY single cell edit anywhere in the workbook. -> Fix: Replace OFFSET with non-volatile INDEX, and replace INDIRECT with static structured references.
 ================================================================================

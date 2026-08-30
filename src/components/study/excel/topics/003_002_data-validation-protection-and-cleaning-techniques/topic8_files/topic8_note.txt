@@ -1,21 +1,21 @@
-TOPIC 8 QUICK SUMMARY & INSTRUCTOR REFERENCE
+TOPIC 9 QUICK SUMMARY & INSTRUCTOR REFERENCE
 ================================================================================
-Topic: Identifying and resolving circular references and calculation bottlenecks
+Topic: Cell protection: Locking formulas, unlocking input cells, and worksheet passwords
 Module: 003_002_data-validation-protection-and-cleaning-techniques
 Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
 Instructor: Sukanta Hui (Coder & AccoTax)
 
 KEY FORMULA / SYNTAX:
-Diagnostic Tools: Formulas > Error Checking > Circular References | File > Options > Formulas > Enable Iterative Calculation
+Cell Protection Protocol: 1. Select Entire Sheet > Format Cells > Protection > Uncheck 'Locked' | 2. Select Formula Cells > Check 'Locked' & 'Hidden' | 3. Review > Protect Sheet (Password)
 
 PRIMARY CONCEPT:
-Diagnosing, tracing, and resolving fatal Circular References, calculation engine locks, and eliminating workbook performance bottlenecks
+Securing financial models from accidental tampering: unlocking user input cells, locking calculation formulas, cloaking proprietary formula code, and setting password protection
 
 TEACHER'S ADVICE:
-If you see 'Circular References' in the bottom left status bar, STOP! Your entire spreadsheet has stopped calculating. Go to Formulas -> Error Checking -> Circular References immediately and break the loop.
+The Golden 2-Step for model protection: 1. Press F5 -> Special -> Formulas -> Ctrl+1 -> check 'Locked' and 'Hidden'. 2. Review -> Protect Sheet. Now your formulas are tamper-proof and invisible in the formula bar!
 
 COMMON TRAPS TO AVOID:
-- Ignoring Status Bar Circular Warning: Working in a workbook with an active circular reference means Excel has FROZEN calculations; all other formulas on the sheet stop updating. -> Fix: Immediately check Formulas > Error Checking > Circular References and resolve the loop.
-- Uncontrolled Iterative Divergence: Enabling iterative calculation on a model with explosive non-convergent mathematical formulas causes values to spiral to `#NUM!` or `#DIV/0!`. -> Fix: Incorporate an algebraic debt circularity breaker switch (`=IF(CircularBreaker="OFF", 0, CalcInterest)`).
-- Volatile Formula Proliferation (INDIRECT / OFFSET / TODAY): Overusing volatile functions forces Excel to recalculate 50,000 formulas on EVERY single cell edit anywhere in the workbook. -> Fix: Replace OFFSET with non-volatile INDEX, and replace INDIRECT with static structured references.
+- Protecting Sheet Without Unlocking Input Cells First: Clicking 'Protect Sheet' immediately locks the ENTIRE sheet, preventing users from typing anywhere. -> Fix: Always unlock input cells FIRST (Ctrl + 1 > Protection > uncheck Locked) before protecting sheet.
+- Protect Sheet Does Not Secure Against Malicious Hackers: Standard Excel worksheet passwords can be bypassed using simple VBA scripts or ZIP file XML editing. -> Fix: Use worksheet protection for accidental error prevention; use File > Protect Workbook > Encrypt with Password for true cryptographic security.
+- Disabling AutoFilter & Sort During Protection: Users complain they cannot sort tables or use filter dropdowns on protected sheets. -> Fix: In the Protect Sheet dialog, explicitly CHECK the boxes: 'Sort', 'Use AutoFilter', and 'Format cells'.
 ================================================================================

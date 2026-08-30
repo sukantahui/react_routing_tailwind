@@ -2,49 +2,49 @@ CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
 ================================================================================
 Track: Microsoft Excel: From Zero to Ultra Expert
 Module: Data Validation, Protection and Cleaning Techniques
-Topic 10: Workbook-level protection: Structure protection, encryption, and read-only recommendation
+Topic 10: Document Inspector: Removing hidden properties, personal information, and metadata
 ================================================================================
 
 1. EXECUTIVE OVERVIEW
-Workbook-level protection: Structure protection, encryption, and read-only recommendation is an essential discipline in corporate spreadsheet governance, data integrity, and template security.
+Document Inspector: Removing hidden properties, personal information, and metadata is an essential discipline in corporate spreadsheet governance, data integrity, and template security.
 It provides the core protocols required to prevent data corruption, audit complex formulas, and encrypt sensitive corporate assets.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Workbook Protection: Review > Protect Workbook (Structure) | File > Info > Protect Workbook > Encrypt with Password (AES-256)
+Operational Architecture: File > Info > Check for Issues > Inspect Document (Remove Personal Info, Document Properties, Hidden Worksheets, Comments)
 
 3. CORE TECHNICAL MECHANICS
-1. Protect Workbook Structure:
-   Locks the worksheet tab structure. Users cannot add new sheets, delete existing sheets, rename tabs, unhide hidden sheets, or reorder tabs.
+1. Deep Metadata Inspection:
+   Scans the workbook XML architecture for hidden metadata: Author Name, Company, Revision History, File Paths, Printer Properties, and Email Addresses.
 
-2. AES-256 Military-Grade File Encryption:
-   File > Info > Protect Workbook > Encrypt with Password applies true AES-256 cryptographic encryption, making the file impossible to open without the master password.
+2. Hidden Content Scrubbing:
+   Identifies and purges hidden worksheets, hidden rows/columns, invisible objects, custom XML data, and embedded cell comments/notes.
 
-3. Read-Only Recommendation:
-   Prompts users with 'The author recommends you open this as read-only' to prevent accidental overwriting of master template models.
+3. Regulatory Privacy & M&A Compliance:
+   Essential step before releasing financial models to external buyers, regulatory bodies (SEBI/SEC), or public investor relations portals.
 
 4. REAL-WORLD BUSINESS APPLICATION
-• Swadeep Banerjee (Director of M&A, Barrackpore HQ):
-  Confidential M&A Deal Room Financial Model - Encrypts ₹500 Crore cross-border acquisition models with AES-256 encryption before transmitting via secure data rooms.
-• Tuhina Mukherjee (Corporate Governance Lead, Shyamnagar Plant):
-  Statutory Financial Statement Structure Lock - Protects workbook structure to prevent regional accountants from accidentally inserting rogue sheets or renaming audited tabs.
-• Abhronila Das (Intellectual Property Lead, Ichapur Works):
-  Proprietary Alloy Formula Model Protection - Hides and protects proprietary engineering calculation worksheets from unauthorized visibility.
-• Debangshu Roy (Fleet Asset Manager, Naihati Logistics):
-  Master Fleet Pricing Template Read-Only Lock - Applies 'Always Open Read-Only' recommendation to prevent transport dispatchers from overwriting baseline price tables.
+• Swadeep Banerjee (Managing Director M&A, Barrackpore HQ):
+  Public Tender Financial Model Metadata Scrub - Runs Document Inspector to scrub internal valuation commentary, previous draft author identities, and hidden sheets before submitting government contract bids.
+• Tuhina Mukherjee (Statutory Compliance Auditor, Shyamnagar Plant):
+  Audited Financial Statements Privacy Scrub - Removes personal email addresses and internal audit notes from financial statements before filing with MCA.
+• Abhronila Das (Legal & IP Lead, Ichapur Works):
+  Vendor RFP Contract Sanitization - Cleanses template properties and internal competitor benchmark pricing notes before vendor distribution.
+• Debangshu Roy (Logistics Commercial Lead, Naihati Logistics):
+  Client Freight Proposal Metadata Sanitization - Removes internal cost-margin comments from customer-facing quotation spreadsheets.
 
 5. TROUBLESHOOTING & COMMON ERRORS
-• Lost Encryption Password (Unrecoverable):
-  Root Cause: Forgetting the master encryption password locks everyone—including Microsoft and the author—out of the file permanently.
-  Diagnostic Fix: Store corporate master encryption keys in secure enterprise password vaults.
-• Confusing Sheet Protection with Workbook Protection:
-  Root Cause: Protecting the sheet still allows users to right-click the tab and DELETE the entire sheet.
-  Diagnostic Fix: Apply BOTH Protect Sheet (cell level) and Protect Workbook (tab structure level).
-• Unhiding Sheets Blocked by Structure Lock:
-  Root Cause: Trying to unhide a hidden sheet while Workbook Protection is active.
-  Diagnostic Fix: Unprotect the workbook first (Review > Protect Workbook) before managing tabs.
+• Irreversible Deletion of Necessary Hidden Sheets:
+  Root Cause: Clicking 'Remove All' on Hidden Worksheets in Document Inspector permanently DELETES those sheets from the workbook.
+  Diagnostic Fix: Always save a backup copy (`Model_Master_Internal.xlsx`) before running Document Inspector.
+• Accidental Removal of Live Pivot Cache XML:
+  Root Cause: Removing Custom XML data can occasionally corrupt complex Power Query or third-party add-in connections.
+  Diagnostic Fix: Review itemized inspection results before clicking 'Remove All'.
+• Publishing Internal Notes to Public Competitors:
+  Root Cause: Forgetting to inspect documents leaves confidential internal margin discussions visible in cell comments.
+  Diagnostic Fix: Make Document Inspection a mandatory step in corporate sign-off checklists.
 
 6. PRO TIPS & SHORTCUTS
-• Protect Structure Shortcut (Review > Protect Workbook (Alt + R + P + W)): Locks worksheet tabs against adding, deleting, and renaming.
-• Military-Grade Encryption (File > Info > Encrypt with Password): Applies true unbreakable AES-256 file encryption.
-• Very Hidden Sheets (VBA) (Sheet.Visible = xlSheetVeryHidden): Hides sheets so they cannot be seen or unhidden from standard Excel menus.
+• Launch Document Inspector (File > Info > Check for Issues > Inspect Document): Comprehensive audit of all hidden properties and comments.
+• Save Backup First (Save as Model_Cleaned_External.xlsx): Mandatory safeguard before purging metadata.
+• Inspect for Hidden Rows (Highlights hidden rows/cols): Prevents leaking sensitive filtered data in shared spreadsheets.
 ================================================================================

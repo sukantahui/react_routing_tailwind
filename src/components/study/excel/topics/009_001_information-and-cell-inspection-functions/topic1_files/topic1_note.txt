@@ -1,0 +1,3 @@
+TOPIC 1: ISNONTEXT
+Syntax: =ISNONTEXT(value)
+Description: Returns TRUE if value is not text.

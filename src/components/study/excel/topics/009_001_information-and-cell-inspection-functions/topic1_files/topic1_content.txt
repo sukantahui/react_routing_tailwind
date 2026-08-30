@@ -1,0 +1,4 @@
+TECHNICAL SPECIFICATION
+Topic 1: ISNONTEXT
+Returns TRUE if value is not text.
+Syntax: =ISNONTEXT(value)

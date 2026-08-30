@@ -17,578 +17,603 @@ export const excelModuleProjectsData = {
   "projects": [
     {
       "projectId": "EX3201",
-      "title": "Financial Modeling & Investment Valuation (Task 1)",
+      "title": "Practical Workplace Modeling & Audit (Task 1)",
       "difficulty": "beginner",
       "sheetName": "EX3201",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3201. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3201 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3201.",
       "requirements": [
-        "Navigate to tab **EX3201**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3201** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3201**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3201**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "26500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 26,500.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3201-01| =IFERROR(XLOOKUP)| ₹ 26,500.00 | Verified     |\n| C5   | EMP-EX3201-02| =IFERROR(XLOOKUP)| ₹ 36,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3202",
-      "title": "Financial Modeling & Investment Valuation (Task 2)",
+      "title": "Practical Workplace Modeling & Audit (Task 2)",
       "difficulty": "beginner",
       "sheetName": "EX3202",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3202. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A5, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3202 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3202.",
       "requirements": [
-        "Navigate to tab **EX3202**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3202** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3202**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3202**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "28000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 28,000.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3202-01| =IFERROR(XLOOKUP)| ₹ 28,000.00 | Verified     |\n| C5   | EMP-EX3202-02| =IFERROR(XLOOKUP)| ₹ 38,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3203",
-      "title": "Financial Modeling & Investment Valuation (Task 3)",
+      "title": "Practical Workplace Modeling & Audit (Task 3)",
       "difficulty": "beginner",
       "sheetName": "EX3203",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3203. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A6, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3203 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3203.",
       "requirements": [
-        "Navigate to tab **EX3203**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3203** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3203**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3203**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "29500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 29,500.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3203-01| =IFERROR(XLOOKUP)| ₹ 29,500.00 | Verified     |\n| C5   | EMP-EX3203-02| =IFERROR(XLOOKUP)| ₹ 39,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3204",
-      "title": "Financial Modeling & Investment Valuation (Task 4)",
+      "title": "Practical Workplace Modeling & Audit (Task 4)",
       "difficulty": "beginner",
       "sheetName": "EX3204",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3204. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A7, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3204 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3204.",
       "requirements": [
-        "Navigate to tab **EX3204**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3204** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3204**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3204**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "31000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 31,000.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3204-01| =IFERROR(XLOOKUP)| ₹ 31,000.00 | Verified     |\n| C5   | EMP-EX3204-02| =IFERROR(XLOOKUP)| ₹ 41,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3205",
-      "title": "Financial Modeling & Investment Valuation (Task 5)",
+      "title": "Practical Workplace Modeling & Audit (Task 5)",
       "difficulty": "beginner",
       "sheetName": "EX3205",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3205. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A8, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3205 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3205.",
       "requirements": [
-        "Navigate to tab **EX3205**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3205** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3205**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3205**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "32500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 32,500.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3205-01| =IFERROR(XLOOKUP)| ₹ 32,500.00 | Verified     |\n| C5   | EMP-EX3205-02| =IFERROR(XLOOKUP)| ₹ 42,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3206",
-      "title": "Financial Modeling & Investment Valuation (Task 6)",
+      "title": "Practical Workplace Modeling & Audit (Task 6)",
       "difficulty": "beginner",
       "sheetName": "EX3206",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3206. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A9, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3206 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3206.",
       "requirements": [
-        "Navigate to tab **EX3206**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3206** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3206**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3206**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "34000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 34,000.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3206-01| =IFERROR(XLOOKUP)| ₹ 34,000.00 | Verified     |\n| C5   | EMP-EX3206-02| =IFERROR(XLOOKUP)| ₹ 44,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3207",
-      "title": "Financial Modeling & Investment Valuation (Task 7)",
+      "title": "Practical Workplace Modeling & Audit (Task 7)",
       "difficulty": "beginner",
       "sheetName": "EX3207",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3207. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A10, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3207 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3207.",
       "requirements": [
-        "Navigate to tab **EX3207**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3207** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3207**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3207**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "35500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 35,500.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3207-01| =IFERROR(XLOOKUP)| ₹ 35,500.00 | Verified     |\n| C5   | EMP-EX3207-02| =IFERROR(XLOOKUP)| ₹ 45,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3208",
-      "title": "Financial Modeling & Investment Valuation (Task 8)",
+      "title": "Practical Workplace Modeling & Audit (Task 8)",
       "difficulty": "beginner",
       "sheetName": "EX3208",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3208. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A11, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3208 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3208.",
       "requirements": [
-        "Navigate to tab **EX3208**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3208** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3208**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3208**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "37000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 37,000.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3208-01| =IFERROR(XLOOKUP)| ₹ 37,000.00 | Verified     |\n| C5   | EMP-EX3208-02| =IFERROR(XLOOKUP)| ₹ 47,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3209",
-      "title": "Financial Modeling & Investment Valuation (Task 9)",
+      "title": "Practical Workplace Modeling & Audit (Task 9)",
       "difficulty": "intermediate",
       "sheetName": "EX3209",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3209. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A12, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3209 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3209.",
       "requirements": [
-        "Navigate to tab **EX3209**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3209** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3209**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3209**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "38500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 38,500.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3209-01| =IFERROR(XLOOKUP)| ₹ 38,500.00 | Verified     |\n| C5   | EMP-EX3209-02| =IFERROR(XLOOKUP)| ₹ 48,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3210",
-      "title": "Financial Modeling & Investment Valuation (Task 10)",
+      "title": "Practical Workplace Modeling & Audit (Task 10)",
       "difficulty": "intermediate",
       "sheetName": "EX3210",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3210. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A13, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3210 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3210.",
       "requirements": [
-        "Navigate to tab **EX3210**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3210** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3210**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3210**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "40000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 40,000.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3210-01| =IFERROR(XLOOKUP)| ₹ 40,000.00 | Verified     |\n| C5   | EMP-EX3210-02| =IFERROR(XLOOKUP)| ₹ 50,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3211",
-      "title": "Financial Modeling & Investment Valuation (Task 11)",
+      "title": "Practical Workplace Modeling & Audit (Task 11)",
       "difficulty": "intermediate",
       "sheetName": "EX3211",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3211. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A14, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3211 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3211.",
       "requirements": [
-        "Navigate to tab **EX3211**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3211** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3211**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3211**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "41500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 41,500.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3211-01| =IFERROR(XLOOKUP)| ₹ 41,500.00 | Verified     |\n| C5   | EMP-EX3211-02| =IFERROR(XLOOKUP)| ₹ 51,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3212",
-      "title": "Financial Modeling & Investment Valuation (Task 12)",
+      "title": "Practical Workplace Modeling & Audit (Task 12)",
       "difficulty": "intermediate",
       "sheetName": "EX3212",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3212. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A15, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3212 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3212.",
       "requirements": [
-        "Navigate to tab **EX3212**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3212** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3212**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3212**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "43000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 43,000.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3212-01| =IFERROR(XLOOKUP)| ₹ 43,000.00 | Verified     |\n| C5   | EMP-EX3212-02| =IFERROR(XLOOKUP)| ₹ 53,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3213",
-      "title": "Financial Modeling & Investment Valuation (Task 13)",
+      "title": "Practical Workplace Modeling & Audit (Task 13)",
       "difficulty": "intermediate",
       "sheetName": "EX3213",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3213. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A16, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3213 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3213.",
       "requirements": [
-        "Navigate to tab **EX3213**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3213** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3213**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3213**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "44500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 44,500.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3213-01| =IFERROR(XLOOKUP)| ₹ 44,500.00 | Verified     |\n| C5   | EMP-EX3213-02| =IFERROR(XLOOKUP)| ₹ 54,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3214",
-      "title": "Financial Modeling & Investment Valuation (Task 14)",
+      "title": "Practical Workplace Modeling & Audit (Task 14)",
       "difficulty": "intermediate",
       "sheetName": "EX3214",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3214. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A17, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3214 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3214.",
       "requirements": [
-        "Navigate to tab **EX3214**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3214** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3214**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3214**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "46000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 46,000.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3214-01| =IFERROR(XLOOKUP)| ₹ 46,000.00 | Verified     |\n| C5   | EMP-EX3214-02| =IFERROR(XLOOKUP)| ₹ 56,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3215",
-      "title": "Financial Modeling & Investment Valuation (Task 15)",
+      "title": "Practical Workplace Modeling & Audit (Task 15)",
       "difficulty": "intermediate",
       "sheetName": "EX3215",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3215. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A18, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3215 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3215.",
       "requirements": [
-        "Navigate to tab **EX3215**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3215** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3215**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3215**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "47500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 47,500.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3215-01| =IFERROR(XLOOKUP)| ₹ 47,500.00 | Verified     |\n| C5   | EMP-EX3215-02| =IFERROR(XLOOKUP)| ₹ 57,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3216",
-      "title": "Financial Modeling & Investment Valuation (Task 16)",
+      "title": "Practical Workplace Modeling & Audit (Task 16)",
       "difficulty": "intermediate",
       "sheetName": "EX3216",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3216. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A19, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3216 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3216.",
       "requirements": [
-        "Navigate to tab **EX3216**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3216** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3216**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3216**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "49000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 49,000.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3216-01| =IFERROR(XLOOKUP)| ₹ 49,000.00 | Verified     |\n| C5   | EMP-EX3216-02| =IFERROR(XLOOKUP)| ₹ 59,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3217",
-      "title": "Financial Modeling & Investment Valuation (Task 17)",
+      "title": "Practical Workplace Modeling & Audit (Task 17)",
       "difficulty": "intermediate",
       "sheetName": "EX3217",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3217. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A20, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3217 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3217.",
       "requirements": [
-        "Navigate to tab **EX3217**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3217** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3217**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3217**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "50500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 50,500.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3217-01| =IFERROR(XLOOKUP)| ₹ 50,500.00 | Verified     |\n| C5   | EMP-EX3217-02| =IFERROR(XLOOKUP)| ₹ 60,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3218",
-      "title": "Financial Modeling & Investment Valuation (Task 18)",
+      "title": "Practical Workplace Modeling & Audit (Task 18)",
       "difficulty": "intermediate",
       "sheetName": "EX3218",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3218. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A21, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3218 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3218.",
       "requirements": [
-        "Navigate to tab **EX3218**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3218** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3218**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3218**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "52000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 52,000.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3218-01| =IFERROR(XLOOKUP)| ₹ 52,000.00 | Verified     |\n| C5   | EMP-EX3218-02| =IFERROR(XLOOKUP)| ₹ 62,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3219",
-      "title": "Financial Modeling & Investment Valuation (Task 19)",
+      "title": "Practical Workplace Modeling & Audit (Task 19)",
       "difficulty": "advanced",
       "sheetName": "EX3219",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3219. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A22, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3219 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3219.",
       "requirements": [
-        "Navigate to tab **EX3219**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3219** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3219**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3219**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "53500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 53,500.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3219-01| =IFERROR(XLOOKUP)| ₹ 53,500.00 | Verified     |\n| C5   | EMP-EX3219-02| =IFERROR(XLOOKUP)| ₹ 63,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3220",
-      "title": "Financial Modeling & Investment Valuation (Task 20)",
+      "title": "Practical Workplace Modeling & Audit (Task 20)",
       "difficulty": "advanced",
       "sheetName": "EX3220",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3220. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A23, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3220 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3220.",
       "requirements": [
-        "Navigate to tab **EX3220**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3220** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3220**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3220**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "55000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 55,000.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3220-01| =IFERROR(XLOOKUP)| ₹ 55,000.00 | Verified     |\n| C5   | EMP-EX3220-02| =IFERROR(XLOOKUP)| ₹ 65,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3221",
-      "title": "Financial Modeling & Investment Valuation (Task 21)",
+      "title": "Practical Workplace Modeling & Audit (Task 21)",
       "difficulty": "advanced",
       "sheetName": "EX3221",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3221. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A24, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3221 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3221.",
       "requirements": [
-        "Navigate to tab **EX3221**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3221** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3221**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3221**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "56500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 56,500.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3221-01| =IFERROR(XLOOKUP)| ₹ 56,500.00 | Verified     |\n| C5   | EMP-EX3221-02| =IFERROR(XLOOKUP)| ₹ 66,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3222",
-      "title": "Financial Modeling & Investment Valuation (Task 22)",
+      "title": "Practical Workplace Modeling & Audit (Task 22)",
       "difficulty": "advanced",
       "sheetName": "EX3222",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3222. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A25, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3222 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3222.",
       "requirements": [
-        "Navigate to tab **EX3222**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3222** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3222**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3222**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "58000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 58,000.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3222-01| =IFERROR(XLOOKUP)| ₹ 58,000.00 | Verified     |\n| C5   | EMP-EX3222-02| =IFERROR(XLOOKUP)| ₹ 68,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3223",
-      "title": "Financial Modeling & Investment Valuation (Task 23)",
+      "title": "Practical Workplace Modeling & Audit (Task 23)",
       "difficulty": "advanced",
       "sheetName": "EX3223",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3223. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A26, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3223 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3223.",
       "requirements": [
-        "Navigate to tab **EX3223**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3223** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3223**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3223**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "59500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 59,500.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3223-01| =IFERROR(XLOOKUP)| ₹ 59,500.00 | Verified     |\n| C5   | EMP-EX3223-02| =IFERROR(XLOOKUP)| ₹ 69,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3224",
-      "title": "Financial Modeling & Investment Valuation (Task 24)",
+      "title": "Practical Workplace Modeling & Audit (Task 24)",
       "difficulty": "advanced",
       "sheetName": "EX3224",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3224. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A27, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3224 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3224.",
       "requirements": [
-        "Navigate to tab **EX3224**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3224** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3224**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3224**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "61000",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 61,000.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3224-01| =IFERROR(XLOOKUP)| ₹ 61,000.00 | Verified     |\n| C5   | EMP-EX3224-02| =IFERROR(XLOOKUP)| ₹ 71,000.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     },
     {
       "projectId": "EX3225",
-      "title": "Financial Modeling & Investment Valuation (Task 25)",
+      "title": "Practical Workplace Modeling & Audit (Task 25)",
       "difficulty": "advanced",
       "sheetName": "EX3225",
-      "formula": "=XIRR(C4:C15, B4:B15)",
-      "description": "As a Financial Modeling Analyst at AccoTax, you are evaluating an investment proposal on worksheet EX3225. Initial capital outlay of ₹ 50,00,000 occurs on 01-Jan-2026, followed by irregular cash inflows across 3 years. Your task is to calculate Net Present Value (XNPV) at a 12% discount rate and Internal Rate of Return (XIRR), and construct a dynamic debt amortization schedule in range F4:J36.",
+      "formula": "=IFERROR(XLOOKUP(A28, Data!A:A, Data!C:C), \"Pending Audit\")",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX3225 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX3225.",
       "requirements": [
-        "Navigate to tab **EX3225**. Cash flow dates are in **B4:B15** and values in **C4:C15**.",
-        "In cell **C17**, write '=XNPV(0.12, C4:C15, B4:B15)' to compute Net Present Value.",
-        "In cell **C18**, write '=XIRR(C4:C15, B4:B15)' to compute exact annual return rate.",
-        "In debt amortization table **F4:J36**, write '=PMT(rate/12, nper, -pv)' for monthly EMI.",
-        "Format all financial outputs in Indian Rupee currency mask '₹ #,##,##0.00'."
+        "Open worksheet tab **EX3225** in your master workbook.",
+        "Highlight range **B4:E30** and verify column data types.",
+        "Apply formula `=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")` in cell **C4**.",
+        "Format monetary outputs with Indian currency mask '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@'.",
+        "Double-click fill handle to copy formulas down through row 30.",
+        "Verify summary formula '=SUM(C4:C30)' in cell **C31** computes cleanly."
       ],
-      "stepByStep": "1. **Navigate to Sheet**: Open tab **EX3225**.\n2. **Calculate XNPV**: Click cell C17, type '=XNPV(0.12, C4:C15, B4:B15)' and press **Enter**.\n3. **Calculate XIRR**: Click cell C18, type '=XIRR(C4:C15, B4:B15)' and format cell as Percentage (**Ctrl + Shift + %**).\n4. **Build Amortization Schedule**: In cell H4, type '=PMT(10.5%/12, 36, -5000000)' for monthly loan installment.\n5. **Audit Checks**: Verify balance in row 36 reaches exactly ₹ 0.00.",
+      "stepByStep": "1. **Navigate to Tab**: Click worksheet tab **EX3225**.\n2. **Highlight Range**: Select cells B4:E30.\n3. **Apply Formula**: Click cell C4, enter '=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")' and press **Enter**.\n4. **Apply Format Mask**: Press **Ctrl + 1**, select **Custom**, paste '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' and click **OK**.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! or #N/A errors.",
       "rawMemoryVsRendered": {
-        "raw": "0.2485",
-        "mask": "Percentage 2-Decimal",
-        "rendered": "24.85%"
+        "raw": "62500",
+        "mask": "₹ #,##,##0.00",
+        "rendered": "₹ 62,500.00"
       },
-      "expectedOutput": "| Metric | Calculated Formula | Output Display | Decision Rule |\n| ------ | ------------------ | -------------- | ------------- |\n| Net Present Value (XNPV) | =XNPV(0.12, C4:C15, B4:B15) | ₹ 18,45,210.50 | Accept Project (NPV > 0) |\n| Internal Rate of Return (XIRR) | =XIRR(C4:C15, B4:B15) | 24.85% | Exceeds Hurdle Rate (12%) |",
-      "proTip": "Use XNPV and XIRR instead of standard NPV/IRR whenever cash flow dates are irregular or non-periodic. Standard NPV assumes strictly equal 365-day intervals!"
+      "expectedOutput": "| Cell | Input Identifier | Applied Operation | Rendered Screen Display | Audit Status |\n| ---- | ---------------- | ----------------- | ----------------------- | ------------ |\n| C4   | EMP-EX3225-01| =IFERROR(XLOOKUP)| ₹ 62,500.00 | Verified     |\n| C5   | EMP-EX3225-02| =IFERROR(XLOOKUP)| ₹ 72,500.00 | Verified     |",
+      "proTip": "Always double-check formulas with Ctrl + ~ to toggle formula view and audit cell dependencies before submitting final workbooks!"
     }
   ]
 };

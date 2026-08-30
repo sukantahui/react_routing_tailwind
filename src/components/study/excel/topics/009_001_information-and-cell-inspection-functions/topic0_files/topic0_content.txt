@@ -1,0 +1,4 @@
+TECHNICAL SPECIFICATION
+Topic 0: ISTEXT
+Returns TRUE if value is text.
+Syntax: =ISTEXT(value)

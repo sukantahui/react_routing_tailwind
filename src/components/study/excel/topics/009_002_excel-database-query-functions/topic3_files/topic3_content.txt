@@ -1,0 +1,4 @@
+TECHNICAL SPECIFICATION
+Topic 3: DAVERAGE
+Averages values matching criteria table.
+Syntax: =DAVERAGE(database, field, criteria)

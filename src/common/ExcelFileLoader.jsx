@@ -18,6 +18,7 @@ import * as XLSX from "xlsx";
  */
 export default function ExcelFileLoader({
   fileModule,
+  fileUrl,
   title = null,
   sheetIndex = 0,
   sheetName = null,
@@ -75,14 +76,67 @@ export default function ExcelFileLoader({
       const names = wb.SheetNames;
       setSheetNames(names);
 
-      // Determine sheet to show
-      let targetIndex = sheetIndex;
+      // Determine sheet to show:
+      // Sequence rule: Sheet 1 (index 0) = Overview landing sheet.
+      // Topic 0 = Sheet 2 (index 1), Topic 1 = Sheet 3 (index 2), Topic N = Sheet N + 2 (index N + 1).
+      let targetIndex = -1;
+
+      // 1. Exact sheetName match
       if (sheetName && names.includes(sheetName)) {
         targetIndex = names.indexOf(sheetName);
-      } else if (sheetName && !names.includes(sheetName)) {
-        console.warn(`Sheet "${sheetName}" not found. Using index ${sheetIndex}.`);
       }
-      if (targetIndex >= names.length) targetIndex = 0;
+
+      // 2. Truncated (31-char limit) or prefix sheetName match
+      if (targetIndex === -1 && sheetName) {
+        const lowerSheet = sheetName.toLowerCase();
+        const trunc31 = lowerSheet.slice(0, 31);
+        const matchIdx = names.findIndex((n) => {
+          const lowerN = n.toLowerCase();
+          return lowerN === lowerSheet || lowerN === trunc31 || lowerN.startsWith(trunc31.slice(0, 15));
+        });
+        if (matchIdx !== -1) targetIndex = matchIdx;
+      }
+
+      // 3. Extract Topic number N from sheetName or title (e.g., Topic0, Topic1, Topic8)
+      if (targetIndex === -1) {
+        const textToSearch = `${sheetName || ""} ${title || ""}`;
+        const topicMatch = textToSearch.match(/Topic\s*(\d+)/i);
+        if (topicMatch) {
+          const tNum = parseInt(topicMatch[1], 10);
+
+          // First try to find a sheet in workbook named Topic<tNum>...
+          const tNameIdx = names.findIndex((n) => {
+            const m = n.match(/Topic\s*(\d+)/i);
+            return m && parseInt(m[1], 10) === tNum;
+          });
+
+          if (tNameIdx !== -1) {
+            targetIndex = tNameIdx;
+          } else if (tNum + 1 < names.length) {
+            // Sequence rule: Topic 0 -> Index 1 (Sheet 2), Topic 1 -> Index 2 (Sheet 3), Topic N -> Index N + 1
+            targetIndex = tNum + 1;
+          }
+        }
+      }
+
+      // 4. Fallback to explicit sheetIndex if > 0
+      if (targetIndex === -1 && sheetIndex > 0 && sheetIndex < names.length) {
+        targetIndex = sheetIndex;
+      }
+
+      // 5. Default Safeguard: If targetIndex is 0 (Overview) but we have more sheets,
+      // and sheet 0 is named "Overview", default to sheet index 1 (Sheet 2 for Topic 0)
+      if (
+        targetIndex === -1 ||
+        (targetIndex === 0 &&
+          names.length > 1 &&
+          names[0].toLowerCase() === "overview" &&
+          (!sheetName || sheetName.toLowerCase() !== "overview"))
+      ) {
+        targetIndex = 1; // Default to Sheet 2 for topic content
+      }
+
+      if (targetIndex < 0 || targetIndex >= names.length) targetIndex = 0;
       setCurrentSheetIdx(targetIndex);
     } catch (err) {
       console.error("Excel load error:", err);
@@ -90,16 +144,17 @@ export default function ExcelFileLoader({
     } finally {
       setLoading(false);
     }
-  }, [sheetIndex, sheetName]);
+  }, [sheetIndex, sheetName, title]);
 
   useEffect(() => {
-    if (!fileModule) {
+    const activeFile = fileModule || fileUrl;
+    if (!activeFile) {
       setError("No file provided");
       setLoading(false);
       return;
     }
-    loadExcelFile(fileModule);
-  }, [fileModule, loadExcelFile]);
+    loadExcelFile(activeFile);
+  }, [fileModule, fileUrl, loadExcelFile]);
 
   // ---- Extract headers & rows when workbook or sheet changes ----
   useEffect(() => {

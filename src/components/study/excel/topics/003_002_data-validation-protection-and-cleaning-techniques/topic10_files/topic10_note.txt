@@ -1,21 +1,21 @@
-TOPIC 10 QUICK SUMMARY & INSTRUCTOR REFERENCE
+TOPIC 11 QUICK SUMMARY & INSTRUCTOR REFERENCE
 ================================================================================
-Topic: Workbook-level protection: Structure protection, encryption, and read-only recommendation
+Topic: Document Inspector: Removing hidden properties, personal information, and metadata
 Module: 003_002_data-validation-protection-and-cleaning-techniques
 Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
 Instructor: Sukanta Hui (Coder & AccoTax)
 
 KEY FORMULA / SYNTAX:
-Workbook Protection: Review > Protect Workbook (Structure) | File > Info > Protect Workbook > Encrypt with Password (AES-256)
+File > Info > Check for Issues > Inspect Document (Remove Personal Info, Document Properties, Hidden Worksheets, Comments)
 
 PRIMARY CONCEPT:
-Protecting workbook structure (preventing adding, deleting, hiding, or renaming sheets) and implementing AES-256 cryptographic file encryption
+Sanitizing sensitive corporate files before external publication using Document Inspector: removing author metadata, hidden rows/columns, invisible sheets, and internal comments
 
 TEACHER'S ADVICE:
-Protect Sheet only protects cells; users can still right-click the sheet tab and DELETE it! Always go to Review -> Protect Workbook (Structure) to lock tabs from being deleted or renamed.
+Never email an Excel model to a client or competitor without running Document Inspector! It takes 10 seconds and prevents embarrassing leaks of internal comments and author metadata.
 
 COMMON TRAPS TO AVOID:
-- Lost Encryption Password (Unrecoverable): Forgetting the master encryption password locks everyone—including Microsoft and the author—out of the file permanently. -> Fix: Store corporate master encryption keys in secure enterprise password vaults.
-- Confusing Sheet Protection with Workbook Protection: Protecting the sheet still allows users to right-click the tab and DELETE the entire sheet. -> Fix: Apply BOTH Protect Sheet (cell level) and Protect Workbook (tab structure level).
-- Unhiding Sheets Blocked by Structure Lock: Trying to unhide a hidden sheet while Workbook Protection is active. -> Fix: Unprotect the workbook first (Review > Protect Workbook) before managing tabs.
+- Irreversible Deletion of Necessary Hidden Sheets: Clicking 'Remove All' on Hidden Worksheets in Document Inspector permanently DELETES those sheets from the workbook. -> Fix: Always save a backup copy (`Model_Master_Internal.xlsx`) before running Document Inspector.
+- Accidental Removal of Live Pivot Cache XML: Removing Custom XML data can occasionally corrupt complex Power Query or third-party add-in connections. -> Fix: Review itemized inspection results before clicking 'Remove All'.
+- Publishing Internal Notes to Public Competitors: Forgetting to inspect documents leaves confidential internal margin discussions visible in cell comments. -> Fix: Make Document Inspection a mandatory step in corporate sign-off checklists.
 ================================================================================

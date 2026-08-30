@@ -1,0 +1,3 @@
+TOPIC 5: FORMULATEXT
+Syntax: =FORMULATEXT(reference)
+Description: Returns formula string as text.
