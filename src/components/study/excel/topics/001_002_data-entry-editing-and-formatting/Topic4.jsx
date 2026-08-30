@@ -203,7 +203,7 @@ export default function Topic4() {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Formatting Flow: 4-Section Custom Number Formatting Engine Architecture
+            Visual Data Flow: 4-Section Custom Number Formatting Engine Architecture
           </h2>
 
           <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">

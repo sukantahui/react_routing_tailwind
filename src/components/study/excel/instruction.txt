@@ -38,8 +38,25 @@ The Excel study module structure:
         `./excel_files/[module_name].xlsx`
     - This single workbook serves as the master interactive worksheet for all topics in that chapter.
     - Inside this workbook, the FIRST sheet (`SheetNames[0]`) is ALWAYS the executive **Overview** landing sheet.
-    - Each subsequent topic has its own dedicated worksheet (e.g. `Topic0_Spill_Engine`, `Topic1_Calc`, `VLOOKUP_Table`, etc.).
-    - When a topic requires multi-table comparisons or relational joins, multiple related sheets can be included (e.g. `Orders_Data`, `Customers_Master`).
+
+• MANDATORY EXECUTIVE OVERVIEW LANDING SHEET (SHEET 1: `Overview`):
+    - The first sheet (`SheetNames[0]`) of every workbook MUST be the executive `Overview` landing sheet featuring CNAT branding logo (`cnat.png`), executive hero graphic (`landing_sheet.jpg`), Organisation & Instructor profiles, Academic Metrics, and Section 4 Interactive Navigation Directory.
+
+• BIDIRECTIONAL CLICK-TO-JUMP HYPERLINK NAVIGATION RULE:
+    - On the `Overview` landing sheet (Section 4 Directory), every project entry MUST feature an active internal hyperlink (`hyperlink: "#'EX101'!A1"`) that instantly jumps to that project worksheet tab when clicked.
+    - On every individual project worksheet tab (`EX101` to `EX110`), a top navigation link MUST be included (`hyperlink: "#'Overview'!A1"`, `text: "🏠 Jump to Executive Overview Landing Sheet"`) allowing single-click return to the landing sheet.
+
+• UNIQUE ALPHANUMERIC QUESTION ID & SHEET NAMING RULE:
+    - Every practice question, project, or exercise MUST be assigned a unique alphanumeric ID (e.g., `EX101`, `EX102`, `EX103`, etc.).
+    - The corresponding worksheet tab in the master `.xlsx` workbook MUST use this exact unique alphanumeric ID as its sheet name (`sheetName = projectId`).
+    - This guarantees a 1-to-1 deterministic mapping between the web application project card and the Excel workbook sheet tab.
+
+• MANDATORY COLUMN EXPANSION & ZERO-TRUNCATION RULE:
+    - Every worksheet in the master `.xlsx` workbook MUST have all column widths properly expanded.
+    - Column widths must either be explicitly sized generously or calculated dynamically based on maximum cell string length plus padding:
+        `ws.columns.forEach(col => { col.width = Math.max(maxContentLength + 6, 22); });`
+    - This prevents text truncation, string clipping, or numeric overflow errors (`###`).
+
 • MANDATORY DOWNLOAD BUTTON IN EVERY TOPIC:
     - Every `Topic[N].jsx` must include an intuitive, high-visibility **Download Practice Workbook (.xlsx)** button.
     - The button downloads the common module `.xlsx` file directly to the learner's computer so they can open and practice in their local Microsoft Excel / Office software.

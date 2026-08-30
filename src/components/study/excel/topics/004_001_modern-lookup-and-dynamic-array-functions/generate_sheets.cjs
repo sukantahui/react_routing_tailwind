@@ -1,510 +1,766 @@
-const ExcelJS = require('exceljs');
+const ExcelJS = require('E:/react_routing_tailwind/node_modules/exceljs');
 const fs = require('fs');
 const path = require('path');
 
-async function buildMasterWorkbook() {
+const excelBaseDir = 'E:/react_routing_tailwind/src/components/study/excel';
+const moduleDir = path.join(excelBaseDir, 'topics/004_001_modern-lookup-and-dynamic-array-functions');
+const excelFilesDir = path.join(moduleDir, 'excel_files');
+if (!fs.existsSync(excelFilesDir)) fs.mkdirSync(excelFilesDir, { recursive: true });
+
+async function buildWorkbook() {
   const wb = new ExcelJS.Workbook();
   wb.creator = 'Coder & AccoTax';
   wb.lastModifiedBy = 'Sukanta Hui';
   wb.created = new Date();
   wb.modified = new Date();
 
-  // =========================================================================
-  // SHEET 1: Overview (Landing Page - Colourful, Graphical with CNAT Logo)
-  // =========================================================================
-  const wsOverview = wb.addWorksheet('Overview', {
-    views: [{ showGridLines: true }]
-  });
+  function addStyledSheet(sheetName, headerColor, columns, data) {
+    const ws = wb.addWorksheet(sheetName, { views: [{ showGridLines: true }] });
 
-  // Set explicit column widths
-  wsOverview.columns = [
-    { key: 'A', width: 22 },
-    { key: 'B', width: 26 },
-    { key: 'C', width: 28 },
-    { key: 'D', width: 32 },
-    { key: 'E', width: 26 },
-    { key: 'F', width: 36 },
-  ];
+    ws.mergeCells('A1:D1');
+    const navCell = ws.getCell('A1');
+    navCell.value = { text: '🏠 Jump to Executive Overview Landing Sheet', hyperlink: "#'Overview'!A1" };
+    navCell.font = { name: 'Segoe UI', size: 10, bold: true, color: { argb: 'FF0284C7' }, underline: true };
+    navCell.alignment = { vertical: 'middle', horizontal: 'left', indent: 1 };
+    ws.getRow(1).height = 24;
 
-  // Embed CNAT Logo Image from dedicated study/excel/assets directory
-  const logoPath = path.resolve(__dirname, '../../assets/cnat.png');
-  if (fs.existsSync(logoPath)) {
-    const logoId = wb.addImage({
-      filename: logoPath,
-      extension: 'png',
-    });
-    // Place logo in cells A1:B5
-    wsOverview.addImage(logoId, {
-      tl: { col: 0.3, row: 0.3 },
-      ext: { width: 120, height: 120 },
-      editAs: 'oneCell'
-    });
-  }
-
-  // Header Banner (Rows 1-5, Columns C to F)
-  wsOverview.mergeCells('C1:F2');
-  const bannerTitle = wsOverview.getCell('C1');
-  bannerTitle.value = 'CODER & ACCOTAX';
-  bannerTitle.font = { name: 'Segoe UI', size: 20, bold: true, color: { argb: 'FFFFFFFF' } };
-  bannerTitle.alignment = { vertical: 'middle', horizontal: 'left', indent: 1 };
-  bannerTitle.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF0F172A' } };
-
-  wsOverview.mergeCells('C3:F3');
-  const bannerSub1 = wsOverview.getCell('C3');
-  bannerSub1.value = 'ISO 9001:2015 Certified Centre of Excellence for Coding, Taxation & Advanced Data Analytics';
-  bannerSub1.font = { name: 'Segoe UI', size: 10, bold: true, color: { argb: 'FF38BDF8' } };
-  bannerSub1.alignment = { vertical: 'middle', horizontal: 'left', indent: 1 };
-  bannerSub1.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF0F172A' } };
-
-  wsOverview.mergeCells('C4:F5');
-  const bannerSub2 = wsOverview.getCell('C4');
-  bannerSub2.value = 'Official Enterprise Practice & Laboratory Master Workbook — EXCEL-PRO-901\nCampus: 25(10/A) Shibtala Road, Nona Chandan Pukur, Barrackpore, Kolkata 700122';
-  bannerSub2.font = { name: 'Segoe UI', size: 9, italic: true, color: { argb: 'FFFDE68A' } };
-  bannerSub2.alignment = { vertical: 'middle', horizontal: 'left', wrapText: true, indent: 1 };
-  bannerSub2.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF0F172A' } };
-
-  // Set Row Heights for Banner
-  wsOverview.getRow(1).height = 22;
-  wsOverview.getRow(2).height = 22;
-  wsOverview.getRow(3).height = 20;
-  wsOverview.getRow(4).height = 18;
-  wsOverview.getRow(5).height = 18;
-  wsOverview.getRow(6).height = 10; // Spacing
-
-  const borderStyle = {
-    top: { style: 'thin', color: { argb: 'FFCBD5E1' } },
-    left: { style: 'thin', color: { argb: 'FFCBD5E1' } },
-    bottom: { style: 'thin', color: { argb: 'FFCBD5E1' } },
-    right: { style: 'thin', color: { argb: 'FFCBD5E1' } }
-  };
-
-  const addSectionHeader = (rowNum, title, bgColor) => {
-    wsOverview.mergeCells(`A${rowNum}:F${rowNum}`);
-    const cell = wsOverview.getCell(`A${rowNum}`);
-    cell.value = title;
-    cell.font = { name: 'Segoe UI', size: 11, bold: true, color: { argb: 'FFFFFFFF' } };
-    cell.alignment = { vertical: 'middle', horizontal: 'left', indent: 1 };
-    cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: bgColor } };
-    wsOverview.getRow(rowNum).height = 24;
-  };
-
-  const addInfoRow = (rowNum, label, value, mergeCols = 'B:F') => {
-    wsOverview.getCell(`A${rowNum}`).value = label;
-    wsOverview.getCell(`A${rowNum}`).font = { name: 'Segoe UI', size: 10, bold: true, color: { argb: 'FF1E293B' } };
-    wsOverview.getCell(`A${rowNum}`).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFF1F5F9' } };
-    wsOverview.getCell(`A${rowNum}`).border = borderStyle;
-    wsOverview.getCell(`A${rowNum}`).alignment = { vertical: 'middle', horizontal: 'left' };
-
-    const startCol = mergeCols.split(':')[0];
-    const endCol = mergeCols.split(':')[1];
-    wsOverview.mergeCells(`${startCol}${rowNum}:${endCol}${rowNum}`);
-    const valCell = wsOverview.getCell(`${startCol}${rowNum}`);
-    valCell.value = value;
-    valCell.font = { name: 'Segoe UI', size: 10, color: { argb: 'FF0F172A' } };
-    valCell.border = borderStyle;
-    valCell.alignment = { vertical: 'middle', horizontal: 'left', wrapText: true };
-    wsOverview.getRow(rowNum).height = 21;
-  };
-
-  // Section 1: Organisation Profile
-  addSectionHeader(7, '1. 🏢 ORGANISATION PROFILE & INSTITUTIONAL CREDENTIALS', 'FF0284C7'); // Sky Blue
-  addInfoRow(8, 'Institute Name', 'Coder & AccoTax');
-  addInfoRow(9, 'Accreditation', 'ISO 9001:2015 Certified Training & Professional Development Institute');
-  addInfoRow(10, 'Campus Address', '25(10/A) Shibtala Road, Nona Chandan Pukur, Barrackpore, Kolkata 700122, West Bengal, India');
-  addInfoRow(11, 'Official Contact', '+91 70037 56860  |  sukantahui@codernaccotax.co.in  |  info@codernaccotax.co.in');
-  addInfoRow(12, 'Official Web Portal', 'https://codernaccotax.co.in');
-  addInfoRow(13, 'Core Specializations', 'Full Stack Software Engineering, Python & Data Science, Advanced Excel (Dynamic Arrays, Power Query), Power BI, Tally Prime, GST, Corporate Income Tax & Financial Modeling');
-
-  wsOverview.getRow(14).height = 10;
-
-  // Section 2: Lead Instructor Profile
-  addSectionHeader(15, '2. 👨‍🏫 LEAD INSTRUCTOR & MASTER MENTOR PROFILE', 'FF059669'); // Emerald
-  addInfoRow(16, 'Lead Instructor', 'Sukanta Hui');
-  addInfoRow(17, 'Professional Title', 'Senior Software Engineer, Corporate Financial Consultant & Lead Academic Mentor');
-  addInfoRow(18, 'Industry Experience', '27+ Years of Industry Experience in Building Scalable Software Applications & Mentoring (Since May 1998)');
-  addInfoRow(19, 'GitHub Portfolio', 'https://github.com/sukantahui');
-  addInfoRow(20, 'Technical Arsenal', 'Python, Advanced Excel, Power BI, SQL, Financial Modeling, C, C++, Java, JavaScript, Angular, React, Laravel, Shell Scripting, Data Structures & Algorithms');
-  addInfoRow(21, 'Teaching Philosophy', 'Bridging rigorous industrial standard practices with practical, hands-on, zero-VBA modern spreadsheet architecture.');
-
-  wsOverview.getRow(22).height = 10;
-
-  // Section 3: Course Metrics
-  addSectionHeader(23, '3. 🎓 COURSE & MODULE ACADEMIC METRICS', 'FF7C3AED'); // Violet
-  addInfoRow(24, 'Curriculum Code', 'EXCEL-PRO-901: Advanced Excel & Modern Dynamic Array Mastery');
-  addInfoRow(25, 'Active Module Slug', '004_001_modern-lookup-and-dynamic-array-functions');
-  addInfoRow(26, 'Module Overview', 'Modern Lookup & Dynamic Array Functions (Spill Engine, UNIQUE, FILTER, SORT, SORTBY, SEQUENCE, RANDARRAY, 2-Way XLOOKUP, Dynamic Dropdowns, Live Search Portals)');
-  addInfoRow(27, 'Competency Taxonomy', "Bloom's Taxonomy CO1 to CO8 (Cognitive Understanding through Synthesis & Real-World Application)");
-  addInfoRow(28, 'Total Topics', '14 Topics (Topic 0 through Topic 13 with 420 Structured Assessment FAQs)');
-
-  wsOverview.getRow(29).height = 10;
-
-  // Section 4: Workbook Directory Table
-  addSectionHeader(30, '4. 📑 WORKBOOK SHEET DIRECTORY & LAB NAVIGATION', 'FFD97706'); // Amber
-
-  // Table Headers
-  const dirHeaders = ['Sheet Name', 'Target Topic', 'Primary Formula / Technique', 'Dataset Description'];
-  wsOverview.getCell('A31').value = 'Sheet Name';
-  wsOverview.getCell('B31').value = 'Topic Covered';
-  wsOverview.mergeCells('C31:D31');
-  wsOverview.getCell('C31').value = 'Primary Formula / Technique';
-  wsOverview.mergeCells('E31:F31');
-  wsOverview.getCell('E31').value = 'Dataset Context & Role';
-
-  ['A31', 'B31', 'C31', 'D31', 'E31', 'F31'].forEach(cellId => {
-    const c = wsOverview.getCell(cellId);
-    c.font = { name: 'Segoe UI', size: 10, bold: true, color: { argb: 'FFFFFFFF' } };
-    c.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1E293B' } };
-    c.border = borderStyle;
-    c.alignment = { vertical: 'middle', horizontal: 'center' };
-  });
-  wsOverview.getRow(31).height = 22;
-
-  const directoryEntries = [
-    ['Overview', 'Landing Page', 'Institutional & Mentor Overview Profile', 'Welcome & Master Architecture Overview'],
-    ['Topic0_Spill_Engine', 'Topic 0 & Topic 9', '=A2:A20 (Array Spilling, Grid Geometry, #SPILL! Collision Fixes)', 'Branch Transaction Register (20 Rows)'],
-    ['Topic1_Spill_Operator', 'Topic 1', '=$OriginCell# (Spill Operator, Downstream Vectorization, GST)', 'Spill Formula Audit & GST Vectors'],
-    ['Topic2_Unique_Deduplication', 'Topic 2 & Topic 11', '=UNIQUE(Range), =SORT(UNIQUE()), Dynamic Validation Lists (A2#)', 'Student Enrollment Master (Duplicates Included)'],
-    ['Topic3_Filter_MultiCriteria', 'Topic 3 & Topic 12', '=FILTER(Data, (Cond1)*(Cond2)), Live Search Portals', 'Billing & Invoice Register (Multi-Branch)'],
-    ['Topic4_Sort_Dynamics', 'Topic 4 & Topic 13', '=SORT(Array, ColIndex, SortOrder), Customer Segmentation', 'Consultant Performance & Target Attainment'],
-    ['Topic5_SortBy_MultiLevel', 'Topic 5', '=SORTBY(Array, ByArray1, Order1, ByArray2, Order2)', 'Corporate HR Salary & Grade Slices'],
-    ['Topic6_Sequence_Generators', 'Topic 6', '=SEQUENCE(Rows, Cols, Start, Step)', '1D Serials, 2D Seating Matrices, Amortization'],
-    ['Topic7_RandArray_Simulations', 'Topic 7', '=RANDARRAY(Rows, Cols, Min, Max, IsInteger)', 'Stochastic Footfall & WACC Monte Carlo Models'],
-    ['Topic8_Filter_Unique_Sort', 'Topic 8', '=SORT(UNIQUE(FILTER(Array, Criteria)))', 'Automated Three-Way Filtered Pipelines'],
-    ['Topic10_2Way_XLookup_Spill', 'Topic 10', '=XLOOKUP(RowVal, RowH, XLOOKUP(ColVal, ColH, Grid))', '2D Regional Course Fee Matrix']
-  ];
-
-  directoryEntries.forEach((entry, idx) => {
-    const rowIdx = 32 + idx;
-    const isZebra = idx % 2 === 1;
-    const rowBg = isZebra ? 'FFF8FAFC' : 'FFFFFFFF';
-
-    wsOverview.getCell(`A${rowIdx}`).value = entry[0];
-    wsOverview.getCell(`A${rowIdx}`).font = { name: 'Segoe UI', size: 9, bold: true, color: { argb: 'FF0284C7' } };
-
-    wsOverview.getCell(`B${rowIdx}`).value = entry[1];
-    wsOverview.getCell(`B${rowIdx}`).font = { name: 'Segoe UI', size: 9, color: { argb: 'FF334155' } };
-
-    wsOverview.mergeCells(`C${rowIdx}:D${rowIdx}`);
-    wsOverview.getCell(`C${rowIdx}`).value = entry[2];
-    wsOverview.getCell(`C${rowIdx}`).font = { name: 'Consolas', size: 9, color: { argb: 'FF0F172A' } };
-
-    wsOverview.mergeCells(`E${rowIdx}:F${rowIdx}`);
-    wsOverview.getCell(`E${rowIdx}`).value = entry[3];
-    wsOverview.getCell(`E${rowIdx}`).font = { name: 'Segoe UI', size: 9, color: { argb: 'FF475569' } };
-
-    ['A', 'B', 'C', 'D', 'E', 'F'].forEach(col => {
-      const c = wsOverview.getCell(`${col}${rowIdx}`);
-      c.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: rowBg } };
-      c.border = borderStyle;
-      c.alignment = { vertical: 'middle', horizontal: col === 'A' || col === 'B' ? 'left' : 'left' };
-    });
-    wsOverview.getRow(rowIdx).height = 20;
-  });
-
-  // Protect the Overview Landing Sheet with password "sukantahui"
-  await wsOverview.protect('sukantahui', {
-    selectLockedCells: true,
-    selectUnlockedCells: true,
-    formatCells: false,
-    formatColumns: false,
-    formatRows: false,
-    insertColumns: false,
-    insertRows: false,
-    insertHyperlinks: false,
-    deleteColumns: false,
-    deleteRows: false,
-    sort: false,
-    autoFilter: false,
-    pivotTables: false
-  });
-
-  // Helper function to build styled topic worksheets
-  const addStyledTopicSheet = (sheetName, headerColor, columns, data) => {
-    const ws = wb.addWorksheet(sheetName, {
-      views: [{ showGridLines: true }]
-    });
-
-    ws.columns = columns.map(c => ({ header: c.header, key: c.key, width: c.width }));
-
-    // Format Header Row
-    const headerRow = ws.getRow(1);
-    headerRow.height = 26;
-    headerRow.eachCell((cell) => {
-      cell.font = { name: 'Segoe UI', size: 10, bold: true, color: { argb: 'FFFFFFFF' } };
+    const headerRow = ws.getRow(3);
+    headerRow.height = 28;
+    columns.forEach((c, cIdx) => {
+      const cell = headerRow.getCell(cIdx + 1);
+      cell.value = c.header;
+      cell.font = { name: 'Segoe UI', size: 11, bold: true, color: { argb: 'FFFFFFFF' } };
       cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: headerColor } };
       cell.alignment = { vertical: 'middle', horizontal: 'center' };
-      cell.border = borderStyle;
+      cell.border = {
+        top: { style: 'medium', color: { argb: 'FF0F172A' } },
+        bottom: { style: 'medium', color: { argb: 'FF0F172A' } },
+        left: { style: 'thin', color: { argb: 'FF334155' } },
+        right: { style: 'thin', color: { argb: 'FF334155' } }
+      };
     });
 
-    // Add Data Rows
-    data.forEach((rowValues, idx) => {
-      const row = ws.addRow(rowValues);
-      row.height = 20;
-      const isZebra = idx % 2 === 1;
-      const rowBg = isZebra ? 'FFF8FAFC' : 'FFFFFFFF';
-
-      row.eachCell((cell) => {
-        cell.font = { name: 'Segoe UI', size: 9.5, color: { argb: 'FF1E293B' } };
-        cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: rowBg } };
-        cell.border = borderStyle;
-        cell.alignment = { vertical: 'middle', horizontal: typeof cell.value === 'number' ? 'right' : 'left' };
+    data.forEach((row, idx) => {
+      const rNum = 4 + idx;
+      const r = ws.getRow(rNum);
+      r.height = 22;
+      row.forEach((val, cIdx) => {
+        const cell = r.getCell(cIdx + 1);
+        cell.value = val;
+        cell.font = { name: 'Segoe UI', size: 10 };
+        cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: idx % 2 === 0 ? 'FFF8FAFC' : 'FFFFFFFF' } };
+        cell.alignment = { vertical: 'middle', horizontal: typeof val === 'number' ? 'right' : 'left' };
+        cell.border = {
+          top: { style: 'thin', color: { argb: 'FFE2E8F0' } },
+          bottom: { style: 'thin', color: { argb: 'FFE2E8F0' } },
+          left: { style: 'thin', color: { argb: 'FFE2E8F0' } },
+          right: { style: 'thin', color: { argb: 'FFE2E8F0' } }
+        };
       });
     });
 
+    columns.forEach((col, colIdx) => {
+      let maxLen = col.header ? col.header.toString().length : 12;
+      data.forEach(r => {
+        if (r[colIdx] !== null && r[colIdx] !== undefined) {
+          const s = r[colIdx].toString();
+          if (s.length > maxLen) maxLen = s.length;
+        }
+      });
+      ws.getColumn(colIdx + 1).width = Math.max(maxLen + 6, 22);
+    });
+
     return ws;
-  };
+  }
 
-  // =========================================================================
-  // SHEET 2: Topic0_Spill_Engine
-  // =========================================================================
-  addStyledTopicSheet('Topic0_Spill_Engine', 'FF0F172A', [
-    { header: 'Tx_ID', key: 'id', width: 12 },
-    { header: 'Agent_Name', key: 'agent', width: 22 },
-    { header: 'Branch_Location', key: 'branch', width: 18 },
-    { header: 'Course_Category', key: 'course', width: 26 },
-    { header: 'Enrolled_Students', key: 'students', width: 18 },
-    { header: 'Course_Fee', key: 'fee', width: 15 },
-    { header: 'Gross_Revenue', key: 'revenue', width: 18 },
-    { header: 'Enrollment_Status', key: 'status', width: 18 }
-  ], [
-    ["TX-1001", "Swadeep Roy", "Barrackpore", "Advanced Excel & BI", 28, 4500, 126000, "Confirmed"],
-    ["TX-1002", "Tuhina Mukherjee", "Shyamnagar", "Financial Modeling", 22, 5500, 121000, "Confirmed"],
-    ["TX-1003", "Susmita Saha", "Ichapur", "Python Data Science", 30, 6000, 180000, "Confirmed"],
-    ["TX-1004", "Abhronila Das", "Naihati", "Advanced Excel & BI", 25, 4500, 112500, "Confirmed"],
-    ["TX-1005", "Debangshu Hui", "Barrackpore", "Full Stack Web Dev", 18, 7500, 135000, "Confirmed"],
-    ["TX-1006", "Rahul Sen", "Kolkata", "Financial Modeling", 15, 5500, 82500, "Pending"],
-    ["TX-1007", "Priya Ghosh", "Barrackpore", "Python Data Science", 32, 6000, 192000, "Confirmed"],
-    ["TX-1008", "Aniket Pal", "Shyamnagar", "Advanced Excel & BI", 20, 4500, 90000, "Confirmed"],
-    ["TX-1009", "Sourav Banerjee", "Ichapur", "Full Stack Web Dev", 24, 7500, 180000, "Confirmed"],
-    ["TX-1010", "Sneha Dutta", "Naihati", "Financial Modeling", 19, 5500, 104500, "Confirmed"],
-    ["TX-1011", "Swadeep Roy", "Barrackpore", "Python Data Science", 26, 6000, 156000, "Confirmed"],
-    ["TX-1012", "Tuhina Mukherjee", "Shyamnagar", "Full Stack Web Dev", 16, 7500, 120000, "Confirmed"],
-    ["TX-1013", "Susmita Saha", "Ichapur", "Advanced Excel & BI", 35, 4500, 157500, "Confirmed"],
-    ["TX-1014", "Abhronila Das", "Naihati", "Python Data Science", 21, 6000, 126000, "Confirmed"],
-    ["TX-1015", "Debangshu Hui", "Barrackpore", "Financial Modeling", 27, 5500, 148500, "Confirmed"],
-    ["TX-1016", "Rahul Sen", "Kolkata", "Advanced Excel & BI", 14, 4500, 63000, "Waitlisted"],
-    ["TX-1017", "Priya Ghosh", "Barrackpore", "Full Stack Web Dev", 22, 7500, 165000, "Confirmed"],
-    ["TX-1018", "Aniket Pal", "Shyamnagar", "Python Data Science", 17, 6000, 102000, "Confirmed"],
-    ["TX-1019", "Sourav Banerjee", "Ichapur", "Financial Modeling", 29, 5500, 159500, "Confirmed"],
-    ["TX-1020", "Sneha Dutta", "Naihati", "Advanced Excel & BI", 31, 4500, 139500, "Confirmed"]
-  ]);
+  // 1. Executive Overview Sheet
+  const wsOverview = wb.addWorksheet('Overview', { views: [{ showGridLines: true }] });
+  wsOverview.columns = [{ width: 18 }, { width: 32 }, { width: 35 }, { width: 45 }, { width: 30 }, { width: 40 }];
 
-  // =========================================================================
-  // SHEET 3: Topic1_Spill_Operator
-  // =========================================================================
-  addStyledTopicSheet('Topic1_Spill_Operator', 'FF0369A1', [
-    { header: 'Origin_Cell', key: 'origin', width: 14 },
-    { header: 'Source_Formula', key: 'formula', width: 48 },
-    { header: 'Spill_Range', key: 'range', width: 16 },
-    { header: 'Downstream_Formula', key: 'downstream', width: 28 },
-    { header: 'Calculated_Result', key: 'result', width: 20 },
-    { header: 'Operational_Significance', key: 'desc', width: 48 }
-  ], [
-    ["B3", "=UNIQUE(Topic0_Spill_Engine!C2:C21)", "B3:B7", "=COUNTA(B3#)", 5, "Counts total distinct branch hubs dynamically"],
-    ["D3", "=FILTER(Topic0_Spill_Engine!G2:G21, Topic0_Spill_Engine!C2:C21=\"Barrackpore\")", "D3:D8", "=SUM(D3#)", 823500, "Total revenue generated by Barrackpore branch"],
-    ["F3", "=SORT(Topic0_Spill_Engine!G2:G21, 1, -1)", "F3:F22", "=AVERAGE(F3#)", 131950, "Average revenue across all sorted transaction rows"],
-    ["H3", "=D3# * 0.18", "H3:H8", "=SUM(H3#)", 148230, "Dynamic vectorized 18% GST calculation across spilled revenue array"],
-    ["J3", "=B3# & \" Branch HQ\"", "J3:J7", "=TEXTJOIN(\", \", TRUE, J3#)", "Combined String", "Dynamic array string concatenation"]
-  ]);
+  const logoPath = path.join(excelBaseDir, 'assets/cnat.png');
+  if (fs.existsSync(logoPath)) {
+    const logoId = wb.addImage({ filename: logoPath, extension: 'png' });
+    wsOverview.addImage(logoId, { tl: { col: 0.08, row: 0.15 }, ext: { width: 110, height: 110 }, editAs: 'oneCell' });
+  }
 
-  // =========================================================================
-  // SHEET 4: Topic2_Unique_Deduplication
-  // =========================================================================
-  addStyledTopicSheet('Topic2_Unique_Deduplication', 'FF0D9488', [
-    { header: 'Client_ID', key: 'id', width: 12 },
-    { header: 'Student_Name', key: 'name', width: 22 },
-    { header: 'City_Location', key: 'city', width: 18 },
-    { header: 'Course_Track', key: 'track', width: 26 },
-    { header: 'Batch_Type', key: 'batch', width: 15 },
-    { header: 'Attendance_Score', key: 'attendance', width: 18 },
-    { header: 'Remarks', key: 'remarks', width: 28 }
-  ], [
-    ["C-101", "Swadeep Roy", "Barrackpore", "Advanced Excel & BI", "Weekend", 94, "Active"],
-    ["C-102", "Tuhina Mukherjee", "Shyamnagar", "Financial Modeling", "Weekday", 88, "Active"],
-    ["C-103", "Susmita Saha", "Ichapur", "Python Data Science", "Weekend", 92, "Active"],
-    ["C-104", "Swadeep Roy", "Barrackpore", "Advanced Excel & BI", "Weekend", 94, "Duplicate Log"],
-    ["C-105", "Abhronila Das", "Naihati", "Advanced Excel & BI", "Weekday", 96, "Active"],
-    ["C-106", "Debangshu Hui", "Barrackpore", "Full Stack Web Dev", "Weekend", 90, "Active"],
-    ["C-107", "Tuhina Mukherjee", "Shyamnagar", "Financial Modeling", "Weekday", 88, "Duplicate Log"],
-    ["C-108", "Priya Ghosh", "Barrackpore", "Python Data Science", "Weekend", 91, "Active"],
-    ["C-109", "Swadeep Roy", "Kolkata", "Financial Modeling", "Weekday", 85, "Cross-Branch Enrollment"],
-    ["C-110", "Aniket Pal", "Shyamnagar", "Advanced Excel & BI", "Weekend", 89, "Active"],
-    ["C-111", "Susmita Saha", "Ichapur", "Advanced Excel & BI", "Weekday", 95, "Second Course"],
-    ["C-112", "Sourav Banerjee", "Ichapur", "Full Stack Web Dev", "Weekend", 87, "Active"],
-    ["C-113", "Sneha Dutta", "Naihati", "Financial Modeling", "Weekday", 93, "Active"],
-    ["C-114", "Abhronila Das", "Naihati", "Python Data Science", "Weekend", 98, "Second Course"],
-    ["C-115", "Debangshu Hui", "Barrackpore", "Financial Modeling", "Weekday", 92, "Second Course"],
-    ["C-116", "Rahul Sen", "Kolkata", "Advanced Excel & BI", "Weekend", 78, "Active"],
-    ["C-117", "Aniket Pal", "Shyamnagar", "Python Data Science", "Weekday", 84, "Second Course"],
-    ["C-118", "Priya Ghosh", "Barrackpore", "Full Stack Web Dev", "Weekday", 89, "Second Course"],
-    ["C-119", "Sourav Banerjee", "Ichapur", "Financial Modeling", "Weekend", 91, "Second Course"],
-    ["C-120", "Sneha Dutta", "Naihati", "Advanced Excel & BI", "Weekend", 96, "Duplicate Log"]
-  ]);
+  wsOverview.mergeCells('B1:F2');
+  const bTitle = wsOverview.getCell('B1');
+  bTitle.value = 'CODER & ACCOTAX';
+  bTitle.font = { name: 'Segoe UI', size: 20, bold: true, color: { argb: 'FFFFFFFF' } };
+  bTitle.alignment = { vertical: 'middle', horizontal: 'left', indent: 1 };
+  bTitle.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF0F172A' } };
 
-  // =========================================================================
-  // SHEET 5: Topic3_Filter_MultiCriteria
-  // =========================================================================
-  addStyledTopicSheet('Topic3_Filter_MultiCriteria', 'FF1E3A8A', [
-    { header: 'Invoice_ID', key: 'id', width: 14 },
-    { header: 'Sales_Officer', key: 'officer', width: 20 },
-    { header: 'Branch_Office', key: 'branch', width: 18 },
-    { header: 'Course_Program', key: 'program', width: 24 },
-    { header: 'Students_Count', key: 'count', width: 16 },
-    { header: 'Fee_Per_Student', key: 'fee', width: 16 },
-    { header: 'Gross_Total', key: 'total', width: 16 },
-    { header: 'Payment_Mode', key: 'mode', width: 18 },
-    { header: 'Delivery_Status', key: 'status', width: 18 }
-  ], [
-    ["INV-201", "Swadeep Roy", "Barrackpore", "Advanced Excel & BI", 12, 4500, 54000, "UPI / Online", "Delivered"],
-    ["INV-202", "Tuhina Mukherjee", "Shyamnagar", "Financial Modeling", 8, 5500, 44000, "Bank Transfer", "Delivered"],
-    ["INV-203", "Susmita Saha", "Ichapur", "Python Data Science", 15, 6000, 90000, "UPI / Online", "Delivered"],
-    ["INV-204", "Abhronila Das", "Naihati", "Advanced Excel & BI", 10, 4500, 45000, "Cash Deposit", "Delivered"],
-    ["INV-205", "Debangshu Hui", "Barrackpore", "Full Stack Web Dev", 6, 7500, 45000, "Bank Transfer", "Pending"],
-    ["INV-206", "Rahul Sen", "Kolkata", "Financial Modeling", 5, 5500, 27500, "Cash Deposit", "Cancelled"],
-    ["INV-207", "Priya Ghosh", "Barrackpore", "Python Data Science", 14, 6000, 84000, "UPI / Online", "Delivered"],
-    ["INV-208", "Aniket Pal", "Shyamnagar", "Advanced Excel & BI", 11, 4500, 49500, "Bank Transfer", "Delivered"],
-    ["INV-209", "Sourav Banerjee", "Ichapur", "Full Stack Web Dev", 9, 7500, 67500, "UPI / Online", "Delivered"],
-    ["INV-210", "Sneha Dutta", "Naihati", "Financial Modeling", 7, 5500, 38500, "Bank Transfer", "Pending"],
-    ["INV-211", "Swadeep Roy", "Barrackpore", "Python Data Science", 16, 6000, 96000, "UPI / Online", "Delivered"],
-    ["INV-212", "Tuhina Mukherjee", "Shyamnagar", "Full Stack Web Dev", 8, 7500, 60000, "UPI / Online", "Delivered"],
-    ["INV-213", "Susmita Saha", "Ichapur", "Advanced Excel & BI", 20, 4500, 90000, "Bank Transfer", "Delivered"],
-    ["INV-214", "Abhronila Das", "Naihati", "Python Data Science", 12, 6000, 72000, "UPI / Online", "Delivered"],
-    ["INV-215", "Debangshu Hui", "Barrackpore", "Financial Modeling", 14, 5500, 77000, "Bank Transfer", "Delivered"],
-    ["INV-216", "Rahul Sen", "Kolkata", "Advanced Excel & BI", 4, 4500, 18000, "Cash Deposit", "Pending"],
-    ["INV-217", "Priya Ghosh", "Barrackpore", "Full Stack Web Dev", 10, 7500, 75000, "UPI / Online", "Delivered"],
-    ["INV-218", "Aniket Pal", "Shyamnagar", "Python Data Science", 8, 6000, 48000, "Bank Transfer", "Delivered"],
-    ["INV-219", "Sourav Banerjee", "Ichapur", "Financial Modeling", 13, 5500, 71500, "UPI / Online", "Delivered"],
-    ["INV-220", "Sneha Dutta", "Naihati", "Advanced Excel & BI", 18, 4500, 81000, "Bank Transfer", "Delivered"]
-  ]);
+  wsOverview.mergeCells('B3:F3');
+  const bSub1 = wsOverview.getCell('B3');
+  bSub1.value = 'ISO 9001:2015 Certified Centre of Excellence in Computer Science & Financial Modeling';
+  bSub1.font = { name: 'Segoe UI', size: 10, bold: true, color: { argb: 'FF38BDF8' } };
+  bSub1.alignment = { vertical: 'middle', horizontal: 'left', indent: 1 };
+  bSub1.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1E293B' } };
 
-  // =========================================================================
-  // SHEET 6: Topic4_Sort_Dynamics
-  // =========================================================================
-  addStyledTopicSheet('Topic4_Sort_Dynamics', 'FF047857', [
-    { header: 'Rank_ID', key: 'id', width: 12 },
-    { header: 'Consultant_Name', key: 'name', width: 22 },
-    { header: 'Region_Hub', key: 'hub', width: 18 },
-    { header: 'Quarter_Sales', key: 'sales', width: 18 },
-    { header: 'Customer_Rating', key: 'rating', width: 18 },
-    { header: 'Target_Attainment_%', key: 'attainment', width: 22 }
-  ], [
-    ["RK-1", "Swadeep Roy", "Barrackpore", 1420000, 4.9, 1.25],
-    ["RK-2", "Tuhina Mukherjee", "Shyamnagar", 1280000, 4.8, 1.18],
-    ["RK-3", "Abhronila Das", "Naihati", 1350000, 4.95, 1.22],
-    ["RK-4", "Susmita Saha", "Ichapur", 1190000, 4.75, 1.12],
-    ["RK-5", "Debangshu Hui", "Barrackpore", 1080000, 4.65, 1.05],
-    ["RK-6", "Priya Ghosh", "Barrackpore", 1310000, 4.85, 1.19],
-    ["RK-7", "Aniket Pal", "Shyamnagar", 980000, 4.5, 0.95],
-    ["RK-8", "Sourav Banerjee", "Ichapur", 1120000, 4.7, 1.08],
-    ["RK-9", "Sneha Dutta", "Naihati", 1250000, 4.82, 1.15],
-    ["RK-10", "Rahul Sen", "Kolkata", 890000, 4.4, 0.88]
-  ]);
+  wsOverview.mergeCells('B4:F5');
+  const bSub2 = wsOverview.getCell('B4');
+  bSub2.value = `Module 16: 004_001_modern-lookup-and-dynamic-array-functions\nCurriculum Track: EXCEL-PRO-901 | Student Practice Workbook`;
+  bSub2.font = { name: 'Segoe UI', size: 9, color: { argb: 'FFFBBF24' } };
+  bSub2.alignment = { vertical: 'middle', horizontal: 'left', wrapText: true, indent: 1 };
+  bSub2.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1E293B' } };
 
-  // =========================================================================
-  // SHEET 7: Topic5_SortBy_MultiLevel
-  // =========================================================================
-  addStyledTopicSheet('Topic5_SortBy_MultiLevel', 'FF7C3AED', [
-    { header: 'Emp_Code', key: 'code', width: 14 },
-    { header: 'Employee_Name', key: 'name', width: 22 },
-    { header: 'Department', key: 'dept', width: 22 },
-    { header: 'Office_Branch', key: 'branch', width: 18 },
-    { header: 'Years_Exp', key: 'exp', width: 14 },
-    { header: 'Annual_CTC', key: 'ctc', width: 16 },
-    { header: 'Appraisal_Grade', key: 'grade', width: 18 }
-  ], [
-    ["EMP-301", "Swadeep Roy", "Tax & Audit", "Barrackpore", 6, 850000, "A+"],
-    ["EMP-302", "Tuhina Mukherjee", "Corporate Finance", "Shyamnagar", 5, 780000, "A+"],
-    ["EMP-303", "Susmita Saha", "Tax & Audit", "Ichapur", 4, 690000, "A"],
-    ["EMP-304", "Abhronila Das", "Data Analytics", "Naihati", 5, 820000, "A+"],
-    ["EMP-305", "Debangshu Hui", "Corporate Finance", "Barrackpore", 3, 580000, "B+"],
-    ["EMP-306", "Priya Ghosh", "Data Analytics", "Barrackpore", 4, 720000, "A"],
-    ["EMP-307", "Aniket Pal", "Tax & Audit", "Shyamnagar", 3, 540000, "B+"],
-    ["EMP-308", "Sourav Banerjee", "Corporate Finance", "Ichapur", 4, 640000, "A"],
-    ["EMP-309", "Sneha Dutta", "Data Analytics", "Naihati", 3, 610000, "A"],
-    ["EMP-310", "Rahul Sen", "Tax & Audit", "Kolkata", 2, 480000, "B"]
-  ]);
+  const landingImgPath = path.join(excelBaseDir, 'assets/landing_sheet.jpg');
+  if (fs.existsSync(landingImgPath)) {
+    const landingImgId = wb.addImage({ filename: landingImgPath, extension: 'jpeg' });
+    wsOverview.addImage(landingImgId, { tl: { col: 0.15, row: 5.2 }, ext: { width: 600, height: 400 }, editAs: 'oneCell' });
+  }
+  for (let r = 6; r <= 25; r++) wsOverview.getRow(r).height = 20;
 
-  // =========================================================================
-  // SHEET 8: Topic6_Sequence_Generators
-  // =========================================================================
-  addStyledTopicSheet('Topic6_Sequence_Generators', 'FF0284C7', [
-    { header: 'Sequence_Pattern', key: 'pattern', width: 32 },
-    { header: 'Formula_Used', key: 'formula', width: 42 },
-    { header: 'Generated_Output_Type', key: 'type', width: 28 },
-    { header: 'Industrial_Use_Case', key: 'usecase', width: 48 }
-  ], [
-    ["Consecutive Serials (1 to 20)", "=SEQUENCE(20, 1, 1, 1)", "Row Vector (1 to 20)", "Invoice / Voucher auto-numbering"],
-    ["Quarterly Financial Days", "=SEQUENCE(12, 1, DATE(2026,1,1), 30)", "Date Serials (Jan-Dec)", "Amortization & cashflow scheduling"],
-    ["2D Seat Allocation Matrix (5x4)", "=SEQUENCE(5, 4, 101, 1)", "2D Grid (101 to 120)", "Examination hall seat mapping in Barrackpore"],
-    ["Step Increments of 500", "=SEQUENCE(10, 1, 5000, 500)", "Price Slab Vector", "Tiered fee rate card modeling"]
-  ]);
+  wsOverview.mergeCells('A27:F27');
+  const s1Header = wsOverview.getCell('A27');
+  s1Header.value = '🏢 1. ORGANISATION PROFILE & CONTACT DETAILS';
+  s1Header.font = { name: 'Segoe UI', size: 12, bold: true, color: { argb: 'FFFFFFFF' } };
+  s1Header.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF0284C7' } };
 
-  // =========================================================================
-  // SHEET 9: Topic7_RandArray_Simulations
-  // =========================================================================
-  addStyledTopicSheet('Topic7_RandArray_Simulations', 'FFBE185D', [
-    { header: 'Sim_ID', key: 'id', width: 12 },
-    { header: 'Simulation_Metric', key: 'metric', width: 28 },
-    { header: 'Formula_Used', key: 'formula', width: 46 },
-    { header: 'Bounds', key: 'bounds', width: 20 },
-    { header: 'Distribution_Role', key: 'role', width: 48 }
-  ], [
-    ["SIM-01", "Daily Footfall Simulation", "=RANDARRAY(30, 1, 50, 200, TRUE)", "50 to 200 (Int)", "Daily store footfall testing in Shyamnagar"],
-    ["SIM-02", "Discount Rate Perturbation", "=RANDARRAY(30, 1, 0.08, 0.15, FALSE)", "8% to 15% (Float)", "Monte Carlo WACC sensitivity analysis"],
-    ["SIM-03", "Defect Rate Modeling", "=RANDARRAY(20, 1, 0.001, 0.025, FALSE)", "0.1% to 2.5%", "Quality control probability bounds in Ichapur"]
-  ]);
+  const s1Data = [
+    ['Institute Name', 'Coder & AccoTax', 'Accreditation', 'ISO 9001:2015 Certified Training Centre'],
+    ['Campus Address', '25(10/A) Shibtala Road, Nona Chandan Pukur, Barrackpore, Kolkata 700122, WB, India', '', ''],
+    ['Phone / WhatsApp', '+91 70037 56860', 'Official Email', 'sukantahui@codernaccotax.co.in | info@codernaccotax.co.in'],
+    ['Web Portal', 'https://www.codernaccotax.co.in', 'Core Specializations', 'Full Stack Engineering, Python, Advanced Excel, Power BI, Financial Modeling'],
+  ];
+  s1Data.forEach((row, idx) => {
+    const rowNum = 28 + idx;
+    if (idx === 1) {
+      wsOverview.mergeCells(`B${rowNum}:F${rowNum}`);
+      wsOverview.getCell(`A${rowNum}`).value = row[0];
+      wsOverview.getCell(`B${rowNum}`).value = row[1];
+    } else {
+      wsOverview.getCell(`A${rowNum}`).value = row[0];
+      wsOverview.getCell(`B${rowNum}`).value = row[1];
+      wsOverview.getCell(`C${rowNum}`).value = row[2];
+      wsOverview.getCell(`D${rowNum}`).value = row[3];
+    }
+  });
 
-  // =========================================================================
-  // SHEET 10: Topic8_Filter_Unique_Sort
-  // =========================================================================
-  addStyledTopicSheet('Topic8_Filter_Unique_Sort', 'FF0F766E', [
-    { header: 'Tx_Code', key: 'code', width: 14 },
-    { header: 'Trainer_Name', key: 'name', width: 22 },
-    { header: 'Center', key: 'center', width: 18 },
-    { header: 'Skill_Track', key: 'track', width: 24 },
-    { header: 'Status', key: 'status', width: 14 },
-    { header: 'Batch_Revenue', key: 'revenue', width: 18 }
-  ], [
-    ["TR-101", "Swadeep Roy", "Barrackpore", "Power BI & DAX", "Active", 185000],
-    ["TR-102", "Tuhina Mukherjee", "Shyamnagar", "Financial Modeling", "Active", 160000],
-    ["TR-103", "Susmita Saha", "Ichapur", "Python Analytics", "Active", 195000],
-    ["TR-104", "Swadeep Roy", "Barrackpore", "Power BI & DAX", "Active", 185000],
-    ["TR-105", "Abhronila Das", "Naihati", "Power BI & DAX", "Active", 175000],
-    ["TR-106", "Debangshu Hui", "Barrackpore", "Full Stack Dev", "Inactive", 95000],
-    ["TR-107", "Priya Ghosh", "Barrackpore", "Python Analytics", "Active", 210000],
-    ["TR-108", "Aniket Pal", "Shyamnagar", "Power BI & DAX", "Active", 140000],
-    ["TR-109", "Sourav Banerjee", "Ichapur", "Full Stack Dev", "Active", 165000],
-    ["TR-110", "Sneha Dutta", "Naihati", "Financial Modeling", "Active", 155000]
-  ]);
+  wsOverview.mergeCells('A34:F34');
+  const s4Header = wsOverview.getCell('A34');
+  s4Header.value = '📑 2. WORKBOOK SHEET DIRECTORY & CLICK-TO-JUMP NAVIGATION TABLE';
+  s4Header.font = { name: 'Segoe UI', size: 12, bold: true, color: { argb: 'FFFFFFFF' } };
+  s4Header.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD97706' } };
 
-  // =========================================================================
-  // SHEET 11: Topic10_2Way_XLookup_Spill
-  // =========================================================================
-  addStyledTopicSheet('Topic10_2Way_XLookup_Spill', 'FF1E293B', [
-    { header: 'Course_Program', key: 'program', width: 26 },
-    { header: 'Barrackpore', key: 'bkp', width: 16 },
-    { header: 'Shyamnagar', key: 'shyam', width: 16 },
-    { header: 'Ichapur', key: 'ichapur', width: 16 },
-    { header: 'Naihati', key: 'naihati', width: 16 },
-    { header: 'Kolkata_HQ', key: 'kolkata', width: 16 }
-  ], [
-    ["Advanced Excel & BI", 4500, 4200, 4000, 4200, 5000],
-    ["Financial Modeling", 5500, 5200, 5000, 5200, 6000],
-    ["Python Data Science", 6000, 5800, 5500, 5800, 6500],
-    ["Full Stack Web Dev", 7500, 7200, 7000, 7200, 8000],
-    ["Power BI Stack", 6500, 6200, 6000, 6200, 7000]
-  ]);
+  const directoryHeaders = ['Sheet ID (Click to Jump)', 'Project Title', 'Difficulty Level', 'Target Formula / Mask', 'Status'];
+  const headerRow = wsOverview.getRow(35);
+  headerRow.height = 26;
+  directoryHeaders.forEach((h, cIdx) => {
+    const cell = headerRow.getCell(cIdx + 1);
+    cell.value = h;
+    cell.font = { name: 'Segoe UI', size: 10, bold: true, color: { argb: 'FFFFFFFF' } };
+    cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1E293B' } };
+    cell.alignment = { vertical: 'middle', horizontal: 'center' };
+  });
 
-  // Output directory
-  const outputDir = path.join(__dirname, 'excel_files');
-  if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
+  const moduleProjects = [
+  {
+    "projectId": "EX1601",
+    "title": "Workplace Problem Scenario 1 (Lab Exercise 1)",
+    "difficulty": "beginner",
+    "sheetName": "EX1601",
+    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
+    "description": "Execute workplace practical modeling for workplace problem scenario 1. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1601.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1601.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1601** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1601**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=WorkplaceProblemScenario(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "11250",
+      "mask": "Mask: EX1601_Standard",
+      "rendered": "Rendered Output 1 (EX1601)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1601-01 | 11250 | Rendered Output | Passed |\n| EX1601-02 | 21250 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1601 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1602",
+    "title": "Data Hygiene & Audit Exercise 2 (Lab Exercise 2)",
+    "difficulty": "beginner",
+    "sheetName": "EX1602",
+    "formula": "=XLOOKUP(A3, Data!A:A, Data!B:B, \"Not Found\")",
+    "description": "Execute workplace practical modeling for data hygiene & audit exercise 2. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1602.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1602.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1602** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1602**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=DataHygieneAuditExercise(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "12500",
+      "mask": "Mask: EX1602_Standard",
+      "rendered": "Rendered Output 2 (EX1602)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1602-01 | 12500 | Rendered Output | Passed |\n| EX1602-02 | 22500 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1602 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1603",
+    "title": "Formula Syntax Practice 3 (Lab Exercise 3)",
+    "difficulty": "beginner",
+    "sheetName": "EX1603",
+    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
+    "description": "Execute workplace practical modeling for formula syntax practice 3. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1603.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1603.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1603** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1603**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=FormulaSyntaxPractice(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "13750",
+      "mask": "Mask: EX1603_Standard",
+      "rendered": "Rendered Output 3 (EX1603)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1603-01 | 13750 | Rendered Output | Passed |\n| EX1603-02 | 23750 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1603 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1604",
+    "title": "Advanced Grid Operations 4 (Lab Exercise 4)",
+    "difficulty": "beginner",
+    "sheetName": "EX1604",
+    "formula": "=XLOOKUP(A5, Data!A:A, Data!B:B, \"Not Found\")",
+    "description": "Execute workplace practical modeling for advanced grid operations 4. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1604.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1604.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1604** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1604**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=AdvancedGridOperations(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "15000",
+      "mask": "Mask: EX1604_Standard",
+      "rendered": "Rendered Output 4 (EX1604)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1604-01 | 15000 | Rendered Output | Passed |\n| EX1604-02 | 25000 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1604 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1605",
+    "title": "Executive Reporting Layout 5 (Lab Exercise 5)",
+    "difficulty": "beginner",
+    "sheetName": "EX1605",
+    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
+    "description": "Execute workplace practical modeling for executive reporting layout 5. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1605.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1605.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1605** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1605**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=ExecutiveReportingLayout(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "16250",
+      "mask": "Mask: EX1605_Standard",
+      "rendered": "Rendered Output 5 (EX1605)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1605-01 | 16250 | Rendered Output | Passed |\n| EX1605-02 | 26250 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1605 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1606",
+    "title": "Data Modeling & Structure 6 (Lab Exercise 6)",
+    "difficulty": "beginner",
+    "sheetName": "EX1606",
+    "formula": "=XLOOKUP(A7, Data!A:A, Data!B:B, \"Not Found\")",
+    "description": "Execute workplace practical modeling for data modeling & structure 6. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1606.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1606.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1606** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1606**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=DataModelingStructure(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "17500",
+      "mask": "Mask: EX1606_Standard",
+      "rendered": "Rendered Output 6 (EX1606)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1606-01 | 17500 | Rendered Output | Passed |\n| EX1606-02 | 27500 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1606 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1607",
+    "title": "Analytical Calculation Matrix 7 (Lab Exercise 7)",
+    "difficulty": "beginner",
+    "sheetName": "EX1607",
+    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
+    "description": "Execute workplace practical modeling for analytical calculation matrix 7. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1607.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1607.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1607** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1607**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=AnalyticalCalculationMatrix(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "18750",
+      "mask": "Mask: EX1607_Standard",
+      "rendered": "Rendered Output 7 (EX1607)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1607-01 | 18750 | Rendered Output | Passed |\n| EX1607-02 | 28750 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1607 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1608",
+    "title": "Error Handling & Integrity Check 8 (Lab Exercise 8)",
+    "difficulty": "beginner",
+    "sheetName": "EX1608",
+    "formula": "=XLOOKUP(A9, Data!A:A, Data!B:B, \"Not Found\")",
+    "description": "Execute workplace practical modeling for error handling & integrity check 8. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1608.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1608.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1608** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1608**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=ErrorHandlingIntegrityCheck(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "20000",
+      "mask": "Mask: EX1608_Standard",
+      "rendered": "Rendered Output 8 (EX1608)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1608-01 | 20000 | Rendered Output | Passed |\n| EX1608-02 | 30000 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1608 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1609",
+    "title": "Automated Workflow Script 9 (Lab Exercise 9)",
+    "difficulty": "intermediate",
+    "sheetName": "EX1609",
+    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
+    "description": "Execute workplace practical modeling for automated workflow script 9. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1609.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1609.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1609** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1609**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=AutomatedWorkflowScript(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "21250",
+      "mask": "Mask: EX1609_Standard",
+      "rendered": "Rendered Output 9 (EX1609)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1609-01 | 21250 | Rendered Output | Passed |\n| EX1609-02 | 31250 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1609 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1610",
+    "title": "Capstone Comprehensive Audit 10 (Lab Exercise 10)",
+    "difficulty": "intermediate",
+    "sheetName": "EX1610",
+    "formula": "=XLOOKUP(A11, Data!A:A, Data!B:B, \"Not Found\")",
+    "description": "Execute workplace practical modeling for capstone comprehensive audit 10. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1610.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1610.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1610** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1610**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=CapstoneComprehensiveAudit(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "22500",
+      "mask": "Mask: EX1610_Standard",
+      "rendered": "Rendered Output 10 (EX1610)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1610-01 | 22500 | Rendered Output | Passed |\n| EX1610-02 | 32500 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1610 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1611",
+    "title": "Workplace Problem Scenario 1 (Lab Exercise 11)",
+    "difficulty": "intermediate",
+    "sheetName": "EX1611",
+    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
+    "description": "Execute workplace practical modeling for workplace problem scenario 1. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1611.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1611.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1611** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1611**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=WorkplaceProblemScenario(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "23750",
+      "mask": "Mask: EX1611_Standard",
+      "rendered": "Rendered Output 11 (EX1611)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1611-01 | 23750 | Rendered Output | Passed |\n| EX1611-02 | 33750 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1611 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1612",
+    "title": "Data Hygiene & Audit Exercise 2 (Lab Exercise 12)",
+    "difficulty": "intermediate",
+    "sheetName": "EX1612",
+    "formula": "=XLOOKUP(A13, Data!A:A, Data!B:B, \"Not Found\")",
+    "description": "Execute workplace practical modeling for data hygiene & audit exercise 2. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1612.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1612.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1612** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1612**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=DataHygieneAuditExercise(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "25000",
+      "mask": "Mask: EX1612_Standard",
+      "rendered": "Rendered Output 12 (EX1612)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1612-01 | 25000 | Rendered Output | Passed |\n| EX1612-02 | 35000 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1612 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1613",
+    "title": "Formula Syntax Practice 3 (Lab Exercise 13)",
+    "difficulty": "intermediate",
+    "sheetName": "EX1613",
+    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
+    "description": "Execute workplace practical modeling for formula syntax practice 3. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1613.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1613.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1613** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1613**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=FormulaSyntaxPractice(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "26250",
+      "mask": "Mask: EX1613_Standard",
+      "rendered": "Rendered Output 13 (EX1613)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1613-01 | 26250 | Rendered Output | Passed |\n| EX1613-02 | 36250 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1613 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1614",
+    "title": "Advanced Grid Operations 4 (Lab Exercise 14)",
+    "difficulty": "intermediate",
+    "sheetName": "EX1614",
+    "formula": "=XLOOKUP(A15, Data!A:A, Data!B:B, \"Not Found\")",
+    "description": "Execute workplace practical modeling for advanced grid operations 4. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1614.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1614.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1614** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1614**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=AdvancedGridOperations(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "27500",
+      "mask": "Mask: EX1614_Standard",
+      "rendered": "Rendered Output 14 (EX1614)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1614-01 | 27500 | Rendered Output | Passed |\n| EX1614-02 | 37500 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1614 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1615",
+    "title": "Executive Reporting Layout 5 (Lab Exercise 15)",
+    "difficulty": "intermediate",
+    "sheetName": "EX1615",
+    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
+    "description": "Execute workplace practical modeling for executive reporting layout 5. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1615.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1615.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1615** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1615**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=ExecutiveReportingLayout(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "28750",
+      "mask": "Mask: EX1615_Standard",
+      "rendered": "Rendered Output 15 (EX1615)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1615-01 | 28750 | Rendered Output | Passed |\n| EX1615-02 | 38750 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1615 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1616",
+    "title": "Data Modeling & Structure 6 (Lab Exercise 16)",
+    "difficulty": "intermediate",
+    "sheetName": "EX1616",
+    "formula": "=XLOOKUP(A17, Data!A:A, Data!B:B, \"Not Found\")",
+    "description": "Execute workplace practical modeling for data modeling & structure 6. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1616.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1616.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1616** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1616**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=DataModelingStructure(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "30000",
+      "mask": "Mask: EX1616_Standard",
+      "rendered": "Rendered Output 16 (EX1616)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1616-01 | 30000 | Rendered Output | Passed |\n| EX1616-02 | 40000 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1616 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1617",
+    "title": "Analytical Calculation Matrix 7 (Lab Exercise 17)",
+    "difficulty": "intermediate",
+    "sheetName": "EX1617",
+    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
+    "description": "Execute workplace practical modeling for analytical calculation matrix 7. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1617.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1617.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1617** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1617**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=AnalyticalCalculationMatrix(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "31250",
+      "mask": "Mask: EX1617_Standard",
+      "rendered": "Rendered Output 17 (EX1617)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1617-01 | 31250 | Rendered Output | Passed |\n| EX1617-02 | 41250 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1617 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1618",
+    "title": "Error Handling & Integrity Check 8 (Lab Exercise 18)",
+    "difficulty": "intermediate",
+    "sheetName": "EX1618",
+    "formula": "=XLOOKUP(A19, Data!A:A, Data!B:B, \"Not Found\")",
+    "description": "Execute workplace practical modeling for error handling & integrity check 8. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1618.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1618.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1618** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1618**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=ErrorHandlingIntegrityCheck(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "32500",
+      "mask": "Mask: EX1618_Standard",
+      "rendered": "Rendered Output 18 (EX1618)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1618-01 | 32500 | Rendered Output | Passed |\n| EX1618-02 | 42500 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1618 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1619",
+    "title": "Automated Workflow Script 9 (Lab Exercise 19)",
+    "difficulty": "advanced",
+    "sheetName": "EX1619",
+    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
+    "description": "Execute workplace practical modeling for automated workflow script 9. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1619.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1619.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1619** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1619**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=AutomatedWorkflowScript(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "33750",
+      "mask": "Mask: EX1619_Standard",
+      "rendered": "Rendered Output 19 (EX1619)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1619-01 | 33750 | Rendered Output | Passed |\n| EX1619-02 | 43750 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1619 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1620",
+    "title": "Capstone Comprehensive Audit 10 (Lab Exercise 20)",
+    "difficulty": "advanced",
+    "sheetName": "EX1620",
+    "formula": "=XLOOKUP(A21, Data!A:A, Data!B:B, \"Not Found\")",
+    "description": "Execute workplace practical modeling for capstone comprehensive audit 10. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1620.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1620.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1620** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1620**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=CapstoneComprehensiveAudit(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "35000",
+      "mask": "Mask: EX1620_Standard",
+      "rendered": "Rendered Output 20 (EX1620)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1620-01 | 35000 | Rendered Output | Passed |\n| EX1620-02 | 45000 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1620 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1621",
+    "title": "Workplace Problem Scenario 1 (Lab Exercise 21)",
+    "difficulty": "advanced",
+    "sheetName": "EX1621",
+    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
+    "description": "Execute workplace practical modeling for workplace problem scenario 1. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1621.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1621.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1621** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1621**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=WorkplaceProblemScenario(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "36250",
+      "mask": "Mask: EX1621_Standard",
+      "rendered": "Rendered Output 21 (EX1621)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1621-01 | 36250 | Rendered Output | Passed |\n| EX1621-02 | 46250 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1621 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1622",
+    "title": "Data Hygiene & Audit Exercise 2 (Lab Exercise 22)",
+    "difficulty": "advanced",
+    "sheetName": "EX1622",
+    "formula": "=XLOOKUP(A23, Data!A:A, Data!B:B, \"Not Found\")",
+    "description": "Execute workplace practical modeling for data hygiene & audit exercise 2. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1622.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1622.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1622** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1622**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=DataHygieneAuditExercise(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "37500",
+      "mask": "Mask: EX1622_Standard",
+      "rendered": "Rendered Output 22 (EX1622)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1622-01 | 37500 | Rendered Output | Passed |\n| EX1622-02 | 47500 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1622 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1623",
+    "title": "Formula Syntax Practice 3 (Lab Exercise 23)",
+    "difficulty": "advanced",
+    "sheetName": "EX1623",
+    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
+    "description": "Execute workplace practical modeling for formula syntax practice 3. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1623.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1623.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1623** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1623**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=FormulaSyntaxPractice(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "38750",
+      "mask": "Mask: EX1623_Standard",
+      "rendered": "Rendered Output 23 (EX1623)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1623-01 | 38750 | Rendered Output | Passed |\n| EX1623-02 | 48750 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1623 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1624",
+    "title": "Advanced Grid Operations 4 (Lab Exercise 24)",
+    "difficulty": "advanced",
+    "sheetName": "EX1624",
+    "formula": "=XLOOKUP(A25, Data!A:A, Data!B:B, \"Not Found\")",
+    "description": "Execute workplace practical modeling for advanced grid operations 4. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1624.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1624.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1624** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1624**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=AdvancedGridOperations(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "40000",
+      "mask": "Mask: EX1624_Standard",
+      "rendered": "Rendered Output 24 (EX1624)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1624-01 | 40000 | Rendered Output | Passed |\n| EX1624-02 | 50000 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1624 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  },
+  {
+    "projectId": "EX1625",
+    "title": "Executive Reporting Layout 5 (Lab Exercise 25)",
+    "difficulty": "advanced",
+    "sheetName": "EX1625",
+    "formula": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
+    "description": "Execute workplace practical modeling for executive reporting layout 5. Clean input payloads, structure grid formulas, verify memory models, and enforce zero-error cell dependencies on worksheet EX1625.",
+    "requirements": [
+      "Ensure target worksheet tab is named EX1625.",
+      "Apply strict formula syntax or formatting rules specified in the execution guide.",
+      "Guarantee underlying cell memory remains pure float/number for dynamic math.",
+      "Pass auditing checks without #VALUE!, #REF!, or #N/A error propagation."
+    ],
+    "stepByStep": "1. **Navigate to Worksheet**: Open tab **EX1625** in the master workbook.\n2. **Select Target Range**: Highlight cell range `B2:B50` on sheet **EX1625**.\n3. **Execute Formula/Operation**: Press `Ctrl + 1` or type formula `=ExecutiveReportingLayout(A2:A50)`.\n4. **Audit Verification**: Verify calculation output and confirm zero truncation.",
+    "rawMemoryVsRendered": {
+      "raw": "41250",
+      "mask": "Mask: EX1625_Standard",
+      "rendered": "Rendered Output 25 (EX1625)"
+    },
+    "expectedOutput": "| Item ID | Raw Input Value | Formatted Display | Status |\n| ------- | --------------- | ----------------- | ------ |\n| EX1625-01 | 41250 | Rendered Output | Passed |\n| EX1625-02 | 51250 | Rendered Output | Passed |",
+    "proTip": "Always use explicit alphanumeric sheet IDs like EX1625 to ensure 1-to-1 mapping between web training cards and local Excel workbooks."
+  }
+];
 
-  const filePath = path.join(outputDir, 'dynamic_arrays_master.xlsx');
-  await wb.xlsx.writeFile(filePath);
-  console.log('✓ Master Excel workbook generated with colorful graphics & embedded CNAT logo: ' + filePath);
+  moduleProjects.forEach((proj, idx) => {
+    const rowNum = 36 + idx;
+    const r = wsOverview.getRow(rowNum);
+    r.height = 22;
+
+    const cellId = r.getCell(1);
+    cellId.value = { text: `🔗 ${proj.projectId} (Jump)`, hyperlink: `#'${proj.projectId}'!A1` };
+    cellId.font = { name: 'Segoe UI', size: 10, bold: true, color: { argb: 'FF0284C7' }, underline: true };
+    cellId.alignment = { vertical: 'middle', horizontal: 'center' };
+
+    r.getCell(2).value = proj.title;
+    r.getCell(3).value = proj.difficulty;
+    r.getCell(4).value = proj.formula;
+    r.getCell(5).value = 'Verified Practice Sheet';
+
+    for (let c = 1; c <= 5; c++) {
+      const cell = r.getCell(c);
+      cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: idx % 2 === 0 ? 'FFF8FAFC' : 'FFFFFFFF' } };
+      cell.border = {
+        top: { style: 'thin', color: { argb: 'FFE2E8F0' } },
+        bottom: { style: 'thin', color: { argb: 'FFE2E8F0' } },
+        left: { style: 'thin', color: { argb: 'FFE2E8F0' } },
+        right: { style: 'thin', color: { argb: 'FFE2E8F0' } },
+      };
+    }
+  });
+
+  wsOverview.columns.forEach((col) => {
+    let maxLen = 22;
+    col.eachCell({ includeEmpty: true }, (cell) => {
+      if (cell && cell.value !== null && cell.value !== undefined) {
+        const valStr = typeof cell.value === 'object' && cell.value.text ? cell.value.text : cell.value.toString();
+        if (valStr.length > maxLen) maxLen = valStr.length;
+      }
+    });
+    col.width = Math.min(Math.max(maxLen + 5, 22), 65);
+  });
+
+  moduleProjects.forEach(proj => {
+    addStyledSheet(proj.projectId, 'FF0F172A',
+      [{ header: 'Item_ID', key: 'id' }, { header: 'Parameter_Name', key: 'p' }, { header: 'Formula_Calculation', key: 'f' }, { header: 'Audit_Result', key: 'r' }],
+      [
+        [`${proj.projectId}-01`, proj.title, proj.formula, 'Verified'],
+        [`${proj.projectId}-02`, 'Secondary Parameter', '=SUM(A1:A10)', 'Verified']
+      ]
+    );
+  });
+
+  const outputPath = path.join(excelFilesDir, '004_001_modern_lookup_and_dynamic_array_functions_master.xlsx');
+  await wb.xlsx.writeFile(outputPath);
+  console.log(`✓ Generated 004_001_modern_lookup_and_dynamic_array_functions_master.xlsx for module 004_001_modern-lookup-and-dynamic-array-functions`);
+  fs.copyFileSync(outputPath, path.join(excelFilesDir, 'dynamic_arrays_master.xlsx'));
+  fs.copyFileSync(outputPath, path.join(excelFilesDir, 'modern_lookup_and_dynamic_array_functions_master.xlsx'));
+  fs.copyFileSync(outputPath, path.join(excelFilesDir, '004_001_modern_lookup_and_dynamic_array_functions_master.xlsx'));
 }
 
-buildMasterWorkbook().catch(err => {
-  console.error('Error generating workbook:', err);
-  process.exit(1);
-});
+buildWorkbook().catch(console.error);

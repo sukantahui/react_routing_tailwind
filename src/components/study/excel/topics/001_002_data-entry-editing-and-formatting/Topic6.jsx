@@ -197,49 +197,49 @@ export default function Topic6() {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Formatting Flow: Merge &amp; Center (Destructive) vs Center Across Selection (Safe Architecture)
+            Visual Data Flow: Merge &amp; Center (Destructive) vs Center Across Selection (Safe Architecture)
           </h2>
 
           <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
             <svg viewBox="0 0 800 260" className="w-full max-w-3xl h-auto" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <linearGradient id="m2_input" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient id="t6_selection" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
                   <stop offset="100%" stopColor="#0369a1" stopOpacity="0.4" />
                 </linearGradient>
-                <linearGradient id="m2_mask" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient id="t6_compare" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#059669" stopOpacity="0.8" />
                   <stop offset="100%" stopColor="#047857" stopOpacity="0.4" />
                 </linearGradient>
-                <linearGradient id="m2_render" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient id="t6_safe" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.8" />
                   <stop offset="100%" stopColor="#6d28d9" stopOpacity="0.4" />
                 </linearGradient>
               </defs>
 
-              <rect x="30" y="50" width="200" height="150" rx="12" fill="url(#m2_input)" stroke="#38bdf8" strokeWidth="2" />
-              <text x="130" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">1. Raw Memory Value</text>
-              <text x="130" y="115" textAnchor="middle" fill="#e0f2fe" fontSize="11">Number: 14500000</text>
-              <text x="130" y="135" textAnchor="middle" fill="#e0f2fe" fontSize="11">Date Serial: 46261</text>
-              <text x="130" y="165" textAnchor="middle" fill="#bae6fd" fontSize="11" fontWeight="bold">IEEE 754 Float</text>
+              <rect x="30" y="50" width="200" height="150" rx="12" fill="url(#t6_selection)" stroke="#38bdf8" strokeWidth="2" />
+              <text x="130" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">1. Multi-Cell Header Range</text>
+              <text x="130" y="115" textAnchor="middle" fill="#e0f2fe" fontSize="11">Selected Range: A1:E1</text>
+              <text x="130" y="135" textAnchor="middle" fill="#e0f2fe" fontSize="11">Title String in A1</text>
+              <text x="130" y="165" textAnchor="middle" fill="#bae6fd" fontSize="11" fontWeight="bold">Raw Alignment Request</text>
 
               <path d="M 235 125 L 295 125" stroke="#38bdf8" strokeWidth="3" strokeDasharray="6,4" />
               <polygon points="295,120 305,125 295,130" fill="#38bdf8" />
 
-              <rect x="310" y="50" width="200" height="150" rx="12" fill="url(#m2_mask)" stroke="#34d399" strokeWidth="2" />
-              <text x="410" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">2. Formatting Mask</text>
-              <text x="410" y="115" textAnchor="middle" fill="#d1fae5" fontSize="11">₹ #,##,##0.00</text>
-              <text x="410" y="135" textAnchor="middle" fill="#d1fae5" fontSize="11">₹ 0.00,, " Cr"</text>
-              <text x="410" y="165" textAnchor="middle" fill="#a7f3d0" fontSize="11" fontWeight="bold">4-Section Engine</text>
+              <rect x="310" y="50" width="200" height="150" rx="12" fill="url(#t6_compare)" stroke="#34d399" strokeWidth="2" />
+              <text x="410" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">2. Structural Architecture</text>
+              <text x="410" y="115" textAnchor="middle" fill="#fca5a5" fontSize="11">Merge: Destroys B1:E1 Cell Addresses</text>
+              <text x="410" y="135" textAnchor="middle" fill="#a7f3d0" fontSize="11">Center Across: Keeps A1:E1 Intact</text>
+              <text x="410" y="165" textAnchor="middle" fill="#a7f3d0" fontSize="11" fontWeight="bold">Format Cells (Ctrl + 1)</text>
 
               <path d="M 515 125 L 575 125" stroke="#34d399" strokeWidth="3" strokeDasharray="6,4" />
               <polygon points="575,120 585,125 575,130" fill="#34d399" />
 
-              <rect x="590" y="50" width="180" height="150" rx="12" fill="url(#m2_render)" stroke="#a78bfa" strokeWidth="2" />
-              <text x="680" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">3. Rendered Display</text>
-              <text x="680" y="115" textAnchor="middle" fill="#ede9fe" fontSize="11">₹ 1.45 Cr</text>
-              <text x="680" y="135" textAnchor="middle" fill="#ede9fe" fontSize="11">27-Aug-2026</text>
-              <text x="680" y="165" textAnchor="middle" fill="#ddd6fe" fontSize="11" fontWeight="bold">Zero Math Drift</text>
+              <rect x="590" y="50" width="180" height="150" rx="12" fill="url(#t6_safe)" stroke="#a78bfa" strokeWidth="2" />
+              <text x="680" y="85" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="14">3. Grid &amp; Pivot Safety</text>
+              <text x="680" y="115" textAnchor="middle" fill="#ede9fe" fontSize="11">Safe Sorting &amp; Filtering</text>
+              <text x="680" y="135" textAnchor="middle" fill="#ede9fe" fontSize="11">VBA &amp; Power Query Clean</text>
+              <text x="680" y="165" textAnchor="middle" fill="#ddd6fe" fontSize="11" fontWeight="bold">Enterprise Grid Standard</text>
             </svg>
           </div>
         </section>

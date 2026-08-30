@@ -1,0 +1,46 @@
+================================================================================
+EXCEL MASTER TUTORIAL: TOPIC 9 CONTENT NOTES
+Engineering Unit Conversions & Bitwise Logic Engine
+================================================================================
+Module: 001_003_basic-formulas-and-functions
+Instructor: Sukanta Hui (25+ Years Mentoring Experience, Coder & AccoTax)
+
+1. OVERVIEW & INDUSTRIAL RELEVANCE
+In engineering analysis, scientific data processing, hardware telemetry, and low-level system design, spreadsheets frequently encounter unit conversion needs and bitwise binary operations. Excel provides specialized engineering functions to convert measurement systems seamlessly and manipulate binary flags up to 48-bit precision without custom macros.
+
+2. CONVERT FUNCTION ARCHITECTURE
+The CONVERT(number, from_unit, to_unit) function converts a number from one measurement system to another.
+Key unit categories:
+- Mass & Weight: "g" (gram), "kg" (kilogram), "lbm" (pound mass), "ozm" (ounce mass), "ton" (U.S. ton)
+- Distance & Length: "m" (meter), "km" (kilometer), "in" (inch), "ft" (foot), "yd" (yard), "mi" (statute mile), "Nmi" (nautical mile)
+- Temperature & Thermodynamics: "C" (Celsius), "F" (Fahrenheit), "K" (Kelvin), "Rank" (Rankine), "Reau" (Réaumur)
+- Time: "yr" (year), "day" (day), "hr" (hour), "mn" (minute), "sec" (second)
+- Pressure: "Pa" (Pascal), "atm" (Atmosphere), "bar" (Bar), "mmHg" (mm of Mercury), "psi" (Pounds per sq inch)
+- Energy & Work: "J" (Joule), "c" (calorie), "cal" (IT calorie), "BTU" (BTU), "Wh" (Watt-hour)
+- Power: "W" (Watt), "HP" (Horsepower)
+
+Example:
+=CONVERT(100, "C", "F") -> 212
+=CONVERT(10, "km", "mi") -> 6.21371
+
+3. BITWISE LOGIC ENGINE (48-BIT PRECISION)
+Excel supports bitwise bit-manipulation functions evaluating non-negative integers up to 48-bit numbers (max value 2^48 - 1 = 281,474,976,710,655).
+
+Functions:
+- BITAND(number1, number2): Computes bitwise AND across corresponding bits. Useful for bitmasking and permission flag checking.
+- BITOR(number1, number2): Computes bitwise OR across corresponding bits. Combines binary feature flags.
+- BITXOR(number1, number2): Computes bitwise XOR across corresponding bits. Toggles flags and detects bit mismatches.
+- BITLSHIFT(number, shift_amount): Bitwise left shift (multiplies value by 2^shift_amount).
+- BITRSHIFT(number, shift_amount): Bitwise right shift (divides value by 2^shift_amount via integer division).
+
+4. BASE CONVERSIONS (DECIMAL, BINARY, HEXADECIMAL, OCTAL)
+- DEC2BIN(number, [places]): Converts decimal to binary string (up to 10 bits for negative numbers).
+- BIN2DEC(number): Converts binary string back to decimal integer.
+- DEC2HEX(number, [places]): Converts decimal integer to hexadecimal string.
+- HEX2DEC(number): Converts hexadecimal string to decimal integer.
+- DEC2OCT / OCT2DEC / BIN2HEX / HEX2BIN: Complete multi-base conversion suite.
+
+5. BEST PRACTICES & COMMON ERRORS
+- #VALUE! error: Triggered when unit strings are invalid or from incompatible unit categories (e.g. converting "kg" to "m").
+- Unit string case-sensitivity: Prefix abbreviations like "k" (kilo), "M" (mega), "m" (milli) are case-sensitive.
+- Bitwise constraints: Numbers passed to BIT functions must be non-negative integers less than 2^48.
