@@ -1,5 +1,5 @@
 export const excelModuleProjectsData = {
-  "projectCategory": "Projects_006_004",
+  "projectCategory": "Practical Laboratory Exercises: Modern Office Scripts (TypeScript) & Power Automate Master Class",
   "subject": "Microsoft Excel Practical Workplace Modeling & Audit Lab",
   "trackCode": "EXCEL-PRO-901",
   "level": "Beginner to Advanced",

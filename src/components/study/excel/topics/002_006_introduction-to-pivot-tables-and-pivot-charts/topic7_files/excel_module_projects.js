@@ -1,5 +1,5 @@
 export const excelModuleProjectsData = {
-  "projectCategory": "Projects_002_006",
+  "projectCategory": "Practical Laboratory Exercises: Introduction to Pivot Tables and Pivot Charts Master Class",
   "subject": "Microsoft Excel Practical Workplace Modeling & Audit Lab",
   "trackCode": "EXCEL-PRO-901",
   "level": "Beginner to Advanced",

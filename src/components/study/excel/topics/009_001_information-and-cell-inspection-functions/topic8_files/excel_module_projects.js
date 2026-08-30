@@ -1,1 +1,1 @@
-export const excelModuleProjectsData = { "projectCategory": "Projects_009_001", "subject": "Information Functions Lab", "projects": [] };
+export const excelModuleProjectsData = { "projectCategory": "Practical Laboratory Exercises: Information & Cell Inspection Functions Master Class", "subject": "Information Functions Lab", "projects": [] };

@@ -1,21 +1,21 @@
 TOPIC 7 QUICK SUMMARY & INSTRUCTOR REFERENCE
 ================================================================================
-Topic: Custom date serial formatting (dddd, mmmm dd, yyyy) and 12h/24h time formatting
+Topic: Date & Time Custom Formatting: Dates, Times, Quarters, Weekdays, and Dynamic Period Labels
 Module: 001_005_custom-number-formatting-and-styling
 Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
 Instructor: Sukanta Hui (Coder & AccoTax)
 
 KEY FORMULA / SYNTAX:
-dddd, mmmm dd, yyyy | hh:mm:ss AM/PM | [$-402]dd-mmm-yyyy
+dd-mmm-yyyy | dddd, mmmm dd, yyyy | hh:mm:ss AM/PM | [$-409]yyyy-mm-dd
 
 PRIMARY CONCEPT:
-Date tokens (d, dd, ddd, dddd, m, mm, mmm, mmmm, yy, yyyy) and time tokens (h, hh, m, mm, s, ss, AM/PM)
+Formatting raw Excel date serial numbers (integers) and time fractions (decimals) using custom tokens (d, dd, ddd, dddd, m, mm, mmm, mmmm, yy, yyyy, h, hh, s, ss, AM/PM).
 
 TEACHER'S ADVICE:
-Never allow ambiguous date formats on financial reports. Always format dates with 3-letter months (dd-mmm-yyyy) to prevent multi-million rupee audit errors.
+Never allow ambiguous date formats on financial reports (like 05/06/2026). Always format dates with 3-letter month abbreviations (dd-mmm-yyyy) to prevent multi-million rupee audit errors between US and UK/Indian standards.
 
 COMMON TRAPS TO AVOID:
-- Month vs Minute Collision (m): The token 'm' represents Month when alone, but Minute when immediately following 'h' or 'hh'. -> Fix: Always place minutes directly after hours (hh:mm) or use 's' after minutes (mm:ss).
+- Month vs Minute Collision (m): The token 'm' represents Month when alone, but Minute when immediately following 'h' or 'hh'. -> Fix: Always place minutes directly after hours (hh:mm) or before seconds (mm:ss).
 - US vs UK Date Ambiguity: Using 08/09/2026 causes confusion whether it is August 9th or September 8th. -> Fix: Use 3-letter month tokens (dd-mmm-yyyy) for foolproof international clarity.
-- Date Stored as Text: Typing '27th August 2026' as text prevents date math, filtering, and sorting. -> Fix: Enter true date serials and format visually with custom tokens.
+- Date Stored as Text: Typing '27th August 2026' as text prevents date math, filtering, sorting, and PivotTable hierarchy grouping. -> Fix: Enter true date serials and format visually with custom tokens.
 ================================================================================

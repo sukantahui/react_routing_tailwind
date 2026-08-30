@@ -2,29 +2,39 @@ CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
 ================================================================================
 Track: Microsoft Excel: From Zero to Ultra Expert
 Module: Custom Number Formatting & Financial Data Presentation
-Topic 7: Custom date serial formatting (dddd, mmmm dd, yyyy) and 12h/24h time formatting
+Topic 7: Date & Time Custom Formatting: Dates, Times, Quarters, Weekdays, and Dynamic Period Labels
 ================================================================================
 
 1. EXECUTIVE OVERVIEW
-Custom date serial formatting (dddd, mmmm dd, yyyy) and 12h/24h time formatting is an essential discipline in modern spreadsheet data engineering. 
-It establishes the separation between raw data storage and visual UI representation.
+Date & Time Custom Formatting is a critical discipline in financial engineering and enterprise reporting. Excel represents dates as whole integers (days elapsed since Jan 1, 1900) and time as decimal fractions (e.g. 0.5 = 12:00 PM). Custom date and time format tokens allow analysts to render these raw numeric values into human-readable, boardroom-ready displays without converting numbers into text or corrupting downstream calculations.
 
 2. SYNTAX & TOKEN STRUCTURE
-Format Code: dddd, mmmm dd, yyyy | hh:mm:ss AM/PM | [$-402]dd-mmm-yyyy
+• Day Tokens:
+  - d      : Day number without leading zero (1..31)
+  - dd     : Day number with forced leading zero (01..31)
+  - ddd    : Short 3-letter weekday abbreviation (Mon..Sun)
+  - dddd   : Full weekday name (Monday..Sunday)
 
-3. CORE TECHNICAL MECHANICS
-1. Serial Integer to Date Mapping:
-   Excel stores dates as integer count of days elapsed since January 1, 1900. Custom date tokens format that underlying integer into day, month, and year strings.
+• Month Tokens:
+  - m      : Month number without leading zero (1..12)
+  - mm     : Month number with forced leading zero (01..12)
+  - mmm    : Short 3-letter month abbreviation (Jan..Dec)
+  - mmmm   : Full month name (January..December)
+  - mmmmm  : Single first letter of month (J, F, M, A, M, J, J, A, S, O, N, D)
 
-2. Fractional Serial to Time Mapping:
-   Decimal fractions represent time (e.g. 0.5 = 12:00 PM). Time tokens (h, m, s, AM/PM) format decimal fractions into clock hours and minutes.
+• Year Tokens:
+  - yy     : 2-digit year (00..99)
+  - yyyy   : 4-digit year (1900..9999)
 
-3. Contextual Disambiguation of 'm':
-   The token 'm' renders Month when isolated, but switches to Minute when immediately preceded by 'h'/'hh' or followed by 's'/'ss'.
+• Time Tokens:
+  - h / hh : Hour without/with leading zero
+  - m / mm : Minute without/with leading zero (when preceded by h/hh or followed by s/ss)
+  - s / ss : Second without/with leading zero
+  - AM/PM  : Converts 24-hour clock to 12-hour clock with AM or PM suffix
 
-4. REAL-WORLD BUSINESS APPLICATION
+3. REAL-WORLD BUSINESS APPLICATION
 • Swadeep Banerjee (Executive Assistant, Barrackpore HQ):
-  Board Meeting Calendar Invites - Formats meeting dates as 'dddd, mmmm dd, yyyy' (e.g. Thursday, August 27, 2026) for formal corporate notices.
+  Board Meeting Invites - Formats meeting dates as 'dddd, mmmm dd, yyyy' (e.g. Thursday, August 27, 2026) for formal corporate executive notices.
 • Tuhina Mukherjee (HR Compliance Officer, Shyamnagar Plant):
   Employee Joining Formalities - Applies 'dd-mmm-yyyy' (e.g. 15-Aug-2026) to eliminate ambiguity between US (MM/DD) and UK/Indian (DD/MM) date standards.
 • Abhronila Das (Shift Supervisor, Ichapur Works):
@@ -32,19 +42,14 @@ Format Code: dddd, mmmm dd, yyyy | hh:mm:ss AM/PM | [$-402]dd-mmm-yyyy
 • Debangshu Roy (Logistics Coordinator, Naihati Logistics):
   Shipment Departure Schedule - Displays delivery windows as 'ddd, dd-mmm hh:mm AM/PM' for driver trip manifests.
 
-5. TROUBLESHOOTING & COMMON ERRORS
+4. TROUBLESHOOTING & COMMON ERRORS
 • Month vs Minute Collision (m):
   Root Cause: The token 'm' represents Month when alone, but Minute when immediately following 'h' or 'hh'.
-  Diagnostic Fix: Always place minutes directly after hours (hh:mm) or use 's' after minutes (mm:ss).
+  Diagnostic Fix: Always place minutes directly after hours (hh:mm) or before seconds (mm:ss).
 • US vs UK Date Ambiguity:
   Root Cause: Using 08/09/2026 causes confusion whether it is August 9th or September 8th.
   Diagnostic Fix: Use 3-letter month tokens (dd-mmm-yyyy) for foolproof international clarity.
 • Date Stored as Text:
-  Root Cause: Typing '27th August 2026' as text prevents date math, filtering, and sorting.
+  Root Cause: Typing '27th August 2026' as text prevents date math, filtering, sorting, and PivotTable hierarchy grouping.
   Diagnostic Fix: Enter true date serials and format visually with custom tokens.
-
-6. PRO TIPS & SHORTCUTS
-• Full Day Name (dddd): Renders full day of week (e.g. 'Thursday').
-• Full Month Name (mmmm): Renders full month name (e.g. 'August').
-• Standard Audit Date (dd-mmm-yyyy): The gold standard for unambiguous corporate date presentation.
 ================================================================================

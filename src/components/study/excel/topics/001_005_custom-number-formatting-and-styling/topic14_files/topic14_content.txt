@@ -1,0 +1,50 @@
+CONCEPTUAL REFERENCE & TECHNICAL SPECIFICATION
+================================================================================
+Track: Microsoft Excel: From Zero to Ultra Expert
+Module: Custom Number Formatting & Financial Data Presentation
+Topic 7: Custom date serial formatting (dddd, mmmm dd, yyyy) and 12h/24h time formatting
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+Custom date serial formatting (dddd, mmmm dd, yyyy) and 12h/24h time formatting is an essential discipline in modern spreadsheet data engineering. 
+It establishes the separation between raw data storage and visual UI representation.
+
+2. SYNTAX & TOKEN STRUCTURE
+Format Code: dddd, mmmm dd, yyyy | hh:mm:ss AM/PM | [$-402]dd-mmm-yyyy
+
+3. CORE TECHNICAL MECHANICS
+1. Serial Integer to Date Mapping:
+   Excel stores dates as integer count of days elapsed since January 1, 1900. Custom date tokens format that underlying integer into day, month, and year strings.
+
+2. Fractional Serial to Time Mapping:
+   Decimal fractions represent time (e.g. 0.5 = 12:00 PM). Time tokens (h, m, s, AM/PM) format decimal fractions into clock hours and minutes.
+
+3. Contextual Disambiguation of 'm':
+   The token 'm' renders Month when isolated, but switches to Minute when immediately preceded by 'h'/'hh' or followed by 's'/'ss'.
+
+4. REAL-WORLD BUSINESS APPLICATION
+• Swadeep Banerjee (Executive Assistant, Barrackpore HQ):
+  Board Meeting Calendar Invites - Formats meeting dates as 'dddd, mmmm dd, yyyy' (e.g. Thursday, August 27, 2026) for formal corporate notices.
+• Tuhina Mukherjee (HR Compliance Officer, Shyamnagar Plant):
+  Employee Joining Formalities - Applies 'dd-mmm-yyyy' (e.g. 15-Aug-2026) to eliminate ambiguity between US (MM/DD) and UK/Indian (DD/MM) date standards.
+• Abhronila Das (Shift Supervisor, Ichapur Works):
+  Production Batch Timestamps - Formats manufacturing timestamps as 'yyyy-mm-dd hh:mm:ss' to conform to ISO 8601 audit standards.
+• Debangshu Roy (Logistics Coordinator, Naihati Logistics):
+  Shipment Departure Schedule - Displays delivery windows as 'ddd, dd-mmm hh:mm AM/PM' for driver trip manifests.
+
+5. TROUBLESHOOTING & COMMON ERRORS
+• Month vs Minute Collision (m):
+  Root Cause: The token 'm' represents Month when alone, but Minute when immediately following 'h' or 'hh'.
+  Diagnostic Fix: Always place minutes directly after hours (hh:mm) or use 's' after minutes (mm:ss).
+• US vs UK Date Ambiguity:
+  Root Cause: Using 08/09/2026 causes confusion whether it is August 9th or September 8th.
+  Diagnostic Fix: Use 3-letter month tokens (dd-mmm-yyyy) for foolproof international clarity.
+• Date Stored as Text:
+  Root Cause: Typing '27th August 2026' as text prevents date math, filtering, and sorting.
+  Diagnostic Fix: Enter true date serials and format visually with custom tokens.
+
+6. PRO TIPS & SHORTCUTS
+• Full Day Name (dddd): Renders full day of week (e.g. 'Thursday').
+• Full Month Name (mmmm): Renders full month name (e.g. 'August').
+• Standard Audit Date (dd-mmm-yyyy): The gold standard for unambiguous corporate date presentation.
+================================================================================

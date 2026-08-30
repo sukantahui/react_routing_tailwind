@@ -1,5 +1,5 @@
 export const excelModuleProjectsData = {
-  "projectCategory": "Projects_005_004",
+  "projectCategory": "Practical Laboratory Exercises: DAX (Data Analysis Expressions) Mastery & Time Intelligence Master Class",
   "subject": "Microsoft Excel Practical Workplace Modeling & Audit Lab",
   "trackCode": "EXCEL-PRO-901",
   "level": "Beginner to Advanced",

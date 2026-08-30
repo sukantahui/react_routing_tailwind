@@ -1,5 +1,5 @@
 export const excelDataEntryProjectsData = {
-  "projectCategory": "Projects_003_002",
+  "projectCategory": "Practical Laboratory Exercises: Data Validation, Protection and Cleaning Techniques Master Class",
   "subject": "Microsoft Excel Practical Workplace Modeling & Audit Lab",
   "trackCode": "EXCEL-PRO-901",
   "level": "Beginner to Advanced",
