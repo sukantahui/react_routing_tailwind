@@ -8,6 +8,17 @@ import Teacher from "../../../../../common/TeacherSukantaHui";
 
 export default function Topic1() {
   const sectionsRef = useRef([]);
+  
+  const handleDownload = () => {
+    if (!sampleWorkbookUrl) return;
+    const link = document.createElement("a");
+    link.href = sampleWorkbookUrl;
+    link.download = "excel_database_query_functions_master.xlsx";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -39,7 +50,18 @@ export default function Topic1() {
         </section>
 
         <section ref={(el) => (sectionsRef.current[2] = el)} className="rounded-3xl p-6 sm:p-8 bg-slate-900 border border-slate-800">
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-100 mb-4">Interactive Spreadsheet Practice</h2>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-100">Interactive Spreadsheet Practice</h2>
+              <p className="text-slate-400 text-sm mt-1">Explore real database and inspection formulas hands-on.</p>
+            </div>
+            <button
+              onClick={handleDownload}
+              className="px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-md flex items-center gap-2 self-start sm:self-auto cursor-pointer"
+            >
+              <span>📥 Download Master Practice Sheet</span>
+            </button>
+          </div>
           <ExcelFileLoader fileUrl={sampleWorkbookUrl} />
         </section>
 
